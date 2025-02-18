@@ -1,6 +1,6 @@
 # Create and Publish a WebSub/WebHook API
 
-This tutorial will guide you to create a [WebHook API]({{base_path}}/use-cases/streaming-usecase/create-streaming-api/create-a-websub-streaming-api) which will listen to the issues created in GitHub and send you 
+This tutorial will guide you to create a [WebHook API]({{base_path}}/design/create-api/create-streaming-api/create-a-websub-streaming-api) which will listen to the issues created in GitHub and send you 
 a notification upon creation. Follow the instructions in this tutorial to design and publish a WebSub/WebHook API, and 
 register a WebHook for it.
 

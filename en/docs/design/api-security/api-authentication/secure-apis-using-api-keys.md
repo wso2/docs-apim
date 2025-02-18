@@ -31,9 +31,13 @@ When an API is invoked specifying an API key as the authentication method, the A
 
 ## Validation of API subscriptions
 
-The subscription validation is mandatory for the API keys, and the keys generated before an application subscribes to an API will not contain the subscription information under the token details. As a result, these keys will not be allowed to access that specific API. Therefore, API Keys should be generated after the application has subscribed to the required API.
+Subscription Validation is a mandatory step in the API key validation process. When an API is invoked using an API key, the WSO2 API Manager checks the API key against the subscription details associated with both the API and the corresponding application. Without successful subscription validation, the API call will be rejected.
 
-In order to enable API subscription validation, do the following:
+## Lightweight API Key Generation
+
+WSO2 API Manager supports Lightweight API Key Generation, which allows to generate API keys having limited claims. WSO2 API Manager by default generates Lightweight API Keys.
+
+Follow the instructions below to disable Lightweight API Key Generation in WSO2 API Manager.
 
 1. Navigate to the `<PRODUCT-HOME>/repository/conf/deployment.toml` file.
 
@@ -41,7 +45,7 @@ In order to enable API subscription validation, do the following:
 
      ```toml
      [apim.key_manager]
-     enable_apikey_subscription_validation = true
+     enable_lightweight_apikey_generation = false
      ```
 
 3. Restart the API-M server.

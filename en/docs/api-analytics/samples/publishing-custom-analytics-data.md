@@ -1,5 +1,5 @@
 ---
-title: Publishing Custom Analytics Events Data - API Manager Documentation 4.2.0
+title: Publishing Custom Analytics Events Data - API Manager Documentation
 ---
 
 # Publishing Custom Analytics Events Data
@@ -94,15 +94,15 @@ Build the project using,
 
 ## Configuring the Sample
 
-This section will cover the steps required to configure WSO2 API-M Gateway for the sample created above. The steps covered are adding the .jar file, configuring the deployment.toml file, and enabling the logs.
+This section will cover the steps required to configure WSO2 API-M Gateway for the sample created above. The steps covered are adding the .jar file, configuring the deployment.toml file, and enabling the logs. `<APIM_HOME>` refers to the root folder of the extracted WSO2 APIM.
 
 1. Add the .jar file created in the target directory after building the project.
 
-    Place the created .jar file inside the `wso2am-4.2.0/repository/components/lib` directory.
+    Place the created .jar file inside the `<APIM_HOME>/repository/components/lib` directory.
 
 2. Configure the deployment.toml file.
 
-    Edit the `apim.analytics` configurations in the `deployment.toml` file located inside `wso2am-4.2.0/repository/conf` with the following configuration.
+    Edit the `apim.analytics` configurations in the `deployment.toml` file located inside `<APIM_HOME>/repository/conf` with the following configuration.
 
 ```code
         [apim.analytics]
@@ -118,7 +118,7 @@ This configuration will be used when engaging the custom data provider class.
 
 3. Enabling Logs
 
-    To [enable trace logs]({{base_path}}/administer/logging-and-monitoring/logging/configuring-logging/#enabling-logs-for-a-component) for the component: `org.wso2.am.analytics.publisher`, edit `log4j2.properties` file located inside `wso2am-4.2.0/repository/conf` directory. 
+    To [enable trace logs]({{base_path}}/administer/logging-and-monitoring/logging/configuring-logging/#enabling-logs-for-a-component) for the component: `org.wso2.am.analytics.publisher`, edit `log4j2.properties` file located inside `<APIM_HOME>/repository/conf` directory. 
 
     1. Add new publisher to the loggers list:
 
@@ -134,7 +134,7 @@ This configuration will be used when engaging the custom data provider class.
         logger.org-wso2-analytics-publisher.appenderRef.CARBON_TRACE_LOGFILE.ref = CARBON_TRACE_LOGFILE
     ```
 
-4. Now you can trigger an event and check the `<WSO2AM-4.2.0-HOME>/repository/logs/wso2carbon-trace-messages.log` to find the event object passed out from API Manager.
+4. Now you can trigger an event and check the `<APIM_HOME>/repository/logs/wso2carbon-trace-messages.log` to find the event object passed out from API Manager.
 
 ```log
 TRACE {org.wso2.am.analytics.publisher.client.EventHubClient} - [{ Cloud-Analytics-Queue-Worker-pool-2-thread-1 }] - 

@@ -161,7 +161,7 @@ Follow the steps below to add a new state to the default life cycle.
         Consider the following points when extending and customizing the API lifecycle JSON configuration.
 
         -   Do not change the life cycle name since it needs to be engaged with the APIs dynamically.
-        -   Make sure you keep the **PUBLISHED** and **PROTOTYPED** states as those two states will be used by API Publisher in the API creation wizard.
+        -   Make sure you keep the **PUBLISHED** and **PRE-RELEASED** states as those two states will be used by API Publisher in the API creation wizard.
 
     !!! info
         By default following lifecycle diagram is added in Publisher portal to show the state changes.

@@ -32,20 +32,20 @@ There are two approaches to configure a secondary user store. It can be configur
     </thead>
     <tbody>
     <tr class="odd">
-    <td><code>org.wso2.carbon.user.core.ldap.ReadOnlyLDAPUserStoreManager</code> or <code>org.wso2.carbon.user.core.ldap.UniqueIDReadOnlyLDAPUserStoreManager</code></td>
-    <td><p>Use <code>ReadOnlyLDAPUserStoreManager</code> to carry out read-only operations for LDAP user stores.</p></td>
+    <td><code>org.wso2.carbon.user.core.ldap.UniqueIDReadOnlyLDAPUserStoreManager</code></td>
+    <td><p>This is used to carry out read-only operations for LDAP user stores.</p></td>
     </tr>
     <tr class="even">
-    <td><code>org.wso2.carbon.user.core.ldap.ReadWriteLDAPUserStoreManager</code> or <code>org.wso2.carbon.user.core.ldap.UniqueIDReadWriteLDAPUserStoreManager</code></td>
-    <td><p>Use <code>ReadWriteLDAPUserStoreManager</code> for LDAP user stores to carry out both read and write operations.</p></td>
+    <td><code>org.wso2.carbon.user.core.ldap.UniqueIDReadWriteLDAPUserStoreManager</code></td>
+    <td><p>This is used for LDAP user stores to carry out both read and write operations.</p></td>
     </tr>
     <tr class="odd">
-    <td><code>org.wso2.carbon.user.core.ldap.ActiveDirectoryUserStoreManager</code> or <code>org.wso2.carbon.user.core.ldap.UniqueIDActiveDirectoryUserStoreManager</code></td>
-    <td><p>Use <code>ActiveDirectoryUserStoreManager</code> to configure an Active Directory Domain Service (AD DS) or Active Directory Lightweight Directory Service (AD LDS). This can be used <strong>only</strong> for read/write operations. If you need to use AD as read-only, you must use <code>org.wso2.carbon.user.core.ldap.UniqueIDReadOnlyLDAPUserStoreManager</code> or <code>org.wso2.carbon.user.core.ldap.ReadOnlyLDAPUserStoreManager</code>.</p></td>
+    <td><code>org.wso2.carbon.user.core.ldap.UniqueIDActiveDirectoryUserStoreManager</code></td>
+    <td><p>This is used to configure an Active Directory Domain Service (AD DS) or Active Directory Lightweight Directory Service (AD LDS). This can be used <strong>only</strong> for read/write operations. If you need to use AD as read-only, you must use <code>org.wso2.carbon.user.core.ldap.UniqueIDReadOnlyLDAPUserStoreManager</code>.</p></td>
     </tr>
     <tr class="even">
-    <td><code>org.wso2.carbon.user.core.jdbc.JDBCUserStoreManager</code> or <code>org.wso2.carbon.user.core.jdbc.UniqueIDJDBCUserStoreManager</code></td>
-    <td><p>Use <code>JDBCUserStoreManager</code> for JDBC user stores. The JDBC user store can be configured for read-only mode or read/write mode using the following property: <code>&lt;Property name=&quot;ReadOnly&quot;&gt;false/true&lt;/Property&gt;</code>.</p></td>
+    <td><code>org.wso2.carbon.user.core.jdbc.UniqueIDJDBCUserStoreManager</code></td>
+    <td><p>This is used for JDBC user stores. The JDBC user store can be configured for read-only mode or read/write mode using the following property: <code>&lt;Property name=&quot;ReadOnly&quot;&gt;false/true&lt;/Property&gt;</code>.</p></td>
     </tr>
     </tbody>
     </table>
@@ -53,6 +53,9 @@ There are two approaches to configure a secondary user store. It can be configur
     You can also populate this drop-down list with custom user store manager implementations by adding them to the server. For information on implementing a custom user store manager, see [Writing a Custom User Store Manager]({{base_path}}/administer/managing-users-and-roles/managing-user-stores/writing-a-custom-user-store-manager).
 
     For samples, see [Sample Custom User Store Manager](https://github.com/wso2/product-is/tree/v5.10.0/modules/samples/user-mgt/sample-custom-user-store-manager) in the WSO2 Identity Server product repository.
+
+    !!! tip
+        The userstore managers that do not have `UniqueID` as part of the userstore manager name are **only** available for backward compatibility purposes and can only be used if you are migrating from a previous version of WSO2 API Manager.
 
 4. Enter a unique domain name.
 
@@ -66,10 +69,14 @@ There are two approaches to configure a secondary user store. It can be configur
 
     !!! note
         Make sure that you do not enter `federated` as the domain name as the term is reserved for federated users.
+    
+    !!! note
+        If you are configuring a `UniqueIDReadOnlyLDAPUserStoreManager`, ensure that the **Enable Group Unique Id** attribute remains unchecked. Additionally, the **Group Id Attribute** setting will not be effective. This is because API Manager does not support group and role separation.
 
 6. Ensure that all the mandatory fields are filled and a valid domain name is given and click **Add**.
 
      A message appears saying that the user stores are being added.
+
      [![Secondary user store update msg]({{base_path}}/assets/img/administer/secondary-user-store-update-msg.png)]({{base_path}}/assets/img/administer/secondary-user-store-update-msg.png)
 
     !!! Note

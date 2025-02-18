@@ -96,7 +96,7 @@ A local scope can be created and applied to a resource at API creation time by f
 
 2. Start creating an API as described [here]({{base_path}}/design/create-api/create-rest-api/create-a-rest-api/).
 
-3. Navigate to **Scopes** section and click on **CREATE SCOPES** button.
+3. Navigate to **Local Scopes** section and click on **CREATE SCOPES** button.
 
      [![Start Creating a Scope]({{base_path}}/assets/img/learn/api-security/oauth2/oauth2-scopes/api-scopes/start-creating-scope.png)]({{base_path}}/assets/img/learn/api-security/oauth2/oauth2-scopes/api-scopes/start-creating-scope.png)
 
@@ -109,10 +109,14 @@ A local scope can be created and applied to a resource at API creation time by f
                <td>A unique key for identifying the scope. This should be unique across all the APIs of the tenant.</td>
           </tr>
           <tr class="even">
+               <td><strong>Scope DisplayName</strong></td>
+               <td>A human-readable name for the scope. It typically says what the scope does.</td>
+          </tr>
+          <tr class="odd">
                <td><strong>Scope Description</strong></td>
                <td>The description for the scope.</td>
           </tr>          
-          <tr class="odd">
+          <tr class="even">
                <td><strong>Roles</strong></td>
                <td><div class="content-wrapper">
                     <p>The user role(s) that are allowed to obtain a token against this scope. E.g., manager, employee.</p>
@@ -228,8 +232,7 @@ When a scope is attached to an API resource, access to it gets restricted based 
 5. If the user has the roles specified in the scope, the access token will be issued with the requested scope. Otherwise, only the default scopes will be returned with the access token.            
 
     ??? info
-        By default in WSO2 API-M, if no scopes are requested or if none of requested scopes are allowed, the token will be issued with `default` scope.
-        In addition, a token obtained using client credentials grant will be issued with `am_application_scope`.     
+        By default in WSO2 API-M, if no scopes are requested or if none of requested scopes are allowed, the token will be issued with `default` scope.    
 
      <a href="{{base_path}}/assets/img/learn/api-security/oauth2/oauth2-scopes/token-scopes-output.png" ><img src="{{base_path}}/assets/img/learn/api-security/oauth2/oauth2-scopes/token-scopes-output.png" alt="Token Scopes" 
           title="Token Scopes" width="60%" /></a>
@@ -243,5 +246,42 @@ When a scope is attached to an API resource, access to it gets restricted based 
 
      If you first create a local scope and then create a shared scope with same scope name before attaching the local scope to any API resource, the local scope will removed from local scope UI. However, it will not be reflected in the API Definition, unless you save the API. This is an identified limitation in supporting both local and shared scopes.
 
+## Restrict Unassigned Scopes
 
+The default behavior of the Scope Issuer in API-M is not to restrict any unregistered/unassigned scopes when obtaining a token. For example, if you create a local scope for an API but do not assign it to any API resource, obtaining a token using the local scope name will include that scope in the returned token.
 
+To override this behavior and validate unregistered/unassigned scopes when obtaining a token, set the Java system property `restrict.unassigned.scopes` to `true` at the server startup:
+This can be done in one of two ways.
+
+**Option 1**: Adding it into the startup script
+
+- Open `<API-M_HOME>/bin/api-manager.(sh|bat)` file.
+- Add `-Drestrict.unassigned.scopes=true` property to the file.
+- Restart the server.
+
+**Option 2**: Provide as a system property during server startup
+
+Restart the server with the property set as below.
+
+   - Linux/Mac OS
+
+    === "Format"
+        ```
+        ./api-manager.sh -Drestrict.unassigned.scopes=<boolean_value>
+        ```
+    === "Example"
+        ```
+        ./api-manager.sh -Drestrict.unassigned.scopes=true
+        ```
+
+   - Windows
+
+    === "Format"
+         ```
+         api-manager.bat -Drestrict.unassigned.scopes=<boolean_value>
+         ```
+
+    === "Example"
+         ```
+         api-manager.bat -Drestrict.unassigned.scopes=true
+         ```

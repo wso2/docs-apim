@@ -1524,7 +1524,11 @@ https_endpoint = "https://localhost:${https.nio.port}"</code></pre>
                 <div class="superfences-content">
                     <div class="mb-config-example">
 <pre><code class="toml">[apim.sync_runtime_artifacts.gateway]
-gateway_labels = ["Default"]</code></pre>
+gateway_labels = ["Default"]
+deployment_retry_duration = 15000
+max_retry_count = 5
+retry_progression_factor = 2.0
+</code></pre>
                     </div>
                 </div>
                 <div class="doc-wrapper">
@@ -1556,6 +1560,63 @@ gateway_labels = ["Default"]</code></pre>
                                     </div>
                                     <div class="param-description">
                                         <p>Array of the labels that the gateway is going to subscribe to</p>
+                                    </div>
+                                </div>
+                            </div><div class="param">
+                                <div class="param-name">
+                                  <span class="param-name-wrap"> <code>deployment_retry_duration</code> </span>
+                                </div>
+                                <div class="param-info">
+                                    <div>
+                                        <p>
+                                            <span class="param-type string"> int </span>
+                                            
+                                        </p>
+                                        <div class="param-default">
+                                            <span class="param-default-value">Default: <code>15000</code></span>
+                                        </div>
+                                        
+                                    </div>
+                                    <div class="param-description">
+                                        <p>The initial duration in milliseconds to wait before retrying a failed deployment</p>
+                                    </div>
+                                </div>
+                            </div><div class="param">
+                                <div class="param-name">
+                                  <span class="param-name-wrap"> <code>max_retry_count</code> </span>
+                                </div>
+                                <div class="param-info">
+                                    <div>
+                                        <p>
+                                            <span class="param-type string"> int </span>
+                                            
+                                        </p>
+                                        <div class="param-default">
+                                            <span class="param-default-value">Default: <code>5</code></span>
+                                        </div>
+                                        
+                                    </div>
+                                    <div class="param-description">
+                                        <p>The maximum number of retry attempts for deploying artifacts in case of failures.</p>
+                                    </div>
+                                </div>
+                            </div><div class="param">
+                                <div class="param-name">
+                                  <span class="param-name-wrap"> <code>retry_progression_factor</code> </span>
+                                </div>
+                                <div class="param-info">
+                                    <div>
+                                        <p>
+                                            <span class="param-type string"> float </span>
+                                            
+                                        </p>
+                                        <div class="param-default">
+                                            <span class="param-default-value">Default: <code>2.0</code></span>
+                                        </div>
+                                        
+                                    </div>
+                                    <div class="param-description">
+                                        <p>The factor by which the retry duration increases after each failed deployment attempt.</p>
                                     </div>
                                 </div>
                             </div>
@@ -8914,25 +8975,30 @@ SSLEnabled = "true"</code></pre>
                 <label class="tab-selector" for="_tab_65"><i class="icon fa fa-code"></i></label>
                 <div class="superfences-content">
                     <div class="mb-config-example">
-<pre><code class="toml">[transport.passthru_https]
-http.socket.timeout = "3m"
-worker_pool_size_core = 300
-worker_pool_size_max = 400
-worker_pool_queue_length = -1
-io_buffer_size = 16384
-http.max.connection.per.host.port = 32767
-http.user.agent.preserve = false
-preserve_http_server_name = true
-http.headers.preserve = ["Content-Type"]
-disable_connection_keepalive = false
-max_open_connections = -1
-force_xml_validation = false
-force_json_validation = false
-listener.parameters.port = 8243    #inferred  default: 8280
+<pre><code class="toml">[transport.passthru_http]
+listener.enable = true
+listener.parameters.port = 8280
+listener.parameters.non-blocking = true
+listener.parameters.httpGetProcessor = "org.wso2.carbon.mediation.transport.handlers.PassThroughNHttpGetProcessor"
+listener.parameters.WSDLEPRPrefix ="$ref{server.hostname}"
+listener.bind-address = "$ref{server.hostname}"
+sender.enable = true
+sender.parameters.non-blocking = true
+sender.warnOnHTTP500 = "*"
+sender.http.proxyHost = "$ref{server.hostname}"
+sender.http.proxyPort = 3128
+sender.http.nonProxyHosts = ["$ref{server.hostname}"]
+sender.hostname_verifier = "AllowAll"
+
+[transport.passthru_https]
+listener.enable = true
+listener.parameters.port = 8243
+listener.parameters.non-blocking = true
+listener.parameters.httpGetProcessor = "org.wso2.carbon.mediation.transport.handlers.PassThroughNHttpGetProcessor"
 listener.parameters.WSDLEPRPrefix ="$ref{server.hostname}"
 listener.parameters.bind-address = "$ref{server.hostname}"
-listener.protocols = "TLSv1,TLSv1.1,TLSv1.2"
 listener.parameters.SSLVerifyClient = "require"
+listener.protocols = "TLSv1,TLSv1.1,TLSv1.2"
 listener.ssl_profile.file_path = "repository/resources/security/listenerprofiles.xml"
 listener.ssl_profile_interval = "600000"
 listener.preferred_ciphers = "TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256,TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256,TLS_DHE_RSA_WITH_AES_128_CBC_SHA256,TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA,TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA,TLS_DHE_RSA_WITH_AES_128_CBC_SHA,TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256,TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256,TLS_DHE_RSA_WITH_AES_128_GCM_SHA256"
@@ -8943,7 +9009,8 @@ listener.key_store.key_password = "$ref{keystore.tls.key_password}"
 listener.trust_store.file_name = "$ref{truststore.file_name}"
 listener.trust_store.type = "$ref{truststore.type}"
 listener.trust_store.password = "$ref{truststore.password}"
-sender.warnOnHTTP500 = "*"
+sender.enable = true
+sender.parameters.non-blocking = true
 sender.http.proxyHost = "$ref{server.hostname}"
 sender.http.proxyPort = 3128
 sender.http.nonProxyHosts = ["$ref{server.hostname}"]
@@ -8956,7 +9023,23 @@ sender.trust_store.file_name = "$ref{truststore.file_name}"
 sender.trust_store.type = "$ref{truststore.type}"
 sender.trust_store.password = "$ref{truststore.password}"
 sender.ssl_profile.file_path = "repository/resources/security/sslprofiles.xml"
-sender.ssl_profile.interval = "600000"</code></pre>
+sender.ssl_profile.interval = "600000"
+
+[passthru_http]
+http.socket.timeout = "3m"
+worker_pool_size_core = 300
+worker_pool_size_max = 400
+worker_pool_queue_length = -1
+io_buffer_size = 16384
+http.max.connection.per.host.port = 32767
+'http.user.agent.preserve' = false
+'http.server.preserve' = true
+'http.headers.preserve' = ["Content-Type"]
+disable_connection_keepalive = false
+max_open_connections = -1
+force_xml_validation = false
+force_json_validation = false
+</code></pre>
                     </div>
                 </div>
                 <div class="doc-wrapper">
@@ -8965,197 +9048,29 @@ sender.ssl_profile.interval = "600000"</code></pre>
                             <code>[transport.passthru_http]</code>
                             
                             <p>
-                                This configuration header is required for configuring the parameters that are used for tuning the default HTTP/S passthrough transport of the API Manager in non-blocking mode.
+                                This configuration header is required for configuring the parameters that are used for tuning the default HTTP passthrough transport of the API Manager in non-blocking mode.
                             </p>
                         </div>
                         <div class="params-wrap">
                             <div class="param">
                                 <div class="param-name">
-                                  <span class="param-name-wrap"> <code>http.socket.timeout</code> </span>
-                                </div>
-                                <div class="param-info">
-                                    <div>
-                                        <p>
-                                            <span class="param-type string"> integer </span>
-                                            <span class="badge-required">Required</span>
-                                        </p>
-                                        <div class="param-default">
-                                            <span class="param-default-value">Default: <code>180000</code></span>
-                                        </div>
-                                        <div class="param-possible">
-                                            <span class="param-possible-values">Possible Values: <code>-</code></span>
-                                        </div>
-                                    </div>
-                                    <div class="param-description">
-                                        <p>This is the maximum period of inactivity between two consecutive data packets, specified in milliseconds.</p>
-                                    </div>
-                                </div>
-                            </div><div class="param">
-                                <div class="param-name">
-                                  <span class="param-name-wrap"> <code>worker_pool_size_core</code> </span>
-                                </div>
-                                <div class="param-info">
-                                    <div>
-                                        <p>
-                                            <span class="param-type string"> integer </span>
-                                            <span class="badge-required">Required</span>
-                                        </p>
-                                        <div class="param-default">
-                                            <span class="param-default-value">Default: <code>400</code></span>
-                                        </div>
-                                        <div class="param-possible">
-                                            <span class="param-possible-values">Possible Values: <code>-</code></span>
-                                        </div>
-                                    </div>
-                                    <div class="param-description">
-                                        <p>The API Manager uses a thread pool executor to create threads and to handle incoming requests. This parameter controls the number of core threads used by the executor pool. If you increase this parameter value, the number of requests received that can be processed by the gateway increases, hence, the throughput also increases. The nature of the integration scenario and the number of concurrent requests received by the gateway are the main factors that helps to determine this parameter.</p>
-                                    </div>
-                                </div>
-                            </div><div class="param">
-                                <div class="param-name">
-                                  <span class="param-name-wrap"> <code>worker_pool_size_max</code> </span>
-                                </div>
-                                <div class="param-info">
-                                    <div>
-                                        <p>
-                                            <span class="param-type string"> integer </span>
-                                            <span class="badge-required">Required</span>
-                                        </p>
-                                        <div class="param-default">
-                                            <span class="param-default-value">Default: <code>400</code></span>
-                                        </div>
-                                        <div class="param-possible">
-                                            <span class="param-possible-values">Possible Values: <code>-</code></span>
-                                        </div>
-                                    </div>
-                                    <div class="param-description">
-                                        <p>This is the maximum number of threads in the worker thread pool. Specifying a maximum limit avoids performance degradation that can occur due to context switching. If the specified value is reached, you will see the error &#39;SYSTEM ALERT - HttpServerWorker threads were in BLOCKED state during last minute&#39;. This can occur due to an extraordinarily high number of requests sent at a time when all the threads in the pool are busy, and the maximum number of threads is already reached.</p>
-                                    </div>
-                                </div>
-                            </div><div class="param">
-                                <div class="param-name">
-                                  <span class="param-name-wrap"> <code>worker_pool_queue_length</code> </span>
-                                </div>
-                                <div class="param-info">
-                                    <div>
-                                        <p>
-                                            <span class="param-type string"> integer </span>
-                                            <span class="badge-required">Required</span>
-                                        </p>
-                                        <div class="param-default">
-                                            <span class="param-default-value">Default: <code>-1</code></span>
-                                        </div>
-                                        <div class="param-possible">
-                                            <span class="param-possible-values">Possible Values: <code>-</code></span>
-                                        </div>
-                                    </div>
-                                    <div class="param-description">
-                                        <p>This defines the length of the queue that is used to hold runnable tasks to be executed by the worker pool. The thread pool starts queuing jobs when all the existing threads are busy, and the pool has reached the maximum number of threads. The value for this parameter should be -1 to use an unbound queue. If a bound queue is used and the queue gets filled to its capacity, any further attempts to submit jobs fail causing some messages to be dropped by Synapse.</p>
-                                    </div>
-                                </div>
-                            </div><div class="param">
-                                <div class="param-name">
-                                  <span class="param-name-wrap"> <code>io_buffer_size</code> </span>
-                                </div>
-                                <div class="param-info">
-                                    <div>
-                                        <p>
-                                            <span class="param-type string"> integer </span>
-                                            <span class="badge-required">Required</span>
-                                        </p>
-                                        <div class="param-default">
-                                            <span class="param-default-value">Default: <code>16384</code></span>
-                                        </div>
-                                        <div class="param-possible">
-                                            <span class="param-possible-values">Possible Values: <code>-</code></span>
-                                        </div>
-                                    </div>
-                                    <div class="param-description">
-                                        <p>This is the value of the memory buffer allocated when reading data into the memory from the underlying socket/file channels. You should leave this property set to the default value.</p>
-                                    </div>
-                                </div>
-                            </div><div class="param">
-                                <div class="param-name">
-                                  <span class="param-name-wrap"> <code>http.max.connection.per.host.port</code> </span>
-                                </div>
-                                <div class="param-info">
-                                    <div>
-                                        <p>
-                                            <span class="param-type string"> integer </span>
-                                            <span class="badge-required">Required</span>
-                                        </p>
-                                        <div class="param-default">
-                                            <span class="param-default-value">Default: <code>32767</code></span>
-                                        </div>
-                                        <div class="param-possible">
-                                            <span class="param-possible-values">Possible Values: <code>-</code></span>
-                                        </div>
-                                    </div>
-                                    <div class="param-description">
-                                        <p>This defines the maximum number of connections allowed per host port.</p>
-                                    </div>
-                                </div>
-                            </div><div class="param">
-                                <div class="param-name">
-                                  <span class="param-name-wrap"> <code>http.user.agent.preserve</code> </span>
+                                  <span class="param-name-wrap"> <code>listener.enable</code> </span>
                                 </div>
                                 <div class="param-info">
                                     <div>
                                         <p>
                                             <span class="param-type string"> boolean </span>
-                                            <span class="badge-required">Required</span>
+                                            
                                         </p>
                                         <div class="param-default">
-                                            <span class="param-default-value">Default: <code>&quot;true&quot; or &quot;false&quot;</code></span>
-                                        </div>
-                                        <div class="param-possible">
-                                            <span class="param-possible-values">Possible Values: <code>-</code></span>
-                                        </div>
-                                    </div>
-                                    <div class="param-description">
-                                        <p>If this parameter is set to true, the user-agent HTTP header of messages passing through the integrator is preserved and printed in the outgoing message.</p>
-                                    </div>
-                                </div>
-                            </div><div class="param">
-                                <div class="param-name">
-                                  <span class="param-name-wrap"> <code>http.headers.preserve</code> </span>
-                                </div>
-                                <div class="param-info">
-                                    <div>
-                                        <p>
-                                            <span class="param-type string"> string </span>
-                                            <span class="badge-required">Required</span>
-                                        </p>
-                                        <div class="param-default">
-                                            <span class="param-default-value">Default: <code>Content-Type</code></span>
-                                        </div>
-                                        <div class="param-possible">
-                                            <span class="param-possible-values">Possible Values: <code>-</code></span>
-                                        </div>
-                                    </div>
-                                    <div class="param-description">
-                                        <p>This parameter allows you to specify the header field/s of messages passing through the EI that need to be preserved and printed in the outgoing message such as Location, CommonsHTTPTransportSenderKeep-Alive, Date, Server, User-Agent, and Host. For example, http.headers.preserve = Location, Date, Server.</p>
-                                    </div>
-                                </div>
-                            </div><div class="param">
-                                <div class="param-name">
-                                  <span class="param-name-wrap"> <code>disable_connection_keepalive</code> </span>
-                                </div>
-                                <div class="param-info">
-                                    <div>
-                                        <p>
-                                            <span class="param-type string"> boolean </span>
-                                            <span class="badge-required">Required</span>
-                                        </p>
-                                        <div class="param-default">
-                                            <span class="param-default-value">Default: <code>false</code></span>
+                                            <span class="param-default-value">Default: <code>true</code></span>
                                         </div>
                                         <div class="param-possible">
                                             <span class="param-possible-values">Possible Values: <code>&quot;true&quot; or &quot;false&quot;</code></span>
                                         </div>
                                     </div>
                                     <div class="param-description">
-                                        <p>If this parameter is set to true, the HTTP connections with the back end service are closed soon after the request is served. It is recommended to set this property to false so that the integrator does not have to create a new connection every time it sends a request to a back-end service. However, you may need to close connections after they are used if the back-end service does not provide sufficient support for keep-alive connections.</p>
+                                        <p>Enable the HTTP passthrough transport listener.</p>
                                     </div>
                                 </div>
                             </div><div class="param">
@@ -9166,10 +9081,10 @@ sender.ssl_profile.interval = "600000"</code></pre>
                                     <div>
                                         <p>
                                             <span class="param-type string"> integer </span>
-                                            <span class="badge-required">Required</span>
+                                            
                                         </p>
                                         <div class="param-default">
-                                            <span class="param-default-value">Default: <code>8290</code></span>
+                                            <span class="param-default-value">Default: <code>8280</code></span>
                                         </div>
                                         <div class="param-possible">
                                             <span class="param-possible-values">Possible Values: <code>-</code></span>
@@ -9177,6 +9092,48 @@ sender.ssl_profile.interval = "600000"</code></pre>
                                     </div>
                                     <div class="param-description">
                                         <p>The port on which this transport receiver should listen for incoming messages.</p>
+                                    </div>
+                                </div>
+                            </div><div class="param">
+                                <div class="param-name">
+                                  <span class="param-name-wrap"> <code>listener.parameters.non-blocking</code> </span>
+                                </div>
+                                <div class="param-info">
+                                    <div>
+                                        <p>
+                                            <span class="param-type string"> string </span>
+                                            
+                                        </p>
+                                        <div class="param-default">
+                                            <span class="param-default-value">Default: <code>true</code></span>
+                                        </div>
+                                        <div class="param-possible">
+                                            <span class="param-possible-values">Possible Values: <code>&quot;true&quot; or &quot;false&quot;</code></span>
+                                        </div>
+                                    </div>
+                                    <div class="param-description">
+                                        <p>Enable non-blocking IO.</p>
+                                    </div>
+                                </div>
+                            </div><div class="param">
+                                <div class="param-name">
+                                  <span class="param-name-wrap"> <code>listener.parameters.httpGetProcessor</code> </span>
+                                </div>
+                                <div class="param-info">
+                                    <div>
+                                        <p>
+                                            <span class="param-type string"> string </span>
+                                            
+                                        </p>
+                                        <div class="param-default">
+                                            <span class="param-default-value">Default: <code>org.wso2.carbon.mediation.transport.handlers.PassThroughNHttpGetProcessor</code></span>
+                                        </div>
+                                        <div class="param-possible">
+                                            <span class="param-possible-values">Possible Values: <code>-</code></span>
+                                        </div>
+                                    </div>
+                                    <div class="param-description">
+                                        <p>The class that processes HTTP GET requests.</p>
                                     </div>
                                 </div>
                             </div><div class="param">
@@ -9202,6 +9159,162 @@ sender.ssl_profile.interval = "600000"</code></pre>
                                 </div>
                             </div><div class="param">
                                 <div class="param-name">
+                                  <span class="param-name-wrap"> <code>sender.enable</code> </span>
+                                </div>
+                                <div class="param-info">
+                                    <div>
+                                        <p>
+                                            <span class="param-type string"> boolean </span>
+                                            
+                                        </p>
+                                        <div class="param-default">
+                                            <span class="param-default-value">Default: <code>true</code></span>
+                                        </div>
+                                        <div class="param-possible">
+                                            <span class="param-possible-values">Possible Values: <code>&quot;true&quot; or &quot;false&quot;</code></span>
+                                        </div>
+                                    </div>
+                                    <div class="param-description">
+                                        <p>Enable the HTTP passthrough transport sender.</p>
+                                    </div>
+                                </div>
+                            </div><div class="param">
+                                <div class="param-name">
+                                  <span class="param-name-wrap"> <code>sender.warnOnHTTP500</code> </span>
+                                </div>
+                                <div class="param-info">
+                                    <div>
+                                        <p>
+                                            <span class="param-type string"> string </span>
+                                            <span class="badge-required">Required</span>
+                                        </p>
+                                        <div class="param-default">
+                                            <span class="param-default-value">Default: <code>-</code></span>
+                                        </div>
+                                        <div class="param-possible">
+                                            <span class="param-possible-values">Possible Values: <code>-</code></span>
+                                        </div>
+                                    </div>
+                                    <div class="param-description">
+                                        <p>If the outgoing messages should be sent through an HTTP proxy server, use this parameter to specify the target proxy.</p>
+                                    </div>
+                                </div>
+                            </div><div class="param">
+                                <div class="param-name">
+                                  <span class="param-name-wrap"> <code>sender.http.proxyHost</code> </span>
+                                </div>
+                                <div class="param-info">
+                                    <div>
+                                        <p>
+                                            <span class="param-type string"> string </span>
+                                            
+                                        </p>
+                                        <div class="param-default">
+                                            <span class="param-default-value">Default: <code>-</code></span>
+                                        </div>
+                                        <div class="param-possible">
+                                            <span class="param-possible-values">Possible Values: <code>-</code></span>
+                                        </div>
+                                    </div>
+                                    <div class="param-description">
+                                        <p>If the outgoing messages should be sent through an HTTP proxy server, use this parameter to specify the target proxy.</p>
+                                    </div>
+                                </div>
+                            </div><div class="param">
+                                <div class="param-name">
+                                  <span class="param-name-wrap"> <code>sender.http.proxyPort</code> </span>
+                                </div>
+                                <div class="param-info">
+                                    <div>
+                                        <p>
+                                            <span class="param-type string"> integer </span>
+                                            
+                                        </p>
+                                        <div class="param-default">
+                                            <span class="param-default-value">Default: <code>-</code></span>
+                                        </div>
+                                        <div class="param-possible">
+                                            <span class="param-possible-values">Possible Values: <code>-</code></span>
+                                        </div>
+                                    </div>
+                                    <div class="param-description">
+                                        <p>The port through which the target proxy (specified by the &#39;sender.proxy_port&#39; parameter) accepts HTTP traffic.</p>
+                                    </div>
+                                </div>
+                            </div><div class="param">
+                                <div class="param-name">
+                                  <span class="param-name-wrap"> <code>sender.http.nonProxyHosts</code> </span>
+                                </div>
+                                <div class="param-info">
+                                    <div>
+                                        <p>
+                                            <span class="param-type string"> string </span>
+                                            <span class="badge-required">Required</span>
+                                        </p>
+                                        <div class="param-default">
+                                            <span class="param-default-value">Default: <code>-</code></span>
+                                        </div>
+                                        <div class="param-possible">
+                                            <span class="param-possible-values">Possible Values: <code>-</code></span>
+                                        </div>
+                                    </div>
+                                    <div class="param-description">
+                                        <p>The list of hosts to which the HTTP traffic should be sent directly without going through the proxy. When trying to add multiple hostnames along with an asterisk in order to define a set of sub-domains for non-proxy hosts, you need to add a period before the asterisk when configuring proxy server.</p>
+                                    </div>
+                                </div>
+                            </div><div class="param">
+                                <div class="param-name">
+                                  <span class="param-name-wrap"> <code>sender.hostname_verifier</code> </span>
+                                </div>
+                                <div class="param-info">
+                                    <div>
+                                        <p>
+                                            <span class="param-type string"> string </span>
+                                            <span class="badge-required">Required</span>
+                                        </p>
+                                        <div class="param-default">
+                                            <span class="param-default-value">Default: <code>-</code></span>
+                                        </div>
+                                        <div class="param-possible">
+                                            <span class="param-possible-values">Possible Values: <code>-</code></span>
+                                        </div>
+                                    </div>
+                                    <div class="param-description">
+                                        <p>The list of hosts to which the HTTP traffic should be sent directly without going through the proxy. When trying to add multiple hostnames along with an asterisk in order to define a set of sub-domains for non-proxy hosts, you need to add a period before the asterisk when configuring proxy server.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div><div class="config-wrap">
+                            <code>[transport.passthru_https]</code>
+                            
+                            <p>
+                                This configuration header is required for configuring the parameters that are used for tuning the default HTTPS passthrough transport of the API Manager in non-blocking mode.
+                            </p>
+                        </div>
+                        <div class="params-wrap">
+                            <div class="param">
+                                <div class="param-name">
+                                  <span class="param-name-wrap"> <code>listener.enable</code> </span>
+                                </div>
+                                <div class="param-info">
+                                    <div>
+                                        <p>
+                                            <span class="param-type string"> boolean </span>
+                                            
+                                        </p>
+                                        <div class="param-default">
+                                            <span class="param-default-value">Default: <code>true</code></span>
+                                        </div>
+                                        <div class="param-possible">
+                                            <span class="param-possible-values">Possible Values: <code>&quot;true&quot; or &quot;false&quot;</code></span>
+                                        </div>
+                                    </div>
+                                    <div class="param-description">
+                                        <p>Enable the HTTPS passthrough transport listener.</p>
+                                    </div>
+                                </div>
+                            </div><div class="param">
+                                <div class="param-name">
                                   <span class="param-name-wrap"> <code>listener.parameters.port</code> </span>
                                 </div>
                                 <div class="param-info">
@@ -9211,7 +9324,7 @@ sender.ssl_profile.interval = "600000"</code></pre>
                                             <span class="badge-required">Required</span>
                                         </p>
                                         <div class="param-default">
-                                            <span class="param-default-value">Default: <code>8253</code></span>
+                                            <span class="param-default-value">Default: <code>8243</code></span>
                                         </div>
                                         <div class="param-possible">
                                             <span class="param-possible-values">Possible Values: <code>-</code></span>
@@ -9219,6 +9332,48 @@ sender.ssl_profile.interval = "600000"</code></pre>
                                     </div>
                                     <div class="param-description">
                                         <p>The secured port on which this transport receiver should listen for incoming messages.</p>
+                                    </div>
+                                </div>
+                            </div><div class="param">
+                                <div class="param-name">
+                                  <span class="param-name-wrap"> <code>listener.parameters.httpGetProcessor</code> </span>
+                                </div>
+                                <div class="param-info">
+                                    <div>
+                                        <p>
+                                            <span class="param-type string"> string </span>
+                                            
+                                        </p>
+                                        <div class="param-default">
+                                            <span class="param-default-value">Default: <code>org.wso2.carbon.mediation.transport.handlers.PassThroughNHttpGetProcessor</code></span>
+                                        </div>
+                                        <div class="param-possible">
+                                            <span class="param-possible-values">Possible Values: <code>-</code></span>
+                                        </div>
+                                    </div>
+                                    <div class="param-description">
+                                        <p>The class that processes HTTP GET requests.</p>
+                                    </div>
+                                </div>
+                            </div><div class="param">
+                                <div class="param-name">
+                                  <span class="param-name-wrap"> <code>listener.parameters.WSDLEPRPrefix</code> </span>
+                                </div>
+                                <div class="param-info">
+                                    <div>
+                                        <p>
+                                            <span class="param-type string"> string </span>
+                                            <span class="badge-required">Required</span>
+                                        </p>
+                                        <div class="param-default">
+                                            <span class="param-default-value">Default: <code>-</code></span>
+                                        </div>
+                                        <div class="param-possible">
+                                            <span class="param-possible-values">Possible Values: <code>-</code></span>
+                                        </div>
+                                    </div>
+                                    <div class="param-description">
+                                        <p>A URL prefix which will be added to all service EPRs and EPRs in WSDLs etc.</p>
                                     </div>
                                 </div>
                             </div><div class="param">
@@ -9366,27 +9521,6 @@ sender.ssl_profile.interval = "600000"</code></pre>
                                     </div>
                                     <div class="param-description">
                                         <p>The password of the keystore file that is used as the trust store. By default, the product&#39;s trust store is configured for this purpose.</p>
-                                    </div>
-                                </div>
-                            </div><div class="param">
-                                <div class="param-name">
-                                  <span class="param-name-wrap"> <code>sender.warnOnHTTP500</code> </span>
-                                </div>
-                                <div class="param-info">
-                                    <div>
-                                        <p>
-                                            <span class="param-type string"> string </span>
-                                            <span class="badge-required">Required</span>
-                                        </p>
-                                        <div class="param-default">
-                                            <span class="param-default-value">Default: <code>-</code></span>
-                                        </div>
-                                        <div class="param-possible">
-                                            <span class="param-possible-values">Possible Values: <code>-</code></span>
-                                        </div>
-                                    </div>
-                                    <div class="param-description">
-                                        <p>If the outgoing messages should be sent through an HTTP proxy server, use this parameter to specify the target proxy.</p>
                                     </div>
                                 </div>
                             </div><div class="param">
@@ -9621,6 +9755,267 @@ sender.ssl_profile.interval = "600000"</code></pre>
                                     </div>
                                 </div>
                             </div>
+                        </div><div class="config-wrap">
+                            <code>[passthru_http]</code>
+                            
+                            <p>
+                                This configuration header is required for configuring the parameters that are used for tuning the default HTTP passthrough transport of the API Manager in non-blocking mode.
+                            </p>
+                        </div>
+                        <div class="params-wrap">
+                            <div class="param">
+                                <div class="param-name">
+                                  <span class="param-name-wrap"> <code>http.socket.timeout</code> </span>
+                                </div>
+                                <div class="param-info">
+                                    <div>
+                                        <p>
+                                            <span class="param-type string"> integer </span>
+                                            <span class="badge-required">Required</span>
+                                        </p>
+                                        <div class="param-default">
+                                            <span class="param-default-value">Default: <code>180000</code></span>
+                                        </div>
+                                        <div class="param-possible">
+                                            <span class="param-possible-values">Possible Values: <code>-</code></span>
+                                        </div>
+                                    </div>
+                                    <div class="param-description">
+                                        <p>This is the maximum period of inactivity between two consecutive data packets, specified in milliseconds.</p>
+                                    </div>
+                                </div>
+                            </div><div class="param">
+                                <div class="param-name">
+                                  <span class="param-name-wrap"> <code>worker_pool_size_core</code> </span>
+                                </div>
+                                <div class="param-info">
+                                    <div>
+                                        <p>
+                                            <span class="param-type string"> integer </span>
+                                            <span class="badge-required">Required</span>
+                                        </p>
+                                        <div class="param-default">
+                                            <span class="param-default-value">Default: <code>400</code></span>
+                                        </div>
+                                        <div class="param-possible">
+                                            <span class="param-possible-values">Possible Values: <code>-</code></span>
+                                        </div>
+                                    </div>
+                                    <div class="param-description">
+                                        <p>The API Manager uses a thread pool executor to create threads and to handle incoming requests. This parameter controls the number of core threads used by the executor pool. If you increase this parameter value, the number of requests received that can be processed by the gateway increases, hence, the throughput also increases. The nature of the integration scenario and the number of concurrent requests received by the gateway are the main factors that helps to determine this parameter.</p>
+                                    </div>
+                                </div>
+                            </div><div class="param">
+                                <div class="param-name">
+                                  <span class="param-name-wrap"> <code>worker_pool_size_max</code> </span>
+                                </div>
+                                <div class="param-info">
+                                    <div>
+                                        <p>
+                                            <span class="param-type string"> integer </span>
+                                            <span class="badge-required">Required</span>
+                                        </p>
+                                        <div class="param-default">
+                                            <span class="param-default-value">Default: <code>400</code></span>
+                                        </div>
+                                        <div class="param-possible">
+                                            <span class="param-possible-values">Possible Values: <code>-</code></span>
+                                        </div>
+                                    </div>
+                                    <div class="param-description">
+                                        <p>This is the maximum number of threads in the worker thread pool. Specifying a maximum limit avoids performance degradation that can occur due to context switching. If the specified value is reached, you will see the error &#39;SYSTEM ALERT - HttpServerWorker threads were in BLOCKED state during last minute&#39;. This can occur due to an extraordinarily high number of requests sent at a time when all the threads in the pool are busy, and the maximum number of threads is already reached.</p>
+                                    </div>
+                                </div>
+                            </div><div class="param">
+                                <div class="param-name">
+                                  <span class="param-name-wrap"> <code>worker_pool_queue_length</code> </span>
+                                </div>
+                                <div class="param-info">
+                                    <div>
+                                        <p>
+                                            <span class="param-type string"> integer </span>
+                                            <span class="badge-required">Required</span>
+                                        </p>
+                                        <div class="param-default">
+                                            <span class="param-default-value">Default: <code>-1</code></span>
+                                        </div>
+                                        <div class="param-possible">
+                                            <span class="param-possible-values">Possible Values: <code>-</code></span>
+                                        </div>
+                                    </div>
+                                    <div class="param-description">
+                                        <p>This defines the length of the queue that is used to hold runnable tasks to be executed by the worker pool. The thread pool starts queuing jobs when all the existing threads are busy, and the pool has reached the maximum number of threads. The value for this parameter should be -1 to use an unbound queue. If a bound queue is used and the queue gets filled to its capacity, any further attempts to submit jobs fail causing some messages to be dropped by Synapse.</p>
+                                    </div>
+                                </div>
+                            </div><div class="param">
+                                <div class="param-name">
+                                  <span class="param-name-wrap"> <code>io_buffer_size</code> </span>
+                                </div>
+                                <div class="param-info">
+                                    <div>
+                                        <p>
+                                            <span class="param-type string"> integer </span>
+                                            <span class="badge-required">Required</span>
+                                        </p>
+                                        <div class="param-default">
+                                            <span class="param-default-value">Default: <code>16384</code></span>
+                                        </div>
+                                        <div class="param-possible">
+                                            <span class="param-possible-values">Possible Values: <code>-</code></span>
+                                        </div>
+                                    </div>
+                                    <div class="param-description">
+                                        <p>This is the value of the memory buffer allocated when reading data into the memory from the underlying socket/file channels. You should leave this property set to the default value.</p>
+                                    </div>
+                                </div>
+                            </div><div class="param">
+                                <div class="param-name">
+                                  <span class="param-name-wrap"> <code>http.max.connection.per.host.port</code> </span>
+                                </div>
+                                <div class="param-info">
+                                    <div>
+                                        <p>
+                                            <span class="param-type string"> integer </span>
+                                            <span class="badge-required">Required</span>
+                                        </p>
+                                        <div class="param-default">
+                                            <span class="param-default-value">Default: <code>32767</code></span>
+                                        </div>
+                                        <div class="param-possible">
+                                            <span class="param-possible-values">Possible Values: <code>-</code></span>
+                                        </div>
+                                    </div>
+                                    <div class="param-description">
+                                        <p>This defines the maximum number of connections allowed per host port.</p>
+                                    </div>
+                                </div>
+                            </div><div class="param">
+                                <div class="param-name">
+                                  <span class="param-name-wrap"> <code>&#39;http.user.agent.preserve&#39;</code> </span>
+                                </div>
+                                <div class="param-info">
+                                    <div>
+                                        <p>
+                                            <span class="param-type string"> boolean </span>
+                                            <span class="badge-required">Required</span>
+                                        </p>
+                                        <div class="param-default">
+                                            <span class="param-default-value">Default: <code>&quot;true&quot; or &quot;false&quot;</code></span>
+                                        </div>
+                                        <div class="param-possible">
+                                            <span class="param-possible-values">Possible Values: <code>-</code></span>
+                                        </div>
+                                    </div>
+                                    <div class="param-description">
+                                        <p>If this parameter is set to true, the user-agent HTTP header of messages passing through the integrator is preserved and printed in the outgoing message.</p>
+                                    </div>
+                                </div>
+                            </div><div class="param">
+                                <div class="param-name">
+                                  <span class="param-name-wrap"> <code>&#39;http.headers.preserve&#39;</code> </span>
+                                </div>
+                                <div class="param-info">
+                                    <div>
+                                        <p>
+                                            <span class="param-type string"> string </span>
+                                            <span class="badge-required">Required</span>
+                                        </p>
+                                        <div class="param-default">
+                                            <span class="param-default-value">Default: <code>Content-Type</code></span>
+                                        </div>
+                                        <div class="param-possible">
+                                            <span class="param-possible-values">Possible Values: <code>-</code></span>
+                                        </div>
+                                    </div>
+                                    <div class="param-description">
+                                        <p>This parameter allows you to specify the header field/s of messages passing through the EI that need to be preserved and printed in the outgoing message such as Location, CommonsHTTPTransportSenderKeep-Alive, Date, Server, User-Agent, and Host. For example, http.headers.preserve = Location, Date, Server.</p>
+                                    </div>
+                                </div>
+                            </div><div class="param">
+                                <div class="param-name">
+                                  <span class="param-name-wrap"> <code>disable_connection_keepalive</code> </span>
+                                </div>
+                                <div class="param-info">
+                                    <div>
+                                        <p>
+                                            <span class="param-type string"> boolean </span>
+                                            <span class="badge-required">Required</span>
+                                        </p>
+                                        <div class="param-default">
+                                            <span class="param-default-value">Default: <code>false</code></span>
+                                        </div>
+                                        <div class="param-possible">
+                                            <span class="param-possible-values">Possible Values: <code>&quot;true&quot; or &quot;false&quot;</code></span>
+                                        </div>
+                                    </div>
+                                    <div class="param-description">
+                                        <p>This parameter allows you to specify the header field/s of messages passing through the APIM that need to be preserved and printed in the outgoing message such as Location, CommonsHTTPTransportSenderKeep-Alive, Date, Server, User-Agent, and Host.</p>
+                                    </div>
+                                </div>
+                            </div><div class="param">
+                                <div class="param-name">
+                                  <span class="param-name-wrap"> <code>max_open_connections</code> </span>
+                                </div>
+                                <div class="param-info">
+                                    <div>
+                                        <p>
+                                            <span class="param-type string"> integer </span>
+                                            
+                                        </p>
+                                        <div class="param-default">
+                                            <span class="param-default-value">Default: <code>-1</code></span>
+                                        </div>
+                                        <div class="param-possible">
+                                            <span class="param-possible-values">Possible Values: <code>-</code></span>
+                                        </div>
+                                    </div>
+                                    <div class="param-description">
+                                        <p>This property allows connection throttling to restrict the number of simultaneously opened connections. That is, simultaneously opened incoming connections will be restricted by the specified value. To disable throttling, delete the ‘max_open_connections’ setting or set it to -1.</p>
+                                    </div>
+                                </div>
+                            </div><div class="param">
+                                <div class="param-name">
+                                  <span class="param-name-wrap"> <code>force_xml_validation</code> </span>
+                                </div>
+                                <div class="param-info">
+                                    <div>
+                                        <p>
+                                            <span class="param-type string"> boolean </span>
+                                            
+                                        </p>
+                                        <div class="param-default">
+                                            <span class="param-default-value">Default: <code>false</code></span>
+                                        </div>
+                                        <div class="param-possible">
+                                            <span class="param-possible-values">Possible Values: <code>&quot;true&quot; or &quot;false&quot;</code></span>
+                                        </div>
+                                    </div>
+                                    <div class="param-description">
+                                        <p>This property validates badly formed XML messages by building the whole XML document.</p>
+                                    </div>
+                                </div>
+                            </div><div class="param">
+                                <div class="param-name">
+                                  <span class="param-name-wrap"> <code>force_json_validation</code> </span>
+                                </div>
+                                <div class="param-info">
+                                    <div>
+                                        <p>
+                                            <span class="param-type string"> boolean </span>
+                                            
+                                        </p>
+                                        <div class="param-default">
+                                            <span class="param-default-value">Default: <code>false</code></span>
+                                        </div>
+                                        <div class="param-possible">
+                                            <span class="param-possible-values">Possible Values: <code>&quot;true&quot; or &quot;false&quot;</code></span>
+                                        </div>
+                                    </div>
+                                    <div class="param-description">
+                                        <p>This property validates JSON messages by parsing the input message.</p>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -9643,253 +10038,39 @@ sender.ssl_profile.interval = "600000"</code></pre>
                 <label class="tab-selector" for="_tab_66"><i class="icon fa fa-code"></i></label>
                 <div class="superfences-content">
                     <div class="mb-config-example">
-<pre><code class="toml">[transport.passthru_https]
-listener.enable = true
-listener.parameters.port = 8200
-listener.hostname = ""
-listener.origin_server = ""
-listener.request_timeout = ""
-listener.request_tcp_no_delay = ""
-listener.request_core_thread_pool_size = ""
-listener.request_max_thread_pool_size = ""
-listener.thread_keepalive_time = ""
-listener.thread_keepalive_time_unit = ""
-
-[transport.blocking_https]
-sender.enable = true
+<pre><code class="toml">[transport.blocking_http]
 sender.parameters.cacheHttpClient = true
 sender.parameters.Transfer-Encoding = ""
 sender.parameters.defaultMaxConnectionsPerHost = 200
 sender.parameters.OmitSOAP12Action = true
-sender.parameters.SO_TIMEOUT = 60000</code></pre>
+sender.parameters.SO_TIMEOUT = 60000
+sender.parameters.'http.proxyHost' = "$env{OUT_PROXY_HOST}"
+sender.parameters.'http.proxyPort' = "$env{OUT_PROXY_PORT}"
+sender.parameters.'http.nonProxyHosts' = "$env{OUT_PROXY_NON_HOSTS}"
+
+[transport.blocking_https]
+sender.parameters.cacheHttpClient = true
+sender.parameters.Transfer-Encoding = ""
+sender.parameters.defaultMaxConnectionsPerHost = 200
+sender.parameters.OmitSOAP12Action = true
+sender.parameters.SO_TIMEOUT = 60000
+sender.parameters.'http.proxyHost' = "$env{OUT_PROXY_HOST}"
+sender.parameters.'http.proxyPort' = "$env{OUT_PROXY_PORT}"
+sender.parameters.'http.nonProxyHosts' = "$env{OUT_PROXY_NON_HOSTS}"
+</code></pre>
                     </div>
                 </div>
                 <div class="doc-wrapper">
                     <div class="mb-config">
                         <div class="config-wrap">
-                            <code>[transport.passthru_https]</code>
+                            <code>[transport.blocking_http]</code>
                             
                             <p>
-                                This configuration header is required for configuring the parameters that are used for configuring the default HTTP/S passthrough transport in blocking mode
+                                This configuration header is required for configuring the parameters that are used for configuring the default HTTP passthrough transport in blocking mode
                             </p>
                         </div>
                         <div class="params-wrap">
                             <div class="param">
-                                <div class="param-name">
-                                  <span class="param-name-wrap"> <code>listener.enable</code> </span>
-                                </div>
-                                <div class="param-info">
-                                    <div>
-                                        <p>
-                                            <span class="param-type string"> boolean </span>
-                                            <span class="badge-required">Required</span>
-                                        </p>
-                                        <div class="param-default">
-                                            <span class="param-default-value">Default: <code>true</code></span>
-                                        </div>
-                                        <div class="param-possible">
-                                            <span class="param-possible-values">Possible Values: <code>&quot;true&quot; or &quot;false&quot;</code></span>
-                                        </div>
-                                    </div>
-                                    <div class="param-description">
-                                        <p>This parameter is used for enabling the HTTP passthrough transport listener in blocking mode.</p>
-                                    </div>
-                                </div>
-                            </div><div class="param">
-                                <div class="param-name">
-                                  <span class="param-name-wrap"> <code>listener.parameters.port</code> </span>
-                                </div>
-                                <div class="param-info">
-                                    <div>
-                                        <p>
-                                            <span class="param-type string"> integer </span>
-                                            <span class="badge-required">Required</span>
-                                        </p>
-                                        <div class="param-default">
-                                            <span class="param-default-value">Default: <code>8200</code></span>
-                                        </div>
-                                        <div class="param-possible">
-                                            <span class="param-possible-values">Possible Values: <code>-</code></span>
-                                        </div>
-                                    </div>
-                                    <div class="param-description">
-                                        <p>The port on which this transport receiver should listen for incoming messages.</p>
-                                    </div>
-                                </div>
-                            </div><div class="param">
-                                <div class="param-name">
-                                  <span class="param-name-wrap"> <code>listener.hostname</code> </span>
-                                </div>
-                                <div class="param-info">
-                                    <div>
-                                        <p>
-                                            <span class="param-type string"> string </span>
-                                            
-                                        </p>
-                                        <div class="param-default">
-                                            <span class="param-default-value">Default: <code>-</code></span>
-                                        </div>
-                                        
-                                    </div>
-                                    <div class="param-description">
-                                        <p></p>
-                                    </div>
-                                </div>
-                            </div><div class="param">
-                                <div class="param-name">
-                                  <span class="param-name-wrap"> <code>listener.origin_server</code> </span>
-                                </div>
-                                <div class="param-info">
-                                    <div>
-                                        <p>
-                                            <span class="param-type string"> string </span>
-                                            
-                                        </p>
-                                        <div class="param-default">
-                                            <span class="param-default-value">Default: <code>-</code></span>
-                                        </div>
-                                        
-                                    </div>
-                                    <div class="param-description">
-                                        <p></p>
-                                    </div>
-                                </div>
-                            </div><div class="param">
-                                <div class="param-name">
-                                  <span class="param-name-wrap"> <code>listener.request_timeout</code> </span>
-                                </div>
-                                <div class="param-info">
-                                    <div>
-                                        <p>
-                                            <span class="param-type string"> string </span>
-                                            
-                                        </p>
-                                        <div class="param-default">
-                                            <span class="param-default-value">Default: <code>-</code></span>
-                                        </div>
-                                        
-                                    </div>
-                                    <div class="param-description">
-                                        <p></p>
-                                    </div>
-                                </div>
-                            </div><div class="param">
-                                <div class="param-name">
-                                  <span class="param-name-wrap"> <code>listener.request_tcp_no_delay</code> </span>
-                                </div>
-                                <div class="param-info">
-                                    <div>
-                                        <p>
-                                            <span class="param-type string"> string </span>
-                                            
-                                        </p>
-                                        <div class="param-default">
-                                            <span class="param-default-value">Default: <code>-</code></span>
-                                        </div>
-                                        
-                                    </div>
-                                    <div class="param-description">
-                                        <p></p>
-                                    </div>
-                                </div>
-                            </div><div class="param">
-                                <div class="param-name">
-                                  <span class="param-name-wrap"> <code>listener.request_core_thread_pool_size</code> </span>
-                                </div>
-                                <div class="param-info">
-                                    <div>
-                                        <p>
-                                            <span class="param-type string"> string </span>
-                                            
-                                        </p>
-                                        <div class="param-default">
-                                            <span class="param-default-value">Default: <code>-</code></span>
-                                        </div>
-                                        
-                                    </div>
-                                    <div class="param-description">
-                                        <p></p>
-                                    </div>
-                                </div>
-                            </div><div class="param">
-                                <div class="param-name">
-                                  <span class="param-name-wrap"> <code>listener.request_max_thread_pool_size</code> </span>
-                                </div>
-                                <div class="param-info">
-                                    <div>
-                                        <p>
-                                            <span class="param-type string"> string </span>
-                                            
-                                        </p>
-                                        <div class="param-default">
-                                            <span class="param-default-value">Default: <code>-</code></span>
-                                        </div>
-                                        
-                                    </div>
-                                    <div class="param-description">
-                                        <p></p>
-                                    </div>
-                                </div>
-                            </div><div class="param">
-                                <div class="param-name">
-                                  <span class="param-name-wrap"> <code>listener.thread_keepalive_time</code> </span>
-                                </div>
-                                <div class="param-info">
-                                    <div>
-                                        <p>
-                                            <span class="param-type string"> string </span>
-                                            
-                                        </p>
-                                        <div class="param-default">
-                                            <span class="param-default-value">Default: <code>-</code></span>
-                                        </div>
-                                        
-                                    </div>
-                                    <div class="param-description">
-                                        <p></p>
-                                    </div>
-                                </div>
-                            </div><div class="param">
-                                <div class="param-name">
-                                  <span class="param-name-wrap"> <code>listener.thread_keepalive_time_unit</code> </span>
-                                </div>
-                                <div class="param-info">
-                                    <div>
-                                        <p>
-                                            <span class="param-type string"> string </span>
-                                            
-                                        </p>
-                                        <div class="param-default">
-                                            <span class="param-default-value">Default: <code>-</code></span>
-                                        </div>
-                                        
-                                    </div>
-                                    <div class="param-description">
-                                        <p></p>
-                                    </div>
-                                </div>
-                            </div><div class="param">
-                                <div class="param-name">
-                                  <span class="param-name-wrap"> <code>sender.enable</code> </span>
-                                </div>
-                                <div class="param-info">
-                                    <div>
-                                        <p>
-                                            <span class="param-type string"> boolean </span>
-                                            <span class="badge-required">Required</span>
-                                        </p>
-                                        <div class="param-default">
-                                            <span class="param-default-value">Default: <code>true</code></span>
-                                        </div>
-                                        <div class="param-possible">
-                                            <span class="param-possible-values">Possible Values: <code>&quot;true&quot; or &quot;false&quot;</code></span>
-                                        </div>
-                                    </div>
-                                    <div class="param-description">
-                                        <p>This parameter is used for enabling the HTTP passthrough transport sender in blocking mode.</p>
-                                    </div>
-                                </div>
-                            </div><div class="param">
                                 <div class="param-name">
                                   <span class="param-name-wrap"> <code>sender.parameters.cacheHttpClient</code> </span>
                                 </div>
@@ -9996,7 +10177,7 @@ sender.parameters.SO_TIMEOUT = 60000</code></pre>
                                 </div>
                             </div><div class="param">
                                 <div class="param-name">
-                                  <span class="param-name-wrap"> <code>sender.http.proxyHost</code> </span>
+                                  <span class="param-name-wrap"> <code>sender.parameters.&#39;http.proxyHost&#39;</code> </span>
                                 </div>
                                 <div class="param-info">
                                     <div>
@@ -10017,7 +10198,7 @@ sender.parameters.SO_TIMEOUT = 60000</code></pre>
                                 </div>
                             </div><div class="param">
                                 <div class="param-name">
-                                  <span class="param-name-wrap"> <code>sender.http.proxyPort</code> </span>
+                                  <span class="param-name-wrap"> <code>sender.parameters.&#39;http.proxyPort&#39;</code> </span>
                                 </div>
                                 <div class="param-info">
                                     <div>
@@ -10038,7 +10219,142 @@ sender.parameters.SO_TIMEOUT = 60000</code></pre>
                                 </div>
                             </div><div class="param">
                                 <div class="param-name">
-                                  <span class="param-name-wrap"> <code>sender.http.proxyHost</code> </span>
+                                  <span class="param-name-wrap"> <code>sender.parameters.&#39;http.nonProxyHosts&#39;</code> </span>
+                                </div>
+                                <div class="param-info">
+                                    <div>
+                                        <p>
+                                            <span class="param-type string"> string </span>
+                                            
+                                        </p>
+                                        <div class="param-default">
+                                            <span class="param-default-value">Default: <code>-</code></span>
+                                        </div>
+                                        <div class="param-possible">
+                                            <span class="param-possible-values">Possible Values: <code>-</code></span>
+                                        </div>
+                                    </div>
+                                    <div class="param-description">
+                                        <p>The list of hosts to which the HTTP traffic should be sent directly without going through the proxy. When trying to add multiple hostnames along with an asterisk in order to define a set of sub-domains for non-proxy hosts, you need to add a period before the asterisk when configuring proxy server.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div><div class="config-wrap">
+                            <code>[transport.blocking_https]</code>
+                            
+                            <p>
+                                This configuration header is required for configuring the parameters that are used for configuring the default HTTPS passthrough transport in blocking mode
+                            </p>
+                        </div>
+                        <div class="params-wrap">
+                            <div class="param">
+                                <div class="param-name">
+                                  <span class="param-name-wrap"> <code>sender.parameters.cacheHttpClient</code> </span>
+                                </div>
+                                <div class="param-info">
+                                    <div>
+                                        <p>
+                                            <span class="param-type string"> boolean </span>
+                                            <span class="badge-required">Required</span>
+                                        </p>
+                                        <div class="param-default">
+                                            <span class="param-default-value">Default: <code>-</code></span>
+                                        </div>
+                                        <div class="param-possible">
+                                            <span class="param-possible-values">Possible Values: <code>&quot;true&quot; or &quot;false&quot;</code></span>
+                                        </div>
+                                    </div>
+                                    <div class="param-description">
+                                        <p>This parameter is used to specify whether the HTTPS client should save cache entries and the cached responses in the JVM memory or not.</p>
+                                    </div>
+                                </div>
+                            </div><div class="param">
+                                <div class="param-name">
+                                  <span class="param-name-wrap"> <code>sender.parameters.Transfer-Encoding</code> </span>
+                                </div>
+                                <div class="param-info">
+                                    <div>
+                                        <p>
+                                            <span class="param-type string"> string </span>
+                                            <span class="badge-required">Required</span>
+                                        </p>
+                                        <div class="param-default">
+                                            <span class="param-default-value">Default: <code>-</code></span>
+                                        </div>
+                                        <div class="param-possible">
+                                            <span class="param-possible-values">Possible Values: <code>&quot;chunked&quot; or &quot;true&quot;</code></span>
+                                        </div>
+                                    </div>
+                                    <div class="param-description">
+                                        <p>This parameter enables you to specify whether the data sent should be chunked. It can be used instead of the Content-Length header if you want to upload data without having to know the amount of data to be uploaded in advance.</p>
+                                    </div>
+                                </div>
+                            </div><div class="param">
+                                <div class="param-name">
+                                  <span class="param-name-wrap"> <code>sender.parameters.defaultMaxConnectionsPerHost</code> </span>
+                                </div>
+                                <div class="param-info">
+                                    <div>
+                                        <p>
+                                            <span class="param-type string"> integer </span>
+                                            <span class="badge-required">Required</span>
+                                        </p>
+                                        <div class="param-default">
+                                            <span class="param-default-value">Default: <code>-</code></span>
+                                        </div>
+                                        <div class="param-possible">
+                                            <span class="param-possible-values">Possible Values: <code>-</code></span>
+                                        </div>
+                                    </div>
+                                    <div class="param-description">
+                                        <p>The maximum number of connections that will be created per host server by the client. If the backend server is slow, the connections in use at a given time will take a long time to be released and added back to the connection pool. As a result, connections may not be available for some requests. In such situations, it is recommended to increase the value for this parameter.</p>
+                                    </div>
+                                </div>
+                            </div><div class="param">
+                                <div class="param-name">
+                                  <span class="param-name-wrap"> <code>sender.parameters.OmitSOAP12Action</code> </span>
+                                </div>
+                                <div class="param-info">
+                                    <div>
+                                        <p>
+                                            <span class="param-type string"> boolean </span>
+                                            <span class="badge-required">Required</span>
+                                        </p>
+                                        <div class="param-default">
+                                            <span class="param-default-value">Default: <code>-</code></span>
+                                        </div>
+                                        <div class="param-possible">
+                                            <span class="param-possible-values">Possible Values: <code>&quot;true&quot; or &quot;false&quot;</code></span>
+                                        </div>
+                                    </div>
+                                    <div class="param-description">
+                                        <p>If following is set to &#39;true&#39;, optional action part of the Content-Type will not be added to the SOAP 1.2 messages.</p>
+                                    </div>
+                                </div>
+                            </div><div class="param">
+                                <div class="param-name">
+                                  <span class="param-name-wrap"> <code>sender.parameters.SO_TIMEOUT</code> </span>
+                                </div>
+                                <div class="param-info">
+                                    <div>
+                                        <p>
+                                            <span class="param-type string"> integer </span>
+                                            <span class="badge-required">Required</span>
+                                        </p>
+                                        <div class="param-default">
+                                            <span class="param-default-value">Default: <code>-</code></span>
+                                        </div>
+                                        <div class="param-possible">
+                                            <span class="param-possible-values">Possible Values: <code>60000</code></span>
+                                        </div>
+                                    </div>
+                                    <div class="param-description">
+                                        <p>If following is set to &#39;true&#39;, optional action part of the Content-Type will not be added to the SOAP 1.2 messages.</p>
+                                    </div>
+                                </div>
+                            </div><div class="param">
+                                <div class="param-name">
+                                  <span class="param-name-wrap"> <code>sender.parameters.&#39;http.proxyHost&#39;</code> </span>
                                 </div>
                                 <div class="param-info">
                                     <div>
@@ -10059,7 +10375,7 @@ sender.parameters.SO_TIMEOUT = 60000</code></pre>
                                 </div>
                             </div><div class="param">
                                 <div class="param-name">
-                                  <span class="param-name-wrap"> <code>sender.http.proxyPort</code> </span>
+                                  <span class="param-name-wrap"> <code>sender.parameters.&#39;http.proxyPort&#39;</code> </span>
                                 </div>
                                 <div class="param-info">
                                     <div>
@@ -10075,7 +10391,28 @@ sender.parameters.SO_TIMEOUT = 60000</code></pre>
                                         </div>
                                     </div>
                                     <div class="param-description">
-                                        <p>The port through which the target proxy (specified by the &#39;sender.secured_proxy_host&#39; parameter) accepts HTTPS traffic (in blocking mode).</p>
+                                        <p>The port through which the target proxy (specified by the &#39;sender.proxy_host&#39; parameter) accepts HTTPS traffic (in blocking mode).</p>
+                                    </div>
+                                </div>
+                            </div><div class="param">
+                                <div class="param-name">
+                                  <span class="param-name-wrap"> <code>sender.parameters.&#39;http.nonProxyHosts&#39;</code> </span>
+                                </div>
+                                <div class="param-info">
+                                    <div>
+                                        <p>
+                                            <span class="param-type string"> string </span>
+                                            
+                                        </p>
+                                        <div class="param-default">
+                                            <span class="param-default-value">Default: <code>-</code></span>
+                                        </div>
+                                        <div class="param-possible">
+                                            <span class="param-possible-values">Possible Values: <code>-</code></span>
+                                        </div>
+                                    </div>
+                                    <div class="param-description">
+                                        <p>The list of hosts to which the HTTPS traffic should be sent directly without going through the proxy. When trying to add multiple hostnames along with an asterisk in order to define a set of sub-domains for non-proxy hosts, you need to add a period before the asterisk when configuring proxy server.</p>
                                     </div>
                                 </div>
                             </div>
@@ -14725,7 +15062,7 @@ key_password = "wso2carbon"</code></pre>
                 <div class="superfences-content">
                     <div class="mb-config-example">
 <pre><code class="toml">[http_access_log]
-useLogger = true</code></pre>
+enabled = true</code></pre>
                     </div>
                 </div>
                 <div class="doc-wrapper">
@@ -15108,6 +15445,224 @@ mediaType = "application/vnd.wso2-service+xml"
                         </div>
                         <div class="params-wrap">
                             
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+
+
+
+## Transport Header Handler
+
+
+<div class="mb-config-catalog">
+    <section>
+        <div class="mb-config-options">
+            <div class="superfences-tabs">
+            
+            <input name="100" type="checkbox" id="_tab_100">
+                <label class="tab-selector" for="_tab_100"><i class="icon fa fa-code"></i></label>
+                <div class="superfences-content">
+                    <div class="mb-config-example">
+<pre><code class="toml">[apim.transport_headers]
+enable = false
+removeRequestHeaders = "true"
+preserveRequestHeaders = ""
+excludeRequestHeaders = ""
+excludeResponseHeaders = ""
+</code></pre>
+                    </div>
+                </div>
+                <div class="doc-wrapper">
+                    <div class="mb-config">
+                        <div class="config-wrap">
+                            <code>[apim.transport_headers]</code>
+                            
+                            <p>
+                                This includes configuration to enable TransportHeaderHandler.
+                            </p>
+                        </div>
+                        <div class="params-wrap">
+                            <div class="param">
+                                <div class="param-name">
+                                  <span class="param-name-wrap"> <code>enabled</code> </span>
+                                </div>
+                                <div class="param-info">
+                                    <div>
+                                        <p>
+                                            <span class="param-type string"> boolean </span>
+                                            
+                                        </p>
+                                        <div class="param-default">
+                                            <span class="param-default-value">Default: <code>false</code></span>
+                                        </div>
+                                        <div class="param-possible">
+                                            <span class="param-possible-values">Possible Values: <code>true,false</code></span>
+                                        </div>
+                                    </div>
+                                    <div class="param-description">
+                                        <p>Enable TransportHeaderHandler.</p>
+                                    </div>
+                                </div>
+                            </div><div class="param">
+                                <div class="param-name">
+                                  <span class="param-name-wrap"> <code>removeRequestHeaders</code> </span>
+                                </div>
+                                <div class="param-info">
+                                    <div>
+                                        <p>
+                                            <span class="param-type string"> string </span>
+                                            
+                                        </p>
+                                        <div class="param-default">
+                                            <span class="param-default-value">Default: <code>false</code></span>
+                                        </div>
+                                        <div class="param-possible">
+                                            <span class="param-possible-values">Possible Values: <code>true,false</code></span>
+                                        </div>
+                                    </div>
+                                    <div class="param-description">
+                                        <p>Indicates whether to remove the request headers from the response in a failure scenario. For OPTIONS call, request headers will always be removed.</p>
+                                    </div>
+                                </div>
+                            </div><div class="param">
+                                <div class="param-name">
+                                  <span class="param-name-wrap"> <code>preserveRequestHeaders</code> </span>
+                                </div>
+                                <div class="param-info">
+                                    <div>
+                                        <p>
+                                            <span class="param-type string"> string </span>
+                                            
+                                        </p>
+                                        <div class="param-default">
+                                            <span class="param-default-value">Default: <code></code></span>
+                                        </div>
+                                        
+                                    </div>
+                                    <div class="param-description">
+                                        <p>Comma separated List of headers preserved while removing request headers from the response. Default is empty. This list of headers will be preserved only when removeRequestHeaders is set to true.</p>
+                                    </div>
+                                </div>
+                            </div><div class="param">
+                                <div class="param-name">
+                                  <span class="param-name-wrap"> <code>excludeRequestHeaders</code> </span>
+                                </div>
+                                <div class="param-info">
+                                    <div>
+                                        <p>
+                                            <span class="param-type string"> string </span>
+                                            
+                                        </p>
+                                        <div class="param-default">
+                                            <span class="param-default-value">Default: <code></code></span>
+                                        </div>
+                                        
+                                    </div>
+                                    <div class="param-description">
+                                        <p>Comma separated List of well known request headers that should be removed in a Response to the client.</p>
+                                    </div>
+                                </div>
+                            </div><div class="param">
+                                <div class="param-name">
+                                  <span class="param-name-wrap"> <code>excludeResponseHeaders</code> </span>
+                                </div>
+                                <div class="param-info">
+                                    <div>
+                                        <p>
+                                            <span class="param-type string"> string </span>
+                                            
+                                        </p>
+                                        <div class="param-default">
+                                            <span class="param-default-value">Default: <code></code></span>
+                                        </div>
+                                        
+                                    </div>
+                                    <div class="param-description">
+                                        <p>Comma separated List of well known response headers that should be removed in a Request sent to backend.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+
+
+
+## Global handler configurations
+
+
+<div class="mb-config-catalog">
+    <section>
+        <div class="mb-config-options">
+            <div class="superfences-tabs">
+            
+            <input name="101" type="checkbox" id="_tab_101">
+                <label class="tab-selector" for="_tab_101"><i class="icon fa fa-code"></i></label>
+                <div class="superfences-content">
+                    <div class="mb-config-example">
+<pre><code class="toml">[synapse_handlers.custom_handler_name]
+enabled=true
+class="org.wso2.carbon.apimgt.gateway.handlers.custom.customer_handler"
+</code></pre>
+                    </div>
+                </div>
+                <div class="doc-wrapper">
+                    <div class="mb-config">
+                        <div class="config-wrap">
+                            <code>[synapse_handlers.custom_handler_name]</code>
+                            
+                            <p>
+                                configuration used to define or enable disable global handler.
+                            </p>
+                        </div>
+                        <div class="params-wrap">
+                            <div class="param">
+                                <div class="param-name">
+                                  <span class="param-name-wrap"> <code>enabled</code> </span>
+                                </div>
+                                <div class="param-info">
+                                    <div>
+                                        <p>
+                                            <span class="param-type string"> boolean </span>
+                                            
+                                        </p>
+                                        <div class="param-default">
+                                            <span class="param-default-value">Default: <code></code></span>
+                                        </div>
+                                        
+                                    </div>
+                                    <div class="param-description">
+                                        <p>Enable or disable a defined global handler.</p>
+                                    </div>
+                                </div>
+                            </div><div class="param">
+                                <div class="param-name">
+                                  <span class="param-name-wrap"> <code>class</code> </span>
+                                </div>
+                                <div class="param-info">
+                                    <div>
+                                        <p>
+                                            <span class="param-type string"> string </span>
+                                            <span class="badge-required">Required</span>
+                                        </p>
+                                        <div class="param-default">
+                                            <span class="param-default-value">Default: <code></code></span>
+                                        </div>
+                                        
+                                    </div>
+                                    <div class="param-description">
+                                        <p>Fully qualified class name of the global handler.</p>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>

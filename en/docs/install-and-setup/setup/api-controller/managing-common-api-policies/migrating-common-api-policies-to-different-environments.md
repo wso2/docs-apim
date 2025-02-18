@@ -28,10 +28,10 @@
     -   **Command**
      
         ```bash
-        apictl export policy api -n <Common API Policy name> -e <environment>  
+        apictl export policy api -n <Common API Policy name> -v <version> -e <environment>  
         ``` 
         ```bash
-        apictl export policy api --name <Common API Policy name> --environment <environment>  
+        apictl export policy api --name <Common API Policy name> --version <version> --environment <environment>  
         ```
         ```bash
         apictl export policy api --name <Common API Policy name> --environment <environment> --format <Policy Definition file format>
@@ -41,7 +41,7 @@
             **Flags:**  
             
             -    Required :  
-                `--name` or `-n` : Name of the API Product to be exported
+                `--name` or `-n` : Name of the API Product to be exported   
                 `--version` or `-v` : Version of the common API Policy to be exported       
                 `--environment` or `-e` : Environment from which the API Product should be exported  
             -   Optional :  
@@ -49,10 +49,10 @@
 
         !!! example
             ```bash
-            apictl export policy api -n addHeader -e dev
+            apictl export policy api -n addHeader -v v2 -e dev
             ```          
             ```bash
-            apictl export policy api -n addHeader -e dev --format JSON
+            apictl export policy api -n addHeader -v v2 -e dev --format JSON
             ``` 
 
     -   **Response**
@@ -60,13 +60,13 @@
         === "Response Format"
             ``` bash
             Successfully exported API Policy!
-            Find the exported API Policies at /Users/benura/.wso2apictl/exported/policies/api/<Environment Name>/<Policy Name>_<Policy Version>.zip
+            Find the exported API Policy at /Users/benura/.wso2apictl/exported/policies/api/<Environment Name>/<Policy Name>_<Policy Version>.zip
             ```
 
         === "Example Response"
             ``` bash
             Successfully exported API Policy!
-            Find the exported API Policies at /Users/benura/.wso2apictl/exported/policies/api/dev/addHeader_v1.zip
+            Find the exported API Policy at /Users/benura/.wso2apictl/exported/policies/api/dev/addHeader_v2.zip
             ```
 
 The exported ZIP file has the following structure:
@@ -93,7 +93,7 @@ The structure of an exported Common API Policy ZIP file is explained below:
             <td>Contains all the basic information required for a Common API Policy to be imported to another environment.</td>
         </tr>
         <tr class="even">
-            <td><code>Policy-name.yaml</code></td>
+            <td><code>Policy-name.j2</code></td>
             <td>Synapse gateway configurations which get applied during the runtime.</td>
         </tr>
     </tbody>
@@ -136,10 +136,10 @@ You can use the common API Policy archive exported from the previous section (or
 
         !!! example
             ```bash
-            apictl import policy api -f ~/addHeader_v1.zip -e production 
+            apictl import policy api -f ~/addHeader_v2.zip -e production 
             ```
             ```bash
-            apictl import policy api --file ~/addHeader_v1.zip --environment production
+            apictl import policy api --file ~/addHeader_v2.zip --environment production
             ```   
             ```bash
             apictl import policy api -f ~/AddHeader -e production 
@@ -149,7 +149,7 @@ You can use the common API Policy archive exported from the previous section (or
             ```
 
         !!! tip
-            If your file path is `/Users/benura/.wso2apictl/exported/policies/api/dev/addHeader_v1.zip`, then you need to enter `dev/addHeader_v1.zip` as the value for `--file` or `-f` flag.
+            If your file path is `/Users/benura/.wso2apictl/exported/policies/api/dev/addHeader_v2.zip`, then you need to enter `dev/addHeader_v2.zip` as the value for `--file` or `-f` flag.
        
      -   **Response**
         
