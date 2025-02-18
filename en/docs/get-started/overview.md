@@ -6,7 +6,6 @@ The following are some of the main capabilities of the product.
 
 ### Develop, Deploy and Manage APIs/API Products
 
-
 <div style="width: 100%; overflow: hidden;">
 
 <div class="leftContentOverview" style="width:75% !important;">A well-designed API can make your APIs easy to use. WSO2 API Manager’s API Publisher guides you through API creation to API Publishing, while adhering to the respective API’s specification. 
@@ -21,25 +20,6 @@ The following are some of the main capabilities of the product.
           </a>
       </div>
 </div>
-
-
-### API-driven integration
-
-<div style="width: 100%; overflow: hidden;">
-
-<div class="leftContentOverview" style="width:75% !important;">You can implement an API-led integration strategy by easily combining the API management layer and the integration layer of the product's platform.
-    <ul>
-            <li><a href="{{base_path}}/integrate/api-led-integration">API-led Integration</li>
-    </ul>
-  </div>
-
-  <div class="rightImageOverview">
-          <a href='{{base_path}}/assets/img/get_started/overview/icons/integrate-api-workflows.png'>
-              <img src='{{base_path}}/assets/img/get_started/overview/icons/integrate-api-workflows.png' alt="Develop, Deploy and Manage APIs/API Products" />
-          </a>
-      </div>
-</div>
-
 
 ### Make your APIs Discoverable
 
@@ -58,7 +38,6 @@ The following are some of the main capabilities of the product.
       </div>
 </div>
 
-
 ### Expose developer-friendly APIs
 
 <div style="width: 100%; overflow: hidden;">
@@ -75,7 +54,6 @@ The following are some of the main capabilities of the product.
           </a>
       </div>
 </div>
-
 
 ### Secure your APIs
 
@@ -94,7 +72,6 @@ The following are some of the main capabilities of the product.
       </div>
 </div>
 
-
 ### Rate Limiting
 
 <div style="width: 100%; overflow: hidden;">
@@ -111,7 +88,6 @@ The following are some of the main capabilities of the product.
           </a>
       </div>
 </div>
-
 
 ### Get more insight on your APIs
 
@@ -131,64 +107,8 @@ The following are some of the main capabilities of the product.
       </div>
 </div>
 
-### Integrate your microservices
-
-<div style="width: 100%; overflow: hidden;">
-
-<div class="leftContentOverview" style="width:75% !important;">The WSO2 Micro Integrator runtime enables you to host composite microservices that can harness the power of a low-code integration approach, while reaping the benefits of microservices architectures.
-    <ul>
-        <li><a href="{{base_path}}/integrate/integration-overview/#microservices-integration">Microservices integration</li>
-    </ul>
-  </div>
-  
-  <div class="rightImageOverview">
-          <a href='{{base_path}}/assets/img/get_started/overview/micro-integrator.png'>
-              <img src='{{base_path}}/assets/img/get_started/overview/micro-integrator.png'  width="100" alt="Balance your APIs demand" />
-          </a>
-      </div>
-</div>
-
-
-### Integrate systems in your enterprise
-
-<div style="width: 100%; overflow: hidden;">
-
-<div class="leftContentOverview" style="width:75% !important;">The WSO2 Micro Integrator can also be used by enterprises as a classic ESB. When deployed as an ESB, it caters to your message routing, transformation, message mediation, service orchestration, as well as service and API hosting needs.
-    <ul>
-        <li><a href="{{base_path}}/integrate/integration-overview/#centralized-integration-enterprise-service-bus">Centralized integration</li>
-    </ul>
-  </div>
-  
-  <div class="rightImageOverview">
-          <a href='{{base_path}}/assets/img/get_started/overview/esb.png'>
-              <img src='{{base_path}}/assets/img/get_started/overview/esb.png'  width="100" alt="Balance your APIs demand" />
-          </a>
-      </div>
-</div>
-
-
-### Leverage your real-time data
-
-<div style="width: 100%; overflow: hidden;">
-
-<div class="leftContentOverview" style="width:75% !important;">WSO2 Streaming Integrator includes a stream flow designer and a stream processing engine with strong monitoring and analytics functions.  
-    <ul>
-        <li><a href="{{base_path}}/streaming/streaming-overview/">Streaming overview</li>
-        <li><a href="{{base_path}}/use-cases/streaming-usecase/use-cases/">Streaming usecases</li>
-    </ul>
-  </div>
-  
-  <div class="rightImageOverview">
-          <a href='{{base_path}}/assets/img/get_started/overview/streaming-data.png'>
-              <img src='{{base_path}}/assets/img/get_started/overview/streaming-data.png'  width="100" alt="Balance your APIs demand" />
-          </a>
-      </div>
-</div>
-
 ## What's Next
 
-- Try out the WSO2 API Manager by following the Quick Start Guides on the following.
-    - [Managing an API proxy]({{base_path}}/get-started/api-manager-quick-start-guide)
-    - [Streaming integration]({{base_path}}/get-started/streaming-quick-start-guide)
+- Try out WSO2 API Manager by following the [Quick Start Guide]({{base_path}}/get-started/api-manager-quick-start-guide).
 - Understand the [basic architecture of the product]({{base_path}}/get-started/apim-architecture).
 - Learn more [about this release]({{base_path}}/get-started/about-this-release).

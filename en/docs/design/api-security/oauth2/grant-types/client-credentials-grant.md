@@ -75,7 +75,7 @@ Use either one of the following sample cURL commands for this purpose.
 < Content-Type: application/json
 < Date: Thu, 18 Jan 2018 12:54:32 GMT
 < Transfer-Encoding: chunked
-{"access_token":"4c27f899-6f9c-3217-b974-3ceb5a409ac3","scope":"am_application_scope default","token_type":"Bearer","expires_in":723}
+{"access_token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...","scope":"am_application_scope default","token_type":"Bearer","expires_in":723}
 ```
 
 #### Obtain the access token by specifying a scope

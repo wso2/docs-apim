@@ -8,6 +8,9 @@ This section describes some recommended performance tuning configurations to opt
 !!! info
     The values that WSO2 discusses here are general recommendations. They might not be the optimal values for the specific hardware configurations in your environment. WSO2 recommends that you carry out load tests on your environment to tune the API Manager accordingly.
 
+!!! note
+    Over time, databases accumulate large volumes of data including invalid access tokens, revoked access tokens, registry transaction-related logs, authorization codes, and user sessions. Therefore, cleaning up outdated and unnecessary data helps maintain optimal database performance by reducing storage overhead, improving query execution times, and ensuring that the system can handle higher loads effectively. WSO2 API Manager provides mechanisms to [manage data growth and improve performance](#configuring-wso2-api-m-to-perform-regular-cleaning).
+
 ## OS-level settings
 
 When it comes to performance, the OS that the server runs plays an important role.
@@ -415,4 +418,44 @@ The registry indexing process, which indexes the APIs in the Registry, is only r
 ```java
 [indexing]
 enable = false
+```
+
+### Optimizing database indexing for case-sensitive and case-insensitive user stores
+
+One key aspect of performance optimization is database indexing. While API Manager includes essential database indexes in its default database scripts, certain scenarios may require additional indexing. Database Administrators (DBAs) are responsible for implementing these additional indexes to ensure optimal performance.
+
+For user stores configured with case-insensitive usernames in databases such as Oracle, PostgreSQL, or SQL Server, the DBA should create the necessary indexes using the `LOWER(UM_USER_NAME)` function.
+
+If a case-sensitive database is in use, only the indexes listed below should be added. Note that these indexes may not cover all possible indexing needs.
+
+```sql
+[apim_db]
+CREATE INDEX IDX_AT_CK_AU_LO ON IDN_OAUTH2_ACCESS_TOKEN(CONSUMER_KEY_ID, LOWER(AUTHZ_USER), TOKEN_STATE, USER_TYPE);
+CREATE INDEX IDX_AT_TI_UD_LO ON IDN_OAUTH2_ACCESS_TOKEN(LOWER(AUTHZ_USER), TENANT_ID, TOKEN_STATE, USER_DOMAIN);
+CREATE INDEX IDX_AT_AU_TID_UD_TS_CKID_LO ON IDN_OAUTH2_ACCESS_TOKEN(LOWER(AUTHZ_USER), TENANT_ID, USER_DOMAIN, TOKEN_STATE, CONSUMER_KEY_ID);
+CREATE INDEX IDX_AT_AU_CKID_TS_UT_LO ON IDN_OAUTH2_ACCESS_TOKEN(LOWER(AUTHZ_USER), CONSUMER_KEY_ID, TOKEN_STATE, USER_TYPE);
+CREATE INDEX IDX_AT_CIDAUTID_UD_TSH_TS_LO ON IDN_OAUTH2_ACCESS_TOKEN(CONSUMER_KEY_ID, LOWER(AUTHZ_USER), TENANT_ID, USER_DOMAIN, TOKEN_SCOPE_HASH, TOKEN_STATE);
+CREATE INDEX IDX_AUTH_CODE_AU_TI_LO ON IDN_OAUTH2_AUTHORIZATION_CODE (LOWER(AUTHZ_USER), TENANT_ID, USER_DOMAIN, STATE);
+CREATE INDEX IDX_AUTH_USER_UN_TID_DN_LO ON IDN_AUTH_USER (LOWER(USER_NAME), TENANT_ID, DOMAIN_NAME);
+CREATE INDEX IDX_OCA_UM_TID_UD_APN_LO ON IDN_OAUTH_CONSUMER_APPS(LOWER(USERNAME),TENANT_ID,USER_DOMAIN, APP_NAME);
+CREATE INDEX INDEX_IDN_USER_DK_LO_UNIQUE ON IDN_IDENTITY_USER_DATA (TENANT_ID, LOWER(USER_NAME), DATA_KEY);
+CREATE INDEX INDEX_IDN_USER_LO_UNIQUE ON IDN_IDENTITY_USER_DATA (TENANT_ID, LOWER(USER_NAME));
+
+[shared_db]
+CREATE INDEX IDX_UU_LO_UI_UUN_TI ON UM_USER(UM_ID,LOWER(UM_USER_NAME),UM_TENANT_ID);
+CREATE INDEX INDEX_UM_USER_LO_UNIQUE ON UM_USER (LOWER(UM_USER_NAME), UM_TENANT_ID);
+CREATE INDEX INDEX_UM_SYSTEM_USER_LO_UNIQUE ON UM_SYSTEM_USER (LOWER(UM_USER_NAME), UM_TENANT_ID);
+CREATE INDEX INDEX_UM_ACC_MAPPING_LO_UNIQUE ON UM_ACCOUNT_MAPPING (LOWER(UM_USER_NAME), UM_TENANT_ID, UM_USER_STORE_DOMAIN, UM_ACC_LINK_ID);
+CREATE INDEX INDEX_UM_HYBRID_UR_LO_UNIQUE ON UM_HYBRID_USER_ROLE (LOWER(UM_USER_NAME), UM_ROLE_ID, UM_TENANT_ID);
+CREATE INDEX INDEX_UM_SYSTEM_UR_LO_UNIQUE ON UM_SYSTEM_USER_ROLE (LOWER(UM_USER_NAME), UM_ROLE_ID, UM_TENANT_ID);
+```
+
+For case-insensitive databases like MySQL or MSSQL, add the following configuration to avoid using the `LOWER` function in queries. This configuration should be applied across all user stores that function as case-insensitive databases, and API Manager must be restarted afterward for the changes to take effect.
+
+In the `<APIM_HOME>/repository/conf` directory, set the following property to `false` in the `deployment.toml` file, according to the specific user store.
+
+```toml
+[user_store]
+properties.CaseInsensitiveUsername = false
+properties.UseCaseSensitiveUsernameForCacheKeys = false
 ```

@@ -146,25 +146,7 @@ Follow the instructions below to secure the endpoint's password that is given in
      * On Linux/Mac OS: `./api-manager.sh`
      * On Windows: `./api-manager.bat`
      
-After enabling the backend secure vault for backend credentials, the Basic Authentication header, which is written in the API Gateway configuration file, will be encrypted. If there were APIs that were already created and published before these instructions were performed, an update to the particular API would trigger the encryption process of the credentials. 
-
-Example:
-
-The following example depicts the same API when the endpoint password is not encrypted and encrypted:
-
-Here, the Basic authentication header is in base64 encoded format and can be decoded to get the actual credentials of the endpoint.
-
-``` xml
-<property name="Authorization" expression="fn:concat('Basic ', 'dGVzdDp0ZXN0MTIz')" scope="transport"/>
-```
-
-Here, the password is first looked up from the secret repository, and then set as a transport header.
-
-``` xml
-<property name="password" expression="wso2:vault-lookup('<api-identifier>')"/>
-<property name="unpw" expression="fn:concat('test',':',get-property('password'))"/>
-<property name="Authorization" expression="fn:concat('Basic ', base64Encode(get-property('unpw')))" scope="transport"/>
-```
+After enabling the backend secure vault for backend credentials, the Basic Authentication header, which is written in the API Gateway configuration file, will be encrypted. If there were APIs that were already created and published before these instructions were performed, an update to the particular API would trigger the encryption process of the credentials.
 
 ## Changing already encrypted passwords
 

@@ -133,6 +133,8 @@ Configure the Gateway to communicate with the Control Plane.
         
         Gateway will publish gateway invocation related events to the TM using the `apim.throttling.url_group`. Traffic managers will receive these events and throttle decisions will be published to gateway. To receive these throttle decisions, gateway has to create a JMS connection using `throttle_decision_endpoints` and listen.
 
+        {!includes/deploy/enable-jms-ssl-for-gw-tm.md!}
+
         The same JMS connection will be used to subscribe for events received from the event hub. Gateway will subscribe for API/Application/Subscription and Keymanager operations related events. `service_url` points to the internal API resides in the event hub that is used to pull artifacts and information from the db.
 
 3. Add the following configuration to the deployment.toml file to configure the Gateway environment. Change the `gateway_labels` property based on your Gateway environment.
@@ -360,6 +362,9 @@ Configure the Control Plane to communicate with the Gateway.
 
     **Add Event Hub Configurations**:
 
+    !!! Info
+            {!includes/deploy/enable-jms-ssl-for-eventhub.md!}
+
     Add event hub configurations only if you have High Availability for the Control Plane. 
 
     ```toml
@@ -434,6 +439,15 @@ Configure the Control Plane to communicate with the Gateway.
     1. Create a copy of the API-M Control Plane node that you just configured. This is the second node of the API-M Control Plane cluster.
 
     2. Configure a load balancer fronting the two Control Plane nodes in your deployment. For instructions, see [Configuring the Proxy Server and the Load Balancer]({{base_path}}/install-and-setup/setup/setting-up-proxy-server-and-the-load-balancer/configuring-the-proxy-server-and-the-load-balancer/).
+
+!!! Note
+    To set an appropriate delay for the heartbeat value when connections remain idle for extended periods, include the following configuration. This controls the frequency of the internal heartbeat sent by the underlying Qpid broker component:
+
+    ```toml
+    [qpid.heartbeat]
+    delay = 1
+    timeout_factor = 3.0
+    ```
 
 #### Sample configuration for the Control Plane
 

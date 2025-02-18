@@ -9,7 +9,7 @@ However, **WSO2 API Controller (apictl)** allows you to create and deploy APIs w
 
 Follow the instructions below to display a list of APIs or API Products in an environment using apictl:
 
-1.  Make sure that the WSO2 API Manager (WSO2 API-M) 4.2.0 version is started and that the 4.2.0 version of apictl is set up.   
+1.  Make sure that the WSO2 API Manager is started and the apictl is set up.   
      For more information, see [Download and Initialize the apictl]({{base_path}}/install-and-setup/setup/api-controller/getting-started-with-wso2-api-controller/#download-and-initialize-the-apictl).
 2.  Log in to the WSO2 API-M in the environment by following the instructions in [Login to an Environment]({{base_path}}/install-and-setup/setup/api-controller/getting-started-with-wso2-api-controller/#login-to-an-environment).
 3.  Run the corresponding apictl command below to get (list) APIs or API Products in an environment.
@@ -60,15 +60,13 @@ Follow the instructions below to display a list of APIs or API Products in an en
                 When using the `apictl get apis -e dev` command, `-q` or `--query` optional flag can be used to 
                 search for APIs.
                 You can search in attributes by using a `:` modifier. Supported attribute modifiers are **name**, 
-                **version**, **provider**, **context**, **status**, **description**, **subcontext**, **doc** and 
-                **label**.  You can also use multiple modifiers specified by multiple `-q` or `--query` flags in the same command. When using multiple modifiers, make sure to separate them with space. 
+                **version**, **provider**, **context**, **status**, **description**, **subcontext** and **doc**. You can also use multiple modifiers specified by multiple `-q` or `--query` flags in the same command. When using multiple modifiers, make sure to separate them with space. 
                 
                 **Examples:**
                    
                 -  `provider:wso2` will match an API if the provider of the API contains `wso2`.
                 -  `'provider:"wso2"'` will match an API if the provider of the API is exactly `wso2`.
                 -  `status:PUBLISHED` will match an API if the API is in PUBLISHED state.
-                -  `label:external` will match an API if it contains a Microgateway label called "external".
                 -  `name:pizzashack version:v1` will match an API if the name of the API is pizzashack and version is v1.
                 
                 If no advanced attribute modifier has been specified, the API names containing the search term will 
@@ -129,7 +127,7 @@ Follow the instructions below to display a list of APIs or API Products in an en
 
 Follow the instructions below to display a list of revisions created for an API or API Product in an environment using apictl:
 
-1.  Make sure that the WSO2 API-M 4.2.0 version is started and that the 4.2.0 version of apictl is set up.   
+1.  Make sure that the WSO2 API-M is started and the apictl is set up.   
      For more information, see [Download and Initialize the apictl]({{base_path}}/install-and-setup/setup/api-controller/getting-started-with-wso2-api-controller/#download-and-initialize-the-apictl).
 2.  Log in to the WSO2 API-M in the environment by following the instructions in [Login to an Environment]({{base_path}}/install-and-setup/setup/api-controller/getting-started-with-wso2-api-controller/#login-to-an-environment).
 3.  Run the corresponding apictl command below to get (list) revisions for the required API or API Product in an
@@ -239,7 +237,7 @@ Follow the instructions below to display a list of revisions created for an API 
 
 Follow the instructions below to delete an API or Application in an environment using apictl:
 
-1.  Make sure that the WSO2 API-M 4.2.0 version is started and that the 4.2.0 version of apictl is set up.   
+1.  Make sure that the WSO2 API-M is started and the apictl is set up.   
 For more information, see [Download and Initialize the apictl]({{base_path}}/install-and-setup/setup/api-controller/getting-started-with-wso2-api-controller/#download-and-initialize-the-apictl).
 2.  Log in to the WSO2 API-M in the environment by following the instructions in [Login to an Environment]({{base_path}}/install-and-setup/setup/api-controller/getting-started-with-wso2-api-controller/#login-to-an-environment).
 3.  Run the corresponding apictl command below to delete an API or an API Product in an environment.
@@ -328,7 +326,7 @@ For more information, see [Download and Initialize the apictl]({{base_path}}/ins
 
 Follow the instructions below to change the status of an API or API Product in an environment using apictl:
 
-1.  Make sure that the WSO2 API-M 4.2.0 version is started and that the 4.2.0 version of apictl is set up.   
+1.  Make sure that the WSO2 API-M is started and the apictl is set up.   
 For more information, see [Download and Initialize the apictl]({{base_path}}/install-and-setup/setup/api-controller/getting-started-with-wso2-api-controller/#download-and-initialize-the-apictl).
 2.  Log in to the WSO2 API-M in the environment by following the instructions in [Login to an Environment]({{base_path}}/install-and-setup/setup/api-controller/getting-started-with-wso2-api-controller/#login-to-an-environment).
 3.  Run the corresponding apictl command below to change the status of an API or API Product in an environment.
@@ -423,7 +421,7 @@ For more information, see [Download and Initialize the apictl]({{base_path}}/ins
 
 Follow the instructions below to undeploy a revision of an API from a selected gateway environment using apictl:
 
-1.  Make sure that the WSO2 API-M 4.2.0 version is started and that the 4.2.0 version of apictl is set up.   
+1.  Make sure that the WSO2 API-M is started and the apictl is set up.   
 For more information, see [Download and Initialize the apictl]({{base_path}}/install-and-setup/setup/api-controller/getting-started-with-wso2-api-controller/#download-and-initialize-the-apictl).
 2.  Log in to the WSO2 API-M in the environment by following the instructions in [Login to an Environment]({{base_path}}/install-and-setup/setup/api-controller/getting-started-with-wso2-api-controller/#login-to-an-environment).
 3.  Run the corresponding apictl command below to undeploy the revision from a gateway environment.
@@ -521,7 +519,7 @@ For more information, see [Download and Initialize the apictl]({{base_path}}/ins
 
 Follow the instructions below to get the logging details of APIs or an API in an environment using apictl:
 
-1.  Make sure that the WSO2 API-M 4.2.0 version is started and that the 4.2.0 version of apictl is set up.   
+1.  Make sure that the WSO2 API-M is started and the apictl is set up.   
 For more information, see [Download and Initialize the apictl]({{base_path}}/install-and-setup/setup/api-controller/getting-started-with-wso2-api-controller/#download-and-initialize-the-apictl).
 2.  Log in to the WSO2 API-M in the environment by following the instructions in [Login to an Environment]({{base_path}}/install-and-setup/setup/api-controller/getting-started-with-wso2-api-controller/#login-to-an-environment).
 3.  Run the corresponding apictl command below to get the logging details of APIs or an API in an environment.
@@ -587,7 +585,7 @@ For more information, see [Download and Initialize the apictl]({{base_path}}/ins
 
 Follow the instructions below to add/change/remove the log level of an API in an environment using apictl:
 
-1.  Make sure that the WSO2 API-M 4.2.0 version is started and that the 4.2.0 version of apictl is set up.   
+1.  Make sure that the WSO2 API-M is started and the apictl is set up.   
 For more information, see [Download and Initialize the apictl]({{base_path}}/install-and-setup/setup/api-controller/getting-started-with-wso2-api-controller/#download-and-initialize-the-apictl).
 2.  Log in to the WSO2 API-M in the environment by following the instructions in [Login to an Environment]({{base_path}}/install-and-setup/setup/api-controller/getting-started-with-wso2-api-controller/#login-to-an-environment).
 3.  Run the corresponding apictl command below to set the log level of an API in an environment.

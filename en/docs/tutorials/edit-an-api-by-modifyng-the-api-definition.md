@@ -6,7 +6,7 @@ WSO2 API Manager has an integrated Swagger Editor, which is part of the Swagger 
 
 The [Swagger Editor](https://github.com/swagger-api/swagger-editor) is a dependency-free collection of HTML, JavaScript, and CSS that dynamically generate documentation from a Swagger-compliant API. Swagger-compliant APIs give you interactive documentation, client SDK generation, and more discoverability. The Swagger Editor has JSON code and its UI facilitates easier code indentation, keyword highlighting and shows syntax errors on the fly. You can add resource parameters, summaries and descriptions to your APIs using the Swagger Editor.
 
-API Manager supports [Open API 3.0](https://github.com/OAI/OpenAPI-Specification/blob/master/versions/3.0.0.md) and [Open API 2.0](https://github.com/OAI/OpenAPI-Specification/blob/master/versions/2.0.md) specifications and you can simply create, import, edit and consume the APIs defined in both specifications.
+API Manager supports [Open API 3.1.0](https://github.com/OAI/OpenAPI-Specification/blob/main/versions/3.1.0.md), [Open API 3.0](https://github.com/OAI/OpenAPI-Specification/blob/master/versions/3.0.0.md) and [Open API 2.0](https://github.com/OAI/OpenAPI-Specification/blob/master/versions/2.0.md) specifications and you can simply create, import, edit and consume the APIs defined in both specifications.
 
 In this tutorial, let's see how you can add interactive documentation to an API by directly editing the Swagger code via the API Publisher UI.
 
@@ -166,44 +166,36 @@ In this tutorial, let's see how you can add interactive documentation to an API 
                If you get an error after adding the API definition in the Swagger UI, first check the indentation of the code that you added, which defines the API, because Swagger throw errors if the indention is not correct.
                 ![]({{base_path}}/assets/img/learn/tutorials/rest-api-definition-pizzashack-indentation.png)
 
-7.  Add a summary and description for the GET method.
+       6. Add a summary and description for the GET method.
 
-    1.  Click **Edit Source** and add the following code, which defines a summary and description, to the GET method.
+           1.  Click **Edit Source** and add the following code, which defines a summary and description, to the GET method.
 
-        ``` java
-        summary: "Get Order details"
-        description: "Get details of an order by order Id"
-        ```
+               ``` java
+               summary: "Get Order details"
+               description: "Get details of an order by order Id"
+               ```
 
-        ![]({{base_path}}/assets/img/learn/tutorials/pizzashack-api-get-summary-and-descrption.png)
+               ![]({{base_path}}/assets/img/learn/tutorials/pizzashack-api-get-summary-and-descrption.png)
 
-    2.  Click **Apply Changes**.
-        The summary and description of the GET method that you added is visible when you expand the GET method in the API Publisher.
-        ![]({{base_path}}/assets/img/learn/tutorials/pizza-shack-api-get-summary-and-description-updated.png)
+           2.  Click **Apply Changes**.
+                  The summary and description of the GET method that you added is visible when you expand the GET method in the API Publisher.
+                  ![]({{base_path}}/assets/img/learn/tutorials/pizza-shack-api-get-summary-and-description-updated.png)
 
-8.  Change the title of the API.
+           !!! important
+           Starting from WSO2 API Manager 4.x, the platform ensures that the info.version and info.title fields in the OpenAPI (Swagger) specification are automatically aligned with the version and title of the API that is published on the API Manager. This approach ensures that the version and title in the Swagger definition accurately correspond to the actual API deployed in the API Gateway.
 
-    1.  Click **Edit Source**, and add the following code in the Swagger UI.
-        This is the title that is visible to the consumers in the Developer Portal after the API is published.
 
-        ``` java
-        info:
-            title: PizzaShackAPI
-        ```
-
-        ![]({{base_path}}/assets/img/learn/tutorials/pizza-shack-api-change-api-title.png)
-        You can see how this change is reflected in the Developer Portal in step 12.
-
-    2.  Click **Apply Changes** and complete the API creation process.
-
-10. Complete the rest of the API creation process.
+7. Complete the rest of the API creation process.
     For more information, see step 7 onwards under [Create a REST API]({{base_path}}/design/create-api/create-rest-api/create-a-rest-api/) section and Published in the [Publish an API]({{base_path}}/deploy-and-publish/publish-on-dev-portal/publish-an-api/) section.
 
-11. Click **View in Developer Portal** and the API you just published appears.
-12. Click **Try Out**.
+8. Click **View in Developer Portal** and the API you just published appears.
+9. Click **Try Out**.
     Note that the changes that you made earlier now appear in the Developer Portal for consumers.
     ![]({{base_path}}/assets/img/learn/tutorials/pizza-shack-api-get-dev-portal.png)
     ![]({{base_path}}/assets/img/learn/tutorials/pizza-shack-api-put-dev-portal.png)
 
 
 In this tutorial, you have seen how the integrated Swagger Editor can be used to design, describe, and document your API, so that the API consumers get a better understanding of the API's functionality.
+
+!!! note
+    Vendor extension-related entries (such as `x-auth-type` and `x-throttling-tier`) cannot be modified directly through the Swagger Editor, as these are tightly integrated with WSO2’s internal functionalities.

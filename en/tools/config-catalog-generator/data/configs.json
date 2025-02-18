@@ -567,6 +567,30 @@
                                 "Default"
                             ],
                             "description": "Array of the labels that the gateway is going to subscribe to"
+                        },
+                        {
+                            "name": "deployment_retry_duration",
+                            "type": "int",
+                            "required": false,
+                            "default": "15000",
+                            "possible": "",
+                            "description": "The initial duration in milliseconds to wait before retrying a failed deployment"
+                        },
+                        {
+                            "name": "max_retry_count",
+                            "type": "int",
+                            "required": false,
+                            "default": "5",
+                            "possible": "",
+                            "description": "The maximum number of retry attempts for deploying artifacts in case of failures."
+                        },
+                        {
+                            "name": "retry_progression_factor",
+                            "type": "float",
+                            "required": false,
+                            "default": "2.0",
+                            "possible": "",
+                            "description": "The factor by which the retry duration increases after each failed deployment attempt."
                         }
                     ]
                 }
@@ -3370,87 +3394,39 @@
                 {
                     "name": "transport.passthru_http",
                     "required": false,
-                    "description": "This configuration header is required for configuring the parameters that are used for tuning the default HTTP/S passthrough transport of the API Manager in non-blocking mode.",
+                    "description": "This configuration header is required for configuring the parameters that are used for tuning the default HTTP passthrough transport of the API Manager in non-blocking mode.",
                     "params": [
                         {
-                            "name": "http.socket.timeout",
-                            "type": "integer",
-                            "required": true,
-                            "default": "180000",
-                            "possible": "-",
-                            "description": "This is the maximum period of inactivity between two consecutive data packets, specified in milliseconds."
-                        },
-                        {
-                            "name": "worker_pool_size_core",
-                            "type": "integer",
-                            "required": true,
-                            "default": "400",
-                            "possible": "-",
-                            "description": "The API Manager uses a thread pool executor to create threads and to handle incoming requests. This parameter controls the number of core threads used by the executor pool. If you increase this parameter value, the number of requests received that can be processed by the gateway increases, hence, the throughput also increases. The nature of the integration scenario and the number of concurrent requests received by the gateway are the main factors that helps to determine this parameter."
-                        },
-                        {
-                            "name": "worker_pool_size_max",
-                            "type": "integer",
-                            "required": true,
-                            "default": "400",
-                            "possible": "-",
-                            "description": "This is the maximum number of threads in the worker thread pool. Specifying a maximum limit avoids performance degradation that can occur due to context switching. If the specified value is reached, you will see the error 'SYSTEM ALERT - HttpServerWorker threads were in BLOCKED state during last minute'. This can occur due to an extraordinarily high number of requests sent at a time when all the threads in the pool are busy, and the maximum number of threads is already reached."
-                        },
-                        {
-                            "name": "worker_pool_queue_length",
-                            "type": "integer",
-                            "required": true,
-                            "default": "-1",
-                            "possible": "-",
-                            "description": "This defines the length of the queue that is used to hold runnable tasks to be executed by the worker pool. The thread pool starts queuing jobs when all the existing threads are busy, and the pool has reached the maximum number of threads. The value for this parameter should be -1 to use an unbound queue. If a bound queue is used and the queue gets filled to its capacity, any further attempts to submit jobs fail causing some messages to be dropped by Synapse."
-                        },
-                        {
-                            "name": "io_buffer_size",
-                            "type": "integer",
-                            "required": true,
-                            "default": "16384",
-                            "possible": "-",
-                            "description": "This is the value of the memory buffer allocated when reading data into the memory from the underlying socket/file channels. You should leave this property set to the default value."
-                        },
-                        {
-                            "name": "http.max.connection.per.host.port",
-                            "type": "integer",
-                            "required": true,
-                            "default": "32767",
-                            "possible": "-",
-                            "description": "This defines the maximum number of connections allowed per host port."
-                        },
-                        {
-                            "name": "http.user.agent.preserve",
+                            "name": "listener.enable",
                             "type": "boolean",
-                            "required": true,
-                            "default": "\"true\" or \"false\"",
-                            "possible": "-",
-                            "description": "If this parameter is set to true, the user-agent HTTP header of messages passing through the integrator is preserved and printed in the outgoing message."
-                        },
-                        {
-                            "name": "http.headers.preserve",
-                            "type": "string",
-                            "required": true,
-                            "default": "Content-Type",
-                            "possible": "-",
-                            "description": "This parameter allows you to specify the header field/s of messages passing through the EI that need to be preserved and printed in the outgoing message such as Location, CommonsHTTPTransportSenderKeep-Alive, Date, Server, User-Agent, and Host. For example, http.headers.preserve = Location, Date, Server."
-                        },
-                        {
-                            "name": "disable_connection_keepalive",
-                            "type": "boolean",
-                            "required": true,
-                            "default": false,
+                            "required": false,
+                            "default": true,
                             "possible": "\"true\" or \"false\"",
-                            "description": "If this parameter is set to true, the HTTP connections with the back end service are closed soon after the request is served. It is recommended to set this property to false so that the integrator does not have to create a new connection every time it sends a request to a back-end service. However, you may need to close connections after they are used if the back-end service does not provide sufficient support for keep-alive connections."
+                            "description": "Enable the HTTP passthrough transport listener."
                         },
                         {
                             "name": "listener.parameters.port",
                             "type": "integer",
-                            "required": true,
-                            "default": "8290",
+                            "required": false,
+                            "default": "8280",
                             "possible": "-",
                             "description": "The port on which this transport receiver should listen for incoming messages."
+                        },
+                        {
+                            "name": "listener.parameters.non-blocking",
+                            "type": "string",
+                            "required": false,
+                            "default": "true",
+                            "possible": "\"true\" or \"false\"",
+                            "description": "Enable non-blocking IO."
+                        },
+                        {
+                            "name": "listener.parameters.httpGetProcessor",
+                            "type": "string",
+                            "required": false,
+                            "default": "org.wso2.carbon.mediation.transport.handlers.PassThroughNHttpGetProcessor",
+                            "possible": "-",
+                            "description": "The class that processes HTTP GET requests."
                         },
                         {
                             "name": "listener.parameters.WSDLEPRPrefix",
@@ -3461,12 +3437,91 @@
                             "description": "A URL prefix which will be added to all service EPRs and EPRs in WSDLs etc."
                         },
                         {
+                            "name": "sender.enable",
+                            "type": "boolean",
+                            "required": false,
+                            "default": "true",
+                            "possible": "\"true\" or \"false\"",
+                            "description": "Enable the HTTP passthrough transport sender."
+                        },
+                        {
+                            "name": "sender.warnOnHTTP500",
+                            "type": "string",
+                            "required": true,
+                            "default": "-",
+                            "possible": "-",
+                            "description": "If the outgoing messages should be sent through an HTTP proxy server, use this parameter to specify the target proxy."
+                        },
+                        {
+                            "name": "sender.http.proxyHost",
+                            "type": "string",
+                            "required": false,
+                            "default": "-",
+                            "possible": "-",
+                            "description": "If the outgoing messages should be sent through an HTTP proxy server, use this parameter to specify the target proxy."
+                        },
+                        {
+                            "name": "sender.http.proxyPort",
+                            "type": "integer",
+                            "required": false,
+                            "default": "-",
+                            "possible": "-",
+                            "description": "The port through which the target proxy (specified by the 'sender.proxy_port' parameter) accepts HTTP traffic."
+                        },
+                        {
+                            "name": "sender.http.nonProxyHosts",
+                            "type": "string",
+                            "required": true,
+                            "default": "-",
+                            "possible": "-",
+                            "description": "The list of hosts to which the HTTP traffic should be sent directly without going through the proxy. When trying to add multiple hostnames along with an asterisk in order to define a set of sub-domains for non-proxy hosts, you need to add a period before the asterisk when configuring proxy server."
+                        },
+                        {
+                            "name": "sender.hostname_verifier",
+                            "type": "string",
+                            "required": true,
+                            "default": "-",
+                            "possible": "-",
+                            "description": "The list of hosts to which the HTTP traffic should be sent directly without going through the proxy. When trying to add multiple hostnames along with an asterisk in order to define a set of sub-domains for non-proxy hosts, you need to add a period before the asterisk when configuring proxy server."
+                        }
+                    ]
+                },
+                {
+                    "name": "transport.passthru_https",
+                    "required": false,
+                    "description": "This configuration header is required for configuring the parameters that are used for tuning the default HTTPS passthrough transport of the API Manager in non-blocking mode.",
+                    "params": [
+                        {
+                            "name": "listener.enable",
+                            "type": "boolean",
+                            "required": false,
+                            "default": true,
+                            "possible": "\"true\" or \"false\"",
+                            "description": "Enable the HTTPS passthrough transport listener."
+                        },
+                        {
                             "name": "listener.parameters.port",
                             "type": "integer",
                             "required": true,
-                            "default": "8253",
+                            "default": "8243",
                             "possible": "-",
                             "description": "The secured port on which this transport receiver should listen for incoming messages."
+                        },
+                        {
+                            "name": "listener.parameters.httpGetProcessor",
+                            "type": "string",
+                            "required": false,
+                            "default": "org.wso2.carbon.mediation.transport.handlers.PassThroughNHttpGetProcessor",
+                            "possible": "-",
+                            "description": "The class that processes HTTP GET requests."
+                        },
+                        {
+                            "name": "listener.parameters.WSDLEPRPrefix",
+                            "type": "string",
+                            "required": true,
+                            "default": "-",
+                            "possible": "-",
+                            "description": "A URL prefix which will be added to all service EPRs and EPRs in WSDLs etc."
                         },
                         {
                             "name": "listener.key_store.file_name",
@@ -3523,14 +3578,6 @@
                             "default": "wso2carbon",
                             "possible": "-",
                             "description": "The password of the keystore file that is used as the trust store. By default, the product's trust store is configured for this purpose."
-                        },
-                        {
-                            "name": "sender.warnOnHTTP500",
-                            "type": "string",
-                            "required": true,
-                            "default": "-",
-                            "possible": "-",
-                            "description": "If the outgoing messages should be sent through an HTTP proxy server, use this parameter to specify the target proxy."
                         },
                         {
                             "name": "sender.http.proxyHost",
@@ -3621,6 +3668,109 @@
                             "description": "The password of the keystore file that is used as the trust store. By default, the product's trust store is configured for this purpose."
                         }
                     ]
+                },
+                {
+                    "name": "passthru_http",
+                    "required": false,
+                    "description": "This configuration header is required for configuring the parameters that are used for tuning the default HTTP passthrough transport of the API Manager in non-blocking mode.",
+                    "params": [
+                        {
+                            "name": "http.socket.timeout",
+                            "type": "integer",
+                            "required": true,
+                            "default": "180000",
+                            "possible": "-",
+                            "description": "This is the maximum period of inactivity between two consecutive data packets, specified in milliseconds."
+                        },
+                        {
+                            "name": "worker_pool_size_core",
+                            "type": "integer",
+                            "required": true,
+                            "default": "400",
+                            "possible": "-",
+                            "description": "The API Manager uses a thread pool executor to create threads and to handle incoming requests. This parameter controls the number of core threads used by the executor pool. If you increase this parameter value, the number of requests received that can be processed by the gateway increases, hence, the throughput also increases. The nature of the integration scenario and the number of concurrent requests received by the gateway are the main factors that helps to determine this parameter."
+                        },
+                        {
+                            "name": "worker_pool_size_max",
+                            "type": "integer",
+                            "required": true,
+                            "default": "400",
+                            "possible": "-",
+                            "description": "This is the maximum number of threads in the worker thread pool. Specifying a maximum limit avoids performance degradation that can occur due to context switching. If the specified value is reached, you will see the error 'SYSTEM ALERT - HttpServerWorker threads were in BLOCKED state during last minute'. This can occur due to an extraordinarily high number of requests sent at a time when all the threads in the pool are busy, and the maximum number of threads is already reached."
+                        },
+                        {
+                            "name": "worker_pool_queue_length",
+                            "type": "integer",
+                            "required": true,
+                            "default": "-1",
+                            "possible": "-",
+                            "description": "This defines the length of the queue that is used to hold runnable tasks to be executed by the worker pool. The thread pool starts queuing jobs when all the existing threads are busy, and the pool has reached the maximum number of threads. The value for this parameter should be -1 to use an unbound queue. If a bound queue is used and the queue gets filled to its capacity, any further attempts to submit jobs fail causing some messages to be dropped by Synapse."
+                        },
+                        {
+                            "name": "io_buffer_size",
+                            "type": "integer",
+                            "required": true,
+                            "default": "16384",
+                            "possible": "-",
+                            "description": "This is the value of the memory buffer allocated when reading data into the memory from the underlying socket/file channels. You should leave this property set to the default value."
+                        },
+                        {
+                            "name": "http.max.connection.per.host.port",
+                            "type": "integer",
+                            "required": true,
+                            "default": "32767",
+                            "possible": "-",
+                            "description": "This defines the maximum number of connections allowed per host port."
+                        },
+                        {
+                            "name": "'http.user.agent.preserve'",
+                            "type": "boolean",
+                            "required": true,
+                            "default": "\"true\" or \"false\"",
+                            "possible": "-",
+                            "description": "If this parameter is set to true, the user-agent HTTP header of messages passing through the integrator is preserved and printed in the outgoing message."
+                        },
+                        {
+                            "name": "'http.headers.preserve'",
+                            "type": "string",
+                            "required": true,
+                            "default": "Content-Type",
+                            "possible": "-",
+                            "description": "This parameter allows you to specify the header field/s of messages passing through the EI that need to be preserved and printed in the outgoing message such as Location, CommonsHTTPTransportSenderKeep-Alive, Date, Server, User-Agent, and Host. For example, http.headers.preserve = Location, Date, Server."
+                        },
+                        {
+                            "name": "disable_connection_keepalive",
+                            "type": "boolean",
+                            "required": true,
+                            "default": false,
+                            "possible": "\"true\" or \"false\"",
+                            "description": "This parameter allows you to specify the header field/s of messages passing through the APIM that need to be preserved and printed in the outgoing message such as Location, CommonsHTTPTransportSenderKeep-Alive, Date, Server, User-Agent, and Host."
+                        },
+                        {
+                            "name": "max_open_connections",
+                            "type": "integer",
+                            "required": false,
+                            "default": "-1",
+                            "possible": "-",
+                            "description": "This property allows connection throttling to restrict the number of simultaneously opened connections. That is, simultaneously opened incoming connections will be restricted by the specified value. To disable throttling, delete the ‘max_open_connections’ setting or set it to -1."
+                        },
+                        {
+                            "name": "force_xml_validation",
+                            "type": "boolean",
+                            "required": false,
+                            "default": false,
+                            "possible": "\"true\" or \"false\"",
+                            "description": "This property validates badly formed XML messages by building the whole XML document."
+                        },
+                        {
+                            "name": "force_json_validation",
+                            "type": "boolean",
+                            "required": false,
+                            "default": false,
+                            "possible": "\"true\" or \"false\"",
+                            "description": "This property validates JSON messages by parsing the input message."
+                        }
+                    ]
                 }
             ],
             "exampleFile": "_http-passthrough-transport.toml"
@@ -3629,82 +3779,10 @@
             "title": "HTTP/S Pass-through Transport (blocking mode)",
             "options": [
                 {
-                    "name": "transport.passthru_https",
+                    "name": "transport.blocking_http",
                     "required": false,
-                    "description": "This configuration header is required for configuring the parameters that are used for configuring the default HTTP/S passthrough transport in blocking mode",
+                    "description": "This configuration header is required for configuring the parameters that are used for configuring the default HTTP passthrough transport in blocking mode",
                     "params": [
-                        {
-                            "name": "listener.enable",
-                            "type": "boolean",
-                            "required": true,
-                            "default": "true",
-                            "possible": "\"true\" or \"false\"",
-                            "description": "This parameter is used for enabling the HTTP passthrough transport listener in blocking mode."
-                        },
-                        {
-                            "name": "listener.parameters.port",
-                            "type": "integer",
-                            "required": true,
-                            "default": "8200",
-                            "possible": "-",
-                            "description": "The port on which this transport receiver should listen for incoming messages."
-                        },
-                        {
-                            "name": "listener.hostname",
-                            "type": "string",
-                            "required": false,
-                            "default": "-"
-                        },
-                        {
-                            "name": "listener.origin_server",
-                            "type": "string",
-                            "required": false,
-                            "default": "-"
-                        },
-                        {
-                            "name": "listener.request_timeout",
-                            "type": "string",
-                            "required": false,
-                            "default": "-"
-                        },
-                        {
-                            "name": "listener.request_tcp_no_delay",
-                            "type": "string",
-                            "required": false,
-                            "default": "-"
-                        },
-                        {
-                            "name": "listener.request_core_thread_pool_size",
-                            "type": "string",
-                            "required": false,
-                            "default": "-"
-                        },
-                        {
-                            "name": "listener.request_max_thread_pool_size",
-                            "type": "string",
-                            "required": false,
-                            "default": "-"
-                        },
-                        {
-                            "name": "listener.thread_keepalive_time",
-                            "type": "string",
-                            "required": false,
-                            "default": "-"
-                        },
-                        {
-                            "name": "listener.thread_keepalive_time_unit",
-                            "type": "string",
-                            "required": false,
-                            "default": "-"
-                        },
-                        {
-                            "name": "sender.enable",
-                            "type": "boolean",
-                            "required": true,
-                            "default": "true",
-                            "possible": "\"true\" or \"false\"",
-                            "description": "This parameter is used for enabling the HTTP passthrough transport sender in blocking mode."
-                        },
                         {
                             "name": "sender.parameters.cacheHttpClient",
                             "type": "boolean",
@@ -3746,7 +3824,7 @@
                             "description": "If following is set to 'true', optional action part of the Content-Type will not be added to the SOAP 1.2 messages."
                         },
                         {
-                            "name": "sender.http.proxyHost",
+                            "name": "sender.parameters.'http.proxyHost'",
                             "type": "string",
                             "required": false,
                             "default": "-",
@@ -3754,7 +3832,7 @@
                             "description": "If the outgoing messages should be sent through an HTTP proxy server (in blocking mode), use this parameter to specify the target proxy."
                         },
                         {
-                            "name": "sender.http.proxyPort",
+                            "name": "sender.parameters.'http.proxyPort'",
                             "type": "integer",
                             "required": false,
                             "default": "-",
@@ -3762,7 +3840,62 @@
                             "description": "The port through which the target proxy (specified by the 'sender.proxy_host' parameter) accepts HTTP traffic (in blocking mode)."
                         },
                         {
-                            "name": "sender.http.proxyHost",
+                            "name": "sender.parameters.'http.nonProxyHosts'",
+                            "type": "string",
+                            "required": false,
+                            "default": "-",
+                            "possible": "-",
+                            "description": "The list of hosts to which the HTTP traffic should be sent directly without going through the proxy. When trying to add multiple hostnames along with an asterisk in order to define a set of sub-domains for non-proxy hosts, you need to add a period before the asterisk when configuring proxy server."
+                        }
+                    ]
+                },
+                {
+                    "name": "transport.blocking_https",
+                    "required": false,
+                    "description": "This configuration header is required for configuring the parameters that are used for configuring the default HTTPS passthrough transport in blocking mode",
+                    "params": [
+                        {
+                            "name": "sender.parameters.cacheHttpClient",
+                            "type": "boolean",
+                            "required": true,
+                            "default": "-",
+                            "possible": "\"true\" or \"false\"",
+                            "description": "This parameter is used to specify whether the HTTPS client should save cache entries and the cached responses in the JVM memory or not."
+                        },
+                        {
+                            "name": "sender.parameters.Transfer-Encoding",
+                            "type": "string",
+                            "required": true,
+                            "default": "-",
+                            "possible": "\"chunked\" or \"true\"",
+                            "description": "This parameter enables you to specify whether the data sent should be chunked. It can be used instead of the Content-Length header if you want to upload data without having to know the amount of data to be uploaded in advance."
+                        },
+                        {
+                            "name": "sender.parameters.defaultMaxConnectionsPerHost",
+                            "type": "integer",
+                            "required": true,
+                            "default": "-",
+                            "possible": "-",
+                            "description": "The maximum number of connections that will be created per host server by the client. If the backend server is slow, the connections in use at a given time will take a long time to be released and added back to the connection pool. As a result, connections may not be available for some requests. In such situations, it is recommended to increase the value for this parameter."
+                        },
+                        {
+                            "name": "sender.parameters.OmitSOAP12Action",
+                            "type": "boolean",
+                            "required": true,
+                            "default": "-",
+                            "possible": "\"true\" or \"false\"",
+                            "description": "If following is set to 'true', optional action part of the Content-Type will not be added to the SOAP 1.2 messages."
+                        },
+                        {
+                            "name": "sender.parameters.SO_TIMEOUT",
+                            "type": "integer",
+                            "required": true,
+                            "default": "-",
+                            "possible": "60000",
+                            "description": "If following is set to 'true', optional action part of the Content-Type will not be added to the SOAP 1.2 messages."
+                        },
+                        {
+                            "name": "sender.parameters.'http.proxyHost'",
                             "type": "string",
                             "required": false,
                             "default": "-",
@@ -3770,12 +3903,20 @@
                             "description": "If the outgoing messages should be sent through an HTTPS proxy server (in blocking mode), use this parameter to specify the target proxy."
                         },
                         {
-                            "name": "sender.http.proxyPort",
+                            "name": "sender.parameters.'http.proxyPort'",
                             "type": "integer",
                             "required": false,
                             "default": "-",
                             "possible": "-",
-                            "description": "The port through which the target proxy (specified by the 'sender.secured_proxy_host' parameter) accepts HTTPS traffic (in blocking mode)."
+                            "description": "The port through which the target proxy (specified by the 'sender.proxy_host' parameter) accepts HTTPS traffic (in blocking mode)."
+                        },
+                        {
+                            "name": "sender.parameters.'http.nonProxyHosts'",
+                            "type": "string",
+                            "required": false,
+                            "default": "-",
+                            "possible": "-",
+                            "description": "The list of hosts to which the HTTPS traffic should be sent directly without going through the proxy. When trying to add multiple hostnames along with an asterisk in order to define a set of sub-domains for non-proxy hosts, you need to add a period before the asterisk when configuring proxy server."
                         }
                     ]
                 }
@@ -5653,6 +5794,37 @@
                 }
             ],
             "exampleFile": "transport-headers.toml"
+        },
+
+        {
+            "title": "Global handler configurations",
+            "options": [
+                {
+                    "name": "synapse_handlers.custom_handler_name",
+                    "required": false,
+                    "description": "configuration used to define or enable disable global handler.",
+                    "params": [
+                        {
+                            "name": "enabled",
+                            "type": "boolean",
+                            "required": false,
+                            "default": "",
+                            "possible": "",
+                            "description": "Enable or disable a defined global handler."
+                        },
+                        {
+                            "name": "class",
+                            "type": "string",
+                            "required": true,
+                            "default": "",
+                            "possible": "",
+                            "description": "Fully qualified class name of the global handler."
+                        }
+                    ]
+                }
+            ],
+            "exampleFile": "synapse_handlers.toml"
         }
     ]
 }
+

@@ -34,7 +34,7 @@ If you have difficulty in setting up any WSO2 product in a specific platform or 
 
 ## System requirements
 
-Check the following system requirements for the API-M and Micro Integrator runtimes.
+Check the following system requirements for the API-M.
 
 ### API-M runtime
 
@@ -83,70 +83,6 @@ Three WSO2 product instances can be run in 1 EC2 Extra-Large instance. Based on 
 </td></tr>
 </table>
 </html>
-
-### Micro Integrator runtime
-
-<table>
-<tr> 
-<th><b>Type</b></th>
-<th> <b>Requirement</th>
-</tr>
-  <tr>
-    <td>
-      <b>Docker</b>
-    </td>
-    <td>
-      <ul>
-        <li>
-          <code>~512</code> MB heap size for one Micro Integrator instance. This is generally sufficient for processing typical SOAP messages. However, the requirements vary with larger message sizes and the number of messages processed concurrently.
-        </li>
-        <li>
-          1 GB memory for a Docker container.
-        </li>
-        <li>
-          Minimum 0.5 core per Micro Integrator Docker instance.
-        </li>
-      </ul>
-    </td>
-  </tr>
-  <tr>
-    <td>
-      <b>Virtual Machine (VM)/Physical</b>
-    </td>
-    <td>
-      <ul>
-        <li>
-          Minimum 0.5 core (1.0-1.2 GHz Opteron/Xeon processor).
-        </li>
-        <li>
-          1 GB RAM for JVM.
-        </li>
-        <li>
-          <code>~512</code> MB heap size. This is generally sufficient for processing typical SOAP messages. However, the requirements vary with larger message sizes and the number of messages processed concurrently.
-        </li>
-      </ul>
-    </td>
-  </tr>
-</table>
-
-### Streaming Integrator runtime
-
-<table>
-<tr> 
-<th><b>Type</b></th>
-<th> <b>Requirement</th>
-</tr>
-<tr>
-<td>
-<b>Virtual Machine (VM)/</br>Physical/</br>Docker</b>
-</td>
-<td>
-<ul><li>You require a minimum of one CPU with 2 cores. It is recommended to have a CPU with 4 cores.</li>
-<li>~ 4 GB minimum memory is recommended and ~ 2 GB heap size.</li>                                      
-<li>~ 1 GB minimum disk (excluding space allocated for log files and databases.) </li></ul>
-</td>
-</tr>
-</table>
 
 ## Database storage requirements
 

@@ -25,6 +25,31 @@ The `wso2carbon.jks` keystore file, which is shipped with all WSO2 products, is 
     file_name = "modified-client-truststore.jks"
     password= "modified_password"
     ```
+!!! Important
+    When the key password and the key store password are changed, it is mandatory to update following configurations in the deployment.toml to avoid keystore related errors.
+
+    ```toml
+    [keystore.tls]
+    file_name =  "wso2carbon.jks"
+    type =  "JKS"
+    password =  "<password1>"
+    alias =  "wso2carbon"
+    key_password =  "<password1>"
+
+    [keystore.primary]
+    file_name =  "wso2carbon.jks"
+    type =  "JKS"
+    password =  "<password1>"
+    alias =  "wso2carbon"
+    key_password =  "<password1>"
+
+    [keystore.internal]
+    file_name =  "wso2carbon.jks"
+    type =  "JKS"
+    password =  "<password1>"
+    alias =  "wso2carbon"
+    key_password =  "<password1>"
+    ```
 
 ## Configuring the Primary Keystore
 
