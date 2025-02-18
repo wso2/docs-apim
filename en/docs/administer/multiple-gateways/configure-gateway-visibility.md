@@ -57,11 +57,10 @@ Follow the instructions below to use the `deployment.toml` file, which is the ce
 
    Create a Gateway environment with the following Gateway configurations, which include `Role1` and `Role2` as the visibility allowed roles.
 
-   !!! note
+   !!! note 
+   - When the WSO2 API Manager server is running, the Gateway environments, which you added via the `deployment.toml` file, are displayed in the Gateway environments list page in the Admin Portal in read-only mode.
 
-        - When the WSO2 API Manager server is running, the Gateway environments, which you added via the `deployment.toml` file, are displayed in the Gateway environments list page in the Admin Portal in read-only mode.
-
-    ```toml
+```toml
     [[apim.gateway.environment]]
     name = "us-region"
     display_name = "US Region"
@@ -79,7 +78,7 @@ Follow the instructions below to use the `deployment.toml` file, which is the ce
     https_endpoint = "https://localhost:${https.nio.port}"
     websub_event_receiver_http_endpoint = "http://localhost:9021"
     websub_event_receiver_https_endpoint = "https://localhost:8021"
-    ```
+   ```
 
 3. [Start WSO2 API Manager]({{base_path}}/install-and-setup/install/installing-the-product/running-the-api-m/#starting-the-server).
 
