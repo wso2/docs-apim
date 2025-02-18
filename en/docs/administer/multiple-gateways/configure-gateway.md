@@ -41,8 +41,8 @@ Each Gateway environment definition contains details related to a specific Gatew
              <img src="{{base_path}}/assets/img/deploy/vhost-advanced-settings.png" alt="Advanced VHost settings"
              title="Advanced VHost settings" width="500px" />
          </a>
-
-    !!! note
+       
+!!! note
     - You can change the ports of each protocol of the Virtual Host and add an optional HTTP(s) context.
     - Let's add `gateway` as the HTTP(S) context for the Virtual Host `us.wso2.com`.
     - Add another virtual host `foods.com` by clicking **New VHost** and click **Save** to save the environment.
@@ -57,13 +57,14 @@ Follow the instructions below to use the `deployment.toml` file, which is the ce
 
    Create a Gateway environment with the following Gateway configurations, which include `us.wso2.com` and `foods.com` as the custom VHosts and `food` as the custom context.
 
-    !!! note
+!!! note
     - When the WSO2 API Manager server is running, the Gateway environments, which you added via the `deployment.toml` file, are displayed in the Gateway environments list page in the Admin Portal in read-only mode. 
     - Therefore, ensure to add the VHosts that correspond to the Gateway at the time of adding the Gateway environment itself.
     - If a VHost is not defined, the default VHost details are assigned to the Gateway environment.
     - It is not mandatory to specify a context for the VHost.
 
-    ```toml
+
+   ```toml
     [[apim.gateway.environment]]
     name = "us-region"
     display_name = "US Region"
@@ -97,7 +98,7 @@ Follow the instructions below to use the `deployment.toml` file, which is the ce
     https_endpoint = "https://foods.com:8243"
     websub_event_receiver_http_endpoint = "http://foods.com:9021"
     websub_event_receiver_https_endpoint = "https://foods.com:8021"
-    ```
+   ```
 
 3. [Start WSO2 API Manager]({{base_path}}/install-and-setup/install/installing-the-product/running-the-api-m/#starting-the-server).
 

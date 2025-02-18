@@ -1,13 +1,12 @@
 # Configure Gateway visibility
 
-Access to Gateways can be restricted based on user roles either from the admin portal or via the `deployment.toml` file.
+Access to Gateways can be restricted based on user roles either from the Admin Portal or via the `<API-M_HOME>/repository/conf/deployment.toml` file.
 
-When the permission type for the role-based restriction is set to ALLOW, only users with the specified roles are permitted to use the gateway environment at the dev portal.
+When the permission type for the role-based restriction is set to **ALLOW**, only users with the specified roles are permitted to use the gateway environment at the Developer Portal.
 
-When the permission type for the role-based restriction is set to DENY, users with the specified roles are not allowed to use the gateway environment at the dev portal.
+Similarly, when the permission type for the role-based restriction is set to **DENY**, users with the specified roles are not allowed to use the gateway environment at the Developer Portal.
 
-!!! note 
-
+!!! note
     - When implementing role-based access restrictions, it is important for administrators to exercise caution and be mindful of potential scenarios where users, may not have visibility or access to gateway environments. Kindly be cautious when restricting gateways.
     - A Gateway can possess either a whitelist or a blacklist, but not both simultaneously.
 
@@ -31,7 +30,7 @@ When the permission type for the role-based restriction is set to DENY, users wi
 
       [![Menu to add Gateway environment]({{base_path}}/assets/img/deploy/add-gateway-environment-menu.png)]({{base_path}}/assets/img/deploy/add-gateway-environment-menu.png)
 
-   2. Enter a name, display name, description, visibility and a virtual host.
+   2. Enter a name, display name, description, visibility and a virtual host as follows.
 
       The virtual hosts will define each of the custom hostnames. It is mandatory to specify a VHost when you create a Gateway environment.
 
@@ -41,11 +40,11 @@ When the permission type for the role-based restriction is set to DENY, users wi
 
       [![Menu to add Gateway environment visibility]({{base_path}}/assets/img/deploy/add-gateway-visibility-menu.png)]({{base_path}}/assets/img/deploy/add-gateway-visibility-menu.png)
 
-      The visibility of a Gateway can be set by selecting the permission type. The list of allowed/denied roles should be provided for the ALLOW of DENY types.
-   
-      The default value is set to **Public** and it does not have any visibility restrictions.
+!!! note
+    The visibility of a Gateway can be set by selecting the permission type. The list of allowed/denied roles should be provided for the ALLOW of DENY types.
+    The default value is set to **Public** and it does not have any visibility restrictions.
 
-      [![Gateway environment visibility roles]({{base_path}}/assets/img/deploy/add-gateway-visibility-roles.png)]({{base_path}}/assets/img/deploy/add-gateway-visibility-roles.png)
+[![Gateway environment visibility roles]({{base_path}}/assets/img/deploy/add-gateway-visibility-roles.png)]({{base_path}}/assets/img/deploy/add-gateway-visibility-roles.png)
    
 ## Option 2: Configure visibility for a Gateway environment using the configuration file
 
@@ -57,10 +56,11 @@ Follow the instructions below to use the `deployment.toml` file, which is the ce
 
    Create a Gateway environment with the following Gateway configurations, which include `Role1` and `Role2` as the visibility allowed roles.
 
-   !!! note 
-   - When the WSO2 API Manager server is running, the Gateway environments, which you added via the `deployment.toml` file, are displayed in the Gateway environments list page in the Admin Portal in read-only mode.
+!!! note
+    - When the WSO2 API Manager server is running, the Gateway environments, which you added via the `deployment.toml` file, are displayed in the Gateway environments list page in the Admin Portal in read-only mode.
 
-```toml
+
+   ```toml
     [[apim.gateway.environment]]
     name = "us-region"
     display_name = "US Region"
