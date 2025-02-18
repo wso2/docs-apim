@@ -30,10 +30,7 @@ Each Gateway environment definition contains details related to a specific Gatew
                  |-------------|--------------|-------------------------------------------|--------------|
        | us-region   | US Region    | Gateway environment deployed in the US region. | us.wso2.com  |
 
-         <a href="{{base_path}}/assets/img/deploy/add-gateway-environment.png">
-             <img src="{{base_path}}/assets/img/deploy/add-gateway-environment.png" alt="Add a Gateway Environment"
-             title="Add a Gateway Environment" width="500px" />
-         </a>
+        [![Add a Gateway Environment]({{base_path}}/assets/img/deploy/add-gateway-environment.png)]({{base_path}}/assets/img/deploy/add-gateway-environment.png)
 
     3. Optionally, click **Advanced Settings** to add a HTTP(S) context and custom ports.
 
