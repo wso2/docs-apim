@@ -21,7 +21,7 @@ Listed below are the different component distributions available in WSO2 API Man
             WSO2 API Control Plane
         </td>
         <td>
-            Starts all the API-M components (Key Manager, Publisher, Developer Portal) excluding the Gateway and Traffic Manager.
+            Starts all the API-M components (Key Manager, Publisher Portal, Developer Portal) excluding the Gateway and Traffic Manager.
         </td>
     </tr>
     <tr>
