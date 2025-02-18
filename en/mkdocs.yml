@@ -317,6 +317,8 @@ nav:
     - Integrate:
         - Develop Integrations:
             - Publish Integrations to the API Manager: integrate/develop/working-with-service-catalog.md
+    - Governance:
+        - Governance Overview: governance/api-governance.md
     - Analytics:
         - API Analytics:
             - Choreo Based Analytics: 
