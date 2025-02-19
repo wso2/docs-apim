@@ -11,12 +11,12 @@ WSO2 Rule validator supports most features that Spectral itself does. With the e
 1. [_**given**_](https://docs.stoplight.io/docs/spectral/d3482ff0ccae9-rules#rules-properties) path is a JSON Path. But currently WSO2 Rule Validator does not support [JSON Path Plus](https://github.com/JSONPath-Plus/JSONPath) features, even though Spectral does.
     - Object access should always be done inside single quotes \(`['paths']['order']\`)
     - Comma separated object access is not supported. (`$['paths'][*]['get', 'put', 'post']`)
-2. All [core functions](https://docs.stoplight.io/docs/spectral/cb95cf0d26b83-core-functions) except [UnreferecedReusableObject](https://docs.stoplight.io/docs/spectral/cb95cf0d26b83-core-functions#unreferencedreusableobject) and [typedEnum](https://docs.stoplight.io/docs/spectral/cb95cf0d26b83-core-functions#typedenum) are supported.
+2. All [core functions](https://docs.stoplight.io/docs/spectral/cb95cf0d26b83-core-functions) except [UnreferencedReusableObject](https://docs.stoplight.io/docs/spectral/cb95cf0d26b83-core-functions#unreferencedreusableobject) and [typedEnum](https://docs.stoplight.io/docs/spectral/cb95cf0d26b83-core-functions#typedenum) are supported.
 3. Custom functions are not supported.
 4. References ($ref) are not supported.
 5. The core function "pattern" allows you to define regex patterns and check whether a certain lint target matches it or not.
     - _**In YAML rulesets, always define the regex pattern inside single quotes.**_
-    - All regex should be valid regex Java regex, which is different from JavaScript regex used in Stoplight Spectral.
+    - All regex should be valid Java regex, which is different from JavaScript regex used in Stoplight Spectral.
 6. Extends and overrides are currently not supported
 7. Parser options are not supported
 8. Only Async API and Open API are supported (all versions)
@@ -55,7 +55,7 @@ rules:
 3. `rules` - Definitions of rules. More information in the [Rules](#2-writing-rules) section.
 
 ### 2. Writing rules
-Following is a simple rule. These rules have been extracted from the `wso2_rest_api_design_guidelines.yaml` ruleset provided as a default ruleset with APIM 4.5.0 onwards.
+Following is a simple rule. These rules have been extracted from the `wso2_rest_api_design_guidelines.yaml` ruleset provided as a default ruleset with WSO2 API Manager 4.5.0 onwards.
 
 ```yaml
     server-lowercase:
@@ -101,7 +101,7 @@ Following is a simple rule. These rules have been extracted from the `wso2_rest_
        formats:
           - oas3
 ```
-This rule will only be only applied if the document is an OAS3 document. It will traverse the document to find server objects. Then for each server, it will find the field 'url', and check whether it matches the given regex pattern.
+This rule will only be applied if the document is an OAS3 document. It will traverse the document to find server objects. Then for each server, it will find the field 'url', and check whether it matches the given regex pattern.
 
 Following is an explanation on the attributes of a rule.
 1. `given` (required) - The part of the document (the target) the rule should be applied to. Written using [Json Path](https://github.com/json-path/JsonPath) syntax. Can be an array of strings or a single string
@@ -109,7 +109,7 @@ Following is an explanation on the attributes of a rule.
     1. `function` (required) - which of the core functions should be applied. More information in the [Core Functions](#3-core-functions) section.
     2. `field` - which sub part of the target should the function be applied to. If omitted, the function is applied to the entire target. The field can be,
         1. `@key` - The function will be applied to the key of the target.
-        2. A property - A property of the part of the target.
+        2. A property - A property of the target.
         3. A Json Path - This Json Path will further traverse the target.
     3. `functionOptions` - Additional information that is required by the function.
 3. `description` - Description of the rule
@@ -158,7 +158,7 @@ paths:
 ```
 
 ### 3. Core functions
-Below is a list of core functions that is supported by the rule validator, with a summary of each of its options.
+Below is a list of core functions that are supported by the rule validator, with a summary of each of its options.
 
 <table><thead>
   <tr>
@@ -172,7 +172,7 @@ Below is a list of core functions that is supported by the rule validator, with 
 <tbody>
   <tr>
     <td>alphabetical</td>
-    <td>Make sure an object or an array is sorted. If keyedBy is provided the target should contain objects, and the order is deduced using the key.</td>
+    <td>Make sure an object or an array is sorted. If keyedBy is provided the target should contain an array of objects, and the order is deduced using the key.</td>
     <td>keyedBy</td>
     <td>String</td>
     <td>No</td>
@@ -235,19 +235,19 @@ Below is a list of core functions that is supported by the rule validator, with 
     <td>Can the target not contain numbers?</td>
   </tr>
   <tr>
-    <td>seperator</td>
+    <td>separator</td>
     <td>Object which contains the following values</td>
     <td>No</td>
     <td>Contains the following sub options. This object (the next 2 options) can be leveraged to accomplish custom cases.</td>
   </tr>
   <tr>
-    <td>seperator.char</td>
+    <td>separator.char</td>
     <td>String (single character)</td>
     <td>No</td>
     <td>Custom character to separate groups of words.</td>
   </tr>
   <tr>
-    <td>seperator.allowLeading</td>
+    <td>separator.allowLeading</td>
     <td>boolean</td>
     <td>No</td>
     <td>Can the separator character be used as the first character?</td>
@@ -307,7 +307,7 @@ Below is a list of core functions that is supported by the rule validator, with 
         keyedBy: name
       field: tags
 ```
-If the above ruleset is used to validate the below document, it will fail because the tag objects' are not sorted according to their names' alphabetical order.
+If the above ruleset is used to validate the below document, it will fail because the tag objects are not sorted according to their names' alphabetical order.
 ```yaml
 tags:
    - name: Z tag
@@ -342,7 +342,7 @@ The above rule will check all tags whether they are one of the values defined in
     then:
       function: falsy
 ```
-Simply checks whether the targets selected by the given path is falsy.
+Simply checks whether the targets selected by the given path are falsy.
 
 4. Length
 ```yaml
@@ -411,7 +411,7 @@ The above will create a custom casing function where it allows strings like `*ve
 ```
 The above rule will check whether the tags object is an array, and it contains at least 1 element.
 
-The schema functions is the most powerful and expressive one of the core functions.
+The schema function is the most powerful and expressive one of the core functions.
 
 8. Truthy
 ```yaml
@@ -458,7 +458,7 @@ components-examples-value-or-externalValue:
         - value
         - otherValue
 ```
-Checks if the all the examples contains one of the 3 properties provided.
+Checks if all the examples contains one of the 3 properties provided.
 
 ### 4. Aliases
 - Aliases are defined for commonly used JSONPath expressions on a global level and then reused across the ruleset.
