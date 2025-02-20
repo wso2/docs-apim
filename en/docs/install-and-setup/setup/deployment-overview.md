@@ -79,7 +79,7 @@ You need to set up four clusters of the different components and runtimes as the
 !!! Note
     The basic deployment suggests two nodes of each runtime to ensure minimum high availability. However, you can independently scale them depending on the requirements.
 
-<a href="{{base_path}}/assets/img/setup-and-install/basic-scalable-deployment.png"><img src="{{base_path}}/assets/img/setup-and-install/basic-scalable-deployment.png" alt="Simple scalability" width="80%"></a>
+<a href="{{base_path}}/assets/img/setup-and-install/deployment-pattern4.png"><img src="{{base_path}}/assets/img/setup-and-install/deployment-pattern4.png" alt="Simple scalability" width="80%"></a>
 
 ### API-M cluster
 
