@@ -116,10 +116,6 @@ Now that your environment is configured, you're ready to interact with the API D
 
     [![API Design Assistant Create API Wizard]({{base_path}}/assets/img/design/create-api-with-ai/create-api-wizard.png)]({{base_path}}/assets/img/design/create-api-with-ai/create-api-wizard.png)
 
-## What's Next?
-
-Explore the features and functionalities of the API Design Assistant to streamline your API management experience further.
-
 ## FAQ
 
 **1. Why is this an experimental feature?**
