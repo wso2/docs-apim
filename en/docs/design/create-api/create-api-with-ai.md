@@ -112,7 +112,7 @@ Now that your environment is configured, you're ready to interact with the API D
 
     [![API Design Assistant Add General Modification]({{base_path}}/assets/img/design/create-api-with-ai/add-general-modification.png)]({{base_path}}/assets/img/design/create-api-with-ai/add-general-modification.png)
 
-8. Click the 'Create API' button in the bottom right corner to open the wizard, where you can refine details before finalizing. Once satisfied, click 'Create' to create the API in the Publisher Portal.
+8. Click the 'Create API' button in the bottom right corner to open the wizard, where you can refine key metadata details such as name, version, and context before finalizing. Once satisfied, click 'Create' to create the API in the Publisher Portal.
 
     [![API Design Assistant Create API Wizard]({{base_path}}/assets/img/design/create-api-with-ai/create-api-wizard.png)]({{base_path}}/assets/img/design/create-api-with-ai/create-api-wizard.png)
 

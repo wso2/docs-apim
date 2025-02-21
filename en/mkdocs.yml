@@ -97,7 +97,7 @@ nav:
             - Create an API Using a Service: design/create-api/create-an-api-using-a-service.md
             #- Build APIs in Integration Studio: design/create-api/api-integration-studio.md
             - AI APIs: design/create-api/create-ai-api/create-an-ai-api.md
-        - Create API With AI: design/create-api/create-api-with-ai.md
+        - Create APIs with AI: design/create-api/create-api-with-ai.md
         - Create API Revisions: design/create-api/create-api-revisions.md
         - Add Custom Properties to APIs: design/create-api/adding-custom-properties-to-apis.md
         - Change the Thumbnail of an API: design/create-api/change-api-thumbnail.md
