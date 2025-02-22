@@ -422,6 +422,7 @@ nav:
                 - Define Custom Linter Rules: reference/customize-product/customizations/define-custom-linters.md
                 - Advanced UI Customization: reference/customize-product/customizations/advanced-ui-customization.md
                 - Modify Workflow Approval Task Limit: reference/customize-product/customizations/modify-workflow-approval-task-limit.md
+                - Label: reference/customize-product/customizations/label.md
             - Admin Services: reference/wso2-admin-services.md
             - Work with the Source Code: reference/working-with-the-source-code.md
             - Java Documentation: reference/java-documentation.md
@@ -713,6 +714,7 @@ plugins:
     - redirects:
           redirect_maps:
               'learn/consume-api/customizations/customizing-the-developer-portal/customize-api-listing/api-category-based-grouping.md': 'https://apim.docs.wso2.com/en/4.4.0/reference/customize-product/customizations/customizing-the-developer-portal/customize-api-listing/api-category-based-grouping/'
+              'learn/consume-api/customizations/label.md': 'https://apim.docs.wso2.com/en/4.4.0/reference/customize-product/customizations/label/'
               'learn/consume-api/customizations/customizing-the-developer-portal/customize-api-listing/change-default-view.md': 'https://apim.docs.wso2.com/en/4.4.0/reference/customize-product/customizations/customizing-the-developer-portal/customize-api-listing/change-default-view/'
               'learn/consume-api/customizations/customizing-the-developer-portal/enabling-or-disabling-api-detail-tabs.md': 'https://apim.docs.wso2.com/en/4.4.0/reference/customize-product/customizations/customizing-the-developer-portal/enabling-or-disabling-api-detail-tabs/'
               'learn/consume-api/customizations/customizing-the-developer-portal/override-api-overview-page-per-api.md': 'https://apim.docs.wso2.com/en/4.4.0/reference/customize-product/customizations/customizing-the-developer-portal/override-api-overview-page-per-api/'
@@ -1032,6 +1034,7 @@ plugins:
               'develop/extending-api-manager/saml2-sso/multi-factor-authentication-mfa-for-publisher-and-developer-portals.md': 'https://apim.docs.wso2.com/en/4.4.0/reference/customize-product/extending-api-manager/saml2-sso/multi-factor-authentication-mfa-for-publisher-and-developer-portals/'
               'develop/customizations/customizing-the-developer-portal/overriding-developer-portal-theme.md': 'https://apim.docs.wso2.com/en/4.4.0/reference/customize-product/customizations/customizing-the-developer-portal/overriding-developer-portal-theme/'
               'develop/customizations/customizing-the-developer-portal/customize-api-listing/api-category-based-grouping.md': 'https://apim.docs.wso2.com/en/4.4.0/reference/customize-product/customizations/customizing-the-developer-portal/customize-api-listing/api-category-based-grouping/'
+              'learn/consume-api/customizations/label.md': 'https://apim.docs.wso2.com/en/4.4.0/reference/customize-product/customizations/label/'
               'develop/customizations/customizing-the-developer-portal/customize-api-listing/change-default-view.md': 'https://apim.docs.wso2.com/en/4.4.0/reference/customize-product/customizations/customizing-the-developer-portal/customize-api-listing/change-default-view/'
               'develop/customizations/customizing-the-developer-portal/enabling-or-disabling-api-detail-tabs.md': 'https://apim.docs.wso2.com/en/4.4.0/reference/customize-product/customizations/customizing-the-developer-portal/enabling-or-disabling-api-detail-tabs/'
               'develop/customizations/customizing-the-developer-portal/override-api-overview-page-per-api.md': 'https://apim.docs.wso2.com/en/4.4.0/reference/customize-product/customizations/customizing-the-developer-portal/override-api-overview-page-per-api/'
@@ -1096,6 +1099,7 @@ plugins:
               'design/prototype-api/create-a-prototype-api.md': 'https://apim.docs.wso2.com/en/4.4.0/design/prototype-api/overview/'
               'deploy-and-publish/deploy-on-gateway/api-gateway/message-tracing.md': 'https://apim.docs.wso2.com/en/4.4.0/get-started/about-this-release/#removed-features-and-functionalities'
               'develop/customizations/customizing-the-developer-portal/customize-api-listing/categorizing-and-grouping-apis/api-category-based-grouping.md': 'https://apim.docs.wso2.com/en/4.4.0/reference/customize-product/customizations/customizing-the-developer-portal/customize-api-listing/api-category-based-grouping/'
+              'learn/consume-api/customizations/label.md': 'https://apim.docs.wso2.com/en/4.4.0/reference/customize-product/customizations/label/'
     # Extra
 extra_css:
     - assets/lib/highlightjs/default.min.css
@@ -1121,6 +1125,6 @@ extra:
             version: 1.2.0-1
             git_tag: v1.2.0.1
     site_version: 4.5.0
-    # base_path: http://localhost:8000/en/latest
+    # base_path: http://localhost:8000/en/4.5.0
     base_path: https://apim.docs.wso2.com/en/4.5.0
     envoy_path: https://www.envoyproxy.io/docs/envoy/v1.24.1
