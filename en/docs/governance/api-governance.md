@@ -52,14 +52,14 @@ Log in to the API Manager Admin Portal and click on the **Governance** section. 
 <a href="{{base_path}}/assets/img/governance/rule_view.png"><img src="{{base_path}}/assets/img/governance/rule_view.png" width="70%" alt="APIM Governance Ruleset View"></a>
 
 
-| Field Name | Description                                                                                                                                                                  | Mandatory | Options/Values |
-|------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-----------|----------------|
-| Name | The name of the ruleset.                                                                                                                                                     | Yes | - |
-| Description | A brief description of the ruleset.                                                                                                                                          | No | - |
-| Documentation Link | A link to the documentation of the ruleset.                                                                                                                                  | No | - |
-| Ruleset Type | The type of the ruleset.                                                                                                                                                     | Yes | API Definition, API Metadata, Documentation |
-| Artifact Type | The type of the API.                                                                                                                                                         | Yes | REST API, Async API |
-| Ruleset Content | The content of the ruleset. The rule has to written in a spectral like format. Furthermore, a pre written ruleset can be uploaded. [WSO2 rule validator documentation](link) | Yes | - |
+| Field Name | Description                                                                                                                                                                                              | Mandatory | Options/Values |
+|------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-----------|----------------|
+| Name | The name of the ruleset.                                                                                                                                                                                 | Yes | - |
+| Description | A brief description of the ruleset.                                                                                                                                                                      | No | - |
+| Documentation Link | A link to the documentation of the ruleset.                                                                                                                                                              | No | - |
+| Ruleset Type | The type of the ruleset.                                                                                                                                                                                 | Yes | API Definition, API Metadata, Documentation |
+| Artifact Type | The type of the API.                                                                                                                                                                                     | Yes | REST API, Async API |
+| Ruleset Content | The content of the ruleset. The rule has to written in a spectral like format. Furthermore, a pre written ruleset can be uploaded. [WSO2 rule validator documentation](rule-validator/rule-validator.md) | Yes | - |
 
 After providing the required information, click on the **Create** button to create the ruleset.
 
