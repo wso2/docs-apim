@@ -27,7 +27,7 @@ You can create services and publish it to WSO2 API Manager, such as you can crea
 
 **Create a GraphQL API**
 
-GraphQL, which has been developed by Facebook, is a data query language for APIs. When using GraphQL, users can explicitly specify what data they need from an API. GraphQL APIs are an alternative to REST-based APIs. Refer to the [documentation on how to create a GraphQL API]({{base_path}}/design/create-api/create-a-graphql-api) for more information.
+GraphQL, which has been developed by Facebook, is a data query language for APIs. When using GraphQL, users can explicitly specify what data they need from an API. GraphQL APIs are an alternative to REST-based APIs. Refer to the [documentation on how to create a GraphQL API]({{base_path}}/design/create-api/create-graphql-api/create-a-graphql-api/) for more information.
 
 **Create a Streaming API**
 
