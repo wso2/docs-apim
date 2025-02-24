@@ -228,6 +228,7 @@ nav:
             - Monetize an API: design/api-monetization/monetizing-an-api.md
         - B2B API Management:
             - B2B API Consumption: design/b2b-api-management/api-consumption.md
+            - Setup WSO2 Identity Server as a Federated Authenticator: design/b2b-api-management/setup-identity-server.md
         - Advanced Topics:
             - Enable Publisher Access Control: design/advanced-topics/enable-publisher-access-control-in-api-publisher-portal.md
             - Control API Visibility and Subscription Availability in the Developer Portal: design/advanced-topics/control-api-visibility-and-subscription-availability-in-developer-portal.md
@@ -917,6 +918,7 @@ plugins:
               'learn/rate-limiting/advanced-topics/custom-throttling.md': 'https://apim.docs.wso2.com/en/4.4.0/design/rate-limiting/advanced-topics/custom-throttling/'
               'learn/api-monetization/monetizing-an-api.md': 'https://apim.docs.wso2.com/en/4.4.0/design/api-monetization/monetizing-an-api/'
               'learn/b2b-api-management/api-consumption.md': 'https://apim.docs.wso2.com/en/4.4.0/design/b2b-api-management/api-consumption/'
+              'learn/b2b-api-management/setup-identity-server.md': 'https://apim.docs.wso2.com/en/4.4.0/design/b2b-api-management/setup-identity-server/'
               'learn/design-api/advanced-topics/enable-publisher-access-control-in-api-publisher-portal.md': 'https://apim.docs.wso2.com/en/4.4.0/design/advanced-topics/enable-publisher-access-control-in-api-publisher-portal/'
               'learn/design-api/advanced-topics/control-api-visibility-and-subscription-availability-in-developer-portal.md': 'https://apim.docs.wso2.com/en/4.4.0/design/advanced-topics/control-api-visibility-and-subscription-availability-in-developer-portal/'
               'learn/design-api/advanced-topics/enabling-cors-for-apis.md': 'https://apim.docs.wso2.com/en/4.4.0/design/advanced-topics/enabling-cors-for-apis/'
