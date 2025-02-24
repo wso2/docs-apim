@@ -109,13 +109,13 @@ To enable throttling for the RabbitMQ proxy service listener, you can add the fo
 
 ```toml
     <parameter name="rabbitmq.proxy.throttle.enabled">true</parameter>
-    <parameter name="rabbitmq.proxy.throttle.mode">fixed-interval</parameter>
+    <parameter name="rabbitmq.proxy.throttle.mode">fixed_interval</parameter>
     <parameter name="rabbitmq.proxy.throttle.timeUnit">minute</parameter>
     <parameter name="rabbitmq.proxy.throttle.count">60</parameter>
 ```
 
 !!! Note
-    Allowed parameters for `rabbitmq.proxy.throttle.mode` : fixed-interval, batch
+    Allowed parameters for `rabbitmq.proxy.throttle.mode` : fixed_interval, batch
 
     Allowed parameters for `rabbitmq.proxy.throttle.timeUnit` : minute, hour, day
 
