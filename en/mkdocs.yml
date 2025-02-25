@@ -325,11 +325,10 @@ nav:
     - Governance:
           - Overview: governance/overview.md
           - Concept: governance/governance-concept.md
-          - Quick Start Guide: governance/quick-start-guide.md
+        #   - Quick Start Guide: governance/quick-start-guide.md
           - How to Use:
                 - Admin Capabilities: governance/api-governance-admin-capabilities.md
                 - API Creator/Publisher Capabilities: governance/api-governance-api-creator-capabilities.md
-          - Dashboards: governance/governance-dashboards.md
     - Analytics:
         - API Analytics:
             - Choreo Based Analytics: 
@@ -1131,6 +1130,6 @@ extra:
             version: 1.2.0-1
             git_tag: v1.2.0.1
     site_version: 4.5.0
-    # base_path: http://localhost:8000/en/latest
-    base_path: https://apim.docs.wso2.com/en/4.5.0
+    base_path: http://localhost:8000/en/4.5.0
+    # base_path: https://apim.docs.wso2.com/en/4.5.0
     envoy_path: https://www.envoyproxy.io/docs/envoy/v1.24.1
