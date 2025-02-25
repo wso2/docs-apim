@@ -25,7 +25,7 @@ is, the Iterate mediator splits a message into different parts, whereas the Clon
         complete.
 
 !!! Info
-    When using the Iterate Mediator, the message is cloned for each iteration, including properties with the [default scope]({{base_path}}/reference/synapse-properties/scopes/#default-scope). If a property contains a large amount of data, this duplication can cause performance overhead.
+    When using the Iterate Mediator, the message is cloned for each iteration, including properties with the [default scope]({{base_path}}/reference/mediators/property-reference/accessing-properties-with-xpath/#synapse-scope). If a property contains a large amount of data, this duplication can cause performance overhead.
 
 When you use ForEach mediator, you can only loop through segments of the
 message and do changes to a particular segment. For example, you can
