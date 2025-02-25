@@ -86,7 +86,7 @@ nav:
                 - Expose a SOAP Service as a REST API: design/create-api/create-rest-api/expose-a-soap-service-as-a-rest-api.md
                 - Generate REST API from SOAP Backend: design/create-api/create-rest-api/generate-rest-api-from-soap-backend.md
                 - Test a REST API: design/create-api/create-rest-api/test-a-rest-api.md
-            - GraphQL APIs: 
+            - GraphQL APIs:
                 - Create a GraphQL API: design/create-api/create-graphql-api/create-a-graphql-api.md
                 - Create a GraphQL API using Introspection: design/create-api/create-graphql-api/create-a-graphql-api-using-introspection.md
             - Streaming APIs:
@@ -323,7 +323,13 @@ nav:
         - Develop Integrations:
             - Publish Integrations to the API Manager: integrate/develop/working-with-service-catalog.md
     - Governance:
-        - Governance Overview: governance/api-governance.md
+          - Overview: governance/overview.md
+          - Concept: governance/governance-concept.md
+          - Quick Start Guide: governance/quick-start-guide.md
+          - How to Use:
+                - Admin Capabilities: governance/api-governance-admin-capabilities.md
+                - API Creator/Publisher Capabilities: governance/api-governance-api-creator-capabilities.md
+          - Dashboards: governance/governance-dashboards.md
     - Analytics:
         - API Analytics:
             - Choreo Based Analytics: 
