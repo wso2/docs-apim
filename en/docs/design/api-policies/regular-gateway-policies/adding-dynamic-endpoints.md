@@ -1,6 +1,6 @@
 # Adding Dynamic Endpoints
 
-You cannot dynamically construct the back-end endpoint of an API using the address endpoints in the WSO2 API Manager. To achieve the requirement of a dynamic endpoint, you can use the default endpoint instead. 
+In WSO2 API Manager, while address endpoints are static, you can achieve dynamic backend endpoint functionality effortlessly by using the default endpoint. 
 
 [![Dynamic Endpoints]({{base_path}}/assets/img/learn/api-gateway/message-mediation/dynamic-endpoints.png)]({{base_path}}/assets/img/learn/api-gateway/message-mediation/dynamic-endpoints.png)  
 
