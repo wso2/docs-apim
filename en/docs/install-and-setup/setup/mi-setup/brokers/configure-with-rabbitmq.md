@@ -124,3 +124,63 @@ When enabling throttling for the RabbitMQ proxy service listener, to ensure that
     <parameter name="rabbitmq.channel.consumer.qos">1</parameter>
     <parameter name="rabbitmq.queue.auto.ack">false</parameter>
 ```
+
+The following table provides information on the proxy-level throttling parameters:
+
+<table>
+        <tr>
+            <th>Parameter Name</th>
+            <th>Description</th>
+            <th>Required</th>
+            <th>Possible Values</th>
+        </tr>
+        <tr>
+            <td><code>rabbitmq.proxy.throttle.enabled</code></td>
+            <td>
+                Use this parameter to enable JMS message throttling at the proxy service level.
+                When enabled, the default throttle limit (<code>rabbitmq.proxy.throttle.count</code>) is 60 messages per minute and the default throttle mode (<code>jms.proxy.throttle.mode</code>) is <code>fixed_interval</code>.
+                That is, a maximum of 60 messages can be consumed per minute at a fixed rate of one message per second.
+            </td>
+            <td>No</td>
+            <td><code>true</code>,<code>false</code></td>
+        </tr>
+        <tr>
+            <td><code>rabbitmq.proxy.throttle.timeUnit</code></td>
+            <td>
+                The time unit refers to the time period over which the allowed number of messages (throttling count) is measured. It defines the interval during which the rate of requests from a client is controlled.
+                For example, if you set the throttling count to 1000 and the time unit to minute, it will count the number of requests in each minute. If the messages received from RabbitMQ exceed 1000 within that minute, no more messages will be received until the next minute starts. The default time unit is <code>MINUTE</code>.
+            </td>
+            <td>No</td>
+            <td>
+                    <code>minute</code>,<code>hour</code>,<code>day</code>
+            </td>
+        </tr>
+        <tr>
+            <td><code>rabbitmq.proxy.throttle.count</code></td>
+            <td>
+                The throttle count specifies the maximum number of messages that can be consumed per minute by the proxy service.
+                The default throttle count is 60 when throttling is enabled.
+                Note that the actual throttle limit will be equal to or less than the value specified by the throttle limit parameter depending on the time taken for message mediation.
+                For example, if the throttle limit is 60 and if each message takes more than one second for mediation, the total number of messages that can be consumed during the one-minute window will always be less than 60.
+            </td>
+            <td>No</td>
+            <td>Any positive integer</td>
+        </tr>
+        <tr>
+            <td><code>rabbitmq.proxy.throttle.mode</code></td>
+            <td>
+                The throttle mode specifies whether or not messages should be consumed at a fixed rate during configured <code>timeUnit</code>.
+                The default throttle mode is <code>fixed_interval</code> when throttling is enabled.
+            </td>
+            <td>No</td>
+            <td>
+                <ul>
+                    <li><code>fixed_interval</code>: Messages are consumed at a fixed rate during the configured time unit. The rate is calculated by dividing the length of the throttle window (If the <code>timeunit</code> is set as minute, it will be 60 seconds) by the throttle count (maximum number of messages per the configured time unit).
+For example, if the throttle count is 30, the fixed interval is two seconds (60/30).</li>
+                    <li><code>batch</code>: Messages are consumed as quickly as possible until the 60 seconds expire or until the throttle count is reached.
+For example, if the throttle count is 30 and if the proxy service is capable of mediating all 30 messages within 30 seconds, the messages will be immediately consumed. The integrator will then wait till the throttle window expires before accepting more messages.
+</li>
+                </ul>
+            </td>
+        </tr>
+</table>
