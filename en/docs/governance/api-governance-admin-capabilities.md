@@ -54,7 +54,7 @@ To create a new policy, click the **Create Policy** button and provide the follo
 | Name | The name of the policy.                      | Yes | -                                                                                                                                                        |
 | Description | A brief description of the policy.           | No | -                                                                                                                                                        |
 | Attachment | The way the policy is attached to the APIs.  | Yes | All APIs, APIs with specific labels, None                                                                                                                |
-| Enforcement Detail | The detail of the policy enforcement.        | Yes | **Governed State** <br/> API Create, API Update, API Deploy, API Publish <br/> **Severity Levels** <br/> Error, Warn, Info <br/> **Actions** <br/> Notify, Block |
+| Enforcement | The detail of the policy enforcement criteria.        | Yes | **Governed State** <br/> API Create, API Update, API Deploy, API Publish <br/> **Severity Levels** <br/> Error, Warn, Info <br/> **Actions** <br/> Notify, Block |
 | Ruleset | The rulesets that is attached to the policy. | Yes | -                                                                                                                                                        |
 
 After providing the required information, click on the **Create** button to create the policy.
