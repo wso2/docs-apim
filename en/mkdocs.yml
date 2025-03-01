@@ -241,8 +241,8 @@ nav:
                 - Expose APIs via Custom Hostnames: deploy-and-publish/deploy-on-gateway/deploy-api/exposing-apis-via-custom-hostnames.md
                 - Deploy Through Multiple API Gateways: deploy-and-publish/deploy-on-gateway/deploy-api/deploy-through-multiple-api-gateways.md
                 - Revision Deployment Workflow: deploy-and-publish/deploy-on-gateway/deploy-api/revision-deployment-workflow.md
-            - API Gateway:
-                - Overview of the WSO2 API Gateway: deploy-and-publish/deploy-on-gateway/api-gateway/overview-of-the-api-gateway.md
+            - Universal Gateway:
+                - Overview of the WSO2 Universal Gateway: deploy-and-publish/deploy-on-gateway/api-gateway/overview-of-the-api-gateway.md
                 - Gateway Policies: deploy-and-publish/deploy-on-gateway/api-gateway/gateway-policies.md
                 - Response Caching: deploy-and-publish/deploy-on-gateway/api-gateway/response-caching.md
                 - Threat Protectors:
@@ -253,8 +253,8 @@ nav:
                 - Gateway Environments: deploy-and-publish/deploy-on-gateway/api-gateway/maintaining-separate-production-and-sandbox-gateways.md
                 - Scale the Gateway: deploy-and-publish/deploy-on-gateway/api-gateway/scaling-the-gateway.md
                 - Advanced Topics:
-                    - API Gateways with Dedicated Backends: deploy-and-publish/deploy-on-gateway/api-gateway/api-gateways-with-dedicated-backends.md
-                    - Mutual SSL Between API Gateway and Backend: deploy-and-publish/deploy-on-gateway/api-gateway/mutual-ssl-between-api-gateway-and-backend.md
+                    - Universal Gateways with Dedicated Backends: deploy-and-publish/deploy-on-gateway/api-gateway/api-gateways-with-dedicated-backends.md
+                    - Mutual SSL Between Universal Gateway and Backend: deploy-and-publish/deploy-on-gateway/api-gateway/mutual-ssl-between-api-gateway-and-backend.md
                     - Storing Custom Synapse Artifacts in the Gateway: deploy-and-publish/deploy-on-gateway/api-gateway/custom-synapse-artifacts.md
         - Publish on Developer Portal:
             - Publish an API: deploy-and-publish/publish-on-dev-portal/publish-an-api.md
