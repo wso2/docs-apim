@@ -12,30 +12,51 @@ Choose a deployment option to start WSO2 API Manager.
 
     Here's how you can download and run WSO2 API Manager locally:
 
-    1. Install [Java SE Development Kit (JDK)](https://adoptium.net/temurin/releases/?arch=any&version=21) version **21** and set the `JAVA_HOME` environment variable.
+    - Install [Java SE Development Kit (JDK)](https://adoptium.net/temurin/releases/?arch=any&version=21) version **21** and set the `JAVA_HOME` environment variable.
     
         !!! tip
             For more information on setting the `JAVA_HOME` environment variable for different operating systems, see [Setup and Install]({{base_path}}/install-and-setup/install/installing-the-product/installing-api-m-runtime/#setting-up-java_home)
 
-    2. Download WSO2 API-Manager.
-        - [Open Source Distribution](https://github.com/wso2/product-apim/releases/tag/v4.4.0)
-        - [WSO2 Official Distribution](https://wso2.com/api-manager/#)
-    
-    3. Extract the downloaded zip file.
+    === "Run the All-in-one package locally"
 
-    4. Navigate to the `<API-M_HOME>/bin` folder from your command line.
-    
-    4. To start WSO2 API Manager, execute the relevant command:
+        The All-in-one package contains all core components in a single JVM for simplified deployment.
 
-        === "On MacOS/Linux"
-            ```bash
-            sh api-manager.sh
-            ```
+        1. Download WSO2 API-Manager All-in-one package.
+            - [Open Source Distribution](https://github.com/wso2/product-apim/releases/tag/v4.4.0)
+            - [WSO2 Official Distribution](https://wso2.com/api-manager/#)
         
-        === "On Windows"
-            ```bash
-            api-manager.bat --run
-            ```
+        2. Extract the downloaded zip file.
+
+        3. Navigate to the `<API-M_HOME>/bin` folder from your command line.
+        
+        4. To start WSO2 API Manager, execute the relevant command:
+
+            === "On MacOS/Linux"
+                ```bash
+                sh api-manager.sh
+                ```
+            
+            === "On Windows"
+                ```bash
+                api-manager.bat --run
+                ```
+
+    === "Run the Enterprise package locally"
+
+        The Enterprise package contains the WSO2 API Control Plane, WSO2 Universal Gateway, WSO2 Traffic Manager and the supporting components. **The WSO2 API Control Plane** consists of the API Publisher Portal, Developer Portal, Admin Portal and the Key Manager components which helps in managing design, lifecycle, and governance of APIs at scale. **The WSO2 Universal Gateway** is used to secure and proxy API traffic with enterprise-grade features. **The WSO2 Traffic Manager** is used to handle API traffic policies and rate limiting at high volumes.
+
+        Using the Enterprise package for WSO2 API Manager, you get flexibility to design scalable API management solutions with independent component management.
+
+        1. Download WSO2 API-Manager Enterprise package.
+            - Open Source Distribution
+                - [WSO2 API Control Plane](https://github.com/wso2/product-apim/releases/download/v4.5.0/wso2am-acp-4.5.0.zip)
+                - [WSO2 Universal Gateway](https://github.com/wso2/product-apim/releases/download/v4.5.0/wso2am-universal-gw-4.5.0.zip)
+                - [WSO2 Traffic Manager](https://github.com/wso2/product-apim/releases/download/v4.5.0/wso2am-tm-4.5.0.zip)
+            - [WSO2 Official Distribution](https://wso2.com/api-manager/#)
+        
+        2. Extract the downloaded zip files.
+
+        3. Run the script [deploy-on-vm.sh](https://github.com/wso2/product-apim/blob/v4.5.0/deploy-on-vm.sh) in Linux/MacOS or [deploy-on-vm.bat](https://github.com/wso2/product-apim/blob/v4.5.0/deploy-on-vm.bat) in Windows, to setup a [simple scalable distributed deployment]({{base_path}}/install-and-setup/setup/distributed-deployment/deploying-wso2-api-m-in-a-distributed-setup/) locally in the same VM.
 
 === "Run on Docker"
 
@@ -126,11 +147,11 @@ Follow the instructions below to create, deploy and publish an API via the Publi
      </tr>
      </table>
      
-     [![Create an API]({{base_path}}/assets/img/get_started/api-create.png){: style="width:60%"}]({{base_path}}/assets/img/get_started/api-create.png)
-        
 6. Click **Create & Publish**.
 
-     This will publish your first API on the Developer Portal as well as deploy it on the API Gateway. You now have an OAuth 2.0 secured REST API that is ready to be consumed.
+    [![Create an API]({{base_path}}/assets/img/get_started/api-create.png){: style="width:100%"}]({{base_path}}/assets/img/get_started/api-create.png)
+
+    This will publish your first API on the Developer Portal as well as deploy it on the gateway. You now have an OAuth 2.0 secured REST API that is ready to be consumed.
 
 <a name="subscribe"></a>
 
@@ -166,9 +187,9 @@ Follow the instructions below to invoke the created API.
 
         If this is the first time you are using the API console from your browser, open a new tab and navigate to the [https://localhost:8243/](https://localhost:8243/) URL.
 
-        This will prompt your browser to accept the certificate used by the API Gateway. This is required because by default the API Gateway uses a self-signed certificate that is not trusted by web browsers.
+        This will prompt your browser to accept the certificate used by the gateway. This is required because by default the gateway uses a self-signed certificate that is not trusted by web browsers.
 
-        Since a trusted certificate is used when running in production, you won't have to do this step when running in production.
+        When running in production, since a trusted certificate is used, you won't have to do this step.
 
      [![Test API]({{base_path}}/assets/img/get_started/test-api.png)]({{base_path}}/assets/img/get_started/test-api.png)
 
