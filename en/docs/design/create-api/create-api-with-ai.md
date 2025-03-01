@@ -106,7 +106,7 @@ Now that your environment is configured, you're ready to interact with the API D
 
     [![API Design Assistant Add Resource Modification]({{base_path}}/assets/img/design/create-api-with-ai/resource-modification.png)]({{base_path}}/assets/img/design/create-api-with-ai/resource-modification.png)
 
-    [![API Design Assistant Add Resource Modification]({{base_path}}/assets/img/design/create-api-with-ai/added-resource-modification.png)]({{base_path}}/assets/img/design/create-api-with-ai/added-resource-modification.png)
+    [![API Design Assistant Added Resource Modification]({{base_path}}/assets/img/design/create-api-with-ai/added-resource-modification.png)]({{base_path}}/assets/img/design/create-api-with-ai/added-resource-modification.png)
 
 7. Improve your API’s structure and functionality by making modifications to endpoints, parameters and response formats.
 
@@ -114,7 +114,7 @@ Now that your environment is configured, you're ready to interact with the API D
 
 8. Ask questions to learn what your API does, how it works and the information it provides.
 
-    [![API Design Assistant Add General Modification]({{base_path}}/assets/img/design/create-api-with-ai/answer-general-questions.png)]({{base_path}}/assets/img/design/create-api-with-ai/answer-general-questions.png)
+    [![API Design Assistant Answer General Questions]({{base_path}}/assets/img/design/create-api-with-ai/answer-general-questions.png)]({{base_path}}/assets/img/design/create-api-with-ai/answer-general-questions.png)
 
 9. Click the 'Create API' button in the bottom right corner and confirm by selecting 'Yes' to launch the API Creation Wizard. Here, you can refine essential metadata details, including the API's name, version, and context. Once satisfied, click 'Create' to create the API in the Publisher Portal.
 
@@ -122,7 +122,7 @@ Now that your environment is configured, you're ready to interact with the API D
 
 10. Explore the API’s details on its overview page.
 
-    [![API Design Assistant Create API Wizard]({{base_path}}/assets/img/design/create-api-with-ai/api-overview.png)]({{base_path}}/assets/img/design/create-api-with-ai/api-overview.png)
+    [![API Design Assistant API Overview]({{base_path}}/assets/img/design/create-api-with-ai/api-overview.png)]({{base_path}}/assets/img/design/create-api-with-ai/api-overview.png)
 
 ## FAQ
 
