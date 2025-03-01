@@ -1,6 +1,6 @@
-# API Gateways with Dedicated Backends
+# Gateways with Dedicated Backends
 
-We can extend the [multiple gateway environments]({{base_path}}/deploy-and-publish/api-gateway/maintaining-separate-production-and-sandbox-gateways) feature by utilizing parameterized endpoint capabilities of WSO2 API Manager to have each gateway point to a different back-end endpoint. API Gateway is the actual runtime of the APIs that are developed and published from the API Publisher. WSO2 API Manager is capable of publishing APIs to different Gateways where API users connect to those API Gateways in order to do the actual API calls through the applications to which they are subscribed.
+We can extend the [multiple gateway environments]({{base_path}}/deploy-and-publish/api-gateway/maintaining-separate-production-and-sandbox-gateways) feature by utilizing parameterized endpoint capabilities of WSO2 API Manager to have each gateway point to a different back-end endpoint. Universal Gateway is the actual runtime of the APIs that are developed and published from the API Publisher. WSO2 API Manager is capable of publishing APIs to different Gateways where API users connect to those Universal Gateways in order to do the actual API calls through the applications to which they are subscribed.
 
 However, the API Publisher can only provide a single static endpoint for an API in the implementation. Therefore, the API call is directed to a single endpoint in whichever Gateway the API is deployed in, as depicted in the diagram below.
 
@@ -84,7 +84,7 @@ Follow the steps below to configure a parameterized endpoint as the API endpoint
     ```
 
     !!! note
-        If you have used the class mediator to configure API Gateways in step 4, use the command given below instead of the one above.
+        If you have used the class mediator to configure Universal Gateways in step 4, use the command given below instead of the one above.
         ```java
         ./api-manager.sh -Denvironment.host=<ip_of_backend_environment> -Denvironment.port=<port_of_backend_environment>
         ```
