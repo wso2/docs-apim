@@ -26,6 +26,87 @@ template: templates/single-column.html
     -webkit-font-smoothing: antialiased;
     }
 
+    .content {
+    width: 100%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    }
+
+    .card {
+        height: 300px;
+        color: #404040;
+        background: #f8f8f8;
+        padding-left: 1.2rem;
+        padding-bottom: 0.7rem;
+        -webkit-box-shadow: 0px 5px 4px 0px rgba(105, 113, 120, 0.4);
+        -moz-box-shadow: 0px 5px 4px 0px rgba(105, 113, 120, 0.4);
+        box-shadow: 0px 5px 4px 0px rgba(105, 113, 120, 0.4);
+        border-radius: 10px;
+        font-size: 16px;
+        transition: all 0.6s ease;
+        position: relative;
+        justify-content: left;
+        align-items: left;
+        flex-direction: row;
+        transition: all 0.3s ease;
+        width: 100%;
+    }
+
+    .card-wrapper {
+        width: 100%;
+        display: flex;
+        max-width: 450px;
+    }
+
+    .card-content {
+        justify-content: left;
+        display: flex;
+        align-items: left;
+        text-align: left;
+        flex-direction: column;
+    }
+
+    .card .title {
+        font-family: Montserrat, sans-serif;
+        font-style: normal;
+        font-size: 18px;
+        margin: 2;
+        text-align: left;
+        font-weight: 600;
+        white-space: nowrap;
+        text-transform: none;
+        display: flex;
+    }
+
+    .card .title p:first-letter {
+        text-transform: uppercase; /* Capitalizes the first letter of each word */
+    }
+
+    .card-icon {
+        height: 30px;
+        max-width: 80px;
+        border-radius: 0%;
+        display: flex;
+        align-items: center;
+        color: #ff5003;
+        transition: all 0.8s ease;
+    }
+
+    .removeTopMargin {
+        margin-top: 0;
+    }
+
+    .rowAlignment {
+        justify-content: left;
+        align-items: left;
+        display: flex;
+        gap: 10px;
+        flex-direction: row;
+    }
+
     @media (max-width: 1386px) {
         .md-main .md-sidebar.md-sidebar--primary {
             width: 0;
@@ -63,19 +144,162 @@ template: templates/single-column.html
             </br>
             <h3>Quick Start Guide</h3>
             <div class="linkWrapper">
-            <div class="linkSet2" onclick="location.href='{{base_path}}/get-started/api-manager-quick-start-guide';">
-                <img src="{{base_path}}/assets/img/home/landing-page/design-and-implement-apis.svg" title="Design and Implement APIs" width="75" alt="Design and Implement APIs"/>
-                <h4>Design and implement APIs</h4>
-                <p>
-                    Create, publish, and consume an API in 5 minutes. Let's get started by running a simple use case.
-                </p>
+                <div class="linkSet2" onclick="location.href='{{base_path}}/get-started/api-manager-quick-start-guide';">
+                    <img src="{{base_path}}/assets/img/home/landing-page/design-and-implement-apis.svg" title="Design and Implement APIs" width="75" alt="Design and Implement APIs"/>
+                    <h4>Design and implement APIs</h4>
+                    <p>
+                        Create, publish, and consume an API in 5 minutes. Let's get started by running a simple use case.
+                    </p>
+                </div>
             </div>
-        </div>
         </div>
         <div class="md-main .md-content " style="float:right; width: 55%; align:right;  flex-shrink: 0;min-width: 40%; max-height: 100%; max-width:50%; margin-left:10px; margin-top:100px">
         <iframe width="800" height="300" src="https://www.youtube.com/embed/nr1cFyxVdDw" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
         </div>
     </div>
+    <div class="leftContent">
+        <h3>Compatible Components</h3>
+        <hr/>
+        <div class="content">
+            <!-- begin card -->
+            <div class="card-wrapper">
+                <div class="card">
+                    <div class="card-content">
+                        <div class="rowAlignment">
+                            <div class="card-icon">
+                                <i class="material-icons md-36">timer</i>
+                            </div>
+                            <p class="title"><b>WSO2 API Control Plane</b></p>
+                            <!-- <span>&#x25BC;</span>
+                            <div class="dropdown-content">
+                                <a href="#" onclick="changeContent('Content 1')">Option 1</a>
+                                <a href="#" onclick="changeContent('Content 2')">Option 2</a>
+                                <a href="#" onclick="changeContent('Content 3')">Option 3</a>
+                            </div> -->
+                        </div>
+                        <hr/>
+                        <p class="removeTopMargin">Manage design, lifecycle, and governance of APIs at scale</p>
+                        <div>
+                            <ul>
+                                <li><a href="https://apim.docs.wso2.com/en/latest/get-started/apim-architecture/#control-plane">WSO2 API Control Plane Overview</a></li>
+                                <li><a href="https://apim.docs.wso2.com/en/latest/install-and-setup/setup/distributed-deployment/deploying-wso2-api-m-in-a-distributed-setup/">Configuring a distributed deployment</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- end card -->
+            <!-- begin card -->
+            <div class="card-wrapper">
+                <div class="card">
+                    <div class="card-content">
+                        <div class="rowAlignment">
+                            <div class="card-icon">
+                                <i class="material-icons md-36">how_to_reg</i>
+                            </div>
+                            <p class="title"><b>WSO2 Universal Gateway</b></p>
+                        </div>
+                        <hr/>
+                        <p class="removeTopMargin">Secure and proxy API traffic with enterprise-grade features</p>
+                        <div>
+                            <ul>
+                                <li><a href="https://apim.docs.wso2.com/en/latest/get-started/apim-architecture/#api-gateway">WSO2 Universal Gateway Overview</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- end card -->
+            <!-- begin card -->
+            <div class="card-wrapper">
+                <div class="card">
+                    <div class="card-content">
+                        <div class="rowAlignment">
+                            <div class="card-icon">
+                                <i class="material-icons md-36">call_split</i>
+                            </div>
+                            <p class="title"><b>WSO2 Traffic Manager</b></p>
+                        </div>
+                        <hr/>
+                        <p class="removeTopMargin">Handle API traffic policies and rate limiting at high volumes</p>
+                        <div>
+                            <ul>
+                                <li><a href="https://apim.docs.wso2.com/en/latest/get-started/apim-architecture/#traffic-manager">WSO2 Traffic Manager Overview</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- end card -->
+            <!-- begin card -->
+            <div class="card-wrapper">
+                <div class="card">
+                    <div class="card-content">
+                        <div class="rowAlignment">
+                            <div class="card-icon">
+                                <i class="material-icons md-36">dynamic_feed</i>
+                            </div>
+                            <p class="title"><b>WSO2 Kubernetes Gateway</b></p>
+                        </div>
+                        <hr/>
+                        <p class="removeTopMargin">Designed to build, deploy, and manage APIs in a cloud environment</p>
+                        <div>
+                            <ul>
+                                <li><a href="https://apk.docs.wso2.com/en/latest/get-started/quick-start-guide/">Getting started with WSO2 Kubernetes Gateway</a></li>
+                                <li><a href="https://apk.docs.wso2.com/en/latest/api-management-overview/apk-conf-lang-support/">Using the Kubernetes Gateway config plugin</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- end card -->
+            <!-- begin card -->
+            <div class="card-wrapper">
+                <div class="card">
+                    <div class="card-content">
+                        <div class="rowAlignment">
+                            <div class="card-icon">
+                                <i class="material-icons md-36">cloud_download</i>
+                            </div>
+                            <p class="title"><b>WSO2 Immutable Gateway</b></p>
+                        </div>
+                        <hr/>
+                        <p class="removeTopMargin">A lightweight message processor for APIs</p>
+                        <div>
+                            <ul>
+                                <li><a href="https://mg.docs.wso2.com/en/latest/getting-started/overview/">WSO2 Immutable Gateway Overview</a></li>
+                                <li><a href="https://mg.docs.wso2.com/en/latest/getting-started/quick-start-guide/quick-start-guide-overview/">Getting started guide</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- end card -->
+            <!-- begin card -->
+            <div class="card-wrapper">
+                <div class="card">
+                    <div class="card-content">
+                        <div class="rowAlignment">
+                            <div class="card-icon">
+                                <i class="material-icons md-36">security</i>
+                            </div>
+                            <p class="title"><b>WSO2 API Controller</b></p>
+                        </div>
+                        <hr/>
+                        <p class="removeTopMargin">A command-line tool for managing API artifacts</p>
+                        <div>
+                            <ul>
+                                <li><a href="https://apim.docs.wso2.com/en/latest/reference/apictl/wso2-api-controller/">Getting started with the API Controller</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- end card -->
+        </div>
+    </div>
+    </br>
+    </br>
     </br>
     </br>
     <div class="section02">
