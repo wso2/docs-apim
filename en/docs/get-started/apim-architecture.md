@@ -8,7 +8,7 @@ The above diagram consists of an API management layer and an integration layer w
 
 ## Management Plane
 
-The Management Plane is where API creation and API management takes place.  It consists of portals (Publisher, Developer Portal, and Service Catalog) for users to create and manage APIs, implement rate limiting policies, monitor, and monetization, etc. It also provides a set of APIs to interact with external tools like API Controller. The Management Plane includes API Analytics dashboards, displaying various business insights.
+The Management Plane is where API creation and API management takes place. This is part of the WSO2 API Control Plane component. It consists of portals (Publisher, Developer Portal, and Service Catalog) for users to create and manage APIs, implement rate limiting policies, monitor, and monetize etc. It also provides a set of APIs to interact with external tools like API Controller. The Management Plane includes API Analytics dashboards, displaying various business insights.
 
 #### API Publisher
 
@@ -40,15 +40,15 @@ These integration services can be created using WSO2 Integration Studio and a va
 
 The Data Plane is where the created API is exposed to the public consumers and acts as the proxy for API calls. This also provides additional capabilities such as enforcing security, rate limiting etc. 
 
-#### API Gateway
+#### Universal Gateway
 
-[![API Gateway]({{base_path}}/assets/img/learn/gateway-overview.png)]({{base_path}}/assets/img/learn/gateway-overview.png)
+[![Universal Gateway]({{base_path}}/assets/img/learn/gateway-overview.png)]({{base_path}}/assets/img/learn/gateway-overview.png)
 
-WSO2 API Gateway acts as the entry point for an API request made to an API managed by WSO2 API Manager.
+WSO2 Universal Gateway acts as the entry point for an API request made to an API managed by WSO2 API Manager.
 
-The API Gateway does the JWT token validation by validating the signature, issuer, expiry time, and subscription. The subscription is validated using the in-memory map. This in-memory map includes API-related information, application-related information, subscription-related information, etc., and is updated each time an artifact (API/application) is updated.
+The Universal Gateway does the JWT token validation by validating the signature, issuer, expiry time, and subscription. The subscription is validated using the in-memory map. This in-memory map includes API-related information, application-related information, subscription-related information, etc., and is updated each time an artifact (API/application) is updated.
 
-Once the token is validated, the API Gateway acts upon the API request before sending it to the backend. It first processes the message to a preconfigured format (e.g., JSON, XML, CSV etc.).  It then applies security policies, rate limiting policies,  collects statistics, etc., via its handlers.  The mediators then act upon the API payload based on the mediation logic developed. The message is then formatted to a preconfigured format (e.g., JSON, XML, CSV, etc.) and sent to the backend. WSO2 API Gateway supports transports such as HTTP, HTTPS, etc. It is also able to scale on-demand in cloud environments and is easily pluggable in non-cloud environments. 
+Once the token is validated, the Universal Gateway acts upon the API request before sending it to the backend. It first processes the message to a preconfigured format (e.g., JSON, XML, CSV etc.).  It then applies security policies, rate limiting policies,  collects statistics, etc., via its handlers.  The mediators then act upon the API payload based on the mediation logic developed. The message is then formatted to a preconfigured format (e.g., JSON, XML, CSV, etc.) and sent to the backend. WSO2 Universal Gateway supports transports such as HTTP, HTTPS, etc. It is also able to scale on-demand in cloud environments and is easily pluggable in non-cloud environments. 
 
 ## Control Plane
  
@@ -58,7 +58,7 @@ The Control Plane is where the API security validation, API key generation, and 
  
 [![Key Manager]({{base_path}}/assets/img/get_started/architecture/key-manager-overview.png)]({{base_path}}/assets/img/get_started/architecture/key-manager-overview.png)
 
-The Key Manager is the identity provider for WSO2 API Manager and acts as the Secure Token Service (STS). WSO2 API Manager supports OAuth 2.0, Basic Auth, Mutual SSL as well as API-Key based authentication mechanisms. 
+The Key Manager is the identity provider for WSO2 API Manager and acts as the Secure Token Service (STS). This is part of the WSO2 API Control Plane component. WSO2 API Manager supports OAuth 2.0, Basic Auth, Mutual SSL as well as API-Key based authentication mechanisms. 
  
 In WSO2 API Manager, tokens are generated for an application. The Key manager provides a token API to generate access tokens. These tokens can be used by clients to invoke APIs exposed by WSO2 API Manager. The Key Manager also exposes a revoke token API that clients can use to revoke an access token. A client can generate an OAuth 2.0 access token by invoking the token API directly or via the Developer Portal UI. Alternatively, an API Key can be generated through the Developer Portal without calling the Key Manager. The API Key is a self-signed JWT token. When a client invokes an API with an OAuth 2.0 access token or an API Key, the Gateway validates the token by validating its signature and subscription.
  
@@ -72,7 +72,7 @@ In addition to using the built-in Key Manager as the IDP, WSO2 API Manager also 
  
 The Traffic Manager helps users to regulate API traffic, make APIs and applications available to consumers at different service levels, and secure APIs against security attacks. The Traffic Manager features a dynamic throttling engine to process throttling policies in real-time, including rate limiting of API requests. 
 
-In addition to the above, the Traffic Manager also helps to keep the API Gateway's in-memory map, which is used for key validation, up-to-date via a JMS topic. The Traffic Manager publishes artifact (API/application) update events that are received from the API Publisher and API Developer Portal to a JMS topic. The API Gateway receives these events via the JMS topic and updates its in-memory map.
+In addition to the above, the Traffic Manager also helps to keep the Universal Gateway's in-memory map, which is used for key validation, up-to-date via a JMS topic. The Traffic Manager publishes artifact (API/application) update events that are received from the API Publisher and API Developer Portal to a JMS topic. The Universal Gateway receives these events via the JMS topic and updates its in-memory map.
 
 For more information, see [Working with Throttling]({{base_path}}/design/rate-limiting/introducing-throttling-use-cases).
 
