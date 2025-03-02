@@ -100,11 +100,29 @@ template: templates/single-column.html
     }
 
     .rowAlignment {
+        justify-content: space-between;
+        display: flex;
+        flex-direction: row;
+    }
+
+    .rowAlignmentProductNameIcon {
         justify-content: left;
         align-items: left;
         display: flex;
         gap: 10px;
         flex-direction: row;
+        margin-bottom: 0;
+    }
+
+    .chip {
+      display: inline-block;
+      padding: 5px 10px;
+      border-radius: 25px;
+      background-color:rgb(255, 255, 255);
+      color: white;
+      font-size: 14px;
+      margin-bottom: 0;
+      text-align: center;
     }
 
     @media (max-width: 1386px) {
@@ -141,19 +159,8 @@ template: templates/single-column.html
             <a href="https://wso2.com/api-manager/#">
                 <img src="{{base_path}}/assets/img/get_started/download-apim.png" title="Download WSO2 API Manager" width="35%" alt="Download WSO2 API Manager"/>
             </a>
-            </br>
-            <h3>Quick Start Guide</h3>
-            <div class="linkWrapper">
-                <div class="linkSet2" onclick="location.href='{{base_path}}/get-started/api-manager-quick-start-guide';">
-                    <img src="{{base_path}}/assets/img/home/landing-page/design-and-implement-apis.svg" title="Design and Implement APIs" width="75" alt="Design and Implement APIs"/>
-                    <h4>Design and implement APIs</h4>
-                    <p>
-                        Create, publish, and consume an API in 5 minutes. Let's get started by running a simple use case.
-                    </p>
-                </div>
-            </div>
         </div>
-        <div class="md-main .md-content " style="float:right; width: 55%; align:right;  flex-shrink: 0;min-width: 40%; max-height: 100%; max-width:50%; margin-left:10px; margin-top:100px">
+        <div class="md-main .md-content " style="float:right; width: 55%; align:right;  flex-shrink: 0;min-width: 40%; max-height: 100%; max-width:50%; margin-left:10px; margin-top:50px">
         <iframe width="800" height="300" src="https://www.youtube.com/embed/nr1cFyxVdDw" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
         </div>
     </div>
@@ -166,16 +173,16 @@ template: templates/single-column.html
                 <div class="card">
                     <div class="card-content">
                         <div class="rowAlignment">
-                            <div class="card-icon">
-                                <i class="material-icons md-36">timer</i>
+                            <div class="rowAlignmentProductNameIcon">
+                                <div class="card-icon">
+                                    <i class="material-icons md-36">supervisor_account</i>
+                                </div>
+                                <p class="title"><b>WSO2 API Control Plane</b></p>
                             </div>
-                            <p class="title"><b>WSO2 API Control Plane</b></p>
-                            <!-- <span>&#x25BC;</span>
-                            <div class="dropdown-content">
-                                <a href="#" onclick="changeContent('Content 1')">Option 1</a>
-                                <a href="#" onclick="changeContent('Content 2')">Option 2</a>
-                                <a href="#" onclick="changeContent('Content 3')">Option 3</a>
-                            </div> -->
+                            <div class="chip">
+                                <button class="btn btn-sm" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                4.5.0</button>
+                            </div>
                         </div>
                         <hr/>
                         <p class="removeTopMargin">Manage design, lifecycle, and governance of APIs at scale</p>
@@ -194,10 +201,16 @@ template: templates/single-column.html
                 <div class="card">
                     <div class="card-content">
                         <div class="rowAlignment">
-                            <div class="card-icon">
-                                <i class="material-icons md-36">how_to_reg</i>
+                            <div class="rowAlignmentProductNameIcon">
+                                <div class="card-icon">
+                                    <i class="material-icons md-36">public</i>
+                                </div>
+                                <p class="title"><b>WSO2 Universal Gateway</b></p>
                             </div>
-                            <p class="title"><b>WSO2 Universal Gateway</b></p>
+                            <div class="chip">
+                                <button class="btn btn-sm" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                4.5.0</button>
+                            </div>
                         </div>
                         <hr/>
                         <p class="removeTopMargin">Secure and proxy API traffic with enterprise-grade features</p>
@@ -215,10 +228,16 @@ template: templates/single-column.html
                 <div class="card">
                     <div class="card-content">
                         <div class="rowAlignment">
-                            <div class="card-icon">
-                                <i class="material-icons md-36">call_split</i>
+                            <div class="rowAlignmentProductNameIcon">
+                                <div class="card-icon">
+                                    <i class="material-icons md-36">call_split</i>
+                                </div>
+                                <p class="title"><b>WSO2 Traffic Manager</b></p>
                             </div>
-                            <p class="title"><b>WSO2 Traffic Manager</b></p>
+                            <div class="chip">
+                                <button class="btn btn-sm" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                4.5.0</button>
+                            </div>
                         </div>
                         <hr/>
                         <p class="removeTopMargin">Handle API traffic policies and rate limiting at high volumes</p>
@@ -236,10 +255,16 @@ template: templates/single-column.html
                 <div class="card">
                     <div class="card-content">
                         <div class="rowAlignment">
-                            <div class="card-icon">
-                                <i class="material-icons md-36">dynamic_feed</i>
+                            <div class="rowAlignmentProductNameIcon">
+                                <div class="card-icon">
+                                    <i class="material-icons md-36">cloud</i>
+                                </div>
+                                <p class="title"><b>WSO2 Kubernetes Gateway</b></p>
                             </div>
-                            <p class="title"><b>WSO2 Kubernetes Gateway</b></p>
+                            <div class="chip">
+                                <button class="btn btn-sm" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                1.3.0</button>
+                            </div>
                         </div>
                         <hr/>
                         <p class="removeTopMargin">Designed to build, deploy, and manage APIs in a cloud environment</p>
@@ -258,13 +283,19 @@ template: templates/single-column.html
                 <div class="card">
                     <div class="card-content">
                         <div class="rowAlignment">
-                            <div class="card-icon">
-                                <i class="material-icons md-36">cloud_download</i>
+                            <div class="rowAlignmentProductNameIcon">
+                                <div class="card-icon">
+                                    <i class="material-icons md-36">cloud_circle</i>
+                                </div>
+                                <p class="title"><b>WSO2 Immutable Gateway</b></p>
                             </div>
-                            <p class="title"><b>WSO2 Immutable Gateway</b></p>
+                            <div class="chip">
+                                <button class="btn btn-sm" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                3.2.10</button>
+                            </div>
                         </div>
                         <hr/>
-                        <p class="removeTopMargin">A lightweight message processor for APIs</p>
+                        <p class="removeTopMargin">An API Gateway for micro services, which is cloud-native, decentralized and developer centric</p>
                         <div>
                             <ul>
                                 <li><a href="https://mg.docs.wso2.com/en/latest/getting-started/overview/">WSO2 Immutable Gateway Overview</a></li>
@@ -280,13 +311,19 @@ template: templates/single-column.html
                 <div class="card">
                     <div class="card-content">
                         <div class="rowAlignment">
-                            <div class="card-icon">
-                                <i class="material-icons md-36">security</i>
+                            <div class="rowAlignmentProductNameIcon">
+                                <div class="card-icon">
+                                    <i class="material-icons md-36">build</i>
+                                </div>
+                                <p class="title"><b>WSO2 API Controller</b></p>
                             </div>
-                            <p class="title"><b>WSO2 API Controller</b></p>
+                            <div class="chip">
+                                <button class="btn btn-sm" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                4.5.0</button>
+                            </div>
                         </div>
                         <hr/>
-                        <p class="removeTopMargin">A command-line tool for managing API artifacts</p>
+                        <p class="removeTopMargin">A command-line tool for managing artifacts such as APIs, API Products and Applications</p>
                         <div>
                             <ul>
                                 <li><a href="https://apim.docs.wso2.com/en/latest/reference/apictl/wso2-api-controller/">Getting started with the API Controller</a></li>
