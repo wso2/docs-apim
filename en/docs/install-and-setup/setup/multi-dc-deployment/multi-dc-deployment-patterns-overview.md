@@ -90,7 +90,7 @@ Pattern 1 in a multi-datacenter (multi-DC) deployment of WSO2 API Manager involv
 
 1. **Distributed Setups:**
 Multiple distributed setups of WSO2 API Manager are established in different data centers or geographical locations.
-Each setup includes API Gateway instances, Publisher/Store components, Key Manager instances and any other relevant components.
+Each setup includes Universal Gateway instances, Publisher/Store components, Key Manager instances and any other relevant components.
 
 !!! Note
     Please note that both regions can be configured as all-in-one setups as well. It is considered as a fully distributed setup in order to aid the understanding of the communication among the components.

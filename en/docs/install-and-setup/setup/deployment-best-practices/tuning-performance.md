@@ -97,7 +97,7 @@ The following diagram shows the communication/network paths that occur when an A
 !!! info
     The Gateway to Key Manager network call to validate the token only happens with the OAuth token. This network call does not happen for JSON Web Tokens (JWTs). JWT access tokens are the default token type for applications. As JWTs are self-contained access tokens, the Key Manager is not needed to validate the token, and the token is validated from the Gateway.
 
--   **Client call API Gateway + API Gateway call Backend**
+-   **Client call Universal Gateway + Universal Gateway call Backend**
 
     For backend communication, the API Manager uses PassThrough transport. This is configured in the `<API-M_HOME>/repository/conf/deployment.toml` file. For more information, see [Configuring PassThrough properties]({{base_path}}/install-and-setup/setup/mi-setup/transport_configurations/configuring-transports/#configuring-the-httphttps-transport). Add the following section to the `deployment.toml` file to configure the Socket timeout value.
             ``` java
@@ -122,7 +122,7 @@ Some general API-M-level recommendations are listed below:
 </thead>
 <tbody>
 <tr class="odd">
-<td>API Gateway nodes</td>
+<td>Universal Gateway nodes</td>
 <td><div class="content-wrapper">
 <p>Increase memory allocated by modifying the <code>/bin/api-manager.sh</code>  file with the following setting:</p>
 <table>
@@ -183,7 +183,7 @@ default_max_per_route = 50
 </tr>
 <tr class="even">
 <tr class="odd">
-<td>PassThrough transport of API Gateway</td>
+<td>PassThrough transport of Universal Gateway</td>
 <td><p>Recommended values for the <code>&lt;API-M_HOME&gt;/repository/conf/deployment.toml</code> file are given below. Note that the commented out values in this file are the default values that will be applied if you do not change anything. These properties need to be added under <code>[passthru_http]</code> file.</p>
 <p><strong>Property descriptions</strong></p>
 <div class="table-wrap">
@@ -247,7 +247,7 @@ default_max_per_route = 50
 <tr class="even">
 <td>Timeout configurations</td>
 <td><div class="content-wrapper">
-<p>The API Gateway routes the requests from your client to an appropriate endpoint. The most common reason for your client getting a timeout is when the Gateway's timeout is larger than the client's timeout values. You can resolve this by either increasing the timeout on the client's side or by decreasing it on the API Gateway's side.</p>
+<p>The Universal Gateway routes the requests from your client to an appropriate endpoint. The most common reason for your client getting a timeout is when the Gateway's timeout is larger than the client's timeout values. You can resolve this by either increasing the timeout on the client's side or by decreasing it on the Universal Gateway's side.</p>
 <p>Here are a few parameters, in <strong>addition to the timeout parameters discussed in the previous sections</strong>.</p>
 <div class="table-wrap">
 <table>
