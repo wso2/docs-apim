@@ -5,10 +5,10 @@ The performance of WSO2 API Manager was measured using the following APIs, which
 - Echo API: This is a secured API, which directly invokes the back-end service.
 - Mediation API: This is also a secured API, which has a “sequence” as a mediation extension to modify the message.
 
-Tests were done using 100, 200, 500, and 1000 concurrent users. Concurrent Users mean that it consists of multiple users accessing the API Gateway at the same time. Different Message Sizes (Payloads) were used for the tests with different back-end service delays. The message sizes used are 50B, 1KiB, 10KiB, and 100KiB. The back-end delay was 0ms.
+Tests were done using 100, 200, 500, and 1000 concurrent users. Concurrent Users mean that it consists of multiple users accessing the Gateway at the same time. Different Message Sizes (Payloads) were used for the tests with different back-end service delays. The message sizes used are 50B, 1KiB, 10KiB, and 100KiB. The back-end delay was 0ms.
 Two key performance metrics were used to measure the performance of each test. 
 
-- Throughput: This measures the number of API invocations that the API Manager Gateway server processed during a specific time interval (e.g., per second). 
+- Throughput: This measures the number of API invocations that the Gateway server processed during a specific time interval (e.g., per second). 
 - Response Time: This measures end-to-end processing time for an operation (of invoking an API using HTTPS protocol). The complete distribution of response times was recorded.
 
 
@@ -94,7 +94,7 @@ The following graph depicts the throughput changes based on the number of concur
 
 **Key observations:**
 
-- More concurrent users mean more requests to the API Manager Gateway. Therefore, the throughput of the API Manager Gateway increases as the number of concurrent users accessing the APIs increases. The maximum throughput is obtained for 100 concurrent users for both “Echo API” and “Mediation API”, and the throughput degrades slightly after 100 concurrent users due to resource contentions in the system. The degradation point mainly depends on hardware resources.
+- More concurrent users mean more requests to the Gateway. Therefore, the throughput of the Gateway increases as the number of concurrent users accessing the APIs increases. The maximum throughput is obtained for 100 concurrent users for both “Echo API” and “Mediation API”, and the throughput degrades slightly after 100 concurrent users due to resource contentions in the system. The degradation point mainly depends on hardware resources.
 
 - Echo API throughput is much better than the Mediation API. The main reason is that the Mediation API has a mediation extension, which uses a “Payload Factory” Mediator. This mediation in the sequence does a JSON to JSON message transformation. That means the Mediation API reads the message (payload) to do the message transformation, and it has a considerable overhead than the “Echo API”, which is similar to a “Direct Proxy”. A “Direct Proxy” does not perform any processing on the messages that pass through it.
 
@@ -104,7 +104,7 @@ The following graph depicts the average response time changes based on the numbe
 
 **Key observations:**
 
-- The average response time increases with the number of concurrent users. As the number of requests to serve increases with more users, there are more resource contentions. Therefore, the number of concurrent users served by the API Gateway needs to be decided on the required response time limits. Again, the average response time also varies as the hardware resources change. For example, a user can achieve a lower response time if the number of CPUs allocated is increased.
+- The average response time increases with the number of concurrent users. As the number of requests to serve increases with more users, there are more resource contentions. Therefore, the number of concurrent users served by the Gateway needs to be decided on the required response time limits. Again, the average response time also varies as the hardware resources change. For example, a user can achieve a lower response time if the number of CPUs allocated is increased.
 
 - The mediation API response times are higher than Echo API due to the performance overhead of the mediation extension.
 

@@ -1,17 +1,17 @@
 # Product Compatibility
 
-Given below are the compatibility details of the WSO2 API Manager (WSO2 API-M) 4.4.0 runtimes.
+Given below are the compatibility details of the WSO2 API Manager (WSO2 API-M) 4.5.0 runtimes.
 
 !!! Note
     Even though the tested operating systems are listed in compatibility sections for each product, ideally WSO2 products relies on the tested versions of the JDK.
 
 ## API-M runtime compatibility
 
-Given below is the tested compatibility of the API-M runtime of WSO2 API Manager 4.4.0.
+Given below is the tested compatibility of the API-M runtime of WSO2 API Manager 4.5.0.
 
 #### Tested Operating Systems
 
-As WSO2 API Manager is a Java application, you can generally run it on most operating systems. Listed below are the operating systems that have been tested with the API-M 4.4.0 runtime.
+As WSO2 API Manager is a Java application, you can generally run it on most operating systems. Listed below are the operating systems that have been tested with the API-M 4.5.0 runtime.
 
 |**Operating System**|**Versions**  |
 |--------------------|--------------|
@@ -44,12 +44,51 @@ The **WSO2 API-M** runtime is tested with the following databases:
     CREATE DATABASE <APIM_DATABASE_NAME> character set latin1;
     ```
 
-#### Tested WSO2 Products
+#### WSO2 Product Compatibility Matrix
 
-The following is a list of other WSO2 products that have been tested with WSO2 API Manager 4.4.0.
+The following is a list of other WSO2 products and components that have been tested with WSO2 API Manager 4.5.0.
 
-- [WSO2 Identity Server 7.0.0 and 6.1.0](https://wso2.com/identity-and-access-management/#)
-- [WSO2 API Platform For Kubernetes(APK) 1.2.0](https://wso2.com/api-platform-for-k8s)
+<table>
+        <colgroup>
+            <col />
+            <col />
+            <col />
+        </colgroup>
+        <tbody>
+            <tr>
+                <th colspan="2">Distribution</th>
+                <th>Compatible Version(s)</th>
+            </tr>
+            <tr>
+                <td colspan="2">WSO2 API Control Plane</td>
+                <td>4.5.0</td>
+            </tr>
+            <tr>
+                <td colspan="2">WSO2 Universal Gateway</td>
+                <td>4.5.0</td>
+            </tr>
+            <tr>
+                <td colspan="2">WSO2 Traffic Manager</td>
+                <td>4.5.0</td>
+            </tr>
+            <tr>
+                <td colspan="2">WSO2 Kubernetes Gateway</td>
+                <td>1.3.0</td>
+            </tr>
+            <tr>
+                <td colspan="2">WSO2 Immutable Gateway</td>
+                <td>3.2.10</td>
+            </tr>
+            <tr>
+                <td colspan="2">WSO2 API Controller</td>
+                <td>4.5.0</td>
+            </tr>
+            <tr>
+                <td colspan="2">WSO2 Identity Server</td>
+                <td>6.1.0, 7.0.0</td>
+            </tr>
+        </tbody>
+    </table>
 
 #### Compatible WSO2 Identity Servers (as Key Manager)
 
@@ -65,7 +104,7 @@ The following is a list of other WSO2 products that have been tested with WSO2 A
 </thead>
 <tbody>
 <tr class="even">
-<td>API-M 4.4.0 GA</td>
+<td>API-M 4.5.0 GA</td>
 <td>
 GA or update for:
 <ul>
@@ -75,7 +114,7 @@ GA or update for:
 </td>
 </tr>
 <tr class="even">
-<td>API-M-4.4.0 update</td>
+<td>API-M-4.5.0 update</td>
 <td>GA or update for:
 <ul>
 <li>WSO2 IS-6.0.0/WSO2 IS-6.1.0</li>
