@@ -2871,7 +2871,12 @@ key_validation_handler_impl = "org.wso2.carbon.apimgt.keymgt.handlers.DefaultKey
 <pre><code class="toml">[apim.ai]
 enable = true
 token = "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
-endpoint = "https://e95488c8-8511-4882-967f-ec3ae2a0f86f-prod.e1-us-east-azure.choreoapis.dev/lgpt/interceptor-service/interceptor-service-be2/v1.0"</code></pre>
+endpoint = "https://e95488c8-8511-4882-967f-ec3ae2a0f86f-prod.e1-us-east-azure.choreoapis.dev/lgpt/interceptor-service/interceptor-service-be2/v1.0"
+default_request_timeout = 30
+
+[apim.ai.failover_configurations]
+failover_endpoints_limit = 10
+default_request_timeout = 30</code></pre>
                     </div>
                 </div>
                 <div class="doc-wrapper">
@@ -2941,6 +2946,72 @@ endpoint = "https://e95488c8-8511-4882-967f-ec3ae2a0f86f-prod.e1-us-east-azure.c
                                     </div>
                                     <div class="param-description">
                                         <p>The endpoint that exposes the AI capabilities for API Manager</p>
+                                    </div>
+                                </div>
+                            </div><div class="param">
+                                <div class="param-name">
+                                  <span class="param-name-wrap"> <code>default_request_timeout</code> </span>
+                                </div>
+                                <div class="param-info">
+                                    <div>
+                                        <p>
+                                            <span class="param-type string"> integer </span>
+                                            
+                                        </p>
+                                        <div class="param-default">
+                                            <span class="param-default-value">Default: <code>30</code></span>
+                                        </div>
+                                        
+                                    </div>
+                                    <div class="param-description">
+                                        <p>The default timeout (in seconds) for AI API requests</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div><div class="config-wrap">
+                            <code>[apim.ai.failover_configurations]</code>
+                            
+                            <p>
+                                Configurations for AI feature failover handling
+                            </p>
+                        </div>
+                        <div class="params-wrap">
+                            <div class="param">
+                                <div class="param-name">
+                                  <span class="param-name-wrap"> <code>failover_endpoints_limit</code> </span>
+                                </div>
+                                <div class="param-info">
+                                    <div>
+                                        <p>
+                                            <span class="param-type string"> integer </span>
+                                            
+                                        </p>
+                                        <div class="param-default">
+                                            <span class="param-default-value">Default: <code>10</code></span>
+                                        </div>
+                                        
+                                    </div>
+                                    <div class="param-description">
+                                        <p>Maximum number of failover endpoints</p>
+                                    </div>
+                                </div>
+                            </div><div class="param">
+                                <div class="param-name">
+                                  <span class="param-name-wrap"> <code>default_request_timeout</code> </span>
+                                </div>
+                                <div class="param-info">
+                                    <div>
+                                        <p>
+                                            <span class="param-type string"> integer </span>
+                                            
+                                        </p>
+                                        <div class="param-default">
+                                            <span class="param-default-value">Default: <code>30</code></span>
+                                        </div>
+                                        
+                                    </div>
+                                    <div class="param-description">
+                                        <p>The default timeout (in seconds) for failover requests</p>
                                     </div>
                                 </div>
                             </div>
@@ -15670,4 +15741,3 @@ class="org.wso2.carbon.apimgt.gateway.handlers.custom.customer_handler"
         </div>
     </section>
 </div>
-

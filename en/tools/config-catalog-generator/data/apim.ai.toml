@@ -2,3 +2,8 @@
 enable = true
 token = "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
 endpoint = "https://e95488c8-8511-4882-967f-ec3ae2a0f86f-prod.e1-us-east-azure.choreoapis.dev/lgpt/interceptor-service/interceptor-service-be2/v1.0"
+default_request_timeout = 30
+
+[apim.ai.failover_configurations]
+failover_endpoints_limit = 10
+default_request_timeout = 30
