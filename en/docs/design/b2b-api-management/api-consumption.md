@@ -116,8 +116,7 @@ We can set APIs to be visible for users in all organizations, current organizati
 
         If the Identity Server is running on a **different host** and you encounter an issue with logout session removal, set the `logoutSessionStateAppender` to an empty value in the following configuration.
 
-            ```
             <AM_HOME>/repository/deployment/server/webapps/publisher/site/public/conf/settings.json
             <AM_HOME>/repository/deployment/server/webapps/admin/site/public/conf/settings.json
             <AM_HOME>/repository/deployment/server/webapps/devportal/site/public/theme/settings.json
-            ```
+
