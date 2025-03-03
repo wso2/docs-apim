@@ -1062,28 +1062,6 @@ claims_extractor_impl = "org.wso2.carbon.apimgt.impl.token.DefaultClaimsRetrieve
                                         <p>Specifies whether the certificate header is signed using the SHA256 algorithm. The default algorithm used to generate the header value is SHA1.</p>
                                     </div>
                                 </div>
-                            </div><div class="param">
-                                <div class="param-name">
-                                  <span class="param-name-wrap"> <code>encode_x5t_without_padding</code> </span>
-                                </div>
-                                <div class="param-info">
-                                    <div>
-                                        <p>
-                                            <span class="param-type string"> boolean </span>
-                                            
-                                        </p>
-                                        <div class="param-default">
-                                            <span class="param-default-value">Default: <code>false</code></span>
-                                        </div>
-                                        <div class="param-possible">
-                                            <span class="param-possible-values">Possible Values: <code>true, false</code></span>
-                                        </div>
-                                    </div>
-                                    <div class="param-description">
-                                        <p>Determines whether the `x5t` value in the JWT header is Base64 URL-encoded without padding.  
-                                        Set to `true` for compatibility with tools and systems that expect unpadded `x5t` values.</p>
-                                    </div>
-                                </div>
                             </div>
                         </div>
                     </div>
@@ -15865,8 +15843,6 @@ class="org.wso2.carbon.apimgt.gateway.handlers.custom.customer_handler"
     </section>
 </div>
 
-
-
 ## Service Provider Configurations
 
 
@@ -15874,7 +15850,7 @@ class="org.wso2.carbon.apimgt.gateway.handlers.custom.customer_handler"
     <section>
         <div class="mb-config-options">
             <div class="superfences-tabs">
-            
+
             <input name="103" type="checkbox" id="_tab_103">
                 <label class="tab-selector" for="_tab_103"><i class="icon fa fa-code"></i></label>
                 <div class="superfences-content">
@@ -15911,6 +15887,121 @@ use_username_as_sub_claim = true
                                     </div>
                                     <div class="param-description">
                                         <p>Use username as the subject claim of application tokens instead of userId.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+
+## APIM Governance Configurations
+
+
+<div class="mb-config-catalog">
+    <section>
+        <div class="mb-config-options">
+            <div class="superfences-tabs">
+
+            <input name="102" type="checkbox" id="_tab_102">
+                <label class="tab-selector" for="_tab_102"><i class="icon fa fa-code"></i></label>
+                <div class="superfences-content">
+                    <div class="mb-config-example">
+<pre><code class="toml">[apim.governance.scheduler]
+thread_pool_size = 20
+queue_size = 20
+task_check_interval_minutes = 2
+task_cleanup_interval_minutes = 30
+</code></pre>
+                    </div>
+                </div>
+                <div class="doc-wrapper">
+                    <div class="mb-config">
+                        <div class="config-wrap">
+                            <code>[apim.governance.scheduler]</code>
+                            
+                            <p>
+                                Configurations used to configure governance task scheduler.
+                            </p>
+                        </div>
+                        <div class="params-wrap">
+                            <div class="param">
+                                <div class="param-name">
+                                  <span class="param-name-wrap"> <code>thread_pool_size</code> </span>
+                                </div>
+                                <div class="param-info">
+                                    <div>
+                                        <p>
+                                            <span class="param-type string"> integer </span>
+                                            
+                                        </p>
+                                        <div class="param-default">
+                                            <span class="param-default-value">Default: <code>20</code></span>
+                                        </div>
+                                        
+                                    </div>
+                                    <div class="param-description">
+                                        <p>Specifies the number of threads available in the governance scheduler’s thread pool.</p>
+                                    </div>
+                                </div>
+                            </div><div class="param">
+                                <div class="param-name">
+                                  <span class="param-name-wrap"> <code>queue_size</code> </span>
+                                </div>
+                                <div class="param-info">
+                                    <div>
+                                        <p>
+                                            <span class="param-type string"> integer </span>
+                                            
+                                        </p>
+                                        <div class="param-default">
+                                            <span class="param-default-value">Default: <code>20</code></span>
+                                        </div>
+                                        
+                                    </div>
+                                    <div class="param-description">
+                                        <p>Defines the maximum number of tasks that can be queued in the scheduler thread pool for execution.</p>
+                                    </div>
+                                </div>
+                            </div><div class="param">
+                                <div class="param-name">
+                                  <span class="param-name-wrap"> <code>task_check_interval_minutes</code> </span>
+                                </div>
+                                <div class="param-info">
+                                    <div>
+                                        <p>
+                                            <span class="param-type string"> integer </span>
+                                            
+                                        </p>
+                                        <div class="param-default">
+                                            <span class="param-default-value">Default: <code>2</code></span>
+                                        </div>
+                                        
+                                    </div>
+                                    <div class="param-description">
+                                        <p>Determines how frequently (in minutes) the scheduler checks for pending tasks.</p>
+                                    </div>
+                                </div>
+                            </div><div class="param">
+                                <div class="param-name">
+                                  <span class="param-name-wrap"> <code>task_cleanup_interval_minutes</code> </span>
+                                </div>
+                                <div class="param-info">
+                                    <div>
+                                        <p>
+                                            <span class="param-type string"> integer </span>
+                                            
+                                        </p>
+                                        <div class="param-default">
+                                            <span class="param-default-value">Default: <code>30</code></span>
+                                        </div>
+                                        
+                                    </div>
+                                    <div class="param-description">
+                                        <p>Specifies how often (in minutes) long-lasting, stuck tasks are cleaned up from the scheduler queue.</p>
                                     </div>
                                 </div>
                             </div>

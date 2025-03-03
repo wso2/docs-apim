@@ -5893,27 +5893,52 @@
             ],
             "exampleFile": "synapse_handlers.toml"
         },
-        {
-            "title": "Service Provider Configurations",
-            "options": [
-                {
-                    "name": "service_provider",
-                    "required": false,
-                    "description": "This includes configurations for Service Provider related properties.",
-                    "params": [
-                        {
-                            "name": "use_username_as_sub_claim",
-                            "type": "boolean",
-                            "required": false,
-                            "default": "false",
-                            "possible": "",
-                            "description": "Use username as the subject claim of application tokens instead of userId."
-                        }
-                    ]
-                }
-            ],
-            "exampleFile": "service_provider.toml"
-        }
+      {
+        "title": "APIM Governance Configurations",
+        "options": [
+          {
+            "name": "apim.governance.scheduler",
+            "required": false,
+            "description": "Configurations used to configure governance task scheduler.",
+            "params": [
+              {
+                "name": "thread_pool_size",
+                "type": "integer",
+                "required": false,
+                "default": "20",
+                "possible": "",
+                "description": "Specifies the number of threads available in the governance scheduler’s thread pool."
+              },
+              {
+                "name": "queue_size",
+                "type": "integer",
+                "required": false,
+                "default": "20",
+                "possible": "",
+                "description": "Defines the maximum number of tasks that can be queued in the scheduler thread pool for execution."
+              },
+              {
+                "name": "task_check_interval_minutes",
+                "type": "integer",
+                "required": false,
+                "default": "2",
+                "possible": "",
+                "description": "Determines how frequently (in minutes) the scheduler checks for pending tasks."
+              },
+              {
+                "name": "task_cleanup_interval_minutes",
+                "type": "integer",
+                "required": false,
+                "default": "30",
+                "possible": "",
+                "description": "Specifies how often (in minutes) long-lasting, stuck tasks are cleaned up from the scheduler queue."
+              }
+            ]
+          }
+        ],
+        "exampleFile": "apim.governance.scheduler.toml"
+      }
+
     ]
 }
 
