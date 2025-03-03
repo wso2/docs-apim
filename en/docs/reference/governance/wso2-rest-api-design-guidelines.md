@@ -2,13 +2,54 @@
 
 A set of guidelines focused on enforcing uniformity in API style, including naming conventions, formatting, and documentation to ensure clarity and maintainability across all APIs.
 
-### ❌ operation-operationId-valid-in-url
+## Rules Overview
 
-Operation IDs must not contain characters that are invalid for URLs.
+| Rule Name | Severity Level | Description |
+|-----------|----------|-------------|
+| [operation-operationId-valid-in-url](#operation-operationid-valid-in-url) | Error | Operation IDs must not contain characters that are invalid for URLs. |
+| [path-declarations-must-exist](#path-declarations-must-exist) | Error | Path parameter declarations must not be empty. |
+| [paths-no-trailing-slash](#paths-no-trailing-slash) | Error | Paths must not end with a trailing slash. |
+| [oas2-api-schemes](#oas2-api-schemes) | Error | OpenAPI 2 APIs must specify `schemes` with valid transfer protocols. |
+| [array-items](#array-items) | Error | Schemas with `type: array` must have a sibling `items` field. |
+| [path-casing](#path-casing) | Error | Paths must follow `kebab-case`, using hyphens to separate words. |
+| [paths-no-http-verbs](#paths-no-http-verbs) | Error | Paths must not contain HTTP verbs such as `get`, `delete`, or `put`. |
+| [contact-url](#contact-url) | Warn | The `contact` object should have a valid organization URL. |
+| [contact-email](#contact-email) | Warn | The `contact` object should have a valid email. |
+| [info-contact](#info-contact) | Warn | The `info` object should include a `contact` object. |
+| [info-description](#info-description) | Warn | The `info` object should have a `description` field. |
+| [info-license](#info-license) | Warn | The `info` object should have a `license` field. |
+| [license-url](#license-url) | Warn | The `license` object should include a valid URL. |
+| [no-eval-in-markdown](#no-eval-in-markdown) | Warn | Markdown descriptions should not contain `eval()` functions. |
+| [no-script-tags-in-markdown](#no-script-tags-in-markdown) | Warn | Markdown descriptions should not contain `<script>` tags. |
+| [openapi-tags-alphabetical](#openapi-tags-alphabetical) | Warn | Global tags should be in alphabetical order. |
+| [openapi-tags](#openapi-tags) | Warn | At least one global tag should be specified in the OpenAPI Document. |
+| [operation-description](#operation-description) | Warn | Each operation should have a description. |
+| [operation-operationId](#operation-operationId) | Warn | All operations should have an `operationId`. |
+| [operation-tags](#operation-tags) | Warn | Each operation should have at least one tag. |
+| [contact-name](#contact-name) | Warn | The `contact` object should have an organization name. |
+| [path-keys-no-trailing-slash](#path-keys-no-trailing-slash) | Warn | Path keys should not end in a forward slash. |
+| [path-not-include-query](#path-not-include-query) | Warn | Paths should not include query string items. |
+| [tag-description](#tag-description) | Warn | Tags at the global level should have a description. |
+| [parameter-description](#parameter-description) | Warn | All `parameter` objects should have a description. |
+| [oas2-anyOf](#oas2-anyOf) | Warn | The `anyOf` keyword is not supported in OAS2. |
+| [oas2-oneOf](#oas2-oneOf) | Warn | The `oneOf` keyword is not supported in OAS2. |
+| [oas3-examples-value-or-externalValue](#oas3-examples-value-or-externalValue) | Warn | The `examples` object should include either `value` or `externalValue`, but not both. |
+| [path-parameters-on-path-only](#path-parameters-on-path-only) | Warn | Path parameters should be defined at the path level, not the operation level. |
+| [paths-no-query-params](#paths-no-query-params) | Warn | Paths should not contain query parameters. |
+| [resource-names-plural](#resource-names-plural) | Warn | Resource names should generally be plural. |
+| [paths-avoid-special-characters](#paths-avoid-special-characters) | Warn | Paths should not contain special characters like `$`, `&`, `+`, `,`, `;`, `=`, `?`, or `@`. |
+
+## Detailed Rules
+
+### operation-operationId-valid-in-url
+
+**Description:** Operation IDs must not contain characters that are invalid for URLs.
+
+**Severity:** Error
 
 **Invalid Example**
 
-The `operationId` in this example includes a pipe and space, which are invalid for URLs.
+- The `operationId` in this example includes a pipe and space, which are invalid for URLs.
 
 ```json
 {
@@ -22,7 +63,7 @@ The `operationId` in this example includes a pipe and space, which are invalid f
 
 **Valid Example**
 
-This `operationId` is valid for URLs.
+- This `operationId` is valid for URLs.
 
 ```json
 {
@@ -34,9 +75,13 @@ This `operationId` is valid for URLs.
 }
 ```
 
-### ❌ path-declarations-must-exist
+---
 
-Path parameter declarations must not be empty.
+### path-declarations-must-exist
+
+**Description:** Path parameter declarations must not be empty.
+
+**Severity:** Error
 
 **Invalid Example**
 
@@ -46,16 +91,18 @@ Path parameter declarations must not be empty.
 
 `/users/{userId}`
 
+---
 
-### ❌ paths-no-trailing-slash
 
-Paths must not end with a trailing slash.
+### paths-no-trailing-slash
 
-`/users` and `/users/` are separate paths. It's considered bad practice for them to differ based only on a trailing slash. It's usually preferred to not have a trailing slash.
+**Description:** Paths must not end with a trailing slash. `/users` and `/users/` are separate paths. It's considered bad practice for them to differ based only on a trailing slash. It's usually preferred to not have a trailing slash.
+
+**Severity:** Error
 
 **Invalid Example**
 
-The `users` path ends with a slash.
+- The `users` path ends with a slash.
 
 ```json
 {
@@ -75,15 +122,19 @@ The `users` path ends with a slash.
 }
 ```
 
-### ❌ oas2-api-schemes
+---
 
-OpenAPI 2 host `schemes` reflect the transfer protocol of the API. 
+### oas2-api-schemes
+
+**Description:** OpenAPI 2 host `schemes` reflect the transfer protocol of the API. 
 Host schemes must be present and an array with one or more of these values: 
 `http`, `https`, `ws`, or `wss`.
 
+**Severity:** Error
+
 **Valid Example**
 
-This example shows that host schemes are `http` and `https`.
+- This example shows that host schemes are `http` and `https`.
 
 ```json
 {
@@ -94,9 +145,13 @@ This example shows that host schemes are `http` and `https`.
 }
 ```
 
-### ❌ array-items
+---
 
-Schemas with `type: array`, require a sibling `items` field.
+### array-items
+
+**Description:** Schemas with `type: array`, require a sibling `items` field.
+
+**Severity:** Error
 
 **Recommended:** Yes
 
@@ -125,13 +180,17 @@ TheBadModel:
         type: array
 ```
 
-### ❌ path-casing
+---
 
-Paths must be `kebab-case`, with hyphens separating words.
+### path-casing
+
+**Description:** Paths must be `kebab-case`, with hyphens separating words.
+
+**Severity:** Error
 
 **Invalid Example**
 
-`userInfo` must be separated with a hyphen.
+- `userInfo` must be separated with a hyphen.
 
 ```json
 {
@@ -151,13 +210,17 @@ Paths must be `kebab-case`, with hyphens separating words.
 }
 ```
 
-### ❌ paths-no-http-verbs
+---
 
-Verbs such as `get`, `delete`, and `put` must not be included in paths because this information is conveyed by the HTTP method.
+### paths-no-http-verbs
+
+**Description:** Verbs such as `get`, `delete`, and `put` must not be included in paths because this information is conveyed by the HTTP method.
+
+**Severity:** Error
 
 **Invalid Example**
 
-The path contains the verb `get`. 
+- The path contains the verb `get`. 
 
 ```json
 {
@@ -177,9 +240,13 @@ The path contains the verb `get`.
 }
 ```
 
-### ⚠️ contact-url
+---
 
-The `contact` object should have a valid organization URL. 
+### contact-url
+
+**Description:** The `contact` object should have a valid organization URL. 
+
+**Severity:** Warn
 
 **Valid Example**
 
@@ -192,9 +259,11 @@ The `contact` object should have a valid organization URL.
   },
 ```
 
-### ⚠️ contact-email
+### contact-email
 
-The `contact` object should have a valid email. 
+**Description:** The `contact` object should have a valid email. 
+
+**Severity:** Warn
 
 **Valid Example**
 
@@ -206,9 +275,11 @@ The `contact` object should have a valid email.
   },
 ```
 
-### ⚠️ info-contact
+### info-contact
 
-The `info` object should include a `contact` object.
+**Description:** The `info` object should include a `contact` object.
+
+**Severity:** Warn
 
 **Valid Example**
 
@@ -225,9 +296,11 @@ The `info` object should include a `contact` object.
 }
 ```
 
-### ⚠️ info-description
+### info-description
 
-The `info` object should have a `description` object.
+**Description:** The `info` object should have a `description` object.
+
+**Severity:** Warn
 
 **Valid Example**
 
@@ -240,9 +313,11 @@ The `info` object should have a `description` object.
 }
 ```
 
-### ⚠️ info-license
+### info-license
 
-The `info` object should have a `license` object.
+**Description:** The `info` object should have a `license` object.
+
+**Severity:** Warn
 
 **Valid Example**
 
@@ -258,9 +333,11 @@ The `info` object should have a `license` object.
 }
 ```
 
-### ⚠️ license-url
+### license-url
 
-The `license` object should include a valid url.
+**Description:** The `license` object should include a valid url.
+
+**Severity:** Warn
 
 **Valid Example**
 
@@ -273,10 +350,12 @@ The `license` object should include a valid url.
 }
 ```
 
-### ⚠️ no-eval-in-markdown
+### no-eval-in-markdown
 
-Markdown descriptions should not contain [`eval()` functions](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/eval),
+**Description:** Markdown descriptions should not contain [`eval()` functions](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/eval),
 which pose a security risk.
+
+**Severity:** Warn
 
 **Invalid Example**
 
@@ -289,9 +368,11 @@ which pose a security risk.
 }
 ```
 
-### ⚠️ no-script-tags-in-markdown
+### no-script-tags-in-markdown
 
-Markdown descriptions should not contain `script` tags, which pose a security risk.
+**Description:** Markdown descriptions should not contain `script` tags, which pose a security risk.
+
+**Severity:** Warn
 
 **Invalid Example**
 
@@ -304,9 +385,11 @@ Markdown descriptions should not contain `script` tags, which pose a security ri
 }
 ```
 
-### ⚠️ openapi-tags-alphabetical
+### openapi-tags-alphabetical
 
-Global tags specified at the root OpenAPI Document level should be in alphabetical order based on the `name` property.
+**Description:** Global tags specified at the root OpenAPI Document level should be in alphabetical order based on the `name` property.
+
+**Severity:** Warn
 
 **Invalid Example**
 
@@ -338,9 +421,11 @@ Global tags specified at the root OpenAPI Document level should be in alphabetic
 }
 ```
 
-### ⚠️ openapi-tags
+### openapi-tags
 
-At least one global tag should be specified at the root OpenAPI Document level.
+**Description:** At least one global tag should be specified at the root OpenAPI Document level.
+
+**Severity:** Warn
 
 **Valid Example**
 
@@ -357,9 +442,11 @@ At least one global tag should be specified at the root OpenAPI Document level.
 }
 ```
 
-### ⚠️ operation-description
+### operation-description
 
-Each operation should have a description.
+**Description:** Each operation should have a description.
+
+**Severity:** Warn
 
 **Valid Example**
 
@@ -371,9 +458,11 @@ Each operation should have a description.
 }
 ```
 
-### ⚠️ operation-operationId
+### operation-operationId
 
-All operations should have an `operationId`.
+**Description:** All operations should have an `operationId`.
+
+**Severity:** Warn
 
 **Valid Example**
 
@@ -386,9 +475,11 @@ All operations should have an `operationId`.
 }
 ```
 
-### ⚠️ operation-tags
+### operation-tags
 
-At least one tag should be defined for each operation.
+**Description:** At least one tag should be defined for each operation.
+
+**Severity:** Warn
 
 **Valid Example**
 
@@ -400,9 +491,11 @@ At least one tag should be defined for each operation.
 }
 ```
 
-### ⚠️ contact-name
+### contact-name
 
-The `contact` object should have an organization name.
+**Description:** The `contact` object should have an organization name.
+
+**Severity:** Warn
 
 **Valid Example**
 
@@ -414,9 +507,11 @@ The `contact` object should have an organization name.
 }
 ```
 
-### ⚠️ path-keys-no-trailing-slash
+### path-keys-no-trailing-slash
 
-Path keys should not end in forward slashes. This is a best practice for working with web tooling, such as mock servers, code generators, application frameworks, and more.
+**Description:** Path keys should not end in forward slashes. This is a best practice for working with web tooling, such as mock servers, code generators, application frameworks, and more.
+
+**Severity:** Warn
 
 **Invalid Example**
 
@@ -436,9 +531,11 @@ Path keys should not end in forward slashes. This is a best practice for working
 }
 ```
 
-### ⚠️ path-not-include-query
+### path-not-include-query
 
-Paths should not include `query` string items. Instead, add them as parameters with `in: query`.
+**Description:** Paths should not include `query` string items. Instead, add them as parameters with `in: query`.
+
+**Severity:** Warn
 
 **Invalid Example**
 
@@ -467,9 +564,11 @@ Paths should not include `query` string items. Instead, add them as parameters w
 }
 ```
 
-### ⚠️ tag-description
+### tag-description
 
-Tags defined at the global level should have a description.
+**Description:** Tags defined at the global level should have a description.
+
+**Severity:** Warn
 
 **Valid Example**
 
@@ -484,9 +583,11 @@ Tags defined at the global level should have a description.
 }
 ```
 
-### ⚠️ parameter-description
+### parameter-description
 
-All `parameter` objects should have a description.
+**Description:** All `parameter` objects should have a description.
+
+**Severity:** Warn
 
 **Valid Example**
 
@@ -505,9 +606,11 @@ All `parameter` objects should have a description.
 }
 ```
 
-### ⚠️ oas2-anyOf
+### oas2-anyOf
 
-The `anyOf` keyword is not supported in OAS2. Only `allOf` is supported.
+**Description:** The `anyOf` keyword is not supported in OAS2. Only `allOf` is supported.
+
+**Severity:** Warn
 
 **Invalid Example**
 
@@ -549,9 +652,11 @@ The `anyOf` keyword is not supported in OAS2. Only `allOf` is supported.
 }
 ```
 
-### ⚠️ oas2-oneOf
+### oas2-oneOf
 
-The `oneOf` keyword is not supported in OAS2. Only `allOf` is supported.
+**Description:** The `oneOf` keyword is not supported in OAS2. Only `allOf` is supported.
+
+**Severity:** Warn
 
 **Invalid Example**
 
@@ -593,13 +698,15 @@ The `oneOf` keyword is not supported in OAS2. Only `allOf` is supported.
 }
 ```
 
-### ⚠️ oas3-examples-value-or-externalValue
+### oas3-examples-value-or-externalValue
 
-The `examples` object should include a `value` or `externalValue` field, but cannot include both.
+**Description:** The `examples` object should include a `value` or `externalValue` field, but cannot include both.
+
+**Severity:** Warn
 
 **Invalid Example**
 
-This example includes both a `value` field and an `externalValue` field.
+- This example includes both a `value` field and an `externalValue` field.
 
 ```json
 {
@@ -620,7 +727,7 @@ This example includes both a `value` field and an `externalValue` field.
 
 **Valid Example**
 
-This example includes only a `value` field.
+- This example includes only a `value` field.
 
 ```json
 {
@@ -635,13 +742,15 @@ This example includes only a `value` field.
 }
 ```
 
-### ⚠️ path-parameters-on-path-only
+### path-parameters-on-path-only
 
-Path parameters should be defined on the path level instead of the operation level.
+**Description:** Path parameters should be defined on the path level instead of the operation level.
+
+**Severity:** Warn
 
 **Invalid Example**
 
-The `user_id` path parameter on line 8 should not be included with the `patch` operation.
+- The `user_id` path parameter on line 8 should not be included with the `patch` operation.
 
 ```json
 {      
@@ -661,7 +770,7 @@ The `user_id` path parameter on line 8 should not be included with the `patch` o
 
 **Valid Example**
 
-The `user-id` path parameter is correctly located at the path level.
+- The `user-id` path parameter is correctly located at the path level.
 
 ```json
 {
@@ -681,9 +790,11 @@ The `user-id` path parameter is correctly located at the path level.
 }
 ```
 
-### ⚠️ paths-no-query-params
+### paths-no-query-params
 
-Paths should not have query parameters in them. They should be defined separately in the OpenAPI.
+**Description:** Paths should not have query parameters in them. They should be defined separately in the OpenAPI.
+
+**Severity:** Warn
 
 **Invalid Example**
 
@@ -710,9 +821,11 @@ Paths should not have query parameters in them. They should be defined separatel
 }
 ```
 
-### ⚠️ resource-names-plural
+### resource-names-plural
 
-Resource names should generally be plural. 
+**Description:** Resource names should generally be plural. 
+
+**Severity:** Warn
 
 **Invalid Example**
 
@@ -734,13 +847,15 @@ Resource names should generally be plural.
 }
 ```
 
-### ⚠️ paths-avoid-special-characters
+### paths-avoid-special-characters
 
-Paths should not contain special characters, such as `$` `&` `+` `,` `;` `=` `?` and `@%`.
+**Description:** Paths should not contain special characters, such as `$` `&` `+` `,` `;` `=` `?` and `@%`.
+
+**Severity:** Warn
 
 **Invalid Example**
 
-The path contains an ampersand. 
+- The path contains an ampersand. 
 
 ```json
 {
@@ -759,7 +874,3 @@ The path contains an ampersand.
        ....
 }
 ```
-
-### ℹ️ operation-singular-tag
-
-Operation should not have more than a single tag.
