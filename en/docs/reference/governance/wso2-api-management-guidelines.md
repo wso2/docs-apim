@@ -2,6 +2,8 @@
 
 A guide detailing best practices for creating robust, scalable, and secure APIs, ensuring alignment with industry standards for optimal design.
 
+## Rules Overview
+
 | Rule Name | Severity | Description |
 |-----------|----------|-------------|
 | [api-name-required](#api-name-required) | Error | API `name` is required. |
