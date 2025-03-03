@@ -18,7 +18,7 @@ For more information on setting up WSO2 Identity Server 7.1.0, see [Setup WSO2 I
 
 First you need to map the organization in the identity server in the API manager. For that, 
 
-1. log in to Admin portal https://localhost:9443/admin/  using `orgadmin`. 
+1. log in to Admin portal [https://localhost:9443/admin/](https://localhost:9443/admin/)  using `orgadmin`. 
 
 	!!! note 
         You cannot use admin/admin for this because locally created admin user does not belong to any organization.
@@ -41,7 +41,7 @@ WSO2 IS 7.1 provides the capability to register OAuth applications within organi
 
 1. Login to admin portal using `orgadmin` and go to `Key Managers` section and add new keymanager.
 2. Add name and display name. Select keymanager type as `WSO2 Identity Server 7`
-3. Fill the form using following. Replace the `org_id` with the `external reference Id` used during org registration. You could use `https://localhost:9444/oauth2/token/.well-known/openid-configuration` as the well-known url and then replace the following
+3. Fill the form using following. Replace the `org_id` with the `external reference Id` used during org registration. You could use  [https://localhost:9444/oauth2/token/.well-known/openid-configuration](https://localhost:9444/oauth2/token/.well-known/openid-configuration) as the well-known url and then replace the following
 
     | Endpoint | URL |
     |----------|-----|
@@ -86,6 +86,7 @@ We can set APIs to be visible for users in all organizations, current organizati
 
     !!!note
         Organization visibility is not supported for API product for this release.
+
 ## Login to developer portal and invoke the API.
 
 1. Go to developer portal and click login button
@@ -107,3 +108,16 @@ We can set APIs to be visible for users in all organizations, current organizati
     ![Application Keys]({{base_path}}/assets/img/design/b2b/key-page.png) 
 
 6. You should be able to generate an access token and invoke the API now.
+
+7. Logout and attempt to log in again with a different user from another organization.
+
+    !!!note
+        When running both API Manager and WSO2 Identity Server on the same host (localhost), you may encounter an issue where a Developer Portal user does not log out when switching between two users within the same organization. This occurs due to both servers sharing the same host. In a production setup, this issue does not arise as the servers are hosted separately. To overcome this issue, you can use a private browser window for testing locally or set up WSO2 Identity Server on a different host.
+
+        If the Identity Server is running on a **different host** and you encounter an issue with logout session removal, set the `logoutSessionStateAppender` to an empty value in the following configuration.
+
+            ```
+            <AM_HOME>/repository/deployment/server/webapps/publisher/site/public/conf/settings.json
+            <AM_HOME>/repository/deployment/server/webapps/admin/site/public/conf/settings.json
+            <AM_HOME>/repository/deployment/server/webapps/devportal/site/public/theme/settings.json
+            ```

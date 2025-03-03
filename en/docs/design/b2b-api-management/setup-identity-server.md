@@ -4,55 +4,75 @@ WSO2 Identity Server 7.1.0 includes B2B organization support. The following inst
 
 ## Configure WSO2 Identity Server
 
-1. Download WSO2 Identity Server 7.1.0 from [GitHub Releases](https://github.com/wso2/product-is/releases/tag/v7.1.0-rc1) and start the server with a port offset of 1.
-2. Log in to the IS Console at https://localhost:9444/console and create a new application.
+1. Download [WSO2 Identity Server 7.1.0](https://wso2.com/identity-server/).
+2. Add following configurations in the <IS7_HOME>/repository/conf/deployment.toml file.
+    ```toml
+    [oauth]
+    authorize_all_scopes = true
+
+    [[resource.access_control]]
+    context="(.*)/scim2/Me"
+    secure=true
+    http_method="GET"
+    cross_tenant=true
+    permissions=[]
+    scopes=[]
+
+    [role_mgt]
+    allow_system_prefix_for_role = true
+    ```
+3. Start WSO2 Identity Server with a port offset. Port offset is required only if you are running both API-M and IS 7.x in the same JVM.
+
+    `sh wso2server.sh -DportOffset=1`
+
+4. Log in to the IS Console at [https://localhost:9444/console](https://localhost:9444/console) and create a new application.
     - Select "Traditional Web Application" and complete the form.
-    - Set the Redirect URL to https://localhost:9443/commonauth.
+    - Set the Redirect URL to [https://localhost:9443/commonauth](https://localhost:9443/commonauth) 
 
     ![Create new application]({{base_path}}/assets/img/design/b2b/create-new-app.png) 
 
-3. Select ‘Allow sharing with organizations’ option.
+5. Select ‘Allow sharing with organizations’ option.
 
     ![Allow sharing with organizations]({{base_path}}/assets/img/design/b2b/allow-sharing-with-orgs.png) 
 
-4. Once the application is created, go to the 'Protocol' tab and copy the Client ID and Secret for later use.
-5. Under `User Attributes` section, select `Roles`
+6. Once the application is created, go to the 'Protocol' tab and copy the Client ID and Secret for later use.
+7. Under `User Attributes` section, select `Roles`
 
     ![Select roles]({{base_path}}/assets/img/design/b2b/select-roles.png) 
 
-6. Under `Subject` section, select `Assign alternate subject identifier` and select `Username`.
+8. Under `Subject` section, select `Assign alternate subject identifier` and select `Username`.
 
     ![Select subject ]({{base_path}}/assets/img/design/b2b/sub_alt.png) 
 
-7. Under User `Roles` section, add Application roles `devportal` , `publisher`, `creator`, `admin`
+9. Under User `Roles` section, add Application roles `devportal` , `publisher`, `creator`, `admin`
 
     ![Application roles ]({{base_path}}/assets/img/design/b2b/app-roles.png) 
 
-8. Go to the `User Management` section, navigate to the `Users` tab, and create three users—one for each portal.
+10. Go to the `User Management` section, navigate to the `Users` tab, and create three users—one for each portal.
 
     ![Organization users ]({{base_path}}/assets/img/design/b2b/org-users.png) 
 
-9. Go to the `Roles` section under `User Management` section and assign application roles to users. (Check audience column and get the application/<application name> roles)
+11. Go to the `Roles` section under `User Management` section and assign application roles to users. (Check audience column and get the application/<application name> roles)
 
     ![Organization users ]({{base_path}}/assets/img/design/b2b/org-users-with-roles.png) 
 
-10. Select role and go to the `Users` tab and assing users to the role.
+12. Select role and go to the `Users` tab and assing users to the role.
 In this example
     admin → orgadmin
     publisher, creator → larry
     devportal → david
 
-11. Now let's create organizations. For that select `Organization` and create a couple of  new organizations. Note down the organization Ids
+13. Now let's create organizations. For that select `Organization` and create a couple of  new organizations. Note down the organization Ids
 
     ![Create organizations ]({{base_path}}/assets/img/design/b2b/create-organizations.png) 
 
-12. Select the organization and click `Switch to Organization`.
+14. Select the organization and click `Switch to Organization`.
 
     ![Switch organizations ]({{base_path}}/assets/img/design/b2b/switch-organization.png) 
 
-13. Under `Users` section in `User Management` add a new user.  Let’s say `emily` and `robert`
+15. Under `Users` section in `User Management` add a new user.  Let’s say `emily` and `robert`
 
-14. Under `Roles` section in `User Management` find the previously created `devportal` role and select it. Select `Users` tab and set the user to this role
+16. Under `Roles` section in `User Management` find the previously created `devportal` role and select it. Select `Users` tab and set the user to this role
 
    ![Dev portal roles ]({{base_path}}/assets/img/design/b2b/dev-portal-roles.png) 
 
@@ -78,12 +98,12 @@ In this example
     ```
 
 
-2. Need to add new local claim to store organization id. For that go to  Home > Identity > Claims> Add and select `Add Local Claim` and fill the form. Use Claim URI as http://wso2.org/claims/organizationId
+2. Need to add new local claim to store organization id. For that go to  Home > Identity > Claims> Add and select `Add Local Claim` and fill the form. Use Claim URI as [http://wso2.org/claims/organizationId](http://wso2.org/claims/organizationId )
 
     ![Add new clam]({{base_path}}/assets/img/design/b2b/claims.png) 
 
 
-3. Need to add `org_id` and `org_name` to oidc claims and map them to http://wso2.org/claims/organizationId and http://wso2.org/claims/organization local claims. For that go to  Home > Identity > Claims> Add and select `Add External Claim`
+3. Need to add `org_id` and `org_name` to oidc claims and map them to [http://wso2.org/claims/organizationId](http://wso2.org/claims/organizationId ) and [http://wso2.org/claims/organization](http://wso2.org/claims/organization) local claims. For that go to  Home > Identity > Claims> Add and select `Add External Claim`
 
     ![Add new clam]({{base_path}}/assets/img/design/b2b/add-claim-1.png) 
       
