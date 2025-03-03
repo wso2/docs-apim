@@ -74,12 +74,12 @@ In this example
 
 16. Under `Roles` section in `User Management` find the previously created `devportal` role and select it. Select `Users` tab and set the user to this role
 
-   ![Dev portal roles ]({{base_path}}/assets/img/design/b2b/dev-portal-roles.png) 
+    ![Dev portal roles ]({{base_path}}/assets/img/design/b2b/dev-portal-roles.png) 
 
-!!! note
-    Organization restriction capability is not supported in the Admin and Publisher portals in this release. To prevent organization users from logging into these portals, do not assign them Admin or Publisher/Creator roles to the users in sub organizations.
+    !!! note
+        Organization restriction capability is not supported in the Admin and Publisher portals in this release. To prevent organization users from logging into these portals, do not assign them Admin or Publisher/Creator roles to the users in sub organizations.
 
-15. Similarly create user in another organization and assign developer role.
+17. Similarly create user in another organization and assign developer role.
 
 
 ## Set Up WSO2 API Manager
