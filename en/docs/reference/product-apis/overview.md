@@ -6,7 +6,7 @@ The following topics list the APIs exposed from the API Publisher, Developer Por
 <table>
   <tr>
     <td nowrap="true"><a href="{{base_path}}/reference/product-apis/publisher-apis/publisher-v4/publisher-v4/">WSO2 Publisher API v4</a></td>
-    <td rowspan="3" class="md-typeset__td"><b>WSO2 recommends that you use the latest REST APIs</b> as it is up to date and has support for the latest WSO2 API Manager 4.4.0 features.
+    <td rowspan="3" class="md-typeset__td"><b>WSO2 recommends that you use the latest REST APIs</b> as it is up to date and has support for the latest WSO2 API Manager features.
     </td>
   </tr>
   <tr>
@@ -24,6 +24,10 @@ The following topics list the APIs exposed from the API Publisher, Developer Por
   </tr>
   <tr>
     <td nowrap="true"><a href="{{base_path}}/reference/product-apis/devops-apis/devops-v0/devops-v0/">WSO2 Devops API v0</a></td>
+  </tr>
+  <tr>
+    <td nowrap="true"><a href="{{base_path}}/reference/product-apis/governance-apis/governance-v1/governance-v1/">WSO2 Governance API v1</a></td>
+    </td>
   </tr>
 </table>
 
