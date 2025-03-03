@@ -1,0 +1,736 @@
+{
+	"info": {
+		"_postman_id": "266057d4-4701-4a5a-99a2-9a8eeba9b82f",
+		"name": "WSO2 API Manager 4.5.0 - Governance REST API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "28719432"
+	},
+	"item": [
+		{
+			"name": "Authentication",
+			"item": [
+				{
+					"name": "Register DCR App",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"var response = JSON.parse(responseBody);",
+									"var clientId = response.clientId;",
+									"var clientSecret = response.clientSecret;",
+									"pm.collectionVariables.set(\"dcrClientId\", clientId);",
+									"pm.collectionVariables.set(\"dcrClientSecret\", clientSecret);",
+									"",
+									"var base64EncodedCredentials = btoa(clientId + \":\" + clientSecret);",
+									"pm.collectionVariables.set(\"base64EncodedDCRCredentials\", base64EncodedCredentials);"
+								]
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": {
+								"username": "admin",
+								"password": "admin",
+								"showPassword": false
+							}
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": " {\n  \"callbackUrl\":\"www.google.lk\",\n  \"clientName\":\"rest_api_publisher\",\n  \"owner\":\"admin\",\n  \"grantType\":\"client_credentials password refresh_token\",\n  \"saasApp\":true\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{dcrEndpoint}}"
+					},
+					"response": []
+				},
+				{
+					"name": "Generate Access Token",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"console.log(responseBody);",
+									"var response = JSON.parse(responseBody);",
+									"pm.collectionVariables.set(\"access-token\", response.access_token);"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"var url = pm.collectionVariables.get(\"basepath\").concat(\"/settings\");",
+									"console.log(url);",
+									"var getRequest = {",
+									" url: url,",
+									" method: 'GET',",
+									"};",
+									" ",
+									"pm.sendRequest(getRequest, (error, response) => {",
+									" if (error == null) {",
+									"     if (response == null) {",
+									"       //use existing scopes list",
+									"     } else {",
+									"         var scopeslist = response.json().scopes;",
+									"         var scopeString = scopeslist.toString();",
+									"         var scopeArr = scopeString.split(\",\");",
+									"         var scopes = scopeArr.join(\" \");",
+									"         pm.collectionVariables.set(\"restAPIScopes\", scopes);",
+									"     }",
+									" }",
+									"});",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Basic {{base64EncodedDCRCredentials}}",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"grant_type\": \"password\",\n\"username\":\"admin\",\n\"password\":\"admin\",\n\"scope\":\"apim:api_view apim:api_create apim:api_manage apim:api_delete apim:api_publish apim:subscription_view apim:subscription_block apim:subscription_manage apim:external_services_discover apim:threat_protection_policy_create apim:threat_protection_policy_manage apim:document_create apim:document_manage apim:mediation_policy_view apim:mediation_policy_create apim:mediation_policy_manage apim:client_certificates_view apim:client_certificates_add apim:client_certificates_update apim:ep_certificates_view apim:ep_certificates_add apim:ep_certificates_update apim:publisher_settings apim:pub_alert_manage apim:shared_scope_manage apim:app_import_export apim:api_import_export apim:api_product_import_export apim:api_generate_key apim:common_operation_policy_view apim:common_operation_policy_manage apim:comment_write apim:comment_view apim:admin apim:subscription_approval_view apim:subscription_approval_manage apim:llm_provider_read apim:gov_result_read\"\n}"
+						},
+						"url": "{{tokenEndpoint}}"
+					},
+					"response": []
+				}
+			],
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "Rulesets",
+			"item": [
+				{
+					"name": "Create Ruleset",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var response = JSON.parse(pm.response.text());",
+									"var id = response.id;",
+									"pm.collectionVariables.set(\"rulesetId\", id);"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{access-token}}"
+							}
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "multipart/form-data"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "",
+									"description": "(Required) Name of the ruleset.",
+									"type": "text"
+								},
+								{
+									"key": "rulesetContent",
+									"description": "(Required) The content of the ruleset file (YAML or JSON).",
+									"type": "file",
+									"src": []
+								},
+								{
+									"key": "ruleType",
+									"value": "",
+									"description": "(Required) Context or area to which the ruleset applies. (This can only be one of API_METADATA,API_DEFINITION,DOCUMENTATION)",
+									"type": "text"
+								},
+								{
+									"key": "artifactType",
+									"value": "",
+									"description": "(Required) The type of artifact that the ruleset validates. (This can only be one of REST_API,SOAP_API,GRAPHQL_API,ASYNC_API,ALL_API)",
+									"type": "text"
+								},
+								{
+									"key": "provider",
+									"value": "",
+									"description": "(Required) Entity or individual providing the ruleset.",
+									"type": "text"
+								},
+								{
+									"key": "description",
+									"value": "",
+									"description": "A brief description of the ruleset.",
+									"type": "text"
+								},
+								{
+									"key": "documentationLink",
+									"value": "",
+									"description": "URL to the documentation related to the ruleset.",
+									"type": "text"
+								}
+							]
+						},
+						"url": "{{basePath}}/rulesets",
+						"description": "Creates a new ruleset in the user's organization."
+					},
+					"response": []
+				},
+				{
+					"name": "Update Ruleset",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{access-token}}"
+							}
+						},
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "multipart/form-data"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "",
+									"description": "(Required) Name of the ruleset.",
+									"type": "text"
+								},
+								{
+									"key": "rulesetContent",
+									"description": "(Required) The content of the ruleset file (YAML or JSON).",
+									"type": "file",
+									"src": []
+								},
+								{
+									"key": "ruleType",
+									"value": "",
+									"description": "(Required) Context or area to which the ruleset applies. (This can only be one of API_METADATA,API_DEFINITION,DOCUMENTATION)",
+									"type": "text"
+								},
+								{
+									"key": "artifactType",
+									"value": "",
+									"description": "(Required) The type of artifact that the ruleset validates. (This can only be one of REST_API,SOAP_API,GRAPHQL_API,ASYNC_API,ALL_API)",
+									"type": "text"
+								},
+								{
+									"key": "provider",
+									"value": "",
+									"description": "(Required) Entity or individual providing the ruleset.",
+									"type": "text"
+								},
+								{
+									"key": "description",
+									"value": "",
+									"description": "A brief description of the ruleset.",
+									"type": "text"
+								},
+								{
+									"key": "documentationLink",
+									"value": "",
+									"description": "URL to the documentation related to the ruleset.",
+									"type": "text"
+								}
+							]
+						},
+						"url": "{{basePath}}/rulesets/{{rulesetId}}",
+						"description": "Updates the details of the ruleset identified by the `rulesetId`."
+					},
+					"response": []
+				},
+				{
+					"name": "Get Ruleset by ID",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{access-token}}"
+							}
+						},
+						"method": "GET",
+						"header": [],
+						"url": "{{basePath}}/rulesets/{{rulesetId}}"
+					},
+					"response": []
+				},
+				{
+					"name": "Get Ruleset Content",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{access-token}}"
+							}
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/x-yaml"
+							}
+						],
+						"url": "{{basePath}}/rulesets/{{rulesetId}}/content",
+						"description": "Retrieves the content of the ruleset identified by the rulesetId."
+					},
+					"response": []
+				},
+				{
+					"name": "Get Ruleset Usage",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{access-token}}"
+							}
+						},
+						"method": "GET",
+						"header": [],
+						"url": "{{basePath}}/rulesets/{{rulesetId}}/usage"
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Rulesets",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{access-token}}"
+							}
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{basePath}}/rulesets?limit=25&offset=0",
+							"host": [
+								"{{basePath}}"
+							],
+							"path": [
+								"rulesets"
+							],
+							"query": [
+								{
+									"key": "limit",
+									"value": "25"
+								},
+								{
+									"key": "offset",
+									"value": "0"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Ruleset",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": "{{basePath}}/rulesets/{{rulesetId}}"
+					},
+					"response": []
+				}
+			],
+			"description": "This section is dedicated to the management of rulesets, allowing users to create, update, retrieve, and delete sets of rules. These rulesets help ensure that various governance and compliance standards are met."
+		},
+		{
+			"name": "Policies",
+			"item": [
+				{
+					"name": "Create Policy",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var response = JSON.parse(pm.response.text());",
+									"var id = response.id;",
+									"pm.collectionVariables.set(\"policyId\", id);"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{access-token}}"
+							}
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"name\": \"Sample Policy\",\n  \"description\": \"Sample policy description\",\n  \"rulesets\": [\n    \"{{rulesetId}}\"\n  ],\n  \"labels\": [\n    \"GLOBAL\"\n  ],\n  \"governableStates\": [\n    \"API_UPDATE\",\n    \"API_PUBLISH\"\n  ],\n  \"actions\": [\n    {\n      \"state\": \"API_PUBLISH\",\n      \"ruleSeverity\": \"ERROR\",\n      \"type\": \"NOTIFY\"\n    }\n  ]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{basePath}}/policies/"
+					},
+					"response": []
+				},
+				{
+					"name": "Update Policy",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{access-token}}"
+							}
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"name\": \"Sample Policy\",\n  \"description\": \"Sample policy description\",\n  \"rulesets\": [\n    \"{{rulesetId}}\"\n  ],\n  \"labels\": [\n    \"GLOBAL\"\n  ],\n  \"governableStates\": [\n    \"API_UPDATE\",\n    \"API_PUBLISH\"\n  ],\n  \"actions\": [\n    {\n      \"state\": \"API_PUBLISH\",\n      \"ruleSeverity\": \"ERROR\",\n      \"type\": \"NOTIFY\"\n    }\n  ]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{basePath}}/policies/{{policyId}}"
+					},
+					"response": []
+				},
+				{
+					"name": "Get Policy by ID",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{access-token}}"
+							}
+						},
+						"method": "GET",
+						"header": [],
+						"url": "{{basePath}}/policies/{{policyId}}"
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Policies",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{access-token}}"
+							}
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{basePath}}/policies?limit=25&offset=0",
+							"host": [
+								"{{basePath}}"
+							],
+							"path": [
+								"policies"
+							],
+							"query": [
+								{
+									"key": "limit",
+									"value": "25"
+								},
+								{
+									"key": "offset",
+									"value": "0"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Policy",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{access-token}}"
+							}
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": "{{basePath}}/policies/{{policyId}}"
+					},
+					"response": []
+				}
+			],
+			"description": "This section focuses on the administration of governance policies, which define the overarching guidelines and principles that regulate compliance and security requirements. Users can manage these policies to align with organizational and regulatory standards."
+		},
+		{
+			"name": "API Compliance",
+			"item": [
+				{
+					"name": "API Compliance",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{access-token}}"
+							}
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{basePath}}/artifact-compliance/api/{{apiId}}?limit=25&offset=0",
+							"host": [
+								"{{basePath}}"
+							],
+							"path": [
+								"artifact-compliance",
+								"api",
+								"{{apiId}}"
+							],
+							"query": [
+								{
+									"key": "limit",
+									"value": "25"
+								},
+								{
+									"key": "offset",
+									"value": "0"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "API Compliance Summary",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{access-token}}"
+							}
+						},
+						"method": "GET",
+						"header": [],
+						"url": "{{basePath}}/artifact-compliance/api/summary"
+					},
+					"response": []
+				},
+				{
+					"name": "API Compliance by API ID",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{access-token}}"
+							}
+						},
+						"method": "GET",
+						"header": [],
+						"url": "{{basePath}}/artifact-compliance/api/{{apiId}}"
+					},
+					"response": []
+				}
+			],
+			"description": "This section provides access to artifact compliance data, enabling users to assess whether specific APIs conform to established governance policies and standards."
+		},
+		{
+			"name": "Policy Adherence",
+			"item": [
+				{
+					"name": "Policy Adherence",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{access-token}}"
+							}
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{basePath}}/policy-adherence?limit=25&offset=0",
+							"host": [
+								"{{basePath}}"
+							],
+							"path": [
+								"policy-adherence"
+							],
+							"query": [
+								{
+									"key": "limit",
+									"value": "25"
+								},
+								{
+									"key": "offset",
+									"value": "0"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Policy Adherence Summary",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{access-token}}"
+							}
+						},
+						"method": "GET",
+						"header": [],
+						"url": "{{basePath}}/policy-adherence/summary"
+					},
+					"response": []
+				},
+				{
+					"name": "Policy Adherence by Policy ID",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{access-token}}"
+							}
+						},
+						"method": "GET",
+						"header": [],
+						"url": "{{basePath}}/policy-adherence/{{policyId}}"
+					},
+					"response": []
+				}
+			],
+			"description": "This section facilitates the evaluation of policy adherence, ensuring that various entities within the system follow the governance policies in place. It allows users to track compliance status and take necessary actions when deviations occur."
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "basePath",
+			"value": "https://localhost:9443/api/am/governance/v1",
+			"type": "default"
+		},
+		{
+			"key": "dcrEndpoint",
+			"value": "https://localhost:9443/client-registration/v0.17/register",
+			"type": "default"
+		},
+		{
+			"key": "rulesetId",
+			"value": "",
+			"type": "default"
+		},
+		{
+			"key": "apiId\n",
+			"value": "",
+			"type": "string"
+		},
+		{
+			"key": "policyId",
+			"value": "",
+			"type": "default"
+		}
+	]
+}
