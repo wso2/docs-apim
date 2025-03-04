@@ -10,6 +10,9 @@ WSO2 Identity Server 7.1.0 includes B2B organization support. The following inst
     [oauth]
     authorize_all_scopes = true
 
+    [oauth.oidc.user_info]
+    remove_internal_prefix_from_roles=true
+
     [[resource.access_control]]
     context="(.*)/scim2/Me"
     secure=true
