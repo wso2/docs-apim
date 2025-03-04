@@ -159,6 +159,7 @@ Following table contains a summary of the fields in a rule.
 </tbody></table>
 
 Following is an explanation on the attributes of a rule.
+
 1. `given` (required) - The part of the document (the target) the rule should be applied to. Written using [Json Path](https://github.com/json-path/JsonPath) syntax. Can be an array of strings or a single string
 2. `then` (required) - Describes which function and how it should be applied to the target. Can be an array of objects or a single object containing the following fields.
     1. `function` (required) - which of the core functions should be applied. More information in the [Core Functions](#3-core-functions) section.
