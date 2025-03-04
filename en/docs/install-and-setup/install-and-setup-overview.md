@@ -258,7 +258,7 @@ To deploy the API Manager runtime, see the topics given below.
     </tr>
     <tr>
         <th>
-            <a href="{{base_path}}/install-and-setup/install/deploying-api-manager-with-kubernetes-or-openshift-resources">Deploy API-M on Kubernetes using Helm Resources</a>
+            <a href="{{base_path}}/install-and-setup/install/deploying-api-manager-with-kubernetes-resources">Deploy API-M on Kubernetes using Helm Resources</a>
         </th>
         <td>
             Explains how Helm resources deploy the API Manager component in Kubernetes.

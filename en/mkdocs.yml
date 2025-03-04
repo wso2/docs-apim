@@ -589,7 +589,7 @@ nav:
                     - Configure Multi-DC Deployment - Pattern 2: install-and-setup/setup/multi-dc-deployment/configuring-multi-dc-deployment-pattern-2.md
             - Deploy on Kubernetes:
                 - API-M on K8s:
-                    - Deploy API-M on K8s Using Helm Resources: install-and-setup/install/deploying-api-manager-with-kubernetes-or-openshift-resources.md
+                    - Deploy API-M on K8s Using Helm Resources: install-and-setup/install/deploying-api-manager-with-kubernetes-resources.md
             - Deployment Best Practices:
                 - Deployment Checklist: install-and-setup/setup/deployment-best-practices/production-deployment-guidelines.md
                 - Security Guidelines for a Production Deployment: install-and-setup/setup/deployment-best-practices/security-guidelines-for-production-deployment.md
@@ -766,7 +766,7 @@ plugins:
               'install-and-setup/deploying-wso2-api-manager/distributed-deployment/configure-a-third-party-key-manager.md': 'https://apim.docs.wso2.com/en/4.4.0/install-and-setup/setup/distributed-deployment/configure-a-third-party-key-manager/'
               'install-and-setup/deploying-wso2-api-manager/distributed-deployment/configuring-wso2-identity-server-as-a-key-manager.md': 'https://apim.docs.wso2.com/en/4.4.0/install-and-setup/setup/distributed-deployment/configuring-wso2-identity-server-as-a-key-manager/'
               'install-and-setup/deploying-wso2-api-manager/configuring-message-builders-formatters.md': 'https://apim.docs.wso2.com/en/4.4.0/deploy-and-publish/deploy-on-gateway/api-gateway/message-mediation/configuring-message-builders-formatters/'
-              'install-and-setup/deploying-wso2-api-manager/deploying-api-manager-with-kubernetes-or-openshift-resources.md': 'https://apim.docs.wso2.com/en/4.4.0/install-and-setup/install/deploying-api-manager-with-kubernetes-or-openshift-resources/'
+              'install-and-setup/deploying-wso2-api-manager/deploying-api-manager-with-kubernetes-resources.md': 'https://apim.docs.wso2.com/en/4.4.0/install-and-setup/install/deploying-api-manager-with-kubernetes-resources/'
               'install-and-setup/deploying-wso2-api-manager/production-deployment-guidelines.md': 'https://apim.docs.wso2.com/en/4.4.0/install-and-setup/setup/deployment-best-practices/production-deployment-guidelines/'
               'install-and-setup/deploying-wso2-api-manager/security-guidelines-for-production-deployment.md': 'https://apim.docs.wso2.com/en/4.4.0/install-and-setup/setup/deployment-best-practices/security-guidelines-for-production-deployment/'
               'install-and-setup/product-compatibility.md': 'https://apim.docs.wso2.com/en/4.4.0/install-and-setup/setup/reference/product-compatibility/'
