@@ -103,6 +103,61 @@ Following is a simple rule. These rules have been extracted from the `wso2_rest_
 ```
 This rule will only be only applied if the document is an OAS3 document. It will traverse the document to find server objects. Then for each server, it will find the field 'url', and check whether it matches the given regex pattern.
 
+Following table contains a summary of the fields in a rule.
+<table><thead>
+  <tr>
+    <th>Field name</th>
+    <th>Required</th>
+    <th>Type</th>
+  </tr></thead>
+<tbody>
+  <tr>
+    <td>given</td>
+    <td>Yes</td>
+    <td>Json path string, or an array of json paths.</td>
+  </tr>
+  <tr>
+    <td>then</td>
+    <td>Yes</td>
+    <td>Object with the properties: `function`, `field`, and `functionOptions`.</td>
+  </tr>
+  <tr>
+    <td>function</td>
+    <td>Yes</td>
+    <td>String. Name of a valid core function</td>
+  </tr>
+  <tr>
+    <td>field</td>
+    <td>No</td>
+    <td>String. Sub target.</td>
+  </tr>
+  <tr>
+    <td>functionOptions</td>
+    <td>No</td>
+    <td>Object or values required for the function</td>
+  </tr>
+  <tr>
+    <td>description</td>
+    <td>No</td>
+    <td>String</td>
+  </tr>
+  <tr>
+    <td>message</td>
+    <td>No</td>
+    <td>String with optional valid placeholders</td>
+  </tr>
+  <tr>
+    <td>severity</td>
+    <td>No</td>
+    <td>String with a valid severity</td>
+  </tr>
+  <tr>
+    <td>formats</td>
+    <td>No</td>
+    <td>Array of strings of valid formats</td>
+  </tr>
+</tbody></table>
+
 Following is an explanation on the attributes of a rule.
 1. `given` (required) - The part of the document (the target) the rule should be applied to. Written using [Json Path](https://github.com/json-path/JsonPath) syntax. Can be an array of strings or a single string
 2. `then` (required) - Describes which function and how it should be applied to the target. Can be an array of objects or a single object containing the following fields.
