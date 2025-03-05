@@ -4,6 +4,9 @@ WSO2 API Manager consists of an API management layer and an integration layer. T
 
 You can select one of the following deployment patterns depending on the workload of each component and the traffic that is expected to each of the components and runtimes.
 
+!!! note
+    From WSO2 API Manager 4.5.0 onwards, we no longer support API-M profiles such as, `-Dprofile=control-plane`, `-Dprofile=gateway-worker` and `-Dprofile=traffic-manager`. Instead, we now have separate distributions namely, **WSO2 API Control Plane**, **WSO2 Universal Gateway** and **WSO2 Traffic Manager** components which should be used for configuring a distributed deployment. For more information on alternative deployment options, please refer the **Key Changes** section in the [About this Release]({{base_path}}/get-started/about-this-release/) page.
+
 ## Standard HA deployment
 
 This deployment consists of an API-M cluster with two nodes of the API-M runtime and two nodes each of the integration runtimes (Micro Integrator/Streaming Integrator). You can use this pattern if you expect to receive low traffic to your deployment. 
