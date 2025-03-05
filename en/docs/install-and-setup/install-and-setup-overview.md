@@ -81,7 +81,7 @@ To set up the API Manager component, see the following topics.
         <a href="{{base_path}}/install-and-setup/setup/setting-up-databases/overview">Setting up Databases</a>
     </th>
     <td>
-        The API Manager is shipped with an H2 database for storing data. This guide explains the default H2 databases used within API Manager as well as how to switch to a different database supported for the API Manager such as MSSQL, MySQL, PostgreSQL, Oracle, MariaDB, IBM DB2, and Oracle RAC. In addition, this section covers how to manage data growth and improve performance when storing metadata and runtime data in databases.
+        The API Manager is shipped with an H2 database for storing data. This guide explains the default H2 databases used within API Manager as well as how to switch to a different database supported for the API Manager such as MSSQL, MySQL, PostgreSQL, Oracle, IBM DB2, and Oracle RAC. In addition, this section covers how to manage data growth and improve performance when storing metadata and runtime data in databases.
     </td>
 </tr>
 <tr>
@@ -262,14 +262,6 @@ To deploy the API Manager runtime, see the topics given below.
         </th>
         <td>
             Explains how Helm resources deploy the API Manager component in Kubernetes.
-        </td>
-    </tr>
-    <tr>
-        <th>
-            <a href="{{base_path}}/install-and-setup/setup/kubernetes-operators/k8s-api-operator/manage-apis/api-deployments">Deploy APIs on Kubernetes</a>
-        </th>
-        <td>
-            Explains how the Kubernetes operator can deploy APIs in Kubernetes as managed APIs.
         </td>
     </tr>
 </table>
