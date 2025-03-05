@@ -383,6 +383,7 @@ nav:
             - Ruleset Catalog:
                 - WSO2 API Management Guidelines: reference/governance/wso2-api-management-guidelines.md
                 - WSO2 REST API Design Guidelines: reference/governance/wso2-rest-api-design-guidelines.md
+                - OWASP Top 10: reference/governance/owasp-top-10.md
         - Customizations:
             - Vendor Specific Extensions: reference/vendor-extensions-catalog.md
             - Extend WSO2 API Manager:
