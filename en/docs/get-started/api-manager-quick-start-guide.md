@@ -6,72 +6,40 @@ In this step-by-step guide, you’ll learn how to create, publish, and invoke an
 
 ### Before you begin...
 
-Choose a deployment option to start WSO2 API Manager.
+Choose a deployment option to start WSO2 API Manager All-in-one package. The All-in-one package contains all core components in a single JVM for simplified deployment.
 
-=== "Run locally"
+=== "Run on VM"
 
-    Here's how you can download and run WSO2 API Manager locally:
+    Here's how you can download and run WSO2 API Manager All-in-one package locally on a VM:
 
-    - Install [Java SE Development Kit (JDK)](https://adoptium.net/temurin/releases/?arch=any&version=21) version **21** and set the `JAVA_HOME` environment variable.
+    1. Install [Java SE Development Kit (JDK)](https://adoptium.net/temurin/releases/?arch=any&version=21) version **21** and set the `JAVA_HOME` environment variable.
     
         !!! tip
             For more information on setting the `JAVA_HOME` environment variable for different operating systems, see [Setup and Install]({{base_path}}/install-and-setup/install/installing-the-product/installing-api-m-runtime/#setting-up-java_home)
+    
+    2. Download WSO2 API-Manager All-in-one package.
+    - [Open Source Distribution](https://github.com/wso2/product-apim/releases/tag/v4.4.0)
+    - [WSO2 Official Distribution](https://wso2.com/api-manager/#)
 
-    === "Run the All-in-one package locally"
+    3. Extract the downloaded zip file.
 
-        The All-in-one package contains all core components in a single JVM for simplified deployment.
+    4. Navigate to the `<API-M_HOME>/bin` folder from your command line.
+    
+    5. To start WSO2 API Manager, execute the relevant command:
 
-        1. Download WSO2 API-Manager All-in-one package.
-            - [Open Source Distribution](https://github.com/wso2/product-apim/releases/tag/v4.4.0)
-            - [WSO2 Official Distribution](https://wso2.com/api-manager/#)
+        === "On MacOS/Linux"
+            ```bash
+            sh api-manager.sh
+            ```
         
-        2. Extract the downloaded zip file.
+        === "On Windows"
+            ```bash
+            api-manager.bat --run
+            ```
 
-        3. Navigate to the `<API-M_HOME>/bin` folder from your command line.
-        
-        4. To start WSO2 API Manager, execute the relevant command:
+=== "Run on Kubernetes"
 
-            === "On MacOS/Linux"
-                ```bash
-                sh api-manager.sh
-                ```
-            
-            === "On Windows"
-                ```bash
-                api-manager.bat --run
-                ```
-
-    === "Run the Enterprise package locally"
-
-        The Enterprise package contains the WSO2 API Control Plane, WSO2 Universal Gateway, WSO2 Traffic Manager and the supporting components. **The WSO2 API Control Plane** consists of the API Publisher Portal, Developer Portal, Admin Portal and the Key Manager components which helps in managing design, lifecycle, and governance of APIs at scale. **The WSO2 Universal Gateway** is used to secure and proxy API traffic with enterprise-grade features. **The WSO2 Traffic Manager** is used to handle API traffic policies and rate limiting at high volumes.
-
-        Using the Enterprise package for WSO2 API Manager, you get flexibility to design scalable API management solutions with independent component management.
-
-        1. Download WSO2 API-Manager Enterprise package.
-            - Open Source Distribution
-                - [WSO2 API Control Plane](https://github.com/wso2/product-apim/releases/download/v4.5.0/wso2am-acp-4.5.0.zip)
-                - [WSO2 Universal Gateway](https://github.com/wso2/product-apim/releases/download/v4.5.0/wso2am-universal-gw-4.5.0.zip)
-                - [WSO2 Traffic Manager](https://github.com/wso2/product-apim/releases/download/v4.5.0/wso2am-tm-4.5.0.zip)
-            - [WSO2 Official Distribution](https://wso2.com/api-manager/#)
-        
-        2. Extract the downloaded zip files.
-
-        3. Run the script [deploy-on-vm.sh](https://github.com/wso2/product-apim/blob/v4.5.0/deploy-on-vm.sh) in Linux/MacOS or [deploy-on-vm.bat](https://github.com/wso2/product-apim/blob/v4.5.0/deploy-on-vm.bat) in Windows, to setup a [simple scalable distributed deployment]({{base_path}}/install-and-setup/setup/distributed-deployment/deploying-wso2-api-m-in-a-distributed-setup/) locally in the same VM.
-
-=== "Run on Docker"
-
-    Here's how you can run WSO2 API Manager using Docker:
-
-    1. Install [Docker](https://docs.docker.com/get-docker/) if you haven't done so already.
-    2. Pull and start WSO2 API Manager by executing the following command:
-
-        ```bash
-        docker run -it -p 9443:9443 -p 8243:8243 wso2/wso2am:4.4.0
-        ```
-
-        !!! note
-
-            - The `docker run` command will start WSO2 API Manager and expose the ports `9443` and `8243`.
+    To use Kubernetes (K8s) and Helm resources for container-based deployments of WSO2 API Manager (API-M), follow the steps in [Deploying API-M on Kubernetes using Helm Resources.]({{base_path}}/install-and-setup/install/deploying-api-manager-with-kubernetes-or-openshift-resources/)
 
 ### What you'll build
 

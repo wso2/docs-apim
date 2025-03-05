@@ -20,7 +20,7 @@ Over the course of its lifetime, WSO2 API Manager has changed significantly. To 
 </div>
 
 !!! note
-    From WSO2 API Manager 4.5.0 onwards, we no longer support API-M profiles which are, `-Dprofile=control-plane`, `-Dprofile=gateway-worker` and `-Dprofile=traffic-manager`. Instead, we now have separate distributions namely, **WSO2 API Control Plane**, **WSO2 Universal Gateway** and **WSO2 Traffic Manager** components. For more information please refer the **Key Changes** section in the [About this Release]({{base_path}}/get-started/about-this-release/) page.
+    From WSO2 API Manager 4.5.0 onwards, we no longer support API-M profiles such as, `-Dprofile=control-plane`, `-Dprofile=gateway-worker` and `-Dprofile=traffic-manager`. Instead, we now have separate distributions namely, **WSO2 API Control Plane**, **WSO2 Universal Gateway** and **WSO2 Traffic Manager** components. For more information please refer the **Key Changes** section in the [About this Release]({{base_path}}/get-started/about-this-release/) page.
 
 ## Get started
 
