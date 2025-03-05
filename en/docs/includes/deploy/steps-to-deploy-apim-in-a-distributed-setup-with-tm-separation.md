@@ -2,8 +2,7 @@
 
 To install and set up the API-M servers:
 
-1.  Download the [WSO2 API Manager](https://wso2.com/api-manager/).
-2.  Create copies of the API-M distribution for the individual profiles.
+1.  Download the WSO2 API Control Plane, WSO2 Universal Gateway and WSO2 Traffic Manager component distributions from the [WSO2 API Manager website](https://wso2.com/api-manager/).
 
 ### Step 2 - Install and configure the databases
 
@@ -28,28 +27,28 @@ For more information, see [Creating SSL Certificates](../../../../install-and-se
 
 ### Step 5 - Configure API-M Analytics
 
-API Manager Analytics is delivered via the API Manager Analytics cloud solution. You need to configure the API Manager Gateway to publish analytics data to the cloud.
+API Manager Analytics is delivered via the API Manager Analytics cloud solution. You need to configure the WSO2 Universal Gateway distribution to publish analytics data to the cloud.
 
-See the instructions on [configuring the API Gateway](../../../../api-analytics/choreo-analytics/getting-started-guide/) with the cloud-based analytics solution.
+See the instructions on [configuring the Gateway](../../../../api-analytics/choreo-analytics/getting-started-guide/) with the cloud-based analytics solution.
 
-### Step 6 - Configure and start the profiles
+### Step 6 - Configure and start the component nodes
 
 Let's configure the API-M nodes in the deployment.
 
 #### Configure the Gateway nodes
 
-Configure the Gateway to communicate with the Control Plane and the Traffic Manager nodes.
+Configure the Gateway to communicate with the API Control Plane and the Traffic Manager nodes.
 
-Follow the instructions given below to configure the Gateway node so that it can communicate with the Control Plane node:
+Follow the instructions given below to configure the Gateway node so that it can communicate with the API Control Plane node:
 
-1. Open the `<API-M_HOME>/repository/conf/deployment.toml` file of the Gateway node.
+1. Open the `<UNIVERSAL-GW_HOME>/repository/conf/deployment.toml` file of the Gateway node.
 
 2. Add the following configurations to the deployment.toml file.
 
-   * **Connecting the Gateway to the Control Plane node**:
+   * **Connecting the Gateway to the API Control Plane node**:
      
      
-    === "Control Plane with High Availability"
+    === "API Control Plane with High Availability"
         ```toml
         # Key Manager configuration
         [apim.key_manager]
@@ -67,7 +66,7 @@ Follow the instructions given below to configure the Gateway node so that it can
         
         ```
 
-    === "Single Control Plane"
+    === "Single API Control Plane"
         ```toml
         # Key Manager configuration
         [apim.key_manager]
@@ -127,7 +126,7 @@ Follow the instructions given below to configure the Gateway node so that it can
     ```
 
     !!! Info
-        Once an API is deployed/undeployed, the Control Plane will send a deploy/undeploy event to the Gateways. Using this configuration, the Gateway will filter out its relevant deploy/undeploy events and retrieve the artifacts.
+        Once an API is deployed/undeployed, the API Control Plane will send a deploy/undeploy event to the Gateways. Using this configuration, the Gateway will filter out its relevant deploy/undeploy events and retrieve the artifacts.
 
 4. Enable JSON Web Token (JWT) if required. For instructions, see [Generating JSON Web Token](../../../../deploy-and-publish/deploy-on-gateway/api-gateway/passing-enduser-attributes-to-the-backend-via-api-gateway).
 
@@ -136,14 +135,14 @@ Follow the instructions given below to configure the Gateway node so that it can
     !!! Note
         This is not applicable if you use the default certificates, which are the certificates that are shipped with the product itself.
 
-6. Follow the steps given below to configure High Availability (HA) for the API-M Gateway:
+6. Follow the steps given below to configure High Availability (HA) for the Universal Gateway:
 
-    1. Create a copy of the API-M Gateway node that you just configured. This is the second node of the API-M Gateway cluster.
+    1. Create a copy of the WSO2 Universal Gateway node that you just configured. This is the second node of the Gateway cluster.
 
     2. Configure a load balancer fronting the two Gateway nodes in your deployment. For instructions, see [Configuring the Proxy Server and the Load Balancer](../../../../install-and-setup/setup/setting-up-proxy-server-and-the-load-balancer/configuring-the-proxy-server-and-the-load-balancer).
 
         !!! Note
-            To keep custom runtime artifacts deployed in the Gateway, add the following configuration in the `<API-M_HOME>/repository/conf/deployment.toml` file of the Gateway nodes.
+            To keep custom runtime artifacts deployed in the Gateway, add the following configuration in the `<UNIVERSAL-GW_HOME>/repository/conf/deployment.toml` file of the Gateway nodes.
 
             ```toml
             [apim.sync_runtime_artifacts.gateway.skip_list]
@@ -191,12 +190,13 @@ Follow the instructions given below to configure the Gateway node so that it can
         ```
 
 ###### Sample configuration for the Gateway
+
 === "HA Cluster"
     ```toml
     [server]
     hostname = "gw.wso2.com"
     node_ip = "127.0.0.1"
-    server_role = "gateway-worker"
+    server_role = "default"
 
     [user_store]
     type = "database_unique_id"
@@ -267,7 +267,7 @@ Follow the instructions given below to configure the Gateway node so that it can
     [server]
     hostname = "gw.wso2.com"
     node_ip = "127.0.0.1"
-    server_role = "gateway-worker"
+    server_role = "default"
     offset=0
 
     [user_store]
@@ -323,15 +323,15 @@ Follow the instructions given below to configure the Gateway node so that it can
 
     ```
 
-#### Configure the Control Plane nodes
+#### Configure the API Control Plane nodes
 
-Follow the steps given below to configure the Control Plane nodes to communicate with the Gateway.
+Follow the steps given below to configure the API Control Plane nodes to communicate with the Universal Gateway.
 
-1. Open the `<API-M_HOME>/repository/conf/deployment.toml` file of the Control Plane node.
+1. Open the `<ACP_HOME>/repository/conf/deployment.toml` file of the API Control Plane node.
 
 2. Add the following configurations to the deployment.toml file.
 
-    **Connecting the Control Plane to the Gateway node**:
+    **Connecting the API Control Plane to the Gateway node**:
 
     === "Gateway with High Availability"
         ```toml
@@ -375,7 +375,7 @@ Follow the steps given below to configure the Control Plane nodes to communicate
     !!! Info
             {!includes/deploy/enable-jms-ssl-for-eventhub.md!}
 
-    === "Control Plane with High Availability"
+    === "API Control Plane with High Availability"
         ```toml
         # Event Hub configurations
         [apim.event_hub]
@@ -396,7 +396,7 @@ Follow the steps given below to configure the Control Plane nodes to communicate
 
         ```
 
-    === "Single Control Plane"
+    === "Single API Control Plane"
         ```toml
         # Event Hub configurations
         [apim.event_hub]
@@ -417,9 +417,9 @@ Follow the steps given below to configure the Control Plane nodes to communicate
 
     **Add Event Listener Configurations**:
 
-    The below configurations are only added to the Control Plane if you are using the Resident Key Manager (resides in the Control Plane). If you are using WSO2 IS as Key Manager, you need to add these in the IS node. Once you add the below configurations, the Control Plane or Identity Server will listen to token revocation events and invoke the `notification_endpoint` regarding the revoked token. 
+    The below configurations are only added to the API Control Plane if you are using the Resident Key Manager (resides in the API Control Plane). If you are using WSO2 IS as Key Manager, you need to add these in the IS node. Once you add the below configurations, the Control Plane or Identity Server will listen to token revocation events and invoke the `notification_endpoint` regarding the revoked token. 
 
-    === "Control Plane with High Availability"
+    === "API Control Plane with High Availability"
         ```toml
         # Event Listener configurations
         [[event_listener]]
@@ -435,7 +435,7 @@ Follow the steps given below to configure the Control Plane nodes to communicate
         'header.X-WSO2-KEY-MANAGER' = "default"
         ```
 
-    === "Single Control Plane"
+    === "Single API Control Plane"
         ```toml
         # Event Listener configurations
         [[event_listener]]
@@ -453,7 +453,7 @@ Follow the steps given below to configure the Control Plane nodes to communicate
 
 3. If required, encrypt the Auth Keys (access tokens, client secrets, and authorization codes), see [Encrypting OAuth Keys](../../../../design/api-security/oauth2/encrypting-oauth2-tokens).
 
-4. Optionally, add the following configuration to enable distributed cache invalidation within the Control Plane nodes.
+4. Optionally, add the following configuration to enable distributed cache invalidation within the API Control Plane nodes.
 
     ```toml
     [apim.cache_invalidation]
@@ -462,20 +462,20 @@ Follow the steps given below to configure the Control Plane nodes to communicate
 
     ```
 
-5. Follow the steps given below to configure High Availability (HA) for the Control Plane:
+5. Follow the steps given below to configure High Availability (HA) for the API Control Plane:
 
-    1. Create a copy of the API-M Control Plane node that you just configured. This is the second node of the API-M Control Plane cluster.
+    1. Create a copy of the API Control Plane node that you just configured. This is the second node of the API Control Plane cluster.
 
-    2. Configure a load balancer fronting the two Control Plane nodes in your deployment. For instructions, see [Configuring the Proxy Server and the Load Balancer](../../../../install-and-setup/setup/setting-up-proxy-server-and-the-load-balancer/configuring-the-proxy-server-and-the-load-balancer).
+    2. Configure a load balancer fronting the two API Control Plane nodes in your deployment. For instructions, see [Configuring the Proxy Server and the Load Balancer](../../../../install-and-setup/setup/setting-up-proxy-server-and-the-load-balancer/configuring-the-proxy-server-and-the-load-balancer).
 
-###### Sample configuration for the Control Plane
+###### Sample configuration for the API Control Plane
 
 === "HA Cluster"
     ```toml
     [server]
     hostname = "api.am.wso2.com"
     node_ip = "127.0.0.1"
-    server_role="control-plane"
+    server_role="default"
     base_path = "${carbon.protocol}://${carbon.host}:${carbon.management.port}"
 
     [user_store]
@@ -574,7 +574,7 @@ Follow the steps given below to configure the Control Plane nodes to communicate
     [server]
     hostname = "cp.wso2.com"
     node_ip = "127.0.0.1"
-    server_role = "control-plane"
+    server_role = "default"
     offset=0
 
     [user_store]
@@ -651,17 +651,15 @@ Follow the steps given below to configure the Control Plane nodes to communicate
 
 #### Configure the Traffic Manager Nodes
 
-In a typical distributed deployment, all API-M components (excluding the API-M Gateway) run in the Control Plane. However, you have the option of separating the Traffic Manager from the Control Plane.
+Configure the Traffic Manager to communicate with the API Control Plane.
 
-Configure the Traffic Manager to communicate with the Control Plane.
-
-1. Open the `<API-M_HOME>/repository/conf/deployment.toml` file of the Traffic Manager node.
+1. Open the `<TM_HOME>/repository/conf/deployment.toml` file of the Traffic Manager node.
 
 2. Add the following configurations to the deployment.toml file.
 
-    **Connecting the Traffic Manager to the Control Plane node**:
+    **Connecting the Traffic Manager to the API Control Plane node**:
 
-    === "Control Plane with High Availability"
+    === "API Control Plane with High Availability"
         ```toml
         # Event Hub configurations
         [apim.event_hub]
@@ -672,7 +670,7 @@ Configure the Traffic Manager to communicate with the Control Plane.
         event_listening_endpoints = ["tcp://control-plane-1-host:5672", "tcp://control-plane-2-host:5672"]
         ```
  
-    === "Single Control Plane"
+    === "Single API Control Plane"
         ```toml
         # Event Hub configurations
         [apim.event_hub]
@@ -704,7 +702,7 @@ Configure the Traffic Manager to communicate with the Control Plane.
     2. Configure a load balancer fronting the two Traffic Manager nodes in your deployment.
 
         !!! Note
-            In each startup of a Traffic Manager node, the rate-limiting policies are redeployed by retrieving the latest policy details from the database. This maintains the consistency between the Traffic Manager nodes. If you need to avoid redeploying certain rate-limiting policies, add the following configuration to the `<API-M_HOME>/repository/conf/deployment.toml` file in the Traffic Manager node.
+            In each startup of a Traffic Manager node, the rate-limiting policies are redeployed by retrieving the latest policy details from the database. This maintains the consistency between the Traffic Manager nodes. If you need to avoid redeploying certain rate-limiting policies, add the following configuration to the `<TM_HOME>/repository/conf/deployment.toml` file in the Traffic Manager node.
 
             ```toml
             [apim.throttling]
@@ -719,7 +717,7 @@ Configure the Traffic Manager to communicate with the Control Plane.
     [server]
     hostname = "tm.am.wso2.com"
     node_ip = "127.0.0.1"
-    server_role = "traffic-manager"
+    server_role = "default"
 
     [transport.https.properties]
     proxyPort = 443
@@ -771,7 +769,7 @@ Configure the Traffic Manager to communicate with the Control Plane.
     [server]
     hostname = "tm.wso2.com"
     node_ip = "127.0.0.1"
-    server_role = "traffic-manager"
+    server_role = "default"
     offset=0
 
     [user_store]
@@ -816,48 +814,48 @@ Once you have successfully configured all the API-M nodes in the deployment, you
 
 -   Starting the Gateway nodes
 
-    Open a terminal, navigate to the `<API-M-GATEWAY-HOME>/bin` folder, and execute the following command:
+    Open a terminal, navigate to the `<UNIVERSAL-GW_HOME>/bin` folder, and execute the following command:
     
     === "Linux/Mac OS"
         ``` java
-        cd <API-M_HOME>/bin/
-        sh api-manager.sh -Dprofile=gateway-worker
+        cd <UNIVERSAL-GW_HOME>/bin/
+        sh gateway.sh
         ```
     
     === "Windows"
         ``` java
-        cd <API-M_HOME>\bin\
-        api-manager.bat --run -Dprofile=gateway-worker
+        cd <UNIVERSAL-GW_HOME>\bin\
+        gateway.bat --run
         ```
 
--   Start the Control Plane nodes
+-   Start the API Control Plane nodes
 
-    Open a terminal, navigate to the `<API-M-CONTROL-PLANE-HOME>/bin` folder, and execute the following command:
+    Open a terminal, navigate to the `<ACP_HOME>/bin` folder, and execute the following command:
 
     === "Linux/Mac OS"
         ``` java
-        cd <API-M_HOME>/bin/
-        sh api-manager.sh -Dprofile=control-plane
+        cd <ACP_HOME>/bin/
+        sh api-cp.sh
         ```
 
     === "Windows"
         ``` java
-        cd <API-M_HOME>\bin\
-        api-manager.bat --run -Dprofile=control-plane
+        cd <ACP_HOME>\bin\
+        api-cp.bat --run
         ```
 
 -   Start the Traffic Manager nodes
 
-    Open a terminal, navigate to the `<API-M-TRAFFIC-MANAGER-HOME>/bin` folder, and execute the following command:
+    Open a terminal, navigate to the `<TM_HOME>/bin` folder, and execute the following command:
 
     === "Linux/Mac OS"
         ``` java
-        cd <API-M_HOME>/bin/
-        sh api-manager.sh -Dprofile=traffic-manager
+        cd <TM_HOME>/bin/
+        sh traffic-manager.sh
         ```
 
     === "Windows"
         ``` java
-        cd <API-M_HOME>\bin\
-        api-manager.bat --run -Dprofile=traffic-manager
+        cd <TM_HOME>\bin\
+        traffic-manager.bat --run
         ```
