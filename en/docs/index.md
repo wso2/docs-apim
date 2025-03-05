@@ -36,7 +36,7 @@ template: templates/single-column.html
     }
 
     .card {
-        height: 300px;
+        height: 350px;
         color: #404040;
         background: #f8f8f8;
         padding-left: 1.2rem;
@@ -59,6 +59,12 @@ template: templates/single-column.html
         width: 100%;
         display: flex;
         max-width: 450px;
+    }
+
+    .card-wrapper1 {
+        width: 100%;
+        display: flex;
+        max-width: 1340px;
     }
 
     .card-content {
@@ -165,11 +171,13 @@ template: templates/single-column.html
         </div>
     </div>
     <div class="leftContent">
-        <h3>Compatible Components</h3>
+        <h3>Components</h3>
         <hr/>
+        <h4>Control Plane</h4>
+        </br>
         <div class="content">
             <!-- begin card -->
-            <div class="card-wrapper">
+            <div class="card-wrapper1">
                 <div class="card">
                     <div class="card-content">
                         <div class="rowAlignment">
@@ -181,21 +189,28 @@ template: templates/single-column.html
                             </div>
                             <div class="chip">
                                 <button class="btn btn-sm" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                4.5.0</button>
+                                4.5.0 <span>&#x25BC;</span></button>
                             </div>
                         </div>
                         <hr/>
-                        <p class="removeTopMargin">Manage design, lifecycle, and governance of APIs at scale</p>
+                        <p class="removeTopMargin">A Unified control plane which centrally manages and governs APIs across multiple Gateways. It provides Unified Security & Policy Enforcement to ensure consistent API governance across hybrid and multi-cloud environments. </p>
                         <div>
                             <ul>
                                 <li><a href="https://apim.docs.wso2.com/en/latest/get-started/apim-architecture/#control-plane">WSO2 API Control Plane Overview</a></li>
                                 <li><a href="https://apim.docs.wso2.com/en/latest/install-and-setup/setup/distributed-deployment/deploying-wso2-api-m-in-a-distributed-setup/">Configuring a distributed deployment</a></li>
                             </ul>
                         </div>
+                        </br>
+                        <a>Tooling <span>&#9654;</span></a>
                     </div>
                 </div>
             </div>
             <!-- end card -->
+        </div>
+        </br>
+        <h4>Data Plane</h4>
+        </br>
+        <div class="content">
             <!-- begin card -->
             <div class="card-wrapper">
                 <div class="card">
@@ -209,7 +224,7 @@ template: templates/single-column.html
                             </div>
                             <div class="chip">
                                 <button class="btn btn-sm" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                4.5.0</button>
+                                4.5.0 <span>&#x25BC;</span></button>
                             </div>
                         </div>
                         <hr/>
@@ -219,33 +234,8 @@ template: templates/single-column.html
                                 <li><a href="https://apim.docs.wso2.com/en/latest/get-started/apim-architecture/#api-gateway">WSO2 Universal Gateway Overview</a></li>
                             </ul>
                         </div>
-                    </div>
-                </div>
-            </div>
-            <!-- end card -->
-            <!-- begin card -->
-            <div class="card-wrapper">
-                <div class="card">
-                    <div class="card-content">
-                        <div class="rowAlignment">
-                            <div class="rowAlignmentProductNameIcon">
-                                <div class="card-icon">
-                                    <i class="material-icons md-36">call_split</i>
-                                </div>
-                                <p class="title"><b>WSO2 Traffic Manager</b></p>
-                            </div>
-                            <div class="chip">
-                                <button class="btn btn-sm" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                4.5.0</button>
-                            </div>
-                        </div>
-                        <hr/>
-                        <p class="removeTopMargin">Handle API traffic policies and rate limiting at high volumes</p>
-                        <div>
-                            <ul>
-                                <li><a href="https://apim.docs.wso2.com/en/latest/get-started/apim-architecture/#traffic-manager">WSO2 Traffic Manager Overview</a></li>
-                            </ul>
-                        </div>
+                        </br>
+                        <a>Traffic Manager <span>&#9654;</span></a>
                     </div>
                 </div>
             </div>
@@ -263,7 +253,7 @@ template: templates/single-column.html
                             </div>
                             <div class="chip">
                                 <button class="btn btn-sm" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                1.3.0</button>
+                                1.3.0 <span>&#x25BC;</span></button>
                             </div>
                         </div>
                         <hr/>
@@ -274,6 +264,7 @@ template: templates/single-column.html
                                 <li><a href="https://apk.docs.wso2.com/en/latest/api-management-overview/apk-conf-lang-support/">Using the Kubernetes Gateway config plugin</a></li>
                             </ul>
                         </div>
+                        <a>Tooling <span>&#9654;</span></a>
                     </div>
                 </div>
             </div>
@@ -291,7 +282,7 @@ template: templates/single-column.html
                             </div>
                             <div class="chip">
                                 <button class="btn btn-sm" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                3.2.10</button>
+                                3.2.10 <span>&#x25BC;</span></button>
                             </div>
                         </div>
                         <hr/>
@@ -300,33 +291,6 @@ template: templates/single-column.html
                             <ul>
                                 <li><a href="https://mg.docs.wso2.com/en/latest/getting-started/overview/">WSO2 Immutable Gateway Overview</a></li>
                                 <li><a href="https://mg.docs.wso2.com/en/latest/getting-started/quick-start-guide/quick-start-guide-overview/">Getting started guide</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- end card -->
-            <!-- begin card -->
-            <div class="card-wrapper">
-                <div class="card">
-                    <div class="card-content">
-                        <div class="rowAlignment">
-                            <div class="rowAlignmentProductNameIcon">
-                                <div class="card-icon">
-                                    <i class="material-icons md-36">build</i>
-                                </div>
-                                <p class="title"><b>WSO2 API Controller</b></p>
-                            </div>
-                            <div class="chip">
-                                <button class="btn btn-sm" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                4.5.0</button>
-                            </div>
-                        </div>
-                        <hr/>
-                        <p class="removeTopMargin">A command-line tool for managing artifacts such as APIs, API Products and Applications</p>
-                        <div>
-                            <ul>
-                                <li><a href="https://apim.docs.wso2.com/en/latest/reference/apictl/wso2-api-controller/">Getting started with the API Controller</a></li>
                             </ul>
                         </div>
                     </div>
