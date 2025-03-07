@@ -121,6 +121,7 @@ template: templates/single-column.html
         justify-content: space-between;
         align-items: center;
         margin-bottom: 30px;
+        margin-left: 100px;
     }
 
     .component-section {
