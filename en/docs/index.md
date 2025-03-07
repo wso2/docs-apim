@@ -87,10 +87,6 @@ template: templates/single-column.html
         display: flex;
     }
 
-    .card .title p:first-letter {
-        text-transform: uppercase; /* Capitalizes the first letter of each word */
-    }
-
     .card-icon {
         height: 30px;
         max-width: 80px;
@@ -125,7 +121,6 @@ template: templates/single-column.html
         justify-content: space-between;
         align-items: center;
         margin-bottom: 30px;
-        margin-left: 100px;
     }
 
     .component-section {
@@ -138,6 +133,8 @@ template: templates/single-column.html
     .tiles-container {
         display: flex;
         align-items: start;
+        flex-wrap: wrap;
+        justify-content: space-between;
     }
     .tile {
         display: inline-block;
@@ -226,6 +223,61 @@ template: templates/single-column.html
         }
         .md-main__inner {
             padding-top: 1.5rem;
+        }
+    }
+
+    /* Mobile responsiveness */
+    @media (max-width: 768px) {
+        .description-section {
+            flex-direction: column;
+            margin-left: 0;
+            text-align: center;
+        }
+
+        .md-main .md-content {
+            width: 100%;
+            float: none;
+            margin-left: 0;
+            margin-top: 10px;
+        }
+
+        .component-section {
+            grid-template-columns: 1fr;
+            gap: 20px;
+        }
+
+        .tile-header h3 {
+            font-size: 1rem;
+        }
+
+        .card-wrapper {
+            width: 100%;
+        }
+
+        .card {
+            height: auto;
+        }
+
+        .button-container {
+            text-align: center;
+        }
+    }
+
+    @media (max-width: 480px) {
+        .card {
+            height: auto;
+            padding: 15px;
+        }
+
+        .description-section {
+            margin-left: 0;
+            margin-right: 0;
+        }
+
+        .view-all-button {
+            width: 100%;
+            padding: 10px 0;
+            text-align: center;
         }
     }
 </style>
