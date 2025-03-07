@@ -502,7 +502,7 @@ nav:
         - Setup:
             - Set up API Manager:
                 - Update WSO2 API Manager: administer/updating-wso2-api-manager.md
-                - Set up APK as a Gateway: install-and-setup/setup/distributed-deployment/configuring-apim-as-a-gateway.md
+                - Set up Kubernetes Gateway with APIM: install-and-setup/setup/distributed-deployment/configuring-apim-as-a-gateway.md
                 - Set up a Key Manager:
                     - Set up a Third-party Key Manager: install-and-setup/setup/distributed-deployment/configure-a-third-party-key-manager.md
                     - Set up WSO2 Identity Server as a Resident Key Manager: install-and-setup/setup/distributed-deployment/configuring-wso2-identity-server-as-a-key-manager.md
