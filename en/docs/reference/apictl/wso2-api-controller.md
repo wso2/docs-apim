@@ -1078,6 +1078,10 @@ Undeploy an API/API Product revision that is available in the specified environm
 
 Use this command to manage Micro Integrator artifacts. You can get, add, update, delete, activate, and deactivate integration artifacts and logs.
 
+!!! warning
+
+    These mi commands are deprecated, instead refer to [MI CLI](https://mi.docs.wso2.com/en/latest/observe-and-manage/managing-integrations-with-micli/) for updated usage.
+
 -   Usage
 
     ```bash

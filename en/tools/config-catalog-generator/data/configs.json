@@ -5870,8 +5870,44 @@
                 }
             ],
             "exampleFile": "apim.governance.scheduler.toml"
+        },
+        {
+            "title": "Oranization Configurations",
+            "options": [
+                {
+                    "name": "apim.organization_based_access_control",
+                    "required": false,
+                    "description": "Organization visibility related configurations.",
+                    "params": [
+                        {
+                            "name": "enabled",
+                            "type": "boolean",
+                            "required": false,
+                            "default": "true",
+                            "possible": "",
+                            "description": "Enable or disable a defined global handler."
+                        },
+                        {
+                            "name": "organization_name_local_claim",
+                            "type": "string",
+                            "required": false,
+                            "default": "http://wso2.org/claims/organization",
+                            "possible": "",
+                            "description": "Local claim URI used to identify user organization."
+                        },
+                        {
+                            "name": "organization_id_local_claim",
+                            "type": "string",
+                            "required": false,
+                            "default": "http://wso2.org/claims/organizationId",
+                            "possible": "",
+                            "description": "Local claim URI used to identify user organization id."
+                        }
+                    ]
+                }
+            ],
+            "exampleFile": "org_configuration.toml"
         }
-
     ]
 }
 

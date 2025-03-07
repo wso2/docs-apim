@@ -1,0 +1,4 @@
+[apim.organization_based_access_control]
+enable = true
+organization_name_local_claim = "http://wso2.org/claims/organization"
+organization_id_local_claim = "http://wso2.org/claims/organizationId"
