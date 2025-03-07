@@ -72,7 +72,7 @@
 							"listen": "prerequest",
 							"script": {
 								"exec": [
-									"var url = pm.collectionVariables.get(\"basepath\").concat(\"/settings\");",
+									"var url = pm.collectionVariables.get(\"basepath\");",
 									"console.log(url);",
 									"var getRequest = {",
 									" url: url,",
@@ -115,7 +115,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\"grant_type\": \"password\",\n\"username\":\"admin\",\n\"password\":\"admin\",\n\"scope\":\"apim:api_view apim:api_create apim:api_manage apim:api_delete apim:api_publish apim:subscription_view apim:subscription_block apim:subscription_manage apim:external_services_discover apim:threat_protection_policy_create apim:threat_protection_policy_manage apim:document_create apim:document_manage apim:mediation_policy_view apim:mediation_policy_create apim:mediation_policy_manage apim:client_certificates_view apim:client_certificates_add apim:client_certificates_update apim:ep_certificates_view apim:ep_certificates_add apim:ep_certificates_update apim:publisher_settings apim:pub_alert_manage apim:shared_scope_manage apim:app_import_export apim:api_import_export apim:api_product_import_export apim:api_generate_key apim:common_operation_policy_view apim:common_operation_policy_manage apim:comment_write apim:comment_view apim:admin apim:subscription_approval_view apim:subscription_approval_manage apim:llm_provider_read apim:gov_result_read\"\n}"
+							"raw": "{\"grant_type\": \"password\",\n\"username\":\"admin\",\n\"password\":\"admin\",\n\"scope\":\"apim:gov_rule_read apim:gov_rule_manage apim:gov_policy_read apim:gov_policy_manage apim:gov_result_read\"\n}"
 						},
 						"url": "{{tokenEndpoint}}"
 					},
@@ -715,6 +715,11 @@
 		{
 			"key": "dcrEndpoint",
 			"value": "https://localhost:9443/client-registration/v0.17/register",
+			"type": "default"
+		},
+		{
+			"key": "tokenEndpoint",
+			"value": "https://localhost:9443/oauth2/token",
 			"type": "default"
 		},
 		{
