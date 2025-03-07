@@ -26,12 +26,114 @@ template: templates/single-column.html
     -webkit-font-smoothing: antialiased;
     }
 
+    .content {
+        width: 100%;
+        margin: 0 auto;
+        display: flex;
+        justify-content: left;
+        align-items: left;
+        flex-wrap: wrap;
+    }
+
+    .card {
+        height: 275px;
+        color: #404040;
+        background: #f8f8f8;
+        padding-left: 1.2rem;
+        padding-bottom: 0.7rem;
+        -webkit-box-shadow: 0px 5px 4px 0px rgba(105, 113, 120, 0.4);
+        -moz-box-shadow: 0px 5px 4px 0px rgba(105, 113, 120, 0.4);
+        box-shadow: 0px 5px 4px 0px rgba(105, 113, 120, 0.4);
+        border-radius: 10px;
+        font-size: 16px;
+        transition: all 0.6s ease;
+        position: relative;
+        justify-content: left;
+        align-items: left;
+        flex-direction: row;
+        transition: all 0.3s ease;
+        width: 100%;
+    }
+
+    .card-wrapper {
+        width: 100%;
+        display: flex;
+        max-width: 400px;
+    }
+
+    .component-wrapper {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .card-content {
+        justify-content: left;
+        display: flex;
+        align-items: left;
+        text-align: left;
+        flex-direction: column;
+    }
+
+    .card .title {
+        font-family: Montserrat, sans-serif;
+        font-style: normal;
+        font-size: 18px;
+        margin: 2;
+        text-align: left;
+        font-weight: 600;
+        white-space: nowrap;
+        text-transform: none;
+        display: flex;
+    }
+
+    .card .title p:first-letter {
+        text-transform: uppercase; /* Capitalizes the first letter of each word */
+    }
+
+    .card-icon {
+        height: 30px;
+        max-width: 80px;
+        border-radius: 0%;
+        display: flex;
+        align-items: center;
+        color: #ff5003;
+        transition: all 0.8s ease;
+    }
+
+    .removeTopMargin {
+        margin-top: 0;
+    }
+
+    .rowAlignment {
+        justify-content: space-between;
+        display: flex;
+        flex-direction: row;
+    }
+
+    .rowAlignmentProductNameIcon {
+        justify-content: left;
+        align-items: left;
+        display: flex;
+        gap: 10px;
+        flex-direction: row;
+        margin-bottom: 0;
+    }
+
     .description-section {
         display: flex;
         justify-content: space-between;
         align-items: center;
         margin-bottom: 30px;
         margin-left: 100px;
+    }
+
+    .component-section {
+        display: grid;
+        justify-content: space-between;
+        flex-direction: row;
+        grid-template-columns: 400px 4fr;
+        gap: 150px;
     }
     .tiles-container {
         display: flex;
@@ -242,6 +344,147 @@ template: templates/single-column.html
                 {% endfor %}
             </div>
             {% endfor %}
+        </div>
+    </div>
+    <div>
+        <h3>Components</h3>
+        <hr/>
+        <p>WSO2 API Manager offers multiple components designed to work together to solve the challenges of diverse infrastructure requirements. A unified control plane supporting multiple gateways provides deployment flexibility, minimizes downtime, and provides scalability and resource optimization by allowing independent component management, flexible deployment packages, and seamless upgrades and maintenance. For more information see <a href="{{base_path}}/get-started/apim-architecture/">Architecture.</a></p>
+        </br>
+        </br>
+        <div class="component-section">
+            <div>
+                <div>
+                    <h4>Control Plane</h4>
+                    </br>
+                </div>
+                <div class="content">
+                    <!-- begin card -->
+                    <div class="card-wrapper">
+                        <div class="card">
+                            <div class="card-content">
+                                <div class="rowAlignment">
+                                    <div class="rowAlignmentProductNameIcon">
+                                        <div class="card-icon">
+                                            <i class="material-icons md-36">supervisor_account</i>
+                                        </div>
+                                        <p class="title"><b>WSO2 API Control Plane</b></p>
+                                    </div>
+                                </div>
+                                <hr/>
+                                <p class="removeTopMargin">A Unified control plane which centrally manages and governs APIs across multiple Gateways</p>
+                                <div>
+                                    <ul>
+                                        <li><a href="{{base_path}}/get-started/apim-architecture/#api-control-plane">WSO2 API Control Plane Overview</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- end card -->
+                </div>
+            </div>
+            <div>
+                <div>
+                    <h4>Data Plane</h4>
+                    </br>
+                </div>
+                <div class="content">
+                    <!-- begin card -->
+                    <div class="card-wrapper">
+                        <div class="card">
+                            <div class="card-content">
+                                <div class="rowAlignment">
+                                    <div class="rowAlignmentProductNameIcon">
+                                        <div class="card-icon">
+                                            <i class="material-icons md-36">public</i>
+                                        </div>
+                                        <p class="title"><b>WSO2 Universal Gateway</b></p>
+                                    </div>
+                                </div>
+                                <hr/>
+                                <p class="removeTopMargin">Secure and proxy API traffic with enterprise-grade features</p>
+                                <div>
+                                    <ul>
+                                        <li><a href="{{base_path}}/get-started/apim-architecture/#universal-gateway">WSO2 Universal Gateway Overview</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- end card -->
+                    <!-- begin card -->
+                    <div class="card-wrapper">
+                        <div class="card">
+                            <div class="card-content">
+                                <div class="rowAlignment">
+                                    <div class="rowAlignmentProductNameIcon">
+                                        <div class="card-icon">
+                                            <i class="material-icons md-36">cloud</i>
+                                        </div>
+                                        <p class="title"><b>WSO2 Kubernetes Gateway</b></p>
+                                    </div>
+                                </div>
+                                <hr/>
+                                <p class="removeTopMargin">Designed to build, deploy, and manage APIs in a cloud environment</p>
+                                <div>
+                                    <ul>
+                                        <li><a href="{{base_path}}/get-started/apim-architecture/#kubernetes-gateway">WSO2 Kubernetes Gateway Overview</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- end card -->
+                    <!-- begin card -->
+                    <div class="card-wrapper">
+                        <div class="card">
+                            <div class="card-content">
+                                <div class="rowAlignment">
+                                    <div class="rowAlignmentProductNameIcon">
+                                        <div class="card-icon">
+                                            <i class="material-icons md-36">cloud_circle</i>
+                                        </div>
+                                        <p class="title"><b>WSO2 Immutable Gateway</b></p>
+                                    </div>
+                                </div>
+                                <hr/>
+                                <p class="removeTopMargin">An API Gateway for micro services, which is cloud-native, decentralized and developer centric</p>
+                                <div>
+                                    <ul>
+                                        <li><a href="{{base_path}}/get-started/apim-architecture/#immutable-gateway">WSO2 Immutable Gateway Overview</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- end card -->
+                    <!-- begin card -->
+                    <div class="card-wrapper">
+                        <div class="card">
+                            <div class="card-content">
+                                <div class="rowAlignment">
+                                    <div class="rowAlignmentProductNameIcon">
+                                        <div class="card-icon">
+                                            <i class="material-icons md-36">device_hub</i>
+                                        </div>
+                                        <p class="title"><b>Federated Gateways</b></p>
+                                    </div>
+                                </div>
+                                <hr/>
+                                <p class="removeTopMargin">Manage APIs spaning multiple cloud platforms, on-premises systems, or regions</p>
+                                <div>
+                                    <ul>
+                                        <li><a href="{{base_path}}/deploy-and-publish/deploy-on-gateway/federated-gateways/deploy-on-aws-api-gateway/">AWS API Gateway</a></li>
+                                        <li><a href="{{base_path}}/tutorials/integrating-with-solace/">Solace Broker</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- end card -->
+                </div>
+            </div>
         </div>
     </div>
 </div>
