@@ -324,10 +324,10 @@ nav:
             - Publish Integrations to the API Manager: integrate/develop/working-with-service-catalog.md
     - Governance:
           - Overview: governance/overview.md
-          - Concept: governance/governance-concept.md
+          - Concepts: governance/governance-concept.md
         #   - Quick Start Guide: governance/quick-start-guide.md
           - How to Use:
-                - Admin Capabilities: governance/api-governance-admin-capabilities.md
+                - Administrative Capabilities: governance/api-governance-admin-capabilities.md
                 - API Creator/Publisher Capabilities: governance/api-governance-api-creator-capabilities.md
     - Analytics:
         - API Analytics:
