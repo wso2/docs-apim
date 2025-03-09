@@ -47,12 +47,17 @@ Please refer to the [WSO2 Rule Validator Documentation]({{base_path}}/governance
 
 WSO2 API Manager comes with a set of default rulesets that cover common governance aspects such as security, compliance, and performance. These rulesets can be used as-is or customized to meet specific organizational requirements. These include,
 
-!!! note "Updating an Existing Ruleset"
-    Updating an existing ruleset which is already attached to a policy will trigger a compliance check for all APIs associated with the policy. The compliance check will be performed in the background, and the results will be displayed in the compliance dashboard.
 
 1. **[WSO2 API Management Guidelines]({{base_path}}/reference/governance/wso2-api-management-guidelines)** - An API Metadata ruleset that applies to REST APIs and covers general API management guidelines.
 2. **[WSO2 REST API Design Guidelines]({{base_path}}/reference/governance/wso2-rest-api-design-guidelines)** - An API Definition ruleset that applies to REST APIs and covers design best practices.
 3. **[OWASP Top 10]({{base_path}}/reference/governance/owasp-top-10)** - An API Definition ruleset that applies to REST APIs and covers best practices for securing APIs against OWASP Top 10 vulnerabilities.
+
+!!! tip "Deleting Default Rulesets"  
+    Deleting default rulesets from the list of rulesets is not sufficient. You must also remove the corresponding default ruleset files located in the `<APIM_HOME>/repository/resources/governance/default-rulesets` directory.
+
+
+!!! note "Updating an Existing Ruleset"
+    **Updating an existing ruleset which is already attached to a policy will trigger a compliance check for all APIs associated with the policy**. The compliance check will be performed in the background, and the results will be displayed in the compliance dashboard.
 
 ### Create and Manage Policies
 
@@ -90,8 +95,15 @@ WSO2 API Manager comes with a default governance policy named **WSO2 API Managem
 
 It includes, **[WSO2 API Management Guidelines](reference/governance/wso2-api-management-guidelines.md)** ruleset and **[WSO2 REST API Design Guidelines](reference/governance/wso2-rest-api-design-guidelines.md)** ruleset.
 
+!!! tip "Deleting or Disabling Default Policies"
+    - Deleting default policies from the policy list is not sufficient. You must also remove the corresponding default policy files located in the `<APIM_HOME>/repository/resources/governance/default-policies` directory.
+    - Instead of deleting a policy, you can disable it by updating the policy settings so that it does not apply to any APIs through the publisher portal.
+    - During migration, it is recommended to disable the default policy by updating the `labels` field in the default policy YAML files in the `<APIM_HOME>/repository/resources/governance/default-policies` directory to an empty list.
+    - After migration is complete, you can update the policy through the publisher portal to apply it to all APIs as needed.  
+
+
 !!! note "Creating or Updating a Policy"
-    Creating a new policy or updating an existing policy will schedule a compliance check for all APIs associated with the policy. The compliance check will be performed in the background, and the results will be displayed in the compliance dashboard.
+    **Creating a new policy or updating an existing policy will schedule a compliance check for all APIs associated with the policy**. The compliance check will be performed in the background, and the results will be displayed in the compliance dashboard.
 
 ### Compliance Monitoring
 
