@@ -15,7 +15,7 @@ Each ruleset must have a **unique name** and may include a description for addit
 
 - **API Definition** – The OpenAPI or AsyncAPI definition that establishes the API contract.
 - **API Metadata** – WSO2 API Manager's interpretation of an API, encompassing general information such as name and 
-  version, along with API management-specific details such as mediation policies in use, security configurations, 
+  version, along with API management-specific details such as security configurations, 
   business plans, etc.
 - **API Documentation** – Documentation that provides usage guidelines and other relevant information about the API.
 

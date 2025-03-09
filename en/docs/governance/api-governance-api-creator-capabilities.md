@@ -1,22 +1,41 @@
-## Evaluating compliance for an API
+# API Creator, Publisher Capabilities
 
-Governance compliance can be applied to an API using two methods:  
+WSO2 API Manager enables API creators and publishers to effectively monitor the compliance status of their APIs.
 
-1. **Global Policies** – Automatically applied to all APIs if marked as global.  
-2. **Label-Based Policies** – Policies are attached to labels, and APIs inherit the policies when a corresponding label is assigned.  
+## Compliance Evaluation for APIs
 
-## Adding Labels to an API  
+APIs are evaluated based on governance policies that enforce rulesets to ensure adherence to organizational standards. These policies are categorized into two types:
 
-Labels are used to categorize APIs and enforce governance policies in line with organizational standards. To add labels to an API, follow these steps:  
+- **Global Policies** – Automatically applied to all APIs.
+- **Labeled Policies** – Applied when specific labels are assigned to an API.
+
+**Policy Execution and Evaluation** take place during following API lifecycle events depending on policy configuration:
+
+- API Creation
+- API Updates
+- API Revision Creation and Deployment
+- API Publishing
+
+**Blocking vs. Non-Blocking Compliance Checks** can be configured by administrators based on enforcement needs:
+
+- If a policy is configured as **blocking**, API creators **cannot proceed with the action until all compliance requirements are met**. Blocking policies are only enforceable during the API Publish and Deploy stages.
+- If a policy is **non-blocking**, API actions can proceed while the **compliance check runs in the background**. The results will be displayed in the compliance dashboard once the evaluation is complete. By default, the background compliance check runs every 2 minutes if a change has been detected.
+
+
+## Labeling APIs 
+
+Labels are used to categorize APIs and enforce governance policies in line with organizational standards. 
+Thus, to ensure proper governance policies are applied to APIs, API creators should attach appropriate labels to APIs. 
+To add labels to an API follow these steps:  
 
 1. Log in to the **API Manager Publisher Portal**.  
 2. Select an existing API or create a new one.  
 3. Navigate to the **Design** tab and open the **Portal Configurations** section.  
 4. Click on **Basic Info** to access the API’s design configurations.  
-5. Click the **+** icon to attach the relevant labels to the API. 
+5. Click the **+** icon to attach the relevant labels to the API from the list of available labels.
 
-<a href="{{base_path}}/assets/img/governance/label_attach.png">
-  <img src="{{base_path}}/assets/img/governance/label_attach.png" alt="APIM Governance API Label Attach"/>
+<a href="../../assets/img/governance/label_attach.png">
+  <img src="../../assets/img/governance/label_attach.png" alt="APIM Governance API Label Attach"/>
 </a>
 
 ## API Compliance Dashboard
@@ -26,23 +45,34 @@ The **API Compliance Dashboard** provides a comprehensive view of the compliance
 1. Log in to the **API Manager Publisher Portal**.  
 2. Select an API and navigate to the **Compliance** section from the left panel.
 
-<a href="{{base_path}}/assets/img/governance/api_compliance.png">
-  <img src="{{base_path}}/assets/img/governance/api_compliance.png" alt="APIM Governance API Compliance"/>
+<a href="../../assets/img/governance/api_compliance.png">
+  <img src="../../assets/img/governance/api_compliance.png" alt="APIM Governance API Compliance"/>
 </a>
 
 
 ### **Compliance Summary**
 
-Compliance summary widget provide a detail view of the compliance violations of each ruleset categorized by the severity level.
+Compliance Summary provides a list of donut charts that show policy adhrence summary, ruleset adherence summary and rule adherence summary of the selected API.
 
-### **Policy Adherence Summary**
+### **Detailed Rule Violations**
 
-Policy adherence summary widget provide a detail view of the policy adherence of each policy and the compliance of each ruleset.
+This section provides a severity level based breakdown of the rule violations of the selected API.
 
 ### **Ruleset Adherence Summary**
 
-Ruleset adherence summary widget provide a detail view of the ruleset adherence of each ruleset and the number of violation of each rule by the severity level.
+The Ruleset Adherence Summary widget provides a detailed view of which rulesets the selected API has passed or failed. It also displays the total number of violated rules, categorized by severity level.
 
-### **Ruleset Adherence**
+### **Policy Adherence Summary**
 
-Ruleset adherence pie chart provides a count of rulesets by passed, failed and not applied.
+Policy Adherence Summary widget provide a detail view of which policies are followed and violated by the selected API.
+
+## Blocked API Operations
+
+As previously stated in [Compliance Evaluation for APIs](#compliance-evaluation-for-apis), blocking policies are applied
+during the API Publish and Deploy stages. When a blocking policy is violated, the API operation is blocked, 
+and the API creator is notified of the violation. A view similar to following will be displayed in the Publisher Portal
+when an API operation is blocked:
+
+<a href="../../assets/img/governance/api_blocking.png">
+  <img src="../../assets/img/governance/api_blocking.png" alt="APIM Blocked API Action"/>
+</a>
