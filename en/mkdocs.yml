@@ -477,7 +477,9 @@ nav:
         - Advanced Configurations: administer/advanced-configurations.md
         - Manage Role based access control for the Admin portal: administer/role-based-access-control.md
         - AI Vendors:
-            - Configure a Custom AI Vendor: administer/ai-vendors/custom-ai-vendor.md
+            - Custom AI Vendors:
+                - Overview: administer/ai-vendors/custom-ai-vendor.md
+                - Anthropic's Claude as a Custom AI Vendor: administer/ai-vendors/claude-as-a-custom-vendor.md
             - Write your own Connector: administer/ai-vendors/write-ai-vendor-connector.md
     - Install and Setup:
         - Install and Setup Overview: install-and-setup/install-and-setup-overview.md

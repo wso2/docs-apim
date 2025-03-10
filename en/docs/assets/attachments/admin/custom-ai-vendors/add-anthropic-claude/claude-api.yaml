@@ -1,0 +1,129 @@
+openapi: 3.0.3
+info:
+  title: Anthropics Messages API
+  version: 1.0.0
+servers:
+  - url: https://api.anthropic.com
+
+paths:
+  /v1/messages:
+    post:
+      summary: Send messages to the Anthropic model and get a response.
+      description: This endpoint allows you to send one or more messages to the Anthropic model and receive a response based on those messages. For additional details, please refer to the Anthropics Messages API documentation.
+      operationId: sendMessage
+      tags:
+        - Messages
+      parameters:
+        - name: anthropic-version
+          in: header
+          required: true
+          schema:
+            type: string
+            example: "2023-06-01"
+          description: Specifies the version of the Anthropic API to use.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - model
+                - messages
+              properties:
+                model:
+                  type: string
+                  description: The identifier of the model to send messages to.
+                  example: "claude-3-5-sonnet-20241022"
+                max_tokens:
+                  type: integer
+                  description: The maximum number of tokens to generate in the response.
+                  example: 1024
+                messages:
+                  type: array
+                  description: A collection of messages exchanged in the conversation up to this point.
+                  items:
+                    type: object
+                    required:
+                      - role
+                      - content
+                    properties:
+                      role:
+                        type: string
+                        description: The role of the sender of the message, usually "user" or "assistant".
+                        example: "user"
+                      content:
+                        type: array
+                        description: The content of the message.
+                        items:
+                          type: object
+                          oneOf:
+                            - type: object
+                              description: A text content block.
+                              required:
+                                - type
+                                - text
+                              properties:
+                                type:
+                                  type: string
+                                  description: Indicates this content block is text.
+                                  example: "text"
+                                text:
+                                  type: string
+                                  description: The text content of the message.
+                                  example: "Why API management is important for AI APIs?"
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  content:
+                    type: array
+                    description: The assistant's response message content blocks.
+                    items:
+                      type: object
+                      properties:
+                        text:
+                          type: string
+                          description: The text of the assistant's response.
+                        type:
+                          type: string
+                          description: The type of the content block.
+                  id:
+                    type: string
+                    description: The unique identifier of the message.
+                  model:
+                    type: string
+                    description: The model that produced the response.
+                  role:
+                    type: string
+                    description: The role of the message author, typically "assistant".
+                  stop_reason:
+                    type: string
+                    description: The reason the model stopped producing tokens.
+                  stop_sequence:
+                    type: string
+                    nullable: true
+                    description: The stop sequence that caused the model to stop, if any.
+                  type:
+                    type: string
+                    description: The type of the returned object, typically "message".
+                  usage:
+                    type: object
+                    description: Information about token usage.
+                    properties:
+                      input_tokens:
+                        type: integer
+                        description: The number of input tokens consumed.
+                      output_tokens:
+                        type: integer
+                        description: The number of output tokens produced.
+        '400':
+          description: Bad request - invalid input or parameters.
+        '401':
+          description: Unauthorized - invalid or missing API key.
+        '500':
+          description: Internal server error.
