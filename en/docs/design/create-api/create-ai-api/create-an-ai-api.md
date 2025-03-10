@@ -1,6 +1,6 @@
 # Create an AI API
 
-AI APIs enable seamless integration of artificial intelligence services into applications through the WSO2 API Manager. By using the AI API feature, users can select specific AI vendors that best suit their needs. WSO2 API Manager provides built-in support for leading AI vendors like **OpenAI**, **Mistral**, and **Azure AI**, while also allowing configuration of custom AI vendors to create AI APIs.
+AI APIs enable seamless integration of artificial intelligence services into applications through the WSO2 API Manager. By using the AI API feature, users can select specific AI vendors that best suit their needs. WSO2 API Manager provides built-in support for leading AI vendors like **OpenAI**, **Mistral**, and **Azure OpenAI**, while also allowing configuration of custom AI vendors to create AI APIs.
 
 Follow the instructions below to create an AI API using the basic flow:
 
@@ -39,7 +39,7 @@ Follow the instructions below to create an AI API using the basic flow:
 
 The overview page of the newly created API appears. 
 
-### Step 2: Obtain API Key from AI Service Vendor
+### Step 2: Obtain API Key from AI Service Provider
 
 
 <html><div class="admonition example">
