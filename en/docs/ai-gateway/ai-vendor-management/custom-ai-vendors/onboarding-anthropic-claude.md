@@ -2,15 +2,16 @@
 
 This guide explains how to integrate WSO2 API Manager with **Claude**, allowing you to access Claude's APIs via API Manager's AI Gateway. It provides step-by-step instructions for configuring Claude as a custom AI vendor to effectively manage and track AI API interactions.
 
-1. In the WSO2 API Manager admin portal sidebar, navigate to the **AI Vendors** section and select **Add AI Vendor**.
+1. Login to the Admin Portal
+2. Navigate to the **AI/LLM Vendors** section and click on **Add AI/LLM Vendor**.
 
     <div style="text-align: center;">
-        <a href="{{base_path}}/assets/img/administer/custom-ai-vendor/add-anthropic-claude/add-ai-vendor.png">
-            <img src="{{base_path}}/assets/img/administer/custom-ai-vendor/add-anthropic-claude/add-ai-vendor.png" width="600" />
+        <a href="{{base_path}}/assets/img/learn/ai-gateway/custom-ai-vendor/add-anthropic-claude/add-ai-vendor.png">
+            <img src="{{base_path}}/assets/img/learn/ai-gateway/custom-ai-vendor/add-anthropic-claude/add-ai-vendor.png" width="600" />
         </a>
     </div>
 
-2. Fill in the general details for the AI vendor as shown below.
+3. Fill in the general details for the AI vendor as shown below.
     
     <table>
     <colgroup>
@@ -89,8 +90,8 @@ This guide explains how to integrate WSO2 API Manager with **Claude**, allowing 
     Refer the image below for the LLM configuration.
 
     <div style="text-align: center;">
-        <a href="{{base_path}}/assets/img/administer/custom-ai-vendor/add-anthropic-claude/llm-configurations.png">
-            <img src="{{base_path}}/assets/img/administer/custom-ai-vendor/add-anthropic-claude/llm-configurations.png" width="500" />
+        <a href="{{base_path}}/assets/img/learn/ai-gateway/custom-ai-vendor/add-anthropic-claude/llm-configurations.png">
+            <img src="{{base_path}}/assets/img/learn/ai-gateway/custom-ai-vendor/add-anthropic-claude/llm-configurations.png" width="500" />
         </a>
     </div>
 
@@ -99,8 +100,8 @@ This guide explains how to integrate WSO2 API Manager with **Claude**, allowing 
 5. Configure the authentication configurations by setting the type to `authHeader` and the identifier to `x-api-key`.
 
     <div style="text-align: center;">
-        <a href="{{base_path}}/assets/img/administer/custom-ai-vendor/add-anthropic-claude/auth-header.png">
-            <img src="{{base_path}}/assets/img/administer/custom-ai-vendor/add-anthropic-claude/auth-header.png" width="400" />
+        <a href="{{base_path}}/assets/img/learn/ai-gateway/custom-ai-vendor/add-anthropic-claude/auth-header.png">
+            <img src="{{base_path}}/assets/img/learn/ai-gateway/custom-ai-vendor/add-anthropic-claude/auth-header.png" width="400" />
         </a>
     </div>
 
