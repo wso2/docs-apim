@@ -300,7 +300,7 @@ template: templates/single-column.html
         "links": [
             {"name": "Deploy on VM", "url": "install-and-setup/install/installing-the-product/running-the-api-m/"},
             {"name": "Deploy on Kubernetes", "url": "install-and-setup/install/deploying-api-manager-with-kubernetes-or-openshift-resources/"},
-            {"name": "SaaS", "url": "#"}
+            {"name": "SaaS", "url": "https://wso2.com/choreo/api-management/"}
         ]
     }],
     [{
@@ -337,7 +337,7 @@ template: templates/single-column.html
             {"name": "Analytics", "url": "api-analytics/choreo-analytics/getting-started-guide/"},
             {"name": "CI/CD", "url": "install-and-setup/setup/api-controller/ci-cd-with-wso2-api-management/"}
         ],
-        "more_btn": {"name": "View more", "url": "tutorials/tutorials-overview/"}
+        "more_btn": {"name": "View More", "url": "tutorials/tutorials-overview/"}
     },
     {
         "title": "Community and Support",
