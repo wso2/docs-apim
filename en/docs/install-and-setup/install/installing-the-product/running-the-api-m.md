@@ -6,6 +6,9 @@ Follow the steps given below to run the WSO2 API Manager runtime and access its 
 
 [Download and install]({{base_path}}/install-and-setup/install/installing-the-product/installing-api-m-runtime) the API Manager server.
 
+!!! note
+    The following steps apply if you are trying out the All-in-one package of WSO2 API Manager. To try out the **Enterprise package**, follow the instructions in [Configure a Distributed API-M Deployment]({{base_path}}/install-and-setup/setup/distributed-deployment/deploying-wso2-api-m-in-a-distributed-setup/) to setup a simple scalable deployment of WSO2 API Manager.
+
 ## Starting the API-M server
 
 Follow the steps given below to start the server.
