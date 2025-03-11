@@ -1,4 +1,4 @@
-# Write a Connector for a Custom AI Vendor
+# Custom Connector
 
 When onboarding a custom AI vendor to API Manager, you have the option to either use the built-in <a href='https://github.com/wso2/carbon-apimgt/blob/master/components/apimgt/org.wso2.carbon.apimgt.api/src/main/java/org/wso2/carbon/apimgt/api/DefaultLLMProviderService.java'>`default`</a> connector or write your own custom connector.
 

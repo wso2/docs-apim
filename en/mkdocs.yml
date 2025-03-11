@@ -97,8 +97,6 @@ nav:
                 - Create a Streaming API from an AsyncAPI Definition: design/create-api/create-streaming-api/create-a-streaming-api-from-an-asyncapi-definition.md
                 - Test a WebSub/WebHook API: design/create-api/create-streaming-api.md
             - Create an API Using a Service: design/create-api/create-an-api-using-a-service.md
-            #- Build APIs in Integration Studio: design/create-api/api-integration-studio.md
-            - AI APIs: design/create-api/create-ai-api/create-an-ai-api.md
         - Create APIs with AI: design/create-api/create-api-with-ai.md
         - Create API Revisions: design/create-api/create-api-revisions.md
         - Add Custom Properties to APIs: design/create-api/adding-custom-properties-to-apis.md
@@ -323,14 +321,16 @@ nav:
         - Getting started with AI Gateway: ai-gateway/getting-started-with-ai-gateway.md
         - AI Backend Security: ai-gateway/ai-backend-security.md
         - Rate Limiting: ai-gateway/rate-limiting.md
-        - Multi-model Routing:
+        - Multi-Model Routing:
             - Overview: ai-gateway/multi-model-routing/overview.md
             - Load Balancing: ai-gateway/multi-model-routing/load-balancing.md
             - Failover: ai-gateway/multi-model-routing/failover.md
         - AI Vendor Management:
             - Default AI Vendors: ai-gateway/ai-vendor-management/default-ai-vendors.md
-            - Onboarding a Custom AI Vendor: ai-gateway/ai-vendor-management/onboarding-a-custom-ai-vendor.md
-        - Analytics: ai-gateway/analytics.md
+            - Custom AI Vendors:
+                - Overview: ai-gateway/ai-vendor-management/custom-ai-vendors/overview.md
+                - Custom Connector: ai-gateway/ai-vendor-management/custom-ai-vendors/custom-connector.md
+                - Onboarding Anthropic's Claude: ai-gateway/ai-vendor-management/custom-ai-vendors/onboarding-anthropic-claude.md
     - Governance:
           - Overview: governance/overview.md
           - Concept: governance/governance-concept.md
@@ -507,11 +507,6 @@ nav:
             - Configure the Azure AD as a Key Manager: administer/key-managers/configure-azure-ad-key-manager.md
         - Advanced Configurations: administer/advanced-configurations.md
         - Manage Role based access control for the Admin portal: administer/role-based-access-control.md
-        - AI Vendors:
-            - Custom AI Vendors:
-                - Overview: administer/ai-vendors/custom-ai-vendor.md
-                - Anthropic's Claude as a Custom AI Vendor: administer/ai-vendors/claude-as-a-custom-vendor.md
-            - Write your own Connector: administer/ai-vendors/write-ai-vendor-connector.md
     - Install and Setup:
         - Install and Setup Overview: install-and-setup/install-and-setup-overview.md
         - Install:
