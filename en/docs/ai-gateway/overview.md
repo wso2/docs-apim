@@ -34,4 +34,4 @@ View and manage default AI vendors supported by WSO2 API Manager. Also, you can 
 
 ### Monitor AI API Usage
 
-Track AI API usage statistics using WSO2 API Manager Analytics solutions.
+Track AI API usage statistics using WSO2 API Manager [Analytics]({{base_path}}/api-analytics/choreo-analytics/api-analytics-architecture/) solutions.
