@@ -1,6 +1,6 @@
 # Anthropic's Claude as a Custom AI Vendor
 
-This guide explains how to integrate **WSO2 API Manager** with Claude, allowing you to access Claude's services via AI APIs. It provides step-by-step instructions for configuring Claude as a custom AI vendor to effectively manage and track AI API interactions.
+This guide explains how to integrate WSO2 API Manager with **Claude**, allowing you to access Claude's APIs via API Manager's AI Gateway. It provides step-by-step instructions for configuring Claude as a custom AI vendor to effectively manage and track AI API interactions.
 
 1. In the WSO2 API Manager admin portal sidebar, navigate to the **AI Vendors** section and select **Add AI Vendor**.
 
@@ -96,7 +96,7 @@ This guide explains how to integrate **WSO2 API Manager** with Claude, allowing 
 
 4. Download the API definition for Anthropic Claude from [Anthropic Claude API Definition]({{base_path}}/assets/attachments/admin/custom-ai-vendors/add-anthropic-claude/claude-api.yaml) and upload it as the API Definition.
 
-5. Configure the LLM Provider Auth Settings by setting the Auth identifier to `authHeader` and the identifier to `x-api-key`.
+5. Configure the authentication configurations by setting the type to `authHeader` and the identifier to `x-api-key`.
 
     <div style="text-align: center;">
         <a href="{{base_path}}/assets/img/administer/custom-ai-vendor/add-anthropic-claude/auth-header.png">
@@ -106,8 +106,8 @@ This guide explains how to integrate **WSO2 API Manager** with Claude, allowing 
 
 6. Choose the connector type as `default`.
 
-7. Next, add any models you prefer. For example, add `claude-3-5-sonnet-20241022` and press enter. You can always add additional models later.
+7. Next, you can add any models you prefer. For instance, add `claude-3-5-sonnet-20241022` and press enter. You can always add more models later. This enables you to set up model-based load balancing and failover using Claude's APIs.
 
-8. Finally, click **Add** to include Anthropic Claude as an AI Vendor.
+8. Finally, click **Add** to integrate Anthropic Claude as an AI Vendor.
 
-You can now create AI APIs for Anthropic Claude.
+Once added, you'll be able to create and manage AI APIs for Anthropic Claude, allowing you to leverage its capabilities within your applications.
