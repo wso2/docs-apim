@@ -95,6 +95,7 @@ nav:
                 - Create a Streaming API from an AsyncAPI Definition: design/create-api/create-streaming-api/create-a-streaming-api-from-an-asyncapi-definition.md
                 - Test a WebSub/WebHook API: design/create-api/create-streaming-api.md
             - Create an API Using a Service: design/create-api/create-an-api-using-a-service.md
+            - AI APIs: design/create-api/create-ai-api/create-an-ai-api.md
         - Create APIs with AI: design/create-api/create-api-with-ai.md
         - Create API Revisions: design/create-api/create-api-revisions.md
         - Add Custom Properties to APIs: design/create-api/adding-custom-properties-to-apis.md

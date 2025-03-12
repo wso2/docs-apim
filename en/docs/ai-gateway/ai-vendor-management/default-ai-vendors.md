@@ -2,9 +2,9 @@
 
 WSO2 API Manager provides built-in support for three AI/LLM vendors:
 
-- Mistral
 - OpenAI
 - Azure OpenAI
+- Mistral
 
 These default AI vendors come pre-configured within WSO2 API Manager, enabling seamless integration with their AI models. This out-of-the-box support simplifies API creation and ensures a smooth experience when working with AI services.
 
