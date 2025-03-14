@@ -28,7 +28,7 @@ Follow the instructions below to generate and download client-side SDKs via the 
     
 ##  Configuring supported languages for SDK generation
 
-By default, **Android, Java, JavaScript**, and **JMeter** the SDKs that are available to be downloaded via the Developer Portal in WSO2 API Manager (WSO2 API-M). In addition to the latter mentioned SDKs, WSO2 API Manager also supports SDK generation for the following languages. **C-Sharp (C#), Dart, Flash, Groovy, Perl, PHP, Python, Ruby, Swift 5, Clojure**.
+By default, **Android, Java, JavaScript**, and **JMeter** the SDKs that are available to be downloaded via the Developer Portal in WSO2 API Manager (WSO2 API-M). In addition to the latter mentioned SDKs, WSO2 API Manager also supports SDK generation for the following languages. **C-Sharp (C#), Dart, Groovy, Perl, PHP, Python, Ruby, Swift 5, Clojure**.
 
 <div class="admonition note">
 <p class="admonition-title">Changes based on WSO2 Updates</p>
@@ -76,7 +76,7 @@ Follow the instructions below to configure the languages available for SDK gener
 
      ```
      [apim.sdk]
-     supported_languages = ["android", "java", "csharp", "dart", "flash", "groovy", "javascript", "jmeter", "perl", "php", "python", "ruby", "swift5", "clojure"]
+     supported_languages = ["android", "java", "csharp", "dart", "groovy", "javascript", "jmeter", "perl", "php", "python", "ruby", "swift5", "clojure"]
      ```
     
 3.  [Restart the server]({{base_path}}/install-and-setup/installation-guide/running-the-product/) to apply the configuration changes.
