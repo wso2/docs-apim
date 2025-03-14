@@ -1,6 +1,6 @@
 # AI Backend Security
 
-It is crucial that you configure backend security for your AI APIs in order to ensure secure communication with AI service providers.
+Let's configure backend security for your AI APIs in order to ensure secure communication with AI service providers. Note that you do not have to worry about this step if the AI vendor you have used is unsecured.
 
 ### Step 1: Get API Key from AI Vendor
 
