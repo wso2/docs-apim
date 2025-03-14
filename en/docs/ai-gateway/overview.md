@@ -1,20 +1,21 @@
 # AI Gateway
 
-As organizations increasingly integrate AI into their applications, effective AI API management has become a crucial business requirement.
-API Manager's **AI Gateway** enables seamless AI adoption, allowing you to create, manage and expose AI APIs effortlessly.
+As AI adoption accelerates, managing AI APIs effectively has become essential for organizations integrating AI into their applications. WSO2 API Manager's **AI Gateway** simplifies this process, providing a seamless way to create, manage, and expose AI APIs with robust security and scalability.
 
-WSO2 API Manager provides built-in support for **OpenAI**, **Azure OpenAI**, and **Mistral**, while also allowing configuration of custom AI vendors to create AI APIs.
+WSO2 API Manager offers built-in support for **OpenAI**, **Azure OpenAI**, and **Mistral**, while also allowing the configuration of custom AI vendors, enabling flexible AI API creation.
 
-With a comprehensive set of API management capabilities, AI Gateway ensures efficient and secure AI integration. Key AI Gateway features include:
+With a comprehensive set of capabilities, the AI Gateway ensures secure and efficient AI integration. Key features include:
 
-- **AI API creation**: Create AI APIs by selecting an AI vendor and version.
+- **AI API Creation**: Create AI APIs by selecting an AI vendor and version.
 
-- **Ability to configure AI vendor keys with AI APIs**: Configure API keys obtained from the AI vendor for secure authentication.
+- **AI Vendor Key Configuration**: Securely authenticate AI APIs by configuring API keys obtained from the AI vendor.
 
-- **Rate limit AI APIs**: Protect your AI backend by enforcing rate limits on token usage.
+- **Rate Limiting**: Protect AI backends by enforcing token-based rate limits to manage resource consumption.
 
-- **Multi-model routing support for AI APIs**: Dynamically route incoming AI API traffic between multiple models within a vendor.
+- **Multi-Model Routing**: Dynamically route AI API requests across multiple models within a vendor for optimized performance.
 
-- **AI Vendor management**: Manage default and custom AI vendors.
+- **AI Vendor Management**: Manage both default and custom AI vendors to streamline AI API administration.
 
-- **AI API observability**: Track AI API usage statistics using [Analytics]({{base_path}}/api-analytics/choreo-analytics/api-analytics-architecture/) solutions.
+- **AI API Observability**: Track AI API usage statistics using [Analytics]({{base_path}}/api-analytics/choreo-analytics/api-analytics-architecture/) solutions.
+
+By leveraging these capabilities, organizations can efficiently integrate, monitor, and scale AI APIs, unlocking the full potential of AI-driven applications.
