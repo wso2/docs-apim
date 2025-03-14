@@ -1,37 +1,21 @@
 # AI Gateway
 
-WSO2 API Manager AI Gateway streamlines AI adoption for your applications, making it easy to create and expose AI APIs with just a few clicks. It offers built-in support for leading AI vendors such as **OpenAI**, **Mistral**, and **Azure OpenAI**, while also allowing you to configure custom AI vendors to suit your needs.
+As AI adoption accelerates, managing AI APIs effectively has become essential for organizations integrating AI into their applications. WSO2 API Manager's **AI Gateway** simplifies this process, providing a seamless way to create, manage, and expose AI APIs with robust security and scalability.
 
-With a comprehensive set of API management capabilities, AI Gateway ensures efficient and secure AI integration. Key features include:
+WSO2 API Manager offers built-in support for **OpenAI**, **Azure OpenAI**, and **Mistral**, while also allowing the configuration of custom AI vendors, enabling flexible AI API creation.
 
-### Create AI APIs
+With a comprehensive set of capabilities, the AI Gateway ensures secure and efficient AI integration. Key features include:
 
-Create AI APIs by selecting AI vendor and version.
+- **AI API Creation**: Create AI APIs by selecting an AI vendor and version.
 
-### Configure AI Vendor Keys
+- **AI Vendor Key Configuration**: Securely authenticate AI APIs by configuring API keys obtained from the AI vendor.
 
-Configure API keys obtained from the AI vendor for secure access.
+- **Rate Limiting**: Protect AI backends by enforcing token-based rate limits to manage resource consumption.
 
-### Rate Limit AI APIs
+- **Multi-Model Routing**: Dynamically route AI API requests across multiple models within a vendor for optimized performance.
 
-Protect your AI backend by enforcing rate limits on token usage.
+- **AI Vendor Management**: Manage both default and custom AI vendors to streamline AI API administration.
 
-### Multi-Model Routing
+- **AI API Observability**: Track AI API usage statistics using [Analytics]({{base_path}}/api-analytics/choreo-analytics/api-analytics-architecture/) solutions.
 
-Dynamically route incoming AI API traffic between multiple models within a vendor.
-
-#### Load Balancing
-
-Distribute traffic across multiple models within the same AI vendor to optimize rate limits, costs, and performance.
-
-#### AI Model Failover
-
-Enforce fallback models to handle AI API requests with resiliency.
-
-### AI Vendor Management
-
-View and manage default AI vendors supported by WSO2 API Manager. Also, you can onboard custom AI vendors to consume their services via AI APIs.
-
-### Monitor AI API Usage
-
-Track AI API usage statistics using WSO2 API Manager [Analytics]({{base_path}}/api-analytics/choreo-analytics/api-analytics-architecture/) solutions.
+By leveraging these capabilities, organizations can efficiently integrate, monitor, and scale AI APIs, unlocking the full potential of AI-driven applications.

@@ -62,7 +62,7 @@ If you require multiple endpoints and multiple AI vendor API Keys to manage your
         </tr>
         <tr>
             <td>Endpoint URL</td>
-            <td>https://api.mistral.ai</td>
+            <td>https://api.openai.com/v1</td>
         </tr>
         <tr>
             <td>API Key</td>
@@ -73,4 +73,4 @@ If you require multiple endpoints and multiple AI vendor API Keys to manage your
     [![Multiple Endpoint Add]({{base_path}}/assets/img/learn/ai-gateway/endpoint-add.png){: style="width:90%"}]({{base_path}}/assets/img/learn/ai-gateway/endpoint-add.png)
 
 5. Click on **Create**.
-6. Repeat steps 3 to 5 to add endponits depending on your requirement.
+6. Repeat steps 3 to 5 if you wish to add more production/sandbox endpoints.
