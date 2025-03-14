@@ -10,7 +10,7 @@ Load balancing ensures that AI API requests are efficiently distributed across m
 
 ## Round Robin
 
-Requests are evenly distributed across all configured AI models in a cyclic manner, ensuring equal request allocation over time.
+With Round Robin policy, requests are evenly distributed across all configured AI models in a cyclic manner, ensuring equal request allocation over time.
 
 ### Configure Round Robin Routing
 
@@ -19,7 +19,7 @@ You can enforce round robin based load balancing for your AI API by attaching th
 1. Login to the Publisher Portal (`https://<hostname>:9443/publisher`).
 2. Select the AI API for which you want to configure load balancing.
 3. Navigate to **API Configurations**, and click **Policies**.
-4. Look for the policy named **Model Round Robin** listed under the Common Policies section within the policy list. Let's, drag and drop the **Model Round Robin** policy to the **Request** flow of `/v1/chat/completions` POST operation.
+4. Look for the policy named **Model Round Robin** listed under the Common Policies section within the policy list. Let's, drag and drop the **Model Round Robin** policy to the **Request** flow of `/chat/completions` POST operation.
 
     [![Model Round Robin Policy]({{base_path}}/assets/img/learn/ai-gateway/attach-model-round-robin-policy.png){: style="width:90%"}]({{base_path}}/assets/img/learn/ai-gateway/attach-model-round-robin-policy.png)
 
@@ -49,16 +49,16 @@ You can enforce round robin based load balancing for your AI API by attaching th
 ### Try Out Round Robin Routing
 
 1. Navigate to the Developer Portal and try to invoke the AI API.
-2. Let's invoke `/v1/chat/completions POST` resource by obtaining a **Production** key since we configured the round robin policy only for production. You can use the below mentioned payload.
+2. Let's invoke `/chat/completions POST` resource by obtaining a **Production** key since we configured the round robin policy only for production. You can use the below mentioned payload.
 
     ```json
     {
-        "model": "open-mistral-7b",
-        "messages": [{"role": "user", "content": "Who is the most renowned French painter?"}]
+        "model": "gpt-4o",
+        "messages": [{"role": "user", "content": "Say this is a test!"}]
     }
     ```
 
-    Notice how the request was made to the `open-mistral-7b` model, but the response was from `mistral-small-latest`.
+    Notice how the request was made to `gpt-4o` model, but the response was from `gpt-4o-mini`.
 
     [![Round Robin Invoke]({{base_path}}/assets/img/learn/ai-gateway/round-robin-invoke.png){: style="width:90%"}]({{base_path}}/assets/img/learn/ai-gateway/round-robin-invoke.png)
 
@@ -73,7 +73,7 @@ You can enforce weighted round robin based load balancing for your AI API by att
 1. Login to the Publisher Portal (`https://<hostname>:9443/publisher`).
 2. Select the AI API for which you want to configure load balancing.
 3. Navigate to **API Configurations**, and click **Policies**.
-4. Look for the policy named **Model Weighted Round Robin** listed under the Common Policies section within the policy list. Let's, drag and drop the **Model Weighted Round Robin** policy to the **Request** flow of `/v1/chat/completions` POST operation.
+4. Look for the policy named **Model Weighted Round Robin** listed under the Common Policies section within the policy list. Let's, drag and drop the **Model Weighted Round Robin** policy to the **Request** flow of `/chat/completions` POST operation.
 
     [![Model Round Robin Policy]({{base_path}}/assets/img/learn/ai-gateway/attach-model-weighted-round-robin-policy.png){: style="width:90%"}]({{base_path}}/assets/img/learn/ai-gateway/attach-model-weighted-round-robin-policy.png)
 
@@ -103,15 +103,15 @@ You can enforce weighted round robin based load balancing for your AI API by att
 ### Try Out Weighted Round Robin Routing
 
 1. Navigate to the Developer Portal and try to invoke the AI API.
-2. Let's invoke `/v1/chat/completions POST` resource by obtaining a **Production** key since we configured the weighted round robin policy only for production. You can use the below mentioned payload.
+2. Let's invoke `/chat/completions POST` resource by obtaining a **Production** key since we configured the weighted round robin policy only for production. You can use the below mentioned payload.
 
     ```json
     {
-        "model": "open-mistral-7b",
-        "messages": [{"role": "user", "content": "Who is the most renowned French painter?"}]
+        "model": "gpt-4o",
+        "messages": [{"role": "user", "content": "Say this is a test!"}]
     }
     ```
 
-    Notice how the request was made to the `open-mistral-7b` model, but the response was from `mistral-medium`.
+    Notice how the request was made to `gpt-4o` model, but the response was from `o3-mini`.
 
     [![Round Robin Invoke]({{base_path}}/assets/img/learn/ai-gateway/weighted-round-robin-invoke.png){: style="width:90%"}]({{base_path}}/assets/img/learn/ai-gateway/weighted-round-robin-invoke.png)
