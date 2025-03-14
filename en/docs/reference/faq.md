@@ -76,7 +76,7 @@ See [Deploying WSO2 API Manager]({{base_path}}/install-and-setup/setup/deploymen
 
 ### What are the container technologies that are supported in API Manager?
 
-OpenShift, Docker, Kubernetes and Mesos are supported.
+Docker and Kubernetes are supported.
 
 ### Is it recommended to run multiple WSO2 products on a single server?
 
