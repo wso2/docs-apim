@@ -49,9 +49,10 @@ Follow the steps below to configure token-based backend rate limiting for AI API
 3. Navigate to **API Configurations** and click **Runtime**.
 
 4. In the **Backend Throughput** section, select the **Specify** option to define the token-based limits. You can configure the following quotas:
-   - **Total Token Count**: Limits the total number of tokens that can be consumed by the backend.
-   - **Prompt Token Count**: Limits the number of tokens used in prompts sent to the backend AI model.
-   - **Completion Token Count**: Limits the number of tokens generated as the output of an AI model from the backend.
+
+    - **Total Token Count**: Limits the total number of tokens that can be consumed by the backend.
+    - **Prompt Token Count**: Limits the number of tokens used in prompts sent to the backend AI model.
+    - **Completion Token Count**: Limits the number of tokens generated as the output of an AI model from the backend.
 
     [![Max Backend Throughput for AI APIs]({{base_path}}/assets/img/learn/learn-throttling-maxtps-tokens.png)]({{base_path}}/assets/img/learn/learn-throttling-maxtps-tokens.png)
 
