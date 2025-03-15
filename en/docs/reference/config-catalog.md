@@ -4437,7 +4437,7 @@ group_id = "org.wso2"
 artifact_id = "org.wso2.client"
 model_package = "org.wso2.client.model"
 api_package = "org.wso2.client.api"
-supported_languages = ["android", "java", "scala", "csharp", "dart", "flash", "groovy", "javascript"]
+supported_languages = ["android", "java", "csharp", "dart", "groovy", "javascript"]
                     </code></pre>
                     </div>
                 </div>
@@ -4538,7 +4538,7 @@ supported_languages = ["android", "java", "scala", "csharp", "dart", "flash", "g
                                             
                                         </p>
                                         <div class="param-default">
-                                            <span class="param-default-value">Default: <code>android,java,scala,csharp,dart,flash,groovy,javascript,jmeter,nodejs,perl,php,python,ruby,swift,clojure,asyncScala,csharpDotNet2</code></span>
+                                            <span class="param-default-value">Default: <code>android,java,csharp,dart,groovy,javascript,jmeter,nodejs,perl,php,python,ruby,swift,clojure,csharpDotNet2</code></span>
                                         </div>
                                         
                                     </div>
