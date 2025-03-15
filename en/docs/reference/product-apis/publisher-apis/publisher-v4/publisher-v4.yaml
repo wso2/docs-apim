@@ -1645,6 +1645,8 @@ paths:
         - $ref: '#/components/parameters/apiId'
         - name: query
           in: query
+          description: |
+            The query filters revisions based on deployment status, where "deployed:true" returns deployed revisions, "deployed:false" returns non-deployed revisions, and any other query returns all revisions of the API.
           schema:
             type: string
       responses:
