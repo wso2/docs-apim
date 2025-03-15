@@ -34,7 +34,7 @@ Enabling observability is simple in the new API Manager. All that needs to be do
 !!! note
     When observability is enabled in WSO2 API Manager, a separate log file named `correlation.log` is created in the `<API-M_HOME>/repository/logs` directory.
 
-#### Lightweight observablity
+#### Lightweight observability
 
 !!! warning
     Note that this feature has been introduced via an U2/WUM update and is effective from 29th October 2021 (2021-10-29). 
