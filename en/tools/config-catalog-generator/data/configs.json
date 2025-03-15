@@ -1676,7 +1676,7 @@
                             "type": "string",
                             "required": false,
                             "default": "android, java, javascript, jmeter",
-                            "possible": "android, java, javascript, jmeter, csharp, dart, flash, groovy, perl, php, python, ruby, swift5, clojure",
+                            "possible": "android, java, javascript, jmeter, csharp, dart, groovy, perl, php, python, ruby, swift5, clojure",
                             "description": "Supported programming languages."
                         }
                     ]

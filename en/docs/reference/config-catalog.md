@@ -957,7 +957,7 @@ claims_extractor_impl = "org.wso2.carbon.apimgt.impl.token.DefaultClaimsRetrieve
                                         </div>
                                     </div>
                                     <div class="param-description">
-                                        <p>Specify NONE to disable the signing.</p>
+                                        <p>Specify NONE to disbale the sigining.</p>
                                     </div>
                                 </div>
                             </div><div class="param">
@@ -4348,7 +4348,7 @@ group_id = "org.wso2"
 artifact_id = "org.wso2.client"
 model_package = "org.wso2.client.model"
 api_package = "org.wso2.client.api"
-supported_languages = ["android", "java", "csharp", "dart", "flash", "groovy", "javascript", "jmeter", "perl", "php", "python", "ruby", "swift5", "clojure"]
+supported_languages = ["android", "java", "csharp", "dart", "groovy", "javascript", "jmeter", "perl", "php", "python", "ruby", "swift5", "clojure"]
                     </code></pre>
                     </div>
                 </div>
@@ -4452,7 +4452,7 @@ supported_languages = ["android", "java", "csharp", "dart", "flash", "groovy", "
                                             <span class="param-default-value">Default: <code>android, java, javascript, jmeter</code></span>
                                         </div>
                                         <div class="param-possible">
-                                            <span class="param-possible-values">Possible Values: <code>android, java, javascript, jmeter, csharp, dart, flash, groovy, perl, php, python, ruby, swift5, clojure</code></span>
+                                            <span class="param-possible-values">Possible Values: <code>android, java, javascript, jmeter, csharp, dart, groovy, perl, php, python, ruby, swift5, clojure</code></span>
                                         </div>
                                     </div>
                                     <div class="param-description">
