@@ -76,14 +76,6 @@ For more information on WSO2 API Manager, see the [overview]({{base_path}}/getti
 
     This feature allows users to filter denylist throttling policies through the REST APIs.
 
-## Deprecated Features and Functionalities
-
-These features are deprecated and will be removed from subsequent versions of WSO2 API Manager.
-
-## Removed Features and Functionalities
-
-These features are unsupported and removed from WSO2 API Manager 4.4.0 onwards.
-
 ## Compatible WSO2 product versions
 
 - WSO2 API Manager 4.4.0 is compatible with WSO2 Identity Server 6.1.0 and 7.0.0
