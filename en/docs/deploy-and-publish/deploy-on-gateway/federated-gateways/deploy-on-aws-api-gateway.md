@@ -57,6 +57,44 @@ Follow the instructions given below to configure AWS API Gateway as a Federated 
 
 AWS APIs are secured using AWS OAuth2 policy. The policy takes in a `Lambda ARN` and a `Lambda Invoke Role ARN` as parameters. These information will be used to configure the Lambda Authorizer at AWS Gateway. You can implement the Lambda function to validate the tokens from an IDP of your choice. Please follow the steps below to configure the security for the API.
 
+??? note "Configuring Lambda Function and Invoke Role"
+    1. Configure a Lambda function to validate the OAuth2 tokens issued by the IDP of your choice.    
+    2. Configure a Custom Role with **lambda:InvokeFunction** permission to be used as the Invoke Role of the above Lambda. A sample permission JSON is shown below.
+        ``` 
+        {
+            "Version": "2012-10-17",
+            "Statement": [
+                {
+                    "Effect": "Allow",
+                    "Action": [
+                        "lambda:InvokeFunction"
+                    ],
+                    "Resource": [
+                        "*"
+                    ]
+                }
+            ]
+        }
+        ```
+    3. Also configure a trust relationship for the role to allow **sts:AssumeRole**.
+        ```
+        {
+            "Version": "2012-10-17",
+            "Statement": [
+                {
+                    "Effect": "Allow",
+                    "Principal": {
+                        "Service": [
+                            "lambda.amazonaws.com",
+                            "apigateway.amazonaws.com"
+                        ]
+                    },
+                    "Action": "sts:AssumeRole"
+                }
+            ]
+        }
+        ```
+
 !!!note
     Below steps would require additional permissions to be granted to the IAM user created in Step 1. Attach `AWSLambda_FullAccess` permission to the user and attach below custom policy to allow sts:AssumeRole action.
     ```
