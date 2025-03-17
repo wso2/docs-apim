@@ -299,7 +299,7 @@ template: templates/single-column.html
         "icon": "🔗",
         "links": [
             {"name": "Deploy on VM", "url": "install-and-setup/install/installing-the-product/running-the-api-m/"},
-            {"name": "Deploy on Kubernetes", "url": "install-and-setup/install/deploying-api-manager-with-kubernetes-or-openshift-resources/"},
+            {"name": "Deploy on Kubernetes", "url": "install-and-setup/install/deploying-api-manager-with-kubernetes-resources/"},
             {"name": "SaaS", "url": "https://wso2.com/choreo/api-management/"}
         ]
     }],
@@ -380,7 +380,7 @@ template: templates/single-column.html
                     <ul class="links-list">
                         {% for link in tile.links %}
                         <li>
-                            {% if tile.title == "Community and Support" %}
+                            {% if tile.title == "Community and Support" or link.name == "SaaS" %}
                                 <a href="{{ link.url }}" target="_blank" class="link">{{ link.name }}</a>
                             {% else %}
                                 <a href="{{ base_path }}/{{ link.url }}" class="link">{{ link.name }}</a>
