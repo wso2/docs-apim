@@ -63,6 +63,30 @@ Follow the instructions below to use OAuth 2.0 as the endpoint authorization typ
     
      [![resource owner password config]({{base_path}}/assets/img/learn/resource-owner-password-config.png)]({{base_path}}/assets/img/learn/resource-owner-password-config.png)
 
+    c. Configure the following timeout parameters for the connection with the token endpoint:
+
+      * **Connection Timeout Duration** - The duration (in milliseconds) before the connection attempt times out.
+
+      * **Connection Request Timeout Duration** - The duration (in milliseconds) before a request for a connection times out.
+
+      * **Socket Timeout Duration** - The duration (in milliseconds) before a socket read operation times out.
+
+      [![oauth-2-timeout-config]({{base_path}}/assets/img/learn/oauth-2-timeout-config.png)]({{base_path}}/assets/img/learn/oauth-2-timeout-config.png)
+
+    d. Configure the following proxy settings for the connection with the token endpoint:
+
+      * **Proxy Hostname** - The hostname of the proxy server.
+   
+      * **Proxy Port** - The port of the proxy server.
+   
+      * **Proxy Username** - The username required for proxy authentication.
+   
+      * **Proxy Password** - The password required for proxy authentication.
+   
+      * **Proxy Protocol** - The protocol used for the proxy connection.
+   
+      [![oauth-2-proxy-config]({{base_path}}/assets/img/learn/oauth-2-proxy-config.png)]({{base_path}}/assets/img/learn/oauth-2-proxy-config.png)
+
 5. If the OAuth-2.0-protected backend server token endpoint requires any other properties to be passed in addition to the above, click **Add Parameter** and provide the required properties and their respective values. 
       
       Editing and removing parameter name-value pairs are also supported.
