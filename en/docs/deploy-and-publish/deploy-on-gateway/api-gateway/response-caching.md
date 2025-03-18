@@ -65,9 +65,9 @@ Please follow below steps to enable response caching for an API.
     </table>
 
 !!! note
-    When running a distributed deployment, you need to enable the JSON stream builders on the API Gateway and maintain the standard builders on the API Developer Portal node.
+    When running a distributed deployment, you need to enable the JSON stream builders on the Universal Gateway and maintain the standard builders on the API Developer Portal node.
 
-Follow the instructions below to enable the stream builders in the API gateway:
+Follow the instructions below to enable the stream builders in the Universal gateway:
 
 1.  Open the `<API-M_HOME>/repository/conf/deployment.toml` file.
 2.  Add following configuration.

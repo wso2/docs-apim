@@ -26,6 +26,189 @@ template: templates/single-column.html
     -webkit-font-smoothing: antialiased;
     }
 
+    .content {
+        width: 100%;
+        margin: 0 auto;
+        display: flex;
+        justify-content: left;
+        align-items: left;
+        flex-wrap: wrap;
+    }
+
+    .card {
+        height: 275px;
+        color: #404040;
+        background: #f8f8f8;
+        padding-left: 1.2rem;
+        padding-bottom: 0.7rem;
+        -webkit-box-shadow: 0px 5px 4px 0px rgba(105, 113, 120, 0.4);
+        -moz-box-shadow: 0px 5px 4px 0px rgba(105, 113, 120, 0.4);
+        box-shadow: 0px 5px 4px 0px rgba(105, 113, 120, 0.4);
+        border-radius: 10px;
+        font-size: 16px;
+        transition: all 0.6s ease;
+        position: relative;
+        justify-content: left;
+        align-items: left;
+        flex-direction: row;
+        transition: all 0.3s ease;
+        width: 100%;
+    }
+
+    .card-wrapper {
+        width: 100%;
+        display: flex;
+        max-width: 400px;
+    }
+
+    .component-wrapper {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .card-content {
+        justify-content: left;
+        display: flex;
+        align-items: left;
+        text-align: left;
+        flex-direction: column;
+    }
+
+    .card .title {
+        font-family: Montserrat, sans-serif;
+        font-style: normal;
+        font-size: 18px;
+        margin: 2;
+        text-align: left;
+        font-weight: 600;
+        white-space: nowrap;
+        text-transform: none;
+        display: flex;
+    }
+
+    .card-icon {
+        height: 30px;
+        max-width: 80px;
+        border-radius: 0%;
+        display: flex;
+        align-items: center;
+        color: #ff5003;
+        transition: all 0.8s ease;
+    }
+
+    .removeTopMargin {
+        margin-top: 0;
+    }
+
+    .rowAlignment {
+        justify-content: space-between;
+        display: flex;
+        flex-direction: row;
+    }
+
+    .rowAlignmentProductNameIcon {
+        justify-content: left;
+        align-items: left;
+        display: flex;
+        gap: 10px;
+        flex-direction: row;
+        margin-bottom: 0;
+    }
+
+    .description-section {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 30px;
+        margin-left: 100px;
+    }
+
+    .component-section {
+        display: grid;
+        justify-content: space-between;
+        flex-direction: row;
+        grid-template-columns: 400px 4fr;
+        gap: 150px;
+    }
+    .tiles-container {
+        display: flex;
+        align-items: start;
+        flex-wrap: wrap;
+        justify-content: space-between;
+    }
+    .tile {
+        display: inline-block;
+        vertical-align: top;
+        background-color: rgba(255, 255, 255, 0.03);
+        padding: 50px;
+        border-radius: 5px;
+        box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
+        transition: transform 0.2s ease-in-out;
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        margin: 0 0 25px 25px;
+    }
+    .tile:hover {
+        transform: scale(1.01);
+    }
+    .tile-header {
+        display: flex;
+        justify-content: space-between;
+        border-bottom: 1px solid rgb(215, 215, 215);
+    }
+    .tile h3 {
+        font-size: 0.9rem;
+        margin-top: 0px;
+    }
+    .tile-icon {
+        margin-left: 30px;
+        font-size: 1rem;
+    }
+    .links-list li {
+        list-style-type: none;
+    }
+    .link {
+        display: inline-block;
+        margin-left: -30px;
+        color: var(--text-color) !important;
+        text-decoration: none;
+    }
+    .link:hover {
+        color: rgb(255, 112, 67) !important;
+        text-decoration: none;
+    }
+    .link:before {
+        content: '→';
+        font-weight: bold;
+        margin-right: 5px;
+    }
+    .button-container {
+        text-align: right;
+    }
+    .view-all-button {
+        display: inline-block;
+        background-color: none;
+        color: var(--text-color) !important;
+        text-decoration: none;
+        border-radius: 5px;
+    }
+    .view-all-button:hover {
+        color: rgb(255, 112, 67) !important;
+    }
+
+    .section05 {
+        display: flex;
+        justify-content: center;
+        margin-top: 50px;
+    }
+
+    .leftContent {
+        margin-right: 50px;
+    }
+
     @media (max-width: 1386px) {
         .md-main .md-sidebar.md-sidebar--primary {
             width: 0;
@@ -43,12 +226,135 @@ template: templates/single-column.html
             padding-top: 1.5rem;
         }
     }
+
+    /* Mobile responsiveness */
+    @media (max-width: 768px) {
+        .description-section {
+            flex-direction: column;
+            margin-left: 0;
+            text-align: center;
+        }
+
+        .md-main .md-content {
+            width: 100%;
+            float: none;
+            margin-left: 0;
+            margin-top: 10px;
+        }
+
+        .component-section {
+            grid-template-columns: 1fr;
+            gap: 20px;
+        }
+
+        .tile-header h3 {
+            font-size: 1rem;
+        }
+
+        .card-wrapper {
+            width: 100%;
+        }
+
+        .card {
+            height: auto;
+        }
+
+        .button-container {
+            text-align: center;
+        }
+    }
+
+    @media (max-width: 480px) {
+        .card {
+            height: auto;
+            padding: 15px;
+        }
+
+        .description-section {
+            margin-left: 0;
+            margin-right: 0;
+        }
+
+        .view-all-button {
+            width: 100%;
+            padding: 10px 0;
+            text-align: center;
+        }
+    }
 </style>
 
+{% set tiles = [
+    [{
+        "title": "Get Started",
+        "icon": "🚀",
+        "links": [
+            {"name": "Overview", "url": "get-started/overview/"},
+            {"name": "Key Concepts", "url": "get-started/key-concepts/"},
+            {"name": "Quick Start Guide", "url": "get-started/api-manager-quick-start-guide/"},
+            {"name": "About this Release", "url": "get-started/about-this-release/"}
+        ]
+    },
+    {
+        "title": "Deployment Options",
+        "icon": "🔗",
+        "links": [
+            {"name": "Deploy on VM", "url": "install-and-setup/install/installing-the-product/running-the-api-m/"},
+            {"name": "Deploy on Kubernetes", "url": "install-and-setup/install/deploying-api-manager-with-kubernetes-resources/"},
+            {"name": "SaaS", "url": "https://wso2.com/bijira/"}
+        ]
+    }],
+    [{
+        "title": "Setup",
+        "icon": "🏗️",
+        "links": [
+            {"name": "Install", "url": "install-and-setup/install/installing-the-product/installing-api-m-runtime/"},
+            {"name": "Deploy", "url": "install-and-setup/setup/deployment-overview/"},
+            {"name": "Upgrade WSO2 API Manager", "url": "install-and-setup/upgrading-wso2-api-manager/upgrading-api-manager/"}
+        ]
+    },
+    {
+        "title": "Developer Resources",
+        "icon": "🔧",
+        "links": [
+            {"name": "Product Rest APIs", "url": "reference/product-apis/overview/"},
+            {"name": "Tooling", "url": "reference/apictl/wso2-api-controller/"},
+            {"name": "SDKs", "url": "consume/generating-sdks/generate-sdks-in-dev-portal/"},
+            {"name": "Configuration Catalog", "url": "reference/config-catalog/"}
+        ]
+    }
+    ],
+    [
+    {
+        "title": "Guides",
+        "icon": "📖",
+        "links": [
+            {"name": "Designing APIs", "url": "design/design-api-overview/"},
+            {"name": "Create an API Product", "url": "design/create-api-product/create-api-product/"},
+            {"name": "Authentication", "url": "design/api-security/api-authentication/api-authentication-overview/"},
+            {"name": "Authorization", "url": "design/api-security/authorization/api-authorization/"},
+            {"name": "Rate Limiting", "url": "design/rate-limiting/introducing-throttling-use-cases/"},
+            {"name": "Consuming APIs", "url": "consume/consume-api-overview/"},
+            {"name": "Analytics", "url": "api-analytics/choreo-analytics/getting-started-guide/"},
+            {"name": "CI/CD", "url": "install-and-setup/setup/api-controller/ci-cd-with-wso2-api-management/"}
+        ],
+        "more_btn": {"name": "View More", "url": "tutorials/tutorials-overview/"}
+    },
+    {
+        "title": "Community and Support",
+        "icon": "❓",
+        "links": [
+            {"name": "GitHub", "url": "https://github.com/wso2/api-manager/issues"},
+            {"name": "Discord Channel", "url": "https://discord.com/invite/wso2"},
+            {"name": "Enterprise Support", "url": "https://wso2.com/subscription/"}
+        ]
+    }
+    ]
+] %}
+
 <div class="homePage">
-    <div class="section01">
+    <div class="description-section">
         <div class="leftContent">
-            <h2>Learn to build and manage your APIs with ease  </h2>
+            </br>
             <p>
                 WSO2 API Manager is a complete platform for building, integrating, and exposing your digital services as managed APIs in the cloud, on-premise, and hybrid architectures to drive your digital transformation strategy. 
             </p>
@@ -56,178 +362,181 @@ template: templates/single-column.html
                 It allows API developers to design, publish, and manage the lifecycle of APIs and API product 
                 managers to create API products from one or more APIs.
             </p>
-            <h3>Download</h3>
-            <a href="https://wso2.com/api-manager/#">
-                <img src="{{base_path}}/assets/img/get_started/download-apim.png" title="Download WSO2 API Manager" width="35%" alt="Download WSO2 API Manager"/>
-            </a>
-            </br>
-            <h3>Quick Start Guide</h3>
-            <div class="linkWrapper">
-            <div class="linkSet2" onclick="location.href='{{base_path}}/get-started/api-manager-quick-start-guide';">
-                <img src="{{base_path}}/assets/img/home/landing-page/design-and-implement-apis.svg" title="Design and Implement APIs" width="75" alt="Design and Implement APIs"/>
-                <h4>Design and implement APIs</h4>
-                <p>
-                    Create, publish, and consume an API in 5 minutes. Let's get started by running a simple use case.
-                </p>
-            </div>
         </div>
-        </div>
-        <div class="md-main .md-content " style="float:right; width: 55%; align:right;  flex-shrink: 0;min-width: 40%; max-height: 100%; max-width:50%; margin-left:10px; margin-top:100px">
-        <iframe width="800" height="300" src="https://www.youtube.com/embed/nr1cFyxVdDw" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        <div class="md-main .md-content " style="float:right; width: 55%; align:right;  flex-shrink: 0;min-width: 30%; max-height: 100%; max-width:40%; margin-left:5px; margin-top:50px; margin-right:90px">
+        <iframe width="800" height="250" src="https://www.youtube.com/embed/nr1cFyxVdDw" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
         </div>
     </div>
-    </br>
-    </br>
-    <div class="section02">
-        <div class="linkSet2" onclick="location.href='{{base_path}}/get-started/overview';">
-            <h3>Overview</h3>
-            <p>
-                Introduces WSO2 API Manager and quickly describes what it can do.
-            </p>
-            <h4>Read a Short Overview</h4>
-        </div>
-        <div class="linkSet2 middle" onclick="location.href='{{base_path}}/get-started/key-concepts';">
-            <h3>Concepts</h3>
-            <p>
-                The key concepts of WSO2 API Manager give you a brief introduction to the terminology and make it easy for you to understand the API management domain.
-            </p>
-            <h4>Understand the Concepts</h4>
-        </div>
-        <div class="linkSet2 last" onclick="location.href='{{base_path}}/get-started/apim-architecture';">
-            <h3>Architecture</h3>
-            <p>
-                The WSO2 API Manager consists of a management plane, a data plane, and a control plane, along with multiple developer-friendly tools to help you work with the various components.
-            </p>
-            <h4>View Architecture</h4>
-        </div>
-    </div>
-    <div class="section03">
-        <h3>APIM Scenarios</h3>
-        <div class="linkWrapper">
-            <div class="linkSet2" onclick="location.href='{{base_path}}/tutorials/scenarios/scenario1-create-rest-api';">
-                <img src="{{base_path}}/assets/img/home/landing-page/create-rest-api-from-an-openapi-definition.svg" width="25%" alt="Create REST API from an OpenAPI Definition">
-                <h4>Create REST API from an OpenAPI Definition</h4>
-                <p>
-                    Create an API in WSO2 API Manager that maps to an OpenAPI definition. 
-                </p>
+    <div class="section05">
+        <div class="tiles-container">
+            {% for column in tiles %}
+            <div class="tiles-column">
+                {% for tile in column %}
+                <div class="tile">
+                    <div class="tile-header">
+                        <h3>{{ tile.title }}</h3>
+                        <span class="tile-icon">{{ tile.icon }}</span>
+                    </div>
+                    <ul class="links-list">
+                        {% for link in tile.links %}
+                        <li>
+                            {% if tile.title == "Community and Support" or link.name == "SaaS" %}
+                                <a href="{{ link.url }}" target="_blank" class="link">{{ link.name }}</a>
+                            {% else %}
+                                <a href="{{ base_path }}/{{ link.url }}" class="link">{{ link.name }}</a>
+                            {% endif %}
+                        </li>
+                        {% endfor %}
+                    </ul>
+                    {% if tile.more_btn %}
+                    <div class="button-container">
+                        <a href="{{base_path}}/{{ tile.more_btn.url }}" class="view-all-button">{{ tile.more_btn.name }}</a>
+                    </div>
+                    {% endif %}
+                </div>
+                {% endfor %}
             </div>
-            <div class="linkSet2 middle" onclick="location.href='{{base_path}}/tutorials/scenarios/scenario2-access-control';">
-                <img src="{{base_path}}/assets/img/home/landing-page/engage-access-control-to-the-api.svg" width="25%" alt="Engage Access Control to the API">
-                <h4>Engage Access Control to the API</h4>
-                <p>
-                    Configure your API so that it is visible only to selected users.
-                </p>
-            </div>
-            <div class="linkSet2 last" onclick="location.href='{{base_path}}/tutorials/scenarios/scenario3-implementing-an-api';">
-                <img src="{{base_path}}/assets/img/home/landing-page/implementing-an-api.svg" width="25%" alt="Implementing an API">
-                <h4>Implementing an API</h4>
-                <p>
-                    You can implement the business logic to call three backends that provide metrics, aggregate the response, and present it to the client as one response.
-                </p>
-            </div>
-        </div>
-        <div class="linkWrapper">
-            <div class="linkSet2" onclick="location.href='{{base_path}}/tutorials/scenarios/scenario4-user-signup-approval-flow';">
-                <img src="{{base_path}}/assets/img/home/landing-page/signing-up-a-new-user.svg" width="25%" alt="Signing up a New User">
-                <h4>Signing up a New User</h4>
-                <p>
-                    WSO2 API Manager provides extension points to trigger workflow tasks for many operations such as Application creation, subscription creation, user signup, etc. 
-                </p>
-            </div>
-            <div class="linkSet2 middle" onclick="location.href='{{base_path}}/tutorials/scenarios/scenario5-developer-community-feature';">
-                <img src="{{base_path}}/assets/img/home/landing-page/getting-the-developer-community-involved.svg" width="25%" alt="Getting the Developer Community Involved">
-                <h4>Getting the Developer Community Involved</h4>
-                <p>
-                    WSO2 API Manager Developer Portal provides many features to assist developers to use the APIs published.
-                </p>
-            </div>
-            <div class="linkSet2 last" onclick="location.href='{{base_path}}/tutorials/scenarios/scenario6-integrating-with-data-sources';">
-                <img src="{{base_path}}/assets/img/home/landing-page/integrating-with-data-sources.svg" width="25%" alt="Integrating with Data Sources">
-                <h4>Integrating with Data Sources</h4>
-                <p>
-                    When you create a data service in WSO2 Micro Integrator, the data that is stored in a storage system (such as the RDBMS) can be exposed in the form of a service.
-                </p>
-            </div>
-        </div>
-        <div class="linkWrapper">
-            <div class="linkSet2" onclick="location.href='{{base_path}}/tutorials/scenarios/scenario7-analytics';">
-                <img src="{{base_path}}/assets/img/home/landing-page/analytics.svg" width="25%" alt="Analytics">
-                <h4>Analytics</h4>
-                <p>
-                    Choreo API Manager Analytics can be used to fulfil the stats and analytics needs of the API Manager. 
-                </p>
-            </div>
-            <div class="linkSet2 middle" onclick="location.href='{{base_path}}/tutorials/scenarios/scenario8-rate-limiting';">
-                <img src="{{base_path}}/assets/img/home/landing-page/rate-limiting.svg" width="25%" alt="Rate limiting">
-                <h4>Rate limiting</h4>
-                <p>
-                    WSO2 API Manager provides various levels of rate limiting to control the number of transactions at any given time.
-                </p>
-            </div>
-            <div class="linkSet2 last" onclick="location.href='{{base_path}}/tutorials/scenarios/scenario9-realtime-data';">
-                <img src="{{base_path}}/assets/img/home/landing-page/realtime-data-with-websocket-api.svg" width="25%" alt="Realtime Data with WebSocket API">
-                <h4>Realtime Data with WebSocket API</h4>
-                <p>
-                    WSO2 Streaming Integrator (SI) is a streaming data processing server that integrates realtime streaming data and takes action based on the streaming data.
-                </p>
-            </div>
-        </div>
-        <div class="linkWrapper">
-            <div class="linkSet2" onclick="location.href='{{base_path}}/tutorials/scenarios/scenario10-notifications-webhooks';">
-                <img src="{{base_path}}/assets/img/home/landing-page/notifications-using-webhooks.svg" width="25%" alt="Notifications Using WebHooks">
-                <h4>Notifications Using WebHooks</h4>
-                <p>
-                    The API Manager enables you to provide information as webhooks so that companies can subscribe to these notifications without continuously polling. 
-                </p>
-            </div>
-            <div class="linkSet2 middle" onclick="location.href='{{base_path}}/tutorials/scenarios/scenario11-graphql';">
-                <img src="{{base_path}}/assets/img/home/landing-page/graphql-support.svg" width="25%" alt="GraphQL Support">
-                <h4>GraphQL Support</h4>
-                <p>
-                    WSO2 API Manager supports creating GraphQL APIs using the GraphQL schema.
-                </p>
-            </div>
-            <div class="linkSet2 last" onclick="location.href='{{base_path}}/tutorials/scenarios/scenario12-message-delivery';">
-                <img src="{{base_path}}/assets/img/home/landing-page/guaranteed-message-delivery.svg" width="25%" alt="Guaranteed Message Delivery">
-                <h4>Guaranteed Message Delivery</h4>
-                <p>
-                    Store and forward messaging pattern is used to ensure guaranteed delivery of messages. Messages never get lost since they are stored in the message store.
-                </p>
-            </div>
-        </div>
-        <div class="linkWrapper">
-            <div class="linkSet2" onclick="location.href='{{base_path}}/tutorials/scenarios/scenario13-integrate-with-connectors';">
-                <img src="{{base_path}}/assets/img/home/landing-page/integrate-with-services-via-connectors.svg" width="25%" alt="Integrate with Services via Connectors">
-                <h4>Integrate with Services via Connectors</h4>
-                <p>
-                    When you integrate systems in your organization, it is also necessary to integrate with third-party systems to enhance your services. This is possible via Connectors. 
-                </p>
-            </div>
-            <div class="linkSet2 middle" onclick="location.href='{{base_path}}/tutorials/scenarios/scenario14-external-key-manager';">
-                <img src="{{base_path}}/assets/img/home/landing-page/external-key-manager-support.svg" width="25%" alt="External Key Manager Support">
-                <h4>External Key Manager Support</h4>
-                <p>
-                    WSO2 API Manager comes with external key manager connectors to various identity providers such as Okta, Auth0, Keycloak, etc. Additionally, you can write a custom Key Manager implementation.
-                </p>
-            </div>
-            <div class="linkSet2 last" onclick="location.href='{{base_path}}/tutorials/tutorials-overview';">
-                <img src="{{base_path}}/assets/img/home/landing-page/other.svg" width="25%" alt="Other">
-                <h4>Other</h4>
-                <p>
-                    Look through the available tutorials for more product capabilities.
-                </p>
-            </div>
+            {% endfor %}
         </div>
     </div>
-    <div class="section04">
-        <h3>Deployment</h3>
-        <div class="linkWrapper">
-            <div class="linkSet2" onclick="location.href='{{base_path}}/install-and-setup/install-and-setup-overview/#deploying';">
-                <img src="{{base_path}}/assets/img/home/integration.svg" alt="Deployment">
-                <p>
-                    See the instructions on setting up the API-M runtime for your selected deployment pattern. 
-                </p>
-                <a href='{{base_path}}/install-and-setup/install-and-setup-overview/#deploying'><h4>Deploy the API Manager Runtime</h4></a>
+    <div>
+        <h3>Components</h3>
+        <hr/>
+        <p>WSO2 API Manager offers multiple components designed to work together to solve the challenges of diverse infrastructure requirements. A unified control plane supporting multiple gateways provides deployment flexibility, minimizes downtime, and provides scalability and resource optimization by allowing independent component management, flexible deployment packages, and seamless upgrades and maintenance. For more information see <a href="{{base_path}}/get-started/apim-architecture/">Architecture.</a></p>
+        </br>
+        </br>
+        <div class="component-section">
+            <div>
+                <div>
+                    <h4>Control Plane</h4>
+                    </br>
+                </div>
+                <div class="content">
+                    <!-- begin card -->
+                    <div class="card-wrapper">
+                        <div class="card">
+                            <div class="card-content">
+                                <div class="rowAlignment">
+                                    <div class="rowAlignmentProductNameIcon">
+                                        <div class="card-icon">
+                                            <i class="material-icons md-36">supervisor_account</i>
+                                        </div>
+                                        <p class="title"><b>WSO2 API Control Plane</b></p>
+                                    </div>
+                                </div>
+                                <hr/>
+                                <p class="removeTopMargin">A Unified control plane which centrally manages and governs APIs across multiple Gateways</p>
+                                <div>
+                                    <ul>
+                                        <li><a href="{{base_path}}/get-started/apim-architecture/#api-control-plane">WSO2 API Control Plane Overview</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- end card -->
+                </div>
+            </div>
+            <div>
+                <div>
+                    <h4>Data Plane</h4>
+                    </br>
+                </div>
+                <div class="content">
+                    <!-- begin card -->
+                    <div class="card-wrapper">
+                        <div class="card">
+                            <div class="card-content">
+                                <div class="rowAlignment">
+                                    <div class="rowAlignmentProductNameIcon">
+                                        <div class="card-icon">
+                                            <i class="material-icons md-36">public</i>
+                                        </div>
+                                        <p class="title"><b>WSO2 Universal Gateway</b></p>
+                                    </div>
+                                </div>
+                                <hr/>
+                                <p class="removeTopMargin">Secure and proxy API traffic with enterprise-grade features</p>
+                                <div>
+                                    <ul>
+                                        <li><a href="{{base_path}}/get-started/apim-architecture/#universal-gateway">WSO2 Universal Gateway Overview</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- end card -->
+                    <!-- begin card -->
+                    <div class="card-wrapper">
+                        <div class="card">
+                            <div class="card-content">
+                                <div class="rowAlignment">
+                                    <div class="rowAlignmentProductNameIcon">
+                                        <div class="card-icon">
+                                            <i class="material-icons md-36">cloud</i>
+                                        </div>
+                                        <p class="title"><b>WSO2 Kubernetes Gateway</b></p>
+                                    </div>
+                                </div>
+                                <hr/>
+                                <p class="removeTopMargin">Designed to build, deploy, and manage APIs in a cloud environment</p>
+                                <div>
+                                    <ul>
+                                        <li><a href="{{base_path}}/get-started/apim-architecture/#kubernetes-gateway">WSO2 Kubernetes Gateway Overview</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- end card -->
+                    <!-- begin card -->
+                    <div class="card-wrapper">
+                        <div class="card">
+                            <div class="card-content">
+                                <div class="rowAlignment">
+                                    <div class="rowAlignmentProductNameIcon">
+                                        <div class="card-icon">
+                                            <i class="material-icons md-36">cloud_circle</i>
+                                        </div>
+                                        <p class="title"><b>WSO2 Immutable Gateway</b></p>
+                                    </div>
+                                </div>
+                                <hr/>
+                                <p class="removeTopMargin">An API Gateway for micro services, which is cloud-native, decentralized and developer centric</p>
+                                <div>
+                                    <ul>
+                                        <li><a href="{{base_path}}/get-started/apim-architecture/#immutable-gateway">WSO2 Immutable Gateway Overview</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- end card -->
+                    <!-- begin card -->
+                    <div class="card-wrapper">
+                        <div class="card">
+                            <div class="card-content">
+                                <div class="rowAlignment">
+                                    <div class="rowAlignmentProductNameIcon">
+                                        <div class="card-icon">
+                                            <i class="material-icons md-36">device_hub</i>
+                                        </div>
+                                        <p class="title"><b>Federated Gateways</b></p>
+                                    </div>
+                                </div>
+                                <hr/>
+                                <p class="removeTopMargin">Manage APIs spaning multiple cloud platforms, on-premises systems, or regions</p>
+                                <div>
+                                    <ul>
+                                        <li><a href="{{base_path}}/deploy-and-publish/deploy-on-gateway/federated-gateways/deploy-on-aws-api-gateway/">AWS API Gateway</a></li>
+                                        <li><a href="{{base_path}}/tutorials/integrating-with-solace/">Solace Broker</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- end card -->
+                </div>
             </div>
         </div>
     </div>

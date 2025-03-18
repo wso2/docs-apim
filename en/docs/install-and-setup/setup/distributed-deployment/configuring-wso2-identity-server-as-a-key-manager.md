@@ -334,12 +334,12 @@ Start WSO2 Identity Server for the changes to take effect. For more information,
         To overcome this issue, you need to create self-signed certificates for WSO2 API-M and WSO2 IS hostnames. Then [import the public certificates]({{base_path}}/install-and-setup/setup/security/configuring-keystores/keystore-basics/creating-new-keystores/#step-3-importing-certificates-to-the-truststore) of WSO2 API-M to the `trust-store.jks` of WSO2 IS and vice versa. This should resolve the SSL handshake failure.
 
     !!! Note
-        In a distributed deployment or IS as KM separated environment to invoke RESTful APIs (product APIs), users must generate tokens through API-M Control Plane's token endpoint.
+        In a distributed deployment or IS as KM separated environment to invoke RESTful APIs (product APIs), users must generate tokens through API Control Plane's token endpoint.
         The tokens generated using third party key managers, are to manage end-user authentication when accessing APIs.
 
     !!! Important
 
-        When WSO2 Identity Server (IS) is configured as the resident key manager, the IS acts as the default key manager component. This key manager component authenticates users when they are using OAuth2 authentication and not basic authentication. Hence for users who exist in a secondary user store within the key manager component, basic authentication will not work. Therefore if basic authentication should be used, the user needs to be added to the Control Plane (CP) component of the APIM server for authentication.
+        When WSO2 Identity Server (IS) is configured as the resident key manager, the IS acts as the default key manager component. This key manager component authenticates users when they are using OAuth2 authentication and not basic authentication. Hence for users who exist in a secondary user store within the key manager component, basic authentication will not work. Therefore if basic authentication should be used, the user needs to be added to the API Control Plane (ACP) component for authentication.
 
 Follow the instructions below to configure the other WSO2 API-M components, namely the Publisher, Developer Portal, Traffic Manager, and Gateway:
 

@@ -263,6 +263,39 @@ function setActive(parentNode, i) {
     setActive(parentNode.parentNode.parentNode.parentNode, ++i);
 }
 
+document.addEventListener("DOMContentLoaded", function() {
+    document.addEventListener("click", function(event) {
+        let link = event.target.closest("a");
+        if (link && link.href) {
+        if (typeof gtag === 'function') {
+            gtag('event', 'link_click', {
+            'event_category': 'engagement',
+            'event_label': link.textContent.trim(),
+            'link_url': link.href,
+            'current_page': document.location.href
+            });
+        }
+        }
+    });
+});
+
+document.addEventListener("DOMContentLoaded", function () {
+    var searchInput = document.querySelector("input.md-search__input");
+    let timeout = null;
+
+    if (searchInput) {
+        searchInput.addEventListener("input", function (event) {
+            clearTimeout(timeout);
+            timeout = setTimeout(function () {
+                let searchTerm = event.target.value.trim();
+                gtag("event", "search", {
+                    search_term: searchTerm
+                });
+            }, 500);
+        });
+    }
+});
+
 /*
  * Fixes the issue related to clicking on anchors and landing somewhere below it
  */
