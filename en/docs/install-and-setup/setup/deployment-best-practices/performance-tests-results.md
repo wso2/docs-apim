@@ -115,7 +115,7 @@ For example, when there are 100 concurrent users, the 90th response time percent
 
 The figure below represents the percentile values for Echo API (PassThrough Scenario).
 
-[![Response time 0ms 1KiB]({{base_path}}/assets/img/setup-and-install/performance-test-results/response_time_summary_1KiB_0ms.png)]({{base_path}}/assets/img/setup-and-install/performance-test-results/response_time_summary_1KiB_0ms.png)
+[![Response time 0ms 1KiB]({{base_path}}/assets/img/setup-and-install/performance-test-results/response_time_0ms_1kib.png)]({{base_path}}/assets/img/setup-and-install/performance-test-results/response_time_0ms_1kib.png)
 
 **Key observations:**
 
