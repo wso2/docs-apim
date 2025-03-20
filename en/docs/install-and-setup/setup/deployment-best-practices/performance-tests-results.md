@@ -86,7 +86,7 @@ All scripts used to run the performance tests and analyze results are in the fol
 
 ## Results
 
-Considering the fact that an average WSO2 API Manager user uses ~1KiB messages, the performance test highlights for that scenario are represented in the charts below. The complete results can be found [here](https://github.com/wso2/performance-apim/blob/performance-test-468-2024-10-23_15-25-13/performance/benchmarks/summary.md).
+Considering the fact that an average WSO2 API Manager user uses ~1KiB messages, the performance test highlights for that scenario are represented in the charts below. The complete results can be found [here](https://github.com/wso2/performance-apim/blob/performance-test-496-2025-03-19_16-37-39/performance/benchmarks/summary.md).
 
 The following graph depicts the throughput changes based on the number of concurrent users.
 
@@ -94,7 +94,7 @@ The following graph depicts the throughput changes based on the number of concur
 
 **Key observations:**
 
-- More concurrent users mean more requests to the Gateway. Therefore, the throughput of the Gateway increases as the number of concurrent users accessing the APIs increases. The maximum throughput is obtained for 100 concurrent users for both “Echo API” and “Mediation API”, and the throughput degrades slightly after 100 concurrent users due to resource contentions in the system. The degradation point mainly depends on hardware resources.
+- More concurrent users mean more requests to the Gateway. Therefore, the throughput of the Gateway decreases as the number of concurrent users accessing the APIs increases. The maximum throughput is obtained for 100 concurrent users for both “Echo API” and “Mediation API”, and the throughput degrades slightly after 100 concurrent users due to resource contentions in the system. The degradation point mainly depends on hardware resources.
 
 - Echo API throughput is much better than the Mediation API. The main reason is that the Mediation API has a mediation extension, which uses a “Payload Factory” Mediator. This mediation in the sequence does a JSON to JSON message transformation. That means the Mediation API reads the message (payload) to do the message transformation, and it has a considerable overhead than the “Echo API”, which is similar to a “Direct Proxy”. A “Direct Proxy” does not perform any processing on the messages that pass through it.
 
@@ -111,7 +111,7 @@ The following graph depicts the average response time changes based on the numbe
 
 Let’s look at the 90th, 95th, and 99th response time percentiles when the message size is 1KiB. It is useful to measure the percentage of requests that exceeded the response time value for a given percentile. A percentile can be used to determine the percentage of requests completed below the particular response time value.
 
-For example, when there are 100 concurrent users, the 90th response time percentile for Echo API is 46ms. This means that 10% of the requests have taken more than 46ms to respond. Similarly, the 99th response time percentile for Echo API is 72ms, which means that 99% of the requests have been completed within 72ms.
+For example, when there are 100 concurrent users, the 90th response time percentile for Echo API is 41ms. This means that 10% of the requests have taken more than 41ms to respond. Similarly, the 99th response time percentile for Echo API is 76ms, which means that 99% of the requests have been completed within 76ms.
 
 The figure below represents the percentile values for Echo API (PassThrough Scenario).
 

@@ -648,9 +648,9 @@ nav:
             - Product Compatibility: install-and-setup/setup/reference/product-compatibility.md
             - Performance Test Results:
                 - API Manager: install-and-setup/setup/deployment-best-practices/performance-tests-results.md
-                - API Manager (Streaming APIs): install-and-setup/setup/deployment-best-practices/performance-tests-results-async.md
-                - API Manager (GraphQL APIs): install-and-setup/setup/deployment-best-practices/performance-tests-results-graphql.md
-                - Token Persistence: install-and-setup/setup/deployment-best-practices/performance-test-results-token-persistence.md
+                # - API Manager (Streaming APIs): install-and-setup/setup/deployment-best-practices/performance-tests-results-async.md
+                # - API Manager (GraphQL APIs): install-and-setup/setup/deployment-best-practices/performance-tests-results-graphql.md
+                # - Token Persistence: install-and-setup/setup/deployment-best-practices/performance-test-results-token-persistence.md
             - Supported Cipher Suites: install-and-setup/setup/reference/supported-cipher-suites.md
     - Tutorials:
           - Tutorials Overview: tutorials/tutorials-overview.md
