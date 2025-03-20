@@ -16,13 +16,13 @@ As an open source project, WSO2 API-M welcomes contributions from the community.
 
     If the CLA gets changed for some (unlikely) reason, you will be presented with the new CLA text after sending your first PR after the change.
 
-2. Fork this repository, make your changes, and send in a pull request (PR). Make sure you are contributing to the correct branch (for example, if your change is relevant to WSO2 API-M 4.4.0 documentation, you should commit your changes to the 4.4.0 branch).
+2. Fork this repository, make your changes, and send in a pull request (PR). Make sure you are contributing to the correct branch (for example, if your change is relevant to WSO2 API-M 4.5.0 documentation, you should commit your changes to the 4.5.0 branch).
 
 3. Send multiple pull requests to all the relevant branches.
 
     If your change is relevant to the latest API-M release, please send your change to the respective latest API-M release branch and the master branch, which is the upcoming API-M release documentation branch, as well.
 
-    For example, if the latest API-M release is 4.4.0, and if your change is relevant to API-M 4.4.0, 4.3.0, and 4.2.0, send PRs to the 4.4.0, 4.3.0, 4.2.0, and the master branches.
+    For example, if the latest API-M release is 4.5.0, and if your change is relevant to API-M 4.5.0, 4.4.0, 4.3.0, and 4.2.0, send PRs to the 4.5.0, 4.4.0, 4.3.0, 4.2.0, and the master branches.
 
 Check the issue tracker for open issues that interest you. We look forward to receiving your contributions.
 

@@ -6,26 +6,26 @@ In this step-by-step guide, you’ll learn how to create, publish, and invoke an
 
 ### Before you begin...
 
-Choose a deployment option to start WSO2 API Manager.
+Choose a deployment option to start WSO2 API Manager All-in-one package. The All-in-one package contains all core components in a single JVM for simplified deployment.
 
-=== "Run locally"
+=== "Run on VM"
 
-    Here's how you can download and run WSO2 API Manager locally:
+    Here's how you can download and run WSO2 API Manager All-in-one package locally on a VM:
 
     1. Install [Java SE Development Kit (JDK)](https://adoptium.net/temurin/releases/?arch=any&version=21) version **21** and set the `JAVA_HOME` environment variable.
     
         !!! tip
             For more information on setting the `JAVA_HOME` environment variable for different operating systems, see [Setup and Install]({{base_path}}/install-and-setup/install/installing-the-product/installing-api-m-runtime/#setting-up-java_home)
-
-    2. Download WSO2 API-Manager.
-        - [Open Source Distribution](https://github.com/wso2/product-apim/releases/tag/v4.4.0)
-        - [WSO2 Official Distribution](https://wso2.com/api-manager/#)
     
+    2. Download WSO2 API-Manager All-in-one package.
+    - [Open Source Distribution](https://github.com/wso2/product-apim/releases/tag/v4.4.0)
+    - [WSO2 Official Distribution](https://wso2.com/api-manager/#)
+
     3. Extract the downloaded zip file.
 
     4. Navigate to the `<API-M_HOME>/bin` folder from your command line.
     
-    4. To start WSO2 API Manager, execute the relevant command:
+    5. To start WSO2 API Manager, execute the relevant command:
 
         === "On MacOS/Linux"
             ```bash
@@ -37,20 +37,9 @@ Choose a deployment option to start WSO2 API Manager.
             api-manager.bat --run
             ```
 
-=== "Run on Docker"
+=== "Run on Kubernetes"
 
-    Here's how you can run WSO2 API Manager using Docker:
-
-    1. Install [Docker](https://docs.docker.com/get-docker/) if you haven't done so already.
-    2. Pull and start WSO2 API Manager by executing the following command:
-
-        ```bash
-        docker run -it -p 9443:9443 -p 8243:8243 wso2/wso2am:4.4.0
-        ```
-
-        !!! note
-
-            - The `docker run` command will start WSO2 API Manager and expose the ports `9443` and `8243`.
+    To use Kubernetes (K8s) and Helm resources for container-based deployments of WSO2 API Manager (API-M), follow the steps in [Deploying API-M on Kubernetes using Helm Resources.]({{base_path}}/install-and-setup/install/deploying-api-manager-with-kubernetes-or-openshift-resources/)
 
 ### What you'll build
 
@@ -126,11 +115,11 @@ Follow the instructions below to create, deploy and publish an API via the Publi
      </tr>
      </table>
      
-     [![Create an API]({{base_path}}/assets/img/get_started/api-create.png){: style="width:60%"}]({{base_path}}/assets/img/get_started/api-create.png)
-        
 6. Click **Create & Publish**.
 
-     This will publish your first API on the Developer Portal as well as deploy it on the API Gateway. You now have an OAuth 2.0 secured REST API that is ready to be consumed.
+    [![Create an API]({{base_path}}/assets/img/get_started/api-create.png){: style="width:100%"}]({{base_path}}/assets/img/get_started/api-create.png)
+
+    This will publish your first API on the Developer Portal as well as deploy it on the gateway. You now have an OAuth 2.0 secured REST API that is ready to be consumed.
 
 <a name="subscribe"></a>
 
@@ -166,9 +155,9 @@ Follow the instructions below to invoke the created API.
 
         If this is the first time you are using the API console from your browser, open a new tab and navigate to the [https://localhost:8243/](https://localhost:8243/) URL.
 
-        This will prompt your browser to accept the certificate used by the API Gateway. This is required because by default the API Gateway uses a self-signed certificate that is not trusted by web browsers.
+        This will prompt your browser to accept the certificate used by the gateway. This is required because by default the gateway uses a self-signed certificate that is not trusted by web browsers.
 
-        Since a trusted certificate is used when running in production, you won't have to do this step when running in production.
+        When running in production, since a trusted certificate is used, you won't have to do this step.
 
      [![Test API]({{base_path}}/assets/img/get_started/test-api.png)]({{base_path}}/assets/img/get_started/test-api.png)
 
