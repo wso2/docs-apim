@@ -28,7 +28,7 @@ For more information on WSO2 API Manager, see the [overview]({{base_path}}/getti
 
     The Multi-Model Routing feature allows seamless switching of AI API requests between multiple models within the same provider. API creators can define routing strategies using our built-in AI API policies, which support round-robin and failover-based routing.
 
-    **[Learn more]({{base_path}}/design/api-policies/regular-gateway-policies/ai-policies/)**
+    **[Learn more]({{base_path}}/ai-gateway/multi-model-routing/overview/)**
 
 ??? note "Generative AI Powered Design Assistant"
 
