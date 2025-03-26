@@ -18,11 +18,13 @@
 
 .md-tabs__link--active {
     opacity: 1 !important;
+    font-weight: 600;
 }
 
 .md-typeset h1 {
     margin: 0 0 1rem;
     font-size: 1.5625rem;
+    font-weight: 600;
 }
 
 .md-typeset h2 {
@@ -35,7 +37,7 @@
 .md-typeset h3 {
     margin: 1.6rem 0 0.8rem;
     font-size: 1rem;
-    font-weight: 400;
+    font-weight: 500;
     letter-spacing: -.01em;
     line-height: 1.5;
     border-bottom: 1px solid #cccccc;
@@ -166,24 +168,6 @@ html .md-footer-meta.md-typeset a {
 .section04 {
     margin: 0 -60px;
     padding: 45px 60px;
-}
-
-.homePage h2 {
-    font-size: 1.2rem;
-    border-bottom: 0;
-    margin-top: -5px;
-    color: #F47B20;
-}
-
-.homePage h3 {
-    font-size: 1rem;
-    border-bottom: 0;
-    font-weight: 100;
-}
-
-.homePage h4 {
-    margin: 0;
-    color: #F47B20;
 }
 
 .linkSet2 p {

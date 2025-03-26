@@ -26,6 +26,24 @@ template: templates/single-column.html
     -webkit-font-smoothing: antialiased;
     }
 
+    .md-typeset h2 {
+        font-size: 1.2rem;
+        border-bottom: 0;
+        margin-top: -5px;
+        color: #F47B20;
+    }
+    
+    .md-typeset h3 {
+        font-size: 1rem;
+        border-bottom: 0;
+        font-weight: 600;
+    }
+    
+    .md-typeset h4 {
+        margin: 0;
+        color: #F47B20;
+    }
+
     .content {
         width: 100%;
         margin: 0 auto;
