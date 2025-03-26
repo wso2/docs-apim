@@ -356,15 +356,6 @@ template: templates/single-column.html
             {"name": "CI/CD", "url": "install-and-setup/setup/api-controller/ci-cd-with-wso2-api-management/"}
         ],
         "more_btn": {"name": "View More", "url": "tutorials/tutorials-overview/"}
-    },
-    {
-        "title": "Community and Support",
-        "icon": "❓",
-        "links": [
-            {"name": "GitHub", "url": "https://github.com/wso2/api-manager/issues"},
-            {"name": "Discord Channel", "url": "https://discord.com/invite/wso2"},
-            {"name": "Enterprise Support", "url": "https://wso2.com/subscription/"}
-        ]
     }
     ]
 ] %}
