@@ -78,8 +78,8 @@ nav:
           - Quick Start Guide: get-started/api-manager-quick-start-guide.md
           - About this Release: get-started/about-this-release.md
     - Manage APIs:
+        - Manage APIs Overview: manage-apis/manage-api-overview.md
         - Design APIs:
-            - Design APIs Overview: design/design-api-overview.md
             - Create APIs:
                 - REST APIs:
                     - Create a REST API: design/create-api/create-rest-api/create-a-rest-api.md
