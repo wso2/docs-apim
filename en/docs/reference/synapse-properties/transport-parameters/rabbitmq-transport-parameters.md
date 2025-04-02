@@ -110,48 +110,12 @@ present. If set to <code>false</code>, the Micro Integrator will assume that a q
          </td>
       </tr>
       <tr>
-         <td>rabbitmq.connection.pool.size</td>
-         <td>
-            You can increase the connection pool size to improve the performance of the RabbitMQ sender and listener. The default connection pool size is 20.
-         </td>
-      </tr>
-      <tr>
          <td>rabbitmq.publisher.confirms.enabled</td>
          <td>
             Enables support for RabbitMQ publisher confirms.
          </td>
       </tr>
    </tbody>
-</table>
-
-### Connection Recovery Parameters (Optional)
-
-In case of a network failure or broker shutdown, the Micro Integrator will try to recreate the connection.
-
-<table>
-  <tr>
-    <th>Parameter</th>
-    <th>Description</th>
-  </tr>
-  <tr>
-    <td>rabbitmq.connection.retry.interval</td>
-    <td>
-      The retry interval specifies how frequently (time interval) the Micro Integrator should retry to recreate a lost connection. The default value is <code>30000</code> ms. That is, the Micro Integrator retries to connect every 30000 miliseconds.
-    </td>
-  </tr>
-  <tr>
-    <td>rabbitmq.connection.retry.count</td>
-    <td>
-      The retry count specifies the number of times the Micro Integrator will try to recreate a lost connection. The default retry count is <code>3</code>. That is, the Micro Integrator retries only 3 times.
-    </td>
-  </tr>
-  <tr>
-    <td>rabbitmq.server.retry.interval</td>
-    <td>
-      This parameter is <b>optional</b>.</br>
-      The parameters specified above sets the retry interval with which the RabbitMQ client tries to reconnect. Generally having this value less than the value specified as <code>rabbitmq.connection.retry.interval</code> will help synchronize the reconnection of the Micro Integrator and the RabbitMQ client.
-    </td>
-  </tr>
 </table>
 
 ### SSL Parameters (Optional)
@@ -359,7 +323,7 @@ In your integration solution, the following RabbitMQ send parameters can be spec
       <tr>
          <td>rabbitmq.connection.pool.size</td>
          <td>
-            You can increase the connection pool size to improve the performance of the RabbitMQ sender and listener. The default connection pool size is 20.
+            You can increase the connection pool size to improve the performance of the RabbitMQ sender. The default connection pool size is 20.
          </td>
       </tr>
    </tbody>
