@@ -8213,7 +8213,6 @@ parameter.message_content_type = ""
 
 parameter.retry_interval = "10s"
 parameter.retry_count = 5
-parameter.connection_pool_size = 25
 
 parameter.ssl_enable = true
 parameter.ssl_version = "SSL"
