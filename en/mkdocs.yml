@@ -673,6 +673,7 @@ nav:
             - Scenario 13 - Integrate with Services via Connectors: tutorials/scenarios/scenario13-integrate-with-connectors.md
             - Scenario 14 - External Key Manager Support: tutorials/scenarios/scenario14-external-key-manager.md
           - API Management Tutorials:
+            - Setting Up a Distributed Setup Using the APIM Enterprise Package: tutorials/create-distributed-setup-using-the-enterprise-package.md
             - Create and Publish a GraphQL API: tutorials/create-and-publish-a-graphql-api.md
             - Create and Publish a Streaming API:
                 - Create and Publish a WebSocket API: tutorials/streaming-api/create-and-publish-websocket-api.md
