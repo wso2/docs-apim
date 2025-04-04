@@ -270,7 +270,7 @@ paths:
       description: |
         Using this operation, you can retrieve complete details of a single API. You need to provide the Id of the API to retrive it.
       parameters:
-        - $ref: '#/components/parameters/apiId'
+        - $ref: '#/components/parameters/id'
         - $ref: '#/components/parameters/requestedTenant'
         - $ref: '#/components/parameters/If-None-Match'
       responses:
@@ -5635,7 +5635,7 @@ paths:
       description: |
         Using this operation, you can retrieve complete details of a single API Product. You need to provide the Id of the API to retrive it.
       parameters:
-        - $ref: '#/components/parameters/apiProductId'
+        - $ref: '#/components/parameters/id-product'
         - $ref: '#/components/parameters/Accept'
         - $ref: '#/components/parameters/If-None-Match'
       responses:
@@ -11108,6 +11108,22 @@ components:
       schema:
         type: boolean
         default : false
+    id:
+      name: id
+      in: path
+      description: |
+        **API ID** consisting of the **UUID** of the API or **Revision ID** consisting of the unique identifier of an API revision.
+      required: true
+      schema:
+        type: string
+    id-product:
+      name: id
+      in: path
+      description: |
+        **API Product ID** consisting of the **UUID** of the API Product or **Product Revision ID** consisting of the unique identifier of an API Product revision.
+      required: true
+      schema:
+        type: string
     apiId:
       name: apiId
       in: path
