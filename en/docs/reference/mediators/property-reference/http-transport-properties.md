@@ -75,7 +75,7 @@ appending a context to the target URL in RESTful invocations.
 </tr>
 <tr class="odd">
 <td><p><strong>Description</strong></p></td>
-<td><p>When set to true, this property forces a 202 HTTP response to the client immediately after the Micro Integrator receives the message so that the client stops waiting for a response.</p></td>
+<td><p>When set to true, this property forces a 202 HTTP response to the client when the current thread of execution ends, so that the client stops waiting for a response.</p></td>
 </tr>
 <tr class="even">
 <td><p><strong>Example</strong></p></td>
