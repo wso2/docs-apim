@@ -12,25 +12,16 @@ This guide walks you through setting up a distributed APIM environment using the
 
 Ensure **Docker** and **Docker Compose** are installed correctly and running.
 
-### Step 1 - Clone the Repository
+### Step 1 - Download the artifacts
 
-Clone the [WSO2 API Manager Samples](https://github.com/wso2/samples-apim) repository.
-
-```
-git clone https://github.com/wso2/samples-apim
-```
+Download the archive [apim-distributed-dev-setup.zip]({{base_path}}/assets/attachments/tutorials/create-distributed-setup-using-the-enterprise-package/apim-distributed-dev-setup.zip) and extract it.
 
 ### Step 2 - Prepare the Components
    
 Navigate to the `apim-distributed-dev-setup` directory.
 
-```
-cd samples-apim/apim-distributed-dev-setup
-```
-
 1. **Download the WSO2 API Manager Enterprise Package** from the [WSO2 API Manager downloads page](https://wso2.com/api-manager/) for API Control Plane, Traffic Manager and Universal Gateway components.
-2. **Extract the downloaded compressed files** to `apim-distributed-dev-setup/components` directory and **rename** the extracted folders to `wso2am-acp`, `wso2am-tm`, and `wso2am-universal-gw`.
-
+2. **Extract the downloaded archives** into the `apim-distributed-dev-setup/components` directory, and **rename** the extracted folders to `wso2am-acp`, `wso2am-tm`, and `wso2am-universal-gw`.
     ```
     mv wso2am-acp-4.5.0 wso2am-acp
     mv wso2am-tm-4.5.0 wso2am-tm
@@ -83,9 +74,9 @@ If you want to change any deployment configurations, modify the `deployment.toml
 
 ## Troubleshooting
 
-- If you encounter any issues, check the logs in the `apim-distributed-dev-setup/logs/` directory of each component for more information.
+- If you encounter any issues, check the logs in the `apim-distributed-dev-setup/logs` directory of each component for more information.
 - To terminate all WSO2 Java services:
     ```
     ps -ef | grep 'wso2' | grep -v grep | awk '{print $2}' | xargs -r kill -9
     ```
-- If you encounter database issues, try restarting the setup.1
+- If you encounter database issues, try restarting the setup.
