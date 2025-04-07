@@ -136,8 +136,6 @@ paths:
       parameters:
         - $ref: '#/components/parameters/limit'
         - $ref: '#/components/parameters/offset'
-        - $ref: '#/components/parameters/sortBy'
-        - $ref: '#/components/parameters/sortOrder'
         - $ref: '#/components/parameters/requestedTenant'
         - name: query
           in: query
@@ -2615,6 +2613,12 @@ paths:
                   type: string
                   description: Definition to uploads a file
                   format: binary
+                url:
+                   type: string
+                   description: Definition url
+                schema:
+                  type: string
+                  description: Definition schema
                 additionalProperties:
                   type: string
                   description: Additional attributes specified as a stringified JSON
@@ -2876,17 +2880,26 @@ paths:
       summary: Validate a GraphQL SDL
       description: |
         This operation can be used to validate a graphQL definition and retrieve a summary.
+      parameters:
+        - name: useIntrospection
+          in: query
+          description: |
+            Specify whether to use Introspection to obtain the GraphQL Schema
+          schema:
+            type: boolean
+            default: false
       requestBody:
         content:
           multipart/form-data:
             schema:
-              required:
-                - file
               properties:
                 file:
                   type: string
                   description: Definition to upload as a file
                   format: binary
+                url:
+                  type: string
+                  description: Definition to upload using url
         required: true
       responses:
         200:
@@ -3986,6 +3999,34 @@ paths:
           source: 'curl -k -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8"
           "https://127.0.0.1:9443/api/am/publisher/v4/apis/96077508-fd01-4fae-bc64-5de0e2baf43c/resource-paths"'
       operationId: getAPIResourcePaths
+
+  /organizations:
+     get:
+       tags:
+         - Organizations
+       summary: Get all registered Organizations
+       description: |
+         Get all Registered Organizations
+       responses:
+         200:
+           description: |
+             OK.
+             Organizations returned
+           content:
+             application/json:
+               schema:
+                 $ref: '#/components/schemas/OrganizationList'
+       security:
+         - OAuth2Security:
+             - apim:api_view
+             - apim:api_manage
+             - apim:api_import_export
+             - apim:api_product_import_export
+             - apim:publisher_organization_read
+       x-code-samples:
+         - lang: Curl
+           source: 'curl -k -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8"
+           "https://127.0.0.1:9443/api/am/publisher/v4/organizations"'
 
   /apis/{apiId}/auditapi:
     get:
@@ -8498,6 +8539,123 @@ paths:
           "https://127.0.0.1:9443/api/am/publisher/v4/apis/96077508-fd01-4fae-bc64-5de0e2baf43c/operation-policies/f56eb8b4-128c-45aa-ad35-9c87a546261a/content"'
 
   ######################################################
+  # API Labels APIs
+  ######################################################
+  /apis/{apiId}/labels:
+    get:
+      tags:
+          - API Labels
+      summary: Get Labels of an API
+      description: |
+          This operation can be used to get the labels of an API.
+      parameters:
+          - $ref: '#/components/parameters/apiId'
+      responses:
+        200:
+          description: |
+            OK.
+            Successful response with Label object list
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/LabelList'
+        404:
+          $ref: '#/components/responses/NotFound'
+      security:
+          - OAuth2Security:
+              - apim:api_view
+              - apim:api_create
+              - apim:api_manage
+              - apim:api_publish
+      x-code-samples:
+          - lang: Curl
+            source: 'curl -k -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8"
+            "https://127.0.0.1:9443/api/am/publisher/v4/apis/96077508-fd01-4fae-bc64-5de0e2baf43c/labels"'
+      operationId: getLabelsOfAPI
+
+  /apis/{apiId}/attach-labels:
+    post:
+      tags:
+        - API Labels Attach
+      summary: Attach Labels to an API
+      description: |
+        This operation can be used to attach labels to an API.
+      parameters:
+        - $ref: '#/components/parameters/apiId'
+      requestBody:
+        description: |
+          List of labels to be attached to the API
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/RequestLabelList'
+        required: true
+      responses:
+        200:
+          description: |
+            OK.
+            Successful response with updated Label object list
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/LabelList'
+        400:
+          $ref: '#/components/responses/BadRequest'
+        404:
+          $ref: '#/components/responses/NotFound'
+      security:
+        - OAuth2Security:
+            - apim:api_create
+            - apim:api_manage
+            - apim:api_publish
+      x-code-samples:
+        - lang: Curl
+          source: 'curl -k -X POST -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" -H "Content-Type: application/json" -d @data.json
+            "https://127.0.0.1:9443/api/am/publisher/v4/apis/01234567-0123-0123-0123-012345678901/attach-labels"'
+      operationId: attachLabelsToAPI
+
+  /apis/{apiId}/detach-labels:
+    post:
+      tags:
+        - API Labels Detach
+      summary: Detach Labels from an API
+      description: |
+        This operation can be used to detach labels from an API.
+      parameters:
+        - $ref: '#/components/parameters/apiId'
+      requestBody:
+        description: |
+          List of labels to be detached from the API
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/RequestLabelList'
+        required: true
+      responses:
+        200:
+          description: |
+            OK.
+            Successful response with updated Label object list
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/LabelList'
+        400:
+          $ref: '#/components/responses/BadRequest'
+        404:
+          $ref: '#/components/responses/NotFound'
+      security:
+        - OAuth2Security:
+            - apim:api_create
+            - apim:api_manage
+            - apim:api_publish
+      x-code-samples:
+        - lang: Curl
+          source: 'curl -k -X POST -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" -H "Content-Type: application/json" -d @data.json
+            "https://127.0.0.1:9443/api/am/publisher/v4/apis/01234567-0123-0123-0123-012345678901/detach-labels"'
+      operationId: detachLabelsFromAPI
+
+  ######################################################
   # LLM Providers resource APIs
   ######################################################
   /llm-providers:
@@ -9544,6 +9702,35 @@ paths:
         - lang: Curl
           source: 'curl -k -X POST -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8"
           -H "Content-Type: application/json" -d @data.json "https://127.0.0.1:9443/api/am/admin/v4/workflows/update-workflow-status?workflowReferenceId=56e3a170-a7a7-45f8-b051-7e43a58a67e1"'
+  ######################################################
+  # The "Label Collection" resource API
+  ######################################################
+  /labels:
+    get:
+      tags:
+        - Labels (Collection)
+      summary: Get all Labels
+      description: |
+        Get all Labels
+      responses:
+        200:
+          description: |
+            OK.
+            Labels returned
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/LabelList'
+      security:
+        - OAuth2Security:
+            - apim:api_view
+            - apim:api_manage
+      x-code-samples:
+        - lang: Curl
+          source: 'curl -k -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8"
+          "https://127.0.0.1:9443/api/am/publisher/v4/labels"'
+      operationId: getAllLabels
+
 components:
   schemas:
     SequenceBackendList:
@@ -11858,6 +12045,22 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/AdditionalProperty'
+        permissions:
+           type: object
+           properties:
+             permissionType:
+               type: string
+               example: ALLOW
+               default: PUBLIC
+               enum:
+                 - PUBLIC
+                 - ALLOW
+                 - DENY
+             roles:
+               type: array
+               items:
+                 type: string
+                 example: Internal/everyone   
     EnvironmentList:
       title: Environment List
       type: object
@@ -12214,6 +12417,51 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/Endpoint'
+    Organization:
+       title: Organization
+       required:
+         - organizationId
+       type: object
+       properties:
+          organizationId:
+            type: string
+            readOnly: true
+            example: ece92bdc-e1e6-325c-b6f4-656208a041e9
+            description: |
+              UUID of the organizatoin.
+          externalOrganizationId:
+            type: string
+            example: ece92bdc-e1e6-325c-b6f4-656208a041e9
+            description: |
+              External id of the organization.  
+          parentOrganizationId:
+            type: string
+            readOnly: true
+            example: ece92bdc-e1e6-325c-b6f4-656208a041e9
+            description: |
+              UUID of the parent organization if there is any.
+          displayName:
+            maxLength: 255
+            minLength: 1
+            type: string
+            example: My Organization
+          description:
+            maxLength: 1023
+            type: string
+            example: My Organization Description
+    OrganizationList:
+       title: Organization List
+       type: object
+       properties:
+         count:
+           type: integer
+           description: |
+             Number of Organizationa returned.
+           example: 1
+         list:
+           type: array
+           items:
+             $ref: '#/components/schemas/Organization'
     Scope:
       title: Scope
       required:
@@ -13541,6 +13789,8 @@ components:
         policyVersion:
           type: string
           default: v1
+        policyType:
+           type: string 
         policyId:
           type: string
         parameters:
@@ -13781,6 +14031,50 @@ components:
           description: |
             Revision of the imported API
           example: 1
+    Label:
+       title: Label
+       required:
+         - name
+       type: object
+       properties:
+         id:
+           type: string
+           readOnly: true
+           example: d7cf8523-9180-4255-84fa-6cb171c1f779
+         name:
+           maxLength: 255
+           minLength: 1
+           type: string
+           example: Health
+         description:
+           maxLength: 1024
+           type: string
+           example: Health related APIs
+    RequestLabelList:
+      title: Label ID List for Request
+      type: object
+      properties:
+        labels:
+          type: array
+          description: List of label IDs.
+          items:
+            type: string
+            example: d7cf8523-9180-4255-84fa-6cb171c1f779
+    LabelList:
+      title: Label List
+      type: object
+      properties:
+        count:
+          type: integer
+          description: Number of labels returned.
+          example: 1
+        list:
+          type: array
+          description: List of labels.
+          items:
+            $ref: '#/components/schemas/Label'
+        pagination:
+          $ref: '#/components/schemas/Pagination'
   responses:
     BadRequest:
       description: Bad Request. Invalid request or validation error.
@@ -14203,30 +14497,6 @@ components:
       schema:
         type: integer
         default: 0
-    sortBy:
-      name: sortBy
-      in: query
-      description: |
-        Criteria for sorting.
-      schema:
-        type: string
-        default: createdTime
-        enum:
-          - apiName
-          - version
-          - createdTime
-          - status
-    sortOrder:
-      name: sortOrder
-      in: query
-      description: |
-        Order of sorting(ascending/descending).
-      schema:
-        type: string
-        default: desc
-        enum:
-          - asc
-          - desc
     If-None-Match:
       name: If-None-Match
       in: header
@@ -14404,3 +14674,4 @@ components:
             apim:subscription_approval_view: Approve subscription creation requests
             apim:subscription_approval_manage: Approve subscription update requests
             apim:llm_provider_read: Read LLM Providers
+            apim:publisher_organization_read: Read organization
