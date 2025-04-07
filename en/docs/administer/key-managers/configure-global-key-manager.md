@@ -66,7 +66,7 @@ Let's look at a scenario where a single access token generated for an applicatio
 
 5. Sign in to the WSO2 API Publisher (`https://<hostname>:9443/publisher`) using the super tenant’s admin credentials
 
-6. [Create an API]({{base_path}}/design/create-api/create-rest-api/create-a-rest-api/) (Eg: SampleAPI)
+6. [Create an API]({{base_path}}/manage-apis/design/create-api/create-rest-api/create-a-rest-api/) (Eg: SampleAPI)
 
     [![Sample API Creation]({{base_path}}/assets/img/administer/global-keymanager/sample-api-creation.png)]({{base_path}}/assets/img/administer/global-keymanager/sample-api-creation.png)
 
@@ -77,7 +77,7 @@ Let's look at a scenario where a single access token generated for an applicatio
 
     [![Relationship between the API's visibility and subscription availability]({{base_path}}/assets/img/learn/api-subscription-availability.png)]({{base_path}}/assets/img/learn/api-subscription-availability.png)
 
-8. [Deploy the API]({{base_path}}/deploy-and-publish/deploy-on-gateway/deploy-api/deploy-an-api/)
+8. [Deploy the API]({{base_path}}/manage-apis/deploy-and-publish/deploy-on-gateway/deploy-api/deploy-an-api/)
 
 9. Sign in to the WSO2 API Publisher (`https://<hostname>:9443/publisher`) using the new tenant’s (abc.com) admin credentials and repeat Steps 5 - 7
 
