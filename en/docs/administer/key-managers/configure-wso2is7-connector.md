@@ -43,6 +43,18 @@ Follow the steps given below to configure WSO2 IS 7.x as a Key Manager component
     cross_tenant=true
     permissions=[]
     scopes=[]
+
+    [[event_listener]]
+    id = "token_revocation"
+    type = "org.wso2.carbon.identity.core.handler.AbstractIdentityHandler"
+    name = "org.wso2.is.notification.ApimOauthEventInterceptor"
+    order = 1
+    [event_listener.properties]
+    notification_endpoint = "https://<APIM_HOST>:<APIM_PORT>/internal/data/v1/notify"
+    username = "${admin.username}"
+    password = "${admin.password}"
+    'header.X-WSO2-KEY-MANAGER' = "WSO2-IS"
+    
     ```
 
     !!! Note
@@ -50,7 +62,9 @@ Follow the steps given below to configure WSO2 IS 7.x as a Key Manager component
 
         You need to import the public certificate of the WSO2 Identity Server 7.x to the truststore of the WSO2 API Manager, and vice-versa. For information on importing the certificates, see the [Importing certificates to the truststore]({{base_path}}/install-and-setup/setup/security/configuring-keystores/keystore-basics/creating-new-keystores/#step-3-importing-certificates-to-the-truststore) guide.
 
-3. Start WSO2 Identity Server 7.x with a port offset.
+3. Download [notification.event.handlers-2.0.5.jar](https://maven.wso2.org/nexus/content/repositories/releases/org/wso2/km/ext/wso2is/wso2is.notification.event.handlers/2.0.5/wso2is.notification.event.handlers-2.0.5.jar) and add it to `<IS_HOME>/repository/components/dropins`.
+
+4. Start WSO2 Identity Server 7.x with a port offset.
    portOffset is required only if you are running both API-M and IS 7.x in the same JVM.
 
       `sh wso2server.sh -DportOffset=1`
