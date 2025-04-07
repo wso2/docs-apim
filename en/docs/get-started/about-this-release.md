@@ -60,13 +60,13 @@ For more information on WSO2 API Manager, see the [overview]({{base_path}}/getti
 
     WSO2 API Manager now supports comprehensive WebSocket API logging, enabling users to monitor real-time WebSocket invocations and efficiently debug or troubleshoot issues. With this enhancement, organizations gain deeper insights into API usage patterns, connection health, and potential failures, ensuring better visibility and faster issue resolution. These logs can be enabled using multiple configurations, offering flexibility and control over WebSocket monitoring within WSO2 API Manager.
 
-    **[Learn more]({{base_path}}/observe/api-manager/monitoring-websocket-logs/)**
+    **[Learn more]({{base_path}}/monitoring/observability/logs/monitoring-websocket-logs/)**
 
 ??? note "Enhanced Audit Logging for API Document Management"
 
     WSO2 API Manager now provides improved audit logging by capturing actions related to adding, removing, or updating documents attached to an API. Previously, these actions were only recorded in access logs, but with this enhancement, organizations can maintain better traceability and governance over API documentation changes. This ensures greater security, compliance, and visibility into API lifecycle activities.
 
-    **[Learn more]({{base_path}}/observe/api-manager/monitoring-audit-logs/)**
+    **[Learn more]({{base_path}}/monitoring/observability/logs/monitoring-audit-logs/)**
 
 ??? note "Improved Proxy Support for OAuth Endpoints"
 

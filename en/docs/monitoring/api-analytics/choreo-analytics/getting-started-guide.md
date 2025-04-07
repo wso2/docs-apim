@@ -24,7 +24,7 @@ Follow the instructions below to register your on-premise environment:
 
 2. If you are a member of multiple organizations, select the appropriate organization from the top left-hand corner. 
    
-     For more information on handling users with role-based access control in organizations, see [Role-based Access Control for API Analytics]({{base_path}}/api-analytics/choreo-analytics/role-based-access-control).
+     For more information on handling users with role-based access control in organizations, see [Role-based Access Control for API Analytics]({{base_path}}/monitoring/api-analytics/choreo-analytics/role-based-access-control).
 
      [![Org Selector]({{base_path}}/assets/img/observe/organization-selector.png)]({{base_path}}/assets/img/observe/organization-selector.png)
 
@@ -142,4 +142,4 @@ For more detailed information on the Choreo Insights dashboards and their usage,
 
 ## What's Next?
 
-Enterprises and companies who want to use the Choreo Insights collaboratively can utilize the organization concept in Choreo. For more information, see [Role-based Access Control for API Analytics]({{base_path}}/api-analytics/choreo-analytics/role-based-access-control).
+Enterprises and companies who want to use the Choreo Insights collaboratively can utilize the organization concept in Choreo. For more information, see [Role-based Access Control for API Analytics]({{base_path}}/monitoring/api-analytics/choreo-analytics/role-based-access-control).
