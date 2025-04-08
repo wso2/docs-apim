@@ -84,10 +84,86 @@ These features are deprecated and will be removed from subsequent versions of WS
 
 These features are unsupported and removed from WSO2 API Manager 4.4.0 onwards.
 
+## Key Changes
+
+- With WSO2 API Manager 4.5.0, we introduce a Modular API Management Component Structure allowing independent deployment and lifecycle management of key components while maintaining compatibility across these different components. With this capability, users can update or upgrade different components as per their requirement without impacting the entire deployment. The components include,
+    1. The WSO2 API Control Plane (ACP) equivalent to the Control Plane (CP) in previous APIM releases without the traffic manager component, which manages the design, lifecycle, and governance of APIs at scale and consists of the Publisher, Developer Portal, Admin Portal and the Key management capabilities,
+    2. The WSO2 Universal Gateway which can secure and proxy API traffic with enterprise-grade features,
+    3. The Traffic Manager which handles API traffic policies and rate limiting at high volumes,
+    4. Other supporting components such as the WSO2 Kubernetes Gateway, API Controller and Immutable Gateway.
+
+- Product profiles are no longer available in the All-in-one distribution of WSO2 API Manager. Previously the API-M server allowed you to run the product on a selected profile so that only the features specific to that profile, along with common features, started with the server. Therefore if there is a requirement to configure a distributed deployment of WSO2 API Manager, you can use the Modular component architecture as mentioned above. The following table shows the component distributions you can use as a deployment alternative to the previous deployment architecture of your environment.
+
+<table>
+    <colgroup>
+        <col />
+        <col />
+        <col />
+        <col />
+        <col />
+        <col />
+    </colgroup>
+    <thead>
+        <tr>
+            <th>Previous Deployment Pattern</th>
+            <th colspan="5">New Deployment Alternative</th>
+        </tr>
+        <tr>
+            <th></th>
+            <th>All-in-one</th>
+            <th>API Control Plane (ACP)</th>
+            <th>Universal Gateway</th>
+            <th>Traffic Manager</th>
+            <th>Key Manager of ACP</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>All-in-one</td>
+            <td style="text-align: center;">&#x2713;</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>Control Plane + Gateway</td>
+            <td style="text-align: center;">&#x2713;</td>
+            <td></td>
+            <td style="text-align: center;">&#x2713;</td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>Control Plane + Gateway + Traffic Manager</td>
+            <td></td>
+            <td style="text-align: center;">&#x2713;</td>
+            <td style="text-align: center;">&#x2713;</td>
+            <td style="text-align: center;">&#x2713;</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>Control Plane + Gateway + Key Manager</td>
+            <td style="text-align: center;">&#x2713;</td>
+            <td></td>
+            <td style="text-align: center;">&#x2713;</td>
+            <td></td>
+            <td style="text-align: center;">&#x2713;</td>
+        </tr>
+        <tr>
+            <td>Control Plane + Gateway + Traffic Manager + Key Manager</td>
+            <td></td>
+            <td style="text-align: center;">&#x2713;</td>
+            <td style="text-align: center;">&#x2713;</td>
+            <td style="text-align: center;">&#x2713;</td>
+            <td style="text-align: center;">&#x2713;</td>
+        </tr>
+    </tbody>
+</table>
+
 ## Compatible WSO2 product versions
 
-- WSO2 API Manager 4.4.0 is compatible with WSO2 Identity Server 6.1.0 and 7.0.0
-- WSO2 API Manager 4.4.0 is compatible with WSO2 API Platform for Kubernetes ([APK](https://wso2.com/api-platform-for-k8s/)) version 1.2.0.
+{!includes/compatibility-matrix.md!}
 
 ## Fixed issues
 

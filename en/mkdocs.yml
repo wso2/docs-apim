@@ -16,8 +16,8 @@
 # under the License.
 
 # Project information
-site_name: WSO2 API Manager Documentation 4.4.0
-site_description: Documentation for WSO2 API Manager 4.4.0
+site_name: WSO2 API Manager Documentation
+site_description: Documentation for WSO2 API Manager
 site_author: WSO2
 site_url: https://apim.docs.wso2.com/en/latest/
 
@@ -241,8 +241,8 @@ nav:
                 - Expose APIs via Custom Hostnames: deploy-and-publish/deploy-on-gateway/deploy-api/exposing-apis-via-custom-hostnames.md
                 - Deploy Through Multiple API Gateways: deploy-and-publish/deploy-on-gateway/deploy-api/deploy-through-multiple-api-gateways.md
                 - Revision Deployment Workflow: deploy-and-publish/deploy-on-gateway/deploy-api/revision-deployment-workflow.md
-            - API Gateway:
-                - Overview of the WSO2 API Gateway: deploy-and-publish/deploy-on-gateway/api-gateway/overview-of-the-api-gateway.md
+            - Universal Gateway:
+                - Overview of the WSO2 Universal Gateway: deploy-and-publish/deploy-on-gateway/api-gateway/overview-of-the-api-gateway.md
                 - Gateway Policies: deploy-and-publish/deploy-on-gateway/api-gateway/gateway-policies.md
                 - Response Caching: deploy-and-publish/deploy-on-gateway/api-gateway/response-caching.md
                 - Threat Protectors:
@@ -253,8 +253,8 @@ nav:
                 - Gateway Environments: deploy-and-publish/deploy-on-gateway/api-gateway/maintaining-separate-production-and-sandbox-gateways.md
                 - Scale the Gateway: deploy-and-publish/deploy-on-gateway/api-gateway/scaling-the-gateway.md
                 - Advanced Topics:
-                    - API Gateways with Dedicated Backends: deploy-and-publish/deploy-on-gateway/api-gateway/api-gateways-with-dedicated-backends.md
-                    - Mutual SSL Between API Gateway and Backend: deploy-and-publish/deploy-on-gateway/api-gateway/mutual-ssl-between-api-gateway-and-backend.md
+                    - Universal Gateways with Dedicated Backends: deploy-and-publish/deploy-on-gateway/api-gateway/api-gateways-with-dedicated-backends.md
+                    - Mutual SSL Between Universal Gateway and Backend: deploy-and-publish/deploy-on-gateway/api-gateway/mutual-ssl-between-api-gateway-and-backend.md
                     - Storing Custom Synapse Artifacts in the Gateway: deploy-and-publish/deploy-on-gateway/api-gateway/custom-synapse-artifacts.md
         - Publish on Developer Portal:
             - Publish an API: deploy-and-publish/publish-on-dev-portal/publish-an-api.md
@@ -502,7 +502,7 @@ nav:
         - Setup:
             - Set up API Manager:
                 - Update WSO2 API Manager: administer/updating-wso2-api-manager.md
-                - Set up APK as a Gateway: install-and-setup/setup/distributed-deployment/configuring-apim-as-a-gateway.md
+                - Set up Kubernetes Gateway with APIM: install-and-setup/setup/distributed-deployment/configuring-apim-as-a-gateway.md
                 - Set up a Key Manager:
                     - Set up a Third-party Key Manager: install-and-setup/setup/distributed-deployment/configure-a-third-party-key-manager.md
                     - Set up WSO2 Identity Server as a Resident Key Manager: install-and-setup/setup/distributed-deployment/configuring-wso2-identity-server-as-a-key-manager.md
@@ -569,9 +569,7 @@ nav:
                 - Distributed Deployment:
                     - Distributed Deployment Overview: install-and-setup/setup/distributed-deployment/understanding-the-distributed-deployment-of-wso2-api-m.md
                     - Configure a Distributed API-M Deployment: install-and-setup/setup/distributed-deployment/deploying-wso2-api-m-in-a-distributed-setup.md
-                    - Configure a Distributed API-M Deployment with Traffic Manager Separation: install-and-setup/setup/distributed-deployment/deploying-wso2-api-m-in-a-distributed-setup-with-tm-separated.md
                     - Configure a Distributed API-M Deployment with Key Manager Separation: install-and-setup/setup/distributed-deployment/deploying-wso2-api-m-in-a-distributed-setup-with-km-separated.md
-                    - Run the API-M Profiles: install-and-setup/setup/distributed-deployment/product-profiles.md
                 - Multi-DC Deployment:
                     - Multi-DC Deployment Patterns Overview: install-and-setup/setup/multi-dc-deployment/multi-dc-deployment-patterns-overview.md
                     - Configure Multi-DC Deployment - Pattern 1: install-and-setup/setup/multi-dc-deployment/configuring-multi-dc-deployment-pattern-1.md
@@ -750,7 +748,6 @@ plugins:
               'install-and-setup/deploying-wso2-api-manager/single-node/configuring-an-active-active-deployment.md': 'https://apim.docs.wso2.com/en/4.4.0/install-and-setup/setup/single-node/configuring-an-active-active-deployment/'
               'install-and-setup/deploying-wso2-api-manager/distributed-deployment/understanding-the-distributed-deployment-of-wso2-api-m.md': 'https://apim.docs.wso2.com/en/4.4.0/install-and-setup/setup/distributed-deployment/understanding-the-distributed-deployment-of-wso2-api-m/'
               'install-and-setup/deploying-wso2-api-manager/distributed-deployment/deploying-wso2-api-m-in-a-distributed-setup.md': 'https://apim.docs.wso2.com/en/4.4.0/install-and-setup/setup/distributed-deployment/deploying-wso2-api-m-in-a-distributed-setup/'
-              'install-and-setup/deploying-wso2-api-manager/distributed-deployment/product-profiles.md': 'https://apim.docs.wso2.com/en/4.4.0/install-and-setup/setup/distributed-deployment/product-profiles/'
               ##'install-and-setup/deploying-wso2-api-manager/distributed-deployment/working-with-hazelcast-clustering.md': 'https://apim.docs.wso2.com/en/3.2.0/install-and-setup/setup/distributed-deployment/working-with-hazelcast-clustering/'
               'install-and-setup/deploying-wso2-api-manager/distributed-deployment/configure-a-third-party-key-manager.md': 'https://apim.docs.wso2.com/en/4.4.0/install-and-setup/setup/distributed-deployment/configure-a-third-party-key-manager/'
               'install-and-setup/deploying-wso2-api-manager/distributed-deployment/configuring-wso2-identity-server-as-a-key-manager.md': 'https://apim.docs.wso2.com/en/4.4.0/install-and-setup/setup/distributed-deployment/configuring-wso2-identity-server-as-a-key-manager/'
