@@ -24,7 +24,7 @@ The revision feature brings in a few architectural changes to the previous versi
 
 Follow the instructions below to either deploy a new revision or deploy an existing revision in a given Gateway Environment:
 
-### Depoly a new revision
+### Deploy a new revision
 
 {!includes/design/deploy-revision.md!}
 
