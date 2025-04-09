@@ -18,7 +18,7 @@ Choose a deployment option to start WSO2 API Manager All-in-one package. The All
             For more information on setting the `JAVA_HOME` environment variable for different operating systems, see [Setup and Install]({{base_path}}/install-and-setup/install/installing-the-product/installing-api-m-runtime/#setting-up-java_home)
     
     2. Download WSO2 API-Manager All-in-one package.
-    - [Open Source Distribution](https://github.com/wso2/product-apim/releases/tag/v4.4.0)
+    - [Open Source Distribution](https://github.com/wso2/product-apim/releases/tag/v4.5.0)
     - [WSO2 Official Distribution](https://wso2.com/api-manager/#)
 
     3. Extract the downloaded zip file.
