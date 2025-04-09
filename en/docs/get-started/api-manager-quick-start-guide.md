@@ -71,12 +71,12 @@ Follow the instructions below to create, deploy and publish an API via the Publi
      [![Publisher portal home page]({{base_path}}/assets/img/get_started/api-publisher-home.png)]({{base_path}}/assets/img/get_started/api-publisher-home.png)
 
     
-3. Select **REST API** from the home screen and then click **Start From Scratch**.
+3. Next, let's create a **REST API** in the API Manager to proxy an existing REST service by selecting **REST API** from the home screen and then click **Start From Scratch**.
    
     [![Design a new REST API]({{base_path}}/assets/img/get_started/design-new-rest-api.png)]({{base_path}}/assets/img/get_started/design-new-rest-api.png)
 
 
-4. Enter the API details.
+4. Fill the following API details in the relevant fields.
 
     <table>
     <tr> 
@@ -107,7 +107,7 @@ Follow the instructions below to create, deploy and publish an API via the Publi
      </tr>
      </table>
      
-5. Click **Create & Publish**.
+5. Select **Universal Gateway** as the Gateway type and click **Create & Publish**.
 
     [![Create an API]({{base_path}}/assets/img/get_started/api-create.png){: style="width:100%"}]({{base_path}}/assets/img/get_started/api-create.png)
 
