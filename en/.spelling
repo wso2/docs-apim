@@ -789,13 +789,10 @@ Geolocation
 OAuth2.0
 IPs
 schemas
-backend-jwt-intro
 md
 Base64URL
 Base64
-backend-jwt-note
 JWTGenerator
-backend-jwt-gw-note
 apim.jwt.enable
 Uncomment
 apim.jwt.header

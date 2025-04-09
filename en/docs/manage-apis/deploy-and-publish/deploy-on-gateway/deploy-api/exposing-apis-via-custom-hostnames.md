@@ -235,6 +235,6 @@ Extract WSO2 API Manager to a new directory. Let's refer to this directory as `A
 
 ### Step 4 - View the custom hostnames
 
-{!./includes/deploy/view-custom-hostname.md!}
+{!includes/deploy/view-custom-hostname.md!}
 
 [![Virtual host in the Developer Portal]({{base_path}}/assets/img/deploy/virtual-host-in-devportal.png)]({{base_path}}/assets/img/deploy/virtual-host-in-devportal.png)

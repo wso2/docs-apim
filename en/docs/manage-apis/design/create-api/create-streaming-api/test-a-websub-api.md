@@ -9,7 +9,7 @@ Follow the instructions below to test a WebSub API (WebHook API):
 
      2. The WebSub/WebHook API topic should have been registered with your WebHook provider. For more details, see [Create a WebSub/WebHook API](../../../../manage-apis/design/create-api/create-streaming-api/create-a-websub-streaming-api).
 
-The examples here use the `RepoWatcher` WebSub/WebHook API, which was created in [Create a WebSub/WebHook API](../../../../manage-apis/design/create-api/create-streaming-api/create-a-websub-streaming-api).
+The examples here use the `RepoWatcher` WebSub/WebHook API, which was created in [Create a WebSub/WebHook API](../../../../design/create-api/create-streaming-api/create-a-websub-streaming-api).
 
 1. {!includes/sign-in-devportal.md!}
 
