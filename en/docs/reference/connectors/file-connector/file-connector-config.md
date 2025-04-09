@@ -828,6 +828,48 @@ There are different connection configurations that can be used for the above pro
            No
         </td>
     </tr>
+    <tr>
+        <td>
+           Enable Encryption
+        </td>
+        <td>
+           enableEncryption
+        </td>
+        <td>
+           Boolean
+        </td>
+        <td>
+           Determines whether to enable data encryption. This must be enabled when connecting to an SMB server that enforces encryption.</br> 
+           Available in file-connector version <b>v4.0.34</b> and above.
+        </td>
+        <td>
+           false
+        </td>
+        <td>
+           No
+        </td>
+    </tr>
+    <tr>
+        <td>
+           Encode Password
+        </td>
+        <td>
+           encodePassword
+        </td>
+        <td>
+           Boolean
+        </td>
+        <td>
+           Determines whether special characters in the password should be URL-encoded.           
+           Available in file-connector version <b>v4.0.30</b> and above.
+        </td>
+        <td>
+           false
+        </td>
+        <td>
+           No
+        </td>
+    </tr>
 </table>
 
 ## Operations
