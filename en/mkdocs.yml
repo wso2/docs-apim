@@ -259,6 +259,7 @@ nav:
                     - Mutual SSL Between Universal Gateway and Backend: deploy-and-publish/deploy-on-gateway/api-gateway/mutual-ssl-between-api-gateway-and-backend.md
                     - Storing Custom Synapse Artifacts in the Gateway: deploy-and-publish/deploy-on-gateway/api-gateway/custom-synapse-artifacts.md
             - Federated Gateways:
+                - Deploy on Kong API Gateway: deploy-and-publish/deploy-on-gateway/federated-gateways/deploy-on-kong-api-gateway.md
                 - Deploy on AWS API Gateway: deploy-and-publish/deploy-on-gateway/federated-gateways/deploy-on-aws-api-gateway.md
                 - Configure a Custom Gateway Agent: deploy-and-publish/deploy-on-gateway/federated-gateways/configure-custom-gateway-agent.md
         - Publish on Developer Portal:
