@@ -9,13 +9,10 @@ You can increase the connection pool size to improve the performance of the Rabb
 ```toml
 [[transport.rabbitmq.sender]]
 name = "rabbitMQSender"
-parameter.connection_factory = "RabbitMQConnectionFactory"
 parameter.hostname = "localhost"
 parameter.port = 5672
 parameter.username = "guest"
 parameter.password = "guest"
-parameter.retry_interval = "10s"
-parameter.retry_count = 5
 parameter.connection_pool_size = 25
 ```
 

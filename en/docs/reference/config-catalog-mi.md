@@ -8194,7 +8194,6 @@ parameter.hostname = "localhost"
 parameter.port = 5672
 parameter.username = "guest"
 parameter.password = "guest"
-parameter.connection_factory = ""
 parameter.exchange_name = "amq.direct"
 parameter.queue_name = "MyQueue"
 parameter.queue_auto_ack = false
@@ -8211,7 +8210,7 @@ parameter.exchange_durable = ""
 parameter.exchange_auto_delete = ""
 parameter.message_content_type = ""
 
-parameter.retry_interval = "10s"
+parameter.retry_interval = 10000
 parameter.retry_count = 5
 
 parameter.ssl_enable = true
@@ -8219,7 +8218,7 @@ parameter.ssl_version = "SSL"
 parameter.keystore_location ="$ref{keystore.tls.file_name}"
 parameter.keystore_type = "$ref{keystore.tls.type}"
 parameter.keystore_password = "$ref{keystore.tls.password}"
-parameter.truststore_file_name ="$ref{truststore.file_name}"
+parameter.truststore_location ="$ref{truststore.file_name}"
 parameter.truststore_type = "$ref{truststore.type}"
 parameter.truststore_password = "$ref{truststore.password}"</code></pre>
                     </div>
@@ -8230,7 +8229,7 @@ parameter.truststore_password = "$ref{truststore.password}"</code></pre>
                             <code>[[transport.rabbitmq.listener]]</code>
                             <span class="badge-required">Required</span>
                             <p>
-                                This configuration header is required if you are configuring WSO2 Micro Integrator to receive messages from a RabbitMQ client. Read more about <a href='../../install-and-setup/setup/mi-setup/brokers/configure-with-rabbitmq'>connecting the Micro Integator with RabbitMQ</a>.
+                                This configuration header is required if you are configuring WSO2 Micro Integrator to receive messages from a RabbitMQ broker. Read more about <a href='../../install-and-setup/setup/mi-setup/brokers/configure-with-rabbitmq'>connecting the Micro Integator with RabbitMQ</a>.
                             </p>
                         </div>
                         <div class="params-wrap">
@@ -8252,7 +8251,10 @@ parameter.truststore_password = "$ref{truststore.password}"</code></pre>
                                         </div>
                                     </div>
                                     <div class="param-description">
-                                        <p>The name of the broker.</p>
+                                        <p>
+                                        The user-defined name of the RabbitMQ listener. This value must be used as the <code>rabbitmq.connection.factory</code> parameter in the <a href="{{base_path}}/reference/synapse-properties/transport-parameters/rabbitmq-transport-parameters/#required-parameters">RabbitMQ proxy service</a> configuration.
+                                        <br><b>Note:</b> The following globally configured parameters can be overridden by <a href="{{base_path}}/reference/synapse-properties/transport-parameters/rabbitmq-transport-parameters/#service-level-parameters-receiving-messages">Service-Level parameters</a> when defining the RabbitMQ proxy service.
+                                        </p>
                                     </div>
                                 </div>
                             </div><div class="param">
@@ -8273,7 +8275,7 @@ parameter.truststore_password = "$ref{truststore.password}"</code></pre>
                                         </div>
                                     </div>
                                     <div class="param-description">
-                                        <p>The IP address of the server node.</p>
+                                        <p>The IP address of the RabbitMQ broker.</p>
                                     </div>
                                 </div>
                             </div><div class="param">
@@ -8315,7 +8317,7 @@ parameter.truststore_password = "$ref{truststore.password}"</code></pre>
                                         </div>
                                     </div>
                                     <div class="param-description">
-                                        <p>The user name for connecting to RabbitMQ broker.</p>
+                                        <p>The username used to connect to the RabbitMQ broker.</p>
                                     </div>
                                 </div>
                             </div><div class="param">
@@ -8336,28 +8338,7 @@ parameter.truststore_password = "$ref{truststore.password}"</code></pre>
                                         </div>
                                     </div>
                                     <div class="param-description">
-                                        <p>The password for connecting to the RabbitMQ broker.</p>
-                                    </div>
-                                </div>
-                            </div><div class="param">
-                                <div class="param-name">
-                                  <span class="param-name-wrap"> <code>parameter.connection_factory</code> </span>
-                                </div>
-                                <div class="param-info">
-                                    <div>
-                                        <p>
-                                            <span class="param-type string"> string </span>
-                                            <span class="badge-required">Required</span>
-                                        </p>
-                                        <div class="param-default">
-                                            <span class="param-default-value">Default: <code>-</code></span>
-                                        </div>
-                                        <div class="param-possible">
-                                            <span class="param-possible-values">Possible Values: <code>org.apache.axis2.transport.rabbitmq.RabbitMQListener</code></span>
-                                        </div>
-                                    </div>
-                                    <div class="param-description">
-                                        <p>The name of the connection factory.</p>
+                                        <p>The password used to connect to the RabbitMQ broker.</p>
                                     </div>
                                 </div>
                             </div><div class="param">
@@ -8368,17 +8349,16 @@ parameter.truststore_password = "$ref{truststore.password}"</code></pre>
                                     <div>
                                         <p>
                                             <span class="param-type string"> string </span>
-                                            <span class="badge-required">Required</span>
                                         </p>
                                         <div class="param-default">
-                                            <span class="param-default-value">Default: <code>amq.direct</code></span>
+                                            <span class="param-default-value">Default: AMQP default</span>
                                         </div>
                                         <div class="param-possible">
                                             <span class="param-possible-values">Possible Values: <code>-</code></span>
                                         </div>
                                     </div>
                                     <div class="param-description">
-                                        <p>Name of the RabbitMQ exchange to which the queue is bound. Use this parameter instead of rabbitmq.queue.routing.key, if you need to use the default exchange and publish to a queue.</p>
+                                        <p>Name of the RabbitMQ exchange to which the queue is bound. If not specified, the queue will be bound to the AMQP default exchange.</p>
                                     </div>
                                 </div>
                             </div><div class="param">
@@ -8389,17 +8369,36 @@ parameter.truststore_password = "$ref{truststore.password}"</code></pre>
                                     <div>
                                         <p>
                                             <span class="param-type string"> string </span>
-                                            <span class="badge-required">Required</span>
                                         </p>
                                         <div class="param-default">
-                                            <span class="param-default-value">Default: <code>MyQueue</code></span>
+                                            <span class="param-default-value">Default: <code>-</code></span>
                                         </div>
                                         <div class="param-possible">
                                             <span class="param-possible-values">Possible Values: <code>-</code></span>
                                         </div>
                                     </div>
                                     <div class="param-description">
-                                        <p>The queue name to send or consume messages. If you do not specify this parameter, you need to specify the rabbitmq.queue.routing.key parameter.</p>
+                                        <p>The name of the queue from which messages will be consumed. If this parameter is not specified, you must provide the <code>parameter.queue_routing_key</code> instead.</p>
+                                    </div>
+                                </div>
+                            </div><div class="param">
+                                <div class="param-name">
+                                  <span class="param-name-wrap"> <code>parameter.queue_routing_key</code> </span>
+                                </div>
+                                <div class="param-info">
+                                    <div>
+                                        <p>
+                                            <span class="param-type string"> string </span>
+                                        </p>
+                                        <div class="param-default">
+                                            <span class="param-default-value">Default: <code>-</code></span>
+                                        </div>
+                                        <div class="param-possible">
+                                            <span class="param-possible-values">Possible Values: <code>-</code></span>
+                                        </div>
+                                    </div>
+                                    <div class="param-description">
+                                        <p>Specifies the routing key used to route messages to the queue.</p>
                                     </div>
                                 </div>
                             </div><div class="param">
@@ -8410,17 +8409,36 @@ parameter.truststore_password = "$ref{truststore.password}"</code></pre>
                                     <div>
                                         <p>
                                             <span class="param-type string"> boolean </span>
-                                            <span class="badge-required">Required</span>
                                         </p>
                                         <div class="param-default">
-                                            <span class="param-default-value">Default: <code>false</code></span>
+                                            <span class="param-default-value">Default: <code>true</code></span>
                                         </div>
                                         <div class="param-possible">
-                                            <span class="param-possible-values">Possible Values: <code>&quot;true&quot; or &quot;false&quot;</code></span>
+                                            <span class="param-possible-values">Possible Values: <code>true</code> or <code>false</code></span>
                                         </div>
                                     </div>
                                     <div class="param-description">
-                                        <p>The queue name to send or consume messages. If you do not specify this parameter, you need to specify the rabbitmq.queue.routing.key parameter.</p>
+                                        <p>Determines whether message acknowledgments are sent automatically after a message is consumed by the Micro Integrator.</p>
+                                    </div>
+                                </div>
+                            </div><div class="param">
+                                <div class="param-name">
+                                  <span class="param-name-wrap"> <code>parameter.channel_consumer_qos</code> </span>
+                                </div>
+                                <div class="param-info">
+                                    <div>
+                                        <p>
+                                            <span class="param-type string"> integer </span>
+                                        </p>
+                                        <div class="param-default">
+                                            <span class="param-default-value">Default: <code>0</code></span>
+                                        </div>
+                                        <div class="param-possible">
+                                            <span class="param-possible-values">Possible Values: <code>-</code></span>
+                                        </div>
+                                    </div>
+                                    <div class="param-description">
+                                        <p>Defines the maximum number of unacknowledged messages the listener can process at a time. Applicable only when <code>parameter.queue_auto_ack</code> is <code>false</code>. A value of <code>0</code> allows unlimited message delivery.</p>
                                     </div>
                                 </div>
                             </div><div class="param">
@@ -8431,7 +8449,6 @@ parameter.truststore_password = "$ref{truststore.password}"</code></pre>
                                     <div>
                                         <p>
                                             <span class="param-type string"> string </span>
-                                            <span class="badge-required">Required</span>
                                         </p>
                                         <div class="param-default">
                                             <span class="param-default-value">Default: <code>-</code></span>
@@ -8441,28 +8458,7 @@ parameter.truststore_password = "$ref{truststore.password}"</code></pre>
                                         </div>
                                     </div>
                                     <div class="param-description">
-                                        <p>The client­ generated consumer tag to establish context.</p>
-                                    </div>
-                                </div>
-                            </div><div class="param">
-                                <div class="param-name">
-                                  <span class="param-name-wrap"> <code>parameter.channel_consumer_qos</code> </span>
-                                </div>
-                                <div class="param-info">
-                                    <div>
-                                        <p>
-                                            <span class="param-type string"> string </span>
-                                            <span class="badge-required">Required</span>
-                                        </p>
-                                        <div class="param-default">
-                                            <span class="param-default-value">Default: <code>-</code></span>
-                                        </div>
-                                        <div class="param-possible">
-                                            <span class="param-possible-values">Possible Values: <code>-</code></span>
-                                        </div>
-                                    </div>
-                                    <div class="param-description">
-                                        <p>The consumer qos value. You need to specify this parameter only if the rabbitmq.queue.auto.ack parameter is set to false.</p>
+                                        <p>A unique identifier for the consumer attached to the queue. If not specified, RabbitMQ will generate a consumer tag automatically.</p>
                                     </div>
                                 </div>
                             </div><div class="param">
@@ -8472,14 +8468,13 @@ parameter.truststore_password = "$ref{truststore.password}"</code></pre>
                                 <div class="param-info">
                                     <div>
                                         <p>
-                                            <span class="param-type string"> string </span>
-                                            <span class="badge-required">Required</span>
+                                            <span class="param-type string"> boolean </span>
                                         </p>
                                         <div class="param-default">
-                                            <span class="param-default-value">Default: <code>-</code></span>
+                                            <span class="param-default-value">Default: <code>true</code></span>
                                         </div>
                                         <div class="param-possible">
-                                            <span class="param-possible-values">Possible Values: <code>-</code></span>
+                                            <span class="param-possible-values">Possible Values: <code>true</code> or <code>false</code></span>
                                         </div>
                                     </div>
                                     <div class="param-description">
@@ -8493,14 +8488,13 @@ parameter.truststore_password = "$ref{truststore.password}"</code></pre>
                                 <div class="param-info">
                                     <div>
                                         <p>
-                                            <span class="param-type string"> string </span>
-                                            <span class="badge-required">Required</span>
+                                            <span class="param-type string"> boolean </span>
                                         </p>
                                         <div class="param-default">
-                                            <span class="param-default-value">Default: <code>-</code></span>
+                                            <span class="param-default-value">Default: <code>false</code></span>
                                         </div>
                                         <div class="param-possible">
-                                            <span class="param-possible-values">Possible Values: <code>-</code></span>
+                                            <span class="param-possible-values">Possible Values: <code>true</code> or <code>false</code></span>
                                         </div>
                                     </div>
                                     <div class="param-description">
@@ -8514,39 +8508,17 @@ parameter.truststore_password = "$ref{truststore.password}"</code></pre>
                                 <div class="param-info">
                                     <div>
                                         <p>
-                                            <span class="param-type string"> string </span>
-                                            <span class="badge-required">Required</span>
+                                            <span class="param-type string"> boolean </span>
                                         </p>
                                         <div class="param-default">
-                                            <span class="param-default-value">Default: <code>-</code></span>
+                                            <span class="param-default-value">Default: <code>false</code></span>
                                         </div>
                                         <div class="param-possible">
-                                            <span class="param-possible-values">Possible Values: <code>-</code></span>
+                                            <span class="param-possible-values">Possible Values: <code>true</code> or <code>false</code></span>
                                         </div>
                                     </div>
                                     <div class="param-description">
-                                        <p>Specifies whether to keep the queue even if it is not being consumed anymore.</p>
-                                    </div>
-                                </div>
-                            </div><div class="param">
-                                <div class="param-name">
-                                  <span class="param-name-wrap"> <code>parameter.queue_routing_key</code> </span>
-                                </div>
-                                <div class="param-info">
-                                    <div>
-                                        <p>
-                                            <span class="param-type string"> string </span>
-                                            <span class="badge-required">Required</span>
-                                        </p>
-                                        <div class="param-default">
-                                            <span class="param-default-value">Default: <code>-</code></span>
-                                        </div>
-                                        <div class="param-possible">
-                                            <span class="param-possible-values">Possible Values: <code>-</code></span>
-                                        </div>
-                                    </div>
-                                    <div class="param-description">
-                                        <p>The routing key of the queue.</p>
+                                        <p>Determines whether the queue should be automatically deleted when there are no active consumers.</p>
                                     </div>
                                 </div>
                             </div><div class="param">
@@ -8556,18 +8528,17 @@ parameter.truststore_password = "$ref{truststore.password}"</code></pre>
                                 <div class="param-info">
                                     <div>
                                         <p>
-                                            <span class="param-type string"> string </span>
-                                            <span class="badge-required">Required</span>
+                                            <span class="param-type string"> boolean </span>
                                         </p>
                                         <div class="param-default">
-                                            <span class="param-default-value">Default: <code>-</code></span>
+                                            <span class="param-default-value">Default: <code>true</code></span>
                                         </div>
                                         <div class="param-possible">
-                                            <span class="param-possible-values">Possible Values: <code>-</code></span>
+                                            <span class="param-possible-values">Possible Values: <code>true</code> or <code>false</code></span>
                                         </div>
                                     </div>
                                     <div class="param-description">
-                                        <p>Specifies whether to create queues if they are not present. However, you should set this parameter only if queues are not declared prior on the broker. Setting this parameter in the publish URL to false improves RabbitMQ transport performance.</p>
+                                        <p>Specifies whether to create the queue if it does not already exist on the broker.</p>
                                     </div>
                                 </div>
                             </div><div class="param">
@@ -8577,18 +8548,17 @@ parameter.truststore_password = "$ref{truststore.password}"</code></pre>
                                 <div class="param-info">
                                     <div>
                                         <p>
-                                            <span class="param-type string"> string </span>
-                                            <span class="badge-required">Required</span>
+                                            <span class="param-type string"> boolean </span>
                                         </p>
                                         <div class="param-default">
-                                            <span class="param-default-value">Default: <code>-</code></span>
+                                            <span class="param-default-value">Default: <code>true</code></span>
                                         </div>
                                         <div class="param-possible">
-                                            <span class="param-possible-values">Possible Values: <code>-</code></span>
+                                            <span class="param-possible-values">Possible Values: <code>true</code> or <code>false</code></span>
                                         </div>
                                     </div>
                                     <div class="param-description">
-                                        <p>Specifies whether to create exchanges if they are not present. However, you should set this parameter only if exchanges are not declared prior on the broker. Setting this parameter in the publish URL to false improves RabbitMQ transport performance.</p>
+                                        <p>Specifies whether to create the exchange if it does not already exist on the broker.</p>
                                     </div>
                                 </div>
                             </div><div class="param">
@@ -8599,17 +8569,16 @@ parameter.truststore_password = "$ref{truststore.password}"</code></pre>
                                     <div>
                                         <p>
                                             <span class="param-type string"> string </span>
-                                            <span class="badge-required">Required</span>
                                         </p>
                                         <div class="param-default">
-                                            <span class="param-default-value">Default: <code>-</code></span>
+                                            <span class="param-default-value">Default: <code>direct</code></span>
                                         </div>
                                         <div class="param-possible">
-                                            <span class="param-possible-values">Possible Values: <code>-</code></span>
+                                            <span class="param-possible-values">Possible Values: <code>direct</code>, <code>fanout</code>, <code>topic</code>, <code>headers</code></span>
                                         </div>
                                     </div>
                                     <div class="param-description">
-                                        <p>The type of the exchange.</p>
+                                        <p>Specifies the type of the RabbitMQ exchange.</p>
                                     </div>
                                 </div>
                             </div><div class="param">
@@ -8619,14 +8588,13 @@ parameter.truststore_password = "$ref{truststore.password}"</code></pre>
                                 <div class="param-info">
                                     <div>
                                         <p>
-                                            <span class="param-type string"> string </span>
-                                            <span class="badge-required">Required</span>
+                                            <span class="param-type string"> boolean </span>
                                         </p>
                                         <div class="param-default">
-                                            <span class="param-default-value">Default: <code>-</code></span>
+                                            <span class="param-default-value">Default: <code>true</code></span>
                                         </div>
                                         <div class="param-possible">
-                                            <span class="param-possible-values">Possible Values: <code>-</code></span>
+                                            <span class="param-possible-values">Possible Values: <code>true</code> or <code>false</code></span>
                                         </div>
                                     </div>
                                     <div class="param-description">
@@ -8640,39 +8608,37 @@ parameter.truststore_password = "$ref{truststore.password}"</code></pre>
                                 <div class="param-info">
                                     <div>
                                         <p>
-                                            <span class="param-type string"> string </span>
-                                            <span class="badge-required">Required</span>
+                                            <span class="param-type string"> boolean </span>
                                         </p>
                                         <div class="param-default">
-                                            <span class="param-default-value">Default: <code>-</code></span>
+                                            <span class="param-default-value">Default: <code>false</code></span>
+                                        </div>
+                                        <div class="param-possible">
+                                            <span class="param-possible-values">Possible Values: <code>true</code> or <code>false</code></span>
+                                        </div>
+                                    </div>
+                                    <div class="param-description">
+                                        <p>Determines whether the exchange should be automatically deleted when there are no active consumers.</p>
+                                    </div>
+                                </div>
+                            </div><div class="param">
+                                <div class="param-name">
+                                  <span class="param-name-wrap"> <code>parameter.message_content_type</code> </span>
+                                </div>
+                                <div class="param-info">
+                                    <div>
+                                        <p>
+                                            <span class="param-type string"> string </span>
+                                        </p>
+                                        <div class="param-default">
+                                            <span class="param-default-value">Default: <code>text/plain</code></span>
                                         </div>
                                         <div class="param-possible">
                                             <span class="param-possible-values">Possible Values: <code>-</code></span>
                                         </div>
                                     </div>
                                     <div class="param-description">
-                                        <p>Specifies whether to keep the exchange even if it is not bound to any queue anymore.</p>
-                                    </div>
-                                </div>
-                            </div><div class="param">
-                                <div class="param-name">
-                                  <span class="param-name-wrap"> <code>parameter.default_destination_type</code> </span>
-                                </div>
-                                <div class="param-info">
-                                    <div>
-                                        <p>
-                                            <span class="param-type string"> string </span>
-                                            <span class="badge-required">Required</span>
-                                        </p>
-                                        <div class="param-default">
-                                            <span class="param-default-value">Default: <code>-</code></span>
-                                        </div>
-                                        <div class="param-possible">
-                                            <span class="param-possible-values">Possible Values: <code>text/xml</code></span>
-                                        </div>
-                                    </div>
-                                    <div class="param-description">
-                                        <p>The content type of the consumer. &lt;/br&gt;Note that if the content type is specified in the message, this parameter does not override the specified content type.</p>
+                                        <p>The content type to be used by the consumer. This parameter takes priority over the content type specified in the incoming message. If this parameter is not set, the Micro Integrator will fall back to the content type in the message, and finally to the default content type if neither is available.</p>
                                     </div>
                                 </div>
                             </div><div class="param">
@@ -8683,7 +8649,6 @@ parameter.truststore_password = "$ref{truststore.password}"</code></pre>
                                     <div>
                                         <p>
                                             <span class="param-type string"> integer </span>
-                                            <span class="badge-required">Required</span>
                                         </p>
                                         <div class="param-default">
                                             <span class="param-default-value">Default: <code>30000</code></span>
@@ -8693,18 +8658,17 @@ parameter.truststore_password = "$ref{truststore.password}"</code></pre>
                                         </div>
                                     </div>
                                     <div class="param-description">
-                                        <p>In the case of network failure or broker shut down, the Micro Integrator will attempt to reconnect a number of times (as sepcified by the parameter.retry_count parameter) with an interval (specified by this parameter) between the retry attempts.</p>
+                                        <p>In the event of a network failure or broker shutdown, the Micro Integrator will attempt to reconnect a number of times (as specified by the <code>parameter.retry_count</code> parameter), waiting for the interval defined by this parameter (in milliseconds) between each retry attempt.</p>
                                     </div>
                                 </div>
                             </div><div class="param">
                                 <div class="param-name">
-                                  <span class="param-name-wrap"> <code>parameter.retry_interval</code> </span>
+                                  <span class="param-name-wrap"> <code>parameter.retry_count</code> </span>
                                 </div>
                                 <div class="param-info">
                                     <div>
                                         <p>
                                             <span class="param-type string"> integer </span>
-                                            <span class="badge-required">Required</span>
                                         </p>
                                         <div class="param-default">
                                             <span class="param-default-value">Default: <code>3</code></span>
@@ -8714,7 +8678,7 @@ parameter.truststore_password = "$ref{truststore.password}"</code></pre>
                                         </div>
                                     </div>
                                     <div class="param-description">
-                                        <p>In the case of network failure or broker shut down, the Micro Integrator will attempt to reconnect as many times as sepcified by this parameter with an interval (specified by the parameter.retry_interval parameter) between the retry attempts.</p>
+                                        <p>In the event of a network failure or broker shutdown, the Micro Integrator will attempt to reconnect as many times as specified by this parameter. If set to <code>-1</code>, the Micro Integrator will retry indefinitely until the connection is restored.</p>
                                     </div>
                                 </div>
                             </div><div class="param">
@@ -8725,17 +8689,16 @@ parameter.truststore_password = "$ref{truststore.password}"</code></pre>
                                     <div>
                                         <p>
                                             <span class="param-type string"> boolean </span>
-                                            <span class="badge-required">Required</span>
                                         </p>
                                         <div class="param-default">
-                                            <span class="param-default-value">Default: <code>-</code></span>
+                                            <span class="param-default-value">Default: <code>false</code></span>
                                         </div>
                                         <div class="param-possible">
                                             <span class="param-possible-values">Possible Values: <code>&quot;true&quot; or &quot;false&quot;</code></span>
                                         </div>
                                     </div>
                                     <div class="param-description">
-                                        <p>Specifies whether or not SSL is enabled for RabbitMQ connection. If you set this to &#39;true&#39;, be sure to update the keystore and trust store parameters given below.</p>
+                                        <p>Specifies whether SSL is enabled for the RabbitMQ connection. If set to <code>true</code>, make sure to configure the keystore and truststore parameters provided below.</p>
                                     </div>
                                 </div>
                             </div><div class="param">
@@ -8746,17 +8709,16 @@ parameter.truststore_password = "$ref{truststore.password}"</code></pre>
                                     <div>
                                         <p>
                                             <span class="param-type string"> string </span>
-                                            <span class="badge-required">Required</span>
                                         </p>
                                         <div class="param-default">
-                                            <span class="param-default-value">Default: <code>SSL</code></span>
+                                            <span class="param-default-value">Default: <code>-</code></span>
                                         </div>
                                         <div class="param-possible">
                                             <span class="param-possible-values">Possible Values: <code>-</code></span>
                                         </div>
                                     </div>
                                     <div class="param-description">
-                                        <p>The SSL versions.</p>
+                                        <p>Specifies the SSL versions to be used.<br><b>Required</b> if <code>ssl_enable</code> is set to <code>true</code>.</p>
                                     </div>
                                 </div>
                             </div><div class="param">
@@ -8767,17 +8729,16 @@ parameter.truststore_password = "$ref{truststore.password}"</code></pre>
                                     <div>
                                         <p>
                                             <span class="param-type string"> string </span>
-                                            <span class="badge-required">Required</span>
                                         </p>
                                         <div class="param-default">
-                                            <span class="param-default-value">Default: <code>MI_HOME/repository/resources/security/wso2carbon.jks</code></span>
+                                            <span class="param-default-value">Default: <code>-</code></span>
                                         </div>
                                         <div class="param-possible">
                                             <span class="param-possible-values">Possible Values: <code>-</code></span>
                                         </div>
                                     </div>
                                     <div class="param-description">
-                                        <p>The path to the keystore file that is used for securing a RabbitMQ connection. By default, the keystore file of the primary keystore is enabled for this purpose.</p>
+                                        <p>The path to the keystore file used to secure the RabbitMQ connection.<br><b>Required</b> if <code>ssl_enable</code> is set to <code>true</code>.</p>
                                     </div>
                                 </div>
                             </div><div class="param">
@@ -8788,17 +8749,16 @@ parameter.truststore_password = "$ref{truststore.password}"</code></pre>
                                     <div>
                                         <p>
                                             <span class="param-type string"> string </span>
-                                            <span class="badge-required">Required</span>
                                         </p>
                                         <div class="param-default">
-                                            <span class="param-default-value">Default: <code>JKS</code></span>
+                                            <span class="param-default-value">Default: <code>-</code></span>
                                         </div>
                                         <div class="param-possible">
-                                            <span class="param-possible-values">Possible Values: <code>&quot;JKS&quot;</code></span>
+                                            <span class="param-possible-values">Possible Values: <code>-</code></span>
                                         </div>
                                     </div>
                                     <div class="param-description">
-                                        <p>The type of the keystore file. By default, the keystore type of the primary keystore is enabled for this purpose.</p>
+                                        <p>The type of the keystore file.<br><b>Required</b> if <code>ssl_enable</code> is set to <code>true</code>.</p>
                                     </div>
                                 </div>
                             </div><div class="param">
@@ -8809,17 +8769,16 @@ parameter.truststore_password = "$ref{truststore.password}"</code></pre>
                                     <div>
                                         <p>
                                             <span class="param-type string"> string </span>
-                                            <span class="badge-required">Required</span>
                                         </p>
                                         <div class="param-default">
-                                            <span class="param-default-value">Default: <code>wso2carbon</code></span>
+                                            <span class="param-default-value">Default: <code>-</code></span>
                                         </div>
                                         <div class="param-possible">
                                             <span class="param-possible-values">Possible Values: <code>-</code></span>
                                         </div>
                                     </div>
                                     <div class="param-description">
-                                        <p>The password of the keystore file that is used for securing a RabbitMQ connection. This keystore password is used when accessing the keys in the keystore. By default, the keystore password of the primary keystore is enabled for this purpose.</p>
+                                        <p>The password of the keystore file used to secure the RabbitMQ connection.<br><b>Required</b> if <code>ssl_enable</code> is set to <code>true</code>.</p>
                                     </div>
                                 </div>
                             </div><div class="param">
@@ -8830,17 +8789,16 @@ parameter.truststore_password = "$ref{truststore.password}"</code></pre>
                                     <div>
                                         <p>
                                             <span class="param-type string"> string </span>
-                                            <span class="badge-required">Required</span>
                                         </p>
                                         <div class="param-default">
-                                            <span class="param-default-value">Default: <code>MI_HOME/repository/resources/security/wso2truststore.jks</code></span>
+                                            <span class="param-default-value">Default: <code>-</code></span>
                                         </div>
                                         <div class="param-possible">
                                             <span class="param-possible-values">Possible Values: <code>-</code></span>
                                         </div>
                                     </div>
                                     <div class="param-description">
-                                        <p>The path to the keystore file that is used for storing the trusted digital certificates. By default, the product&#39;s trust store is configured for this purpose.</p>
+                                        <p>The path to the truststore file used for storing trusted digital certificates.<br><b>Required</b> if <code>ssl_enable</code> is set to <code>true</code>.</p>
                                     </div>
                                 </div>
                             </div><div class="param">
@@ -8851,17 +8809,16 @@ parameter.truststore_password = "$ref{truststore.password}"</code></pre>
                                     <div>
                                         <p>
                                             <span class="param-type string"> string </span>
-                                            <span class="badge-required">Required</span>
                                         </p>
                                         <div class="param-default">
-                                            <span class="param-default-value">Default: <code>JKS</code></span>
+                                            <span class="param-default-value">Default: <code>-</code></span>
                                         </div>
                                         <div class="param-possible">
-                                            <span class="param-possible-values">Possible Values: <code>&quot;JKS&quot;</code></span>
+                                            <span class="param-possible-values">Possible Values: <code>-</code></span>
                                         </div>
                                     </div>
                                     <div class="param-description">
-                                        <p>The type of the keystore file that is used as the trust store. By default, the product&#39;s trust store is configured for this purpose.</p>
+                                        <p>The type of the truststore file used for storing trusted certificates.<br><b>Required</b> if <code>ssl_enable</code> is set to <code>true</code>.</p>
                                     </div>
                                 </div>
                             </div><div class="param">
@@ -8872,15 +8829,14 @@ parameter.truststore_password = "$ref{truststore.password}"</code></pre>
                                     <div>
                                         <p>
                                             <span class="param-type string"> string </span>
-                                            <span class="badge-required">Required</span>
                                         </p>
                                         <div class="param-default">
-                                            <span class="param-default-value">Default: <code>wso2carbon</code></span>
+                                            <span class="param-default-value">Default: <code>-</code></span>
                                         </div>
                                         
                                     </div>
                                     <div class="param-description">
-                                        <p>The password of the keystore file that is used as the trust store. By default, the product&#39;s trust store is configured for this purpose.</p>
+                                        <p>The password of the truststore file used for storing trusted certificates.<br><b>Required</b> if <code>ssl_enable</code> is set to <code>true</code>.</p>
                                     </div>
                                 </div>
                             </div>

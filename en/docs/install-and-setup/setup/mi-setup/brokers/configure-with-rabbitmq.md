@@ -3,7 +3,8 @@
 This section describes how to configure WSO2 Micro Integrator to connect with RabbitMQ.
 
 !!! Tip
-	See the complete list of server-level configurations for the [RabbitMQ Listener]({{base_path}}/reference/config-catalog-mi/#rabbitmq-listener) and [RabbitMQ Sender]({{base_path}}/reference/config-catalog-mi/#rabbitmq-sender) in the `deployment.toml` file (stored in the `MI_HOME/conf` directory).
+    - See the complete list of server-level configurations for the [RabbitMQ Listener]({{base_path}}/reference/config-catalog-mi/#rabbitmq-listener) and [RabbitMQ Sender]({{base_path}}/reference/config-catalog-mi/#rabbitmq-sender) in the `deployment.toml` file (stored in the `MI_HOME/conf` directory).
+    - Refer to [Tuning the RabbitMQ Transport]({{base_path}}/install-and-setup/setup/mi-setup/performance_tuning/rabbitmq_transport_tuning/) for guidance on optimizing RabbitMQ performance.
 
 ## Setting up RabbitMQ
 
