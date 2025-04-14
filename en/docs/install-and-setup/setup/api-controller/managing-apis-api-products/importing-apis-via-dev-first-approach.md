@@ -400,6 +400,13 @@
 
 After editing the mandatory fields in the API Project, you can import the API to an environment using any of the following commands.  
 
+!!! info
+    If you need to verify the API before importing, you can use the `--dry-run` flag with the import command. This will validate the API and show you the errors if any, without actually importing it.
+    
+    ``` bash
+    apictl import api --file <path-to-API-archive> --environment <environment> --dry-run
+    ```
+
 -   **Command**
     ``` bash
     apictl import api -f <path to API Project> -e <environment> 
