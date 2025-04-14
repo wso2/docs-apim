@@ -394,6 +394,12 @@ mentioned gateway environments. If the **deployment environments are not provide
 
     !!! info
         If you skip step 1 and if no keys or a token exist(s) for the environment in the `<USER_HOME>/.wso2apictl/keys.json` file, you will be prompt to log in to the environment when running the next command.
+    !!! info
+        If you need to verify the API before importing, you can use the `--dry-run` flag with the import command. This will validate the API and show you the errors if any, without actually importing it. 
+
+        ``` bash
+        apictl import api --file <path-to-API-archive> --environment <environment> --dry-run
+        ```
 
 2.  Run any of the following apictl commands to import an API.
 

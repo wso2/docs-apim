@@ -451,6 +451,7 @@ nav:
                 - Define Custom Linter Rules: reference/customize-product/customizations/define-custom-linters.md
                 - Advanced UI Customization: reference/customize-product/customizations/advanced-ui-customization.md
                 - Modify Workflow Approval Task Limit: reference/customize-product/customizations/modify-workflow-approval-task-limit.md
+                - Implementing a Custom Validation Engine: reference/customize-product/customizations/implementing-a-custom-validation-engine.md
             - Admin Services: reference/wso2-admin-services.md
             - Work with the Source Code: reference/working-with-the-source-code.md
             - Java Documentation: reference/java-documentation.md
