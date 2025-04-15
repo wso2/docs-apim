@@ -17,19 +17,28 @@ WSO2 API Manager comes with the multi-dc database scripts for MSSQL and Oracle. 
 └── dbscripts
     └── multi-dc
         ├── OGG
-        │   └── oracle
-        │       ├── Readme.txt
-        │       ├── apimgt
-        │       │   ├── sequences.sql  ----> AM_DB
-        │       │   └── tables.sql  -------> AM_DB
-        │       ├── sequence.sql  ---------> SHARED_DB
-        │       └── tables.sql  -----------> SHARED_DB
-        └── SQLServer
-            └── mssql
-                ├── ReadMe.txt
-                ├── apimgt
-                │   └── tables.sql  -------> AM_DB
-                └── tables.sql  -----------> SHARED_DB
+        │   └── oracle
+        │       ├── Readme.txt
+        │       ├── apimgt
+        │       │   ├── sequences.sql
+        │       │   ├── sequences_23c.sql
+        │       │   ├── tables.sql
+        │       │   └── tables_23c.sql
+        │       ├── sequence.sql
+        │       ├── sequences_23c.sql
+        │       ├── tables.sql
+        │       └── tables_23c.sql
+        ├── Postgresql
+        │   ├── ReadMe.txt
+        │   ├── apimgt
+        │   │   └── tables.sql
+        │   └── tables.sql
+        └── SQLServer
+            └── mssql
+                ├── ReadMe.txt
+                ├── apimgt
+                │   └── tables.sql
+                └── tables.sql
 ```
 
 You should consult your database administrator on replication related configurations.
