@@ -134,7 +134,7 @@ Sub regions are configured to handle incoming traffic exclusively. These regions
 
 3. **Horizontal Scalability:**
 This documentation provides information on configuring a single main region with a single sub region. However, the deployment can be horizontally scaled as needed by adding multiple sub regions. This approach ensures flexibility and responsiveness to changes in traffic patterns and loads.
-Please note the recommendations mentioned [here]({{base_path}}/deploy-and-publish/deploy-on-gateway/api-gateway/scaling-the-gateway) when scaling the Gateways.
+Please note the recommendations mentioned [here]({{base_path}}/manage-apis/deploy-and-publish/deploy-on-gateway/api-gateway/scaling-the-gateway) when scaling the Gateways.
 
 Please refer to the [documentation]({{base_path}}/install-and-setup/setup/multi-dc-deployment/configuring-multi-dc-deployment-pattern-2) for detailed information on configuring pattern 2.
 

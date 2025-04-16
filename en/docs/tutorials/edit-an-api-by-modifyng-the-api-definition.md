@@ -11,7 +11,7 @@ API Manager supports [Open API 3.1.0](https://github.com/OAI/OpenAPI-Specificati
 In this tutorial, let's see how you can add interactive documentation to an API by directly editing the Swagger code via the API Publisher UI.
 
 !!! note
-    This tutorial uses the `PizzaShack` API created in [Create a REST API]({{base_path}}/design/create-api/create-rest-api/create-a-rest-api/) section and Published in the [Publish an API]({{base_path}}/deploy-and-publish/publish-on-dev-portal/publish-an-api/) section.
+    This tutorial uses the `PizzaShack` API created in [Create a REST API]({{base_path}}/manage-apis/design/create-api/create-rest-api/create-a-rest-api/) section and Published in the [Publish an API]({{base_path}}/manage-apis/deploy-and-publish/publish-on-dev-portal/publish-an-api/) section.
 
 
 1.  Sign in to the API Publisher and choose to design a new REST API. `https://<hostname>:9443/publisher`
@@ -186,7 +186,7 @@ In this tutorial, let's see how you can add interactive documentation to an API 
 
 
 7. Complete the rest of the API creation process.
-    For more information, see step 7 onwards under [Create a REST API]({{base_path}}/design/create-api/create-rest-api/create-a-rest-api/) section and Published in the [Publish an API]({{base_path}}/deploy-and-publish/publish-on-dev-portal/publish-an-api/) section.
+    For more information, see step 7 onwards under [Create a REST API]({{base_path}}/manage-apis/design/create-api/create-rest-api/create-a-rest-api/) section and Published in the [Publish an API]({{base_path}}/manage-apis/deploy-and-publish/publish-on-dev-portal/publish-an-api/) section.
 
 8. Click **View in Developer Portal** and the API you just published appears.
 9. Click **Try Out**.

@@ -96,7 +96,7 @@ The topics will be created automatically from the Solace AsyncAPI definition pro
 
 ### Step 5 - Publishing the API
 
-See [Publish an API]({{base_path}}/deploy-and-publish/publish-on-dev-portal/publish-an-api) for instructions on publishing the API created in the previous steps.
+See [Publish an API]({{base_path}}/manage-apis/deploy-and-publish/publish-on-dev-portal/publish-an-api) for instructions on publishing the API created in the previous steps.
 
 ## Subscribing to an API
 

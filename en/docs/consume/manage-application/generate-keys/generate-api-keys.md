@@ -37,7 +37,7 @@ Follow the instructions below to generate/renew application keys:
      
 
 !!! tip
-    When you generate Access Tokens for APIs that are protected by scopes, you can select the respective [scopes]({{base_path}}/design/api-security/oauth2/oauth2-scopes/fine-grained-access-control-with-oauth-scopes/) and, thereafter, generate the token for it.
+    When you generate Access Tokens for APIs that are protected by scopes, you can select the respective [scopes]({{base_path}}/manage-apis/design/api-security/oauth2/oauth2-scopes/fine-grained-access-control-with-oauth-scopes/) and, thereafter, generate the token for it.
 
 ## Generating application keys with PKCE enabled
 

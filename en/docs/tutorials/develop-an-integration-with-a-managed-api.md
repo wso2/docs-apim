@@ -62,7 +62,7 @@ Let’s create an API in WSO2 API Manager.
 
 	 [![Add GET resource]({{base_path}}/assets/img/tutorials/querydocter-resource.png)]({{base_path}}/assets/img/tutorials/querydocter-resource.png)
 
-5.	You can manage the API the way you want and test out the resource by adding a [Mock Implementation]({{base_path}}/design/prototype-api/create-mocked-js-api).
+5.	You can manage the API the way you want and test out the resource by adding a [Mock Implementation]({{base_path}}/manage-apis/design/prototype-api/create-mocked-js-api).
 
 ## Step 2 - Develop the integration service
 
@@ -377,7 +377,7 @@ Now let’s add the developed backend service to the API.
 
 ## Step 8 - Deploy the API
 
-Depoly the `HealthcareAPI` REST API in the Gateway. For more information, see [Deploy an API]({{base_path}}/deploy-and-publish/deploy-on-gateway/deploy-api/deploy-an-api/#deploy-an-api).
+Depoly the `HealthcareAPI` REST API in the Gateway. For more information, see [Deploy an API]({{base_path}}/manage-apis/deploy-and-publish/deploy-on-gateway/deploy-api/deploy-an-api/#deploy-an-api).
 
 ## Step 9 - Start the backend service
 

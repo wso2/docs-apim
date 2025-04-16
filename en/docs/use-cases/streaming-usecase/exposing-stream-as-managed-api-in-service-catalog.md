@@ -1,6 +1,6 @@
 # Exposing a Stream as a Managed API
 
-Managed APIs refer to the APIs that are managed using WSO2 API Manager, namely REST APIs, GraphQL APIs, SOAP APIs, and Streaming APIs. This guide explains how to create a Streaming backend for a [Streaming API]({{base_path}}/design/create-api/create-streaming-api/streaming-api-overview), generate an AsyncAPI definition for the corresponding Streaming API, and then publish the AsyncAPI definition in the WSO2 API Manager Service Catalog. 
+Managed APIs refer to the APIs that are managed using WSO2 API Manager, namely REST APIs, GraphQL APIs, SOAP APIs, and Streaming APIs. This guide explains how to create a Streaming backend for a [Streaming API]({{base_path}}/manage-apis/design/create-api/create-streaming-api/streaming-api-overview), generate an AsyncAPI definition for the corresponding Streaming API, and then publish the AsyncAPI definition in the WSO2 API Manager Service Catalog. 
 
 This involves enabling the AsyncAPI functionality in the Streaming Integrator component. As a result, when you deploy a Siddhi application with an AsyncAPI definition in the Streaming Integrator server, the Streaming Integrator exposes it as an API in WSO2 API Manager's service catalog.
 
@@ -153,6 +153,6 @@ Follow the instructions below to view the service catalog entry in WSO2 API Mana
    
 ## What's Next?
 
-- [Learn more on the available Streaming APIs]({{base_path}}/design/create-api/create-streaming-api/streaming-api-overview). 
+- [Learn more on the available Streaming APIs]({{base_path}}/manage-apis/design/create-api/create-streaming-api/streaming-api-overview). 
 
 - [Learn how you can use a **third-party Streaming Provider** together with the Streaming Integrator in WSO2 API-M to create a Streaming API](https://apim.docs.wso2.com/en/4.3.0/get-started/streaming-quick-start-guide/).

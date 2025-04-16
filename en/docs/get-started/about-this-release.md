@@ -22,7 +22,7 @@ For more information on WSO2 API Manager, see the [overview]({{base_path}}/getti
 
     With the gateway federation feature, API developers can create APIs to be deployed in third party gateways via WSO2 APIM control plane. With the 4.5.0 release we have added OOTB support to deploy APIs into AWS API gateway.
 
-    **[Learn more]({{base_path}}/deploy-and-publish/deploy-on-gateway/federated-gateways/deploy-on-aws-api-gateway/)**
+    **[Learn more]({{base_path}}/manage-apis/deploy-and-publish/deploy-on-gateway/federated-gateways/deploy-on-aws-api-gateway/)**
 
 ??? note "Multi-Model Routing Support for AI APIs"
 
@@ -34,13 +34,13 @@ For more information on WSO2 API Manager, see the [overview]({{base_path}}/getti
 
     API Manager enables chat-based API creation through the AI-powered API Design Assistant. This tool requires minimal coding or API expertise, allowing users to design REST, GraphQL, and Async APIs effortlessly. It streamlines API development by reducing manual effort and providing interactive guidance, making it suitable for both technical and non-technical users.
 
-    **[Learn more]({{base_path}}/design/create-api/create-api-with-ai/)**
+    **[Learn more]({{base_path}}/manage-apis/design/create-api/create-api-with-ai/)**
 
 ??? note "B2B API Management with Organization Support"
 
     B2B API management addresses the need for controlled API access across diverse organizations by implementing role-based access, hierarchical structures, and organization-specific policies, ultimately enhancing security, simplifying management, and improving visibility for various business stakeholders.
 
-    **[Learn more]({{base_path}}/design/b2b-api-management/api-consumption/)**
+    **[Learn more]({{base_path}}/manage-apis/design/b2b-api-management/api-consumption/)**
 
 ## Improvements
 
@@ -48,7 +48,7 @@ For more information on WSO2 API Manager, see the [overview]({{base_path}}/getti
 
     WSO2 API Manager now makes it easier to create GraphQL APIs by allowing users to automatically deduce schemas from an existing API endpoint using GraphQL introspection. Additionally, users can import schema definitions directly via a URL, alongside the existing file-based import method. These enhancements streamline the GraphQL API onboarding process, reducing manual effort and improving efficiency.
 
-    **[Learn more]({{base_path}}/design/create-api/create-graphql-api/create-a-graphql-api-using-introspection/)**
+    **[Learn more]({{base_path}}/manage-apis/design/create-api/create-graphql-api/create-a-graphql-api-using-introspection/)**
 
 ??? note "Granular Access Control for Gateway Environments"
 
@@ -60,19 +60,19 @@ For more information on WSO2 API Manager, see the [overview]({{base_path}}/getti
 
     WSO2 API Manager now supports comprehensive WebSocket API logging, enabling users to monitor real-time WebSocket invocations and efficiently debug or troubleshoot issues. With this enhancement, organizations gain deeper insights into API usage patterns, connection health, and potential failures, ensuring better visibility and faster issue resolution. These logs can be enabled using multiple configurations, offering flexibility and control over WebSocket monitoring within WSO2 API Manager.
 
-    **[Learn more]({{base_path}}/observe/api-manager/monitoring-websocket-logs/)**
+    **[Learn more]({{base_path}}/monitoring/observability/logs/monitoring-websocket-logs/)**
 
 ??? note "Enhanced Audit Logging for API Document Management"
 
     WSO2 API Manager now provides improved audit logging by capturing actions related to adding, removing, or updating documents attached to an API. Previously, these actions were only recorded in access logs, but with this enhancement, organizations can maintain better traceability and governance over API documentation changes. This ensures greater security, compliance, and visibility into API lifecycle activities.
 
-    **[Learn more]({{base_path}}/observe/api-manager/monitoring-audit-logs/)**
+    **[Learn more]({{base_path}}/monitoring/observability/logs/monitoring-audit-logs/)**
 
 ??? note "Improved Proxy Support for OAuth Endpoints"
 
     WSO2 API Manager now extends its OAuth token retrieval capabilities to support invocation through a configured proxy server. This enhancement ensures seamless authentication for OAuth-protected APIs in environments where outbound API traffic is routed through proxies. By enabling secure token retrieval via proxy, organizations can maintain better security, compliance, and network control without impacting API functionality.
 
-    **[Learn more]({{base_path}}/design/endpoints/endpoint-security/oauth-2.0/#securing-an-endpoint-with-oauth-20-in-wso2-api-manager)**
+    **[Learn more]({{base_path}}/manage-apis/design/endpoints/endpoint-security/oauth-2.0/#securing-an-endpoint-with-oauth-20-in-wso2-api-manager)**
 
 ## Key Changes
 

@@ -9,7 +9,7 @@ Following actions on common API Policies are allowed by apictl.
 
 ## Add common API Policies in an environment
 
-You can add common API Policies via the Publisher Portal. For more information, see [Create API Policy via Publisher Portal]({{base_path}}/design/api-policies/create-policy).
+You can add common API Policies via the Publisher Portal. For more information, see [Create API Policy via Publisher Portal]({{base_path}}/manage-apis/design/api-policies/create-policy).
 However, **WSO2 API Controller (apictl)** allows you to create API Policies without using the Publisher Portal.
 
 ## Get common API Policies in an environment

@@ -91,6 +91,6 @@ Note that the API-M server should be started before the Micro Integrator. The cl
 
 Once the servers are started and the services are published, you can access the service from the API-M layer, and then proceed to **Create**, **Deploy**, and **Publish** the API as follows:
 
-1. [Create and API ]({{base_path}}/design/create-api/create-an-api-using-a-service) using the integration service.
-2. [Deploy the API]({{base_path}}/deploy-and-publish/deploy-on-gateway/deploy-api/deploy-an-api) in the API Gateway.
-3. [Publish the API]({{base_path}}/deploy-and-publish/publish-on-dev-portal/publish-an-api) to the Developer Portal.
+1. [Create and API ]({{base_path}}/manage-apis/design/create-api/create-an-api-using-a-service) using the integration service.
+2. [Deploy the API]({{base_path}}/manage-apis/deploy-and-publish/deploy-on-gateway/deploy-api/deploy-an-api) in the API Gateway.
+3. [Publish the API]({{base_path}}/manage-apis/deploy-and-publish/publish-on-dev-portal/publish-an-api) to the Developer Portal.

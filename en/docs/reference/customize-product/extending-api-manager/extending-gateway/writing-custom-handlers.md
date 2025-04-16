@@ -45,7 +45,7 @@ Let's see what each handler does:
  - **ThrottleHandler:** Throttles requests based on the throttling policy specified by the `policyKey` property. Throttling is applied both at the application level as well as subscription level.
  - **APIMgtGoogleAnalyticsTrackingHandler:** Publishes events to Google Analytics. This handler only comes into effect If Google analytics tracking is enabled. See Integrating with Google Analytics for more information.
  - **APIManagerExtensionHandler** : Triggers extension sequences. By default, the extension handler is listed at last in the handler chain, and therefore is executed last. You cannot change the order in which the handlers are executed, except the extension handler. To configure the API Gateway to execute extension handler first, log in to management console (<https://localhost:9443/carbon>) and in the main tab, expand the resources section and browse for `_system/config/apimgt/applicationdata/tenant-conf.json`. Edit the field `ExtensionHandlerPosition` and provide 
- the value `top`. This is useful when you want to execute your own extensions before our default handlers in situations like doing additional security checks such as signature verification on access tokens before executing the default security handler. See [Adding Mediation Extensions]({{base_path}}/deploy-and-publish/deploy-on-gateway/api-gateway/message-mediation/changing-the-default-mediation-flow-of-api-requests).
+ the value `top`. This is useful when you want to execute your own extensions before our default handlers in situations like doing additional security checks such as signature verification on access tokens before executing the default security handler. See [Adding Mediation Extensions]({{base_path}}/manage-apis/deploy-and-publish/deploy-on-gateway/api-gateway/message-mediation/changing-the-default-mediation-flow-of-api-requests).
 
 ### Using APILogMessageHandler
 
@@ -113,7 +113,7 @@ before `</Handlers>`.
     you need to maintain a customized velocity template file that needs to be manually merged when you upgrade your 
     product to a newer version. Therefore, it is recommended to use custom Handlers when you wish to specify the exact 
     order of execution of JARs as this can not be done with 
-    [Mediators]({{base_path}}/deploy-and-publish/deploy-on-gateway/api-gateway/message-mediation/changing-the-default-mediation-flow-of-api-requests).
+    [Mediators]({{base_path}}/manage-apis/deploy-and-publish/deploy-on-gateway/api-gateway/message-mediation/changing-the-default-mediation-flow-of-api-requests).
 
 
 Custom Handler is a way of extending API Manager which the product offer to change the API flow through the API Gateway. 

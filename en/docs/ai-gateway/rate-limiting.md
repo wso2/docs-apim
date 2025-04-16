@@ -29,7 +29,7 @@ Steps to add subscription throttling policies:
 4. Configure quotas, including request limits and token-based limits.
 5. Click **Save** to apply the new policy.
 
-For more details, see [Configuring AI API Subscription Policies]({{base_path}}/design/rate-limiting/rate-limiting-for-ai-apis/)
+For more details, see [Configuring AI API Subscription Policies]({{base_path}}/manage-apis/design/rate-limiting/rate-limiting-for-ai-apis/)
 
 ## Backend Rate Limiting
 
@@ -55,6 +55,6 @@ Steps to configure backend throughput limits for AI APIs:
 5. Define separate limits for Production and Sandbox.
 6. Click **Save** to apply the changes
 
-For a step-by-step guide, refer to [Backend Rate Limiting for AI APIs]({{base_path}}/design/rate-limiting/setting-maximum-backend-throughput-limits/#setting-maximum-backend-throughput-limits-for-ai-apis)
+For a step-by-step guide, refer to [Backend Rate Limiting for AI APIs]({{base_path}}/manage-apis/design/rate-limiting/setting-maximum-backend-throughput-limits/#setting-maximum-backend-throughput-limits-for-ai-apis)
 
 Implementing rate limiting ensures cost control, backend protection, and fair API usage. By configuring subscription policies and backend throughput limits, you can optimize AI API performance while preventing overuse of AI resources.
