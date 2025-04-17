@@ -26,6 +26,24 @@ template: templates/single-column.html
     -webkit-font-smoothing: antialiased;
     }
 
+    .md-typeset h2 {
+        font-size: 1.2rem;
+        border-bottom: 0;
+        margin-top: -5px;
+        color: #F47B20;
+    }
+    
+    .md-typeset h3 {
+        font-size: 1rem;
+        border-bottom: 0;
+        font-weight: 600;
+    }
+    
+    .md-typeset h4 {
+        margin: 0;
+        color: #F47B20;
+    }
+
     .content {
         width: 100%;
         margin: 0 auto;
@@ -338,15 +356,6 @@ template: templates/single-column.html
             {"name": "CI/CD", "url": "install-and-setup/setup/api-controller/ci-cd-with-wso2-api-management/"}
         ],
         "more_btn": {"name": "View More", "url": "tutorials/tutorials-overview/"}
-    },
-    {
-        "title": "Community and Support",
-        "icon": "❓",
-        "links": [
-            {"name": "GitHub", "url": "https://github.com/wso2/api-manager/issues"},
-            {"name": "Discord Channel", "url": "https://discord.com/invite/wso2"},
-            {"name": "Enterprise Support", "url": "https://wso2.com/subscription/"}
-        ]
     }
     ]
 ] %}
