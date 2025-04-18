@@ -341,10 +341,11 @@ nav:
           - How to Use:
                 - Administrative Capabilities: governance/api-governance-admin-capabilities.md
                 - API Creator/Publisher Capabilities: governance/api-governance-api-creator-capabilities.md
+          - CI/CD-Driven Governance: governance/api-governance-cicd.md
     - Monitoring:
         - API Analytics:
             - Overview: monitoring/api-analytics/analytics-overview.md
-            - Choreo Based Analytics: 
+            - Choreo Based Analytics:
                 - Architecture: monitoring/api-analytics/choreo-analytics/api-analytics-architecture.md
                 - Getting Started Guide: monitoring/api-analytics/choreo-analytics/getting-started-guide.md
                 - Role-based Access Control : monitoring/api-analytics/choreo-analytics/role-based-access-control.md
