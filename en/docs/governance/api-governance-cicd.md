@@ -14,6 +14,12 @@ of rule violations that must be addressed before the API can be successfully imp
 apictl import api --file <path-to-API-archive> --environment <environment> --dry-run
 ```
 
+The results will be displayed in the console as shown in the example below:
+
+<a href="../../assets/img/governance/api_gov_apictl_result.png">
+  <img src="../../assets/img/governance/api_gov_apictl_result.png" alt="APIM Governance Validation Result Example" width="90%" />
+</a>
+
 !!! note "Applicable Governance Policies"
     In dry run mode, APIs are validated against all global policies configured in the target API Manager environment.
 
