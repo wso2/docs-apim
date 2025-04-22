@@ -93,13 +93,13 @@ After providing the required information, click on the **Create** button to crea
 
 WSO2 API Manager comes with a default governance policy named **WSO2 API Management Best Practices**. This policy is a high-level policy that includes the **WSO2 API Management Guidelines** ruleset. This policy can be used as-is or customized to meet specific organizational requirements. 
 
-It includes, **[WSO2 API Management Guidelines](reference/governance/wso2-api-management-guidelines.md)** ruleset and **[WSO2 REST API Design Guidelines](reference/governance/wso2-rest-api-design-guidelines.md)** ruleset.
+It includes, **[WSO2 API Management Guidelines]({{base_path}}/reference/governance/wso2-api-management-guidelines)** ruleset and **[WSO2 REST API Design Guidelines]({{base_path}}/reference/governance/wso2-rest-api-design-guidelines)** ruleset.
 
 !!! tip "Deleting or Disabling Default Policies"
     - Deleting default policies from the policy list is not sufficient. You must also remove the corresponding default policy files located in the `<APIM_HOME>/repository/resources/governance/default-policies` directory.
     - Instead of deleting a policy, you can disable it by updating the policy settings so that it does not apply to any APIs through the publisher portal.
     - During migration, it is recommended to disable the default policy by updating the `labels` field in the default policy YAML files in the `<APIM_HOME>/repository/resources/governance/default-policies` directory to an empty list.
-    - After migration is complete, you can update the policy through the publisher portal to apply it to all APIs as needed.  
+    - After migration is complete, you can update the policy through the admin portal to apply it to all APIs as needed.  
 
 
 !!! note "Creating or Updating a Policy"
