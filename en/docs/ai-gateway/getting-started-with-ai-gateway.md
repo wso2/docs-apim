@@ -95,7 +95,7 @@ Now that the AI API is successfully created, next step is to configure the backe
 
 ### Deploy, Test and Publish your AI API
 
-Following the successful AI API creation and backend security configuration, you can proceed to [deploy]({{base_path}}/deploy-and-publish/deploy-on-gateway/deploy-api/deploy-an-api/), [test]({{base_path}}/design/create-api/create-rest-api/test-a-rest-api/), and [publish]({{base_path}}/deploy-and-publish/publish-on-dev-portal/publish-an-api) the AI API.
+Following the successful AI API creation and backend security configuration, you can proceed to [deploy]({{base_path}}/manage-apis/deploy-and-publish/deploy-on-gateway/deploy-api/deploy-an-api/), [test]({{base_path}}/manage-apis/design/create-api/create-rest-api/test-a-rest-api/), and [publish]({{base_path}}/manage-apis/deploy-and-publish/publish-on-dev-portal/publish-an-api) the AI API.
 
 ### Invoke AI API
 

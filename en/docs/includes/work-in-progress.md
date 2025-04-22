@@ -1,5 +1,5 @@
 
-![Work In Progress]({{base_path}}/assets/img/work-in-progress.png){: style="width:60%"}
+![Work In Progress](/en/4.5.0/assets/img/work-in-progress.png){: style="width:60%"}
 
 This document is work in progress and will be made available soon.
 
