@@ -5,7 +5,76 @@ WSO2 API Manager consists of an API management layer and an integration layer. T
 You can select one of the following deployment patterns depending on the workload of each component and the traffic that is expected to each of the components and runtimes.
 
 !!! note
-    From WSO2 API Manager 4.5.0 onwards, we no longer support API-M profiles such as, `-Dprofile=control-plane`, `-Dprofile=gateway-worker` and `-Dprofile=traffic-manager`. Instead, we now have separate distributions namely, **WSO2 API Control Plane**, **WSO2 Universal Gateway** and **WSO2 Traffic Manager** components which should be used for configuring a distributed deployment. For more information on alternative deployment options, please refer the **Key Changes** section in the [About this Release]({{base_path}}/get-started/about-this-release/) page.
+    From WSO2 API Manager 4.5.0 onwards, we no longer support API-M profiles such as, `-Dprofile=control-plane`, `-Dprofile=gateway-worker` and `-Dprofile=traffic-manager`. Instead, we now have separate distributions namely, **WSO2 API Control Plane**, **WSO2 Universal Gateway** and **WSO2 Traffic Manager** components which should be used for configuring a distributed deployment. For alternative deployment options, please refer the table below. See more information in [Key Changes]({{base_path}}/get-started/about-this-release/#key-changes).
+
+    ??? info "New Deployment Alternatives"
+
+        <table>
+            <colgroup>
+                <col />
+                <col />
+                <col />
+                <col />
+                <col />
+                <col />
+            </colgroup>
+            <thead>
+                <tr>
+                    <th>Previous Deployment Pattern</th>
+                    <th colspan="5">New Deployment Alternative</th>
+                </tr>
+                <tr>
+                    <th></th>
+                    <th>All-in-one</th>
+                    <th>API Control Plane (ACP)</th>
+                    <th>Universal Gateway</th>
+                    <th>Traffic Manager</th>
+                    <th>Key Manager of ACP</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>All-in-one</td>
+                    <td style="text-align: center;">&#x2713;</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>Control Plane + Gateway</td>
+                    <td style="text-align: center;">&#x2713;</td>
+                    <td></td>
+                    <td style="text-align: center;">&#x2713;</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>Control Plane + Gateway + Traffic Manager</td>
+                    <td></td>
+                    <td style="text-align: center;">&#x2713;</td>
+                    <td style="text-align: center;">&#x2713;</td>
+                    <td style="text-align: center;">&#x2713;</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>Control Plane + Gateway + Key Manager</td>
+                    <td style="text-align: center;">&#x2713;</td>
+                    <td></td>
+                    <td style="text-align: center;">&#x2713;</td>
+                    <td></td>
+                    <td style="text-align: center;">&#x2713;</td>
+                </tr>
+                <tr>
+                    <td>Control Plane + Gateway + Traffic Manager + Key Manager</td>
+                    <td></td>
+                    <td style="text-align: center;">&#x2713;</td>
+                    <td style="text-align: center;">&#x2713;</td>
+                    <td style="text-align: center;">&#x2713;</td>
+                    <td style="text-align: center;">&#x2713;</td>
+                </tr>
+            </tbody>
+        </table>
 
 ## Standard HA deployment
 
