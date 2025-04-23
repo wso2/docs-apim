@@ -1253,6 +1253,58 @@ local_claim = "http://wso2.org/claims/givenname"</code></pre>
     </section>
 </div>
 
+## API-M gateway type configurations
+
+
+<div class="mb-config-catalog">
+    <section>
+        <div class="mb-config-options">
+            <div class="superfences-tabs">
+
+            <input name="102" type="checkbox" id="_tab_102">
+                <label class="tab-selector" for="_tab_102"><i class="icon fa fa-code"></i></label>
+                <div class="superfences-content">
+                    <div class="mb-config-example">
+<pre><code class="toml">[apim]
+gateway_type = "Regular,APK,AWS"</code></pre>
+                    </div>
+                </div>
+                <div class="doc-wrapper">
+                    <div class="mb-config">
+                        <div class="config-wrap">
+                            <code>[apim]</code>
+                            <span class="badge-required">Required</span>
+                            <p>
+                                Configuring the gateway types used by API Manager.
+                            </p>
+                        </div>
+                        <div class="params-wrap">
+                            <div class="param">
+                                <div class="param-name">
+                                  <span class="param-name-wrap"> <code>gateway_type</code> </span>
+                                </div>
+                                <div class="param-info">
+                                    <div>
+                                        <p>
+                                            <span class="param-type string"> string </span>
+                                            <span class="badge-required">Required</span>
+                                        </p>
+                                        <div class="param-default">
+                                            <span class="param-default-value">Default: <code>Regular,APK,AWS</code></span>
+                                        </div>
+                                    </div>
+                                    <div class="param-description">
+                                        <p>Users can configure supported gateway types through the configuration. These pre-configured options will be available under gateway environment types when creating new gateway environments via the Admin Portal.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
 
 
 ## API-M gateway environment configurations
