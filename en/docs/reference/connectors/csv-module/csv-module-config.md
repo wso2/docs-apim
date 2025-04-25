@@ -4,6 +4,8 @@ CSV Module in WSO2 Enterprise Integrator helps working with CSV payloads. This t
 
 The following transformations can be performed with this module.
 
+!!! Note
+    If you use CSV Module 2.x.x you need to add [opencsv-5.10.wso2v1.jar](https://maven.wso2.org/nexus/content/repositories/releases/org/wso2/orbit/com/opencsv/opencsv/5.10.wso2v1/opencsv-5.10.wso2v1.jar) to `<MI-HOME>/lib`.
 
 ## CSV to CSV transformation
 
