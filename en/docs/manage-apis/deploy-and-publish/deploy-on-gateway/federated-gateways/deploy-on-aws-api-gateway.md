@@ -5,7 +5,7 @@ From 4.5.0 release, WSO2 API Manager supports deploying APIs to AWS API Gateway.
 
 Follow the instructions given below to configure AWS API Gateway as a Federated API Gateway.
 
-## Step 1: Configure User credentials AWS API Gateway
+## Step 1: Configure User Credentials AWS API Gateway
 
 1. Create an IAM user in AWS with `AmazonAPIGatewayAdministrator` permission.
 2. Obtain an Access Key and Secret Key for the IAM user created in the previous step. 
@@ -30,7 +30,7 @@ Follow the instructions given below to configure AWS API Gateway as a Federated 
 
     [![add aws gateway environment]({{base_path}}/assets/img/deploy/add-aws-gw-environment.png){: style="width:90%"}]({{base_path}}/assets/img/deploy/add-aws-gw-environment.png)
 
-## Step 3 : Create API and Deploy to AWS API Gateway
+## Step 3 : Create API
 
 1. Sign in to the Publisher Portal.
 
@@ -44,56 +44,12 @@ Follow the instructions given below to configure AWS API Gateway as a Federated 
 
 3. Design the API as required.
 
-4. Configure the API with OAuth2.0 security.
-    1. Navigate to the `Polcies` section and move to the API level policies tab.
-    2. Attach the AWS OAuth2.0 policy to the API. Here you will have to provide an OAuth2.0 Lambda function ARN and a valid Invoke Role. OAuth2.0 lambda function should be implemented to validate the tokens from the IDP of your choice.
-   
-5. Navigate to `Deployments` and deploy the API to the AWS API Gateway configured in Step 2.
-
-    !!!note
-        Please note that only REST APIs are supported for deployment to AWS API Gateway.
-
 ## Step 4 : Configure Security for the API
 
 AWS APIs are secured using AWS OAuth2 policy. The policy takes in a `Lambda ARN` and a `Lambda Invoke Role ARN` as parameters. These information will be used to configure the Lambda Authorizer at AWS Gateway. You can implement the Lambda function to validate the tokens from an IDP of your choice. Please follow the steps below to configure the security for the API.
 
 ??? note "Configuring Lambda Function and Invoke Role"
-    1. Configure a Lambda function to validate the OAuth2 tokens issued by the IDP of your choice.    
-    2. Configure a Custom Role with **lambda:InvokeFunction** permission to be used as the Invoke Role of the above Lambda. A sample permission JSON is shown below.
-        ``` 
-        {
-            "Version": "2012-10-17",
-            "Statement": [
-                {
-                    "Effect": "Allow",
-                    "Action": [
-                        "lambda:InvokeFunction"
-                    ],
-                    "Resource": [
-                        "*"
-                    ]
-                }
-            ]
-        }
-        ```
-    3. Also configure a trust relationship for the role to allow **sts:AssumeRole**.
-        ```
-        {
-            "Version": "2012-10-17",
-            "Statement": [
-                {
-                    "Effect": "Allow",
-                    "Principal": {
-                        "Service": [
-                            "lambda.amazonaws.com",
-                            "apigateway.amazonaws.com"
-                        ]
-                    },
-                    "Action": "sts:AssumeRole"
-                }
-            ]
-        }
-        ```
+    Please refer [https://github.com/wso2/samples-apim/tree/master/custom-lambda-authorizer](https://github.com/wso2/samples-apim/tree/master/custom-lambda-authorizer) for a sample Lambda function implementation and detailed steps on creating the lambda function and the invoke role.
 
 !!!note
     Below steps would require additional permissions to be granted to the IAM user created in Step 1. Attach `AWSLambda_FullAccess` permission to the user and attach below custom policy to allow sts:AssumeRole action.
@@ -115,9 +71,22 @@ AWS APIs are secured using AWS OAuth2 policy. The policy takes in a `Lambda ARN`
     ```
 
 1. Navigate to the `Policies` section and move to the API level policies tab.
-2. Attach the AWS OAuth2.0 policy to the API. Here you will have to provide an OAuth2.0 Lambda function ARN and a valid Invoke Role.
+2. Attach the AWS OAuth2.0 policy to the API. Here you will have to provide an OAuth2.0 Lambda function ARN and an Invoke Role.
     [![attach aws oauth policy]({{base_path}}/assets/img/deploy/attach-aws-oauth-policy.png){: style="width:70%"}]({{base_path}}/assets/img/deploy/attach-aws-oauth-policy.png)
-3. Save and re-deploy the API.
+
+## Step 5 : Deploy and Publish API
+
+1. Navigate to `Deployments` and deploy the API to the AWS API Gateway configured in Step 2.
+
+2. Publish the API to developer portal. 
+
+## Step 6 : Invoke the API
+
+1. Obtain an access token from the IDP you configured in the lambda function.
+2. Navigate to Devportal tryout and invoke the API with above access token.
 
 !!!note
     If you do not specify an AWS OAuth2 policy when deploying the API, the API will be deployed without any security. AWS OAuth2 policy can be applied at either the API level or the resource level. If policies exist at both levels the resource level policy will take precedence.
+
+!!!note
+    Please note that only REST APIs are supported for deployment to AWS API Gateway.
