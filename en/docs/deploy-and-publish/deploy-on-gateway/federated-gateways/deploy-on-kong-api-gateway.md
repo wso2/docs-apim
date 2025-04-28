@@ -74,7 +74,9 @@ Follow the guide below based on your preferred mode:
 Install the Kong Gateway Agent Helm chart to allow WSO2 API Manager to communicate with the Kong Gateway.
 
 ```bash
-helm install kong-agent ./apk-helm/. -n <namespace>
+  helm repo add wso2gatewayagents https://github.com/wso2-extensions/apim-gw-agents/releases/download/1.0.0
+  helm repo update
+  helm install wso2gatewayagents/common-agent -f https://raw.githubusercontent.com/wso2-extensions/apim-gw-agents/refs/heads/main/kong/helm/values.yaml -n <namespace>
 ```
 
 Ensure your `values.yaml` includes the following configuration:
