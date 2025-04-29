@@ -242,3 +242,12 @@ Follow the steps below to change the type of the default datasource.
             driver = "com.microsoft.sqlserver.jdbc.SQLServerDriver"
             validationQuery = "SELECT 1"
             ```
+
+    !!! info
+        Case Sensitive Collation in MSSQL
+    
+        - In SQL Server, the default collation (`SQL_Latin1_General_CP1_CI_AS`) is case-insensitive, which may allow unintended overwrites or leftover records when APIs with the same name but different casing are created and deleted. This can cause permission resolution errors and inconsistent registry state, especially in environments with mixed-case API names.
+
+        - When creating the database, you can keep the default collation at the database level, but you must apply a case-sensitive collation (`Latin1_General_CS_AS`) on specific columns where case sensitivity is required.
+        
+        - For additional details on SQL Server collations and their impact on data comparison, refer to the Microsoft documentations on [Collations](https://learn.microsoft.com/en-us/sql/t-sql/statements/collations?view=sql-server-ver15), and [Collations and Case Sensitivity](https://learn.microsoft.com/en-us/ef/core/miscellaneous/collations-and-case-sensitivity).
