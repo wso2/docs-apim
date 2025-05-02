@@ -86,6 +86,18 @@ The following configurations allow you to configure Salesforce Inbound Endpoint 
     <td class="tg-0pky">22.0</td>
     <td class="tg-0pky">-</td>
   </tr>
+    <td class="tg-0pky">initialEventId</td>
+    <td class="tg-0pky">Specifies the initial event ID from which to start reading messages. This value is applicable only when message replaying is enabled. It will be used only if <code>EventIDStoredFilePath</code> is not configured, and the value of this parameter (<code>initialEventId</code>) is greater than the replayId stored in the registry.</td>
+    <td class="tg-0pky">No</td>
+    <td class="tg-0pky">100</td>
+    <td class="tg-0pky">-1</td>
+  </tr>
+    <td class="tg-0pky">replayWithMultipleInbounds</td>
+    <td class="tg-0pky">This parameter is applicable only when replay is enabled. If you are using multiple Salesforce inbound endpoints, enabling this configuration ensures proper message replay across all endpoints.</td>
+    <td class="tg-0pky">No</td>
+    <td class="tg-0pky">-</td>
+    <td class="tg-0pky">False</td>
+  </tr>
   <tr>
     <td class="tg-0pky">EventIDStoredFilePath</td>
     <td class="tg-0pky">When replay is enabled, do not define any value for this property (i.e., keep it blank), to replay from the last event ID stored in the config Registry DB (property- name of the Salesforce object (follow the example below for more understanding) resource path - connector/salesforce/event). When replay is enabled, specify the directory path of a text file to start replaying from the event ID stored in it.</td>
