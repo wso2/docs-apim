@@ -39,6 +39,9 @@ WSO2 API Manager comes with the multi-dc database scripts for MSSQL, Oracle and 
 
 You should consult your database administrator on replication related configurations.
 
+!!! Note
+    For testing the Multi-DC database scripts and evaluating the behavior of bi-directional replication, we used virtual machines to host the database instances across regions. This setup was used for all supported database types to ensure consistent testing conditions. If you plan to use managed database services offered by cloud providers, please contact the respective vendors to confirm support for database-level bi-directional replication support through the cluod services.
+
 ## Step 2: Configure the API Manager Nodes
 
 {!includes/deploy/steps-to-deploy-apim-in-a-distributed-setup-with-tm-separation.md!}
