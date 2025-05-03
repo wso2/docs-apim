@@ -6,33 +6,41 @@ All the regions are identical in this pattern. therefore, the documentation will
 
 ## Step 1: Configure the Database with replication
 
-!!! Note
-    WSO2 API Manager has support for DB replication with only MSSQL and Oracle DBs.
-    Our customers have used and tested these two DBs and the necessary primary and secondary keys are available.
-
-WSO2 API Manager comes with the multi-dc database scripts for MSSQL and Oracle. When setting up the database with replication for the multi-dc deployment, it is recommended to use the provided script. The file structure is as follows.
+WSO2 API Manager comes with the multi-dc database scripts for MSSQL, Oracle and PostgreSQL. When setting up the database with replication for the multi-dc deployment, it is recommended to use the provided script. The file structure is as follows.
 
 ```bash
 <APIM-Home>
 └── dbscripts
     └── multi-dc
         ├── OGG
-        │   └── oracle
-        │       ├── Readme.txt
-        │       ├── apimgt
-        │       │   ├── sequences.sql  ----> AM_DB
-        │       │   └── tables.sql  -------> AM_DB
-        │       ├── sequence.sql  ---------> SHARED_DB
-        │       └── tables.sql  -----------> SHARED_DB
+        │   └── oracle
+        │       ├── Readme.txt
+        │       ├── apimgt
+        │       │   ├── sequences.sql
+        │       │   ├── sequences_23c.sql
+        │       │   ├── tables.sql
+        │       │   └── tables_23c.sql
+        │       ├── sequence.sql
+        │       ├── sequences_23c.sql
+        │       ├── tables.sql
+        │       └── tables_23c.sql
+        ├── Postgresql
+        │   ├── ReadMe.txt
+        │   ├── apimgt
+        │   │   └── tables.sql
+        │   └── tables.sql
         └── SQLServer
             └── mssql
                 ├── ReadMe.txt
                 ├── apimgt
-                │   └── tables.sql  -------> AM_DB
-                └── tables.sql  -----------> SHARED_DB
+                │   └── tables.sql
+                └── tables.sql
 ```
 
 You should consult your database administrator on replication related configurations.
+
+!!! Note
+    For testing the Multi-DC database scripts and evaluating the behavior of bi-directional replication, we used virtual machines to host the database instances across regions. This setup was used for all supported database types to ensure consistent testing conditions. If you plan to use managed database services offered by cloud providers, please contact the respective vendors to confirm support for database-level bi-directional replication support through the cluod services.
 
 ## Step 2: Configure the API Manager Nodes
 
