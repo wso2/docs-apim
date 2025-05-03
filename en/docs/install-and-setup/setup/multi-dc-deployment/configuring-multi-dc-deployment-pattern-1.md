@@ -6,11 +6,7 @@ All the regions are identical in this pattern. therefore, the documentation will
 
 ## Step 1: Configure the Database with replication
 
-!!! Note
-    WSO2 API Manager has support for DB replication with only MSSQL and Oracle DBs.
-    Our customers have used and tested these two DBs and the necessary primary and secondary keys are available.
-
-WSO2 API Manager comes with the multi-dc database scripts for MSSQL and Oracle. When setting up the database with replication for the multi-dc deployment, it is recommended to use the provided script. The file structure is as follows.
+WSO2 API Manager comes with the multi-dc database scripts for MSSQL, Oracle and PostgreSQL. When setting up the database with replication for the multi-dc deployment, it is recommended to use the provided script. The file structure is as follows.
 
 ```bash
 <APIM-Home>
