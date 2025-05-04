@@ -272,7 +272,7 @@
               "description": "The password or personal access token of the Git repository."
             },
             {
-              "name": "sshKeyFile",
+              "name": "SSHKeyFile",
               "type": "string",
               "required": false,
               "description": "The optional path to the private key used for authenticating the Git repository. If this is set, then you do not need to set the username and accessToken."
