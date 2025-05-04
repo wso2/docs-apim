@@ -9,4 +9,4 @@
     branch = "main"
     username = "$env{git_username}"
     accessToken = "$env{git_access_token}"
-    sshKeyFile = "/home/wso2/ssh-keys/id_ed25519"
+    SSHKeyFile = "/home/wso2/ssh-keys/id_ed25519"
