@@ -1006,7 +1006,7 @@ The following operations allow you to work with the File Connector version 4. Cl
                 </div>
             </td>
             <td>
-                MAXIMUM
+                MAXIMUM_ALLOWED
             </td>
             <td>
                 No
@@ -1306,7 +1306,7 @@ The following operations allow you to work with the File Connector version 4. Cl
                 </div>
             </td>
             <td>
-                MAXIMUM
+                MAXIMUM_ALLOWED
             </td>
             <td>
                 No
@@ -1526,7 +1526,7 @@ The following operations allow you to work with the File Connector version 4. Cl
                 </div>
             </td>
             <td>
-                MAXIMUM
+                MAXIMUM_ALLOWED
             </td>
             <td>
                 No
@@ -1988,7 +1988,7 @@ The following operations allow you to work with the File Connector version 4. Cl
                 </div>
             </td>
             <td>
-                MAXIMUM
+                MAXIMUM_ALLOWED
             </td>
             <td>
                 No
@@ -2137,7 +2137,7 @@ The following operations allow you to work with the File Connector version 4. Cl
                 </div>
             </td>
             <td>
-                MAXIMUM
+                MAXIMUM_ALLOWED
             </td>
             <td>
                 No
@@ -2253,7 +2253,7 @@ The following operations allow you to work with the File Connector version 4. Cl
                 </div>
             </td>
             <td>
-                MAXIMUM
+                MAXIMUM_ALLOWED
             </td>
             <td>
                 No
@@ -2574,7 +2574,7 @@ The following operations allow you to work with the File Connector version 4. Cl
                 </div>
             </td>
             <td>
-                MAXIMUM
+                MAXIMUM_ALLOWED
             </td>
             <td>
                 No
@@ -2773,7 +2773,7 @@ The following operations allow you to work with the File Connector version 4. Cl
                 </div>
             </td>
             <td>
-                MAXIMUM
+                MAXIMUM_ALLOWED
             </td>
             <td>
                 No
@@ -3014,7 +3014,7 @@ The following operations allow you to work with the File Connector version 4. Cl
                 </div>
             </td>
             <td>
-                MAXIMUM
+                MAXIMUM_ALLOWED
             </td>
             <td>
                 No
@@ -3347,7 +3347,7 @@ The following operations allow you to work with the File Connector version 4. Cl
                 </div>
             </td>
             <td>
-                MAXIMUM
+                MAXIMUM_ALLOWED
             </td>
             <td>
                 No
