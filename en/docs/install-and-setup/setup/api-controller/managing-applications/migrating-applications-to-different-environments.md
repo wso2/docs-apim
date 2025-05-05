@@ -113,7 +113,7 @@ The structure of an exported Application ZIP file is explained below:
      </tbody>
 </table>
 
-## Export all the APIs of a tenant at once
+## Export all the Applications of a tenant at once
 
 You can use the below command to export all the Applications belong to the currently logged in user's tenant at once.
 
