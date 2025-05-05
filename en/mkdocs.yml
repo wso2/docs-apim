@@ -321,8 +321,6 @@ nav:
         - User Account Management:
             - Recover Password: consume/user-account-management/recover-password.md
             - Change Password: consume/user-account-management/change-dev-portal-password.md
-        - Token Management:
-            - Token Persistence : consume/token-management/token-persistence.md
     - Streaming:
           - Streaming Overview: streaming/streaming-overview.md
           - Streaming Key Concepts: streaming/streaming-key-concepts.md
