@@ -628,7 +628,7 @@ See the example .toml file given below.
     branch = "main"
     username = "$env{git_username}"
     accessToken = "$env{git_access_token}"
-    sshKeyFile = "/home/wso2/ssh-keys/id_ed25519"
+    SSHKeyFile = "/home/wso2/ssh-keys/id_ed25519"
 </code></pre>
                     </div>
                 </div>
@@ -826,7 +826,7 @@ See the example .toml file given below.
                                 </div>
                             </div><div class="param">
                                 <div class="param-name">
-                                  <span class="param-name-wrap"> <code>sshKeyFile</code> </span>
+                                  <span class="param-name-wrap"> <code>SSHKeyFile</code> </span>
                                 </div>
                                 <div class="param-info">
                                     <div>

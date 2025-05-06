@@ -97,7 +97,7 @@ artifactsDirectory = "<path_to_the_artifacts_directory>"
     branch = "<branch_name>"
     username = $env{git_username}
     accessToken = $env{git_access_token}
-    sshKeyFile = "/home/wso2/ssh-keys/<private_key_file>"
+    SSHKeyFile = "/home/wso2/ssh-keys/<private_key_file>"
 ```
 
 ```toml tab="Example"
@@ -116,7 +116,7 @@ artifactsDirectory = "/home/wso2/git-artifacts"
     branch = "main"
     username = $env{git_username}
     accessToken = $env{git_access_token}
-    sshKeyFile = "/home/wso2/ssh-keys/id_ed25519"
+    SSHKeyFile = "/home/wso2/ssh-keys/id_ed25519"
 ```
 
 The following table describes the above configuration.
@@ -149,15 +149,15 @@ The following table describes the above configuration.
 <td>The username of the Git repository. If this is set, then you need to also set the <code>accessToken</code>.</td></tr>
 <tr><td><code>accessToken</code></td>                      
 <td>The password or personal access token of the Git repository.</td></tr>
-<tr><td><code>sshKeyFile</code></td>        
-<td><code>sshKeyFile</code> is the optional path to the private key used for authenticating the Git repository. If this is set, then you do not need to set the <code>username</code> and <code>accessToken</code>.</td></tr>
+<tr><td><code>SSHKeyFile</code></td>        
+<td><code>SSHKeyFile</code> is the optional path to the private key used for authenticating the Git repository. If this is set, then you do not need to set the <code>username</code> and <code>accessToken</code>.</td></tr>
 </table>
 
 !!! note
     - Both `artifactsDirectory` configurations should be set to the same directory path.
     - If the `branch` is not specified, the default branch will be used.
-    - If the repository is a public repository (in GitHub), then you do not need to set `username`, `accessToken` and `sshKeyFile`.
-    - If the repository is a private repository, then you need to set either the `username` and `accessToken` or `sshKeyFile`.
+    - If the repository is a public repository (in GitHub), then you do not need to set `username`, `accessToken` and `SSHKeyFile`.
+    - If the repository is a private repository, then you need to set either the `username` and `accessToken` or `SSHKeyFile`.
 
 #### Step 2.2 - Authenticate the source watcher with the repository
 
@@ -198,7 +198,7 @@ To authenticate the repository with basic HTTP authentication, the username and 
           branch = ""
           username = $env{git_username}
           accessToken = $env{git_access_token}
-          sshKeyFile = ""
+          SSHKeyFile = ""
     ```
 
     ```toml tab="Example"
@@ -217,14 +217,14 @@ To authenticate the repository with basic HTTP authentication, the username and 
           branch = ""
           username = $env{git_username}
           accessToken = $env{git_access_token}
-          sshKeyFile = ""
+          SSHKeyFile = ""
     ```
 
 __________________________________________
 
 #### **Using the SSH Key file**
 
-To authenticate the repository with SSH key, the SSH private key file path should be set in the `sshKeyFile` field. 
+To authenticate the repository with SSH key, the SSH private key file path should be set in the `SSHKeyFile` field. 
 
 1. Generate the SSH Keys that need to be used for authentication.
 
@@ -255,7 +255,7 @@ To authenticate the repository with SSH key, the SSH private key file path shoul
           branch = ""
           username = ""
           accessToken = ""
-          sshKeyFile = "/home/wso2/ssh-keys/<private_key_file>"
+          SSHKeyFile = "/home/wso2/ssh-keys/<private_key_file>"
     ```
 
     ```tab="Example"
@@ -274,7 +274,7 @@ To authenticate the repository with SSH key, the SSH private key file path shoul
           branch = ""
           username = ""
           accessToken = ""
-          sshKeyFile = "/home/wso2/ssh-keys/id_ed25519"
+          SSHKeyFile = "/home/wso2/ssh-keys/id_ed25519"
     ```
 
 3. Copy the generated private key file to the `docker-compose/resources/adapter/ssh-keys` directory.
