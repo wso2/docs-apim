@@ -1,0 +1,2 @@
+[synapse_properties]
+'ws.transport.subprotocol.negotiate' = false
