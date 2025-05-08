@@ -303,6 +303,18 @@ Java methods/native objects having names equal to any of the values given under 
 Likewise, when <code>limit_java_native_object_access_in_scripts.list_type</code> is <code>ALLOW_LIST</code>, classes with matching names will be selectively allowed.
 </td>
 </tr>
+<tr class="even">
+<td>
+<p>Disable Try-It Tool</p>
+<p><br /> </p>
+</td>
+<td>
+This feature enables users to invoke external web services through API-M. However, in a production environment, it is strongly recommended to disable this functionality to mitigate potential security risks. To do so, add the following configuration to the <code>deployment.toml</code> file:
+<pre class="java" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence" style="brush: java; gutter: false; theme: Confluence"><code>[system.parameter]
+tryItFunctionalityDisabled = true
+</code></pre>
+</td>
+</tr>
 </tbody>
 </table>
 
