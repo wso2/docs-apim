@@ -9881,8 +9881,8 @@ sender.trust_store.password = "$ref{truststore.password}"</code></pre>
         <div class="mb-config-options">
             <div class="superfences-tabs">
 
-            <input name="87" type="checkbox" id="_tab_87">
-                <label class="tab-selector" for="_tab_87"><i class="icon fa fa-code"></i></label>
+            <input name="64" type="checkbox" id="_tab_64">
+                <label class="tab-selector" for="_tab_64"><i class="icon fa fa-code"></i></label>
                 <div class="superfences-content">
                     <div class="mb-config-example">
 <pre><code class="toml">[synapse_properties]
@@ -9912,10 +9912,12 @@ sender.trust_store.password = "$ref{truststore.password}"</code></pre>
                                         <div class="param-default">
                                             <span class="param-default-value">Default: <code>true</code></span>
                                         </div>
-                                        
+                                        <div class="param-possible">
+                                            <span class="param-possible-values">Possible Values: <code>&quot;true&quot; or &quot;false&quot;</code></span>
+                                        </div>
                                     </div>
                                     <div class="param-description">
-                                        <p>This value determines whether subprotocol negotiation should be done or not at the gateway level</p>
+                                        <p>This parameter determines whether websocket subprotocol negotiation should be done or not at the gateway level</p>
                                     </div>
                                 </div>
                             </div>

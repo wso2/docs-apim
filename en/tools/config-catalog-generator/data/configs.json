@@ -3700,6 +3700,27 @@
             "exampleFile": "_wss-transport.toml"
         },
         {
+            "title": "Synapse Properties",
+            "options": [
+                {
+                    "name": "synapse_properties",
+                    "required": false,
+                    "description": "This includes synapse configurations.",
+                    "params": [
+                        {
+                            "name": "ws.transport.subprotocol.negotiate",
+                            "type": "boolean",
+                            "required": false,
+                            "default": "true",
+                            "possible": "\"true\" or \"false\"",
+                            "description": "This parameter determines whether websocket subprotocol negotiation should be done or not at the gateway level"
+                        }
+                    ]
+                }
+            ],
+            "exampleFile": "synapse_properties.toml"
+        },
+        {
             "title": "Message Builders (non-blocking mode)",
             "options": [
                 {
