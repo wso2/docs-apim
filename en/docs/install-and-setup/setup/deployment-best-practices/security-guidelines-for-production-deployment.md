@@ -262,6 +262,18 @@ been removed from Hotspot JVM.</p>
 <td><p>Client authentication is used to identify the application or client making a request to the WSO2 API Manager  REST APIs. By default, web applications provided with WSO2 API Manager use a set of default credentials for authentication. However, it is recommended to change these default credentials to enhance security. For more details see, <a href="{{base_path}}/install-and-setup/setup/deployment-best-practices/security-guidelines-for-production-deployment/#configure-client-authentication">Configure client authentication</a></p>
 </td>
 </tr>
+<tr class="even">
+<td>
+<p>Disable Try-It Tool</p>
+<p><br /> </p>
+</td>
+<td>
+This feature enables users to invoke external web services through API-M. However, in a production environment, it is strongly recommended to disable this functionality to mitigate potential security risks. To do so, add the following configuration to the <code>deployment.toml</code> file:
+<pre class="java" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence" style="brush: java; gutter: false; theme: Confluence"><code>[system.parameter]
+tryItFunctionalityDisabled = true
+</code></pre>
+</td>
+</tr>
 </tbody>
 </table>
 
