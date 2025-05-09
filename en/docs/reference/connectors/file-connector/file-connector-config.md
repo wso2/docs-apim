@@ -1002,7 +1002,7 @@ The following operations allow you to work with the File Connector version 4. Cl
                 <p> The <code>diskShareAccessMask</code> configuration applies when using the **SMB2** or **SMB3** protocol for file operations through the file connector. This setting defines the access permissions (ACCESS_MASK) for the disk share as a comma separated string. Refer to the [SMBJ documentation](https://www.javadoc.io/doc/com.hierynomus/smbj/0.11.3/com/hierynomus/msdtyp/AccessMask.html) for the available access masks.</p>
                 <div class="admonition note">
                     <p class="admonition-title">Note</p>
-                    <p>Requires Micro Integrator version 4.1.0.130 (U2) or later and file connector version 4.0.38 or later to use this parameter.</p>
+                    <p>Requires Micro Integrator version 4.1.0.130 (U2) or later and file connector version 4.0.39 or later to use this parameter.</p>
                 </div>
             </td>
             <td>
@@ -1302,7 +1302,7 @@ The following operations allow you to work with the File Connector version 4. Cl
                 <p> The <code>diskShareAccessMask</code> configuration applies when using the **SMB2** or **SMB3** protocol for file operations through the file connector. This setting defines the access permissions (ACCESS_MASK) for the disk share as a comma separated string. Refer to the [SMBJ documentation](https://www.javadoc.io/doc/com.hierynomus/smbj/0.11.3/com/hierynomus/msdtyp/AccessMask.html) for the available access masks.</p>
                 <div class="admonition note">
                     <p class="admonition-title">Note</p>
-                    <p>Requires Micro Integrator version 4.1.0.130 (U2) or later and file connector version 4.0.38 or later to use this parameter.</p>
+                    <p>Requires Micro Integrator version 4.1.0.130 (U2) or later and file connector version 4.0.39 or later to use this parameter.</p>
                 </div>
             </td>
             <td>
@@ -1522,7 +1522,7 @@ The following operations allow you to work with the File Connector version 4. Cl
                 <p> The <code>diskShareAccessMask</code> configuration applies when using the **SMB2** or **SMB3** protocol for file operations through the file connector. This setting defines the access permissions (ACCESS_MASK) for the disk share as a comma separated string. Refer to the [SMBJ documentation](https://www.javadoc.io/doc/com.hierynomus/smbj/0.11.3/com/hierynomus/msdtyp/AccessMask.html) for the available access masks.</p>
                 <div class="admonition note">
                     <p class="admonition-title">Note</p>
-                    <p>Requires Micro Integrator version 4.1.0.130 (U2) or later and file connector version 4.0.38 or later to use this parameter.</p>
+                    <p>Requires Micro Integrator version 4.1.0.130 (U2) or later and file connector version 4.0.39 or later to use this parameter.</p>
                 </div>
             </td>
             <td>
@@ -1984,7 +1984,7 @@ The following operations allow you to work with the File Connector version 4. Cl
                 <p> The <code>diskShareAccessMask</code> configuration applies when using the **SMB2** or **SMB3** protocol for file operations through the file connector. This setting defines the access permissions (ACCESS_MASK) for the disk share as a comma separated string. Refer to the [SMBJ documentation](https://www.javadoc.io/doc/com.hierynomus/smbj/0.11.3/com/hierynomus/msdtyp/AccessMask.html) for the available access masks.</p>
                 <div class="admonition note">
                     <p class="admonition-title">Note</p>
-                    <p>Requires Micro Integrator version 4.1.0.130 (U2) or later and file connector version 4.0.38 or later to use this parameter.</p>
+                    <p>Requires Micro Integrator version 4.1.0.130 (U2) or later and file connector version 4.0.39 or later to use this parameter.</p>
                 </div>
             </td>
             <td>
@@ -2133,7 +2133,7 @@ The following operations allow you to work with the File Connector version 4. Cl
                 <p> The <code>diskShareAccessMask</code> configuration applies when using the **SMB2** or **SMB3** protocol for file operations through the file connector. This setting defines the access permissions (ACCESS_MASK) for the disk share as a comma separated string. Refer to the [SMBJ documentation](https://www.javadoc.io/doc/com.hierynomus/smbj/0.11.3/com/hierynomus/msdtyp/AccessMask.html) for the available access masks.</p>
                 <div class="admonition note">
                     <p class="admonition-title">Note</p>
-                    <p>Requires Micro Integrator version 4.1.0.130 (U2) or later and file connector version 4.0.38 or later to use this parameter.</p>
+                    <p>Requires Micro Integrator version 4.1.0.130 (U2) or later and file connector version 4.0.39 or later to use this parameter.</p>
                 </div>
             </td>
             <td>
@@ -2249,7 +2249,7 @@ The following operations allow you to work with the File Connector version 4. Cl
                 <p> The <code>diskShareAccessMask</code> configuration applies when using the **SMB2** or **SMB3** protocol for file operations through the file connector. This setting defines the access permissions (ACCESS_MASK) for the disk share as a comma separated string. Refer to the [SMBJ documentation](https://www.javadoc.io/doc/com.hierynomus/smbj/0.11.3/com/hierynomus/msdtyp/AccessMask.html) for the available access masks.</p>
                 <div class="admonition note">
                     <p class="admonition-title">Note</p>
-                    <p>Requires Micro Integrator version 4.1.0.130 (U2) or later and file connector version 4.0.38 or later to use this parameter.</p>
+                    <p>Requires Micro Integrator version 4.1.0.130 (U2) or later and file connector version 4.0.39 or later to use this parameter.</p>
                 </div>
             </td>
             <td>
@@ -2570,7 +2570,7 @@ The following operations allow you to work with the File Connector version 4. Cl
                 <p> The <code>diskShareAccessMask</code> configuration applies when using the **SMB2** or **SMB3** protocol for file operations through the file connector. This setting defines the access permissions (ACCESS_MASK) for the disk share as a comma separated string. Refer to the [SMBJ documentation](https://www.javadoc.io/doc/com.hierynomus/smbj/0.11.3/com/hierynomus/msdtyp/AccessMask.html) for the available access masks.</p>
                 <div class="admonition note">
                     <p class="admonition-title">Note</p>
-                    <p>Requires Micro Integrator version 4.1.0.130 (U2) or later and file connector version 4.0.38 or later to use this parameter.</p>
+                    <p>Requires Micro Integrator version 4.1.0.130 (U2) or later and file connector version 4.0.39 or later to use this parameter.</p>
                 </div>
             </td>
             <td>
@@ -2769,7 +2769,7 @@ The following operations allow you to work with the File Connector version 4. Cl
                 <p> The <code>diskShareAccessMask</code> configuration applies when using the **SMB2** or **SMB3** protocol for file operations through the file connector. This setting defines the access permissions (ACCESS_MASK) for the disk share as a comma separated string. Refer to the [SMBJ documentation](https://www.javadoc.io/doc/com.hierynomus/smbj/0.11.3/com/hierynomus/msdtyp/AccessMask.html) for the available access masks.</p>
                 <div class="admonition note">
                     <p class="admonition-title">Note</p>
-                    <p>Requires Micro Integrator version 4.1.0.130 (U2) or later and file connector version 4.0.38 or later to use this parameter.</p>
+                    <p>Requires Micro Integrator version 4.1.0.130 (U2) or later and file connector version 4.0.39 or later to use this parameter.</p>
                 </div>
             </td>
             <td>
@@ -3010,7 +3010,7 @@ The following operations allow you to work with the File Connector version 4. Cl
                 <p> The <code>diskShareAccessMask</code> configuration applies when using the **SMB2** or **SMB3** protocol for file operations through the file connector. This setting defines the access permissions (ACCESS_MASK) for the disk share as a comma separated string. Refer to the [SMBJ documentation](https://www.javadoc.io/doc/com.hierynomus/smbj/0.11.3/com/hierynomus/msdtyp/AccessMask.html) for the available access masks.</p>
                 <div class="admonition note">
                     <p class="admonition-title">Note</p>
-                    <p>Requires Micro Integrator version 4.1.0.130 (U2) or later and file connector version 4.0.38 or later to use this parameter.</p>
+                    <p>Requires Micro Integrator version 4.1.0.130 (U2) or later and file connector version 4.0.39 or later to use this parameter.</p>
                 </div>
             </td>
             <td>
@@ -3343,7 +3343,7 @@ The following operations allow you to work with the File Connector version 4. Cl
                 <p> The <code>diskShareAccessMask</code> configuration applies when using the **SMB2** or **SMB3** protocol for file operations through the file connector. This setting defines the access permissions (ACCESS_MASK) for the disk share as a comma separated string. Refer to the [SMBJ documentation](https://www.javadoc.io/doc/com.hierynomus/smbj/0.11.3/com/hierynomus/msdtyp/AccessMask.html) for the available access masks.</p>
                 <div class="admonition note">
                     <p class="admonition-title">Note</p>
-                    <p>Requires Micro Integrator version 4.1.0.130 (U2) or later and file connector version 4.0.38 or later to use this parameter.</p>
+                    <p>Requires Micro Integrator version 4.1.0.130 (U2) or later and file connector version 4.0.39 or later to use this parameter.</p>
                 </div>
             </td>
             <td>
