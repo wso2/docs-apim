@@ -3999,6 +3999,14 @@ paths:
             Gateway environment of the exported APIs
           schema:
             type: string
+        - name: preserveCredentials
+          in: query
+          description: |
+            Preserve endpoint configuration credentials and secret parameters
+          required: false
+          schema:
+            type: boolean
+            default: false
       responses:
         200:
           description: |
