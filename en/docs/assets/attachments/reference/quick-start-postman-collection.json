@@ -1,13 +1,13 @@
 {
 	"info": {
-		"_postman_id": "9d891cfc-a5a8-4cce-8a5f-97fd82236f54",
-		"name": "API Manager 4.4.0 Quick Start",
+		"_postman_id": "f951779e-9b88-46f2-a6df-583513e80d83",
+		"name": "API Manager 4.5.0 Quick Start",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-		"_exporter_id": "28719432"
+		"_exporter_id": "39217355"
 	},
 	"item": [
 		{
-			"name": "Authenticaction",
+			"name": "Authentication",
 			"item": [
 				{
 					"name": "Register DCR App",
@@ -639,7 +639,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\"name\":\"PizzaShackAPIProduct\",\"context\":\"/pizzaproduct\",\"description\":null,\"provider\":\"admin\",\"hasThumbnail\":null,\"state\":\"PUBLISHED\",\"enableSchemaValidation\":false,\"isRevision\":false,\"revisionedApiProductId\":null,\"revisionId\":0,\"responseCachingEnabled\":false,\"cacheTimeout\":300,\"visibility\":\"PUBLIC\",\"visibleRoles\":[],\"visibleTenants\":[],\"accessControl\":\"NONE\",\"accessControlRoles\":[],\"apiType\":null,\"transport\":[\"http\",\"https\"],\"tags\":[],\"policies\":[\"Unlimited\"],\"apiThrottlingPolicy\":null,\"authorizationHeader\":\"Authorization\",\"securityScheme\":[\"oauth2\",\"oauth_basic_auth_api_key_mandatory\"],\"subscriptionAvailability\":\"ALL_TENANTS\",\"subscriptionAvailableTenants\":[],\"additionalProperties\":[],\"monetization\":null,\"businessInformation\":{\"businessOwner\":null,\"businessOwnerEmail\":null,\"technicalOwner\":null,\"technicalOwnerEmail\":null},\"corsConfiguration\":{\"corsConfigurationEnabled\":false,\"accessControlAllowOrigins\":[\"*\"],\"accessControlAllowCredentials\":false,\"accessControlAllowHeaders\":[\"authorization\",\"Access-Control-Allow-Origin\",\"Content-Type\",\"SOAPAction\",\"apikey\",\"Internal-Key\"],\"accessControlAllowMethods\":[\"GET\",\"PUT\",\"POST\",\"DELETE\",\"PATCH\",\"OPTIONS\"]},\"createdTime\":\"2022-02-08 14:44:40.626\",\"lastUpdatedTime\":\"2022-02-08 14:44:40.727\",\"apis\":[{\"name\":\"PizzaShackAPI\",\"apiId\": \"{{apiId}}\",\"version\":\"1.0.0\",\"operations\":[{\"id\":\"\",\"target\":\"/order\",\"verb\":\"POST\",\"authType\":\"Application & Application User\",\"throttlingPolicy\":\"Unlimited\",\"scopes\":[],\"usedProductIds\":[],\"amznResourceName\":null,\"amznResourceTimeout\":null,\"payloadSchema\":null,\"uriMapping\":null},{\"id\":\"\",\"target\":\"/menu\",\"verb\":\"GET\",\"authType\":\"Application & Application User\",\"throttlingPolicy\":\"Unlimited\",\"scopes\":[],\"usedProductIds\":[],\"amznResourceName\":null,\"amznResourceTimeout\":null,\"payloadSchema\":null,\"uriMapping\":null},{\"id\":\"\",\"target\":\"/order/{orderId}\",\"verb\":\"GET\",\"authType\":\"Application & Application User\",\"throttlingPolicy\":\"Unlimited\",\"scopes\":[],\"usedProductIds\":[],\"amznResourceName\":null,\"amznResourceTimeout\":null,\"payloadSchema\":null,\"uriMapping\":null},{\"id\":\"\",\"target\":\"/order/{orderId}\",\"verb\":\"PUT\",\"authType\":\"Application & Application User\",\"throttlingPolicy\":\"Unlimited\",\"scopes\":[],\"usedProductIds\":[],\"amznResourceName\":null,\"amznResourceTimeout\":null,\"payloadSchema\":null,\"uriMapping\":null},{\"id\":\"\",\"target\":\"/order/{orderId}\",\"verb\":\"DELETE\",\"authType\":\"Application & Application User\",\"throttlingPolicy\":\"Unlimited\",\"scopes\":[],\"usedProductIds\":[],\"amznResourceName\":null,\"amznResourceTimeout\":null,\"payloadSchema\":null,\"uriMapping\":null}]}],\"scopes\":[],\"categories\":[]}",
+							"raw": "{\"name\":\"PizzaShackAPIProduct\",\"context\":\"/pizzaproduct\",\"version\": \"1.0.0\",\"description\":null,\"provider\":\"admin\",\"hasThumbnail\":null,\"state\":\"PUBLISHED\",\"enableSchemaValidation\":false, \"isRevision\":false,\"revisionedApiProductId\":null,\"revisionId\":0,\"responseCachingEnabled\":false,\"cacheTimeout\":300,\"visibility\":\"PUBLIC\",\"visibleRoles\":[],\"visibleTenants\":[],\"accessControl\":\"NONE\",\"accessControlRoles\":[],\"apiType\":null,\"transport\":[\"http\",\"https\"],\"tags\":[],\"policies\":[\"Unlimited\"],\"apiThrottlingPolicy\":null,\"authorizationHeader\":\"Authorization\",\"securityScheme\":[\"oauth2\",\"oauth_basic_auth_api_key_mandatory\"],\"subscriptionAvailability\":\"ALL_TENANTS\",\"subscriptionAvailableTenants\":[],\"additionalProperties\":[],\"monetization\":null,\"businessInformation\":{\"businessOwner\":null,\"businessOwnerEmail\":null,\"technicalOwner\":null,\"technicalOwnerEmail\":null},\"corsConfiguration\":{\"corsConfigurationEnabled\":false,\"accessControlAllowOrigins\":[\"*\"],\"accessControlAllowCredentials\":false,\"accessControlAllowHeaders\":[\"authorization\",\"Access-Control-Allow-Origin\",\"Content-Type\",\"SOAPAction\",\"apikey\",\"Internal-Key\"],\"accessControlAllowMethods\":[\"GET\",\"PUT\",\"POST\",\"DELETE\",\"PATCH\",\"OPTIONS\"]},\"createdTime\":\"2022-02-08 14:44:40.626\",\"lastUpdatedTime\":\"2022-02-08 14:44:40.727\",\"apis\":[{\"name\":\"PizzaShackAPI\",\"apiId\": \"{{apiId}}\",\"version\":\"1.0.0\",\"operations\":[{\"id\":\"\",\"target\":\"/order\",\"verb\":\"POST\",\"authType\":\"Application & Application User\",\"throttlingPolicy\":\"Unlimited\",\"scopes\":[],\"usedProductIds\":[],\"amznResourceName\":null,\"amznResourceTimeout\":null,\"payloadSchema\":null,\"uriMapping\":null},{\"id\":\"\",\"target\":\"/menu\",\"verb\":\"GET\",\"authType\":\"Application & Application User\",\"throttlingPolicy\":\"Unlimited\",\"scopes\":[],\"usedProductIds\":[],\"amznResourceName\":null,\"amznResourceTimeout\":null,\"payloadSchema\":null,\"uriMapping\":null},{\"id\":\"\",\"target\":\"/order/{orderId}\",\"verb\":\"GET\",\"authType\":\"Application & Application User\",\"throttlingPolicy\":\"Unlimited\",\"scopes\":[],\"usedProductIds\":[],\"amznResourceName\":null,\"amznResourceTimeout\":null,\"payloadSchema\":null,\"uriMapping\":null},{\"id\":\"\",\"target\":\"/order/{orderId}\",\"verb\":\"PUT\",\"authType\":\"Application & Application User\",\"throttlingPolicy\":\"Unlimited\",\"scopes\":[],\"usedProductIds\":[],\"amznResourceName\":null,\"amznResourceTimeout\":null,\"payloadSchema\":null,\"uriMapping\":null},{\"id\":\"\",\"target\":\"/order/{orderId}\",\"verb\":\"DELETE\",\"authType\":\"Application & Application User\",\"throttlingPolicy\":\"Unlimited\",\"scopes\":[],\"usedProductIds\":[],\"amznResourceName\":null,\"amznResourceTimeout\":null,\"payloadSchema\":null,\"uriMapping\":null}]}],\"scopes\":[],\"categories\":[]}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -793,6 +793,51 @@
 								{
 									"key": "revisionId",
 									"value": "{{revisionId}}"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Publish API Product",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{access-token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{serverURL}}{{publisherBasePath}}/api-products/change-lifecycle?action=Publish&apiProductId={{apiProductId}}",
+							"host": [
+								"{{serverURL}}{{publisherBasePath}}"
+							],
+							"path": [
+								"api-products",
+								"change-lifecycle"
+							],
+							"query": [
+								{
+									"key": "action",
+									"value": "Publish"
+								},
+								{
+									"key": "apiProductId",
+									"value": "{{apiProductId}}"
 								}
 							]
 						}
@@ -1038,7 +1083,7 @@
 							}
 						],
 						"url": {
-							"raw": "https://localhost:8243/pizzaproduct/menu",
+							"raw": "https://localhost:8243/pizzaproduct/1.0.0/menu",
 							"protocol": "https",
 							"host": [
 								"localhost"
@@ -1046,6 +1091,7 @@
 							"port": "8243",
 							"path": [
 								"pizzaproduct",
+								"1.0.0",
 								"menu"
 							]
 						}
@@ -1082,7 +1128,7 @@
 		},
 		{
 			"key": "publisherBasePath",
-			"value": "/api/am/publisher/v2"
+			"value": "/api/am/publisher/v4"
 		},
 		{
 			"key": "base64(username:password)",
@@ -1094,7 +1140,7 @@
 		},
 		{
 			"key": "devportalBasePath",
-			"value": "/api/am/devportal/v2"
+			"value": "/api/am/devportal/v3"
 		},
 		{
 			"key": "applicationId",
