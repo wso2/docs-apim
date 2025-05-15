@@ -87,15 +87,15 @@ Please follow the steps below to configure the security for the API.
 
 2. In AWS IAM configure an execution role for the lambda function.
 
-    I. Navigate to IAM > roles in AWS console and create a new role with below details.
+    i. Navigate to IAM > roles in AWS console and create a new role with below details.
        ```
         Trusted Entity Type : AWS Service
         Use Case : Lambda
        ```
 
-    II. Under Add Permissions stage attach `AWSLambdaRole` permission. Optionally attach `AWSLambdaBasicExecutionRole` if you wish to enable cloudwatch logs for the lambda function.
+    ii. Under Add Permissions stage attach `AWSLambdaRole` permission. Optionally attach `AWSLambdaBasicExecutionRole` if you wish to enable cloudwatch logs for the lambda function.
 
-    III. Provide a role name and edit the Trust Policy as below to allow API Gateway service as well.
+    iii. Provide a role name and edit the Trust Policy as below to allow API Gateway service as well.
         ```
         {
             "Version": "2012-10-17",
@@ -130,9 +130,9 @@ Please follow the steps below to configure the security for the API.
 
 1. Sign in to the Developer Portal.
 
-    `https://<hostname>:9443/developer`
+    `https://<hostname>:9443/devportal`
 
-    `https://localhost:9443/developer`
+    `https://localhost:9443/devportal`
 
 2. Create an Application and obtain an access token from the KM you configured in step 3. 
 
