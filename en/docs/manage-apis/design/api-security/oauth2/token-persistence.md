@@ -1,14 +1,55 @@
 # Token Persistence
 
-This guide describes OAuth2 token persistence and the possible approaches you can follow for token persistence in a production environment. 
+In WSO2 API Manager, OAuth2 token persistence is integral to authentication and authorization. This guide describes OAuth2 token persistence with JWTs and Opaque tokens and the possible approaches you can follow for token persistence in a production environment. 
 
 ## JWT tokens
 
-The JWT token persistence behaviour is different to the opaque token persistence behaviour. The JWT token issuer always provides a new JWT token upon a token request and it does not persist a complete JWT access token in the database but only the JTI value of the JWT token. Therefore, there is no way to achieve the same behaviour for JWT tokens as opaque tokens other than customizing the token issuer.
+Using JWTs instead of Opaque is the recommended approach in WSO2 API Manager since Gateway can self validate JWTs without additional hops to KeyManager unlike Opaque.
+
+For JSON Web Tokens (JWTs), by default API Manager stores references instead of the complete tokens, optimizing storage. For JWTs, token generation or validation triggers interactions with the database. 
+
+The JWT token persistence behavior differs from the opaque token persistence behavior, where an existing active token is retrieved upon a token request. The JWT token issuer always provides a new JWT token because the complete JWT access token is not persisted in the database. Consequently, achieving the same token generation behavior for JWTs as for opaque tokens requires customizing the token issuer.
+
+The following sections guide you through how you can further optimize the default JWT persistence in API Manager.
+
+### Why Token Persistence Optimization for JWTs
+
+In large-scale deployments of WSO2 API Manager, when there are millions of users and concurrent user logins, number of tokens in database can exponentially grow and scaling will be extremely hard. This can also result in a noticeable decrease in Transactions Per Second (TPS) for token generation.  For example, consider a large telco provider company with 1.4 million subscribers with a 1000 per sec daily token generation rate. Scaling the deployment by increasing the number of key manager nodes, partitioning the database or periodically running the token clean up scripts might not give you the optimal TPS as needed. For such a requirements, token persistence optimization comes into play by using JWTs as both access and refresh tokens, not persisting them during generation while still supporting essential token revocation and refresh-grant functionalities.
+
+- Currently, this solution is only recommended to be used in deployments where API-M is used as the Key Manager. It is not yet recommended to be used when WSO2 IS is used as a Key Manager.
+- Token persistence optimization feature will only work with JWT tokens as they can be self validated.
+- If you are enabling this feature in an existing or migrating setup,
+      - The token type of all the existing applications should be changed to JWT (including the system applications; publisher, developer portal and admin portal). 
+         - Follow [Update token type of an Application from OAUTH to JWT]({{base_path}}/reference/product-apis/devportal-apis/devportal-v3/devportal-v3/#tag/Applications/paths/~1applications~1%7BapplicationId%7D/put) to update the existing developer portal applications' token types.
+         - Follow the instructions for existing deployments in [Enable JWT for Portals]({{base_path}}/install-and-setup/setup/security/securing-api-m-web-portals/#enable-jwt-for-web-portals) to update existing portal applications.
+      - The already generated Opaque tokens before enabling the feature will continue to work.
+- This solution will not persist the tokens during generation, hence upon every token generation request, a new JWT access and refresh token pair will be generated. So it is recommended to use this feauture only with short lived access and refresh tokens.
+- The session invalidation will not perform token revocation after user logout in portals.   
+- This optimization feature is not compatible with [Token Binding feature](https://is.docs.wso2.com/en/next/references/token-binding/) available as an identity feature in API-M.
+- If you are using a customized JWT token issuer and wish to enable this feature, to support the additional system claims, make sure your custom JWTTokenIssuer is extending `org.wso2.is.key.manager.tokenpersistence.issuer.ExtendedJWTTokenIssuer` class.
+
+### Enabling Token Persistence Optimization
+
+1. Follow the steps in [Enable JWT for Web Portal]({{base_path}}/install-and-setup/setup/security/securing-api-m-web-portals/#enable-jwt-for-web-portals).
+2. Add the following to the `deployment.toml` in API Manager. Add this to the Control plane profile if you are using a distributed API-M setup.
+    
+   ```toml
+    [oauth.token_persistence]
+    enable=false
+
+    [oauth.revoked_token_headers_in_response]
+    enable=false
+
+    [[oauth.extensions.token_types]]
+    name = "JWT"
+    issuer = "org.wso2.is.key.manager.tokenpersistence.issuer.ExtendedJWTTokenIssuer"  
+   ``` 
+3. Restart the server.
+
 
 ## Opaque tokens
 
-The OAuth2 component in WSO2 API Manager(WSO2 API-M) has two implementations you can use to handle opaque token persistence in the database, which are namely synchronous and asynchronous token persistence.
+By default, the API-M stores opaque tokens directly in the database, preserving their original form. The OAuth2 component in WSO2 API Manager(WSO2 API-M) has two implementations you can use to handle opaque token persistence in the database, which are namely synchronous and asynchronous token persistence.
 
 The following sections guide you through the difference between these two approaches and how to configure them in a production environment.
 
@@ -42,7 +83,6 @@ By default, synchronous token persistence is enabled in WSO2 API Manager 4.0.0. 
 [oauth.token_generation]
 "retry_count_on_persistence_failures"=5
 ```
-    
     
 ### Asynchronous token persistence
 
@@ -128,4 +168,3 @@ The process flow now moves on to the recovery flow in order to handle the `CON_A
 -   As the same thread is being used, the OAuth2 component in the second node checks the database again for an ACTIVE access token.
 -   As there is now an ACTIVE token, which was persisted by the first node, the second node now returns the access token persisted by the first node to the client.
 -   Both access token requests receive the same access token.
-
