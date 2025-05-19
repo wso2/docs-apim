@@ -62,6 +62,15 @@ A **Solace Event API** corresponds to an API in WSO2 API Manager. Follow the ste
 2. [Subscribe to the API]({{base_path}}/consume/manage-subscription/subscribe-to-an-api) you have created above with an Application. When subscribing, choose the Subscription Level Policy that corresponds to the Solace Plan that you want to use for the API.
 3. Obtain a token for the subscribed application.
 
+!!! warning "Notice"
+    Subscribing to a Solace API creates an Access Request in the Solace broker, which will be used to authorize the token generated from the Application in WSO2 API Manager Developer Portal. If the application keys are generated ***after*** subscribing to the API, the Access Request may not become live immediately, after which the generated tokens will not be usable with the Solace broker immediately.
+
+    To ensure smooth integration, it is recommended to follow the steps below:
+    
+    1. First, create an application (or select an existing one).
+    2. Next, generate the required keys for the chosen application.
+    3. Finally, proceed to subscribe to the Solace API.
+
 ## Invoke the API
 
 1. Get the URL of the broker service. This can be obtained from the API definition in the Developer Portal, or from the Event Broker Service in the Solace Event Portal. Let's assume that the URL of the broker service is: `mqtts://mr-connection-4***9k.messaging.solace.cloud:8883`, which uses MQTT protocol.
