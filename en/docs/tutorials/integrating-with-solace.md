@@ -62,7 +62,7 @@ A **Solace Event API** corresponds to an API in WSO2 API Manager. Follow the ste
 2. [Subscribe to the API]({{base_path}}/consume/manage-subscription/subscribe-to-an-api) you have created above with an Application. When subscribing, choose the Subscription Level Policy that corresponds to the Solace Plan that you want to use for the API.
 3. Obtain a token for the subscribed application.
 
-!!! warning "Notice"
+!!! warning "Warning"
     Subscribing to a Solace API creates an Access Request in the Solace broker, which will be used to authorize the token generated from the Application in WSO2 API Manager Developer Portal. If the application keys are generated ***after*** subscribing to the API, the Access Request may not become live immediately, after which the generated tokens will not be usable with the Solace broker immediately.
 
     To ensure smooth integration, it is recommended to follow the steps below:
