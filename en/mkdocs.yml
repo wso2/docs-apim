@@ -103,7 +103,8 @@ nav:
         - Create Prototype APIs: 
             - Overview: design/prototype-api/overview.md
             - Mock Implementation: 
-                - With API Gateway: design/prototype-api/create-mocked-js-api.md
+                - Create Mock Implementation With API Gateway: design/prototype-api/create-mocked-js-api.md
+                - AI-Assisted Mock Implementation With API Gateway: design/prototype-api/ai-mocked-js-api.md
             - Existing Backend Implementation as a Prototype API: design/prototype-api/backend-url-prototype-api.md
         - Create API Products:
                 - API Product Overview: design/create-api-product/api-product-overview.md
