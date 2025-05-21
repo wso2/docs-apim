@@ -1,9 +1,11 @@
 {
 	"info": {
-		"_postman_id": "ae5aa07c-6961-4758-b2ab-9305baeda272",
-		"name": "WSO2 API Manager 4.0.0 - Admin REST API",
-		"description": "This document specifies a **RESTful API** for WSO2 **API Manager - Admin REST API** .\nIt is written with [swagger 2.0](http://swagger.io/).\n",
-		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+		"_postman_id": "77be4477-a354-4658-ae54-a497b6686035",
+		"name": "WSO2 API Manager 4.2.0 - Admin REST API",
+		"description": "This document specifies a **RESTful API** for WSO2 **API Manager - Admin REST API** .  \nIt is written with [swagger 2.0](http://swagger.io/).",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "44943032",
+		"_collection_link": "https://chamila-9449357.postman.co/workspace/Chamila's-Workspace~f2dd97e6-9b1a-495e-8f05-6b879538bc68/collection/44943032-77be4477-a354-4658-ae54-a497b6686035?action=share&source=collection_link&creator=44943032"
 	},
 	"item": [
 		{
@@ -76,16 +78,17 @@
 						{
 							"listen": "test",
 							"script": {
+								"type": "text/javascript",
 								"exec": [
 									"var response = JSON.parse(responseBody);",
-									"pm.collectionVariables.set(\"access-token\", access_token);"
-								],
-								"type": "text/javascript"
+									"pm.collectionVariables.set(\"access-token\", response.access_token);"
+								]
 							}
 						},
 						{
 							"listen": "prerequest",
 							"script": {
+								"type": "text/javascript",
 								"exec": [
 									"var url = pm.collectionVariables.get(\"basepath\").concat(\"/settings\");",
 									"",
@@ -108,8 +111,7 @@
 									" }",
 									"});",
 									""
-								],
-								"type": "text/javascript"
+								]
 							}
 						}
 					],
@@ -362,184 +364,6 @@
 			]
 		},
 		{
-			"name": "Mediation Policies",
-			"item": [
-				{
-					"name": "Get all Global Mediation Policies",
-					"request": {
-						"auth": {
-							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "{{access-token}}",
-									"type": "string"
-								}
-							]
-						},
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "{{basepath}}/policies/mediation",
-							"host": [
-								"{{basepath}}"
-							],
-							"path": [
-								"policies",
-								"mediation"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Add a Global Mediation Policy",
-					"event": [
-						{
-							"listen": "test",
-							"script": {
-								"type": "text/javascript",
-								"exec": [
-									"var response = JSON.parse(responseBody);",
-									"pm.collectionVariables.set(\"globalMediationPolicyId\", response.id);"
-								]
-							}
-						}
-					],
-					"request": {
-						"auth": {
-							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "{{access-token}}",
-									"type": "string"
-								}
-							]
-						},
-						"method": "POST",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\n  \"name\": \"custom_log_in_message.xml\",\n  \"type\": \"IN\",\n  \"config\": \"<sequence xmlns=\\\"http://ws.apache.org/ns/synapse\\\" name=\\\"custom_log_in_message\\\"> <log level=\\\"full\\\"> <property name=\\\"IN_MESSAGE\\\" value=\\\"IN_MESSAGE_21133232\\\"/> </log> </sequence>\"\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "{{basepath}}/policies/mediation",
-							"host": [
-								"{{basepath}}"
-							],
-							"path": [
-								"policies",
-								"mediation"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Get a Global Mediation Policy",
-					"request": {
-						"auth": {
-							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "{{access-token}}",
-									"type": "string"
-								}
-							]
-						},
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "{{basepath}}/policies/mediation/{{globalMediationPolicyId}}",
-							"host": [
-								"{{basepath}}"
-							],
-							"path": [
-								"policies",
-								"mediation",
-								"{{globalMediationPolicyId}}"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Update a Global Mediation Policy",
-					"request": {
-						"auth": {
-							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "{{access-token}}",
-									"type": "string"
-								}
-							]
-						},
-						"method": "PUT",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\n  \"name\": \"custom_log_in_message.xml\",\n  \"type\": \"IN\",\n  \"config\": \"<sequence xmlns=\\\"http://ws.apache.org/ns/synapse\\\" name=\\\"custom_log_in_message\\\"> <log level=\\\"full\\\"> <property name=\\\"IN_MESSAGE\\\" value=\\\"IN_MESSAGE_21133232\\\"/> </log> </sequence>\"\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "{{basepath}}/policies/mediation/{{globalMediationPolicyId}}",
-							"host": [
-								"{{basepath}}"
-							],
-							"path": [
-								"policies",
-								"mediation",
-								"{{globalMediationPolicyId}}"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Delete a Global Mediation Policy",
-					"request": {
-						"auth": {
-							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "{{access-token}}",
-									"type": "string"
-								}
-							]
-						},
-						"method": "DELETE",
-						"header": [],
-						"url": {
-							"raw": "{{basepath}}/policies/mediation/{{globalMediationPolicyId}}",
-							"host": [
-								"{{basepath}}"
-							],
-							"path": [
-								"policies",
-								"mediation",
-								"{{globalMediationPolicyId}}"
-							]
-						}
-					},
-					"response": []
-				}
-			]
-		},
-		{
 			"name": "Subscription Policies",
 			"item": [
 				{
@@ -600,7 +424,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n  \"policyName\": \"30PerMin\",\n  \"displayName\": \"30PerMin\",\n  \"description\": \"Allows 30 request per minute\",\n  \"isDeployed\": false,\n  \"defaultLimit\": {\n    \"type\": \"REQUESTCOUNTLIMIT\",\n    \"requestCount\": {\n      \"timeUnit\": \"min\",\n      \"unitTime\": 10,\n      \"requestCount\": 30\n    }\n  },\n  \"rateLimitCount\": 30,\n  \"rateLimitTimeUnit\": \"min\",\n  \"customAttributes\": [],\n  \"stopOnQuotaReach\": false,\n  \"billingPlan\": \"FREE\"\n}",
+							"raw": "{\n  \"policyName\": \"30PerMin\",\n  \"description\": \"test policy\",\n  \"defaultLimit\": {\n    \"type\": \"REQUESTCOUNTLIMIT\",\n    \"requestCount\": {\n      \"requestCount\": \"30\",\n      \"timeUnit\": \"min\",\n      \"unitTime\": \"1\"\n    }\n  },\n  \"subscriberCount\": 0,\n  \"rateLimitCount\": \"30\",\n  \"rateLimitTimeUnit\": \"sec\",\n  \"billingPlan\": \"FREE\",\n  \"stopOnQuotaReach\": true,\n  \"customAttributes\": [],\n  \"graphQLMaxComplexity\": 0,\n  \"graphQLMaxDepth\": 0,\n  \"monetization\": {\n    \"monetizationPlan\": \"FIXEDRATE\",\n    \"properties\": {\n      \"fixedPrice\": \"\",\n      \"pricePerRequest\": \"\",\n      \"currencyType\": \"\",\n      \"billingCycle\": \"week\"\n    }\n  },\n  \"permissions\": null\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -668,7 +492,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n  \"policyName\": \"30PerMin\",\n  \"displayName\": \"30PerMin\",\n  \"description\": \"Allows 30 request per minute\",\n  \"isDeployed\": false,\n  \"defaultLimit\": {\n    \"type\": \"REQUESTCOUNTLIMIT\",\n    \"requestCount\": {\n      \"timeUnit\": \"min\",\n      \"unitTime\": 10,\n      \"requestCount\": 30\n    }\n  },\n  \"rateLimitCount\": 30,\n  \"rateLimitTimeUnit\": \"min\",\n  \"customAttributes\": [],\n  \"stopOnQuotaReach\": false,\n  \"billingPlan\": \"FREE\"\n}",
+							"raw": "{\n  \"policyName\": \"30PerMin\",\n  \"description\": \"test policy\",\n  \"defaultLimit\": {\n    \"type\": \"REQUESTCOUNTLIMIT\",\n    \"requestCount\": {\n      \"requestCount\": \"30\",\n      \"timeUnit\": \"min\",\n      \"unitTime\": \"1\"\n    }\n  },\n  \"subscriberCount\": 0,\n  \"rateLimitCount\": \"30\",\n  \"rateLimitTimeUnit\": \"sec\",\n  \"billingPlan\": \"FREE\",\n  \"stopOnQuotaReach\": true,\n  \"customAttributes\": [],\n  \"graphQLMaxComplexity\": 0,\n  \"graphQLMaxDepth\": 0,\n  \"monetization\": {\n    \"monetizationPlan\": \"FIXEDRATE\",\n    \"properties\": {\n      \"fixedPrice\": \"\",\n      \"pricePerRequest\": \"\",\n      \"currencyType\": \"\",\n      \"billingCycle\": \"week\"\n    }\n  },\n  \"permissions\": null\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -1125,11 +949,11 @@
 						{
 							"listen": "test",
 							"script": {
+								"type": "text/javascript",
 								"exec": [
 									"var response = JSON.parse(responseBody);",
 									"pm.collectionVariables.set(\"denyConditionId\", response.conditionId);"
-								],
-								"type": "text/javascript"
+								]
 							}
 						}
 					],
@@ -1271,6 +1095,24 @@
 			"item": [
 				{
 					"name": "Retrieve/Search Applications",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"var response = JSON.parse(responseBody);",
+									"if (response.count > 0) {",
+									"    for (var i = 0; i < response.list.length; i++) {",
+									"        if (response.list[i].name == \"CalculatorApp\") {",
+									"            pm.collectionVariables.set(\"applicationId\", response.list[i].applicationId);",
+									"        }",
+									"    }",
+									"}"
+								]
+							}
+						}
+					],
 					"request": {
 						"auth": {
 							"type": "bearer",
@@ -1563,6 +1405,18 @@
 			"item": [
 				{
 					"name": "Get Tenant Id of User",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"var response = JSON.parse(responseBody);",
+									"pm.collectionVariables.set(\"tenantDomain\", response.tenantDomain);"
+								]
+							}
+						}
+					],
 					"request": {
 						"auth": {
 							"type": "bearer",
@@ -2366,6 +2220,64 @@
 						}
 					},
 					"response": []
+				},
+				{
+					"name": "Retrieve Key Manager Usages (APIs)",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access-token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{basepath}}/key-managers/{{keyManagerId}}/api-usages",
+							"host": [
+								"{{basepath}}"
+							],
+							"path": [
+								"key-managers",
+								"{{keyManagerId}}",
+								"api-usages"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Retrieve Key Manager Usages (Applications)",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access-token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{basepath}}/key-managers/{{keyManagerId}}/app-usages",
+							"host": [
+								"{{basepath}}"
+							],
+							"path": [
+								"key-managers",
+								"{{keyManagerId}}",
+								"app-usages"
+							]
+						}
+					},
+					"response": []
 				}
 			]
 		},
@@ -2387,6 +2299,55 @@
 						},
 						"method": "GET",
 						"header": [],
+						"url": {
+							"raw": "{{basepath}}/alert-subscriptions/bot-detection",
+							"host": [
+								"{{basepath}}"
+							],
+							"path": [
+								"alert-subscriptions",
+								"bot-detection"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Subscribe for Bot Detection Alerts",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"var response = JSON.parse(responseBody);",
+									"pm.collectionVariables.set(\"botDetectionUUID\", response.uuid);"
+								]
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access-token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"uuid\": \"urn:uuid:1ed6d2de-29df-4fed-a96a-46d2329dce65\",\n  \"email\": \"abc@gmail.com\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
 						"url": {
 							"raw": "{{basepath}}/alert-subscriptions/bot-detection",
 							"host": [
@@ -2424,43 +2385,6 @@
 								"alert-subscriptions",
 								"bot-detection",
 								"{{botDetectionUUID}}"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Subscribe for Bot Detection Alerts",
-					"request": {
-						"auth": {
-							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "{{access-token}}",
-									"type": "string"
-								}
-							]
-						},
-						"method": "POST",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\n  \"uuid\": \"urn:uuid:1ed6d2de-29df-4fed-a96a-46d2329dce65\",\n  \"email\": \"abc@gmail.com\"\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "{{basepath}}/alert-subscriptions/bot-detection",
-							"host": [
-								"{{basepath}}"
-							],
-							"path": [
-								"alert-subscriptions",
-								"bot-detection"
 							]
 						}
 					},
@@ -2504,11 +2428,11 @@
 						{
 							"listen": "test",
 							"script": {
+								"type": "text/javascript",
 								"exec": [
 									"var response = JSON.parse(responseBody);",
 									"pm.collectionVariables.set(\"environmentId\", response.id);"
-								],
-								"type": "text/javascript"
+								]
 							}
 						}
 					],
@@ -2527,7 +2451,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n\"name\": \"us-region\",\n\"displayName\": \"US Region\",\n\"description\": \"Gateway environment in US Region\",\n\"vhosts\": [\n{\n\"host\": \"mg.wso2.com\",\n\"httpContext\": \"pets\",\n\"httpPort\": 80,\n\"httpsPort\": 443,\n\"wsPort\": 9099,\n\"wssPort\": 8099\n}\n]\n}",
+							"raw": "{\n  \"name\": \"us-region\",\n  \"displayName\": \"US Region\",\n  \"description\": \"Gateway environment in US Region\",\n  \"vhosts\": [\n    {\n      \"host\": \"mg.wso2.com\",\n      \"httpContext\": \"\",\n      \"httpPort\": 8280,\n      \"httpsPort\": 8243,\n      \"wsPort\": 9099,\n      \"wssPort\": 8099\n    }\n  ],\n  \"provider\": \"wso2\"\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -2574,7 +2498,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n\"name\": \"us-region\",\n\"displayName\": \"US Region\",\n\"description\": \"Gateway environment in US Region\",\n\"vhosts\": [\n{\n\"host\": \"mg.wso2.com\",\n\"httpContext\": \"pets\",\n\"httpPort\": 80,\n\"httpsPort\": 443,\n\"wsPort\": 9099,\n\"wssPort\": 8099\n}\n]\n}",
+							"raw": "{\n  \"name\": \"us-region\",\n  \"displayName\": \"US Region\",\n  \"description\": \"Gateway environment in US Region\",\n  \"vhosts\": [\n    {\n      \"host\": \"mg.wso2.com\",\n      \"httpContext\": \"pets\",\n      \"httpPort\": 8280,\n      \"httpsPort\": 8243,\n      \"wsPort\": 9099,\n      \"wssPort\": 8099\n    }\n  ],\n  \"provider\": \"wso2\"\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -2667,6 +2591,187 @@
 					"response": []
 				}
 			]
+		},
+		{
+			"name": "Global Key Manager (Collection)",
+			"item": [
+				{
+					"name": "Get all Global Key Managers",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access-token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{basepath}}/global-key-managers",
+							"host": [
+								"{{basepath}}"
+							],
+							"path": [
+								"global-key-managers"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add a new Global Key Manager",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var response = JSON.parse(responseBody);",
+									"pm.collectionVariables.set(\"globalKeyManagerId\", response.id);"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access-token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"id\": \"81878053-4df6-4cce-8b4b-e57f4cab9473\",\n    \"name\": \"WSO2IS\",\n    \"displayName\": \"WSO2IS\",\n    \"type\": \"WSO2-IS\",\n    \"description\": \"WSO2 IS as Global KM\",\n    \"wellKnownEndpoint\": null,\n    \"introspectionEndpoint\": \"https://localhost:9444/oauth2/introspect\",\n    \"clientRegistrationEndpoint\": \"https://localhost:9444/client-registration/v0.17/register\",\n    \"tokenEndpoint\": \"https://localhost:9444/oauth2/token\",\n    \"displayTokenEndpoint\": \"https://localhost:9444/oauth2/token\",\n    \"revokeEndpoint\": \"https://localhost:9444/oauth2/revoke\",\n    \"displayRevokeEndpoint\": \"https://localhost:9444/oauth2/revoke\",\n    \"userInfoEndpoint\": \"https://localhost:9444/oauth2/userinfo\",\n    \"authorizeEndpoint\": \"https://localhost:9444/oauth2/userinfo\",\n    \"endpoints\": [],\n    \"certificates\": {\n        \"type\": \"PEM\",\n        \"value\": \"\"\n    },\n    \"issuer\": \"https://localhost:9444/oauth2/token\",\n    \"alias\": \"\",\n    \"scopeManagementEndpoint\": \"https://localhost:9444/oauth2/scope\",\n    \"availableGrantTypes\": [\n        \"client_credentials\",\n        \"password\"\n    ],\n    \"enableTokenGeneration\": true,\n    \"enableTokenEncryption\": false,\n    \"enableTokenHashing\": false,\n    \"enableMapOAuthConsumerApps\": true,\n    \"enableOAuthAppCreation\": true,\n    \"enableSelfValidationJWT\": true,\n    \"claimMapping\": [],\n    \"consumerKeyClaim\": \"azp\",\n    \"scopesClaim\": \"scope\",\n    \"tokenValidation\": [],\n    \"enabled\": true,\n    \"global\": true,\n    \"additionalProperties\": {\n        \"self_validate_jwt\": true,\n        \"Username\": \"admin\",\n        \"Password\": \"admin\"\n    },\n    \"tokenType\": \"DIRECT\"\n}"
+						},
+						"url": {
+							"raw": "{{basepath}}/global-key-managers",
+							"host": [
+								"{{basepath}}"
+							],
+							"path": [
+								"global-key-managers"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Global Key Manager Configuration",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access-token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{basepath}}/global-key-managers/{{globalKeyManagerId}}",
+							"host": [
+								"{{basepath}}"
+							],
+							"path": [
+								"global-key-managers",
+								"{{globalKeyManagerId}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update a Global Key Manager",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access-token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"id\": \"81878053-4df6-4cce-8b4b-e57f4cab9473\",\n    \"name\": \"WSO2IS\",\n    \"displayName\": \"WSO2IS\",\n    \"type\": \"WSO2-IS\",\n    \"description\": \"WSO2 IS as Global KM\",\n    \"wellKnownEndpoint\": null,\n    \"introspectionEndpoint\": \"https://localhost:9444/oauth2/introspect\",\n    \"clientRegistrationEndpoint\": \"https://localhost:9444/client-registration/v0.17/register\",\n    \"tokenEndpoint\": \"https://localhost:9444/oauth2/token\",\n    \"displayTokenEndpoint\": \"https://localhost:9444/oauth2/token\",\n    \"revokeEndpoint\": \"https://localhost:9444/oauth2/revoke\",\n    \"displayRevokeEndpoint\": \"https://localhost:9444/oauth2/revoke\",\n    \"userInfoEndpoint\": \"https://localhost:9444/oauth2/userinfo\",\n    \"authorizeEndpoint\": \"https://localhost:9444/oauth2/userinfo\",\n    \"endpoints\": [],\n    \"certificates\": {\n        \"type\": \"PEM\",\n        \"value\": \"\"\n    },\n    \"issuer\": \"https://localhost:9444/oauth2/token\",\n    \"alias\": \"\",\n    \"scopeManagementEndpoint\": \"https://localhost:9444/oauth2/scope\",\n    \"availableGrantTypes\": [\n        \"client_credentials\",\n        \"password\"\n    ],\n    \"enableTokenGeneration\": true,\n    \"enableTokenEncryption\": false,\n    \"enableTokenHashing\": false,\n    \"enableMapOAuthConsumerApps\": true,\n    \"enableOAuthAppCreation\": true,\n    \"enableSelfValidationJWT\": true,\n    \"claimMapping\": [],\n    \"consumerKeyClaim\": \"azp\",\n    \"scopesClaim\": \"scope\",\n    \"tokenValidation\": [],\n    \"enabled\": true,\n    \"global\": true,\n    \"additionalProperties\": {\n        \"self_validate_jwt\": true,\n        \"Username\": \"admin\",\n        \"Password\": \"admin\"\n    },\n    \"tokenType\": \"DIRECT\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{basepath}}/global-key-managers/{{globalKeyManagerId}}",
+							"host": [
+								"{{basepath}}"
+							],
+							"path": [
+								"global-key-managers",
+								"{{globalKeyManagerId}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Global Key Manager",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access-token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{basepath}}/global-key-managers/{{globalKeyManagerId}}",
+							"host": [
+								"{{basepath}}"
+							],
+							"path": [
+								"global-key-managers",
+								"{{globalKeyManagerId}}"
+							]
+						}
+					},
+					"response": []
+				}
+			]
 		}
 	],
 	"event": [
@@ -2700,7 +2805,7 @@
 		},
 		{
 			"key": "basepath",
-			"value": "https://localhost:9443/api/am/admin/v2"
+			"value": "https://localhost:9443/api/am/admin/v4"
 		},
 		{
 			"key": "applicationPolicyId",
@@ -2732,7 +2837,7 @@
 		},
 		{
 			"key": "appOwner",
-			"value": "admin"
+			"value": "user1"
 		},
 		{
 			"key": "exportAppName",
@@ -2888,7 +2993,7 @@
 		},
 		{
 			"key": "restAPIScopes",
-			"value": ""
+			"value": "openid apim:policies_import_export apim:admin apim:tier_view apim:tier_manage apim:admin_tier_view apim:admin_tier_manage apim:bl_view apim:bl_manage apim:mediation_policy_view apim:mediation_policy_create apim:app_owner_change apim:app_import_export apim:api_import_export apim:api_product_import_export apim:environment_manage apim:environment_read apim:monetization_usage_publish apim:api_workflow_approve apim:bot_data apim:tenantInfo apim:tenant_theme_manage apim:admin_operations apim:api_category apim:admin_settings apim:admin_alert_manage apim:api_workflow_view apim:scope_manage apim:role_manage apim:admin_application_view apim:keymanagers_manage apim:api_provider_change apim:llm_provider_manage\n"
 		},
 		{
 			"key": "dcrEndpoint",
@@ -2900,7 +3005,21 @@
 		},
 		{
 			"key": "roleId",
-			"value": "cHVibGlzaGVy"
+			"value": "SW50ZXJuYWwvcHVibGlzaGVy"
+		},
+		{
+			"key": "globalKeyManagerId",
+			"value": "4a6c9371-233b-4e5b-8e2b-f17275507d0c"
+		},
+		{
+			"key": "apiId",
+			"value": "de781385-06af-4803-8ef9-3c4e92f937a0",
+			"type": "string"
+		},
+		{
+			"key": "llmProviderId",
+			"value": "",
+			"type": "default"
 		}
 	]
 }

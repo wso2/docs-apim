@@ -1,8 +1,10 @@
 {
 	"info": {
-		"_postman_id": "70cf89a8-49d5-46e5-901c-8f13646d1913",
-		"name": "WSO2 API Manager 4.0.0 - DevPortal REST APIs",
-		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+		"_postman_id": "cbf758e7-589e-4118-88af-7279fd9aba6c",
+		"name": "WSO2 API Manager 4.2.0 - DevPortal REST APIs",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "44943032",
+		"_collection_link": "https://chamila-9449357.postman.co/workspace/Chamila's-Workspace~f2dd97e6-9b1a-495e-8f05-6b879538bc68/collection/44943032-cbf758e7-589e-4118-88af-7279fd9aba6c?action=share&source=collection_link&creator=44943032"
 	},
 	"item": [
 		{
@@ -75,17 +77,17 @@
 						{
 							"listen": "test",
 							"script": {
-								"type": "text/javascript",
 								"exec": [
 									"var response = JSON.parse(responseBody);",
 									"pm.collectionVariables.set(\"access-token\", response.access_token);"
-								]
+								],
+								"type": "text/javascript",
+								"packages": {}
 							}
 						},
 						{
 							"listen": "prerequest",
 							"script": {
-								"type": "text/javascript",
 								"exec": [
 									"var url = pm.collectionVariables.get(\"basepath\").concat(\"/settings\");",
 									"",
@@ -107,7 +109,9 @@
 									"     }",
 									" }",
 									"});"
-								]
+								],
+								"type": "text/javascript",
+								"packages": {}
 							}
 						}
 					],
@@ -120,28 +124,19 @@
 								"type": "text"
 							}
 						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"grant_type\": \"password\",\n\"username\":\"admin\",\n\"password\":\"admin\",\n\"scope\": \"apim:admin apim:api_key apim:app_import_export apim:app_manage apim:store_settings apim:sub_alert_manage apim:sub_manage apim:subscribe openid apim:subscribe\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
 						"url": {
-							"raw": "{{tokenEndpoint}}?grant_type=password&username={{username}}&password={{password}}&scope={{restAPIScopes}}",
+							"raw": "{{tokenEndpoint}}",
 							"host": [
 								"{{tokenEndpoint}}"
-							],
-							"query": [
-								{
-									"key": "grant_type",
-									"value": "password"
-								},
-								{
-									"key": "username",
-									"value": "{{username}}"
-								},
-								{
-									"key": "password",
-									"value": "{{password}}"
-								},
-								{
-									"key": "scope",
-									"value": "{{restAPIScopes}}"
-								}
 							]
 						}
 					},
@@ -2421,7 +2416,7 @@
 	"variable": [
 		{
 			"key": "basepath",
-			"value": "https://localhost:9443/api/am/devportal/v2"
+			"value": "https://localhost:9443/api/am/devportal/v3"
 		},
 		{
 			"key": "apiId",
@@ -2433,7 +2428,7 @@
 		},
 		{
 			"key": "access-token",
-			"value": "401fd530-57a1-3469-b76f-5d4a4a224a3d"
+			"value": "f98ae55d-6bf0-3f69-b4ad-cca5e1024f9e"
 		},
 		{
 			"key": "policyLevel",
