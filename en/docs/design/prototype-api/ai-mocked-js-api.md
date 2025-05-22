@@ -92,3 +92,24 @@
     !!! tip
         To configure latency and error simulations refer part 6 in step 2 of [Create Mock Implementation]({{base_path}}/design/
         prototype-api/create-mocked-js-api#step-2-implement-the-api)
+
+## Step 7 - Configure Latency and Error Simulations for the Mock API
+
+To apply simulations across the entire API, click **Configure Simulations for the API**.
+
+To apply simulations to a specific resource only, click **Configure Simulations** on that particular resource.
+
+[![Simulation Configuration]({{base_path}}/assets/img/learn/prototype-api/create-api-prototype-ai-configure-simulations.png)]({{base_path}}/assets/img/learn/prototype-api/create-api-prototype-ai-configure-simulations.png)
+
+!!! info
+     Simulations configured at the resource level will override those set at the API level.
+
+**Latency Simulation:** Adds a delay (in milliseconds) to API responses, simulating network or processing latency.
+
+**Error Simulation:** Forces the API to return a specific error code, helping test how your app handles failures.
+
+[![Simulation Configuration Modal]({{base_path}}/assets/img/learn/prototype-api/create-api-prototype-configure-simulations-modal.png)]({{base_path}}/assets/img/learn/prototype-api/create-api-prototype-configure-simulations-modal.png)
+
+Click **Save** to apply the changes.
+
+[![Simulation Configuration Save]({{base_path}}/assets/img/learn/prototype-api/create-api-prototype-configure-simulations-save.png)]({{base_path}}/assets/img/learn/prototype-api/create-api-prototype-configure-simulations-save.png)
