@@ -90,6 +90,12 @@ There are two approaches to configure a secondary user store. It can be configur
 
 9. After adding the user store to the server, edit the properties of the new secondary user store, and enable/disable it in a dynamic manner.
 
+
+    !!! Note
+        If a user ID is mapped to an attribute other than uid (e.g., sAMAccountName in Active Directory), you will need to manually update the username claim (http://wso2.org/claims/username) for that specific user store via the WSO2 Management Console. To do this, navigate to **Identity** > **Claims** > **List**, and then click the http://wso2.org/claims dialect. Under the **Username** claim, select **Edit** and add a new **Add Attribute Mapping** in the **Mapped Attribute(s)*** section for the secondary user store.
+
+        [![Secondary user store claim update]({{base_path}}/assets/img/administer/secondary-user-store-claim.png)]({{base_path}}/assets/img/administer/secondary-user-store-claim.png)
+        
 ## Configuring secondary user stores manually
 
 By default, the configuration of the primary user store is saved in the `user-mgt.xml` file. When you create a secondary user store using the management console as explained above, its configuration is saved to an XML file with the same name as the domain name that you specified. Alternatively, you can create this XML file manually and save it as follows:
