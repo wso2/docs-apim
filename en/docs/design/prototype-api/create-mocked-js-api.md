@@ -31,7 +31,14 @@ Follow the instructions below to add a mock implementation to the API:
 
      [![Select Mock Implementation]({{base_path}}/assets/img/learn/prototype-api/create-api-prototype-mock-impl-swagger-petstore.png)]({{base_path}}/assets/img/learn/prototype-api/create-api-prototype-mock-impl-swagger-petstore.png)
 
-3. View the inline script that has been generated.
+3. Choose the prefered behaviour of the mock implementation from **AI-assisted mock server** or **Static mock server**.
+   
+     [![Select Mock Implementation]({{base_path}}/assets/img/learn/prototype-api/create-api-prototype-choose-behaviour.png)]({{base_path}}/assets/img/learn/prototype-api/create-api-prototype-choose-behaviour.png)
+
+    !!! info
+        To use AI-assisted mock server, you need to follow steps in the [AI-Assisted mock server]({{base_path}}/design/prototype-api/ai-mocked-js-api/)
+
+4. View the inline script that has been generated.
    
      Click and expand any of the methods that contain a sample/mock payload. 
      
@@ -62,11 +69,18 @@ Follow the instructions below to add a mock implementation to the API:
          mc.setPayloadJSON(response200json);                  // Set the new payload to the message context
         ```
 
-4. Modify the sample/mock payload as required.
+5. Modify the sample/mock payload as required.
 
      For more information, see [Inline Script Methods](#inline-script-methods).
      
      For example, let's modify the inline script for the `GET /pet/{petId}` method by setting a path parameter entered by the user to a variable that will satisfy a condition and set a response accordingly.
+
+    !!! tip
+   
+        To modify the inline script using AI, first enable AI by following Steps 1–3 in the [AI-Assisted Mock Server]({{base_path}}/design/
+        prototype-api/ai-mocked-js-api#step-2-sign-in-to-ai-subscription-portal).  
+        Then, proceed to Step 6 to learn how to update inline scripts for a specific resource:  
+        [Modify Inline Scripts in a Specific Resource]({{base_path}}/design/prototype-api/ai-mocked-js-api#step-6-modify-inline-scripts-in-a-specific-resource).
 
     !!! tip
    
@@ -155,8 +169,29 @@ Follow the instructions below to add a mock implementation to the API:
          mc.setProperty('HTTP_SC', responseCodeSC + "");
          mc.setPayloadJSON(responses[responseCode]["application/json"]);   // Set the new payload to the message context
         ```
+
+6. Configure Latency and Error Simulations for the Mock API 
+
+     To apply simulations across the entire API, click **Configure Simulations for the API**.
+
+     To apply simulations to a specific resource only, click **Configure Simulations** on that particular resource.
+
+     [![Simulation Configuration]({{base_path}}/assets/img/learn/prototype-api/create-api-prototype-configure-simulations.png)]({{base_path}}/assets/img/learn/prototype-api/create-api-prototype-configure-simulations.png)
+
+    !!! info
+        Simulations configured at the resource level will override those set at the API level.
+
+     **Latency Simulation:** Adds a delay (in milliseconds) to API responses, simulating network or processing latency.
+
+     **Error Simulation:** Forces the API to return a specific error code, helping test how your app handles failures.
+
+     [![Simulation Configuration Modal]({{base_path}}/assets/img/learn/prototype-api/create-api-prototype-configure-simulations-modal.png)]({{base_path}}/assets/img/learn/prototype-api/create-api-prototype-configure-simulations-modal.png)
+
+     Click **Save** to apply the changes.
+
+     [![Simulation Configuration Save]({{base_path}}/assets/img/learn/prototype-api/create-api-prototype-configure-simulations-save.png)]({{base_path}}/assets/img/learn/prototype-api/create-api-prototype-configure-simulations-save.png)
       
-5. Click **Save** to save the endpoint configurations in the API.
+7. Click **Save** to save the endpoint configurations in the API.
 
      [![Save inline scripts]({{base_path}}/assets/img/learn/create-api-prototype-click-save.png)]({{base_path}}/assets/img/learn/create-api-prototype-click-save.png)
 
