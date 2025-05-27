@@ -995,6 +995,14 @@
                             "default": "[\"^device_.*,openid\"]",
                             "possible": "",
                             "description": "List of allowlisted scopes. Take desc from Key Concepts page."
+                        },
+                        {
+                            "name": "enable_revoke_token_cleanup",
+                            "type": "string",
+                            "required": false,
+                            "default": "TRUE",
+                            "possible": "",
+                            "description": "Configuration used to disable the revoke token cleanup functionality. If set to false, revoked tokens will not be cleaned up."
                         }
                     ]
                 }
