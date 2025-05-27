@@ -587,7 +587,7 @@ nav:
                     - Configure the Crypto Provider: install-and-setup/setup/advance-configurations/configuring-the-crypto-provider.md
         - Deploy:
             - Deployment Patterns Overview: install-and-setup/setup/deployment-overview.md
-            - Deploy the API-M Runtime:
+            - Deploy on VM:
                 - All-In-One Deployment:
                     - All-in-One Deployment Overview: install-and-setup/setup/single-node/all-in-one-deployment-overview.md
                     - Configure a Single API-M Node: install-and-setup/setup/single-node/configuring-a-single-node.md
