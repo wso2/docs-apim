@@ -171,22 +171,22 @@ kubectl create secret generic jks-secret --from-file=wso2carbon.jks --from-file=
 
 1. Deploy ACP
 ```bash
-helm install apim-acp wso2/wso2am-acp -f default_acp_values.yaml
+helm install apim-acp wso2/wso2am-acp -f https://raw.githubusercontent.com/wso2/helm-apim/76b4e120e675e5ade08edbdc515e1b5a273ef3e2/docs/am-pattern-4-ACP_TM_GW_KM/default_acp_values.yaml
 ```
 
 2. Deploy KM
 ```bash
-helm install apim-km wso2/wso2am-km -f default_km_values.yaml
+helm install apim-km wso2/wso2am-km -f https://raw.githubusercontent.com/wso2/helm-apim/76b4e120e675e5ade08edbdc515e1b5a273ef3e2/docs/am-pattern-4-ACP_TM_GW_KM/default_km_values.yaml
 ```
 
 3. Deploy TM
 ```bash
-helm install apim-tm wso2/wso2am-tm -f default_tm_values.yaml
+helm install apim-tm wso2/wso2am-tm -f https://raw.githubusercontent.com/wso2/helm-apim/76b4e120e675e5ade08edbdc515e1b5a273ef3e2/docs/am-pattern-4-ACP_TM_GW_KM/default_tm_values.yaml
 ```
 
 4. Deploy GW
 ```bash
-helm install apim-gw wso2/wso2-gw -f default_gw_values.yaml
+helm install apim-gw wso2/wso2-gw -f https://raw.githubusercontent.com/wso2/helm-apim/76b4e120e675e5ade08edbdc515e1b5a273ef3e2/docs/am-pattern-4-ACP_TM_GW_KM/default_gw_values.yaml
 ```
 
 - Once the service is up and running, deploy the NGINX Ingress Controller by following the steps outlined in [1.1 Add ingress controller](#11-add-ingress-controller).

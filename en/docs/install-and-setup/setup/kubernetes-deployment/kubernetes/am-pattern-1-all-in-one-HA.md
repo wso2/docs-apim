@@ -115,12 +115,12 @@ For advanced details on this deployment pattern, please refer to the official
 
 1. Deploy All-in-One-1:
 ```bash
-helm install apim-1 wso2/wso2am-all-in-one -f default_values_1.yaml
+helm install apim-1 wso2/wso2am-all-in-one -f https://raw.githubusercontent.com/wso2/helm-apim/76b4e120e675e5ade08edbdc515e1b5a273ef3e2/docs/am-pattern-1-all-in-one-HA/default_values_1.yaml
 ```
 
 2. Deploy All-in-One-2:
 ```bash
-helm install apim-2 wso2/wso2am-all-in-one -f default_values_2.yaml
+helm install apim-2 wso2/wso2am-all-in-one -f https://raw.githubusercontent.com/wso2/helm-apim/76b4e120e675e5ade08edbdc515e1b5a273ef3e2/docs/am-pattern-1-all-in-one-HA/default_values_2.yaml
 ```
 
 - Once the service is up and running, deploy the NGINX Ingress Controller by following the steps outlined in [1.1 Add Ingress Controller](#11-add-ingress-controller).

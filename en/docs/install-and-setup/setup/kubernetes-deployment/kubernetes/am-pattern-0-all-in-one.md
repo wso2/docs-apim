@@ -54,7 +54,7 @@ For advanced details on the deployment pattern, please refer to the official
 
 If you want to try WSO2 API Manager with minimal configuration, you do not need to follow all the steps described above. You can simply use the default values provided in the default_values.yaml, which includes the H2 database and the default keystore and truststore. Once the service is up and running, deploy the NGINX Ingress Controller by following the steps outlined [here](#2-add-ingress-controller).
 ```bash
-helm install apim ./all-in-one -f default_values.yaml
+helm install apim ./all-in-one -f https://raw.githubusercontent.com/wso2/helm-apim/76b4e120e675e5ade08edbdc515e1b5a273ef3e2/docs/am-pattern-0-all-in-one/default_values.yaml
 ```
 
 ## Configuration
