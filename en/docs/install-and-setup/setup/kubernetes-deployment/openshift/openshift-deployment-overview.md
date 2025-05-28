@@ -71,7 +71,8 @@ Also
     ```
 
 !!! info "Note"
-    Changing the group is mandatory to allow OpenShift to assign arbitrary UIDs.
+    Changing the group is mandatory to allow OpenShift to assign arbitrary UIDs. 
+    Ref: [a-guide-to-openshift-and-uids](https://www.redhat.com/en/blog/a-guide-to-openshift-and-uids), [group_ownership_and_file_permission](https://developers.redhat.com/blog/2020/10/26/adapting-docker-and-kubernetes-containers-to-run-on-red-hat-openshift-container-platform#group_ownership_and_file_permission)
 
 After creating your Dockerfile:
 
