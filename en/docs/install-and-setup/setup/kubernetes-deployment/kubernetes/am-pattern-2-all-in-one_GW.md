@@ -161,10 +161,10 @@ Deploy API Manager with minimal configuration using the following commands:
 
 ```bash
 # Deploy API Manager Control Plane
-helm install apim wso2/wso2am-all-in-one -f https://raw.githubusercontent.com/wso2/helm-apim/76b4e120e675e5ade08edbdc515e1b5a273ef3e2/docs/am-pattern-2-all-in-one_GW/default_values.yaml
+helm install apim wso2/wso2am-all-in-one -f https://raw.githubusercontent.com/wso2/helm-apim/main/docs/am-pattern-2-all-in-one_GW/default_values.yaml
 
 # Deploy Universal Gateway
-helm install apim-gw wso2/wso2am-gw -f https://raw.githubusercontent.com/wso2/helm-apim/76b4e120e675e5ade08edbdc515e1b5a273ef3e2/docs/am-pattern-2-all-in-one_GW/default_gw_values.yaml
+helm install apim-gw wso2/wso2am-gw -f https://raw.githubusercontent.com/wso2/helm-apim/main/docs/am-pattern-2-all-in-one_GW/default_gw_values.yaml
 ```
 
 !!! important

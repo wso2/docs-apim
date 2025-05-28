@@ -188,19 +188,19 @@ If you want to quickly try out WSO2 API Manager on Kubernetes with minimal confi
    **Deploy Control Plane (All-in-One)**:
    ```bash
    helm install apim wso2/wso2am-all-in-one \
-     -f https://raw.githubusercontent.com/wso2/helm-apim/76b4e120e675e5ade08edbdc515e1b5a273ef3e2/docs/am-pattern-5-all-in-one_GW_KM/default_values.yaml
+     -f https://raw.githubusercontent.com/wso2/helm-apim/main/docs/am-pattern-5-all-in-one_GW_KM/default_values.yaml
    ```
 
    **Deploy Key Manager**:
    ```bash
    helm install km wso2/wso2am-acp \
-     -f https://raw.githubusercontent.com/wso2/helm-apim/76b4e120e675e5ade08edbdc515e1b5a273ef3e2/docs/am-pattern-5-all-in-one_GW_KM/default_km_values.yaml
+     -f https://raw.githubusercontent.com/wso2/helm-apim/main/docs/am-pattern-5-all-in-one_GW_KM/default_km_values.yaml
    ```
 
    **Deploy Universal Gateway**:
    ```bash
    helm install gw wso2/wso2am-gw \
-     -f https://raw.githubusercontent.com/wso2/helm-apim/76b4e120e675e5ade08edbdc515e1b5a273ef3e2/docs/am-pattern-5-all-in-one_GW_KM/default_gw_values.yaml
+     -f https://raw.githubusercontent.com/wso2/helm-apim/main/docs/am-pattern-5-all-in-one_GW_KM/default_gw_values.yaml
    ```
 
 3. **Set Up Ingress**:

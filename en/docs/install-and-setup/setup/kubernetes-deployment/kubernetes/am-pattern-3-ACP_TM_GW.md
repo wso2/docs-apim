@@ -183,13 +183,13 @@ Deploy API Manager with minimal configuration using the following commands:
 
 ```bash
 # Deploy API Control Plane
-helm install apim-acp wso2/wso2am-acp -f https://raw.githubusercontent.com/wso2/helm-apim/76b4e120e675e5ade08edbdc515e1b5a273ef3e2/docs/am-pattern-3-ACP_TM_GW/default_acp_values.yaml
+helm install apim-acp wso2/wso2am-acp -f https://raw.githubusercontent.com/wso2/helm-apim/main/docs/am-pattern-3-ACP_TM_GW/default_acp_values.yaml
 
 # Deploy Traffic Manager
-helm install apim-tm wso2/wso2am-tm -f https://raw.githubusercontent.com/wso2/helm-apim/76b4e120e675e5ade08edbdc515e1b5a273ef3e2/docs/am-pattern-3-ACP_TM_GW/default_tm_values.yaml
+helm install apim-tm wso2/wso2am-tm -f https://raw.githubusercontent.com/wso2/helm-apim/main/docs/am-pattern-3-ACP_TM_GW/default_tm_values.yaml
 
 # Deploy Universal Gateway
-helm install apim-gw wso2/wso2am-gw -f https://raw.githubusercontent.com/wso2/helm-apim/76b4e120e675e5ade08edbdc515e1b5a273ef3e2/docs/am-pattern-3-ACP_TM_GW/default_gw_values.yaml
+helm install apim-gw wso2/wso2am-gw -f https://raw.githubusercontent.com/wso2/helm-apim/main/docs/am-pattern-3-ACP_TM_GW/default_gw_values.yaml
 ```
 
 !!! important
