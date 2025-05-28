@@ -69,8 +69,6 @@ Deploy API Manager with minimal configuration using the following command:
 
 ```bash
 helm install apim ./all-in-one -f https://raw.githubusercontent.com/wso2/helm-apim/main/docs/am-pattern-0-all-in-one/default_values.yaml
-
-
 ```
 
 Once the service is up and running, make sure you have the NGINX Ingress Controller deployed by following the steps outlined in the [Add Ingress Controller](#11-add-ingress-controller) section.
