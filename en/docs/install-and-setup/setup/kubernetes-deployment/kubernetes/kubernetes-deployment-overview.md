@@ -98,7 +98,7 @@ The Helm charts include cloud provider-specific configurations for:
 ## Deploy on OpenShift
 
 - **Note:** Default Helm chart configurations are intended for Kubernetes deployment.  
-- If you are deploying on OpenShift, additional configurations are required for both Docker images and the deployment process. For comprehensive instructions, refer to the [OpenShift Deployment Guide](openshift_deployment.md).
+- If you are deploying on OpenShift, additional configurations are required for both Docker images and the deployment process. For comprehensive instructions, refer to the [OpenShift Deployment Guide](../openshift/openshift-deployment-overview.md).
 
 ## Additional Guide
 

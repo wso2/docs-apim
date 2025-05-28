@@ -611,6 +611,7 @@ nav:
                         - Scalable Deployment with Key Manager Separation: install-and-setup/setup/kubernetes-deployment/kubernetes/am-pattern-4-ACP_TM_GW_KM.md
                         - Simple Scalable Deployment: install-and-setup/setup/kubernetes-deployment/kubernetes/am-pattern-2-all-in-one_GW.md
                         - Gateway and Key Manager Separation Deployment: install-and-setup/setup/kubernetes-deployment/kubernetes/am-pattern-5-all-in-one_GW_KM.md
+                - API-M on Openshift: install-and-setup/setup/kubernetes-deployment/openshift/openshift-deployment-overview.md
             - Deployment Best Practices:
                 - Deployment Checklist: install-and-setup/setup/deployment-best-practices/production-deployment-guidelines.md
                 - Security Guidelines for a Production Deployment: install-and-setup/setup/deployment-best-practices/security-guidelines-for-production-deployment.md
