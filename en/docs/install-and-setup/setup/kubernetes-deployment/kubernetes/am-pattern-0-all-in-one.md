@@ -1,69 +1,89 @@
-# Pattern 0: API-M Deployment with all-in-one setup
+# Pattern 0: API-M Deployment with All-in-One Setup
 
 This deployment consists of a single API-M node with a single API-M runtime. You can use this pattern if you expect to receive low traffic to your deployment and do not need any high availability in your environment.
 
-![WSO2 API Manager pattern 1 deployment](https://apim.docs.wso2.com/en/4.3.0/assets/img/setup-and-install/single-node-apim-deployment.png)
+<a href="{{base_path}}/assets/img/setup-and-install/single-node-apim-deployment.png"><img src="{{base_path}}/assets/img/setup-and-install/single-node-apim-deployment.png" alt="single-node api-m deployment" width="60%"></a>
 
-For advanced details on the deployment pattern, please refer to the official
-[documentation](https://apim.docs.wso2.com/en/latest/install-and-setup/setup/single-node/all-in-one-deployment-overview/#single-node-deployment).
+!!! info
+    For advanced details on the deployment pattern, please refer to the official [documentation](https://apim.docs.wso2.com/en/latest/install-and-setup/setup/single-node/all-in-one-deployment-overview/#single-node-deployment).
 
 ## Contents
 
-- [Pattern 0: API-M Deployment with all-in-one setup](#pattern-0-api-m-deployment-with-all-in-one-setup)
+- [Pattern 0: API-M Deployment with All-in-One Setup](#pattern-0-api-m-deployment-with-all-in-one-setup)
   - [Contents](#contents)
   - [Prerequisites](#prerequisites)
+  - [Step 1 - Set Up Basic Configurations](#step-1---set-up-basic-configurations)
   - [Minimal Configuration](#minimal-configuration)
   - [Configuration](#configuration)
     - [1. General Configuration of Helm Charts](#1-general-configuration-of-helm-charts)
-      - [1.1 Add ingress controller](#11-add-ingress-controller)
-      - [1.2 Mount Keystore and Truststore](#12-mount-keystore-and-truststore)
-      - [1.3 Encrypting secrets](#13-encrypting-secrets)
-      - [1.4 Configure Docker image and Databases](#14-configure-docker-image-and-databases)
-      - [1.5 Configure SSL in Service Exposure](#15-configure-ssl-in-service-exposure)
-    - [2. All-in-one Configurations](#2-all-in-one-configurations)
-      - [2.1 Configure multiple gateways](#21-configure-multiple-gateways)
-      - [2.2 Configure User Store Properties](#22-configure-user-store-properties)
-      - [2.4 Configure JWKS URL](#24-configure-jwks-url)
-      - [2.5 Deploy All-in-One](#25-deploy-all-in-one)
-    - [3. Add a DNS record mapping the hostnames and the external IP](#3-add-a-dns-record-mapping-the-hostnames-and-the-external-ip)
+        - [1.1 Add Ingress Controller](#11-add-ingress-controller)
+        - [1.2 Mount Keystore and Truststore](#12-mount-keystore-and-truststore)
+        - [1.3 Encrypting Secrets](#13-encrypting-secrets)
+        - [1.4 Configure Docker Image and Databases](#14-configure-docker-image-and-databases)
+        - [1.5 Configure SSL in Service Exposure](#15-configure-ssl-in-service-exposure)
+    - [2. All-in-One Configurations](#2-all-in-one-configurations)
+        - [2.1 Configure Multiple Gateways](#21-configure-multiple-gateways)
+        - [2.2 Configure User Store Properties](#22-configure-user-store-properties)
+        - [2.4 Configure JWKS URL](#24-configure-jwks-url)
+        - [2.5 Deploy All-in-One](#25-deploy-all-in-one)
+    - [3. Add a DNS Record Mapping the Hostnames and the External IP](#3-add-a-dns-record-mapping-the-hostnames-and-the-external-ip)
     - [4. Access Management Consoles](#4-access-management-consoles)
 
 ## Prerequisites
 
-- WSO2 product Docker images used for the Kubernetes deployment.
-  
-  WSO2 product Docker images available at [DockerHub](https://hub.docker.com/u/wso2/) package General Availability (GA)
-  versions of WSO2 products with no [WSO2 Updates](https://wso2.com/updates).
+Before you begin, ensure you have the following prerequisites in place:
 
-  For a production grade deployment of the desired WSO2 product-version, it is highly recommended to use the relevant
-  Docker image which packages WSO2 Updates, available at [WSO2 Private Docker Registry](https://docker.wso2.com/). In order
-  to use these images, you need an active [WSO2 Subscription](https://wso2.com/subscription).
+## Step 1 - Set Up Basic Configurations
 
-- Install [Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git), [Helm](https://helm.sh/docs/intro/install/)
-  and [Kubernetes client](https://kubernetes.io/docs/tasks/tools/install-kubectl/) in order to run the steps provided in the
-  following quick start guide.
-- An already setup [Kubernetes cluster](https://kubernetes.io/docs/setup).
-- Install [NGINX Ingress Controller](https://kubernetes.github.io/ingress-nginx/deploy/). 
-- Add the WSO2 Helm chart repository.
+!!! info
+    The following tools and configurations are necessary for deploying WSO2 API-M in a Kubernetes environment.
 
-    ```
-     helm repo add wso2 https://helm.wso2.com && helm repo update
-    ```
+1. Install the required tools:
+   - [Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git)
+   - [Helm](https://helm.sh/docs/intro/install/)
+   - [Kubernetes client](https://kubernetes.io/docs/tasks/tools/install-kubectl/)
+
+2. Ensure you have a running [Kubernetes cluster](https://kubernetes.io/docs/setup/).
+
+3. Install the [NGINX Ingress Controller](https://kubernetes.github.io/ingress-nginx/deploy/).
+
+4. Add the WSO2 Helm chart repository:
+   ```bash
+   helm repo add wso2 https://helm.wso2.com && helm repo update
+   ```
 
 ## Minimal Configuration
 
-If you want to try WSO2 API Manager with minimal configuration, you do not need to follow all the steps described above. You can simply use the default values provided in the default_values.yaml, which includes the H2 database and the default keystore and truststore. Once the service is up and running, deploy the NGINX Ingress Controller by following the steps outlined [here](#2-add-ingress-controller).
+If you want to quickly try out WSO2 API Manager on Kubernetes with minimal configuration, you can use the default values provided in the `default_values.yaml` file. 
+
+!!! info "Quick Start Configuration"
+    This minimal configuration includes:
+    
+    - H2 database (embedded)
+    - Default keystore and truststore
+    - Basic settings for testing purposes
+
+    **Note:** This configuration is ideal for development environments or quick evaluation but is not recommended for production use.
+
+Deploy API Manager with minimal configuration using the following command:
+
 ```bash
 helm install apim ./all-in-one -f https://raw.githubusercontent.com/wso2/helm-apim/76b4e120e675e5ade08edbdc515e1b5a273ef3e2/docs/am-pattern-0-all-in-one/default_values.yaml
 ```
+
+Once the service is up and running, make sure you have the NGINX Ingress Controller deployed by following the steps outlined in the [Add Ingress Controller](#11-add-ingress-controller) section.
 
 ## Configuration
 
 ### 1. General Configuration of Helm Charts
 
 The helm charts for the API Manager deployment are available in the [WSO2 Helm Chart Repository](https://github.com/wso2/helm-apim/tree/4.5.x). You can either use the charts from the repository or clone the repository and use the charts from the local copy.
-- The helm naming convention for APIM follows a simple pattern. The following format is used for naming the resources.
-```<RELEASE_NAME>-<CHART_NAME>-<RESOURCE_NAME>```
+
+!!! note "Resource Naming Convention"
+    The helm naming convention for APIM follows a simple pattern:
+    ```
+    <RELEASE_NAME>-<CHART_NAME>-<RESOURCE_NAME>
+    ```
 
 #### 1.1 Add ingress controller
 
@@ -177,44 +197,48 @@ In addition to the primary, internal keystores and truststore files, you can als
   
 #### 1.5 Configure SSL in Service Exposure
 
-* For WSO2 recommended best practices in configuring SSL when exposing the internal product services to outside of the Kubernetes cluster,
-  please refer to the [official WSO2 container guide](https://github.com/wso2/container-guide/blob/master/route/Routing.md#configuring-ssl).
+!!! info "SSL Configuration Best Practices"
+    For WSO2 recommended best practices in configuring SSL when exposing internal services to outside of the Kubernetes cluster, refer to the [official WSO2 container guide](https://github.com/wso2/container-guide/blob/master/route/Routing.md#configuring-ssl).
+
+    Proper SSL configuration is critical for securing API traffic and maintaining compliance with security standards.
 
 
 ### 2. All-in-one Configurations
+
+This section covers the specific configurations relevant to the All-in-One deployment pattern.
 
 #### 2.1 Configure multiple gateways
 
 If you need to distribute the Gateway load that comes in, you can configure multiple API Gateway environments in WSO2 API Manager to publish to a single Developer Portal. [See more...](https://apim.docs.wso2.com/en/latest/manage-apis/deploy-and-publish/deploy-on-gateway/deploy-api/deploy-through-multiple-api-gateways/)
 ```yaml
-    gateway:
-        # -- APIM Gateway environments
-        environments:
-        - name: "Default"
-          type: "hybrid"
-          gatewayType: "Regular"
-          provider: "wso2"
-          visibility:
-          displayInApiConsole: true
-          description: "This is a hybrid gateway that handles both production and sandbox token traffic."
-          showAsTokenEndpointUrl: true
-          serviceName: "apim-gw-wso2am-gateway-service"
-          servicePort: 9443
-          wsHostname: "websocket.wso2.com"
-          httpHostname: "gw.wso2.com"
-          websubHostname: "websub.wso2.com"
-        - name: "Default_apk"
-          type: "hybrid"
-          provider: "wso2"
-          gatewayType: "APK"
-          displayInApiConsole: true
-          description: "This is a hybrid gateway that handles both production and sandbox token traffic."
-          showAsTokenEndpointUrl: true
-          serviceName: "apim-gw-wso2am-gateway-service"
-          servicePort: 9443
-          wsHostname: "websocket.wso2.com"
-          httpHostname: "default.gw.wso2.com:9095"
-          websubHostname: "websub.wso2.com"
+gateway:
+    # -- APIM Gateway environments
+    environments:
+    - name: "Default"
+      type: "hybrid"
+      gatewayType: "Regular"
+      provider: "wso2"
+      visibility:
+      displayInApiConsole: true
+      description: "This is a hybrid gateway that handles both production and sandbox token traffic."
+      showAsTokenEndpointUrl: true
+      serviceName: "apim-gw-wso2am-gateway-service"
+      servicePort: 9443
+      wsHostname: "websocket.wso2.com"
+      httpHostname: "gw.wso2.com"
+      websubHostname: "websub.wso2.com"
+    - name: "Default_apk"
+      type: "hybrid"
+      provider: "wso2"
+      gatewayType: "APK"
+      displayInApiConsole: true
+      description: "This is a hybrid gateway that handles both production and sandbox token traffic."
+      showAsTokenEndpointUrl: true
+      serviceName: "apim-gw-wso2am-gateway-service"
+      servicePort: 9443
+      wsHostname: "websocket.wso2.com"
+      httpHostname: "default.gw.wso2.com:9095"
+      websubHostname: "websub.wso2.com"
 ```
 
 #### 2.2 Configure User Store Properties
@@ -230,7 +254,10 @@ You can configure user store properties as described in this [documentation](htt
         ReadGroups: true
 ```
 
-> **Important:** If you do not want to configure any of the above properties, you must remove the `properties` block from the YAML file.
+!!! warning "Configuration Note"
+    If you do not want to configure any of these properties, you must remove the `properties` block from the YAML file to prevent deployment issues.
+
+For a complete list of available user store properties and their descriptions, refer to the [documentation](https://apim.docs.wso2.com/en/latest/administer/managing-users-and-roles/managing-user-stores/working-with-properties-of-user-stores/).
 
 #### 2.4 Configure JWKS URL
 By default, for the super tenant, the Resident Key Manager's JWKS URL is set to `https://<HOSTNAME>:9443/oauth2/jwks`. If you are using a virtual host like `am.wso2.com` that is not globally routable, this URL will be incorrect. You can configure the correct JWKS URL for the super tenant using the Helm chart as shown below:
@@ -242,14 +269,31 @@ wso2:
       oauth_config:
         oauth2JWKSUrl: "https://localhost:9443/oauth2/jwks"
 ```
+
 #### 2.5 Deploy All-in-One
 
-Now deploy the Helm Chart using the following command after creating a namespace for the deployment. Replace <release-name> and <namespace> with appropriate values. Replace <helm-chart-path> with the path to the Helm Deployment.
-  
-  ```bash
-  kubectl create namespace <namespace>
-  helm install <release-name> <helm-chart-path> --version 4.5.0-1 --namespace <namespace> --dependency-update -f values.yaml --create-namespace
-  ```
+After configuring all the necessary parameters, you can deploy the All-in-One pattern using Helm:
+
+1. Create a namespace for your deployment
+2. Install the Helm chart with your custom configurations
+
+```bash
+# Create namespace for deployment
+kubectl create namespace <namespace>
+
+# Deploy API Manager using Helm
+helm install <release-name> <helm-chart-path> \
+  --version 4.5.0-1 \
+  --namespace <namespace> \
+  --dependency-update \
+  -f values.yaml \
+  --create-namespace
+```
+
+!!! tip "Deployment Parameters"
+    - `<release-name>`: Choose a name for your release (e.g., `apim`)
+    - `<namespace>`: Specify the Kubernetes namespace (e.g., `wso2`)
+    - `<helm-chart-path>`: Path to the Helm chart (e.g., `./all-in-one` or use the repository URL)
 
 
 ### 3. Add a DNS record mapping the hostnames and the external IP
@@ -266,7 +310,7 @@ If the defined hostnames are not backed by a DNS service, for the purpose of eva
 hostnames and the external IP in the `/etc/hosts` file at the client-side.
 
 ```
-<EXTERNAL-IP> <kubernetes.ingress.management.hostname> <kubernetes.ingress.gateway.hostname> <kubernetes.ingress.websub.hostname> <kubernetes.ingress.websocket.hostname> 
+<EXTERNAL-IP> <kubernetes.ingress.management.hostname> <kubernetes.ingress.gateway.hostname> <kubernetes.ingress.websub.hostname> <kubernetes.ingress.websocket.hostname>
 ```
 
 ### 4. Access Management Consoles
