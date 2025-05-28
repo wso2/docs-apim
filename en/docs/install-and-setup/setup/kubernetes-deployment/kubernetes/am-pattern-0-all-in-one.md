@@ -5,7 +5,7 @@ This deployment consists of a single API-M node with a single API-M runtime. You
 <a href="{{base_path}}/assets/img/setup-and-install/single-node-apim-deployment.png"><img src="{{base_path}}/assets/img/setup-and-install/single-node-apim-deployment.png" alt="single-node api-m deployment" width="60%"></a>
 
 !!! info
-    For advanced details on the deployment pattern, please refer to the official [documentation](https://apim.docs.wso2.com/en/latest/install-and-setup/setup/single-node/all-in-one-deployment-overview/#single-node-deployment).
+    For advanced details on the deployment pattern, please refer to the official [documentation](kubernetes-deployment-overview.md).
 
 ## Contents
 
@@ -85,7 +85,7 @@ The helm charts for the API Manager deployment are available in the [WSO2 Helm C
     <RELEASE_NAME>-<CHART_NAME>-<RESOURCE_NAME>
     ```
 
-#### 1.1 Add ingress controller
+#### 1.1 Add Ingress Controller
 
 The recommendation is to use [**NGINX Ingress Controller**](https://kubernetes.github.io/ingress-nginx/deploy/) suitable for your cloud environment or local deployment. Some sample annotations that could be used with the ingress resources are as follows.
 
@@ -129,7 +129,7 @@ In addition to the primary, internal keystores and truststore files, you can als
 > For advanced details with regards to managing custom Java keystores and truststores in a container based WSO2 product deployment
   please refer to the [official WSO2 container guide](https://github.com/wso2/container-guide/blob/master/deploy/Managing_Keystores_And_Truststores.md).
 
-#### 1.3 Encrypting secrets
+#### 1.3 Encrypting Secrets
 
 - If you need to use cipher tool to encrypt the passwords in the secret, first you need to encrypt the passwords using the cipher tool. The cipher tool can be found in the bin directory of the product pack. The following command can be used to encrypt the password.
   ```
@@ -149,7 +149,7 @@ In addition to the primary, internal keystores and truststore files, you can als
 
 
 
-#### 1.4 Configure Docker image and Databases
+#### 1.4 Configure Docker Image and Databases
 
   - Add the following configurations to reflect the docker image created previously in the helm chart.
     
@@ -203,11 +203,11 @@ In addition to the primary, internal keystores and truststore files, you can als
     Proper SSL configuration is critical for securing API traffic and maintaining compliance with security standards.
 
 
-### 2. All-in-one Configurations
+### 2. All-in-One Configurations
 
 This section covers the specific configurations relevant to the All-in-One deployment pattern.
 
-#### 2.1 Configure multiple gateways
+#### 2.1 Configure Multiple Gateways
 
 If you need to distribute the Gateway load that comes in, you can configure multiple API Gateway environments in WSO2 API Manager to publish to a single Developer Portal. [See more...](https://apim.docs.wso2.com/en/latest/manage-apis/deploy-and-publish/deploy-on-gateway/deploy-api/deploy-through-multiple-api-gateways/)
 ```yaml

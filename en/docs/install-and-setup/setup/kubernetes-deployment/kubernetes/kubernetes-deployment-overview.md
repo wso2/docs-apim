@@ -9,46 +9,56 @@ WSO2 API Manager is a complete solution for designing and publishing APIs, creat
 ## Available Deployment Patterns
 
 ### Pattern 0: All-in-One Single Node
-- **Directory**: `am-pattern-0-all-in-one`
 - **Description**: Simple deployment with a single API Manager node handling all functionality
 - **Use Case**: Development environments or small deployments with low traffic
 - **Components**: Single API-M node with all functionality
-- **Resources**: [README](am-pattern-0-all-in-one/README.md), [Sample Values](am-pattern-0-all-in-one/default_values.yaml)
+- [**Guide**](am-pattern-0-all-in-one.md)
+
+<a href="{{base_path}}/assets/img/setup-and-install/single-node-apim-deployment.png"><img src="{{base_path}}/assets/img/setup-and-install/single-node-apim-deployment.png" alt="single-node api-m deployment" width="60%"></a>
 
 ### Pattern 1: All-in-One HA (High Availability)
-- **Directory**: `am-pattern-1-all-in-one-HA`
 - **Description**: High availability deployment with multiple API Manager nodes in active-active configuration
 - **Use Case**: Production environments requiring high availability but with moderate traffic
 - **Components**: Multiple API-M nodes with all functionality in each node
-- **Resources**: [README](am-pattern-1-all-in-one-HA/README.md), [Sample Values 1](am-pattern-1-all-in-one-HA/default_values_1.yaml), [Sample Values 2](am-pattern-1-all-in-one-HA/default_values_2.yaml)
+- [**Guide**](am-pattern-1-all-in-one-HA.md)
+
+<a href="{{base_path}}/assets/img/setup-and-install/active-active-apim-deployment.png"><img src="{{base_path}}/assets/img/setup-and-install/active-active-apim-deployment.png" alt="active-active api-m deployment" width="60%"></a>
 
 ### Pattern 2: All-in-One with Separate Gateway
 - **Directory**: `am-pattern-2-all-in-one_GW`
 - **Description**: Deployment with separate gateway nodes and a control plane
 - **Use Case**: Environments with higher API traffic needing gateway scalability
 - **Components**: API Control Plane, Universal Gateways
-- **Resources**: [README](am-pattern-2-all-in-one_GW/README.md), [Sample Control Plane Values](am-pattern-2-all-in-one_GW/default_values.yaml), [Sample Gateway Values](am-pattern-2-all-in-one_GW/default_gw_values.yaml)
+- [**Guide**](am-pattern-2-all-in-one_GW.md)
+
+<a href="{{base_path}}/assets/img/setup-and-install/deployment-no-tm.png"><img src="{{base_path}}/assets/img/setup-and-install/deployment-no-tm.png" alt="simple scalable api-m deployment" width="60%"></a>
 
 ### Pattern 3: Distributed Deployment with ACP, TM, and GW *(Recommended)*
 - **Directory**: `am-pattern-3-ACP_TM_GW`
 - **Description**: Distributed deployment with separate API Control Plane, Traffic Manager, and Gateway components
 - **Use Case**: Production environments with high traffic needing component-level scalability
 - **Components**: API Control Plane (ACP), Traffic Manager (TM), Universal Gateway (GW)
-- **Resources**: [README](am-pattern-3-ACP_TM_GW/README.md), [ACP Values](am-pattern-3-ACP_TM_GW/default_acp_values.yaml), [Gateway Values](am-pattern-3-ACP_TM_GW/default_gw_values.yaml), [Traffic Manager Values](am-pattern-3-ACP_TM_GW/default_tm_values.yaml)
+- [**Guide**](am-pattern-3-ACP_TM_GW.md)
+
+<a href="{{base_path}}/assets/img/setup-and-install/distributed-deployment-tm.png"><img src="{{base_path}}/assets/img/setup-and-install/distributed-deployment-tm.png" alt="simple scalable api-m deployment" width="60%"></a>
 
 ### Pattern 4: Fully Distributed Deployment (ACP, TM, GW, KM)
 - **Directory**: `am-pattern-4-ACP_TM_GW_KM`
 - **Description**: Fully distributed deployment with separate Key Manager component
 - **Use Case**: Large-scale production environments with complex security requirements
 - **Components**: API Control Plane (ACP), Traffic Manager (TM), Universal Gateway (GW), Key Manager (KM)
-- **Resources**: [README](am-pattern-4-ACP_TM_GW_KM/README.md), [ACP Values](am-pattern-4-ACP_TM_GW_KM/default_acp_values.yaml), [Gateway Values](am-pattern-4-ACP_TM_GW_KM/default_gw_values.yaml), [Key Manager Values](am-pattern-4-ACP_TM_GW_KM/default_km_values.yaml), [Traffic Manager Values](am-pattern-4-ACP_TM_GW_KM/default_tm_values.yaml)
+- [**Guide**](am-pattern-4-ACP_TM_GW_KM.md)
+
+<a href="{{base_path}}/assets/img/setup-and-install/distributed-deployment-km.png"><img src="{{base_path}}/assets/img/setup-and-install/distributed-deployment-km.png" alt="fully distributed deployment" width="60%"></a>
 
 ### Pattern 5: All-in-One with Separate Gateway and Key Manager
 - **Directory**: `am-pattern-5-all-in-one_GW_KM`
 - **Description**: Deployment with separate Gateway and Key Manager components
 - **Use Case**: Environments focusing on API security with dedicated Key Manager component
 - **Components**: API Control Plane, Universal Gateway, Key Manager
-- **Resources**: [README](am-pattern-5-all-in-one_GW_KM/README.md), [Control Plane Values](am-pattern-5-all-in-one_GW_KM/default_values.yaml), [Gateway Values](am-pattern-5-all-in-one_GW_KM/default_gw_values.yaml), [Key Manager Values](am-pattern-5-all-in-one_GW_KM/default_km_values.yaml)
+- [**Guide**](am-pattern-5-all-in-one_GW_KM.md)
+
+<a href="{{base_path}}/assets/img/setup-and-install/deployment-km.png"><img src="{{base_path}}/assets/img/setup-and-install/deployment-km.png" alt="Simple Scalable Deployment" width="100%"></a>
 
 ## How to Use
 
@@ -90,7 +100,7 @@ The Helm charts include cloud provider-specific configurations for:
 - **Note:** Default Helm chart configurations are intended for Kubernetes deployment.  
 - If you are deploying on OpenShift, additional configurations are required for both Docker images and the deployment process. For comprehensive instructions, refer to the [OpenShift Deployment Guide](openshift_deployment.md).
 
-## Additional Resources
+## Additional Guide
 
 - [WSO2 API Manager Documentation](https://apim.docs.wso2.com/)
 - [WSO2 Helm Charts Repository](https://github.com/wso2/helm-apim/)

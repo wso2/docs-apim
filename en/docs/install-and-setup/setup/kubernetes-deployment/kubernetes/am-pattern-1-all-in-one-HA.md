@@ -1,49 +1,60 @@
 # Pattern 1: API-M Deployment with All-in-One HA Setup
 
-This deployment consists of a single API-M node with a single API-M runtime. You can use this pattern if you expect to receive low traffic and do not require high availability in your environment.
+This deployment consists of a highly available API-M cluster with multiple nodes of the API-M runtime. You can use this pattern if you expect to receive moderate traffic and require high availability in your environment.
 
-![WSO2 API Manager pattern 1 deployment](https://apim.docs.wso2.com/en/latest/assets/img/setup-and-install/active-active-apim-deployment.png)
+<a href="{{base_path}}/assets/img/setup-and-install/active-active-apim-deployment.png"><img src="{{base_path}}/assets/img/setup-and-install/active-active-apim-deployment.png" alt="active-active api-m deployment" width="60%"></a>
 
-For advanced details on this deployment pattern, please refer to the official
-[documentation](https://apim.docs.wso2.com/en/latest/install-and-setup/setup/single-node/all-in-one-deployment-overview/#single-node-deployment).
+!!! info
+    For advanced details on this deployment pattern, please refer to the official [documentation](kubernetes-deployment-overview.md).
 
 ## Contents
 
-- [Pattern 1: API-M Deployment with All-in-One Setup](#pattern-1-api-m-deployment-with-all-in-one-setup)
+- [Pattern 1: API-M Deployment with All-in-One HA Setup](#pattern-1-api-m-deployment-with-all-in-one-ha-setup)
   - [Contents](#contents)
   - [Prerequisites](#prerequisites)
-    - [1. Basic Configurations](#1-basic-configurations)
-    - [2. Build Docker Images](#2-build-docker-images)
-    - [3. Configure Database](#3-configure-database)
+    - [Step 1 - Set Up Basic Configurations](#step-1---set-up-basic-configurations)
+    - [Step 2 - Build Docker Images](#step-2---build-docker-images)
+    - [Step 3 - Configure Database](#step-3---configure-database)
   - [Minimal Configuration](#minimal-configuration)
   - [Configuration](#configuration)
     - [1. General Configuration of Helm Charts](#1-general-configuration-of-helm-charts)
-      - [1.1 Add Ingress Controller](#11-add-ingress-controller)
-      - [1.2 Mount Keystore and Truststore](#12-mount-keystore-and-truststore)
-      - [1.3 Encrypting Secrets](#13-encrypting-secrets)
-      - [1.4 Configure Docker Image and Databases](#14-configure-docker-image-and-databases)
-      - [1.5 Configure SSL in Service Exposure](#15-configure-ssl-in-service-exposure)
+        - [1.1 Add Ingress Controller](#11-add-ingress-controller)
+        - [1.2 Mount Keystore and Truststore](#12-mount-keystore-and-truststore)
+        - [1.3 Encrypting Secrets](#13-encrypting-secrets)
+        - [1.4 Configure Docker Image and Databases](#14-configure-docker-image-and-databases)
+        - [1.5 Configure SSL in Service Exposure](#15-configure-ssl-in-service-exposure)
     - [2. All-in-One Configurations](#2-all-in-one-configurations)
-      - [2.1 Configure Multiple Gateways](#21-configure-multiple-gateways)
-      - [2.2 Configure User Store Properties](#22-configure-user-store-properties)
-      - [2.4 Configure JWKS URL](#24-configure-jwks-url)
-      - [2.5 Deploy All-in-One](#25-deploy-all-in-one)
+        - [2.1 Configure Multiple Gateways](#21-configure-multiple-gateways)
+        - [2.2 Configure User Store Properties](#22-configure-user-store-properties)
+        - [2.4 Configure JWKS URL](#24-configure-jwks-url)
+        - [2.5 Deploy All-in-One](#25-deploy-all-in-one)
     - [3. Add a DNS Record Mapping the Hostnames and the External IP](#3-add-a-dns-record-mapping-the-hostnames-and-the-external-ip)
     - [4. Access Management Consoles](#4-access-management-consoles)
 
 ## Prerequisites
 
-### 1. Basic Configurations
+Before you begin, ensure you have the following prerequisites in place:
 
-- Install [Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git), [Helm](https://helm.sh/docs/intro/install/), and the [Kubernetes client](https://kubernetes.io/docs/tasks/tools/install-kubectl/) to run the steps provided in this quick start guide.
-- An already set up [Kubernetes cluster](https://kubernetes.io/docs/setup/).
-- Install the [NGINX Ingress Controller](https://kubernetes.github.io/ingress-nginx/deploy/).
-- Add the WSO2 Helm chart repository:
-  ```bash
-  helm repo add wso2 https://helm.wso2.com && helm repo update
-  ```
+## Step 1 - Set Up Basic Configurations
 
-### 2. Build Docker Images
+!!! info
+    The following tools and configurations are necessary for deploying WSO2 API-M in a Kubernetes environment.
+
+1. Install the required tools:
+   - [Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git)
+   - [Helm](https://helm.sh/docs/intro/install/)
+   - [Kubernetes client](https://kubernetes.io/docs/tasks/tools/install-kubectl/)
+
+2. Ensure you have a running [Kubernetes cluster](https://kubernetes.io/docs/setup/).
+
+3. Install the [NGINX Ingress Controller](https://kubernetes.github.io/ingress-nginx/deploy/).
+
+4. Add the WSO2 Helm chart repository:
+   ```bash
+   helm repo add wso2 https://helm.wso2.com && helm repo update
+   ```
+
+## Step 2 - Build Docker Images
 
 - WSO2 product Docker images are used for the Kubernetes deployment.
   
@@ -87,7 +98,7 @@ For advanced details on this deployment pattern, please refer to the official
   docker push CONTAINER_REGISTRY/IMAGE_REPO:TAG
   ```
 
-### 3. Configure Database
+## Step 3 - Configure Database
 
 - Before running the API Manager, you must configure the databases and populate them with the initial data. All required database scripts are available in the `dbscripts` directory of the product pack. Locate the appropriate scripts for your chosen database engine and execute them accordingly. It is recommended to use two separate database users with limited permissions for enhanced security.
 
@@ -108,20 +119,31 @@ For advanced details on this deployment pattern, please refer to the official
 
 ## Minimal Configuration
 
-- Pre-configured YAML files are provided to help you quickly start the deployment. You can use these files as a starting point to deploy this pattern. This deployment requires separate databases. Therefore, follow the steps in [2. Build Docker Images](#2-build-docker-images) to build the Docker images with JDBC drivers, and refer to [3. Configure Database](#3-configure-database) to set up the database.
+If you want to quickly try out WSO2 API Manager on Kubernetes with minimal configuration, you can use the default values provided in the pre-configured YAML files.
 
-- Run the following command to deploy the Helm charts:
-> **Important:** Naming conventions are important. If you want to change them, ensure consistency. 
+!!! info "Quick Start Configuration"
+    This minimal configuration includes:
+    
+    - External database connection (requires setup)
+    - Default keystore and truststore
+    - Basic settings for a highly available deployment
 
-1. Deploy All-in-One-1:
+    **Note:** This deployment requires separate databases. Follow the steps in [Step 2 - Build Docker Images](#step-2---build-docker-images) to build the Docker images with JDBC drivers, and [Step 3 - Configure Database](#step-3---configure-database) to set up the database.
+
+Deploy API Manager with minimal configuration using the following commands:
+
 ```bash
+# Deploy first instance
 helm install apim-1 wso2/wso2am-all-in-one -f https://raw.githubusercontent.com/wso2/helm-apim/76b4e120e675e5ade08edbdc515e1b5a273ef3e2/docs/am-pattern-1-all-in-one-HA/default_values_1.yaml
-```
 
-2. Deploy All-in-One-2:
-```bash
+# Deploy second instance (for high availability)
 helm install apim-2 wso2/wso2am-all-in-one -f https://raw.githubusercontent.com/wso2/helm-apim/76b4e120e675e5ade08edbdc515e1b5a273ef3e2/docs/am-pattern-1-all-in-one-HA/default_values_2.yaml
 ```
+
+!!! important
+    Naming conventions are important. If you want to change them, ensure consistency throughout your configuration.
+
+Once the service is up and running, make sure you have the NGINX Ingress Controller deployed by following the steps outlined in the [Add Ingress Controller](#11-add-ingress-controller) section.
 
 - Once the service is up and running, deploy the NGINX Ingress Controller by following the steps outlined in [1.1 Add Ingress Controller](#11-add-ingress-controller).
 
@@ -211,7 +233,10 @@ It is recommended to use the [**NGINX Ingress Controller**](https://kubernetes.g
           repository: ""
           digest: ""
     ```
-    > If you are using a **private Docker registry**, you must enable `imagePullSecrets.enabled` and provide the username and password.
+
+!!! info
+    If you are using a **private Docker registry**, you must enable `imagePullSecrets.enabled` and provide the username and password.
+
   - Provide the database configurations under the following section:
 
     ```yaml
@@ -295,7 +320,8 @@ You can configure user store properties as described in this [documentation](htt
         ReadGroups: true
 ```
 
-> **Important:** If you do not want to configure any of the above properties, you must remove the `properties` block from the YAML file.
+!!! warning Important
+    If you do not want to configure any of the above properties, you must remove the `properties` block from the YAML file.
 
 #### 2.4 Configure JWKS URL
 
@@ -308,6 +334,7 @@ wso2:
       oauth_config:
         oauth2JWKSUrl: "https://localhost:9443/oauth2/jwks"
 ```
+
 #### 2.5 Deploy All-in-One
 
 Now deploy the Helm chart using the following command after creating a namespace for the deployment. Replace `<release-name>` and `<namespace>` with appropriate values. Replace `<helm-chart-path>` with the path to the Helm deployment.
