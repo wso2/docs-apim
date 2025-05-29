@@ -1,4 +1,4 @@
-# Pattern 3: Helm Chart for Distributed API-M Deployment with Gateway and Traffic Manager Separated from the Control Plane
+# Pattern 3: Distributed API-M Deployment with Gateway and Traffic Manager Separated from the Control Plane
 
 This is the standard distributed deployment for API Manager. The default configuration consists of two API control planes, two Traffic Managers, and two Universal Gateways. This is a production-ready deployment pattern.
 

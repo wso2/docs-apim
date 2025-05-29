@@ -8,7 +8,7 @@ WSO2 API Manager is a complete solution for designing and publishing APIs, creat
 
 ## Available Deployment Patterns
 
-### Pattern 0: All-in-One Single Node
+### Pattern 0: API-M Deployment with All-in-One Setup
 - **Description**: Simple deployment with a single API Manager node handling all functionality
 - **Use Case**: Development environments or small deployments with low traffic
 - **Components**: Single API-M node with all functionality
@@ -16,7 +16,7 @@ WSO2 API Manager is a complete solution for designing and publishing APIs, creat
 
 <a href="{{base_path}}/assets/img/setup-and-install/single-node-apim-deployment.png"><img src="{{base_path}}/assets/img/setup-and-install/single-node-apim-deployment.png" alt="single-node api-m deployment" width="60%"></a>
 
-### Pattern 1: All-in-One HA (High Availability)
+### Pattern 1: API-M Deployment with All-in-One HA Setup
 - **Description**: High availability deployment with multiple API Manager nodes in active-active configuration
 - **Use Case**: Production environments requiring high availability but with moderate traffic
 - **Components**: Multiple API-M nodes with all functionality in each node
@@ -24,8 +24,7 @@ WSO2 API Manager is a complete solution for designing and publishing APIs, creat
 
 <a href="{{base_path}}/assets/img/setup-and-install/active-active-apim-deployment.png"><img src="{{base_path}}/assets/img/setup-and-install/active-active-apim-deployment.png" alt="active-active api-m deployment" width="60%"></a>
 
-### Pattern 2: All-in-One with Separate Gateway
-- **Directory**: `am-pattern-2-all-in-one_GW`
+### Pattern 2: API-M Deployment with Simple Scalable Setup
 - **Description**: Deployment with separate gateway nodes and a control plane
 - **Use Case**: Environments with higher API traffic needing gateway scalability
 - **Components**: API Control Plane, Universal Gateways
@@ -33,8 +32,7 @@ WSO2 API Manager is a complete solution for designing and publishing APIs, creat
 
 <a href="{{base_path}}/assets/img/setup-and-install/deployment-no-tm.png"><img src="{{base_path}}/assets/img/setup-and-install/deployment-no-tm.png" alt="simple scalable api-m deployment" width="60%"></a>
 
-### Pattern 3: Distributed Deployment with ACP, TM, and GW *(Recommended)*
-- **Directory**: `am-pattern-3-ACP_TM_GW`
+### Pattern 3: Distributed API-M Deployment with Gateway and Traffic Manager Separated from the Control Plane *(Recommended)*
 - **Description**: Distributed deployment with separate API Control Plane, Traffic Manager, and Gateway components
 - **Use Case**: Production environments with high traffic needing component-level scalability
 - **Components**: API Control Plane (ACP), Traffic Manager (TM), Universal Gateway (GW)
@@ -42,8 +40,7 @@ WSO2 API Manager is a complete solution for designing and publishing APIs, creat
 
 <a href="{{base_path}}/assets/img/setup-and-install/distributed-deployment-tm.png"><img src="{{base_path}}/assets/img/setup-and-install/distributed-deployment-tm.png" alt="simple scalable api-m deployment" width="60%"></a>
 
-### Pattern 4: Fully Distributed Deployment (ACP, TM, GW, KM)
-- **Directory**: `am-pattern-4-ACP_TM_GW_KM`
+### Pattern 4: API-M Deployment with Fully Distributed Setup
 - **Description**: Fully distributed deployment with separate Key Manager component
 - **Use Case**: Large-scale production environments with complex security requirements
 - **Components**: API Control Plane (ACP), Traffic Manager (TM), Universal Gateway (GW), Key Manager (KM)
@@ -51,8 +48,7 @@ WSO2 API Manager is a complete solution for designing and publishing APIs, creat
 
 <a href="{{base_path}}/assets/img/setup-and-install/distributed-deployment-km.png"><img src="{{base_path}}/assets/img/setup-and-install/distributed-deployment-km.png" alt="fully distributed deployment" width="60%"></a>
 
-### Pattern 5: All-in-One with Separate Gateway and Key Manager
-- **Directory**: `am-pattern-5-all-in-one_GW_KM`
+### Pattern 5: API-M Deployment with Simple Scalable Setup with Key Manager Separated
 - **Description**: Deployment with separate Gateway and Key Manager components
 - **Use Case**: Environments focusing on API security with dedicated Key Manager component
 - **Components**: API Control Plane, Universal Gateway, Key Manager

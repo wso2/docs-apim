@@ -607,10 +607,10 @@ nav:
                         - Configure a Single API-M Node: install-and-setup/setup/kubernetes-deployment/kubernetes/am-pattern-0-all-in-one.md
                         - Configure an Active-Active API-M Deployment: install-and-setup/setup/kubernetes-deployment/kubernetes/am-pattern-1-all-in-one-HA.md
                     - Distributed Deployment:
-                        - Scalable Deployment with Traffic Manager Separation (Recommended): install-and-setup/setup/kubernetes-deployment/kubernetes/am-pattern-3-ACP_TM_GW.md
-                        - Scalable Deployment with Key Manager Separation: install-and-setup/setup/kubernetes-deployment/kubernetes/am-pattern-4-ACP_TM_GW_KM.md
+                        - Advanced Scalable Deployment (Recommended): install-and-setup/setup/kubernetes-deployment/kubernetes/am-pattern-3-ACP_TM_GW.md
+                        - Advanced Scalable Deployment with Key Manager Separation: install-and-setup/setup/kubernetes-deployment/kubernetes/am-pattern-4-ACP_TM_GW_KM.md
                         - Simple Scalable Deployment: install-and-setup/setup/kubernetes-deployment/kubernetes/am-pattern-2-all-in-one_GW.md
-                        - Gateway and Key Manager Separation Deployment: install-and-setup/setup/kubernetes-deployment/kubernetes/am-pattern-5-all-in-one_GW_KM.md
+                        - Simple Scalable Deployment with Key Manager Separation: install-and-setup/setup/kubernetes-deployment/kubernetes/am-pattern-5-all-in-one_GW_KM.md
                 - API-M on Openshift: install-and-setup/setup/kubernetes-deployment/openshift/openshift-deployment-overview.md
             - Deployment Best Practices:
                 - Deployment Checklist: install-and-setup/setup/deployment-best-practices/production-deployment-guidelines.md
