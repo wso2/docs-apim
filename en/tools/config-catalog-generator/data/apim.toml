@@ -1,0 +1,2 @@
+[apim]
+gateway_type = "Regular,APK,AWS"
