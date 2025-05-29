@@ -604,12 +604,12 @@ nav:
                 - API-M on K8s:
                     - All-In-One Deployment:
                         - Configure a Single API-M Node: install-and-setup/setup/kubernetes-deployment/kubernetes/am-pattern-0-all-in-one.md
-                        - Configure an Active-Active API-M Deployment: install-and-setup/setup/kubernetes-deployment/kubernetes/am-pattern-1-all-in-one-HA.md
+                        - Configure an Active-Active API-M Deployment: install-and-setup/setup/kubernetes-deployment/kubernetes/am-pattern-1-all-in-one-ha.md
                     - Distributed Deployment:
-                        - Configure a Distributed API-M Deploymen (Recommended): install-and-setup/setup/kubernetes-deployment/kubernetes/am-pattern-3-ACP_TM_GW.md
-                        - Configure a Distributed API-M Deployment with Key Manager Separation: install-and-setup/setup/kubernetes-deployment/kubernetes/am-pattern-4-ACP_TM_GW_KM.md
-                        - Configure Simple Scalable Deployment: install-and-setup/setup/kubernetes-deployment/kubernetes/am-pattern-2-all-in-one_GW.md
-                        - Configure Simple Scalable Deployment with Key Manager Separation: install-and-setup/setup/kubernetes-deployment/kubernetes/am-pattern-5-all-in-one_GW_KM.md
+                        - Configure a Distributed API-M Deploymen (Recommended): install-and-setup/setup/kubernetes-deployment/kubernetes/am-pattern-3-acp-tm-gw.md
+                        - Configure a Distributed API-M Deployment with Key Manager Separation: install-and-setup/setup/kubernetes-deployment/kubernetes/am-pattern-4-acp-tm-gw-km.md
+                        - Configure Simple Scalable Deployment: install-and-setup/setup/kubernetes-deployment/kubernetes/am-pattern-2-all-in-one-gw.md
+                        - Configure Simple Scalable Deployment with Key Manager Separation: install-and-setup/setup/kubernetes-deployment/kubernetes/am-pattern-5-all-in-one-gw-tm.md
                 - API-M on Openshift: install-and-setup/setup/kubernetes-deployment/openshift/openshift-deployment-overview.md
             - Deployment Best Practices:
                 - Deployment Checklist: install-and-setup/setup/deployment-best-practices/production-deployment-guidelines.md
