@@ -311,11 +311,11 @@ For distributed deployments of WSO2 API Manager on OpenShift, you need to apply 
 
 Review the [WSO2 API-M Deployment Patterns](../kubernetes/kubernetes-deployment-overview.md) and choose the pattern that suits your requirements:
 
-- [Pattern 1: HA All-in-One Deployment](../kubernetes/am-pattern-1-all-in-one-HA.md)
-- [Pattern 2: All-in-One with Gateway](../kubernetes/am-pattern-2-all-in-one_GW.md) 
-- [Pattern 3: Control Plane with Traffic Manager and Gateway](../kubernetes/am-pattern-3-ACP_TM_GW.md)
-- [Pattern 4: Control Plane with Traffic Manager, Gateway and Key Manager](../kubernetes/am-pattern-4-ACP_TM_GW_KM.md)
-- [Pattern 5: API-M Deployment with Simple Scalable Setup](../kubernetes/am-pattern-5-all-in-one_GW_KM.md)
+- [Pattern 1: HA All-in-One Deployment](../kubernetes/am-pattern-1-all-in-one-ha.md)
+- [Pattern 2: All-in-One with Gateway](../kubernetes/am-pattern-2-all-in-one-gw.md) 
+- [Pattern 3: Control Plane with Traffic Manager and Gateway](../kubernetes/am-pattern-3-acp-tm-gw.md)
+- [Pattern 4: Control Plane with Traffic Manager, Gateway and Key Manager](../kubernetes/am-pattern-4-acp-tm-gw-km.md)
+- [Pattern 5: API-M Deployment with Simple Scalable Setup](../kubernetes/am-pattern-5-all-in-one-gw-km.md)
 
 ### Step 2 - Configure Each Component
 
