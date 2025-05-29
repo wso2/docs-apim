@@ -186,3 +186,34 @@ The following applications are required for running WSO2 API Manager and its sam
  </tr>
  </table>
  </html>
+
+## ARM compatibility
+
+WSO2 API Manager is compatible with ARM processors. It can run on ARM-based systems, such as those with Apple Silicon or ARM-based Linux distributions.
+
+The products have been tested and confirmed to work on the following ARM-based processors:
+
+<html>
+<table>
+<tr>
+<th> <b>Operating System</b> </th>
+<th> <b>ARM Architecture</b> </th>
+</tr>
+<tr>
+<td>
+<p><b>MacOS</b></p>
+</td>
+<td>
+  <p>M1, M2, M3, M4</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><b>Ubuntu 24.04</b></p>
+</td>
+<td>
+ARMv9
+</td>
+</tr>
+</table>
+</html>
