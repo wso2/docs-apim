@@ -161,10 +161,10 @@ Deploy API Manager with minimal configuration using the following commands:
 
 ```bash
 # Deploy API Manager Control Plane
-helm install apim wso2/wso2am-all-in-one -f https://raw.githubusercontent.com/wso2/helm-apim/main/docs/am-pattern-2-all-in-one_GW/default_values.yaml
+helm install apim wso2/wso2am-all-in-one --version 4.5.0-2 -f https://raw.githubusercontent.com/wso2/helm-apim/main/docs/am-pattern-2-all-in-one_GW/default_values.yaml
 
 # Deploy Universal Gateway
-helm install apim-gw wso2/wso2am-gw -f https://raw.githubusercontent.com/wso2/helm-apim/main/docs/am-pattern-2-all-in-one_GW/default_gw_values.yaml
+helm install apim-gw wso2/wso2am-gw --version 4.5.0-2 -f https://raw.githubusercontent.com/wso2/helm-apim/main/docs/am-pattern-2-all-in-one_GW/default_gw_values.yaml
 ```
 
 !!! important
@@ -373,7 +373,7 @@ kubectl create namespace <namespace>
 
 # Deploy API Manager Control Plane using Helm
 helm install <release-name> <helm-chart-path> \
-  --version 4.5.0-1 \
+  --version 4.5.0-2 \
   --namespace <namespace> \
   --dependency-update \
   -f values.yaml \
@@ -435,7 +435,7 @@ After configuring all the necessary parameters, you can deploy the Universal Gat
 ```bash
 # Deploy Universal Gateway using Helm
 helm install <release-name> <helm-chart-path> \
-  --version 4.5.0-1 \
+  --version 4.5.0-2 \
   --namespace <namespace> \
   --dependency-update \
   -f values.yaml \
