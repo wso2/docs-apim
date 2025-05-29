@@ -77,6 +77,7 @@ nav:
           - Architecture: get-started/apim-architecture.md
           - Quick Start Guide: get-started/api-manager-quick-start-guide.md
           - About this Release: get-started/about-this-release.md
+    - Chat with AI: ask_ai.md
     - Design APIs:
         - Design APIs Overview: design/design-api-overview.md
         - Create APIs:
@@ -1103,10 +1104,13 @@ extra_css:
     - assets/css/orange-palette.css
     - assets/css/theme.css
     - assets/lib/json-formatter/json-formatter.css
+    - assets/css/ai-chat-style.css
 extra_javascript:
     - assets/lib/json-formatter/json-formatter.umd.js
     - assets/lib/highlightjs/highlight.min.js
     - assets/js/theme.js
+    - https://cdn.jsdelivr.net/npm/marked/marked.min.js 
+    - assets/js/ai-chat-logic.js
 extra:
     social:
         - icon: fontawesome/brands/github-alt
