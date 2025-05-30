@@ -10800,6 +10800,7 @@ bypass_hosts = ["localhost"]
 sender.enable = false
 sender.parameters.ws.outflow.dispatch.sequence = "outflowDispatchSeq"
 sender.parameters.ws.outflow.dispatch.fault.sequence = "outflowFaultSeq"
+sender.parameters.wsSharedEventLoopPoolSize = 5
 sender.parameter.customParameter = ""</code></pre>
                     </div>
                 </div>
@@ -10878,6 +10879,27 @@ sender.parameter.customParameter = ""</code></pre>
                                 </div>
                             </div><div class="param">
                                 <div class="param-name">
+                                  <span class="param-name-wrap"> <code>sender.parameters.wsSharedEventLoopPoolSize</code> </span>
+                                </div>
+                                <div class="param-info">
+                                    <div>
+                                        <p>
+                                            <span class="param-type string"> integer </span>
+                                            
+                                        </p>
+                                        <div class="param-default">
+                                            <span class="param-default-value">Default: <code>-</code></span>
+                                        </div>
+                                        <div class="param-possible">
+                                            <span class="param-possible-values">Possible Values: <code>5</code></span>
+                                        </div>
+                                    </div>
+                                    <div class="param-description">
+                                        <p>The thread pool size of the shared EventLoopGroup used by WebsocketConnectionFactory for managing WebSocket client connections. Note that this configuration only available from U2 level 22 onwards.</p>
+                                    </div>
+                                </div>
+                            </div><div class="param">
+                                <div class="param-name">
                                   <span class="param-name-wrap"> <code>sender.parameter.customParameter</code> </span>
                                 </div>
                                 <div class="param-info">
@@ -10924,6 +10946,7 @@ sender.parameter.customParameter = ""</code></pre>
 sender.enable = false
 sender.parameters.ws.outflow.dispatch.sequence = "outflowDispatchSeq"
 sender.parameters.ws.outflow.dispatch.fault.sequence = "outflowFaultSeq"
+sender.parameters.wsSharedEventLoopPoolSize = 5
 sender.parameter.customParameter = ""
 sender.trust_store.location = "$ref{truststore.file_name}"
 sender.trust_store.password = "$ref{truststore.password}"</code></pre>
@@ -11000,6 +11023,27 @@ sender.trust_store.password = "$ref{truststore.password}"</code></pre>
                                     </div>
                                     <div class="param-description">
                                         <p>The fault sequence for the back-end to client mediation path.</p>
+                                    </div>
+                                </div>
+                            </div><div class="param">
+                                <div class="param-name">
+                                  <span class="param-name-wrap"> <code>sender.parameters.wsSharedEventLoopPoolSize</code> </span>
+                                </div>
+                                <div class="param-info">
+                                    <div>
+                                        <p>
+                                            <span class="param-type string"> integer </span>
+                                            
+                                        </p>
+                                        <div class="param-default">
+                                            <span class="param-default-value">Default: <code>-</code></span>
+                                        </div>
+                                        <div class="param-possible">
+                                            <span class="param-possible-values">Possible Values: <code>5</code></span>
+                                        </div>
+                                    </div>
+                                    <div class="param-description">
+                                        <p>The thread pool size of the shared EventLoopGroup used by WebsocketConnectionFactory for managing WebSocket client connections. Note that this configuration only available from U2 level 22 onwards.</p>
                                     </div>
                                 </div>
                             </div><div class="param">
