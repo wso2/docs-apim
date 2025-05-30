@@ -3960,6 +3960,14 @@
                             "description": "The fault sequence for the back-end to client mediation path."
                         },
                         {
+                            "name": "sender.parameters.wsSharedEventLoopPoolSize",
+                            "type": "integer",
+                            "required": false,
+                            "default": "-",
+                            "possible": "5",
+                            "description": "The thread pool size of the shared EventLoopGroup used by WebsocketConnectionFactory for managing WebSocket client connections. Note that this configuration only available from U2 level 59 onwards."
+                        },
+                        {
                             "name": "sender.parameter.customParameter",
                             "type": "string",
                             "required": false,
@@ -4003,6 +4011,14 @@
                             "default": "outflowFaultSeq",
                             "possible": "-",
                             "description": "The fault sequence for the back-end to client mediation path."
+                        },
+                        {
+                            "name": "sender.parameters.wsSharedEventLoopPoolSize",
+                            "type": "integer",
+                            "required": false,
+                            "default": "-",
+                            "possible": "5",
+                            "description": "The thread pool size of the shared EventLoopGroup used by WebsocketConnectionFactory for managing WebSocket client connections. Note that this configuration only available from U2 level 59 onwards."
                         },
                         {
                             "name": "sender.trust_store.location",
