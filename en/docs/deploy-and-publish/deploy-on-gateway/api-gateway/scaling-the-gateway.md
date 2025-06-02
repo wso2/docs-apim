@@ -14,7 +14,22 @@ For more information, see [Key cache]({{base_path}}/administer/product-configura
 
 ### Scaling Gateways and Traffic Managers
 
-Based on performance numbers attained at the WSO2 Labs, the recommended ratio is 10 API Gateways to 1 Traffic Manager (TM). Note that Traffic Managers do not scale horizontally, and each TM can handle approximately 20,000 events per second under standard test conditions. These performance tests were conducted using 5 APIs, 10 applications, and 20 default throttling policies. It’s important to note that the actual performance may vary depending on the complexity of custom throttling policies and resource-level policies configured in your environment. If the requirement arises to have more than 10 Gateways, WSO2 recommends placing Traffic Managers in dedicated clusters, each serving a maximum of 10 Gateways. However, the number of Gateways per cluster is not a hard limit and can be adjusted according to your specific requirements.
+Based on performance tests conducted at WSO2 Labs, a single Traffic Manager (TM) can handle approximately 20,000 events per second under standard conditions. The recommended deployment ratio is 10 API Gateways per TM to maintain optimal performance. These results were obtained using 5 APIs, 10 Applications, and the default throttling policies shipped with WSO2 API Manager.
+
+**Things to Consider When Deploying the TM:**
+
+- TMs do not scale horizontally; therefore, use additional clusters to scale effectively.
+
+- If more than 10 Gateways are required, organize them into dedicated clusters, each with up to 10 Gateways.
+
+- The recommended 10-Gateway limit is not a hard limit and can be adjusted based on your requirements.
+
+!!! note
+    **Actual performance may vary depending on:**
+
+    - Use of custom throttling policies with different criterias
+
+    - Number of APIs, Policies and Applications deployed
 
 ### Scaling the Gateways and the Control Plane
 
