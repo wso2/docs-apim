@@ -2,6 +2,7 @@
 sender.enable = false
 sender.parameters.ws.outflow.dispatch.sequence = "outflowDispatchSeq"
 sender.parameters.ws.outflow.dispatch.fault.sequence = "outflowFaultSeq"
+sender.parameters.wsSharedEventLoopPoolSize = 5
 sender.parameter.customParameter = ""
 sender.trust_store.location = "$ref{truststore.file_name}"
 sender.trust_store.password = "$ref{truststore.password}"
