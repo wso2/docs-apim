@@ -15402,7 +15402,7 @@ use_username_as_sub_claim = true</code></pre>
                                         
                                     </div>
                                     <div class="param-description">
-                                        <p>Use username as the subject claim of application tokens instead of userId.</p>
+                                        <p>Use username as the subject claim of application tokens instead of userId. Note that this configuration is only available from update level 26 onwards.</p>
                                     </div>
                                 </div>
                             </div>
