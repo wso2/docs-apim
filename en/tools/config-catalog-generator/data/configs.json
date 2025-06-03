@@ -5861,6 +5861,27 @@
                 }
             ],
             "exampleFile": "synapse_handlers.toml"
+        },
+        {
+            "title": "Service Provider Configurations",
+            "options": [
+                {
+                    "name": "service_provider",
+                    "required": false,
+                    "description": "This includes configurations for Service Provider related properties.",
+                    "params": [
+                        {
+                            "name": "use_username_as_sub_claim",
+                            "type": "boolean",
+                            "required": false,
+                            "default": "false",
+                            "possible": "",
+                            "description": "Use username as the subject claim of application tokens instead of userId."
+                        }
+                    ]
+                }
+            ],
+            "exampleFile": "service_provider.toml"
         }
     ]
 }
