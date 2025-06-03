@@ -5480,7 +5480,7 @@
                             "required": false,
                             "default": "false",
                             "possible": "",
-                            "description": "Use username as the subject claim of application tokens instead of userId."
+                            "description": "Use username as the subject claim of application tokens instead of userId. Note that this configuration is only available from update level 113 onwards."
                         }
                     ]
                 }

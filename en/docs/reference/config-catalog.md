@@ -13748,7 +13748,7 @@ UserCoreCacheTimeOut = 5 </code></pre>
                                         
                                     </div>
                                     <div class="param-description">
-                                        <p>(LDAP) If the user name has special characters it replaces it to validate the user logging in. Only &quot; \ &quot; and &quot; \\ &quot; are identified as escape characters.</p>
+                                        <p>(LDAP) If the user name has special characters it replaces it to validate the user logging in. Only &quot; &#92; &quot; and &quot; &#92;&#92; &quot; are identified as escape characters.</p>
                                     </div>
                                 </div>
                             </div><div class="param">
@@ -14733,7 +14733,8 @@ class="org.wso2.carbon.apimgt.gateway.handlers.custom.customer_handler"
                 <div class="superfences-content">
                     <div class="mb-config-example">
 <pre><code class="toml">[service_provider]
-use_username_as_sub_claim = true</code></pre>
+use_username_as_sub_claim = true
+</code></pre>
                     </div>
                 </div>
                 <div class="doc-wrapper">
@@ -14762,7 +14763,7 @@ use_username_as_sub_claim = true</code></pre>
                                         
                                     </div>
                                     <div class="param-description">
-                                        <p>Use username as the subject claim of application tokens instead of userId.</p>
+                                        <p>Use username as the subject claim of application tokens instead of userId. Note that this configuration is only available from update level 113 onwards.</p>
                                     </div>
                                 </div>
                             </div>
