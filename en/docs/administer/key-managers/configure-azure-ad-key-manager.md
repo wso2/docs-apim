@@ -37,7 +37,7 @@ This will complete the  [Set up a tenant](https://learn.microsoft.com/en-us/entr
 ### Step 3 - Configured permissions
 
   1. Navigate to `API Permissions`.
-  2. Click `Add a permissions`.
+  2. Click `Add a permission`.
   3. Select `APIs my organization uses`.
   4. Select `Microsoft Graph` from the list.
   5. Click on `Application permissions`.
@@ -226,7 +226,7 @@ Start the API Manager server and log-in to the Admin portal to configure Azure A
 
 ### Update the client_password
 
-  Update password is not supported by providing new one from the APIM. When ever the application is updated via APIM a new `client_secret` is set.
+  Update password is not supported by providing new one from the APIM. Whenever the application is updated via APIM a new `client_secret` is set.
 
   ```Failed to add password. Error detail: Unable to save changes because the credential limit has been reached. Please delete a credential and try again.```
 
