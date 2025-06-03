@@ -1268,7 +1268,8 @@ local_claim = "http://wso2.org/claims/givenname"</code></pre>
                 <div class="superfences-content">
                     <div class="mb-config-example">
 <pre><code class="toml">[apim]
-gateway_type = "Regular,APK,AWS"</code></pre>
+gateway_type = "Regular,APK,AWS"
+</code></pre>
                     </div>
                 </div>
                 <div class="doc-wrapper">
@@ -15973,6 +15974,63 @@ organization_id_local_claim = "http://wso2.org/claims/organizationId"</code></pr
                                     </div>
                                     <div class="param-description">
                                         <p>Local claim URI used to identify user organization id.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+
+
+
+## Service Provider Configurations
+
+
+<div class="mb-config-catalog">
+    <section>
+        <div class="mb-config-options">
+            <div class="superfences-tabs">
+            
+            <input name="105" type="checkbox" id="_tab_105">
+                <label class="tab-selector" for="_tab_105"><i class="icon fa fa-code"></i></label>
+                <div class="superfences-content">
+                    <div class="mb-config-example">
+<pre><code class="toml">[service_provider]
+use_username_as_sub_claim = true
+</code></pre>
+                    </div>
+                </div>
+                <div class="doc-wrapper">
+                    <div class="mb-config">
+                        <div class="config-wrap">
+                            <code>[service_provider]</code>
+                            
+                            <p>
+                                This includes configurations for Service Provider related properties.
+                            </p>
+                        </div>
+                        <div class="params-wrap">
+                            <div class="param">
+                                <div class="param-name">
+                                  <span class="param-name-wrap"> <code>use_username_as_sub_claim</code> </span>
+                                </div>
+                                <div class="param-info">
+                                    <div>
+                                        <p>
+                                            <span class="param-type string"> boolean </span>
+                                            
+                                        </p>
+                                        <div class="param-default">
+                                            <span class="param-default-value">Default: <code>false</code></span>
+                                        </div>
+                                        
+                                    </div>
+                                    <div class="param-description">
+                                        <p>Use username as the subject claim of application tokens instead of userId.</p>
                                     </div>
                                 </div>
                             </div>
