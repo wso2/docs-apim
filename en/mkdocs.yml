@@ -588,8 +588,8 @@ nav:
         - Deploy:
             - Deployment Patterns Overview: install-and-setup/setup/deployment-overview.md
             - Deploy on VM:
+                - Overview: install-and-setup/setup/single-node/deployment-overview.md
                 - All-In-One Deployment:
-                    - All-in-One Deployment Overview: install-and-setup/setup/single-node/all-in-one-deployment-overview.md
                     - Configure a Single API-M Node: install-and-setup/setup/single-node/configuring-a-single-node.md
                     - Configure an Active-Active API-M Deployment: install-and-setup/setup/single-node/configuring-an-active-active-deployment.md
                 - Distributed Deployment:
@@ -602,11 +602,12 @@ nav:
                     - Configure Multi-DC Deployment - Pattern 2: install-and-setup/setup/multi-dc-deployment/configuring-multi-dc-deployment-pattern-2.md
             - Deploy on Kubernetes:
                 - API-M on K8s:
+                    - Overview: install-and-setup/setup/kubernetes-deployment/kubernetes/kubernetes-overview.md
                     - All-In-One Deployment:
                         - Configure a Single API-M Node: install-and-setup/setup/kubernetes-deployment/kubernetes/am-pattern-0-all-in-one.md
                         - Configure an Active-Active API-M Deployment: install-and-setup/setup/kubernetes-deployment/kubernetes/am-pattern-1-all-in-one-ha.md
                     - Distributed Deployment:
-                        - Configure a Distributed API-M Deploymen (Recommended): install-and-setup/setup/kubernetes-deployment/kubernetes/am-pattern-3-acp-tm-gw.md
+                        - Configure a Distributed API-M Deployment (Recommended): install-and-setup/setup/kubernetes-deployment/kubernetes/am-pattern-3-acp-tm-gw.md
                         - Configure a Distributed API-M Deployment with Key Manager Separation: install-and-setup/setup/kubernetes-deployment/kubernetes/am-pattern-4-acp-tm-gw-km.md
                         - Configure Simple Scalable Deployment: install-and-setup/setup/kubernetes-deployment/kubernetes/am-pattern-2-all-in-one-gw.md
                         - Configure Simple Scalable Deployment with Key Manager Separation: install-and-setup/setup/kubernetes-deployment/kubernetes/am-pattern-5-all-in-one-gw-km.md

@@ -76,19 +76,24 @@ You can select one of the following deployment patterns depending on the workloa
             </tbody>
         </table>
 
+## Deployment Options
 
-## Deploy on VM
+### Deploy on VM
 
 The WSO2 API Manager can be deployed on virtual machines (VMs) using the provided product packs. The deployment can be done in various patterns, depending on your requirements.
+For comprehensive instructions, refer to the [VM Deployment Guide](../setup/single-node/deployment-overview.md).
 
-## Deploy on Kubernetes
+### Deploy on Kubernetes
 
 The Helm charts include cloud provider-specific configurations for:
+
 - AWS (EKS, EFS, RDS, Secrets Manager)
 - Azure (AKS, Azure Files, Azure Database, Key Vault)
 - GCP (GKE, GCS, Cloud SQL, Secret Manager)
 
-## Deploy on OpenShift
+For comprehensive instructions, refer to the [K8s Deployment Guide](../setup/kubernetes-deployment/kubernetes/kubernetes-overview.md).
+
+### Deploy on OpenShift
 
 - **Note:** Default Helm chart configurations are intended for Kubernetes deployment.  
 - If you are deploying on OpenShift, additional configurations are required for both Docker images and the deployment process. For comprehensive instructions, refer to the [OpenShift Deployment Guide](../setup/kubernetes-deployment/openshift/openshift-deployment-overview.md).
@@ -117,7 +122,7 @@ The Helm charts include cloud provider-specific configurations for:
 - **Components**: API Control Plane, Universal Gateways
 - **Guides** - [Deploy on Kubernetes](../setup/kubernetes-deployment/kubernetes/am-pattern-2-all-in-one-gw.md)
 
-<a href="{{base_path}}/assets/img/setup-and-install/deployment-no-tm.png"><img src="{{base_path}}/assets/img/setup-and-install/deployment-no-tm.png" alt="simple scalable api-m deployment" width="60%"></a>
+<a href="{{base_path}}/assets/img/setup-and-install/deployment-cp-gw.png"><img src="{{base_path}}/assets/img/setup-and-install/deployment-cp-gw.png" alt="simple scalable api-m deployment" width="60%"></a>
 
 ### Pattern 3: Distributed API-M Deployment with Gateway and Traffic Manager Separated from the Control Plane *(Recommended)*
 - **Description**: Distributed deployment with separate API Control Plane, Traffic Manager, and Gateway components
@@ -141,4 +146,4 @@ The Helm charts include cloud provider-specific configurations for:
 - **Components**: API Control Plane, Universal Gateway, Key Manager
 - **Guides** - [Deploy on Kubernetes](../setup/kubernetes-deployment/kubernetes/am-pattern-5-all-in-one-gw-km.md)
 
-<a href="{{base_path}}/assets/img/setup-and-install/deployment-km.png"><img src="{{base_path}}/assets/img/setup-and-install/deployment-km.png" alt="Simple Scalable Deployment" width="100%"></a>
+<a href="{{base_path}}/assets/img/setup-and-install/deployment-cp-gw-km.png"><img src="{{base_path}}/assets/img/setup-and-install/deployment-cp-gw-km.png" alt="Simple Scalable Deployment with Key Manager Seperation" width="100%"></a>
