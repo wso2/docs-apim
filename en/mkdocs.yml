@@ -607,7 +607,7 @@ nav:
                         - Configure a Single API-M Node: install-and-setup/setup/kubernetes-deployment/kubernetes/am-pattern-0-all-in-one.md
                         - Configure an Active-Active API-M Deployment: install-and-setup/setup/kubernetes-deployment/kubernetes/am-pattern-1-all-in-one-ha.md
                     - Distributed Deployment:
-                        - Configure a Distributed API-M Deploymen (Recommended): install-and-setup/setup/kubernetes-deployment/kubernetes/am-pattern-3-acp-tm-gw.md
+                        - Configure a Distributed API-M Deployment (Recommended): install-and-setup/setup/kubernetes-deployment/kubernetes/am-pattern-3-acp-tm-gw.md
                         - Configure a Distributed API-M Deployment with Key Manager Separation: install-and-setup/setup/kubernetes-deployment/kubernetes/am-pattern-4-acp-tm-gw-km.md
                         - Configure Simple Scalable Deployment: install-and-setup/setup/kubernetes-deployment/kubernetes/am-pattern-2-all-in-one-gw.md
                         - Configure Simple Scalable Deployment with Key Manager Separation: install-and-setup/setup/kubernetes-deployment/kubernetes/am-pattern-5-all-in-one-gw-km.md
