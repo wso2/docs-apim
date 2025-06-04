@@ -130,11 +130,6 @@ Check the following database storage requirements for the API-M runtime.
 <td>1 GB</td>
 <td>1 GB</td>
 </tr>
-<tr>
-<td><strong>MariaDB</strong></td>
-<td>1 GB</td>
-<td>1 GB</td>
-</tr>
 </table>
 </html>
 
