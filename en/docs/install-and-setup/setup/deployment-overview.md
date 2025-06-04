@@ -80,13 +80,17 @@ You can select one of the following deployment patterns depending on the workloa
 ## Deploy on VM
 
 The WSO2 API Manager can be deployed on virtual machines (VMs) using the provided product packs. The deployment can be done in various patterns, depending on your requirements.
+For comprehensive instructions, refer to the [VM Deployment Guide](../setup/single-node/deployment-overview.md).
 
 ## Deploy on Kubernetes
 
 The Helm charts include cloud provider-specific configurations for:
+
 - AWS (EKS, EFS, RDS, Secrets Manager)
 - Azure (AKS, Azure Files, Azure Database, Key Vault)
 - GCP (GKE, GCS, Cloud SQL, Secret Manager)
+
+For comprehensive instructions, refer to the [K8s Deployment Guide](../setup/kubernetes-deployment/kubernetes/kubernetes-overview.md).
 
 ## Deploy on OpenShift
 
