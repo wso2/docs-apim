@@ -76,13 +76,14 @@ You can select one of the following deployment patterns depending on the workloa
             </tbody>
         </table>
 
+## Deployment Options
 
-## Deploy on VM
+### Deploy on VM
 
 The WSO2 API Manager can be deployed on virtual machines (VMs) using the provided product packs. The deployment can be done in various patterns, depending on your requirements.
 For comprehensive instructions, refer to the [VM Deployment Guide](../setup/single-node/deployment-overview.md).
 
-## Deploy on Kubernetes
+### Deploy on Kubernetes
 
 The Helm charts include cloud provider-specific configurations for:
 
@@ -92,7 +93,7 @@ The Helm charts include cloud provider-specific configurations for:
 
 For comprehensive instructions, refer to the [K8s Deployment Guide](../setup/kubernetes-deployment/kubernetes/kubernetes-overview.md).
 
-## Deploy on OpenShift
+### Deploy on OpenShift
 
 - **Note:** Default Helm chart configurations are intended for Kubernetes deployment.  
 - If you are deploying on OpenShift, additional configurations are required for both Docker images and the deployment process. For comprehensive instructions, refer to the [OpenShift Deployment Guide](../setup/kubernetes-deployment/openshift/openshift-deployment-overview.md).
