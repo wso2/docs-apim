@@ -22,7 +22,7 @@ WSO2 API-M is compatible with a variety of Kubernetes distributions. Check the c
 | Minikube             | 1.26.3 - 1.30.3 | 1.30.1 - 1.34.0  |
 | Rancher              | 1.27.2 - 1.30.3 | 1.9.1 - 1.16.0   |
 | Kind                 | 1.26.3 - 1.30.3 | 0.24.0           |
-| OpenShift            | 1.28            | 4.15             |
+| OpenShift            | 1.28   - 1.30.3 | 4.15 - 4.15      |
 
 #### Helm
 
