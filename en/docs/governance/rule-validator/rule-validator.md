@@ -6,7 +6,7 @@
 - Any valid JSON or YAML file can be validated by providing a valid Spectral ruleset.
 
 ## Features and Limitations
-WSO2 Rule validator supports most features that Spectral itself does. With the exception of a few listed below.
+WSO2 Rule Validator supports most features that Spectral itself does. With the exception of a few listed below.
 
 1. [_**given**_](https://docs.stoplight.io/docs/spectral/d3482ff0ccae9-rules#rules-properties) path is a JSON Path. But currently WSO2 Rule Validator does not support [JSON Path Plus](https://github.com/JSONPath-Plus/JSONPath) features, even though Spectral does.
     - Object access should always be done inside single quotes \(`['paths']['order']\`)
@@ -214,7 +214,7 @@ paths:
 ```
 
 ### 3. Core functions
-Below is a list of core functions that are supported by the rule validator, with a summary of each of its options.
+Below is a list of core functions that are supported by the Rule Validator, with a summary of each of its options.
 
 <table><thead>
   <tr>
