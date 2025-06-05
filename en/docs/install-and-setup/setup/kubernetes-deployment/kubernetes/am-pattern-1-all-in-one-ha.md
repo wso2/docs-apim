@@ -5,7 +5,7 @@ This deployment consists of a highly available API-M cluster with multiple nodes
 <a href="{{base_path}}/assets/img/setup-and-install/active-active-apim-deployment.png"><img src="{{base_path}}/assets/img/setup-and-install/active-active-apim-deployment.png" alt="active-active api-m deployment" width="60%"></a>
 
 !!! info
-    For advanced details on this deployment pattern, please refer to the official [documentation](kubernetes-deployment-overview.md).
+    For advanced details on this deployment pattern, please refer to the official [documentation]({{base_path}}/install-and-setup/setup/deployment-overview/).
 
 ## Contents
 
