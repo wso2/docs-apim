@@ -450,6 +450,27 @@
             "exampleFile": "apim.jwt.issuer.claim_mapping.toml"
         },
         {
+            "title": "API-M gateway type configurations",
+            "options": [
+                {
+                    "name": "apim",
+                    "required": true,
+                    "description": "Configuring the gateway types used by API Manager.",
+                    "params": [
+                        {
+                            "name": "gateway_type",
+                            "type": "string",
+                            "required": true,
+                            "default": "Regular,APK,AWS",
+                            "possible": "",
+                            "description": "Users can configure supported gateway types through the configuration. These pre-configured options will be available under gateway environment types when creating new gateway environments via the Admin Portal."
+                        }
+                    ]
+                }
+            ],
+            "exampleFile": "apim.toml"
+        },
+        {
             "title": "API-M gateway environment configurations",
             "options": [
                 {
@@ -4078,6 +4099,14 @@
                             "description": "The fault sequence for the back-end to client mediation path."
                         },
                         {
+                            "name": "sender.parameters.wsSharedEventLoopPoolSize",
+                            "type": "integer",
+                            "required": false,
+                            "default": "-",
+                            "possible": "5",
+                            "description": "The thread pool size of the shared EventLoopGroup used by WebsocketConnectionFactory for managing WebSocket client connections. Note that this configuration only availalbe from U2 update level 6 onwards."
+                        },
+                        {
                             "name": "sender.parameter.customParameter",
                             "type": "string",
                             "required": false,
@@ -4121,6 +4150,14 @@
                             "default": "outflowFaultSeq",
                             "possible": "-",
                             "description": "The fault sequence for the back-end to client mediation path."
+                        },
+                        {
+                            "name": "sender.parameters.wsSharedEventLoopPoolSize",
+                            "type": "integer",
+                            "required": false,
+                            "default": "-",
+                            "possible": "5",
+                            "description": "The thread pool size of the shared EventLoopGroup used by WebsocketConnectionFactory for managing WebSocket client connections. Note that this configuration only availalbe from U2 update level 6 onwards."
                         },
                         {
                             "name": "sender.trust_store.location",
@@ -5907,6 +5944,27 @@
                 }
             ],
             "exampleFile": "org_configuration.toml"
+        },
+        {
+            "title": "Service Provider Configurations",
+            "options": [
+                {
+                    "name": "service_provider",
+                    "required": false,
+                    "description": "This includes configurations for Service Provider related properties.",
+                    "params": [
+                        {
+                            "name": "use_username_as_sub_claim",
+                            "type": "boolean",
+                            "required": false,
+                            "default": "false",
+                            "possible": "",
+                            "description": "Use username as the subject claim of application tokens instead of userId."
+                        }
+                    ]
+                }
+            ],
+            "exampleFile": "service_provider.toml"
         }
     ]
 }
