@@ -58,6 +58,10 @@ APIs in WSO2 API Manager can be secured using Certificate Bound Access Tokens, a
     !!! Note
     
         To generate JWT tokens that include the client certificate thumbprint as the `cnf` claim, you can optionally configure the HTTP header name from which the client certificate is retrieved when invoking the token endpoint.
+
+        !!! warning "Update Level 42"
+              This capability is available only in Update Level 42 and later releases. For more information, see [Updating WSO2 API Manager]({{base_path}}/administer/product-administration/updating-wso2-api-manager).
+
         Add the following configuration to the `<API-M_HOME>/repository/conf/deployment.toml` file, replacing `<header-name>` with your header:
 
         **Format:**
