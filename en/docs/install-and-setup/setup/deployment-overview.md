@@ -104,7 +104,9 @@ For comprehensive instructions, refer to the [K8s Deployment Guide](../setup/kub
 - **Description**: Simple deployment with a single API Manager node handling all functionality
 - **Use Case**: Suitable for development environments or small-scale deployments with low traffic; not recommended for production use.
 - **Components**: Single API-M node with all functionality
-- **Guides** - [Deploy on VM](../setup/single-node/configuring-a-single-node.md), [Deploy on Kubernetes](../setup/kubernetes-deployment/kubernetes/am-pattern-0-all-in-one.md)
+- **Guides**: 
+    - [Deploy on VM](../setup/single-node/configuring-a-single-node.md)
+    - [Deploy on Kubernetes](../setup/kubernetes-deployment/kubernetes/am-pattern-0-all-in-one.md)
 
 <a href="{{base_path}}/assets/img/setup-and-install/single-node-apim-deployment.png"><img src="{{base_path}}/assets/img/setup-and-install/single-node-apim-deployment.png" alt="single-node api-m deployment" width="60%"></a>
 
@@ -112,7 +114,9 @@ For comprehensive instructions, refer to the [K8s Deployment Guide](../setup/kub
 - **Description**: High availability deployment with multiple API Manager nodes in active-active configuration
 - **Use Case**: Production environments requiring high availability but with moderate traffic
 - **Components**: Multiple API-M nodes with all functionality in each node
-- **Guides** - [Deploy on VM](../setup/single-node/configuring-an-active-active-deployment.md), [Deploy on Kubernetes](../setup/kubernetes-deployment/kubernetes/am-pattern-1-all-in-one-ha.md)
+- **Guides**: 
+    - [Deploy on VM](../setup/single-node/configuring-an-active-active-deployment.md)
+    - [Deploy on Kubernetes](../setup/kubernetes-deployment/kubernetes/am-pattern-1-all-in-one-ha.md)
 
 <a href="{{base_path}}/assets/img/setup-and-install/active-active-apim-deployment.png"><img src="{{base_path}}/assets/img/setup-and-install/active-active-apim-deployment.png" alt="active-active api-m deployment" width="60%"></a>
 
@@ -120,7 +124,8 @@ For comprehensive instructions, refer to the [K8s Deployment Guide](../setup/kub
 - **Description**: Deployment with separate gateway nodes and a control plane
 - **Use Case**: Environments with higher API traffic needing gateway scalability
 - **Components**: All-in-one, Universal Gateways
-- **Guides** - [Deploy on Kubernetes](../setup/kubernetes-deployment/kubernetes/am-pattern-2-all-in-one-gw.md)
+- **Guides**:
+    - [Deploy on Kubernetes](../setup/kubernetes-deployment/kubernetes/am-pattern-2-all-in-one-gw.md)
 
 <a href="{{base_path}}/assets/img/setup-and-install/deployment-cp-gw.png"><img src="{{base_path}}/assets/img/setup-and-install/deployment-cp-gw.png" alt="simple scalable api-m deployment" width="60%"></a>
 
@@ -128,7 +133,9 @@ For comprehensive instructions, refer to the [K8s Deployment Guide](../setup/kub
 - **Description**: Distributed deployment with separate API Control Plane, Traffic Manager, and Gateway components
 - **Use Case**: Production environments with high traffic needing component-level scalability
 - **Components**: API Control Plane (ACP), Traffic Manager (TM), Universal Gateway (GW)
-- **Guides** - [Deploy on VM](../setup/distributed-deployment/deploying-wso2-api-m-in-a-distributed-setup.md), [Deploy on Kubernetes](../setup/kubernetes-deployment/kubernetes/am-pattern-3-acp-tm-gw.md)
+- **Guides**: 
+    - [Deploy on VM](../setup/distributed-deployment/deploying-wso2-api-m-in-a-distributed-setup.md)
+    - [Deploy on Kubernetes](../setup/kubernetes-deployment/kubernetes/am-pattern-3-acp-tm-gw.md)
 
 <a href="{{base_path}}/assets/img/setup-and-install/distributed-deployment-tm.png"><img src="{{base_path}}/assets/img/setup-and-install/distributed-deployment-tm.png" alt="simple scalable api-m deployment" width="60%"></a>
 
@@ -136,7 +143,9 @@ For comprehensive instructions, refer to the [K8s Deployment Guide](../setup/kub
 - **Description**: Fully distributed deployment with separate Key Manager component
 - **Use Case**: Large-scale production environments with complex security requirements
 - **Components**: API Control Plane (ACP), Traffic Manager (TM), Universal Gateway (GW), Key Manager (KM)
-- **Guides** - [Deploy on VM](../setup/distributed-deployment/deploying-wso2-api-m-in-a-distributed-setup-with-km-separated.md), [Deploy on Kubernetes](../setup/kubernetes-deployment/kubernetes/am-pattern-4-acp-tm-gw-km.md)
+- **Guides**: 
+    - [Deploy on VM](../setup/distributed-deployment/deploying-wso2-api-m-in-a-distributed-setup-with-km-separated.md)
+    - [Deploy on Kubernetes](../setup/kubernetes-deployment/kubernetes/am-pattern-4-acp-tm-gw-km.md)
 
 <a href="{{base_path}}/assets/img/setup-and-install/distributed-deployment-km.png"><img src="{{base_path}}/assets/img/setup-and-install/distributed-deployment-km.png" alt="fully distributed deployment" width="60%"></a>
 
@@ -144,6 +153,7 @@ For comprehensive instructions, refer to the [K8s Deployment Guide](../setup/kub
 - **Description**: Deployment with separate Gateway and Key Manager components
 - **Use Case**: Environments focusing on API security with dedicated Key Manager component
 - **Components**: All-in-one, Universal Gateway, Key Manager
-- **Guides** - [Deploy on Kubernetes](../setup/kubernetes-deployment/kubernetes/am-pattern-5-all-in-one-gw-km.md)
+- **Guides**: 
+    - [Deploy on Kubernetes](../setup/kubernetes-deployment/kubernetes/am-pattern-5-all-in-one-gw-km.md)
 
 <a href="{{base_path}}/assets/img/setup-and-install/deployment-cp-gw-km.png"><img src="{{base_path}}/assets/img/setup-and-install/deployment-cp-gw-km.png" alt="Simple Scalable Deployment with Key Manager Seperation" width="60%"></a>
