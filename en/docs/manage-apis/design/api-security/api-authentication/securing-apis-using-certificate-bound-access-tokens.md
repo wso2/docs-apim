@@ -46,6 +46,27 @@ APIs in WSO2 API Manager can be secured using Certificate Bound Access Tokens, a
           ```
  
 3. Restart the server if it is already running.    
+
+    !!! Note
+    
+        To generate JWT tokens that include the client certificate thumbprint as the `cnf` claim, you can optionally configure the HTTP header name from which the client certificate is retrieved when invoking the token endpoint.
+        Add the following configuration to the `<API-M_HOME>/repository/conf/deployment.toml` file, replacing `<header-name>` with your header:
+
+        **Format:**
+
+        ```
+        [oauth.mutualtls]
+        client_certificate_header = "<header-name>"
+        ```
+
+        **Example:**
+
+        ```
+        [oauth.mutualtls]
+        client_certificate_header = "ssl-client-cert"
+        ```
+
+        When this is configured, pass the client certificate under the specified header when calling the token endpoint. The generated JWT will then include the certificate thumbprint, binding the token to the client certificate.
      
 ## Create an API secured with OAuth 2.0
 
@@ -100,7 +121,7 @@ Follow the instructions below to change the header:
     === "Example"
           ```toml
           [apimgt.mutual_ssl]
-          certificate_header = "SSL-CLIENT-CERT"
+          certificate_header = "ssl-client-cert"
           enable_client_validation = false
           client_certificate_encode = false
           ```
