@@ -119,7 +119,7 @@ For comprehensive instructions, refer to the [K8s Deployment Guide](../setup/kub
 ### Pattern 2: API-M Deployment with Simple Scalable Setup
 - **Description**: Deployment with separate gateway nodes and a control plane
 - **Use Case**: Environments with higher API traffic needing gateway scalability
-- **Components**: API Control Plane, Universal Gateways
+- **Components**: All-in-one, Universal Gateways
 - **Guides** - [Deploy on Kubernetes](../setup/kubernetes-deployment/kubernetes/am-pattern-2-all-in-one-gw.md)
 
 <a href="{{base_path}}/assets/img/setup-and-install/deployment-cp-gw.png"><img src="{{base_path}}/assets/img/setup-and-install/deployment-cp-gw.png" alt="simple scalable api-m deployment" width="60%"></a>
@@ -143,7 +143,7 @@ For comprehensive instructions, refer to the [K8s Deployment Guide](../setup/kub
 ### Pattern 5: API-M Deployment with Simple Scalable Setup with Key Manager Separated
 - **Description**: Deployment with separate Gateway and Key Manager components
 - **Use Case**: Environments focusing on API security with dedicated Key Manager component
-- **Components**: API Control Plane, Universal Gateway, Key Manager
+- **Components**: All-in-one, Universal Gateway, Key Manager
 - **Guides** - [Deploy on Kubernetes](../setup/kubernetes-deployment/kubernetes/am-pattern-5-all-in-one-gw-km.md)
 
 <a href="{{base_path}}/assets/img/setup-and-install/deployment-cp-gw-km.png"><img src="{{base_path}}/assets/img/setup-and-install/deployment-cp-gw-km.png" alt="Simple Scalable Deployment with Key Manager Seperation" width="60%"></a>
