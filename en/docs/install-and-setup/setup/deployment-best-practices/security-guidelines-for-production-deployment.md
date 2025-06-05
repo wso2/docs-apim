@@ -84,9 +84,7 @@ See <a href="{{base_path}}/administer/managing-users-and-roles/managing-user-sto
 <td>
   <p>To have strong transport-level security, disable SSL protocol versions and enable only TLS protocol 
 versions: TLS 1, TLS 1.1, and TLS 1.2. This can be done by replacing the <code>sslProtocol = "TLS"</code> property with 
-<code>sslEnabledProtocols="TLSv1,TLSv1.1,TLSv1.2"</code> under <code>[transport.https.sslHostConfig
-.properties]</code> in the <code>deployment.toml</code> file. In addition, configure strong ciphers for 
-<code>ThriftAuthenticationService</code>, Tomcat transport, and PassThrough transport in the <code>deployment.toml</code> file. See the
+<code>protocols="+TLSv1, +TLSv1.1, +TLSv1.2, +TLSv1.3"</code> under <code>[transport.https.sslHostConfig.properties]</code> in the <code>deployment.toml</code> file. You can configure multiple TLS versions or a single TLS version according to your preference. To achieve high security, use the latest TLS version by removing <code>+TLSv1</code>, <code>+TLSv1.1</code>, and <code>+TLSv1.2</code> from the protocols <code>property</code> of the configuration. In addition, configure strong ciphers for <code>ThriftAuthenticationService</code>, Tomcat transport, and PassThrough transport in the <code>deployment.toml</code> file. See the
  following links for instructions:</p>
 <ul>
   <li><a href="{{base_path}}/install-and-setup/setup/security/configuring-transport-level-security/">Configuring Transport Level Security</a></li>
@@ -654,5 +652,5 @@ Follow the steps below to change the default credentials.
     
 3.  Once these changes are configured, restart the server.
     
-    - Linux/Unix : sh wso2server.sh
-    - Windows : wso2server.bat
+    - Linux/Unix : sh api-manager.sh
+    - Windows : api-manager.bat
