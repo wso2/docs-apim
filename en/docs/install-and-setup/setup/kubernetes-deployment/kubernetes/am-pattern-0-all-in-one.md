@@ -123,7 +123,7 @@ In addition to the primary, internal keystores and truststore files, you can als
 - Refer the following sample command to create the secret and use it in the APIM.
   
   ```
-  kubectl create secret generic jks-secret --from-file=wso2carbon.jks --from-file=client-truststore.jks --from-file=wso2internal.jks -n <namespace>
+  kubectl create secret generic apim-keystore-secret --from-file=wso2carbon.jks --from-file=client-truststore.jks --from-file=wso2internal.jks -n <namespace>
   ```
 > By default, this deployment uses the default keystores and truststores provided by the relevant WSO2 product.
 > For advanced details with regards to managing custom Java keystores and truststores in a container based WSO2 product deployment

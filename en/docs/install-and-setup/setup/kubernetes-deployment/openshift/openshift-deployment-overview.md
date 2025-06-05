@@ -125,7 +125,7 @@ oc project
 
    ```bash
    # Create a secret with default WSO2 keystores and truststores
-   kubectl create secret generic jks-secret \
+   kubectl create secret generic apim-keystore-secret \
      --from-file=wso2carbon.jks \
      --from-file=client-truststore.jks
    ```
@@ -226,7 +226,7 @@ The All-in-One deployment is the simplest pattern to deploy WSO2 API Manager on 
        # Keystore configuration
        configurations:
          security:
-           jksSecretName: "jks-secret"
+           jksSecretName: "apim-keystore-secret"
    
    # Docker image configuration
    wso2:
