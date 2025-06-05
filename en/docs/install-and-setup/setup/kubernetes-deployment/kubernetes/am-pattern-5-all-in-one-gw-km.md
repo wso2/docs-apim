@@ -177,7 +177,7 @@ If you want to quickly try out WSO2 API Manager on Kubernetes with minimal confi
 
    ```bash
    # Create secret with default WSO2 keystores and truststores
-   kubectl create secret generic jks-secret --from-file=wso2carbon.jks --from-file=client-truststore.jks
+   kubectl create secret generic apim-keystore-secret --from-file=wso2carbon.jks --from-file=client-truststore.jks
    ```
 
 2. **Deploy Components Using Default Values**:
@@ -253,7 +253,7 @@ In addition to the primary, internal keystores and truststore files, you can als
 - Refer to the following sample command to create the secret and use it in the APIM.
   
   ```
-  kubectl create secret generic jks-secret --from-file=wso2carbon.jks --from-file=client-truststore.jks --from-file=wso2internal.jks -n <namespace>
+  kubectl create secret generic apim-keystore-secret --from-file=wso2carbon.jks --from-file=client-truststore.jks --from-file=wso2internal.jks -n <namespace>
   ```
 > By default, this deployment uses the default keystores and truststores provided by the relevant WSO2 product.
 > For advanced details regarding managing custom Java keystores and truststores in a container-based WSO2 product deployment,
