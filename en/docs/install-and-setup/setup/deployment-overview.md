@@ -1,7 +1,19 @@
 # WSO2 API Manager Deployment Overview
 
-WSO2 API Manager consists of an API management layer and an integration layer. The API management layer contains several components, which you can use in your deployment according to your requirement. The integration layer includes either the Micro Integrator runtime (for services integration) and the Streaming Integrator runtime (for streaming requirements) or both runtimes.
+WSO2 API Manager (WSO2 APIM) offers a flexible and componentized deployment architecture that supports diverse scalability, availability, and security requirements. The platform can be deployed in various patterns—from simple, all-in-one setups to fully distributed, production-grade environments—adapting seamlessly to organizational needs.
 
+## Key Deployment Variants
+
+### Virtual Machine (VM)-based Deployment
+In traditional on-premises or private cloud setups, VM-based deployments use product packs installed on virtual machines. Each component—API Gateway, Publisher, Developer Portal, Key Manager, and Traffic Manager—can be deployed independently for better scalability, performance, and fault isolation. This model offers fine-grained control over the infrastructure but requires manual configuration for scaling, load balancing, and failover.
+
+### Kubernetes-based Deployment
+For cloud-native and containerized environments, WSO2 APIM can be deployed on Kubernetes using the official Helm chart or Kubernetes Operator. This model enables automated deployment, dynamic scaling, self-healing, and integrates seamlessly with CI/CD pipelines. It’s ideal for organizations adopting DevOps practices, microservices architectures, and modern container orchestration.
+
+### OpenShift-based Deployment
+For enterprises leveraging Red Hat OpenShift, WSO2 APIM is fully compatible with OpenShift’s container orchestration capabilities. Deployments on OpenShift utilize Operators and Helm charts that adhere to OpenShift’s security, compliance, and multi-tenancy requirements. This model supports dynamic scaling, integrated monitoring, and enterprise-grade security features, making it a robust choice for large-scale, regulated environments that demand enhanced governance and policy enforcement.
+
+Each deployment variant empowers organizations to align API management with their preferred IT strategy—whether that means leveraging existing VMs, adopting cloud-native Kubernetes, or integrating with OpenShift’s enterprise-grade container management. Regardless of the chosen platform, WSO2 APIM ensures the separation of concerns, enabling efficient API publishing, subscription management, security enforcement, and analytics at scale.
 You can select one of the following deployment patterns depending on the workload of each component and the traffic that is expected to each of the components and runtimes.
 
 !!! note
@@ -77,29 +89,15 @@ You can select one of the following deployment patterns depending on the workloa
         </table>
 
 
-## Deploy on VM
-
-The WSO2 API Manager can be deployed on virtual machines (VMs) using the provided product packs. The deployment can be done in various patterns, depending on your requirements.
-
-## Deploy on Kubernetes
-
-The Helm charts include cloud provider-specific configurations for:
-- AWS (EKS, EFS, RDS, Secrets Manager)
-- Azure (AKS, Azure Files, Azure Database, Key Vault)
-- GCP (GKE, GCS, Cloud SQL, Secret Manager)
-
-## Deploy on OpenShift
-
-- **Note:** Default Helm chart configurations are intended for Kubernetes deployment.  
-- If you are deploying on OpenShift, additional configurations are required for both Docker images and the deployment process. For comprehensive instructions, refer to the [OpenShift Deployment Guide](../setup/kubernetes-deployment/openshift/openshift-deployment-overview.md).
-
 ## Available Deployment Patterns
 
 ### Pattern 0: API-M Deployment with All-in-One Setup
 - **Description**: Simple deployment with a single API Manager node handling all functionality
 - **Use Case**: Suitable for development environments or small-scale deployments with low traffic; not recommended for production use.
 - **Components**: Single API-M node with all functionality
-- **Guides** - [Deploy on VM](../setup/single-node/configuring-a-single-node.md), [Deploy on Kubernetes](../setup/kubernetes-deployment/kubernetes/am-pattern-0-all-in-one.md)
+- **Guides** 
+    - [Deploy on VM](../setup/single-node/configuring-a-single-node.md) 
+    - [Deploy on Kubernetes](../setup/kubernetes-deployment/kubernetes/am-pattern-0-all-in-one.md)
 
 <a href="{{base_path}}/assets/img/setup-and-install/single-node-apim-deployment.png"><img src="{{base_path}}/assets/img/setup-and-install/single-node-apim-deployment.png" alt="single-node api-m deployment" width="60%"></a>
 
@@ -107,7 +105,9 @@ The Helm charts include cloud provider-specific configurations for:
 - **Description**: High availability deployment with multiple API Manager nodes in active-active configuration
 - **Use Case**: Production environments requiring high availability but with moderate traffic
 - **Components**: Multiple API-M nodes with all functionality in each node
-- **Guides** - [Deploy on VM](../setup/single-node/configuring-an-active-active-deployment.md), [Deploy on Kubernetes](../setup/kubernetes-deployment/kubernetes/am-pattern-1-all-in-one-ha.md)
+- **Guides** 
+    - [Deploy on VM](../setup/single-node/configuring-an-active-active-deployment.md), 
+    - [Deploy on Kubernetes](../setup/kubernetes-deployment/kubernetes/am-pattern-1-all-in-one-ha.md)
 
 <a href="{{base_path}}/assets/img/setup-and-install/active-active-apim-deployment.png"><img src="{{base_path}}/assets/img/setup-and-install/active-active-apim-deployment.png" alt="active-active api-m deployment" width="60%"></a>
 
@@ -115,7 +115,9 @@ The Helm charts include cloud provider-specific configurations for:
 - **Description**: Deployment with separate gateway nodes and a control plane
 - **Use Case**: Environments with higher API traffic needing gateway scalability
 - **Components**: API Control Plane, Universal Gateways
-- **Guides** - [Deploy on Kubernetes](../setup/kubernetes-deployment/kubernetes/am-pattern-2-all-in-one-gw.md)
+- **Guides**  
+    - [Deploy on VM]
+    - [Deploy on Kubernetes](../setup/kubernetes-deployment/kubernetes/am-pattern-2-all-in-one-gw.md)
 
 <a href="{{base_path}}/assets/img/setup-and-install/deployment-no-tm.png"><img src="{{base_path}}/assets/img/setup-and-install/deployment-no-tm.png" alt="simple scalable api-m deployment" width="60%"></a>
 
@@ -123,7 +125,9 @@ The Helm charts include cloud provider-specific configurations for:
 - **Description**: Distributed deployment with separate API Control Plane, Traffic Manager, and Gateway components
 - **Use Case**: Production environments with high traffic needing component-level scalability
 - **Components**: API Control Plane (ACP), Traffic Manager (TM), Universal Gateway (GW)
-- **Guides** - [Deploy on VM](../setup/distributed-deployment/deploying-wso2-api-m-in-a-distributed-setup.md), [Deploy on Kubernetes](../setup/kubernetes-deployment/kubernetes/am-pattern-3-acp-tm-gw.md)
+- **Guides** 
+    - [Deploy on VM](../setup/distributed-deployment/deploying-wso2-api-m-in-a-distributed-setup.md)
+    - [Deploy on Kubernetes](../setup/kubernetes-deployment/kubernetes/am-pattern-3-acp-tm-gw.md)
 
 <a href="{{base_path}}/assets/img/setup-and-install/distributed-deployment-tm.png"><img src="{{base_path}}/assets/img/setup-and-install/distributed-deployment-tm.png" alt="simple scalable api-m deployment" width="60%"></a>
 
@@ -131,7 +135,9 @@ The Helm charts include cloud provider-specific configurations for:
 - **Description**: Fully distributed deployment with separate Key Manager component
 - **Use Case**: Large-scale production environments with complex security requirements
 - **Components**: API Control Plane (ACP), Traffic Manager (TM), Universal Gateway (GW), Key Manager (KM)
-- **Guides** - [Deploy on VM](../setup/distributed-deployment/deploying-wso2-api-m-in-a-distributed-setup-with-km-separated.md), [Deploy on Kubernetes](../setup/kubernetes-deployment/kubernetes/am-pattern-4-acp-tm-gw-km.md)
+- **Guides** 
+    - [Deploy on VM](../setup/distributed-deployment/deploying-wso2-api-m-in-a-distributed-setup-with-km-separated.md)
+    - [Deploy on Kubernetes](../setup/kubernetes-deployment/kubernetes/am-pattern-4-acp-tm-gw-km.md)
 
 <a href="{{base_path}}/assets/img/setup-and-install/distributed-deployment-km.png"><img src="{{base_path}}/assets/img/setup-and-install/distributed-deployment-km.png" alt="fully distributed deployment" width="60%"></a>
 
@@ -139,6 +145,8 @@ The Helm charts include cloud provider-specific configurations for:
 - **Description**: Deployment with separate Gateway and Key Manager components
 - **Use Case**: Environments focusing on API security with dedicated Key Manager component
 - **Components**: API Control Plane, Universal Gateway, Key Manager
-- **Guides** - [Deploy on Kubernetes](../setup/kubernetes-deployment/kubernetes/am-pattern-5-all-in-one-gw-km.md)
+- **Guides** 
+    - [Deploy on VM](../setup/distributed-deployment/am-pattern-5-all-in-one-gw-km.md)
+    - [Deploy on Kubernetes](../setup/kubernetes-deployment/kubernetes/am-pattern-5-all-in-one-gw-km.md)
 
 <a href="{{base_path}}/assets/img/setup-and-install/deployment-km.png"><img src="{{base_path}}/assets/img/setup-and-install/deployment-km.png" alt="Simple Scalable Deployment" width="100%"></a>
