@@ -256,6 +256,26 @@ password = "<![CDATA[your-password]]>"
 
 You can protect your server from attacks such as the Logjam attack (Man-in-the-Middle attack) by disabling weak ciphers. For more details, see [Disable weak ciphers]({{base}}/install-and-setup/setup/security/configuring-transport-level-security/#disabling-weak-ciphers) in the WSO2 Admin Guide.
 
+### How can I distinguish between expired and invalid tokens in an authentication failure scenario?
+
+By default, API-M suppresses authentication failure details for security. If you need to see why a token was rejected, start API-M with the following JVM flag to add token status details **to the message context**, which you can then read in `_auth_failure_handler_.xml`:
+
+```bash
+./wso2server.sh -DincludeTokenInfoInMsgCtx=true
+```
+
+The table below lists the properties that become available and what each one represents.
+
+| Property                      | Purpose                                                                  |
+| ----------------------------- | ------------------------------------------------------------------------ |
+| `ACCESS_TOKEN`                | Raw access token extracted from the request.                             |
+| `ACCESS_TOKEN_INVALID_REASON` | Validation result: `"Access token expired"` or `"Access token invalid"`. |
+
+
+!!!note
+    This config is only available after U2 level 427 onwards.
+
+
 ## Troubleshooting
 
 ### Why do I get an illegal access attempt error while trying to authenticate APIKeyValidationService?
