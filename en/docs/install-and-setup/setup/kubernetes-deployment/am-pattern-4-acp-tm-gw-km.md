@@ -285,10 +285,6 @@ The recommendation is to use [**NGINX Ingress Controller**](https://kubernetes.g
     wso2:
       deployment:
         image:
-          imagePullSecrets:
-            enabled: false
-            username: ""
-            password: ""		
           registry: ""
           repository: ""
           digest: ""

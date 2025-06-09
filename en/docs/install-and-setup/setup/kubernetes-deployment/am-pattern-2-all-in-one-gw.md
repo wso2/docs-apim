@@ -250,10 +250,6 @@ In addition to the primary, internal keystores and truststore files, you can als
     wso2:
       deployment:
         image:
-          imagePullSecrets:
-            enabled: false
-            username: ""
-            password: ""		
           registry: ""
           repository: ""
           digest: ""
