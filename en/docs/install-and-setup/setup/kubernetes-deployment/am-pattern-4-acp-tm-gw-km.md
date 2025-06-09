@@ -1,4 +1,4 @@
-# Pattern 4: API-M Deployment with Fully Distributed Setup
+# API-M Deployment with Fully Distributed Setup
 
 This is the fully distributed deployment for API Manager. The default configuration consists of two API Control Planes, two Traffic Managers, two Universal Gateways, and two Key Managers. This is the most scalable and production-ready deployment pattern.
 
@@ -9,7 +9,7 @@ This is the fully distributed deployment for API Manager. The default configurat
 
 ## Contents
 
-- [Pattern 4: API-M Deployment with Fully Distributed Setup](#pattern-4-api-m-deployment-with-fully-distributed-setup)
+- [API-M Deployment with Fully Distributed Setup](#pattern-4-api-m-deployment-with-fully-distributed-setup)
   - [Contents](#contents)
   - [Prerequisites](#prerequisites)
     - [Step 1 - Set Up Basic Configurations](#step-1---set-up-basic-configurations)

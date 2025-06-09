@@ -1,4 +1,4 @@
-# Pattern 5: API-M Deployment with Simple Scalable Setup with Key Manager Separated
+# API-M Deployment with Simple Scalable Setup with Key Manager Separated
 
 This document provides step-by-step instructions to deploy WSO2 API Manager in a standard distributed setup on Kubernetes. This pattern consists of a single API Control Plane (All-in-One), two Key Manager instances, and two Universal Gateway instances. It provides an optimal balance between high availability and resource utilization.
 
@@ -17,7 +17,7 @@ This document provides step-by-step instructions to deploy WSO2 API Manager in a
 
 ## Contents
 
-- [WSO2 API Manager Pattern 5: API-M Deployment with Simple Scalable Setup](#wso2-api-manager-pattern-5-api-m-deployment-with-simple-scalable-setup)
+- [API-M Deployment with Simple Scalable Setup with Key Manager Separated](#wso2-api-manager-pattern-5-api-m-deployment-with-simple-scalable-setup)
   - [Contents](#contents)
   - [Prerequisites](#prerequisites)
     - [Step 1 - Set Up Basic Configurations](#step-1---set-up-basic-configurations)

@@ -2,14 +2,14 @@
 
 This deployment consists of a highly available API-M cluster with multiple nodes of the API-M runtime. You can use this pattern if you expect to receive moderate traffic and require high availability in your environment.
 
-<a href="{{base_path}}/assets/img/setup-and-install/active-active-apim-deployment.png"><img src="{{base_path}}/assets/img/setup-and-install/active-active-apim-deployment.png" alt="active-active api-m deployment" width="60%"></a>
+<a href="{{base_path}}/assets/img/setup-and-install/active-active-apim-deployment.png"><img src="{{base_path}}/assets/img/setup-and-install/active-active-apim-deployment.png" width="70%" alt="active-active apim deployment"></a>
 
 !!! info
     For advanced details on this deployment pattern, please refer to the official [documentation](kubernetes-deployment-overview.md).
 
 ## Contents
 
-- [Pattern 1: API-M Deployment with All-in-One HA Setup](#pattern-1-api-m-deployment-with-all-in-one-ha-setup)
+- [API-M Deployment with All-in-One HA Setup](#pattern-1-api-m-deployment-with-all-in-one-ha-setup)
   - [Contents](#contents)
   - [Prerequisites](#prerequisites)
     - [Step 1 - Set Up Basic Configurations](#step-1---set-up-basic-configurations)

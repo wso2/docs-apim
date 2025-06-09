@@ -1,15 +1,15 @@
-# Pattern 0: API-M Deployment with All-in-One Setup
+# API-M Deployment with All-in-One Setup
 
 This deployment consists of a single API-M node with a single API-M runtime. You can use this pattern if you expect to receive low traffic to your deployment and do not need any high availability in your environment.
 
-<a href="{{base_path}}/assets/img/setup-and-install/single-node-apim-deployment.png"><img src="{{base_path}}/assets/img/setup-and-install/single-node-apim-deployment.png" alt="single-node api-m deployment" width="60%"></a>
+<a href="{{base_path}}/assets/img/setup-and-install/single-node-apim-deployment.png"><img src="{{base_path}}/assets/img/setup-and-install/single-node-apim-deployment.png" width="70%" alt="single-node api-m deployment"></a>
 
 !!! info
     For advanced details on the deployment pattern, please refer to the official [documentation](kubernetes-deployment-overview.md).
 
 ## Contents
 
-- [Pattern 0: API-M Deployment with All-in-One Setup](#pattern-0-api-m-deployment-with-all-in-one-setup)
+- [API-M Deployment with All-in-One Setup](#pattern-0-api-m-deployment-with-all-in-one-setup)
   - [Contents](#contents)
   - [Prerequisites](#prerequisites)
   - [Step 1 - Set Up Basic Configurations](#step-1---set-up-basic-configurations)

@@ -1,4 +1,4 @@
-# Pattern 2: API-M Deployment with Simple Scalable Setup
+# API-M Deployment with Simple Scalable Setup
 
 This is the standard distributed deployment for API Manager. The default configuration consists of a single API Control Plane and two Universal Gateways for better scalability and performance.
 
@@ -9,7 +9,7 @@ This is the standard distributed deployment for API Manager. The default configu
 
 ## Contents
 
-- [Pattern 2: API-M Deployment with Simple Scalable Setup](#pattern-2-api-m-deployment-with-simple-scalable-setup)
+- [API-M Deployment with Simple Scalable Setup](#pattern-2-api-m-deployment-with-simple-scalable-setup)
   - [Contents](#contents)
   - [Prerequisites](#prerequisites)
     - [Step 1 - Set Up Basic Configurations](#step-1---set-up-basic-configurations)

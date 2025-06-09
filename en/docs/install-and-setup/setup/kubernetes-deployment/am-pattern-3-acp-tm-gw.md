@@ -1,4 +1,4 @@
-# Pattern 3: Distributed API-M Deployment with Gateway and Traffic Manager Separated from the Control Plane
+# Simple Scalable Deployment with Traffic Manager Separation
 
 This is the standard distributed deployment for API Manager. The default configuration consists of two API control planes, two Traffic Managers, and two Universal Gateways. This is a production-ready deployment pattern.
 
@@ -9,7 +9,7 @@ For advanced details on the deployment pattern, please refer to the official
 
 ## Contents
 
-- [Pattern 3: API-M Deployment with Traffic Manager Separation](#pattern-3-api-m-deployment-with-traffic-manager-separation)
+- [Simple Scalable Deployment with Traffic Manager Separation](#pattern-3-api-m-deployment-with-traffic-manager-separation)
   - [Contents](#contents)
   - [About this Document](#about-this-document)
   - [Prerequisites](#prerequisites)
