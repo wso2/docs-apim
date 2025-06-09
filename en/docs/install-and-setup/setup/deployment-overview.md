@@ -88,6 +88,27 @@ You can select one of the following deployment patterns depending on the workloa
             </tbody>
         </table>
 
+## Deployment Options
+
+### Deploy on VM
+
+The WSO2 API Manager can be deployed on virtual machines (VMs) using the provided product packs. The deployment can be done in various patterns, depending on your requirements.
+For comprehensive instructions, refer to the [VM Deployment Guide](../setup/single-node/deployment-overview.md).
+
+### Deploy on Kubernetes
+
+The Helm charts include cloud provider-specific configurations for:
+
+- AWS (EKS, EFS, RDS, Secrets Manager)
+- Azure (AKS, Azure Files, Azure Database, Key Vault)
+- GCP (GKE, GCS, Cloud SQL, Secret Manager)
+
+For comprehensive instructions, refer to the [K8s Deployment Guide](../setup/kubernetes-deployment/kubernetes/kubernetes-overview.md).
+
+### Deploy on OpenShift
+
+- **Note:** Default Helm chart configurations are intended for Kubernetes deployment.  
+- If you are deploying on OpenShift, additional configurations are required for both Docker images and the deployment process. For comprehensive instructions, refer to the [OpenShift Deployment Guide](../setup/kubernetes-deployment/openshift/openshift-deployment-overview.md).
 
 ## Available Deployment Patterns
 
@@ -95,8 +116,8 @@ You can select one of the following deployment patterns depending on the workloa
 - **Description**: Simple deployment with a single API Manager node handling all functionality
 - **Use Case**: Suitable for development environments or small-scale deployments with low traffic; not recommended for production use.
 - **Components**: Single API-M node with all functionality
-- **Guides** 
-    - [Deploy on VM](../setup/single-node/configuring-a-single-node.md) 
+- **Guides**: 
+    - [Deploy on VM](../setup/single-node/configuring-a-single-node.md)
     - [Deploy on Kubernetes](../setup/kubernetes-deployment/kubernetes/am-pattern-0-all-in-one.md)
 
 <a href="{{base_path}}/assets/img/setup-and-install/single-node-apim-deployment.png"><img src="{{base_path}}/assets/img/setup-and-install/single-node-apim-deployment.png" alt="single-node api-m deployment" width="60%"></a>
@@ -105,8 +126,8 @@ You can select one of the following deployment patterns depending on the workloa
 - **Description**: High availability deployment with multiple API Manager nodes in active-active configuration
 - **Use Case**: Production environments requiring high availability but with moderate traffic
 - **Components**: Multiple API-M nodes with all functionality in each node
-- **Guides** 
-    - [Deploy on VM](../setup/single-node/configuring-an-active-active-deployment.md), 
+- **Guides**: 
+    - [Deploy on VM](../setup/single-node/configuring-an-active-active-deployment.md)
     - [Deploy on Kubernetes](../setup/kubernetes-deployment/kubernetes/am-pattern-1-all-in-one-ha.md)
 
 <a href="{{base_path}}/assets/img/setup-and-install/active-active-apim-deployment.png"><img src="{{base_path}}/assets/img/setup-and-install/active-active-apim-deployment.png" alt="active-active api-m deployment" width="60%"></a>
@@ -114,18 +135,17 @@ You can select one of the following deployment patterns depending on the workloa
 ### Pattern 2: API-M Deployment with Simple Scalable Setup
 - **Description**: Deployment with separate gateway nodes and a control plane
 - **Use Case**: Environments with higher API traffic needing gateway scalability
-- **Components**: API Control Plane, Universal Gateways
-- **Guides**  
-    - [Deploy on VM]
+- **Components**: All-in-one, Universal Gateways
+- **Guides**:
     - [Deploy on Kubernetes](../setup/kubernetes-deployment/kubernetes/am-pattern-2-all-in-one-gw.md)
 
-<a href="{{base_path}}/assets/img/setup-and-install/deployment-no-tm.png"><img src="{{base_path}}/assets/img/setup-and-install/deployment-no-tm.png" alt="simple scalable api-m deployment" width="60%"></a>
+<a href="{{base_path}}/assets/img/setup-and-install/deployment-cp-gw.png"><img src="{{base_path}}/assets/img/setup-and-install/deployment-cp-gw.png" alt="simple scalable api-m deployment" width="60%"></a>
 
 ### Pattern 3: Distributed API-M Deployment with Gateway and Traffic Manager Separated from the Control Plane *(Recommended)*
 - **Description**: Distributed deployment with separate API Control Plane, Traffic Manager, and Gateway components
 - **Use Case**: Production environments with high traffic needing component-level scalability
 - **Components**: API Control Plane (ACP), Traffic Manager (TM), Universal Gateway (GW)
-- **Guides** 
+- **Guides**: 
     - [Deploy on VM](../setup/distributed-deployment/deploying-wso2-api-m-in-a-distributed-setup.md)
     - [Deploy on Kubernetes](../setup/kubernetes-deployment/kubernetes/am-pattern-3-acp-tm-gw.md)
 
@@ -135,7 +155,7 @@ You can select one of the following deployment patterns depending on the workloa
 - **Description**: Fully distributed deployment with separate Key Manager component
 - **Use Case**: Large-scale production environments with complex security requirements
 - **Components**: API Control Plane (ACP), Traffic Manager (TM), Universal Gateway (GW), Key Manager (KM)
-- **Guides** 
+- **Guides**: 
     - [Deploy on VM](../setup/distributed-deployment/deploying-wso2-api-m-in-a-distributed-setup-with-km-separated.md)
     - [Deploy on Kubernetes](../setup/kubernetes-deployment/kubernetes/am-pattern-4-acp-tm-gw-km.md)
 
@@ -144,9 +164,8 @@ You can select one of the following deployment patterns depending on the workloa
 ### Pattern 5: API-M Deployment with Simple Scalable Setup with Key Manager Separated
 - **Description**: Deployment with separate Gateway and Key Manager components
 - **Use Case**: Environments focusing on API security with dedicated Key Manager component
-- **Components**: API Control Plane, Universal Gateway, Key Manager
-- **Guides** 
-    - [Deploy on VM](../setup/distributed-deployment/am-pattern-5-all-in-one-gw-km.md)
+- **Components**: All-in-one, Universal Gateway, Key Manager
+- **Guides**: 
     - [Deploy on Kubernetes](../setup/kubernetes-deployment/kubernetes/am-pattern-5-all-in-one-gw-km.md)
 
-<a href="{{base_path}}/assets/img/setup-and-install/deployment-km.png"><img src="{{base_path}}/assets/img/setup-and-install/deployment-km.png" alt="Simple Scalable Deployment" width="100%"></a>
+<a href="{{base_path}}/assets/img/setup-and-install/deployment-cp-gw-km.png"><img src="{{base_path}}/assets/img/setup-and-install/deployment-cp-gw-km.png" alt="Simple Scalable Deployment with Key Manager Seperation" width="60%"></a>

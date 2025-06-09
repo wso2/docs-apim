@@ -176,7 +176,7 @@ Before deploying, create a Kubernetes secret with the keystore and truststore:
 
 ```bash
 # Create secret with default WSO2 keystores and truststores
-kubectl create secret generic jks-secret --from-file=wso2carbon.jks --from-file=client-truststore.jks
+kubectl create secret generic apim-keystore-secret --from-file=wso2carbon.jks --from-file=client-truststore.jks
 ```
 
 Deploy API Manager with minimal configuration using the following commands:
@@ -251,7 +251,7 @@ The recommendation is to use [**NGINX Ingress Controller**](https://kubernetes.g
 - Refer to the following sample command to create the secret and use it in the APIM:
   
   ```bash
-  kubectl create secret generic jks-secret --from-file=wso2carbon.jks --from-file=client-truststore.jks --from-file=wso2internal.jks -n <namespace>
+  kubectl create secret generic apim-keystore-secret --from-file=wso2carbon.jks --from-file=client-truststore.jks --from-file=wso2internal.jks -n <namespace>
   ```
 > By default, this deployment uses the default keystores and truststores provided by the relevant WSO2 product.
 > For advanced details with regards to managing custom Java keystores and truststores in a container-based WSO2 product deployment
