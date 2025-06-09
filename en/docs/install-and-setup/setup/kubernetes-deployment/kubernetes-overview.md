@@ -43,9 +43,9 @@ WSO2 API-M offers several deployment patterns for Kubernetes
 
 For detailed instructions on deploying each pattern, refer to their respective documentation:
 
-- [Pattern 0: All-in-One Setup](am-pattern-0-all-in-one.md)
-- [Pattern 1: All-in-One HA Setup](am-pattern-1-all-in-one-ha.md)
-- [Pattern 2: Simple Scalable Setup](am-pattern-2-all-in-one-gw.md)
-- [Pattern 3: Distributed with Gateway and Traffic Manager Separated](am-pattern-3-acp-tm-gw.md)
-- [Pattern 4: Fully Distributed Setup](am-pattern-4-acp-tm-gw-km.md)
-- [Pattern 5: Simple Scalable with Key Manager Separated](am-pattern-5-all-in-one-gw-km.md)
+- [Configuring a Single Node](am-pattern-0-all-in-one.md)
+- [Configuring an Active-Active Deployment](am-pattern-1-all-in-one-ha.md)
+- [Simple Scalable Deployment](am-pattern-2-all-in-one-gw.md)
+- [Simple Scalable Deployment with Traffic Manager Separation](am-pattern-3-acp-tm-gw.md)
+- [Fully Distributed Setup](am-pattern-4-acp-tm-gw-km.md)
+- [Simple Scalable Deployment with Key Manager Separation](am-pattern-5-all-in-one-gw-km.md)
