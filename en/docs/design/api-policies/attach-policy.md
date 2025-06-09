@@ -32,14 +32,7 @@ Follow the instructions below to attach one or more default policies that are sh
     !!!note
         You can utilize the **API Level Policy Support** feature from update level 14 onwards for WSO2 API Manager 4.2.0. If the feature is enabled, both API level policies and Operation level policies can be attached to any given API, where API level policies are given precedence over Operation level policies. If you wish to enable this support, you have to complete the below mentioned steps and restart the server.
 
-        1. Open the `<API-M_HOME>/repository/conf/deployment.toml` file and add the following configuration:
-
-        ```toml
-        [apim.policy]
-        'enable_api_level_policies' = true
-        ```
-
-        2. Update the `WSO2AM_DB` database using the relevant script mentioned below.
+        a. Update the `WSO2AM_DB` database using the relevant script mentioned below.
 
         ??? info "DB Scripts"
             === "DB2"
@@ -210,6 +203,13 @@ Follow the instructions below to attach one or more default policies that are sh
                     PRIMARY KEY(API_POLICY_MAPPING_ID)
                 );
                 ```
+
+        b. Open the `<API-M_HOME>/repository/conf/deployment.toml` file and add the following configuration:
+
+        ```toml
+        [apim.policy]
+        'enable_api_level_policies' = true
+        ```
 
 5.  Let’s attach a policy to the `/menu GET` operation. Scroll down through the left side column of the UI and click on `/menu GET` API operation. You should be able to see the below screen when the API operation is expanded.
 
