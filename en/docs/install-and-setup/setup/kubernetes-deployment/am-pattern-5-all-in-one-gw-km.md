@@ -78,12 +78,8 @@ WSO2 provides Docker images in two ways:
 - **Public DockerHub**: [WSO2 DockerHub](https://hub.docker.com/u/wso2/) offers General Availability (GA) versions with no additional updates
 - **Private Docker Registry**: [WSO2 Private Docker Registry](https://docker.wso2.com/) provides production-grade images with WSO2 Updates (requires an active [WSO2 Subscription](https://wso2.com/subscription))
 
-For this pattern, you will need:
-- All-in-One image - [wso2am](https://hub.docker.com/r/wso2/wso2am) (for Control Plane and Key Manager)
-- Universal Gateway image - [wso2am-universal-gw](https://hub.docker.com/r/wso2/wso2am-universal-gw)
-
-!!! note "Key Manager Image"
-    There is no separate Docker image for the Key Manager component. The All-in-One image should be used for the Key Manager component.
+For WSO2 API Manager 4.4.0, we only need a single Docker image:
+- All-in-one - [wso2am](https://hub.docker.com/r/wso2/wso2am)
 
 #### Building Custom Docker Images
 
@@ -96,29 +92,14 @@ If you need to customize the Docker images (e.g., adding JDBC drivers, custom li
    ADD --chown=wso2carbon:wso2 https://repo1.maven.org/maven2/mysql/mysql-connector-java/8.0.28/mysql-connector-java-8.0.28.jar ${WSO2_SERVER_HOME}/repository/components/lib
    ```
 
-2. **Sample Dockerfiles**:
+2. **Sample Dockerfile**:
 
-   **All-in-One** (Control Plane/Key Manager):
    ```dockerfile
-   FROM docker.wso2.com/wso2am:4.5.0.0
+   FROM docker.wso2.com/wso2am:4.4.0.0
 
    ARG USER_HOME=/home/${USER}
    ARG WSO2_SERVER_NAME=wso2am
-   ARG WSO2_SERVER_VERSION=4.5.0
-   ARG WSO2_SERVER=${WSO2_SERVER_NAME}-${WSO2_SERVER_VERSION}
-   ARG WSO2_SERVER_HOME=${USER_HOME}/${WSO2_SERVER}
-
-   # Copy JDBC MySQL driver
-   ADD --chown=wso2carbon:wso2 https://repo1.maven.org/maven2/mysql/mysql-connector-java/8.0.28/mysql-connector-java-8.0.28.jar ${WSO2_SERVER_HOME}/repository/components/lib
-   ```
-
-   **Universal Gateway**:
-   ```dockerfile
-   FROM docker.wso2.com/wso2am-universal-gw:4.5.0.0
-
-   ARG USER_HOME=/home/${USER}
-   ARG WSO2_SERVER_NAME=wso2am-universal-gw
-   ARG WSO2_SERVER_VERSION=4.5.0
+   ARG WSO2_SERVER_VERSION=4.4.0
    ARG WSO2_SERVER=${WSO2_SERVER_NAME}-${WSO2_SERVER_VERSION}
    ARG WSO2_SERVER_HOME=${USER_HOME}/${WSO2_SERVER}
 
@@ -187,19 +168,19 @@ If you want to quickly try out WSO2 API Manager on Kubernetes with minimal confi
 
    **Deploy Control Plane (All-in-One)**:
    ```bash
-   helm install apim wso2/wso2am-all-in-one --version 4.5.0-2 \
+   helm install apim wso2/wso2am-all-in-one --version 4.4.0-1 \
      -f https://raw.githubusercontent.com/wso2/helm-apim/main/docs/am-pattern-5-all-in-one_GW_KM/default_values.yaml
    ```
 
    **Deploy Key Manager**:
    ```bash
-   helm install km wso2/wso2am-acp --version 4.5.0-2 \
+   helm install km wso2/wso2am-acp --version 4.4.0-1 \
      -f https://raw.githubusercontent.com/wso2/helm-apim/main/docs/am-pattern-5-all-in-one_GW_KM/default_km_values.yaml
    ```
 
    **Deploy Universal Gateway**:
    ```bash
-   helm install gw wso2/wso2am-gw --version 4.5.0-2 \
+   helm install gw wso2/wso2am-gw --version 4.4.0-1 \
      -f https://raw.githubusercontent.com/wso2/helm-apim/main/docs/am-pattern-5-all-in-one_GW_KM/default_gw_values.yaml
    ```
 
@@ -407,7 +388,7 @@ kubectl create namespace <namespace>
 
 # Install using Helm
 helm install <release-name> wso2/wso2am-all-in-one \
-  --version 4.5.0-2 \
+  --version 4.4.0-1 \
   --namespace <namespace> \
   --dependency-update \
   -f values.yaml \
@@ -440,7 +421,7 @@ Deploy the Key Manager component with your custom configuration:
 ```bash
 # Install Key Manager component
 helm install <release-name> wso2/wso2am-acp \
-  --version 4.5.0-2 \
+  --version 4.4.0-1 \
   --namespace <namespace> \
   --dependency-update \
   -f km-values.yaml \
@@ -503,7 +484,7 @@ Deploy the Universal Gateway component with your custom configuration:
 ```bash
 # Install Gateway component
 helm install <release-name> wso2/wso2am-gw \
-  --version 4.5.0-2 \
+  --version 4.4.0-1 \
   --namespace <namespace> \
   --dependency-update \
   -f gw-values.yaml \

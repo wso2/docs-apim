@@ -75,10 +75,8 @@ Before you begin, ensure you have the following prerequisites in place:
 
   For a production-grade deployment of the desired WSO2 product version, it is highly recommended to use the relevant Docker image which packages WSO2 Updates, available at the [WSO2 Private Docker Registry](https://docker.wso2.com/). To use these images, you need an active [WSO2 Subscription](https://wso2.com/subscription).
 
-- WSO2 API Manager 4.5.0 provides three Docker images:
-  - API Control Plane (ACP) - [wso2am-acp](https://hub.docker.com/r/wso2/wso2am-acp)
-  - Traffic Manager (TM) - [wso2am-tm](https://hub.docker.com/r/wso2/wso2am-tm)
-  - Universal Gateway (GW) - [wso2am-universal-gw](https://hub.docker.com/r/wso2/wso2am-universal-gw)
+- For WSO2 API Manager 4.4.0, we only need a single Docker image:
+  - All-in-one - [wso2am](https://hub.docker.com/r/wso2/wso2am)
 
 - Since the products need to connect to databases at runtime, you need to include the relevant JDBC drivers in the distribution. This can be included in the Docker image building stage. For example, you can add the MySQL driver as follows:
   ```dockerfile
@@ -86,44 +84,21 @@ Before you begin, ensure you have the following prerequisites in place:
   ```
 - Furthermore, if there are any customizations to the JARs in the product, those can be included in the Docker image itself rather than mounting them from the deployment level (assuming that they are common to all environments).
 - The following is a sample Dockerfile to build a custom WSO2 APIM image. Depending on your requirements, you may refer to the following and make the necessary additions. The script below will do the following:
-  - Use WSO2 APIM 4.5.0 as the base image
+  - Use WSO2 APIM 4.4.0 as the base image
   - Copy third-party libraries to the `<APIM_HOME>/lib` directory
 
-  - Dockerfile for API Control Plane
-    ```dockerfile
-    FROM docker.wso2.com/wso2am-acp:4.5.0.0
+  ```dockerfile
+  FROM docker.wso2.com/wso2am:4.4.0.0
 
-    ARG USER_HOME=/home/${USER}
-    ARG WSO2_SERVER_NAME=wso2am-acp
-    ARG WSO2_SERVER_VERSION=4.5.0
-    ARG WSO2_SERVER=${WSO2_SERVER_NAME}-${WSO2_SERVER_VERSION}
-    ARG WSO2_SERVER_HOME=${USER_HOME}/${WSO2_SERVER}
+  ARG USER_HOME=/home/${USER}
+  ARG WSO2_SERVER_NAME=wso2am
+  ARG WSO2_SERVER_VERSION=4.4.0
+  ARG WSO2_SERVER=${WSO2_SERVER_NAME}-${WSO2_SERVER_VERSION}
+  ARG WSO2_SERVER_HOME=${USER_HOME}/${WSO2_SERVER}
 
-    # Copy JDBC MySQL driver
-    ADD --chown=wso2carbon:wso2 https://repo1.maven.org/maven2/mysql/mysql-connector-java/8.0.28/mysql-connector-java-8.0.28.jar ${WSO2_SERVER_HOME}/repository/components/lib
-    ```
-  
-  - Dockerfile for Traffic Manager
-    ```dockerfile
-    FROM docker.wso2.com/wso2am-tm:4.5.0.0
-
-    ARG USER_HOME=/home/${USER}
-    ARG WSO2_SERVER_NAME=wso2am-tm
-    ARG WSO2_SERVER_VERSION=4.5.0
-    ARG WSO2_SERVER=${WSO2_SERVER_NAME}-${WSO2_SERVER_VERSION}
-    ARG WSO2_SERVER_HOME=${USER_HOME}/${WSO2_SERVER}
-
-    # Copy JDBC MySQL driver
-    ADD --chown=wso2carbon:wso2 https://repo1.maven.org/maven2/mysql/mysql-connector-java/8.0.28/mysql-connector-java-8.0.28.jar ${WSO2_SERVER_HOME}/repository/components/lib
-    ```
-  
-  - Dockerfile for Universal Gateway
-    ```dockerfile
-    FROM docker.wso2.com/wso2am-universal-gw:4.5.0.0
-
-    ARG USER_HOME=/home/${USER}
-    ARG WSO2_SERVER_NAME=wso2am-universal-gw
-    ARG WSO2_SERVER_VERSION=4.5.0
+  # Copy JDBC MySQL driver
+  ADD --chown=wso2carbon:wso2 https://repo1.maven.org/maven2/mysql/mysql-connector-java/8.0.28/mysql-connector-java-8.0.28.jar ${WSO2_SERVER_HOME}/repository/components/lib
+  ```
     ARG WSO2_SERVER=${WSO2_SERVER_NAME}-${WSO2_SERVER_VERSION}
     ARG WSO2_SERVER_HOME=${USER_HOME}/${WSO2_SERVER}
 
@@ -183,13 +158,13 @@ Deploy API Manager with minimal configuration using the following commands:
 
 ```bash
 # Deploy API Control Plane
-helm install apim-acp wso2/wso2am-acp --version 4.5.0-2 -f https://raw.githubusercontent.com/wso2/helm-apim/main/docs/am-pattern-3-ACP_TM_GW/default_acp_values.yaml
+helm install apim-acp wso2/wso2am-acp --version 4.4.0-1 -f https://raw.githubusercontent.com/wso2/helm-apim/main/docs/am-pattern-3-ACP_TM_GW/default_acp_values.yaml
 
 # Deploy Traffic Manager
-helm install apim-tm wso2/wso2am-tm --version 4.5.0-2 -f https://raw.githubusercontent.com/wso2/helm-apim/main/docs/am-pattern-3-ACP_TM_GW/default_tm_values.yaml
+helm install apim-tm wso2/wso2am-tm --version 4.4.0-1 -f https://raw.githubusercontent.com/wso2/helm-apim/main/docs/am-pattern-3-ACP_TM_GW/default_tm_values.yaml
 
 # Deploy Universal Gateway
-helm install apim-gw wso2/wso2am-gw --version 4.5.0-2 -f https://raw.githubusercontent.com/wso2/helm-apim/main/docs/am-pattern-3-ACP_TM_GW/default_gw_values.yaml
+helm install apim-gw wso2/wso2am-gw --version 4.4.0-1 -f https://raw.githubusercontent.com/wso2/helm-apim/main/docs/am-pattern-3-ACP_TM_GW/default_gw_values.yaml
 ```
 
 !!! important
@@ -397,7 +372,7 @@ kubectl create namespace <namespace>
 
 # Deploy API Manager Control Plane using Helm
 helm install <release-name> <helm-chart-path> \
-  --version 4.5.0-2 \
+  --version 4.4.0-1 \
   --namespace <namespace> \
   --dependency-update \
   -f values.yaml \
@@ -437,7 +412,7 @@ After configuring all the necessary parameters, you can deploy the Traffic Manag
 ```bash
 # Deploy Traffic Manager using Helm
 helm install <release-name> <helm-chart-path> \
-  --version 4.5.0-2 \
+  --version 4.4.0-1 \
   --namespace <namespace> \
   --dependency-update \
   -f values.yaml \
@@ -496,7 +471,7 @@ After configuring all the necessary parameters, you can deploy the Universal Gat
 ```bash
 # Deploy Universal Gateway using Helm
 helm install <release-name> <helm-chart-path> \
-  --version 4.5.0-2 \
+  --version 4.4.0-1 \
   --namespace <namespace> \
   --dependency-update \
   -f values.yaml \

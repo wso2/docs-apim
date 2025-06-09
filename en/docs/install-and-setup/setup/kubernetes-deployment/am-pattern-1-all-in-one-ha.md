@@ -62,32 +62,28 @@ Before you begin, ensure you have the following prerequisites in place:
 
   For a production-grade deployment of the desired WSO2 product version, it is highly recommended to use the relevant Docker image that includes WSO2 Updates, available at the [WSO2 Private Docker Registry](https://docker.wso2.com/). To use these images, you need an active [WSO2 Subscription](https://wso2.com/subscription).
 
-- WSO2 API Manager 4.5.0 provides three Docker images:
+- For WSO2 API Manager 4.4.0, we only need a single Docker image:
   - All-in-one - [wso2am](https://hub.docker.com/r/wso2/wso2am)
-  - Universal Gateway (GW) - [wso2am-universal-gw](https://hub.docker.com/r/wso2/wso2am-universal-gw)
 
 - Since the products need to connect to databases at runtime, you must include the relevant JDBC drivers in the distribution. This can be done during the Docker image build stage. For example, you can add the MySQL driver as follows:
   ```dockerfile
   ADD --chown=wso2carbon:wso2 https://repo1.maven.org/maven2/mysql/mysql-connector-java/8.0.28/mysql-connector-java-8.0.28.jar ${WSO2_SERVER_HOME}/repository/components/lib
   ```
 - If there are any customizations to the JARs in the product, these can also be included in the Docker image itself rather than mounting them from the deployment level (assuming they are common to all environments).
-- Below is a sample Dockerfile to build a custom WSO2 APIM image. Depending on your requirements, you may refer to the following and make the necessary additions. The script will:
-  - Use WSO2 APIM 4.5.0 as the base image
-  - Copy third-party libraries to the `<APIM_HOME>/lib` directory
+- Below is a sample Dockerfile to build a custom WSO2 APIM image:
 
-  - Dockerfile for All-in-One:
-    ```dockerfile
-    FROM docker.wso2.com/wso2am:4.5.0.0
+  ```dockerfile
+  FROM docker.wso2.com/wso2am:4.4.0.0
 
-    ARG USER_HOME=/home/${USER}
-    ARG WSO2_SERVER_NAME=wso2am
-    ARG WSO2_SERVER_VERSION=4.5.0
-    ARG WSO2_SERVER=${WSO2_SERVER_NAME}-${WSO2_SERVER_VERSION}
-    ARG WSO2_SERVER_HOME=${USER_HOME}/${WSO2_SERVER}
+  ARG USER_HOME=/home/${USER}
+  ARG WSO2_SERVER_NAME=wso2am
+  ARG WSO2_SERVER_VERSION=4.4.0
+  ARG WSO2_SERVER=${WSO2_SERVER_NAME}-${WSO2_SERVER_VERSION}
+  ARG WSO2_SERVER_HOME=${USER_HOME}/${WSO2_SERVER}
 
-    # Copy JDBC MySQL driver
-    ADD --chown=wso2carbon:wso2 https://repo1.maven.org/maven2/mysql/mysql-connector-java/8.0.28/mysql-connector-java-8.0.28.jar ${WSO2_SERVER_HOME}/repository/components/lib
-    ```
+  # Copy JDBC MySQL driver
+  ADD --chown=wso2carbon:wso2 https://repo1.maven.org/maven2/mysql/mysql-connector-java/8.0.28/mysql-connector-java-8.0.28.jar ${WSO2_SERVER_HOME}/repository/components/lib
+  ```
 
 - Once the required changes have been made to the Dockerfile, you can use the following command to build the custom image. Replace `CONTAINER_REGISTRY`, `IMAGE_REPO`, and `TAG` accordingly:
   ```bash
@@ -134,10 +130,10 @@ Deploy API Manager with minimal configuration using the following commands:
 
 ```bash
 # Deploy first instance
-helm install apim-1 wso2/wso2am-all-in-one --version 4.5.0-2 -f https://raw.githubusercontent.com/wso2/helm-apim/main/docs/am-pattern-1-all-in-one-HA/default_values_1.yaml
+helm install apim-1 wso2/wso2am-all-in-one --version 4.4.0-1 -f https://raw.githubusercontent.com/wso2/helm-apim/main/docs/am-pattern-1-all-in-one-HA/default_values_1.yaml
 
 # Deploy second instance (for high availability)
-helm install apim-2 wso2/wso2am-all-in-one --version 4.5.0-2 -f https://raw.githubusercontent.com/wso2/helm-apim/main/docs/am-pattern-1-all-in-one-HA/default_values_2.yaml
+helm install apim-2 wso2/wso2am-all-in-one --version 4.4.0-1 -f https://raw.githubusercontent.com/wso2/helm-apim/main/docs/am-pattern-1-all-in-one-HA/default_values_2.yaml
 ```
 
 !!! important
@@ -337,7 +333,7 @@ Now deploy the Helm chart using the following command after creating a namespace
   
   ```bash
   kubectl create namespace <namespace>
-  helm install <release-name> <helm-chart-path> --version 4.5.0-2 --namespace <namespace> --dependency-update -f values.yaml --create-namespace
+  helm install <release-name> <helm-chart-path> --version 4.4.0-1 --namespace <namespace> --dependency-update -f values.yaml --create-namespace
   ```
 
 ### 3. Add a DNS Record Mapping the Hostnames and the External IP
