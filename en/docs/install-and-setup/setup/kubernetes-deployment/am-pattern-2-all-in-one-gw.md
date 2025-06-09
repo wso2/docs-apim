@@ -61,14 +61,13 @@ Before you begin, ensure you have the following prerequisites in place:
 
 - WSO2 product Docker images are used for the Kubernetes deployment.
   
-  WSO2 product Docker images available at [DockerHub](https://hub.docker.com/u/wso2/) package General Availability (GA)
-  versions of WSO2 products with no [WSO2 Updates](https://wso2.com/updates).
+    WSO2 product Docker images available at [DockerHub](https://hub.docker.com/u/wso2/) package General Availability (GA)
+    versions of WSO2 products with no [WSO2 Updates](https://wso2.com/updates).
 
-  For a production-grade deployment of the desired WSO2 product version, it is highly recommended to use the relevant
-  Docker image which packages WSO2 Updates, available at [WSO2 Private Docker Registry](https://docker.wso2.com/). To use these images, you need an active [WSO2 Subscription](https://wso2.com/subscription).
+    For a production-grade deployment of the desired WSO2 product version, it is highly recommended to use the relevant
+    Docker image which packages WSO2 Updates, available at [WSO2 Private Docker Registry](https://docker.wso2.com/). To use these images, you need an active [WSO2 Subscription](https://wso2.com/subscription).
 
-- For WSO2 API Manager 4.4.0, we only need a single Docker image:
-  - All-in-one - [wso2am](https://hub.docker.com/r/wso2/wso2am)
+- For WSO2 API Manager 4.4.0, we only need [wso2am](https://hub.docker.com/r/wso2/wso2am) Docker image
 
 - Since the products need to connect to databases at runtime, you need to include the relevant JDBC drivers in the distribution. This can be included in the Docker image building stage. For example, you can add the MySQL driver as follows:
   ```dockerfile
@@ -145,10 +144,10 @@ Deploy API Manager with minimal configuration using the following commands:
 
 ```bash
 # Deploy API Manager Control Plane
-helm install apim wso2/wso2am-all-in-one --version 4.4.0-1 -f https://raw.githubusercontent.com/wso2/helm-apim/main/docs/am-pattern-2-all-in-one_GW/default_values.yaml
+helm install apim wso2/wso2am-all-in-one --version 4.4.0-1 -f https://raw.githubusercontent.com/wso2/helm-apim/4.4.x/docs/am-pattern-2-all-in-one-gw/default_values.yaml
 
 # Deploy Universal Gateway
-helm install apim-gw wso2/wso2am-gw --version 4.4.0-1 -f https://raw.githubusercontent.com/wso2/helm-apim/main/docs/am-pattern-2-all-in-one_GW/default_gw_values.yaml
+helm install apim-gw wso2/wso2am-gw --version 4.4.0-1 -f https://raw.githubusercontent.com/wso2/helm-apim/4.4.x/docs/am-pattern-2-all-in-one-gw/default_gw_values.yaml
 ```
 
 !!! important
