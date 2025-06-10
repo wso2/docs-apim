@@ -28,6 +28,7 @@ This deployment consists of a highly available API-M cluster with multiple nodes
         - [2.2 Configure User Store Properties](#22-configure-user-store-properties)
         - [2.4 Configure JWKS URL](#24-configure-jwks-url)
         - [2.5 Deploy All-in-One](#25-deploy-all-in-one)
+        - [2.6 Enable High Availability](#26-enable-high-availability)
     - [3. Add a DNS Record Mapping the Hostnames and the External IP](#3-add-a-dns-record-mapping-the-hostnames-and-the-external-ip)
     - [4. Access Management Consoles](#4-access-management-consoles)
 
@@ -335,6 +336,10 @@ wso2:
         oauth2JWKSUrl: "https://localhost:9443/oauth2/jwks"
 ```
 
+!!! tip
+    Use Key Manager's service name instead of `localhost` if you are using a different hostname for the Key Manager.
+
+
 #### 2.5 Deploy All-in-One
 
 Now deploy the Helm chart using the following command after creating a namespace for the deployment. Replace `<release-name>` and `<namespace>` with appropriate values. Replace `<helm-chart-path>` with the path to the Helm deployment.
@@ -343,6 +348,16 @@ Now deploy the Helm chart using the following command after creating a namespace
   kubectl create namespace <namespace>
   helm install <release-name> <helm-chart-path> --version 4.5.0-2 --namespace <namespace> --dependency-update -f values.yaml --create-namespace
   ```
+
+#### 2.6 Enable High Availability
+To enable high availability, you can scale the deployment by increasing the number of replicas for the API Manager runtime. This can be done by modifying the `highAvailability` in the `values.yaml` file:
+
+```yaml
+wso2:
+  deployment:
+    highAvailability: true
+```
+
 
 ### 3. Add a DNS Record Mapping the Hostnames and the External IP
 
