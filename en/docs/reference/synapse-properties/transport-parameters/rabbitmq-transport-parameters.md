@@ -112,7 +112,8 @@ present. If set to <code>false</code>, the Micro Integrator will assume that a q
       <tr>
          <td>rabbitmq.publisher.confirms.enabled</td>
          <td>
-            Enables support for RabbitMQ publisher confirms.
+            Enables support for RabbitMQ publisher confirms, which allows the producer to receive acknowledgements from the broker when messages are successfully published. <br><br>
+            <b>Note:</b> When using the Publisher Confirms scenario, do not set the <code>OUT_ONLY</code> property to <code>true</code> in the mediation flow, as this will prevent publisher confirms from working correctly.
          </td>
       </tr>
    </tbody>
