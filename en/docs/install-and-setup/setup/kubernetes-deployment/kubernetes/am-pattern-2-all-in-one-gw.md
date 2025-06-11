@@ -28,6 +28,7 @@ This is the standard distributed deployment for API Manager. The default configu
         - [2.2 Configure User Store Properties](#22-configure-user-store-properties)
         - [2.4 Configure JWKS URL](#24-configure-jwks-url)
         - [2.5 Deploy Control Plane](#25-deploy-control-plane)
+        - [2.6 Enable High Availability](#26-enable-high-availability)
     - [3. Universal Gateway Configuration](#3-universal-gateway-configuration)
         - [3.1 Configure Key Manager, Eventhub and Throttling](#31-configure-key-manager-eventhub-and-throttling)
         - [3.2 Deploy Universal Gateway](#32-deploy-universal-gateway)
@@ -384,6 +385,16 @@ helm install <release-name> <helm-chart-path> \
     - `<release-name>`: Choose a name for your release (e.g., `apim`)
     - `<namespace>`: Specify the Kubernetes namespace (e.g., `wso2`)
     - `<helm-chart-path>`: Path to the Helm chart (e.g., `./all-in-one` or use the repository URL)
+
+
+#### 2.6 Enable High Availability
+To enable high availability, you can scale the deployment by increasing the number of replicas for the API Manager runtime. This can be done by modifying the `highAvailability` in the `values.yaml` file:
+
+```yaml
+wso2:
+  deployment:
+    highAvailability: true
+```
 
 ### 3. Universal Gateway Configuration
 
