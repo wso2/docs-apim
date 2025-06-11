@@ -2,20 +2,6 @@
 
 WSO2 API Manager (WSO2 APIM) offers a flexible and componentized deployment architecture that supports diverse scalability, availability, and security requirements. The platform can be deployed in various patterns—from simple, all-in-one setups to fully distributed, production-grade environments—adapting seamlessly to organizational needs.
 
-## Key Deployment Variants
-
-### Virtual Machine (VM)-based Deployment
-In traditional on-premises or private cloud setups, VM-based deployments use product packs installed on virtual machines. Each component—API Gateway, Publisher, Developer Portal, Key Manager, and Traffic Manager—can be deployed independently for better scalability, performance, and fault isolation. This model offers fine-grained control over the infrastructure but requires manual configuration for scaling, load balancing, and failover.
-
-### Kubernetes-based Deployment
-For cloud-native and containerized environments, WSO2 APIM can be deployed on Kubernetes using the official Helm chart or Kubernetes Operator. This model enables automated deployment, dynamic scaling, self-healing, and integrates seamlessly with CI/CD pipelines. It’s ideal for organizations adopting DevOps practices, microservices architectures, and modern container orchestration.
-
-### OpenShift-based Deployment
-For enterprises leveraging Red Hat OpenShift, WSO2 APIM is fully compatible with OpenShift’s container orchestration capabilities. Deployments on OpenShift utilize Operators and Helm charts that adhere to OpenShift’s security, compliance, and multi-tenancy requirements. This model supports dynamic scaling, integrated monitoring, and enterprise-grade security features, making it a robust choice for large-scale, regulated environments that demand enhanced governance and policy enforcement.
-
-Each deployment variant empowers organizations to align API management with their preferred IT strategy—whether that means leveraging existing VMs, adopting cloud-native Kubernetes, or integrating with OpenShift’s enterprise-grade container management. Regardless of the chosen platform, WSO2 APIM ensures the separation of concerns, enabling efficient API publishing, subscription management, security enforcement, and analytics at scale.
-You can select one of the following deployment patterns depending on the workload of each component and the traffic that is expected to each of the components and runtimes.
-
 !!! note
     From WSO2 API Manager 4.5.0 onwards, we no longer support API-M profiles such as, `-Dprofile=control-plane`, `-Dprofile=gateway-worker` and `-Dprofile=traffic-manager`. Instead, we now have separate distributions namely, **WSO2 API Control Plane**, **WSO2 Universal Gateway** and **WSO2 Traffic Manager** components which should be used for configuring a distributed deployment. For alternative deployment options, please refer the table below. See more information in [Key Changes]({{base_path}}/get-started/about-this-release/#key-changes).
 
