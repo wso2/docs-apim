@@ -619,7 +619,6 @@ nav:
                     - Distributed Deployment:
                         - Simple Scalable Deployment: install-and-setup/setup/kubernetes-deployment/kubernetes/am-pattern-2-all-in-one-gw.md
                         - Distributed Deployment (Recommended): install-and-setup/setup/kubernetes-deployment/kubernetes/am-pattern-3-acp-tm-gw.md
-                        - Simple Scalable Deployment with Key Manager Separation: install-and-setup/setup/kubernetes-deployment/kubernetes/am-pattern-5-all-in-one-gw-km.md
                         - Distributed Deployment with Key Manager Separation: install-and-setup/setup/kubernetes-deployment/kubernetes/am-pattern-4-acp-tm-gw-km.md
                 - API-M on Openshift: install-and-setup/setup/kubernetes-deployment/openshift/openshift-deployment-overview.md
             - Deployment Best Practices:
