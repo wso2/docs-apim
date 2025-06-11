@@ -1,6 +1,6 @@
 # Configuring a Distributed API-M Deployment
 
-WSO2 API-M can be deployed as an [all-in-one deployment]({{base_path}}/install-and-setup/setup/single-node/all-in-one-deployment-overview) or as a distributed deployment. In the distributed setup, the respective component distributions, namely WSO2 API Control Plane, WSO2 Universal Gateway and WSO2 Traffic Manager are deployed as separate nodes.
+WSO2 API-M can be deployed as an [all-in-one deployment]({{base_path}}/install-and-setup/setup/single-node/all-in-one-deployment-overview) or as a distributed deployment. In the distributed setup, the respective component distributions, namely WSO2 API Manager All-in-One, and WSO2 Universal Gateway are deployed as separate nodes.
 
 Given below are the API-M nodes you can have in a distributed deployment by default.
 
