@@ -1,8 +1,6 @@
 # WSO2 API Manager Deployment Overview
 
-WSO2 API Manager consists of an API management layer and an integration layer. The API management layer contains several components, which you can use in your deployment according to your requirement. The integration layer includes either the Micro Integrator runtime (for services integration) and the Streaming Integrator runtime (for streaming requirements) or both runtimes.
-
-You can select one of the following deployment patterns depending on the workload of each component and the traffic that is expected to each of the components and runtimes.
+WSO2 API Manager (WSO2 APIM) offers a flexible and componentized deployment architecture that supports diverse scalability, availability, and security requirements. The platform can be deployed in various patterns—from simple, all-in-one setups to fully distributed, production-grade environments—adapting seamlessly to organizational needs.
 
 !!! note
     From WSO2 API Manager 4.5.0 onwards, we no longer support API-M profiles such as, `-Dprofile=control-plane`, `-Dprofile=gateway-worker` and `-Dprofile=traffic-manager`. Instead, we now have separate distributions namely, **WSO2 API Control Plane**, **WSO2 Universal Gateway** and **WSO2 Traffic Manager** components which should be used for configuring a distributed deployment. For alternative deployment options, please refer the table below. See more information in [Key Changes]({{base_path}}/get-started/about-this-release/#key-changes).
@@ -127,7 +125,7 @@ For comprehensive instructions, refer to the [K8s Deployment Guide](../setup/kub
 - **Guides**:
     - [Deploy on Kubernetes](../setup/kubernetes-deployment/kubernetes/am-pattern-2-all-in-one-gw.md)
 
-<a href="{{base_path}}/assets/img/setup-and-install/deployment-cp-gw.png"><img src="{{base_path}}/assets/img/setup-and-install/deployment-cp-gw.png" alt="simple scalable api-m deployment" width="60%"></a>
+<a href="{{base_path}}/assets/img/setup-and-install/simple-distributed.png"><img src="{{base_path}}/assets/img/setup-and-install/simple-distributed.png" alt="simple scalable api-m deployment" width="60%"></a>
 
 ### Pattern 3: Distributed API-M Deployment with Gateway and Traffic Manager Separated from the Control Plane *(Recommended)*
 - **Description**: Distributed deployment with separate API Control Plane, Traffic Manager, and Gateway components
