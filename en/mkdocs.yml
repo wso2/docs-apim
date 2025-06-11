@@ -335,13 +335,22 @@ nav:
                 - Custom Connector: ai-gateway/ai-vendor-management/custom-ai-vendors/custom-connector.md
                 - Onboarding Anthropic's Claude: ai-gateway/ai-vendor-management/custom-ai-vendors/onboarding-anthropic-claude.md
     - Governance:
-          - Overview: governance/overview.md
-          - Concepts: governance/governance-concept.md
-        #   - Quick Start Guide: governance/quick-start-guide.md
-          - How to Use:
-                - Administrative Capabilities: governance/api-governance-admin-capabilities.md
-                - API Creator/Publisher Capabilities: governance/api-governance-api-creator-capabilities.md
-          - CI/CD-Driven Governance: governance/api-governance-cicd.md
+        - Overview: governance/overview.md
+        - Concepts: governance/governance-concept.md
+    #   - Quick Start Guide: governance/quick-start-guide.md
+        - How to Use:
+            - Administrative Capabilities: governance/api-governance-admin-capabilities.md
+            - API Creator/Publisher Capabilities: governance/api-governance-api-creator-capabilities.md
+        - CI/CD-Driven Governance: governance/api-governance-cicd.md
+        - References:
+            - Rule Validator: governance/rule-validator/rule-validator.md
+            - Ruleset Catalog:
+                  - WSO2 API Management Guidelines: reference/governance/wso2-api-management-guidelines.md
+                  - WSO2 REST API Design Guidelines: reference/governance/wso2-rest-api-design-guidelines.md
+                  - OWASP Top 10: reference/governance/owasp-top-10.md
+                  - WSO2 API Security Guidelines: reference/governance/wso2-api-security-guidelines.md
+            - API YAML Representation: reference/governance/api-yaml-representation.md
+            - API Documentation YAML Representation: reference/governance/api-doc-yaml-representation.md
     - Monitoring:
         - API Analytics:
             - Overview: monitoring/api-analytics/analytics-overview.md
@@ -1323,6 +1332,6 @@ extra:
             version: 1.2.0-1
             git_tag: v1.2.0.1
     site_version: 4.5.0
-    base_path: http://localhost:8000/en/4.5.0
-#    base_path: https://apim.docs.wso2.com/en/4.5.0
+#    base_path: http://localhost:8000/en/4.5.0
+    base_path: https://apim.docs.wso2.com/en/4.5.0
     envoy_path: https://www.envoyproxy.io/docs/envoy/v1.24.1
