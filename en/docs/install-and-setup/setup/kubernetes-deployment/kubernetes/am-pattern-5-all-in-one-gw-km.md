@@ -102,6 +102,7 @@ If you need to customize the Docker images (e.g., adding JDBC drivers, custom li
    ```dockerfile
    FROM docker.wso2.com/wso2am:4.5.0.0
 
+   ARG USER=wso2carbon
    ARG USER_HOME=/home/${USER}
    ARG WSO2_SERVER_NAME=wso2am
    ARG WSO2_SERVER_VERSION=4.5.0
@@ -116,6 +117,7 @@ If you need to customize the Docker images (e.g., adding JDBC drivers, custom li
    ```dockerfile
    FROM docker.wso2.com/wso2am-universal-gw:4.5.0.0
 
+   ARG USER=wso2carbon
    ARG USER_HOME=/home/${USER}
    ARG WSO2_SERVER_NAME=wso2am-universal-gw
    ARG WSO2_SERVER_VERSION=4.5.0

@@ -86,6 +86,7 @@ Before you begin, ensure you have the following prerequisites in place:
     ```dockerfile
     FROM docker.wso2.com/wso2am:4.5.0.0
 
+    ARG USER=wso2carbon
     ARG USER_HOME=/home/${USER}
     ARG WSO2_SERVER_NAME=wso2am
     ARG WSO2_SERVER_VERSION=4.5.0
@@ -100,6 +101,7 @@ Before you begin, ensure you have the following prerequisites in place:
     ```dockerfile
     FROM docker.wso2.com/wso2am-universal-gw:4.5.0.0
 
+    ARG USER=wso2carbon
     ARG USER_HOME=/home/${USER}
     ARG WSO2_SERVER_NAME=wso2am-universal-gw
     ARG WSO2_SERVER_VERSION=4.5.0
