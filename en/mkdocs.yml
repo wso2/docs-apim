@@ -561,22 +561,32 @@ nav:
                     - Configure the Crypto Provider: install-and-setup/setup/advance-configurations/configuring-the-crypto-provider.md
         - Deploy:
             - Deployment Patterns Overview: install-and-setup/setup/deployment-overview.md
-            - Deploy the API-M Runtime:
+            - Deploy on VMs:
+                - Overview: install-and-setup/setup/single-node/deployment-overview.md
                 - All-In-One Deployment:
-                    - All-in-One Deployment Overview: install-and-setup/setup/single-node/all-in-one-deployment-overview.md
-                    - Configure a Single API-M Node: install-and-setup/setup/single-node/configuring-a-single-node.md
-                    - Configure an Active-Active API-M Deployment: install-and-setup/setup/single-node/configuring-an-active-active-deployment.md
+                    - Single Node Deployment: install-and-setup/setup/single-node/configuring-a-single-node.md
+                    - Active-Active Deployment: install-and-setup/setup/single-node/configuring-an-active-active-deployment.md
                 - Distributed Deployment:
-                    - Distributed Deployment Overview: install-and-setup/setup/distributed-deployment/understanding-the-distributed-deployment-of-wso2-api-m.md
-                    - Configure a Distributed API-M Deployment: install-and-setup/setup/distributed-deployment/deploying-wso2-api-m-in-a-distributed-setup.md
-                    - Configure a Distributed API-M Deployment with Key Manager Separation: install-and-setup/setup/distributed-deployment/deploying-wso2-api-m-in-a-distributed-setup-with-km-separated.md
+                    - Overview: install-and-setup/setup/distributed-deployment/understanding-the-distributed-deployment-of-wso2-api-m.md
+                    - Simple Scalable Deployment: install-and-setup/setup/distributed-deployment/deploying-wso2-api-m-in-a-simple-scalable-setup.md
+                    - Distributed Deployment (Recommended): install-and-setup/setup/distributed-deployment/deploying-wso2-api-m-in-a-distributed-setup.md
+                    - Distributed Deployment with Key Manager Separation: install-and-setup/setup/distributed-deployment/deploying-wso2-api-m-in-a-distributed-setup-with-km-separated.md
                 - Multi-DC Deployment:
-                    - Multi-DC Deployment Patterns Overview: install-and-setup/setup/multi-dc-deployment/multi-dc-deployment-patterns-overview.md
-                    - Configure Multi-DC Deployment - Pattern 1: install-and-setup/setup/multi-dc-deployment/configuring-multi-dc-deployment-pattern-1.md
-                    - Configure Multi-DC Deployment - Pattern 2: install-and-setup/setup/multi-dc-deployment/configuring-multi-dc-deployment-pattern-2.md
+                    - Patterns Overview: install-and-setup/setup/multi-dc-deployment/multi-dc-deployment-patterns-overview.md
+                    - Multi-DC Deployment - Pattern 1: install-and-setup/setup/multi-dc-deployment/configuring-multi-dc-deployment-pattern-1.md
+                    - Multi-DC Deployment - Pattern 2: install-and-setup/setup/multi-dc-deployment/configuring-multi-dc-deployment-pattern-2.md
             - Deploy on Kubernetes:
                 - API-M on K8s:
-                    - Deploy API-M on K8s Using Helm Resources: install-and-setup/install/deploying-api-manager-with-kubernetes-resources.md
+                    - Overview: install-and-setup/setup/kubernetes-deployment/kubernetes/kubernetes-overview.md
+                    - All-In-One Deployment:
+                        - Single Node Deployment: install-and-setup/setup/kubernetes-deployment/kubernetes/am-pattern-0-all-in-one.md
+                        - Active-Active Deployment: install-and-setup/setup/kubernetes-deployment/kubernetes/am-pattern-1-all-in-one-ha.md
+                    - Distributed Deployment:
+                        - Simple Scalable Deployment: install-and-setup/setup/kubernetes-deployment/kubernetes/am-pattern-2-all-in-one-gw.md
+                        - Distributed Deployment (Recommended): install-and-setup/setup/kubernetes-deployment/kubernetes/am-pattern-3-acp-tm-gw.md
+                        - Distributed Deployment with Key Manager Separation: install-and-setup/setup/kubernetes-deployment/kubernetes/am-pattern-4-acp-tm-gw-km.md
+                        - Simple Scalable Deployment with Key Manager Separation: install-and-setup/setup/kubernetes-deployment/kubernetes/am-pattern-5-all-in-one-gw-km.md
+                - API-M on Openshift: install-and-setup/setup/kubernetes-deployment/openshift/openshift-deployment-overview.md
             - Deployment Best Practices:
                 - Deployment Checklist: install-and-setup/setup/deployment-best-practices/production-deployment-guidelines.md
                 - Security Guidelines for a Production Deployment: install-and-setup/setup/deployment-best-practices/security-guidelines-for-production-deployment.md
