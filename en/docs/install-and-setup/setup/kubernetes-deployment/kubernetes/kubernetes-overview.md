@@ -18,9 +18,10 @@ WSO2 API-M supports several managed Kubernetes services. To ensure compatibility
 WSO2 API-M is compatible with a variety of Kubernetes distributions. Check the compatible versions for each distribution below to ensure proper functionality.
 
 | Software Application | Cluster Version | Software Version |
-| -------------------- | --------------- | ---------------- |
+|----------------------|-----------------|------------------|
 | Minikube             | 1.26.3 - 1.30.3 | 1.30.1 - 1.34.0  |
-| Rancher              | 1.27.2 - 1.30.3 | 1.9.1 - 1.16.0   |
+| Rancher Desktop      | 1.27.2 - 1.30.3 | 1.9.1 - 1.16.0   |
+| Rancher Enterprise   | 1.32.3 (RKE2)   | 2.11.1           |
 | Kind                 | 1.26.3 - 1.30.3 | 0.24.0           |
 | OpenShift            | 1.28   - 1.30.3 | 4.15 - 4.15      |
 
