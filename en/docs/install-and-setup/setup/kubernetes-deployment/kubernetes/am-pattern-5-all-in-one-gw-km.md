@@ -189,19 +189,19 @@ If you want to quickly try out WSO2 API Manager on Kubernetes with minimal confi
 
    **Deploy Control Plane (All-in-One)**:
    ```bash
-   helm install apim wso2/wso2am-all-in-one --version 4.5.0-2 \
+   helm install apim wso2/wso2am-all-in-one --version 4.5.0-3 \
      -f https://raw.githubusercontent.com/wso2/helm-apim/main/docs/am-pattern-5-all-in-one_GW_KM/default_values.yaml
    ```
 
    **Deploy Key Manager**:
    ```bash
-   helm install km wso2/wso2am-acp --version 4.5.0-2 \
+   helm install km wso2/wso2am-acp --version 4.5.0-3 \
      -f https://raw.githubusercontent.com/wso2/helm-apim/main/docs/am-pattern-5-all-in-one_GW_KM/default_km_values.yaml
    ```
 
    **Deploy Universal Gateway**:
    ```bash
-   helm install gw wso2/wso2am-gw --version 4.5.0-2 \
+   helm install gw wso2/wso2am-gw --version 4.5.0-3 \
      -f https://raw.githubusercontent.com/wso2/helm-apim/main/docs/am-pattern-5-all-in-one_GW_KM/default_gw_values.yaml
    ```
 
@@ -413,7 +413,7 @@ kubectl create namespace <namespace>
 
 # Install using Helm
 helm install <release-name> wso2/wso2am-all-in-one \
-  --version 4.5.0-2 \
+  --version 4.5.0-3 \
   --namespace <namespace> \
   --dependency-update \
   -f values.yaml \
@@ -446,7 +446,7 @@ Deploy the Key Manager component with your custom configuration:
 ```bash
 # Install Key Manager component
 helm install <release-name> wso2/wso2am-acp \
-  --version 4.5.0-2 \
+  --version 4.5.0-3 \
   --namespace <namespace> \
   --dependency-update \
   -f km-values.yaml \
@@ -509,7 +509,7 @@ Deploy the Universal Gateway component with your custom configuration:
 ```bash
 # Install Gateway component
 helm install <release-name> wso2/wso2am-gw \
-  --version 4.5.0-2 \
+  --version 4.5.0-3 \
   --namespace <namespace> \
   --dependency-update \
   -f gw-values.yaml \
