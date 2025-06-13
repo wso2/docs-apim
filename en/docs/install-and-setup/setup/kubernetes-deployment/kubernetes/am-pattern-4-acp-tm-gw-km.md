@@ -189,16 +189,16 @@ Deploy API Manager with minimal configuration using the following commands:
 
 ```bash
 # 1. Deploy API Control Plane
-helm install apim-acp wso2/wso2am-acp --version 4.5.0-2 -f https://raw.githubusercontent.com/wso2/helm-apim/main/docs/am-pattern-4-ACP_TM_GW_KM/default_acp_values.yaml
+helm install apim-acp wso2/wso2am-acp --version 4.5.0-3 -f https://raw.githubusercontent.com/wso2/helm-apim/main/docs/am-pattern-4-ACP_TM_GW_KM/default_acp_values.yaml
 
 # 2. Deploy Key Manager
-helm install apim-km wso2/wso2am-km --version 4.5.0-2 -f https://raw.githubusercontent.com/wso2/helm-apim/main/docs/am-pattern-4-ACP_TM_GW_KM/default_km_values.yaml
+helm install apim-km wso2/wso2am-km --version 4.5.0-3 -f https://raw.githubusercontent.com/wso2/helm-apim/main/docs/am-pattern-4-ACP_TM_GW_KM/default_km_values.yaml
 
 # 3. Deploy Traffic Manager
-helm install apim-tm wso2/wso2am-tm --version 4.5.0-2 -f https://raw.githubusercontent.com/wso2/helm-apim/main/docs/am-pattern-4-ACP_TM_GW_KM/default_tm_values.yaml
+helm install apim-tm wso2/wso2am-tm --version 4.5.0-3 -f https://raw.githubusercontent.com/wso2/helm-apim/main/docs/am-pattern-4-ACP_TM_GW_KM/default_tm_values.yaml
 
 # 4. Deploy Universal Gateway
-helm install apim-gw wso2/wso2am-gw --version 4.5.0-2 -f https://raw.githubusercontent.com/wso2/helm-apim/main/docs/am-pattern-4-ACP_TM_GW_KM/default_gw_values.yaml
+helm install apim-gw wso2/wso2am-gw --version 4.5.0-3 -f https://raw.githubusercontent.com/wso2/helm-apim/main/docs/am-pattern-4-ACP_TM_GW_KM/default_gw_values.yaml
 ```
 
 Once the services are up and running, make sure you have the NGINX Ingress Controller deployed by following the steps outlined in the [Add Ingress Controller](#11-add-ingress-controller) section.
@@ -413,7 +413,7 @@ kubectl create namespace <namespace>
 
 # Deploy API Manager Control Plane using Helm
 helm install <release-name> <helm-chart-path> \
-  --version 4.5.0-2 \
+  --version 4.5.0-3 \
   --namespace <namespace> \
   --dependency-update \
   -f values.yaml \
@@ -454,7 +454,7 @@ After configuring all the necessary parameters, you can deploy the Traffic Manag
 ```bash
 # Deploy Traffic Manager using Helm
 helm install <release-name> <helm-chart-path> \
-  --version 4.5.0-2 \
+  --version 4.5.0-3 \
   --namespace <namespace> \
   --dependency-update \
   -f values.yaml \
@@ -513,7 +513,7 @@ After configuring all the necessary parameters, you can deploy the Universal Gat
 ```bash
 # Deploy Universal Gateway using Helm
 helm install <release-name> <helm-chart-path> \
-  --version 4.5.0-2 \
+  --version 4.5.0-3 \
   --namespace <namespace> \
   --dependency-update \
   -f values.yaml \
@@ -546,7 +546,7 @@ After configuring all the necessary parameters, you can deploy the Key Manager u
 ```bash
 # Deploy Key Manager using Helm
 helm install <release-name> <helm-chart-path> \
-  --version 4.5.0-2 \
+  --version 4.5.0-3 \
   --namespace <namespace> \
   --dependency-update \
   -f values.yaml \

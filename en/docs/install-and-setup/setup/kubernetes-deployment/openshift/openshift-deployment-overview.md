@@ -260,7 +260,7 @@ The All-in-One deployment is the simplest pattern to deploy WSO2 API Manager on 
    helm install apim wso2/wso2am-all-in-one \
      --namespace wso2 \
      --create-namespace \
-     --version 4.5.0-2 \
+     --version 4.5.0-3 \
      -f openshift-values.yaml
    ```
 
@@ -270,7 +270,7 @@ The All-in-One deployment is the simplest pattern to deploy WSO2 API Manager on 
    helm install apim wso2/wso2am-all-in-one \
      --namespace wso2 \
      --create-namespace \
-     --version 4.5.0-2 \
+     --version 4.5.0-3 \
      --set wso2.subscription.username=<USERNAME> \
      --set wso2.subscription.password=<PASSWORD> \
      -f https://raw.githubusercontent.com/wso2/helm-apim/main/docs/am-pattern-0-all-in-one/default_openshift_values.yaml
@@ -356,7 +356,7 @@ Deploy components in the correct order, typically:
    helm install apim wso2/wso2am-acp \
      --namespace wso2 \
      --create-namespace \
-     --version 4.5.0-2 \
+     --version 4.5.0-3 \
      -f control-plane-openshift-values.yaml
    ```
 
@@ -365,7 +365,7 @@ Deploy components in the correct order, typically:
    helm install tm wso2/wso2am-tm \
      --namespace wso2 \
      --create-namespace \
-     --version 4.5.0-2 \
+     --version 4.5.0-3 \
      -f tm-openshift-values.yaml
    ```
 
@@ -373,7 +373,7 @@ Deploy components in the correct order, typically:
    ```bash
    helm install km wso2/wso2am-km \
      --namespace wso2 \
-     --version 4.5.0-2 \
+     --version 4.5.0-3 \
      -f km-openshift-values.yaml
    ```
 
@@ -381,7 +381,7 @@ Deploy components in the correct order, typically:
    ```bash
    helm install gw wso2/wso2am-gw \
      --namespace wso2 \
-     --version 4.5.0-2 \
+     --version 4.5.0-3 \
      -f gw-openshift-values.yaml
    ```
 
