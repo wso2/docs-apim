@@ -328,6 +328,14 @@ nav:
                 - Overview: ai-gateway/ai-vendor-management/custom-ai-vendors/overview.md
                 - Custom Connector: ai-gateway/ai-vendor-management/custom-ai-vendors/custom-connector.md
                 - Onboarding Anthropic's Claude: ai-gateway/ai-vendor-management/custom-ai-vendors/onboarding-anthropic-claude.md
+        - AI Guardrails:
+            - Overview: ai-gateway/ai-guardrails/overview.md
+            - Safety Categories:
+                - Overview: ai-gateway/ai-guardrails/safety-categories/overview.md
+                # - LLM Safety: ai-gateway/ai-guardrails/safety-categories/llm-safety.md
+                - Content Safety: ai-gateway/ai-guardrails/safety-categories/content-safety.md
+                - Content Usage Control: ai-gateway/ai-guardrails/safety-categories/content-usage-control.md
+                # - PII Safety: ai-gateway/ai-guardrails/safety-categories/pii-safety.md
     - Analytics:
         - API Analytics:
             - Choreo Based Analytics: 
