@@ -126,13 +126,13 @@ Let's use the [wso2-am-stripe-plugin](https://github.com/wso2-extensions/wso2-am
        === "Format"
            ``` toml
            [apim.monetization]
-           proxy_enable = <true/false>
+           proxy_enabled = <true/false>
            ```
 
        === "Example"
            ``` toml
            [apim.monetization]
-           proxy_enable = true
+           proxy_enabled = true
            ```
 2.  Configure the database.
   
