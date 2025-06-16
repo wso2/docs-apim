@@ -99,7 +99,7 @@ Let's use the [wso2-am-stripe-plugin](https://github.com/wso2-extensions/wso2-am
 
     2. Build the implementation of the respective monetization interface and add the JAR into the `<API-M_HOME>/repository/components/lib` directory.
         
-        In this example scenario, you need to add [org.wso2.apim.monetization.impl-1.4.1.jar](https://github.com/wso2-extensions/wso2-am-stripe-plugin/releases/download/v1.4.1/org.wso2.apim.monetization.impl-1.4.1.jar) and [jakarta.json-api-2.1.1.jar](https://repo1.maven.org/maven2/jakarta/json/jakarta.json-api/2.1.1/jakarta.json-api-2.1.1.jar) into the latter mentioned `lib` folder because `org.wso2.apim.monetization.impl` is dependent on `jakarta.json-api`. 
+        In this example scenario, you need to add [org.wso2.apim.monetization.impl-1.4.2.jar](https://github.com/wso2-extensions/wso2-am-stripe-plugin/releases/download/v1.4.2/org.wso2.apim.monetization.impl-1.4.2.jar) and [jakarta.json-api-2.1.1.jar](https://repo1.maven.org/maven2/jakarta/json/jakarta.json-api/2.1.1/jakarta.json-api-2.1.1.jar) into the latter mentioned `lib` folder because `org.wso2.apim.monetization.impl` is dependent on `jakarta.json-api`. 
         
         !!! note
             You can find the source code of `org.wso2.apim.monetization.impl` in the [wso2-extensions/wso2-am-stripe-plugin](https://github.com/wso2-extensions/wso2-am-stripe-plugin) repository.
@@ -119,7 +119,21 @@ Let's use the [wso2-am-stripe-plugin](https://github.com/wso2-extensions/wso2-am
             [apim.monetization]
             monetization_impl = "org.wso2.apim.monetization.impl.StripeMonetizationImpl"
             ```
+    4.  Optionally, define the proxy support for Stripe. 
+        
+        This will be used to decide whether the Stripe API should be connected through the general proxy configurations defined in the API Manager.
+        
+       === "Format"
+           ``` toml
+           [apim.monetization]
+           proxy_enable = <true/false>
+           ```
 
+       === "Example"
+           ``` toml
+           [apim.monetization]
+           proxy_enable = true
+           ```
 2.  Configure the database.
   
     1. Download and add the database related connector JAR into the`<APIM_HOME/repository/components/lib` directory. 
