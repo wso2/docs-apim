@@ -134,6 +134,7 @@ Let's use the [wso2-am-stripe-plugin](https://github.com/wso2-extensions/wso2-am
            [apim.monetization]
            proxy_enabled = true
            ```
+
 2.  Configure the database.
   
     1. Download and add the database related connector JAR into the`<APIM_HOME/repository/components/lib` directory. 
