@@ -6,24 +6,36 @@ Content Usage Control Guardrails perform checks on both incoming prompts and LLM
 
 ## 1. Word Count Guardrail
 
-The **Word Count Guardrail** is a custom Synapse mediator for **WSO2 API Manager Universal Gateway**, designed to perform **word count-based validation** on incoming or outgoing JSON payloads. This component acts as a *guardrail* to enforce specific content moderation rules based on configurable minimum and maximum word counts and JSONPath expressions.
+The **Word Count Guardrail** is a custom Synapse mediator for **WSO2 API Manager Universal Gateway**, designed to perform **word count-based validation** on incoming or outgoing JSON payloads. This component acts as a *guardrail* to enforce specific content moderation rules based on configurable minimum and maximum word counts and JSON Path expressions.
 
 ### ✨ Features
 
 - ✅ Validate payload content by counting words
 - ✅ Define **minimum and maximum word count thresholds**
-- ✅ Target specific fields in JSON payloads using **JSONPath**
+- ✅ Target specific fields in JSON payloads using **JSON Path**
 - ✅ Optionally **invert validation logic** (e.g., allow only content *outside* the specified word range)
 - ✅ Trigger fault sequences on rule violations
 - ✅ Include optional **assessment messages** in error responses for better observability
 
 ### 🚀 How to Use
 
+??? "Click to expand Prerequisites"
+
+    - Java 11 (JDK)
+    - Maven 3.6.x or later
+    - WSO2 API Manager or Synapse-compatible runtime
+
 Follow these steps to integrate the Word Count Guardrail policy into your WSO2 API Manager instance:
 
-1. Download the latest **Word Count Guardrail Distribution** from @TODO
+1. Clone and build the project from [**Word Count Guardrail**](https://github.com/wso2-extensions/apim-policies/tree/main/mediation/ai/word-count-guardrail/universal-gw/word-count-guardrail)
 
-2. **Unzip the downloaded artifact:**  
+    ```bash
+    mvn clean install
+    ```
+
+    > ℹ️ This will generate a `.zip` file in the `target/` directory containing the mediator JAR, policy-definition.json and artifact.j2.
+
+2. **Unzip the build artifact:** 
    ```bash
    unzip target/org.wso2.apim.policies.mediation.ai.word-count-guardrail-<version>-distribution.zip -d word-count-guardrail
    ```
@@ -101,24 +113,36 @@ This pattern **splits words** based on **one or more whitespace characters**. Th
 
 ## 2. Sentence Count Guardrail
 
-The **Sentence Count Guardrail** is a custom Synapse mediator for **WSO2 API Manager Universal Gateway**, designed to perform **sentence count-based validation** on incoming or outgoing JSON payloads. This component acts as a *guardrail* to enforce specific content moderation rules based on configurable minimum and maximum sentence counts and JSONPath expressions.
+The **Sentence Count Guardrail** is a custom Synapse mediator for **WSO2 API Manager Universal Gateway**, designed to perform **sentence count-based validation** on incoming or outgoing JSON payloads. This component acts as a *guardrail* to enforce specific content moderation rules based on configurable minimum and maximum sentence counts and JSON Path expressions.
 
 ### ✨ Features
 
 - ✅ Validate payload content by counting sentences
 - ✅ Define **minimum and maximum sentence thresholds**
-- ✅ Target specific fields in JSON payloads using **JSONPath**
+- ✅ Target specific fields in JSON payloads using **JSON Path**
 - ✅ Optionally **invert validation logic** (e.g., allow only content *outside* the specified sentence range)
 - ✅ Trigger fault sequences on rule violations
 - ✅ Include optional **assessment messages** in error responses for better observability
 
 ### 🚀 How to Use
 
+??? "Click to expand Prerequisites"
+
+    - Java 11 (JDK)
+    - Maven 3.6.x or later
+    - WSO2 API Manager or Synapse-compatible runtime
+
 Follow these steps to integrate the Sentence Count Guardrail policy into your WSO2 API Manager instance:
 
-1. Download the latest **Sentence Count Guardrail Distribution** from @TODO
+1. Clone and build the project from [**Sentence Count Guardrail**](https://github.com/wso2-extensions/apim-policies/tree/main/mediation/ai/sentence-count-guardrail/universal-gw/sentence-count-guardrail)
 
-2. **Unzip the downloaded artifact:**  
+    ```bash
+    mvn clean install
+    ```
+
+    > ℹ️ This will generate a `.zip` file in the `target/` directory containing the mediator JAR, policy-definition.json and artifact.j2.
+
+2. **Unzip the build artifact:** 
    ```bash
    unzip org.wso2.apim.policies.mediation.ai.sentence-count-guardrail-<version>-distribution.zip -d sentence-count-guardrail
    ```
@@ -198,24 +222,36 @@ This pattern **splits sentences** based on punctuation marks such as **periods**
 
 ## 3. Content Length Guardrail
 
-The **Content Length Guardrail** is a custom Synapse mediator for **WSO2 API Manager Universal Gateway**, designed to perform **content-byte-length validation** on incoming or outgoing JSON payloads. This component acts as a *guardrail* to enforce specific content moderation rules based on configurable minimum and maximum byte sizes and JSONPath expressions.
+The **Content Length Guardrail** is a custom Synapse mediator for **WSO2 API Manager Universal Gateway**, designed to perform **content-byte-length validation** on incoming or outgoing JSON payloads. This component acts as a *guardrail* to enforce specific content moderation rules based on configurable minimum and maximum byte sizes and JSON Path expressions.
 
 ### ✨ Features
 
 - ✅ Validate payload content by checking byte length
 - ✅ Define **minimum and maximum byte thresholds**
-- ✅ Target specific fields in JSON payloads using **JSONPath**
+- ✅ Target specific fields in JSON payloads using **JSON Path**
 - ✅ Optionally **invert validation logic** (e.g., allow only content *outside* the specified byte range)
 - ✅ Trigger fault sequences on rule violations
 - ✅ Include optional **assessment messages** in error responses for better observability
 
 ### 🚀 How to Use
 
+??? "Click to expand Prerequisites"
+
+    - Java 11 (JDK)
+    - Maven 3.6.x or later
+    - WSO2 API Manager or Synapse-compatible runtime
+
 Follow these steps to integrate the Content Length Guardrail policy into your WSO2 API Manager instance:
 
-1. Download the latest **Content Length Guardrail Distribution** from @TODO
+1. Clone and build the project from [**Content Length Guardrail**](https://github.com/wso2-extensions/apim-policies/tree/main/mediation/ai/content-length-guardrail/universal-gw/content-length-guardrail)
 
-2. **Unzip the downloaded artifact:**  
+    ```bash
+    mvn clean install
+    ```
+
+    > ℹ️ This will generate a `.zip` file in the `target/` directory containing the mediator JAR, policy-definition.json and artifact.j2.
+
+2. **Unzip the build artifact:** 
    ```bash
    unzip target/org.wso2.apim.policies.mediation.ai.content-length-guardrail-<version>-distribution.zip -d content-length-guardrail
    ```
