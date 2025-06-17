@@ -41,7 +41,8 @@ This document provides step-by-step instructions to deploy WSO2 API Manager in a
         - [3.2 Deploy Key Manager](#32-deploy-key-manager)
     - [4. Universal Gateway Configuration](#4-universal-gateway-configuration)
         - [4.1 Configure Key Manager, Eventhub, and Throttling](#41-configure-key-manager-eventhub-and-throttling)
-        - [4.2 Deploy Universal Gateway](#42-deploy-universal-gateway)
+        - [4.2 Enable Replicas](#42-enable-replicas)
+        - [4.3 Deploy Universal Gateway](#43-deploy-universal-gateway)
     - [5. Add DNS Records](#5-add-dns-records)
     - [6. Access Management Consoles](#6-access-management-consoles)
 
@@ -473,36 +474,95 @@ km:
 ```
 
 **Configure Event Hub Connection**:
-```yaml
-eventhub:
-  # -- Event hub (control plane) service URL
-  serviceUrl: "<ALL-IN-ONE_SERVICE_NAME>"
-  # -- Event hub service URLs
-  urls:
-    - "<ALL-IN-ONE_SERVICE_NAME>"
-```
+
+=== "Single All-in-One"
+
+    ```yaml
+    eventhub:
+      # -- Event hub (control plane) service URL
+      serviceUrl: "<CONTROL_PLANE_SERVICE_NAME>"
+      # -- Event hub service URLs
+      urls:
+        - "<CONTROL_PLANE_SERVICE_NAME>"
+    ```
+
+=== "All-in-One with High Availability"
+
+    ```yaml
+    eventhub:
+      # -- Event hub (control plane) load balancer service URL
+      serviceUrl: "<CONTROL_PLANE_SERVICE_NAME>"
+      # -- Event hub service URLs
+      urls:
+        - "<CONTROL_PLANE_1_SERVICE_NAME>"
+        - "<CONTROL_PLANE_2_SERVICE_NAME>"
+    ```
 
 **Configure Throttling**:
+
+=== "Single All-in-One"
+
+    ```yaml
+    throttling:
+      # -- Traffic Manager service URL
+      serviceUrl: "<CONTROL_PLANE_SERVICE_NAME>"
+      # -- Port offset
+      portOffset: 0
+      # -- Service port
+      servicePort: 9443
+      # -- Traffic manager service URLs
+      urls:
+        - "<CONTROL_PLANE_1_SERVICE_NAME>"
+      # -- Enable unlimited throttling tier
+      unlimitedTier: true
+      # -- Advanced throttling options
+      headerBasedThrottling: false
+      jwtClaimBasedThrottling: false
+      queryParamBasedThrottling: false
+    ```
+
+=== "All-in-One with High Availability"
+
+    ```yaml
+    throttling:
+      # -- Traffic Manager service URL
+      serviceUrl: "<CONTROL_PLANE_SERVICE_NAME>"
+      # -- Port offset
+      portOffset: 0
+      # -- Service port
+      servicePort: 9443
+      # -- Traffic manager service URLs
+      urls:
+        - "<CONTROL_PLANE_1_SERVICE_NAME>"
+        - "<CONTROL_PLANE_2_SERVICE_NAME>"
+      # -- Enable unlimited throttling tier
+      unlimitedTier: true
+      # -- Advanced throttling options
+      headerBasedThrottling: false
+      jwtClaimBasedThrottling: false
+      queryParamBasedThrottling: false
+
+
+Choose the configuration that matches your deployment pattern. For high availability, specify all Control Plane service URLs under `urls` for both `eventhub` and `throttling` sections.
+
+#### 4.2 Enable Replicas
+
+To ensure high availability and scalability of the Universal Gateway, you can configure the number of replicas in the `wso2.deployment` section of your `values.yaml` file.
+
 ```yaml
-throttling:
-  # -- Traffic Manager service URL
-  serviceUrl: "<ALL-IN-ONE_SERVICE_NAME>"
-  # -- Port offset
-  portOffset: 0
-  # -- Service port
-  servicePort: 9443
-  # -- Traffic manager service URLs
-  urls:
-    - "<ALL-IN-ONE_SERVICE_NAME>"
-  # -- Enable unlimited throttling tier
-  unlimitedTier: true
-  # -- Advanced throttling options
-  headerBasedThrottling: false
-  jwtClaimBasedThrottling: false
-  queryParamBasedThrottling: false
+wso2:
+  deployment:
+    replicas: 2
+    minReplicas: 1
+    maxReplicas: 3
 ```
 
-#### 4.2 Deploy Universal Gateway
+!!! info
+    - `replicas`: The initial number of pods to start with (e.g., 2).
+    - `minReplicas`: The minimum number of pods that should always be running (e.g., 1).
+    - `maxReplicas`: The maximum number of pods that can be scaled up to (e.g., 3).
+
+#### 4.3 Deploy Universal Gateway
 
 Deploy the Universal Gateway component with your custom configuration:
 
