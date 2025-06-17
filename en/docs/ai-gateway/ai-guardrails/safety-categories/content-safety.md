@@ -6,25 +6,37 @@ Content Safety Guardrails perform checks on both incoming prompts and LLM-genera
 
 ## 1. Regex Guardrail
 
-The **Regex Guardrail** is a custom Synapse mediator for **WSO2 API Manager Universal Gateway**, designed to perform **regular expression-based validation** on incoming or outgoing JSON payloads. This component acts as a *guardrail* to enforce specific security or compliance rules based on configurable regex patterns and JSONPath expressions.
+The **Regex Guardrail** is a custom Synapse mediator for **WSO2 API Manager Universal Gateway**, designed to perform **regular expression-based validation** on incoming or outgoing JSON payloads. This component acts as a *guardrail* to enforce specific security or compliance rules based on configurable regex patterns and JSON Path expressions.
 
 ### ✨ Features
 
 - ✅ Validate payload content using configurable **regex patterns**
-- ✅ Target specific fields in JSON payloads using **JSONPath**
+- ✅ Target specific fields in JSON payloads using **JSON Path**
 - ✅ Optionally **invert validation logic**
 - ✅ Trigger fault sequences on rule violations
 - ✅ Include optional **assessment messages** in error responses for better observability
 
 ### 🚀 How to Use
 
+??? "Click to expand Prerequisites"
+
+    - Java 11 (JDK)
+    - Maven 3.6.x or later
+    - WSO2 API Manager or Synapse-compatible runtime
+
 Follow these steps to integrate the Regex Guardrail policy into your WSO2 API Manager instance:
 
-1. Download the latest **Regex Guardrail Distribution** from @TODO
+1. Clone and build the project from [**Regex Guardrail**](https://github.com/wso2-extensions/apim-policies/tree/main/mediation/ai/regex-guardrail/universal-gw/regex-guardrail):
 
-2. **Unzip the downloaded artifact:**  
     ```bash
-    unzip org.wso2.apim.policies.mediation.ai.regex-guardrail-<version>-distribution -d regex-guardrail
+    mvn clean install
+    ```
+
+    > ℹ️ This will generate a `.zip` file in the `target/` directory containing the mediator JAR, policy-definition.json and artifact.j2.
+
+2. **Unzip the build artifact:**  
+    ```bash
+    unzip target/org.wso2.apim.policies.mediation.ai.regex-guardrail-<version>-distribution -d regex-guardrail
     ```
 
 3. **Copy the mediator JAR into your API Manager’s runtime libraries:**  
@@ -94,20 +106,32 @@ The **URL Guardrail** is a custom Synapse mediator for **WSO2 API Manager Univer
 
 - ✅ Validate payload content by extracting and checking URLs
 - ✅ Perform either **DNS resolution** or **HTTP HEAD** validation
-- ✅ Target specific fields in JSON payloads using **JSONPath**
+- ✅ Target specific fields in JSON payloads using **JSON Path**
 - ✅ Configure custom **timeout** for validation checks
 - ✅ Trigger fault sequences on rule violations
 - ✅ Include optional **assessment messages** in error responses for better observability
 
 ### 🚀 How to Use
 
+??? "Click to expand Prerequisites"
+
+    - Java 11 (JDK)
+    - Maven 3.6.x or later
+    - WSO2 API Manager or Synapse-compatible runtime
+
 Follow these steps to integrate the URL Guardrail policy into your WSO2 API Manager instance:
 
-1. Download the latest **URL Guardrail Distribution** from @TODO
+1. Clone and build the project from [**URL Guardrail**](https://github.com/wso2-extensions/apim-policies/tree/main/mediation/ai/url-guardrail/universal-gw/url-guardrail)
 
-2. **Unzip the downloaded artifact:**  
     ```bash
-    unzip org.wso2.apim.policies.mediation.ai.url-guardrail-<version>-distribution.zip -d url-guardrail
+    mvn clean install
+    ```
+
+    > ℹ️ This will generate a `.zip` file in the `target/` directory containing the mediator JAR, policy-definition.json and artifact.j2.
+
+2. **Unzip the build artifact:**  
+    ```bash
+    unzip target/org.wso2.apim.policies.mediation.ai.url-guardrail-<version>-distribution.zip -d url-guardrail
     ```
 
 3. **Copy the mediator JAR into your API Manager’s runtime libraries:**  
@@ -188,7 +212,7 @@ The **JSON Schema Guardrail** is a custom Synapse mediator for **WSO2 API Manage
 ### ✨ Features
 
 - ✅ Validate payload structure and fields using **JSON Schema**
-- ✅ Target specific segments of a payload using **JSONPath**
+- ✅ Target specific segments of a payload using **JSON Path**
 - ✅ Support for **inverted validation** (fail when schema matches)
 - ✅ **Guardrail assessment** for better observability on violations
 - ✅ Works on both **request and response** flows
@@ -196,13 +220,25 @@ The **JSON Schema Guardrail** is a custom Synapse mediator for **WSO2 API Manage
 
 ### 🚀 How to Use
 
+??? "Click to expand Prerequisites"
+
+    - Java 11 (JDK)
+    - Maven 3.6.x or later
+    - WSO2 API Manager or Synapse-compatible runtime
+
 Follow these steps to integrate the JSON Schema Guardrail policy into your WSO2 API Manager instance:
 
-1. Download the latest **JSON Schema Guardrail Distribution** from @TODO
+1. Clone and build the project from [**JSON Schema Guardrail**](https://github.com/wso2-extensions/apim-policies/tree/main/mediation/ai/json-schema-guardrail/universal-gw/json-schema-guardrail)
 
-2. **Unzip the downloaded artifact:**  
     ```bash
-    unzip org.wso2.apim.policies.mediation.ai.json-schema-guardrail-<version>-distribution.zip -d json-schema-guardrail
+    mvn clean install
+    ```
+
+    > ℹ️ This will generate a `.zip` file in the `target/` directory containing the mediator JAR, policy-definition.json and artifact.j2.
+
+2. **Unzip the build artifact:**  
+    ```bash
+    unzip target/org.wso2.apim.policies.mediation.ai.json-schema-guardrail-<version>-distribution.zip -d json-schema-guardrail
     ```
 
 3. **Copy the mediator JAR into your API Manager’s runtime libraries:**  
