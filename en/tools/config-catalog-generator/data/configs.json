@@ -5391,6 +5391,27 @@
                 }
             ],
             "exampleFile": "synapse_handlers.toml"
+        }, 
+        {
+            "title": "Authentication policy",
+            "options": [
+                {
+                    "name": "authentication_policy",
+                    "required": false,
+                    "description": "Defines the authentication policy settings for WSO2 API Manager, including options for enabling legacy authentication methods.",
+                    "params": [
+                        {
+                            "name": "enable_legacy_authentication",
+                            "type": "boolean",
+                            "required": false,
+                            "default": "FALSE",
+                            "possible": "",
+                            "description": "When enabled, allows the system to authenticate users using the legacy method in the Basic Authenticator."
+                        }
+                    ]
+                }
+            ],
+            "exampleFile": "authentication_policy.toml"
         }
     ]
 }
