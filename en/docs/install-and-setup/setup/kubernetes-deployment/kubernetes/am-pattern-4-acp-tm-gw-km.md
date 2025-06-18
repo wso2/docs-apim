@@ -33,7 +33,8 @@ This is the fully distributed deployment for API Manager. The default configurat
           - [3.2 Deploy Traffic Manager](#32-deploy-traffic-manager)
     - [4. Universal Gateway Configuration](#4-universal-gateway-configuration)
           - [4.1 Configure Key Manager, Eventhub and Throttling](#41-configure-key-manager-eventhub-and-throttling)
-          - [4.2 Deploy Universal Gateway](#42-deploy-universal-gateway)
+          - [4.2 Enable Replicas](#42-enable-replicas)
+          - [4.3 Deploy Universal Gateway](#43-deploy-universal-gateway)
     - [5. Key Manager Configuration](#5-key-manager-configuration)
           - [5.1 Configure Eventhub](#51-configure-eventhub)
           - [5.2 Deploy Key Manager](#52-deploy-key-manager)
@@ -506,7 +507,24 @@ helm install <release-name> <helm-chart-path> \
     queryParamBasedThrottling: false
   ```
 
-#### 4.2 Deploy Universal Gateway
+#### 4.2 Enable Replicas
+
+To ensure high availability and scalability of the Universal Gateway, you can configure the number of replicas in the `wso2.deployment` section of your `values.yaml` file.
+
+```yaml
+wso2:
+  deployment:
+    replicas: 2
+    minReplicas: 1
+    maxReplicas: 3
+```
+
+!!! info
+    - `replicas`: The initial number of pods to start with (e.g., 2).
+    - `minReplicas`: The minimum number of pods that should always be running (e.g., 1).
+    - `maxReplicas`: The maximum number of pods that can be scaled up to (e.g., 3).
+
+#### 4.3 Deploy Universal Gateway
 
 After configuring all the necessary parameters, you can deploy the Universal Gateway using Helm:
 
