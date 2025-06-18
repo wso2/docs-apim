@@ -957,7 +957,7 @@ claims_extractor_impl = "org.wso2.carbon.apimgt.impl.token.DefaultClaimsRetrieve
                                         </div>
                                     </div>
                                     <div class="param-description">
-                                        <p>Specify NONE to disable the signing.</p>
+                                        <p>Specify NONE to disbale the sigining.</p>
                                     </div>
                                 </div>
                             </div><div class="param">
@@ -2546,7 +2546,8 @@ enable_outbound_auth_header = false
 auth_header = "Authorization"
 revoke_endpoint = "https://localhost:${https.nio.port}/revoke"
 enable_token_encryption = false
-enable_token_hashing = false</code></pre>
+enable_token_hashing = false
+enable_revoke_token_cleanup = true</code></pre>
                     </div>
                 </div>
                 <div class="doc-wrapper">
@@ -2677,6 +2678,25 @@ enable_token_hashing = false</code></pre>
                                     </div>
                                     <div class="param-description">
                                         <p>List of allowlisted scopes. Take desc from Key Concepts page.</p>
+                                    </div>
+                                </div>
+                            </div><div class="param">
+                                <div class="param-name">
+                                  <span class="param-name-wrap"> <code>enable_revoke_token_cleanup</code> </span>
+                                </div>
+                                <div class="param-info">
+                                    <div>
+                                        <p>
+                                            <span class="param-type string"> string </span>
+                                            
+                                        </p>
+                                        <div class="param-default">
+                                            <span class="param-default-value">Default: <code>TRUE</code></span>
+                                        </div>
+                                        
+                                    </div>
+                                    <div class="param-description">
+                                        <p>Configuration used to disable the revoke token cleanup functionality. If set to false, revoked tokens will not be cleaned up. Note that this configuration is supported from update level 426 onwards. If you are using an earlier version, this configuration will not be available.</p>
                                     </div>
                                 </div>
                             </div>
