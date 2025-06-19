@@ -14480,7 +14480,7 @@ enable_legacy_authentication = true</code></pre>
                             <code>[authentication_policy]</code>
                             
                             <p>
-                                Defines the authentication policy settings for WSO2 API Manager, including options for enabling legacy authentication methods.
+                                Defines the authentication policy settings for WSO2 API Manager, including options for enabling legacy authentication methods. Note that this configuration is supported from update level 344 onwards.
                             </p>
                         </div>
                         <div class="params-wrap">
@@ -14500,7 +14500,7 @@ enable_legacy_authentication = true</code></pre>
                                         
                                     </div>
                                     <div class="param-description">
-                                        <p>When enabled, allows the system to authenticate users using the legacy method in the Basic Authenticator.</p>
+                                        <p>When enabled, allows the system to authenticate users using the legacy method in the Basic Authenticator. Note that this configuration is supported from update level 344 onwards. If you are using an earlier version, this configuration will not be available.</p>
                                     </div>
                                 </div>
                             </div>
