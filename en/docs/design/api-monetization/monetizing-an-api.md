@@ -119,21 +119,19 @@ Let's use the [wso2-am-stripe-plugin](https://github.com/wso2-extensions/wso2-am
             [apim.monetization]
             monetization_impl = "org.wso2.apim.monetization.impl.StripeMonetizationImpl"
             ```
-    4.  Optionally, define the proxy support for Stripe. 
-        
-        This will be used to decide whether the Stripe API should be connected through the general proxy configurations defined in the API Manager.
-        
-       === "Format"
-           ``` toml
-           [apim.monetization]
-           proxy_enabled = <true/false>
-           ```
-
-       === "Example"
-           ``` toml
-           [apim.monetization]
-           proxy_enabled = true
-           ```
+        !!! info
+            If you are using Stripe as the billing engine, the propery below can be used to enable/disable proxy support while connecting to Stripe API. The property will only be used to decide whether the general proxy configuration defined in the API Manager should be used while connecting to Stripe :
+            
+            === "Format"
+                ``` toml
+                [apim.monetization]
+                proxy_enabled = <true/false>
+                ```
+            === "Example"
+                ``` toml
+                [apim.monetization]
+                proxy_enabled = true
+                ```
 
 2.  Configure the database.
   
