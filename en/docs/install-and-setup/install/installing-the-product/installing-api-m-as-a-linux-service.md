@@ -89,7 +89,7 @@ Extract the WSO2 product to a preferred directory in your machine and set the en
 
     A **runlevel** is a mode of operation in Linux (or any Unix-style operating system). There are several runlevels in a Linux server and each of these runlevels is represented by a single digit integer. Each runlevel designates a different system configuration and allows access to a different combination of processes.
 
-4.  You can now st art, stop and restart the server using `service <service name>{start|stop|restart}` command. 
+4.  You can now start, stop and restart the server using `service <service name>{start|stop|restart}` command. 
 
     You will be prompted for the password of the user (or root) who was used to start the service.
 

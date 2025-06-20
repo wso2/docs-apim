@@ -1,178 +1,157 @@
 # WSO2 API Manager Deployment Overview
 
-WSO2 API Manager consists of an API management layer and an integration layer. The API management layer contains several components, which you can use in your deployment according to your requirement. The integration layer includes either the Micro Integrator runtime (for services integration) and the Streaming Integrator runtime (for streaming requirements) or both runtimes.
+WSO2 API Manager (WSO2 APIM) offers a flexible and componentized deployment architecture that supports diverse scalability, availability, and security requirements. The platform can be deployed in various patterns—from simple, all-in-one setups to fully distributed, production-grade environments—adapting seamlessly to organizational needs.
 
-You can select one of the following deployment patterns depending on the workload of each component and the traffic that is expected to each of the components and runtimes.
+!!! note
+    From WSO2 API Manager 4.5.0 onwards, we no longer support API-M profiles such as, `-Dprofile=control-plane`, `-Dprofile=gateway-worker` and `-Dprofile=traffic-manager`. Instead, we now have separate distributions namely, **WSO2 API Control Plane**, **WSO2 Universal Gateway** and **WSO2 Traffic Manager** components which should be used for configuring a distributed deployment. For alternative deployment options, please refer the table below. See more information in [Key Changes]({{base_path}}/get-started/about-this-release/#key-changes).
 
-## Standard HA deployment
+    ??? info "New Deployment Alternatives"
 
-This deployment consists of an API-M cluster with two nodes of the API-M runtime and two nodes each of the integration runtimes (Micro Integrator/Streaming Integrator). You can use this pattern if you expect to receive low traffic to your deployment. 
+        <table>
+            <colgroup>
+                <col />
+                <col />
+                <col />
+                <col />
+                <col />
+                <col />
+            </colgroup>
+            <thead>
+                <tr>
+                    <th>Previous Deployment Pattern</th>
+                    <th colspan="5">New Deployment Alternative</th>
+                </tr>
+                <tr>
+                    <th></th>
+                    <th>All-in-one</th>
+                    <th>API Control Plane (ACP)</th>
+                    <th>Universal Gateway</th>
+                    <th>Traffic Manager</th>
+                    <th>Key Manager of ACP</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>All-in-one</td>
+                    <td style="text-align: center;">&#x2713;</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>Control Plane + Gateway</td>
+                    <td style="text-align: center;">&#x2713;</td>
+                    <td></td>
+                    <td style="text-align: center;">&#x2713;</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>Control Plane + Gateway + Traffic Manager</td>
+                    <td></td>
+                    <td style="text-align: center;">&#x2713;</td>
+                    <td style="text-align: center;">&#x2713;</td>
+                    <td style="text-align: center;">&#x2713;</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>Control Plane + Gateway + Key Manager</td>
+                    <td style="text-align: center;">&#x2713;</td>
+                    <td></td>
+                    <td style="text-align: center;">&#x2713;</td>
+                    <td></td>
+                    <td style="text-align: center;">&#x2713;</td>
+                </tr>
+                <tr>
+                    <td>Control Plane + Gateway + Traffic Manager + Key Manager</td>
+                    <td></td>
+                    <td style="text-align: center;">&#x2713;</td>
+                    <td style="text-align: center;">&#x2713;</td>
+                    <td style="text-align: center;">&#x2713;</td>
+                    <td style="text-align: center;">&#x2713;</td>
+                </tr>
+            </tbody>
+        </table>
 
-!!! Note 
-    Two nodes of each component is used to ensure minimum high availability in all components.
+## Deployment Options
 
-<a href="{{base_path}}/assets/img/setup-and-install/basic-ha-deployment.png"><img src="{{base_path}}/assets/img/setup-and-install/basic-ha-deployment.png" alt="standard HA deployment" width="50%"></a>
+### Deploy on VM
 
-### API-M cluster
+The WSO2 API Manager can be deployed on virtual machines (VMs) using the provided product packs. The deployment can be done in various patterns, depending on your requirements.
+For comprehensive instructions, refer to the [VM Deployment Guide](../setup/single-node/deployment-overview.md).
 
-The API-M cluster consists of two <b>All-in-One</b> API-M nodes. See the following link for instructions on how to set up this cluster.
+### Deploy on Kubernetes
 
-<ul>
-    <li>
-        <a href="{{base_path}}/install-and-setup/setup/single-node/configuring-an-active-active-deployment">API-M Cluster with Minimum High Availability</a>
-    </li>
-</ul>
+The Helm charts include cloud provider-specific configurations for:
 
-### Integration clusters
+- AWS (EKS, EFS, RDS, Secrets Manager)
+- Azure (AKS, Azure Files, Azure Database, Key Vault)
+- GCP (GKE, GCS, Cloud SQL, Secret Manager)
 
-The integration cluster may be a Micro Integrator cluster or a Streaming Integrator cluster or two clusters of each. See the following links for instructions on how to set up this cluster.
+For comprehensive instructions, refer to the [K8s Deployment Guide](../setup/kubernetes-deployment/kubernetes/kubernetes-overview.md).
 
-<ul>
-    <li>
-        <a href="{{base_path}}/install-and-setup/setup/mi-setup/deployment/deploying_wso2_ei">Micro Integrator Cluster with Minimum High Availability</a>
-    </li>
-    <li>
-        <a href="{{base_path}}/install-and-setup/setup/si-deployment/deploying-si-as-minimum-ha-cluster">Streaming Integrator Cluster with Minimum High Availability</a>
-    </li>
-</ul>
+### Deploy on OpenShift
 
-## Standard HA deployment with multitenancy
+- **Note:** Default Helm chart configurations are intended for Kubernetes deployment.  
+- If you are deploying on OpenShift, additional configurations are required for both Docker images and the deployment process. For comprehensive instructions, refer to the [OpenShift Deployment Guide](../setup/kubernetes-deployment/openshift/openshift-deployment-overview.md).
 
-This deployment consists of two API-M nodes and two nodes each of the integration runtimes (Micro Integrator/Streaming Integrator) **per tenant**. You can use this pattern when traffic from different tenants in the API-M cluster needs to be handled in isolation. This deployment also allows you to direct the traffic of each tenant to a separate integration cluster. 
+## Available Deployment Patterns
 
-Although API-M nodes are capable of handling in-jvm multitenancy, Micro Integrator/Streaming Integrator nodes are not. Therefore, to handle traffic to different tenants, you need to set up different clusters of the integration runtimes and configure traffic routing accordingly. 
+### Pattern 0: API-M Deployment with All-in-One Setup
+- **Description**: Simple deployment with a single API Manager node handling all functionality
+- **Use Case**: Suitable for development environments or small-scale deployments with low traffic; not recommended for production use.
+- **Components**: Single API-M node with all functionality
+- **Guides**: 
+    - [Deploy on VM](../setup/single-node/configuring-a-single-node.md)
+    - [Deploy on Kubernetes](../setup/kubernetes-deployment/kubernetes/am-pattern-0-all-in-one.md)
 
-!!! Note
-    The basic deployment suggests two nodes of each runtime to ensure minimum high availability. However, you can independently scale them depending on the resource requirements for each tenant.
+<a href="{{base_path}}/assets/img/setup-and-install/single-node-apim-deployment.png"><img src="{{base_path}}/assets/img/setup-and-install/single-node-apim-deployment.png" alt="single-node api-m deployment" width="60%"></a>
 
-<a href="{{base_path}}/assets/img/setup-and-install/basic-ha-with-multitenancy.png"><img src="{{base_path}}/assets/img/setup-and-install/basic-ha-with-multitenancy.png" alt="standard HA with multitenancy" width="80%"></a>
+### Pattern 1: API-M Deployment with All-in-One HA Setup
+- **Description**: High availability deployment with multiple API Manager nodes in active-active configuration
+- **Use Case**: Production environments requiring high availability but with moderate traffic
+- **Components**: Multiple API-M nodes with all functionality in each node
+- **Guides**: 
+    - [Deploy on VM](../setup/single-node/configuring-an-active-active-deployment.md)
+    - [Deploy on Kubernetes](../setup/kubernetes-deployment/kubernetes/am-pattern-1-all-in-one-ha.md)
 
-### API-M cluster
+<a href="{{base_path}}/assets/img/setup-and-install/active-active-apim-deployment.png"><img src="{{base_path}}/assets/img/setup-and-install/active-active-apim-deployment.png" alt="active-active api-m deployment" width="60%"></a>
 
-The API-M cluster consists of two <b>All-in-One</b> API-M nodes. See the following link for instructions on how to set up this cluster.
+### Pattern 2: API-M Deployment with Simple Scalable Setup
+- **Description**: Deployment with separate gateway nodes and a control plane
+- **Use Case**: Environments with higher API traffic needing gateway scalability
+- **Components**: All-in-one, Universal Gateways
+- **Guides**:
+    - [Deploy on Kubernetes](../setup/kubernetes-deployment/kubernetes/am-pattern-2-all-in-one-gw.md)
 
-<ul>
-    <li>
-        <a href="{{base_path}}/install-and-setup/setup/single-node/configuring-an-active-active-deployment">API-M Cluster with Minimum High Availability</a>
-    </li>
-</ul>
+<a href="{{base_path}}/assets/img/setup-and-install/simple-distributed.png"><img src="{{base_path}}/assets/img/setup-and-install/simple-distributed.png" alt="simple scalable api-m deployment" width="60%"></a>
 
-### Integration cluster
+### Pattern 3: Distributed API-M Deployment with Gateway and Traffic Manager Separated from the Control Plane *(Recommended)*
+- **Description**: Distributed deployment with separate API Control Plane, Traffic Manager, and Gateway components
+- **Use Case**: Production environments with high traffic needing component-level scalability
+- **Components**: API Control Plane (ACP), Traffic Manager (TM), Universal Gateway (GW)
+- **Guides**: 
+    - [Deploy on VM](../setup/distributed-deployment/deploying-wso2-api-m-in-a-distributed-setup.md)
+    - [Deploy on Kubernetes](../setup/kubernetes-deployment/kubernetes/am-pattern-3-acp-tm-gw.md)
 
-The integration cluster consists of two nodes of the integration runtime for each of the tenants in the API-M cluster. See the following links for instructions on how to set up this cluster.
+<a href="{{base_path}}/assets/img/setup-and-install/distributed-deployment-tm.png"><img src="{{base_path}}/assets/img/setup-and-install/distributed-deployment-tm.png" alt="simple scalable api-m deployment" width="60%"></a>
 
-<ul>
-    <li>
-        <a href="{{base_path}}/install-and-setup/setup/mi-setup/deployment/deploying_wso2_ei">Micro Integrator Cluster with Minimum High Availability</a>
-    </li>
-    <li>
-        <a href="{{base_path}}/install-and-setup/setup/si-deployment/deploying-si-as-minimum-ha-cluster">Streaming Integrator Cluster with Minimum High Availability</a>
-    </li>
-</ul>
+### Pattern 4: API-M Deployment with Fully Distributed Setup
+- **Description**: Fully distributed deployment with separate Key Manager component
+- **Use Case**: Large-scale production environments with complex security requirements
+- **Components**: API Control Plane (ACP), Traffic Manager (TM), Universal Gateway (GW), Key Manager (KM)
+- **Guides**: 
+    - [Deploy on VM](../setup/distributed-deployment/deploying-wso2-api-m-in-a-distributed-setup-with-km-separated.md)
+    - [Deploy on Kubernetes](../setup/kubernetes-deployment/kubernetes/am-pattern-4-acp-tm-gw-km.md)
 
-## Simple scalable deployment
+<a href="{{base_path}}/assets/img/setup-and-install/distributed-deployment-km.png"><img src="{{base_path}}/assets/img/setup-and-install/distributed-deployment-km.png" alt="fully distributed deployment" width="60%"></a>
 
-This pattern allows you to scale the deployment on demand. The **simple scalable deployment** pattern shown below illustrates a deployment that uses minimum resources. However, this setup can easily be scaled.
+### Pattern 5: API-M Deployment with Simple Scalable Setup with Key Manager Separated
+- **Description**: Deployment with separate Gateway and Key Manager components
+- **Use Case**: Environments focusing on API security with dedicated Key Manager component
+- **Components**: All-in-one, Universal Gateway, Key Manager
+- **Guides**: 
+    - [Deploy on Kubernetes](../setup/kubernetes-deployment/kubernetes/am-pattern-5-all-in-one-gw-km.md)
 
-You need to set up three clusters of the different components and runtimes as they have different scaling requirements.
-
-!!! Note
-    The basic deployment suggests two nodes of each runtime to ensure minimum high availability. However, you can independently scale them depending on the requirements.
-
-<a href="{{base_path}}/assets/img/setup-and-install/basic-scalable-deployment.png"><img src="{{base_path}}/assets/img/setup-and-install/basic-scalable-deployment.png" alt="Simple scalability" width="80%"></a>
-
-### API-M cluster
-
-The API-M layer of this deployment consists of two clusters of API-M components as follows:
-
-<table>
-    <tr>
-        <th>
-            Control Plane Cluster
-        </th>
-        <td>
-            The APIM control plane consists of two nodes of the <b>Control Pane</b> API-M profile (Publisher, Devportal, Key Manager, Traffic Manager). The two node cluster is the simplest deployment for this pattern. If required you can scale the number of nodes.
-        </td>
-    </tr>
-    <tr>
-        <th>
-            Gateway Cluster
-        </th>
-        <td>
-            The Gateway profile of API-M is deployed as a separate cluster so that we can scale it to match the traffic requirements. The simplest deployment for this pattern consists of a two node Gateway cluster. If required you can scale the number of nodes.
-        </td>
-    </tr>
-</table>
-
-To set up this cluster, see the instructions on <a href="{{base_path}}/install-and-setup/setup/distributed-deployment/deploying-wso2-api-m-in-a-distributed-setup">Setting up a Distributed API-M deployment</a>.
-
-### Integration cluster
-
-The integration cluster consist of a minimum of two nodes of the integration runtime (Micro Integrator/Streaming Integrator). See the following links for instructions on how to set up this cluster.
-
-<ul>
-    <li>
-        <a href="{{base_path}}/install-and-setup/setup/mi-setup/deployment/deploying_wso2_ei">Micro Integrator Cluster with Minimum High Availability</a>
-    </li>
-    <li>
-        <a href="{{base_path}}/install-and-setup/setup/si-deployment/deploying-si-as-minimum-ha-cluster">Streaming Integrator Cluster with Minimum High Availability</a>
-    </li>
-</ul>
-
-## Simple scalable deployment with Traffic Manager separation
-
-This pattern allows you to scale the deployment on demand. The **simple scalable deployment with Traffic Manager separation** deployment pattern shown below illustrates a deployment that uses minimum resources. However, this setup can easily be scaled. This deployment pattern can be used only when you need to run the Traffic Manager nodes separately due to deployment complexities.
-
-You need to set up three clusters of the different components and runtimes as they have different scaling requirements.
-
-!!! Note
-    The basic deployment suggests two nodes of each runtime to ensure minimum high availability. However, you can independently scale them depending on the requirements.
-
-
-<a href="{{base_path}}/assets/img/setup-and-install/deployment-pattern4.png"><img src="{{base_path}}/assets/img/setup-and-install/deployment-pattern4.png" alt="Simple scalability with Traffic Manager separation" width="80%"></a>
-
-### API-M cluster
-
-The API-M layer of this deployment consists of two clusters of API-M components as follows:
-
-<table>
-    <tr>
-        <th>
-            Control Plane Cluster
-        </th>
-        <td>
-            The APIM control plane consists of two nodes of the <b>Control Pane</b> API-M profile (Publisher, Devportal, Key Manager, Traffic Manager). The two node cluster is the simplest deployment for this pattern. If required you can scale the number of nodes.
-        </td>
-    </tr>
-    <tr>
-        <th>
-            Gateway Cluster
-        </th>
-        <td>
-            The Gateway profile of API-M is deployed as a separate cluster so that we can scale it to match the traffic requirements. The simplest deployment for this pattern consists of a two node Gateway cluster. If required you can scale the number of nodes.
-        </td>
-    </tr>
-    <tr>
-        <th>
-            Traffic Manager Cluster
-        </th>
-        <td>
-            The Traffic Manager profile of API-M is deployed as a separate cluster so that we can scale it to match the traffic requirements. The simplest deployment for this pattern consists of a two node Traffic Manager cluster. If required you can scale the number of nodes.
-        </td>
-    </tr>
-</table>
-
-To set up this cluster, see the instructions on <a href="{{base_path}}/install-and-setup/setup/distributed-deployment/deploying-wso2-api-m-in-a-distributed-setup-with-tm-separated">Setting up a Distributed API-M deployment</a>.
-
-### Integration cluster
-
-The integration cluster consist of a minimum of two nodes of the integration runtime (Micro Integrator/Streaming Integrator). See the following links for instructions on how to set up this cluster.
-
-<ul>
-    <li>
-        <a href="{{base_path}}/install-and-setup/setup/mi-setup/deployment/deploying_wso2_ei">Micro Integrator Cluster with Minimum High Availability</a>
-    </li>
-    <li>
-        <a href="{{base_path}}/install-and-setup/setup/si-deployment/deploying-si-as-minimum-ha-cluster">Streaming Integrator Cluster with Minimum High Availability</a>
-    </li>
-</ul>
+<a href="{{base_path}}/assets/img/setup-and-install/deployment-cp-gw-km.png"><img src="{{base_path}}/assets/img/setup-and-install/deployment-cp-gw-km.png" alt="Simple Scalable Deployment with Key Manager Seperation" width="60%"></a>

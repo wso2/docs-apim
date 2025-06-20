@@ -16,8 +16,8 @@
 # under the License.
 
 # Project information
-site_name: WSO2 API Manager Documentation 4.4.0
-site_description: Documentation for WSO2 API Manager 4.4.0
+site_name: WSO2 API Manager Documentation
+site_description: Documentation for WSO2 API Manager
 site_author: WSO2
 site_url: https://apim.docs.wso2.com/en/latest/
 
@@ -95,7 +95,6 @@ nav:
                 - Create a Streaming API from an AsyncAPI Definition: design/create-api/create-streaming-api/create-a-streaming-api-from-an-asyncapi-definition.md
                 - Test a WebSub/WebHook API: design/create-api/create-streaming-api.md
             - Create an API Using a Service: design/create-api/create-an-api-using-a-service.md
-            #- Build APIs in Integration Studio: design/create-api/api-integration-studio.md
             - AI APIs: design/create-api/create-ai-api/create-an-ai-api.md
         - Create APIs with AI: design/create-api/create-api-with-ai.md
         - Create API Revisions: design/create-api/create-api-revisions.md
@@ -151,7 +150,6 @@ nav:
                 - Configure Message Builders and Formatters: design/api-policies/regular-gateway-policies/configuring-message-builders-formatters.md
                 - JWT claim based access validator: design/api-policies/regular-gateway-policies/jwt-claim-based-access-validator.md
                 - Revoke One Time Tokens Policy: design/api-policies/regular-gateway-policies/revoke-one-time-tokens-policy.md
-                - AI Policies: design/api-policies/regular-gateway-policies/ai-policies.md
         - API Security:
             - Authentication:
                 - Overview: design/api-security/api-authentication/api-authentication-overview.md
@@ -224,6 +222,9 @@ nav:
                     - Distributed Burst Control, Backend Rate Limiting for API Gateway Cluster: design/rate-limiting/advanced-topics/configuring-rate-limiting-api-gateway-cluster.md
         - API Monetization:
             - Monetize an API: design/api-monetization/monetizing-an-api.md
+        - B2B API Management:
+            - B2B API Consumption: design/b2b-api-management/api-consumption.md
+            - Setup WSO2 Identity Server as a Federated Authenticator: design/b2b-api-management/setup-identity-server.md
         - Advanced Topics:
             - Enable Publisher Access Control: design/advanced-topics/enable-publisher-access-control-in-api-publisher-portal.md
             - Control API Visibility and Subscription Availability in the Developer Portal: design/advanced-topics/control-api-visibility-and-subscription-availability-in-developer-portal.md
@@ -240,8 +241,8 @@ nav:
                 - Expose APIs via Custom Hostnames: deploy-and-publish/deploy-on-gateway/deploy-api/exposing-apis-via-custom-hostnames.md
                 - Deploy Through Multiple API Gateways: deploy-and-publish/deploy-on-gateway/deploy-api/deploy-through-multiple-api-gateways.md
                 - Revision Deployment Workflow: deploy-and-publish/deploy-on-gateway/deploy-api/revision-deployment-workflow.md
-            - API Gateway:
-                - Overview of the WSO2 API Gateway: deploy-and-publish/deploy-on-gateway/api-gateway/overview-of-the-api-gateway.md
+            - Universal Gateway:
+                - Overview of the WSO2 Universal Gateway: deploy-and-publish/deploy-on-gateway/api-gateway/overview-of-the-api-gateway.md
                 - Gateway Policies: deploy-and-publish/deploy-on-gateway/api-gateway/gateway-policies.md
                 - Response Caching: deploy-and-publish/deploy-on-gateway/api-gateway/response-caching.md
                 - Threat Protectors:
@@ -252,8 +253,8 @@ nav:
                 - Gateway Environments: deploy-and-publish/deploy-on-gateway/api-gateway/maintaining-separate-production-and-sandbox-gateways.md
                 - Scale the Gateway: deploy-and-publish/deploy-on-gateway/api-gateway/scaling-the-gateway.md
                 - Advanced Topics:
-                    - API Gateways with Dedicated Backends: deploy-and-publish/deploy-on-gateway/api-gateway/api-gateways-with-dedicated-backends.md
-                    - Mutual SSL Between API Gateway and Backend: deploy-and-publish/deploy-on-gateway/api-gateway/mutual-ssl-between-api-gateway-and-backend.md
+                    - Universal Gateways with Dedicated Backends: deploy-and-publish/deploy-on-gateway/api-gateway/api-gateways-with-dedicated-backends.md
+                    - Mutual SSL Between Universal Gateway and Backend: deploy-and-publish/deploy-on-gateway/api-gateway/mutual-ssl-between-api-gateway-and-backend.md
                     - Storing Custom Synapse Artifacts in the Gateway: deploy-and-publish/deploy-on-gateway/api-gateway/custom-synapse-artifacts.md
         - Publish on Developer Portal:
             - Publish an API: deploy-and-publish/publish-on-dev-portal/publish-an-api.md
@@ -312,9 +313,29 @@ nav:
         - User Account Management:
             - Recover Password: consume/user-account-management/recover-password.md
             - Change Password: consume/user-account-management/change-dev-portal-password.md
-    - Integrate:
-        - Develop Integrations:
-            - Publish Integrations to the API Manager: integrate/develop/working-with-service-catalog.md
+    - AI Gateway:
+        - Overview: ai-gateway/overview.md
+        - Getting started with AI Gateway: ai-gateway/getting-started-with-ai-gateway.md
+        - AI Backend Security: ai-gateway/ai-backend-security.md
+        - Rate Limiting: ai-gateway/rate-limiting.md
+        - Multi-Model Routing:
+            - Overview: ai-gateway/multi-model-routing/overview.md
+            - Load Balancing: ai-gateway/multi-model-routing/load-balancing.md
+            - Failover: ai-gateway/multi-model-routing/failover.md
+        - AI Vendor Management:
+            - Default AI Vendors: ai-gateway/ai-vendor-management/default-ai-vendors.md
+            - Custom AI Vendors:
+                - Overview: ai-gateway/ai-vendor-management/custom-ai-vendors/overview.md
+                - Custom Connector: ai-gateway/ai-vendor-management/custom-ai-vendors/custom-connector.md
+                - Onboarding Anthropic's Claude: ai-gateway/ai-vendor-management/custom-ai-vendors/onboarding-anthropic-claude.md
+        - AI Guardrails:
+            - Overview: ai-gateway/ai-guardrails/overview.md
+            - Safety Categories:
+                - Overview: ai-gateway/ai-guardrails/safety-categories/overview.md
+                # - LLM Safety: ai-gateway/ai-guardrails/safety-categories/llm-safety.md
+                - Content Safety: ai-gateway/ai-guardrails/safety-categories/content-safety.md
+                - Content Usage Control: ai-gateway/ai-guardrails/safety-categories/content-usage-control.md
+                # - PII Safety: ai-gateway/ai-guardrails/safety-categories/pii-safety.md
     - Analytics:
         - API Analytics:
             - Choreo Based Analytics: 
@@ -476,9 +497,6 @@ nav:
             - Configure the Azure AD as a Key Manager: administer/key-managers/configure-azure-ad-key-manager.md
         - Advanced Configurations: administer/advanced-configurations.md
         - Manage Role based access control for the Admin portal: administer/role-based-access-control.md
-        - AI Vendors:
-            - Configure a Custom AI Vendor: administer/ai-vendors/custom-ai-vendor.md
-            - Write your own Connector: administer/ai-vendors/write-ai-vendor-connector.md
     - Install and Setup:
         - Install and Setup Overview: install-and-setup/install-and-setup-overview.md
         - Install:
@@ -492,7 +510,7 @@ nav:
         - Setup:
             - Set up API Manager:
                 - Update WSO2 API Manager: administer/updating-wso2-api-manager.md
-                - Set up APK as a Gateway: install-and-setup/setup/distributed-deployment/configuring-apim-as-a-gateway.md
+                - Set up Kubernetes Gateway with APIM: install-and-setup/setup/distributed-deployment/configuring-apim-as-a-gateway.md
                 - Set up a Key Manager:
                     - Set up a Third-party Key Manager: install-and-setup/setup/distributed-deployment/configure-a-third-party-key-manager.md
                     - Set up WSO2 Identity Server as a Resident Key Manager: install-and-setup/setup/distributed-deployment/configuring-wso2-identity-server-as-a-key-manager.md
@@ -551,24 +569,32 @@ nav:
                     - Configure the Crypto Provider: install-and-setup/setup/advance-configurations/configuring-the-crypto-provider.md
         - Deploy:
             - Deployment Patterns Overview: install-and-setup/setup/deployment-overview.md
-            - Deploy the API-M Runtime:
+            - Deploy on VMs:
+                - Overview: install-and-setup/setup/single-node/deployment-overview.md
                 - All-In-One Deployment:
-                    - All-in-One Deployment Overview: install-and-setup/setup/single-node/all-in-one-deployment-overview.md
-                    - Configure a Single API-M Node: install-and-setup/setup/single-node/configuring-a-single-node.md
-                    - Configure an Active-Active API-M Deployment: install-and-setup/setup/single-node/configuring-an-active-active-deployment.md
+                    - Single Node Deployment: install-and-setup/setup/single-node/configuring-a-single-node.md
+                    - Active-Active Deployment: install-and-setup/setup/single-node/configuring-an-active-active-deployment.md
                 - Distributed Deployment:
-                    - Distributed Deployment Overview: install-and-setup/setup/distributed-deployment/understanding-the-distributed-deployment-of-wso2-api-m.md
-                    - Configure a Distributed API-M Deployment: install-and-setup/setup/distributed-deployment/deploying-wso2-api-m-in-a-distributed-setup.md
-                    - Configure a Distributed API-M Deployment with Traffic Manager Separation: install-and-setup/setup/distributed-deployment/deploying-wso2-api-m-in-a-distributed-setup-with-tm-separated.md
-                    - Configure a Distributed API-M Deployment with Key Manager Separation: install-and-setup/setup/distributed-deployment/deploying-wso2-api-m-in-a-distributed-setup-with-km-separated.md
-                    - Run the API-M Profiles: install-and-setup/setup/distributed-deployment/product-profiles.md
+                    - Overview: install-and-setup/setup/distributed-deployment/understanding-the-distributed-deployment-of-wso2-api-m.md
+                    - Simple Scalable Deployment: install-and-setup/setup/distributed-deployment/deploying-wso2-api-m-in-a-simple-scalable-setup.md
+                    - Distributed Deployment (Recommended): install-and-setup/setup/distributed-deployment/deploying-wso2-api-m-in-a-distributed-setup.md
+                    - Distributed Deployment with Key Manager Separation: install-and-setup/setup/distributed-deployment/deploying-wso2-api-m-in-a-distributed-setup-with-km-separated.md
                 - Multi-DC Deployment:
-                    - Multi-DC Deployment Patterns Overview: install-and-setup/setup/multi-dc-deployment/multi-dc-deployment-patterns-overview.md
-                    - Configure Multi-DC Deployment - Pattern 1: install-and-setup/setup/multi-dc-deployment/configuring-multi-dc-deployment-pattern-1.md
-                    - Configure Multi-DC Deployment - Pattern 2: install-and-setup/setup/multi-dc-deployment/configuring-multi-dc-deployment-pattern-2.md
+                    - Patterns Overview: install-and-setup/setup/multi-dc-deployment/multi-dc-deployment-patterns-overview.md
+                    - Multi-DC Deployment - Pattern 1: install-and-setup/setup/multi-dc-deployment/configuring-multi-dc-deployment-pattern-1.md
+                    - Multi-DC Deployment - Pattern 2: install-and-setup/setup/multi-dc-deployment/configuring-multi-dc-deployment-pattern-2.md
             - Deploy on Kubernetes:
                 - API-M on K8s:
-                    - Deploy API-M on K8s Using Helm Resources: install-and-setup/install/deploying-api-manager-with-kubernetes-or-openshift-resources.md
+                    - Overview: install-and-setup/setup/kubernetes-deployment/kubernetes/kubernetes-overview.md
+                    - All-In-One Deployment:
+                        - Single Node Deployment: install-and-setup/setup/kubernetes-deployment/kubernetes/am-pattern-0-all-in-one.md
+                        - Active-Active Deployment: install-and-setup/setup/kubernetes-deployment/kubernetes/am-pattern-1-all-in-one-ha.md
+                    - Distributed Deployment:
+                        - Simple Scalable Deployment: install-and-setup/setup/kubernetes-deployment/kubernetes/am-pattern-2-all-in-one-gw.md
+                        - Distributed Deployment (Recommended): install-and-setup/setup/kubernetes-deployment/kubernetes/am-pattern-3-acp-tm-gw.md
+                        - Distributed Deployment with Key Manager Separation: install-and-setup/setup/kubernetes-deployment/kubernetes/am-pattern-4-acp-tm-gw-km.md
+                        - Simple Scalable Deployment with Key Manager Separation: install-and-setup/setup/kubernetes-deployment/kubernetes/am-pattern-5-all-in-one-gw-km.md
+                - API-M on Openshift: install-and-setup/setup/kubernetes-deployment/openshift/openshift-deployment-overview.md
             - Deployment Best Practices:
                 - Deployment Checklist: install-and-setup/setup/deployment-best-practices/production-deployment-guidelines.md
                 - Security Guidelines for a Production Deployment: install-and-setup/setup/deployment-best-practices/security-guidelines-for-production-deployment.md
@@ -618,8 +644,8 @@ nav:
             - Product Compatibility: install-and-setup/setup/reference/product-compatibility.md
             - Performance Test Results:
                 - API Manager: install-and-setup/setup/deployment-best-practices/performance-tests-results.md
-                - API Manager (Streaming APIs): install-and-setup/setup/deployment-best-practices/performance-tests-results-async.md
-                - API Manager (GraphQL APIs): install-and-setup/setup/deployment-best-practices/performance-tests-results-graphql.md
+                # - API Manager (Streaming APIs): install-and-setup/setup/deployment-best-practices/performance-tests-results-async.md
+                # - API Manager (GraphQL APIs): install-and-setup/setup/deployment-best-practices/performance-tests-results-graphql.md
                 - Token Persistence: install-and-setup/setup/deployment-best-practices/performance-test-results-token-persistence.md
             - Supported Cipher Suites: install-and-setup/setup/reference/supported-cipher-suites.md
     - Tutorials:
@@ -740,12 +766,11 @@ plugins:
               'install-and-setup/deploying-wso2-api-manager/single-node/configuring-an-active-active-deployment.md': 'https://apim.docs.wso2.com/en/4.4.0/install-and-setup/setup/single-node/configuring-an-active-active-deployment/'
               'install-and-setup/deploying-wso2-api-manager/distributed-deployment/understanding-the-distributed-deployment-of-wso2-api-m.md': 'https://apim.docs.wso2.com/en/4.4.0/install-and-setup/setup/distributed-deployment/understanding-the-distributed-deployment-of-wso2-api-m/'
               'install-and-setup/deploying-wso2-api-manager/distributed-deployment/deploying-wso2-api-m-in-a-distributed-setup.md': 'https://apim.docs.wso2.com/en/4.4.0/install-and-setup/setup/distributed-deployment/deploying-wso2-api-m-in-a-distributed-setup/'
-              'install-and-setup/deploying-wso2-api-manager/distributed-deployment/product-profiles.md': 'https://apim.docs.wso2.com/en/4.4.0/install-and-setup/setup/distributed-deployment/product-profiles/'
               ##'install-and-setup/deploying-wso2-api-manager/distributed-deployment/working-with-hazelcast-clustering.md': 'https://apim.docs.wso2.com/en/3.2.0/install-and-setup/setup/distributed-deployment/working-with-hazelcast-clustering/'
               'install-and-setup/deploying-wso2-api-manager/distributed-deployment/configure-a-third-party-key-manager.md': 'https://apim.docs.wso2.com/en/4.4.0/install-and-setup/setup/distributed-deployment/configure-a-third-party-key-manager/'
               'install-and-setup/deploying-wso2-api-manager/distributed-deployment/configuring-wso2-identity-server-as-a-key-manager.md': 'https://apim.docs.wso2.com/en/4.4.0/install-and-setup/setup/distributed-deployment/configuring-wso2-identity-server-as-a-key-manager/'
               'install-and-setup/deploying-wso2-api-manager/configuring-message-builders-formatters.md': 'https://apim.docs.wso2.com/en/4.4.0/deploy-and-publish/deploy-on-gateway/api-gateway/message-mediation/configuring-message-builders-formatters/'
-              'install-and-setup/deploying-wso2-api-manager/deploying-api-manager-with-kubernetes-or-openshift-resources.md': 'https://apim.docs.wso2.com/en/4.4.0/install-and-setup/install/deploying-api-manager-with-kubernetes-or-openshift-resources/'
+              'install-and-setup/deploying-wso2-api-manager/deploying-api-manager-with-kubernetes-resources.md': 'https://apim.docs.wso2.com/en/4.4.0/install-and-setup/install/deploying-api-manager-with-kubernetes-resources/'
               'install-and-setup/deploying-wso2-api-manager/production-deployment-guidelines.md': 'https://apim.docs.wso2.com/en/4.4.0/install-and-setup/setup/deployment-best-practices/production-deployment-guidelines/'
               'install-and-setup/deploying-wso2-api-manager/security-guidelines-for-production-deployment.md': 'https://apim.docs.wso2.com/en/4.4.0/install-and-setup/setup/deployment-best-practices/security-guidelines-for-production-deployment/'
               'install-and-setup/product-compatibility.md': 'https://apim.docs.wso2.com/en/4.4.0/install-and-setup/setup/reference/product-compatibility/'
@@ -907,6 +932,8 @@ plugins:
               'learn/rate-limiting/graphql-api/query-complexity-limitation.md': 'https://apim.docs.wso2.com/en/4.4.0/design/rate-limiting/graphql-api/query-complexity-limitation'
               'learn/rate-limiting/advanced-topics/custom-throttling.md': 'https://apim.docs.wso2.com/en/4.4.0/design/rate-limiting/advanced-topics/custom-throttling/'
               'learn/api-monetization/monetizing-an-api.md': 'https://apim.docs.wso2.com/en/4.4.0/design/api-monetization/monetizing-an-api/'
+              'learn/b2b-api-management/api-consumption.md': 'https://apim.docs.wso2.com/en/4.4.0/design/b2b-api-management/api-consumption/'
+              'learn/b2b-api-management/setup-identity-server.md': 'https://apim.docs.wso2.com/en/4.4.0/design/b2b-api-management/setup-identity-server/'
               'learn/design-api/advanced-topics/enable-publisher-access-control-in-api-publisher-portal.md': 'https://apim.docs.wso2.com/en/4.4.0/design/advanced-topics/enable-publisher-access-control-in-api-publisher-portal/'
               'learn/design-api/advanced-topics/control-api-visibility-and-subscription-availability-in-developer-portal.md': 'https://apim.docs.wso2.com/en/4.4.0/design/advanced-topics/control-api-visibility-and-subscription-availability-in-developer-portal/'
               'learn/design-api/advanced-topics/enabling-cors-for-apis.md': 'https://apim.docs.wso2.com/en/4.4.0/design/advanced-topics/enabling-cors-for-apis/'
@@ -1116,3 +1143,4 @@ extra:
     # base_path: http://localhost:8000/en/latest
     base_path: https://apim.docs.wso2.com/en/latest
     envoy_path: https://www.envoyproxy.io/docs/envoy/v1.24.1
+    
