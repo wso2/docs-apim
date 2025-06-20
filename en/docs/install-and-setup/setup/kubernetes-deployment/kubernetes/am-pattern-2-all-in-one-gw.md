@@ -31,7 +31,8 @@ This is the standard distributed deployment for API Manager. The default configu
         - [2.6 Enable High Availability](#26-enable-high-availability)
     - [3. Universal Gateway Configuration](#3-universal-gateway-configuration)
         - [3.1 Configure Key Manager, Eventhub and Throttling](#31-configure-key-manager-eventhub-and-throttling)
-        - [3.2 Deploy Universal Gateway](#32-deploy-universal-gateway)
+        - [3.2 Enable Replicas](#32-enable-replicas)
+        - [3.3 Deploy Universal Gateway](#33-deploy-universal-gateway)
     - [4. Add a DNS Record Mapping the Hostnames and the External IP](#4-add-a-dns-record-mapping-the-hostnames-and-the-external-ip)
     - [5. Access Management Consoles](#5-access-management-consoles)
 
@@ -402,44 +403,101 @@ wso2:
 
 The following configurations are needed to connect the Universal Gateway to the Control Plane:
 
-1. Configure Control Plane as the Key Manager:
+- Configure Control Plane as the Key Manager:
    ```yaml
    km:
      # -- Key manager service name if default Resident KM is used
      serviceUrl: "<CONTROL_PLANE_SERVICE_NAME>"
    ```
 
-2. Configure Event Hub connection:
-   ```yaml
-   eventhub:
-     # -- Event hub (control plane) load balancer service URL
-     serviceUrl: "<CONTROL_PLANE_SERVICE_NAME>"
-     # -- Event hub service URLs
-     urls:
-       - "<CONTROL_PLANE_SERVICE_NAME>"
-   ```
+- Configure Event Hub connection:
 
-3. Configure throttling settings:
-   ```yaml
-   throttling:
-     serviceUrl: "<CONTROL_PLANE_SERVICE_NAME>"
-     portOffset: 0
-     # -- Port of the service URL
-     servicePort: 9443
-     # -- Traffic manager service URLs. You only need to define one if the TM is not in HA.
-     urls:
-       - "<CONTROL_PLANE_SERVICE_NAME>"
-     # -- Enable unlimited throttling tier
-     unlimitedTier: true
-     # -- Enable header-based throttling
-     headerBasedThrottling: false
-     # -- Enable JWT claim-based throttling
-     jwtClaimBasedThrottling: false
-     # -- Enable query param-based throttling
-     queryParamBasedThrottling: false
-   ```
+=== "Single All-in-One"
 
-#### 3.2 Deploy Universal Gateway
+    ```yaml
+    eventhub:
+      # -- Event hub (control plane) load balancer service URL
+      serviceUrl: "<CONTROL_PLANE_SERVICE_NAME>"
+      # -- Event hub service URLs
+      urls:
+        - "<CONTROL_PLANE_SERVICE_NAME>"
+    ```
+
+=== "All-in-One with High Availability"
+
+    ```yaml
+    eventhub:
+      # -- Event hub (control plane) load balancer service URL
+      serviceUrl: "<CONTROL_PLANE_SERVICE_NAME>"
+      # -- Event hub service URLs
+      urls:
+        - "<CONTROL_PLANE_1_SERVICE_NAME>"
+        - "<CONTROL_PLANE_2_SERVICE_NAME>"
+    ```
+
+- Configure throttling settings:
+
+=== "Single All-in-One"
+
+    ```yaml
+    throttling:
+      serviceUrl: "<CONTROL_PLANE_SERVICE_NAME>"
+      portOffset: 0
+      # -- Port of the service URL
+      servicePort: 9443
+      # -- Traffic manager service URLs. You only need to define one if the TM is not in HA.
+      urls:
+      - "<CONTROL_PLANE_SERVICE_NAME>"
+      # -- Enable unlimited throttling tier
+      unlimitedTier: true
+      # -- Enable header-based throttling
+      headerBasedThrottling: false
+      # -- Enable JWT claim-based throttling
+      jwtClaimBasedThrottling: false
+      # -- Enable query param-based throttling
+      queryParamBasedThrottling: false
+    ```
+
+=== "All-in-One with High Availability"
+
+    ```yaml
+    throttling:
+      serviceUrl: "<CONTROL_PLANE_SERVICE_NAME>"
+      portOffset: 0
+      # -- Port of the service URL
+      servicePort: 9443
+      # -- Traffic manager service URLs. You only need to define one if the Traffic Manager is not in HA.
+      urls:
+      - "<CONTROL_PLANE_1_SERVICE_NAME>"
+      - "<CONTROL_PLANE_2_SERVICE_NAME>"
+      # -- Enable unlimited throttling tier
+      unlimitedTier: true
+      # -- Enable header-based throttling
+      headerBasedThrottling: false
+      # -- Enable JWT claim-based throttling
+      jwtClaimBasedThrottling: false
+      # -- Enable query param-based throttling
+      queryParamBasedThrottling: false
+    ```
+
+#### 3.2 Enable Replicas
+
+To ensure high availability and scalability of the Universal Gateway, you can configure the number of replicas in the `wso2.deployment` section of your `values.yaml` file.
+
+```yaml
+wso2:
+  deployment:
+    replicas: 2
+    minReplicas: 1
+    maxReplicas: 3
+```
+
+!!! info
+    - `replicas`: The initial number of pods to start with (e.g., 2).
+    - `minReplicas`: The minimum number of pods that should always be running (e.g., 1).
+    - `maxReplicas`: The maximum number of pods that can be scaled up to (e.g., 3).
+
+#### 3.3 Deploy Universal Gateway
 
 After configuring all the necessary parameters, you can deploy the Universal Gateway using Helm:
 
