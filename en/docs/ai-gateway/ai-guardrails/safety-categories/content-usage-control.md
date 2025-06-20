@@ -8,16 +8,16 @@ Content Usage Control Guardrails perform checks on both incoming prompts and LLM
 
 The **Word Count Guardrail** is a custom Synapse mediator for **WSO2 API Manager Universal Gateway**, designed to perform **word count-based validation** on incoming or outgoing JSON payloads. This component acts as a *guardrail* to enforce specific content moderation rules based on configurable minimum and maximum word counts and JSON Path expressions.
 
-### ✨ Features
+### Features
 
-- ✅ Validate payload content by counting words
-- ✅ Define **minimum and maximum word count thresholds**
-- ✅ Target specific fields in JSON payloads using **JSON Path**
-- ✅ Optionally **invert validation logic** (e.g., allow only content *outside* the specified word range)
-- ✅ Trigger fault sequences on rule violations
-- ✅ Include optional **assessment messages** in error responses for better observability
+- Validate payload content by counting words
+- Define **minimum and maximum word count thresholds**
+- Target specific fields in JSON payloads using **JSON Path**
+- Optionally **invert validation logic** (e.g., allow only content *outside* the specified word range)
+- Trigger fault sequences on rule violations
+- Include optional **assessment messages** in error responses for better observability
 
-### 🚀 How to Use
+### How to Use
 
 ??? "Click to expand Prerequisites"
 
@@ -56,7 +56,7 @@ Follow these steps to integrate the Word Count Guardrail policy into your WSO2 A
    - Provide the required configuration (name, min, max, etc.)
    - **Save and Deploy** the API
 
-### 🧾 Example Policy Configuration
+### Example Policy Configuration
 
 ??? example "Click to expand configuration steps"
 
@@ -115,16 +115,16 @@ This pattern **splits words** based on **one or more whitespace characters**. Th
 
 The **Sentence Count Guardrail** is a custom Synapse mediator for **WSO2 API Manager Universal Gateway**, designed to perform **sentence count-based validation** on incoming or outgoing JSON payloads. This component acts as a *guardrail* to enforce specific content moderation rules based on configurable minimum and maximum sentence counts and JSON Path expressions.
 
-### ✨ Features
+### Features
 
-- ✅ Validate payload content by counting sentences
-- ✅ Define **minimum and maximum sentence thresholds**
-- ✅ Target specific fields in JSON payloads using **JSON Path**
-- ✅ Optionally **invert validation logic** (e.g., allow only content *outside* the specified sentence range)
-- ✅ Trigger fault sequences on rule violations
-- ✅ Include optional **assessment messages** in error responses for better observability
+- Validate payload content by counting sentences
+- Define **minimum and maximum sentence thresholds**
+- Target specific fields in JSON payloads using **JSON Path**
+- Optionally **invert validation logic** (e.g., allow only content *outside* the specified sentence range)
+- Trigger fault sequences on rule violations
+- Include optional **assessment messages** in error responses for better observability
 
-### 🚀 How to Use
+### How to Use
 
 ??? "Click to expand Prerequisites"
 
@@ -165,7 +165,7 @@ Follow these steps to integrate the Sentence Count Guardrail policy into your WS
     - Provide the required configuration (name, min, max, etc.)
     - **Save and Deploy** the API
 
-### 🧾 Example Policy Configuration
+### Example Policy Configuration
 
 ??? example "Click to expand configuration steps"
 
@@ -224,16 +224,16 @@ This pattern **splits sentences** based on punctuation marks such as **periods**
 
 The **Content Length Guardrail** is a custom Synapse mediator for **WSO2 API Manager Universal Gateway**, designed to perform **content-byte-length validation** on incoming or outgoing JSON payloads. This component acts as a *guardrail* to enforce specific content moderation rules based on configurable minimum and maximum byte sizes and JSON Path expressions.
 
-### ✨ Features
+### Features
 
-- ✅ Validate payload content by checking byte length
-- ✅ Define **minimum and maximum byte thresholds**
-- ✅ Target specific fields in JSON payloads using **JSON Path**
-- ✅ Optionally **invert validation logic** (e.g., allow only content *outside* the specified byte range)
-- ✅ Trigger fault sequences on rule violations
-- ✅ Include optional **assessment messages** in error responses for better observability
+- Validate payload content by checking byte length
+- Define **minimum and maximum byte thresholds**
+- Target specific fields in JSON payloads using **JSON Path**
+- Optionally **invert validation logic** (e.g., allow only content *outside* the specified byte range)
+- Trigger fault sequences on rule violations
+- Include optional **assessment messages** in error responses for better observability
 
-### 🚀 How to Use
+### How to Use
 
 ??? "Click to expand Prerequisites"
 
@@ -274,7 +274,7 @@ Follow these steps to integrate the Content Length Guardrail policy into your WS
    - Provide the required configuration (name, min, max, etc.)
    - **Save and Deploy** the API
 
-### 🧾 Example Policy Configuration
+### Example Policy Configuration
 ??? example "Click to expand configuration steps"
 
     1. Create an AI API using Mistral AI.

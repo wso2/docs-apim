@@ -342,6 +342,7 @@ nav:
                 - Content Safety: ai-gateway/ai-guardrails/safety-categories/content-safety.md
                 - Content Usage Control: ai-gateway/ai-guardrails/safety-categories/content-usage-control.md
                 # - PII Safety: ai-gateway/ai-guardrails/safety-categories/pii-safety.md
+            - Guardrail Error Response:  ai-gateway/ai-guardrails/guardrail-error-response.md
     - Governance:
         - Overview: governance/overview.md
         - Concepts: governance/governance-concept.md

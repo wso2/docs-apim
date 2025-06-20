@@ -8,15 +8,15 @@ Content Safety Guardrails perform checks on both incoming prompts and LLM-genera
 
 The **Regex Guardrail** is a custom Synapse mediator for **WSO2 API Manager Universal Gateway**, designed to perform **regular expression-based validation** on incoming or outgoing JSON payloads. This component acts as a *guardrail* to enforce specific security or compliance rules based on configurable regex patterns and JSON Path expressions.
 
-### ✨ Features
+### Features
 
-- ✅ Validate payload content using configurable **regex patterns**
-- ✅ Target specific fields in JSON payloads using **JSON Path**
-- ✅ Optionally **invert validation logic**
-- ✅ Trigger fault sequences on rule violations
-- ✅ Include optional **assessment messages** in error responses for better observability
+- Validate payload content using configurable **regex patterns**
+- Target specific fields in JSON payloads using **JSON Path**
+- Optionally **invert validation logic**
+- Trigger fault sequences on rule violations
+- Include optional **assessment messages** in error responses for better observability
 
-### 🚀 How to Use
+### How to Use
 
 ??? "Click to expand Prerequisites"
 
@@ -55,7 +55,7 @@ Follow these steps to integrate the Regex Guardrail policy into your WSO2 API Ma
     - Provide the required configuration (name, regex, etc.)
     - **Save and Deploy** the API
 
-### 🧾 Example Policy Configuration
+### Example Policy Configuration
 ??? example "Click to expand configuration steps"
     1. Create an AI API using Mistral AI.  
     2. Add the Regex Guardrail policy to the API with the following configuration:
@@ -102,16 +102,16 @@ Follow these steps to integrate the Regex Guardrail policy into your WSO2 API Ma
 The **URL Guardrail** is a custom Synapse mediator for **WSO2 API Manager Universal Gateway**, designed to perform **URL validity checks** on incoming or outgoing JSON payloads. This component acts as a *guardrail* to enforce content safety by validating embedded URLs for accessibility or DNS resolution.
 
 
-### ✨ Features
+### Features
 
-- ✅ Validate payload content by extracting and checking URLs
-- ✅ Perform either **DNS resolution** or **HTTP HEAD** validation
-- ✅ Target specific fields in JSON payloads using **JSON Path**
-- ✅ Configure custom **timeout** for validation checks
-- ✅ Trigger fault sequences on rule violations
-- ✅ Include optional **assessment messages** in error responses for better observability
+- Validate payload content by extracting and checking URLs
+- Perform either **DNS resolution** or **HTTP HEAD** validation
+- Target specific fields in JSON payloads using **JSON Path**
+- Configure custom **timeout** for validation checks
+- Trigger fault sequences on rule violations
+- Include optional **assessment messages** in error responses for better observability
 
-### 🚀 How to Use
+### How to Use
 
 ??? "Click to expand Prerequisites"
 
@@ -150,7 +150,7 @@ Follow these steps to integrate the URL Guardrail policy into your WSO2 API Mana
     - Configure the policy parameters (name, JSONPath, timeout, etc.)
     - **Save and Deploy** the API
 
-### 🧾 Example Policy Configuration
+### Example Policy Configuration
 ??? example "Click to expand configuration steps"
 
     1. Create an AI API using Mistral AI.
@@ -209,16 +209,16 @@ This pattern is designed to match common URL formats in textual content. However
 
 The **JSON Schema Guardrail** is a custom Synapse mediator for **WSO2 API Manager Universal Gateway**, designed to validate JSON payloads against a user-defined **JSON Schema**. This mediator enables API publishers to enforce structural and content compliance dynamically in both request and response flows.
 
-### ✨ Features
+### Features
 
-- ✅ Validate payload structure and fields using **JSON Schema**
-- ✅ Target specific segments of a payload using **JSON Path**
-- ✅ Support for **inverted validation** (fail when schema matches)
-- ✅ **Guardrail assessment** for better observability on violations
-- ✅ Works on both **request and response** flows
-- ✅ Integrates with WSO2 **fault sequences** on failure
+- Validate payload structure and fields using **JSON Schema**
+- Target specific segments of a payload using **JSON Path**
+- Support for **inverted validation** (fail when schema matches)
+- **Guardrail assessment** for better observability on violations
+- Works on both **request and response** flows
+- Integrates with WSO2 **fault sequences** on failure
 
-### 🚀 How to Use
+### How to Use
 
 ??? "Click to expand Prerequisites"
 
@@ -258,7 +258,7 @@ Follow these steps to integrate the JSON Schema Guardrail policy into your WSO2 
     - Configure the policy parameters (name, JSONPath, schema, etc.)
     - **Save and Deploy** the API
 
-### 🧾 Example Policy Configuration
+### Example Policy Configuration
 ??? example "Click to expand configuration steps"
 
     1. Create an AI API using Mistral AI.
