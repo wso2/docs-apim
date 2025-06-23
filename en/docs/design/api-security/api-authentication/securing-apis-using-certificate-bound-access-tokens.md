@@ -8,7 +8,7 @@ APIs in WSO2 API Manager can be secured using Certificate Bound Access Tokens, a
 
 !!! warning
     
-    The HTTP header name used to pass the client certificate (configured via `client_certificate_header` under `[oauth.mutualtls]` or `certificate_header` under `[apimgt.mutual_ssl]`) **must be specified in lowercase** (for example, `"ssl-client-cert"`).
+    In the `<API-M_HOME>/repository/conf/deployment.toml` file, the HTTP header name used to pass the client certificate (configured via `client_certificate_header` under `[oauth.mutualtls]` or `certificate_header` under `[apimgt.mutual_ssl]`) **must be specified in lowercase** (for example, `"ssl-client-cert"`).
 
     Using uppercase or mixed case header names (for example, `"SSL-CLIENT-CERT"`) may cause the API Manager to fail to extract the client certificate correctly. As a result, scenarios like including the client certificate thumbprint in the JWT token's `cnf` claim might not work as expected.
 
