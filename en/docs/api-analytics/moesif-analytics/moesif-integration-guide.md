@@ -2,9 +2,11 @@
 
 This guide outlines the steps required to integrate **Moesif Analytics** with **WSO2 API Manager**. The integration enables you to collect and publish API analytics data to the **Moesif dashboard**, providing insights into API usage, traffic trends, and error tracking.
 
+<a href="{{base_path}}/assets/img/analytics/moesif/moesif-data-flow.png"><img src="{{base_path}}/assets/img/analytics/moesif/moesif-data-flow.png" alt="Moesif integration diagram"></a>
+
 ### Analytics Data Flow
 
-The Moesif integration captures both **successful** and **failed API invocations** in WSO2 API Manager and publishes them to your Moesif dashboard in near real-time. This allows for powerful analytics and monitoring capabilities.
+The Moesif integration captures both **successful** and **failed** API invocations in WSO2 API Manager and publishes them to your Moesif dashboard in near real-time. This allows for powerful analytics and monitoring capabilities.
 
 This section will cover necessary steps to integrate Moesif analytics with WSO2 API Manager.
 
@@ -169,3 +171,9 @@ logger.reporter.level = "INFO"
     | "errorCode"                  | int       | The error code generated in a fault.                                 |
     | "errorMessage"               | string    | The error message associated with the fault.                         |
     | "errorType"                  | string    | The type of error (e.g., THROTTLED).                                 |
+
+### Dashboards
+
+Users can create a variety of dashboards in Moesif using the analytics data published from the WSO2 API Gateway. The sample dashboard below illustrates API usage segmented by different users.
+
+<a href="{{base_path}}/assets/img/analytics/moesif/sample-dashboard-img.png"><img src="{{base_path}}/assets/img/analytics/moesif/sample-dashboard-img.png" alt="Sample Moesif dashboard diagram"></a>

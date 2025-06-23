@@ -339,6 +339,7 @@ nav:
             - Other Analytics Solutions: 
                 - ELK Based Analytics Installation Guide: api-analytics/on-prem/elk-installation-guide.md
                 - Datadog Analytics Installation Guide : api-analytics/on-prem/datadog-installation-guide.md
+            - Moesif Analytics: api-analytics/moesif-analytics/moesif-integration-guide.md
             - Publish Analytics Events to External Systems: api-analytics/samples/publishing-analytics-events-to-external-systems.md
             - Publish Custom Analytics Events Data: api-analytics/samples/publishing-custom-analytics-data.md
     - Observe:
@@ -1122,6 +1123,6 @@ extra:
             version: 1.2.0-1
             git_tag: v1.2.0.1
     site_version: 4.4.0
-    # base_path: http://localhost:8000/en/latest
+    #base_path: http://localhost:8000/en/latest
     base_path: https://apim.docs.wso2.com/en/latest
     envoy_path: https://www.envoyproxy.io/docs/envoy/v1.24.1
