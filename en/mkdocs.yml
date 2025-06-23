@@ -686,6 +686,7 @@ nav:
     - Tutorials:
           - Tutorials Overview: tutorials/tutorials-overview.md
           - Develop an Integration From a Managed API: tutorials/develop-an-integration-with-a-managed-api.md
+          - The Single Control Plane for Multiple Gateways: tutorials/single-control-plane-for-multiple-gateways.md
           - Scenario Tutorials:
             - Scenario Overview: tutorials/scenarios/scenario-overview.md
             - Scenario 1 - Create a REST API from an OpenAPI Definition: tutorials/scenarios/scenario1-create-rest-api.md
