@@ -8,7 +8,7 @@ An API control plane (ACP) serves as the central administrative layer in an API 
 In WSO2 API Manager, the control plane consists of the following:
 
 - **API Publisher**: Used for API creation, configuration, and publishing.
-- **API Store**: A portal for developers to find and subscribe to APIs.
+- **Developer Portal**: A portal for developers to find and subscribe to APIs.
 - **Key Manager**: Enforces security policies by managing OAuth, JWT tokens, and API key validation.
 - **API Analytics**: Gathers data on API usage, traffic, and user interactions.
 - **Admin Console**: Offers administrative control for API configurations, monitoring, and governance.
