@@ -92,9 +92,9 @@ First, deploy the backend service for the Product Catalog API following the step
     kubectl get svc
     ```
 
-The product-api-service will be running at [http://product-api-service:80](http://product-api-service:80).
+    The product-api-service will be running at [http://product-api-service:80](http://product-api-service:80).
 
-Next, deploy the backend services for HR System API and Compliance Report API following the steps given below.
+    Next, deploy the backend services for HR System API and Compliance Report API following the steps given below.
 
 6. Download and save [hr-api.js](https://github.com/wso2/samples-apim/blob/master/single-cp-multi-gw-tutorial/sample-backends/hr-api.js) and [compliance-api.js](https://github.com/wso2/samples-apim/blob/master/single-cp-multi-gw-tutorial/sample-backends/compliance-api.js) files.
 7. Then run the following commands in a terminal to start the hr-api and compliance-api backend services.
@@ -178,18 +178,18 @@ Create and deploy the HR System API as shown below (follow the steps in [Create 
 3. Select **OpenAPI Archive/File** option and drag and drop or click **Browse File to Upload** to upload the [HRSystemAPI.json](https://github.com/wso2/samples-apim/blob/master/single-cp-multi-gw-tutorial/api-definitions/HRSystemAPI.json) definition file (save the file locally and upload). 
 4. Edit the information as given below and click **Create**.
 
-![]({{base_path}}/assets/img/tutorials/gateway/create-hr-api.png)
+    ![]({{base_path}}/assets/img/tutorials/gateway/create-hr-api.png)
 
 5. Note that the Gateway type is selected as **Universal Gateway** here.
 6. Once created, go to **Deploy** -> **Deployments** and deploy the API.
 
-![]({{base_path}}/assets/img/tutorials/gateway/deploy-hr-api.png)
+    ![]({{base_path}}/assets/img/tutorials/gateway/deploy-hr-api.png)
 
 7. Finally navigate to **Lifecycle** and click the **Publish** button to publish the API.
 8. Navigate to the developer portal via `https://localhost:9444/devportal/` and click **APIs** from the top menu. 
 9. You will see the published HRSystemAPI as below in the developer portal.
 
-![]({{base_path}}/assets/img/tutorials/gateway/devportal-hr-api.png)
+    ![]({{base_path}}/assets/img/tutorials/gateway/devportal-hr-api.png)
 
 You have successfully published the HRSystemAPI to the Universal Gateway now.
 
@@ -305,21 +305,21 @@ Configure APK in Kubernetes Cluster as explained in [APK as Gateway in APIM Depl
 
 Next, configure [API Control Plane (ACP) for APK following API Manager Control Plane - Kubernetes Gateway 1.3.0](https://apk.docs.wso2.com/en/latest/control-plane/apim-deploy/#configuring-api-manager-control-plane) as shown below to additionally add the Kubernetes gateway configurations to the same ACP configured in the previous section (Note that you do not have to download or setup an ACP again, as the same ACP will be used for this and adding only the following configurations to the `deployment.toml` would be sufficient).
 
-    ```
-    [[apim.gateway.environment]]
-    name = "Kubernetes"
-    type = "hybrid"
-    gateway_type = "APK"
-    provider = "wso2"
-    display_in_api_console = true
-    description = "This is a hybrid gateway that handles both production and sandbox token traffic."
-    show_as_token_endpoint_url = true
-    service_url = "https://localhost:${mgt.transport.https.port}/services/"
-    username= "${admin.username}"
-    password= "${admin.password}"
-    http_endpoint = "http://default.gw.wso2.com:9090"
-    https_endpoint = "https://default.gw.wso2.com:9095"
-    ``` 
+```
+[[apim.gateway.environment]]
+name = "Kubernetes"
+type = "hybrid"
+gateway_type = "APK"
+provider = "wso2"
+display_in_api_console = true
+description = "This is a hybrid gateway that handles both production and sandbox token traffic."
+show_as_token_endpoint_url = true
+service_url = "https://localhost:${mgt.transport.https.port}/services/"
+username= "${admin.username}"
+password= "${admin.password}"
+http_endpoint = "http://default.gw.wso2.com:9090"
+https_endpoint = "https://default.gw.wso2.com:9095"
+``` 
 
 Find the latest `deployment.toml` of the ACP with the above configurations in [final-acp-ceployment.toml](https://github.com/wso2/samples-apim/blob/master/single-cp-multi-gw-tutorial/apim-configs/final-acp-deployment.toml).
 
@@ -329,14 +329,14 @@ Alternatively, you have the option to add the Kubernetes gateway related configu
 2. Click **Add Gateway Environment** button.
 3. Fill the Kubernetes gateway related details as below.
 
-Note that the name assigned to the Kubernetes Gateway is determined by the value specified for **environmentLabels** in the `values.yaml` file used with the Kubernetes Gateway Agent Helm Chart. This label acts as an identifier for the gateway instance and is used by the system to map and manage the gateway. Ensure that the **environmentLabels** value accurately reflects the intended name of your Kubernetes Gateway to avoid any misconfigurations or mismatches during deployment.
+    Note that the name assigned to the Kubernetes Gateway is determined by the value specified for **environmentLabels** in the `values.yaml` file used with the Kubernetes Gateway Agent Helm Chart. This label acts as an identifier for the gateway instance and is used by the system to map and manage the gateway. Ensure that the **environmentLabels** value accurately reflects the intended name of your Kubernetes Gateway to avoid any misconfigurations or mismatches during deployment.
 
-![]({{base_path}}/assets/img/tutorials/gateway/add-k8s-gw.png)
+    ![]({{base_path}}/assets/img/tutorials/gateway/add-k8s-gw.png)
 
 4. Click **Add**. 
 5. You will see the newly added Kubernetes gateway details in the list as below.
 
-![]({{base_path}}/assets/img/tutorials/gateway/k8s-gw-list.png)
+    ![]({{base_path}}/assets/img/tutorials/gateway/k8s-gw-list.png)
 
 Create the Product Catalog API as below.
 
@@ -345,21 +345,21 @@ Create the Product Catalog API as below.
 8. Select **OpenAPI Archive/File** option and drag and drop or click **Browse File to Upload** to upload the ProductCatalogAPI.json definition file (save the file locally and upload). 
 9. Edit the information as given below and click **Create**.
 
-![]({{base_path}}/assets/img/tutorials/gateway/add-products-api.png)
+    ![]({{base_path}}/assets/img/tutorials/gateway/add-products-api.png)
 
 10. Note that the Gateway type is selected as **Kubernetes Gateway** here. Once created, go to **Deploy** -> **Deployments** and deploy the API.
 
-![]({{base_path}}/assets/img/tutorials/gateway/deploy-k8s-gw.png)
+    ![]({{base_path}}/assets/img/tutorials/gateway/deploy-k8s-gw.png)
 
-![]({{base_path}}/assets/img/tutorials/gateway/deploy-products-api.png)
+    ![]({{base_path}}/assets/img/tutorials/gateway/deploy-products-api.png)
 
 11. Finally navigate to **Lifecycle** and click the **Publish** button to publish the API. 
 12. Navigate to the Developer Portal via `https://localhost:9444/devportal/` and click **APIs** from the top menu. 
 13. You will see the published ProductCatalogAPI as below in the developer portal.
 
-![]({{base_path}}/assets/img/tutorials/gateway/devportal-products-api.png)
+    ![]({{base_path}}/assets/img/tutorials/gateway/devportal-products-api.png)
 
-![]({{base_path}}/assets/img/tutorials/gateway/products-gw-url.png)
+    ![]({{base_path}}/assets/img/tutorials/gateway/products-gw-url.png)
 
 14. Verify that the ProductCatalogAPI is successfully deployed to Kubernetes Gateway by executing the following command.
 
@@ -367,9 +367,9 @@ Create the Product Catalog API as below.
     kubectl get apis -n apk
     ``` 
 
-The deployed API can be seen as below.
+    The deployed API can be seen as below.
 
-![]({{base_path}}/assets/img/tutorials/gateway/products-k8s-gw-list.png)
+    ![]({{base_path}}/assets/img/tutorials/gateway/products-k8s-gw-list.png)
 
 Let’s see how to publish an API to the Immutable gateway now.
 
@@ -379,44 +379,44 @@ Follow these [prerequisites](https://mg.docs.wso2.com/en/latest/install-and-setu
 
 Navigate to `MGW_TOOLKIT/bin`. Execute the following command to generate the project file using [ComplianceReportAPI.json](https://github.com/wso2/samples-apim/blob/master/single-cp-multi-gw-tutorial/api-definitions/ComplianceReportAPI.json) (save the file locally and use).
 
-    ``` 
-    ./micro-gw init compliance-report -a ComplianceReportAPI.json
-    ``` 
+``` 
+./micro-gw init compliance-report -a ComplianceReportAPI.json
+``` 
 
 This will initialize the project directory as below.
 
-    ``` 
-    JAVA_HOME: /usr/local/Cellar/openjdk@11/11.0.27/libexec/openjdk.jdk/Contents/Home
-    Warning!!! Microgateway is supported only on Java 1.8. Hence JAVA_HOME is set to internal JRE
-    Project 'compliance-report' is initialized successfully.
-    (Use "micro-gw build compliance-report" after copying the api definitions)
-    (Use "micro-gw import compliance-report [-l]|[-a -v]" to import APIs from WSO2 API Manager)
-    ``` 
+``` 
+JAVA_HOME: /usr/local/Cellar/openjdk@11/11.0.27/libexec/openjdk.jdk/Contents/Home
+Warning!!! Microgateway is supported only on Java 1.8. Hence JAVA_HOME is set to internal JRE
+Project 'compliance-report' is initialized successfully.
+(Use "micro-gw build compliance-report" after copying the api definitions)
+(Use "micro-gw import compliance-report [-l]|[-a -v]" to import APIs from WSO2 API Manager)
+``` 
 
 Build the project.
 
-    ``` 
-    ./micro-gw build compliance-report
-    ``` 
+``` 
+./micro-gw build compliance-report
+``` 
 
 Expose the Compliance Report API via Microgateway Runtime by navigating to `MGW_HOME/bin` and executing the following command.
 
-    ``` 
-    ./gateway <path-to-compliance-report-jar-file>
-    ``` 
+``` 
+./gateway <path-to-compliance-report-jar-file>
+``` 
 
 Once executed, the API will be exposed via `9095` or `9090` ports as shown below.
 
-    ``` 
-    JAVA_HOME: /usr/local/Cellar/openjdk@11/11.0.27/libexec/openjdk.jdk/Contents/Home
-    WARNING: Incompatible JRE version '11.0.27' found. This ballerina program supports running on JRE version '1.8.*'
-    WARNING: sun.reflect.Reflection.getCallerClass is not supported. This will impact performance.
-    [ballerina/http] started HTTPS/WSS listener 0.0.0.0:9096
-    [ballerina/http] started HTTP/WS listener 0.0.0.0:9090
-    2025-05-26 15:22:26,175 INFO  [wso2/gateway/src/gateway/utils] - [APIGatewayListener] [-] HTTP listener is active on port 9090
-    [ballerina/http] started HTTPS/WSS listener 0.0.0.0:9095
-    2025-05-26 15:22:26,181 INFO  [wso2/gateway/src/gateway/utils] - [APIGatewayListener] [-] HTTPS listener is active on port 9095
-    ``` 
+``` 
+JAVA_HOME: /usr/local/Cellar/openjdk@11/11.0.27/libexec/openjdk.jdk/Contents/Home
+WARNING: Incompatible JRE version '11.0.27' found. This ballerina program supports running on JRE version '1.8.*'
+WARNING: sun.reflect.Reflection.getCallerClass is not supported. This will impact performance.
+[ballerina/http] started HTTPS/WSS listener 0.0.0.0:9096
+[ballerina/http] started HTTP/WS listener 0.0.0.0:9090
+2025-05-26 15:22:26,175 INFO  [wso2/gateway/src/gateway/utils] - [APIGatewayListener] [-] HTTP listener is active on port 9090
+[ballerina/http] started HTTPS/WSS listener 0.0.0.0:9095
+2025-05-26 15:22:26,181 INFO  [wso2/gateway/src/gateway/utils] - [APIGatewayListener] [-] HTTPS listener is active on port 9095
+``` 
 
 The same ComplianceReportAPI can be deployed in the Publisher portal as below, so that the tokens generated via the Developer portal can be used to invoke the API deployed in the Microgateway as well.
 
@@ -425,11 +425,11 @@ The same ComplianceReportAPI can be deployed in the Publisher portal as below, s
 3. Select **OpenAPI Archive/File** option and drag and drop or click **Browse File to Upload** to upload the [ComplianceReportAPI.json](https://github.com/wso2/samples-apim/blob/master/single-cp-multi-gw-tutorial/api-definitions/ComplianceReportAPI.json) definition file (save the file locally and upload).
 4. Edit the information as given below and click **Create**.
 
-![]({{base_path}}/assets/img/tutorials/gateway/create-reports-api.png)
+    ![]({{base_path}}/assets/img/tutorials/gateway/create-reports-api.png)
 
 5. Note that the Gateway type is selected as **Universal Gateway** here as we need to get a valid token to be used while invoking the API in the Microgateway. Once created, go to **Deploy** -> **Deployments** and deploy the API.
 
-![]({{base_path}}/assets/img/tutorials/gateway/deploy-reports-api.png)
+    ![]({{base_path}}/assets/img/tutorials/gateway/deploy-reports-api.png)
 
 6. Finally go to **Lifecycle** and click **Publish** to publish the API.
 
@@ -449,21 +449,21 @@ Subscribe to the 3 APIs by creating an application as below.
 2. Click on the **Applications** tab and then use the **ADD NEW APPLICATION** option. 
 3. Provide the information as given below and click **Save**.
 
-![]({{base_path}}/assets/img/tutorials/gateway/create-sample-app.png)
+    ![]({{base_path}}/assets/img/tutorials/gateway/create-sample-app.png)
 
 4. Click Subscriptions to subscribe to the created HRSystemAPI, ProductCatalogAPI, and ComplianceReportAPI.
 
-![]({{base_path}}/assets/img/tutorials/gateway/sample-app-subscriptions.png)
+    ![]({{base_path}}/assets/img/tutorials/gateway/sample-app-subscriptions.png)
 
 5. Click Production Keys or Sandbox Keys based on the environment for which you need to generate keys. Let's assume that you are working in a production environment. Therefore, click **Production Keys**.
 6. Click **Generate Keys** to create an application Access Token with relevant scopes.
 7. Copy the generated token and use that for invoking the APIs in the API Console tab in each API. The following image shows an example of API invocation response for the HRSystemAPI’s employees GET resource.
 
-![]({{base_path}}/assets/img/tutorials/gateway/invoke-hr-api.png)
+    ![]({{base_path}}/assets/img/tutorials/gateway/invoke-hr-api.png)
 
 8. Similarly, the ProductCatalogAPI can be invoked.
 
-![]({{base_path}}/assets/img/tutorials/gateway/invoke-products-api.png)
+    ![]({{base_path}}/assets/img/tutorials/gateway/invoke-products-api.png)
 
 9. The generated token can be used to invoke the ComplianceReportAPI deployed in the Microgateway as below.
 
