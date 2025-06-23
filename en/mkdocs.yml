@@ -347,6 +347,7 @@ nav:
             - Other Analytics Solutions: 
                 - ELK Based Analytics Installation Guide: api-analytics/on-prem/elk-installation-guide.md
                 - Datadog Analytics Installation Guide : api-analytics/on-prem/datadog-installation-guide.md
+            - Moesif Analytics: api-analytics/moesif-analytics/moesif-integration-guide.md
             - Publish Analytics Events to External Systems: api-analytics/samples/publishing-analytics-events-to-external-systems.md
             - Publish Custom Analytics Events Data: api-analytics/samples/publishing-custom-analytics-data.md
     - Observe:
