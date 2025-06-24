@@ -1116,6 +1116,37 @@
                             "default": "",
                             "possible": "",
                             "description": "The endpoint that exposes the AI capabilities for API Manager"
+                        },
+                        {
+                            "name": "default_request_timeout",
+                            "type": "integer",
+                            "required": false,
+                            "default": "30",
+                            "possible": "",
+                            "description": "The default timeout (in seconds) for AI API requests"
+                        }
+                    ]
+                },
+                {
+                    "name": "apim.ai.failover_configurations",
+                    "required": false,
+                    "description": "Configurations for AI feature failover handling",
+                    "params": [
+                        {
+                            "name": "failover_endpoints_limit",
+                            "type": "integer",
+                            "required": false,
+                            "default": "10",
+                            "possible": "",
+                            "description": "Maximum number of failover endpoints"
+                        },
+                        {
+                            "name": "default_request_timeout",
+                            "type": "integer",
+                            "required": false,
+                            "default": "30",
+                            "possible": "",
+                            "description": "The default timeout (in seconds) for failover requests"
                         }
                     ]
                 }
