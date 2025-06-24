@@ -5,7 +5,7 @@ WSO2 APIM facilitates integration with log management and analytics solutions fo
 OpenSearch based WSO2 API Manager log monitoring setup is similar to the OpenSearch On-Premise Analytics deployment setup. The steps required to install OpenSearch and Fluent Bit can be found [here](../../api-analytics/on-prem/opensearch-installation-guide.md).
 
 ### Configuring Fluent Bit
-1. After installing Fluent Bit and OpenSearch, create a Fluent Bit configuration file (fluent-bit.conf) with the following attributes to direct WSO2 API Manager logs to the OpenSearch cluster.
+After installing Fluent Bit and OpenSearch, create a Fluent Bit configuration file (fluent-bit.conf) with the following attributes to direct WSO2 API Manager logs to the OpenSearch cluster.
 
 !!! note
    In the below configuration, update `<APIM_HOME>`, `<TAIL_FILE_PATH>`, `<PATH_TO_PARSER_CONFIG>`, and, `<PASSWORD>` to match your setup.
@@ -159,7 +159,7 @@ OpenSearch based WSO2 API Manager log monitoring setup is similar to the OpenSea
     Trace_Error         On
 ```
 
-2. Create a parser configuration file (parsers.conf) with the following configurations.
+Create a parser configuration file (parsers.conf) with the following configurations.
 
 ```yaml
 [PARSER]

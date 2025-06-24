@@ -289,7 +289,7 @@ Open the `wso2am-4.x.x/repository/conf` directory. To enable logging for a repor
     Trace_Error         On
 ```
 
-3. Create a parser configuration file (parsers.conf) with the following configurations.
+Create a parser configuration file (parsers.conf) with the following configurations.
 
 ```yaml
 [PARSER]
