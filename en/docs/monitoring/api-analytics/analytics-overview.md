@@ -31,3 +31,4 @@ WSO2 API Manager supports multiple platforms to monitor and analyze API traffic.
 - [**Choreo Based Analytics**](choreo-analytics/api-analytics-architecture.md) - A SaaS-based API analytics platform that provides real-time insights into API traffic, performance, and user engagement.
 - [**ELK Based Analytics**](on-prem/elk-installation-guide.md) - Native support for Elasticsearch, Logstash, and Kibana (ELK) stack to monitor and analyze API traffic.
 - [**DataDog Based Analytics**](on-prem/datadog-installation-guide.md) - Integration with DataDog to monitor and analyze API traffic.
+- [**OpenSearch Based Analytics**](on-prem/opensearch-installation-guide.md) - Integration with OpenSearch to monitor and analyze API traffic.
