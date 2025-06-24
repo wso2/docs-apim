@@ -371,16 +371,21 @@ nav:
             - Other Analytics Solutions: 
                 - ELK Based Analytics Installation Guide: monitoring/api-analytics/on-prem/elk-installation-guide.md
                 - Datadog Analytics Installation Guide : monitoring/api-analytics/on-prem/datadog-installation-guide.md
+                - OpenSearch Analytics Installation Guide : monitoring/api-analytics/on-prem/opensearch-installation-guide.md
             - Publish Analytics Events to External Systems: monitoring/api-analytics/samples/publishing-analytics-events-to-external-systems.md
             - Publish Custom Analytics Events Data: monitoring/api-analytics/samples/publishing-custom-analytics-data.md
         - Observability:
             - Overview: monitoring/observability/observability-overview.md
             - Logs:
-                - Correlation Logs: monitoring/observability/logs/monitoring-correlation-logs.md
-                - HTTP Access Logs: monitoring/observability/logs/monitoring-http-access-logs.md
-                - Audit Logs: monitoring/observability/logs/monitoring-audit-logs.md
-                - API Logs: monitoring/observability/logs/monitoring-api-logs.md
-                - Websocket Logs: monitoring/observability/logs/monitoring-websocket-logs.md
+                - Configuring Logging: monitoring/observability/logs/configuring-logging.md
+                - Log Varities:
+                    - Correlation Logs: monitoring/observability/logs/monitoring-correlation-logs.md
+                    - HTTP Access Logs: monitoring/observability/logs/monitoring-http-access-logs.md
+                    - Audit Logs: monitoring/observability/logs/monitoring-audit-logs.md
+                    - API Logs: monitoring/observability/logs/monitoring-api-logs.md
+                    - Websocket Logs: monitoring/observability/logs/monitoring-websocket-logs.md
+                - External Observability Solutions:
+                    - OpenSearch: monitoring/observability/logs/monitoring-with-opensearch.md
             - Traces:
                 - OpenTracing: monitoring/observability/traces/monitoring-with-opentracing.md
                 - OpenTelemetry: monitoring/observability/traces/monitoring-with-opentelemetry.md
@@ -512,7 +517,7 @@ nav:
             - Manage Tenants: administer/multitenancy/managing-tenants.md
             - Configure the Tenant Loading Policy: administer/multitenancy/configuring-the-tenant-loading-policy.md
         - Monitoring API Manager:
-            - Configure Logs: administer/logging-and-monitoring/logging/configuring-logging.md
+            # - Configure Logs: administer/logging-and-monitoring/logging/configuring-logging.md
             # Remove After added TCP dump - TCP-Based Messages: administer/logging-and-monitoring/monitoring/monitoring-tcp-based-messages.md
             - Server Health: administer/logging-and-monitoring/monitoring/monitoring-server-health.md
         - Multiple Gateways:
@@ -992,6 +997,7 @@ plugins:
               'learn/api-controller/advanced-topics/configuring-git-integration.md': 'https://apim.docs.wso2.com/en/4.4.0/install-and-setup/setup/api-controller/advanced-topics/configuring-git-integration/'
               'learn/kubernetes-operators/k8s-api-operator/k8s-api-operator.md': 'https://apim.docs.wso2.com/en/4.4.0/reference/k8s-operators/k8s-api-operator/'
               'learn/kubernetes-operators/k8s-api-operator/enabling-privatejet-mode-to-deploy-apis.md': 'https://apim.docs.wso2.com/en/4.4.0/reference/k8s-operators/k8s-api-operator/'
+              'administer/logging-and-monitoring/logging/configuring-logging.md': 'https://apim.docs.wso2.com/en/4.5.0/monitoring/observability/logs/configuring-logging/'
               'administer/product-administration/updating-wso2-api-manager.md': 'https://apim.docs.wso2.com/en/4.4.0/administer/updating-wso2-api-manager/'
               'administer/product-administration/managing-users-and-roles/introduction-to-user-management.md': 'https://apim.docs.wso2.com/en/4.4.0/administer/managing-users-and-roles/introduction-to-user-management/'
               'administer/product-administration/managing-users-and-roles/managing-users.md': 'https://apim.docs.wso2.com/en/4.4.0/administer/managing-users-and-roles/managing-users/'
