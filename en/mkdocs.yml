@@ -361,7 +361,7 @@ nav:
                 - Audit Logs: observe/api-manager/monitoring-audit-logs.md
                 - API Logs: observe/api-manager/monitoring-api-logs.md
                 - Websocket Logs : observe/api-manager/monitoring-websocket-logs.md
-                - Third Party Observability Solutions:
+                - External Observability Solutions:
                     - OpenSearch: observe/api-manager/monitoring-with-opensearch.md
             - Traces:
                 - OpenTracing: observe/api-manager/traces/monitoring-with-opentracing.md
