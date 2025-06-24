@@ -13,11 +13,12 @@ Given below is the tested compatibility of the API-M runtime of WSO2 API Manager
 
 As WSO2 API Manager is a Java application, you can generally run it on most operating systems. Listed below are the operating systems that have been tested with the API-M 4.5.0 runtime.
 
-|**Operating System**|**Versions**  |
-|--------------------|--------------|
-|Windows             | 2021         |
-|Ubuntu              | 22.04 |
-|Rocky Linux              | 9.3    |
+| **Operating System** |**Versions** |
+|----------------------|------------|
+| Windows              | 2021       |
+| Ubuntu               | 22.04 |
+| Rocky Linux          | 9.3  |
+| RHEL                 | 9    |
 
 #### Tested JDKs
 
