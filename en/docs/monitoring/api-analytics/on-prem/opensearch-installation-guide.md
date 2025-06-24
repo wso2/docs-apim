@@ -293,9 +293,9 @@ Create a parser configuration file (parsers.conf) with the following configurati
 
 ```yaml
 [PARSER]
-    Name            apim_metrics_parser
-    Format          regex
-    Regex           ^\s*(?:.*?)\s+apimMetrics:\s*(?<apimMetrics>[^,]+?),\s*(?:.*?)\s*:\s*(?<properties>\{.*\})\s*(?:.*)$
+    Name        apim_metrics_parser
+    Format      regex
+    Regex       ^\s*(?:.*?)\s+apimMetrics:\s*(?<apimMetrics>[^,]+?),\s*(?:.*?)\s*:\s*(?<properties>\{.*\})\s*(?:.*)$
 
 [PARSER]
     Name        jsonparser
