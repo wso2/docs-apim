@@ -97,6 +97,9 @@ This guide explains how to integrate WSO2 API Manager with **Claude**, allowing 
 
 5. Download the API definition for Anthropic Claude from [Anthropic Claude API Definition]({{base_path}}/assets/attachments/admin/custom-ai-vendors/add-anthropic-claude/claude-api.yaml) and upload it as the API Definition.
 
+    !!! note
+         The Anthropic Claude API definition provided above is an unofficial OpenAPI 3.0.0 schema created and shared by the community. Please be aware that this schema may not cover all features of the official API.
+
 6. Configure the authentication configurations by setting the type to `authHeader` and the identifier to `x-api-key`.
 
     <div style="text-align: center;">
