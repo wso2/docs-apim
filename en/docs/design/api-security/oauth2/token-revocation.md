@@ -61,3 +61,69 @@ The parameters required to invoke the following API are as follows:
             Transfer-Encoding: chunked
             
         ```
+
+## Revoking tokens with third party Key Managers
+
+There may be situations where immediate token revocation is needed in each Gateway node's token cache when a user logs out, credentials change, etc. Immediate token revocation is supported in WSO2 API-M when using the in-built resident Key Manager or WSO2 Identity Server as Key Manager.
+
+If you are using any other third party Key Manager with WSO2 API-M, follow the instructions below to configure immediate token revocation:
+
+!!! info
+    For more information on configuring third party key managers, see [Multiple Key Manager Support in WSO2 API Manager]({{base_path}}/administer/key-managers/overview/#multiple-key-manager-support-in-wso2-api-manager).
+
+1. Implement a listener or a handler at the third party Key Manager side to capture each token revocation event.
+
+2. Within the above implementation, extract and send the following data for each revoked token as a notification event to the Traffic Manager node's Internal Notification Utility REST API, `POST /internal/data/v1/notify`.
+
+    === "Format"
+        ```
+        POST /internal/data/v1/notify
+        Host: traffic-manager:9443
+        Authorization: Basic (base64<admin-username:admin-password>)
+        Content-Type: application/json
+        {
+        "accessToken": <JTI>,
+        "expiryTime": <expiry time>,
+        "user": <username>,
+        "tokenType": "JWT",
+        "type": "token_revocation",
+        "tenantId": <tenant id>,
+        "tenantDomain": <tenant domain>,
+        "consumerKey": <consumer key>,
+        "eventId": <random UUID>
+        }
+        ```
+    === "Examples"
+        ```
+        POST /internal/data/v1/notify
+        Host: traffic-manager:9443
+        Authorization: Basic YWRtaW46YWRtaW4=
+        Content-Type: application/json
+        {
+        "accessToken": "f18b8c0e-76a3-4ff1-9d59-d85335fb4fc5",
+        "expiryTime": "1618507988",
+        "user": "admin",
+        "tokenType": "JWT",
+        "type": "token_revocation",
+        "tenantId": "-1234",
+        "tenantDomain": "carbon.super",
+        "consumerKey": "645ada4b-dbe2-43df-b317-adec364bfcb7",
+        "eventId": "ev24353-124-125d-43da"
+        }
+        ```
+
+     The following table provides definitions for each of the payload fields.
+
+     | Property name | Description	|               |
+     |---------------|---------------|---------------|
+     | type | The event type. This value should be token_revocation. | Mandatory |
+     | accessToken | The access token to revoke. For JWT type tokens, this should be the jti claim value. | Mandatory |
+     | expiryTime | The token expiry timestamp as a long type value. | Mandatory |
+     | tokenType | The type of the Token. For JWT tokens, this should be JWT. | Mandatory |
+     | eventId | The unique ID of the token revocation event. | Mandatory |
+     | tenantId | The tenant ID of the tenant domain, which corresponds to the token that should be revoked from Gateway token cache. | Mandatory |
+     | tenantDomain | Tenant domain of the tenant, which corresponds to the token that should be revoked from Gateway token cache. | Optional |
+     | user | The username of the token owner. | Optional |
+     | consumerKey | The consumer key of the client application, which corresponds to the token that should be revoked from Gateway token cache. | Optional |
+
+    After the Traffic Manager receives the request, the data is sent to the Token Revocation JMS Event Publisher through a set of pre-defined Event Streams deployed in the Traffic Manager server. Thereafter, a Token Revocation message is pushed from the Event Publisher to all subscribed Gateway nodes to mark the specific JTI (JWT) as revoked in the Gateway token caches.
