@@ -4437,7 +4437,7 @@ group_id = "org.wso2"
 artifact_id = "org.wso2.client"
 model_package = "org.wso2.client.model"
 api_package = "org.wso2.client.api"
-supported_languages = ["android", "java", "scala", "csharp", "dart", "flash", "groovy", "javascript"]
+supported_languages = ["android", "java", "csharp", "dart", "groovy", "javascript"]
                     </code></pre>
                     </div>
                 </div>
@@ -4538,7 +4538,7 @@ supported_languages = ["android", "java", "scala", "csharp", "dart", "flash", "g
                                             
                                         </p>
                                         <div class="param-default">
-                                            <span class="param-default-value">Default: <code>android,java,scala,csharp,dart,flash,groovy,javascript,jmeter,nodejs,perl,php,python,ruby,swift,clojure,asyncScala,csharpDotNet2</code></span>
+                                            <span class="param-default-value">Default: <code>android,java,csharp,dart,groovy,javascript,jmeter,nodejs,perl,php,python,ruby,swift,clojure,csharpDotNet2</code></span>
                                         </div>
                                         
                                     </div>
@@ -14445,6 +14445,62 @@ class="org.wso2.carbon.apimgt.gateway.handlers.custom.customer_handler"
                                     </div>
                                     <div class="param-description">
                                         <p>Fully qualified class name of the global handler.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+
+
+
+## Authentication policy
+
+
+<div class="mb-config-catalog">
+    <section>
+        <div class="mb-config-options">
+            <div class="superfences-tabs">
+            
+            <input name="99" type="checkbox" id="_tab_99">
+                <label class="tab-selector" for="_tab_99"><i class="icon fa fa-code"></i></label>
+                <div class="superfences-content">
+                    <div class="mb-config-example">
+<pre><code class="toml">[authentication_policy]
+enable_legacy_authentication = true</code></pre>
+                    </div>
+                </div>
+                <div class="doc-wrapper">
+                    <div class="mb-config">
+                        <div class="config-wrap">
+                            <code>[authentication_policy]</code>
+                            
+                            <p>
+                                Defines the authentication policy settings for WSO2 API Manager, including options for enabling legacy authentication methods. Note that this configuration is supported from update level 344 onwards.
+                            </p>
+                        </div>
+                        <div class="params-wrap">
+                            <div class="param">
+                                <div class="param-name">
+                                  <span class="param-name-wrap"> <code>enable_legacy_authentication</code> </span>
+                                </div>
+                                <div class="param-info">
+                                    <div>
+                                        <p>
+                                            <span class="param-type string"> boolean </span>
+                                            
+                                        </p>
+                                        <div class="param-default">
+                                            <span class="param-default-value">Default: <code>FALSE</code></span>
+                                        </div>
+                                        
+                                    </div>
+                                    <div class="param-description">
+                                        <p>When enabled, allows the system to authenticate users using the legacy method in the Basic Authenticator. Note that this configuration is supported from update level 344 onwards. If you are using an earlier version, this configuration will not be available.</p>
                                     </div>
                                 </div>
                             </div>
