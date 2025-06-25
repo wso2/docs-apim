@@ -1269,6 +1269,7 @@ local_claim = "http://wso2.org/claims/givenname"</code></pre>
                     <div class="mb-config-example">
 <pre><code class="toml">[apim]
 gateway_type = "Regular,APK,AWS"
+
 </code></pre>
                     </div>
                 </div>
@@ -3028,7 +3029,9 @@ enable_outbound_auth_header = false
 auth_header = "Authorization"
 revoke_endpoint = "https://localhost:${mgt.transport.https.port}/oauth2/revoke"
 enable_token_encryption = false
-enable_token_hashing = false</code></pre>
+enable_token_hashing = false
+enable_revoke_token_cleanup = true
+</code></pre>
                     </div>
                 </div>
                 <div class="doc-wrapper">
@@ -3159,6 +3162,25 @@ enable_token_hashing = false</code></pre>
                                     </div>
                                     <div class="param-description">
                                         <p>List of allowlisted scopes. Take desc from Key Concepts page.</p>
+                                    </div>
+                                </div>
+                            </div><div class="param">
+                                <div class="param-name">
+                                  <span class="param-name-wrap"> <code>enable_revoke_token_cleanup</code> </span>
+                                </div>
+                                <div class="param-info">
+                                    <div>
+                                        <p>
+                                            <span class="param-type string"> string </span>
+                                            
+                                        </p>
+                                        <div class="param-default">
+                                            <span class="param-default-value">Default: <code>TRUE</code></span>
+                                        </div>
+                                        
+                                    </div>
+                                    <div class="param-description">
+                                        <p>Configuration used to disable the revoke token cleanup functionality. If set to false, revoked tokens will not be cleaned up. Note that this configuration is supported from update level 8 onwards.</p>
                                     </div>
                                 </div>
                             </div>
