@@ -139,6 +139,7 @@ Before you begin, ensure you have the following prerequisites in place:
   mysql -h <DB_HOST> -P 3306 -u sharedadmin -p -Dshared_db < './dbscripts/mysql.sql';
   mysql -h <DB_HOST> -P 3306 -u apimadmin -p -Dapim_db < './dbscripts/apimgt/mysql.sql';
   ```
+> **Note:** If you are using **MySQL 8 or later**, and encounter `ERROR 1071 (42000)` related to index key length, consider using `latin1_swedish_ci` instead of `latin1` as the database character set.
 
 ## Minimal Configuration
 
