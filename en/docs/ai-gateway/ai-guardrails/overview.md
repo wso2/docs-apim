@@ -8,11 +8,11 @@ LLMs (Large Language Models) are fundamentally **non-deterministic**. A request 
 
 | Problem | Description |
 |--------|-------------|
-| 🧠 **Unpredictable Outputs** | LLMs may generate factually incorrect, incoherent, or harmful content—even when inputs seem safe. |
-| ⚖️ **Bias and Fairness** | AI systems can amplify biases from training data, leading to discriminatory or offensive results. |
-| 🕵️ **Security Vulnerabilities** | Attacks like **prompt injection** can subvert your prompts and redirect model behavior maliciously. |
-| 🔐 **Privacy Leaks** | Generated outputs can expose sensitive or personally identifiable information (PII) unintentionally. |
-| 📜 **Regulatory Risk** | Lack of content moderation or auditability can breach compliance frameworks such as GDPR, HIPAA, or internal ethical standards. |
+| **Unpredictable Outputs** | LLMs may generate factually incorrect, incoherent, or harmful content—even when inputs seem safe. |
+| **Bias and Fairness** | AI systems can amplify biases from training data, leading to discriminatory or offensive results. |
+| **Security Vulnerabilities** | Attacks like **prompt injection** can subvert your prompts and redirect model behavior maliciously. |
+| **Privacy Leaks** | Generated outputs can expose sensitive or personally identifiable information (PII) unintentionally. |
+| **Regulatory Risk** | Lack of content moderation or auditability can breach compliance frameworks such as GDPR, HIPAA, or internal ethical standards. |
 
 As adoption of LLMs and AI services accelerates across sectors, it’s critical for organizations to move beyond experimentation and toward **safe, reliable production usage**. This requires governing AI systems a through a **structured behavioral control framework** that ensure:
 
@@ -23,7 +23,7 @@ As adoption of LLMs and AI services accelerates across sectors, it’s critical 
 
 These practices help establish **trustworthy AI integrations**, minimize unexpected failures, and enable organizations to confidently scale their AI workloads in production.
 
-## 🛡 Safeguard AI API Integrations with **WSO2 AI Guardrails**
+## Safeguard AI API Integrations with **WSO2 AI Guardrails**
 
 AI Guardrails in WSO2 AI Gateway are **real-time validation and enforcement layers** that sit between your application and the underlying AI provider.
 
