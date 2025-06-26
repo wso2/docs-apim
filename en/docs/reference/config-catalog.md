@@ -2970,7 +2970,9 @@ enable_outbound_auth_header = false
 auth_header = "Authorization"
 revoke_endpoint = "https://localhost:${mgt.transport.https.port}/oauth2/revoke"
 enable_token_encryption = false
-enable_token_hashing = false</code></pre>
+enable_token_hashing = false
+enable_revoke_token_cleanup = true
+</code></pre>
                     </div>
                 </div>
                 <div class="doc-wrapper">
@@ -3101,6 +3103,25 @@ enable_token_hashing = false</code></pre>
                                     </div>
                                     <div class="param-description">
                                         <p>List of allowlisted scopes. Take desc from Key Concepts page.</p>
+                                    </div>
+                                </div>
+                            </div><div class="param">
+                                <div class="param-name">
+                                  <span class="param-name-wrap"> <code>enable_revoke_token_cleanup</code> </span>
+                                </div>
+                                <div class="param-info">
+                                    <div>
+                                        <p>
+                                            <span class="param-type string"> string </span>
+                                            
+                                        </p>
+                                        <div class="param-default">
+                                            <span class="param-default-value">Default: <code>TRUE</code></span>
+                                        </div>
+                                        
+                                    </div>
+                                    <div class="param-description">
+                                        <p>Configuration used to disable the revoke token cleanup functionality. If set to false, revoked tokens will not be cleaned up. Note that this configuration is supported from update level 23 onwards.</p>
                                     </div>
                                 </div>
                             </div>
@@ -10800,6 +10821,7 @@ bypass_hosts = ["localhost"]
 sender.enable = false
 sender.parameters.ws.outflow.dispatch.sequence = "outflowDispatchSeq"
 sender.parameters.ws.outflow.dispatch.fault.sequence = "outflowFaultSeq"
+sender.parameters.wsSharedEventLoopPoolSize = 5
 sender.parameter.customParameter = ""</code></pre>
                     </div>
                 </div>
@@ -10878,6 +10900,27 @@ sender.parameter.customParameter = ""</code></pre>
                                 </div>
                             </div><div class="param">
                                 <div class="param-name">
+                                  <span class="param-name-wrap"> <code>sender.parameters.wsSharedEventLoopPoolSize</code> </span>
+                                </div>
+                                <div class="param-info">
+                                    <div>
+                                        <p>
+                                            <span class="param-type string"> integer </span>
+                                            
+                                        </p>
+                                        <div class="param-default">
+                                            <span class="param-default-value">Default: <code>-</code></span>
+                                        </div>
+                                        <div class="param-possible">
+                                            <span class="param-possible-values">Possible Values: <code>5</code></span>
+                                        </div>
+                                    </div>
+                                    <div class="param-description">
+                                        <p>The thread pool size of the shared EventLoopGroup used by WebsocketConnectionFactory for managing WebSocket client connections. Note that this configuration only available from U2 level 22 onwards.</p>
+                                    </div>
+                                </div>
+                            </div><div class="param">
+                                <div class="param-name">
                                   <span class="param-name-wrap"> <code>sender.parameter.customParameter</code> </span>
                                 </div>
                                 <div class="param-info">
@@ -10924,6 +10967,7 @@ sender.parameter.customParameter = ""</code></pre>
 sender.enable = false
 sender.parameters.ws.outflow.dispatch.sequence = "outflowDispatchSeq"
 sender.parameters.ws.outflow.dispatch.fault.sequence = "outflowFaultSeq"
+sender.parameters.wsSharedEventLoopPoolSize = 5
 sender.parameter.customParameter = ""
 sender.trust_store.location = "$ref{truststore.file_name}"
 sender.trust_store.password = "$ref{truststore.password}"</code></pre>
@@ -11000,6 +11044,27 @@ sender.trust_store.password = "$ref{truststore.password}"</code></pre>
                                     </div>
                                     <div class="param-description">
                                         <p>The fault sequence for the back-end to client mediation path.</p>
+                                    </div>
+                                </div>
+                            </div><div class="param">
+                                <div class="param-name">
+                                  <span class="param-name-wrap"> <code>sender.parameters.wsSharedEventLoopPoolSize</code> </span>
+                                </div>
+                                <div class="param-info">
+                                    <div>
+                                        <p>
+                                            <span class="param-type string"> integer </span>
+                                            
+                                        </p>
+                                        <div class="param-default">
+                                            <span class="param-default-value">Default: <code>-</code></span>
+                                        </div>
+                                        <div class="param-possible">
+                                            <span class="param-possible-values">Possible Values: <code>5</code></span>
+                                        </div>
+                                    </div>
+                                    <div class="param-description">
+                                        <p>The thread pool size of the shared EventLoopGroup used by WebsocketConnectionFactory for managing WebSocket client connections. Note that this configuration only available from U2 level 22 onwards.</p>
                                     </div>
                                 </div>
                             </div><div class="param">
@@ -15659,6 +15724,63 @@ class="org.wso2.carbon.apimgt.gateway.handlers.custom.customer_handler"
                                     </div>
                                     <div class="param-description">
                                         <p>Fully qualified class name of the global handler.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+
+
+
+## Service Provider Configurations
+
+
+<div class="mb-config-catalog">
+    <section>
+        <div class="mb-config-options">
+            <div class="superfences-tabs">
+            
+            <input name="102" type="checkbox" id="_tab_102">
+                <label class="tab-selector" for="_tab_102"><i class="icon fa fa-code"></i></label>
+                <div class="superfences-content">
+                    <div class="mb-config-example">
+<pre><code class="toml">[service_provider]
+use_username_as_sub_claim = true
+</code></pre>
+                    </div>
+                </div>
+                <div class="doc-wrapper">
+                    <div class="mb-config">
+                        <div class="config-wrap">
+                            <code>[service_provider]</code>
+                            
+                            <p>
+                                This includes configurations for Service Provider related properties.
+                            </p>
+                        </div>
+                        <div class="params-wrap">
+                            <div class="param">
+                                <div class="param-name">
+                                  <span class="param-name-wrap"> <code>use_username_as_sub_claim</code> </span>
+                                </div>
+                                <div class="param-info">
+                                    <div>
+                                        <p>
+                                            <span class="param-type string"> boolean </span>
+                                            
+                                        </p>
+                                        <div class="param-default">
+                                            <span class="param-default-value">Default: <code>false</code></span>
+                                        </div>
+                                        
+                                    </div>
+                                    <div class="param-description">
+                                        <p>Use username as the subject claim of application tokens instead of userId.</p>
                                     </div>
                                 </div>
                             </div>

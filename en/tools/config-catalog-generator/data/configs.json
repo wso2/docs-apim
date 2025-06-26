@@ -1156,6 +1156,14 @@
                             "default": "[\"^device_.*,openid\"]",
                             "possible": "",
                             "description": "List of allowlisted scopes. Take desc from Key Concepts page."
+                        },
+                        {
+                            "name": "enable_revoke_token_cleanup",
+                            "type": "string",
+                            "required": false,
+                            "default": "TRUE",
+                            "possible": "",
+                            "description": "Configuration used to disable the revoke token cleanup functionality. If set to false, revoked tokens will not be cleaned up. Note that this configuration is supported from update level 23 onwards."
                         }
                     ]
                 }
@@ -4078,6 +4086,14 @@
                             "description": "The fault sequence for the back-end to client mediation path."
                         },
                         {
+                            "name": "sender.parameters.wsSharedEventLoopPoolSize",
+                            "type": "integer",
+                            "required": false,
+                            "default": "-",
+                            "possible": "5",
+                            "description": "The thread pool size of the shared EventLoopGroup used by WebsocketConnectionFactory for managing WebSocket client connections. Note that this configuration only available from U2 level 22 onwards."
+                        },
+                        {
                             "name": "sender.parameter.customParameter",
                             "type": "string",
                             "required": false,
@@ -4121,6 +4137,14 @@
                             "default": "outflowFaultSeq",
                             "possible": "-",
                             "description": "The fault sequence for the back-end to client mediation path."
+                        },
+                        {
+                            "name": "sender.parameters.wsSharedEventLoopPoolSize",
+                            "type": "integer",
+                            "required": false,
+                            "default": "-",
+                            "possible": "5",
+                            "description": "The thread pool size of the shared EventLoopGroup used by WebsocketConnectionFactory for managing WebSocket client connections. Note that this configuration only available from U2 level 22 onwards."
                         },
                         {
                             "name": "sender.trust_store.location",
@@ -5824,6 +5848,27 @@
                 }
             ],
             "exampleFile": "synapse_handlers.toml"
+        },
+        {
+            "title": "Service Provider Configurations",
+            "options": [
+                {
+                    "name": "service_provider",
+                    "required": false,
+                    "description": "This includes configurations for Service Provider related properties.",
+                    "params": [
+                        {
+                            "name": "use_username_as_sub_claim",
+                            "type": "boolean",
+                            "required": false,
+                            "default": "false",
+                            "possible": "",
+                            "description": "Use username as the subject claim of application tokens instead of userId."
+                        }
+                    ]
+                }
+            ],
+            "exampleFile": "service_provider.toml"
         }
     ]
 }
