@@ -6,7 +6,7 @@ The tutorials of WSO2 API Manager guide you to get hands-on experience with prod
 
 The scenario tutorials provide a real world example that can be solved using API Manager. These tutorials are short and can be tried out quickly and easily and cover the main capabilities of the product.
 
-[Scenario Overview]({{base_path}}/tutorials/scenarios/scenario-overview.md)
+[Scenario Overview]({{base_path}}/tutorials/scenarios/scenario-overview)
 
 ## API Management Tutorials
 
