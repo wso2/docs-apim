@@ -5,7 +5,7 @@ This deployment consists of a highly available API-M cluster with multiple nodes
 <a href="{{base_path}}/assets/img/setup-and-install/active-active-apim-deployment.png"><img src="{{base_path}}/assets/img/setup-and-install/active-active-apim-deployment.png" alt="active-active api-m deployment" width="60%"></a>
 
 !!! info
-    For advanced details on this deployment pattern, please refer to the official [documentation](kubernetes-deployment-overview.md).
+    For advanced details on this deployment pattern, please refer to the official [documentation]({{base_path}}/install-and-setup/setup/deployment-overview/).
 
 ## Contents
 
@@ -65,7 +65,6 @@ Before you begin, ensure you have the following prerequisites in place:
 
 - WSO2 API Manager 4.5.0 provides three Docker images:
   - All-in-one - [wso2am](https://hub.docker.com/r/wso2/wso2am)
-  - Universal Gateway (GW) - [wso2am-universal-gw](https://hub.docker.com/r/wso2/wso2am-universal-gw)
 
 - Since the products need to connect to databases at runtime, you must include the relevant JDBC drivers in the distribution. This can be done during the Docker image build stage. For example, you can add the MySQL driver as follows:
   ```dockerfile
