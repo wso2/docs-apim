@@ -54,25 +54,25 @@ Before you begin, ensure you have the following prerequisites in place:
 - Since WSO2 IS 7.x needs to be configured as a Key Manager for WSO2 API Manager, you need to create a custom Docker image with the necessary configurations and extensions.
 - Below is a sample Dockerfile to build a custom WSO2 IS image for use as a Key Manager:
 
-  ```dockerfile
-  FROM docker.wso2.com/wso2is:7.0.0.0
+    ```dockerfile
+    FROM docker.wso2.com/wso2is:7.1.0.0
 
-  ARG USER=wso2carbon
-  ARG USER_HOME=/home/${USER}
-  ARG WSO2_SERVER_NAME=wso2is
-  ARG WSO2_SERVER_VERSION=7.0.0
-  ARG WSO2_SERVER=${WSO2_SERVER_NAME}-${WSO2_SERVER_VERSION}
-  ARG WSO2_SERVER_HOME=${USER_HOME}/${WSO2_SERVER}
+    ARG USER=wso2carbon
+    ARG USER_HOME=/home/${USER}
+    ARG WSO2_SERVER_NAME=wso2is
+    ARG WSO2_SERVER_VERSION=7.1.0
+    ARG WSO2_SERVER=${WSO2_SERVER_NAME}-${WSO2_SERVER_VERSION}
+    ARG WSO2_SERVER_HOME=${USER_HOME}/${WSO2_SERVER}
 
-  # Add notification event handler JAR for API Manager integration
-  ADD --chown=wso2carbon:wso2 https://maven.wso2.org/nexus/content/repositories/releases/org/wso2/km/ext/wso2is/wso2is.notification.event.handlers/2.0.5/wso2is.notification.event.handlers-2.0.5.jar ${WSO2_SERVER_HOME}/repository/components/dropins
-  ```
+    # Add notification event handler JAR for API Manager integration
+    ADD --chown=wso2carbon:wso2 https://maven.wso2.org/nexus/content/repositories/releases/org/wso2/km/ext/wso2is/wso2is.notification.event.handlers/2.0.5/wso2is.notification.event.handlers-2.0.5.jar ${WSO2_SERVER_HOME}/repository/components/dropins
+    ```
  
 
 - After building your custom Docker image, push it to your container registry so it can be accessed by your Kubernetes cluster:
   ```bash
-  docker build -t CONTAINER_REGISTRY/wso2is-km:7.0.0.0 .
-  docker push CONTAINER_REGISTRY/wso2is-km:7.0.0.0
+  docker build -t CONTAINER_REGISTRY/wso2is:7.1.0.0 .
+  docker push CONTAINER_REGISTRY/wso2is:7.1.0.0
   ```
 
 ### Configure WSO2 Identity Server as Key Manager
@@ -87,31 +87,31 @@ To configure WSO2 Identity Server 7.x to work as a Key Manager with WSO2 API Man
 
 1. Configure WSO2 Identity Server using the Helm chart's values.yaml file:
 
-```yaml
-    deploymentToml:
-      extraConfigs: |
-        [oauth]
-        authorize_all_scopes = true
+    ```yaml
+        deploymentToml:
+          extraConfigs: |
+            [oauth]
+            authorize_all_scopes = true
 
-        [[resource.access_control]]
-        context="(.*)/scim2/Me"
-        secure=true
-        http_method="GET"
-        cross_tenant=true
-        permissions=[]
-        scopes=[]
+            [[resource.access_control]]
+            context="(.*)/scim2/Me"
+            secure=true
+            http_method="GET"
+            cross_tenant=true
+            permissions=[]
+            scopes=[]
 
-        [[event_listener]]
-        id = "token_revocation"
-        type = "org.wso2.carbon.identity.core.handler.AbstractIdentityHandler"
-        name = "org.wso2.is.notification.ApimOauthEventInterceptor"
-        order = 1
-        [event_listener.properties]
-        notification_endpoint = "https://<APIM_HOST>:<APIM_PORT>/internal/data/v1/notify"
-        username = "${admin.username}"
-        password = "${admin.password}"
-        'header.X-WSO2-KEY-MANAGER' = "WSO2-IS"
-```
+            [[event_listener]]
+            id = "token_revocation"
+            type = "org.wso2.carbon.identity.core.handler.AbstractIdentityHandler"
+            name = "org.wso2.is.notification.ApimOauthEventInterceptor"
+            order = 1
+            [event_listener.properties]
+            notification_endpoint = "https://<APIM_HOST>:<APIM_PORT>/internal/data/v1/notify"
+            username = "${admin.username}"
+            password = "${admin.password}"
+            'header.X-WSO2-KEY-MANAGER' = "WSO2-IS"
+    ```
 
 
 ## Minimal Configuration

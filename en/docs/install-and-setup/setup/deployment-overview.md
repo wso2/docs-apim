@@ -155,3 +155,11 @@ For comprehensive instructions, refer to the [K8s Deployment Guide](../setup/kub
     - [Deploy on Kubernetes](../setup/kubernetes-deployment/kubernetes/am-pattern-5-all-in-one-gw-km.md)
 
 <a href="{{base_path}}/assets/img/setup-and-install/deployment-cp-gw-km.png"><img src="{{base_path}}/assets/img/setup-and-install/deployment-cp-gw-km.png" alt="Simple Scalable Deployment with Key Manager Seperation" width="60%"></a>
+
+### Pattern 6: API-M Deployment with IS as Key Manager
+- **Description**: Deployment with WSO2 Identity Server (IS) as the Key Manager
+- **Use Case**: Using WSO2 Identity Server as third-party Key Manager for API Manager
+- **Components**: All-in-one, WSO2 Identity Server
+- **Guides**: 
+    - [Deploy on VM](../../administer/key-managers/configure-wso2is7-connector.md)
+    - [Deploy on Kubernetes](../setup/kubernetes-deployment/kubernetes/am-pattern-6-all-in-one-is-as-km.md)
