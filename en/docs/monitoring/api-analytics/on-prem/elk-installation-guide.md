@@ -301,8 +301,8 @@ Operation and API Policies of the APIs/API Products are loaded to the Analytics 
     ```
 
 5. Download the artifact file from below.<br />
-   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Artifacts v1 - [here]({{base_path}}/assets/img/analytics/cloud/old_export.ndjson)<br />
-   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Artifacts v2 - [here]({{base_path}}/assets/img/analytics/cloud/export.ndjson)
+   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Artifacts v1 - [here](../../../assets/img/analytics/cloud/old_export.ndjson)<br />
+   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Artifacts v2 - [here](../../../assets/img/analytics/cloud/export.ndjson)
 6. Navigate to **Stack Management** > **Saved Object** and click on **Import**. Add the downloaded artifact file as an import object, and import
 
 !!! info
