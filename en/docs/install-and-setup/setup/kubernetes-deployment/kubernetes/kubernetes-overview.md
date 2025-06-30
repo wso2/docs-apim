@@ -50,3 +50,4 @@ For detailed instructions on deploying each pattern, refer to their respective d
 - [Pattern 3: Distributed with Gateway and Traffic Manager Separated](am-pattern-3-acp-tm-gw.md)
 - [Pattern 4: Fully Distributed Setup](am-pattern-4-acp-tm-gw-km.md)
 - [Pattern 5: Simple Scalable with Key Manager Separated](am-pattern-5-all-in-one-gw-km.md)
+- [Pattern 6: API-M Deployment with IS as Key Manager](am-pattern-6-all-in-one-is-as-km.md)
