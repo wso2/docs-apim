@@ -373,6 +373,7 @@ nav:
                 - ELK Based Analytics Installation Guide: monitoring/api-analytics/on-prem/elk-installation-guide.md
                 - Datadog Analytics Installation Guide : monitoring/api-analytics/on-prem/datadog-installation-guide.md
                 - OpenSearch Analytics Installation Guide : monitoring/api-analytics/on-prem/opensearch-installation-guide.md
+            - Moesif Analytics: monitoring/api-analytics/moesif-analytics/moesif-integration-guide.md
             - Publish Analytics Events to External Systems: monitoring/api-analytics/samples/publishing-analytics-events-to-external-systems.md
             - Publish Custom Analytics Events Data: monitoring/api-analytics/samples/publishing-custom-analytics-data.md
         - Observability:
