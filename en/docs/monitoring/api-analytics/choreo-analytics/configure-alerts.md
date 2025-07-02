@@ -11,4 +11,4 @@ Alerts are subject to a suppression policy to ensure you are not overwhelmed wit
 	- Maxium number of alerts which can be configured is 20 for each organization, env, tenant combination.
 	- Adding an email to an alert configuration is optional. The maximum number of emails per alert configuration is limited to 5.
 
-Please refer [Configure Alerts](https://wso2.com/choreo/docs/insights/configure-alerts/) for more information.
+Please refer [Configure Alerts](https://wso2.com/choreo/docs/monitoring-and-insights/alerts-overview/#configure-alert) for more information.
