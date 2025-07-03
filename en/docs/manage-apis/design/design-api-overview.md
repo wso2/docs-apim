@@ -56,7 +56,7 @@ Due to the expanding consumer base, the application developers have to focus on 
 
 **Threat Protection**
 
-There are Bot Detection tools and various threat protectors like Gateway Threat Protectors, Regular Expression Threat Protection, JSON Threat Protection, and XML Threat Protection for more specific security options.
+There are various threat protectors like Gateway Threat Protectors, Regular Expression Threat Protection, JSON Threat Protection, and XML Threat Protection for more specific security options.
 
 ## Document APIs
 
