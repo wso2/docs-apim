@@ -49,5 +49,5 @@ The Gateway supports the following features to control access and enforce securi
 * Associates API to system-defined service tiers for quotas and rate-limits.
 * Generates JSON web tokens for consumption by back-end servers.
 * Leverages XACML for entitlements management and fine-grain authorization.
-* Provides threat protection, bot detection, and token-fraud detection.
+* Provides threat protection, and token-fraud detection.
 * Supports detection of abnormal system use through artificial intelligence and machine learning.
