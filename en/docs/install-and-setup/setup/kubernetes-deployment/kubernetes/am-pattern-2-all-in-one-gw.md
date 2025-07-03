@@ -140,6 +140,7 @@ Before you begin, ensure you have the following prerequisites in place:
   mysql -h <DB_HOST> -P 3306 -u sharedadmin -p -Dshared_db < './dbscripts/mysql.sql';
   mysql -h <DB_HOST> -P 3306 -u apimadmin -p -Dapim_db < './dbscripts/apimgt/mysql.sql';
   ```
+> **Note:** If you are using **MySQL 8 or later**, and encounter `ERROR 1071 (42000)` related to index key length, consider using `latin1_swedish_ci` instead of `latin1` as the database character set.
 
 ## Minimal Configuration
 
@@ -168,7 +169,7 @@ Deploy API Manager with minimal configuration using the following commands:
 helm install apim wso2/wso2am-all-in-one --version 4.5.0-3 -f https://raw.githubusercontent.com/wso2/helm-apim/main/docs/am-pattern-2-all-in-one_GW/default_values.yaml
 
 # Deploy Universal Gateway
-helm install apim-gw wso2/wso2am-gw --version 4.5.0-3 -f https://raw.githubusercontent.com/wso2/helm-apim/main/docs/am-pattern-2-all-in-one_GW/default_gw_values.yaml
+helm install apim-gw wso2/wso2am-universal-gw --version 4.5.0-3 -f https://raw.githubusercontent.com/wso2/helm-apim/main/docs/am-pattern-2-all-in-one_GW/default_gw_values.yaml
 ```
 
 !!! important
