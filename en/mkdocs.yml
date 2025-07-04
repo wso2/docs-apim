@@ -655,8 +655,6 @@ nav:
             - Supported Cipher Suites: install-and-setup/setup/reference/supported-cipher-suites.md
     - Tutorials:
           - Tutorials Overview: tutorials/tutorials-overview.md
-          - Develop an Integration From a Managed API: tutorials/develop-an-integration-with-a-managed-api.md
-          - The Single Control Plane for Multiple Gateways: tutorials/single-control-plane-for-multiple-gateways.md
           - Scenario Tutorials:
             - Scenario Overview: tutorials/scenarios/scenario-overview.md
             - Scenario 1 - Create a REST API from an OpenAPI Definition: tutorials/scenarios/scenario1-create-rest-api.md
@@ -675,15 +673,18 @@ nav:
             - Scenario 14 - External Key Manager Support: tutorials/scenarios/scenario14-external-key-manager.md
           - API Management Tutorials:
             - Setting Up a Distributed Setup Using the APIM Enterprise Package: tutorials/create-distributed-setup-using-the-enterprise-package.md
+            - Integrating API Manager with an External Broker and Gateway: tutorials/integrating-with-solace.md
+            - Develop an Integration From a Managed API: tutorials/develop-an-integration-with-a-managed-api.md
+            - The Single Control Plane for Multiple Gateways: tutorials/single-control-plane-for-multiple-gateways.md
             - Create and Publish a GraphQL API: tutorials/create-and-publish-a-graphql-api.md
             - Create and Publish a Streaming API:
                 - Create and Publish a WebSocket API: tutorials/streaming-api/create-and-publish-websocket-api.md
                 - Create and Publish a WebSub/WebHook API: tutorials/streaming-api/create-and-publish-websub-api.md
                 - Create and Publish a SSE API: tutorials/streaming-api/create-and-publish-sse-api.md
             - Create and Publish an AWS Lambda API: tutorials/create-and-publish-awslambda-api.md
+            - Create and Publish an API with Sequence as a Backend: tutorials/create-and-publish-a-sequencebackend-api.md
             - Expose a SOAP Service as a REST API: tutorials/expose-a-soap-service-as-a-rest-api.md
             - Edit an API by Modifying the API Definition: tutorials/edit-an-api-by-modifyng-the-api-definition.md
-            - Integrating API Manager with an External Broker and Gateway: tutorials/integrating-with-solace.md
 
 # Extensions
 markdown_extensions:
