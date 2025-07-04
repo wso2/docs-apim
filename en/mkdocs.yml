@@ -193,7 +193,6 @@ nav:
                 - Provisioning Out-of-Band OAuth Clients: design/api-security/oauth2/provisioning-out-of-band-oauth-clients.md
                 - Securing OAuth Token with HMAC Validation: design/api-security/oauth2/securing-oauth-token-with-hmac-validation.md
             - Threat Protection:
-                - Bot Detection: design/api-security/threat-protection/bot-detection.md
                 - Gateway Threat Protectors: design/api-security/threat-protection/gateway-threat-protectors/gateway-threat-protectors-for-api-manager.md
                 - Regular Expression Threat Protection: deploy-and-publish/deploy-on-gateway/api-gateway/threat-protectors/regular-expression-threat-protection-for-api-gateway.md
                 - JSON Threat Protection: deploy-and-publish/deploy-on-gateway/api-gateway/threat-protectors/json-threat-protection-for-api-gateway.md
