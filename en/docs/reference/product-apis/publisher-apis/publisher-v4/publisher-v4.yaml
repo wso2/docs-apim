@@ -8327,7 +8327,29 @@ paths:
               properties:
                 policySpecFile:
                   type: string
-                  description: Policy specification to upload
+                  description: |
+                    Policy specification to upload. Can be YAML or JSON. A sample json would be as below.
+                    ```json
+                    {
+                      "category": "Mediation",
+                      "name": "logSequence",
+                      "displayName": "Log Policy",
+                      "version": "v1",
+                      "description": "Log important details",
+                      "applicableFlows": [
+                        "request",
+                        "response",
+                        "fault"
+                      ],
+                      "supportedApiTypes": [
+                        "HTTP"
+                      ],
+                      "supportedGateways": [
+                        "Synapse"
+                      ],
+                      "policyAttributes": []
+                    }
+                    ```
                   format: binary
                 synapsePolicyDefinitionFile:
                   type: string
