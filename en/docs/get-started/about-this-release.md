@@ -76,6 +76,14 @@ For more information on WSO2 API Manager, see the [overview]({{base_path}}/getti
 
     This feature allows users to filter denylist throttling policies through the REST APIs.
 
+## Removed features and functionalities (Updated on 3rd July 2025)
+
+These features are unsupported and removed from WSO2 API Manager 4.4.0 onwards.
+
+- **Bot Detection**
+
+    In previous releases, WSO2 API Manager included a basic bot detection mechanism that logged traffic to an unadvertised service. This is no longer supported from APIM 4.4.0 onwards. The recommendation is to use a third-party tool for bot detection capabilities.
+
 ## Compatible WSO2 product versions
 
 - WSO2 API Manager 4.4.0 is compatible with WSO2 Identity Server 6.1.0 and 7.0.0
