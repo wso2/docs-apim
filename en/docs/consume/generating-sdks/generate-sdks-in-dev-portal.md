@@ -80,3 +80,10 @@ Follow the instructions below to configure the languages available for SDK gener
     ```
     
 3.  [Restart the server]({{base_path}}/install-and-setup/install/installing-the-product/running-the-api-m/) to apply the configuration changes.
+
+!!! Important
+    If you are enabling **Python** as a supported SDK generation language, ensure the following dependency is added.
+
+    1.  Download the [`rgxgen-1.4.jar`](https://repo1.maven.org/maven2/com/github/curious-odd-man/rgxgen/1.4/rgxgen-1.4.jar) file.  
+    2.  Copy the JAR file to the `<APIM_HOME>/repository/components/lib/` directory.  
+    3.  [Restart the server]({{base_path}}/install-and-setup/install/installing-the-product/running-the-api-m/).

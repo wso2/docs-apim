@@ -128,8 +128,7 @@ WSO2 API Manager provides the OAuth2 bearer token as its default authentication 
 is <a href="{{base_path}}/assets/attachments/learn/api-authentication-handler.java" download>here</a>. Similarly, you can extend the API Manager to 
 support any custom authentication mechanism by writing your own authentication handler class.
 
-Given below is an example implementation. Please find the complete project archive 
-[here](https://docs.wso2.com/download/attachments/57743326/org.wso2.carbon.test.authenticator.zip?version=1&modificationDate=1516171792000&api=v2). 
+Given below is an example implementation. Please find the complete project archive [here]({{base_path}}/assets/attachments/learn/org.wso2.carbon.test.authenticator.zip).
 You can download, unzip and build the project using maven and Java 7 or 8.
 
 ``` java
