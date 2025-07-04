@@ -5965,6 +5965,8 @@ components:
       in: query
       description: |
         Application Group Id
+
+        Please note that filtering by groupId is currently not supported.
       schema:
         type: string
     subscriptionId:
