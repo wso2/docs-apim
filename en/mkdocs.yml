@@ -120,7 +120,7 @@ nav:
                 - Endpoint Suspension: design/endpoints/resiliency/endpoint-suspension.md
                 - Prevent API Suspension: design/endpoints/resiliency/prevent-api-suspension.md
             - Manage Certificates: design/endpoints/certificates.md
-        - Lifecycle Managament:
+        - Lifecycle Management:
             - API Lifecycle: design/lifecycle-management/api-lifecycle.md
             - Customize API Life Cycle: design/lifecycle-management/customize-api-life-cycle.md
         - API Versioning:
@@ -201,7 +201,7 @@ nav:
                 - Obtain User Profile Information with OpenID Connect: design/api-security/openid-connect/obtaining-user-profile-information-with-openid-connect.md
             - Open Policy Agent (OPA) Validation:
                 - Overview: design/api-security/opa-validation/overview.md
-                - Custom OPA Policy for Regualr Gateway: design/api-security/opa-validation/custom-opa-policy-for-regular-gateway.md
+                - Custom OPA Policy for Regular Gateway: design/api-security/opa-validation/custom-opa-policy-for-regular-gateway.md
         - Rate Limiting:
                 - Throttling Use-Cases: design/rate-limiting/introducing-throttling-use-cases.md
                 - Add New Throttling Policies: design/rate-limiting/adding-new-throttling-policies.md
