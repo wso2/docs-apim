@@ -201,7 +201,7 @@ username = "admin"
 password = "${new-password}"
 ```
 
-You can verify whether the password change is applied correctly by checking the following elements in the `<API-M_HOME>/repository/conf/api-manager.xml` file.
+To confirm the password change, check the following elements in the <API-M_HOME>/repository/conf/api-manager.xml file.
 
 ``` xml
 <AuthManager>
