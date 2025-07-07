@@ -52,7 +52,7 @@ You can configure dynamic endpoints for WebSocket APIs in the same way as for RE
     This feature is available only as an update and is available from update level 4.2.0.151 (released on 2nd July 2025).
 
 1. Set the Endpoint type to 'Dynamic Endpoints' from the Endpoints page and Save the API.
-    [![Websocket URL Mapping]({{base_path}}/assets/img/learn/api-gateway/message-mediation/dynamic-endpoints-ws.png
+    [![Dynamic Endpoints]({{base_path}}/assets/img/learn/api-gateway/message-mediation/dynamic-endpoints-ws.png
     )]({{base_path}}/assets/img/learn/api-gateway/message-mediation/dynamic-endpoints-ws.png)
 
 2. Create the policy. 
