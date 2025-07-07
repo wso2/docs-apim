@@ -16,3 +16,15 @@ To recollect the aforementioned points, this improved feature gives much more fl
 * With the new and improved feature, we can attach multiple policies at an operation level as opposed to just attaching a single policy for the whole API.
 * We can manipulate the order in which the attached policies engage with the configured API gateway. The order in which you have arranged the policies is guaranteed to be honored by the gateway.
 * You can easily expect dynamic inputs for policy attributes as opposed to static policies that were supported through the deprecated mediation policies feature.
+
+### Policy Support for WebSocket APIs in Regular Gateway
+
+Mediation policy support for WebSocket APIs enables API publishers to customize the inbound handshake flow of WebSocket connections. Please note that this feature is available only as an update and is available from update level 4.2.0.151 (released on 2nd July 2025).
+
+Key Highlights:
+
+- Mediation policies are currently supported **only during the initial handshake request** of a WebSocket API. Policies are not executed during the WebSocket message exchange or handshake response phases.
+
+- Policies can be created and attached to WebSocket APIs via the Publisher Portal, in the same way they are attached to REST APIs.
+
+- As of now, only the **"Set To Header"** policy is supported as a default policy. This policy is primarily used to support dynamic endpoint resolution for WebSocket APIs. Due to architectural differences between WebSocket and other API types, attaching other custom mediation policies is not recommended.
