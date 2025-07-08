@@ -196,7 +196,7 @@ helm install apim-km wso2/wso2am-km --version 4.5.0-2 -f https://raw.githubuserc
 helm install apim-tm wso2/wso2am-tm --version 4.5.0-2 -f https://raw.githubusercontent.com/wso2/helm-apim/main/docs/am-pattern-4-ACP_TM_GW_KM/default_tm_values.yaml
 
 # 4. Deploy Universal Gateway
-helm install apim-gw wso2/wso2am-gw --version 4.5.0-2 -f https://raw.githubusercontent.com/wso2/helm-apim/main/docs/am-pattern-4-ACP_TM_GW_KM/default_gw_values.yaml
+helm install apim-gw wso2/wso2am-universal-gw --version 4.5.0-3 -f https://raw.githubusercontent.com/wso2/helm-apim/main/docs/am-pattern-4-ACP_TM_GW_KM/default_gw_values.yaml
 ```
 
 Once the services are up and running, make sure you have the NGINX Ingress Controller deployed by following the steps outlined in the [Add Ingress Controller](#11-add-ingress-controller) section.

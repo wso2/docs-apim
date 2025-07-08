@@ -379,7 +379,7 @@ Deploy components in the correct order, typically:
 
 4. **Gateway**:
    ```bash
-   helm install gw wso2/wso2am-gw \
+   helm install gw wso2/wso2am-universal-gw \
      --namespace wso2 \
      --version 4.5.0-2 \
      -f gw-openshift-values.yaml
