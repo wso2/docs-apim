@@ -73,8 +73,8 @@ The properties configured under each Health Checker will be available for each H
 This Health Checker returns the status of the user stores available in the system. You can configure the user stores to be monitored by adding the following configuration in the `<API-M_HOME>/repository/conf/deployment.toml` file.
 
 ```
-[carbon_health_check.health_checker.data_source_health_checker]
-enable =false
+[carbon_health_check.health_checker.super_tenant_health_checker]
+enable =true
 order = 98
 
 [carbon_health_check.health_checker.super_tenant_health_checker.properties]
@@ -83,7 +83,7 @@ order = 98
 
 | **Configuration**                               | **Description**                          |
 | ---------------------------------------------| ------------------------------------ |
-| enable                                        | The configuration element is to enable DataSource Health Checker. When `carbon_health_check` is enabled this configuration will get enabled by default.  |
+| enable                                        | The configuration element is to enable User Store Health Checker. When `carbon_health_check` is enabled this configuration will get enabled by default.  |
 | order                                         | The execution order in which the User Store Health Checker is executed. The default value is `98`. The lowest value is given priority. |
 | monitored.user.stores                         | This configuration is used to specify the user stores as comma-separated values. The default value is `PRIMARY`. |
 
@@ -128,7 +128,7 @@ order = "97"
 | monitored.datasources                         | This configuration is used to specify the Data Sources to be monitored as comma-separated values.|
 
 !!! example "Response"
-    When you invoke the API and the User Stores are healthy, you can see a response similar to the following:
+    When you invoke the API and the Data Sources are healthy, you can see a response similar to the following:
 
     ```
     {
@@ -241,7 +241,7 @@ Follow the instructions below to add a custom Health Checker:
     'monitored.datasources' = "jdbc/WSO2CarbonDB,jdbc/WSO2AM_DB,jdbc/SHARED_DB"
 
     [carbon_health_check.health_checker.super_tenant_health_checker]
-    enable = false
+    enable = true
     order = 98
 
     [carbon_health_check.health_checker.super_tenant_health_checker.properties]
