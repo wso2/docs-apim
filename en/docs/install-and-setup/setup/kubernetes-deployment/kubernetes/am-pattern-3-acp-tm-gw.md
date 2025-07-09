@@ -184,10 +184,10 @@ Deploy API Manager with minimal configuration using the following commands:
 
 ```bash
 # Deploy API Control Plane
-helm install apim-acp wso2/wso2am-acp --version 4.5.0-2 -f https://raw.githubusercontent.com/wso2/helm-apim/main/docs/am-pattern-3-ACP_TM_GW/default_acp_values.yaml
+helm install apim-acp wso2/wso2am-acp --version 4.5.0-3 -f https://raw.githubusercontent.com/wso2/helm-apim/main/docs/am-pattern-3-ACP_TM_GW/default_acp_values.yaml
 
 # Deploy Traffic Manager
-helm install apim-tm wso2/wso2am-tm --version 4.5.0-2 -f https://raw.githubusercontent.com/wso2/helm-apim/main/docs/am-pattern-3-ACP_TM_GW/default_tm_values.yaml
+helm install apim-tm wso2/wso2am-tm --version 4.5.0-3 -f https://raw.githubusercontent.com/wso2/helm-apim/main/docs/am-pattern-3-ACP_TM_GW/default_tm_values.yaml
 
 # Deploy Universal Gateway
 helm install apim-gw wso2/wso2am-universal-gw --version 4.5.0-3 -f https://raw.githubusercontent.com/wso2/helm-apim/main/docs/am-pattern-3-ACP_TM_GW/default_gw_values.yaml
@@ -402,7 +402,7 @@ kubectl create namespace <namespace>
 
 # Deploy API Manager Control Plane using Helm
 helm install <release-name> <helm-chart-path> \
-  --version 4.5.0-2 \
+  --version 4.5.0-3 \
   --namespace <namespace> \
   --dependency-update \
   -f values.yaml \
@@ -442,7 +442,7 @@ After configuring all the necessary parameters, you can deploy the Traffic Manag
 ```bash
 # Deploy Traffic Manager using Helm
 helm install <release-name> <helm-chart-path> \
-  --version 4.5.0-2 \
+  --version 4.5.0-3 \
   --namespace <namespace> \
   --dependency-update \
   -f values.yaml \
@@ -518,7 +518,7 @@ After configuring all the necessary parameters, you can deploy the Universal Gat
 ```bash
 # Deploy Universal Gateway using Helm
 helm install <release-name> <helm-chart-path> \
-  --version 4.5.0-2 \
+  --version 4.5.0-3 \
   --namespace <namespace> \
   --dependency-update \
   -f values.yaml \
