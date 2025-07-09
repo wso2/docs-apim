@@ -14,6 +14,35 @@ For more information, see [OpenTelemetry Configurations]({{base_path}}/reference
 !!! note
     At a time, only one of the below types can be enabled.
 
+!!! info
+	**OTEL_RESOURCE_ATTRIBUTES:**
+
+	There can be situations where you have multiple environments and multiple APIM setups, and you need to filter out the traces depending on the Service Name or environment. In OpenTelemetry, those properties are called [``OTEL_RESOURCE_ATTRIBUTES``](https://opentelemetry.io/docs/specs/otel/resource/sdk/#specifying-resource-information-via-an-environment-variable).
+
+	This can be done in one of the following ways:
+
+	- Via `deployment.toml`.
+
+		```toml
+		[[apim.open_telemetry.resource_attributes]]
+		name = "service.name"
+		value = "MyService"
+
+		[[apim.open_telemetry.resource_attributes]]
+		name = "deployment.environment"
+		value = "Production"
+		```
+
+	- Via the `OTEL_RESOURCE_ATTRIBUTES` environment variable (as per the OpenTelemetry spec).
+
+		```
+		export OTEL_RESOURCE_ATTRIBUTES=deployment.environment=Production,service.name=MyService
+		```
+
+	When a resource attribute is given via both the `deployment.toml` and the `OTEL_RESOURCE_ATTRIBUTES` environment variable, the value of the attribute given via the environment variable will replace the value given via `deployment.toml`.
+
+	Support for this feature is available in WSO2 API Manager 4.2.0 only as an update and is available from update level 4.2.0.39 (released on 11th October 2023).
+
 ## Enabling Jaeger Tracing
 
 1. Copy the following configuration into the `deployment.toml` file.
