@@ -292,6 +292,7 @@ nav:
                 - Change the Owner of an Application: consume/manage-application/advanced-topics/changing-the-owner-of-an-application.md
                 - Change the Provider of an Api: consume/manage-application/advanced-topics/changing-the-provider-of-an-api.md
                 - Add an Application Creation Workflow: consume/manage-application/advanced-topics/adding-an-application-creation-workflow.md
+                - Add an Application Update Workflow: consume/manage-application/advanced-topics/adding-an-application-update-workflow.md
                 - Add an Application Key Generation Workflow: consume/manage-application/advanced-topics/adding-an-application-key-generation-workflow.md
         - Manage Subscriptions:
             - Subscribe to an API: consume/manage-subscription/subscribe-to-an-api.md
@@ -1029,6 +1030,7 @@ plugins:
               'learn/consume-api/manage-application/advanced-topics/add-custom-attributes-to-applications.md': 'https://apim.docs.wso2.com/en/4.4.0/consume/manage-application/advanced-topics/add-custom-attributes-to-applications/'
               'learn/consume-api/manage-application/advanced-topics/changing-the-owner-of-an-application.md': 'https://apim.docs.wso2.com/en/4.4.0/consume/manage-application/advanced-topics/changing-the-owner-of-an-application/'
               'learn/consume-api/manage-application/advanced-topics/adding-an-application-creation-workflow.md': 'https://apim.docs.wso2.com/en/4.4.0/consume/manage-application/advanced-topics/adding-an-application-creation-workflow/'
+              'learn/consume-api/manage-application/advanced-topics/adding-an-application-update-workflow.md': 'https://apim.docs.wso2.com/en/4.4.0/consume/manage-application/advanced-topics/adding-an-application-update-workflow/'
               'learn/consume-api/manage-application/advanced-topics/adding-an-application-key-generation-workflow.md': 'https://apim.docs.wso2.com/en/4.4.0/consume/manage-application/advanced-topics/adding-an-application-key-generation-workflow/'
               'learn/consume-api/manage-subscription/subscribe-to-an-api.md': 'https://apim.docs.wso2.com/en/4.4.0/consume/manage-subscription/subscribe-to-an-api/'
               'learn/consume-api/manage-subscription/advanced-topics/adding-an-api-subscription-workflow.md': 'https://apim.docs.wso2.com/en/4.4.0/consume/manage-subscription/advanced-topics/adding-an-api-subscription-workflow/'
