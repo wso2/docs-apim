@@ -134,7 +134,7 @@ After the implementation of the class is done, follow the steps below to impleme
 
     - <API-M_HOME>/repository/components/plugins/org.wso2.carbon.apimgt.api_6.1.66.jar
 
-    - `javax.mail.jar`: see <https://java.net/projects/javamail/pages/Home> to download the JAR
+    - `javax.mail.jar`: see [here](https://javaee.github.io/javamail/#Download_JavaMail_Release)</a> to download the JAR
 
 2.  After exporting the JAR, copy it to `<API-M_HOME>/repository/components/lib` directory.
 3.  Sign in to API Manager Management Console (`https://<Server Host>:9443/carbon`) and select **Browse** under **Resources.**
