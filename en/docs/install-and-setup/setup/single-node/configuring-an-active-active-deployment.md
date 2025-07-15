@@ -93,19 +93,6 @@ You need to mount the following folders of the two nodes to the shared file syst
     For more information on setting up NFS on Ubuntu, see [Network File System (NFS)](https://ubuntu.com/server/docs/service-nfs).
     Note that these configurations may change depending on the OS.
 
-    
-## Step 6 - Configure Publisher with the Gateway
-
-When **underlined file system is shared**, the artifacts are available to both Gateway nodes. Therefore, a single node 
-can publish the API artifacts to their own nodes. Therefore, you can point the `service_url` to `localhost` in the
-`deployment.toml` of both nodes.
-
-``` toml
-[[apim.gateway.environment]]
-...
-service_url = "https://localhost:${mgt.transport.https.port}/services/"
-...
-```
 
 ## Step 7 - Configure Gateway URLs to Expose APIs
 
