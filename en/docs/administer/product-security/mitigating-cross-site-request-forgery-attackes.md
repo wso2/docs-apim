@@ -32,8 +32,8 @@ You can protect HTTP GET requests sent as a result of resource inclusions and li
 !!! note
 **Before you begin** , note the following:
 
--   If your WSO2 product is based on Carbon 4.4.6 or a later version, t he configurations for mitigating CSRF attacks are enabled by default for all the applications that are built into the product. Therefore, you need to apply these configurations manually, only if you have any custom applications deployed in your product.
--   If your WSO2 product is based on a Carbon version prior to version 4.4.6, the configurations for mitigating CSRF attacks should be applied to all applications manually.
+-   If you are using APIM 2.6.0 or a later version, the configurations for mitigating CSRF attacks are enabled by default for all the applications that are built into the product. Therefore, you need to apply these configurations manually, only if you have any custom applications deployed in your product.
+-   If you are using a version prior to APIM 2.6.0, the configurations for mitigating CSRF attacks should be applied to all applications manually.
 
 -   **Important!** Some updates of JDK 1.8 (for example, **JDK1.8.0\_151** ) are affected by a [known issue](https://bugs.openjdk.java.net/browse/JDK-8189789) related to GZIP decoding, which may prevent these CSRF-related configurations from working for your product. Therefore, until this issue is fixed, we recommend one of the following approaches:
     -   Be sure that your product is running on **JDK1.8.0\_144** or **JDK1.8.0\_077** . We have verified that these JDK versions are not affected by the [known issue](https://bugs.openjdk.java.net/browse/JDK-8189789) .
