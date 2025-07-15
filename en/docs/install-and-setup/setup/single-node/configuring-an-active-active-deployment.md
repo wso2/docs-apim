@@ -93,21 +93,8 @@ You need to mount the following folders of the two nodes to the shared file syst
     For more information on setting up NFS on Ubuntu, see [Network File System (NFS)](https://ubuntu.com/server/docs/service-nfs).
     Note that these configurations may change depending on the OS.
 
-    
-## Step 6 - Configure Publisher with the Gateway
 
-When **underlined file system is shared**, the artifacts are available to both Gateway nodes. Therefore, a single node 
-can publish the API artifacts to their own nodes. Therefore, you can point the `service_url` to `localhost` in the
-`deployment.toml` of both nodes.
-
-``` toml
-[[apim.gateway.environment]]
-...
-service_url = "https://localhost:${mgt.transport.https.port}/services/"
-...
-```
-
-## Step 7 - Configure Gateway URLs to Expose APIs
+## Step 6 - Configure Gateway URLs to Expose APIs
 
 You need to configure the environment URLs which are used to expose the deployed APIs in the Gateways of both nodes. 
 Add the Gateway hostname when you configure environments in the `<API-M_HOME>/repository/conf/deployment.toml` file in both
@@ -124,7 +111,7 @@ In this case, let's use `gw.am.wso2.com` as the hostname.
     https_endpoint = "https://gw.am.wso2.com:${https.nio.port}"
     ```            
 
-## Step 8 - Configure Rate Limiting
+## Step 7 - Configure Rate Limiting
 
 1.  Configure the data publisher in the `apim.throttling.url_group` section which comes under the `apim.throttling.url_group` block in the `<API-M_HOME>/repository/conf/deployment.toml` file of both nodes.
     
@@ -208,7 +195,7 @@ In this case, let's use `gw.am.wso2.com` as the hostname.
 
 {!includes/design/redis-counter-note.md!}
 
-## Step 9 - Optionally, enable distributed cache invalidation
+## Step 8 - Optionally, enable distributed cache invalidation
 
 Add following configuration block in the `<API-M_HOME>/repository/conf/deployment.toml` file of both the nodes.
 
@@ -217,13 +204,13 @@ Add following configuration block in the `<API-M_HOME>/repository/conf/deploymen
 enabled = true
 ```
 
-## Step 10 - Configure API-M Analytics
+## Step 9 - Configure API-M Analytics
 
 API Manager Analytics is delivered via the API Manager Analytics cloud solution. You need to configure the API Manager Gateway to publish analytics data into the cloud.
 
 See the instructions on [configuring the API Gateway]({{base_path}}/api-analytics/gateways/configure-synapse-gateway) with the cloud-based analytics solution.
 
-## Step 11 - Configure Production Hardening
+## Step 10 - Configure Production Hardening
 
 In a **production setup**, ensure that you have taken into account the respective security hardening factors 
 (e.g., changing and encrypting the default passwords, configuring JVM security etc.) and other production deployment 
@@ -233,7 +220,7 @@ For more information on security hardening guidelines, see [Security Guidelines 
 
 For more information on other production deployment guidelines, see [Production Deployment Guidelines]({{base_path}}//install-and-setup/setup/deployment-best-practices/production-deployment-guidelines/#common-guidelines-and-checklist/).
 
-## Step 12 - Start the WSO2 API-M Servers
+## Step 11 - Start the WSO2 API-M Servers
 
 Start the WSO2 API-M servers using the standard start-up script. For more information, see [Starting the server]({{base_path}}/install-and-setup/install/installing-the-product/running-the-api-m/#starting-the-server).
 
