@@ -4,7 +4,7 @@ Generative AI brings immense potential—but without the right controls, it also
 
 LLMs (Large Language Models) are fundamentally **non-deterministic**. A request may succeed technically (returning a `200 OK`), but semantically **fail** your application’s logic, output expectations, safety guidelines, or compliance mandates. This disconnect creates a growing need for **real-time enforcement** of AI behavior.
 
-### ❗ What Can Go Wrong: Risks of AI API Integration
+### What Can Go Wrong: Risks of AI API Integration
 
 | Problem | Description |
 |--------|-------------|

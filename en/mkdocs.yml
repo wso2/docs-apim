@@ -335,13 +335,13 @@ nav:
                 - Onboarding Anthropic's Claude: ai-gateway/ai-vendor-management/custom-ai-vendors/onboarding-anthropic-claude.md
         - AI Guardrails:
             - Overview: ai-gateway/ai-guardrails/overview.md
-            - Safety Categories:
-                - Overview: ai-gateway/ai-guardrails/safety-categories/overview.md
-                # - LLM Safety: ai-gateway/ai-guardrails/safety-categories/llm-safety.md
-                - Content Safety: ai-gateway/ai-guardrails/safety-categories/content-safety.md
-                - Content Usage Control: ai-gateway/ai-guardrails/safety-categories/content-usage-control.md
-                # - PII Safety: ai-gateway/ai-guardrails/safety-categories/pii-safety.md
-            - Guardrail Error Response:  ai-gateway/ai-guardrails/guardrail-error-response.md
+            - Conent Length Guardrail: ai-gateway/ai-guardrails/content-length-guardrail.md
+            - Regex Guardrail: ai-gateway/ai-guardrails/regex-guardrail.md
+            - JSON Schema Guardrail: ai-gateway/ai-guardrails/json-schema-guardrail.md
+            - Sentence Count Guardrail: ai-gateway/ai-guardrails/sentence-count-guardrail.md
+            - URL Guardrail: ai-gateway/ai-guardrails/url-guardrail.md
+            - Word Count Guardrail: ai-gateway/ai-guardrails/word-count-guardrail.md
+            - Guardrail Error Response: ai-gateway/ai-guardrails/guardrail-error-response.md
     - Governance:
         - Overview: governance/overview.md
         - Concepts: governance/governance-concept.md
