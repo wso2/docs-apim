@@ -502,6 +502,8 @@ nav:
                 - Configure PingFederate as A Key Manager: administer/key-managers/configure-pingfederate-connector.md
                 - Configure ForgeRock as a Key Manager: administer/key-managers/configure-forgerock-connector.md
                 - Configure a Custom Key Manager: administer/key-managers/configure-custom-connector.md
+          - Product Security:
+                - Mitigating Cross Site Request Forgery Attacks: administer/product-security/mitigating-cross-site-request-forgery-attackes.md
     - Reference:
           - Configuration Catalog: reference/config-catalog.md
           - Understanding the New Configuration Model: reference/understanding-the-new-configuration-model.md
