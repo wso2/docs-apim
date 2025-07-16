@@ -39,36 +39,36 @@ They act as intelligent filters that:
 
 ## Supported Guardrails
 
-<div style="display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 0.5rem;">
+<div style="display: flex; flex-wrap: wrap; gap: 1.5rem; margin-top: 1.5rem;">
 
-  <a href="../content-length-guardrail" style="flex: 1 1 140px; min-width: 120px; max-width: 180px; background: var(--md-primary-fg-color--lightest, #f5f5f5); border: 1px solid var(--md-primary-fg-color, #2196f3); border-radius: 5px; padding: 0.5rem; text-decoration: none; color: inherit; box-shadow: 0 1px 2px rgba(0,0,0,0.02); display: block;">
-    <div style="font-size: 0.92rem; font-weight: bold; margin-bottom: 0.2rem;">Content Length Guardrail</div>
-    <div style="font-size: 0.8rem; color: var(--md-default-fg-color--light, #333);">Restricts the maximum length of LLM requests or responses.</div>
+  <a href="../content-length-guardrail" style="flex: 1 1 300px; min-width: 280px; max-width: 400px; background: var(--md-primary-fg-color--lightest, #f5f5f5); border: 2px solid var(--md-primary-fg-color, #2196f3); border-radius: 12px; padding: 1.5rem; text-decoration: none; color: inherit; box-shadow: 0 2px 8px rgba(0,0,0,0.04); display: block;">
+    <div style="font-size: 0.9rem; font-weight: bold; margin-bottom: 0.5rem;">Content Length Guardrail</div>
+    <div style="font-size: 0.7rem; color: var(--md-default-fg-color--light, #333);">Restricts the maximum length of LLM requests or responses.</div>
   </a>
 
-  <a href="../regex-guardrail" style="flex: 1 1 140px; min-width: 120px; max-width: 180px; background: var(--md-primary-fg-color--lightest, #f5f5f5); border: 1px solid var(--md-primary-fg-color, #2196f3); border-radius: 5px; padding: 0.5rem; text-decoration: none; color: inherit; box-shadow: 0 1px 2px rgba(0,0,0,0.02); display: block;">
-    <div style="font-size: 0.92rem; font-weight: bold; margin-bottom: 0.2rem;">Regex Guardrail</div>
-    <div style="font-size: 0.8rem; color: var(--md-default-fg-color--light, #333);">Validates LLM requests or responses using custom regular expressions.</div>
+  <a href="../regex-guardrail" style="flex: 1 1 300px; min-width: 280px; max-width: 400px; background: var(--md-primary-fg-color--lightest, #f5f5f5); border: 2px solid var(--md-primary-fg-color, #2196f3); border-radius: 12px; padding: 1.5rem; text-decoration: none; color: inherit; box-shadow: 0 2px 8px rgba(0,0,0,0.04); display: block;">
+    <div style="font-size: 0.9rem; font-weight: bold; margin-bottom: 0.5rem;">Regex Guardrail</div>
+    <div style="font-size: 0.7rem; color: var(--md-default-fg-color--light, #333);">Validates LLM requests or responses using custom regular expressions.</div>
   </a>
 
-  <a href="../json-schema-guardrail" style="flex: 1 1 140px; min-width: 120px; max-width: 180px; background: var(--md-primary-fg-color--lightest, #f5f5f5); border: 1px solid var(--md-primary-fg-color, #2196f3); border-radius: 5px; padding: 0.5rem; text-decoration: none; color: inherit; box-shadow: 0 1px 2px rgba(0,0,0,0.02); display: block;">
-    <div style="font-size: 0.92rem; font-weight: bold; margin-bottom: 0.2rem;">JSON Schema Guardrail</div>
-    <div style="font-size: 0.8rem; color: var(--md-default-fg-color--light, #333);">Ensures LLM requests or responses match a specified JSON schema.</div>
+  <a href="../json-schema-guardrail" style="flex: 1 1 300px; min-width: 280px; max-width: 400px; background: var(--md-primary-fg-color--lightest, #f5f5f5); border: 2px solid var(--md-primary-fg-color, #2196f3); border-radius: 12px; padding: 1.5rem; text-decoration: none; color: inherit; box-shadow: 0 2px 8px rgba(0,0,0,0.04); display: block;">
+    <div style="font-size: 0.9rem; font-weight: bold; margin-bottom: 0.5rem;">JSON Schema Guardrail</div>
+    <div style="font-size: 0.7rem; color: var(--md-default-fg-color--light, #333);">Ensures LLM requests or responses match a specified JSON schema.</div>
   </a>
 
-  <a href="../sentence-count-guardrail" style="flex: 1 1 140px; min-width: 120px; max-width: 180px; background: var(--md-primary-fg-color--lightest, #f5f5f5); border: 1px solid var(--md-primary-fg-color, #2196f3); border-radius: 5px; padding: 0.5rem; text-decoration: none; color: inherit; box-shadow: 0 1px 2px rgba(0,0,0,0.02); display: block;">
-    <div style="font-size: 0.92rem; font-weight: bold; margin-bottom: 0.2rem;">Sentence Count Guardrail</div>
-    <div style="font-size: 0.8rem; color: var(--md-default-fg-color--light, #333);">Limits the number of sentences in LLM requests or responses.</div>
+  <a href="../sentence-count-guardrail" style="flex: 1 1 300px; min-width: 280px; max-width: 400px; background: var(--md-primary-fg-color--lightest, #f5f5f5); border: 2px solid var(--md-primary-fg-color, #2196f3); border-radius: 12px; padding: 1.5rem; text-decoration: none; color: inherit; box-shadow: 0 2px 8px rgba(0,0,0,0.04); display: block;">
+    <div style="font-size: 0.9rem; font-weight: bold; margin-bottom: 0.5rem;">Sentence Count Guardrail</div>
+    <div style="font-size: 0.7rem; color: var(--md-default-fg-color--light, #333);">Limits the number of sentences in LLM requests or responses.</div>
   </a>
 
-  <a href="../url-guardrail" style="flex: 1 1 140px; min-width: 120px; max-width: 180px; background: var(--md-primary-fg-color--lightest, #f5f5f5); border: 1px solid var(--md-primary-fg-color, #2196f3); border-radius: 5px; padding: 0.5rem; text-decoration: none; color: inherit; box-shadow: 0 1px 2px rgba(0,0,0,0.02); display: block;">
-    <div style="font-size: 0.92rem; font-weight: bold; margin-bottom: 0.2rem;">URL Guardrail</div>
-    <div style="font-size: 0.8rem; color: var(--md-default-fg-color--light, #333);">Validates URLs in LLM responses, useful to detect hallucinated URLs.</div>
+  <a href="../url-guardrail" style="flex: 1 1 300px; min-width: 280px; max-width: 400px; background: var(--md-primary-fg-color--lightest, #f5f5f5); border: 2px solid var(--md-primary-fg-color, #2196f3); border-radius: 12px; padding: 1.5rem; text-decoration: none; color: inherit; box-shadow: 0 2px 8px rgba(0,0,0,0.04); display: block;">
+    <div style="font-size: 0.9rem; font-weight: bold; margin-bottom: 0.5rem;">URL Guardrail</div>
+    <div style="font-size: 0.7rem; color: var(--md-default-fg-color--light, #333);">Validates URLs in LLM responses, useful to detect hallucinated URLs.</div>
   </a>
 
-  <a href="../word-count-guardrail" style="flex: 1 1 140px; min-width: 120px; max-width: 180px; background: var(--md-primary-fg-color--lightest, #f5f5f5); border: 1px solid var(--md-primary-fg-color, #2196f3); border-radius: 5px; padding: 0.5rem; text-decoration: none; color: inherit; box-shadow: 0 1px 2px rgba(0,0,0,0.02); display: block;">
-    <div style="font-size: 0.92rem; font-weight: bold; margin-bottom: 0.2rem;">Word Count Guardrail</div>
-    <div style="font-size: 0.8rem; color: var(--md-default-fg-color--light, #333);">Restricts the number of words in LLM requests or responses.</div>
+  <a href="../word-count-guardrail" style="flex: 1 1 300px; min-width: 280px; max-width: 400px; background: var(--md-primary-fg-color--lightest, #f5f5f5); border: 2px solid var(--md-primary-fg-color, #2196f3); border-radius: 12px; padding: 1.5rem; text-decoration: none; color: inherit; box-shadow: 0 2px 8px rgba(0,0,0,0.04); display: block;">
+    <div style="font-size: 0.9rem; font-weight: bold; margin-bottom: 0.5rem;">Word Count Guardrail</div>
+    <div style="font-size: 0.7rem; color: var(--md-default-fg-color--light, #333);">Restricts the number of words in LLM requests or responses.</div>
   </a>
 
 </div>
