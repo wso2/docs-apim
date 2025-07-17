@@ -124,7 +124,13 @@ Let's use the [wso2-am-stripe-plugin](https://github.com/wso2-extensions/wso2-am
   
     1. Download and add the database related connector JAR into the`<APIM_HOME/repository/components/lib` directory. 
         
-        As a MySQL database is used for this example scenario, download and copy the [MySQL connector JAR](https://mvnrepository.com/artifact/mysql/mysql-connector-java/5.1.36) into the `<APIM_HOME/repository/components/lib` directory.
+        As a MySQL database is used for this example scenario, download and copy the [MySQL connector JAR](https://downloads.mysql.com/archives/c-j/) into the `<APIM_HOME/repository/components/lib` directory.
+
+        !!! tip
+            Look for the compatible MySQL Connector version based on the MySQL version being used.
+
+            - For MySQL version 8.0.x, the compatible MySQL Connector version is **8.0.x**.    
+            - For MySQL version 8.4.x, the compatible MySQL Connector version is **8.4.x**.
 
     2. Configure the WSO2 API Manager related datasource.  
         
@@ -433,64 +439,54 @@ Let's use the [wso2-am-stripe-plugin](https://github.com/wso2-extensions/wso2-am
 
         === "Postgre"
             ``` java
-                CREATE SEQUENCE AM_MONETIZATION START WITH 1 INCREMENT BY 1;
-                CREATE TABLE IF NOT EXISTS AM_POLICY_SUBSCRIPTION (
-                    API_ID INTEGER NOT NULL,
-                    TIER_NAME VARCHAR(512),
-                    STRIPE_PRODUCT_ID VARCHAR(512),
-                    STRIPE_PLAN_ID VARCHAR(512),
-                    FOREIGN KEY (API_ID) REFERENCES AM_API (API_ID) ON DELETE CASCADE
-                );
-            
-                CREATE SEQUENCE AM_POLICY_PLAN_MAPPING START WITH 1 INCREMENT BY 1;
-                CREATE TABLE IF NOT EXISTS AM_POLICY_SUBSCRIPTION (
-                        POLICY_ID INTEGER DEFAULT NEXTVAL('AM_POLICY_PLAN_MAPPING'),
-                        POLICY_UUID VARCHAR(256),
-                        PRODUCT_ID VARCHAR(512),
-                        PLAN_ID VARCHAR(512),
-                        FOREIGN KEY (POLICY_UUID) REFERENCES AM_POLICY_SUBSCRIPTION(UUID)
-            
-                );
-            
-                CREATE SEQUENCE AM_MONETIZATION_PLATFORM_CUSTOMERS START WITH 1 INCREMENT BY 1;
-                CREATE TABLE IF NOT EXISTS AM_POLICY_SUBSCRIPTION (
-                            POLICY_ID INTEGER DEFAULT NEXTVAL('AM_MONETIZATION_PLATFORM_CUSTOMERS'),
-                    ID INTEGER NOT NULL AUTO_INCREMENT,
-                    SUBSCRIBER_ID INTEGER NOT NULL,
-                    TENANT_ID INTEGER NOT NULL,
-                    CUSTOMER_ID VARCHAR(256) NOT NULL,    
-                    PRIMARY KEY (ID),
-                    FOREIGN KEY (SUBSCRIBER_ID) REFERENCES AM_SUBSCRIBER(SUBSCRIBER_ID) ON DELETE CASCADE
-                );
-            
-                CREATE SEQUENCE AM_MONETIZATION_SHARED_CUSTOMERS START WITH 1 INCREMENT BY 1;
-                CREATE TABLE IF NOT EXISTS AM_POLICY_SUBSCRIPTION (
-                            POLICY_ID INTEGER DEFAULT NEXTVAL('AM_MONETIZATION_SHARED_CUSTOMERS'),
-                    ID INTEGER NOT NULL AUTO_INCREMENT,
-                    APPLICATION_ID INTEGER NOT NULL,
-                    API_PROVIDER VARCHAR(256) NOT NULL,
-                    TENANT_ID INTEGER NOT NULL,
-                    SHARED_CUSTOMER_ID VARCHAR(256) NOT NULL,
-                    PARENT_CUSTOMER_ID INTEGER NOT NULL,    
-                    PRIMARY KEY (ID),
-                    FOREIGN KEY (APPLICATION_ID) REFERENCES AM_APPLICATION(APPLICATION_ID) ON DELETE CASCADE,
-                    FOREIGN KEY (PARENT_CUSTOMER_ID) REFERENCES AM_MONETIZATION_PLATFORM_CUSTOMERS(ID) ON DELETE CASCADE
-                );
-            
-                CREATE SEQUENCE AM_MONETIZATION_SUBSCRIPTIONS START WITH 1 INCREMENT BY 1;
-                CREATE TABLE IF NOT EXISTS AM_POLICY_SUBSCRIPTION (
-                            POLICY_ID INTEGER DEFAULT NEXTVAL('AM_MONETIZATION_SUBSCRIPTIONS'),
-                    ID INTEGER NOT NULL AUTO_INCREMENT,
-                    SUBSCRIBED_APPLICATION_ID INTEGER NOT NULL,
-                    SUBSCRIBED_API_ID INTEGER NOT NULL,
-                    TENANT_ID INTEGER NOT NULL,
-                    SUBSCRIPTION_ID VARCHAR(256) NOT NULL,
-                    SHARED_CUSTOMER_ID INTEGER NOT NULL,    
-                    PRIMARY KEY (ID),
-                    FOREIGN KEY (SUBSCRIBED_APPLICATION_ID) REFERENCES AM_APPLICATION(APPLICATION_ID) ON DELETE CASCADE,
-                    FOREIGN KEY (SUBSCRIBED_API_ID) REFERENCES AM_API(API_ID) ON DELETE CASCADE,
-                    FOREIGN KEY (SHARED_CUSTOMER_ID) REFERENCES AM_MONETIZATION_SHARED_CUSTOMERS(ID) ON DELETE CASCADE
-                );
+            CREATE TABLE IF NOT EXISTS AM_MONETIZATION (
+                API_ID INTEGER NOT NULL,
+                TIER_NAME VARCHAR(512),
+                STRIPE_PRODUCT_ID VARCHAR(512),
+                STRIPE_PLAN_ID VARCHAR(512),
+                FOREIGN KEY (API_ID) REFERENCES AM_API (API_ID) ON DELETE CASCADE
+            );
+
+            CREATE TABLE IF NOT EXISTS AM_POLICY_PLAN_MAPPING (
+                POLICY_UUID VARCHAR(256),
+                PRODUCT_ID VARCHAR(512),
+                PLAN_ID VARCHAR(512),
+                FOREIGN KEY (POLICY_UUID) REFERENCES AM_POLICY_SUBSCRIPTION(UUID)
+            );
+
+            CREATE SEQUENCE IF NOT EXISTS AM_MONETIZATION_PLATFORM_CUSTOMERS_ID_SEQ START WITH 1 INCREMENT BY 1;
+            CREATE TABLE IF NOT EXISTS AM_MONETIZATION_PLATFORM_CUSTOMERS (
+                ID INTEGER PRIMARY KEY DEFAULT nextval('AM_MONETIZATION_PLATFORM_CUSTOMERS_ID_SEQ'),
+                SUBSCRIBER_ID INTEGER NOT NULL,
+                TENANT_ID INTEGER NOT NULL,
+                CUSTOMER_ID VARCHAR(256) NOT NULL,    
+                FOREIGN KEY (SUBSCRIBER_ID) REFERENCES AM_SUBSCRIBER(SUBSCRIBER_ID) ON DELETE CASCADE
+            );
+
+            CREATE SEQUENCE IF NOT EXISTS AM_MONETIZATION_SHARED_CUSTOMERS_ID_SEQ START WITH 1 INCREMENT BY 1;
+            CREATE TABLE IF NOT EXISTS AM_MONETIZATION_SHARED_CUSTOMERS (
+                ID INTEGER PRIMARY KEY DEFAULT nextval('AM_MONETIZATION_SHARED_CUSTOMERS_ID_SEQ'),
+                APPLICATION_ID INTEGER NOT NULL,
+                API_PROVIDER VARCHAR(256) NOT NULL,
+                TENANT_ID INTEGER NOT NULL,
+                SHARED_CUSTOMER_ID VARCHAR(256) NOT NULL,
+                PARENT_CUSTOMER_ID INTEGER NOT NULL,    
+                FOREIGN KEY (APPLICATION_ID) REFERENCES AM_APPLICATION(APPLICATION_ID) ON DELETE CASCADE,
+                FOREIGN KEY (PARENT_CUSTOMER_ID) REFERENCES AM_MONETIZATION_PLATFORM_CUSTOMERS(ID) ON DELETE CASCADE
+            );
+
+            CREATE SEQUENCE IF NOT EXISTS AM_MONETIZATION_SUBSCRIPTIONS_ID_SEQ START WITH 1 INCREMENT BY 1;
+            CREATE TABLE IF NOT EXISTS AM_MONETIZATION_SUBSCRIPTIONS (
+                ID INTEGER PRIMARY KEY DEFAULT nextval('AM_MONETIZATION_SUBSCRIPTIONS_ID_SEQ'),
+                SUBSCRIBED_APPLICATION_ID INTEGER NOT NULL,
+                SUBSCRIBED_API_ID INTEGER NOT NULL,
+                TENANT_ID INTEGER NOT NULL,
+                SUBSCRIPTION_ID VARCHAR(256) NOT NULL,
+                SHARED_CUSTOMER_ID INTEGER NOT NULL,    
+                FOREIGN KEY (SUBSCRIBED_APPLICATION_ID) REFERENCES AM_APPLICATION(APPLICATION_ID) ON DELETE CASCADE,
+                FOREIGN KEY (SUBSCRIBED_API_ID) REFERENCES AM_API(API_ID) ON DELETE CASCADE,
+                FOREIGN KEY (SHARED_CUSTOMER_ID) REFERENCES AM_MONETIZATION_SHARED_CUSTOMERS(ID) ON DELETE CASCADE
+            );
             ```
 
 3. Configure the additional monetization properties that are specific to the billing engine in WSO2 API Manager.    
@@ -664,11 +660,17 @@ Let's use the [wso2-am-stripe-plugin](https://github.com/wso2-extensions/wso2-am
     `https://<hostname>:9443/publisher`
 
 2.  Click on the API that you wish to monetize.  
+
+3.  Click **Subscriptions** to see the available business plans including the one you recently created.
+![Select business plan]({{base_path}}/assets/img/learn/select-business-plan.png)
+
+4.  Select the subscription policy you created and click **save**.
+
     ![Enable monetization]({{base_path}}/assets/img/learn/enable-monetization.png)
 
-3.  Click **Monetization** to navigate to the Monetization configurations.
+5.  Click **Monetization** to navigate to the Monetization configurations.
 
-4.  Enter the connect ID as the connected account key and click
+6.  Enter the connect ID as the connected account key and click
     **Save**.  
 
     When using Stripe as the billing engine, you need to enter the [connect ID](#connectID), which is the ID that indicates the link between the Tenant Admin and the API Publisher Stripe accounts.
@@ -712,7 +714,7 @@ You can use the admin REST API, which is available in WSO2 API Manager, to publi
 
 1.  Obtain the consumer key and secret key pair by calling the dynamic client registration endpoint.  
      
-     For more information, see [Admin REST API v4.1]({{base_path}}/reference/product-apis/admin-apis/admin-v4/admin-v4/).
+     For more information, see [Admin REST API v4.2]({{base_path}}/reference/product-apis/admin-apis/admin-v4/admin-v4/).
 
     ``` java
     curl -X POST -H "Authorization: Basic <base64encoded-admin-account-credentials>" -H "Content-Type: application/json" -d @payload.json https://localhost:9443/client-registration/v0.17/register
@@ -862,10 +864,10 @@ type = "ELK"
 
 [apim.monetization]
 monetization_impl = "org.wso2.apim.monetization.impl.StripeMonetizationImpl"
-analytics_host = <hostname-of-elk-node>
-analytics_port = <port-of-elk-node>
+analytics_host = <hostname-of-elastic-instance>
+analytics_port = <port-of-elastic-instance>
 analytics_username = <elastic-username>
 analytics_password = <elastic-password>
 ```
 
-Note that you will need to replace `<hostname-of-elk-node>`, `<port-of-elk-node>`, `<elastic-username>`, and `<elastic-password>` with the appropriate values for your Elasticsearch instance.
+Note that you will need to replace `<hostname-of-elastic-instance>`, `<port-of-elastic-instance>`, `<elastic-username>`, and `<elastic-password>` with the appropriate values for your Elasticsearch instance.

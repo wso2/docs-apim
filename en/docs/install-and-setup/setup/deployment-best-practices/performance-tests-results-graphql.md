@@ -2,7 +2,7 @@
 
 The performance of WSO2 API Manager was measured for GraphQL APIs. While the schema, the queries, and the responses were mimicked using the [Starwars API](https://github.com/wso2/samples-apim/tree/master/graphql-backend), the backend used for the test is a Netty backend. The Netty service is configured so that the response is aligned with the GraphQL request in order to only provide the data requested by a particular query.
 
-Tests were done using **50**, **100**, **200**, **500**, and **1000** concurrent users. Concurrent users mean that it consists of multiple users accessing the API Gateway at the same time. Three GraphQL queries were used for the tests. These queries were constructed with varying operation counts. First query with 1 operation, second with 4 operations, and third with 9 operations. It is important to note that when this operation count increases, the higher the workload for API Manager. Details regarding the query variations are outlined below. The three queries and their responses can be found [here](https://github.com/wso2/performance-apim/tree/master-graphql/resources).
+Tests were done using **50**, **100**, **200**, **500**, and **1000** concurrent users. Concurrent users mean that it consists of multiple users accessing the Gateway at the same time. Three GraphQL queries were used for the tests. These queries were constructed with varying operation counts. First query with 1 operation, second with 4 operations, and third with 9 operations. It is important to note that when this operation count increases, the higher the workload for API Manager. Details regarding the query variations are outlined below. The three queries and their responses can be found [here](https://github.com/wso2/performance-apim/tree/master-graphql/resources).
 
 <table>
 <thead>
@@ -41,7 +41,7 @@ Tests were done using **50**, **100**, **200**, **500**, and **1000** concurrent
 
 Two key performance metrics were used to measure the performance of each test. 
 
-- Throughput: This measures the number of API invocations that the API Manager Gateway server processed during a specific time interval (e.g., per second). 
+- Throughput: This measures the number of API invocations that the Gateway server processed during a specific time interval (e.g., per second). 
 - Response Time: This measures end-to-end processing time for an operation (of invoking an API using HTTPS protocol). The complete distribution of response times was recorded.
 
 ## Deployment used for the test
@@ -62,7 +62,7 @@ Two key performance metrics were used to measure the performance of each test.
     <td>Apache JMeter Client</td>
     <td>c5.large</td>
     <td>2</td>
-    <td>4</td>
+    <td>2</td>
   </tr>
   <tr>
     <td>Apache JMeter Server 01</td>
@@ -86,7 +86,7 @@ Two key performance metrics were used to measure the performance of each test.
     <td>WSO2 API Manager</td>
     <td>c5.large</td>
     <td>2</td>
-    <td>4</td>
+    <td>2</td>
   </tr>
 </tbody>
 </table>
@@ -106,7 +106,7 @@ All scripts used to run the performance tests and analyze results are in the fol
 
 ## Results
 
-The complete results can be found [here](https://github.com/wso2/performance-apim/blob/performance-test-447-2024-03-12_05-54-54/performance/benchmarks/summary.md).
+The complete results can be found [here](https://github.com/wso2/performance-apim/blob/performance-test-470-2024-10-24_05-16-34/performance/benchmarks/summary.csv).
 
 The following graph depicts the throughput changes based on the number of concurrent users for different GraphQL queries.
 
@@ -114,9 +114,9 @@ The following graph depicts the throughput changes based on the number of concur
 
 **Key observations:**
 
-- More concurrent users mean more requests to the API Manager Gateway. Therefore, the throughput of the API Manager Gateway increases as the number of concurrent users accessing the APIs increases. The maximum throughput is observed around 50 and 100 concurrent users, and the throughput degrades slightly after 100 concurrent users due to resource contentions in the system. The degradation point mainly depends on hardware resources. Note that a similar pattern can be seen across all three queries.
+- More concurrent users mean more requests to the Gateway. Therefore, the throughput of the Gateway increases as the number of concurrent users accessing the APIs increases. The maximum throughput is observed around 50 and 100 concurrent users, and the throughput degrades slightly after 100 concurrent users due to resource contentions in the system. The degradation point mainly depends on hardware resources. Note that a similar pattern can be seen across all three queries.
 
-- The highest throughput values were observed for Query 1, while the lowest values were observed for Query 3. For a given API invocation, the request payload, which includes the GraphQL query, is processed by the API Manager Gateway before the request is sent to the backend. Operation count within this query has an effect on performance as we provide QoS (quality of service) based on operations. Similarly, the query size has an effect on the performance as the number of fields requested by the query is increased eventhough the query depth is kept constant. The API Manager observes a considerable overhead when the query size and operation count keeps increasing due to the payload processing time. As the query sizes used for the tests are 157B, 1KB and 2KB, and the operation counts used for the tests are 1, 4 and 9, the growth is exponential and that justifies the throughput numbers depicted in the above plot.
+- The highest throughput values were observed for Query 1, while the lowest values were observed for Query 3. For a given API invocation, the request payload, which includes the GraphQL query, is processed by the Gateway before the request is sent to the backend. Operation count within this query has an effect on performance as we provide QoS (quality of service) based on operations. Similarly, the query size has an effect on the performance as the number of fields requested by the query is increased eventhough the query depth is kept constant. The API Manager observes a considerable overhead when the query size and operation count keeps increasing due to the payload processing time. As the query sizes used for the tests are 157B, 1KB and 2KB, and the operation counts used for the tests are 1, 4 and 9, the growth is exponential and that justifies the throughput numbers depicted in the above plot.
 
 
 The following graph depicts the average response time changes based on the number of concurrent users for different GraphQL queries.
@@ -125,14 +125,14 @@ The following graph depicts the average response time changes based on the numbe
 
 **Key observations:**
 
-- The average response time increases with the number of concurrent users. As the number of requests to serve increases with more users, there are more resource contentions. Therefore, the number of concurrent users served by the API Gateway needs to be decided on the required response time limits. Again, the average response time also varies as the hardware resources change. For example, a user can achieve a lower response time if the number of CPUs allocated is increased.
+- The average response time increases with the number of concurrent users. As the number of requests to serve increases with more users, there are more resource contentions. Therefore, the number of concurrent users served by the Gateway needs to be decided on the required response time limits. Again, the average response time also varies as the hardware resources change. For example, a user can achieve a lower response time if the number of CPUs allocated is increased.
 
-- Query 3 shows the highest response time due to the performance overhead caused by the payload processing time at the API Manager Gateway.
+- Query 3 shows the highest response time due to the performance overhead caused by the payload processing time at the Gateway.
 
 
 Let’s look at the 90th, 95th, and 99th response time percentiles. It is useful to measure the percentage of requests that exceeded the response time value for a given percentile. A percentile can be used to determine the percentage of requests completed below the particular response time value.
 
-For example, when there are 100 concurrent users, the 90th response time percentile for Query 1 is 76ms. This means that 10% of the requests have taken more than 76ms to respond. Similarly, the 99th response time percentile for Query 1 is 132ms, which means that 99% of the requests have been completed within 132ms.
+For example, when there are 100 concurrent users, the 90th response time percentile for Query 1 is 73ms. This means that 10% of the requests have taken more than 73ms to respond. Similarly, the 99th response time percentile for Query 1 is 130ms, which means that 99% of the requests have been completed within 130ms.
 
 The figure below represents the percentile values for Query 1.
 
@@ -140,7 +140,7 @@ The figure below represents the percentile values for Query 1.
 
 **Key observations:**
 
-- Query 2 and Query 3 scenarios are relatively slower than the preceding results due to the performance overhead caused by the payload processing at the API Manager Gateway.
+- Query 2 and Query 3 scenarios are relatively slower than the preceding results due to the performance overhead caused by the payload processing at the Gateway.
 
 - Response Times percentiles are less than 750ms up to 500 concurrent users for all three queries.
 

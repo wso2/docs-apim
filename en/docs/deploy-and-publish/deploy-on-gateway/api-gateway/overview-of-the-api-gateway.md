@@ -1,15 +1,15 @@
-# Overview of the API Gateway
+# Overview of the Universal Gateway
 
 [![API-M overview]({{base_path}}/assets/img/learn/apim-overview.png){: style="width:60%"}]({{base_path}}/assets/img/learn/apim-overview.png)
 
-**WSO2 API Gateway** provides a runtime and a backend component (an API proxy) for API calls. It secures, protects, manages, and scales API calls by intercepting API requests and applying policies, such as throttling and security, using handlers and managing API statistics.
+**WSO2 Universal Gateway** provides a runtime and a backend component (an API proxy) for API calls. It secures, protects, manages, and scales API calls by intercepting API requests and applying policies, such as throttling and security, using handlers and managing API statistics.
 
 Upon validation of a policy, the Gateway passes Web service calls to the actual backend. If the service call is a token request, the Gateway passes it directly to the Key Manager.
 
 After the API Manager server has started, you can access the Gateway using the Management Console [https://localhost:9443/carbon](https://localhost:9443/carbon). If you need to integrate a monitoring and analytics component to WSO2 API Manager, you can do so by configuring WSO2 API Manager Analytics. This component provides reports, statistics, and graphs on the APIs deployed in WSO2 API Manager. You can then configure alerts to monitor these APIs and detect unusual activity, manage locations via Geolocation statistics and carry out a detailed analysis of the logs.
 
 !!! Info    
-    Although the API Gateway contains integration features, it is recommended not to use it for integration-specific tasks. Use it only for Gateway functionality related to API invocations. For example, if you want to call external services (e.g., SAP), use a separate Micro Integrator cluster for this purpose.
+    Although the Universal Gateway contains integration features, it is recommended not to use it for integration-specific tasks. Use it only for Gateway functionality related to API invocations. For example, if you want to call external services (e.g., SAP), use a separate Micro Integrator cluster for this purpose.
 
 **Gateway Architecture**
 
@@ -17,7 +17,7 @@ After the API Manager server has started, you can access the Gateway using the M
 
 Messages that reach the Gateway are processed as follows:
 
-1. When a request hits the API Gateway, it is received by the `HTTP/HTTPS transports`. 
+1. When a request hits the Universal Gateway, it is received by the `HTTP/HTTPS transports`. 
    
      The transport is responsible for carrying messages that are in a specific format. The transport provides a receiver, which is used to receive messages, and a sender, which is used to send messages.
 
@@ -49,5 +49,5 @@ The Gateway supports the following features to control access and enforce securi
 * Associates API to system-defined service tiers for quotas and rate-limits.
 * Generates JSON web tokens for consumption by back-end servers.
 * Leverages XACML for entitlements management and fine-grain authorization.
-* Provides threat protection, bot detection, and token-fraud detection.
+* Provides threat protection, and token-fraud detection.
 * Supports detection of abnormal system use through artificial intelligence and machine learning.

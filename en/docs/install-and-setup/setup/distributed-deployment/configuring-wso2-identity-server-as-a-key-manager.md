@@ -1,6 +1,9 @@
-# Set up WSO2 Identity Server as a Key Manager
+# Set up WSO2 Identity Server as a Resident Key Manager
 
-Follow the instructions below to configure WSO2 Identity Server (WSO2 IS) as the Key Manager of the WSO2 API Manager (WSO2 API-M) deployment globally.
+Follow the instructions below to configure WSO2 Identity Server (WSO2 IS) as the Resident Key Manager of the WSO2 API Manager (WSO2 API-M) deployment globally.
+
+!!! warning
+    WSO2 Identity Server 7.x **cannot** be set up as a Resident Key Manager. It can only be set up as a [Third-party Key Manager]({{base_path}}/install-and-setup/setup/distributed-deployment/configure-a-third-party-key-manager). See [Configure WSO2 IS 7.x as a Key Manager]({{base_path}}/administer/key-managers/configure-wso2is7-connector) for instructions on configuring WSO2 Identity Server 7.x as a Third-party Key Manager.
 
 - [Step 1 - Download and install WSO2 IS](#step-1-download-and-install-wso2-is)
 - [Step 2 - Optionally, configure port offset for WSO2 IS](#step-2-optionally-configure-port-offset-for-wso2-is)
@@ -17,6 +20,9 @@ downloaded the archive, extract it. `<IS_HOME>` refers to the root folder of the
 
 It is assumed that you have already downloaded WSO2 API Manager.
 `<APIM_HOME>` refers to the root folder of the unzipped WSO2 API-M pack.
+
+!!! note
+    If you have a WSO2 subscription, it is recommended to update both APIM and IS to the latest available U2 versions to prevent any compatibility issues between the two products.
 
 ## Step 2 - Optionally, configure port offset for WSO2 IS
 
@@ -152,14 +158,14 @@ Follow the instructions below to set up and configure the databases for the WSO2
 
 ## Step 4 - Configure WSO2 IS with WSO2 API-M
 
-1. Download the [WSO2 IS Connector]({{base_path}}/assets/attachments/administer/wso2is-extensions-1.7.8.zip).
+1. Download the [WSO2 IS Connector]({{base_path}}/assets/attachments/administer/wso2is-extensions-1.7.11.zip).
 
-2. Extract the distribution and copy the following JAR files, which are in the `<wso2is-extensions-1.7.8>/dropins` directory, to the `<IS_HOME>/repository/components/dropins` directory.
+2. Extract the distribution and copy the following JAR files, which are in the `<wso2is-extensions-1.7.11>/dropins` directory, to the `<IS_HOME>/repository/components/dropins` directory.
 
-     - `wso2is.key.manager.core-1.7.8.jar`
-     - `wso2is.notification.event.handlers-1.7.8.jar`
+     - `wso2is.key.manager.core-1.7.11.jar`
+     - `wso2is.notification.event.handlers-1.7.11.jar`
 
-3. Add the `keymanager-operations.war`, which is in the `<wso2is-extensions-1.7.8>/webapps` directory, to the `<IS_HOME>/repository/deployment/server/webapps` directory.
+3. Add the `keymanager-operations.war`, which is in the `<wso2is-extensions-1.7.11>/webapps` directory, to the `<IS_HOME>/repository/deployment/server/webapps` directory.
 
 4.  Configure the Traffic Manager endpoints.
 
@@ -328,8 +334,12 @@ Start WSO2 Identity Server for the changes to take effect. For more information,
         To overcome this issue, you need to create self-signed certificates for WSO2 API-M and WSO2 IS hostnames. Then [import the public certificates]({{base_path}}/install-and-setup/setup/security/configuring-keystores/keystore-basics/creating-new-keystores/#step-3-importing-certificates-to-the-truststore) of WSO2 API-M to the `trust-store.jks` of WSO2 IS and vice versa. This should resolve the SSL handshake failure.
 
     !!! Note
-        In a distributed deployment or IS as KM separated environment to invoke RESTful APIs (product APIs), users must generate tokens through API-M Control Plane's token endpoint.
+        In a distributed deployment or IS as KM separated environment to invoke RESTful APIs (product APIs), users must generate tokens through API Control Plane's token endpoint.
         The tokens generated using third party key managers, are to manage end-user authentication when accessing APIs.
+
+    !!! Important
+
+        When WSO2 Identity Server (IS) is configured as the resident key manager, the IS acts as the default key manager component. This key manager component authenticates users when they are using OAuth2 authentication and not basic authentication. Hence for users who exist in a secondary user store within the key manager component, basic authentication will not work. Therefore if basic authentication should be used, the user needs to be added to the API Control Plane (ACP) component for authentication.
 
 Follow the instructions below to configure the other WSO2 API-M components, namely the Publisher, Developer Portal, Traffic Manager, and Gateway:
 

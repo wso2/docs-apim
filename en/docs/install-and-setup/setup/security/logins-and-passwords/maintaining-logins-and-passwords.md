@@ -23,6 +23,8 @@ Follow the instructions below to change the default admin password:
         Based on the XML specification (<https://www.w3.org/TR/xml/#sec-cdata-sect/>), some special characters can disrupt the configuration.
         For example, the ampersand character (&) must not appear in the literal form in XML files. It can cause a Java Null Pointer exception. You must wrap it with [CDATA](https://www.w3schools.com/xml/dom_cdatasection.asp) as shown below or remove the character:    
 
+    -   Do not use **£** character in the admin password as it can cause a buffer overflow exception. This happens due to a limitation where a **£** character has two values as its byte representation.
+
     -   The above credentials are applied to the `jndi.properties` file.
         -   **It is not possible to use the `@` `{` `}` symbols in the username or password**.
         -   **It is also not possible to use the percentage (%) sign in the password**. When building the connection URL, the URL with credentials is parsed.
@@ -61,13 +63,6 @@ Follow the instructions below to change the default admin password:
     To change the super admin password, you must use the **Change Password** option from the management console.
 
     To change the password from Management Console (<https://localhost:9443/carbon>), follow the steps in [Changing a Password](https://docs.wso2.com/display/ADMIN44x/Changing+a+Password) corresponding to API Manager.
-
-## Recover a password
-
-Use the `<API-M_HOME>/bin/chpasswd.sh` script.
-
-!!! note
-    If you encountered an error similar to `ant: command not found`, Please install [Apache Ant](https://ant.apache.org/) before running the above script.
 
 ## Setup an e-mail login
 

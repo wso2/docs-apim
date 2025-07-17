@@ -1,12 +1,5 @@
 #Configuring a Read-Write Active Directory User Store
 
-!!! info
-    The default User Store
-
-    The primary user store that is configured by default in the `user-mgt.xml` file is a JDBC user store, which reads/writes into the internal database of the product server. By default, the internal database is H2 for all WSO2 products excluding WSO2 Identity Server.
-    
-    Note that the RDBMS used in the default configuration can remain as the database used for storing Authorization information.
-
 Follow the given steps to configure an external Active Directory as the primary user store:
 
 -   [Step 1: Setting up the external AD user store manager](#step-1-setting-up-the-external-ad-user-store-manager)
@@ -152,6 +145,13 @@ Given below is a sample configuration for the external read/write user store in 
         ```
 
     -   You also need to [enable connection pooling](https://docs.wso2.com/display/ADMIN44x/Performance+Tuning#PerformanceTuning-ldaps_pooling) for LDAPS connections at the time of starting your server, which will enhance server performance.
+
+    -   If you are configuring the primary user store and want the configuration to be available for all the tenants, follow the configuration given below to return the objectGUID claim attribute.
+    ObjectGUID is a binary attribute. Add the following user store property to the `deployment.toml` file.
+
+        ``` toml
+        transformObjectGUIDToUUID="false"
+        ```
 
 
 1.  For Active Directory, you can use `Referral="follow"` to enable referrals within the user store. The AD user store may be partitioned into multiple domains. However, according to the use store configurations in the `deployment.toml` file, we are only connecting to one of the domains. Therefore, when a request for an object is received to the user store, the `Referral="follow"` property ensures that all the domains in the directory will be searched to locate the requested object.
@@ -566,6 +566,13 @@ Default: not configured</td>
 <td>retry_attempts</td>
 <td>Retry Attempts</td>
 <td>Retry the authentication request if a timeout happened
+<p>Default: not configured</p></td>
+</tr>
+<tr class="even">
+<td>java.naming.ldap.attributes.binary</td>
+<td>ldap_binary_attributes</td>
+<td>LDAP Binary Attributes</td>
+<td>Configure this to define the LDAP binary attributes separated by a space.
 <p>Default: not configured</p></td>
 </tr>
 </tbody>

@@ -2,7 +2,7 @@
 
 This tutorial will guide you to implement a WebSocket based chat application using the WSO2 API Manager.
 Follow the instructions in this tutorial to design and publish API via a WebSocket backend, and thereafter 
-invoke the [WebSocket API]({{base_path}}/use-cases/streaming-usecase/create-streaming-api/create-a-websocket-streaming-api) using the **wscat** WebSocket client.
+invoke the [WebSocket API]({{base_path}}/design/create-api/create-streaming-api/create-a-websocket-streaming-api) using the **wscat** WebSocket client.
 
 This will demonstrate a simple command line based chat room which has two channels: **rooms**, and **notifications**.
 
@@ -76,7 +76,7 @@ This will demonstrate a simple command line based chat room which has two channe
 5. Configure the runtime configurations.
     1. Click **Runtime** under the **API Configurations** section, select the required authentication type, and click **Save**.
 
-       <a href="{{base_path}}/assets/img/tutorials/streaming-api/websocket-api-runtime-configurations.png"><img src="{{base_path}}/assets/img/design/create-api/streaming-api/websocket-api-runtime-configurations.png" width="65%" alt="Runtime Configurations of WebSocket API"></a>
+       <a href="{{base_path}}/assets/img/tutorials/streaming-api/websocket-api-runtime-configurations.png"><img src="{{base_path}}/assets/img/tutorials/streaming-api/websocket-api-runtime-configurations.png" width="65%" alt="Runtime Configurations of WebSocket API"></a>
     
 6. Add topics to the WebSocket API.
 

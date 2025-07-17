@@ -18,7 +18,7 @@ swagger: '2.0'
 # Prolog
 ######################################################
 info:
-  version: "v2.2"
+  version: "v2.3"
   title: "WSO2 API Manager - Gateway"
   description: |
     This document specifies a **RESTful API** for WSO2 **API Manager** - Gateway.
@@ -176,7 +176,7 @@ paths:
         - OAuth2Security: []
       x-code-samples:
         - lang: Curl
-          source: 'curl -k "https://localhost:9443/api/am/gateway/v2/server-startup-healthcheck" -H "Authorization: Basic YWRtaW46YWRtaW4="'
+          source: 'curl -k "https://localhost:9443/api/am/gateway/v2/server-startup-healthcheck"'
 
   /api-artifact:
 

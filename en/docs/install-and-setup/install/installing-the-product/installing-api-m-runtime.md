@@ -9,8 +9,11 @@ Java Development Kit (JDK) is essential to run the product.
 
 ## Installing the API Manager
 
-1.  Go to the [WSO2 API Manager website](https://wso2.com/api-management/), click **TRY IT NOW**, and then click **Zip Archive** to download the API Manager distribution as a ZIP file.
+1.  Go to the [WSO2 API Manager website](https://wso2.com/api-manager/), click **TRY IT NOW**, and then select **Zip Archive** to get a download link to the All-in-one API Manager distribution as a ZIP file.
 2.  Extract the archive file to a dedicated directory for the API Manager, which will hereafter be referred to as `<API-M_HOME>`.
+
+!!! note
+    If you want to install and setup the **Enterprise package** of WSO2 API Manager, download the package from the [WSO2 API Manager website](https://wso2.com/api-manager/) and follow the instructions in [Configure a Distributed API-M Deployment]({{base_path}}/install-and-setup/setup/distributed-deployment/deploying-wso2-api-m-in-a-distributed-setup/) to setup a simple scalable deployment of WSO2 API Manager.
 
 ## Setting up JAVA_HOME
 

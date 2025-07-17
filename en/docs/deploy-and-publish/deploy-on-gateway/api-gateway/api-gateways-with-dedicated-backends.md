@@ -1,6 +1,6 @@
-# API Gateways with Dedicated Backends
+# Gateways with Dedicated Backends
 
-We can extend the [multiple gateway environments]({{base_path}}/deploy-and-publish/api-gateway/maintaining-separate-production-and-sandbox-gateways) feature by utilizing parameterized endpoint capabilities of WSO2 API Manager to have each gateway point to a different back-end endpoint. API Gateway is the actual runtime of the APIs that are developed and published from the API Publisher. WSO2 API Manager is capable of publishing APIs to different Gateways where API users connect to those API Gateways in order to do the actual API calls through the applications to which they are subscribed.
+We can extend the [multiple gateway environments]({{base_path}}/deploy-and-publish/api-gateway/maintaining-separate-production-and-sandbox-gateways) feature by utilizing parameterized endpoint capabilities of WSO2 API Manager to have each gateway point to a different back-end endpoint. Universal Gateway is the actual runtime of the APIs that are developed and published from the API Publisher. WSO2 API Manager is capable of publishing APIs to different Gateways where API users connect to those Universal Gateways in order to do the actual API calls through the applications to which they are subscribed.
 
 However, the API Publisher can only provide a single static endpoint for an API in the implementation. Therefore, the API call is directed to a single endpoint in whichever Gateway the API is deployed in, as depicted in the diagram below.
 
@@ -20,7 +20,7 @@ Follow the steps below to configure a parameterized endpoint as the API endpoint
 
 3.  Save and [publish]({{base_path}}/deploy-and-publish/publish-on-dev-portal/publish-an-api) the API.
 
-4.  Navigate to the `<API-M_HOME>/repository/deployment/server/synapse-configs/sequences` directory of each Gateway and create the following sequence.
+4.  Navigate to the `<API-M_HOME>/repository/deployment/server/synapse-configs/default/sequences` directory of each Gateway and create the following sequence.
 
     ``` java
         <sequence xmlns="http://ws.apache.org/ns/synapse" name="WSO2AM--Ext--In">
@@ -61,7 +61,7 @@ Follow the steps below to configure a parameterized endpoint as the API endpoint
             }
         ```
         2. Add the created JAR file into the `<API-M_HOME>/repository/components/lib` folder of each Gateway. You can download a sample JAR file [here](https://docs.wso2.com/download/attachments/80713829/env-resolver-1.0.0.jar?version=2&modificationDate=1512985782000&api=v2).<br/><br/>
-        3. Add the following sequence to the `<API-M_HOME>/repository/deployment/server/synapse-configs/sequences` folder of each Gateway.
+        3. Add the following sequence to the `<API-M_HOME>/repository/deployment/server/synapse-configs/default/sequences` folder of each Gateway.
 
         ``` java
             <sequence xmlns="http://ws.apache.org/ns/synapse" name="WSO2AM--Ext--In">
@@ -84,7 +84,7 @@ Follow the steps below to configure a parameterized endpoint as the API endpoint
     ```
 
     !!! note
-        If you have used the class mediator to configure API Gateways in step 4, use the command given below instead of the one above.
+        If you have used the class mediator to configure Universal Gateways in step 4, use the command given below instead of the one above.
         ```java
         ./api-manager.sh -Denvironment.host=<ip_of_backend_environment> -Denvironment.port=<port_of_backend_environment>
         ```

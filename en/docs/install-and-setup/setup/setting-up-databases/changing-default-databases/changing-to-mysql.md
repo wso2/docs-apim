@@ -115,9 +115,15 @@ Follow the  instructions below to set up a MySQL database:
 
 1. Unzip the WSO2 API Manager pack. Let's refer to it as `<API-M_HOME>`.
 
-2. Download the MySQL Java connector [JAR file](https://dev.mysql.com/downloads/connector/j/), and extract it.
+2. Download the MySQL Java Connector from [MySQL Connector/J (Archived Versions)](https://downloads.mysql.com/archives/c-j/), and extract it.
 
-3. Copy it to the `<API-M_HOME>/repository/components/lib/` directory in all the nodes of the cluster.
+    !!! tip
+        Look for the compatible MySQL Connector version based on the MySQL version being used.
+
+        - For MySQL version 8.0.x, the compatible MySQL Connector version is **8.0.x**.
+        - For MySQL version 8.4.x, the compatible MySQL Connector version is **8.4.x**.
+
+3. Copy the connector JAR file to the `<API-M_HOME>/repository/components/lib/` directory in all the nodes of the cluster.
 
 !!! tip
     Be sure to use the connector version that is supported by the MySQL version you use. If you come across any issues due to version incompatibility, follow the  instructions below:
@@ -185,7 +191,7 @@ Follow the  instructions below to set up a MySQL database:
 !!! note
     If you are using MySQL with group replication, it is mandatory to have primary keys for all the tables.
     
-    You can use the following scripts when creating the respective tables instead of the ones provided in the DB scripts. (`<API-M_HOME>/dbscripts/mysql.sql` and `<API-M_HOME>/dbscripts/apimgt/mysql.sql`)
+    You can use the following scripts when creating the respective tables instead of the ones provided in the DB scripts. (`<API-M_HOME>/dbscripts/mysql.sql`, `<API-M_HOME>/dbscripts/apimgt/mysql.sql` and `<API-M_HOME>/dbscripts/mb-store/mysql-mb.sql`). 
     
     ??? info "Creating tables"
         === "SHARED_DB"
@@ -330,6 +336,49 @@ Follow the  instructions below to set up a MySQL database:
                     UNIQUE KEY (CONSENT_RECEIPT_ID, NAME),
                     PRIMARY KEY (CM_CONSENT_RECEIPT_PROPERTY_ID)
             );
+
+            CREATE TABLE IF NOT EXISTS AM_API_REVISION_METADATA (
+                    AM_API_REVISION_METADATA_ID INTEGER NOT NULL AUTO_INCREMENT,
+                    API_UUID VARCHAR(64),
+                    REVISION_UUID VARCHAR(255),
+                    API_TIER VARCHAR(128),
+                    UNIQUE (API_UUID,REVISION_UUID),
+                    FOREIGN KEY(REVISION_UUID) REFERENCES AM_REVISION(REVISION_UUID) ON DELETE CASCADE,
+                    PRIMARY KEY (AM_API_REVISION_METADATA_ID)
+            )ENGINE INNODB;
+
+            CREATE TABLE IF NOT EXISTS AM_WEBHOOKS_UNSUBSCRIPTION (
+                    AM_WEBHOOKS_UNSUBSCRIPTION_ID INTEGER NOT NULL AUTO_INCREMENT,
+                    API_UUID VARCHAR(255) NOT NULL,
+                    APPLICATION_ID VARCHAR(20) NOT NULL,
+                    TENANT_DOMAIN VARCHAR(255) NOT NULL,
+                    HUB_CALLBACK_URL VARCHAR(1024) NOT NULL,
+                    HUB_TOPIC VARCHAR(255) NOT NULL,
+                    HUB_SECRET VARCHAR(2048),
+                    HUB_LEASE_SECONDS INTEGER,
+                    ADDED_AT TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+                    PRIMARY KEY (AM_WEBHOOKS_UNSUBSCRIPTION_ID)
+            )ENGINE INNODB;
+            ```
+
+        === "MB_STORE_DB"
+            ```
+            CREATE TABLE IF NOT EXISTS MB_BINDING (
+                        EXCHANGE_NAME VARCHAR(512) NOT NULL,
+                        QUEUE_NAME VARCHAR(512) NOT NULL,
+                        BINDING_DETAILS VARCHAR(2048) NOT NULL,
+                        FOREIGN KEY (EXCHANGE_NAME) REFERENCES MB_EXCHANGE (EXCHANGE_NAME),
+                        FOREIGN KEY (QUEUE_NAME) REFERENCES MB_QUEUE (QUEUE_NAME)
+                        ON DELETE CASCADE,
+                        PRIMARY KEY (EXCHANGE_NAME, QUEUE_NAME)
+            ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+            CREATE TABLE IF NOT EXISTS MB_DURABLE_SUBSCRIPTION (
+                                    SUBSCRIPTION_ID VARCHAR(512) NOT NULL, 
+                                    DESTINATION_IDENTIFIER VARCHAR(512) NOT NULL,
+                                    SUBSCRIPTION_DATA VARCHAR(2048) NOT NULL,
+                                    PRIMARY KEY (SUBSCRIPTION_ID)
+            ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
             ```
         
     If the tables are already created use the following scripts to update the existing tables in the respective databases.
@@ -365,13 +414,26 @@ Follow the  instructions below to set up a MySQL database:
             ALTER TABLE CM_SP_PURPOSE_PII_CAT_ASSOC ADD COLUMN CM_SP_PURPOSE_PII_CAT_ASSOC_ID INTEGER NOT NULL AUTO_INCREMENT;
             
             ALTER TABLE CM_CONSENT_RECEIPT_PROPERTY ADD COLUMN CM_CONSENT_RECEIPT_PROPERTY_ID INTEGER NOT NULL AUTO_INCREMENT;
+
+            ALTER TABLE AM_API_REVISION_METADATA ADD COLUMN AM_API_REVISION_METADATA_ID INTEGER NOT NULL AUTO_INCREMENT;
+            
+            ALTER TABLE AM_WEBHOOKS_UNSUBSCRIPTION ADD COLUMN AM_WEBHOOKS_UNSUBSCRIPTION_ID INTEGER NOT NULL AUTO_INCREMENT;
             ```
         
+        === "MB_STORE_DB"
+            ```
+            ALTER TABLE MB_BINDING ADD PRIMARY KEY (EXCHANGE_NAME, QUEUE_NAME);
+            ALTER TABLE MB_DURABLE_SUBSCRIPTION ADD PRIMARY KEY (SUBSCRIPTION_ID);
+            ```
+
 ## Changing the database to MySQL
 
 -   [Creating the datasource connection to MySQL](#creating-the-datasource-connection-to-mysql)
 
 ### Creating the datasource connection to MySQL
+
+!!! note
+    It is recommended to utilize the UTC zone for all database operations as it does not observe daylight savings time (DST). If a database server is hosted in a time zone that is affected by DST, not using UTC could potentially lead to data inconsistencies and errors such as OAuth code/access token generation outages. To avoid such risks, it is crucial to ensure that all timestamps and time-related data within the database are represented in UTC format.
 
 A datasource is used to establish a connection to a database. By default, `WSO2_SHARED_DB` and `WSO2AM_DB` datasources are configured in the `deployment.toml` file to connect to the default H2 databases.
 

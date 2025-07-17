@@ -1,7 +1,7 @@
 {
 	"info": {
 		"_postman_id": "ae5aa07c-6961-4758-b2ab-9305baeda272",
-		"name": "WSO2 API Manager 4.0.0 - Admin REST API",
+		"name": "WSO2 API Manager 4.4.0 - Admin REST API",
 		"description": "This document specifies a **RESTful API** for WSO2 **API Manager - Admin REST API** .\nIt is written with [swagger 2.0](http://swagger.io/).\n",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},

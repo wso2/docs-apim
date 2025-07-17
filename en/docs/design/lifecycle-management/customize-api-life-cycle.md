@@ -161,7 +161,7 @@ Follow the steps below to add a new state to the default life cycle.
         Consider the following points when extending and customizing the API lifecycle JSON configuration.
 
         -   Do not change the life cycle name since it needs to be engaged with the APIs dynamically.
-        -   Make sure you keep the **PUBLISHED** and **PROTOTYPED** states as those two states will be used by API Publisher in the API creation wizard.
+        -   Make sure you keep the **PUBLISHED** and **PRE-RELEASED** states as those two states will be used by API Publisher in the API creation wizard.
 
     !!! info
         By default following lifecycle diagram is added in Publisher portal to show the state changes.
@@ -177,6 +177,3 @@ Follow the steps below to add a new state to the default life cycle.
 
     !!! Tip "For Advanced Customization"
         If you want to add the custom lifecycle state to the existing lifecycle diagram, you have to customize the LifeCycleImage.jsx file located in  `<APIM-Home>/repository/deployment/server/webapps/publisher/src/main/webapp/source/src/app/components/Apis/Details/LifeCycle/` directory, as mentioned in the [Advanced Customization]({{base_path}}/reference/customize-product/customizations/advanced-ui-customization/) section.
-
-
-For more details on customizing the API lifecycle, see [Extending the API Life Cycle]({{base_path}}/design/lifecycle-management/extending-the-api-life-cycle/).

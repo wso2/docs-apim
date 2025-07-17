@@ -35,6 +35,17 @@ Follow the steps below to set up the Microsoft SQL database and users.
 1.  Click **New Database** from the **Database** menu and specify all the options to create a new database.
 1.  Click **New Login** from the **Logins** menu, and specify all the necessary options.
 
+### Eliminate concurrency issues in tables
+
+To utilize the Snapshot Isolation level by transactions, run the following command.
+```sh
+ALTER DATABASE <DATABASE_NAME>  SET ALLOW_SNAPSHOT_ISOLATION ON
+```
+To enable the use of snapshot isolation for the READ COMMITTED isolation level, run the following command.
+```sh
+ALTER DATABASE <DATABASE_NAME> SET READ_COMMITTED_SNAPSHOT ON WITH ROLLBACK IMMEDIATE
+```
+
 #### Grant permissions
 
 Assign newly created users the required grants/permissions to log in and create tables, to insert, index, select, update, and delete data in tables in the newly created database. These are the minimum set of SQL server permissions.
@@ -94,6 +105,9 @@ pip install mssql-cli
 -   [Creating the datasource connection to MSSQL](#creating-the-datasource-connection-to-mssql)
 
 ### Creating the datasource connection to MSSQL
+
+!!! note
+    It is recommended to utilize the UTC zone for all database operations as it does not observe daylight savings time (DST). If a database server is hosted in a time zone that is affected by DST, not using UTC could potentially lead to data inconsistencies and errors such as OAuth code/access token generation outages. To avoid such risks, it is crucial to ensure that all timestamps and time-related data within the database are represented in UTC format.
 
 A datasource is used to establish a connection to a database. By default, the `SHARED_DB` and `AM_DB` datasources are configured in the `deployment.toml` file for the purpose of connecting to the default H2 databases.
 

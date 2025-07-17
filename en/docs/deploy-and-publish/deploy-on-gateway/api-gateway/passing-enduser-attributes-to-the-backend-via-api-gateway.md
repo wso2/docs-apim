@@ -60,7 +60,7 @@ In order to validate the backend JWT using JWKS, you will need to invoke the JWK
 
 ## Expiry time of the JWT
 
-The JWT expiry time depends directly on whether caching is enabled in the Gateway Manager or Key Manager. The WSO2 API-M Gateway caching is enabled by default. However, if required, you can enable or disable the caching for the Gateway Manager or the Key Manager using the `apim.cache.gateway_token.enable` or `apim.cache.km_token.enable` elements respectively in the `<API-M_HOME>/repository/conf/deployment.toml` file. If caching is enabled for the Gateway Manager or the Key Manager, the JWT expiry time will be the same as the default cache expiry time.
+The JWT expiry time depends directly on whether caching is enabled in the Gateway Manager or Key Manager. The WSO2 Universal Gateway caching is enabled by default. However, if required, you can enable or disable the caching for the Gateway Manager or the Key Manager using the `apim.cache.gateway_token.enable` or `apim.cache.km_token.enable` elements respectively in the `<API-M_HOME>/repository/conf/deployment.toml` file. If caching is enabled for the Gateway Manager or the Key Manager, the JWT expiry time will be the same as the default cache expiry time.
 
 The claims that are retrieved for the JWT access token generation are cached. You can set the expiry time of these JWT claims by setting the `apim.cache.jwt_claim.expiry_time` in the `<API-M_HOME>/repository/conf/deployment.toml` file:
 
@@ -72,7 +72,7 @@ expiry_time = "900"
 
 ## Enabling the default backend JWT generator
 
-Before passing end user attributes, you need to enable and configure the JWT implementation, as mentioned below in the default API Gateway.
+Before passing end user attributes, you need to enable and configure the JWT implementation, as mentioned below in the default Universal Gateway.
 
 1. Navigate to the `<API-M_HOME>/repository/conf/deployment.toml` file.
 
@@ -104,8 +104,8 @@ Follow the instructions below if you want to pass additional attributes to the b
      A typical example of implementing your own claim generator is given below. It implements the `populateCustomClaims()` method to generate some custom claims and adds them to the JWT.  
 
     ``` java
-    import org.wso2.carbon.apimgt.keymgt.APIConstants;
-    import org.wso2.carbon.apimgt.keymgt.dto.APIKeyValidationInfoDTO;
+    import org.wso2.carbon.apimgt.impl.APIConstants;
+    import org.wso2.carbon.apimgt.impl.dto.APIKeyValidationInfoDTO;
     import org.wso2.carbon.apimgt.keymgt.token.JWTGenerator;
     import org.wso2.carbon.apimgt.api.*;
 
@@ -319,17 +319,8 @@ custom claims into JWT when invocation token in opaque mode.
 <td><code>http://wso2.org/claims</code></td>
 </tr>
 <tr class="even">
-<td><pre><code>apim.jwt.convert_dialect</code></pre></td>
-<td><div class="content-wrapper">
-<p>In the Authorization code grant flow, backend JWT token contains claims from OIDC dialect even though
- <code>apim.jwt.claim_dialect</code> has been configured with the value <code>http://wso2.org/claims</code>. The
-  reason is that claims are taken from AuthorizationGrantCache, which contains the OIDC claim dialect values. And
-   this is happening due to a modification done to avoid the getUserClaimValues call to WSO2 user store during JWT
-    generation. So, AuthorizationGrantCache is used for retrieving user claims.</p>
-<p>In order to remap the OIDC claims into the configured dialect (by <code>apim.jwt.claim_dialect</code> value
-), the <code>apim.jwt.convert_dialect</code> configuration value should be set to <code>true</code>.</p>
-</div>
-</td>
+<td><pre><code>apim.jwt.use_sha256_hash</code></pre></td>
+<td><p>Specifies whether the certificate header is signed using the SHA256 algorithm. The default algorithm used to generate the header value is SHA1.</p></td>
 <td><code>false</code></td>
 </tr>
 <tr class="odd">
@@ -360,16 +351,11 @@ apim.jwt.binding_federated_user_claims</code></pre></td>
 <td><p>Specifies whether the backend JWT header should include the kid claim</p></td>
 <td><code>true</code></td>
 </tr>
-<tr class="even">
-<td><pre><code>apim.jwt.use_sha256_hash</code></pre></td>
-<td><p>Specifies whether the certificate header is signed using the SHA256 algorithm. The default algorithm used to generate the header value is SHA1.</p></td>
-<td><code>false</code></td>
-</tr>
 </tbody>
 </table>
 
 !!! tip
-    You can use TCPMon or API Gateway debug logs to capture the JWT access token header with end user details. Follow the instructions below to enable the Gateway DEBUG logs for wire messages:
+    You can use TCPMon or Universal Gateway debug logs to capture the JWT access token header with end user details. Follow the instructions below to enable the Gateway DEBUG logs for wire messages:
 
     1.  Go to the `<APIM_GATEWAY>/repository/conf` directory and open the `log4j2.properties` file with a text editor.
     2.  Add these two loggers to the list of loggers:<br/>

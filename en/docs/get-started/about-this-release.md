@@ -2,7 +2,7 @@
 
 WSO2 API Manager is a complete platform for building, integrating, and exposing your digital services as managed APIs in the cloud, on-premise, and hybrid architectures to drive your digital transformation strategy. It comes with a cloud-native, standards-based messaging engine, and an integration framework for integrating APIs, services, data, SaaS, proprietary, and legacy systems and it can also serve streaming-based integrations. The product comes with command-line and developer tools that enable easy design, development, and testing.
 
-**WSO2 API Manager 4.3.0** is the latest **WSO2 API Manager release** and is the successor of **WSO2 API Manager 4.2.0**.
+**WSO2 API Manager 4.4.0** is the latest **WSO2 API Manager release** and is the successor of **WSO2 API Manager 4.3.0**.
 
 For more information on WSO2 API Manager, see the [overview]({{base_path}}/getting-started/overview/).
 
@@ -12,161 +12,163 @@ For more information on WSO2 API Manager, see the [overview]({{base_path}}/getti
 
 ## New features
 
-??? note "Integrating WSO2 API Platform with Kubernetes (APK) 1.1.0"
+??? note "Egress API Management Capability with support for LLM/AI"
 
-    The WSO2 API Platform for Kubernetes (APK) boasts gateway functionalities, serving as a comprehensive data plane. This permits effortless deployment of lightweight, container-native data plane instances using APK. It harnesses Kubernetes' capabilities to streamline API management, facilitating the creation of scalable, sturdy, and adaptable API ecosystems with reduced overhead. The latest release empowers users to administer the APK data plane via the API Manager 4.3.0 control plane. Additionally, it offers the flexibility to utilize API Manager 4.3.0 as the control plane for managing the APK data plane.
+    This release of API Manager introduces the capability to integrate AI services and large language models (LLMs) with APIs. It offers token-based rate limits and flexible business plans, making it simpler to manage. You also get detailed analytics on token usage, request counts, and performance, helping you make smart business decisions around AI models and vendors. With full API lifecycle management, you have complete control over your AI APIs. Plus, the optimized API gateways are designed to handle AI services efficiently, boosting overall performance.
 
-??? note "AI-powered API Chat for testing APIs using Natural Language"
+    **[Learn more]({{base_path}}/design/create-api/create-ai-api/create-an-ai-api/)**
 
-    This feature is designed to simplify API testing for consumers with minimal prior knowledge. This innovative tool allows users to interact and test APIs through natural language, making the exploration and testing process effortless and intuitive.
+??? note "WSO2 Identity Server 7.0 Authorization Server Support"
 
-    **[Learn more]({{base_path}}/consume/invoke-apis/invoke-apis-using-tools/test-apis-with-apichat)**
+    Integration with WSO2 Identity Server 7.x as an authorization server (key manager) is now supported, providing a unified key management solution for your API management requirements.
 
-??? note "AI-powered API Marketplace Assistant"
+    **[Learn more]({{base_path}}/administer/key-managers/configure-wso2is7-connector/)**
 
-    Enhance your API discovery process through intuitive natural language conversations, harnessing AI to receive personalized recommendations. This approach ensures you swiftly and accurately identify the most appropriate API, optimizing your search process for efficiency and effectiveness.
+??? note "Support for Consuming APIs without Subscriptions"
 
-    **[Learn more]({{base_path}}/consume/discover-apis/marketplace-assistant)**
+    API Manager now has the capability to disable the subscription requirement for API consumption. This simplifies the user experience by allowing users to avoid subscription approval and application creation processes.
 
-??? note "Ephemeral Access Tokens Support"
+    **[Learn more]({{base_path}}/design/advanced-topics/disable-subscriptions-for-an-api/)**
 
-    This feature enhances token management by eliminating the persistence of tokens in the database. In large-scale deployments, the persistence layer can become a bottleneck, leading to decreased throughput (TPS) for token generation. This reduction in TPS can significantly impair the overall performance of the deployment. This optimization enhances the scalability and performance of WSO2 API Manager deployments, ensuring efficient token management even under heavy loads.
+??? note "API Microgateway / Immutable Gateway Support with APIM 4.x"
 
-    **[Learn more]({{base_path}}/consume/token-management/token-persistence)**
+    API Manager 4.4.0 and other members of the 4.x family can now be seamlessly integrated with the WSO2 Microgateway 3.2.0 allowing users to choose the most suitable gateway solution for their needs.
 
-??? note "Versioning support for API Products"
+??? note "Dynamic API Flow Orchestration Support"
 
-    The API product feature enables the creation of a marketable API product by combining different resources from multiple APIs. The new feature includes the addition of versioning support for these API products, allowing users to more effectively manage and maintain various versions of their API offerings.
+    This feature lets developers easily manage messages, connect multiple services, and gather responses right within the API Gateway. With Synapse sequences as endpoints, you can route requests, add custom business logic, and orchestrate multiple services seamlessly, all without changing your backend APIs. It’s a straightforward way to handle complex API workflows and integrations.
 
-??? note "OpenAPI 3.1.0 support"
+    **[Learn more]({{base_path}}/tutorials/create-and-publish-a-sequencebackend-api/)**
 
-    WSO2 API Manager supports the latest version of the Open API Specification, which is OpenAPI 3.1.0. This allows the developers to create more standardized, well-documented APIs, streamlining the API development process and enhancing the overall developer experience.
+??? note "Enhanced Security with Client-Side mTLS Authentication"
 
-??? note "Advanced Runtime Diagnostics"
+    This feature boosts security with customized mTLS settings tailored to different environments, ensuring stronger protection. It also supports compliance by allowing environment-specific security configurations to meet various regulatory requirements. API consumers benefit from the flexibility to use different MTLS settings for production and sandbox environments without causing conflicts
 
-    A cutting-edge diagnostic tool, now available, offers deep insights into the API gateway runtime, identifying and resolving issues with unprecedented ease and efficiency.
+??? note "Business Plan Updates for Existing Subscriptions"
 
-    **[Learn more]({{base_path}}/troubleshooting/utilizing-runtime-diagnostic-tool)**
+    This approach offers flexibility to the users by allowing changes to business plans through API calls without requiring customers to unsubscribe and resubscribe.
 
-??? note "API level policy support for API Manager"
+??? note "Application Level Throttle Policy Reset Support"
 
-    This feature enhances the functionality of the existing system by supporting multiple policies at both the operation and API levels as opposed to just attaching a single policy for the whole API. Additionally, it introduces the capability to set the order of these policies, ensuring precise control over their execution. In cases where both operation-level and API-level policies are applied, the API-level policies take precedence, providing a hierarchical approach to policy management.
+    The latest version of API Manager introduces the capability to reset the Application level rate limiting policies once the throttling limit has been exceeded. With this, you no longer have to wait until the next access time if your API got throttled due to request spikes or unintended requests.
 
-    **[Learn more]({{base_path}}/design/api-policies/overview)**
+    **[Learn more]({{base_path}}/design/rate-limiting/resetting-application-throttling-policies/)**
 
-??? note "Gateway Specific Global Level Policies"
+??? note "Subscription Approval Support from API Publisher Portal"
 
-    In WSO2 API Manager, managing Global Level Policies within the gateway infrastructure is made easier. This streamlines policy handling, eliminating the need for administrators to manually create XML-type policy files. This feature facilitates a user-friendly approach to handling policies, eliminates the requirement for manual XML creation and placement in specific directories, and enhances control by providing a clear interface for creating, deploying, and undeploying policies, offering administrators better control over policy management.
-    
-    **[Learn more]({{base_path}}/deploy-and-publish/deploy-on-gateway/api-gateway/gateway-policies)**
+    The latest version of API Manager allows API product managers more control by letting them directly manage and approve subscription requests
 
-??? note "Support Azure AD as a third-party Key Manager"
+??? note "Audience Validation Support for JWTs"
 
-    WSO2 API Manager, known for its robust support for multiple key manager integrations, has further expanded its capabilities in the latest release. Now, it allows for the seamless configuration of Azure Active Directory (AzureAD) as a third-party Key Manager. This enhancement not only broadens the scope of external key manager support but also leverages AzureAD's comprehensive security and identity management features.
+    This feature improves the API security by introducing an extra level of validation to the JWTs. This approach is particularly useful when you need to restrict the API access to a particular audience when APIs are shared among multiple clients or services.
 
-    **[Learn more]({{base_path}}/administer/key-managers/configure-azure-ad-key-manager)**
+    **[Learn more]({{base_path}}/design/api-security/oauth2/access-token-types/jwt-tokens/#audience-validation)**
 
-??? note "Role based access control for Admin Portal"
+??? note "Enhanced Content Search Support"
 
-    The API Manager admin portal caters to various administrative roles, such as workflow administrators, policy administrators, and those managing key management features. A new functionality within the portal allows for the assignment of access levels to different sections, tailored to specific administrative scopes. Consequently, multiple administrators can be designated within the application, each with permissions to manage only the tasks pertinent to their specific roles, ensuring role-focused efficiency and security.
+    The latest version of API Manager expands its content search capabilities by allowing the users to search within the OpenAPI/Swagger, GraphQL schema, AsyncAPI, and WSDL definitions of the APIs.
 
-    **[Learn more]({{base_path}}/administer/role-based-access-control)**
+??? note "Multi DC Replication Support for PostgreSQL"
 
-??? note "Key Manager visibility support in Developer portal"
+    API Manager has database replication support with Oracle and SQL Server. With the introduction of support to PostgreSQL in the latest version, users have more options to deploy API Manager in multiple data centers with database replication.
 
-    Organizations often deploy multiple key management servers tailored to their specific use cases. When users create an application and generate access tokens, they are typically given the freedom to select their preferred key manager. However, it may be necessary to limit access to certain key management servers depending on the user's role. This functionality allows for the restriction of key manager access directly from the admin portal, with permissions set according to the user roles, ensuring appropriate access control and security measures are in place.
+??? note "Filtering Support for Denylist Throttling Policies"
 
-    **[Learn more]({{base_path}}/administer/key-managers/overview/#role-based-key-manager-restriction)**
+    This feature allows users to filter denylist throttling policies through the REST APIs.
 
-??? note "Approval workflow for deploying a revision"
-
-    With the revision deployment workflow enabled, revisions transition into a pending state, awaiting approval from an admin before deployment. This process ensures that admins can review and approve revisions before they are deployed to gateways, enhancing governance, and enabling better management of API changes. 
-
-    **[Learn more]({{base_path}}/deploy-and-publish/deploy-on-gateway/deploy-api/revision-deployment-workflow)**
-
-??? note "Enhanced API tiles to support optional properties like business-related information"
-
-    This feature enhances API tiles by adding support for optional properties such as business-related information and monetization status. With this enhancement, users have the flexibility to include additional details relevant to their specific business context directly within the API tiles.
-
-    **[Learn more]({{base_path}}/deploy-and-publish/publish-on-dev-portal/publish-an-api)**
-
-??? note "Application level policies with burst control support"
-
-    This feature involves the implementation of application-level burst control by incorporating burst control configurations into application policies. With this functionality, users can define specific burst control settings at the application level, enabling them to manage and regulate the rate at which requests are allowed to burst through the system.
-
-    **[Learn more]({{base_path}}/design/rate-limiting/setting-throttling-limits/#burst-control_1)**
-
-??? note "Distributed backend throttling mechanism, a shared counter-based algorithm to efficiently manage API traffic"
-
-    The backend rate limit feature is designed to safeguard backend systems from unexpected surges in API call bursts. For organizations utilizing multiple gateways within a cluster, managing this rate limiting becomes complex as the count needs to be consistent across all nodes, ensuring the backend does not exceed the specified limit. This feature enhances the synchronization process during distributed backend throttling, reducing discrepancies and improving precision in maintaining the defined rate limits.
-
-    **[Learn more]({{base_path}}/design/rate-limiting/advanced-topics/configuring-rate-limiting-api-gateway-cluster/#2-async-sync-hybrid-mode)**
-
-??? note "JWKS endpoint support, enabling seamless validation of backend access tokens send by API gateway"
-
-    Backend JWTs can be signed with RSA to ensure their validity when being sent between 2 parties. To verify the JWT on the backend, we need the public certificate of the private key used to sign the JWT at the Gateway. The JWKS endpoint is a way to get this public certificate.
-
-    **[Learn more]({{base_path}}/deploy-and-publish/deploy-on-gateway/api-gateway/passing-enduser-attributes-to-the-backend-via-api-gateway/#validating-backend-jwt-using-jwks-endpoint)**
-
-??? note "Support configuring resource attributes for OpenTelemetry connection"
-
-    OpenTelemetry provides a standardized framework for tracing requests as they traverse across distributed systems. With this integration, users can leverage environment-specific attributes such as deployment environment and service name through OTEL_RESOURCE_ATTRIBUTES. This allows for more granular control over tracing configurations, enabling users to tailor tracing behavior according to their specific deployment environments and service contexts within WSO2 API Manager.
-
-    **[Learn more]({{base_path}}/observe/api-manager/traces/monitoring-with-opentelemetry)**
-
-??? note "Configurable Crypto Provider support"
-
-    APIM allows users to configure their cryptographic provider, offering a choice between the default Bouncy Castle and Bouncy Castle FIPS, the latter being in compliance with FIPS 140-2 standards. This enhancement ensures that WSO2 API Manager users can achieve FIPS compliance in their deployments, enhancing the security and compliance of their cryptographic operations.
-
-    **[Learn more]({{base_path}}/install-and-setup/setup/advance-configurations/configuring-the-crypto-provider)**
-
-??? note "Global Key Manager support"
-
-    With this feature, a single token generated using the global key manager can be used to invoke cross-tenant APIs without generating a token in that specific tenant's key manager. This global key manager will be visible in the devportal of all the tenants and this can be used to generate a token which can be used to invoke APIs across tenants. Any third party key manager can be configured as a global key manager.
-
-    **[Learn more]({{base_path}}/administer/key-managers/configure-global-key-manager)**
-
-??? note "Improved revision descriptions display for API revisions"
-
-    The API revision feature enables the creation and management of multiple versions of the same API, allowing for selective deployment to different gateways. Users benefit from the capability to easily revert to previous versions if necessary, effectively using these revisions as restore points for their APIs. A notable enhancement to this feature is the addition of revision descriptions, which are displayed within the API Publisher portal, providing detailed context about each specific revision.
-
-??? note "Allow changing the owner of an API"
-
-    This feature allows users to transfer ownership of their API to another user within the same organization. Upon transfer, the new owner gains permissions to delete or edit the API as needed, ensuring seamless management and continuity within the organization.
-
-    **[Learn more]({{base_path}}/consume/manage-application/advanced-topics/changing-the-provider-of-an-api)**
-
-??? note "Support defining a custom API-Key header name at API level"
-
-    This feature aims to introduce functionality that allows users to utilize custom header names for the API-Key header.
-
-    **[Learn more]({{base_path}}/includes/design/create-publish-api)**  
-
-## Deprecated features and functionalities
+## Deprecated Features and Functionalities
 
 These features are deprecated and will be removed from subsequent versions of WSO2 API Manager.
 
-- **SSE Streaming API support**
+## Removed Features and Functionalities
 
-    The support for creating and using Server Sent Events (SSE) Streaming APIs will be deprecated from APIM 4.3.0.
+These features are unsupported and removed from WSO2 API Manager 4.4.0 onwards.
 
-## Removed features and functionalities
+## Key Changes
 
-These features are unsupported and removed from WSO2 API Manager 4.3.0 onwards.
+- With WSO2 API Manager 4.5.0, we introduce a Modular API Management Component Structure allowing independent deployment and lifecycle management of key components while maintaining compatibility across these different components. With this capability, users can update or upgrade different components as per their requirement without impacting the entire deployment. The components include,
+    1. The WSO2 API Control Plane (ACP) equivalent to the Control Plane (CP) in previous APIM releases without the traffic manager component, which manages the design, lifecycle, and governance of APIs at scale and consists of the Publisher, Developer Portal, Admin Portal and the Key management capabilities,
+    2. The WSO2 Universal Gateway which can secure and proxy API traffic with enterprise-grade features,
+    3. The Traffic Manager which handles API traffic policies and rate limiting at high volumes,
+    4. Other supporting components such as the WSO2 Kubernetes Gateway, API Controller and Immutable Gateway.
 
-- **Choreo Connect**
+- Product profiles are no longer available in the All-in-one distribution of WSO2 API Manager. Previously the API-M server allowed you to run the product on a selected profile so that only the features specific to that profile, along with common features, started with the server. Therefore if there is a requirement to configure a distributed deployment of WSO2 API Manager, you can use the Modular component architecture as mentioned above. The following table shows the component distributions you can use as a deployment alternative to the previous deployment architecture of your environment.
 
-    In previous releases, Choreo Connect was used as a cloud-native, decentralized, lightweight API Gateway designed especially for microservices. This is no longer supported from APIM 4.3.0 onwards. The recommendation is to use WSO2 API Platform for Kubernetes ([APK](https://wso2.com/api-platform-for-k8s/)).
+<table>
+    <colgroup>
+        <col />
+        <col />
+        <col />
+        <col />
+        <col />
+        <col />
+    </colgroup>
+    <thead>
+        <tr>
+            <th>Previous Deployment Pattern</th>
+            <th colspan="5">New Deployment Alternative</th>
+        </tr>
+        <tr>
+            <th></th>
+            <th>All-in-one</th>
+            <th>API Control Plane (ACP)</th>
+            <th>Universal Gateway</th>
+            <th>Traffic Manager</th>
+            <th>Key Manager of ACP</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>All-in-one</td>
+            <td style="text-align: center;">&#x2713;</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>Control Plane + Gateway</td>
+            <td style="text-align: center;">&#x2713;</td>
+            <td></td>
+            <td style="text-align: center;">&#x2713;</td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>Control Plane + Gateway + Traffic Manager</td>
+            <td></td>
+            <td style="text-align: center;">&#x2713;</td>
+            <td style="text-align: center;">&#x2713;</td>
+            <td style="text-align: center;">&#x2713;</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>Control Plane + Gateway + Key Manager</td>
+            <td style="text-align: center;">&#x2713;</td>
+            <td></td>
+            <td style="text-align: center;">&#x2713;</td>
+            <td></td>
+            <td style="text-align: center;">&#x2713;</td>
+        </tr>
+        <tr>
+            <td>Control Plane + Gateway + Traffic Manager + Key Manager</td>
+            <td></td>
+            <td style="text-align: center;">&#x2713;</td>
+            <td style="text-align: center;">&#x2713;</td>
+            <td style="text-align: center;">&#x2713;</td>
+            <td style="text-align: center;">&#x2713;</td>
+        </tr>
+    </tbody>
+</table>
 
 ## Compatible WSO2 product versions
 
-- WSO2 API Manager 4.3.0 is compatible with WSO2 Identity Server 6.1.0.
-- WSO2 API Manager 4.3.0 is compatible with WSO2 API Platform for Kubernetes ([APK](https://wso2.com/api-platform-for-k8s/)) version 1.1.0.
+{!includes/compatibility-matrix.md!}
 
 ## Fixed issues
 
-- [API Manager](https://github.com/wso2/api-manager/issues?q=is%3Aissue+is%3Aclosed+label%3AComponent%2FAPIM+closed%3A2023-03-22..2024-04-10)
-- [API Controller](https://github.com/wso2/api-manager/issues?q=is%3Aissue+is%3Aclosed+label%3AComponent%2FAPICTL+label%3AType%2FBug++closed%3A2023-03-22..2024-04-10)
+- [API Manager](https://github.com/wso2/api-manager/issues?q=is%3Aissue+is%3Aclosed+label%3AComponent%2FAPIM+closed%3A2024-04-11..2024-10-30+)
+- [API Controller](https://github.com/wso2/api-manager/issues?q=is%3Aissue+is%3Aclosed+label%3AComponent%2FAPICTL+label%3AType%2FBug++closed%3A2024-04-11..2024-10-30+)
 
 ## Known issues
 

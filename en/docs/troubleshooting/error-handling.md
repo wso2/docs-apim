@@ -41,17 +41,23 @@ Given below are some error codes and their meanings.
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
+<tr class="even">
 <td><code>700700</code></td>
 <td>API blocked</td>
 <td>This API has been blocked temporarily. Please try again later or contact the system administrators.</td>
 <td>Invoke an API which is in the <strong>BLOCKED</strong> lifecycle state</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td><code>900422</code></td>
 <td>Invalid GraphQL query</td>
 <td>Syntax of the provided GraphQL query is invalid</td>
 <td>Invoking a GraphQL API which has a invalid query</td>
+</tr>
+<tr class="even">
+<td><code>900424</code></td>
+<td>Temporary Server Error</td>
+<td>Server has encountered an error. Please try again.</td>
+<td>Invoking a protected backend with an invalid Oauth 2.0 backend token.</td>
 </tr>
 <tr class="odd">
 <td> <code>900800</code> </td>

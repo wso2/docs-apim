@@ -128,7 +128,7 @@ In this case, let's use `gw.am.wso2.com` as the hostname.
 
 1.  Configure the data publisher in the `apim.throttling.url_group` section which comes under the `apim.throttling.url_group` block in the `<API-M_HOME>/repository/conf/deployment.toml` file of both nodes.
     
-    1.  You need to update these configurations so that the Gateway can publish data to the Traffic Manager in its own node and the Traffic Manager in the other node, so that the same event is sent to both servers at the same time. 
+    1. You need to update these configurations so that the Gateway can publish data to the Traffic Manager in its own node and the Traffic Manager in the other node, so that the same event is sent to both servers at the same time. 
 
         The WSO2 Complex Event Processor (WSO2 CEP) component that lies within the Traffic Manager acts as the data receiver and processes the data to come up with Throttling decisions.
 
@@ -138,6 +138,7 @@ In this case, let's use `gw.am.wso2.com` as the hostname.
             ``` toml
             [apim.throttling]
             event_duplicate_url = ["tcp://<node2-hostname>:<node2-port>"]
+            throttle_decision_endpoints = ["tcp://<node1-hostname>:<node1-port>"]
 
             [[apim.throttling.url_group]]
             traffic_manager_urls = ["tcp://<node1-hostname>:<node1-port>"]
@@ -154,6 +155,7 @@ In this case, let's use `gw.am.wso2.com` as the hostname.
             ``` toml
             [apim.throttling]
             event_duplicate_url = ["tcp://127.0.0.1:5673"]
+            throttle_decision_endpoints = ["tcp://localhost:5672"]
 
             [[apim.throttling.url_group]]
             traffic_manager_urls = ["tcp://127.0.0.1:9611"]
@@ -172,6 +174,7 @@ In this case, let's use `gw.am.wso2.com` as the hostname.
             ``` toml
             [apim.throttling]
             event_duplicate_url = ["tcp://<node1-hostname>:<node1-port>"]
+            throttle_decision_endpoints = ["tcp://<node2-hostname>:<node2-port>"]
 
             [[apim.throttling.url_group]]
             traffic_manager_urls = ["tcp://<node1-hostname>:<node1-port>"]
@@ -188,6 +191,7 @@ In this case, let's use `gw.am.wso2.com` as the hostname.
             ``` toml
             [apim.throttling]
             event_duplicate_url = ["tcp://127.0.0.1:5672"]
+            throttle_decision_endpoints = ["tcp://localhost:5673"]
 
             [[apim.throttling.url_group]]
             traffic_manager_urls = ["tcp://127.0.0.1:9611"]
@@ -200,7 +204,7 @@ In this case, let's use `gw.am.wso2.com` as the hostname.
             type = "loadbalance"
             ```
 
-    2.  Save your changes.
+    2. Save your changes.
 
 {!includes/design/redis-counter-note.md!}
 
@@ -217,7 +221,7 @@ enabled = true
 
 API Manager Analytics is delivered via the API Manager Analytics cloud solution. You need to configure the API Manager Gateway to publish analytics data into the cloud.
 
-See the instructions on [configuring the API Gateway]({{base_path}}/api-analytics/gateways/configure-synapse-gateway) with the cloud-based analytics solution.
+See the instructions on [configuring the API Gateway]({{base_path}}/includes/analytics/configure-synapse-gateway/) with the cloud-based analytics solution.
 
 ## Step 11 - Configure Production Hardening
 

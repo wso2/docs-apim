@@ -1,4 +1,4 @@
-# XML Threat Protection for API Gateway
+# XML Threat Protection for Universal Gateway
 
 The XML threat protector in WSO2 API Manager validates the XML payload vulnerabilities based on the pre-configured 
 limits. It uses following methodologies to thwart the gateway from XML based attacks.

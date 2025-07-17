@@ -26,10 +26,10 @@ You can export an application in the Developer Portal and download it as a zippe
 1.  Log in to the WSO2 API-M in the exporting environment by following the instructions in [Login to an Environment]({{base_path}}/install-and-setup/setup/api-controller/getting-started-with-wso2-api-controller#login-to-an-environment).  
     
     !!! tip
-        If you are already logged-in and your logged-in credentials and the keys are already available in the `<USER_HOME>/.wso2apictl/keys.json` file, you can skip this step. 
+        If you are already logged-in and your logged-in credentials and the keys or the access-token are (is) already available in the `<USER_HOME>/.wso2apictl/keys.json` file, you can skip this step. 
 
     !!! info
-        If you skip step 1 and if no keys exist for the environment in the `<USER_HOME>/.wso2apictl/keys.json` file, you will be prompt to log in to the environment when running the next command.
+        If you skip step 1 and if no keys or a token exist(s) for the environment in the `<USER_HOME>/.wso2apictl/keys.json` file, you will be prompt to log in to the environment when running the next command.
 
 2.  Run any of the following apictl commands to export an existing application as a `.zip` archive.
 
@@ -113,6 +113,65 @@ The structure of an exported Application ZIP file is explained below:
      </tbody>
 </table>
 
+## Export all the Applications of a tenant at once
+
+You can use the below command to export all the Applications belong to the currently logged in user's tenant at once.
+
+- **Command**
+
+    ``` go
+    apictl export apps --environment <environment-from-which-artifacts-should-be-exported> 
+    ```
+    ``` go
+    apictl export apps --environment <environment-from-which-artifacts-should-be-exported> --force 
+    ```
+    ``` go
+    apictl export apps --environment <environment-from-which-artifacts-should-be-exported> --format <export-format> --force 
+    ```
+
+    !!! info
+        **Flags:**
+
+        -    Required :      
+            `--environment` or `-e` : Environment from which the Applications should be exported  
+        -    Optional :   
+            `--force` : Clean all the previously exported Applications of the given target tenant, in the given environment if any, and to export Applications from beginning
+            `--format` : File format of exported archive (JSON or YAML). The default value is YAML.
+
+    !!! example
+        ```go
+        apictl export apps -e production
+        ```
+        ```go
+        apictl export apps --environment production --format json --force
+        ```
+
+- **Response**
+
+    === "Response Format"
+        ``` go
+        Exporting Applications...
+        Cleaning all the previously exported Applications of the given target tenant, in the given environment if any, and prepare to export Applications from beginning
+        Batch of <number-of-Applications> Apps exported successfully..!
+
+        Total number of Apps exported: <number-of-Applications>
+        App export path: <USER_HOME>/.wso2apictl/exported/migration/<environment-name>/tenant-default/apps
+
+        Command: export apps execution completed !
+        ```
+
+    === "Example Response"
+        ``` go
+        Exporting Applications...
+        Cleaning all the previously exported Applications of the given target tenant, in the given environment if any, and prepare to export Applications from beginning
+        Batch of 5 Apps exported successfully..!
+
+        Total number of Apps exported: 5
+        App export path: /Users/kim/.wso2apictl/exported/migration/<environment-name>/tenant-default/apps
+
+        Command: export apps execution completed !
+        ```
+
 ## Import an application
 
 You can import an application to your environment as a zipped application. When you import an application as a zipped file, a new application is created within the target environment.
@@ -120,10 +179,10 @@ You can import an application to your environment as a zipped application. When 
 1.  Log in to the WSO2 API-M in the importing environment by following the instructions in [Login to an Environment]({{base_path}}/install-and-setup/setup/api-controller/getting-started-with-wso2-api-controller#login-to-an-environment).  
     
     !!! tip
-        If you are already logged-in and your logged-in credentials and the keys already are available in the `<USER_HOME>/.wso2apictl/keys.json` file, you can skip this step. 
+        If you are already logged-in and your logged-in credentials and the keys or the access-token are (is) already available in the `<USER_HOME>/.wso2apictl/keys.json` file, you can skip this step. 
 
     !!! info
-        If you skip step 1 and if no keys exist for the environment in the `<USER_HOME>/.wso2apictl/keys.json` file, you will be prompt to log in to the environment when running the next command.
+        If you skip step 1 and if no keys or a token exist(s) for the environment in the `<USER_HOME>/.wso2apictl/keys.json` file, you will be prompt to log in to the environment when running the next command.
 
 2.  Run any of the following apictl commands to import an existing application as a `.zip` archive.
 

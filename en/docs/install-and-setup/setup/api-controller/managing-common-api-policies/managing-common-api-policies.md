@@ -109,14 +109,14 @@ For more information, see [Download and Initialize the apictl]({{base_path}}/ins
 
             !!! example
                 ```bash
-                apictl delete policy api -n addHeader -v v1 -e dev
+                apictl delete policy api -n addHeader -v v2 -e dev
                 ```
                 ```bash
-                apictl delete policy api --name addHeader --version v1 --environment production 
+                apictl delete policy api --name addHeader --version v2 --environment production 
                 ```
 
         -   **Response**
 
             ```bash
-            addHeader common API Policy with the version v1 deleted successfully!
+            addHeader API Policy with the version v2 deleted successfully!
             ```

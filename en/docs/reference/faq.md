@@ -62,10 +62,6 @@ Yes, you can do this using the **Features** menu under the **Configure** menu of
 
 The memory allocation settings are stored in the `<API-M_HOME>/bin/api-manager.sh` file.
 
-### How do I start up only selected components of the API Manager?
-
-Even though the API Manager bundles all components together, you can select which component(s) you want to start by using the `-Dprofile` command at product startup. For more information, see [Product Profiles]({{base_path}}/install-and-setup/setup/distributed-deployment/product-profiles/).
-
 ------------------------------------------------------------------------
 
 ## Deployment
@@ -76,7 +72,7 @@ See [Deploying WSO2 API Manager]({{base_path}}/install-and-setup/setup/deploymen
 
 ### What are the container technologies that are supported in API Manager?
 
-OpenShift, Docker, Kubernetes and Mesos are supported.
+Docker, and Kubernetes are supported.
 
 ### Is it recommended to run multiple WSO2 products on a single server?
 
@@ -229,10 +225,6 @@ You can verify whether the password change is applied correctly by checking the 
 ```
 Go to the **Resources &gt; Browse** menu in the management console to open the registry and update the credentials in the `/_system/governance/apimgt/applicationdata/sign-up-config.xml` registry location.
 
-### How can I recover the admin password used to log in to the management console?
-
-Use the `<API-M_HOME>/bin/chpasswd.sh` script.
-
 ### How can I manage session timeouts for the management console?
 
 To configure session timeouts, see [Configuring the session time-out]({{base_path}}/install-and-setup/install/installing-the-product/running-the-api-m/#configuring-the-session-time-out).
@@ -259,6 +251,22 @@ password = "<![CDATA[your-password]]>"
 ### How can I protect my product server from security attacks caused by weak ciphers?
 
 You can protect your server from attacks such as the Logjam attack (Man-in-the-Middle attack) by disabling weak ciphers. For more details, see [Disable weak ciphers]({{base}}/install-and-setup/setup/security/configuring-transport-level-security/#disabling-weak-ciphers) in the WSO2 Admin Guide.
+
+### How can I distinguish between expired and invalid tokens in an authentication failure scenario?
+
+By default, API-M suppresses authentication failure details for security. If you need to see why a token was rejected, start API-M with the following JVM flag to add token status details **to the message context**, which you can then read in `_auth_failure_handler_.xml`:
+
+```bash
+./wso2server.sh -DincludeTokenInfoInMsgCtx=true
+```
+
+The table below lists the properties that become available and what each one represents.
+
+| Property                      | Purpose                                                                  |
+| ----------------------------- | ------------------------------------------------------------------------ |
+| `ACCESS_TOKEN`                | Raw access token extracted from the request.                             |
+| `ACCESS_TOKEN_INVALID_REASON` | Validation result: `"Access token expired"` or `"Access token invalid"`. |
+
 
 ## Troubleshooting
 

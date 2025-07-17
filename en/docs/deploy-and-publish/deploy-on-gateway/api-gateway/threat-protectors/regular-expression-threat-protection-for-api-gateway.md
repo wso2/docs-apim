@@ -1,4 +1,4 @@
-# Regular Expression Threat Protection for API Gateway
+# Regular Expression Threat Protection for Universal Gateway
 
 WSO2 API Manager provides predefined regex patterns to sanitize the request from SQL injection attacks. The attacks 
 may depend on the API traffic at runtime. The API developers should identify the common attacks and select the 
@@ -50,15 +50,19 @@ We recommend the following patterns for denying requests.
         <tr class="even">
             <td>XPath Injection</td>
             <td>
-                <code>.*'.*|.*or.*|.*1=1.*|.*ALTER.*|.*ALTER TABLE.*|.*ALTER VIEW.*|</code><br />
+                <code>.*'.*|(?\u003C![\w\d])or(?![\w\d])|.*1=1.*|.*ALTER.*|.*ALTER TABLE.*|.*ALTER VIEW.*|</code><br />
                 <code>.*CREATE DATABASE.*|.*CREATE PROCEDURE.*|.*CREATE SCHEMA.*|</code><br />
                 <code>.*create table.*|.*CREATE VIEW.*|.*DELETE.*|.*DROP DATABASE.*|</code><br />
                 <code>.*DROP PROCEDURE.*|.*DROP.*|.*SELECT.*</code>
             </td>
         </tr>
         <tr class="odd">
-            <td>JavaScript Exception</td>
-            <td><p><code>&lt;\s*script\b[^&gt;]*&gt;[^&lt;]+&lt;\s*/\s*script\s*&gt;</code></p></td>
+            <td>JavaScript Injection</td>
+            <td><p>
+                ```
+                &lt;\s*script\b[^&gt;]*&gt;[^&lt;]+&lt;\s*/\s*script\s*&gt;
+                ```
+            </p></td>
         </tr>
         <tr class="even">
             <td>XPath Expanded Syntax Injection</td>

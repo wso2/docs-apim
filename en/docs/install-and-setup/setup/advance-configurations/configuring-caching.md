@@ -1,6 +1,6 @@
 # Configuring Caching
 
-When an API call hits the API Gateway, the Gateway carries out security checks to verify if the token is valid. During these verifications, the API Gateway extracts parameters (i.e., access token, API name, and API version) that are passed on to it. As the entire load of the traffic to APIs goes through the API Gateway, this verification process needs to be fast and efficient in order to prevent overhead and delays. WSO2 API Manager uses caching for this purpose, where the validation information is cached with the token, API name, and version, and the cache is stored in either the API Gateway or the Key Manager server.
+When an API call hits the Universal Gateway, the Gateway carries out security checks to verify if the token is valid. During these verifications, the Universal Gateway extracts parameters (i.e., access token, API name, and API version) that are passed on to it. As the entire load of the traffic to APIs goes through the Universal Gateway, this verification process needs to be fast and efficient in order to prevent overhead and delays. WSO2 API Manager uses caching for this purpose, where the validation information is cached with the token, API name, and version, and the cache is stored in either the Universal Gateway or the Key Manager server.
 
 The default cache size of any type of cache in a WSO2 product is 10,000 elements/records. Cache eviction occurs from the 10001st element. All caches in WSO2 products can be configured using the `<PRODUCT_HOME>/repository/conf/deployment.toml` file. In case you have not defined a value for default cache timeout under server configurations, the `defaultCacheTimeout` of 15 minutes will be applied which comes by default.
 
@@ -18,18 +18,18 @@ These configurations apply globally to all caches. You can override these values
     Apart from response caching, all the other caches are enabled by the product. When the WSO2 API Manager components are clustered, they work as distributed caches. This means that a change done by one node is visible to another node in the cluster.
 
 
-## API Gateway cache
+## Universal Gateway cache
 
-When caching is enabled at the Gateway and a request hits the Gateway, it first populates the cached entry for a given token. If a cache entry does not exist in the cache, it calls the Key Manager server. This process is carried out using Web service calls. After the Key Manager server returns the validation information, it gets stored in the Gateway. As the API Gateway issues a Web service call to the Key Manager server only, if it does not have a cache entry, this method reduces the number of Web service calls to the Key Manager server. Therefore, it is faster than the alternative method.
+When caching is enabled at the Gateway and a request hits the Gateway, it first populates the cached entry for a given token. If a cache entry does not exist in the cache, it calls the Key Manager server. This process is carried out using Web service calls. After the Key Manager server returns the validation information, it gets stored in the Gateway. As the Universal Gateway issues a Web service call to the Key Manager server only, if it does not have a cache entry, this method reduces the number of Web service calls to the Key Manager server. Therefore, it is faster than the alternative method.
 
-By default, the API Gateway cache is enabled. This can be disabled by modifying the following attribute in the `<PRODUCT_HOME>/repository/conf/deployment.toml` file.
+By default, the Universal Gateway cache is enabled. This can be disabled by modifying the following attribute in the `<PRODUCT_HOME>/repository/conf/deployment.toml` file.
 
 ```
 [apim.cache.gateway_token]
 enable = false
 ```
 
-### Clearing the API Gateway cache
+### Clearing the Universal Gateway cache
 
 When a token is revoked at the Key Manager, a token revocation event is sent to the Traffic Manager. Gateways receive this token revocation controller event and clear the cache accordingly.
 
@@ -81,7 +81,7 @@ For information on how to enable JWT claims caching, see [JWT claims Caching]({{
 
 ### Publisher-roles cache
 
-This indicates whether the role cache needs to be enabled in the Publisher. It is disabled by default. If this is disabled, for all API publisher calls, there will be a call to the Key Manager. It expires in 15 minutes by default. It is highly recommended to enable this cache. However, if the system is in a state where the role addition and deletion happen seamlessly, the caching will not happen as expected.
+This indicates whether the role cache needs to be enabled in the Publisher. It is enabled by default. If this is disabled, for all API publisher calls, there will be a call to the Key Manager. It expires in 15 minutes by default. It is highly recommended to keep this cache enabled. However, if the system is in a state where the role addition and deletion happen seamlessly, the caching will not happen as expected.
 
 ```
 [apim.cache.publisher_roles]
