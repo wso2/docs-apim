@@ -45,9 +45,9 @@ Follow these steps to integrate the Sentence Count Guardrail policy into your WS
    - Use the provided `policy-definition.json` and `artifact.j2` files to register the policy through the Publisher Portal or via the Publisher REST APIs.
 
 5. **Apply and Deploy the Policy**
-    - Open the **API Publisher Portal (https://<host>:<port>/publisher)**
+    - Open the **API Publisher Portal** `(https://<host>:<port>/publisher)`
     - Select your API
-    - Go to **Runtime > Request/Response Flow**
+    - Go to **Develop > API Configurations > Policies > Request/Response Flow**
     - Click **Add Policy**, select the new **Sentence Count Guardrail** policy
     - Provide the required configuration (name, min, max, etc.)
     - **Save and Deploy** the API
