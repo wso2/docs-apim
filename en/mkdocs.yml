@@ -229,6 +229,7 @@ nav:
             - Validate API Definitions with Linters: design/advanced-topics/validate-api-definitions-with-linters.md
             - Notifications:
                 - Overview: design/advanced-topics/notifications/notifications-overview.md
+            - API Governance CLI Tool: design/advanced-topics/api-governance-cli-tool.md
     - Deploy and Publish APIs:
         - Deploy on Gateway:
             - Deploy API:
