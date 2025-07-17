@@ -30,12 +30,12 @@ Follow these steps to integrate the URL Guardrail policy into your WSO2 API Mana
 
     > ℹ️ This will generate a `.zip` file in the `target/` directory containing the mediator JAR, policy-definition.json and artifact.j2.
 
-2. **Unzip the build artifact:**  
+2. **Unzip the build artifact**  
     ```bash
     unzip target/org.wso2.apim.policies.mediation.ai.url-guardrail-<version>-distribution.zip -d url-guardrail
     ```
 
-3. **Copy the mediator JAR into your API Manager’s runtime libraries:**  
+3. **Copy the mediator JAR into your API Manager’s runtime libraries**  
     ```bash
     cp url-guardrail/org.wso2.apim.policies.mediation.ai.url-guardrail-<version>.jar $APIM_HOME/repository/components/lib/
     ```

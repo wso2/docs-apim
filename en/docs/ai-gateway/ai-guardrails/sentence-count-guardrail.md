@@ -29,13 +29,13 @@ Follow these steps to integrate the Sentence Count Guardrail policy into your WS
 
     > ℹ️ This will generate a `.zip` file in the `target/` directory containing the mediator JAR, policy-definition.json and artifact.j2.
 
-2. **Unzip the build artifact:** 
+2. **Unzip the build artifact** 
    ```bash
    unzip org.wso2.apim.policies.mediation.ai.sentence-count-guardrail-<version>-distribution.zip -d sentence-count-guardrail
    ```
 
 3. **Copy the Mediator JAR**  
-   Place the mediator JAR into your API Manager’s runtime libraries:
+   Place the mediator JAR into your API Manager’s runtime libraries using the following command.
 
    ```bash
    cp sentence-count-guardrail/org.wso2.apim.policies.mediation.ai.sentence-count-guardrail-<version>.jar $APIM_HOME/repository/components/lib/
@@ -45,7 +45,7 @@ Follow these steps to integrate the Sentence Count Guardrail policy into your WS
    - Use the provided `policy-definition.json` and `artifact.j2` files to register the policy through the Publisher Portal or via the Publisher REST APIs.
 
 5. **Apply and Deploy the Policy**
-    - Open the **API Publisher**
+    - Open the **API Publisher Portal (https://<host>:<port>/publisher)**
     - Select your API
     - Go to **Runtime > Request/Response Flow**
     - Click **Add Policy**, select the new **Sentence Count Guardrail** policy
