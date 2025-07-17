@@ -45,7 +45,7 @@ Follow these steps to integrate the JSON Schema Guardrail policy into your WSO2 
 5. **Apply and Deploy the Policy**
     - Go to **API Publisher**
     - Select your API
-    - Navigate to **Runtime > Request/Response Flow**
+    - Navigate to **Develop > API Configurations > Policies > Request/Response Flow**
     - Click **Add Policy** and choose **JSON Schema Guardrail**
     - Drag and drop the policy into the response flow
     - Configure the policy parameters (name, JSONPath, schema, etc.)

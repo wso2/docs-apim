@@ -35,22 +35,22 @@ Follow these steps to integrate the Content Length Guardrail policy into your WS
    ```
 
 3. **Copy the mediator JAR into your API Manager’s runtime libraries**  
-   Place the mediator JAR into your API Manager’s runtime libraries using the following command.
+    Place the mediator JAR into your API Manager’s runtime libraries using the following command.
 
-   ```bash
-   cp content-length-guardrail/org.wso2.apim.policies.mediation.ai.content-length-guardrail-<version>.jar $APIM_HOME/repository/components/lib/
-   ```
+    ```bash
+    cp content-length-guardrail/org.wso2.apim.policies.mediation.ai.content-length-guardrail-<version>.jar $APIM_HOME/repository/components/lib/
+    ```
 
 4. **Register the Policy in Publisher**  
     - Use the provided `policy-definition.json` and `artifact.j2` files to register the policy through the Publisher Portal or via the Publisher REST APIs.
 
 5. **Apply and Deploy the Policy**
-   - Open the **API Publisher Portal** `(https://<host>:<port>/publisher)`
-   - Select your API
-   - Go to **Develop > API Configurations > Policies > Request/Response Flow**
-   - Click **Add Policy**, select the new **Content Length Guardrail** policy
-   - Provide the required configuration (name, min, max, etc.)
-   - **Save and Deploy** the API
+    - Open the **API Publisher Portal** `(https://<host>:<port>/publisher)`
+    - Select your API
+    - Go to **Develop > API Configurations > Policies > Request/Response Flow**
+    - Click **Add Policy**, select the new **Content Length Guardrail** policy
+    - Provide the required configuration (name, min, max, etc.)
+    - **Save and Deploy** the API
 
 ## Example Policy Configuration
 ??? example "Click to expand configuration steps"
