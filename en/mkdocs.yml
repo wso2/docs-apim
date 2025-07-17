@@ -232,6 +232,8 @@ nav:
             - Block Subscription to an API: design/advanced-topics/block-subscription-to-an-api.md
             - Disable Subscription Requirement for an API: design/advanced-topics/disable-subscriptions-for-an-api.md
             - Validate API Definitions with Linters: design/advanced-topics/validate-api-definitions-with-linters.md
+            - Notifications:
+                - Overview: design/advanced-topics/notifications/notifications-overview.md
             - API Governance CLI Tool: design/advanced-topics/api-governance-cli-tool.md
     - Deploy and Publish APIs:
         - Deploy on Gateway:
