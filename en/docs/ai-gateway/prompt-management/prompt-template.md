@@ -23,7 +23,7 @@ Prompt templates are a foundational **prompt engineering technique** used to sta
 
 Follow these steps to integrate the Prompt Template Guardrail policy into your WSO2 API Manager instance:
 
-1. Clone and build the project from [**Prompt Decorator**](https://github.com/wso2-extensions/apim-policies/tree/main/mediation/ai/prompt-decorator/universal-gw/prompt-decorator)
+1. Clone and build the project from [**Prompt Template**](https://github.com/wso2-extensions/apim-policies/tree/main/mediation/ai/prompt-template/universal-gw/prompt-template)
 
     ```bash
     mvn clean install
@@ -53,7 +53,7 @@ Follow these steps to integrate the Prompt Template Guardrail policy into your W
 5. **Apply and Deploy the Policy**
     - Open the **API Publisher**
     - Select your API
-    - Navigate to **Runtime > Request/Response Flow**
+    - Navigate to **Develop > API Configurations > Policies > Request/Response Flow**
     - Click **Add Policy** and select **Prompt Template Guardrail**
     - Provide the required configuration (template, placeholder mapping, etc.)
     - **Save and Deploy** the API
