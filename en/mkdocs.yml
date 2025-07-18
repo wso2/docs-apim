@@ -333,6 +333,10 @@ nav:
                 - Overview: ai-gateway/ai-vendor-management/custom-ai-vendors/overview.md
                 - Custom Connector: ai-gateway/ai-vendor-management/custom-ai-vendors/custom-connector.md
                 - Onboarding Anthropic's Claude: ai-gateway/ai-vendor-management/custom-ai-vendors/onboarding-anthropic-claude.md
+        - Prompt Management:
+            - Overview: ai-gateway/prompt-management/overview.md
+            - Prompt Decorator: ai-gateway/prompt-management/prompt-decorator.md
+            - Prompt Template: ai-gateway/prompt-management/prompt-template.md
         - AI Guardrails:
             - Overview: ai-gateway/ai-guardrails/overview.md
             - Conent Length Guardrail: ai-gateway/ai-guardrails/content-length-guardrail.md
