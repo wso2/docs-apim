@@ -202,7 +202,7 @@ If you want to quickly try out WSO2 API Manager on Kubernetes with minimal confi
 
    **Deploy Universal Gateway**:
    ```bash
-   helm install gw wso2/wso2am-gw --version 4.5.0-3 \
+   helm install gw wso2/wso2am-universal-gw --version 4.5.0-3 \
      -f https://raw.githubusercontent.com/wso2/helm-apim/main/docs/am-pattern-5-all-in-one_GW_KM/default_gw_values.yaml
    ```
 
@@ -568,7 +568,7 @@ Deploy the Universal Gateway component with your custom configuration:
 
 ```bash
 # Install Gateway component
-helm install <release-name> wso2/wso2am-gw \
+helm install <release-name> wso2/wso2am-universal-gw \
   --version 4.5.0-3 \
   --namespace <namespace> \
   --dependency-update \
