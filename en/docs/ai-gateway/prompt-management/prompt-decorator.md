@@ -53,7 +53,7 @@ Follow these steps to integrate the Prompt Decorator Guardrail policy into your 
 5. **Apply and Deploy the Policy**
     - Open the **API Publisher**
     - Select your API
-    - Navigate to **Runtime > Request/Response Flow**
+    - Navigate to **Develop > API Configurations > Policies > Request/Response Flow**
     - Click **Add Policy** and select **Prompt Decorator Guardrail**
     - Provide the required configuration (mode, decorator content, fields to apply on, etc.)
     - **Save and Deploy** the API
