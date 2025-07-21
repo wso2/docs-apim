@@ -50,9 +50,9 @@ You can invoke these operations using a SOAP client like SOAP UI as follows:
     ``` java
             api-manager.bat
     ```
-
-        !!! tip
-    Get the list of available admin services
+    !!! tip:
+    
+    * Get the list of available admin services
 
     If you want to discover the admin services that are exposed by your product:
 
@@ -76,7 +76,7 @@ You can invoke these operations using a SOAP client like SOAP UI as follows:
     This will give the list of admin services for your product.
 
 
-3.  Start the SOAP UI client, and import the WSDL of the admin service that you are using:
+4.  Start the SOAP UI client, and import the WSDL of the admin service that you are using:
 
     -   For `TenantMgtAdminService: https://localhost:9443/services/TenantMgtAdminService?wsdl`
     -   For `RemoteTenantManagerService: https://localhost:9443/services/RemoteTenantManagerService?wsdl`
@@ -91,9 +91,9 @@ You can invoke these operations using a SOAP client like SOAP UI as follows:
     -   Note that it is **not recommended** to delete tenants.
 
 
-4.  Click on the operation to open the request view. For example, to activate a tenant use the `activateTenant` operation.
+5.  Click on the operation to open the request view. For example, to activate a tenant use the `activateTenant` operation.
 
-5.  If your tenant domain is abc.com, invoke the `activateTenant` operation with the following request:
+6.  If your tenant domain is abc.com, invoke the `activateTenant` operation with the following request:
 
     ``` java
         <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ser="http://services.mgt.tenant.carbon.wso2.org">
