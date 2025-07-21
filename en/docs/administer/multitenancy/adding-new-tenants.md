@@ -42,13 +42,13 @@ You can invoke these operations using a SOAP client like SOAP UI as follows:
     **In Linux**
 
     ``` java
-        sh api-manager.sh
+    sh api-manager.sh
     ```
 
     **In Windows**
 
     ``` java
-            api-manager.bat
+    api-manager.bat
     ```
     !!! tip:
     
@@ -61,13 +61,13 @@ You can invoke these operations using a SOAP client like SOAP UI as follows:
         **In Linux**
 
         ``` java
-                sh api-manager.sh -DosgiConsole
+        sh api-manager.sh -DosgiConsole
         ```
 
         **In Windows**
 
         ``` java
-                    api-manager.bat -DosgiConsole
+        api-manager.bat -DosgiConsole
         ```
 
     2.  When the server is started, hit the enter/return key several times to get the OSGI shell in the console.
