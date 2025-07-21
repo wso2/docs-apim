@@ -339,7 +339,7 @@ nav:
             - Prompt Template: ai-gateway/prompt-management/prompt-template.md
         - AI Guardrails:
             - Overview: ai-gateway/ai-guardrails/overview.md
-            - Conent Length Guardrail: ai-gateway/ai-guardrails/content-length-guardrail.md
+            - Content Length Guardrail: ai-gateway/ai-guardrails/content-length-guardrail.md
             - Regex Guardrail: ai-gateway/ai-guardrails/regex-guardrail.md
             - JSON Schema Guardrail: ai-gateway/ai-guardrails/json-schema-guardrail.md
             - Sentence Count Guardrail: ai-gateway/ai-guardrails/sentence-count-guardrail.md
