@@ -150,7 +150,7 @@ Follow these steps to integrate the **Semantic Prompt Guardrail** policy into yo
 
     ### Mode: Allow
 
-    This example demonstrates how the policy can be used to block requests that attempt to jailbreak or perform harmful actions on LLM services:
+    This example demonstrates how the policy permits only requests that are semantically similar to the prompts defined in the allow list:
 
     1. Create an AI API with Mistral AI.
     2. Add the `Semantic Prompt Guardrail` policy in the request flow with the following configuration:
