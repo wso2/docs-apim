@@ -129,6 +129,9 @@ Transport Level Security</a>.</p>
 <td><p>Enabling HTTP Strict Transport Security Headers (HSTS)</p></td>
 <td><p>Be sure that HTTP Strict Transport Security (HSTS) is enabled for all the applications deployed in your server. This includes the management console, and any other web applications and/or Jaggery applications.</p>
 <p>Note that (for WSO2 products based on Carbon 4.4.11 or later versions, which implies API-M 2.1.0 and newer) HSTS is disabled for the applications with which the product is shipped by default. This is because HSTS validation can interrupt the development processes by validating signatures of self-signed certificates.</p>
+
+<p>To enable HSTS please follow the instructions <a href="{{base_path}}/install-and-setup/setup/deployment-best-practices/security-guidelines-for-production-deployment/#enable-http-strict-transport-security-hsts-headers">Enable HTTP Strict Transport Security (HSTS) Headers</a>.</p>
+
 </tr>
 <tr class="even">
 <td><p>Preventing browser caching</p></td>
@@ -462,3 +465,38 @@ Follow the steps below to change the default credentials.
     
     - Linux/Unix : sh api-manager.sh
     - Windows : api-manager.bat
+
+
+### Enable HTTP Strict Transport Security (HSTS) Headers
+
+To enable HSTS for all the Tomcat deployed webapps including Management console, Publisher, Developer and Admin portals, please add the below config to the `deployment.toml` file.
+
+```
+[[tomcat.filter]]
+name = "httpHeaderSecurity"
+class = "org.apache.catalina.filters.HttpHeaderSecurityFilter"
+async_supported = true
+
+[tomcat.filter.init_params]
+hstsEnabled = true
+hstsMaxAgeSeconds = 31536000
+hstsIncludeSubDomains = true
+
+[[tomcat.filter_mapping]]
+name = "httpHeaderSecurity"
+url_pattern = "/*"
+dispatchers = "REQUEST"
+```
+
+To enable HSTS only to selected web applications, check whether the HttpHeaderSecurityFilter stored in the `<APIM_HOME>/repository/deployment/server/webapps/` directory is available in the `web.xml` file of that particular web application. If the filter is available, enable HSTS as shown below.
+
+```
+<filter>
+    <filter-name>HttpHeaderSecurityFilter</filter-name>        
+    <filter-class>org.apache.catalina.filters.HttpHeaderSecurityFilter</filter-class>
+</filter>
+<filter-mapping>     
+    <filter-name>HttpHeaderSecurityFilter</filter-name>     
+    <url-pattern>*</url-pattern>
+</filter-mapping>
+```
