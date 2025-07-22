@@ -56,7 +56,7 @@ You can invoke these operations using a SOAP client like SOAP UI as follows:
 
     If you want to discover the admin services that are exposed by your product:
 
-    1.  Execute the following command:
+    a.  Execute the following command:
 
         **In Linux**
 
@@ -70,8 +70,9 @@ You can invoke these operations using a SOAP client like SOAP UI as follows:
         api-manager.bat -DosgiConsole
         ```
 
-    2.  When the server is started, hit the enter/return key several times to get the OSGI shell in the console.
-    3.  In the OSGI shell, enter the following: `listAdminServices`
+    b.  When the server is started, hit the enter/return key several times to get the OSGI shell in the console.
+    
+    c.  In the OSGI shell, enter the following: `listAdminServices`
 
     This will give the list of admin services for your product.
 
