@@ -148,7 +148,7 @@ Interceptor can instruct the Choreo-Connect Router what should be done with the 
 | pathToRewrite                | **Rewrites** the request path with the provided value. 
 
 !!! attention "Update Level 15"
-    The pathToRewrite field is available only as an update, after Update level 1.2.0.15 (released on 03 February 2025) and further. For more information regarding Choreo Connect updates, see [here]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/update-choreo-connect/).
+    The pathToRewrite field is available only as an U2 update, after Update level 1.2.0.15 (released on the 3rd of February 2025) and further. For more information regarding Choreo Connect updates, see [here]({{base_path}}/deploy-and-publish/deploy-on-gateway/choreo-connect/update-choreo-connect/).
 
 <!-- The content of the below warning is same as the info notice in the file
 deploy-and-publish/deploy-on-gateway/choreo-connect/message-transformation/defining-interceptors-in-an-open-api-definition.md -->
