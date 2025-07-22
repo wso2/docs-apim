@@ -354,7 +354,7 @@ template: templates/single-column.html
 <div class="homePage">
     <div class="description-section">
         <div class="leftContent">
-            </br>
+            <br>
             <p>
                 WSO2 API Manager is a complete platform for building, integrating, and exposing your digital services as managed APIs in the cloud, on-premise, and hybrid architectures to drive your digital transformation strategy. 
             </p>
@@ -363,7 +363,7 @@ template: templates/single-column.html
                 managers to create API products from one or more APIs.
             </p>
         </div>
-        <div class="md-main .md-content " style="float:right; width: 55%; align:right;  flex-shrink: 0;min-width: 30%; max-height: 100%; max-width:40%; margin-left:5px; margin-top:50px; margin-right:90px">
+        <div class="md-main md-content " style="float:right; width: 55%; text-align:right;  flex-shrink: 0;min-width: 30%; max-height: 100%; max-width:40%; margin-left:5px; margin-top:50px; margin-right:90px">
         <iframe width="800" height="250" src="https://www.youtube.com/embed/nr1cFyxVdDw" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
         </div>
     </div>
@@ -403,13 +403,13 @@ template: templates/single-column.html
         <h3>Components</h3>
         <hr/>
         <p>WSO2 API Manager offers multiple components designed to work together to solve the challenges of diverse infrastructure requirements. A unified control plane supporting multiple gateways provides deployment flexibility, minimizes downtime, and provides scalability and resource optimization by allowing independent component management, flexible deployment packages, and seamless upgrades and maintenance. For more information see <a href="{{base_path}}/get-started/apim-architecture/">Architecture.</a></p>
-        </br>
-        </br>
+        <br>
+        <br>
         <div class="component-section">
             <div>
                 <div>
                     <h4>Control Plane</h4>
-                    </br>
+                    <br>
                 </div>
                 <div class="content">
                     <!-- begin card -->
@@ -440,7 +440,7 @@ template: templates/single-column.html
             <div>
                 <div>
                     <h4>Data Plane</h4>
-                    </br>
+                    <br>
                 </div>
                 <div class="content">
                     <!-- begin card -->
@@ -525,7 +525,7 @@ template: templates/single-column.html
                                     </div>
                                 </div>
                                 <hr/>
-                                <p class="removeTopMargin">Manage APIs spaning multiple cloud platforms, on-premises systems, or regions</p>
+                                <p class="removeTopMargin">Manage APIs spanning multiple cloud platforms, on-premises systems, or regions</p>
                                 <div>
                                     <ul>
                                         <li><a href="{{base_path}}/deploy-and-publish/deploy-on-gateway/federated-gateways/deploy-on-aws-api-gateway/">AWS API Gateway</a></li>
