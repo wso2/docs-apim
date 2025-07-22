@@ -157,6 +157,18 @@ Add the following configuration in the `deployment.toml` file (stored in the `<A
 enable = false
 ```
 
+### Adding Response Headers to Web Applications
+
+You can add response headers to all the web applications that are deployed in the Tomcat instance via a Tomcat filter.
+
+1. Add the [response-header-filter.jar](https://github.com/Hory314/response-header-filter/releases/download/1.0.1/response-header-filter.jar) to the `<API-M_HOME>/repository/components/lib` directory (Please find the source code [here](https://github.com/Hory314/response-header-filter)).
+
+2. Change the file `<API-M_HOME>/repository/resources/conf/templates/repository/conf/tomcat/web.xml.j2` to include the following lines,
+
+```
+ResponseHeaderFilter com.sample.tomcat.filter.ResponseHeaderFilter Content-Security-Policy default-src 'self' script-src 'unsafe-inline' ResponseHeaderFilter /*
+```
+
 ## What's Next?
 
 See the [Security Guidelines for Production Deployment]({{base_path}}/install-and-setup/setup/deployment-best-practices/security-guidelines-for-production-deployment) for the full list of security-related recommendations for WSO2 API Manager.
