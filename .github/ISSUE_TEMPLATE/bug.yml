@@ -11,9 +11,9 @@ body:
     validations:
       required: true
   - type: textarea
-    id: suggested-fix
+    id: suggestion
     attributes:
-      label: Suggested Fix (optional)
+      label: Suggested Fix
       description: Suggest how the documentation should be fixed.
       placeholder: e.g., The broken link should be changed to https://example.com.
     validations:
