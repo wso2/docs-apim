@@ -13,13 +13,13 @@ This feature supports for HTTP, SOAP and GraphQL APIs.
     !!! example
         ``` xml
         <sequence xmlns="http://ws.apache.org/ns/synapse" name="default-endpoint-seq">
-            <property name="service_ep" expression="fn:concat('http://jsonplaceholder.typicode.com/', 'posts/')"/>
+            <property name="service_ep" expression="fn:concat('http://jsonplaceholder.typicode.com/', 'posts')"/>
             <header name="To" expression="get-property('service_ep')"/>
         </sequence>
         ```
 
     In this example, you have constructed the `service_ep` property dynamically and assigned the value of this property to the **To** header. The default endpoint sends the message to the address specified in the **To** header, in this case, 
-    `http://jsonplaceholder.typicode.com/posts/`.
+    `http://jsonplaceholder.typicode.com/posts`.
 
 3. Navigate to the Policies tab. Click on the `Add New Policy` button in order to create an API specific policy. Then you will be prompted to enter the policy    details. Fill the form uploading the above created policy definition file and save.
 
