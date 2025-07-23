@@ -20,7 +20,7 @@ body:
     id: version
     attributes:
       label: Version(s)
-      description: Provide all the applicable documentation versions that this improvement is expected to be included.
+      description: List all relevant documentation versions where this improvement should be applied.
       placeholder: 4.5.0, 4.4.0, 4.3.0
     validations:
       required: true
