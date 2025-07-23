@@ -9,13 +9,13 @@ The default endpoint sends the message to the address specified in the **To** he
 !!! example
     ``` xml
     <sequence xmlns="http://ws.apache.org/ns/synapse" name="default-endpoint-seq">
-        <property name="service_ep" expression="fn:concat('http://jsonplaceholder.typicode.com/', 'posts/')"/>
+        <property name="service_ep" expression="fn:concat('http://jsonplaceholder.typicode.com/', 'posts')"/>
         <header name="To" expression="get-property('service_ep')"/>
     </sequence>
     ```
 
 In this example, you have constructed the `service_ep` property dynamically and assigned the value of this property to the **To** header. The default endpoint sends the message to the address specified in the **To** header, in this case, 
-`http://jsonplaceholder.typicode.com/posts/`. 
+`http://jsonplaceholder.typicode.com/posts`. 
 
 !!! tip
     For more details about working with dynamic endpoints, see [Endpoint Types]({{base_path}}/learn/design-api/endpoints/endpoint-types).
