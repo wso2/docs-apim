@@ -1,0 +1,125 @@
+  .chat-container {
+    border: 1px solid #ccc;
+    padding: 1rem;
+    height: 550px;
+    overflow-y: auto;
+    background-color: #f9f9f9;
+    font-family: sans-serif;
+    margin-bottom: 1rem;
+  }
+
+  .message {
+    margin: 15px 0;  
+    padding: 10px 20px;
+    border-radius: 15px;
+  }
+
+  .user {
+    max-width: 40%;
+    width: fit-content;
+    word-break: break-word;
+    font-weight: normal;
+    background-color: #F47B20;
+    display: flex;
+    justify-content: flex-end;
+    text-align: left;
+    margin-left: auto; 
+    overflow-wrap: break-word;
+  }
+
+  .ai {
+    max-width: 85%;
+    width: fit-content;
+    word-break: break-word;
+    font-weight: normal;
+    background-color: #bdbdbd;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    text-align: left;
+    overflow-wrap: break-word;
+  }
+
+  .ai img {
+    width: 100%;
+  }
+
+  .ai a {
+    color: #F47B20
+  }
+
+  .ai a:hover {
+    color: #f9f9f9;
+  }
+
+  .ai code {
+    background-color:black;
+    color: #f9f9f9;
+  }
+
+  .ai p,
+  .ai img,
+  .ai h1,
+  .ai h2,
+  .ai h3 {
+    margin: 5px 0px;
+  }
+  #submit-button {
+    align-self: flex-end;
+    margin-bottom: -5px;
+    padding-left: 0;
+    color: #F47B20;
+  }
+
+  .input-container {
+    display: flex;
+    gap: 0.5rem;
+    outline: none;
+    padding: 0 0 0 20px;  
+    border-radius: 10px;
+    border: 1px solid #ccc;
+    background: transparent;
+    transition: 0.1s ease;
+  }
+
+  .input-container input {
+    flex: 1;
+    padding: 0.5rem;
+    font-size: 1rem;
+  }
+
+  .input-container button {
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+    cursor: pointer;
+  }
+
+/* Styling for AI icon in the header */
+
+  .header-ai {
+    display: flex;
+    align-items: center;
+    font-size: 15px;
+    border: 1px solid #F47B20;
+    border-radius: 12px;
+    background-color: #f1f1f1;
+    padding: 2px 5px;
+  }
+
+  #chatbot-icon {
+    display: flex;
+    align-items: center;
+  }
+
+  #chatbot-icon svg{
+    fill: #F47B20;
+    height: 30px;
+  }
+
+  #chatbot-icon span {
+    margin-right: 10px;
+  }
+
+  #chatbot-label {
+    margin-left: 5px;
+  }
