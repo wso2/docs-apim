@@ -20,7 +20,7 @@ You need to write a custom Gateway Agent bundle as explained below.
 
 1. Create a Maven project.
 
-    Let's download the sample project from [here]({{base_path}}/assets/attachments/deploy-and-publish/custom.gw.client.zip).
+    Let's download the sample project from <a href="{{base_path}}/assets/attachments/deploy-and-publish/custom.gw.client.zip" download>here</a>
 
     However, when manually creating a Maven project, you will need to follow the following steps.
 
