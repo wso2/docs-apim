@@ -1,6 +1,6 @@
 # About this Release
 
-WSO2 API Manager is a complete platform for building, integrating, and exposing your digital services as managed APIs in the cloud, on-premise, and hybrid architectures to drive your digital transformation strategy. It comes with a cloud-native, standards-based messaging engine, and an integration framework for integrating APIs, services, data, SaaS, proprietary, and legacy systems and it can also serve streaming-based integrations. The product comes with command-line and developer tools that enable easy design, development, and testing.
+WSO2 API Manager is a complete platform for building, integrating, and exposing your digital services as managed APIs in the cloud, on-premise, and hybrid architectures to drive your digital transformation strategy. It comes with a cloud-native, standards-based messaging engine, and an integration framework for integrating APIs, services, data, SaaS, proprietary, and legacy systems. It also serves streaming-based integrations. The product comes with command-line tools and developer tooling that enable easy design, development, and testing.
 
 **WSO2 API Manager 4.4.0** is the latest **WSO2 API Manager release** and is the successor of **WSO2 API Manager 4.3.0**.
 
@@ -12,7 +12,7 @@ For more information on WSO2 API Manager, see the [overview]({{base_path}}/getti
 
 ## New features
 
-??? note "Egress API Management Capability with support for LLM/AI"
+??? note "Egress API Management Capability with support for AI/LLMs"
 
     This release of API Manager introduces the capability to integrate AI services and large language models (LLMs) with APIs. It offers token-based rate limits and flexible business plans, making it simpler to manage. You also get detailed analytics on token usage, request counts, and performance, helping you make smart business decisions around AI models and vendors. With full API lifecycle management, you have complete control over your AI APIs. Plus, the optimized API gateways are designed to handle AI services efficiently, boosting overall performance.
 
@@ -26,7 +26,7 @@ For more information on WSO2 API Manager, see the [overview]({{base_path}}/getti
 
 ??? note "Support for Consuming APIs without Subscriptions"
 
-    API Manager now has the capability to disable the subscription requirement for API consumption. This simplifies the user experience by allowing users to avoid subscription approval and application creation processes.
+    API Manager now has the capability to disable the subscription requirement for consuming APIs. This simplifies the user experience by allowing users to avoid subscription approval and application creation processes.
 
     **[Learn more]({{base_path}}/design/advanced-topics/disable-subscriptions-for-an-api/)**
 
@@ -42,7 +42,7 @@ For more information on WSO2 API Manager, see the [overview]({{base_path}}/getti
 
 ??? note "Enhanced Security with Client-Side mTLS Authentication"
 
-    This feature boosts security with customized mTLS settings tailored to different environments, ensuring stronger protection. It also supports compliance by allowing environment-specific security configurations to meet various regulatory requirements. API consumers benefit from the flexibility to use different MTLS settings for production and sandbox environments without causing conflicts
+    This feature boosts security with customized mTLS settings tailored for different environments, ensuring stronger protection. It also supports compliance by allowing environment-specific security configurations to meet various regulatory requirements. API consumers benefit from the flexibility to use different mTLS settings for production and sandbox environments without causing conflicts
 
 ??? note "Business Plan Updates for Existing Subscriptions"
 
