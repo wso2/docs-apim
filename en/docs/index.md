@@ -300,7 +300,7 @@ template: templates/single-column.html
         "links": [
             {"name": "Deploy on VM", "url": "install-and-setup/install/installing-the-product/running-the-api-m/"},
             {"name": "Deploy on Kubernetes", "url": "install-and-setup/install/deploying-api-manager-with-kubernetes-resources/"},
-            {"name": "SaaS", "url": "https://wso2.com/bijira/"}
+            {"name": "SaaS", "url": "https://wso2.com/bijira/docs/"}
         ]
     }],
     [{
