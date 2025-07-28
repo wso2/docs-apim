@@ -13,37 +13,52 @@ The **JSON Schema Guardrail** is a custom Synapse mediator for **WSO2 API Manage
 
 ## How to Use
 
-??? "Click to expand Prerequisites"
+!!! important
+    This policy is available from the following WSO2 API Manager product update levels onward:
 
-    - Java 11 (JDK)
-    - Maven 3.6.x or later
-    - WSO2 API Manager or Synapse-compatible runtime
+    - `wso2am`: Update level **greater than 12**
+    - `wso2am-universal-gw`: Update level **greater than 12**
+    - `wso2am-acp`: Update level **greater than 13**
+    - `wso2am-tm`: Update level **greater than 12**
 
 Follow these steps to integrate the JSON Schema Guardrail policy into your WSO2 API Manager instance:
 
-1. Clone and build the project from [**JSON Schema Guardrail**](https://github.com/wso2-extensions/apim-policies/tree/main/mediation/ai/json-schema-guardrail/universal-gw/json-schema-guardrail)
+1. Download the latest [**JSON Schema Guardrail**](https://github.com/wso2-extensions/apim-policies/releases/download/v1.0.0-json-schema-guardrail/org.wso2.am.policies.mediation.ai.json-schema-guardrail-1.0.0-distribution.zip) policy
 
-    ```bash
-    mvn clean install
-    ```
+    !!! tip
+        The downloaded archive contains the following
+        <table>
+        <thead>
+            <tr>
+            <th>File Name</th>
+            <th>Description</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+            <td><code>org.wso2.am.policies.mediation.ai.json-schema-guardrail-&lt;version&gt;</code></td>
+            <td>The compiled mediator JAR file</td>
+            </tr>
+            <tr>
+            <td><code>policy-definition.json</code></td>
+            <td>Policy metadata definition</td>
+            </tr>
+            <tr>
+            <td><code>artifact.j2</code></td>
+            <td>Synapse template file</td>
+            </tr>
+        </tbody>
+        </table>
 
-    > ℹ️ This will generate a `.zip` file in the `target/` directory containing the mediator JAR, policy-definition.json and artifact.j2.
+2. Copy the mediator JAR file into the API Manager's dropins directory
+    ```<APIM_HOME>/repository/components/dropins```
 
-2. **Unzip the build artifact**  
-    ```bash
-    unzip target/org.wso2.apim.policies.mediation.ai.json-schema-guardrail-<version>-distribution.zip -d json-schema-guardrail
-    ```
+3. Register the policy in the Publisher portal using the provided `policy-definition.json` and `artifact.j2` files via the Publisher REST APIs.
+    - To register the policy common to all AI APIs, follow [Add a new common operation policy]({{base_path}}/reference/product-apis/publisher-apis/publisher-v4/publisher-v4/#tag/Operation-Policies/operation/addCommonOperationPolicy)  
+    - To register the policy specific to a given API, follow [Add an API specific operation policy]({{base_path}}/reference/product-apis/publisher-apis/publisher-v4/publisher-v4/#tag/API-Operation-Policies/operation/addAPISpecificOperationPolicy)
 
-3. **Copy the mediator JAR into your API Manager’s runtime libraries**  
-    ```bash
-    cp json-schema-guardrail/org.wso2.apim.policies.mediation.ai.json-schema-guardrail-<version>.jar $APIM_HOME/repository/components/lib/
-    ```
-
-4. **Register the Policy in Publisher**
-    - Use the provided `policy-definition.json` and `artifact.j2` files to register the policy through the Publisher Portal or via the Publisher REST APIs.
-
-5. **Apply and Deploy the Policy**
-    - Go to **API Publisher**
+4. Apply and Deploy the Policy
+    - Open the **API Publisher Portal** `(https://<host>:<port>/publisher)`
     - Select your API
     - Navigate to **Develop > API Configurations > Policies > Request/Response Flow**
     - Click **Add Policy** and choose **JSON Schema Guardrail**
@@ -67,36 +82,36 @@ Follow these steps to integrate the JSON Schema Guardrail policy into your WSO2 
     `JSON Schema`
     ```json
     {
-    "$schema": "http://json-schema.org/draft-07/schema#",
-    "type": "object",
-    "properties": {
-        "fullName": {
-        "type": "string",
-        "minLength": 1
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "type": "object",
+        "properties": {
+            "fullName": {
+                "type": "string",
+                "minLength": 1
+            },
+            "email": {
+                "type": "string",
+                "format": "email"
+            },
+            "phoneNumber": {
+                "type": "string",
+                "pattern": "^\\+?[0-9\\-\\s]{7,20}$"
+            },
+            "organization": {
+                "type": "string",
+                "minLength": 1
+            },
+            "preferredPlan": {
+                "type": "string",
+                "enum": ["Free", "Pro", "Enterprise"]
+            },
+            "referralCode": {
+                "type": "string",
+                "minLength": 1
+            }
         },
-        "email": {
-        "type": "string",
-        "format": "email"
-        },
-        "phoneNumber": {
-        "type": "string",
-        "pattern": "^\\+?[0-9\\-\\s]{7,20}$"
-        },
-        "organization": {
-        "type": "string",
-        "minLength": 1
-        },
-        "preferredPlan": {
-        "type": "string",
-        "enum": ["Free", "Pro", "Enterprise"]
-        },
-        "referralCode": {
-        "type": "string",
-        "minLength": 1
-        }
-    },
-    "required": ["fullName", "email"],
-    "additionalProperties": false
+        "required": ["fullName", "email"],
+        "additionalProperties": false
     }
     ```
 
@@ -106,13 +121,13 @@ Follow these steps to integrate the JSON Schema Guardrail policy into your WSO2 
 
     ```json
     {
-    "model": "mistral-large-latest",
-    "messages": [
-        {
-        "role": "user",
-        "content": "Extract the following fields from the given text and return a JSON object matching this format:\n\n{\n  \"fullName\": \"string\",\n  \"email\": \"string\",\n  \"phoneNumber\": \"string\",\n  \"organization\": \"string\",\n  \"preferredPlan\": \"Free | Pro | Enterprise\",\n  \"referralCode\": \"string\"\n}\n\nOnly include the keys that are present in the input. The JSON should not contain any extra text or explanation.\n\nInput:\nPlease register a new client with the following details:\n\n- Full Name: John Doe\n- - Phone Number: +1-555-123-4567\n- Organization: Acme Corp\n- Preferred Plan: Enterprise\n- Referral Code: ACME2025"
-        }
-    ]
+        "model": "mistral-large-latest",
+        "messages": [
+            {
+            "role": "user",
+            "content": "Extract the following fields from the given text and return a JSON object matching this format:\n\n{\n  \"fullName\": \"string\",\n  \"email\": \"string\",\n  \"phoneNumber\": \"string\",\n  \"organization\": \"string\",\n  \"preferredPlan\": \"Free | Pro | Enterprise\",\n  \"referralCode\": \"string\"\n}\n\nOnly include the keys that are present in the input. The JSON should not contain any extra text or explanation.\n\nInput:\nPlease register a new client with the following details:\n\n- Full Name: John Doe\n- - Phone Number: +1-555-123-4567\n- Organization: Acme Corp\n- Preferred Plan: Enterprise\n- Referral Code: ACME2025"
+            }
+        ]
     }
     ```
 
@@ -120,14 +135,14 @@ Follow these steps to integrate the JSON Schema Guardrail policy into your WSO2 
 
     ```json
     {
-    "code": "900514",
-    "type": "JSON_SCHEMA_GUARDRAIL",
-    "message": {
-        "interveningGuardrail": "Form Validator",
-        "action": "GUARDRAIL_INTERVENED",
-        "actionReason": "Violation of enforced JSON schema detected.",
-        "direction": "RESPONSE"
-    }
+        "code": "900514",
+        "type": "JSON_SCHEMA_GUARDRAIL",
+        "message": {
+            "interveningGuardrail": "Form Validator",
+            "action": "GUARDRAIL_INTERVENED",
+            "actionReason": "Violation of enforced JSON schema detected.",
+            "direction": "RESPONSE"
+        }
     }
     ```
 

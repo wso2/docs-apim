@@ -15,43 +15,52 @@ Prompt templates are a foundational **prompt engineering technique** used to sta
 
 ## How to Use
 
-??? "Click to expand Prerequisites"
+!!! important
+    This policy is available from the following WSO2 API Manager product update levels onward:
 
-    - Java 11 (JDK)
-    - Maven 3.6.x or later
-    - WSO2 API Manager or Synapse-compatible runtime
+    - `wso2am`: Update level **greater than 12**
+    - `wso2am-universal-gw`: Update level **greater than 12**
+    - `wso2am-acp`: Update level **greater than 13**
+    - `wso2am-tm`: Update level **greater than 12**
 
 Follow these steps to integrate the Prompt Template Guardrail policy into your WSO2 API Manager instance:
 
-1. Clone and build the project from [**Prompt Template**](https://github.com/wso2-extensions/apim-policies/tree/main/mediation/ai/prompt-template/universal-gw/prompt-template)
+1. Download the latest [**Prompt Template**](https://github.com/wso2-extensions/apim-policies/releases/download/v1.0.0-prompt-template/org.wso2.am.policies.mediation.ai.prompt-template-1.0.0-distribution.zip) policy
 
-    ```bash
-    mvn clean install
-    ```
+    !!! tip
+        The downloaded archive contains the following
+        <table>
+        <thead>
+            <tr>
+            <th>File Name</th>
+            <th>Description</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+            <td><code>org.wso2.am.policies.mediation.ai.prompt-template-&lt;version&gt;</code></td>
+            <td>The compiled mediator JAR file</td>
+            </tr>
+            <tr>
+            <td><code>policy-definition.json</code></td>
+            <td>Policy metadata definition</td>
+            </tr>
+            <tr>
+            <td><code>artifact.j2</code></td>
+            <td>Synapse template file</td>
+            </tr>
+        </tbody>
+        </table>
 
-    > ℹ️ This will generate a `.zip` file in the `target/` directory containing the mediator JAR, policy-definition.json and artifact.j2.
+2. Copy the mediator JAR file into the API Manager's dropins directory
+    ```<APIM_HOME>/repository/components/dropins```
 
-2. **Unzip the Build Artifact**  
-    After the build, unzip the artifact generated in the `target/` directory:
+3. Register the policy in the Publisher portal using the provided `policy-definition.json` and `artifact.j2` files via the Publisher REST APIs.
+    - To register the policy common to all AI APIs, follow [Add a new common operation policy]({{base_path}}/reference/product-apis/publisher-apis/publisher-v4/publisher-v4/#tag/Operation-Policies/operation/addCommonOperationPolicy)  
+    - To register the policy specific to a given API, follow [Add an API specific operation policy]({{base_path}}/reference/product-apis/publisher-apis/publisher-v4/publisher-v4/#tag/API-Operation-Policies/operation/addAPISpecificOperationPolicy)
 
-    ```bash
-    unzip target/org.wso2.apim.policies.mediation.ai.prompt-template-<version>-distribution.zip -d prompt-template-guardrail
-    ```
-
-3. **Copy the Mediator JAR**  
-    Place the mediator JAR into your API Manager’s runtime libraries:
-
-    ```bash
-    cp prompt-template-guardrail/org.wso2.apim.policies.mediation.ai.prompt-template-<version>.jar $APIM_HOME/repository/components/lib/
-    ```
-
-4. **Register the Policy in Publisher**  
-    Use the provided `policy-definition.json` and `artifact.j2` files to define the policy in the Publisher Portal.
-
-    - Place these files in the appropriate directory structure for your deployment process or register them manually via REST APIs or UIs.
-
-5. **Apply and Deploy the Policy**
-    - Open the **API Publisher**
+4. Apply and Deploy the Policy
+    - Open the **API Publisher Portal** `(https://<host>:<port>/publisher)`
     - Select your API
     - Navigate to **Develop > API Configurations > Policies > Request/Response Flow**
     - Click **Add Policy** and select **Prompt Template Guardrail**
