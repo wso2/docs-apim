@@ -41,12 +41,12 @@ They act as intelligent filters that:
 
 <div style="display: flex; flex-wrap: wrap; gap: 1.5rem; margin-top: 1.5rem;">
 
-  <a href="../prompt-template" style="flex: 1 1 300px; min-width: 280px; max-width: 333px; min-height: 200px; background: var(--md-primary-fg-color--lightest, #f5f5f5); border: 2px solid var(--md-primary-fg-color, #2196f3); border-radius: 12px; padding: 1.5rem; text-decoration: none; color: inherit; box-shadow: 0 2px 8px rgba(0,0,0,0.04); display: block;">
+  <a href="../content-length-guardrail" style="flex: 1 1 300px; min-width: 280px; max-width: 333px; min-height: 200px; background: var(--md-primary-fg-color--lightest, #f5f5f5); border: 2px solid var(--md-primary-fg-color, #2196f3); border-radius: 12px; padding: 1.5rem; text-decoration: none; color: inherit; box-shadow: 0 2px 8px rgba(0,0,0,0.04); display: block;">
     <div style="font-size: 0.8rem; font-weight: bold; margin-bottom: 0.5rem;">Content Length Guardrail</div>
     <div style="font-size: 0.6rem; color: var(--md-default-fg-color--light, #333);">Restricts the maximum length of LLM requests or responses.</div>
   </a>
 
-  <a href="../prompt-template" style="flex: 1 1 300px; min-width: 280px; max-width: 333px; min-height: 200px; background: var(--md-primary-fg-color--lightest, #f5f5f5); border: 2px solid var(--md-primary-fg-color, #2196f3); border-radius: 12px; padding: 1.5rem; text-decoration: none; color: inherit; box-shadow: 0 2px 8px rgba(0,0,0,0.04); display: block;">
+  <a href="../regex-guardrail" style="flex: 1 1 300px; min-width: 280px; max-width: 333px; min-height: 200px; background: var(--md-primary-fg-color--lightest, #f5f5f5); border: 2px solid var(--md-primary-fg-color, #2196f3); border-radius: 12px; padding: 1.5rem; text-decoration: none; color: inherit; box-shadow: 0 2px 8px rgba(0,0,0,0.04); display: block;">
     <div style="font-size: 0.8rem; font-weight: bold; margin-bottom: 0.5rem;">Regex Guardrail</div>
     <div style="font-size: 0.6rem; color: var(--md-default-fg-color--light, #333);">Validates LLM requests or responses using custom regular expressions.</div>
   </a>
