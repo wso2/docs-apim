@@ -93,7 +93,7 @@ The following are some of the main capabilities of the product.
 
 <div style="width: 100%; overflow: hidden;">
 
-<div class="leftContentOverview" style="width:75% !important;">WSO2 API Managers API Analytics Dashboard provides insights into your APIs. These insights can help you to understand your customers and make important strategic business decisions.
+<div class="leftContentOverview" style="width:75% !important;">WSO2 API Manager's API Analytics Dashboard provides insights into your APIs. These insights can help you to understand your customers and make important strategic business decisions.
     <ul>
         <li><a href="{{base_path}}/monitoring/observability/observability-overview/">Observability</li>
         <li><a href="{{base_path}}/monitoring/api-analytics/choreo-analytics/getting-started-guide">API Manager Analytics</li>
