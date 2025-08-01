@@ -502,7 +502,7 @@ template: templates/single-column.html
                                     </div>
                                 </div>
                                 <hr/>
-                                <p class="removeTopMargin">An API Gateway for micro services, which is cloud-native, decentralized and developer centric</p>
+                                <p class="removeTopMargin">An API Gateway for microservices, which is cloud-native, decentralized, and developer centric</p>
                                 <div>
                                     <ul>
                                         <li><a href="{{base_path}}/get-started/apim-architecture/#immutable-gateway">WSO2 Immutable Gateway Overview</a></li>
