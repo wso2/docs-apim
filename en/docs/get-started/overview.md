@@ -25,7 +25,7 @@ The following are some of the main capabilities of the product.
 
 <div style="width: 100%; overflow: hidden;">
 
-<div class="leftContentOverview" style="width:75% !important;">Making your APIs easy to find will help you grow your customer base. You can use the WSO2 API Manager API Publisher to create categories or use tags to categorize the APIs. The API Developer Portal includes a text-full search engine that helps your customers find APIs easily.
+<div class="leftContentOverview" style="width:75% !important;">Making your APIs easy to find will help you grow your customer base. You can use the WSO2 API Manager API Publisher to create categories or use tags to categorize the APIs. The API Developer Portal includes a full-text search engine that helps your customers find APIs easily.
     <ul>
         <li><a href="{{base_path}}/consume/discover-apis/search/">Search</li>
     </ul>
