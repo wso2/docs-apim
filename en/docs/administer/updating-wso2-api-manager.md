@@ -8,12 +8,15 @@ The WSO2 updates 2.0 tool allows you to update your currently used product by fe
 For more information, see [Using WSO2 Updates 2.0](https://updates.docs.wso2.com/en/latest/updates/update-tool/)
 
 !!! warning
+
+    **Persisting Index data**
+
+    The indexing related information of WSO2 API Manager is stored in the `<API-M_HOME>/solr/data` directory. Once the data is indexed, it is stored in the index directory.
     
     !!! tip
         Before you discard the old API Manager instance,
         
-        You must take a backup of the `<API-M_HOME>/repository/data` directory and copy it to the API Manager binary pack in the `<API-M_HOME>/repository/data` directory that is updated.
-        
+        You must take a backup of the `<API-M_HOME>/solr/data` directory and copy it to the API Manager binary pack in the `<API-M_HOME>/solr/data` directory that is updated.
     
     **Persisting WSO2CarbonDB**
     
