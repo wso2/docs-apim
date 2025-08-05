@@ -8,7 +8,7 @@ Typically, whenever we use a credit card, debit card, or ATM card, the data trav
 
 Before you start configuring the ISO8583 connector, you also need WSO2 MI, and we refer to that location as <PRODUCT_HOME>.
 
-To configure the ISO8583 connector, copy the following client libraries from the given locations to the `<PRODUCT_HOME>/repository/components/lib` directory.
+To configure the ISO8583 connector, copy the following client libraries from the given locations to the `<MI_HOME>/lib` directory.
 
 * [jpos-1.9.4.jar](http://mvnrepository.com/artifact/org.jpos/jpos/1.9.4)  
 * [jdom-1.1.3.jar](http://mvnrepository.com/artifact/org.jdom/jdom/1.1.3) 
