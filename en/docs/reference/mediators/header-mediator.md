@@ -54,7 +54,7 @@ The parameters available to configure the Header mediator are as follows.
 </tr>
 <tr class="odd">
 <td><strong>Scope</strong></td>
-<td>Select <strong>Synapse</strong> if you want to manipulate SOAP headers. Select <strong>Transport</strong> if you want to manipulate HTTP headers.</td>
+<td>Select <strong>Default</strong> if you want to manipulate SOAP headers. To call to a SOAP endpoint with <a href="https://www.w3.org/submissions/ws-addressing/">ws-addressing</a> headers you can use <a href="{{base_path}}/reference/mediators/property-reference/soap-headers">SOAP Headers</a>. Select <strong>Transport</strong> if you want to manipulate HTTP headers.</td>
 </tr>
 <tr class="even">
 <td><strong>Namespaces</strong></td>
