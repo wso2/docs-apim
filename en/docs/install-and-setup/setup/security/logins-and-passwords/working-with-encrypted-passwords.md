@@ -78,7 +78,7 @@ The instructions below explain how plain text passwords in configuration files c
 
     You will be prompted to enter the internal key store password for the server. 
 
-5.  When prompted, if you have not configured a separate [internal keystore]({{base_path}}/install-and-setup/setup/security/configuring-keystores/configuring-keystores-in-wso2-api-manager/#configuring-the-internal-keystore), enter the primary key password, which is by default `wso2carbon` and proceed. 
+5.  When prompted, enter the internal key password. If you have not configured a separate [internal keystore]({{base_path}}/install-and-setup/setup/security/configuring-keystores/configuring-keystores-in-wso2-api-manager/#configuring-the-internal-keystore), enter the primary key password, which is by default `wso2carbon` and proceed. 
 
      If the encryption is successful, you will see the following log.
 
@@ -127,7 +127,7 @@ Follow the instructions below to secure the endpoint's password that is given in
 
      You will be prompted to enter the internal key store password for the server. 
 
-4.  When prompted, if you have not configured a separate [internal keystore]({{base_path}}/install-and-setup/setup/security/configuring-keystores/configuring-keystores-in-wso2-api-manager/#configuring-the-internal-keystore), enter the primary key password, which is by default `wso2carbon`. 
+4.  When prompted, enter the internal key password. If you have not configured a separate [internal keystore]({{base_path}}/install-and-setup/setup/security/configuring-keystores/configuring-keystores-in-wso2-api-manager/#configuring-the-internal-keystore), enter the primary key password, which is by default `wso2carbon`. 
 
      If the encryption is successful, you will see the following log.
 
