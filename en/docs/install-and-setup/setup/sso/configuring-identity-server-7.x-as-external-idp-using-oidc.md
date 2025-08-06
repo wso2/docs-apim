@@ -1,11 +1,11 @@
-# Configuring Identity Server as External IDP using OIDC
+# Configuring Identity Server 7.x as External IDP using OIDC
 
 WSO2 API Manager uses the OIDC Single Sign-On feature by default. This document explains how to connect WSO2 Identity Server (or WSO2 Identity Server as a Keymanager) as a third party Identity provider to API-Manager.
 
 ## prerequisites
 
 -   Download the API Manager distribution from [https://wso2.com/api-management/](https://wso2.com/api-management/).
--   Download the Identity Server distribution from [https://wso2.com/identity-and-access-management/](https://wso2.com/identity-and-access-management/).
+-   Download the Identity Server 7.x distribution from [https://wso2.com/identity-and-access-management/](https://wso2.com/identity-and-access-management/).
 
     !!! Tip
         For **testing purposes** if you want to run both the WSO2 API Manager and WSO2 Identity Server on the same server, go to the `<IS_HOME>/repository/conf/deployment.toml` file and offset the port by 1 as by adding following configuration:
@@ -39,84 +39,74 @@ WSO2 API Manager uses the OIDC Single Sign-On feature by default. This document 
         sh wso2server.sh
         ```
 
-## Configure the Identity Server
+## Configure the Identity Server 7.x
 
 ### Step - 1 Configure the Service Provider
 
 1.  Sign in to the Management Console of WSO2 IS by browsing the following URL:  
 
     ```
-    https://{is-ip}:9444/carbon
+    https://{is-ip}:9444/console
     ```
 
-2.  Navigate to the **Service Providers** section under Main → Identity and create new Service Provider.
+2.  Create a Standard-Based application by navigating to the **Applications** section from the left panel.
 
-3.  Edit the created Service Provider:
+    [![]({{base_path}}/assets/img/setup-and-install/create-standard-app-in-is7.png)]({{base_path}}/assets/img/setup-and-install/create-standard-app-in-is7.png)
 
-    1.  Expand the **Claim Configuration** section. Add the **http://wso2.org/claims/groups** as mandatory claim. In addition, add the **http://wso2.org/claims/username** claim as the **Subject Claim URI**.
+3.  Edit the created Application:
 
-        [![]({{base_path}}/assets/img/setup-and-install/claim-configuration-in-service-provider.png)]({{base_path}}/assets/img/setup-and-install/claim-configuration-in-service-provider.png)
+    1.  In the **Protocol** section do the following and update.
 
-    2.  Expand the **Inbound Authentication Configuration** section and configure **OAuth/OpenID Connect Configuration** with callback URL - `https://{apim-ip}:9443/commonauth`
+        - Enable code, client credential and password grant types.
+        - Add `https://localhost:9444/commonauth` as the Authorized redirect URLs.
+        - Add `https://localhost:9444` as Allowed origins.
+        - Make Access Token type as JWT.
 
-        !!! Info "Enable a tenant-specific SSO for the Publisher and Developer Portal"
+    2.  In the **User Attributes** section do the following and update.
 
-            To enable a tenant-specific SSO with IS 5.10.0 for Publisher and the Developer Portal, enable the **Use tenant domain in local subject identifier** option under the **Local & Outbound Authentication Configuration** section.
+        - Select Groups and Profile as requested attributes and Update.
 
-            [![enable-tenant-domain-in-local-sub-identifier]({{base_path}}/assets/img/setup-and-install/local-outbound-config.png)]({{base_path}}/assets/img/setup-and-install/local-outbound-config.png)
+        [![]({{base_path}}/assets/img/setup-and-install/set-user-attributes-to-ass-in-is7.png)]({{base_path}}/assets/img/setup-and-install/set-user-attributes-to-ass-in-is7.png)
 
-        !!! Note "Options available for **Local & Outbound Authentication Configuration** "
-            
-            -   **Assert identity using mapped local subject identifier** :
-                Select this to use the local subject identifier when asserting the identity.
-                Note that it is **mandatory** to enable the above option to authorize scopes for provisioned federated users. 
-            -   **Always send back the authenticated list of identity providers** : Select this to send back the list of  identity providers that the current user is authenticated by.
-            -   **Use tenant domain in local subject identifier** : Select this to append the tenant domain to the local subject identifier.
-            -   **Use user store domain in local subject identifier** : Select this to append the user store domain that the user resides to the local subject identifier.
-            -   **Use user store domain in roles** : This is selected by default, and appends the userstore domain name to user roles. If you do not want to append the userstore domain name to user roles, clear the check box.
+        - Enable 'Assign alternatice subject identifier', select the Username as Subject attribute and Update.
 
-                If a user role is not mapped to a service provider role, and you clear the **Use user store domain in roles** check box, the userstore domain name will be removed from the role claim value unless the userstore domain name is APPLICATION, INTERNAL, or WORKFLOW.
+        [![]({{base_path}}/assets/img/setup-and-install/set-subject-attributes-to-ass-in-is7.png)]({{base_path}}/assets/img/setup-and-install/set-subject-attributes-to-ass-in-is7.png)
 
-    3. Update the Service Provider configurations.
+### Step - 2 Create groups and users
 
-    !!! Info "In Multi-tenanted environments"
-        Carry out the instruction given below for all the tenants to be able to login to the API-M Web applications in a multi-tenanted environment.
+1. Navigate to User Management → Groups → New Group and create a new group `publisher_group` without assigning users.
 
-        1.  Click the **SaaS Application** option that appears after registering the service provider.
+    [![Create User Group]({{base_path}}/assets/img/setup-and-install/create-group-in-is7.png)]({{base_path}}/assets/img/setup-and-install/create-group-in-is7.png)
 
-        [![saas-configuration-in-service-provider]({{base_path}}/assets/img/setup-and-install/saas.png)]({{base_path}}/assets/img/setup-and-install/saas.png) 
+2. Navigate to User Management → Users → Add User and create a user `new_publisher` providing required details.
 
-        If you do not select the **SaaS Application** option, only users in the current tenant domain will be allowed to login to the portals. You will need to register separate service providers for portals from each tenant.
+    [![Create User]({{base_path}}/assets/img/setup-and-install/create-user-in-is7.png)]({{base_path}}/assets/img/setup-and-install/create-user-in-is7.png)
 
-### Step - 2 Create users and roles
+3. Assign `publisher_group` group to the `new_publisher`.
 
-1. Create the required users and roles in Identity Server. Assume, following users are created in Identity Servers with the given roles.
+    [![Assign Group to User]({{base_path}}/assets/img/setup-and-install/assign-group-to-user-in-is7.png)]({{base_path}}/assets/img/setup-and-install/assign-group-to-user-in-is7.png)
 
-    <table>
-        <thead>
-            <tr>
-                <th>User</th>
-                <th>Role</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td>api_publisher</td>
-                <td>publisher_role</td>
-            </tr>
-            <tr>
-                <td>api_user</td>
-                <td>user_role</td>
-            </tr>
-        </tbody>
-    </table>
+Repeat the same steps to create a group for Api Users and assign users to it.
+Now the following users are created in Identity Server with the given groups.
 
-### Step 3 - Update the OpenID OIDC scope
-
-1. Navigate to the **OIDC Scopes** section under **Main** → **Manage** and list the available scopes.
-
-2. Click **Add Claims** for `openid` scope, click **Add OIDC Claim**, select `groups` claim from the dropdown and click on **Add**.
-   [![Add groups claim to the OIDC scope]({{base_path}}/assets/img/setup-and-install/update-oidc-scope.png)]({{base_path}}/assets/img/setup-and-install/update-oidc-scope.png)
+<table>
+    <thead>
+        <tr>
+            <th>User</th>
+            <th>Group</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>new_publisher</td>
+            <td>publisher_group</td>
+        </tr>
+        <tr>
+            <td>new_user</td>
+            <td>user_group</td>
+        </tr>
+    </tbody>
+</table>
 
 ## Configure the API Manager
 
@@ -183,23 +173,23 @@ WSO2 API Manager uses the OIDC Single Sign-On feature by default. This document 
         <table>
         <thead>
             <tr>
-                <th>Identity Server Roles</th>
+                <th>Identity Server Group</th>
                 <th>Roles Mapped in API Manager</th>
             </tr>
         </thead>
         <tbody>
             <tr>
-                <td>user_role</td>
+                <td>user_group</td>
                 <td>Internal/Subscriber</td>
             </tr>
             <tr>
-                <td>publisher_role</td>
+                <td>publisher_group</td>
                 <td>Internal/publisher</td>
             </tr>
         </tbody>
         </table>
 
-        [![]({{base_path}}/assets/img/setup-and-install/role-mapping-for-sso.png)]({{base_path}}/assets/img/setup-and-install/role-mapping-for-sso.png)
+        [![]({{base_path}}/assets/img/setup-and-install/role-mapping-for-sso-is7.png)]({{base_path}}/assets/img/setup-and-install/role-mapping-for-sso-is7.png)
 
         !!! Tip
             Instead of using the default internal roles, you can also create new roles in API Manager and map it to the provisioned users. 
@@ -239,20 +229,3 @@ WSO2 API Manager uses the OIDC Single Sign-On feature by default. This document 
 
 Now you will be able to login to Publisher and Devportal using the users in WSO2 Identity Server.
 
-!!! Tip "Troubleshooting"
-    When using Identity Server as external IdP, following error can be observed in API Manager, when logging in to Portals.
-
-    ``` code
-        invalid_request, The client MUST NOT use more than one authentication method in each
-    ```
-
-    This is because the MutualTLS authenticator is enabled by default in the Identity Server, from version 5.8.0 onwards. Since the OIDC specification does not allow to use more than one authentication, the login fails with the above error. To resolve this issue, add following the configuration in the `deployment.toml` file in the `<IS-Home>/repository/conf` directory to disable the MutualTLS authenticator in the Identity Server.
-
-    ``` toml
-    [[event_listener]]
-    id = "mutual_tls_authenticator"
-    type = "org.wso2.carbon.identity.core.handler.AbstractIdentityHandler"
-    name = "org.wso2.carbon.identity.oauth2.token.handler.clientauth.mutualtls.MutualTLSClientAuthenticator"
-    order = "158"
-    enable = false
-    ```
