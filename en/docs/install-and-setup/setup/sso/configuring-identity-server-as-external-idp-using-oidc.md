@@ -15,7 +15,19 @@ WSO2 API Manager uses the OIDC Single Sign-On feature by default. This document 
         offset=1
         ```
 
--   Start the servers using the following commands:
+-   Start the APIM server using the following command:
+
+    === "On Windows"
+        ```
+        api-manager.bat --run
+        ```
+
+    === "On Linux/Mac OS"
+        ```
+        sh api-manager.sh
+        ```
+
+-   Start the IS server using the following command:
 
     === "On Windows"
         ```
