@@ -42,41 +42,42 @@ You can invoke these operations using a SOAP client like SOAP UI as follows:
     **In Linux**
 
     ``` java
-        sh api-manager.sh
+    sh api-manager.sh
     ```
 
     **In Windows**
 
     ``` java
-            api-manager.bat
+    api-manager.bat
     ```
-
-        !!! tip
-    Get the list of available admin services
+    !!! tip:
+    
+    * Get the list of available admin services
 
     If you want to discover the admin services that are exposed by your product:
 
-    1.  Execute the following command:
+    a.  Execute the following command:
 
         **In Linux**
 
         ``` java
-                sh api-manager.sh -DosgiConsole
+        sh api-manager.sh -DosgiConsole
         ```
 
         **In Windows**
 
         ``` java
-                    api-manager.bat -DosgiConsole
+        api-manager.bat -DosgiConsole
         ```
 
-    2.  When the server is started, hit the enter/return key several times to get the OSGI shell in the console.
-    3.  In the OSGI shell, enter the following: `listAdminServices`
+    b.  When the server is started, hit the enter/return key several times to get the OSGI shell in the console.
+    
+    c.  In the OSGI shell, enter the following: `listAdminServices`
 
     This will give the list of admin services for your product.
 
 
-3.  Start the SOAP UI client, and import the WSDL of the admin service that you are using:
+4.  Start the SOAP UI client, and import the WSDL of the admin service that you are using:
 
     -   For `TenantMgtAdminService: https://localhost:9443/services/TenantMgtAdminService?wsdl`
     -   For `RemoteTenantManagerService: https://localhost:9443/services/RemoteTenantManagerService?wsdl`
@@ -91,9 +92,9 @@ You can invoke these operations using a SOAP client like SOAP UI as follows:
     -   Note that it is **not recommended** to delete tenants.
 
 
-4.  Click on the operation to open the request view. For example, to activate a tenant use the `activateTenant` operation.
+5.  Click on the operation to open the request view. For example, to activate a tenant use the `activateTenant` operation.
 
-5.  If your tenant domain is abc.com, invoke the `activateTenant` operation with the following request:
+6.  If your tenant domain is abc.com, invoke the `activateTenant` operation with the following request:
 
     ``` java
         <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ser="http://services.mgt.tenant.carbon.wso2.org">
