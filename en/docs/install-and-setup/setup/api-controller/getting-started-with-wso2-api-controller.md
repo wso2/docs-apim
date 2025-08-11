@@ -6,13 +6,13 @@
 
 1.  Download **apictl** based on your preferred platform (i.e., Mac, Windows, Linux).
 
-    - [For Mac with Intel Chip](https://github.com/wso2/product-apim-tooling/releases/download/v4.2.6/apictl-4.2.6-darwin-amd64.tar.gz)
-    - [For Mac with Apple Silicon](https://github.com/wso2/product-apim-tooling/releases/download/v4.2.6/apictl-4.2.6-darwin-arm64.tar.gz)
-    - [For Linux 32-bit](https://github.com/wso2/product-apim-tooling/releases/download/v4.2.6/apictl-4.2.6-linux-i586.tar.gz)
-    - [For Linux 64-bit with AMD processor](https://github.com/wso2/product-apim-tooling/releases/download/v4.2.6/apictl-4.2.6-linux-amd64.tar.gz)
-    - [For Linux 64-bit with ARM processor](https://github.com/wso2/product-apim-tooling/releases/download/v4.2.6/apictl-4.2.6-linux-arm64.tar.gz)
-    - [For Windows 32-bit](https://github.com/wso2/product-apim-tooling/releases/download/v4.2.6/apictl-4.2.6-windows-i586.zip)
-    - [For Windows 64-bit](https://github.com/wso2/product-apim-tooling/releases/download/v4.2.6/apictl-4.2.6-windows-x64.zip)
+    - [For Mac with Intel Chip](https://github.com/wso2/product-apim-tooling/releases/download/v4.2.7/apictl-4.2.7-darwin-amd64.tar.gz)
+    - [For Mac with Apple Silicon](https://github.com/wso2/product-apim-tooling/releases/download/v4.2.7/apictl-4.2.7-darwin-arm64.tar.gz)
+    - [For Linux 32-bit](https://github.com/wso2/product-apim-tooling/releases/download/v4.2.7/apictl-4.2.7-linux-i586.tar.gz)
+    - [For Linux 64-bit with AMD processor](https://github.com/wso2/product-apim-tooling/releases/download/v4.2.7/apictl-4.2.7-linux-amd64.tar.gz)
+    - [For Linux 64-bit with ARM processor](https://github.com/wso2/product-apim-tooling/releases/download/v4.2.7/apictl-4.2.7-linux-arm64.tar.gz)
+    - [For Windows 32-bit](https://github.com/wso2/product-apim-tooling/releases/download/v4.2.7/apictl-4.2.7-windows-i586.zip)
+    - [For Windows 64-bit](https://github.com/wso2/product-apim-tooling/releases/download/v4.2.7/apictl-4.2.7-windows-x64.zip)
 
 2.  Extract the downloaded archive of the apictl to the desired location.
 3.  Navigate to the working directory where the executable apictl resides.
@@ -73,8 +73,8 @@ Run the following apictl command to check the version.
 -   **Response**
 
     ```bash
-    Version: 4.2.6
-    Build Date: 2025-03-27 12:05:41 UTC
+    Version: 4.2.7
+    Build Date: 2025-08-11 04:30:01 UTC
     ```
 
 !!!note
@@ -161,7 +161,7 @@ You can add environments by either manually editing the `<USER_HOME>/.wso2apictl
 apictl add env <environment-name>
 ```
 
-1.  Make sure that the WSO2 API Manager (WSO2 API-M) 4.2.0 version is started and that the 4.2.6 version of apictl is set up.     
+1.  Make sure that the WSO2 API Manager (WSO2 API-M) 4.2.0 version is started and that the 4.2.7 version of apictl is set up.     
 For more information, see [Download and Initialize the apictl](#download-and-initialize-the-apictl).
 2.  Run the following apictl command to add an environment.
 
@@ -314,7 +314,7 @@ For more information, see [Download and Initialize the apictl](#download-and-ini
 
 ## Remove an environment
 
-1.  Make sure that the WSO2 API-M 4.2.0 version is started and that the 4.2.6 version of apictl is set up.  
+1.  Make sure that the WSO2 API-M 4.2.0 version is started and that the 4.2.7 version of apictl is set up.  
 For more information, see [Download and Initialize the apictl](#download-and-initialize-the-apictl).
 2.  Run the following apictl command to remove an environment.
 
@@ -345,7 +345,7 @@ For more information, see [Download and Initialize the apictl](#download-and-ini
 
 ## Get environments
 
-1.  Make sure that the WSO2 API-M 4.2.0 version is started and that the 4.2.6 version of apictl is set up.    
+1.  Make sure that the WSO2 API-M 4.2.0 version is started and that the 4.2.7 version of apictl is set up.    
 For more information, see [Download and Initialize the apictl](#download-and-initialize-the-apictl).
 2.  Run the following apictl command to list the environments.  
 
@@ -388,7 +388,7 @@ For more information, see [Download and Initialize the apictl](#download-and-ini
 
 After adding an environment, you can log in to the WSO2 API-M instance in that environment using credentials.
 
-1.  Make sure that the WSO2 API-M 4.2.0 version is started and that the 4.2.6 version of apictl is set up.   
+1.  Make sure that the WSO2 API-M 4.2.0 version is started and that the 4.2.7 version of apictl is set up.   
 For more information, see [Download and Initialize the apictl](#download-and-initialize-the-apictl).
 2.  Run any of the following apictl commands to log in to the environment.
 
@@ -460,7 +460,7 @@ For more information, see [Download and Initialize the apictl](#download-and-ini
 
 ## Logout from an environment
 
-1.  Make sure that the WSO2 API-M 4.2.0 version is started and that the 4.2.6 version of apictl is set up.   
+1.  Make sure that the WSO2 API-M 4.2.0 version is started and that the 4.2.7 version of apictl is set up.   
 For more information, see [Download and Initialize the apictl](#download-and-initialize-the-apictl).
 
 2.  Run the following command to log out from the current session of the WSO2 API-M environment.
