@@ -321,6 +321,7 @@ nav:
         - Getting started with AI Gateway: ai-gateway/getting-started-with-ai-gateway.md
         - AI Backend Security: ai-gateway/ai-backend-security.md
         - Rate Limiting: ai-gateway/rate-limiting.md
+        - Semantic Caching: ai-gateway/semantic-caching.md
         - Multi-Model Routing:
             - Overview: ai-gateway/multi-model-routing/overview.md
             - Load Balancing: ai-gateway/multi-model-routing/load-balancing.md
