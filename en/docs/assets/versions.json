@@ -3,6 +3,7 @@
   "current": "4.5.0",
   "latest": "4.5.0",
   "list": [
+    "4.6.0",
     "4.5.0",
     "4.4.0",
     "4.3.0",
@@ -14,6 +15,10 @@
     "3.0.0"
    ],
   "all": {
+    "4.6.0": {
+        "doc": "https://apim.docs.wso2.com/en/4.6.0",
+        "notes": "https://apim.docs.wso2.com/en/4.6.0/get-started/about-this-release"
+    },
     "4.5.0":{
         "doc": "latest",
         "notes": "4.5.0/get-started/about-this-release"
