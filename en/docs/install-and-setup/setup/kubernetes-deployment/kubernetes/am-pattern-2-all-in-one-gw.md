@@ -172,7 +172,7 @@ helm install apim-gw wso2/wso2am-universal-gw --version 4.5.0-3 -f https://raw.g
 ```
 
 !!! note
-    Refer [Configure JWKS URL](#24-configure-jwks-url) to configure the correct JWKS URL for the super tenant using the Helm chart.
+    If you are using a hostname that is not globally routable (e.g., am.wso2.com), invoking APIs will result in an error. Ensure you configure the correct JWKS URL accordingly. For more details, please refer to [Configure JWKS URL](#24-configure-jwks-url).
 
 !!! tip "Important"
     Naming conventions are important. If you want to change them, ensure consistency throughout your configuration.
