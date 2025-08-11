@@ -171,7 +171,10 @@ helm install apim wso2/wso2am-all-in-one --version 4.5.0-3 -f https://raw.github
 helm install apim-gw wso2/wso2am-universal-gw --version 4.5.0-3 -f https://raw.githubusercontent.com/wso2/helm-apim/main/docs/am-pattern-2-all-in-one_GW/default_gw_values.yaml
 ```
 
-!!! important
+!!! note
+    Refer [Configure JWKS URL](#24-configure-jwks-url) to configure the correct JWKS URL for the super tenant using the Helm chart.
+
+!!! tip "Important"
     Naming conventions are important. If you want to change them, ensure consistency throughout your configuration.
 
 Once the services are up and running, make sure you have the NGINX Ingress Controller deployed by following the steps outlined in the [Add Ingress Controller](#11-add-ingress-controller) section.
