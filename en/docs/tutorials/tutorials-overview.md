@@ -41,6 +41,7 @@ The following list of tutorials guide you to do integrations and advanced API Ma
             <ul>
                 <li><a href="{{base_path}}/tutorials/create-distributed-setup-using-the-enterprise-package">Setting Up a Distributed Setup Using the APIM Enterprise Package<a></li>
                 <li><a href="{{base_path}}/tutorials/single-control-plane-for-multiple-gateways">Single Control Plane for Multiple Gateways<a></li>
+                <li><a href="{{base_path}}/tutorials/deploying-apis-to-federated-gateways-with-wso2">Deploying APIs to AWS API Gateway<a></li>
             </ul>
         </td>
         <td>
