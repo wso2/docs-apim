@@ -172,6 +172,20 @@ logger.reporter.level = "INFO"
     | "errorMessage"               | string    | The error message associated with the fault.                         |
     | "errorType"                  | string    | The type of error (e.g., THROTTLED).                                 |
 
+### Real Time Analytics
+
+Once the Moesif integration is configured, you can view real-time analytics on the Moesif dashboard. The dashboard provides insights into API related details mention in the above section.
+
+<a href="{{base_path}}/assets/img/analytics/moesif/real-time-event-summary.png"><img src="{{base_path}}/assets/img/analytics/moesif/real-time-event-summary.png" alt="real time event summary"></a>
+
+!!! note
+    The Moesif dashboard allows you to filter and segment data based on various parameters such as API, user, application, and more. This enables you to gain deeper insights into API usage patterns and performance.
+
+!!! note
+    If you invoke AI APIs, you can also view AI API related analytics such as model, vendor name, token usage and more in the Moesif dashboard. The following image illustrates the AI API related analytics.
+
+    <a href="{{base_path}}/assets/img/analytics/moesif/ai-api-analytics.png"><img src="{{base_path}}/assets/img/analytics/moesif/ai-api-analytics.png" alt="AI API analytics"></a>
+
 ### Dashboards
 
 Users can create a variety of dashboards in Moesif using the analytics data published from the WSO2 API Gateway. The sample dashboard below illustrates API usage segmented by different users.
