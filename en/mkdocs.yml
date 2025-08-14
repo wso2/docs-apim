@@ -680,6 +680,7 @@ nav:
             - Integrating API Manager with an External Broker and Gateway: tutorials/integrating-with-solace.md
             - Develop an Integration From a Managed API: tutorials/develop-an-integration-with-a-managed-api.md
             - The Single Control Plane for Multiple Gateways: tutorials/single-control-plane-for-multiple-gateways.md
+            - Federated API Gateway Deployment: tutorials/deploying-apis-to-federated-gateways-with-wso2.md
             - Create and Publish a GraphQL API: tutorials/create-and-publish-a-graphql-api.md
             - Create and Publish a Streaming API:
                 - Create and Publish a WebSocket API: tutorials/streaming-api/create-and-publish-websocket-api.md
