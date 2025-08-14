@@ -63,37 +63,37 @@ Next, let’s see how we can  create a new IAM user, define the required permiss
 
 4. Click **Create User** and enter a user name.
 
-   ![]({{base_path}}/assets/img/tutorials/federated-gw/create-user.png)
+    ![]({{base_path}}/assets/img/tutorials/federated-gw/create-user.png)
 
-   ![]({{base_path}}/assets/img/tutorials/federated-gw/type-username.png)
+    ![]({{base_path}}/assets/img/tutorials/federated-gw/type-username.png)
 
 5. Click **Next**.
 6. Select **Attach policies directly** under the **Select Permissions** tab.
 
-   ![]({{base_path}}/assets/img/tutorials/federated-gw/attach-policy.png)
+    ![]({{base_path}}/assets/img/tutorials/federated-gw/attach-policy.png)
 
 7. Search for **AmazonAPIGatewayAdministrator** permission and select it.
 
-   ![]({{base_path}}/assets/img/tutorials/federated-gw/amazon-api-gateway-policy.png)
+    ![]({{base_path}}/assets/img/tutorials/federated-gw/amazon-api-gateway-policy.png)
 
 8. Click **Next** and then click **Create User**.
 9. You will be able to see the created user in the list as below.
 
-   ![]({{base_path}}/assets/img/tutorials/federated-gw/users-list.png)
+    ![]({{base_path}}/assets/img/tutorials/federated-gw/users-list.png)
 
 10. Click on the created user from the list and go to the **Security credentials** tab.
 
-   ![]({{base_path}}/assets/img/tutorials/federated-gw/sec-creds.png)
+    ![]({{base_path}}/assets/img/tutorials/federated-gw/sec-creds.png)
 
 11. Navigate to the **Access Keys** and click on **Create access key**.
 
-   ![]({{base_path}}/assets/img/tutorials/federated-gw/create-access-key.png)
+    ![]({{base_path}}/assets/img/tutorials/federated-gw/create-access-key.png)
 
 12. Select **Third-party service** as the use case, tick the confirmation and click **Next**.
 
-   ![]({{base_path}}/assets/img/tutorials/federated-gw/third-party-service.png)
+    ![]({{base_path}}/assets/img/tutorials/federated-gw/third-party-service.png)
 
-   ![]({{base_path}}/assets/img/tutorials/federated-gw/third-party-service-confirmation.png)
+    ![]({{base_path}}/assets/img/tutorials/federated-gw/third-party-service-confirmation.png)
 
 13. Click **Create access key** and copy the values for **Access key** and **Secret access key** for later use.
 
@@ -105,15 +105,15 @@ We will now proceed to register the AWS API Gateway as a federated gateway withi
 2. Sign in to the Admin Portal via `https://localhost:9444/admin`.
 3. Navigate to the **Gateways** section and click **Add Gateway Environment**.
 
-   ![]({{base_path}}/assets/img/tutorials/federated-gw/add-gw.png)
+    ![]({{base_path}}/assets/img/tutorials/federated-gw/add-gw.png)
 
 4. Select the Gateway type as **AWS** and provide the relevant details in the fields accordingly. Provide the access key and secret access key obtained from the AWS portal in the previous step.
 
-   ![]({{base_path}}/assets/img/tutorials/federated-gw/fill-gw-details.png)
+    ![]({{base_path}}/assets/img/tutorials/federated-gw/fill-gw-details.png)
 
 5. Click **Add** to save the details. The added AWS gateway is displayed as shown below in the gateway environments listing page.
 
-   ![]({{base_path}}/assets/img/tutorials/federated-gw/gw-list.png)
+    ![]({{base_path}}/assets/img/tutorials/federated-gw/gw-list.png)
 
 Currently, deploying a Rest API to the AWS gateway is supported by WSO2 API Manager. A sample Rest API with a mock backend will be used for this deployment. Let's proceed to create and deploy an API specifically to the AWS gateway.
 
@@ -125,13 +125,13 @@ For initial verification, we will construct a basic API. Subsequently, we will d
 2. Click **Create API** and then navigate to the **Rest API** section. Click **Start from Scratch**.
 3. Fill the details as given below and provide a valid endpoint URL. Here a [mocky.io](http://mocky.io) generated mock endpoint URL is used.
 
-   ![]({{base_path}}/assets/img/tutorials/federated-gw/create-aws-api.png)
+    ![]({{base_path}}/assets/img/tutorials/federated-gw/create-aws-api.png)
 
 4. Note **AWS Gateway** is selected as the gateway type here.
 5. Click **Create & Publish**.
 6. The AWS gateway access URL of the deployed API can be accessed in the **Deployments** page as below.
 
-   ![]({{base_path}}/assets/img/tutorials/federated-gw/deploy-aws-api.png)
+    ![]({{base_path}}/assets/img/tutorials/federated-gw/deploy-aws-api.png)
 
 As the next step, let’s do the additional configurations to enable security for the API and then subscribe to it and invoke the API using a valid token.
 
@@ -219,49 +219,49 @@ Configure a Lambda function in AWS to validate tokens generated from the IDP con
 2. Update the '**jwksUri**' field of the key client in the index.mjs file. This should point to the JWKS of the Auth0 IdP (Can be taken from the Certificates section in the Edit view of the Auth0 key manager in the Admin portal).
 3. Navigate to the 'lambda-authorizer' folder and execute below commands to install the required node modules.
 
-   ```
-   npm install jsonwebtoken
-   npm install jwks-rsa
-   ```
+    ```
+    npm install jsonwebtoken
+    npm install jwks-rsa
+    ```
 
 4. Create a .zip file that contains the contents of your project folder at the root.
 
-   ```
-   zip -r lambda-authorizer.zip .
-   ```
+    ```
+    zip -r lambda-authorizer.zip .
+    ```
 
 5. Go to the [Functions](https://console.aws.amazon.com/lambda/home#/functions) page of your AWS account and click **Create function**.
 6. Provide the details as given below and click **Create function**. Provide a function name as required (here lambda-authorizer is used as the function name).
 
-   ![]({{base_path}}/assets/img/tutorials/federated-gw/create-function.png)
+    ![]({{base_path}}/assets/img/tutorials/federated-gw/create-function.png)
 
 7. Click **Upload from** and select the **.zip file** option from the drop down menu.
 
-   ![]({{base_path}}/assets/img/tutorials/federated-gw/zip-file.png)
+    ![]({{base_path}}/assets/img/tutorials/federated-gw/zip-file.png)
 
 8. Click **Upload** and provide the generated zip file above.
 
-   ![]({{base_path}}/assets/img/tutorials/federated-gw/upload-zip.png)
+    ![]({{base_path}}/assets/img/tutorials/federated-gw/upload-zip.png)
 
 9. Click **Save**. Click **Deploy** to deploy the **lambda-authorizer** function in the AWS API Gateway.
 10. In AWS IAM, configure an execution role for the lambda function. Navigate to **IAM** > **Roles** in AWS console and create a new role with below details.
 
-   ```
-   Trusted Entity Type : AWS Service
-   Use Case : Lambda
-   ```
+    ```
+    Trusted Entity Type : AWS Service
+    Use Case : Lambda
+    ```
 
-   ![]({{base_path}}/assets/img/tutorials/federated-gw/trusted-entity.png)
+    ![]({{base_path}}/assets/img/tutorials/federated-gw/trusted-entity.png)
 
 11. Click **Next**.
 12. Under the **Add Permissions** stage attach **AWSLambdaRole** permission. Optionally attach **AWSLambdaBasicExecutionRole** if you wish to enable cloudwatch logs for the lambda function.
 
-   ![]({{base_path}}/assets/img/tutorials/federated-gw/add-permission.png)
+    ![]({{base_path}}/assets/img/tutorials/federated-gw/add-permission.png)
 
 13. Click **Next**. Provide a role name (here APIMLambdaRole is used as the role name) and click **Create policy**. Then edit the Trust Policy as below to allow API Gateway service as well.
 
-   ```
-   {
+    ```
+    {
     "Version": "2012-10-17",
     "Statement": [
         {
@@ -275,25 +275,25 @@ Configure a Lambda function in AWS to validate tokens generated from the IDP con
             "Action": "sts:AssumeRole"
         }
     ]
-   }
-   ```
+    }
+    ```
 
-   ![]({{base_path}}/assets/img/tutorials/federated-gw/trust-policy.png)
+    ![]({{base_path}}/assets/img/tutorials/federated-gw/trust-policy.png)
 
 14. In the WSO2 API Publisher portal, navigate to the **Policies** section of the **SampleAPI** created in the above step and move to the API level policies tab.
 15. Attach the AWS OAuth policy from the Request policies tab.
 
-   ![]({{base_path}}/assets/img/tutorials/federated-gw/request-policy.png)
+    ![]({{base_path}}/assets/img/tutorials/federated-gw/request-policy.png)
 
 16. Obtain the **ARN of the Lambda function** and the **ARN of the execution role created above** as below.
 
-   ![]({{base_path}}/assets/img/tutorials/federated-gw/arn-function.png)
+    ![]({{base_path}}/assets/img/tutorials/federated-gw/arn-function.png)
 
-   ![]({{base_path}}/assets/img/tutorials/federated-gw/arn-role.png)
+    ![]({{base_path}}/assets/img/tutorials/federated-gw/arn-role.png)
 
 17. Provide the ARN values in the AWS OAuth policy, and attach the policy to the API.
 
-   ![]({{base_path}}/assets/img/tutorials/federated-gw/arn-attched-to-policy.png)
+    ![]({{base_path}}/assets/img/tutorials/federated-gw/arn-attched-to-policy.png)
 
 18. Click **Save and Deploy**.
 
