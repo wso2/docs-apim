@@ -27,7 +27,7 @@ In order to access the WSO2 API-M Portals and Gateway, you need to front the sys
 load balancer that is available to your system.
 
 Follow the steps in [Configuring the Proxy Server and the Load Balancer]({{base_path}}/install-and-setup/setup/setting-up-proxy-server-and-the-load-balancer/configuring-the-proxy-server-and-the-load-balancer) to configure the load balancer/reverse proxy which is fronting the API-M nodes
-in the demiliterized zone (DMZ).
+in the demilitarized zone (DMZ).
 
 ??? tip
     For example, if you are using the hostname `api.am.wso2.com` is used to access all portals (publisher, store, admin, and carbon) and `gw.am.wso2.com` is used to invoke APIs, the `deployment.toml` in `<API-M_HOME>/repository/conf` directory of both
