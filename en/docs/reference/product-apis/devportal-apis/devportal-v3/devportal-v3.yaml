@@ -6555,8 +6555,7 @@ components:
       name: groupId
       in: query
       description: |
-        Application Group Id
-
+        Application Group Id  
         Please note that filtering by groupId is currently not supported.
       schema:
         type: string
