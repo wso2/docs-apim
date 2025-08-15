@@ -11,10 +11,13 @@ Once your MCP Server is created, the **Tools** section allows you to adjust exis
 1. In the left navigation menu, go to **API Configurations** → **Tools**.
    This view lists all the tools automatically generated from the API resources.
 
+   [![MCP Tools]({{base_path}}/assets/img/mcp/mcp-tools.png){: style="width:90%"}]({{base_path}}/assets/img/mcp/mcp-tools.png)
+
 #### Editing Existing Tools
 
 * **Rename**
   Use short, clear, and descriptive names that reflect the tool’s purpose. This helps consumers quickly identify the right tool when multiple tools are available.
+
 * **Edit the Description**
   Add clear, contextual guidance. Descriptions should:
 
@@ -27,9 +30,10 @@ Once your MCP Server is created, the **Tools** section allows you to adjust exis
 1. Click **Add New Tool**.
 2. Fill in the required fields:
 
-   * **Options** – Select the API resource to base the tool on (e.g., a specific GET or POST endpoint).
-   * **Description** – Provide enough context for LLMs and human users to understand the tool’s capabilities.
+   * **Operation** – Select the API resource (In MCP Server Proxy scenario this becomes a TOOL) to base the tool on (e.g., a specific GET or POST endpoint).
+   * **Description** – Provide enough context for LLMs to understand the tool’s capabilities.
    * **Tool Name** – Must be unique and ideally follow a consistent naming convention.
+
 3. Save your changes.
 
 #### Best Practices
@@ -53,6 +57,8 @@ Before your MCP Server can be tested or used, it must be deployed to a specific 
 3. Click **Deploy**.
 4. Wait for the deployment confirmation message.
 
+[![MCP Server Deploy]({{base_path}}/assets/img/mcp/mcp-server-deploy.png){: style="width:90%"}]({{base_path}}/assets/img/mcp/mcp-server-deploy.png)
+
 #### Deployment Tips
 
 * Ensure the Gateway environment (dev, staging, prod) matches your testing plan.
@@ -72,6 +78,9 @@ The **MCP Playground** in the Publisher Portal allows you to test tools without 
    * Provide example inputs.
    * Check if the output matches expectations.
    * Validate that descriptions guide the correct usage.
+
+   [![MCP Inspector]({{base_path}}/assets/img/mcp/mcp-inspector-publisher.png){: style="width:90%"}]({{base_path}}/assets/img/mcp/mcp-inspector-publisher.png)
+
 4. Note any issues and update tool configurations as needed.
 
 #### Why This Matters
@@ -83,6 +92,8 @@ Testing here ensures that tools work as expected before they are exposed to exte
 Once the MCP Server and its tools are tested and verified, you can publish it to make it accessible in the Developer Portal.
 
 #### Publishing Steps
+
+   [![MCP Server Lifecycles]({{base_path}}/assets/img/mcp/mcp-lifecycles.png){: style="width:90%"}]({{base_path}}/assets/img/mcp/mcp-lifecycles.png)
 
 1. In the left menu, go to **Publish** → **Lifecycle**.
 2. Review the MCP Server details to ensure:
@@ -96,10 +107,3 @@ Once the MCP Server and its tools are tested and verified, you can publish it to
 * Published MCP Servers become discoverable by application developers.
 * Only publish when you are confident in both functionality and documentation.
 * After publishing, consider adding API usage examples in the Developer Portal for better adoption.
-
-### Summary Workflow
-
-1. **Modify/Refine Tools** → Ensure tools are clearly named, well-documented, and logically organized.
-2. **Deploy MCP Server** → Choose the correct Gateway and verify successful deployment.
-3. **Test in MCP Playground** → Validate tool functionality before going public.
-4. **Publish MCP Server** → Make it available for consumption in the Developer Portal.

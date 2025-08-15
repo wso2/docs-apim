@@ -7,8 +7,8 @@ You can then configure your MCP Server details—such as name, context, version,
 !!! tip
    The quality of the imported tools depends on the quality of your OpenAPI definition. Clear operation IDs, descriptions, and parameter schemas will result in more usable and descriptive tools.
 
-1. **Choose the path**
-   Click **Import API Definition** → **Create MCP Server from Definition**.
+1. **Go to the Publisher Portal**
+   In the navigation, click **Import API Definition** → **Create MCP Server from Definition**.
 
 2. **Provide the definition**
 
@@ -19,8 +19,6 @@ You can then configure your MCP Server details—such as name, context, version,
    [![MCP Server from OpenAPI Validate]({{base_path}}/assets/img/mcp/create-mcp-servers-from-open-api-validate.png){: style="width:90%"}]({{base_path}}/assets/img/mcp/create-mcp-servers-from-open-api-validate.png)
 
 3. **Select tools to import**
-
-   [![MCP Server from OpenAPI Select Tools]({{base_path}}/assets/img/mcp/create-mcp-servers-from-open-api-tools-select.png){: style="width:90%"}]({{base_path}}/assets/img/mcp/create-mcp-servers-from-open-api-tools-select.png)
 
    * Review all operations from the OpenAPI.
    * Select the operations to expose as tools.
@@ -40,7 +38,8 @@ You can then configure your MCP Server details—such as name, context, version,
    | Version  | 1.0.0                                                                      |
    | Endpoint | [https://petstore3.swagger.io/api/v3](https://petstore3.swagger.io/api/v3) |
 
-   [![MCP Server from OpenAPI Create]({{base_path}}/assets/img/mcp/create-mcp-servers-from-open-api-create.png){: style="width:90%"}]({{base_path}}/assets/img/mcp/create-mcp-servers-from-open-api-create.png)
+
+   [![MCP Server frome OpenAPI Create]({{base_path}}/assets/img/mcp/create-mcp-servers-from-open-api-create.png){: style="width:90%"}]({{base_path}}/assets/img/mcp/create-mcp-servers-from-open-api-create.png)
 
 
 ### Next Step → Update and Deploy Your MCP Server

@@ -1,46 +1,49 @@
 # Getting Started with MCP
 
-The **Model Context Protocol (MCP)** in WSO2 API Manager provides a framework for exposing *tool-style* capabilities as first-class APIs—purpose-built for AI, automation, and structured integrations.
+The **Model Context Protocol (MCP)** in WSO2 API Manager provides a standardized way to expose *tool-style* capabilities as first-class APIs for AI, automation, and structured integrations. An MCP Server **describes its capabilities as tools** with machine-readable schemas and discovery.
 
-Rather than manually designing and wiring up multiple REST endpoints, an MCP Server **describes its capabilities as “tools”**—each with:
+## What is Model Context Protocol?
 
-* **Input schemas** – The exact structure and data types the tool accepts.
-* **Output schemas** – The precise format and structure of the tool’s responses.
-* **Discovery mechanisms** – How clients automatically find, understand, and integrate available tools without manual schema interpretation.
+**MCP is a JSON-RPC–based protocol** that standardizes how applications interact with LLMs. It lets applications both share context (files, databases, APIs) with LLMs and **expose callable tools** that agents can invoke in workflows.
 
-This approach makes it easier to **standardize**, **secure**, and **govern** the capabilities of backends consumed by AI models, RPA bots, and other automated systems.
+### Architecture (host–client–server)
 
-## Key Benefits of Using MCP in APIM
+* **Host** – Runtime where the MCP client lives (e.g., agent or gateway).
+* **Client** – Mediates communication with one or more MCP servers.
+* **Server** – Publishes tools, schemas, and metadata for discovery and invocation.
 
-By leveraging MCP in API Manager, you can:
-
-* **Create MCP Servers** – Define tools from scratch or map them directly to backend API operations.
-* **Proxy External MCP Servers** – Wrap and expose third-party MCP Servers through APIM to apply authentication, throttling, caching, and analytics without modifying the original service.
-* **Bootstrap from APIs/OpenAPI** – Instantly generate MCP Servers from existing REST APIs, preserving each operation as an MCP tool.
+> See the official MCP specification for full protocol details.
 
 ## MCP Core Concepts
 
-* **Server** – The MCP API you manage in APIM. It can expose one or more tools to clients.
-* **Tool** – A callable, well-defined capability (e.g., `echo`, `summarize`, `getOrderStatus`) that includes a machine-readable input/output schema.
-* **Discovery** – A standardized process where clients retrieve the list of tools, their metadata, and schema definitions before invocation.
-* **Governance** – The application of APIM’s policies—authentication, scopes, throttling, logging, and analytics—to MCP tools, just like with any other API.
+* **Server** – The MCP API you manage, can expose one or more tools.
+* **Tool** – A callable capability (e.g., `echo`, `summarize`, `getOrderStatus`) defined by input/output schemas.
+* **Discovery** – Clients list tools, read metadata, and fetch schemas before invocation.
 
 ## Why MCP in APIM is Valuable
 
-Combining MCP’s structured tooling model with APIM’s lifecycle and governance features allows you to:
-
-* Enforce **consistent security** policies across AI and automation-focused endpoints.
-* Provide **standardized metadata** so clients can integrate without manual schema inspection.
-* Monitor and analyze **tool usage patterns** to support capacity planning or improve model fine-tuning.
-* Introduce **versioned changes** to tools with minimal disruption to consumers.
+* Enforce **consistent security** across AI/automation endpoints.
+* Provide **standardized metadata** for zero-guesswork client integration.
+* Track **tool usage analytics** for capacity and optimization.
+* Ship **versioned tool changes** with minimal disruption.
 
 !!! note
-This Getting Started guide will walk you through the end-to-end process of creating an MCP Server in WSO2 API Manager—from defining tools, to deploying and publishing them for use.
+   This guide walks you from defining tools to deploying and publishing an MCP Server in WSO2 API Manager.
 
-### Next Step → MCP Server Creation Options
+## Quick Start (at a glance)
 
-WSO2 API Manager offers three ways to create an MCP Server, depending on your starting point and integration needs:
+1. **Choose a creation path** (see below).
+2. **Define/confirm tool schemas** (inputs/outputs, descriptions).
+3. **Attach policies** (auth, rate limiting).
+5. **Publish & test** (run discovery, call tools, review analytics).
 
-1. **[Create an MCP Server by Importing an OpenAPI Definition](./create-from-openapi.md)** – Use an existing OpenAPI definition to auto-generate tools and server configuration.
-2. **[Create an MCP Server Using an Existing API](./create-from-api.md)** – Select an already-deployed API in APIM and convert its operations into MCP tools.
-3. **[Proxy an Existing MCP Server](./create-from-mcp-server.md)** – Wrap an external MCP Server behind APIM for governance, security, and analytics.
+!!! tip
+   Keep input schemas minimal and strongly typed; LLMs perform better with concise, unambiguous contracts.
+
+## Next Step → MCP Server Creation Options
+
+WSO2 API Manager offers three ways to create an MCP Server:
+
+1. **[Create an MCP Server by Importing an OpenAPI Definition](./create-from-openapi.md)** – Generate tools and configuration from an existing OpenAPI.
+2. **[Create an MCP Server Using an Existing API](./create-from-api.md)** – Select an API already in APIM and convert operations into MCP tools.
+3. **[Proxy an Existing MCP Server](./create-from-mcp-server.md)** – Wrap an external MCP server for governance, security, and analytics.

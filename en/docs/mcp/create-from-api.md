@@ -11,8 +11,9 @@ This approach is faster when:
 !!! tip
 Well-structured API resources with clear naming and descriptions will translate into more intuitive MCP tools.
 
-1. **Choose the path**
-   Click **Start from Existing API** → **Create MCP Server from Existing API**.
+
+1. **Go to the Publisher Portal**
+   In the navigation, click **Start from Existing API** → **Create MCP Server from Existing API**.
 
 2. **Pick the source API**
 
@@ -22,8 +23,6 @@ Well-structured API resources with clear naming and descriptions will translate 
       [![MCP Server from API Validate]({{base_path}}/assets/img/mcp/create-mcp-servers-from-api-validate.png){: style="width:90%"}]({{base_path}}/assets/img/mcp/create-mcp-servers-from-api-validate.png)
 
 3. **Select resources to become tools**
-   
-    [![MCP Server from API Select Tools]({{base_path}}/assets/img/mcp/create-mcp-servers-from-api-tools-select.png){: style="width:90%"}]({{base_path}}/assets/img/mcp/create-mcp-servers-from-api-tools-select.png)
 
    * Choose which API operations should become tools.
    * Click **Next**.
