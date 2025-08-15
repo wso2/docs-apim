@@ -1,31 +1,28 @@
 name: "🐞 Report a Bug"
-description: Create an issue if something does not work as expected.
+description: Create an issue if the documentation is incorrect, has missing content or is outdated.
 labels: ["Type/Bug"]
 body:
   - type: textarea
-    id: background
+    id: description
     attributes:
       label: Description
-      description: Please share a clear and concise description of the problem.
-      placeholder: Description
-  - type: textarea
-    id: steps
-    attributes:
-      label: Steps to Reproduce
-      description: List the steps you followed when you encountered the issue. Provide sample source code to reproduce the issue where applicable.
+      description: Describe the issue in the documentation. Is something wrong, missing or outdated? Provide screenshots where applicable.
+      placeholder: e.g., The link in the document below leads to a 'Page Not Found' error.
     validations:
       required: true
+  - type: textarea
+    id: suggestion
+    attributes:
+      label: Suggested Fix
+      description: Suggest how the documentation should be fixed.
+      placeholder: e.g., The broken link should be changed to https://example.com.
+    validations:
+      required: false
   - type: input
     id: version
     attributes:
-      label: Version
-      description: Enter product/component version.
+      label: Version(s)
+      description: List all relevant documentation versions in which this issue may be encountered.
+      placeholder: 4.5.0, 4.4.0, 4.3.0
     validations:
       required: true
-  - type: textarea
-    id: environment
-    attributes:
-      label: Environment Details (with versions)
-      description: Mention the environment details (OS, Client, etc.) that the product is running on.
-    validations:
-      required: false
