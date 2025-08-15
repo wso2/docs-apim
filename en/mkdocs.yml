@@ -339,6 +339,14 @@ nav:
                 - Content Safety: ai-gateway/ai-guardrails/safety-categories/content-safety.md
                 - Content Usage Control: ai-gateway/ai-guardrails/safety-categories/content-usage-control.md
                 # - PII Safety: ai-gateway/ai-guardrails/safety-categories/pii-safety.md
+    - MCP Servers:
+        - Overview: mcp/overview.md
+        - Create from an OpenAPI Definition: mcp/create-from-openapi.md
+        - Create from an Existing API: mcp/create-from-api.md
+        - Proxy an Existing MCP Server: mcp/create-from-mcp-server.md
+        - Update and Deploy an MCP Server: mcp/update-and-deploy-mcp-server.md
+        - Subscribe to an MCP Server: mcp/subscribe-to-a-mcp-server.md
+        - Test with the MCP Playground: mcp/invoke-a-mcp-server-using-playground.md
     - Analytics:
         - API Analytics:
             - Choreo Based Analytics: 
