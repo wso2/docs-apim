@@ -1,4 +1,4 @@
-## Create an MCP Server Using an Existing API
+# Create an MCP Server Using an Existing API
 
 This creation path is ideal when the API you want to expose as MCP tools is **already deployed in WSO2 API Manager**.
 Instead of starting from an OpenAPI file, you can directly select the API from the Publisher Portal, choose which of its operations should become MCP tools, and configure the MCP Server details.
@@ -9,37 +9,37 @@ This approach is faster when:
 * You want to reuse existing API governance (security, throttling, analytics) while enabling tool-style access.
 
 !!! tip
-Well-structured API resources with clear naming and descriptions will translate into more intuitive MCP tools.
+    Well-structured API resources with clear naming and descriptions will translate into more intuitive MCP tools.
 
 
-1. **Go to the Publisher Portal**
-   In the navigation, click **Start from Existing API** → **Create MCP Server from Existing API**.
+   1. **Go to the Publisher Portal**
+      In the navigation, click **Start from Existing API** → **Create MCP Server from Existing API**.
 
-2. **Pick the source API**
+   2. **Pick the source API**
 
-   * From the list of available APIs, select the one to generate tools from.
-   * Click **Next**.
+      * From the list of available APIs, select the one to generate tools from.
+      * Click **Next**.
 
-      [![MCP Server from API Validate]({{base_path}}/assets/img/mcp/create-mcp-servers-from-api-validate.png){: style="width:90%"}]({{base_path}}/assets/img/mcp/create-mcp-servers-from-api-validate.png)
+         [![MCP Server from API Validate]({{base_path}}/assets/img/mcp/create-mcp-servers-from-api-validate.png){: style="width:90%"}]({{base_path}}/assets/img/mcp/create-mcp-servers-from-api-validate.png)
 
-3. **Select resources to become tools**
+   3. **Select resources to become tools**
 
-   * Choose which API operations should become tools.
-   * Click **Next**.
+      * Choose which API operations should become tools.
+      * Click **Next**.
 
-   [![MCP Server from API Select Tools Selecteded]({{base_path}}/assets/img/mcp/create-mcp-servers-from-api-tools-selecteded.png){: style="width:90%"}]({{base_path}}/assets/img/mcp/create-mcp-servers-from-api-tools-selecteded.png)
+      [![MCP Server from API Select Tools Selecteded]({{base_path}}/assets/img/mcp/create-mcp-servers-from-api-tools-selected.png){: style="width:90%"}]({{base_path}}/assets/img/mcp/create-mcp-servers-from-api-tools-selected.png)
 
-4. **Enter MCP Server details**
-   Provide the details and click **Create**.
+   4. **Enter MCP Server details**
+      Provide the details and click **Create**.
 
-   | Field    | Sample value                                                               |
-   | -------- | -------------------------------------------------------------------------- |
-   | Name     | Petstore                                                                   |
-   | Context  | /petstore                                                                  |
-   | Version  | 1.0.6                                                                      |
-   | Endpoint | [https://petstore3.swagger.io/api/v3](https://petstore3.swagger.io/api/v3) |
+      | Field    | Sample value                                                               |
+      | -------- | -------------------------------------------------------------------------- |
+      | Name     | Petstore                                                                   |
+      | Context  | /petstore                                                                  |
+      | Version  | 1.0.6                                                                      |
+      | Endpoint | [https://petstore3.swagger.io/api/v3](https://petstore3.swagger.io/api/v3) |
 
-   [![MCP Server from API Create]({{base_path}}/assets/img/mcp/create-mcp-servers-from-api-create.png){: style="width:90%"}]({{base_path}}/assets/img/mcp/create-mcp-servers-from-api-create.png)
+      [![MCP Server from API Create]({{base_path}}/assets/img/mcp/create-mcp-servers-from-api-create.png){: style="width:90%"}]({{base_path}}/assets/img/mcp/create-mcp-servers-from-api-create.png)
 
 ### Next Step → Update and Deploy Your MCP Server
 
