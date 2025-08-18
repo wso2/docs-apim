@@ -37,7 +37,6 @@ This approach is faster when:
       | Name     | Petstore                                                                   |
       | Context  | /petstore                                                                  |
       | Version  | 1.0.6                                                                      |
-      | Endpoint | [https://petstore3.swagger.io/api/v3](https://petstore3.swagger.io/api/v3) |
 
       [![MCP Server from API Create]({{base_path}}/assets/img/mcp/create-mcp-servers-from-api-create.png){: style="width:90%"}]({{base_path}}/assets/img/mcp/create-mcp-servers-from-api-create.png)
 

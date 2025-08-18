@@ -36,7 +36,7 @@ In the Publisher Portal, you will:
       | Version  | 1.0.0                                                                      |
       | Endpoint | `https://db720294-98fd-40f4-85a1-cc6a3b65bc9a-prod.e1-us-east-azure.choreoapis.dev/godzilla/mcp-everything-server/v1.0` |
 
-      [![MCP Server Proxy Create]({{base_path}}/assets/img/mcp/create-mcp-server-proxy-create.png){: style="width:90%"}]({{base_path}}/assets/img/mcp/create-mcp-servers-proxy-create.png)
+      [![MCP Server Proxy Create]({{base_path}}/assets/img/mcp/create-mcp-servers-proxy-create.png){: style="width:90%"}]({{base_path}}/assets/img/mcp/create-mcp-servers-proxy-create.png)
 
 
 ### Next Step → Update and Deploy Your MCP Server
