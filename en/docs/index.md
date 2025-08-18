@@ -525,7 +525,7 @@ template: templates/single-column.html
                                     </div>
                                 </div>
                                 <hr/>
-                                <p class="removeTopMargin">Manage APIs spaning multiple cloud platforms, on-premises systems, or regions</p>
+                                <p class="removeTopMargin">Manage APIs spanning multiple cloud platforms, on-premises systems, or regions</p>
                                 <div>
                                     <ul>
                                         <li><a href="{{base_path}}/deploy-and-publish/deploy-on-gateway/federated-gateways/deploy-on-aws-api-gateway/">AWS API Gateway</a></li>
