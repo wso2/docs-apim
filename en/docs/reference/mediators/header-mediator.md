@@ -74,6 +74,9 @@ The parameters available to configure the Header mediator are as follows.
     - Server : controlled by the HTTP transport.
     - Content-Type : can be set in Header Mediator, but if a Payload Mediator or MessageType property changes the message type later, it will overwrite it.
 
+!!! Note
+    When the flow initiated from a proxy service, to set the SOAPAction header when calling to a SOAP endpoint, use the `Action` header name in the default scope. For example, `<header name="Action" scope="default" value="soapActionValue"/>` 
+    
     The following header names in the default scope have a special meaning.
 
     - Action : Sets the HTTP SOAPAction header.
