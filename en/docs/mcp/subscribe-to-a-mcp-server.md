@@ -4,7 +4,7 @@ You have to **subscribe** to a published MCP Server before using its tools in yo
 
 The examples here use the `Petstore` MCP Server, which is created and published to the Developer Portal in WSO2 API Manager.
 
-## Subscribe to an existing application
+## Subscribe to a application
 
 If you already have an existing application, follow the instructions below to subscribe to the MCP Server using that application.
 

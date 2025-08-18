@@ -1,4 +1,4 @@
-# Create an MCP Server by Importing an OpenAPI Definition
+# Create a MCP Server by Importing an OpenAPI Definition
 
 This creation path is used when you already have an OpenAPI definition for your backend service and want to quickly turn its operations into MCP tools.
 The Publisher Portal will import the definition, list all available operations, and let you select which ones to expose as tools.

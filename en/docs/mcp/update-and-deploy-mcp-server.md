@@ -1,6 +1,6 @@
 # Updating Tools and Deploying the MCP Server
 
-After creating an MCP Server from an existing API, you may need to refine the generated tools, verify their behavior, and deploy them to the right environment. This ensures they are intuitive for consumers and function as expected before being published.
+After creating a MCP Server from an existing API, you may need to refine the generated tools, verify their behavior, and deploy them to the right environment. This ensures they are intuitive for consumers and function as expected before being published.
 
 ### 1. Modifying or Adding Tools
 
@@ -71,17 +71,17 @@ The **MCP Playground** in the Publisher Portal allows you to test tools without 
 
 #### Testing Steps
 
-1. In the left menu, go to **Test** → **MCP Playground**.
-2. Click **Connect** to establish a session with the MCP Server.
-3. Interact with the available tools:
+   1. In the left menu, go to **Test** → **MCP Playground**.
+   2. Click **Connect** to establish a session with the MCP Server.
+   3. Interact with the available tools:
 
-   * Provide example inputs.
-   * Check if the output matches expectations.
-   * Validate that descriptions guide the correct usage.
+      * Provide example inputs.
+      * Check if the output matches expectations.
+      * Validate that descriptions guide the correct usage.
 
-   [![MCP Inspector]({{base_path}}/assets/img/mcp/mcp-inspector-publisher.png){: style="width:90%"}]({{base_path}}/assets/img/mcp/mcp-inspector-publisher.png)
+      [![MCP Inspector]({{base_path}}/assets/img/mcp/mcp-inspector-publisher.png){: style="width:90%"}]({{base_path}}/assets/img/mcp/mcp-inspector-publisher.png)
 
-4. Note any issues and update tool configurations as needed.
+   4. Note any issues and update tool configurations as needed.
 
 #### Why This Matters
 

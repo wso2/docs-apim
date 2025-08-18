@@ -1,6 +1,6 @@
 # Getting Started with MCP
 
-The **Model Context Protocol (MCP)** in WSO2 API Manager provides a standardized way to expose *tool-style* capabilities as first-class APIs for AI, automation, and structured integrations. An MCP Server **describes its capabilities as tools** with machine-readable schemas and discovery.
+The **Model Context Protocol (MCP)** in WSO2 API Manager provides a standardized way to expose *tool-style* capabilities as first-class APIs for AI, automation, and structured integrations. A MCP Server **describes its capabilities as tools** with machine-readable schemas and discovery.
 
 ## What is Model Context Protocol?
 
@@ -35,7 +35,7 @@ WSO2 API Manager provides a unified platform for managing MCP Servers, enabling 
 
 
 !!! note
-    This guide walks you from defining tools to deploying and publishing an MCP Server in WSO2 API Manager.
+    This guide walks you from defining tools to deploying and publishing a MCP Server in WSO2 API Manager.
 
 ## Quick Start (at a glance)
 
@@ -49,8 +49,8 @@ WSO2 API Manager provides a unified platform for managing MCP Servers, enabling 
 
 ## Next Step → MCP Server Creation Options
 
-WSO2 API Manager offers three ways to create an MCP Server:
+WSO2 API Manager offers three ways to create a MCP Server:
 
-1. **[Create an MCP Server by Importing an OpenAPI Definition](./create-from-openapi.md)** – Generate tools and configuration from an existing OpenAPI.
-2. **[Create an MCP Server Using an Existing API](./create-from-api.md)** – Select an API already in APIM and convert operations into MCP tools.
-3. **[Proxy an Existing MCP Server](./create-from-mcp-server.md)** – Wrap an external MCP server for governance, security, and analytics.
+1. **[Create a MCP Server by Importing an OpenAPI Definition](./create-from-openapi.md)** – Generate tools and configuration from an existing OpenAPI.
+2. **[Create a MCP Server Using an Existing API](./create-from-api.md)** – Select an API already in APIM and convert operations into MCP tools.
+3. **[Proxy a Existing MCP Server](./create-from-mcp-server.md)** – Wrap an external MCP server for governance, security, and analytics.

@@ -1,4 +1,4 @@
-# Create an MCP Server Using an Existing API
+# Create a MCP Server Using an Existing API
 
 This creation path is ideal when the API you want to expose as MCP tools is **already deployed in WSO2 API Manager**.
 Instead of starting from an OpenAPI file, you can directly select the API from the Publisher Portal, choose which of its operations should become MCP tools, and configure the MCP Server details.
