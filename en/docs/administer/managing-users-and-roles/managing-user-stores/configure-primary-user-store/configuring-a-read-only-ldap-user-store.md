@@ -627,17 +627,6 @@ Any of the following properties can be configured for the `PRIMARY` user store b
  <td>Retry the authentication request if a timeout happened
  <p>Default: not configured</p></td>
  </tr>
- <tr class="odd">
- <td>LDAPConnection<br>Timeout</td>
- <td>ldap_connection<br>_timeout</td>
- <td>LDAP Connection Timeout</td>
- <td>If the connection to the LDAP is inactive for the length of time
- (in milliseconds) specified by this property, the connection
- will be terminated.
- <p>Default: not configured</p><br/>
- <p>Sample: 20</p>
- </td>
- </tr>
  </tbody>
  </table>
 
