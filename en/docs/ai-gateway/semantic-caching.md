@@ -1,35 +1,23 @@
-# Semantic Cache
+# Semantic Caching
 
-## Overview
-
-Semantic Cache in WSO2 AI Gateway is an intelligent cache mechanism that goes beyond traditional key-based cache by understanding the **semantic meaning** of AI requests and responses. Instead of requiring exact matches, semantic cache identifies similar or contextually equivalent queries and serves cached responses, significantly improving performance and reducing costs for AI API calls.
+The Semantic Cache is a custom policy for the WSO2 API Manager Universal Gateway that provides intelligent, meaning-based caching for AI requests. Unlike traditional caches that rely on exact matches, the Semantic Cache uses vector embeddings to identify and serve responses for semantically similar queries. This reduces latency, lowers costs associated with calling backend AI models, and improves overall API performance.
 
 ## Features
 
-- **Intelligent Similarity Detection**: Uses embedding models to understand semantic similarity between queries
-- **Cost Optimization**: Reduces AI provider API calls by serving cached responses for similar queries
-- **Performance Enhancement**: Faster response times for semantically similar requests
-- **Multiple Embedding Providers**: Support for Mistral, Azure OpenAI, and OpenAI embedding models
-- **Vector Database Integration**: Leverages Zilliz for efficient similarity search
-- **Configurable Similarity Thresholds**: Fine-tune cache behavior based on your use case
+- **Intelligent Similarity Detection**: Uses embedding models to understand semantic similarity between queries.
+- **Cost Optimization**: Reduces AI provider API calls by serving cached responses for similar queries.
+- **Performance Enhancement**: Faster response times for semantically similar requests.
+- **Multiple Embedding Providers**: Support for Mistral, Azure OpenAI, and OpenAI embedding models.
+- **Vector Database Integration**: Leverages Zilliz for efficient similarity search.
+- **Configurable Similarity Thresholds**: Fine-tune cache behavior based on your use case.
 
-## Prerequisites
+## Configure the Environment
 
-Before configuring semantic cache, ensure you have:
-
-- Java 11 (JDK)
-- Maven 3.6.x or later
-- WSO2 API Manager with AI Gateway capabilities
-- Access to one of the supported embedding providers (Mistral, Azure OpenAI, or OpenAI)
-- A Zilliz vector database instance
-
-## Configuration
-
-Semantic cache requires configuration of two key components in your `deployment.toml` file:
+Before using the Semantic Cache policy, you must configure an embedding provider and a vector database in the `deployment.toml` file.
 
 ### 1. Embedding Provider Configuration
 
-Choose one of the following embedding providers:
+Choose one of the following embedding providers and add the configuration to your `<APIM_HOME>/repository/conf/deployment.toml` file:
 
 === "Mistral"
 
@@ -64,7 +52,7 @@ Choose one of the following embedding providers:
     ```
 
 ### 2. Vector Database Configuration
-Configure Zilliz as your vector database provider:
+Currently, only Zilliz is supported as the vector database provider. Configure Zilliz in your `deployment.toml` file as shown below:
 
 ```toml
 [apim.ai.vector_db_provider]
@@ -78,36 +66,26 @@ You can optionally specify a `ttl` property to control the time-to-live for cach
 
 ## How to Use
 
-Follow these steps to integrate the Semantic cache policy into your WSO2 API Manager instance:
+Follow these steps to integrate the Semantic Cache policy into your WSO2 API Manager instance:
 
-1. **Clone and build the project** from [**Semantic Cache Policy**](https://github.com/wso2-extensions/apim-policies/tree/main/mediation/ai/semantic-cache):
+1.  Download the latest [Semantic Cache policy](https://github.com/wso2-extensions/apim-policies/releases).
 
-    ```bash
-    mvn clean install
-    ```
+    !!! tip
+        The downloaded archive contains the mediator JAR, a `policy-definition.json` file for metadata, and an `artifact.j2` Synapse template file.
 
-    > ℹ️ This will generate a `.zip` file in the `target/` directory containing the mediator JAR, policy-definition.json and artifact.j2.
+2.  Copy the mediator JAR file into the API Manager's `dropins` directory: `<APIM_HOME>/repository/components/dropins`.
 
-2. **Unzip the build artifact:**  
-    ```bash
-    unzip target/org.wso2.apim.policies.mediation.ai.semantic-cache-<version>-distribution -d semantic-cache
-    ```
+3.  Register the policy in the Publisher portal using the provided `policy-definition.json` and `artifact.j2` files via the Publisher REST APIs.
+    -   To register the policy as a common policy available to all APIs, follow [Add a new common operation policy](https://apim.docs.wso2.com/en/latest/reference/product-apis/publisher-apis/publisher-v4/publisher-v4/#tag/Operation-Policies/operation/addCommonOperationPolicy).
+    -   To register the policy specifically for a single API, follow [Add an API specific operation policy](https://apim.docs.wso2.com/en/latest/reference/product-apis/publisher-apis/publisher-v4/publisher-v4/#tag/API-Operation-Policies/operation/addAPISpecificOperationPolicy).
 
-3. **Copy the mediator JAR into your API Manager's runtime libraries:**  
-    ```bash
-    cp semantic-cache/org.wso2.apim.policies.mediation.ai.semantic-cache-<version>.jar $APIM_HOME/repository/components/lib/
-    ```
-
-4. **Register the Policy in Publisher**  
-    - Use the provided `policy-definition.json` and `artifact.j2` files to register the policy through the Publisher Portal or via the Publisher REST APIs.
-
-5. **Apply and Deploy the Policy**
-    - Open the **API Publisher**
-    - Select your AI API
-    - Go to **Runtime > Request/Response Flow**
-    - Click **Add Policy**, select the **Semantic Cache** policy
-    - Provide the required configuration (cache name, similarity threshold, etc.)
-    - **Save and Deploy** the API
+4.  Apply and Deploy the Policy.
+    -   Open the API Publisher Portal `(https://<host>:<port>/publisher)`.
+    -   Select your API.
+    -   Go to **Develop > API Configurations > Policies > Request/Response Flow**.
+    -   Click **Add Policy**, and select the new **Semantic Cache** policy.
+    -   Provide the required configuration (e.g., cache name, dissimilarity threshold).
+    -   Save and Deploy the API.
 
 ## Example Policy Configuration
 
@@ -159,13 +137,12 @@ Follow these steps to integrate the Semantic cache policy into your WSO2 API Man
 
     The second request will return a cached response much faster and with reduced costs, as it's semantically similar to the first query.
 
-
 ## Troubleshooting
 
 ### Common Issues
 
 | Issue | Possible Cause | Solution |
 |-------|----------------|----------|
-| Low cache hit rate | Threshold too low | Increase the similarity threshold |
-| Irrelevant cached responses | Threshold too high | Descrease the similarity threshold |
-| Vector database connection errors | Invalid credentials | Verify Zilliz URI and token |
+| Low cache hit rate | Threshold (dissimilarity) too low | Increase the dissimilarity/distance threshold. |
+| Irrelevant cached responses | Threshold too high | Decrease the dissimilarity/distance threshold. |
+| Vector database connection errors | Invalid credentials or endpoint | Verify your Zilliz URI and token in the `deployment.toml` file. |
