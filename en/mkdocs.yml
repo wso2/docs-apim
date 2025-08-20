@@ -255,14 +255,17 @@ nav:
                     - Universal Gateways with Dedicated Backends: deploy-and-publish/deploy-on-gateway/api-gateway/api-gateways-with-dedicated-backends.md
                     - Mutual SSL Between Universal Gateway and Backend: deploy-and-publish/deploy-on-gateway/api-gateway/mutual-ssl-between-api-gateway-and-backend.md
                     - Storing Custom Synapse Artifacts in the Gateway: deploy-and-publish/deploy-on-gateway/api-gateway/custom-synapse-artifacts.md
-            - Federated Gateways:
-                - Deploy on AWS API Gateway: deploy-and-publish/deploy-on-gateway/federated-gateways/deploy-on-aws-api-gateway.md
-                - Configure a Custom Gateway Agent: deploy-and-publish/deploy-on-gateway/federated-gateways/configure-custom-gateway-agent.md
         - Publish on Developer Portal:
             - Publish an API: deploy-and-publish/publish-on-dev-portal/publish-an-api.md
             - Add a Third-party API: deploy-and-publish/publish-on-dev-portal/third-party-api-support.md
             - Publish to Multiple External API Developer Portals: deploy-and-publish/publish-on-dev-portal/publish-to-multiple-external-api-stores.md
             - Import APIs From AWS API-Gateway to WSO2 API-M: deploy-and-publish/publish-on-dev-portal/publish-aws-apis-in-the-dev-portal.md
+        - Federated Gateways:
+              - Overview: deploy-and-publish/deploy-on-gateway/federated-gateways/overview.md
+              - AWS:
+                - Deploy on AWS API Gateway: deploy-and-publish/federated-gateways/aws/deploy-on-aws-api-gateway.md
+                - Discover APIs on AWS API Gateway: deploy-and-publish/federated-gateways/aws/discover-apis-on-aws-api-gateway.md
+              - Configure a Custom Gateway Agent: deploy-and-publish/deploy-on-gateway/federated-gateways/configure-custom-gateway-agent.md
     - Consume APIs:
         - Consume APIs - Overview: consume/consume-api-overview.md
         - Discover APIs:
