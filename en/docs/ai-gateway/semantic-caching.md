@@ -66,26 +66,14 @@ You can optionally specify a `ttl` property to control the time-to-live for cach
 
 ## How to Use
 
-Follow these steps to integrate the Semantic Cache policy into your WSO2 API Manager instance:
+Follow these steps to integrate the Semantic Cache policy into your WSO2 API Manager AI APIs:
 
-1.  Download the latest [Semantic Cache policy](https://github.com/wso2-extensions/apim-policies/releases).
-
-    !!! tip
-        The downloaded archive contains the mediator JAR, a `policy-definition.json` file for metadata, and an `artifact.j2` Synapse template file.
-
-2.  Copy the mediator JAR file into the API Manager's `dropins` directory: `<APIM_HOME>/repository/components/dropins`.
-
-3.  Register the policy in the Publisher portal using the provided `policy-definition.json` and `artifact.j2` files via the Publisher REST APIs.
-    -   To register the policy as a common policy available to all APIs, follow [Add a new common operation policy](https://apim.docs.wso2.com/en/latest/reference/product-apis/publisher-apis/publisher-v4/publisher-v4/#tag/Operation-Policies/operation/addCommonOperationPolicy).
-    -   To register the policy specifically for a single API, follow [Add an API specific operation policy](https://apim.docs.wso2.com/en/latest/reference/product-apis/publisher-apis/publisher-v4/publisher-v4/#tag/API-Operation-Policies/operation/addAPISpecificOperationPolicy).
-
-4.  Apply and Deploy the Policy.
-    -   Open the API Publisher Portal `(https://<host>:<port>/publisher)`.
-    -   Select your API.
-    -   Go to **Develop > API Configurations > Policies > Request/Response Flow**.
-    -   Click **Add Policy**, and select the new **Semantic Cache** policy.
-    -   Provide the required configuration (e.g., cache name, dissimilarity threshold).
-    -   Save and Deploy the API.
+1. Log in to the API Publisher Portal at `https://<host>:<port>/publisher`.
+2. Select the API you want to configure.
+3. Navigate to **Develop > API Configurations > Policies > Request/Response Flow**.
+4. Click **Add Policy** and choose **Semantic Cache** from the list.
+5. Fill in the required settings, such as the cache policy name and similarity threshold.
+6. Save your changes and deploy the API.
 
 ## Example Policy Configuration
 
