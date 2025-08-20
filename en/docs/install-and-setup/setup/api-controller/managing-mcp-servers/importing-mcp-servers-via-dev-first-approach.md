@@ -1,6 +1,6 @@
 # Importing MCP Servers Via Dev First Approach
 
-**WSO2 API Controller (apictl)** allows you to create and deploy MCP (Model Context Protocol) Servers without using the Publisher Portal of the WSO2 API Manager (WSO2 API-M). You can use this feature to create an MCP Server **from scratch** or **using an existing MCP specification** and then deploy it to the desired WSO2 API-M environment.
+**WSO2 API Controller (apictl)** allows you to create and deploy MCP (Model Context Protocol) Servers without using the Publisher Portal of the WSO2 API Manager (WSO2 API-M). You can use this feature to create an MCP Server **using an existing MCP specification** and then deploy it to the desired WSO2 API-M environment.
 
 !!! info
     **Before you begin** 
@@ -25,7 +25,7 @@
 !!! tip
     A user with `Internal/devops` role or `admin` role are allowed to import MCP Servers. To create a custom user who can import MCP Servers, refer [Steps to Create a Custom User who can Perform API Controller Operations]({{base_path}}/install-and-setup/setup/api-controller/advanced-topics/creating-custom-users-to-perform-api-controller-operations/#steps-to-create-a-custom-user-who-can-perform-api-controller-operations).
 
-After editing the mandatory fields in the MCP Server Project, you can import the MCP Server to an environment using any of the following commands.  
+You can import the MCP Server to an environment using any of the following commands.  
 
 -   **Command**
     ``` bash
