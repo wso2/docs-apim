@@ -1,16 +1,17 @@
-# Default AI Vendors
+# Default AI Service Providers
 
-WSO2 API Manager provides built-in support for three AI/LLM vendors:
+WSO2 API Manager provides built-in support for four AI/LLM service providers:
 
 - OpenAI
 - Azure OpenAI
 - Mistral
+- AWS Bedrock
 
-These default AI vendors come pre-configured within WSO2 API Manager, enabling seamless integration with their AI models. This out-of-the-box support simplifies API creation and ensures a smooth experience when working with AI services.
+These default AI service providers come pre-configured within WSO2 API Manager, enabling seamless integration with their AI models. This out-of-the-box support simplifies API creation and ensures a smooth experience when working with AI services.
 
-## Managing Default AI Vendor Configurations
+## Managing Default AI Service Provider Configurations
 
-The following configurations are **read-only** and you can view them by navigating to the **AI/LLM Vendors** section under the Admin Portal.
+The following configurations are **read-only** and you can view them by navigating to the **AI Service Providers** section under the Admin Portal.
 
 <table>
     <tr>
@@ -44,7 +45,7 @@ The following configurations are **read-only** and you can view them by navigati
         </td>
     </tr>
     <tr>
-        <td>Connector Type for AI/LLM Vendor</td>
+        <td>Connector Type for AI/LLM Service Provider</td>
         <td>
             Connector Type
         </td>
@@ -60,10 +61,10 @@ Note that the following configurations can be updated.
     </tr>
     <tr>
         <td>API Definition</td>
-        <td>AI vendor exposed API definition file</td>
+        <td>AI service provider exposed API definition file</td>
     </tr>
     <tr>
         <td>Model List</td>
-        <td>Add the list of models supported by the AI vendor. This list enables you to configure routing stratergies within your AI APIs.</td>
+        <td>Add the list of models supported by the AI service provider. This list enables you to configure routing strategies within your AI APIs.</td>
     </tr>
 </table>

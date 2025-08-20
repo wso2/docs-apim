@@ -1,6 +1,6 @@
 # Getting Started with AI Gateway
 
-The AI Gateway in WSO2 API Manager simplifies the integration of AI services into applications by providing a seamless way to manage and expose AI APIs. With built-in support for leading AI vendors such as **OpenAI**, **Azure OpenAI**, and **Mistral**, as well as the flexibility to configure custom AI providers, AI Gateway enables organizations to adopt AI securely and efficiently.
+The AI Gateway in WSO2 API Manager simplifies the integration of AI services into applications by providing a seamless way to manage and expose AI APIs. With built-in support for leading AI Service Providers such as **OpenAI**, **Azure OpenAI**, and **Mistral**, as well as the flexibility to configure custom AI providers, AI Gateway enables organizations to adopt AI securely and efficiently.
 
 AI Gateway gives you the ability to create AI APIs, which serve as a bridge between your application and AI service providers. These AI APIs allow you to interact with AI models, send requests, and retrieve AI-generated responses.
 
@@ -21,7 +21,7 @@ AI Gateway gives you the ability to create AI APIs, which serve as a bridge betw
 
     <div class="admonition tip">
     <p class="admonition-title">Tip</p>
-    <p>The built-in AI service providers and versions will appear on relevant dropdowns. In addition to the default vendors, you can add custom AI vendors by following the <a href='{{base_path}}/ai-gateway/ai-vendor-management/custom-ai-vendors/overview'>custom AI vendor integration</a> documentation.</p>
+    <p>The built-in AI service providers and versions will appear on relevant dropdowns. In addition to the default Service Providers, you can add custom AI Service Providers by following the <a href='{{base_path}}/ai-gateway/ai-vendor-management/custom-ai-vendors/overview'>custom AI Service Provider integration</a> documentation.</p>
     </div>
 
 4. Fill in the AI API details and click **Create**.

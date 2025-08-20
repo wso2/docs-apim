@@ -1,9 +1,9 @@
 # Onboarding Anthropic's Claude
 
-This guide explains how to integrate WSO2 API Manager with **Claude**, allowing you to access Claude's APIs via API Manager's AI Gateway. It provides step-by-step instructions for configuring Claude as a custom AI vendor to effectively manage and track AI API interactions.
+This guide explains how to integrate WSO2 API Manager with **Claude**, allowing you to access Claude's APIs via API Manager's AI Gateway. It provides step-by-step instructions for configuring Claude as a custom AI Service Provider to effectively manage and track AI API interactions.
 
 1. Login to the Admin Portal
-2. Navigate to the **AI/LLM Vendors** section and click on **Add AI/LLM Vendor**.
+2. Navigate to the **AI/LLM Service Providers** section and click on **Add AI/LLM Service Provider**.
 
     <div style="text-align: center;">
         <a href="{{base_path}}/assets/img/learn/ai-gateway/custom-ai-vendor/add-anthropic-claude/add-ai-vendor.png">
@@ -11,7 +11,7 @@ This guide explains how to integrate WSO2 API Manager with **Claude**, allowing 
         </a>
     </div>
 
-3. Fill in the general details for the AI vendor as shown below.
+3. Fill in the general details for the AI Service Provider as shown below.
     
     <table>
     <colgroup>
@@ -112,6 +112,6 @@ This guide explains how to integrate WSO2 API Manager with **Claude**, allowing 
 
 8. Next, you can add any models you prefer. For instance, add `claude-3-5-sonnet-20241022` and press enter. You can always add more models later. This enables you to set up model-based load balancing and failover using Claude's APIs.
 
-9. Finally, click **Add** to integrate Anthropic Claude as an AI Vendor.
+9. Finally, click **Add** to integrate Anthropic Claude as an AI Service Provider.
 
 Once added, you'll be able to create and manage AI APIs for Anthropic Claude, allowing you to leverage its capabilities within your applications.
