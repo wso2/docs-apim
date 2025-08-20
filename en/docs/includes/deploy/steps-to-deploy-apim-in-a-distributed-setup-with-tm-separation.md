@@ -35,7 +35,7 @@ See the instructions on [configuring the Gateway](../../../../api-analytics/chor
 
 Let's configure the API-M nodes in the deployment.
 
-#### <u>Configure the Gateway nodes</u>
+#### Configure the Gateway nodes
 
 Configure the Gateway to communicate with the API Control Plane and the Traffic Manager nodes.
 
