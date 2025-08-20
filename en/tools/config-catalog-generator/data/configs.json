@@ -1154,6 +1154,27 @@
             "exampleFile": "apim.ai.toml"
         },
         {
+            "title": "MCP Configurations",
+            "options": [
+                {
+                    "name": "apim.mcp",
+                    "required": false,
+                    "description": "Collection of MCP related configs",
+                    "params": [
+                        {
+                            "name": "enable",
+                            "type": "boolean",
+                            "required": true,
+                            "default": "true",
+                            "possible": "true,false",
+                            "description": "Enable the MCP features."
+                        }
+                    ]
+                }
+            ],
+            "exampleFile": "apim.ai.toml"
+        },
+        {
             "title": "API-M OAuth configurations",
             "options": [
                 {
@@ -1399,6 +1420,14 @@
                             "default": "http://wso2.org/claims/organization",
                             "possible": "",
                             "description": "The user claim used to group the applications."
+                        },
+                        {
+                            "name": "mode",
+                            "type": "string",
+                            "required": false,
+                            "default": "HYBRID",
+                            "possible": "HYBRID, API_ONLY, MCP_ONLY",
+                            "description": "The Developer Portal can operate in three modes. In HYBRID mode, both APIs and MCP servers are available. In API_ONLY mode, only APIs are shown. In MCP_ONLY mode, only MCP servers are shown."
                         }
                     ]
                 }
