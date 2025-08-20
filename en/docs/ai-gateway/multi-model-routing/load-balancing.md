@@ -1,6 +1,6 @@
 # Load Balancing
 
-Load balancing ensures that AI API requests are efficiently distributed across multiple models within the same AI vendor, preventing overloading of any single model. WSO2 API Manager supports the following load balancing methods:
+Load balancing ensures that AI API requests are efficiently distributed across multiple models within the same AI Service Provider, preventing overloading of any single model. WSO2 API Manager supports the following load balancing methods:
 
 - Round Robin
 - Weighted Round Robin

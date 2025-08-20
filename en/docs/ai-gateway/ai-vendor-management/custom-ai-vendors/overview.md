@@ -1,16 +1,16 @@
-# Custom AI Vendors
+# Custom AI Service Providers
 
-You can integrate **WSO2 API Manager** with custom AI vendors to consume their services via AI APIs. This guide walks you through configuring a custom AI vendor to manage and track AI model interactions efficiently.
+You can integrate **WSO2 API Manager** with custom AI Service Providers to consume their services via AI APIs. This guide walks you through configuring a custom AI Service Provider to manage and track AI model interactions efficiently.
 
-## Step 1 - Add a new AI Vendor
+## Step 1 - Add a new Custom AI Service Provider
 
-Navigate to the **AI Vendors** section in the WSO2 API Manager admin portal sidebar, and select **Add AI Vendor**.
+Navigate to the **AI Service Providers** section in the WSO2 API Manager admin portal sidebar, and click **Add AI Service Provider**.
 
-[![Add AI Vendor]({{base_path}}/assets/img/learn/ai-gateway/custom-ai-vendor/add-ai-vendor.png)]({{base_path}}/assets/img/learn/ai-gateway/custom-ai-vendor/add-ai-vendor.png)
+[![Add AI Service Provider]({{base_path}}/assets/img/learn/ai-gateway/custom-ai-vendor/add-ai-vendor.png)]({{base_path}}/assets/img/learn/ai-gateway/custom-ai-vendor/add-ai-vendor.png)
 
-## Step 2 - Provide the AI Vendor Name and Version.
+## Step 2 - Provide the AI Service Provider Name and Version.
 
-[![Add AI Vendor General Details]({{base_path}}/assets/img/learn/ai-gateway/custom-ai-vendor/custom-ai-vendor-general-details.png)]({{base_path}}/assets/img/learn/ai-gateway/custom-ai-vendor/custom-ai-vendor-general-details.png)
+[![Add AI Service Provider General Details]({{base_path}}/assets/img/learn/ai-gateway/custom-ai-vendor/custom-ai-vendor-general-details.png)]({{base_path}}/assets/img/learn/ai-gateway/custom-ai-vendor/custom-ai-vendor-general-details.png)
 
 ## Step 3 - Configure Data Extraction for AI Model and Token Usage.
 
@@ -54,10 +54,10 @@ This step involves configuring the extraction of key information from request/re
         </tbody>
     </table>
 
-[![Add AI Vendor General Details]({{base_path}}/assets/img/learn/ai-gateway/custom-ai-vendor/custom-ai-vendor-general-details-llm-configurations.png)]({{base_path}}/assets/img/learn/ai-gateway/custom-ai-vendor/custom-ai-vendor-general-details-llm-configurations.png)
+[![Add AI Service Provider General Details]({{base_path}}/assets/img/learn/ai-gateway/custom-ai-vendor/custom-ai-vendor-general-details-llm-configurations.png)]({{base_path}}/assets/img/learn/ai-gateway/custom-ai-vendor/custom-ai-vendor-general-details-llm-configurations.png)
 
 1. If the data is in the **payload**, specify the appropriate **JSON path** to extract the values.
-[![AI Vendor General Details - Payload]({{base_path}}/assets/img/learn/ai-gateway/custom-ai-vendor/custom-ai-vendor-general-details-llm-configurations-payload.png)]({{base_path}}/assets/img/learn/ai-gateway/custom-ai-vendor/custom-ai-vendor-general-details-llm-configurations-payload.png)
+[![AI Service Provider General Details - Payload]({{base_path}}/assets/img/learn/ai-gateway/custom-ai-vendor/custom-ai-vendor-general-details-llm-configurations-payload.png)]({{base_path}}/assets/img/learn/ai-gateway/custom-ai-vendor/custom-ai-vendor-general-details-llm-configurations-payload.png)
 
     !!! example "Mistral AI Response Payload"
         Below outlines the structure of a sample Mistral AI response payload and provides details on how specific fields can be extracted using JSON paths.
@@ -112,27 +112,27 @@ This step involves configuring the extraction of key information from request/re
 
 2. If the data is in the **header**, provide the header key.
 
-    [![AI Vendor General Details - Header]({{base_path}}/assets/img/learn/ai-gateway/custom-ai-vendor/custom-ai-vendor-general-details-llm-configurations-header.png)]({{base_path}}/assets/img/learn/ai-gateway/custom-ai-vendor/custom-ai-vendor-general-details-llm-configurations-header.png)
+    [![AI Service Provider General Details - Header]({{base_path}}/assets/img/learn/ai-gateway/custom-ai-vendor/custom-ai-vendor-general-details-llm-configurations-header.png)]({{base_path}}/assets/img/learn/ai-gateway/custom-ai-vendor/custom-ai-vendor-general-details-llm-configurations-header.png)
 
 3. If the data is in a **query parameter**, provide the query parameter identifier.
 
-    [![AI Vendor General Details - Query Param]({{base_path}}/assets/img/learn/ai-gateway/custom-ai-vendor/custom-ai-vendor-general-details-llm-configurations-queryparam.png)]({{base_path}}/assets/img/learn/ai-gateway/custom-ai-vendor/custom-ai-vendor-general-details-llm-configurations-queryparam.png)
+    [![AI Service Provider General Details - Query Param]({{base_path}}/assets/img/learn/ai-gateway/custom-ai-vendor/custom-ai-vendor-general-details-llm-configurations-queryparam.png)]({{base_path}}/assets/img/learn/ai-gateway/custom-ai-vendor/custom-ai-vendor-general-details-llm-configurations-queryparam.png)
 
 ## Step 4 - Upload the API Definition.
 
-Upload the **OpenAPI specification** file provided by the custom AI vendor. This step defines the API endpoints and operations that the vendor offers.
+Upload the **OpenAPI specification** file provided by the custom AI service provider. This step defines the API endpoints and operations that the service provider offers.
 
-[![AI Vendor API Spec]({{base_path}}/assets/img/learn/ai-gateway/custom-ai-vendor/custom-ai-vendor-openapi.png)]({{base_path}}/assets/img/learn/ai-gateway/custom-ai-vendor/custom-ai-vendor-openapi.png)
+[![AI Service Provider API Spec]({{base_path}}/assets/img/learn/ai-gateway/custom-ai-vendor/custom-ai-vendor-openapi.png)]({{base_path}}/assets/img/learn/ai-gateway/custom-ai-vendor/custom-ai-vendor-openapi.png)
 
 ## Step 5 - Configure the Connector Type.
 
-[![AI Vendor Connector Type]({{base_path}}/assets/img/learn/ai-gateway/custom-ai-vendor/custom-ai-vendor-connectortype.png)]({{base_path}}/assets/img/learn/ai-gateway/custom-ai-vendor/custom-ai-vendor-connectortype.png)
+[![AI Service Provider Connector Type]({{base_path}}/assets/img/learn/ai-gateway/custom-ai-vendor/custom-ai-vendor-connectortype.png)]({{base_path}}/assets/img/learn/ai-gateway/custom-ai-vendor/custom-ai-vendor-connectortype.png)
 
  <html><div class="admonition note">
  <p class="admonition-title">Note</p>
  <p>The <a href='https://github.com/wso2/carbon-apimgt/blob/master/components/apimgt/org.wso2.carbon.apimgt.api/src/main/java/org/wso2/carbon/apimgt/api/DefaultLLMProviderService.java'>`default`</a> connector type is a built in connector to extract AI model name, prompt token count, completion token count, total token count from the response.
  To write your own connector follow <a href='{{base_path}}/ai-gateway/ai-vendor-management/custom-ai-vendors/custom-connector'> 
- Write a connector for a Custom AI Vendor.</a></p>
+ Write a connector for a Custom AI Service Provider.</a></p>
  <p>
  </div>
  </html>

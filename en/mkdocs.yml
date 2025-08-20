@@ -325,9 +325,10 @@ nav:
             - Overview: ai-gateway/multi-model-routing/overview.md
             - Load Balancing: ai-gateway/multi-model-routing/load-balancing.md
             - Failover: ai-gateway/multi-model-routing/failover.md
-        - AI Vendor Management:
-            - Default AI Vendors: ai-gateway/ai-vendor-management/default-ai-vendors.md
-            - Custom AI Vendors:
+        - AI Service Provider Management:
+            - Default AI Service Providers: ai-gateway/ai-vendor-management/default-ai-vendors.md
+            - AWS Bedrock: ai-gateway/ai-vendor-management/configuring-aws-bedrock.md
+            - Custom AI Service Providers:
                 - Overview: ai-gateway/ai-vendor-management/custom-ai-vendors/overview.md
                 - Custom Connector: ai-gateway/ai-vendor-management/custom-ai-vendors/custom-connector.md
                 - Onboarding Anthropic's Claude: ai-gateway/ai-vendor-management/custom-ai-vendors/onboarding-anthropic-claude.md
