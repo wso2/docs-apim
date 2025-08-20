@@ -1183,6 +1183,7 @@ extra:
             git_tag: v1.2.0.1
     site_version: 4.6.0
     base_path: http://localhost:8000/en/4.6.0
-#    base_path: https://apim.docs.wso2.com/en/latest
+#    base_path: http://localhost:8000/en/4.6.0
+    base_path: https://apim.docs.wso2.com/en/latest
     envoy_path: https://www.envoyproxy.io/docs/envoy/v1.24.1
 
