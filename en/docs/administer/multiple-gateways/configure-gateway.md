@@ -107,12 +107,12 @@ Follow the instructions below to use the `deployment.toml` file, which is the ce
 <li><a href="{{base_path}}/install-and-setup/install/installing-the-product/running-the-api-m/#starting-the-server">Start WSO2 API Manager</a>.</li>
 </ol>
 
-   This will start WSO2 API Manager in the all-in-one mode, which includes the default Gateway as well.
+This will start WSO2 API Manager in the all-in-one mode, which includes the default Gateway as well.
 
 !!! note
-      Once the Gateway environment is set up, you can observe the active Gateway instances registered under the created environment, as shown in the image below.
+    Once the Gateway environment is set up, you can observe the active Gateway instances registered under the created environment, as shown in the image below. If a Gateway instance shows an **expired** status, it means the instance has not sent a heartbeat signal within the expected time interval and is considered inactive or unreachable.
 
-      <a href="{{base_path}}/assets/img/deploy/gateway-instantces.png">
-            <img src="{{base_path}}/assets/img/deploy/gateway-instantces.png" alt="observe gateway instances"
-            title="observe gateway instances" width="800px" />
-      </a>   
+    <a href="{{base_path}}/assets/img/deploy/gateway-instances.png">
+        <img src="{{base_path}}/assets/img/deploy/gateway-instances.png" alt="observe gateway instances"
+        title="observe gateway instances" width="800px" /> 
+    </a>   
