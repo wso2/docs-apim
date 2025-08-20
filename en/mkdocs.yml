@@ -100,9 +100,9 @@ nav:
         - Create API Revisions: design/create-api/create-api-revisions.md
         - Add Custom Properties to APIs: design/create-api/adding-custom-properties-to-apis.md
         - Change the Thumbnail of an API: design/create-api/change-api-thumbnail.md
-        - Create Prototype APIs: 
+        - Create Prototype APIs:
             - Overview: design/prototype-api/overview.md
-            - Mock Implementation: 
+            - Mock Implementation:
                 - With API Gateway: design/prototype-api/create-mocked-js-api.md
             - Existing Backend Implementation as a Prototype API: design/prototype-api/backend-url-prototype-api.md
         - Create API Products:
@@ -255,14 +255,17 @@ nav:
                     - Universal Gateways with Dedicated Backends: deploy-and-publish/deploy-on-gateway/api-gateway/api-gateways-with-dedicated-backends.md
                     - Mutual SSL Between Universal Gateway and Backend: deploy-and-publish/deploy-on-gateway/api-gateway/mutual-ssl-between-api-gateway-and-backend.md
                     - Storing Custom Synapse Artifacts in the Gateway: deploy-and-publish/deploy-on-gateway/api-gateway/custom-synapse-artifacts.md
-            - Federated Gateways:
-                - Deploy on AWS API Gateway: deploy-and-publish/deploy-on-gateway/federated-gateways/deploy-on-aws-api-gateway.md
-                - Configure a Custom Gateway Agent: deploy-and-publish/deploy-on-gateway/federated-gateways/configure-custom-gateway-agent.md
         - Publish on Developer Portal:
             - Publish an API: deploy-and-publish/publish-on-dev-portal/publish-an-api.md
             - Add a Third-party API: deploy-and-publish/publish-on-dev-portal/third-party-api-support.md
             - Publish to Multiple External API Developer Portals: deploy-and-publish/publish-on-dev-portal/publish-to-multiple-external-api-stores.md
             - Import APIs From AWS API-Gateway to WSO2 API-M: deploy-and-publish/publish-on-dev-portal/publish-aws-apis-in-the-dev-portal.md
+        - Federated Gateways:
+              - Overview: deploy-and-publish/deploy-on-gateway/federated-gateways/overview.md
+              - AWS:
+                - Deploy on AWS API Gateway: deploy-and-publish/federated-gateways/aws/deploy-on-aws-api-gateway.md
+                - Discover APIs on AWS API Gateway: deploy-and-publish/federated-gateways/aws/discover-apis-on-aws-api-gateway.md
+              - Configure a Custom Gateway Agent: deploy-and-publish/deploy-on-gateway/federated-gateways/configure-custom-gateway-agent.md
     - Consume APIs:
         - Consume APIs - Overview: consume/consume-api-overview.md
         - Discover APIs:
@@ -347,9 +350,25 @@ nav:
         - Update and Deploy a MCP Server: mcp/update-and-deploy-mcp-server.md
         - Subscribe to a MCP Server: mcp/subscribe-to-a-mcp-server.md
         - Test with the MCP Playground: mcp/invoke-a-mcp-server-using-playground.md
-    - Analytics:
+    - Governance:
+        - Overview: governance/overview.md
+        - Concepts: governance/governance-concept.md
+    #   - Quick Start Guide: governance/quick-start-guide.md
+        - How to Use:
+            - Administrative Capabilities: governance/api-governance-admin-capabilities.md
+            - API Creator/Publisher Capabilities: governance/api-governance-api-creator-capabilities.md
+        - CI/CD-Driven Governance: governance/api-governance-cicd.md
+        - References:
+            - Rule Validator: governance/rule-validator/rule-validator.md
+            - Ruleset Catalog:
+                  - WSO2 API Management Guidelines: reference/governance/wso2-api-management-guidelines.md
+                  - WSO2 REST API Design Guidelines: reference/governance/wso2-rest-api-design-guidelines.md
+                  - OWASP Top 10: reference/governance/owasp-top-10.md
+            - API YAML Representation: reference/governance/api-yaml-representation.md
+            - API Documentation YAML Representation: reference/governance/api-doc-yaml-representation.md
+    - Monitoring:
         - API Analytics:
-            - Choreo Based Analytics: 
+            - Choreo Based Analytics:
                 - Architecture: api-analytics/choreo-analytics/api-analytics-architecture.md
                 - Getting Started Guide: api-analytics/choreo-analytics/getting-started-guide.md
                 - Role-based Access Control : api-analytics/choreo-analytics/role-based-access-control.md
@@ -394,11 +413,18 @@ nav:
                 - Service Catalog API v1: reference/product-apis/service-catalog-apis/service-catalog-v1/service-catalog-v1.md
             - DevOps APIs:
                 - DevOps API v0: reference/product-apis/devops-apis/devops-v0/devops-v0.md
+            - Governance APIs:
+                  - Governance API v1: reference/product-apis/governance-apis/governance-v1/governance-v1.md
             - Advanced Configurations: reference/product-apis/advanced-configurations.md
         - Product Configurations:
             - Understand the New Configuration Model: reference/understanding-the-new-configuration-model.md
             - API-M Config Catalog: reference/config-catalog.md
         - API Controller (APICTL): reference/apictl/wso2-api-controller.md
+        - Governance:
+            - Rule Validator: governance/rule-validator/rule-validator.md
+            - Ruleset Catalog:
+                - WSO2 API Management Guidelines: reference/governance/wso2-api-management-guidelines.md
+                - WSO2 REST API Design Guidelines: reference/governance/wso2-rest-api-design-guidelines.md
         - Customizations:
             - Vendor Specific Extensions: reference/vendor-extensions-catalog.md
             - Extend WSO2 API Manager:
@@ -452,6 +478,7 @@ nav:
                 - Define Custom Linter Rules: reference/customize-product/customizations/define-custom-linters.md
                 - Advanced UI Customization: reference/customize-product/customizations/advanced-ui-customization.md
                 - Modify Workflow Approval Task Limit: reference/customize-product/customizations/modify-workflow-approval-task-limit.md
+                - Implementing a Custom Validation Engine: reference/customize-product/customizations/implementing-a-custom-validation-engine.md
             - Admin Services: reference/wso2-admin-services.md
             - Work with the Source Code: reference/working-with-the-source-code.md
             - Java Documentation: reference/java-documentation.md
@@ -688,6 +715,7 @@ nav:
             - Integrating API Manager with an External Broker and Gateway: tutorials/integrating-with-solace.md
             - Develop an Integration From a Managed API: tutorials/develop-an-integration-with-a-managed-api.md
             - The Single Control Plane for Multiple Gateways: tutorials/single-control-plane-for-multiple-gateways.md
+            - Federated API Gateway Deployment: tutorials/deploying-apis-to-federated-gateways-with-wso2.md
             - Create and Publish a GraphQL API: tutorials/create-and-publish-a-graphql-api.md
             - Create and Publish a Streaming API:
                 - Create and Publish a WebSocket API: tutorials/streaming-api/create-and-publish-websocket-api.md
@@ -1161,7 +1189,8 @@ extra:
             version: 1.2.0-1
             git_tag: v1.2.0.1
     site_version: 4.6.0
-    # base_path: http://localhost:8000/en/latest
-    base_path: https://apim.docs.wso2.com/en/4.6.0
+    base_path: http://localhost:8000/en/4.6.0
+#    base_path: http://localhost:8000/en/4.6.0
+    base_path: https://apim.docs.wso2.com/en/latest
     envoy_path: https://www.envoyproxy.io/docs/envoy/v1.24.1
-    
+
