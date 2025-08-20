@@ -32,7 +32,7 @@ Follow the instructions below to deploy a new revision for an API:
 5.  Select the API Gateways in which you want to deploy the API.
 6.  Click **Deploy**.
 !!! note
-    If your API is deployed successfully to the Gateways, the deployment status will be updated in the status column. You can view more information by hovering over the tooltip.
+    If your API is deployed successfully to the Gateways, the deployment status will be updated in the status column. You can view more information by hovering over the deployment status icon.
 
     [![Deployment status acknowledgement](../../../../assets/img/design/revision/revision-deployment-acknowledgement.png)]({{base_path}}/assets/img/design/revision/revision-deployment-acknowledgement.png)
 
