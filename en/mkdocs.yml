@@ -633,6 +633,10 @@ nav:
                     - Import APIs Via Dev First Approach: install-and-setup/setup/api-controller/managing-apis-api-products/importing-apis-via-dev-first-approach.md
                     - Migrate APIs to Different Environments: install-and-setup/setup/api-controller/managing-apis-api-products/migrating-apis-to-different-environments.md
                     - Migrate API Products (with or without Dependent APIs) to Different Environments: install-and-setup/setup/api-controller/managing-apis-api-products/migrating-api-products-to-different-environments.md
+                - Manage MCP Servers:
+                    - Manage MCP Servers: install-and-setup/setup/api-controller/managing-mcp-servers/managing-mcp-servers.md
+                    - Import MCP Servers Via Dev First Approach: install-and-setup/setup/api-controller/managing-mcp-servers/importing-mcp-servers-via-dev-first-approach.md
+                    - Migrate MCP Servers to Different Environments: install-and-setup/setup/api-controller/managing-mcp-servers/migrating-mcp-servers-to-different-environments.md
                 - Manage Applications:
                     - Manage Applications: install-and-setup/setup/api-controller/managing-applications/managing-applications.md
                     - Migrate Apps to Different Environments: install-and-setup/setup/api-controller/managing-applications/migrating-applications-to-different-environments.md
