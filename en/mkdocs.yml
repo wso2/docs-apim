@@ -358,7 +358,6 @@ nav:
                   - WSO2 API Management Guidelines: reference/governance/wso2-api-management-guidelines.md
                   - WSO2 REST API Design Guidelines: reference/governance/wso2-rest-api-design-guidelines.md
                   - OWASP Top 10: reference/governance/owasp-top-10.md
-                  - WSO2 API Security Guidelines: reference/governance/wso2-api-security-guidelines.md
             - API YAML Representation: reference/governance/api-yaml-representation.md
             - API Documentation YAML Representation: reference/governance/api-doc-yaml-representation.md
     - Monitoring:
@@ -1183,7 +1182,7 @@ extra:
             version: 1.2.0-1
             git_tag: v1.2.0.1
     site_version: 4.6.0
-#    base_path: http://localhost:8000/en/4.5.0
-    base_path: https://apim.docs.wso2.com/en/latest
+    base_path: http://localhost:8000/en/4.6.0
+#    base_path: https://apim.docs.wso2.com/en/latest
     envoy_path: https://www.envoyproxy.io/docs/envoy/v1.24.1
 
