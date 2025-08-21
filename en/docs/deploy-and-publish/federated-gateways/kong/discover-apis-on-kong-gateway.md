@@ -43,12 +43,12 @@ Follow the steps below to configure Kong Gateway as a Federated API Gateway for 
     1. Enter the **Name** obtained in Step 2 under Gateway configurations and select the **Gateway type** as **Kong Gateway** and provide the relevant details in the fields accordingly.
     2. Select the Gateway mode as ReadOnly, or ReadWrite based on the requirement.
     3. Provide the Schedule time for the API discovery.
-    4. Select the **Deployment Type** as **Standalone** under **Gateway configurations**.
-    5. Enter the **Admin URL** with derived from the **Admin API** obtained in Step 2. Here the URL should be in the format `https://<region>.api.konghq.com` under **Gateway configurations**. Please note that the Admin URL should not contain the `/v2/control-planes` basepath.
-    6. Enter the **Control Plane ID** derived from the **ID** obtained in Step 2 under **Gateway configurations**.
+    4. Select the **Deployment Type** as **Standalone** under **Gateway Connector configurations**.
+    5. Enter the **Admin URL** with derived from the **Admin API** obtained in Step 2. Here the URL should be in the format `https://<region>.api.konghq.com` under **Gateway Connector configurations**. Please note that the Admin URL should not contain the `/v2/control-planes` basepath.
+    6. Enter the **Control Plane ID** derived from the **ID** obtained in Step 2 under **Gateway Connector configurations**.
     7. Enter the **Access Token** obtained in Step 1 under **Gateway configurations**.
     8. Enter the **Vhost** derived from the **Proxy URL** obtained in Step 2. Here the for the Vhost provide only the hostname part of the Proxy URL.
-    9. Click **Save** button to add the Gateway.
+    9. Click **Add** button to add the Gateway.
 
          [![add kong gateway environment]({{base_path}}/assets/img/deploy/add-kong-gw-discovery.png){: style="width:90%"}]({{base_path}}/assets/img/deploy/add-kong-gw-discovery.png)
 
