@@ -27,7 +27,7 @@ Follow the instructions below to use Kubernetes (K8s) and Helm resources for con
 2.  Provide the necessary configurations.
 
     !!! note
-        The default product configurations for deployment of WSO2 API Manager are available [here](https://github.com/wso2/helm-apim/tree/all-in-one-4.4.0/all-in-one) folder. Change the configurations, as necessary.
+        The default product configurations for deployment of WSO2 API Manager are available [here](https://github.com/wso2/helm-apim/tree/all-in-one-4.5.0/all-in-one) folder. Change the configurations, as necessary.
 
     Open the `<HELM_HOME>/all-in-one/values.yaml` and provide the following values for WSO2 Subscription Configurations.
     
@@ -71,6 +71,6 @@ Follow the instructions below to use Kubernetes (K8s) and Helm resources for con
     3.  Try navigating to `https://am.wso2.com/carbon`, `https://am.wso2.com/publisher` and `https://am.wso2.com/devportal` from your favorite browser.
     
 !!! note
-    You can read the [README guide](https://github.com/wso2/helm-apim/tree/all-in-one-4.4.0/all-in-one/README.md) of WSO2 API Manager Git repository for further details on other dependencies and configurations.
+    You can read the [README guide](https://github.com/wso2/helm-apim/tree/all-in-one-4.5.0/all-in-one/README.md) of WSO2 API Manager Git repository for further details on other dependencies and configurations.
 
 For different deployment patterns, see the deployment configurations with regard to the [Advanced Deployment Patterns]({{base_path}}/install-and-setup/setup/deployment-overview/).
