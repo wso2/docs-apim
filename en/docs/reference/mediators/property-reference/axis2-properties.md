@@ -546,7 +546,7 @@ Axis2 properties allow you to configure the web services engine in WSO2 Micro In
 	</tr>
 </table>
 
-### DISABLE_COOKIE
+## DISABLE_COOKIE
 
 <table>
 	<tr>
