@@ -14,7 +14,7 @@ Ensure **Docker** and **Docker Compose** are installed correctly and running.
 
 ### Step 1 - Download the artifacts
 
-Download the archive [apim-distributed-dev-setup.zip]({{base_path}}/assets/attachments/tutorials/create-distributed-setup-using-the-enterprise-package/apim-distributed-dev-setup.zip) and extract it.
+Download the archive [apim-distributed-dev-setup.zip](../assets/attachments/tutorials/create-distributed-setup-using-the-enterprise-package/apim-distributed-dev-setup.zip) and extract it.
 
 ### Step 2 - Prepare the Components
    
