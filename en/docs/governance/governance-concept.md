@@ -7,7 +7,7 @@ The governance capabilities in WSO2 API Manager builds upon the following core c
 Entity that is subject to governance enforcement. In the context of API governance, the governance artifact is an API.
 
 ## Ruleset
-A ruleset is a **collection of rules** that define governance policies to be enforced on [governance artifacts](#Artifact). 
+A ruleset is a **collection of rules** that define governance policies to be enforced on [governance artifacts](#artifact). 
 
 In the context of API governance, these rules cover various aspects of API management, including security, compliance, performance, and operational guidelines. Rulesets can be defined at the organization level and later applied through policies to ensure governance enforcement.
 
@@ -27,7 +27,7 @@ Rules within a ruleset can have different **severity levels**, such as:
 
 ## Policy
 
-A policy is a **collection of rulesets** that can be enforced on [governance artifacts](#Artifact) to ensure governance compliance.
+A policy is a **collection of rulesets** that can be enforced on [governance artifacts](#artifact) to ensure governance compliance.
 
 In the context of API governance, policies can be created at the organization level and applied to APIs to enforce governance requirements. They also provide the capability to apply different governance rulesets to different groups of APIs based on organizational needs.
 
