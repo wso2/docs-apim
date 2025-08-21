@@ -21,7 +21,7 @@ Follow the instructions below to use Kubernetes (K8s) and Helm resources for con
     ``` 
     git clone https://github.com/wso2/helm-apim.git
     cd helm-apim
-    git checkout tags/all-in-one-4.4.0
+    git checkout tags/all-in-one-4.5.0
     ```
 
 2.  Provide the necessary configurations.
