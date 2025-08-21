@@ -159,7 +159,7 @@ Follow the instructions given below to configure Keycloak as a third-party Key M
           <tr class="even">
             <td>Userinfo Endpoint</td>
             <td>The endpoint that allows clients to verify the identity of the end-user based on the authentication performed by an authorization server, as well as to obtain basic profile information about the end-user.</td>
-            <td>Optional</td>
+            <td>Mandatory</td>
           </tr>
           <tr class="odd">
             <td>Authorize Endpoint</td>
@@ -169,7 +169,7 @@ Follow the instructions given below to configure Keycloak as a third-party Key M
           <tr class="even">
             <td>Scope Management Endpoint </td>
             <td>The endpoint used to manage the scopes.</td>
-            <td>Optional</td>
+            <td>Mandatory</td>
           </tr>
           <tr class="odd">
             <td><b>Connector Configurations</b></td>
