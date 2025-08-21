@@ -20,7 +20,7 @@ You need to write a custom Gateway Agent bundle as explained below.
 
 1. Create a Maven project.
 
-    Let's download the sample project from <a href="https://apim.docs.wso2.com/en/4.5.0/assets/attachments/deploy-and-publish/custom.gw.client.zip" download>here</a>
+    Let's download the sample project from [here](../../../../assets/attachments/deploy-and-publish/custom.gw.client.zip).
 
     However, when manually creating a Maven project, you will need to follow the following steps.
 
