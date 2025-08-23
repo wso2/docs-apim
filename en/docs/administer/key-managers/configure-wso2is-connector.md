@@ -31,14 +31,14 @@ Follow the steps given below to configure WSO2 IS as a Key Manager component:
     'header.X-WSO2-KEY-MANAGER' = "WSO2-IS"
 
     [[resource.access_control]]
-    context = "(.)/keymanager-operations/user-info/claims(.)"
+    context = "(.*)/keymanager-operations/user-info/claims(.*)"
     secure = true
     http_method = "GET"
     permissions = "/permission/admin/manage/identity/usermgt/list"
     scopes = "internal_user_mgt_list"
 
     [[resource.access_control]]
-    context = "(.*)/keymanager-operations/user-info/claims/generate"
+    context = "(.*)/keymanager-operations/user-info/claims/generate(.*)"
     secure = true
     http_method = "POST"
     permissions = "/permission/admin/manage/identity/usermgt/list"
@@ -78,6 +78,12 @@ Follow the steps given below to configure WSO2 IS as a Key Manager component:
     http_method = "DELETE"
     permissions = "/permission/admin/manage/identity/applicationmgt/delete"
     scopes = "internal_application_mgt_delete"
+   
+    [[resource.access_control]]
+    context = "(.*)/keymanager-operations/revoke-one-time-token(.*)"
+    secure = true
+    http_method = "POST"
+    permissions = "/permission/admin"
 
     [tenant_context.rewrite]
     custom_webapps = ["/keymanager-operations/"]
