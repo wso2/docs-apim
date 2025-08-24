@@ -334,7 +334,7 @@ template: templates/single-column.html
             {"name": "Authorization", "url": "design/api-security/authorization/api-authorization/"},
             {"name": "Rate Limiting", "url": "design/rate-limiting/introducing-throttling-use-cases/"},
             {"name": "Consuming APIs", "url": "consume/consume-api-overview/"},
-            {"name": "Analytics", "url": "api-analytics/choreo-analytics/getting-started-guide/"},
+            {"name": "Analytics", "url": "monitoring/api-analytics/choreo-analytics/getting-started-guide/"},
             {"name": "CI/CD", "url": "install-and-setup/setup/api-controller/ci-cd-with-wso2-api-management/"}
         ],
         "more_btn": {"name": "View More", "url": "tutorials/tutorials-overview/"}
