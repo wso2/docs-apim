@@ -1227,7 +1227,7 @@ localhost
 SOAPAction
 apikey
 userinfo
- - docs/design/advanced-topics/enabling-cors-for-apis.md
+ - docs/manage-apis/design/advanced-topics/enabling-cors-for-apis.md
 proxied
 Reddit
 iframe
@@ -1238,7 +1238,7 @@ Solr
 pdf
 msword
 vnd.ms
- - docs/design/api-documentation/search-documentation/add-new-search-keyword.md
+ - docs/manage-apis/design/api-documentation/search-documentation/add-new-search-keyword.md
 powerpoint
 xml
 Freemium
@@ -1284,7 +1284,7 @@ PizzaShackPolicy
 AdminGrant
 GetOrder
 TryIt
- - docs/design/api-security/authorization/role-based-access-control-using-xacml.md
+ - docs/manage-apis/design/api-security/authorization/role-based-access-control-using-xacml.md
 api
 keystore
 Url
@@ -1317,7 +1317,7 @@ IdP
 SAML2.0
 checkRolesFromSamlAssertion
 APIM_HOME
- - docs/design/api-security/oauth2/grant-types/saml-extension-grant.md
+ - docs/manage-apis/design/api-security/oauth2/grant-types/saml-extension-grant.md
 cer
 MBeans
 ObjectName
