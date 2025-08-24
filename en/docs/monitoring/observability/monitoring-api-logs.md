@@ -27,8 +27,8 @@ WSO2 API-M enables a simple way to observe requests and responses going through 
 
 API Logs is disabled by default and can be enabled per API without restarting the server. There are 2 ways to configure API Logs.
 
-1. [Configure API Logs using Devops REST API]({{base_path}}/observe/api-manager/monitoring-api-logs/#configure-api-logs-using-devops-rest-api)
-2. [Configure API Logs using API Controller (APICTL)]({{base_path}}/observe/api-manager/monitoring-api-logs/#configure-api-logs-using-api-controller-apictl)
+1. [Configure API Logs using Devops REST API]({{base_path}}/monitoring/observability/monitoring-api-logs/#configure-api-logs-using-devops-rest-api)
+2. [Configure API Logs using API Controller (APICTL)]({{base_path}}/monitoring/observability/monitoring-api-logs/#configure-api-logs-using-api-controller-apictl)
 
 After enabling API Logs for an API, logs can be observed in `<APIM_HOME>/repository/logs/api.log` file. Each log contains in-line JSON object with properties assigned with given log level. A sample sets of logs is given below.
 
