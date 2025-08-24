@@ -76,7 +76,7 @@
    proxy_config_protocol = 'https'
    ```
 
-   Replace `YOUR_AUTH_TOKEN` with the On-premise key. For guidance on obtaining this key, please refer to the instructions provided in the [WSO2 documentation](https://apim.docs.wso2.com/en/latest/api-analytics/choreo-analytics/getting-started-guide/#step-2-register-your-environment).
+   Replace `YOUR_AUTH_TOKEN` with the On-premise key. For guidance on obtaining this key, please refer to the instructions provided in the [WSO2 documentation](https://apim.docs.wso2.com/en/latest/monitoring/api-analytics/choreo-analytics/getting-started-guide/#step-2-register-your-environment).
 
 ### Step 3: API Manager Configuration
 
