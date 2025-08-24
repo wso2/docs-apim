@@ -370,36 +370,36 @@ nav:
             - API Documentation YAML Representation: reference/governance/api-doc-yaml-representation.md
     - Monitoring:
         - API Analytics:
+            - Overview: monitoring/api-analytics/analytics-overview.md
             - Choreo Based Analytics:
-                - Architecture: api-analytics/choreo-analytics/api-analytics-architecture.md
-                - Getting Started Guide: api-analytics/choreo-analytics/getting-started-guide.md
-                - Role-based Access Control : api-analytics/choreo-analytics/role-based-access-control.md
-                - Alerts: api-analytics/choreo-analytics/configure-alerts.md
-                - Choreo Based Analytics via Proxy: api-analytics/choreo-analytics/choreo-based-analytics-via-proxy.md
+                - Architecture: monitoring/api-analytics/choreo-analytics/api-analytics-architecture.md
+                - Getting Started Guide: monitoring/api-analytics/choreo-analytics/getting-started-guide.md
+                - Role-based Access Control : monitoring/api-analytics/choreo-analytics/role-based-access-control.md
+                - Alerts: monitoring/api-analytics/choreo-analytics/configure-alerts.md
+                - Choreo Based Analytics via Proxy: monitoring/api-analytics/choreo-analytics/choreo-based-analytics-via-proxy.md
             - Other Analytics Solutions: 
-                - ELK Based Analytics Installation Guide: api-analytics/on-prem/elk-installation-guide.md
-                - Datadog Analytics Installation Guide : api-analytics/on-prem/datadog-installation-guide.md
-                - OpenSearch Analytics Installation Guide: api-analytics/on-prem/opensearch-installation-guide.md
-            - Moesif Analytics: api-analytics/moesif-analytics/moesif-integration-guide.md
-            - Publish Analytics Events to External Systems: api-analytics/samples/publishing-analytics-events-to-external-systems.md
-            - Publish Custom Analytics Events Data: api-analytics/samples/publishing-custom-analytics-data.md
-    - Observe:
-        - Observability Overview: observe/observe-overview.md
-        - API Manager:
+                - ELK Based Analytics Installation Guide: monitoring/api-analytics/on-prem/elk-installation-guide.md
+                - Datadog Analytics Installation Guide : monitoring/api-analytics/on-prem/datadog-installation-guide.md
+                - OpenSearch Analytics Installation Guide: monitoring/api-analytics/on-prem/opensearch-installation-guide.md
+            - Moesif Analytics: monitoring/api-analytics/moesif-analytics/moesif-integration-guide.md
+            - Publish Analytics Events to External Systems: monitoring/api-analytics/samples/publishing-analytics-events-to-external-systems.md
+            - Publish Custom Analytics Events Data: monitoring/api-analytics/samples/publishing-custom-analytics-data.md
+        - Observability:
+            - Overview: monitoring/observability/observability-overview.md
             - Logs:
-                - Configure Logs: observe/api-manager/configuring-logging.md
-                - Correlation Logs: observe/api-manager/monitoring-correlation-logs.md
-                - HTTP Access Logs: observe/api-manager/monitoring-http-access-logs.md
-                - Audit Logs: observe/api-manager/monitoring-audit-logs.md
-                - API Logs: observe/api-manager/monitoring-api-logs.md
-                - Websocket Logs : observe/api-manager/monitoring-websocket-logs.md
+                - Configure Logs: monitoring/observability/configuring-logging.md
+                - Correlation Logs: monitoring/observability/monitoring-correlation-logs.md
+                - HTTP Access Logs: monitoring/observability/monitoring-http-access-logs.md
+                - Audit Logs: monitoring/observability/monitoring-audit-logs.md
+                - API Logs: monitoring/observability/monitoring-api-logs.md
+                - Websocket Logs : monitoring/observability/monitoring-websocket-logs.md
                 - External Observability Solutions:
-                    - OpenSearch: observe/api-manager/monitoring-with-opensearch.md
+                    - OpenSearch: monitoring/observability/monitoring-with-opensearch.md
             - Traces:
-                - OpenTracing: observe/api-manager/traces/monitoring-with-opentracing.md
-                - OpenTelemetry: observe/api-manager/traces/monitoring-with-opentelemetry.md
+                - OpenTracing: monitoring/observability/traces/monitoring-with-opentracing.md
+                - OpenTelemetry: monitoring/observability/traces/monitoring-with-opentelemetry.md
             - Metrics:
-                - JMX-Based Monitoring: observe/api-manager/metrics/jmx-based-monitoring.md
+                - JMX-Based Monitoring: monitoring/observability/metrics/jmx-based-monitoring.md
     - Reference:
         - Product REST APIs:
             - Overview: reference/product-apis/overview.md
