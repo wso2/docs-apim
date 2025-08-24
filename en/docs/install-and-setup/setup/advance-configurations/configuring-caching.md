@@ -71,11 +71,11 @@ The OAuth token is saved in this cache, which is enabled by default. Whenever a 
 
 ## Response cache
 
-For information on how to enable response caching for a given API, see [Response Caching]({{base_path}}/deploy-and-publish/deploy-on-gateway/api-gateway/response-caching/).
+For information on how to enable response caching for a given API, see [Response Caching]({{base_path}}/manage-apis/deploy-and-publish/deploy-on-gateway/api-gateway/response-caching/).
 
 ## JWT claims cache
 
-For information on how to enable JWT claims caching, see [JWT claims Caching]({{base_path}}/deploy-and-publish/deploy-on-gateway/api-gateway/passing-enduser-attributes-to-the-backend-via-api-gateway/#expiry-time-of-the-jwt).
+For information on how to enable JWT claims caching, see [JWT claims Caching]({{base_path}}/manage-apis/deploy-and-publish/deploy-on-gateway/api-gateway/passing-enduser-attributes-to-the-backend-via-api-gateway/#expiry-time-of-the-jwt).
 
 ## Publisher cache
 
