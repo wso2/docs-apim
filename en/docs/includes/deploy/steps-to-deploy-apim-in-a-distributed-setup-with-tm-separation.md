@@ -146,7 +146,7 @@ Follow the instructions given below to configure the Gateway node so that it can
     !!! Info
         To further optimize the gateway notification feature, you can use additional `gateway_notification` configurations. For more information, see [API-M Revision Deployment Monitoring](../../../../reference/config-catalog/#api-m-revision-deployment-monitoring).
 
-5. Enable JSON Web Token (JWT) if required. For instructions, see [Generating JSON Web Token](../../../../deploy-and-publish/deploy-on-gateway/api-gateway/passing-enduser-attributes-to-the-backend-via-api-gateway).
+5. Enable JSON Web Token (JWT) if required. For instructions, see [Generating JSON Web Token](../../../../manage-apis/deploy-and-publish/deploy-on-gateway/api-gateway/passing-enduser-attributes-to-the-backend-via-api-gateway).
 
 6. Add the public certificate of the private key (that is used for signing the tokens) to the truststore under the "gateway_certificate_alias" alias. For instructions, see [Create and import SSL certificates](../../../../install-and-setup/setup/security/configuring-keystores/keystore-basics/creating-new-keystores).
 
@@ -384,7 +384,7 @@ Follow the steps given below to configure the API Control Plane nodes to communi
         ```
 
     !!! Info
-        This configuration is used for deploying APIs to the Gateway and for connecting the Developer Portal component to the Gateway if the Gateway is shared across tenants. If the Gateway is not used in multiple tenants, you can create a [Gateway Environment using the Admin Portal](../../../../deploy-and-publish/deploy-on-gateway/deploy-api/exposing-apis-via-custom-hostnames/#using-a-new-gateway-environment-to-expose-apis-via-custom-hostnames).  
+        This configuration is used for deploying APIs to the Gateway and for connecting the Developer Portal component to the Gateway if the Gateway is shared across tenants. If the Gateway is not used in multiple tenants, you can create a [Gateway Environment using the Admin Portal](../../../../manage-apis/deploy-and-publish/deploy-on-gateway/deploy-api/exposing-apis-via-custom-hostnames/#using-a-new-gateway-environment-to-expose-apis-via-custom-hostnames).  
 
         Note that in the above configurations, the `service_url` points to the `9443` port of the Gateway node, while `http_endpoint` and `https_endpoint` points to the `http` and `https nio ports` (8280 and 8243).
     
@@ -469,7 +469,7 @@ Follow the steps given below to configure the API Control Plane nodes to communi
         'header.X-WSO2-KEY-MANAGER' = "default"
         ```
 
-3. If required, encrypt the Auth Keys (access tokens, client secrets, and authorization codes), see [Encrypting OAuth Keys](../../../../design/api-security/oauth2/encrypting-oauth2-tokens).
+3. If required, encrypt the Auth Keys (access tokens, client secrets, and authorization codes), see [Encrypting OAuth Keys](../../../../manage-apis/design/api-security/oauth2/encrypting-oauth2-tokens).
 
 4. Optionally, add the following configuration to enable distributed cache invalidation within the API Control Plane nodes.
 
