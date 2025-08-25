@@ -375,6 +375,14 @@
                             "default": "false",
                             "possible": "true, false",
                             "description": "Specifies whether the certificate header is signed using the SHA256 algorithm. The default algorithm used to generate the header value is SHA1."
+                        },
+                        {
+                            "name": "encode_x5t_without_padding",
+                            "type": "boolean",
+                            "required": false,
+                            "default": "false",
+                            "possible": "true, false",
+                            "description": "Determines whether the `x5t` value in the JWT header is Base64 URL-encoded without padding. Set to `true` for compatibility with tools and systems that expect unpadded `x5t` values."
                         }
                     ]
                 }
