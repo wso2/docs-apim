@@ -522,7 +522,7 @@ Let's use the [wso2-am-stripe-plugin](https://github.com/wso2-extensions/wso2-am
         description = "connected account of the publisher"
         ```
            
-      The name property has to be identical to `ConnectedAccountKey`, which is defined in the [wso2-am-stripe-plugin](https://github.com/wso2-extensions/wso2-am-stripe-plugin/blob/master/src/main/java/org.wso2.apim.monetization/impl/StripeMonetizationImpl.java). However, you can add perferred values for the other properties.
+      The name property has to be identical to `ConnectedAccountKey`, which is defined in the [wso2-am-stripe-plugin](https://github.com/wso2-extensions/wso2-am-stripe-plugin/blob/master/src/main/java/org/wso2/apim/monetization/impl/StripeMonetizationImpl.java). However, you can add perferred values for the other properties.
  
     After saving these configurations, these additional properties appear in the **Monetization** page under the **Monetization properties** section in the API Publisher Portal.
 
@@ -531,7 +531,7 @@ Let's use the [wso2-am-stripe-plugin](https://github.com/wso2-extensions/wso2-am
      These configurations are required only if you intend to create dynamic plans (usage-based plans) where consumers are charged based on the usage of the API. In such situations, you need analytics to record and retrieve the usage of the monetized APIs. 
 
     !!! note
-        For instructions on configuring API Manager with ELK Analytics, see [Monetization Support via Elasticsearch](/design/api-monetization/monetizing-an-api/#monetization-support-via-elasticsearch)
+        For instructions on configuring API Manager with ELK Analytics, see [Monetization Support via Elasticsearch](#monetization-support-via-elasticsearch)
     
     1. Enable analytics.
     
