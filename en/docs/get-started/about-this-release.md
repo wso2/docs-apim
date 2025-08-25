@@ -16,7 +16,7 @@ For more information on WSO2 API Manager, see the [overview]({{base_path}}/getti
 
     This release of API Manager introduces the capability to integrate AI services and large language models (LLMs) with APIs. It offers token-based rate limits and flexible business plans, making it simpler to manage. You also get detailed analytics on token usage, request counts, and performance, helping you make smart business decisions around AI models and vendors. With full API lifecycle management, you have complete control over your AI APIs. Plus, the optimized API gateways are designed to handle AI services efficiently, boosting overall performance.
 
-    **[Learn more]({{base_path}}/design/create-api/create-ai-api/create-an-ai-api/)**
+    **[Learn more]({{base_path}}/manage-apis/design/create-api/create-ai-api/create-an-ai-api/)**
 
 ??? note "WSO2 Identity Server 7.0 Authorization Server Support"
 
@@ -28,7 +28,7 @@ For more information on WSO2 API Manager, see the [overview]({{base_path}}/getti
 
     API Manager now has the capability to disable the subscription requirement for API consumption. This simplifies the user experience by allowing users to avoid subscription approval and application creation processes.
 
-    **[Learn more]({{base_path}}/design/advanced-topics/disable-subscriptions-for-an-api/)**
+    **[Learn more]({{base_path}}/manage-apis/design/advanced-topics/disable-subscriptions-for-an-api/)**
 
 ??? note "API Microgateway / Immutable Gateway Support with APIM 4.x"
 
@@ -52,7 +52,7 @@ For more information on WSO2 API Manager, see the [overview]({{base_path}}/getti
 
     The latest version of API Manager introduces the capability to reset the Application level rate limiting policies once the throttling limit has been exceeded. With this, you no longer have to wait until the next access time if your API got throttled due to request spikes or unintended requests.
 
-    **[Learn more]({{base_path}}/design/rate-limiting/resetting-application-throttling-policies/)**
+    **[Learn more]({{base_path}}/manage-apis/design/rate-limiting/resetting-application-throttling-policies/)**
 
 ??? note "Subscription Approval Support from API Publisher Portal"
 
@@ -62,7 +62,7 @@ For more information on WSO2 API Manager, see the [overview]({{base_path}}/getti
 
     This feature improves the API security by introducing an extra level of validation to the JWTs. This approach is particularly useful when you need to restrict the API access to a particular audience when APIs are shared among multiple clients or services.
 
-    **[Learn more]({{base_path}}/design/api-security/oauth2/access-token-types/jwt-tokens/#audience-validation)**
+    **[Learn more]({{base_path}}/manage-apis/design/api-security/oauth2/access-token-types/jwt-tokens/#audience-validation)**
 
 ??? note "Enhanced Content Search Support"
 

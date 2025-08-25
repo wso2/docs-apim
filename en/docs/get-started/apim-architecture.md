@@ -82,7 +82,7 @@ The Traffic Manager helps users to regulate API traffic, make APIs and applicati
 
 In addition to the above, the Traffic Manager also helps to keep the Universal Gateway's in-memory map, which is used for key validation, up-to-date via a JMS topic. The Traffic Manager publishes artifact (API/application) update events that are received from the API Publisher and API Developer Portal to a JMS topic. The Universal Gateway receives these events via the JMS topic and updates its in-memory map.
 
-For more information, see [Working with Throttling]({{base_path}}/design/rate-limiting/introducing-throttling-use-cases).
+For more information, see [Working with Throttling]({{base_path}}/manage-apis/design/rate-limiting/introducing-throttling-use-cases).
 
 ## Tooling
 
