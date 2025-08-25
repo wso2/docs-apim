@@ -520,7 +520,7 @@ Let's use the [wso2-am-stripe-plugin](https://github.com/wso2-extensions/wso2-am
      These configurations are required only if you intend to create dynamic plans (usage-based plans) where consumers are charged based on the usage of the API. In such situations, you need analytics to record and retrieve the usage of the monetized APIs. 
 
     !!! note
-        For instructions on configuring API Manager with ELK Analytics, see [Monetization Support via Elasticsearch](/manage-apis/design/api-monetization/monetizing-an-api/#monetization-support-via-elasticsearch)
+        For instructions on configuring API Manager with ELK Analytics, see [Monetization Support via Elasticsearch](../../../manage-apis/design/api-monetization/monetizing-an-api/#monetization-support-via-elasticsearch)
     
     1. Enable analytics.
     

@@ -39,7 +39,7 @@ Follow the instructions below to run the TCPMon available with your WSO2 Carbon 
 
 Follow the instructions below to download TCPMon from Apache and run the tool:
 
-1.  Download TCPMon from the following location: <http://archive.apache.org/dist/ws/tcpmon/1.0/tcpmon-1.0-bin.zip>.
+1.  Download TCPMon from the following location: <https://archive.apache.org/dist/ws/tcpmon/1.0/tcpmon-1.0-bin.zip>.
 2.  Extract `tcpmon-1.0-bin.zip` archive.
 3.  Go to the build of the extracted directory to find the execution script.
 4.  Execute the following command to run the tool.

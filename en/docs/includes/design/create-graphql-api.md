@@ -45,7 +45,7 @@ Let's use the Star Wars sample backend server as the backend for the GraphQL API
 	* **GraphQL File/Archive** - If you select this option, drag and drop or click **Browse File to Upload** to upload the file.
 	* **GraphQL SDL URL** - If you select this option, you need to provide the URL of the schema definition.
 
-    Let's use the [StarWarsAPI schema definition](/en/4.5.0/assets/attachments/learn/schema_graphql.graphql) to create the schema file. 
+    Let's use the [StarWarsAPI schema definition](../../assets/attachments/learn/schema_graphql.graphql) to create the schema file. 
 
 4. Select **GraphQL File/Archive** and import the schema by dragging and dropping the file or by uploading the file. Click **Next**.
 

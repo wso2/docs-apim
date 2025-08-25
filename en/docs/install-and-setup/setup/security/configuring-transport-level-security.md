@@ -25,7 +25,7 @@ To prevent these types of security attacks, it is encouraged to disable the weak
 
 4.  Start the server.
 
-5.  To verify that the configurations are all set correctly, download and run the [testsslserver.jar]({{base_path}}/assets/attachments/admin/testsslserver-jar.zip).
+5.  To verify that the configurations are all set correctly, download and run the [testsslserver.jar](../../../assets/attachments/admin/testsslserver-jar.zip).
 
     !!! note
         Note the following when you run `testsslserver.jar` :
