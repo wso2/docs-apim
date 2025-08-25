@@ -296,7 +296,7 @@ Log out from an API Manager environment.
 
 ### apictl get
 
-Displays a list containing all the APIs, all the API Products, applications of a specific user, all the environments or log levels of APIs.
+Displays a list containing all the APIs, all the API Products, all the MCP Servers, applications of a specific user, all the environments or log levels of APIs or MCP Servers.
 
 -   Usage
 
@@ -333,6 +333,14 @@ Displays a list containing all the APIs, all the API Products, applications of a
         </tr>
         <tr>
             <th>
+                <code>mcp-servers</code>
+            </th>
+            <td>
+                Display a list of MCP Servers in an environment.
+            </td>
+        </tr>
+        <tr>
+            <th>
                 <code>apps</code>
             </th>
             <td>
@@ -349,6 +357,14 @@ Displays a list containing all the APIs, all the API Products, applications of a
         </tr>
         <tr>
             <th>
+                <code>mcp-server-revisions</code>
+            </th>
+            <td>
+                Display a list of Revisions for the MCP Server.
+            </td>
+        </tr>
+        <tr>
+            <th>
                 <code>keys</code>
             </th>
             <td>
@@ -361,6 +377,14 @@ Displays a list containing all the APIs, all the API Products, applications of a
             </th>
             <td>
                 Display log level of the API or APIs.
+            </td>
+        </tr>
+        <tr>
+            <th>
+                <code>mcp-server-logging</code>
+            </th>
+            <td>
+                Display log level of the MCP Server or MCP Servers.
             </td>
         </tr>
         <tr>
@@ -409,7 +433,7 @@ Displays a list containing all the APIs, all the API Products, applications of a
 
 ### apictl import
 
-Import an API, API product, or application to a specific environment.
+Import an API, API product, MCP Server, or application to a specific environment.
 
 -   Usage
 
@@ -438,6 +462,14 @@ Import an API, API product, or application to a specific environment.
         </tr>
         <tr>
             <th>
+                <code>mcp-server</code>
+            </th>
+            <td>
+                Specify an MCP Server to import.
+            </td>
+        </tr>
+        <tr>
+            <th>
                 <code>app</code>
             </th>
             <td>
@@ -461,7 +493,7 @@ Import an API, API product, or application to a specific environment.
 
 ### apictl export
 
-Export APIs, API Products, and Applications of a specific user in the specified environment.
+Export APIs, API Products, MCP Servers, and Applications of a specific user in the specified environment.
 
 -   Usage
 
@@ -494,6 +526,14 @@ Export APIs, API Products, and Applications of a specific user in the specified 
             </th>
             <td>
                 Specify an API product to export.
+            </td>
+        </tr>
+        <tr>
+            <th>
+                <code>mcp-server</code>
+            </th>
+            <td>
+                Specify an MCP Server to export.
             </td>
         </tr>
         <tr>
@@ -545,7 +585,7 @@ Export APIs, API Products, and Applications of a specific user in the specified 
 
 ### apictl delete
 
-Delete APIs, API Products, and Applications of a specific user in the specified environment.
+Delete APIs, API Products, MCP Servers, and Applications of a specific user in the specified environment.
 
 -   Usage
 
@@ -570,6 +610,14 @@ Delete APIs, API Products, and Applications of a specific user in the specified 
             </th>
             <td>
                 Specify an API product to delete.
+            </td>
+        </tr>
+        <tr>
+            <th>
+                <code>mcp-server</code>
+            </th>
+            <td>
+                Specify an MCP Server to delete.
             </td>
         </tr>
         <tr>
@@ -621,7 +669,7 @@ Delete APIs, API Products, and Applications of a specific user in the specified 
 
 ### apictl change-status
 
-Change the lifecycle status of an API in an environment
+Change the lifecycle status of an API, API Product, or MCP Server in an environment
 
 -   Usage
 
@@ -638,6 +686,14 @@ Change the lifecycle status of an API in an environment
             </th>
             <td>
                 Specifies the API for which you want to change the status.
+            </td>
+        </tr>
+        <tr>
+            <th>
+                <code>mcp-server</code>
+            </th>
+            <td>
+                Specifies the MCP Server for which you want to change the status.
             </td>
         </tr>
     </table>
@@ -809,6 +865,12 @@ Use `api-logging` option to set the log level of the API.
 
 ```bash
 apictl set api-logging [flag] [argument]
+```
+
+Use `mcp-server-logging` option to set the log level of the MCP Server. 
+
+```bash
+apictl set mcp-server-logging [flag] [argument]
 ```
 
 Use `correlation-logging` option to set the correlation configs for a correlation logging component.
@@ -1000,7 +1062,7 @@ use this command, 'git' must be installed in the system.'
 
 ### apictl undeploy
 
-Undeploy an API/API Product revision that is available in the specified environment from the specified gateway.
+Undeploy an API/API Product/MCP Server revision that is available in the specified environment from the specified gateway.
 
 -   Usage
 
@@ -1017,6 +1079,14 @@ Undeploy an API/API Product revision that is available in the specified environm
             </th>
             <td>
                 Specifies the API to be undeployed.
+            </td>
+        </tr>
+        <tr>
+            <th>
+                <code>mcp-server</code>
+            </th>
+            <td>
+                Specifies the MCP Server to be undeployed.
             </td>
         </tr>
     </table>
