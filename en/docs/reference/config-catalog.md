@@ -1062,6 +1062,27 @@ claims_extractor_impl = "org.wso2.carbon.apimgt.impl.token.DefaultClaimsRetrieve
                                         <p>Specifies whether the certificate header is signed using the SHA256 algorithm. The default algorithm used to generate the header value is SHA1.</p>
                                     </div>
                                 </div>
+                            </div><div class="param">
+                                <div class="param-name">
+                                  <span class="param-name-wrap"> <code>encode_x5t_without_padding</code> </span>
+                                </div>
+                                <div class="param-info">
+                                    <div>
+                                        <p>
+                                            <span class="param-type string"> boolean </span>
+                                            
+                                        </p>
+                                        <div class="param-default">
+                                            <span class="param-default-value">Default: <code>false</code></span>
+                                        </div>
+                                        <div class="param-possible">
+                                            <span class="param-possible-values">Possible Values: <code>true, false</code></span>
+                                        </div>
+                                    </div>
+                                    <div class="param-description">
+                                        <p>Determines whether the `x5t` value in the JWT header is Base64 URL-encoded without padding. Set to `true` for compatibility with tools and systems that expect unpadded `x5t` values.</p>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
