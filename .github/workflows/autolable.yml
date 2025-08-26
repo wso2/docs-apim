@@ -15,37 +15,41 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      # Install GitHub CLI
-      - name: Install GitHub CLI
-        run: |
-          sudo apt-get update
-          sudo apt-get install -y gh
+      # Install GitHub CLI and Claude CLI
       - name: Install GitHub & Claude CLI
         run: |
           sudo apt-get update
           sudo apt-get install -y gh
           npm install -g @anthropic-ai/claude-code
     
-      - name: Run Claude Classifier
+      - name: Classify issue via Claude API
         env:
-          GITHUB_TOKEN: ${{ secrets._GITHUB_TOKEN}}
-          ANTHOPIC_API_KEY: ${{ secrets.ANTHOPIC_API_KEY }}
+            ANTHROPIC_API_KEY: ${{ secrets.ANTHOPIC_API_KEY }}
+            GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          ISSUE_TITLE="${{ github.event.issue.title }}"
-          ISSUE_BODY="${{ github.event.issue.body }}"
+            ISSUE_TITLE="${{ github.event.issue.title }}"
+            ISSUE_BODY="${{ github.event.issue.body }}"
 
-          echo "Sending issue to Claude for classification..."
-          CLASSIFICATION=$(claude run \
-            --model "claude-sonnet-4-20250514" \
-            --append-system-prompt "You are Intelligent AI Agent. You need to identify the issue and if it is belonging to the broken links, spelling mistakes, grammatical errors, documentation formatting issues, or general suggestions then you need to return yes as the output" \
-            --allowedTools "Bash WebFetch" \
-            --print < "Issue Title: $ISSUE_TITLE\n\nIssue Body:\n$ISSUE_BODY\n\nPlease classify this issue into one of: broken_links, spelling_mistakes, grammatical_errors, formatting_errors, suggestions.If it belongs to one of this categories return yes, otherwise return no.")
+            PROMPT="Classify this GitHub issue into one of: broken_links, spelling_mistakes, grammatical_errors, formatting_issues, suggestions.
+            Title: $ISSUE_TITLE
+            Body: $ISSUE_BODY
+            Respond ONLY with the category name."
 
-          echo "Claude returned classification: $CLASSIFICATION"
+            RESPONSE=$(curl -s https://api.anthropic.com/v1/messages \
+            -H "Content-Type: application/json" \
+            -H "x-api-key: $ANTHROPIC_API_KEY" \
+            -d "{   
+                \"model\": \"claude-3-5-sonnet-20240620\",S
+                \"max_tokens\": 50,
+                \"messages\": [{\"role\": \"user\", \"content\": \"$PROMPT\"}]
+            }")
+            echo "Response: $RESPONSE"
 
-          # If Claude returns a valid category, add claude:queue label
-          if [[ "$CLASSIFICATION" == "yes" && "$CLASSIFICATION" != "null" ]]; then
-            echo "Adding claude:queue label..."
+            CATEGORY=$(echo "$RESPONSE" | jq -r '.content[0].text' | tr -d 'S\n')
+            echo "Category: $CATEGORY"
+
+            # Add label if classification returned a category
+            if [[ -n "$CATEGORY" && "$CATEGORY" != "null" ]]; then
             gh issue edit ${{ github.event.issue.number }} --add-label "claude:queue"
-          fi 
+            fi
 
