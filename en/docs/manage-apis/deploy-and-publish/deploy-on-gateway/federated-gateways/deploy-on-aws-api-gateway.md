@@ -43,7 +43,7 @@ Follow the instructions given below to configure AWS API Gateway as a Federated 
 
     `https://localhost:9443/admin`
 
-2. Register a third party KM following instructions in WSO2 documentation. In this guide we will setup Auth0 as the KM following the guide [Configure Auth0 as a Key Manager](../../../../../administer/key-managers/configure-auth0-connector/).
+2. Register a third party KM following instructions in WSO2 documentation. In this guide we will setup Auth0 as the KM following the guide [Configure Auth0 as a Key Manager]({{basepath}}/administer/key-managers/configure-auth0-connector/).
 
 ## Step 4 : Create and Design API
 
