@@ -39,7 +39,7 @@ For more information on setting up WSO2 Identity Server 7.1.0, see [Setup WSO2 I
     ```
 
     !!! warning
-        Skipping this configuration in production environments may cause logout functionality issues.
+        Skipping this configuration in production environments will cause logout functionality issues.
 
 3. Need to add new local claim to store organization id. For that go to  Home > Identity > Claims> Add and select `Add Local Claim` and fill the form. Use Claim URI as [http://wso2.org/claims/organizationId](http://wso2.org/claims/organizationId )
 
