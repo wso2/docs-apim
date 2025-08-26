@@ -25,37 +25,42 @@ jobs:
       - name: Classify issue via Claude API
         env:
             ANTHROPIC_API_KEY: ${{ secrets.ANTHOPIC_API_KEY }}
-            GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+            GITHUB_TOKEN: ${{ secrets._GITHUB_TOKEN }}
+            ISSUE_NUMBER: ${{ github.event.issue.number }}
+            
+            ISSUE_TITLE: ${{ github.event.issue.title }}
+            ISSUE_BODY: ${{ github.event.issue.body }}
         run: |
-            ISSUE_TITLE="${{ github.event.issue.title }}"
-            ISSUE_BODY="${{ github.event.issue.body }}"
+            echo "Sending issue to Claude for classification..."
+            echo "Issue #$ISSUE_NUMBER"
+            echo "Title: $ISSUE_TITLE"
+            echo "Body: $ISSUE_BODY"
+            echo "GITHUB_TOKEN is set: ${GITHUB_TOKEN:+Yes}"
+            echo "ANTHROPIC_API_KEY is set: ${ANTHROPIC_API_KEY:+Yes}"
 
-            # Combine title and body
-            PROMPT="Classify this GitHub issue into one of: broken_links, spelling_mistakes, grammatical_errors, formatting_issues, suggestions.
-            Title: $ISSUE_TITLE
-            Body: $ISSUE_BODY
-            Respond ONLY with the category name."
-
-            # Build valid JSON using jq
-            DATA=$(jq -n --arg prompt "$PROMPT" '{
-            model: "claude-3-5-sonnet-20240620",
-            max_tokens: 50,
-            messages: [{role: "user", content: $prompt}]
+            # Safely build JSON using jq to escape newlines/quotes
+            DATA=$(jq -n --arg title "$ISSUE_TITLE" --arg body "$ISSUE_BODY" '{
+                model: "claude-3-5-sonnet-20240620",
+                max_tokens: 50,
+                messages: [
+                {
+                    role: "user",
+                    content: "Classify this GitHub issue into one of the following categories: broken_links, spelling_mistakes, grammatical_errors, formatting_issues, suggestions.\nTitle: \($title)\nBody: \($body)\nRespond ONLY with the category name."
+                }
+                ]
             }')
 
             RESPONSE=$(curl -s https://api.anthropic.com/v1/messages \
-            -H "Content-Type: application/json" \
-            -H "x-api-key: $ANTHROPIC_API_KEY" \
-            -d "$DATA")
+                -H "Content-Type: application/json" \
+                -H "x-api-key: $ANTHROPIC_API_KEY" \
+                -d "$DATA")
 
             CATEGORY=$(echo "$RESPONSE" | jq -r '.content[0].text' | tr -d '\n')
-            echo "Category: $CATEGORY"
+            echo "Claude classified the issue as: $CATEGORY"
 
-            CATEGORY=$(echo "$RESPONSE" | jq -r '.content[0].text' | tr -d 'S\n')
-            echo "Category: $CATEGORY"
-
-            # Add label if classification returned a category
+            # Add label if category is detected
             if [[ -n "$CATEGORY" && "$CATEGORY" != "null" ]]; then
-            gh issue edit ${{ github.event.issue.number }} --add-label "claude:queue"
+                gh issue edit $ISSUE_NUMBER --add-label "claude:queue"
+            else
+                echo "No valid category returned by Claude. Not adding label."
             fi
-
