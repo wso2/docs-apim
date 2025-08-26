@@ -1,0 +1,41 @@
+name: Claude Code • auto-label issues
+on:
+  issues:
+    types: [opened, edited]
+
+jobs:
+  auto-label:
+    runs-on: ubuntu-latest
+    name: Auto-label issues for Claude processing
+    permissions:
+      issues: write
+    steps:
+      - name: Install GitHub CLI
+        uses: cli/cli@v3
+        with:
+          version: latest
+
+      - name: Check issue content and label
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          ISSUE_NUMBER=${{ github.event.issue.number }}
+          ISSUE_TITLE="${{ github.event.issue.title }}"
+          ISSUE_BODY="${{ github.event.issue.body }}"
+
+          # Keywords to trigger Claude queue
+          KEYWORDS=("broken_link" "spelling_mistakes" "grammatical_errors" "documentation_formatting_issues" "suggestion")
+
+          ADD_LABEL=false
+          for word in "${KEYWORDS[@]}"; do
+            if [[ "$ISSUE_TITLE" == *"$word"* ]] || [[ "$ISSUE_BODY" == *"$word"* ]]; then
+              ADD_LABEL=true
+            fi
+          done
+
+          if [ "$ADD_LABEL" = true ]; then
+            echo "Adding claude:queue label to issue #$ISSUE_NUMBER"
+            gh issue edit "$ISSUE_NUMBER" --add-label "claude:queue"
+          else
+            echo "No keywords found. Not adding label."
+          fi
