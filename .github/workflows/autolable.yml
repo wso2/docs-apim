@@ -1,4 +1,5 @@
 name: Claude Code • auto-label issues
+
 on:
   issues:
     types: [opened, edited]
@@ -10,11 +11,17 @@ jobs:
     permissions:
       issues: write
     steps:
-      - name: Install GitHub CLI
-        uses: cli/cli@v3
-        with:
-          version: latest
+      # Checkout repo (required if you later read files)
+      - name: Checkout repository
+        uses: actions/checkout@v4
 
+      # Install GitHub CLI
+      - name: Install GitHub CLI
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y gh
+
+      # Add labels based on issue content
       - name: Check issue content and label
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
