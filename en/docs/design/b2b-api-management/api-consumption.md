@@ -29,27 +29,38 @@ For more information on setting up WSO2 Identity Server 7.1.0, see [Setup WSO2 I
     keytool -import -alias wso2is7cert -file is7.cert -keystore client-truststore.jks -storepass wso2carbon
     ```
 
+2. Configure the `logoutSessionStateAppender` setting to `OIDC` in each portal if API Manager and WSO2 Identity Server are running on different hosts. Skip this step if both servers are running on localhost.
 
-2. Need to add new local claim to store organization id. For that go to  Home > Identity > Claims> Add and select `Add Local Claim` and fill the form. Use Claim URI as [http://wso2.org/claims/organizationId](http://wso2.org/claims/organizationId )
+    Modify the `logoutSessionStateAppender` value to `OIDC` in these settings.json files:
+    ```
+    <AM_HOME>/repository/deployment/server/webapps/publisher/site/public/conf/settings.json
+    <AM_HOME>/repository/deployment/server/webapps/admin/site/public/conf/settings.json
+    <AM_HOME>/repository/deployment/server/webapps/devportal/site/public/theme/settings.json
+    ```
+
+    !!! warning
+        Skipping this configuration in production environments may cause logout functionality issues.
+
+3. Need to add new local claim to store organization id. For that go to  Home > Identity > Claims> Add and select `Add Local Claim` and fill the form. Use Claim URI as [http://wso2.org/claims/organizationId](http://wso2.org/claims/organizationId )
 
     ![Add new clam]({{base_path}}/assets/img/design/b2b/claims.png) 
 
 
-3. Need to add `org_id` and `org_name` to oidc claims and map them to [http://wso2.org/claims/organizationId](http://wso2.org/claims/organizationId ) and [http://wso2.org/claims/organization](http://wso2.org/claims/organization) local claims. For that go to  Home > Identity > Claims> Add and select `Add External Claim`
+4. Need to add `org_id` and `org_name` to oidc claims and map them to [http://wso2.org/claims/organizationId](http://wso2.org/claims/organizationId ) and [http://wso2.org/claims/organization](http://wso2.org/claims/organization) local claims. For that go to  Home > Identity > Claims> Add and select `Add External Claim`
 
     ![Add new clam]({{base_path}}/assets/img/design/b2b/add-claim-1.png) 
       
     ![Add new clam]({{base_path}}/assets/img/design/b2b/add-claim-2.png) 
 
-4. Once added, it will be visible under the http://wso2.org/oidc/claim claim
+5. Once added, it will be visible under the http://wso2.org/oidc/claim claim
 
     ![Add new clam]({{base_path}}/assets/img/design/b2b/claim-view.png) 
 
-5. Now we need to configure WSO2 IS 7.1 as a federated IDP for API Manager. For that. Create a new Identity provider by selecting `Identity Providers` → `Add`. Set a name to the IDP
+6. Now we need to configure WSO2 IS 7.1 as a federated IDP for API Manager. For that. Create a new Identity provider by selecting `Identity Providers` → `Add`. Set a name to the IDP
 
-6. Expand `Claim Configuration` and then `Basic Claim Configuration`. Select ‘Define Custom Claim Dialect’ radio button and add following claim mapping using `add claim mapping` button.
+7. Expand `Claim Configuration` and then `Basic Claim Configuration`. Select ‘Define Custom Claim Dialect’ radio button and add following claim mapping using `add claim mapping` button.
 
-7. Set the user id claim as `username` and Role claim URI as `roles`
+8. Set the user id claim as `username` and Role claim URI as `roles`
 
     ![Claim config]({{base_path}}/assets/img/design/b2b/claim-config.png) 
 
@@ -57,11 +68,11 @@ For more information on setting up WSO2 Identity Server 7.1.0, see [Setup WSO2 I
         `org_name`, `org_id`, `username`, `roles` are oidc claims sent from WSO2 IS. If external IDP is configured, map the corresponding claims.
 
 
-8. Under the `Role Configuration`, Map IDP role `devportal` to local role `Internal/subscriber` . Do similar configurations to other roles as below.
+9. Under the `Role Configuration`, Map IDP role `devportal` to local role `Internal/subscriber` . Do similar configurations to other roles as below.
 
     ![Role config]({{base_path}}/assets/img/design/b2b/role-config.png) 
 
-9. Under the `Federated Authenticators` section, configure IS 7 as the federated authenticator using oauth2 application related information.
+10. Under the `Federated Authenticators` section, configure IS 7 as the federated authenticator using oauth2 application related information.
 
     ```
     Enable Oauth2/OpenIDConnect : true
@@ -75,22 +86,22 @@ For more information on setting up WSO2 Identity Server 7.1.0, see [Setup WSO2 I
 
     ![Well-known URLs]({{base_path}}/assets/img/design/b2b/url-list.png) 
 
-10. Under `Just-in-Time Provisioning` Set provisioning as below. Finish the IDP configuration by clicking on the Register button.
+11. Under `Just-in-Time Provisioning` Set provisioning as below. Finish the IDP configuration by clicking on the Register button.
 
     ![JIT Provisioning]({{base_path}}/assets/img/design/b2b/jit.png) 
 
-11. Now you need to configure authenticators for the service providers. Go to the `service providers` section and select the edit button in  `apim_devportal`. 
+12. Now you need to configure authenticators for the service providers. Go to the `service providers` section and select the edit button in  `apim_devportal`. 
 
     ![Service providers]({{base_path}}/assets/img/design/b2b/service-providers.png) 
 
     !!! note
         If these service providers are not available, you need to first login to the developer portal and this will be created automatically.
 
-12. Under the `Local & Outbound Authentication Configuration` section, set the identity provider we created previously under the `Federated Authentication’ section.
+13. Under the `Local & Outbound Authentication Configuration` section, set the identity provider we created previously under the `Federated Authentication’ section.
 
     ![Configure federated authenticator]({{base_path}}/assets/img/design/b2b/configure-federated-authenticator.png) 
 
-13. Similarly do the same for other portal’s service providers
+14. Similarly do the same for other portal’s service providers
 
 ## Register Organizations in API Manager 
 
@@ -179,18 +190,6 @@ We can set APIs to be visible for users in all organizations, current organizati
     ![Application Keys]({{base_path}}/assets/img/design/b2b/key-page.png) 
 
 6. You should be able to generate an access token and invoke the API now.
-
-7. Logout and attempt to log in again with a different user from another organization.
-
-    !!!note
-        When running both API Manager and WSO2 Identity Server on the same host (localhost), you may encounter an issue where a Developer Portal user does not log out when switching between two users within the same organization. This occurs due to both servers sharing the same host. In a production setup, this issue does not arise as the servers are hosted separately. To overcome this issue, you can use a private browser window for testing locally or set up WSO2 Identity Server on a different host.
-
-        If the Identity Server is running on a **different host** and you encounter an issue with logout session removal, set the `logoutSessionStateAppender` to an empty value in the following configuration.
-
-            <AM_HOME>/repository/deployment/server/webapps/publisher/site/public/conf/settings.json
-            <AM_HOME>/repository/deployment/server/webapps/admin/site/public/conf/settings.json
-            <AM_HOME>/repository/deployment/server/webapps/devportal/site/public/theme/settings.json
-
 
 !!! tip 
     Although this feature is enabled by default, organization visibility features are only available after you register organizations. You could specifically disable this feature by adding 
