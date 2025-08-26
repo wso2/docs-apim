@@ -20,29 +20,39 @@ jobs:
         run: |
           sudo apt-get update
           sudo apt-get install -y gh
-
-      # Add labels based on issue content
-      - name: Check issue content and label
+          sudo apt-get install -y jq curl
+    
+      - name: Analyze issue with Claude
+        id: claude
         env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          ISSUE_NUMBER=${{ github.event.issue.number }}
           ISSUE_TITLE="${{ github.event.issue.title }}"
           ISSUE_BODY="${{ github.event.issue.body }}"
+          ISSUE_NUMBER="${{ github.event.issue.number }}"
 
-          # Keywords to trigger Claude queue
-          KEYWORDS=("broken_link" "spelling_mistakes" "grammatical_errors" "documentation_formatting_issues" "suggestion")
+          PROMPT="Classify the following GitHub issue. If it is about broken links, spelling mistakes, grammatical errors, documentation formatting issues, or general suggestions, respond ONLY with 'YES'. Otherwise respond ONLY with 'NO'.
 
-          ADD_LABEL=false
-          for word in "${KEYWORDS[@]}"; do
-            if [[ "$ISSUE_TITLE" == *"$word"* ]] || [[ "$ISSUE_BODY" == *"$word"* ]]; then
-              ADD_LABEL=true
-            fi
-          done
+          Title: $ISSUE_TITLE
+          Body: $ISSUE_BODY"
 
-          if [ "$ADD_LABEL" = true ]; then
-            echo "Adding claude:queue label to issue #$ISSUE_NUMBER"
+          RESPONSE=$(curl https://api.anthropic.com/v1/messages \
+            -H "Content-Type: application/json" \
+            -H "x-api-key: $ANTHROPIC_API_KEY" \
+            -d "{
+              \"model\": \"claude-3-opus-20240229\",
+              \"max_tokens\": 20,
+              \"messages\": [{\"role\": \"user\", \"content\": \"$PROMPT\"}]
+            }")
+
+          ANSWER=$(echo "$RESPONSE" | jq -r '.content[0].text' | tr '[:upper:]' '[:lower:]')
+
+          echo "Claude Answer: $ANSWER"
+
+          if [[ "$ANSWER" == "yes" ]]; then
+            echo "Adding claude:queue label"
             gh issue edit "$ISSUE_NUMBER" --add-label "claude:queue"
           else
-            echo "No keywords found. Not adding label."
+            echo "Not adding label."
           fi
