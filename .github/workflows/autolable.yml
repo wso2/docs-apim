@@ -32,7 +32,7 @@ jobs:
           echo "Sending issue to Claude for classification..."
           CLASSIFICATION=$(claude run \
             --system "You are Intelligent AI Agent. You need to identify the issue and if it is belonging to the broken links, spelling mistakes, grammatical errors, documentation formatting issues, or general suggestions then you need to return yes as the output" \
-            --input "Issue Title: $ISSUE_TITLE\n\nIssue Body:\n$ISSUE_BODY\n\nPlease classify this issue into one of: broken_links, spelling_mistakes, grammatical_errors, formatting_errors, suggestions.If it belongs to one of this categories return yes, otherwise return no." \)
+            --input "Issue Title: $ISSUE_TITLE\n\nIssue Body:\n$ISSUE_BODY\n\nPlease classify this issue into one of: broken_links, spelling_mistakes, grammatical_errors, formatting_errors, suggestions.If it belongs to one of this categories return yes, otherwise return no." )
 
           echo "Claude returned classification: $CLASSIFICATION"
 
