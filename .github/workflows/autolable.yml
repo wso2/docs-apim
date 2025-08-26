@@ -30,20 +30,26 @@ jobs:
             ISSUE_TITLE="${{ github.event.issue.title }}"
             ISSUE_BODY="${{ github.event.issue.body }}"
 
+            # Combine title and body
             PROMPT="Classify this GitHub issue into one of: broken_links, spelling_mistakes, grammatical_errors, formatting_issues, suggestions.
             Title: $ISSUE_TITLE
             Body: $ISSUE_BODY
             Respond ONLY with the category name."
 
+            # Build valid JSON using jq
+            DATA=$(jq -n --arg prompt "$PROMPT" '{
+            model: "claude-3-5-sonnet-20240620",
+            max_tokens: 50,
+            messages: [{role: "user", content: $prompt}]
+            }')
+
             RESPONSE=$(curl -s https://api.anthropic.com/v1/messages \
             -H "Content-Type: application/json" \
             -H "x-api-key: $ANTHROPIC_API_KEY" \
-            -d "{   
-                \"model\": \"claude-3-5-sonnet-20240620\",S
-                \"max_tokens\": 50,
-                \"messages\": [{\"role\": \"user\", \"content\": \"$PROMPT\"}]
-            }")
-            echo "Response: $RESPONSE"
+            -d "$DATA")
+
+            CATEGORY=$(echo "$RESPONSE" | jq -r '.content[0].text' | tr -d '\n')
+            echo "Category: $CATEGORY"
 
             CATEGORY=$(echo "$RESPONSE" | jq -r '.content[0].text' | tr -d 'S\n')
             echo "Category: $CATEGORY"
