@@ -34,7 +34,7 @@ jobs:
            echo "Sending issue to Claude for classification..."
 
             # Build JSON payload safely with jq to escape newlines/quotes
-            PROMPT="You are a GitHub issue classifier. Read the issue title and body carefully. Classify the issue into one of these categories: broken_links, spelling_mistakes, grammatical_errors, formatting_issues, suggestions, none. Return ONLY the category name.
+            PROMPT="You are a GitHub issue classifier. Read the issue title and body carefully. Classify the issue into one of these categories: broken_links, spelling_mistakes, grammatical_errors, formatting_issues, suggestions, none. Return ONLY the category name. And if the issue does not fit any category, return 'none'.
 
             Title: $ISSUE_TITLE
             Body: $ISSUE_BODY"
