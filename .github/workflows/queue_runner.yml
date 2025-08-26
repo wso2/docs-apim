@@ -14,6 +14,7 @@ jobs:
     permissions:
       issues: write
       contents: read
+    name: Process next issue in Claude queue
     steps:
       - uses: actions/checkout@v4
 
@@ -59,5 +60,5 @@ jobs:
           gh issue edit $ISSUE --remove-label "claude:queue"
           gh issue edit $ISSUE --add-label "claude:in-progress"
 
-          # Add trigger comment for Claude
+          # Add trigger comment for ClaudeS
           gh issue comment $ISSUE --body "@claude Please create a PR for this issue following repo conventions."
