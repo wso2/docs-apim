@@ -21,38 +21,41 @@ jobs:
           sudo apt-get update
           sudo apt-get install -y gh
           sudo apt-get install -y jq curl
-    
+
       - name: Analyze issue with Claude
         id: claude
         env:
-          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+            ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+            GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          ISSUE_TITLE="${{ github.event.issue.title }}"
-          ISSUE_BODY="${{ github.event.issue.body }}"
-          ISSUE_NUMBER="${{ github.event.issue.number }}"
+            ISSUE_TITLE="${{ github.event.issue.title }}"
+            ISSUE_BODY="${{ github.event.issue.body }}"
+            ISSUE_NUMBER="${{ github.event.issue.number }}"
 
-          PROMPT="Classify the following GitHub issue. If it is about broken links, spelling mistakes, grammatical errors, documentation formatting issues, or general suggestions, respond ONLY with 'YES'. Otherwise respond ONLY with 'NO'.
+            PROMPT=$(cat <<EOF
+            Classify the following GitHub issue. If it is about broken links, spelling mistakes, grammatical errors, documentation formatting issues, or general suggestions, respond ONLY with 'YES'. Otherwise respond ONLY with 'NO'.
 
-          Title: $ISSUE_TITLE
-          Body: $ISSUE_BODY"
+            Title: $ISSUE_TITLE
+            Body: $ISSUE_BODY
+            EOF
+            )
 
-          RESPONSE=$(curl https://api.anthropic.com/v1/messages \
+            RESPONSE=$(jq -n --arg prompt "$PROMPT" '{
+            model: "claude-3-opus-20240229",
+            max_tokens: 20,
+            messages: [{role: "user", content: $prompt}]
+            }' | curl -s https://api.anthropic.com/v1/messages \
             -H "Content-Type: application/json" \
-            -H "x-api-key: $ANTHROPIC_API_KEY" \
-            -d "{
-              \"model\": \"claude-3-opus-20240229\",
-              \"max_tokens\": 20,
-              \"messages\": [{\"role\": \"user\", \"content\": \"$PROMPT\"}]
-            }")
+            -H "x-api-key: '"$ANTHROPIC_API_KEY"'" \
+            -d @-)
 
-          ANSWER=$(echo "$RESPONSE" | jq -r '.content[0].text' | tr '[:upper:]' '[:lower:]')
+            ANSWER=$(echo "$RESPONSE" | jq -r '.content[0].text' | tr '[:upper:]' '[:lower:]')
 
-          echo "Claude Answer: $ANSWER"
+            echo "Claude Answer: $ANSWER"
 
-          if [[ "$ANSWER" == "yes" ]]; then
+            if [[ "$ANSWER" == "yes" ]]; then
             echo "Adding claude:queue label"
             gh issue edit "$ISSUE_NUMBER" --add-label "claude:queue"
-          else
+            else
             echo "Not adding label."
-          fi
+            fi
