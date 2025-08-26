@@ -35,6 +35,22 @@ jobs:
 
             # Build JSON payload safely with jq to escape newlines/quotes
             PROMPT="You are a GitHub issue classifier. Read the issue title and body carefully. Classify the issue into one of these categories: broken_links, spelling_mistakes, grammatical_errors, formatting_issues, suggestions, none. Return ONLY the category name. And if the issue does not fit any category, return 'none'.
+            Example for the broken links:
+                Location : https://apim.docs.wso2.com/en/latest/manage-apis/deploy-and-publish/deploy-on-gateway/federated-gateways/deploy-on-aws-api-gateway/
+                 link on sub step 2 in Step 3 : Configure a third party Key Manager is returning page not found error
+            Example for the spelling mistakes:
+                Title: Speling mistake in the doc
+                Body: There is a speling mistake in the second paragraph of the doc.
+            Example for the grammatical errors:
+                Title: Grammatical error in the doc
+                Body: The sentence "This are the steps to configure the API" should be "These are the steps to configure the API".
+            Example for the formatting issues:
+                Title: Formatting issue in the doc
+                Body: The code block in the "Setup" section is not properly formatted.
+            Example for the suggestions:
+                Title: Suggestion for improving the doc
+                Body: It would be helpful to add a troubleshooting section for common errors.
+    
 
             Title: $ISSUE_TITLE
             Body: $ISSUE_BODY"
