@@ -31,36 +31,36 @@ jobs:
             ISSUE_TITLE: ${{ github.event.issue.title }}
             ISSUE_BODY: ${{ github.event.issue.body }}
         run: |
-            echo "Sending issue to Claude for classification..."
-            echo "Issue #$ISSUE_NUMBER"
-            echo "Title: $ISSUE_TITLE"
-            echo "Body: $ISSUE_BODY"
-            echo "GITHUB_TOKEN is set: ${GITHUB_TOKEN:+Yes}"
-            echo "ANTHROPIC_API_KEY is set: ${ANTHROPIC_API_KEY:+Yes}"
+           echo "Sending issue to Claude for classification..."
 
-            # Safely build JSON using jq to escape newlines/quotes
-            DATA=$(jq -n --arg title "$ISSUE_TITLE" --arg body "$ISSUE_BODY" '{
+            # Build JSON payload safely with jq to escape newlines/quotes
+            PROMPT="You are a GitHub issue classifier. Read the issue title and body carefully. Classify the issue into one of these categories: broken_links, spelling_mistakes, grammatical_errors, formatting_issues, suggestions, none. Return ONLY the category name.
+
+            Title: $ISSUE_TITLE
+            Body: $ISSUE_BODY"
+
+                DATA=$(jq -n --arg prompt "$PROMPT" '{
                 model: "claude-3-5-sonnet-20240620",
                 max_tokens: 50,
-                messages: [
-                {
-                    role: "user",
-                    content: "Classify this GitHub issue into one of the following categories: broken_links, spelling_mistakes, grammatical_errors, formatting_issues, suggestions.\nTitle: \($title)\nBody: \($body)\nRespond ONLY with the category name."
-                }
-                ]
-            }')
+                messages: [{role: "user", content: $prompt}]
+                }')
 
-            RESPONSE=$(curl -s https://api.anthropic.com/v1/messages \
+                # Call Claude API with required anthropic-version header
+                RESPONSE=$(curl -s https://api.anthropic.com/v1/messages \
                 -H "Content-Type: application/json" \
                 -H "x-api-key: $ANTHROPIC_API_KEY" \
+                -H "anthropic-version: 2023-06-01" \
                 -d "$DATA")
 
-            CATEGORY=$(echo "$RESPONSE" | jq -r '.content[0].text' | tr -d '\n')
-            echo "Claude classified the issue as: $CATEGORY"
+                echo "Claude response: $RESPONSE"
 
-            # Add label if category is detected
-            if [[ -n "$CATEGORY" && "$CATEGORY" != "null" ]]; then
+                CATEGORY=$(echo "$RESPONSE" | jq -r '.content[0].text' | tr -d '\n' | tr '[:upper:]' '[:lower:]')
+                echo "Claude classified the issue as: $CATEGORY"
+
+                # Add claude:queue label if a valid category is returned
+                if [[ "$CATEGORY" != "" && "$CATEGORY" != "null" && "$CATEGORY" != "none" ]]; then
+                echo "Adding claude:queue label"
                 gh issue edit $ISSUE_NUMBER --add-label "claude:queue"
-            else
-                echo "No valid category returned by Claude. Not adding label."
-            fi
+                else
+                echo "No valid category returned. Not adding label."
+                fi
