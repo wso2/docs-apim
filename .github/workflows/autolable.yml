@@ -20,42 +20,26 @@ jobs:
         run: |
           sudo apt-get update
           sudo apt-get install -y gh
-          sudo apt-get install -y jq curl
-
-      - name: Analyze issue with Claude
-        id: claude
+    
+      - name: Run Claude Classifier
         env:
-            ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
-            GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets._GITHUB_TOKEN}}
+          ANTHOPIC_API_KEY: ${{ secrets.ANTHOPIC_API_KEY }}
         run: |
-            ISSUE_TITLE="${{ github.event.issue.title }}"
-            ISSUE_BODY="${{ github.event.issue.body }}"
-            ISSUE_NUMBER="${{ github.event.issue.number }}"
+          ISSUE_TITLE="${{ github.event.issue.title }}"
+          ISSUE_BODY="${{ github.event.issue.body }}"
 
-            PROMPT=$(cat <<EOF
-            Classify the following GitHub issue. If it is about broken links, spelling mistakes, grammatical errors, documentation formatting issues, or general suggestions, respond ONLY with 'YES'. Otherwise respond ONLY with 'NO'.
+          echo "Sending issue to Claude for classification..."
+          CLASSIFICATION=$(claude run \
+            --system "You are Intelligent AI Agent. You need to identify the issue and if it is belonging to the broken links, spelling mistakes, grammatical errors, documentation formatting issues, or general suggestions then you need to return yes as the output" \
+            --input "Issue Title: $ISSUE_TITLE\n\nIssue Body:\n$ISSUE_BODY\n\nPlease classify this issue into one of: broken_links, spelling_mistakes, grammatical_errors, formatting_errors, suggestions.If it belongs to one of this categories return yes, otherwise return no." \)
 
-            Title: $ISSUE_TITLE
-            Body: $ISSUE_BODY
-            EOF
-            )
+          echo "Claude returned classification: $CLASSIFICATION"
 
-            RESPONSE=$(jq -n --arg prompt "$PROMPT" '{
-            model: "claude-3-opus-20240229",
-            max_tokens: 20,
-            messages: [{role: "user", content: $prompt}]
-            }' | curl -s https://api.anthropic.com/v1/messages \
-            -H "Content-Type: application/json" \
-            -H "x-api-key: '"$ANTHROPIC_API_KEY"'" \
-            -d @-)
+          # If Claude returns a valid category, add claude:queue label
+          if [[ "$CLASSIFICATION" == "yes" && "$CLASSIFICATION" != "null" ]]; then
+            echo "Adding claude:queue label..."
+            gh issue edit ${{ github.event.issue.number }} --add-label "claude:queue"
+          fi 
 
-            ANSWER=$(echo "$RESPONSE" | jq -r '.content[0].text' | tr '[:upper:]' '[:lower:]')
-
-            echo "Claude Answer: $ANSWER"
-
-            if [[ "$ANSWER" == "yes" ]]; then
-            echo "Adding claude:queue label"
-            gh issue edit "$ISSUE_NUMBER" --add-label "claude:queue"
-            else
-            echo "Not adding label."
-            fi
+      
