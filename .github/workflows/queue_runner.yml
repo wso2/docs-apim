@@ -1,0 +1,63 @@
+name: Claude Queue Runner
+on:
+  schedule:
+    - cron: "*/30 * * * *" # every 30 minutes
+  workflow_dispatch: {}
+
+concurrency:
+  group: claude-queue-runner
+  cancel-in-progress: false
+
+jobs:
+  queue-runner:
+    runs-on: ubuntu-latest
+    permissions:
+      issues: write
+      contents: read
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install GitHub CLI
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y gh jq curl
+
+      - name: Pick next queued issue
+        id: pick
+        env:
+          GITHUB_TOKEN: ${{ secrets._GITHUB_TOKEN }}
+        run: |
+          # Check if any issue is already in progress
+          IN_PROGRESS=$(gh issue list --label "claude:in-progress" --state open --json number | jq 'length')
+          if [ "$IN_PROGRESS" -gt 0 ]; then
+            echo "issue_in_progress=true" >> $GITHUB_OUTPUT
+            exit 0
+          fi
+
+          # Get oldest open issue with claude:queue
+          ISSUE_JSON=$(gh issue list --label "claude:queue" --state open --json number,createdAt --limit 100 \
+            | jq '[.[]] | sort_by(.createdAt) | .[0]')
+
+          if [ "$ISSUE_JSON" = "null" ] || [ -z "$ISSUE_JSON" ]; then
+            echo "issue_number=" >> $GITHUB_OUTPUT
+            exit 0
+          fi
+
+          ISSUE_NUMBER=$(echo "$ISSUE_JSON" | jq -r .number)
+          echo "issue_number=$ISSUE_NUMBER" >> $GITHUB_OUTPUT
+
+      - name: Exit if no queued issues
+        if: steps.pick.outputs.issue_number == ''
+        run: echo "No queued issues."
+
+      - name: Update labels and trigger Claude
+        if: steps.pick.outputs.issue_number != ''
+        run: |
+          ISSUE=${{ steps.pick.outputs.issue_number }}
+
+          # Remove claude:queue, add claude:in-progress
+          gh issue edit $ISSUE --remove-label "claude:queue"
+          gh issue edit $ISSUE --add-label "claude:in-progress"
+
+          # Add trigger comment for Claude
+          gh issue comment $ISSUE --body "@claude Please create a PR for this issue following repo conventions."
