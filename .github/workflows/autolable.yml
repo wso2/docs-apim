@@ -35,7 +35,7 @@ jobs:
            echo "Anthropic API Key: $ANTHROPIC_API_KEY"
 
             # Build JSON payload safely with jq to escape newlines/quotes
-            PROMPT="You are a GitHub issue classifier. Read the issue title and body carefully. Classify the issue into one of these categories: broken_links, spelling_mistakes, grammatical_errors, formatting_issues, none. Return ONLY the category name. And if the issue does not fit any category, return 'none'.
+            PROMPT="You are a GitHub issue classifier. Read the issue title and body carefully. Classify the issue into one of these categories: broken-links, spelling-mistakes, grammatical-errors, formatting-issues, none. Return ONLY the category name. And if the issue does not fit any category, return 'none'.
     
             Title: $ISSUE_TITLE
             Body: $ISSUE_BODY"
