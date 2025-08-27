@@ -24,7 +24,7 @@ jobs:
     
       - name: Classify issue via Claude API
         env:
-            ANTHROPIC_API_KEY: ${{ secrets.ANTHOPIC_API_KEY }}
+            ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
             GITHUB_TOKEN: ${{ secrets._GITHUB_TOKEN }}
             ISSUE_NUMBER: ${{ github.event.issue.number }}
             
@@ -32,6 +32,7 @@ jobs:
             ISSUE_BODY: ${{ github.event.issue.body }}
         run: |
            echo "Sending issue to Claude for classification..."
+           echo "Anthropic API Key: $ANTHROPIC_API_KEY"
 
             # Build JSON payload safely with jq to escape newlines/quotes
             PROMPT="You are a GitHub issue classifier. Read the issue title and body carefully. Classify the issue into one of these categories: broken_links, spelling_mistakes, grammatical_errors, formatting_issues, none. Return ONLY the category name. And if the issue does not fit any category, return 'none'.
@@ -61,6 +62,7 @@ jobs:
                 if [[ "$CATEGORY" != "" && "$CATEGORY" != "null" && "$CATEGORY" != "none" ]]; then
                 echo "Adding claude:queue label"
                 gh issue edit $ISSUE_NUMBER --add-label "claude:queue"
+                gh issue edit $ISSUE_NUMBER --add-label "$CATEGORY"
                 else
                 echo "No valid category returned. Not adding label."
                 fi
