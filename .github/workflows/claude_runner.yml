@@ -15,6 +15,11 @@ jobs:
       REPO_OWNER: ${{ secrets.REPO_OWNER }}
       REPO_NAME: ${{ secrets.REPO_NAME }}
       LATEST_VERSION: ${{ secrets.LATEST_VERSION }}
+    permissions:
+        issues: write
+        contents: write
+        pull-requests: write
+        id-token: write
 
     steps:
       - name: Checkout repository
