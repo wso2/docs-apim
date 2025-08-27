@@ -8,6 +8,13 @@ jobs:
   run-claude:
     if: contains(github.event.comment.body, '@claude')
     runs-on: ubuntu-latest
+    env:
+      ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+      GITHUB_TOKEN: ${{ secrets._GITHUB_TOKEN }}
+      ORIGINAL_REPO: ${{ secrets.ORIGINAL_REPO }}
+      REPO_OWNER: ${{ secrets.REPO_OWNER }}
+      REPO_NAME: ${{ secrets.REPO_NAME }}
+      LATEST_VERSION: ${{ secrets.LATEST_VERSION }}
 
     steps:
       - name: Checkout repository
@@ -18,7 +25,6 @@ jobs:
         uses: anthropics/claude-code-base-action@beta
         with:
           prompt_file: ".claude/prompt.txt"
-          allowed_tools: "Bash(git:*),View,GlobTool,GrepTool,BatchTool"
           anthropic_api_key: ${{ secrets.ANTHROPIC_API_KEY }}
 
       - name: Remove 'claude:in-progress' label

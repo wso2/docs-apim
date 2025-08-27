@@ -25,7 +25,7 @@ PER-ISSUE WORKFLOW:
    git commit -m \"Fix issue: brief description\"
 7. Push to fork:
    git push fork fixing-issue-issue_number
-8. Create PR using GitHub CLI or create_pr_with_gh from $FUNCTIONS_PATH.
+8. Create PR using GitHub CLI or create_pr_with_gh function
    - PR must mention it is Claude AI generated.
 9. Remove ALL RELATED labels ONLY after successful PR creation.
 
@@ -52,25 +52,25 @@ LABEL-BASED PROCESSING:
 1. Broken Links ('broken-links', 'dead-links', 'Broken_links'):
    - Only fix broken/dead links.
    - Ignore spelling, grammar, other issues.
-   - Workflow: Switch branch → Locate link → Replace → Test → PR. Use $FUNCTIONS_PATH create_pr_with_gh function.
+   - Workflow: Switch branch → Locate link → Replace → Test → PR. Use create_pr_with_gh function.
 
 2. Spelling ('spelling-mistakes', 'typos', 'spelling'):
    - Only fix spelling errors.
-   - Workflow: Locate → Correct → Test → PR. Use $FUNCTIONS_PATH create_pr_with_gh function.
+   - Workflow: Locate → Correct → Test → PR. Use create_pr_with_gh function.
 
 3. Grammar ('grammatical-errors', 'grammar', 'language'):
    - Only fix grammar errors.
-   - Workflow: Locate → Fix → Test → PR. Use $FUNCTIONS_PATH create_pr_with_gh function.
+   - Workflow: Locate → Fix → Test → PR. Use create_pr_with_gh function.
 
 4. Documentation ('documentation'):
    - Fix clarifications, formatting, content structure.
    - Consider spelling, grammar, indentation.
    - Ignore broken links, suggestions.
-   - Workflow: Locate → Fix → Test → PR. Use $FUNCTIONS_PATH create_pr_with_gh function.
+   - Workflow: Locate → Fix → Test → PR. Use create_pr_with_gh function.
 
 5. Suggestions ('suggestions', 'enhancement', 'improvement'):
    - Validate against WSO2 documentation standards.
-   - If valid: Implement → Test → PR. Use $FUNCTIONS_PATH create_pr_with_gh function.
+   - If valid: Implement → Test → PR. Use create_pr_with_gh function.
    - If invalid: Comment reason → Remove labels → Add 'needs-manual-review' → Skip.
 
 - If multiple secondary labels, follow priority:
@@ -84,7 +84,7 @@ LABEL-BASED PROCESSING:
 VERIFICATION:
 - Verify corrections match issue requirements and WSO2 documentation standards.
 - Run repository as per README to confirm fix before PR.
-- Only after verification: create PR using $FUNCTIONS_PATH create_pr_with_gh function. → remove all related labels.
+- Only after verification: create PR using create_pr_with_gh function. → remove all related labels.
 - If cannot solve: comment reason → remove labels → add 'needs-manual-review'.
 
 VERSION CHECK:
@@ -118,7 +118,7 @@ WORKFLOW SUMMARY:
    f. Make ONLY relevant changes.
    g. Test fix: mkdocs serve.
    h. Commit & push: git add . → git commit -m \"Fix issue: description\" → git push fork fixing-issue-issue_number.
-   i. Create PR: $FUNCTIONS_PATH use this \"create_pr_with_gh\" function.
+   i. Create PR: use this "create_pr_with_gh" function.
    j. Remove all related labels.
    k. Check other versions → separate PRs if needed.
 3. Repeat for next issue: git checkout origin/next-version.
@@ -138,3 +138,34 @@ SUCCESS CRITERIA:
 - PRs always from fork → correct upstream version branch.
 - Only remove labels AFTER PR creation.
 - If unable to solve: comment reason → remove labels → add 'needs-manual-review'.
+
+HERE IS THE create_pr_with_gh function:
+
+create_pr_with_gh() {
+    local repo="$1"           # e.g., "wso2/docs-apim"
+    local title="$2"
+    local body="$3"
+    local head_branch="$4"    # e.g., "ranuka-laksika:fix-links-20241205"
+    local base_branch="$5"    # e.g., "main"
+    
+    log_message "Creating PR using GitHub CLI..."
+    setup_github_cli
+    
+    # Create PR
+    pr_url=$(gh pr create \
+        --repo "$repo" \
+        --title "$title" \
+        --body "$body" \
+        --head "$head_branch" \
+        --base "$base_branch" \
+        2>/dev/null)
+    
+    if [ $? -eq 0 ]; then
+        log_message "PR created successfully!"
+        log_message "PR URL: $pr_url"
+        return 0
+    else
+        echo -e " Failed to create PR"
+        return 1
+    fi
+}
