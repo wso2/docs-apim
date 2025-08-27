@@ -24,70 +24,38 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
-
-      - name: Add 'claude:in-progress' label
-        uses: actions-ecosystem/action-add-labels@v1
-        with:
-          github_token: ${{ secrets._GITHUB_TOKEN }}
-          labels: claude:in-progress
-          number: ${{ github.event.issue.number }}
-          
-      - name: Prepare issue information
-        id: issue-info
+        
+      - name: Verify system prompt file exists
         run: |
-          # Collect issue details to pass directly in the prompt
-          echo "::set-output name=issue_number::${{ github.event.issue.number }}"
-          echo "::set-output name=issue_title::${{ github.event.issue.title }}"
-          echo "::set-output name=issue_url::${{ github.event.issue.html_url }}"
-          echo "::set-output name=issue_labels::${{ join(github.event.issue.labels.*.name, ', ') }}"
+          echo "Workspace path: ${{ github.workspace }}"
+          if [ -d "${{ github.workspace }}/.claude" ]; then
+            echo ".claude directory exists"
+            ls -la "${{ github.workspace }}/.claude"
+          else
+            echo "ERROR: .claude directory does not exist!"
+            exit 1
+          fi
           
-          # Extract issue body and sanitize it for output
-          ISSUE_BODY="${{ github.event.issue.body }}"
-          ISSUE_BODY="${ISSUE_BODY//'%'/'%25'}"
-          ISSUE_BODY="${ISSUE_BODY//$'\n'/'%0A'}"
-          ISSUE_BODY="${ISSUE_BODY//$'\r'/'%0D'}"
-          echo "::set-output name=issue_body::$ISSUE_BODY"
+          if [ -f "${{ github.workspace }}/.claude/system_prompt.txt" ]; then
+            echo "system_prompt.txt exists"
+            echo "First 10 lines of system_prompt.txt:"
+            head -n 10 "${{ github.workspace }}/.claude/system_prompt.txt"
+          else
+            echo "ERROR: system_prompt.txt does not exist!"
+            exit 1
+          fi
 
       - name: Run Claude Code on PR
         id: run-claude
         uses: anthropics/claude-code-action@v1
-        env:
-          ISSUE_NUMBER: ${{ github.event.issue.number }}
-          ISSUE_TITLE: ${{ github.event.issue.title }}
-          ORIGINAL_REPO: ${{ secrets.ORIGINAL_REPO }}
-          REPO_OWNER: ${{ secrets.REPO_OWNER }}
-          REPO_NAME: ${{ secrets.REPO_NAME }}
-          LATEST_VERSION: ${{ secrets.LATEST_VERSION }}
         with:
-            prompt: |
-              You are the intelligent AI Agent tasked with fixing documentation issues in the repository. You need to fix the following issue:
-              
-              Issue #${{ steps.issue-info.outputs.issue_number }}: ${{ steps.issue-info.outputs.issue_title }}
-              URL: ${{ steps.issue-info.outputs.issue_url }}
-              Labels: ${{ steps.issue-info.outputs.issue_labels }}
-              
-              Issue Description:
-              ${{ steps.issue-info.outputs.issue_body }}
-              
-              Please follow these instructions:
-              
-              1. Look at the issue details above to understand what needs to be fixed.
-              2. Use git commands to create a new branch based on the appropriate version branch.
-              3. Make only the necessary changes to fix this specific issue.
-              4. Stage and commit your changes.
-              5. Push to the fork repository.
-              6. Create a PR using the GitHub CLI.
-              
-              The repository is configured as follows:
-              - TARGET REPOSITORY: ${ORIGINAL_REPO} (upstream)
-              - FORK REPOSITORY: ${REPO_OWNER}/${REPO_NAME} (your fork)
-              - LATEST VERSION: ${LATEST_VERSION}
-              
-              Good luck, and thank you for your help!
+            prompt: "You are the intelligent AI Agent. You have to first identify the issue and accordingly you need to fix the issue and create the PR for the relevant branch. Follow the instructions in the system prompt file carefully."
             anthropic_api_key: ${{ secrets.ANTHROPIC_API_KEY }}
             claude_args: |
+                --system-prompt "${{ github.workspace }}/.claude/system_prompt.txt"
                 --max-turns 10
                 --model claude-sonnet-4-20250514
+
 
       - name: Remove 'claude:in-progress' label
         if: success() && steps.run-claude.outcome == 'success'
@@ -95,7 +63,6 @@ jobs:
         with:
           github_token: ${{ secrets._GITHUB_TOKEN }}
           labels: claude:in-progress
-          number: ${{ github.event.issue.number }}
 
       - name: Add 'claude:pr-created' label
         if: success() && steps.run-claude.outcome == 'success'
@@ -103,12 +70,3 @@ jobs:
         with:
           github_token: ${{ secrets._GITHUB_TOKEN }}
           labels: claude:pr-created
-          number: ${{ github.event.issue.number }}
-          
-      - name: Add error label if Claude fails
-        if: failure() || steps.run-claude.outcome != 'success'
-        uses: actions-ecosystem/action-add-labels@v1
-        with:
-          github_token: ${{ secrets._GITHUB_TOKEN }}
-          labels: claude:failed
-          number: ${{ github.event.issue.number }}
