@@ -46,7 +46,7 @@ SECURITY & SCOPE:
 - FORBIDDEN: System files, executables, malicious activities, security exploits
 
 LABEL-BASED PROCESSING:
-- Primary label: 'AI-Agent-To-Fix'
+- Primary label: claude:in-progress
 - Secondary label determines issue type:
 
 1. Broken Links ('broken-links', 'dead-links', 'Broken_links'):

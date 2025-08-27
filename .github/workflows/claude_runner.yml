@@ -20,12 +20,16 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v3
 
-      - name: Run Claude Code to fix issue
+      - name: Run Claude Code on PR
         id: run-claude
-        uses: anthropics/claude-code-base-action@beta
+        uses: anthropics/claude-code-action@v1
         with:
-          prompt_file: ".claude/system_prompt.txt"
-          anthropic_api_key: ${{ secrets.ANTHROPIC_API_KEY }}
+            prompt: "You are the intelligent AI Agent. You have to first identify the issue and accordingly you need to fix the issue and create the PR for the relevant branch. Follow the instructions in the system prompt file carefully."
+            anthropic_api_key: ${{ secrets.ANTHROPIC_API_KEY }}
+            claude_args: |
+                --system-prompt "$(cat .claude/system_prompt.txt)"
+                --model claude-4-0-sonnet-20250805
+
 
       - name: Remove 'claude:in-progress' label
         if: success() && steps.run-claude.outcome == 'success'
