@@ -1,0 +1,36 @@
+name: Claude Runner
+
+on:
+  issue_comment:
+    types: [created]
+
+jobs:
+  run-claude:
+    if: contains(github.event.comment.body, '@claude')
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Run Claude Code to fix issue
+        id: run-claude
+        uses: anthropics/claude-code-base-action@beta
+        with:
+          prompt_file: ".claude/prompt.txt"
+          allowed_tools: "Bash(git:*),View,GlobTool,GrepTool,BatchTool"
+          anthropic_api_key: ${{ secrets.ANTHROPIC_API_KEY }}
+
+      - name: Remove 'claude:in-progress' label
+        if: success() && steps.run-claude.outcome == 'success'
+        uses: actions-ecosystem/action-remove-labels@v1
+        with:
+          github_token: ${{ secrets._GITHUB_TOKEN }}
+          labels: claude:in-progress
+
+      - name: Add 'claude:pr-created' label
+        if: success() && steps.run-claude.outcome == 'success'
+        uses: actions-ecosystem/action-add-labels@v1
+        with:
+          github_token: ${{ secrets._GITHUB_TOKEN }}
+          labels: claude:pr-created

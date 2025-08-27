@@ -1,0 +1,140 @@
+REPOSITORY CONFIGURATION:
+- TARGET REPOSITORY: ${ORIGINAL_REPO} (upstream)
+- FORK REPOSITORY: ${REPO_OWNER}/${REPO_NAME} (your fork)
+
+IMPORTANT RULES:
+- Always apply solutions ONLY to the mentioned issue.
+- Modify ONLY files relevant to the issue.
+- NEVER modify unrelated files.
+
+REPOSITORY WORKFLOW:
+- Repository already cloned and fork remote configured.
+- Origin: https://github.com/${ORIGINAL_REPO}.git
+- Fork: https://github.com/${REPO_OWNER}/${REPO_NAME}.git
+
+PER-ISSUE WORKFLOW:
+1. Navigate to repository.
+2. Determine issue version (from title, body, labels); default to ${LATEST_VERSION}.
+3. Extract issue number from URL (/issues/123 → issue_number=123).
+4. Create fresh branch:
+   git checkout origin/version-of-the-issue
+   git checkout -b fixing-issue-issue_number origin/version-of-the-issue
+5. Make ONLY changes for this issue.
+6. Stage and commit:
+   git add .
+   git commit -m \"Fix issue: brief description\"
+7. Push to fork:
+   git push fork fixing-issue-issue_number
+8. Create PR using GitHub CLI or create_pr_with_gh from $FUNCTIONS_PATH.
+   - PR must mention it is Claude AI generated.
+9. Remove ALL RELATED labels ONLY after successful PR creation.
+
+CLEAN STATE:
+- Before next issue/version: git checkout origin/version-of-next-issue
+- Ensures no contamination between issues.
+
+CHECK FOR EXISTING PR:
+1. Verify if issue has existing PR or PR mentioned in comments.
+2. If PR exists:
+   - Comment: \"Issue already has PR \[link\]. Skipping processing.\"
+   - Remove all related labels ONLY.
+   - Skip issue.
+3. Only process issues with NO existing PR.
+
+SECURITY & SCOPE:
+- ALLOWED: Fix documentation issues (broken links, spelling, grammar, formatting, suggestions)
+- FORBIDDEN: System files, executables, malicious activities, security exploits
+
+LABEL-BASED PROCESSING:
+- Primary label: 'AI-Agent-To-Fix'
+- Secondary label determines issue type:
+
+1. Broken Links ('broken-links', 'dead-links', 'Broken_links'):
+   - Only fix broken/dead links.
+   - Ignore spelling, grammar, other issues.
+   - Workflow: Switch branch → Locate link → Replace → Test → PR. Use $FUNCTIONS_PATH create_pr_with_gh function.
+
+2. Spelling ('spelling-mistakes', 'typos', 'spelling'):
+   - Only fix spelling errors.
+   - Workflow: Locate → Correct → Test → PR. Use $FUNCTIONS_PATH create_pr_with_gh function.
+
+3. Grammar ('grammatical-errors', 'grammar', 'language'):
+   - Only fix grammar errors.
+   - Workflow: Locate → Fix → Test → PR. Use $FUNCTIONS_PATH create_pr_with_gh function.
+
+4. Documentation ('documentation'):
+   - Fix clarifications, formatting, content structure.
+   - Consider spelling, grammar, indentation.
+   - Ignore broken links, suggestions.
+   - Workflow: Locate → Fix → Test → PR. Use $FUNCTIONS_PATH create_pr_with_gh function.
+
+5. Suggestions ('suggestions', 'enhancement', 'improvement'):
+   - Validate against WSO2 documentation standards.
+   - If valid: Implement → Test → PR. Use $FUNCTIONS_PATH create_pr_with_gh function.
+   - If invalid: Comment reason → Remove labels → Add 'needs-manual-review' → Skip.
+
+- If multiple secondary labels, follow priority:
+  1. Broken Links
+  2. Spelling Mistakes
+  3. Grammar Errors
+  4. Documentation Issues
+  5. Suggestions
+- If no secondary label, identify issue type and solve it.
+
+VERIFICATION:
+- Verify corrections match issue requirements and WSO2 documentation standards.
+- Run repository as per README to confirm fix before PR.
+- Only after verification: create PR using $FUNCTIONS_PATH create_pr_with_gh function. → remove all related labels.
+- If cannot solve: comment reason → remove labels → add 'needs-manual-review'.
+
+VERSION CHECK:
+- After fixing reported version, check if issue exists in other versions (4.0.0 to latest).
+- Solve in other versions separately → create PR for each. 
+
+PR CREATION:
+- Always create PR from fork → upstream ${ORIGINAL_REPO}. When creating the PR dont mention the issue number in the PR title and don't mention the issue number in the commit message as well.
+- Workflow: git push fork fixing-issue-issue_number → gh pr create --repo ${ORIGINAL_REPO} --head ${REPO_OWNER}:fixing-issue-issue_number --base version → remove all related labels.
+
+REQUIRED COMMANDS:
+- Setup: git clone, git remote add fork
+- Branch: git checkout origin/[version], git checkout -b fixing-issue-[number] origin/[version]
+- Changes: git add ., git commit -m \"[message]\", git push fork [branch]
+- PR: gh pr create --repo ${ORIGINAL_REPO} --head ${REPO_OWNER}:[branch] --base [version]
+- Labels: gh issue edit [number] --remove-label [label], gh issue edit [number] --add-label [label]
+- Comments: gh issue comment [number] --body \"[comment]\"
+
+AUTHENTICATION:
+- GitHub CLI pre-authenticated with GITHUB_TOKEN
+- Verify: gh auth status
+
+WORKFLOW SUMMARY:
+1. Setup once: clone repository and add fork remote.
+2. For each issue:
+   a. Check for existing PR → skip if exists.
+   b. Verify labels (primary + secondary).
+   c. Determine version → default to latest.
+   d. Extract issue number.
+   e. Fresh branch: git checkout origin/version → git checkout -b fixing-issue-issue_number origin/version.
+   f. Make ONLY relevant changes.
+   g. Test fix: mkdocs serve.
+   h. Commit & push: git add . → git commit -m \"Fix issue: description\" → git push fork fixing-issue-issue_number.
+   i. Create PR: $FUNCTIONS_PATH use this \"create_pr_with_gh\" function.
+   j. Remove all related labels.
+   k. Check other versions → separate PRs if needed.
+3. Repeat for next issue: git checkout origin/next-version.
+4. Cannot solve: comment reason → remove labels → add 'needs-manual-review'.
+
+EXAMPLES:
+- Issue #123 (v4.5.0): git push fork fixing-issue-123 → gh pr create --repo ${ORIGINAL_REPO} --head ${REPO_OWNER}:fixing-issue-123 --base 4.5.0
+- Issue #456 (v4.4.0): git push fork fixing-issue-456 → gh pr create --repo ${ORIGINAL_REPO} --head ${REPO_OWNER}:fixing-issue-456 --base 4.4.0
+
+SUCCESS CRITERIA:
+- Check for existing PR first.
+- Process only relevant label type.
+- Fresh branch for each issue.
+- Clean PRs, no contamination.
+- Remove all related labels after PR.
+- Solve in other versions with separate PRs.
+- PRs always from fork → correct upstream version branch.
+- Only remove labels AFTER PR creation.
+- If unable to solve: comment reason → remove labels → add 'needs-manual-review'.
