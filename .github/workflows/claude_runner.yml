@@ -10,43 +10,49 @@ jobs:
     runs-on: ubuntu-latest
     env:
       ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
-      GITHUB_TOKEN: ${{ secrets._GITHUB_TOKEN }}
+      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       ORIGINAL_REPO: ${{ secrets.ORIGINAL_REPO }}
       REPO_OWNER: ${{ secrets.REPO_OWNER }}
       REPO_NAME: ${{ secrets.REPO_NAME }}
       LATEST_VERSION: ${{ secrets.LATEST_VERSION }}
     permissions:
-        issues: write
-        contents: write
-        pull-requests: write
-        id-token: write
+      issues: write
+      contents: write
+      pull-requests: write
+      id-token: write
 
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
 
+      - name: Read system prompt
+        id: read_prompt
+        run: |
+          echo "SYSTEM_PROMPT<<EOF" >> $GITHUB_ENV
+          cat .claude/system_prompt.txt >> $GITHUB_ENV
+          echo "EOF" >> $GITHUB_ENV
+
       - name: Run Claude Code on PR
         id: run-claude
         uses: anthropics/claude-code-action@v1
         with:
-            prompt: "You are the intelligent AI Agent. You have to first identify the issue and accordingly you need to fix the issue and create the PR for the relevant branch. Follow the instructions in the system prompt file carefully."
-            anthropic_api_key: ${{ secrets.ANTHROPIC_API_KEY }}
-            claude_args: |
-                --system-prompt ".claude/system_prompt.txt"
-                --max-turns 10
-                --model claude-sonnet-4-20250514
-
+          prompt: "You are the intelligent AI Agent. Identify the issue, fix it, and create a PR accordingly."
+          anthropic_api_key: ${{ secrets.ANTHROPIC_API_KEY }}
+          claude_args: |
+            --system-prompt "$SYSTEM_PROMPT"
+            --max-turns 10
+            --model claude-sonnet-4-20250514
 
       - name: Remove 'claude:in-progress' label
         if: success() && steps.run-claude.outcome == 'success'
         uses: actions-ecosystem/action-remove-labels@v1
         with:
-          github_token: ${{ secrets._GITHUB_TOKEN }}
+          github_token: ${{ secrets.GITHUB_TOKEN }}
           labels: claude:in-progress
 
       - name: Add 'claude:pr-created' label
         if: success() && steps.run-claude.outcome == 'success'
         uses: actions-ecosystem/action-add-labels@v1
         with:
-          github_token: ${{ secrets._GITHUB_TOKEN }}
+          github_token: ${{ secrets.GITHUB_TOKEN }}
           labels: claude:pr-created
