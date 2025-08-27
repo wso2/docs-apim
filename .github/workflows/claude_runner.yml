@@ -25,6 +25,15 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v3
 
+      - name: Verify system prompt file exists
+        run: |
+          if [ -f ".claude/system_prompt.txt" ]; then
+            echo "System prompt file exists"
+          else
+            echo "System prompt file does not exist"
+            exit 1
+          fi
+
       - name: Run Claude Code on PR
         id: run-claude
         uses: anthropics/claude-code-action@v1
