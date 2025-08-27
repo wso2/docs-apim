@@ -28,7 +28,8 @@ jobs:
             anthropic_api_key: ${{ secrets.ANTHROPIC_API_KEY }}
             claude_args: |
                 --system-prompt "$(cat .claude/system_prompt.txt)"
-                --model claude-4-0-sonnet-20250805
+                --max-turns 10
+                --model claude-sonnet-4-20250514
 
 
       - name: Remove 'claude:in-progress' label
