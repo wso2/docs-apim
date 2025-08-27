@@ -58,94 +58,8 @@ jobs:
           gh auth status || echo "GitHub CLI authentication check failed but continuing..."
           
           # Ensure the token is passed to Claude's environment
-          echo "GH_TOKEN=${{ secrets._GITHUB_TOKEN }}" >> $GITHUB_ENV
+          echo "GH_TOKEN=${{ secrets.GITHUB_TOKEN }}" >> $GITHUB_ENV
 
-      - name: Prepare functions for Claude
-        run: |
-          # Create a script with helper functions that Claude can source
-          cat > ${{ github.workspace }}/claude_helpers.sh << 'EOF'
-          #!/bin/bash
-          
-          # Function to check GitHub CLI authentication
-          check_gh_auth() {
-            echo "Checking GitHub CLI authentication..."
-            if gh auth status; then
-              echo "GitHub CLI is authenticated."
-              return 0
-            else
-              echo "GitHub CLI is not authenticated. Please ensure GITHUB_TOKEN is set correctly."
-              return 1
-            fi
-          }
-          
-          # Function to create a PR
-          create_pr() {
-            local repo="$1"
-            local title="$2"
-            local body="$3"
-            local head="$4"
-            local base="$5"
-            
-            echo "Creating PR for $repo from $head to $base..."
-            gh pr create --repo "$repo" --title "$title" --body "$body" --head "$head" --base "$base"
-          }
-          EOF
-          
-          # Make it executable
-          chmod +x ${{ github.workspace }}/claude_helpers.sh
-          
-          # Look for helper_functions.sh in different locations and copy it to workspace
-          if [ -f "${{ github.workspace }}/../helper_functions.sh" ]; then
-            echo "Found helper_functions.sh in parent directory"
-            cp "${{ github.workspace }}/../helper_functions.sh" "${{ github.workspace }}/helper_functions.sh"
-            chmod +x "${{ github.workspace }}/helper_functions.sh"
-          elif [ -f "/Users/ranukaranasinghe/Desktop/TestingAIAgent/newOneForTesting/helper_functions.sh" ]; then
-            echo "Found helper_functions.sh in the TestingAIAgent directory"
-            cp "/Users/ranukaranasinghe/Desktop/TestingAIAgent/newOneForTesting/helper_functions.sh" "${{ github.workspace }}/helper_functions.sh"
-            chmod +x "${{ github.workspace }}/helper_functions.sh"
-          elif [ -f "${{ github.workspace }}/helper_functions.sh" ]; then
-            echo "helper_functions.sh already exists in workspace"
-            chmod +x "${{ github.workspace }}/helper_functions.sh"
-          else
-            echo "WARNING: helper_functions.sh not found, creating a minimal version"
-            
-            # Create a minimal version with just the create_pr_with_gh function
-            cat > ${{ github.workspace }}/helper_functions.sh << 'EOF'
-            #!/bin/bash
-            
-            create_pr_with_gh() {
-                local repo="$1"
-                local title="$2"
-                local body="$3"
-                local head_branch="$4"
-                local base_branch="$5"
-                
-                echo "Creating PR using GitHub CLI..."
-                
-                # Create PR
-                pr_url=$(gh pr create \
-                    --repo "$repo" \
-                    --title "$title" \
-                    --body "$body" \
-                    --head "$head_branch" \
-                    --base "$base_branch")
-                
-                if [ $? -eq 0 ]; then
-                    echo "PR created successfully!"
-                    echo "PR URL: $pr_url"
-                    return 0
-                else
-                    echo "Failed to create PR"
-                    return 1
-                fi
-            }
-            EOF
-            
-            chmod +x ${{ github.workspace }}/helper_functions.sh
-          fi
-          
-          echo "Contents of workspace directory:"
-          ls -la ${{ github.workspace }}/
 
       - name: Run Claude Code on PR
         id: run-claude
@@ -158,23 +72,14 @@ jobs:
               you need to fix the issue and create the PR for the relevant branch. Follow the 
               instructions in the system prompt file carefully.
 
-              Before performing any GitHub operations, run these commands to verify GitHub access:
-              
-              # Source the helper functions
-              source "${{ github.workspace }}/claude_helpers.sh"
+              Before performing any GitHub operations, verify GitHub CLI is authenticated:
               
               # Check GitHub CLI authentication
-              check_gh_auth
+              gh auth status
               
-              # Source the main helper functions if they exist
-              source "${{ github.workspace }}/helper_functions.sh"
-              
-              # When you need to create a PR, use either of these functions:
-              # From claude_helpers.sh:
-              # create_pr "repository" "PR title" "PR description" "head-branch" "base-branch"
-              
-              # OR from helper_functions.sh:
-              # create_pr_with_gh "repository" "PR title" "PR description" "head-branch" "base-branch"
+              # When you need to create a PR, use the create_pr_with_gh function that is defined
+              # in the system prompt. The function is already available to you, as it's part of the
+              # system prompt instructions.
               
               # Make sure to handle GitHub CLI errors gracefully and report any issues.
             anthropic_api_key: ${{ secrets.ANTHROPIC_API_KEY }}
