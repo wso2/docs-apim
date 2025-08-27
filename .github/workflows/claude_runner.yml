@@ -84,14 +84,14 @@ jobs:
         uses: anthropics/claude-code-action@v1
         env:
           GH_TOKEN: ${{ secrets._GITHUB_TOKEN }}
-          ISSUE_NUMBER: ${{ env.ISSUE_NUMBER }}
-          ISSUE_TITLE: ${{ env.ISSUE_TITLE }}
-          REPO_FULLNAME: ${{ env.REPO_FULLNAME }}
+          ISSUE_NUMBER: ${{ github.event.issue.number }}
+          ISSUE_TITLE: ${{ github.event.issue.title }}
+          REPO_FULLNAME: ${{ github.repository }}
         with:
             prompt: >-
-              You are the intelligent AI Agent working on issue #${{ env.ISSUE_NUMBER }} in the repository ${{ env.REPO_FULLNAME }}.
-              The issue title is: "${{ env.ISSUE_TITLE }}"
-              
+              You are the intelligent AI Agent working on issue #${{ github.event.issue.number }} in the repository ${{ github.repository }}.
+              The issue title is: "${{ github.event.issue.title }}"
+
               You need to fix the issue and create the PR for the relevant branch. Follow the instructions in the system prompt file carefully.
               After solving the issue, make sure to create the PR for the relevant branch.
               After creating the PR, make sure to remove the label 'claude:in-progress' and add the label 'claude:pr-created' label to the issue.
@@ -99,7 +99,7 @@ jobs:
               If this issue appears in other versions of the repository, then you need to solve it in those versions as well and create PRs for each version.
               
               To view the issue details, you can run:
-              gh issue view ${{ env.ISSUE_NUMBER }} --repo ${{ env.REPO_FULLNAME }}
+              gh issue view ${{ github.event.issue.number }} --repo ${{ github.repository }}
             anthropic_api_key: ${{ secrets.ANTHROPIC_API_KEY }}
             claude_args: |
                 --system-prompt "${{ github.workspace }}/.claude/system_prompt.txt"
