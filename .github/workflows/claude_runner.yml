@@ -25,6 +25,23 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
+      
+      - name: Extract issue information
+        id: issue_info
+        run: |
+          # Extract issue number from the context
+          ISSUE_NUMBER=$(echo "${{ github.event.issue.number }}")
+          ISSUE_TITLE=$(echo "${{ github.event.issue.title }}")
+          ISSUE_BODY=$(echo "${{ github.event.issue.body }}")
+          REPO_FULLNAME="${{ github.repository }}"
+          
+          echo "ISSUE_NUMBER=$ISSUE_NUMBER" >> $GITHUB_ENV
+          echo "ISSUE_TITLE=$ISSUE_TITLE" >> $GITHUB_ENV
+          echo "REPO_FULLNAME=$REPO_FULLNAME" >> $GITHUB_ENV
+          
+          # For debugging
+          echo "Working on issue #$ISSUE_NUMBER in repository $REPO_FULLNAME"
+          echo "Issue title: $ISSUE_TITLE"
         
       - name: Verify system prompt file exists
         run: |
@@ -67,12 +84,22 @@ jobs:
         uses: anthropics/claude-code-action@v1
         env:
           GH_TOKEN: ${{ secrets._GITHUB_TOKEN }}
+          ISSUE_NUMBER: ${{ env.ISSUE_NUMBER }}
+          ISSUE_TITLE: ${{ env.ISSUE_TITLE }}
+          REPO_FULLNAME: ${{ env.REPO_FULLNAME }}
         with:
             prompt: >-
-              You are the intelligent AI Agent. Here is the Issue Number: {github.event.issue.number}. You can find the issue from this repository: {https://github.com/REPO_OWNER/REPO_NAME/issues/github.event.issue.number}. You have to first identify the issue and accordingly
-              you need to fix the issue and create the PR for the relevant branch. Follow the
-              instructions in the system prompt file carefully.And after solve the issue make sure to create the PR for the relevant branch.And after creating the make sure to remove the label 'claude:in-progress' and add the label 'claude:pr-created' label to the issue.
-              If this issue is appears in the other versions of the repository, then need to solve that issues in that versions as well should need to create the PR for that versions as well.
+              You are the intelligent AI Agent working on issue #${{ env.ISSUE_NUMBER }} in the repository ${{ env.REPO_FULLNAME }}.
+              The issue title is: "${{ env.ISSUE_TITLE }}"
+              
+              You need to fix the issue and create the PR for the relevant branch. Follow the instructions in the system prompt file carefully.
+              After solving the issue, make sure to create the PR for the relevant branch.
+              After creating the PR, make sure to remove the label 'claude:in-progress' and add the label 'claude:pr-created' label to the issue.
+              
+              If this issue appears in other versions of the repository, then you need to solve it in those versions as well and create PRs for each version.
+              
+              To view the issue details, you can run:
+              gh issue view ${{ env.ISSUE_NUMBER }} --repo ${{ env.REPO_FULLNAME }}
             anthropic_api_key: ${{ secrets.ANTHROPIC_API_KEY }}
             claude_args: |
                 --system-prompt "${{ github.workspace }}/.claude/system_prompt.txt"
@@ -92,5 +119,5 @@ jobs:
         if: success() && steps.run-claude.outcome == 'success'
         uses: actions-ecosystem/action-add-labels@v1
         with:
-          github_token: ${{ secrets._GITHUB_TOKEN }}
+          github_token: ${{ secrets.GITHUB_TOKEN }}
           labels: claude:pr-created
