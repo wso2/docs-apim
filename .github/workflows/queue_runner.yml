@@ -1,7 +1,7 @@
 name: Claude Queue Runner
 on:
-#   schedule:
-#     - cron: "*/30 * * * *" # every 30 minutes
+  schedule:
+    - cron: "*/1 * * * *" # every 1 minutes
   workflow_dispatch: {}
 
 concurrency:
@@ -26,7 +26,8 @@ jobs:
       - name: Pick next queued issue
         id: pick
         env:
-          GITHUB_TOKEN: ${{ secrets._GITHUB_TOKEN }}
+          GH_TOKEN: ${{ secrets._GITHUB_TOKEN }}
+
         run: |
           # Check if any issue is already in progress
           IN_PROGRESS=$(gh issue list --label "claude:in-progress" --state open --json number | jq 'length')
@@ -62,3 +63,6 @@ jobs:
 
           # Add trigger comment for ClaudeS
           gh issue comment $ISSUE --body "@claude Please create a PR for this issue following repo conventions."
+
+
+          Run ISSUE=235
