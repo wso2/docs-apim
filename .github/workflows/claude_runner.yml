@@ -28,9 +28,10 @@ jobs:
       - name: Load system prompt
         id: load_prompt
         run: |
-          echo SYSTEM_PROMPT<<EOF >> $GITHUB_ENV
-          cat .claude/system_prompt.txt >> $GITHUB_ENV
-          echo EOF >> $GITHUB_ENV
+            echo "SYSTEM_PROMPT<<EOF" >> $GITHUB_ENV
+            cat .claude/system_prompt.txt >> $GITHUB_ENV
+            echo "EOF" >> $GITHUB_ENV
+
 
       - name: Run Claude Code on PR
         id: run-claude
