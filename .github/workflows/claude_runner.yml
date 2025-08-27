@@ -44,29 +44,41 @@ jobs:
             echo "ERROR: system_prompt.txt does not exist!"
             exit 1
           fi
+      
+      - name: Setup GitHub CLI for Claude
+        run: |
+          # Configure GitHub CLI to use the token
+          echo "${{ secrets._GITHUB_TOKEN }}" | gh auth login --with-token
+          # Enable command approval for Claude
+          mkdir -p ~/.config/gh/
+          echo "command_approval: false" > ~/.config/gh/config.yml
+          # Verify auth status
+          gh auth status
 
       - name: Run Claude Code on PR
         id: run-claude
         uses: anthropics/claude-code-action@v1
         with:
-            prompt: "You are the intelligent AI Agent. You have to first identify the issue and accordingly you need to fix the issue and create the PR for the relevant branch. Follow the instructions in the system prompt file carefully."
+            prompt: "You are the intelligent AI Agent. You have to first identify the issue and accordingly you need to fix the issue and create the PR for the relevant branch. Follow the instructions in the system prompt file carefully. Use the create_pr_with_gh function from system prompt to create PRs."
             anthropic_api_key: ${{ secrets.ANTHROPIC_API_KEY }}
             claude_args: |
                 --system-prompt "${{ github.workspace }}/.claude/system_prompt.txt"
                 --max-turns 10
                 --model claude-sonnet-4-20250514
-
+                --allow-tool-use
+                --tools shell
+                --shell-command-approval-mode auto-approve
 
       - name: Remove 'claude:in-progress' label
         if: success() && steps.run-claude.outcome == 'success'
         uses: actions-ecosystem/action-remove-labels@v1
         with:
-          github_token: ${{ secrets._GITHUB_TOKEN }}
+          github_token: ${{ secrets.GITHUB_TOKEN }}
           labels: claude:in-progress
 
       - name: Add 'claude:pr-created' label
         if: success() && steps.run-claude.outcome == 'success'
         uses: actions-ecosystem/action-add-labels@v1
         with:
-          github_token: ${{ secrets._GITHUB_TOKEN }}
+          github_token: ${{ secrets.GITHUB_TOKEN }}
           labels: claude:pr-created
