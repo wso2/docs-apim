@@ -8,13 +8,6 @@ jobs:
   run-claude:
     if: contains(github.event.comment.body, '@claude')
     runs-on: ubuntu-latest
-    env:
-      ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
-      GITHUB_TOKEN: ${{ secrets._GITHUB_TOKEN }}
-      ORIGINAL_REPO: ${{ secrets.ORIGINAL_REPO }}
-      REPO_OWNER: ${{ secrets.REPO_OWNER }}
-      REPO_NAME: ${{ secrets.REPO_NAME }}
-      LATEST_VERSION: ${{ secrets.LATEST_VERSION }}
     permissions:
         issues: write
         contents: write
@@ -29,10 +22,21 @@ jobs:
         id: run-claude
         uses: anthropics/claude-code-action@v1
         with:
+          settings: |
+            {
+                "env": {
+                "ANTHROPIC_API_KEY": "${{ secrets.ANTHROPIC_API_KEY }}",
+                "GITHUB_TOKEN": ${{ secrets._GITHUB_TOKEN }}",
+                "ORIGINAL_REPO": "${{ secrets.ORIGINAL_REPO }}",
+                "REPO_OWNER": "${{ secrets.REPO_OWNER }}",
+                "REPO_NAME": "${{ secrets.REPO_NAME }}",
+                "LATEST_VERSION": "${{ secrets.LATEST_VERSION }}"
+                }
+            }
             prompt: "You are the intelligent AI Agent. You have to first identify the issue and accordingly you need to fix the issue and create the PR for the relevant branch. Follow the instructions in the system prompt file carefully."
             anthropic_api_key: ${{ secrets.ANTHROPIC_API_KEY }}
             claude_args: |
-                --system-prompt "$(cat .claude/system_prompt.txt)"
+                --system-prompt ".claude/system_prompt.txt"
                 --max-turns 10
                 --model claude-sonnet-4-20250514
 
