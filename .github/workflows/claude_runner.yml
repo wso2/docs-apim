@@ -9,7 +9,7 @@ jobs:
     if: contains(github.event.comment.body, '@claude')
     runs-on: ubuntu-latest
     env:
-      ANTHROPIC_API_KEY: ${{ secrets.ANTHOPIC_API_KEY }}
+      ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
       GITHUB_TOKEN: ${{ secrets._GITHUB_TOKEN }}
       ORIGINAL_REPO: ${{ secrets.ORIGINAL_REPO }}
       REPO_OWNER: ${{ secrets.REPO_OWNER }}
