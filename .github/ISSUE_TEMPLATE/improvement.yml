@@ -1,25 +1,26 @@
 name: "🚀 Improvement Request"
-description: Suggest an improvement to the product.
+description: Suggest an improvement to the documentation.
 labels: ["Type/Improvement"]
 body:
   - type: textarea
-    id: limitation
+    id: description
     attributes:
-      label: Current Limitation
-      description: Describe the the current limitation.
+      label: Description
+      description: Describe the current limitation or any unclear content in the documentation.
     validations:
       required: true
   - type: textarea
     id: suggestion
     attributes:
       label: Suggested Improvement
-      description: Describe the the improvement you suggest.
+      description: Describe the improvement you would suggest.
     validations:
       required: true
   - type: input
     id: version
     attributes:
-      label: Version
-      description: Enter component version.
+      label: Version(s)
+      description: List all relevant documentation versions where this improvement should be applied.
+      placeholder: 4.5.0, 4.4.0, 4.3.0
     validations:
-      required: false
+      required: true
