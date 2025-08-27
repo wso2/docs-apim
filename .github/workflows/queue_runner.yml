@@ -66,5 +66,3 @@ jobs:
           # Add trigger comment for ClaudeS
           gh issue comment $ISSUE --body "@claude Please create a PR for this issue following repo conventions."
 
-
-          Run ISSUE=235
