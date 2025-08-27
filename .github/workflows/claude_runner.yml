@@ -15,8 +15,6 @@ jobs:
       REPO_OWNER: ${{ secrets.REPO_OWNER }}
       REPO_NAME: ${{ secrets.REPO_NAME }}
       LATEST_VERSION: ${{ secrets.LATEST_VERSION }}
-      ISSUE_NUMBER: ${{ github.event.issue.number }}
-      ISSUE_TITLE: ${{ github.event.issue.title }}
     permissions:
         issues: write
         contents: write
@@ -34,36 +32,21 @@ jobs:
           labels: claude:in-progress
           number: ${{ github.event.issue.number }}
           
-      - name: Create system prompt and issue context
+      - name: Prepare issue information
+        id: issue-info
         run: |
-          # Check if .claude directory exists in the repository
-          if [ -f ".claude/system_prompt.txt" ]; then
-            echo "Using existing system prompt file from repository"
-            mkdir -p /tmp/claude
-            cp .claude/system_prompt.txt /tmp/claude/system_prompt.txt
-          else
-            echo "System prompt file not found in repository, creating a new one"
-            mkdir -p /tmp/claude
-            echo "REPOSITORY CONFIGURATION:" > /tmp/claude/system_prompt.txt
-            echo "- TARGET REPOSITORY: \${ORIGINAL_REPO} (upstream)" >> /tmp/claude/system_prompt.txt
-            echo "- FORK REPOSITORY: \${REPO_OWNER}/\${REPO_NAME} (your fork)" >> /tmp/claude/system_prompt.txt
-            echo "" >> /tmp/claude/system_prompt.txt
-            echo "IMPORTANT RULES:" >> /tmp/claude/system_prompt.txt
-            echo "- Always apply solutions ONLY to the mentioned issue." >> /tmp/claude/system_prompt.txt
-            echo "- Modify ONLY files relevant to the issue." >> /tmp/claude/system_prompt.txt
-            echo "- NEVER modify unrelated files." >> /tmp/claude/system_prompt.txt
-            echo "" >> /tmp/claude/system_prompt.txt
-            echo "Look at the issue details in the environment variables and fix that specific issue." >> /tmp/claude/system_prompt.txt
-          fi
+          # Collect issue details to pass directly in the prompt
+          echo "::set-output name=issue_number::${{ github.event.issue.number }}"
+          echo "::set-output name=issue_title::${{ github.event.issue.title }}"
+          echo "::set-output name=issue_url::${{ github.event.issue.html_url }}"
+          echo "::set-output name=issue_labels::${{ join(github.event.issue.labels.*.name, ', ') }}"
           
-          # Create issue context file
-          echo "ISSUE_NUMBER=${{ github.event.issue.number }}" > /tmp/claude/issue_context.txt
-          echo "ISSUE_TITLE=${{ github.event.issue.title }}" >> /tmp/claude/issue_context.txt
-          echo "ISSUE_URL=${{ github.event.issue.html_url }}" >> /tmp/claude/issue_context.txt
-          echo "ISSUE_LABELS=${{ join(github.event.issue.labels.*.name, ',') }}" >> /tmp/claude/issue_context.txt
-          
-          echo "Contents of issue context file:"
-          cat /tmp/claude/issue_context.txt
+          # Extract issue body and sanitize it for output
+          ISSUE_BODY="${{ github.event.issue.body }}"
+          ISSUE_BODY="${ISSUE_BODY//'%'/'%25'}"
+          ISSUE_BODY="${ISSUE_BODY//$'\n'/'%0A'}"
+          ISSUE_BODY="${ISSUE_BODY//$'\r'/'%0D'}"
+          echo "::set-output name=issue_body::$ISSUE_BODY"
 
       - name: Run Claude Code on PR
         id: run-claude
@@ -71,14 +54,38 @@ jobs:
         env:
           ISSUE_NUMBER: ${{ github.event.issue.number }}
           ISSUE_TITLE: ${{ github.event.issue.title }}
-          ISSUE_BODY: ${{ github.event.issue.body }}
-          ISSUE_LABELS: ${{ join(github.event.issue.labels.*.name, ',') }}
-          ISSUE_URL: ${{ github.event.issue.html_url }}
+          ORIGINAL_REPO: ${{ secrets.ORIGINAL_REPO }}
+          REPO_OWNER: ${{ secrets.REPO_OWNER }}
+          REPO_NAME: ${{ secrets.REPO_NAME }}
+          LATEST_VERSION: ${{ secrets.LATEST_VERSION }}
         with:
-            prompt: "You are the intelligent AI Agent tasked with fixing documentation issues. You need to fix issue #${{ github.event.issue.number }} titled '${{ github.event.issue.title }}'. The issue details are available in the file /tmp/claude/issue_context.txt and also as environment variables: ISSUE_NUMBER, ISSUE_TITLE, ISSUE_BODY, ISSUE_LABELS, and ISSUE_URL. Fix this specific issue and create a PR for it."
+            prompt: |
+              You are the intelligent AI Agent tasked with fixing documentation issues in the repository. You need to fix the following issue:
+              
+              Issue #${{ steps.issue-info.outputs.issue_number }}: ${{ steps.issue-info.outputs.issue_title }}
+              URL: ${{ steps.issue-info.outputs.issue_url }}
+              Labels: ${{ steps.issue-info.outputs.issue_labels }}
+              
+              Issue Description:
+              ${{ steps.issue-info.outputs.issue_body }}
+              
+              Please follow these instructions:
+              
+              1. Look at the issue details above to understand what needs to be fixed.
+              2. Use git commands to create a new branch based on the appropriate version branch.
+              3. Make only the necessary changes to fix this specific issue.
+              4. Stage and commit your changes.
+              5. Push to the fork repository.
+              6. Create a PR using the GitHub CLI.
+              
+              The repository is configured as follows:
+              - TARGET REPOSITORY: ${ORIGINAL_REPO} (upstream)
+              - FORK REPOSITORY: ${REPO_OWNER}/${REPO_NAME} (your fork)
+              - LATEST VERSION: ${LATEST_VERSION}
+              
+              Good luck, and thank you for your help!
             anthropic_api_key: ${{ secrets.ANTHROPIC_API_KEY }}
             claude_args: |
-                --system-prompt "/tmp/claude/system_prompt.txt"
                 --max-turns 10
                 --model claude-sonnet-4-20250514
 
