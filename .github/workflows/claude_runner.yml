@@ -15,6 +15,8 @@ jobs:
       REPO_OWNER: ${{ secrets.REPO_OWNER }}
       REPO_NAME: ${{ secrets.REPO_NAME }}
       LATEST_VERSION: ${{ secrets.LATEST_VERSION }}
+      ISSUE_NUMBER: ${{ github.event.issue.number }}
+      ISSUE_TITLE: ${{ github.event.issue.title }}
     permissions:
         issues: write
         contents: write
@@ -25,17 +27,60 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v3
 
+      - name: Add 'claude:in-progress' label
+        uses: actions-ecosystem/action-add-labels@v1
+        with:
+          github_token: ${{ secrets._GITHUB_TOKEN }}
+          labels: claude:in-progress
+          number: ${{ github.event.issue.number }}
+          
+      - name: Create system prompt and issue context
+        run: |
+          # Check if .claude directory exists in the repository
+          if [ -f ".claude/system_prompt.txt" ]; then
+            echo "Using existing system prompt file from repository"
+            mkdir -p /tmp/claude
+            cp .claude/system_prompt.txt /tmp/claude/system_prompt.txt
+          else
+            echo "System prompt file not found in repository, creating a new one"
+            mkdir -p /tmp/claude
+            echo "REPOSITORY CONFIGURATION:" > /tmp/claude/system_prompt.txt
+            echo "- TARGET REPOSITORY: \${ORIGINAL_REPO} (upstream)" >> /tmp/claude/system_prompt.txt
+            echo "- FORK REPOSITORY: \${REPO_OWNER}/\${REPO_NAME} (your fork)" >> /tmp/claude/system_prompt.txt
+            echo "" >> /tmp/claude/system_prompt.txt
+            echo "IMPORTANT RULES:" >> /tmp/claude/system_prompt.txt
+            echo "- Always apply solutions ONLY to the mentioned issue." >> /tmp/claude/system_prompt.txt
+            echo "- Modify ONLY files relevant to the issue." >> /tmp/claude/system_prompt.txt
+            echo "- NEVER modify unrelated files." >> /tmp/claude/system_prompt.txt
+            echo "" >> /tmp/claude/system_prompt.txt
+            echo "Look at the issue details in the environment variables and fix that specific issue." >> /tmp/claude/system_prompt.txt
+          fi
+          
+          # Create issue context file
+          echo "ISSUE_NUMBER=${{ github.event.issue.number }}" > /tmp/claude/issue_context.txt
+          echo "ISSUE_TITLE=${{ github.event.issue.title }}" >> /tmp/claude/issue_context.txt
+          echo "ISSUE_URL=${{ github.event.issue.html_url }}" >> /tmp/claude/issue_context.txt
+          echo "ISSUE_LABELS=${{ join(github.event.issue.labels.*.name, ',') }}" >> /tmp/claude/issue_context.txt
+          
+          echo "Contents of issue context file:"
+          cat /tmp/claude/issue_context.txt
+
       - name: Run Claude Code on PR
         id: run-claude
         uses: anthropics/claude-code-action@v1
+        env:
+          ISSUE_NUMBER: ${{ github.event.issue.number }}
+          ISSUE_TITLE: ${{ github.event.issue.title }}
+          ISSUE_BODY: ${{ github.event.issue.body }}
+          ISSUE_LABELS: ${{ join(github.event.issue.labels.*.name, ',') }}
+          ISSUE_URL: ${{ github.event.issue.html_url }}
         with:
-            prompt: "You are the intelligent AI Agent. You have to first identify the issue and accordingly you need to fix the issue and create the PR for the relevant branch. Follow the instructions in the system prompt file carefully."
+            prompt: "You are the intelligent AI Agent tasked with fixing documentation issues. You need to fix issue #${{ github.event.issue.number }} titled '${{ github.event.issue.title }}'. The issue details are available in the file /tmp/claude/issue_context.txt and also as environment variables: ISSUE_NUMBER, ISSUE_TITLE, ISSUE_BODY, ISSUE_LABELS, and ISSUE_URL. Fix this specific issue and create a PR for it."
             anthropic_api_key: ${{ secrets.ANTHROPIC_API_KEY }}
             claude_args: |
-                --system-prompt "/home/runner/work/.claude/system_prompt.txt"
+                --system-prompt "/tmp/claude/system_prompt.txt"
                 --max-turns 10
                 --model claude-sonnet-4-20250514
-
 
       - name: Remove 'claude:in-progress' label
         if: success() && steps.run-claude.outcome == 'success'
@@ -43,6 +88,7 @@ jobs:
         with:
           github_token: ${{ secrets._GITHUB_TOKEN }}
           labels: claude:in-progress
+          number: ${{ github.event.issue.number }}
 
       - name: Add 'claude:pr-created' label
         if: success() && steps.run-claude.outcome == 'success'
@@ -50,3 +96,12 @@ jobs:
         with:
           github_token: ${{ secrets._GITHUB_TOKEN }}
           labels: claude:pr-created
+          number: ${{ github.event.issue.number }}
+          
+      - name: Add error label if Claude fails
+        if: failure() || steps.run-claude.outcome != 'success'
+        uses: actions-ecosystem/action-add-labels@v1
+        with:
+          github_token: ${{ secrets._GITHUB_TOKEN }}
+          labels: claude:failed
+          number: ${{ github.event.issue.number }}
