@@ -10,7 +10,7 @@ jobs:
     runs-on: ubuntu-latest
     env:
       ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
-      GITHUB_TOKEN: ${{ secrets._GITHUB_TOKEN }}
+      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       ORIGINAL_REPO: ${{ secrets.ORIGINAL_REPO }}
       REPO_OWNER: ${{ secrets.REPO_OWNER }}
       REPO_NAME: ${{ secrets.REPO_NAME }}
@@ -76,14 +76,90 @@ jobs:
           gh auth status || echo "GitHub CLI authentication check failed but continuing..."
           
           # Ensure the token is passed to Claude's environment
-          echo "GH_TOKEN=${{ secrets._GITHUB_TOKEN }}" >> $GITHUB_ENV
+          echo "GH_TOKEN=${{ secrets.GITHUB_TOKEN }}" >> $GITHUB_ENV
 
+
+      - name: Create GitHub CLI wrapper scripts
+        run: |
+          # Create a wrapper script for gh issue view
+          cat > ${{ github.workspace }}/gh_issue_view.sh << 'EOF'
+          #!/bin/bash
+          
+          # This is a pre-approved wrapper for the GitHub CLI issue view command
+          if [ $# -lt 2 ]; then
+            echo "Usage: $0 <issue-number> <repo>"
+            exit 1
+          fi
+          
+          ISSUE_NUMBER=$1
+          REPO=$2
+          
+          # Run the GitHub CLI command with the provided arguments
+          gh issue view "$ISSUE_NUMBER" --repo "$REPO"
+          exit $?
+          EOF
+          
+          # Create a wrapper for create PR
+          cat > ${{ github.workspace }}/gh_create_pr.sh << 'EOF'
+          #!/bin/bash
+          
+          # This is a pre-approved wrapper for the GitHub CLI PR create command
+          if [ $# -lt 5 ]; then
+            echo "Usage: $0 <repo> <title> <body> <head> <base>"
+            exit 1
+          fi
+          
+          REPO=$1
+          TITLE=$2
+          BODY=$3
+          HEAD=$4
+          BASE=$5
+          
+          # Run the GitHub CLI command with the provided arguments
+          gh pr create --repo "$REPO" --title "$TITLE" --body "$BODY" --head "$HEAD" --base "$BASE"
+          exit $?
+          EOF
+          
+          # Create a wrapper for updating issue labels
+          cat > ${{ github.workspace }}/gh_update_labels.sh << 'EOF'
+          #!/bin/bash
+          
+          # This is a pre-approved wrapper for the GitHub CLI issue edit command for labels
+          if [ $# -lt 3 ]; then
+            echo "Usage: $0 <issue-number> <action> <label>"
+            echo "Action can be 'add' or 'remove'"
+            exit 1
+          fi
+          
+          ISSUE_NUMBER=$1
+          ACTION=$2
+          LABEL=$3
+          REPO="${{ github.repository }}"
+          
+          if [ "$ACTION" = "add" ]; then
+            gh issue edit "$ISSUE_NUMBER" --repo "$REPO" --add-label "$LABEL"
+          elif [ "$ACTION" = "remove" ]; then
+            gh issue edit "$ISSUE_NUMBER" --repo "$REPO" --remove-label "$LABEL"
+          else
+            echo "Invalid action: $ACTION. Must be 'add' or 'remove'"
+            exit 1
+          fi
+          
+          exit $?
+          EOF
+          
+          # Make all scripts executable
+          chmod +x ${{ github.workspace }}/gh_*.sh
+          
+          # List the created scripts for verification
+          ls -la ${{ github.workspace }}/gh_*.sh
+                
 
       - name: Run Claude Code on PR
         id: run-claude
         uses: anthropics/claude-code-action@v1
         env:
-          GH_TOKEN: ${{ secrets._GITHUB_TOKEN }}
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           ISSUE_NUMBER: ${{ github.event.issue.number }}
           ISSUE_TITLE: ${{ github.event.issue.title }}
           REPO_FULLNAME: ${{ github.repository }}
@@ -98,8 +174,20 @@ jobs:
               
               If this issue appears in other versions of the repository, then you need to solve it in those versions as well and create PRs for each version.
               
-              To view the issue details, you can run:
-              gh issue view ${{ github.event.issue.number }} --repo ${{ github.repository }}
+              IMPORTANT: Instead of using GitHub CLI commands directly, use these pre-approved wrapper scripts:
+              
+              1. To view issue details:
+                 ${{ github.workspace }}/gh_issue_view.sh ISSUE_NUMBER REPOSITORY
+                 Example: ${{ github.workspace }}/gh_issue_view.sh ${{ github.event.issue.number }} ${{ github.repository }}
+              
+              2. To create a PR:
+                 ${{ github.workspace }}/gh_create_pr.sh REPOSITORY TITLE BODY HEAD_BRANCH BASE_BRANCH
+                 Example: ${{ github.workspace }}/gh_create_pr.sh ${{ github.repository }} "Fix issue #${{ github.event.issue.number }}" "This PR fixes issue #${{ github.event.issue.number }}" "your-branch-name" "main"
+              
+              3. To update issue labels:
+                 ${{ github.workspace }}/gh_update_labels.sh ISSUE_NUMBER ACTION LABEL
+                 Example to remove 'in-progress': ${{ github.workspace }}/gh_update_labels.sh ${{ github.event.issue.number }} remove "claude:in-progress"
+                 Example to add 'pr-created': ${{ github.workspace }}/gh_update_labels.sh ${{ github.event.issue.number }} add "claude:pr-created"
             anthropic_api_key: ${{ secrets.ANTHROPIC_API_KEY }}
             claude_args: |
                 --system-prompt "${{ github.workspace }}/.claude/system_prompt.txt"
@@ -112,7 +200,7 @@ jobs:
         if: success() && steps.run-claude.outcome == 'success'
         uses: actions-ecosystem/action-remove-labels@v1
         with:
-          github_token: ${{ secrets._GITHUB_TOKEN }}
+          github_token: ${{ secrets.GITHUB_TOKEN }}
           labels: claude:in-progress
 
       - name: Add 'claude:pr-created' label

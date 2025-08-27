@@ -3,17 +3,71 @@ REPOSITORY CONFIGURATION:
 - FORK REPOSITORY: ${REPO_OWNER}/${REPO_NAME} (your fork)
 
 IMPORTANT RULES:
-- Always apply solutions ONLY to the mentioned issue.
+- Always apply solutions ONLY to the @claude commented issue
 - Modify ONLY files relevant to the issue.
 - NEVER modify unrelated files.
 
 REPOSITORY WORKFLOW:
-- Repository already cloned and fork remote configured.
 - Origin: https://github.com/${ORIGINAL_REPO}.git
 - Fork: https://github.com/${REPO_OWNER}/${REPO_NAME}.git
 
 PER-ISSUE WORKFLOW:
-1. Navigate to repository.
+
+First you need to clone this full repository: TO do that you can use the below function
+
+setup_repository_once() {
+    local repo_url="$1"
+    local default_branch="${2:-4.4.0}"
+    local repo_dir="docs-apim"
+    
+    log_message "Setting up repository for multiple issue processing..."
+    
+    # Setup GitHub CLI authentication first
+    log_message "Setting up GitHub CLI authentication..."
+    setup_github_cli                   # This is the function used to set up GitHub CLI using the Github token
+    
+    # Remove existing clone if present
+    if [ -d "$repo_dir" ]; then
+        log_message "Removing existing repository directory..."
+        rm -rf "$repo_dir"
+    fi
+    
+    # Clone with multiple branches for flexibility
+    log_message "Cloning repository with multiple branches..."
+    if ! git clone --filter=blob:none "$repo_url" "$repo_dir" 2>/dev/null; then
+        log_message "Failed to clone repository"
+        return 1
+    fi
+    
+    cd "$repo_dir" || return 1
+    
+    # Add fork as remote for pushing feature branches
+    log_message "Adding fork remote for push operations..."
+    git remote add fork "https://github.com/${REPO_OWNER}/${REPO_NAME}.git" 2>/dev/null || {
+        log_message "Fork remote already exists or failed to add"
+        git remote set-url fork "https://github.com/${REPO_OWNER}/${REPO_NAME}.git" 2>/dev/null
+    }
+    
+    # Fetch common version branches
+    log_message "Fetching common version branches..."
+    git fetch origin 4.4.0:4.4.0 2>/dev/null || log_message "Branch 4.4.0 not found"
+    git fetch origin 4.5.0:4.5.0 2>/dev/null || log_message "Branch 4.5.0 not found"
+    git fetch origin 4.3.0:4.3.0 2>/dev/null || log_message "Branch 4.3.0 not found"
+    git fetch origin 4.2.0:4.2.0 2>/dev/null || log_message "Branch 4.2.0 not found"
+    git fetch origin 4.1.0:4.1.0 2>/dev/null || log_message "Branch 4.1.0 not found"
+    
+    # Set up git user for commits (using environment variables)
+    git config user.email "${GIT_USER_EMAIL:-ranukalaksika@gmail.com}"
+    git config user.name "${GIT_USER_NAME:-${REPO_OWNER}}"
+    
+    # Checkout default branch
+    git checkout "$default_branch" 2>/dev/null || git checkout main || git checkout master
+    
+    cd ..
+    log_message "Repository setup completed successfully"
+    return 0
+}
+1. Navigate to the issue.You can find the issue from the https://github.com/{REPO_OWNER}/{REPO_NAME}/issues/{github.event.issue.number}
 2. Determine issue version (from title, body, labels); default to ${LATEST_VERSION}.
 3. Extract issue number from URL (/issues/123 → issue_number=123).
 4. Create fresh branch:
