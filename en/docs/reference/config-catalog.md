@@ -1080,8 +1080,7 @@ claims_extractor_impl = "org.wso2.carbon.apimgt.impl.token.DefaultClaimsRetrieve
                                         </div>
                                     </div>
                                     <div class="param-description">
-                                        <p>Determines whether the `x5t` value in the JWT header is Base64 URL-encoded without padding.  
-                                        Set to `true` for compatibility with tools and systems that expect unpadded `x5t` values.</p>
+                                        <p> Determines whether the `x5t` value in the JWT header is Base64 URL-encoded without padding. Set to `true` for compatibility with tools and systems that expect unpadded `x5t` values.</p>
                                     </div>
                                 </div>
                             </div>
