@@ -26,7 +26,7 @@ jobs:
       - name: Pick next queued issue
         id: pick
         env:
-          GH_TOKEN: ${{ secrets._GITHUB_TOKEN }}
+          GH_TOKEN: ${{ github.token }}
 
         run: |
           # Check if any issue is already in progress
