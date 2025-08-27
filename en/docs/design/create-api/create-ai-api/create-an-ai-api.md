@@ -10,7 +10,7 @@ Follow the instructions below to create an AI API using the basic flow:
 
 1. Login to the Publisher Portal (`https://<hostname>:9443/publisher`).
 
-2. Create an **AI/LLM API** by clicking on **Create AI/LLM API**.
+2. Create an **AI API** by clicking on **Create AI API**.
 
     [![Select AI API]({{base_path}}/assets/img/learn/ai-gateway/select-ai-api.png){: style="width:90%"}]({{base_path}}/assets/img/learn/ai-gateway/select-ai-api.png)
 
@@ -96,10 +96,12 @@ Follow the instructions below to create an AI API using the basic flow:
 2. Notice the **API Key Required** warning against the `Default Production Endpoint` and `Default Sandbox Endpoint`. Click on **Edit** icon and fill in the API Key value which you obtained from Step 1 above and click on **Update** to save the changes.
 
     !!! Note
-            API Manager supports three AI/LLM vendors by default. The authorization approach of each is mentioned below: 
+            API Manager supports the following AI service providers by default. The authorization approach of each is mentioned below: 
         - **MistralAI**: `Authorization` header
         - **AzureOpenAI**: `api-key` header
         - **OpenAI**: `Authorization` header
+        - **Anthropic**: `x-api-key` header
+        - **AWSBedrock**: Requires both an AWS Access Key and AWS Secret Key for authentication.
 
         Note that we prepend "Bearer " to the header value that you provide when it comes to MistralAI and OpenAI since they are expecting an Authorization header.
 
