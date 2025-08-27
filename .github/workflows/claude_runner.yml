@@ -87,8 +87,7 @@ jobs:
                 --system-prompt "${{ github.workspace }}/.claude/system_prompt.txt"
                 --max-turns 10
                 --model claude-sonnet-4-20250514
-                --allow-tool-use
-                --tools shell
+                --allowedTools shell
                 --shell-command-approval-mode auto-approve
 
       - name: Remove 'claude:in-progress' label
