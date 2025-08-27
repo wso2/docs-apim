@@ -16,33 +16,26 @@ jobs:
       REPO_NAME: ${{ secrets.REPO_NAME }}
       LATEST_VERSION: ${{ secrets.LATEST_VERSION }}
     permissions:
-      issues: write
-      contents: write
-      pull-requests: write
-      id-token: write
+        issues: write
+        contents: write
+        pull-requests: write
+        id-token: write
 
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
 
-      - name: Load system prompt
-        id: load_prompt
-        run: |
-            echo "SYSTEM_PROMPT<<EOF" >> $GITHUB_ENV
-            cat .claude/system_prompt.txt >> $GITHUB_ENV
-            echo "EOF" >> $GITHUB_ENV
-
-
       - name: Run Claude Code on PR
         id: run-claude
         uses: anthropics/claude-code-action@v1
         with:
-          prompt: "You are the intelligent AI Agent. You have to first identify the issue and accordingly fix it, then create a PR for the relevant branch. Follow the instructions in the system prompt file carefully."
-          anthropic_api_key: ${{ secrets.ANTHROPIC_API_KEY }}
-          claude_args: |
-            --system-prompt "$SYSTEM_PROMPT"
-            --max-turns 10
-            --model claude-sonnet-4-20250514
+            prompt: "You are the intelligent AI Agent. You have to first identify the issue and accordingly you need to fix the issue and create the PR for the relevant branch. Follow the instructions in the system prompt file carefully."
+            anthropic_api_key: ${{ secrets.ANTHROPIC_API_KEY }}
+            claude_args: |
+                --system-prompt "claude/system_prompt.txt)"
+                --max-turns 10
+                --model claude-sonnet-4-20250514
+
 
       - name: Remove 'claude:in-progress' label
         if: success() && steps.run-claude.outcome == 'success'
