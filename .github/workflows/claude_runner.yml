@@ -32,7 +32,7 @@ jobs:
             prompt: "You are the intelligent AI Agent. You have to first identify the issue and accordingly you need to fix the issue and create the PR for the relevant branch. Follow the instructions in the system prompt file carefully."
             anthropic_api_key: ${{ secrets.ANTHROPIC_API_KEY }}
             claude_args: |
-                --system-prompt "/home/runner/work/***/***/.claude/system_prompt.txt"
+                --system-prompt "/home/runner/work/.claude/system_prompt.txt"
                 --max-turns 10
                 --model claude-sonnet-4-20250514
 
