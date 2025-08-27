@@ -79,7 +79,7 @@ For this example, let us use the [Swagger Petstore - OpenAPI 3.0](https://petsto
   3. Provide the **OpenAPI URL** (`https://petstore3.swagger.io/api/v3/openapi.json`) and proceed to the next step.
   
   4. Define the API name as `SwaggerPetstore` and Version as `1.0.0` and click on the **Create** button
-  (For more information, see [Create a REST API from an Open API Definition]({{base_path}}/design/create-api/create-rest-api/create-a-rest-api-from-an-openapi-definition)).
+  (For more information, see [Create a REST API from an Open API Definition]({{base_path}}/manage-apis/design/create-api/create-rest-api/create-a-rest-api-from-an-openapi-definition)).
 
     [![]({{base_path}}/assets/img/learn/api-controller/create-api-last-step.png)]({{base_path}}/assets/img/learn/api-controller/create-api-last-step.png)
 
@@ -100,7 +100,7 @@ For this example, let us use the [Swagger Petstore - OpenAPI 3.0](https://petsto
 
       [![]({{base_path}}/assets/img/learn/api-controller/business-plan-gold-selected.png)]({{base_path}}/assets/img/learn/api-controller/business-plan-gold-selected.png)
 
-  7. [Deploy]({{base_path}}/deploy-and-publish/deploy-on-gateway/deploy-api/deploy-an-api) and [Publish]({{base_path}}/deploy-and-publish/publish-on-dev-portal/publish-an-api) the API.
+  7. [Deploy]({{base_path}}/manage-apis/deploy-and-publish/deploy-on-gateway/deploy-api/deploy-an-api) and [Publish]({{base_path}}/manage-apis/deploy-and-publish/publish-on-dev-portal/publish-an-api) the API.
 
 <a name="Step 3"></a>
 ### Step 3 - Export an API from a lower environment
@@ -406,7 +406,7 @@ You can use the following alternative approach to promote a single API via CI/CD
 <a name="Step 7"></a>
 ### Step 7 - Get keys for an API/API Product
 
-Follow the instructions below to generate a JWT/OAuth token for testing purposes using apictl in order to invoke an API or an [API Product]({{base_path}}/design/create-api-product/api-product-overview) by subscribing to it using a new application created by apictl.
+Follow the instructions below to generate a JWT/OAuth token for testing purposes using apictl in order to invoke an API or an [API Product]({{base_path}}/manage-apis/design/create-api-product/api-product-overview) by subscribing to it using a new application created by apictl.
 
 !!! tip
     - Make sure that WSO2 API-M is started and the apictl is set up. For more information, see [Download and Initialize the apictl]({{base_path}}/install-and-setup/setup/api-controller/getting-started-with-wso2-api-controller/#download-and-initialize-the-apictl). 
@@ -459,7 +459,7 @@ Run any of the following apictl commands to get keys for the API/API Product.
 <a name="Step 8"></a>
 ### Step 8 - Extending a CI/CD pipeline to support API Products
 
-For example, let us consider there is an [API Product]({{base_path}}/design/create-api-product/api-product-overview) **PetsInfo** in the development environment with a subset of operations of **SwaggerPetstore** API.
+For example, let us consider there is an [API Product]({{base_path}}/manage-apis/design/create-api-product/api-product-overview) **PetsInfo** in the development environment with a subset of operations of **SwaggerPetstore** API.
 
 1.  Export the API Product using `export api-product` command from the development environment (dev). For more information, see [Export an API Product]({{base_path}}/install-and-setup/setup/api-controller/managing-apis-api-products/migrating-api-products-to-different-environments/#export-an-api-product).
 

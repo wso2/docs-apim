@@ -13,7 +13,7 @@ Follow the instructions below to deploy a new revision for an API:
 
       The Deployments page appears as follows when you have at least one revision.
 
-      [![Deploy new revision option]({{base_path}}/assets/img/design/revision/deploy-new-revision.png)]({{base_path}}/assets/img/design/revision/deploy-new-revision.png)
+      [![Deploy new revision option](/en/4.5.0/assets/img/design/revision/deploy-new-revision.png)](/en/4.5.0/assets/img/design/revision/deploy-new-revision.png)
 
     !!! note
         The **Information icon** will appear only if you have added a product revision description. You can view the description when you hover over the information icon.

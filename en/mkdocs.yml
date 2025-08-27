@@ -77,197 +77,198 @@ nav:
           - Architecture: get-started/apim-architecture.md
           - Quick Start Guide: get-started/api-manager-quick-start-guide.md
           - About this Release: get-started/about-this-release.md
-    - Design APIs:
-        - Design APIs Overview: design/design-api-overview.md
-        - Create APIs:
-            - REST APIs:
-                - Create a REST API: design/create-api/create-rest-api/create-a-rest-api.md
-                - Create a REST API from an OpenAPI Definition: design/create-api/create-rest-api/create-a-rest-api-from-an-openapi-definition.md
-                - Expose a SOAP Service as a REST API: design/create-api/create-rest-api/expose-a-soap-service-as-a-rest-api.md
-                - Generate REST API from SOAP Backend: design/create-api/create-rest-api/generate-rest-api-from-soap-backend.md
-                - Test a REST API: design/create-api/create-rest-api/test-a-rest-api.md
-            - GraphQL APIs: design/create-api/create-a-graphql-api.md
-            - Streaming APIs:
-                - Streaming API Overview: design/create-api/create-streaming-api/streaming-api-overview.md
-                - Create a WebSocket API: design/create-api/create-streaming-api/create-a-websocket-streaming-api.md
-                - Create a WebSub/WebHook API: design/create-api/create-streaming-api/create-a-websub-streaming-api.md
-                - Create a SSE API: design/create-api/create-streaming-api/create-a-sse-streaming-api.md
-                - Create a Streaming API from an AsyncAPI Definition: design/create-api/create-streaming-api/create-a-streaming-api-from-an-asyncapi-definition.md
-                - Test a WebSub/WebHook API: design/create-api/create-streaming-api.md
-            - Create an API Using a Service: design/create-api/create-an-api-using-a-service.md
-            - AI APIs: design/create-api/create-ai-api/create-an-ai-api.md
-        - Create APIs with AI: design/create-api/create-api-with-ai.md
-        - Create API Revisions: design/create-api/create-api-revisions.md
-        - Add Custom Properties to APIs: design/create-api/adding-custom-properties-to-apis.md
-        - Change the Thumbnail of an API: design/create-api/change-api-thumbnail.md
-        - Create Prototype APIs:
-            - Overview: design/prototype-api/overview.md
-            - Mock Implementation:
-                - With API Gateway: design/prototype-api/create-mocked-js-api.md
-            - Existing Backend Implementation as a Prototype API: design/prototype-api/backend-url-prototype-api.md
-        - Create API Products:
-                - API Product Overview: design/create-api-product/api-product-overview.md
-                - Create an API Product: design/create-api-product/create-api-product.md
-        - Endpoints:
-            - Endpoint Types: design/endpoints/endpoint-types.md
-            - Security:
-                - Secure Endpoint with Basic Auth: design/endpoints/endpoint-security/basic-auth.md
-                - Secure Endpoint with Digest Auth: design/endpoints/endpoint-security/digest-auth.md
-                - Secure Endpoint with OAuth 2.0: design/endpoints/endpoint-security/oauth-2.0.md
-            - High Availability for Endpoints: design/endpoints/high-availability-for-endpoints.md
-            - Resiliency:
-                - Endpoint Timeouts: design/endpoints/resiliency/endpoint-timeouts.md
-                - Endpoint Suspension: design/endpoints/resiliency/endpoint-suspension.md
-                - Prevent API Suspension: design/endpoints/resiliency/prevent-api-suspension.md
-            - Manage Certificates: design/endpoints/certificates.md
-        - Lifecycle Managament:
-            - API Lifecycle: design/lifecycle-management/api-lifecycle.md
-            - Customize API Life Cycle: design/lifecycle-management/customize-api-life-cycle.md
-        - API Versioning:
-            - Create a New API Version: design/api-versioning/create-a-new-api-version.md
-            - Deprecate the Old Version: design/api-versioning/deprecate-the-old-version.md
-            - Backward Compatibility: design/api-versioning/backward-compatibility.md
-            - Enable Notifications: design/api-versioning/enabling-notifications.md
-        - API Documentation:
-            - Add API Documentation: design/api-documentation/add-api-documentation.md
-            - View Generated Documentation : design/api-documentation/view-generated-documentation.md
-        - API Collaboration:
-            - Comment on an API via the Publisher: design/api-collaborations/comment-on-an-api-via-the-publisher.md
-            - Enable Social Media Interaction: design/api-collaborations/enable-social-media-interaction.md
-        - API Policies:
-            - Overview: design/api-policies/overview.md
-            - Attach Policies: design/api-policies/attach-policy.md
-            - Create a Policy: design/api-policies/create-policy.md
-            - Regular Gateway Policies:
-                - Add Dynamic Endpoints: design/api-policies/regular-gateway-policies/adding-dynamic-endpoints.md
-                - Remove Specific Request Headers From Response: design/api-policies/regular-gateway-policies/removing-specific-request-headers-from-response.md
-                - Pass a Custom Authorization Token to the Backend: design/api-policies/regular-gateway-policies/passing-a-custom-authorization-token-to-the-backend.md
-                - URL Mapping: design/api-policies/regular-gateway-policies/mapping-the-parameters-of-your-backend-urls-with-the-api-publisher-urls.md
-                - Disable Message Chunking: design/api-policies/regular-gateway-policies/disabling-message-chunking.md
-                - Transform API Message Payload: design/api-policies/regular-gateway-policies/transforming-api-message-payload.md
-                - Add a Non-Blocking Send Operation: design/api-policies/regular-gateway-policies/adding-a-non-blocking-send-operation.md
-                - Add a Class Mediator: design/api-policies/regular-gateway-policies/adding-a-class-mediator.md
-                - Configure Message Builders and Formatters: design/api-policies/regular-gateway-policies/configuring-message-builders-formatters.md
-                - JWT claim based access validator: design/api-policies/regular-gateway-policies/jwt-claim-based-access-validator.md
-                - Revoke One Time Tokens Policy: design/api-policies/regular-gateway-policies/revoke-one-time-tokens-policy.md
-        - API Security:
-            - Authentication:
-                - Overview: design/api-security/api-authentication/api-authentication-overview.md
-                - Secure APIs using OAuth2 Access Tokens: design/api-security/api-authentication/secure-apis-using-oauth2-tokens.md
-                - Secure APIs using API Keys: design/api-security/api-authentication/secure-apis-using-api-keys.md
-                - Secure APIs using Mutual SSL: design/api-security/api-authentication/secure-apis-using-mutual-ssl.md
-                - Secure APIs using Basic Authentication: design/api-security/api-authentication/secure-apis-using-basic-authentication.md
-                - Secure APIs using Certificate Bound Access Token: design/api-security/api-authentication/securing-apis-using-certificate-bound-access-tokens.md
-                - Federating OAuth Applications: design/api-security/api-authentication/advanced-topics/federating-oauth-applications.md
-                - Disable Security: design/api-security/api-authentication/disable-security.md
-            - Authorization:
-                - Overview: design/api-security/authorization/api-authorization.md
-                - Role-Based Access Control using Scopes: design/api-security/oauth2/oauth2-scopes/fine-grained-access-control-with-oauth-scopes.md
-                - Role-Based Access Control using XACML: design/api-security/authorization/role-based-access-control-using-xacml.md
-                - Publisher Portal in Read Only Mode: design/api-security/authorization/publisher-portal-in-read-only-mode.md
-            - Secure APIs by Auditing API Definitions: design/api-security/configuring-api-security-audit.md
-            - Request-Response Schema Validation:
-                - JSON Schema Validator: design/api-security/api-request-response-schema-validation/json-schema-validator.md
-            - OAuth2:
-                - Token types:
-                    - JWT Access Tokens: design/api-security/oauth2/access-token-types/jwt-tokens.md
-                - OAuth2 Scopes:
-                    - Role-Based Access Control with OAuth Scopes: design/api-security/oauth2/oauth2-scopes/fine-grained-access-control-with-oauth-scopes.md
-                    - Scope Whitelisting: design/api-security/oauth2/oauth2-scopes/scope-whitelisting.md
-                - Grant Types:
-                    - Overview: design/api-security/oauth2/grant-types/overview.md
-                    - Password Grant: design/api-security/oauth2/grant-types/password-grant.md
-                    - Client Credentials Grant: design/api-security/oauth2/grant-types/client-credentials-grant.md
-                    - Authorization Code Grant: design/api-security/oauth2/grant-types/authorization-code-grant.md
-                    - Refresh Token Grant: design/api-security/oauth2/grant-types/refresh-token-grant.md
-                    - JWT Grant: design/api-security/oauth2/grant-types/jwt-grant.md
-                    - SAML Extension Grant: design/api-security/oauth2/grant-types/saml-extension-grant.md
-                    - Kerberos OAuth2 Grant: design/api-security/oauth2/grant-types/kerberos-oauth2-grant.md
-                    - NTLM Grant: design/api-security/oauth2/grant-types/ntlm-grant.md
-                - Token Revocation: design/api-security/oauth2/token-revocation.md
-                - Token Expiration: design/api-security/oauth2/token-expiration.md
-                - Token Persistence: design/api-security/oauth2/token-persistence.md
-                - Encrypting OAuth2 Tokens: design/api-security/oauth2/encrypting-oauth2-tokens.md
-                - Hashing OAuth Keys: design/api-security/oauth2/hashing-oauth-keys.md
-                - Multiple Active Access Tokens: design/api-security/oauth2/multiple-active-access-tokens.md
-                - Provisioning Out-of-Band OAuth Clients: design/api-security/oauth2/provisioning-out-of-band-oauth-clients.md
-                - Securing OAuth Token with HMAC Validation: design/api-security/oauth2/securing-oauth-token-with-hmac-validation.md
-            - Threat Protection:
-                - Gateway Threat Protectors: design/api-security/threat-protection/gateway-threat-protectors/gateway-threat-protectors-for-api-manager.md
-                - Regular Expression Threat Protection: deploy-and-publish/deploy-on-gateway/api-gateway/threat-protectors/regular-expression-threat-protection-for-api-gateway.md
-                - JSON Threat Protection: deploy-and-publish/deploy-on-gateway/api-gateway/threat-protectors/json-threat-protection-for-api-gateway.md
-                - XML Threat Protection: deploy-and-publish/deploy-on-gateway/api-gateway/threat-protectors/xml-threat-protection-for-api-gateway.md
-            - OpenID Connect:
-                - Obtain User Profile Information with OpenID Connect: design/api-security/openid-connect/obtaining-user-profile-information-with-openid-connect.md
-            - Open Policy Agent (OPA) Validation:
-                - Overview: design/api-security/opa-validation/overview.md
-                - Custom OPA Policy for Regualr Gateway: design/api-security/opa-validation/custom-opa-policy-for-regular-gateway.md
-        - Rate Limiting:
-                - Throttling Use-Cases: design/rate-limiting/introducing-throttling-use-cases.md
-                - Add New Throttling Policies: design/rate-limiting/adding-new-throttling-policies.md
-                - Set Throttling Limits: design/rate-limiting/setting-throttling-limits.md
-                - Reset Application Throttling Policies: design/rate-limiting/resetting-application-throttling-policies.md
-                - Access Control: design/rate-limiting/access-control.md
-                - Enforce Throttling and Resource Access Policies: design/rate-limiting/enforce-throttling-and-resource-access-policies.md
-                - Set Maximum Backend Throughput Limits: design/rate-limiting/setting-maximum-backend-throughput-limits.md
-                - Rate Limiting for Streaming APIs: design/rate-limiting/rate-limiting-for-streaming-apis.md
-                - Rate Limiting for AI APIs: design/rate-limiting/rate-limiting-for-ai-apis.md
-                - Query Limits for GraphQL:
-                    - Overview: design/rate-limiting/graphql-api/overview-query-limits-for-graphql.md
-                    - Query Depth Limit: design/rate-limiting/graphql-api/query-depth-limitation.md
-                    - Query Complexity Limit: design/rate-limiting/graphql-api/query-complexity-limitation.md
-                - Advanced Topics:
-                    - Custom Rate Limiting: design/rate-limiting/advanced-topics/custom-throttling.md
-                    - Distributed Burst Control, Backend Rate Limiting for API Gateway Cluster: design/rate-limiting/advanced-topics/configuring-rate-limiting-api-gateway-cluster.md
-        - API Monetization:
-            - Monetize an API: design/api-monetization/monetizing-an-api.md
-        - B2B API Management:
-            - B2B API Consumption: design/b2b-api-management/api-consumption.md
-            - Setup WSO2 Identity Server as a Federated Authenticator: design/b2b-api-management/setup-identity-server.md
-        - Advanced Topics:
-            - Enable Publisher Access Control: design/advanced-topics/enable-publisher-access-control-in-api-publisher-portal.md
-            - Control API Visibility and Subscription Availability in the Developer Portal: design/advanced-topics/control-api-visibility-and-subscription-availability-in-developer-portal.md
-            - Enable CORS for APIs: design/advanced-topics/enabling-cors-for-apis.md
-            - Add an API State Change Workflow: design/advanced-topics/adding-an-api-state-change-workflow.md
-            - Block Subscription to an API: design/advanced-topics/block-subscription-to-an-api.md
-            - Disable Subscription Requirement for an API: design/advanced-topics/disable-subscriptions-for-an-api.md
-            - Validate API Definitions with Linters: design/advanced-topics/validate-api-definitions-with-linters.md
-            - API Governance CLI Tool: design/advanced-topics/api-governance-cli-tool.md
-    - Deploy and Publish APIs:
-        - Deploy on Gateway:
-            - Deploy API:
-                - Deploy an API: deploy-and-publish/deploy-on-gateway/deploy-api/deploy-an-api.md
-                - Expose APIs via Custom Hostnames: deploy-and-publish/deploy-on-gateway/deploy-api/exposing-apis-via-custom-hostnames.md
-                - Deploy Through Multiple API Gateways: deploy-and-publish/deploy-on-gateway/deploy-api/deploy-through-multiple-api-gateways.md
-                - Revision Deployment Workflow: deploy-and-publish/deploy-on-gateway/deploy-api/revision-deployment-workflow.md
-            - Universal Gateway:
-                - Overview of the WSO2 Universal Gateway: deploy-and-publish/deploy-on-gateway/api-gateway/overview-of-the-api-gateway.md
-                - Gateway Policies: deploy-and-publish/deploy-on-gateway/api-gateway/gateway-policies.md
-                - Response Caching: deploy-and-publish/deploy-on-gateway/api-gateway/response-caching.md
-                - Threat Protectors:
-                    - Regular Expression Threat Protection: deploy-and-publish/deploy-on-gateway/api-gateway/threat-protectors/regular-expression-threat-protection-for-api-gateway.md
-                    - JSON Threat Protection: deploy-and-publish/deploy-on-gateway/api-gateway/threat-protectors/json-threat-protection-for-api-gateway.md
-                    - XML Threat Protection: deploy-and-publish/deploy-on-gateway/api-gateway/threat-protectors/xml-threat-protection-for-api-gateway.md
-                - Pass End User Attributes to the Backend: deploy-and-publish/deploy-on-gateway/api-gateway/passing-enduser-attributes-to-the-backend-via-api-gateway.md
-                - Gateway Environments: deploy-and-publish/deploy-on-gateway/api-gateway/maintaining-separate-production-and-sandbox-gateways.md
-                - Scale the Gateway: deploy-and-publish/deploy-on-gateway/api-gateway/scaling-the-gateway.md
-                - Advanced Topics:
-                    - Universal Gateways with Dedicated Backends: deploy-and-publish/deploy-on-gateway/api-gateway/api-gateways-with-dedicated-backends.md
-                    - Mutual SSL Between Universal Gateway and Backend: deploy-and-publish/deploy-on-gateway/api-gateway/mutual-ssl-between-api-gateway-and-backend.md
-                    - Storing Custom Synapse Artifacts in the Gateway: deploy-and-publish/deploy-on-gateway/api-gateway/custom-synapse-artifacts.md
-        - Publish on Developer Portal:
-            - Publish an API: deploy-and-publish/publish-on-dev-portal/publish-an-api.md
-            - Add a Third-party API: deploy-and-publish/publish-on-dev-portal/third-party-api-support.md
-            - Publish to Multiple External API Developer Portals: deploy-and-publish/publish-on-dev-portal/publish-to-multiple-external-api-stores.md
-            - Import APIs From AWS API-Gateway to WSO2 API-M: deploy-and-publish/publish-on-dev-portal/publish-aws-apis-in-the-dev-portal.md
-        - Federated Gateways:
-              - Overview: deploy-and-publish/deploy-on-gateway/federated-gateways/overview.md
-              - AWS:
-                - Deploy on AWS API Gateway: deploy-and-publish/federated-gateways/aws/deploy-on-aws-api-gateway.md
-                - Discover APIs on AWS API Gateway: deploy-and-publish/federated-gateways/aws/discover-apis-on-aws-api-gateway.md
-              - Kong:
-                - Discover APIs on Kong Gateway: deploy-and-publish/federated-gateways/kong/discover-apis-on-kong-gateway.md
-              - Configure a Custom Gateway Agent: deploy-and-publish/deploy-on-gateway/federated-gateways/configure-custom-gateway-agent.md
+    - Manage APIs:
+        - Design APIs:
+            - Design APIs Overview: manage-apis/design/design-api-overview.md
+            - Create APIs:
+                - REST APIs:
+                    - Create a REST API: manage-apis/design/create-api/create-rest-api/create-a-rest-api.md
+                    - Create a REST API from an OpenAPI Definition: manage-apis/design/create-api/create-rest-api/create-a-rest-api-from-an-openapi-definition.md
+                    - Expose a SOAP Service as a REST API: manage-apis/design/create-api/create-rest-api/expose-a-soap-service-as-a-rest-api.md
+                    - Generate REST API from SOAP Backend: manage-apis/design/create-api/create-rest-api/generate-rest-api-from-soap-backend.md
+                    - Test a REST API: manage-apis/design/create-api/create-rest-api/test-a-rest-api.md
+                - GraphQL APIs: manage-apis/design/create-api/create-a-graphql-api.md
+                - Streaming APIs:
+                    - Streaming API Overview: manage-apis/design/create-api/create-streaming-api/streaming-api-overview.md
+                    - Create a WebSocket API: manage-apis/design/create-api/create-streaming-api/create-a-websocket-streaming-api.md
+                    - Create a WebSub/WebHook API: manage-apis/design/create-api/create-streaming-api/create-a-websub-streaming-api.md
+                    - Create a SSE API: manage-apis/design/create-api/create-streaming-api/create-a-sse-streaming-api.md
+                    - Create a Streaming API from an AsyncAPI Definition: manage-apis/design/create-api/create-streaming-api/create-a-streaming-api-from-an-asyncapi-definition.md
+                    - Test a WebSub/WebHook API: manage-apis/design/create-api/create-streaming-api.md
+                - Create an API Using a Service: manage-apis/design/create-api/create-an-api-using-a-service.md
+                - AI APIs: manage-apis/design/create-api/create-ai-api/create-an-ai-api.md
+            - Create APIs with AI: manage-apis/design/create-api/create-api-with-ai.md
+            - Create API Revisions: manage-apis/design/create-api/create-api-revisions.md
+            - Add Custom Properties to APIs: manage-apis/design/create-api/adding-custom-properties-to-apis.md
+            - Change the Thumbnail of an API: manage-apis/design/create-api/change-api-thumbnail.md
+            - Create Prototype APIs:
+                - Overview: manage-apis/design/prototype-api/overview.md
+                - Mock Implementation:
+                    - With API Gateway: manage-apis/design/prototype-api/create-mocked-js-api.md
+                - Existing Backend Implementation as a Prototype API: manage-apis/design/prototype-api/backend-url-prototype-api.md
+            - Create API Products:
+                    - API Product Overview: manage-apis/design/create-api-product/api-product-overview.md
+                    - Create an API Product: manage-apis/design/create-api-product/create-api-product.md
+            - Endpoints:
+                - Endpoint Types: manage-apis/design/endpoints/endpoint-types.md
+                - Security:
+                    - Secure Endpoint with Basic Auth: manage-apis/design/endpoints/endpoint-security/basic-auth.md
+                    - Secure Endpoint with Digest Auth: manage-apis/design/endpoints/endpoint-security/digest-auth.md
+                    - Secure Endpoint with OAuth 2.0: manage-apis/design/endpoints/endpoint-security/oauth-2.0.md
+                - High Availability for Endpoints: manage-apis/design/endpoints/high-availability-for-endpoints.md
+                - Resiliency:
+                    - Endpoint Timeouts: manage-apis/design/endpoints/resiliency/endpoint-timeouts.md
+                    - Endpoint Suspension: manage-apis/design/endpoints/resiliency/endpoint-suspension.md
+                    - Prevent API Suspension: manage-apis/design/endpoints/resiliency/prevent-api-suspension.md
+                - Manage Certificates: manage-apis/design/endpoints/certificates.md
+            - Lifecycle Management:
+                - API Lifecycle: manage-apis/design/lifecycle-management/api-lifecycle.md
+                - Customize API Life Cycle: manage-apis/design/lifecycle-management/customize-api-life-cycle.md
+            - API Versioning:
+                - Create a New API Version: manage-apis/design/api-versioning/create-a-new-api-version.md
+                - Deprecate the Old Version: manage-apis/design/api-versioning/deprecate-the-old-version.md
+                - Backward Compatibility: manage-apis/design/api-versioning/backward-compatibility.md
+                - Enable Notifications: manage-apis/design/api-versioning/enabling-notifications.md
+            - API Documentation:
+                - Add API Documentation: manage-apis/design/api-documentation/add-api-documentation.md
+                - View Generated Documentation : manage-apis/design/api-documentation/view-generated-documentation.md
+            - API Collaboration:
+                - Comment on an API via the Publisher: manage-apis/design/api-collaborations/comment-on-an-api-via-the-publisher.md
+                - Enable Social Media Interaction: manage-apis/design/api-collaborations/enable-social-media-interaction.md
+            - API Policies:
+                - Overview: manage-apis/design/api-policies/overview.md
+                - Attach Policies: manage-apis/design/api-policies/attach-policy.md
+                - Create a Policy: manage-apis/design/api-policies/create-policy.md
+                - Regular Gateway Policies:
+                    - Add Dynamic Endpoints: manage-apis/design/api-policies/regular-gateway-policies/adding-dynamic-endpoints.md
+                    - Remove Specific Request Headers From Response: manage-apis/design/api-policies/regular-gateway-policies/removing-specific-request-headers-from-response.md
+                    - Pass a Custom Authorization Token to the Backend: manage-apis/design/api-policies/regular-gateway-policies/passing-a-custom-authorization-token-to-the-backend.md
+                    - URL Mapping: manage-apis/design/api-policies/regular-gateway-policies/mapping-the-parameters-of-your-backend-urls-with-the-api-publisher-urls.md
+                    - Disable Message Chunking: manage-apis/design/api-policies/regular-gateway-policies/disabling-message-chunking.md
+                    - Transform API Message Payload: manage-apis/design/api-policies/regular-gateway-policies/transforming-api-message-payload.md
+                    - Add a Non-Blocking Send Operation: manage-apis/design/api-policies/regular-gateway-policies/adding-a-non-blocking-send-operation.md
+                    - Add a Class Mediator: manage-apis/design/api-policies/regular-gateway-policies/adding-a-class-mediator.md
+                    - Configure Message Builders and Formatters: manage-apis/design/api-policies/regular-gateway-policies/configuring-message-builders-formatters.md
+                    - JWT claim based access validator: manage-apis/design/api-policies/regular-gateway-policies/jwt-claim-based-access-validator.md
+                    - Revoke One Time Tokens Policy: manage-apis/design/api-policies/regular-gateway-policies/revoke-one-time-tokens-policy.md
+            - API Security:
+                - Authentication:
+                    - Overview: manage-apis/design/api-security/api-authentication/api-authentication-overview.md
+                    - Secure APIs using OAuth2 Access Tokens: manage-apis/design/api-security/api-authentication/secure-apis-using-oauth2-tokens.md
+                    - Secure APIs using API Keys: manage-apis/design/api-security/api-authentication/secure-apis-using-api-keys.md
+                    - Secure APIs using Mutual SSL: manage-apis/design/api-security/api-authentication/secure-apis-using-mutual-ssl.md
+                    - Secure APIs using Basic Authentication: manage-apis/design/api-security/api-authentication/secure-apis-using-basic-authentication.md
+                    - Secure APIs using Certificate Bound Access Token: manage-apis/design/api-security/api-authentication/securing-apis-using-certificate-bound-access-tokens.md
+                    - Federating OAuth Applications: manage-apis/design/api-security/api-authentication/advanced-topics/federating-oauth-applications.md
+                    - Disable Security: manage-apis/design/api-security/api-authentication/disable-security.md
+                - Authorization:
+                    - Overview: manage-apis/design/api-security/authorization/api-authorization.md
+                    - Role-Based Access Control using Scopes: manage-apis/design/api-security/oauth2/oauth2-scopes/fine-grained-access-control-with-oauth-scopes.md
+                    - Role-Based Access Control using XACML: manage-apis/design/api-security/authorization/role-based-access-control-using-xacml.md
+                    - Publisher Portal in Read Only Mode: manage-apis/design/api-security/authorization/publisher-portal-in-read-only-mode.md
+                - Secure APIs by Auditing API Definitions: manage-apis/design/api-security/configuring-api-security-audit.md
+                - Request-Response Schema Validation:
+                    - JSON Schema Validator: manage-apis/design/api-security/api-request-response-schema-validation/json-schema-validator.md
+                - OAuth2:
+                    - Token types:
+                        - JWT Access Tokens: manage-apis/design/api-security/oauth2/access-token-types/jwt-tokens.md
+                    - OAuth2 Scopes:
+                        - Role-Based Access Control with OAuth Scopes: manage-apis/design/api-security/oauth2/oauth2-scopes/fine-grained-access-control-with-oauth-scopes.md
+                        - Scope Whitelisting: manage-apis/design/api-security/oauth2/oauth2-scopes/scope-whitelisting.md
+                    - Grant Types:
+                        - Overview: manage-apis/design/api-security/oauth2/grant-types/overview.md
+                        - Password Grant: manage-apis/design/api-security/oauth2/grant-types/password-grant.md
+                        - Client Credentials Grant: manage-apis/design/api-security/oauth2/grant-types/client-credentials-grant.md
+                        - Authorization Code Grant: manage-apis/design/api-security/oauth2/grant-types/authorization-code-grant.md
+                        - Refresh Token Grant: manage-apis/design/api-security/oauth2/grant-types/refresh-token-grant.md
+                        - JWT Grant: manage-apis/design/api-security/oauth2/grant-types/jwt-grant.md
+                        - SAML Extension Grant: manage-apis/design/api-security/oauth2/grant-types/saml-extension-grant.md
+                        - Kerberos OAuth2 Grant: manage-apis/design/api-security/oauth2/grant-types/kerberos-oauth2-grant.md
+                        - NTLM Grant: manage-apis/design/api-security/oauth2/grant-types/ntlm-grant.md
+                    - Token Revocation: manage-apis/design/api-security/oauth2/token-revocation.md
+                    - Token Expiration: manage-apis/design/api-security/oauth2/token-expiration.md
+                    - Token Persistence: manage-apis/design/api-security/oauth2/token-persistence.md
+                    - Encrypting OAuth2 Tokens: manage-apis/design/api-security/oauth2/encrypting-oauth2-tokens.md
+                    - Hashing OAuth Keys: manage-apis/design/api-security/oauth2/hashing-oauth-keys.md
+                    - Multiple Active Access Tokens: manage-apis/design/api-security/oauth2/multiple-active-access-tokens.md
+                    - Provisioning Out-of-Band OAuth Clients: manage-apis/design/api-security/oauth2/provisioning-out-of-band-oauth-clients.md
+                    - Securing OAuth Token with HMAC Validation: manage-apis/design/api-security/oauth2/securing-oauth-token-with-hmac-validation.md
+                - Threat Protection:
+                    - Gateway Threat Protectors: manage-apis/design/api-security/threat-protection/gateway-threat-protectors/gateway-threat-protectors-for-api-manager.md
+                    - Regular Expression Threat Protection: manage-apis/deploy-and-publish/deploy-on-gateway/api-gateway/threat-protectors/regular-expression-threat-protection-for-api-gateway.md
+                    - JSON Threat Protection: manage-apis/deploy-and-publish/deploy-on-gateway/api-gateway/threat-protectors/json-threat-protection-for-api-gateway.md
+                    - XML Threat Protection: manage-apis/deploy-and-publish/deploy-on-gateway/api-gateway/threat-protectors/xml-threat-protection-for-api-gateway.md
+                - OpenID Connect:
+                    - Obtain User Profile Information with OpenID Connect: manage-apis/design/api-security/openid-connect/obtaining-user-profile-information-with-openid-connect.md
+                - Open Policy Agent (OPA) Validation:
+                    - Overview: manage-apis/design/api-security/opa-validation/overview.md
+                    - Custom OPA Policy for Regular Gateway: manage-apis/design/api-security/opa-validation/custom-opa-policy-for-regular-gateway.md
+            - Rate Limiting:
+                    - Throttling Use-Cases: manage-apis/design/rate-limiting/introducing-throttling-use-cases.md
+                    - Add New Throttling Policies: manage-apis/design/rate-limiting/adding-new-throttling-policies.md
+                    - Set Throttling Limits: manage-apis/design/rate-limiting/setting-throttling-limits.md
+                    - Reset Application Throttling Policies: manage-apis/design/rate-limiting/resetting-application-throttling-policies.md
+                    - Access Control: manage-apis/design/rate-limiting/access-control.md
+                    - Enforce Throttling and Resource Access Policies: manage-apis/design/rate-limiting/enforce-throttling-and-resource-access-policies.md
+                    - Set Maximum Backend Throughput Limits: manage-apis/design/rate-limiting/setting-maximum-backend-throughput-limits.md
+                    - Rate Limiting for Streaming APIs: manage-apis/design/rate-limiting/rate-limiting-for-streaming-apis.md
+                    - Rate Limiting for AI APIs: manage-apis/design/rate-limiting/rate-limiting-for-ai-apis.md
+                    - Query Limits for GraphQL:
+                        - Overview: manage-apis/design/rate-limiting/graphql-api/overview-query-limits-for-graphql.md
+                        - Query Depth Limit: manage-apis/design/rate-limiting/graphql-api/query-depth-limitation.md
+                        - Query Complexity Limit: manage-apis/design/rate-limiting/graphql-api/query-complexity-limitation.md
+                    - Advanced Topics:
+                        - Custom Rate Limiting: manage-apis/design/rate-limiting/advanced-topics/custom-throttling.md
+                        - Distributed Burst Control, Backend Rate Limiting for API Gateway Cluster: manage-apis/design/rate-limiting/advanced-topics/configuring-rate-limiting-api-gateway-cluster.md
+            - API Monetization:
+                - Monetize an API: manage-apis/design/api-monetization/monetizing-an-api.md
+            - B2B API Management:
+                - B2B API Consumption: manage-apis/design/b2b-api-management/api-consumption.md
+                - Setup WSO2 Identity Server as a Federated Authenticator: manage-apis/design/b2b-api-management/setup-identity-server.md
+            - Advanced Topics:
+                - Enable Publisher Access Control: manage-apis/design/advanced-topics/enable-publisher-access-control-in-api-publisher-portal.md
+                - Control API Visibility and Subscription Availability in the Developer Portal: manage-apis/design/advanced-topics/control-api-visibility-and-subscription-availability-in-developer-portal.md
+                - Enable CORS for APIs: manage-apis/design/advanced-topics/enabling-cors-for-apis.md
+                - Add an API State Change Workflow: manage-apis/design/advanced-topics/adding-an-api-state-change-workflow.md
+                - Block Subscription to an API: manage-apis/design/advanced-topics/block-subscription-to-an-api.md
+                - Disable Subscription Requirement for an API: manage-apis/design/advanced-topics/disable-subscriptions-for-an-api.md
+                - Validate API Definitions with Linters: manage-apis/design/advanced-topics/validate-api-definitions-with-linters.md
+                - API Governance CLI Tool: manage-apis/design/advanced-topics/api-governance-cli-tool.md
+        - Deploy and Publish APIs:
+            - Deploy on Gateway:
+                - Deploy API:
+                    - Deploy an API: manage-apis/deploy-and-publish/deploy-on-gateway/deploy-api/deploy-an-api.md
+                    - Expose APIs via Custom Hostnames: manage-apis/deploy-and-publish/deploy-on-gateway/deploy-api/exposing-apis-via-custom-hostnames.md
+                    - Deploy Through Multiple API Gateways: manage-apis/deploy-and-publish/deploy-on-gateway/deploy-api/deploy-through-multiple-api-gateways.md
+                    - Revision Deployment Workflow: manage-apis/deploy-and-publish/deploy-on-gateway/deploy-api/revision-deployment-workflow.md
+                - Universal Gateway:
+                    - Overview of the WSO2 Universal Gateway: manage-apis/deploy-and-publish/deploy-on-gateway/api-gateway/overview-of-the-api-gateway.md
+                    - Gateway Policies: manage-apis/deploy-and-publish/deploy-on-gateway/api-gateway/gateway-policies.md
+                    - Response Caching: manage-apis/deploy-and-publish/deploy-on-gateway/api-gateway/response-caching.md
+                    - Threat Protectors:
+                        - Regular Expression Threat Protection: manage-apis/deploy-and-publish/deploy-on-gateway/api-gateway/threat-protectors/regular-expression-threat-protection-for-api-gateway.md
+                        - JSON Threat Protection: manage-apis/deploy-and-publish/deploy-on-gateway/api-gateway/threat-protectors/json-threat-protection-for-api-gateway.md
+                        - XML Threat Protection: manage-apis/deploy-and-publish/deploy-on-gateway/api-gateway/threat-protectors/xml-threat-protection-for-api-gateway.md
+                    - Pass End User Attributes to the Backend: manage-apis/deploy-and-publish/deploy-on-gateway/api-gateway/passing-enduser-attributes-to-the-backend-via-api-gateway.md
+                    - Gateway Environments: manage-apis/deploy-and-publish/deploy-on-gateway/api-gateway/maintaining-separate-production-and-sandbox-gateways.md
+                    - Scale the Gateway: manage-apis/deploy-and-publish/deploy-on-gateway/api-gateway/scaling-the-gateway.md
+                    - Advanced Topics:
+                        - Universal Gateways with Dedicated Backends: manage-apis/deploy-and-publish/deploy-on-gateway/api-gateway/api-gateways-with-dedicated-backends.md
+                        - Mutual SSL Between Universal Gateway and Backend: manage-apis/deploy-and-publish/deploy-on-gateway/api-gateway/mutual-ssl-between-api-gateway-and-backend.md
+                        - Storing Custom Synapse Artifacts in the Gateway: manage-apis/deploy-and-publish/deploy-on-gateway/api-gateway/custom-synapse-artifacts.md
+            - Publish on Developer Portal:
+                - Publish an API: manage-apis/deploy-and-publish/publish-on-dev-portal/publish-an-api.md
+                - Add a Third-party API: manage-apis/deploy-and-publish/publish-on-dev-portal/third-party-api-support.md
+                - Publish to Multiple External API Developer Portals: manage-apis/deploy-and-publish/publish-on-dev-portal/publish-to-multiple-external-api-stores.md
+                - Import APIs From AWS API-Gateway to WSO2 API-M: manage-apis/deploy-and-publish/publish-on-dev-portal/publish-aws-apis-in-the-dev-portal.md
+            - Federated Gateways:
+                  - Overview: manage-apis/deploy-and-publish/deploy-on-gateway/federated-gateways/overview.md
+                  - AWS:
+                    - Deploy on AWS API Gateway: manage-apis/deploy-and-publish/federated-gateways/aws/deploy-on-aws-api-gateway.md
+                    - Discover APIs on AWS API Gateway: manage-apis/deploy-and-publish/federated-gateways/aws/discover-apis-on-aws-api-gateway.md
+                  - Kong:
+                    - Discover APIs on Kong Gateway: manage-apis/deploy-and-publish/federated-gateways/kong/discover-apis-on-kong-gateway.md
+                  - Configure a Custom Gateway Agent: manage-apis/deploy-and-publish/deploy-on-gateway/federated-gateways/configure-custom-gateway-agent.md
     - Consume APIs:
         - Consume APIs - Overview: consume/consume-api-overview.md
         - Discover APIs:
@@ -278,14 +279,14 @@ nav:
             - Generate Keys:
                 - Application Keys: consume/manage-application/generate-keys/generate-api-keys.md
                 - Grant Types:
-                    - Password Grant: design/api-security/oauth2/grant-types/password-grant.md
-                    - Client Credentials Grant: design/api-security/oauth2/grant-types/client-credentials-grant.md
-                    - JWT Grant: design/api-security/oauth2/grant-types/jwt-grant.md
-                    - Kerberos OAuth2 Grant: design/api-security/oauth2/grant-types/kerberos-oauth2-grant.md
-                    - Refresh Token Grant: design/api-security/oauth2/grant-types/refresh-token-grant.md
-                    - Authorization Code Grant: design/api-security/oauth2/grant-types/authorization-code-grant.md
-                    - SAML Extension Grant: design/api-security/oauth2/grant-types/saml-extension-grant.md
-                    - NTLM Grant: design/api-security/oauth2/grant-types/ntlm-grant.md
+                    - Password Grant: manage-apis/design/api-security/oauth2/grant-types/password-grant.md
+                    - Client Credentials Grant: manage-apis/design/api-security/oauth2/grant-types/client-credentials-grant.md
+                    - JWT Grant: manage-apis/design/api-security/oauth2/grant-types/jwt-grant.md
+                    - Kerberos OAuth2 Grant: manage-apis/design/api-security/oauth2/grant-types/kerberos-oauth2-grant.md
+                    - Refresh Token Grant: manage-apis/design/api-security/oauth2/grant-types/refresh-token-grant.md
+                    - Authorization Code Grant: manage-apis/design/api-security/oauth2/grant-types/authorization-code-grant.md
+                    - SAML Extension Grant: manage-apis/design/api-security/oauth2/grant-types/saml-extension-grant.md
+                    - NTLM Grant: manage-apis/design/api-security/oauth2/grant-types/ntlm-grant.md
             - Obtain Access Token:
                 - Overview of Access Tokens: consume/manage-application/generate-keys/obtain-access-token/overview-of-access-tokens.md
                 - Access Tokens Per Device: consume/manage-application/generate-keys/obtain-access-token/access-tokens-per-device.md
@@ -370,36 +371,36 @@ nav:
             - API Documentation YAML Representation: reference/governance/api-doc-yaml-representation.md
     - Monitoring:
         - API Analytics:
+            - Overview: monitoring/api-analytics/analytics-overview.md
             - Choreo Based Analytics:
-                - Architecture: api-analytics/choreo-analytics/api-analytics-architecture.md
-                - Getting Started Guide: api-analytics/choreo-analytics/getting-started-guide.md
-                - Role-based Access Control : api-analytics/choreo-analytics/role-based-access-control.md
-                - Alerts: api-analytics/choreo-analytics/configure-alerts.md
-                - Choreo Based Analytics via Proxy: api-analytics/choreo-analytics/choreo-based-analytics-via-proxy.md
+                - Architecture: monitoring/api-analytics/choreo-analytics/api-analytics-architecture.md
+                - Getting Started Guide: monitoring/api-analytics/choreo-analytics/getting-started-guide.md
+                - Role-based Access Control : monitoring/api-analytics/choreo-analytics/role-based-access-control.md
+                - Alerts: monitoring/api-analytics/choreo-analytics/configure-alerts.md
+                - Choreo Based Analytics via Proxy: monitoring/api-analytics/choreo-analytics/choreo-based-analytics-via-proxy.md
             - Other Analytics Solutions: 
-                - ELK Based Analytics Installation Guide: api-analytics/on-prem/elk-installation-guide.md
-                - Datadog Analytics Installation Guide : api-analytics/on-prem/datadog-installation-guide.md
-                - OpenSearch Analytics Installation Guide: api-analytics/on-prem/opensearch-installation-guide.md
-            - Moesif Analytics: api-analytics/moesif-analytics/moesif-integration-guide.md
-            - Publish Analytics Events to External Systems: api-analytics/samples/publishing-analytics-events-to-external-systems.md
-            - Publish Custom Analytics Events Data: api-analytics/samples/publishing-custom-analytics-data.md
-    - Observe:
-        - Observability Overview: observe/observe-overview.md
-        - API Manager:
+                - ELK Based Analytics Installation Guide: monitoring/api-analytics/on-prem/elk-installation-guide.md
+                - Datadog Analytics Installation Guide : monitoring/api-analytics/on-prem/datadog-installation-guide.md
+                - OpenSearch Analytics Installation Guide: monitoring/api-analytics/on-prem/opensearch-installation-guide.md
+            - Moesif Analytics: monitoring/api-analytics/moesif-analytics/moesif-integration-guide.md
+            - Publish Analytics Events to External Systems: monitoring/api-analytics/samples/publishing-analytics-events-to-external-systems.md
+            - Publish Custom Analytics Events Data: monitoring/api-analytics/samples/publishing-custom-analytics-data.md
+        - Observability:
+            - Overview: monitoring/observability/observability-overview.md
             - Logs:
-                - Configure Logs: observe/api-manager/configuring-logging.md
-                - Correlation Logs: observe/api-manager/monitoring-correlation-logs.md
-                - HTTP Access Logs: observe/api-manager/monitoring-http-access-logs.md
-                - Audit Logs: observe/api-manager/monitoring-audit-logs.md
-                - API Logs: observe/api-manager/monitoring-api-logs.md
-                - Websocket Logs : observe/api-manager/monitoring-websocket-logs.md
+                - Configure Logs: monitoring/observability/configuring-logging.md
+                - Correlation Logs: monitoring/observability/monitoring-correlation-logs.md
+                - HTTP Access Logs: monitoring/observability/monitoring-http-access-logs.md
+                - Audit Logs: monitoring/observability/monitoring-audit-logs.md
+                - API Logs: monitoring/observability/monitoring-api-logs.md
+                - Websocket Logs : monitoring/observability/monitoring-websocket-logs.md
                 - External Observability Solutions:
-                    - OpenSearch: observe/api-manager/monitoring-with-opensearch.md
+                    - OpenSearch: monitoring/observability/monitoring-with-opensearch.md
             - Traces:
-                - OpenTracing: observe/api-manager/traces/monitoring-with-opentracing.md
-                - OpenTelemetry: observe/api-manager/traces/monitoring-with-opentelemetry.md
+                - OpenTracing: monitoring/observability/traces/monitoring-with-opentracing.md
+                - OpenTelemetry: monitoring/observability/traces/monitoring-with-opentelemetry.md
             - Metrics:
-                - JMX-Based Monitoring: observe/api-manager/metrics/jmx-based-monitoring.md
+                - JMX-Based Monitoring: monitoring/observability/metrics/jmx-based-monitoring.md
     - Reference:
         - Product REST APIs:
             - Overview: reference/product-apis/overview.md
