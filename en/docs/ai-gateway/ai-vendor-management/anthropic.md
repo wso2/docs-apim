@@ -52,7 +52,7 @@ The following configurations are **read-only** and cannot be modified:
             </td>
         </tr>
         <tr>
-            <td><strong>Connector Type for AI/LLM Service Provider</strong></td>
+            <td><strong>Connector Type for AI Service Provider</strong></td>
             <td>
                 • Connector Type
             </td>

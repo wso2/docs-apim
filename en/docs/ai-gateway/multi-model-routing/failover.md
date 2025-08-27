@@ -42,7 +42,7 @@ You can configure failover for your AI API by attaching the **Model Failover** p
 
 
 !!! note "AWS Bedrock Configuration"
-    If you are configuring **AWS Bedrock** as your provider, you must select both the **Provider** (model family) and the **Model** for each target and fallback model entry. The **Provider** dropdown lists the model families you have set up in the Admin Portal (such as Meta, Anthropic, DeepSeek, etc.), and once a provider is selected, the **Model** dropdown will display the specific models available under that provider.
+    If you are configuring a multi model provider service, you must select both the **Provider** (model family) and the **Model** for each target and fallback model entry. The **Provider** dropdown lists the model families you have set up in the Admin Portal (such as Meta, Anthropic, DeepSeek, etc.), and once a provider is selected, the **Model** dropdown will display the specific models available under that provider.
 
     [![AWS Bedrock Failover Policy Configuration]({{base_path}}/assets/img/learn/ai-gateway/aws-bedrock-failover-policy-configuration.png){: style="width:40%"}]({{base_path}}/assets/img/learn/ai-gateway/aws-bedrock-failover-policy-configuration.png)
 

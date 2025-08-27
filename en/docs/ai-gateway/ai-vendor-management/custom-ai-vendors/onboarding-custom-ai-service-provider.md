@@ -128,11 +128,11 @@ Before creating a custom AI service provider, ensure you have:
 
     **For API Key Authentication:**
     - Type: `authHeader`
-    - Identifier: Header name (e.g., `x-api-key`, `authorization`, `api-key`)
+    - Identifier: Header name (e.g., `x-api-key`, `Authorization`, `api-key`)
 
     **For Bearer Token Authentication:**
     - Type: `authHeader`
-    - Identifier: `authorization`
+    - Identifier: `Authorization`
 
     **For Custom Authentication:**
     - Type: `authHeader`
