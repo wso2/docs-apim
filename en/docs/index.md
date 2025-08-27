@@ -30,8 +30,8 @@ template: templates/single-column.html
         width: 100%;
         margin: 0 auto;
         display: flex;
-        justify-content: left;
-        align-items: left;
+        justify-content: flex-start;
+        align-items: flex-start;
         flex-wrap: wrap;
     }
 
@@ -48,10 +48,9 @@ template: templates/single-column.html
         font-size: 16px;
         transition: all 0.6s ease;
         position: relative;
-        justify-content: left;
-        align-items: left;
+        justify-content: flex-start;
+        align-items: flex-start;
         flex-direction: row;
-        transition: all 0.3s ease;
         width: 100%;
     }
 
@@ -68,9 +67,9 @@ template: templates/single-column.html
     }
 
     .card-content {
-        justify-content: left;
+        justify-content: flex-start;
         display: flex;
-        align-items: left;
+        align-items: flex-start;
         text-align: left;
         flex-direction: column;
     }
@@ -108,8 +107,8 @@ template: templates/single-column.html
     }
 
     .rowAlignmentProductNameIcon {
-        justify-content: left;
-        align-items: left;
+        justify-content: flex-start;
+        align-items: flex-start;
         display: flex;
         gap: 10px;
         flex-direction: row;
@@ -138,7 +137,6 @@ template: templates/single-column.html
         justify-content: space-between;
     }
     .tile {
-        display: inline-block;
         vertical-align: top;
         background-color: rgba(255, 255, 255, 0.03);
         padding: 50px;
@@ -190,7 +188,7 @@ template: templates/single-column.html
     }
     .view-all-button {
         display: inline-block;
-        background-color: none;
+        background-color: transparent;
         color: var(--text-color) !important;
         text-decoration: none;
         border-radius: 5px;
@@ -354,7 +352,7 @@ template: templates/single-column.html
 <div class="homePage">
     <div class="description-section">
         <div class="leftContent">
-            </br>
+            <br />
             <p>
                 WSO2 API Manager is a complete platform for building, integrating, and exposing your digital services as managed APIs in the cloud, on-premise, and hybrid architectures to drive your digital transformation strategy. 
             </p>
@@ -363,7 +361,7 @@ template: templates/single-column.html
                 managers to create API products from one or more APIs.
             </p>
         </div>
-        <div class="md-main .md-content " style="float:right; width: 55%; align:right;  flex-shrink: 0;min-width: 30%; max-height: 100%; max-width:40%; margin-left:5px; margin-top:50px; margin-right:90px">
+        <div class="md-main md-content " style="float:right; width: 55%; text-align: right;  flex-shrink: 0;min-width: 30%; max-height: 100%; max-width:40%; margin-left:5px; margin-top:50px; margin-right:90px">
         <iframe width="800" height="250" src="https://www.youtube.com/embed/nr1cFyxVdDw" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
         </div>
     </div>
@@ -403,13 +401,13 @@ template: templates/single-column.html
         <h3>Components</h3>
         <hr/>
         <p>WSO2 API Manager offers multiple components designed to work together to solve the challenges of diverse infrastructure requirements. A unified control plane supporting multiple gateways provides deployment flexibility, minimizes downtime, and provides scalability and resource optimization by allowing independent component management, flexible deployment packages, and seamless upgrades and maintenance. For more information see <a href="{{base_path}}/get-started/apim-architecture/">Architecture.</a></p>
-        </br>
-        </br>
+        <br/>
+        <br/>
         <div class="component-section">
             <div>
                 <div>
                     <h4>Control Plane</h4>
-                    </br>
+                    <br/>
                 </div>
                 <div class="content">
                     <!-- begin card -->
@@ -440,7 +438,7 @@ template: templates/single-column.html
             <div>
                 <div>
                     <h4>Data Plane</h4>
-                    </br>
+                    <br/>
                 </div>
                 <div class="content">
                     <!-- begin card -->
@@ -525,7 +523,7 @@ template: templates/single-column.html
                                     </div>
                                 </div>
                                 <hr/>
-                                <p class="removeTopMargin">Manage APIs spaning multiple cloud platforms, on-premises systems, or regions</p>
+                                <p class="removeTopMargin">Manage APIs spanning multiple cloud platforms, on-premises systems, or regions</p>
                                 <div>
                                     <ul>
                                         <li><a href="{{base_path}}/manage-apis/deploy-and-publish/deploy-on-gateway/federated-gateways/deploy-on-aws-api-gateway/">AWS API Gateway</a></li>
