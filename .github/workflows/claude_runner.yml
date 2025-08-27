@@ -193,7 +193,7 @@ jobs:
                 --system-prompt "${{ github.workspace }}/.claude/system_prompt.txt"
                 --max-turns 10
                 --model claude-sonnet-4-20250514
-                --allowedTools bash web-search
+                --allowedTools 'Edit,MultiEdit,Write,Read,Glob,Grep,LS,Bash(git:*),Bash(bun:*),Bash(npm:*),Bash(npx:*),Bash(gh:*)'
                 
 
       - name: Remove 'claude:in-progress' label
