@@ -24,7 +24,7 @@ jobs:
         id: run-claude
         uses: anthropics/claude-code-base-action@beta
         with:
-          prompt_file: ".claude/prompt.txt"
+          prompt_file: ".claude/system_prompt.txt"
           anthropic_api_key: ${{ secrets.ANTHROPIC_API_KEY }}
 
       - name: Remove 'claude:in-progress' label
