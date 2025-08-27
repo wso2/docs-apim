@@ -11,7 +11,7 @@ AI Gateway gives you the ability to create AI APIs, which serve as a bridge betw
 
 1. Login to the Publisher Portal (`https://<hostname>:9443/publisher`).
 
-2. Create an **AI/LLM API** by clicking on **Create AI/LLM API**.
+2. Create an **AI API** by clicking on **Create AI API**.
 
     [![Select AI API]({{base_path}}/assets/img/learn/ai-gateway/select-ai-api.png){: style="width:90%"}]({{base_path}}/assets/img/learn/ai-gateway/select-ai-api.png)
 

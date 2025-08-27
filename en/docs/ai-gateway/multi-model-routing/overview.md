@@ -20,7 +20,7 @@ We cater to your multi-model routing requirements via **AI Policies**. Listed be
 
 Before moving into the routing stratergy enforcement be sure to complete the following two prerequisites:
 
-- Add the AI/LLM Service Provider supported **model list** under the Admin Portal
+- Add the AI Service Provider supported **model list** under the Admin Portal
 - Add the required **endpoints** alongside the API Key for AI service access
 
 Detailed below is how to complete these two prerequisites:
@@ -30,10 +30,10 @@ Detailed below is how to complete these two prerequisites:
 Make sure to add the model list you desire to utilize prior to moving into the AI policy configuraiton section.
 
 !!! tip
-     Note that the models that are listed under the corresponding AI/LLM Service Provider gets listed down as available models at the time of policy configuration. 
+     Note that the models that are listed under the corresponding AI Service Provider gets listed down as available models at the time of policy configuration. 
 
 1. Login to the Admin Portal (`https://<hostname>:9443/admin`).
-2. Navigate to **AI/LLM Service Providers** section from the left menu.
+2. Navigate to **AI Service Providers** section from the left menu.
 3. Select the Service Provider which you used to create your AI API.
 4. Find the `Model List` section and make sure to add in the models which you used to consume using the AI API. You can do so by typing in the model name and pressing `Enter` to add them.
 5. Once the model list is added, click on **Update** to save the changes you made to the AI Service Provider.
