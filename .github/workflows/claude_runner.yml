@@ -6,7 +6,7 @@ on:
 
 jobs:
   run-claude:
-    if: contains(github.event.comment.body, '@claude')
+    if: contains(github.event.comment.body, '@AI-Agent')
     permissions:
       contents: write
       pull-requests: write
@@ -23,10 +23,11 @@ jobs:
       - name: Claude Code Action
         uses: anthropics/claude-code-action@v1
         with:
+          trigger_phrase: '@AI-Agent'
           github_token: ${{ secrets._GITHUB_TOKEN }}
           anthropic_api_key: ${{ secrets.ANTHROPIC_API_KEY }} 
           claude_args: |
             -- model claude-4-0-sonnet-20250805
             -- system_prompt ${{github.workspace}}/.claude/system_prompt.txt
             -- max_runtime_minutes 60
-            -- allow_commit true
+
