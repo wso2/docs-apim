@@ -23,9 +23,9 @@ jobs:
       - name: Claude Code Action
         uses: anthropics/claude-code-action@v1
         with:
-          trigger_phrase: '@AI-Agent'
           github_token: ${{ secrets._GITHUB_TOKEN }}
           anthropic_api_key: ${{ secrets.ANTHROPIC_API_KEY }} 
+          trigger_phrase: '@AI-Agent'
           claude_args: |
             -- model claude-sonnet-4-20250514
             -- system_prompt ${{github.workspace}}/.claude/system_prompt.txt
