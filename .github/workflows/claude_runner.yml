@@ -21,9 +21,9 @@ jobs:
           fetch-depth: 0
 
       - name: Claude Code Action
+        if: contains(github.event.comment.body, '@AI-Agent')
         uses: anthropics/claude-code-action@v1
         with:
-          trigger_keyword: '@AI-Agent' 
           github_token: ${{ secrets._GITHUB_TOKEN }}
           anthropic_api_key: ${{ secrets.ANTHROPIC_API_KEY }} 
           claude_args: |
