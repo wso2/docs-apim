@@ -256,7 +256,7 @@ If you are not including the keystore and truststore in the Docker image, you ca
 #### 1.3 Encrypting Secrets
 
 The apictl can be used to encrypt passwords as in the below steps.
-For further guidance, refer [Encrypting Secrets with apictl](https://apim.docs.wso2.com/en/latest/install-and-setup/setup/api-controller/encrypting-secrets-with-ctl/).
+For further guidance, refer [Encrypting Secrets with apictl]({{base_path}}/install-and-setup/setup/api-controller/encrypting-secrets-with-ctl)
 
 - Initialize the apictl using the trust store.
   ```bash
@@ -267,7 +267,7 @@ For further guidance, refer [Encrypting Secrets with apictl](https://apim.docs.w
 
     ```
     apictl secret init
-    Enter Key Store location: /home/wso2mi-4.3.0/repository/resources/security/wso2carbon.jks
+    Enter Key Store location: /home/wso2apim-4.3.0/repository/resources/security/wso2carbon.jks
     Enter Key Store password: 
     Enter Key alias: wso2carbon
     Enter Key password: 
@@ -306,7 +306,7 @@ For further guidance, refer [Encrypting Secrets with apictl](https://apim.docs.w
 
     Response:
     ```
-    db_password : eKALmLVA+HFVl7vqLUUhm6o0Vwsap+L6czwyEKWKomX+AcRmOCAHmiujPXPAZUboWJlZi4k0CwZYAvwD4BflbU8j5CCrtESzOlOrkJaJPormf/ViixRbftae2RqaDozPSEp9zSnfDKlKDXRq==
+    db_password : eKALmLVA+HFVl7vxxxxxxxxxxxxxxxxxxxxxxxxxxxjakhHN
     ```
 
 - Replace all the above listed values with the encrypted values in the relevant fields of `values.yaml`.
