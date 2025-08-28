@@ -21,7 +21,7 @@ jobs:
           fetch-depth: 0
 
       - name: Claude Code Action
-        uses: anthropics/claude-code-action@v1
+        uses: anthropics/claude-code-action@v1-dev
         with:
           prompt : ${{github.workspace}}/.claude/system_prompt.txt
           github_token: ${{ secrets._GITHUB_TOKEN }}
