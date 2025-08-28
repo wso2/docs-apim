@@ -18,6 +18,6 @@ With a comprehensive set of capabilities, the AI Gateway ensures secure and effi
 
 - **AI Service Provider Management**: Manage both default and custom AI Service Providers to streamline AI API administration.
 
-- **AI API Observability**: Track AI API usage statistics using [Analytics]({{base_path}}/api-analytics/choreo-analytics/api-analytics-architecture/) solutions.
+- **AI API Observability**: Track AI API usage statistics using [Analytics]({{base_path}}/monitoring/api-analytics/choreo-analytics/api-analytics-architecture/) solutions.
 
 By leveraging these capabilities, organizations can efficiently integrate, monitor, and scale AI APIs, unlocking the full potential of AI-driven applications.

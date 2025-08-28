@@ -2,7 +2,7 @@
 
 You have to **subscribe** to a published API before using it in your applications. The subscription process fulfills the authentication process and provides you with access tokens that you can use to invoke an API. 
 
-The examples here use the `PizzaShackAPI` REST API, which is [created]({{base_path}}/design/create-api/create-rest-api/create-a-rest-api) and [published]({{base_path}}/deploy-and-publish/publish-on-dev-portal/publish-an-api) to Developer Portal in WSO2 API Manager.
+The examples here use the `PizzaShackAPI` REST API, which is [created]({{base_path}}/manage-apis/design/create-api/create-rest-api/create-a-rest-api) and [published]({{base_path}}/manage-apis/deploy-and-publish/publish-on-dev-portal/publish-an-api) to Developer Portal in WSO2 API Manager.
 
 The following are the two methods available in the Developer Portal to subscribe an API to an application. 
 
@@ -45,7 +45,7 @@ The following are the two methods available in the Developer Portal to subscribe
         [![Edit grant types]({{base_path}}/assets/img/learn/edit-application-grant-types.png)]({{base_path}}/assets/img/learn/edit-application-grant-types.png)
         
     
-6.  Select the access token validity period and [scopes]({{base_path}}/design/api-security/oauth2/oauth2-scopes/fine-grained-access-control-with-oauth-scopes/) to generate an access token to invoke the API, then click **Next** to continue.
+6.  Select the access token validity period and [scopes]({{base_path}}/manage-apis/design/api-security/oauth2/oauth2-scopes/fine-grained-access-control-with-oauth-scopes/) to generate an access token to invoke the API, then click **Next** to continue.
     
 7.  Copy the generated access token. 
 
