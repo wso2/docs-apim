@@ -19,13 +19,22 @@ jobs:
         uses: actions/checkout@v4
         with:
           fetch-depth: 0
+      - name: Load system prompt
+        id: load_prompt
+        run: |
+          echo "SYSTEM_PROMPT<<EOF" >> $GITHUB_ENV
+          cat .claude/system_prompt.txt >> $GITHUB_ENV
+          echo "EOF" >> $GITHUB_ENV
 
       - name: Claude Code Action
-        uses: anthropics/claude-code-action@v1-dev
+        uses: anthropics/claude-code-action@v0
         with:
-          prompt : ${{github.workspace}}/.claude/system_prompt.txt
+          system_prompt : ${{ env.SYSTEM_PROMPT }}
           github_token: ${{ secrets._GITHUB_TOKEN }}
           anthropic_api_key: ${{ secrets.ANTHROPIC_API_KEY }} 
+          max_runtime_minutes: 60
+          allow_commit: true
+
           claude_args: |
             -- model claude-sonnet-4-20250514
             -- max_runtime_minutes 60
