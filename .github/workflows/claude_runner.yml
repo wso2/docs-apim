@@ -6,7 +6,7 @@ on:
 
 jobs:
   run-claude:
-    if: contains(github.event.comment.body, '@AI-Agent')
+    if: contains(github.event.comment.body, '@claude')
     permissions:
       contents: write
       pull-requests: write
@@ -21,7 +21,6 @@ jobs:
           fetch-depth: 0
 
       - name: Claude Code Action
-        if: contains(github.event.comment.body, '@AI-Agent')
         uses: anthropics/claude-code-action@v1
         with:
           github_token: ${{ secrets._GITHUB_TOKEN }}
