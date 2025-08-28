@@ -64,6 +64,6 @@ jobs:
           gh issue edit $ISSUE --remove-label "claude:queue"
           gh issue edit $ISSUE --add-label "claude:in-progress"
 
-          # Add trigger comment for ClaudeS
-          gh issue comment $ISSUE --body "@AI-Agent Please create a PR for this issue following repo conventions."
+          # Add trigger comment for Claude
+          gh issue comment $ISSUE --body "@claude Please create a PR for this issue following repo conventions."
 
