@@ -18,7 +18,7 @@ jobs:
       - uses: actions/checkout@v4
 
       - name: Claude Code Action
-        uses: anthropics/claude-code-action@v0
+        uses: anthropics/claude-code-action@v1
         with:
           github_token: ${{ secrets._GITHUB_TOKEN }}
           anthropic_api_key: ${{ secrets.ANTHROPIC_API_KEY }} 
