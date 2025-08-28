@@ -6,7 +6,7 @@ on:
 
 jobs:
   run-claude:
-    if: contains(github.event.comment.body, '@claude')
+    if: contains(github.event.comment.body, '@AI-Agent')
     permissions:
       contents: write
       pull-requests: write
@@ -23,7 +23,6 @@ jobs:
       - name: Claude Code Action
         uses: anthropics/claude-code-action@v1
         with:
-          prompt: "You are intelligent AI agent which automates documentation fixes in GitHub repositories. It processes issues where @claude is tagged, determines the relevant version (from the issue or defaults to latest), and applies fixes for broken links, spelling, grammar, or formatting. For each version affected, it creates a separate branch and PR, verifies changes with `mkdocs build --strict`, and ensures only relevant files are modified. If a fix is not possible, it flags the issue for manual review. The agent handles multiple versions from 4.4.0 up to the latest version and cleans up branches after PR creation."
           github_token: ${{ secrets._GITHUB_TOKEN }}
           anthropic_api_key: ${{ secrets.ANTHROPIC_API_KEY }} 
           claude_args: |
