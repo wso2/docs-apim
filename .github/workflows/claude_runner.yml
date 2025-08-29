@@ -39,6 +39,7 @@ jobs:
         id: load_prompt
         run: |
           echo "SYSTEM_PROMPT<<EOF" >> $GITHUB_ENV
+          echo ${{github.workspace}}
           cat ${{github.workspace}}/.claude/system_prompt.txt >> $GITHUB_ENV
           echo "EOF" >> $GITHUB_ENV
 
