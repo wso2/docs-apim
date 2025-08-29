@@ -60,4 +60,4 @@ jobs:
           prompt: ${{ env.SYSTEM_PROMPT }}
           claude_args: |
             --allowedTools "Bash(git:*),mcp__github__create_pull_request"
-            --timeout 900
+            
