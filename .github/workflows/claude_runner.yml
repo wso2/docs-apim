@@ -44,8 +44,7 @@ jobs:
           git fetch --all
           git remote -v
           if git show-ref --verify --quiet refs/remotes/origin/${VERSION}; then
-            
-            
+            echo "✅ Branch ${VERSION} found"
             git checkout -b fix/${{ github.event.issue.number }} origin/${VERSION}
           else
             echo "❌ Branch ${VERSION} not found"
@@ -72,7 +71,7 @@ jobs:
         run: |
           claude \
             --system_prompt "$SYSTEM_PROMPT" \
-            -- anthropic_api_key "$ANTHROPIC_API_KEY" \
+            -- anthropic-api-key "$ANTHROPIC_API_KEY" \
             --max_runtime_minutes 60 \
             --allow_commit true \
             --create_pr true \
