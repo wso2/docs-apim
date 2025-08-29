@@ -22,7 +22,7 @@ jobs:
           echo "EOF" >> $GITHUB_ENV
 
           # Example: look for "Version: xyz"
-          VERSION=$(echo "${{ github.event.issue.body }}" | grep -oP '(?<=Version: )\S+')
+          VERSION=$(echo "$ISSUE_BODY" | grep -oP '(?<=Version[: -]+)\S+')
           echo "VERSION=$VERSION" >> $GITHUB_ENV
 
       - name: Checkout repository with all branches
