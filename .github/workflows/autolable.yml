@@ -1,0 +1,68 @@
+name: Claude Code • auto-label issues
+
+on:
+  issues:
+    types: [opened, edited]
+
+jobs:
+  auto-label:
+    runs-on: ubuntu-latest
+    name: Auto-label issues for Claude processing
+    permissions:
+      issues: write
+    steps:
+      # Checkout repo (required if you later read files)
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      # Install GitHub CLI and Claude CLI
+      - name: Install GitHub & Claude CLI
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y gh
+          npm install -g @anthropic-ai/claude-code
+    
+      - name: Classify issue via Claude API
+        env:
+            ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+            GITHUB_TOKEN: ${{ secrets._GITHUB_TOKEN }}
+            ISSUE_NUMBER: ${{ github.event.issue.number }}
+            
+            ISSUE_TITLE: ${{ github.event.issue.title }}
+            ISSUE_BODY: ${{ github.event.issue.body }}
+        run: |
+           echo "Sending issue to Claude for classification..."
+           echo "Anthropic API Key: $ANTHROPIC_API_KEY"
+
+            # Build JSON payload safely with jq to escape newlines/quotes
+            PROMPT="You are a GitHub issue classifier. Read the issue title and body carefully. Classify the issue into one of these categories: broken-links, spelling-mistakes, grammatical-errors, formatting-issues, none. Return ONLY the category name. And if the issue does not fit any category, return 'none'.
+    
+            Title: $ISSUE_TITLE
+            Body: $ISSUE_BODY"
+
+                DATA=$(jq -n --arg prompt "$PROMPT" '{
+                model: "claude-3-5-sonnet-20240620",
+                max_tokens: 50,
+                messages: [{role: "user", content: $prompt}]
+                }')
+
+                # Call Claude API with required anthropic-version header
+                RESPONSE=$(curl -s https://api.anthropic.com/v1/messages \
+                -H "Content-Type: application/json" \
+                -H "x-api-key: $ANTHROPIC_API_KEY" \
+                -H "anthropic-version: 2023-06-01" \
+                -d "$DATA")
+
+                echo "Claude response: $RESPONSE"
+
+                CATEGORY=$(echo "$RESPONSE" | jq -r '.content[0].text' | tr -d '\n' | tr '[:upper:]' '[:lower:]')
+                echo "Claude classified the issue as: $CATEGORY"
+
+                # Add claude:queue label if a valid category is returned
+                if [[ "$CATEGORY" != "" && "$CATEGORY" != "null" && "$CATEGORY" != "none" ]]; then
+                echo "Adding claude:queue label"
+                gh issue edit $ISSUE_NUMBER --add-label "claude:queue"
+                gh issue edit $ISSUE_NUMBER --add-label "$CATEGORY"
+                else
+                echo "No valid category returned. Not adding label."
+                fi

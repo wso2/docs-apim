@@ -1,0 +1,90 @@
+name: Claude Code • Auto PR on Comment
+
+on:
+  issue_comment:
+    types: [created]
+
+jobs:
+  run-claude:
+    if: contains(github.event.comment.body, '@claude')
+    runs-on: ubuntu-latest
+    permissions:
+      issues: write
+      contents: write
+      pull-requests: write
+      id-token: write
+
+    steps:
+      # Checkout repo
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0  # Fetch all history and branches
+
+      # Extract version from issue body (if any)
+    #   - name: Detect version from issue
+    #     id: version
+    #     run: |
+    #       ISSUE_BODY="${{ github.event.issue.body }}"
+    #       VERSION=$(echo "$ISSUE_BODY" | grep -oE "([0-9]+\.[0-9]+\.[0-9]+)" | head -1 || true)
+
+    #       if [ -z "$VERSION" ]; then
+    #         echo "⚠️ No version found in issue, using latest branch"
+    #         VERSION=$(git branch -r | grep "release/" | sed 's|.*/||' | sort -V | tail -1)
+    #       fi
+
+    #       echo "VERSION=$VERSION" >> $GITHUB_ENV
+    #       echo "Using version: $VERSION"
+
+      - name: Prepare system prompt with environment variables
+        id: prepare_prompt
+        run: |
+          # Install gettext if not available (for envsubst)
+          if ! command -v envsubst &> /dev/null; then
+            sudo apt-get update && sudo apt-get install -y gettext-base
+          fi
+          
+          # Export environment variables for substitution
+          export ISSUE_NUMBER="${{ github.event.issue.number }}"
+          export GITHUB_REPOSITORY="${{ github.repository }}"
+          export VERSION="${VERSION:-main}"
+          
+          # Process the system prompt with variable substitution
+          SYSTEM_PROMPT=$(envsubst < ${{github.workspace}}/.claude/system_prompt.txt)
+          
+          # Save to GitHub env
+          echo "SYSTEM_PROMPT<<EOF" >> $GITHUB_ENV
+          echo "$SYSTEM_PROMPT" >> $GITHUB_ENV
+          echo "EOF" >> $GITHUB_ENV
+          
+          # Also set these for Claude
+          echo "ISSUE_NUMBER=$ISSUE_NUMBER" >> $GITHUB_ENV
+          echo "GITHUB_REPO=$GITHUB_REPOSITORY" >> $GITHUB_ENV
+
+      - name: Run Claude
+        id: run_claude
+        uses: anthropics/claude-code-action@v1
+        env:
+          ISSUE_NUMBER: ${{ github.event.issue.number }}
+          GITHUB_REPOSITORY: ${{ github.repository }}
+          VERSION: ${{ env.VERSION }}
+        with:
+          anthropic_api_key: ${{ secrets.ANTHROPIC_API_KEY }}
+          github_token: ${{ secrets._GITHUB_TOKEN }}
+          prompt: ${{ env.SYSTEM_PROMPT }}
+          issue_number: ${{ github.event.issue.number }}
+          repo_owner: ${{ github.repository_owner }}
+          repo_name: ${{ github.event.repository.name }}
+          claude_args: |
+            --allowedTools "Bash(git:*),mcp__github__create_pull_request,mcp__github__get_issue,mcp__github__search_pull_requests,mcp__github__list_branches,Edit,Read,Write,mcp__github__update_issue"
+            --model claude-sonnet-4-20250514
+            
+      # Update labels based on Claude result
+      - name: Update labels on success
+        if: success() && steps.run_claude.outcome == 'success'
+        run: |
+          gh issue edit ${{ github.event.issue.number }} --remove-label "claude:in-progress" --add-label "claude:pr-created" --repo ${{ github.repository }}
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+
+
