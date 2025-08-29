@@ -58,3 +58,5 @@ jobs:
           anthropic_api_key: ${{ secrets.ANTHROPIC_API_KEY }}
           github_token: ${{ secrets._GITHUB_TOKEN }}
           prompt: ${{ env.SYSTEM_PROMPT }}
+          claude_args: |
+            --allowedTools "Bash(git:*),mcp__github__create_pull_request"
