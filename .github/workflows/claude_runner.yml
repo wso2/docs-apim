@@ -63,6 +63,11 @@ jobs:
     
 
       - name: Run Claude
+        env:
+          REPO_OWNER: ${{ secrets.REPO_OWNER }}
+          REPO_NAME: ${{ secrets.REPO_NAME }}
+          ORIGINAL_REPO: ${{ secrets.ORIGINAL_REPO}}
+          LATEST_VERSION: ${{secrets.LATEST_VERSION}}
         uses: anthropics/claude-code-action@v1
         with:
           anthropic_api_key: ${{ secrets.ANTHROPIC_API_KEY }}
