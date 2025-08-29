@@ -5950,6 +5950,228 @@
                 }
             ],
             "exampleFile": "service_provider.toml"
+        },
+        {
+            "title": "Databridge configurations",
+            "options": [
+                {
+                    "name": "transport.receiver",
+                    "required": false,
+                    "description": "This configuration header is required for managing the DataBridge receiver protocols and related properties over the binary protocol.",
+                    "params": [
+                        {
+                            "name": "ciphers",
+                            "type": "string",
+                            "required": false,
+                            "default": "",
+                            "possible": "TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256, TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256",
+                            "description": "Supported ciphers."
+                        },
+                        {
+                            "name": "enable",
+                            "type": "boolean",
+                            "required": false,
+                            "default": "true",
+                            "possible": "true, false",
+                            "description": "Enable Binary receiver."
+                        },
+                        {
+                            "name": "tcpPort",
+                            "type": "integer",
+                            "required": false,
+                            "default": "9611",
+                            "possible": "",
+                            "description": "Binary receiver TCP port."
+                        },
+                        {
+                            "name": "sslPort",
+                            "type": "integer",
+                            "required": false,
+                            "default": "9711",
+                            "possible": "",
+                            "description": "Binary receiver SSL port."
+                        },
+                        {
+                            "name": "sslEnabledProtocols",
+                            "type": "string",
+                            "required": false,
+                            "default": "TLSv1,TLSv1.1,TLSv1.2",
+                            "possible": "",
+                            "description": "Allowed SSL protocols."
+                        },
+                        {
+                            "name": "sslReceiverThreadPoolSize",
+                            "type": "integer",
+                            "required": false,
+                            "default": "100",
+                            "possible": "",
+                            "description": "Thread pool size for SSL."
+                        },
+                        {
+                            "name": "tcpReceiverThreadPoolSize",
+                            "type": "integer",
+                            "required": false,
+                            "default": "100",
+                            "possible": "",
+                            "description": "Thread pool size for TCP."
+                        }
+                    ]
+
+                },
+                {
+                    "name": "transport.binary.agent",
+                    "required": false,
+                    "description": "Specify the transport type either binary or thrift to configure the Data Agent, which handles event transmission to the DataBridge over the specified protocol.",
+                    "params": [
+                        {
+                            "name": "queue_size",
+                            "type": "integer",
+                            "required": false,
+                            "default": "32768",
+                            "possible": "",
+                            "description": "Size of the event queue."
+                        },
+                        {
+                            "name": "batch_size",
+                            "type": "integer",
+                            "required": false,
+                            "default": "200",
+                            "possible": "",
+                            "description": "Number of events per batch."
+                        },
+                        {
+                            "name": "core_pool_size",
+                            "type": "integer",
+                            "required": false,
+                            "default": "1",
+                            "possible": "",
+                            "description": "Core pool size for event handling threads."
+                        },
+                        {
+                            "name": "socket_timeout_ms",
+                            "type": "integer",
+                            "required": false,
+                            "default": "30000",
+                            "possible": "",
+                            "description": "Socket timeout in milliseconds."
+                        },
+                        {
+                            "name": "max_pool_size",
+                            "type": "integer",
+                            "required": false,
+                            "default": "1",
+                            "possible": "",
+                            "description": "Maximum number of threads in the pool."
+                        },
+                        {
+                            "name": "keep_alive_time_in_pool",
+                            "type": "integer",
+                            "required": false,
+                            "default": "20",
+                            "possible": "",
+                            "description": "Thread keep-alive time in seconds."
+                        },
+                        {
+                            "name": "reconnection_interval",
+                            "type": "integer",
+                            "required": false,
+                            "default": "250",
+                            "possible": "",
+                            "description": "Maximum size of the transport connection pool."
+                        },
+                        {
+                            "name": "max_transport_pool_size",
+                            "type": "integer",
+                            "required": false,
+                            "default": "250",
+                            "possible": "",
+                            "description": "Maximum number of connections allowed in the transport pool."
+                        },
+                        {
+                            "name": "max_idle_connections",
+                            "type": "integer",
+                            "required": false,
+                            "default": "250",
+                            "possible": "",
+                            "description": "Maximum number of idle connections that can be retained in the pool."
+                        },
+                        {
+                            "name": "eviction_time_period",
+                            "type": "integer",
+                            "required": false,
+                            "default": "5500",
+                            "possible": "",
+                            "description": "Time period (in milliseconds) to evict idle connections from the pool."
+                        },
+                        {
+                            "name": "min_idle_time_in_pool",
+                            "type": "integer",
+                            "required": false,
+                            "default": "5000",
+                            "possible": "",
+                            "description": "Minimum amount of time (in milliseconds) a connection should remain idle before being eligible for eviction."
+                        },
+                        {
+                            "name": "secure_max_transport_pool_size",
+                            "type": "integer",
+                            "required": false,
+                            "default": "250",
+                            "possible": "",
+                            "description": "Maximum number of connections in the transport pool for secure (SSL) connections."
+                        },
+                        {
+                            "name": "secure_max_idle_connections",
+                            "type": "integer",
+                            "required": false,
+                            "default": "250",
+                            "possible": "",
+                            "description": "Maximum number of idle secure connections allowed in the pool."
+                        },
+                        {
+                            "name": "secure_eviction_time_period",
+                            "type": "integer",
+                            "required": false,
+                            "default": "5500",
+                            "possible": "",
+                            "description": "Eviction time (in milliseconds) for idle secure connections in the pool."
+                        },
+                        {
+                            "name": "secure_min_idle_time_in_pool",
+                            "type": "integer",
+                            "required": false,
+                            "default": "5000",
+                            "possible": "",
+                            "description": "Minimum idle time (in milliseconds) for secure connections to remain in the pool before being considered for eviction."
+                        },
+                        {
+                            "name": "max_reconnection_interval",
+                            "type": "integer",
+                            "required": false,
+                            "default": "3600",
+                            "possible": "",
+                            "description": "Limits how long to wait between reconnection attempts."
+                        },
+                        {
+                            "name": "ciphers",
+                            "type": "string",
+                            "required": false,
+                            "default": "",
+                            "possible": "TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256, TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256",
+                            "description": "Supported ciphers."
+                        },
+                        {
+                            "name": "sslEnabledProtocols",
+                            "type": "string",
+                            "required": false,
+                            "default": "TLSv1,TLSv1.1,TLSv1.2",
+                            "possible": "",
+                            "description": "Allowed SSL protocols."
+                        }
+                        ]
+
+                }
+            ],
+            "exampleFile": "databridge.toml"
         }
     ]
 }
