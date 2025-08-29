@@ -41,9 +41,10 @@ jobs:
          GITHUB_TOKEN: ${{ secrets._GITHUB_TOKEN }}
         run: |
           git fetch --all
-          if git show-ref --verify --quiet refs/remotes/origin/release/${VERSION}; then
-            echo "✅ Branch ${VERSION} found"
-            echo "Origin:{git remote -v}"
+          git remote -v
+          if git show-ref --verify --quiet refs/remotes/origin/${VERSION}; then
+            
+            
             git checkout -b fix/${{ github.event.issue.number }} origin/${VERSION}
           else
             echo "❌ Branch ${VERSION} not found"
