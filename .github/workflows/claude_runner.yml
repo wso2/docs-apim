@@ -19,6 +19,8 @@ jobs:
       # Checkout repo
       - name: Checkout repository
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0  # Fetch all history and branches
 
       # Extract version from issue body (if any)
       - name: Detect version from issue
@@ -37,6 +39,8 @@ jobs:
 
           echo "VERSION=$VERSION" >> $GITHUB_ENV
           echo "Using version: $VERSION"
+      
+
       - name: Load system prompt
         id: load_prompt
         run: |
@@ -47,6 +51,7 @@ jobs:
           echo "SYSTEM_PROMPT=${{ env.SYSTEM_PROMPT }}"
 
       - name: Run Claude
+        id: run_claude
         env:
           REPO_OWNER: ${{ secrets.REPO_OWNER }}
           REPO_NAME: ${{ secrets.REPO_NAME }}
@@ -66,4 +71,16 @@ jobs:
           prompt: ${{ env.SYSTEM_PROMPT }}
           claude_args: |
             --allowedTools "Bash(git:*),mcp__github__create_pull_request"
+            --auto-approve
+            --max-turns 10
+            --model claude-3-sonnet-20240229
             
+      # Update labels based on Claude result
+      - name: Update labels on success
+        if: success() && steps.run_claude.outcome == 'success'
+        run: |
+          gh issue edit ${{ github.event.issue.number }} --remove-label "claude:in-progress" --add-label "claude:pr-created" --repo ${{ github.repository }}
+        env:
+          GH_TOKEN: ${{ secrets._GITHUB_TOKEN }}
+          
+
