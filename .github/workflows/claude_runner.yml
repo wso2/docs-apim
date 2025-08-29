@@ -25,6 +25,10 @@ jobs:
           echo "SYSTEM_PROMPT<<EOF" >> $GITHUB_ENV
           cat .claude/system_prompt.txt >> $GITHUB_ENV
           echo "EOF" >> $GITHUB_ENV
+      - name: Debug system prompt
+        run: |
+            echo "SYSTEM_PROMPT value is:"
+            echo "$SYSTEM_PROMPT"
 
       - name: Claude Code Action
         uses: anthropics/claude-code-action@v0
