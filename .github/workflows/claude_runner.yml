@@ -58,13 +58,13 @@ jobs:
           export PATH="$HOME/.bun/bin:$PATH"
           bun install -g @anthropic-ai/claude-code
 
-      # Load system prompt into env var
-      - name: Load system prompt
-        id: load_prompt
-        run: |
-          echo "SYSTEM_PROMPT<<EOF" >> $GITHUB_ENV
-          cat .claude/system_prompt.txt >> $GITHUB_ENV
-          echo "EOF" >> $GITHUB_ENV
+    #   # Load system prompt into env var
+    #   - name: Load system prompt
+    #     id: load_prompt
+    #     run: |
+    #       echo "SYSTEM_PROMPT<<EOF" >> $GITHUB_ENV
+    #       cat .claude/system_prompt.txt >> $GITHUB_ENV
+    #       echo "EOF" >> $GITHUB_ENV
 
       # Run Claude to solve issue and create PR
       - name: Run Claude and create PR
@@ -74,7 +74,7 @@ jobs:
           PATH: $HOME/.bun/bin:$PATH
         run: |
           claude \
-            --system_prompt "$SYSTEM_PROMPT" \
+            --system_prompt "${{ github.workspace }}/.claude/system_prompt.txt" \
             --anthropic-api-key "$ANTHROPIC_API_KEY" \
             --max_runtime_minutes 60 \
             --allow_commit true \
