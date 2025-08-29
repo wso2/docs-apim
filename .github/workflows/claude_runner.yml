@@ -14,6 +14,7 @@ jobs:
       pull-requests: write
       id-token: write
 
+
     steps:
       # Checkout repo
       - name: Checkout repository
@@ -60,4 +61,5 @@ jobs:
           prompt: ${{ env.SYSTEM_PROMPT }}
           claude_args: |
             --allowedTools "Bash(git:*),mcp__github__create_pull_request"
+            --allow_commit true
             
