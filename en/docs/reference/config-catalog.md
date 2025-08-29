@@ -996,7 +996,7 @@ claims_extractor_impl = "org.wso2.carbon.apimgt.impl.token.DefaultClaimsRetrieve
                                         
                                     </div>
                                     <div class="param-description">
-                                        <p>Fully qualified custom JWT generator to used in JWT(Self Contained) Access Tokens.</p>
+                                        <p> Fully qualified custom JWT generator to used in JWT(Self Contained) Access Tokens.</p>
                                     </div>
                                 </div>
                             </div><div class="param">
@@ -1015,7 +1015,7 @@ claims_extractor_impl = "org.wso2.carbon.apimgt.impl.token.DefaultClaimsRetrieve
                                         
                                     </div>
                                     <div class="param-description">
-                                        <p>List of claims that are not supposed to be included in the Backend JWT when using JWT (Self Contained) Access Tokens.</p>
+                                        <p> List of claims that are not supposed to be included in the Backend JWT when using JWT (Self Contained) Access Tokens.</p>
                                     </div>
                                 </div>
                             </div><div class="param">
@@ -1036,7 +1036,7 @@ claims_extractor_impl = "org.wso2.carbon.apimgt.impl.token.DefaultClaimsRetrieve
                                         </div>
                                     </div>
                                     <div class="param-description">
-                                        <p>This disables the binding federated user claims to the backend JWT generator.</p>
+                                        <p> This disables the binding federated user claims to the backend JWT generator.</p>
                                     </div>
                                 </div>
                             </div><div class="param">
@@ -1057,7 +1057,7 @@ claims_extractor_impl = "org.wso2.carbon.apimgt.impl.token.DefaultClaimsRetrieve
                                         </div>
                                     </div>
                                     <div class="param-description">
-                                        <p>Specifies whether the backend JWT header should include the kid claim.</p>
+                                        <p> Specifies whether the backend JWT header should include the kid claim.</p>
                                     </div>
                                 </div>
                             </div><div class="param">
@@ -1078,7 +1078,7 @@ claims_extractor_impl = "org.wso2.carbon.apimgt.impl.token.DefaultClaimsRetrieve
                                         </div>
                                     </div>
                                     <div class="param-description">
-                                        <p>Specifies whether the certificate header is signed using the SHA256 algorithm. The default algorithm used to generate the header value is SHA1.</p>
+                                        <p> Specifies whether the certificate header is signed using the SHA256 algorithm. The default algorithm used to generate the header value is SHA1.</p>
                                     </div>
                                 </div>
                             </div><div class="param">
@@ -1099,8 +1099,7 @@ claims_extractor_impl = "org.wso2.carbon.apimgt.impl.token.DefaultClaimsRetrieve
                                         </div>
                                     </div>
                                     <div class="param-description">
-                                        <p>Determines whether the `x5t` value in the JWT header is Base64 URL-encoded without padding.  
-                                        Set to `true` for compatibility with tools and systems that expect unpadded `x5t` values.</p>
+                                        <p> Determines whether the `x5t` value in the JWT header is Base64 URL-encoded without padding. Set to `true` for compatibility with tools and systems that expect unpadded `x5t` values.</p>
                                     </div>
                                 </div>
                             </div>
