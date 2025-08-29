@@ -22,7 +22,8 @@ jobs:
           echo "EOF" >> $GITHUB_ENV
 
           # Example: look for "Version: xyz"
-          VERSION=$(echo "$ISSUE_BODY" | grep -oP '(?<=Version[: -]+)\S+')
+          VERSION=$(echo "$ISSUE_BODY" | sed -n 's/.*Version[: -]\{1,\}\([0-9.]\+\).*/\1/p')
+
           echo "VERSION=$VERSION" >> $GITHUB_ENV
 
       - name: Checkout repository with all branches
