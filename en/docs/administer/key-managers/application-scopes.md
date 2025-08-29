@@ -23,7 +23,7 @@ enable_application_scopes_for_resident_km = true
 
 For the Global Key Manager, the application scopes can be enabled by switching the toggle button in the Global Key Manager connector configuration section in the **Key Manager** page of the Admin Portal as follows.
 
-[![Enable Appplication Scopes for Global Key Manager]({{base_path}}/assets/img/administer/enable-application-scopes.png)]({{base_path}}/assets/img/administer/enable-application-scopes.png)
+[![Enable Application Scopes for Global Key Manager]({{base_path}}/assets/img/administer/enable-application-scopes.png)]({{base_path}}/assets/img/administer/enable-application-scopes.png)
 
 !!! Note
     By default, the application scopes are disabled for both the Resident Key Manager and Global Key Manager.
