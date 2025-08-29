@@ -12,6 +12,7 @@ jobs:
       issues: write
       contents: write
       pull-requests: write
+      id-token: write
 
     steps:
       # Checkout repo
