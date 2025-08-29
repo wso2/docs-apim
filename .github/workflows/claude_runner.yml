@@ -68,6 +68,7 @@ jobs:
       - name: Run Claude and create PR
         env:
           GITHUB_TOKEN: ${{ secrets._GITHUB_TOKEN }}
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
         run: |
           claude \
             --system_prompt "$SYSTEM_PROMPT" \
