@@ -35,6 +35,12 @@ jobs:
 
           echo "VERSION=$VERSION" >> $GITHUB_ENV
           echo "Using version: $VERSION"
+      - name: Load system prompt
+        id: load_prompt
+        run: |
+          echo "SYSTEM_PROMPT<<EOF" >> $GITHUB_ENV
+          cat ${{github.workspace}}/.claude/system_prompt.txt >> $GITHUB_ENV
+          echo "EOF" >> $GITHUB_ENV
 
       # Checkout the version branch
       - name: Switch to version branch
@@ -51,12 +57,7 @@ jobs:
             exit 1
           fi
 
-      - name: Load system prompt
-        id: load_prompt
-        run: |
-          echo "SYSTEM_PROMPT<<EOF" >> $GITHUB_ENV
-          cat ${{github.workspace}}/.claude/system_prompt.txt >> $GITHUB_ENV
-          echo "EOF" >> $GITHUB_ENV
+    
 
       - name: Run Claude
         uses: anthropics/claude-code-action@v1
