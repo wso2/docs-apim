@@ -55,9 +55,10 @@ jobs:
       - name: Claude Code Action
         uses: anthropics/claude-code-action@v1
         with:
-          prompt : ${{github.workspace}}/.claude/system_prompt.txt
+
           github_token: ${{ secrets._GITHUB_TOKEN }}
           anthropic_api_key: ${{ secrets.ANTHROPIC_API_KEY }} 
           claude_args: |
-            -- model claude-sonnet-4-20250514
-            -- max_runtime_minutes 60
+            --system-prompt "${{github.workspace}}/.claude/system_prompt.txt"
+            --max-turns 10
+            --model claude-sonnet-4-20250514
