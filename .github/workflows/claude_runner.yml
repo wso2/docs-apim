@@ -42,6 +42,7 @@ jobs:
           echo ${{github.workspace}}
           cat ${{github.workspace}}/.claude/system_prompt.txt >> $GITHUB_ENV
           echo "EOF" >> $GITHUB_ENV
+          echo "SYSTEM_PROMPT=${{ env.SYSTEM_PROMPT }}"
 
       # Checkout the version branch
       - name: Switch to version branch
