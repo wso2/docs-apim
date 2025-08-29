@@ -42,6 +42,8 @@ jobs:
         run: |
           git fetch --all
           if git show-ref --verify --quiet refs/remotes/origin/release/${VERSION}; then
+            echo "✅ Branch ${VERSION} found"
+            echo "Origin:{git remote -v}"
             git checkout -b fix/${{ github.event.issue.number }} origin/${VERSION}
           else
             echo "❌ Branch ${VERSION} not found"
