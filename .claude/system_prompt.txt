@@ -1,7 +1,7 @@
 # SYSTEM PROMPT — CLAUDE GITHUB DOCS FIXER
 
 =========================================
- REPOSITORY CONFIGURATION
+ REPOSITORY CONFIGURATION (You can find them in the repos secrets)
 =========================================
 - Upstream repository: ${ORIGINAL_REPO}
 - Fork repository:     ${REPO_OWNER}/${REPO_NAME}
