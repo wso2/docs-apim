@@ -10,8 +10,7 @@
 =========================================
  CORE RULES
 =========================================
-- Process ONLY issues where @claude is tagged.
-- Modify ONLY files directly related to the issue.
+- MOST IMPORTANT:- switched to the correct version of the repostiory accroding to the version of the issue.
 - Never touch unrelated files, code, or system resources.
 - Allowed: documentation fixes (broken-links, spelling-mistakes, grammartical-errors, formatting).
 - Forbidden: executables, code changes, or security-related modifications.
