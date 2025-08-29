@@ -39,4 +39,4 @@ Initially, the **Application Scopes** section will be empty and disabled if ther
 Now these scopes can be requested in the client credentials grant type token request. The scopes will be granted along with the other approved scopes.
 
 !!! tip
-    In order to govern, adding any scope as a application scope, application key generation workflow can be used. For more information, see [Configuring Key Generation Workflow]({{base_path}}/consume/manage-application/advanced-topics/adding-an-application-key-generation-workflow/).
+    In order to govern, adding any scope as an application scope, application key generation workflow can be used. For more information, see [Configuring Key Generation Workflow]({{base_path}}/consume/manage-application/advanced-topics/adding-an-application-key-generation-workflow/).
