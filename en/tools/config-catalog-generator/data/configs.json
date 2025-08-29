@@ -1056,6 +1056,14 @@
                             "default": "",
                             "possible": "",
                             "description": "You can provide a custom key validation handler implmentation. To do this, set the \"key_validation_handler_type\" to custom"
+                        },
+                        {
+                            "name": "enable_application_scopes_for_resident_km",
+                            "type": "boolean",
+                            "required": false,
+                            "default": "false",
+                            "possible": "true,false",
+                            "description": "Enable the application scopes for the Resident Key Manager."
                         }
                     ]
                 },
@@ -1079,14 +1087,6 @@
                             "default": "50",
                             "possible": "",
                             "description": "The maximum number of connections that will be created per host server by the client. Will have to increase this too, when required as similarly for the config max_total."
-                        },
-                        {
-                            "name": "enable_application_scopes_for_resident_km",
-                            "type": "boolean",
-                            "required": false,
-                            "default": "false",
-                            "possible": "true,false",
-                            "description": "Enable the application scopes for the Resident Key Manager."
                         }
                     ]
                 }
