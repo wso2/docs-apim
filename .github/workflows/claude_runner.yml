@@ -22,19 +22,19 @@ jobs:
           fetch-depth: 0  # Fetch all history and branches
 
       # Extract version from issue body (if any)
-      - name: Detect version from issue
-        id: version
-        run: |
-          ISSUE_BODY="${{ github.event.issue.body }}"
-          VERSION=$(echo "$ISSUE_BODY" | grep -oE "([0-9]+\.[0-9]+\.[0-9]+)" | head -1 || true)
+    #   - name: Detect version from issue
+    #     id: version
+    #     run: |
+    #       ISSUE_BODY="${{ github.event.issue.body }}"
+    #       VERSION=$(echo "$ISSUE_BODY" | grep -oE "([0-9]+\.[0-9]+\.[0-9]+)" | head -1 || true)
 
-          if [ -z "$VERSION" ]; then
-            echo "⚠️ No version found in issue, using latest branch"
-            VERSION=$(git branch -r | grep "release/" | sed 's|.*/||' | sort -V | tail -1)
-          fi
+    #       if [ -z "$VERSION" ]; then
+    #         echo "⚠️ No version found in issue, using latest branch"
+    #         VERSION=$(git branch -r | grep "release/" | sed 's|.*/||' | sort -V | tail -1)
+    #       fi
 
-          echo "VERSION=$VERSION" >> $GITHUB_ENV
-          echo "Using version: $VERSION"
+    #       echo "VERSION=$VERSION" >> $GITHUB_ENV
+    #       echo "Using version: $VERSION"
 
       - name: Prepare system prompt with environment variables
         id: prepare_prompt
