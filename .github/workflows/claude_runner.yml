@@ -65,7 +65,7 @@ jobs:
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
           PATH: $HOME/.bun/bin:$PATH
         run: |
-          claude \
+          - claude \
             --system_prompt "${{ github.workspace }}/.claude/system_prompt.txt" \
             --anthropic-api-key "$ANTHROPIC_API_KEY" \
             --max_runtime_minutes 60 \
