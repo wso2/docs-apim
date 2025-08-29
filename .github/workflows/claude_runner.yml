@@ -51,14 +51,16 @@ jobs:
             exit 1
           fi
 
-      # Run Claude to solve issue and create PR
-      - name: Claude Code Action
+      - name: Load system prompt
+        id: load_prompt
+        run: |
+          echo "SYSTEM_PROMPT<<EOF" >> $GITHUB_ENV
+          cat .claude/system_prompt.txt >> $GITHUB_ENV
+          echo "EOF" >> $GITHUB_ENV
+
+      - name: Run Claude
         uses: anthropics/claude-code-action@v1
         with:
-
+          anthropic_api_key: ${{ secrets.ANTHROPIC_API_KEY }}
           github_token: ${{ secrets._GITHUB_TOKEN }}
-          anthropic_api_key: ${{ secrets.ANTHROPIC_API_KEY }} 
-          claude_args: |
-            --system-prompt "${{github.workspace}}/.claude/system_prompt.txt"
-            --max-turns 10
-            --model claude-sonnet-4-20250514
+          system_prompt: ${{ env.SYSTEM_PROMPT }}
