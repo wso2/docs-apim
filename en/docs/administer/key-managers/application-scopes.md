@@ -4,9 +4,6 @@ Application scopes are configured at the application level as allowed scopes for
 
 Only the scopes which are available under the subscribed scopes (scopes available from all the subscribed APIs) can be added as application scopes.
 
-!!! Note
-    This feature is available only as an update and is available from update level 4.0.0.344 (released on 30th May 2025).
-
 ## Step 1 - Configuring Application Scopes
 
 Application scopes can be added to both **Resident Key Manager** and **Global Key Manager**.
@@ -34,7 +31,7 @@ To add application scopes, first navigate to the **DevPortal** and log in as an 
 
 Initially, the **Application Scopes** section will be empty and disabled if there are no subscribed APIs with scopes. Once you subscribe to an API that has scopes, the **Application Scopes** section will be enabled and scopes can be added as follows.
 
-[![Add Appplication Scopes for Global Key Manager]({{base_path}}/assets/img/administer/add-application-scopes.png)]({{base_path}}/assets/img/administer/add-application-scopes.png)
+[![Add Application Scopes for Global Key Manager]({{base_path}}/assets/img/administer/add-application-scopes.png)]({{base_path}}/assets/img/administer/add-application-scopes.png)
 
 Now these scopes can be requested in the client credentials grant type token request. The scopes will be granted along with the other approved scopes.
 
