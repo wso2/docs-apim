@@ -546,6 +546,7 @@ nav:
             - Configure a Custom Key Manager: administer/key-managers/configure-custom-connector.md
             - Configure the Global Key Manager: administer/key-managers/configure-global-key-manager.md
             - Configure the Azure AD as a Key Manager: administer/key-managers/configure-azure-ad-key-manager.md
+            - Application Scopes: administer/key-managers/application-scopes.md
         - Advanced Configurations: administer/advanced-configurations.md
         - Manage Role based access control for the Admin portal: administer/role-based-access-control.md
     - Install and Setup:
