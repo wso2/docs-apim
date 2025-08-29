@@ -15,10 +15,21 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      - name: Extract version/branch from issue
+        run: |
+          echo "ISSUE_BODY<<EOF" >> $GITHUB_ENV
+          echo "${{ github.event.issue.body }}" >> $GITHUB_ENV
+          echo "EOF" >> $GITHUB_ENV
+
+          # Example: look for "Version: xyz"
+          VERSION=$(echo "${{ github.event.issue.body }}" | grep -oP '(?<=Version: )\S+')
+          echo "VERSION=$VERSION" >> $GITHUB_ENV
+
       - name: Checkout repository with all branches
         uses: actions/checkout@v4
         with:
           fetch-depth: 0
+          ref: ${{ env.VERSION }}  # Checkout the branch based on the extracted version
       - name: Load system prompt
         id: load_prompt
         run: |
@@ -38,8 +49,4 @@ jobs:
           anthropic_api_key: ${{ secrets.ANTHROPIC_API_KEY }} 
           max_runtime_minutes: 60
           allow_commit: true
-
-          claude_args: |
-            -- model claude-sonnet-4-20250514
-            -- max_runtime_minutes 60
 
