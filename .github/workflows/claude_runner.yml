@@ -47,7 +47,7 @@ jobs:
           # Export environment variables for substitution
           export ISSUE_NUMBER="${{ github.event.issue.number }}"
           export GITHUB_REPOSITORY="${{ github.repository }}"
-          export VERSION="${{VERSION:-main}}"
+          export VERSION="${VERSION:-main}"
           
           # Process the system prompt with variable substitution
           SYSTEM_PROMPT=$(envsubst < ${{github.workspace}}/.claude/system_prompt.txt)
