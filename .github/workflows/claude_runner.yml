@@ -14,7 +14,6 @@ jobs:
       pull-requests: write
       id-token: write
 
-
     steps:
       # Checkout repo
       - name: Checkout repository
@@ -25,10 +24,7 @@ jobs:
       # Extract version from issue body (if any)
       - name: Detect version from issue
         id: version
-        env:
-         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          ls -la ${{github.workspace}}
           ISSUE_BODY="${{ github.event.issue.body }}"
           VERSION=$(echo "$ISSUE_BODY" | grep -oE "([0-9]+\.[0-9]+\.[0-9]+)" | head -1 || true)
 
@@ -39,31 +35,46 @@ jobs:
 
           echo "VERSION=$VERSION" >> $GITHUB_ENV
           echo "Using version: $VERSION"
-      
 
-      - name: Load system prompt
-        id: load_prompt
+      - name: Prepare system prompt with environment variables
+        id: prepare_prompt
         run: |
+          # Install gettext if not available (for envsubst)
+          if ! command -v envsubst &> /dev/null; then
+            sudo apt-get update && sudo apt-get install -y gettext-base
+          fi
+          
+          # Export environment variables for substitution
+          export ISSUE_NUMBER="${{ github.event.issue.number }}"
+          export GITHUB_REPOSITORY="${{ github.repository }}"
+          export VERSION="${{VERSION:-main}}"
+          
+          # Process the system prompt with variable substitution
+          SYSTEM_PROMPT=$(envsubst < ${{github.workspace}}/.claude/system_prompt.txt)
+          
+          # Save to GitHub env
           echo "SYSTEM_PROMPT<<EOF" >> $GITHUB_ENV
-          echo ${{github.workspace}}
-          cat ${{github.workspace}}/.claude/system_prompt.txt >> $GITHUB_ENV
+          echo "$SYSTEM_PROMPT" >> $GITHUB_ENV
           echo "EOF" >> $GITHUB_ENV
-          echo "SYSTEM_PROMPT=${{ env.SYSTEM_PROMPT }}"
+          
+          # Also set these for Claude
+          echo "ISSUE_NUMBER=$ISSUE_NUMBER" >> $GITHUB_ENV
+          echo "GITHUB_REPO=$GITHUB_REPOSITORY" >> $GITHUB_ENV
 
       - name: Run Claude
         id: run_claude
-        env:
-          REPO_OWNER: ${{ secrets.REPO_OWNER }}
-          REPO_NAME: ${{ secrets.REPO_NAME }}
-          ORIGINAL_REPO: ${{ secrets.ORIGINAL_REPO}}
-          LATEST_VERSION: ${{secrets.LATEST_VERSION}}
-          ISSUE_NUMBER: ${{ github.event.issue.number }}
-          ISSUE_BODY: ${{ github.event.issue.body }}
         uses: anthropics/claude-code-action@v1
+        env:
+          ISSUE_NUMBER: ${{ github.event.issue.number }}
+          GITHUB_REPOSITORY: ${{ github.repository }}
+          VERSION: ${{ env.VERSION }}
         with:
           anthropic_api_key: ${{ secrets.ANTHROPIC_API_KEY }}
-          github_token: ${{ secrets.GITHUB_TOKEN }}
+          github_token: ${{ github.token }}
           prompt: ${{ env.SYSTEM_PROMPT }}
+          issue_number: ${{ github.event.issue.number }}
+          repo_owner: ${{ github.repository_owner }}
+          repo_name: ${{ github.event.repository.name }}
           claude_args: |
             --allowedTools "Bash(git:*),mcp__github__create_pull_request"
             --max-turns 10
@@ -75,6 +86,6 @@ jobs:
         run: |
           gh issue edit ${{ github.event.issue.number }} --remove-label "claude:in-progress" --add-label "claude:pr-created" --repo ${{ github.repository }}
         env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ github.token }}
 
 
