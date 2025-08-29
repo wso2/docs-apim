@@ -30,7 +30,7 @@ This method uses a static root token to authenticate with HashiCorp Vault, provi
 1. Clone [HashiCorp Vault extension](https://github.com/wso2-extensions/carbon-securevault-hashicorp/tree/master) repo.
 
 2. Build the HashiCorp Vault Integration OSGI bundle using `mvn clean install` command and copy
-   the `target/org.wso2.carbon.securevault.hashicorp-1.0.jar` file to the `<API-M_HOME>/repository/components/dropin/`
+   the `target/org.wso2.carbon.securevault.hashicorp-1.0.jar` file to the `<API-M_HOME>/repository/components/dropins/`
    directory.
 
 3. Add **HashiCorp Vault Java Driver** (e.g., `vault-java-driver-5.1.0.jar`) to the
