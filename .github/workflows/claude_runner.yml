@@ -66,4 +66,4 @@ jobs:
         with:
           anthropic_api_key: ${{ secrets.ANTHROPIC_API_KEY }}
           github_token: ${{ secrets._GITHUB_TOKEN }}
-          system_prompt: ${{ env.SYSTEM_PROMPT }}
+          prompt: ${{ env.SYSTEM_PROMPT }}
