@@ -42,9 +42,9 @@ jobs:
         run: |
           git fetch --all
           if git show-ref --verify --quiet refs/remotes/origin/release/${VERSION}; then
-            git checkout -b fix/${{ github.event.issue.number }} origin/release/${VERSION}
+            git checkout -b fix/${{ github.event.issue.number }} origin/${VERSION}
           else
-            echo "❌ Branch release/${VERSION} not found"
+            echo "❌ Branch ${VERSION} not found"
             exit 1
           fi
 
