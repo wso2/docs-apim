@@ -996,7 +996,7 @@ claims_extractor_impl = "org.wso2.carbon.apimgt.impl.token.DefaultClaimsRetrieve
                                         
                                     </div>
                                     <div class="param-description">
-                                        <p>Fully qualified custom JWT generator to used in JWT(Self Contained) Access Tokens.</p>
+                                        <p> Fully qualified custom JWT generator to used in JWT(Self Contained) Access Tokens.</p>
                                     </div>
                                 </div>
                             </div><div class="param">
@@ -1015,7 +1015,7 @@ claims_extractor_impl = "org.wso2.carbon.apimgt.impl.token.DefaultClaimsRetrieve
                                         
                                     </div>
                                     <div class="param-description">
-                                        <p>List of claims that are not supposed to be included in the Backend JWT when using JWT (Self Contained) Access Tokens.</p>
+                                        <p> List of claims that are not supposed to be included in the Backend JWT when using JWT (Self Contained) Access Tokens.</p>
                                     </div>
                                 </div>
                             </div><div class="param">
@@ -1036,7 +1036,7 @@ claims_extractor_impl = "org.wso2.carbon.apimgt.impl.token.DefaultClaimsRetrieve
                                         </div>
                                     </div>
                                     <div class="param-description">
-                                        <p>This disables the binding federated user claims to the backend JWT generator.</p>
+                                        <p> This disables the binding federated user claims to the backend JWT generator.</p>
                                     </div>
                                 </div>
                             </div>

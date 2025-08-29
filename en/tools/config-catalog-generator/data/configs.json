@@ -343,6 +343,30 @@
                             "default": "",
                             "possible": "true, false",
                             "description": " Enable to add user claims to the backend JWT token. This will provide the user claims related to the authorized user to the default Keymanager implementation. For custom keymanager implementations, implement the getUserClaims() in the KeyManager implementation."
+                        },
+                        {
+                            "name": "gateway_generator.impl",
+                            "type": "string",
+                            "required": false,
+                            "default": "org.wso2.carbon.apimgt.gateway.handlers.security.jwt.generator.APIMgtGatewayJWTGeneratorImpl",
+                            "possible": "",
+                            "description": " Fully qualified custom JWT generator to used in JWT(Self Contained) Access Tokens."
+                        },
+                        {
+                            "name": "gateway_generator.excluded_claims",
+                            "type": "string",
+                            "required": false,
+                            "default": "",
+                            "possible": "",
+                            "description": " List of claims that are not supposed to be included in the Backend JWT when using JWT (Self Contained) Access Tokens."
+                        },
+                        {
+                            "name": "binding_federated_user_claims",
+                            "type": "boolean",
+                            "required": false,
+                            "default": "true",
+                            "possible": "true, false",
+                            "description": " This disables the binding federated user claims to the backend JWT generator."
                         }
                     ]
                 }
