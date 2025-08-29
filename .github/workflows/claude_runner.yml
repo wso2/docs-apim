@@ -26,7 +26,7 @@ jobs:
       - name: Detect version from issue
         id: version
         env:
-         GITHUB_TOKEN: ${{ secrets._GITHUB_TOKEN }}
+         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           ls -la ${{github.workspace}}
           ISSUE_BODY="${{ github.event.issue.body }}"
@@ -62,16 +62,10 @@ jobs:
         uses: anthropics/claude-code-action@v1
         with:
           anthropic_api_key: ${{ secrets.ANTHROPIC_API_KEY }}
-          issue_number: ${{ github.event.issue.number }}
-          repo_owner: ${{ secrets.REPO_OWNER }}
-          repo_name: ${{ secrets.REPO_NAME }}
-          original_repo: ${{ secrets.ORIGINAL_REPO }}
-          latest_version: ${{secrets.LATEST_VERSION}}
-          github_token: ${{ secrets._GITHUB_TOKEN }}
+          github_token: ${{ secrets.GITHUB_TOKEN }}
           prompt: ${{ env.SYSTEM_PROMPT }}
           claude_args: |
             --allowedTools "Bash(git:*),mcp__github__create_pull_request"
-            --auto-approve
             --max-turns 10
             --model claude-3-sonnet-20240229
             
@@ -81,6 +75,6 @@ jobs:
         run: |
           gh issue edit ${{ github.event.issue.number }} --remove-label "claude:in-progress" --add-label "claude:pr-created" --repo ${{ github.repository }}
         env:
-          GH_TOKEN: ${{ secrets._GITHUB_TOKEN }}
-          
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
 
