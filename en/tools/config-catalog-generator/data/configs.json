@@ -1064,6 +1064,14 @@
                             "default": "",
                             "possible": "",
                             "description": "You can provide a custom key validation handler implmentation. To do this, set the \"key_validation_handler_type\" to custom"
+                        },
+                        {
+                            "name": "enable_application_scopes_for_resident_km",
+                            "type": "boolean",
+                            "required": false,
+                            "default": "false",
+                            "possible": "true,false",
+                            "description": "Enable the application scopes for the Resident Key Manager."
                         }
                     ]
                 },
