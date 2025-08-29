@@ -76,7 +76,7 @@ jobs:
           repo_owner: ${{ github.repository_owner }}
           repo_name: ${{ github.event.repository.name }}
           claude_args: |
-            --allowedTools "Bash(git:*),mcp__github__create_pull_request,mcp__github__get_issue,mcp__github__search_pull_requests"
+            --allowedTools "Bash(git:*),mcp__github__create_pull_request,mcp__github__get_issue,mcp__github__search_pull_requests,mcp__github__list_branches"
             --max-turns 10
             --model claude-sonnet-4-20250514
             
