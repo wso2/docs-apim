@@ -45,29 +45,14 @@ jobs:
           echo "EOF" >> $GITHUB_ENV
           echo "SYSTEM_PROMPT=${{ env.SYSTEM_PROMPT }}"
 
-      # Checkout the version branch
-      - name: Switch to version branch
-        env:
-         GITHUB_TOKEN: ${{ secrets._GITHUB_TOKEN }}
-        run: |
-          git fetch --all
-          git remote -v
-          if git show-ref --verify --quiet refs/remotes/origin/${VERSION}; then
-            echo "✅ Branch ${VERSION} found"
-            git checkout -b fix/${{ github.event.issue.number }} origin/${VERSION}
-          else
-            echo "❌ Branch ${VERSION} not found"
-            exit 1
-          fi
-
-    
-
       - name: Run Claude
         env:
           REPO_OWNER: ${{ secrets.REPO_OWNER }}
           REPO_NAME: ${{ secrets.REPO_NAME }}
           ORIGINAL_REPO: ${{ secrets.ORIGINAL_REPO}}
           LATEST_VERSION: ${{secrets.LATEST_VERSION}}
+          ISSUE_NUMBER: ${{ github.event.issue.number }}
+          ISSUE_BODY: ${{ github.event.issue.body }}
         uses: anthropics/claude-code-action@v1
         with:
           anthropic_api_key: ${{ secrets.ANTHROPIC_API_KEY }}
