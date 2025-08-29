@@ -71,6 +71,7 @@ jobs:
         run: |
           claude \
             --system_prompt "$SYSTEM_PROMPT" \
+            -- anthropic_api_key "$ANTHROPIC_API_KEY" \
             --max_runtime_minutes 60 \
             --allow_commit true \
             --create_pr true \
