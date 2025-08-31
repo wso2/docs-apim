@@ -85,6 +85,7 @@ Broken Links > Spelling > Grammar > Documentation > Suggestions
   - Verification: mkdocs build --strict passed  
 
 - Remove only workflow labels (AI-Agent/In-Progress).
+- Add 'AI_Agent/In-Progress' label to the issue.
 
 =========================================
  ERROR HANDLING
