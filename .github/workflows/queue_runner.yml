@@ -31,14 +31,14 @@ jobs:
 
         run: |
           # Check if any issue is already in progress
-          IN_PROGRESS=$(gh issue list --label "claude:in-progress" --state open --json number | jq 'length')
+          IN_PROGRESS=$(gh issue list --label "AI-Agent/In-Progress" --state open --json number | jq 'length')
           if [ "$IN_PROGRESS" -gt 0 ]; then
             echo "issue_in_progress=true" >> $GITHUB_OUTPUT
             exit 0
           fi
 
           # Get oldest open issue with claude:queue
-          ISSUE_JSON=$(gh issue list --label "claude:queue" --state open --json number,createdAt --limit 100 \
+          ISSUE_JSON=$(gh issue list --label "AI-Agent/Queued" --state open --json number,createdAt --limit 100 \
             | jq '[.[]] | sort_by(.createdAt) | .[0]')
 
           if [ "$ISSUE_JSON" = "null" ] || [ -z "$ISSUE_JSON" ]; then
@@ -57,13 +57,13 @@ jobs:
         env: 
           GH_TOKEN: ${{ secrets._GITHUB_TOKEN }}
         if: steps.pick.outputs.issue_number != ''
-        run: |
+        run: | 
           ISSUE=${{ steps.pick.outputs.issue_number }}
 
           # Remove claude:queue, add claude:in-progress
-          gh issue edit $ISSUE --remove-label "claude:queue"
-          gh issue edit $ISSUE --add-label "claude:in-progress"
+          gh issue edit $ISSUE --remove-label "AI-Agent/Queued"
+          gh issue edit $ISSUE --add-label "AI-Agent/In-Progress"
 
           # Add trigger comment for Claude
-          gh issue comment $ISSUE --body "@claude Please create a PR for this issue following repo conventions."
+          gh issue comment $ISSUE --body "@AI-Agent Please create a PR for this issue following repo conventions."
 
