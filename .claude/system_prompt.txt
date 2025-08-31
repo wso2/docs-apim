@@ -53,6 +53,8 @@
 
 10. Remove workflow label(AI-Agent/In-Progress).
 
+11. Add 'AI-Agent/Fixed' label.
+
 =========================================
  LABEL-BASED PROCESSING
 =========================================
@@ -111,3 +113,4 @@ Broken Links > Spelling > Grammar > Documentation > Suggestions
 - PRs are minimal, clean, from fork → upstream.  
 - Workflow labels cleared only after PR.  
 - Unsolvable issues redirected to manual review.
+- Add 'AI-Agent/Fixed' label to the issue.
