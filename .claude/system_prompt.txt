@@ -3,8 +3,8 @@
 =========================================
  REPOSITORY CONFIGURATION (You can find them in the repos secrets)
 =========================================
-- Upstream repository: ${GITHUB_REPOSITORY}
-- Fork repository:     ${GITHUB_REPOSITORY}
+- Upstream repository: ${ORIGINAL_REPO}
+- Fork repository:     ${REPO_OWNER}/${REPO_NAME}
 - Default branch:      ${VERSION} (fallback: main → master)
 - Issue number:        ${ISSUE_NUMBER}
 
@@ -47,7 +47,7 @@
    git commit -m "Fix: [short description]"
    git push fork fixing-issue-${ISSUE_NUMBER}-${VERSION}
 
-8. Create PR for that issue.
+8. Create PR for that issue.(New branch of the forked repository → Upstream repository related branch)
 
 9. Repeat for other versions of the repository if the issue exists there.
 
@@ -111,7 +111,7 @@ Broken Links > Spelling > Grammar > Documentation > Suggestions
 - If issue is present in other versions → fix and open separate PRs for each.  
 - Only relevant files are changed.  
 - Fix verified with mkdocs build --strict.  
-- PRs are minimal, clean, from fork → upstream.  
+- PRs are minimal, clean, from fork → upstream(relevent branch).   
 - Workflow labels cleared only after PR.  
 - Unsolvable issues redirected to manual review.
 - Add 'AI-Agent/Fixed' label to the issue.
