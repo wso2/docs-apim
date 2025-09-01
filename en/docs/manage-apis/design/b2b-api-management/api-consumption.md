@@ -42,18 +42,18 @@ For more information on setting up WSO2 Identity Server 7.1.0, see [Setup WSO2 I
 
 3. Add new local claim to store organization ID. For that go to  Home > Identity > Claims > Add and select `Add Local Claim` and fill the form. Use Claim URI as  [http://wso2.org/claims/organizationId](http://wso2.org/claims/organizationId )
 
-    ![Add new claim]({{base_path}}/assets/img/design/b2b/claims.png) 
+    ![Add local claim]({{base_path}}/assets/img/design/b2b/claims.png) 
 
 
 4. Add `org_id` and `org_name` to oidc claims and map them to [http://wso2.org/claims/organizationId](http://wso2.org/claims/organizationId ) and [http://wso2.org/claims/organization](http://wso2.org/claims/organization) local claims. For that go to  Home > Identity > Claims> Add and select `Add External Claim`
 
-    ![Add new claim]({{base_path}}/assets/img/design/b2b/add-claim-1.png) 
+    ![Add external claim]({{base_path}}/assets/img/design/b2b/add-claim-1.png) 
       
-    ![Add new claim]({{base_path}}/assets/img/design/b2b/add-claim-2.png) 
+    ![Add external claim]({{base_path}}/assets/img/design/b2b/add-claim-2.png) 
 
 5. Once added, it will be visible under the http://wso2.org/oidc/claim claim
 
-    ![Add new claim]({{base_path}}/assets/img/design/b2b/claim-view.png) 
+    ![Claim view]({{base_path}}/assets/img/design/b2b/claim-view.png) 
 
 6. Now we need to configure WSO2 IS 7.1 as a federated IDP for API Manager. For that. Create a new Identity provider by selecting `Identity Providers` → `Add`. Set a name to the IDP
 
