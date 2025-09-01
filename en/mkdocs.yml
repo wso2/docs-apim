@@ -338,6 +338,7 @@ nav:
                 - OpenTelemetry: observe/api-manager/traces/monitoring-with-opentelemetry.md
             - Metrics:
                 - JMX-Based Monitoring: observe/api-manager/metrics/jmx-based-monitoring.md
+                - Prometheus for Monitoring: observe/api-manager/metrics/prometheus-for-monitoring.md
     - Reference:
         - Product REST APIs:
             - Overview: reference/product-apis/overview.md
