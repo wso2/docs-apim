@@ -68,7 +68,7 @@ Let's see how to add a comment and how to reply to a comment:
 ## Share API link on social media
 
 !!! note
-    WSO2 API Manager generates sharable links for Facebook, Twitter, and Reddit out-of-the-box. However, the API sharing options for Facebook, Twitter, and Reddit will appear in the Developer Portal only if the administrator has [enabled this sharing feature.]({{base_path}}/design/api-collaborations/enable-social-media-interaction/#enable-sharing-api-links-on-social-media)
+    WSO2 API Manager generates sharable links for Facebook, Twitter, and Reddit out-of-the-box. However, the API sharing options for Facebook, Twitter, and Reddit will appear in the Developer Portal only if the administrator has [enabled this sharing feature.]({{base_path}}/manage-apis/design/api-collaborations/enable-social-media-interaction/#enable-sharing-api-links-on-social-media)
 
 1.  Sign in to the Developer Portal.
 
@@ -91,7 +91,7 @@ Let's see how to add a comment and how to reply to a comment:
 ## Access GitHub and Slack URLs
 
 !!! note
-    The GitHub and Slack URLs will appear in the Developer Portal only if the [API Publisher has defined these URLs for the API.]({{base_path}}/design/api-collaborations/enable-social-media-interaction/#add-github-and-slack-channel-urls-to-an-api)
+    The GitHub and Slack URLs will appear in the Developer Portal only if the [API Publisher has defined these URLs for the API.]({{base_path}}/manage-apis/design/api-collaborations/enable-social-media-interaction/#add-github-and-slack-channel-urls-to-an-api)
 
 1. Sign in to the Developer Portal.
 

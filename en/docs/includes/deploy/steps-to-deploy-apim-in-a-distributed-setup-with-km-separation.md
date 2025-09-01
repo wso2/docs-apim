@@ -29,7 +29,7 @@ For more information, see [Creating SSL Certificates](../../../../install-and-se
 
 API Manager Analytics is delivered via the API Manager Analytics cloud solution. You need to configure the Universal Gateway to publish analytics data to the cloud.
 
-See the instructions on [configuring the Gateway](../../../../api-analytics/choreo-analytics/getting-started-guide/) with the cloud-based analytics solution.
+See the instructions on [configuring the Gateway](../../../../monitoring/api-analytics/choreo-analytics/getting-started-guide/) with the cloud-based analytics solution.
 
 ### Step 6 - Configure and start the component nodes
 
@@ -113,7 +113,7 @@ Follow the steps given below to configure the Key Manager nodes to communicate w
 
         ```
 
-3. If required, encrypt the Auth Keys (access tokens, client secrets, and authorization codes), see [Encrypting OAuth Keys](../../../../design/api-security/oauth2/encrypting-oauth2-tokens).
+3. If required, encrypt the Auth Keys (access tokens, client secrets, and authorization codes), see [Encrypting OAuth Keys](../../../../manage-apis/design/api-security/oauth2/encrypting-oauth2-tokens).
 
 4. Follow the steps given below to configure High Availability (HA) for the Key Manager nodes:
 
@@ -265,9 +265,9 @@ Follow the instructions given below to configure the Gateway node so that it can
 
 1. Open the `<UNIVERSAL-GW_HOME>/repository/conf/deployment.toml` file of the Gateway node.
 
-2. Add the following configurations to the deployment.toml file.
+2. Add the following configurations to the deployment.toml file. 
 
-   * **Connecting the Gateway to the API Control Plane node**:
+    - **Connect the Gateway to the API Control Plane node**:
      
      
     === "API Control Plane with High Availability"
@@ -295,7 +295,7 @@ Follow the instructions given below to configure the Gateway node so that it can
     !!! Info
         Event hub configuration is used to retrieve Gateway artifacts. Using `event_listening_endpoints`, the Gateway will create a JMS connection with the event hub that is then used to subscribe for API/Application/Subscription and Key Manager operations-related events. The `service_url` points to the internal API that resides in the event hub that is used to pull artifacts and information from the database.
 
-    * **Connecting the Gateway to the Key Manager node**:
+    - **Connecting the Gateway to the Key Manager node**:
       
     === "Key Manager with HA"
         ```toml
@@ -353,15 +353,33 @@ Follow the instructions given below to configure the Gateway node so that it can
 
     !!! Info
         Once an API is deployed/undeployed, the Control Plane will send a deploy/undeploy event to the Gateways. Using this configuration, the Gateway will filter out its relevant deploy/undeploy events and retrieve the artifacts.
+        
 
-4. Enable JSON Web Token (JWT) if required. For instructions, see [Generating JSON Web Token](../../../../deploy-and-publish/deploy-on-gateway/api-gateway/passing-enduser-attributes-to-the-backend-via-api-gateway).
+4. Add the following configuration to set a unique identifier for each Gateway node when setting up a distributed deployment on VMs.
 
-5. Add the public certificate of the private key (that is used for signing the tokens) to the truststore under the "gateway_certificate_alias" alias. For instructions, see [Create and import SSL certificates](../../../../install-and-setup/setup/security/configuring-keystores/keystore-basics/creating-new-keystores).
+    === "Format"
+        ```toml
+        [apim.gateway_notification]
+        gateway_id = "<unique-gateway-id>"
+        ```
+
+    === "Example"
+        ```toml
+        [apim.gateway_notification]
+        gateway_id = "gateway_00"
+        ```
+
+    !!! Info
+        To further optimize the gateway notification feature, you can use additional `gateway_notification` configurations. For more information, see [API-M Revision Deployment Monitoring](../../../../reference/config-catalog/#api-m-revision-deployment-monitoring).
+
+5. Enable JSON Web Token (JWT) if required. For instructions, see [Generating JSON Web Token](../../../../manage-apis/deploy-and-publish/deploy-on-gateway/api-gateway/passing-enduser-attributes-to-the-backend-via-api-gateway).
+
+6. Add the public certificate of the private key (that is used for signing the tokens) to the truststore under the "gateway_certificate_alias" alias. For instructions, see [Create and import SSL certificates](../../../../install-and-setup/setup/security/configuring-keystores/keystore-basics/creating-new-keystores).
 
     !!! Note
         This is not applicable if you use the default certificates, which are the certificates that are shipped with the product itself.
 
-6. Follow the steps given below to configure High Availability (HA) for the Universal Gateway:
+7. Follow the steps given below to configure High Availability (HA) for the Universal Gateway:
 
     1. Create a copy of the WSO2 Universal Gateway node that you just configured. This is the second node of the Gateway cluster.
 
@@ -612,7 +630,7 @@ Follow the steps given below to configure the Control Plane nodes to communicate
         ```
 
     !!! Info
-        This configuration is used for deploying APIs to the Gateway and for connecting the Developer Portal component to the Gateway if the Gateway is shared across tenants. If the Gateway is not used in multiple tenants, you can create a [Gateway Environment using the Admin Portal](../../../../deploy-and-publish/deploy-on-gateway/deploy-api/exposing-apis-via-custom-hostnames/#using-a-new-gateway-environment-to-expose-apis-via-custom-hostnames).  
+        This configuration is used for deploying APIs to the Gateway and for connecting the Developer Portal component to the Gateway if the Gateway is shared across tenants. If the Gateway is not used in multiple tenants, you can create a [Gateway Environment using the Admin Portal](../../../../manage-apis/deploy-and-publish/deploy-on-gateway/deploy-api/exposing-apis-via-custom-hostnames/#using-a-new-gateway-environment-to-expose-apis-via-custom-hostnames).  
 
         Note that in the above configurations, the `service_url` points to the `9443` port of the Gateway node, while `http_endpoint` and `https_endpoint` points to the `http` and `https nio ports` (8280 and 8243).
     
@@ -661,7 +679,7 @@ Follow the steps given below to configure the Control Plane nodes to communicate
     !!! Info
         As there are two event hubs in a HA setup, each event hub has to publish events to both event streams. This will be done through the event streams created with `apim.event_hub.publish.url_group`. The token revocation events that are received to an event hub will be duplicated to the other event hub using `event_duplicate_url`.
 
-3. If required, encrypt the Auth Keys (access tokens, client secrets, and authorization codes), see [Encrypting OAuth Keys](../../../../design/api-security/oauth2/encrypting-oauth2-tokens).
+3. If required, encrypt the Auth Keys (access tokens, client secrets, and authorization codes), see [Encrypting OAuth Keys](../../../../manage-apis/design/api-security/oauth2/encrypting-oauth2-tokens).
 
 4. Optionally, add the following configuration to enable distributed cache invalidation within the API Control Plane nodes.
 

@@ -328,13 +328,13 @@ template: templates/single-column.html
         "title": "Guides",
         "icon": "📖",
         "links": [
-            {"name": "Designing APIs", "url": "design/design-api-overview/"},
-            {"name": "Create an API Product", "url": "design/create-api-product/create-api-product/"},
-            {"name": "Authentication", "url": "design/api-security/api-authentication/api-authentication-overview/"},
-            {"name": "Authorization", "url": "design/api-security/authorization/api-authorization/"},
-            {"name": "Rate Limiting", "url": "design/rate-limiting/introducing-throttling-use-cases/"},
+            {"name": "Designing APIs", "url": "manage-apis/design/design-api-overview/"},
+            {"name": "Create an API Product", "url": "manage-apis/design/create-api-product/create-api-product/"},
+            {"name": "Authentication", "url": "manage-apis/design/api-security/api-authentication/api-authentication-overview/"},
+            {"name": "Authorization", "url": "manage-apis/design/api-security/authorization/api-authorization/"},
+            {"name": "Rate Limiting", "url": "manage-apis/design/rate-limiting/introducing-throttling-use-cases/"},
             {"name": "Consuming APIs", "url": "consume/consume-api-overview/"},
-            {"name": "Analytics", "url": "api-analytics/choreo-analytics/getting-started-guide/"},
+            {"name": "Analytics", "url": "monitoring/api-analytics/choreo-analytics/getting-started-guide/"},
             {"name": "CI/CD", "url": "install-and-setup/setup/api-controller/ci-cd-with-wso2-api-management/"}
         ],
         "more_btn": {"name": "View More", "url": "tutorials/tutorials-overview/"}
@@ -528,7 +528,7 @@ template: templates/single-column.html
                                 <p class="removeTopMargin">Manage APIs spaning multiple cloud platforms, on-premises systems, or regions</p>
                                 <div>
                                     <ul>
-                                        <li><a href="{{base_path}}/deploy-and-publish/deploy-on-gateway/federated-gateways/deploy-on-aws-api-gateway/">AWS API Gateway</a></li>
+                                        <li><a href="{{base_path}}/manage-apis/deploy-and-publish/deploy-on-gateway/federated-gateways/deploy-on-aws-api-gateway/">AWS API Gateway</a></li>
                                         <li><a href="{{base_path}}/tutorials/integrating-with-solace/">Solace Broker</a></li>
                                     </ul>
                                 </div>

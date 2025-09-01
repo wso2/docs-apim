@@ -24,7 +24,7 @@
 
 5.  Select the newly created Gateway environment, Virtual Host (foods.com), and a Revision.
 
-     [Create a new revision](../../../../design/create-api/create-api-revisions/) if no revisions exist.
+     [Create a new revision](../../../../manage-apis/design/create-api/create-api-revisions/) if no revisions exist.
 
 6. Click **Deploy** to attach the Virtual Host to the Pizzashack API.
    
