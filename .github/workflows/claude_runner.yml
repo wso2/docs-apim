@@ -14,7 +14,7 @@ jobs:
       - name: Checkout original repository with all branches
         uses: actions/checkout@v4
         with:
-          repository: ${{ secrets.ORIGINAL_REPO }}  # Clone from wso2/docs-apim (original)
+          repository: ${{ secrets.REPO_OWNER }}/docs-apim  # Clone from wso2/docs-apim (original)
           token: ${{ secrets._GITHUB_TOKEN }}
           fetch-depth: 0  # Fetch all history and branches (4.4.0, 4.5.0, etc.)
           
