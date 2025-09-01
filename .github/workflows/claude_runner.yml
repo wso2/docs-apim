@@ -8,11 +8,6 @@ jobs:
   run-claude:
     if: contains(github.event.comment.body, '@AI-Agent')
     runs-on: ubuntu-latest
-    permissions:
-      issues: write
-      contents: write
-      pull-requests: write
-      id-token: write
 
     steps:
       # Checkout repo
@@ -47,6 +42,9 @@ jobs:
           # Export environment variables for substitution
           export ISSUE_NUMBER="${{ github.event.issue.number }}"
           export GITHUB_REPOSITORY="${{ github.repository }}"
+          export REPO_OWNER="${{ secrets.REPO_OWNER }}"
+          export REPO_NAME="${{ secrets.REPO_NAME }}"
+          export ORIGINAL_REPO="${{ secrets.ORIGINAL_REPO }}"
           export VERSION="${VERSION:-main}"
           
           # Process the system prompt with variable substitution
@@ -60,6 +58,11 @@ jobs:
           # Also set these for Claude
           echo "ISSUE_NUMBER=$ISSUE_NUMBER" >> $GITHUB_ENV
           echo "GITHUB_REPO=$GITHUB_REPOSITORY" >> $GITHUB_ENV
+          ECHO "VERSION=$VERSION" >> $GITHUB_ENV
+          echo "REPO_OWNER=$REPO_OWNER" >> $GITHUB_ENV
+          echo "REPO_NAME=$REPO_NAME" >> $GITHUB_ENV
+          echo "ORIGINAL_REPO=$ORIGINAL_REPO" >> $GITHUB_ENV
+
 
       - name: Run Claude
         id: run_claude
@@ -68,13 +71,13 @@ jobs:
           ISSUE_NUMBER: ${{ github.event.issue.number }}
           GITHUB_REPOSITORY: ${{ github.repository }}
           VERSION: ${{ env.VERSION }}
+          REPO_OWNER: ${{ env.REPO_OWNER }}
+          REPO_NAME: ${{ env.REPO_NAME }}
+          ORIGINAL_REPO: ${{ env.ORIGINAL_REPO }}
         with:
           anthropic_api_key: ${{ secrets.ANTHROPIC_API_KEY }}
           github_token: ${{ secrets._GITHUB_TOKEN }}
           prompt: ${{ env.SYSTEM_PROMPT }}
-          issue_number: ${{ github.event.issue.number }}
-          repo_owner: ${{ github.repository_owner }}
-          repo_name: ${{ github.event.repository.name }}
           trigger_phrase: "@AI-Agent"
           claude_args: |
             --allowedTools "Bash(git:*),mcp__github__create_pull_request,mcp__github__get_issue,mcp__github__search_pull_requests,mcp__github__list_branches,Edit,Read,Write,mcp__github__update_issue"

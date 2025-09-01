@@ -8,8 +8,6 @@ jobs:
   auto-label:
     runs-on: ubuntu-latest
     name: Auto-label issues for Claude processing
-    permissions:
-      issues: write
     steps:
       # Checkout repo (required if you later read files)
       - name: Checkout repository
@@ -32,7 +30,6 @@ jobs:
             ISSUE_BODY: ${{ github.event.issue.body }}
         run: |
            echo "Sending issue to Claude for classification..."
-           echo "Anthropic API Key: $ANTHROPIC_API_KEY"
 
             # Build JSON payload safely with jq to escape newlines/quotes
             PROMPT="You are a GitHub issue classifier. Read the issue title and body carefully. Classify the issue into one of these categories: broken-links, spelling-mistakes, grammatical-errors, formatting-issues, none. Return ONLY the category name. And if the issue does not fit any category, return 'none'.
