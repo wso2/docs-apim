@@ -10,11 +10,34 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      # Checkout repo
-      - name: Checkout repository
+      # Checkout repo from original repository with all branches
+      - name: Checkout original repository with all branches
         uses: actions/checkout@v4
         with:
-          fetch-depth: 0  # Fetch all history and branches
+          repository: ${{ secrets.ORIGINAL_REPO }}  # Clone from wso2/docs-apim (original)
+          token: ${{ secrets._GITHUB_TOKEN }}
+          fetch-depth: 0  # Fetch all history and branches (4.4.0, 4.5.0, etc.)
+          
+      # Add fork as remote so Claude can push changes to fork
+      - name: Add fork as remote
+        run: |
+          git remote add fork https://${{ secrets._GITHUB_TOKEN }}@github.com/${{ secrets.REPO_OWNER }}/${{ secrets.REPO_NAME }}.git
+          git fetch fork
+
+      # Extract version from issue body (if any)
+    #   - name: Detect version from issue
+    #     id: version
+    #     run: |
+    #       ISSUE_BODY="${{ github.event.issue.body }}"
+    #       VERSION=$(echo "$ISSUE_BODY" | grep -oE "([0-9]+\.[0-9]+\.[0-9]+)" | head -1 || true)
+
+    #       if [ -z "$VERSION" ]; then
+    #         echo "⚠️ No version found in issue, using latest branch"
+    #         VERSION=$(git branch -r | grep "release/" | sed 's|.*/||' | sort -V | tail -1)
+    #       fi
+
+    #       echo "VERSION=$VERSION" >> $GITHUB_ENV
+    #       echo "Using version: $VERSION"
 
       - name: Prepare system prompt with environment variables
         id: prepare_prompt
@@ -68,4 +91,12 @@ jobs:
             --allowedTools "Bash(git:*),mcp__github__create_pull_request,mcp__github__get_issue,mcp__github__search_pull_requests,mcp__github__list_branches,Edit,Read,Write,mcp__github__update_issue"
             --model claude-sonnet-4-20250514
             
+    #   # Update labels based on Claude result
+    #   - name: Update labels on success
+    #     if: success() && steps.run_claude.outcome == 'success'
+    #     run: |
+    #       gh issue edit ${{ github.event.issue.number }} --remove-label "claude:in-progress" --add-label "claude:pr-created" --repo ${{ github.repository }}
+    #     env:
+    #       GITHUB_TOKEN: ${{ github.token }}
+
 
