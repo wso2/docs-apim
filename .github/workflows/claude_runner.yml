@@ -78,8 +78,9 @@ jobs:
         uses: anthropics/claude-code-action@v1
         env:
           ISSUE_NUMBER: ${{ github.event.issue.number }}
-          GITHUB_REPOSITORY: ${{ github.repository }}  # Original repo (target for PR)
+          GITHUB_REPOSITORY: ${{ github.repository }}  # Original repo (where issues are, target for PR)
           FORK_REPOSITORY: ${{ secrets.REPO_OWNER }}/${{ secrets.REPO_NAME }}  # Fork repo (source for PR)
+          ISSUE_REPOSITORY: ${{ github.repository }}  # Explicitly specify where to get issues from (original repo)
           VERSION: ${{ env.VERSION }}
           REPO_OWNER: ${{ env.REPO_OWNER }}
           REPO_NAME: ${{ env.REPO_NAME }}

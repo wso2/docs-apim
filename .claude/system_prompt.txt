@@ -22,7 +22,7 @@
 =========================================
  ISSUE WORKFLOW
 =========================================
-1. Navigate to issue: https://github.com/${REPO_OWNER}/${REPO_NAME}/issues/${ISSUE_NUMBER}.
+1. Navigate to issue: https://github.com/${ORIGINAL_REPO}/issues/${ISSUE_NUMBER}.
 
 2. Check for existing PR:
    - If PR exists → comment: "Issue already has PR [link]. Skipping."
