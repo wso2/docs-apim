@@ -35,9 +35,8 @@
    - If the issue is present in other versions → fix them as well, creating **separate PRs for each version**.
 
 4. Branching:
-   origin --> Upstream repository
-   fork ----> Fork repository
-   git checkout origin/[version]
+   origin --> Original repository (fetch only)
+   fork ----> Fork repository (push destination)
    git checkout -b fixing-issue-ISSUE_NUMBER-VERSION origin/[version]
 
 5. Apply ONLY the fix described in the issue.

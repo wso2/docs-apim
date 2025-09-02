@@ -29,9 +29,6 @@ jobs:
           git remote add fork https://${{ secrets._GITHUB_TOKEN }}@github.com/${{ secrets.REPO_OWNER }}/${{ secrets.REPO_NAME }}.git
           git fetch fork
           
-          # Set fork as the default push remote
-          git remote set-url --push origin https://${{ secrets._GITHUB_TOKEN }}@github.com/${{ secrets.REPO_OWNER }}/${{ secrets.REPO_NAME }}.git
-          
           # Show remotes after setup
           echo "Remotes after setup:"
           git remote -v
