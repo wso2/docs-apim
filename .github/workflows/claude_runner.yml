@@ -61,8 +61,8 @@ jobs:
         env:
           ISSUE_NUMBER: ${{ github.event.issue.number }}
           REPOSITORY: ${{ vars.REPOSITORY }}
-          ANTHROPIC_API_KEY: ${{ secrets.DOC_FIXING_AGENT_ANTHROPIC_API_KEY }}
         with:
+          anthropic_api_key: ${{ secrets.DOC_FIXING_AGENT_ANTHROPIC_API_KEY }}
           github_token: ${{ secrets.DOC_FIXING_AGENT_GITHUB_TOKEN }}
           prompt: ${{ env.SYSTEM_PROMPT }}
           trigger_phrase: "@AI-Agent"
