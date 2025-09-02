@@ -61,6 +61,7 @@ jobs:
         env:
           ISSUE_NUMBER: ${{ github.event.issue.number }}
           REPOSITORY: ${{ vars.REPOSITORY }}
+          ANTHROPIC_API_KEY: ${{ secrets.DOC_FIXING_AGENT_ANTHROPIC_API_KEY }}
         with:
           github_token: ${{ secrets.DOC_FIXING_AGENT_GITHUB_TOKEN }}
           prompt: ${{ env.SYSTEM_PROMPT }}
