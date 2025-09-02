@@ -21,8 +21,8 @@ jobs:
       # Add fork as remote and configure git
       - name: Add fork as remote and configure git
         run: |
-          # Add fork as remote
-          git remote add fork https://${{ secrets._GITHUB_TOKEN }}@github.com/${{ secrets.REPO_OWNER }}/${{ secrets.REPO_NAME }}.git
+          # Add fork as remote (current repository where workflow runs)
+          git remote add fork https://${{ secrets._GITHUB_TOKEN }}@github.com/${{ github.repository }}.git
           git fetch fork
           
           # Configure git for commits
@@ -67,8 +67,8 @@ jobs:
         uses: anthropics/claude-code-action@v1
         env:
           ISSUE_NUMBER: ${{ github.event.issue.number }}
-          GITHUB_REPOSITORY: ${{ secrets.ORIGINAL_REPO }}  # Point to upstream repo for PR creation
-          FORK_REPOSITORY: ${{ github.repository }}  # Current fork repo
+          GITHUB_REPOSITORY: ${{ secrets.ORIGINAL_REPO }}  # Your original repo (target for PR)
+          FORK_REPOSITORY: ${{ github.repository }}  # Fork repo (source for PR)
           VERSION: ${{ env.VERSION }}
           REPO_OWNER: ${{ env.REPO_OWNER }}
           REPO_NAME: ${{ env.REPO_NAME }}
@@ -81,6 +81,8 @@ jobs:
           claude_args: |
             --allowedTools "Bash(git:*),mcp__github__create_pull_request,mcp__github__get_issue,mcp__github__search_pull_requests,mcp__github__list_branches,Edit,Read,Write,mcp__github__update_issue"
             --model claude-sonnet-4-20250514
+            --pr-target-repo ${{ secrets.ORIGINAL_REPO }}
+            --pr-source-repo ${{ github.repository }}
             
     #   # Update labels based on Claude result
     #   - name: Update labels on success
