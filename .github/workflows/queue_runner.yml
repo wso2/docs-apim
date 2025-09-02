@@ -23,7 +23,7 @@ jobs:
       - name: Pick next queued issue
         id: pick
         env: 
-          GH_TOKEN: ${{ secrets._GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.DOC_FIXING_AGENT_GITHUB_TOKEN }}
 
         run: |
           # Check if any issue is already in progress
@@ -51,7 +51,7 @@ jobs:
 
       - name: Update labels and trigger Claude
         env: 
-          GH_TOKEN: ${{ secrets._GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.DOC_FIXING_AGENT_GITHUB_TOKEN }}
         if: steps.pick.outputs.issue_number != ''
         run: | 
           ISSUE=${{ steps.pick.outputs.issue_number }}
