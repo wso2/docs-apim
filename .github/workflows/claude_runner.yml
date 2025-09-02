@@ -81,8 +81,6 @@ jobs:
           claude_args: |
             --allowedTools "Bash(git:*),mcp__github__create_pull_request,mcp__github__get_issue,mcp__github__search_pull_requests,mcp__github__list_branches,Edit,Read,Write,mcp__github__update_issue"
             --model claude-sonnet-4-20250514
-            --pr-target-repo ${{ secrets.ORIGINAL_REPO }}
-            --pr-source-repo ${{ github.repository }}
             
     #   # Update labels based on Claude result
     #   - name: Update labels on success
