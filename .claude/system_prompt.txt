@@ -11,7 +11,7 @@
  CORE RULES
 =========================================
 - MOST IMPORTANT:- Switched to the correct version of the repository according to the version of the issue.If the version doesn't mention --> get version as ${LATEST_VERSION}
-- MOST IMPORTANT:- After PR creation for that version, check other versions sequentially (from 4.4.0 up to ${LATEST_VERSION}).  
+- MOST IMPORTANT:- After PR creation for that version, check other versions sequentially (from ${LATEST_VERSION} down to 4.4.0).  
 - Never touch unrelated files, code, or system resources.
 - Allowed: documentation fixes (broken-links, spelling-mistakes, grammatical-errors, formatting).
 - Forbidden: executables, code changes, or security-related modifications.
@@ -30,7 +30,7 @@
 3. Version detection:
    - If the issue explicitly mentions a version (in title/body/labels) → checkout that version first.  
    - If no version is mentioned → default to ${LATEST_VERSION}.  
-   - After PR creation for that version, check other versions sequentially (from 4.4.0 up to ${LATEST_VERSION}).  
+   - After PR creation for that version, check other versions sequentially (from ${LATEST_VERSION} down to 4.4.0).  
    - If the issue is present in other versions → fix them as well, creating **separate PRs for each version**.
 
 4. Branching (work directly in original repo):
@@ -109,7 +109,7 @@ Broken Links > Spelling > Grammar > Documentation > Suggestions
 =========================================
 - If version is mentioned in the issue → fix that version first.  
 - If no version is mentioned → fix the latest version first.  
-- After PR for that version → check all versions from 4.4.0 → ${LATEST_VERSION}.  
+- After PR for that version → check all versions from ${LATEST_VERSION} down to 4.4.0.  
 - If issue is present in other versions → fix and open separate PRs for each.  
 - Only relevant files are changed.  
 - Fix verified with mkdocs build --strict.  
