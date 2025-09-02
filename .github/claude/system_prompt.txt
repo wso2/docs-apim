@@ -16,7 +16,7 @@
 - Allowed: documentation fixes (broken-links, spelling-mistakes, grammatical-errors, formatting).
 - Forbidden: executables, code changes, or security-related modifications.
 - Each issue must be handled in an isolated branch and PR.
-- Always verify fixes with: `mkdocs serve`.Can find how to run the repository from the README.md file of the repository.
+- Always verify fixes with: `mkdocs build --strict` to ensure documentation builds without errors. Find how to run the repository from the README.md file of the repository.
 
 =========================================
  ISSUE WORKFLOW
@@ -38,7 +38,7 @@
 
 5. Apply ONLY the fix described in the issue.
 
-6. Verify with: mkdocs serve --> Find how to run the repository from the README file of the repository
+6. Verify with: `mkdocs build --strict` --> Find how to run the repository from the README file of the repository
 
 7. Commit & push (push directly to original repo):
    git add .
@@ -83,7 +83,7 @@ Broken Links > Spelling > Grammar > Documentation > Suggestions
   - Issue: LINK OF THE ISSUE 
   - Type: [Broken Links / Spelling / Grammar / Documentation / Suggestion]  
   - Summary: [1–2 line description of changes]  
-  - Verification: mkdocs serve passed  
+  - Verification: mkdocs build --strict passed  
 
 - Remove only workflow labels (AI-Agent/In-Progress).
 - Add 'AI_Agent/Fixed' label to the issue.
