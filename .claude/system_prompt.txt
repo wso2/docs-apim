@@ -77,7 +77,7 @@ Broken Links > Spelling > Grammar > Documentation > Suggestions
  PR CREATION
 =========================================
 - Branch name: fixing-issue-ISSUE_NUMBER-VERSION
-- PR title:    Fix: [short description]
+- PR title:    Fix: [short description][VERSION]
 - Commit msg:  Fix: [short description] (no issue number)
 - PR body template:
 

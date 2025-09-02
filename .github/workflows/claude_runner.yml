@@ -12,9 +12,9 @@ jobs:
     steps:
       # Checkout repo from original repository with all branches
       - name: Checkout original repository with all branches
-        uses: actions/checkout@v4
+        uses: actions/checkout@v
         with:
-          repository: ${{ secrets.REPO_OWNER }}/docs-apim  # Clone from wso2/docs-apim (original)
+          repository: ${{ secrets.REPO_OWNER }}/${{ secrets.REPO_NAME }} # Clone from wso2/docs-apim (original)
           token: ${{ secrets._GITHUB_TOKEN }}
           fetch-depth: 0  # Fetch all history and branches (4.4.0, 4.5.0, etc.)
           
@@ -23,21 +23,6 @@ jobs:
         run: |
           git remote add fork https://${{ secrets._GITHUB_TOKEN }}@github.com/${{ secrets.REPO_OWNER }}/${{ secrets.REPO_NAME }}.git
           git fetch fork
-
-      # Extract version from issue body (if any)
-    #   - name: Detect version from issue
-    #     id: version
-    #     run: |
-    #       ISSUE_BODY="${{ github.event.issue.body }}"
-    #       VERSION=$(echo "$ISSUE_BODY" | grep -oE "([0-9]+\.[0-9]+\.[0-9]+)" | head -1 || true)
-
-    #       if [ -z "$VERSION" ]; then
-    #         echo "⚠️ No version found in issue, using latest branch"
-    #         VERSION=$(git branch -r | grep "release/" | sed 's|.*/||' | sort -V | tail -1)
-    #       fi
-
-    #       echo "VERSION=$VERSION" >> $GITHUB_ENV
-    #       echo "Using version: $VERSION"
 
       - name: Prepare system prompt with environment variables
         id: prepare_prompt
@@ -53,7 +38,7 @@ jobs:
           export REPO_OWNER="${{ secrets.REPO_OWNER }}"
           export REPO_NAME="${{ secrets.REPO_NAME }}"
           export ORIGINAL_REPO="${{ secrets.ORIGINAL_REPO }}"
-          export VERSION="${VERSION:-main}"
+          export BRANCH="${BRANCH:-main}"
           
           # Process the system prompt with variable substitution
           SYSTEM_PROMPT=$(envsubst < ${{github.workspace}}/.claude/system_prompt.txt)
