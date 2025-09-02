@@ -17,8 +17,8 @@ jobs:
     
       - name: Classify issue via Claude API
         env:
-            ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
-            GITHUB_TOKEN: ${{ secrets._GITHUB_TOKEN }}
+            ANTHROPIC_API_KEY: ${{ secrets.DOC_FIXING_AGENT_ANTHROPIC_API_KEY }}
+            GITHUB_TOKEN: ${{ secrets.DOC_FIXING_AGENT_GITHUB_TOKEN }}
             ISSUE_NUMBER: ${{ github.event.issue.number }}
             
             ISSUE_TITLE: ${{ github.event.issue.title }}
