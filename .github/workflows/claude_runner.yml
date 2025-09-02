@@ -8,8 +8,6 @@ jobs:
   run-claude:
     if: contains(github.event.comment.body, '@AI-Agent')
     runs-on: ubuntu-latest
-    env:
-      ANTHROPIC_API_KEY: ${{ secrets.DOC_FIXING_AGENT_ANTHROPIC_API_KEY }}
 
     steps:
       - name: Checkout original repository
