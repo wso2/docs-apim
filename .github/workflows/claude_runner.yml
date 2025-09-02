@@ -1,0 +1,71 @@
+name: Claude Code • Auto PR on Comment
+
+on:
+  issue_comment:
+    types: [created]
+
+jobs:
+  run-claude:
+    if: contains(github.event.comment.body, '@AI-Agent')
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout original repository
+        uses: actions/checkout@v4
+        with:
+          repository: ${{ vars.REPOSITORY }}  
+          token: ${{ secrets.DOC_FIXING_AGENT_GITHUB_TOKEN }}
+          fetch-depth: 0 
+
+      - name: Configure git for commits
+        run: |
+          # Show current remotes for debugging
+          echo "Current remotes:"
+          git remote -v
+          
+          # Configure git for commits
+          git config user.name "wso2-engineering-bot"
+          git config user.email "engineering-bot@wso2.com"
+
+      - name: Prepare system prompt with environment variables
+        id: prepare_prompt
+        run: |
+          # Install gettext if not available (for envsubst)
+          if ! command -v envsubst &> /dev/null; then
+            sudo apt-get update && sudo apt-get install -y gettext-base
+          fi
+          
+          # Export environment variables for substitution
+          export ISSUE_NUMBER="${{ github.event.issue.number }}"
+          export REPOSITORY="${{ vars.REPOSITORY }}"
+          export LATEST_VERSION="${{ vars.LATEST_VERSION }}"  
+          
+          # Process the system prompt with variable substitution
+          SYSTEM_PROMPT=$(envsubst < ${{github.workspace}}/.claude/system_prompt.txt)
+          
+          # Save to GitHub env
+          echo "SYSTEM_PROMPT<<EOF" >> $GITHUB_ENV
+          echo "$SYSTEM_PROMPT" >> $GITHUB_ENV
+          echo "EOF" >> $GITHUB_ENV
+          
+          # Also set these for Claude
+          echo "ISSUE_NUMBER=$ISSUE_NUMBER" >> $GITHUB_ENV
+          echo "REPOSITORY=$REPOSITORY" >> $GITHUB_ENV
+          echo "LATEST_VERSION=$LATEST_VERSION" >> $GITHUB_ENV
+
+      - name: Run Claude
+        id: run_claude
+        uses: anthropics/claude-code-action@v1
+        env:
+          ISSUE_NUMBER: ${{ github.event.issue.number }}
+          REPOSITORY: ${{ vars.REPOSITORY }}
+        with:
+          anthropic_api_key: ${{ secrets.DOC_FIXING_AGENT_ANTHROPIC_API_KEY }}
+          github_token: ${{ secrets.DOC_FIXING_AGENT_GITHUB_TOKEN }}
+          prompt: ${{ env.SYSTEM_PROMPT }}
+          trigger_phrase: "@AI-Agent"
+          claude_args: |
+            --allowedTools "Bash(git:*),mcp__github__create_pull_request,mcp__github__get_issue,mcp__github__search_pull_requests,mcp__github__list_branches,Edit,Read,Write,mcp__github__update_issue,mcp__github__create_branch"
+            --model claude-sonnet-4-20250514
+
+
