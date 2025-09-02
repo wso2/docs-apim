@@ -53,7 +53,7 @@ jobs:
                 # Add claude:queue label if a valid category is returned
                 if [[ "$CATEGORY" != "" && "$CATEGORY" != "null" && "$CATEGORY" != "none" ]]; then
                 echo "Adding claude:queue label"
-                gh issue edit $ISSUE_NUMBER --add-label "AI-Agent/Queued"
+                gh issue edit $ISSUE_NUMBER --add-label "AI-Agent/Queued" --repo ${{ github.repository }}
                 else
                 echo "No valid category returned. Not adding label."
                 fi
