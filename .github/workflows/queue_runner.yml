@@ -1,7 +1,7 @@
 name: Claude Queue Runner
 on:
   schedule:
-    - cron: "*/1 * * * *" # every 1 minute
+    - cron: "*/20 * * * *" # every 20 minutes
   workflow_dispatch: {}
 
 concurrency:
@@ -46,7 +46,6 @@ jobs:
           ISSUE_NUMBER=$(echo "$ISSUE_JSON" | jq -r .number)
           echo "issue_number=$ISSUE_NUMBER" >> $GITHUB_OUTPUT
           echo "Upstream repository=${ORIGINAL_REPO}" >> $GITHUB_OUTPUT
-          echo "Forked Repository=${REPO_OWNER}/${REPO_NAME}" >> $GITHUB_OUTPUT
           echo "Issue number=${ISSUE_NUMBER}" >> $GITHUB_OUTPUT
 
       - name: Exit if no queued issues

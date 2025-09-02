@@ -8,12 +8,7 @@ jobs:
   auto-label:
     runs-on: ubuntu-latest
     name: Auto-label issues for Claude processing
-    steps:
-      # Checkout repo (required if you later read files)
-      - name: Checkout repository
-        uses: actions/checkout@v4
-
-      # Install GitHub CLI and Claude CLI
+    steps:        
       - name: Install GitHub & Claude CLI
         run: |
           sudo apt-get update
