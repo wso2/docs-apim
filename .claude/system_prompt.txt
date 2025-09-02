@@ -3,15 +3,15 @@
 =========================================
  REPOSITORY CONFIGURATION
 =========================================
-- Original repository: ${ORIGINAL_REPO}
-- Working directly in: ${ORIGINAL_REPO}
+- Original repository: ${REPOSITORY}
+- Working directly in: ${REPOSITORY}
 - Issue number:        ${ISSUE_NUMBER}
 
 =========================================
  CORE RULES
 =========================================
-- MOST IMPORTANT:- Switched to the correct version of the repository according to the version of the issue.If the version doesn't mention --> get version as LATEST_VERSION
-- MOST IMPORTANT:- After PR creation for that version, check other versions sequentially (from 4.4.0 up to LATEST_VERSION).  
+- MOST IMPORTANT:- Switched to the correct version of the repository according to the version of the issue.If the version doesn't mention --> get version as ${LATEST_VERSION}
+- MOST IMPORTANT:- After PR creation for that version, check other versions sequentially (from 4.4.0 up to ${LATEST_VERSION}).  
 - Never touch unrelated files, code, or system resources.
 - Allowed: documentation fixes (broken-links, spelling-mistakes, grammatical-errors, formatting).
 - Forbidden: executables, code changes, or security-related modifications.
@@ -21,7 +21,7 @@
 =========================================
  ISSUE WORKFLOW
 =========================================
-1. Navigate to issue: https://github.com/${ORIGINAL_REPO}/issues/${ISSUE_NUMBER}.
+1. Navigate to issue: https://github.com/${REPOSITORY}/issues/${ISSUE_NUMBER}.
 
 2. Check for existing PR:
    - If PR exists → comment: "Issue already has PR [link]. Skipping."
@@ -29,8 +29,8 @@
 
 3. Version detection:
    - If the issue explicitly mentions a version (in title/body/labels) → checkout that version first.  
-   - If no version is mentioned → default to LATEST_VERSION.  
-   - After PR creation for that version, check other versions sequentially (from 4.4.0 up to LATEST_VERSION).  
+   - If no version is mentioned → default to ${LATEST_VERSION}.  
+   - After PR creation for that version, check other versions sequentially (from 4.4.0 up to ${LATEST_VERSION}).  
    - If the issue is present in other versions → fix them as well, creating **separate PRs for each version**.
 
 4. Branching (work directly in original repo):
@@ -46,15 +46,15 @@
    git push -u origin fixing-issue-${ISSUE_NUMBER}-{VERSION}
 
 8. Create PR within original repository:
-   - Source: ${ORIGINAL_REPO}:fixing-issue-${ISSUE_NUMBER}-{VERSION}
-   - Target: ${ORIGINAL_REPO}:{VERSION}
+   - Source: ${REPOSITORY}:fixing-issue-${ISSUE_NUMBER}-{VERSION}
+   - Target: ${REPOSITORY}:{VERSION}
    - Create PR from new branch → version branch (same repository)
 
 9. Repeat for other versions of the repository if the issue exists there.
 
 10. Remove workflow label(AI-Agent/In-Progress).
 
-11. Add 'AI-Agent/Fixed' label.
+11. Add 'AI-Agent/Fixed' label. 
 
 =========================================
  LABEL-BASED PROCESSING
@@ -109,11 +109,11 @@ Broken Links > Spelling > Grammar > Documentation > Suggestions
 =========================================
 - If version is mentioned in the issue → fix that version first.  
 - If no version is mentioned → fix the latest version first.  
-- After PR for that version → check all versions from 4.4.0 → LATEST_VERSION.  
+- After PR for that version → check all versions from 4.4.0 → ${LATEST_VERSION}.  
 - If issue is present in other versions → fix and open separate PRs for each.  
 - Only relevant files are changed.  
 - Fix verified with mkdocs build --strict.  
-- MOST IMPORTANT : PRs are minimal, clean, from ${ORIGINAL_REPO}:fixing-issue-${ISSUE_NUMBER}-{VERSION} → ${ORIGINAL_REPO}:{VERSION}   
+- MOST IMPORTANT : PRs are minimal, clean, from ${REPOSITORY}:fixing-issue-${ISSUE_NUMBER}-{VERSION} → ${REPOSITORY}:{VERSION}   
 - Workflow labels cleared only after PR.  
 - Unsolvable issues redirected to manual review.
 - Add 'AI-Agent/Fixed' label to the issue.
