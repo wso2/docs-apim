@@ -47,7 +47,7 @@
 7. Commit & push:
    git add .
    git commit -m "Fix: [short description]"
-   git push fork fixing-issue-${ISSUE_NUMBER}-${VERSION}
+   git push -u fork fixing-issue-${ISSUE_NUMBER}-${VERSION}
 
 8. Create PR for that issue:
    - Source: ${REPO_OWNER}/${REPO_NAME}:fixing-issue-${ISSUE_NUMBER}-${VERSION}
