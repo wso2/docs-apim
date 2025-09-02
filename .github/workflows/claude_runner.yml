@@ -8,13 +8,15 @@ jobs:
   run-claude:
     if: contains(github.event.comment.body, '@AI-Agent')
     runs-on: ubuntu-latest
+    env:
+      ANTHROPIC_API_KEY: ${{ secrets.DOC_FIXING_AGENT_ANTHROPIC_API_KEY }}
+      GITHUB_TOKEN: ${{ secrets.DOC_FIXING_AGENT_GITHUB_TOKEN }}
 
     steps:
       - name: Checkout original repository
         uses: actions/checkout@v4
         with:
           repository: ${{ vars.REPOSITORY }}  
-          token: ${{ secrets.DOC_FIXING_AGENT_GITHUB_TOKEN }}
           fetch-depth: 0 
 
       - name: Configure git for commits
@@ -60,8 +62,6 @@ jobs:
           ISSUE_NUMBER: ${{ github.event.issue.number }}
           REPOSITORY: ${{ vars.REPOSITORY }}
         with:
-          anthropic_api_key: ${{ secrets.ANTHROPIC_API_KEY }}
-          github_token: ${{ secrets.DOC_FIXING_AGENT_GITHUB_TOKEN }}
           prompt: ${{ env.SYSTEM_PROMPT }}
           trigger_phrase: "@AI-Agent"
           claude_args: |
