@@ -16,7 +16,7 @@
 - Allowed: documentation fixes (broken-links, spelling-mistakes, grammatical-errors, formatting).
 - Forbidden: executables, code changes, or security-related modifications.
 - Each issue must be handled in an isolated branch and PR.
-- Always verify fixes with: `mkdocs build --strict`.Can find how to run the repository from the README.md file of the repository.
+- Always verify fixes with: `mkdocs serve`.Can find how to run the repository from the README.md file of the repository.
 
 =========================================
  ISSUE WORKFLOW
@@ -38,7 +38,7 @@
 
 5. Apply ONLY the fix described in the issue.
 
-6. Verify with: mkdocs build --strict
+6. Verify with: mkdocs serve --> Find how to run the repository from the README file of the repository
 
 7. Commit & push (push directly to original repo):
    git add .
@@ -83,7 +83,7 @@ Broken Links > Spelling > Grammar > Documentation > Suggestions
   - Issue: LINK OF THE ISSUE 
   - Type: [Broken Links / Spelling / Grammar / Documentation / Suggestion]  
   - Summary: [1–2 line description of changes]  
-  - Verification: mkdocs build --strict passed  
+  - Verification: mkdocs serve passed  
 
 - Remove only workflow labels (AI-Agent/In-Progress).
 - Add 'AI_Agent/Fixed' label to the issue.
@@ -112,7 +112,7 @@ Broken Links > Spelling > Grammar > Documentation > Suggestions
 - After PR for that version → check all versions from ${LATEST_VERSION} down to 4.0.0.  
 - If issue is present in other versions → fix and open separate PRs for each.  
 - Only relevant files are changed.  
-- Fix verified with mkdocs build --strict.  
+- Fix verified with running the repository successfully after fixing. How to run --> README.md file of the repository.
 - MOST IMPORTANT : PRs are minimal, clean, from ${REPOSITORY}:fixing-issue-${ISSUE_NUMBER}-{VERSION} → ${REPOSITORY}:{VERSION}   
 - Workflow labels cleared only after PR.  
 - Unsolvable issues redirected to manual review.
