@@ -24,8 +24,10 @@ jobs:
           git remote -v
           
           # Configure git for commits
-          git config user.name "wso2-engineering-bot"
-          git config user.email "engineering-bot@wso2.com"
+          git config user.name ${{secrets.DOC_FIXING_AGENT_GIT_USER_NAME}}
+          git config user.email ${{secrets.DOC_FIXING_AGENT_GIT_USER_EMAIL}}
+          echo "User name: ${{secrets.DOC_FIXING_AGENT_GIT_USER_NAME}}"
+          echo "User email: ${{secrets.DOC_FIXING_AGENT_GIT_USER_EMAIL}}"
 
       - name: Prepare system prompt with environment variables
         id: prepare_prompt
@@ -37,8 +39,8 @@ jobs:
           
           # Export environment variables for substitution
           export ISSUE_NUMBER="${{ github.event.issue.number }}"
-          export REPOSITORY="${{ vars.REPOSITORY }}"
-          export LATEST_VERSION="${{ vars.LATEST_VERSION }}"  
+          export REPOSITORY="${{ vars.DOC_FIXING_AGENT_REPOSITORY }}"
+          export LATEST_VERSION="${{ vars.DOC_FIXING_AGENT_LATEST_VERSION }}"  
           
           # Process the system prompt with variable substitution
           SYSTEM_PROMPT=$(envsubst < ${{github.workspace}}/.github/claude/system_prompt.txt)
