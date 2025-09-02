@@ -27,27 +27,6 @@ jobs:
           git config user.name "wso2-engineering-bot"
           git config user.email "engineering-bot@wso2.com"
 
-      - name: Setup Python and install dependencies
-        run: |
-          # Install Python 3 and pip if not available
-          sudo apt-get update
-          sudo apt-get install -y python3 python3-pip
-          
-          # Install mkdocs and common dependencies
-          pip3 install mkdocs mkdocs-material mkdocs-awesome-pages-plugin
-          
-          # Check if requirements.txt exists and install dependencies
-          if [ -f "requirements.txt" ]; then
-            echo "Installing dependencies from requirements.txt"
-            pip3 install -r requirements.txt
-          fi
-          
-          # Check for requirements in en/ directory (common for docs)
-          if [ -f "en/requirements.txt" ]; then
-            echo "Installing dependencies from en/requirements.txt"
-            pip3 install -r en/requirements.txt
-          fi
-
       - name: Prepare system prompt with environment variables
         id: prepare_prompt
         run: |
