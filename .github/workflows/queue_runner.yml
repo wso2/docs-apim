@@ -18,8 +18,7 @@ jobs:
       - name: Install GitHub CLI
         run: |
           sudo apt-get update
-          sudo apt-get install -y gh jq curl
-          
+          sudo apt-get install -y gh jq 
 
       - name: Pick next queued issue
         id: pick
@@ -34,7 +33,7 @@ jobs:
             exit 0
           fi
 
-          # Get oldest open issue with claude:queue
+          # Get oldest open issue with AI-Agent/Queued label
           ISSUE_JSON=$(gh issue list --label "AI-Agent/Queued" --state open --json number,createdAt --limit 100 \
             | jq '[.[]] | sort_by(.createdAt) | .[0]')
 
@@ -45,8 +44,6 @@ jobs:
 
           ISSUE_NUMBER=$(echo "$ISSUE_JSON" | jq -r .number)
           echo "issue_number=$ISSUE_NUMBER" >> $GITHUB_OUTPUT
-          echo "Upstream repository=${ORIGINAL_REPO}" >> $GITHUB_OUTPUT
-          echo "Issue number=${ISSUE_NUMBER}" >> $GITHUB_OUTPUT
 
       - name: Exit if no queued issues
         if: steps.pick.outputs.issue_number == ''

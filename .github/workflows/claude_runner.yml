@@ -10,15 +10,13 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      # Checkout original repository directly
       - name: Checkout original repository
         uses: actions/checkout@v4
         with:
           repository: ${{ secrets.ORIGINAL_REPO }}  
           token: ${{ secrets._GITHUB_TOKEN }}
-          fetch-depth: 0  # Fetch all history and branches
-          
-      # Configure git for commits
+          fetch-depth: 0 
+
       - name: Configure git for commits
         run: |
           # Show current remotes for debugging
@@ -39,11 +37,7 @@ jobs:
           
           # Export environment variables for substitution
           export ISSUE_NUMBER="${{ github.event.issue.number }}"
-          export GITHUB_REPOSITORY="${{ secrets.ORIGINAL_REPO }}"
-          export REPO_OWNER="${{ secrets.REPO_OWNER }}"
-          export REPO_NAME="${{ secrets.REPO_NAME }}"
           export ORIGINAL_REPO="${{ secrets.ORIGINAL_REPO }}"
-          export BRANCH="${BRANCH:-main}"
           
           # Process the system prompt with variable substitution
           SYSTEM_PROMPT=$(envsubst < ${{github.workspace}}/.claude/system_prompt.txt)
@@ -55,10 +49,6 @@ jobs:
           
           # Also set these for Claude
           echo "ISSUE_NUMBER=$ISSUE_NUMBER" >> $GITHUB_ENV
-          echo "GITHUB_REPO=$GITHUB_REPOSITORY" >> $GITHUB_ENV
-          echo "VERSION=$VERSION" >> $GITHUB_ENV
-          echo "REPO_OWNER=$REPO_OWNER" >> $GITHUB_ENV
-          echo "REPO_NAME=$REPO_NAME" >> $GITHUB_ENV
           echo "ORIGINAL_REPO=$ORIGINAL_REPO" >> $GITHUB_ENV
 
 
@@ -67,10 +57,6 @@ jobs:
         uses: anthropics/claude-code-action@v1
         env:
           ISSUE_NUMBER: ${{ github.event.issue.number }}
-          GITHUB_REPOSITORY: ${{ secrets.ORIGINAL_REPO }}  
-          VERSION: ${{ env.VERSION }}
-          REPO_OWNER: ${{ env.REPO_OWNER }}
-          REPO_NAME: ${{ env.REPO_NAME }}
           ORIGINAL_REPO: ${{ env.ORIGINAL_REPO }}
         with:
           anthropic_api_key: ${{ secrets.ANTHROPIC_API_KEY }}
