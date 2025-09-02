@@ -1,7 +1,7 @@
 name: Claude Queue Runner
 on:
   schedule:
-    - cron: "*/5 * * * *" # every 5 minutes
+    - cron: "*/1 * * * *" # every 1 minute
   workflow_dispatch: {}
 
 concurrency:
