@@ -10,19 +10,24 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      # Checkout repo from original repository with all branches
-      - name: Checkout original repository with all branches
+      # Checkout from upstream repository
+      - name: Checkout upstream repository
         uses: actions/checkout@v4
         with:
-          repository: ${{ secrets.REPO_OWNER }}/${{ secrets.REPO_NAME }} # Clone from wso2/docs-apim (original)
+          repository: ${{ secrets.ORIGINAL_REPO }}  # Clone from upstream (e.g., wso2/docs-apim)
           token: ${{ secrets._GITHUB_TOKEN }}
-          fetch-depth: 0  # Fetch all history and branches (4.4.0, 4.5.0, etc.)
+          fetch-depth: 0  # Fetch all history and branches
           
-      # Add fork as remote so Claude can push changes to fork
-      - name: Add fork as remote
+      # Add fork as remote and configure git
+      - name: Add fork as remote and configure git
         run: |
+          # Add fork as remote
           git remote add fork https://${{ secrets._GITHUB_TOKEN }}@github.com/${{ secrets.REPO_OWNER }}/${{ secrets.REPO_NAME }}.git
           git fetch fork
+          
+          # Configure git for commits
+          git config user.name "${{secrets.GIT_USER_NAME}}"
+          git config user.email "${{secrets.GIT_USER_EMAIL}}"
 
       - name: Prepare system prompt with environment variables
         id: prepare_prompt
@@ -62,7 +67,8 @@ jobs:
         uses: anthropics/claude-code-action@v1
         env:
           ISSUE_NUMBER: ${{ github.event.issue.number }}
-          GITHUB_REPOSITORY: ${{ github.repository }}
+          GITHUB_REPOSITORY: ${{ secrets.ORIGINAL_REPO }}  # Point to upstream repo for PR creation
+          FORK_REPOSITORY: ${{ github.repository }}  # Current fork repo
           VERSION: ${{ env.VERSION }}
           REPO_OWNER: ${{ env.REPO_OWNER }}
           REPO_NAME: ${{ env.REPO_NAME }}
