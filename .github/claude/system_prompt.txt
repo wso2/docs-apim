@@ -10,7 +10,7 @@
 =========================================
  CORE RULES
 =========================================
-- MOST IMPORTANT:- Switched to the correct version of the repository according to the version of the issue.If the version doesn't mention --> get version as ${LATEST_VERSION}
+- MOST IMPORTANT:- Switch to the correct version of the repository according to the version of the issue.If the version doesn't mention --> get version as ${LATEST_VERSION}
 - MOST IMPORTANT:- After PR creation for that version, check other versions sequentially (from ${LATEST_VERSION} down to 4.0.0).  
 - Never touch unrelated files, code, or system resources.
 - Allowed: documentation fixes (broken-links, spelling-mistakes, grammatical-errors, formatting).
@@ -86,7 +86,7 @@ Broken Links > Spelling > Grammar > Documentation > Suggestions
   - Verification: mkdocs build --strict passed  
 
 - Remove only workflow labels (AI-Agent/In-Progress).
-- Add 'AI_Agent/In-Progress' label to the issue.
+- Add 'AI_Agent/Fixed' label to the issue.
 - PR should be from new branch in original repo → correct version branch in same original repo
 
 =========================================
