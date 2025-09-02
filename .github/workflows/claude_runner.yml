@@ -21,9 +21,20 @@ jobs:
       # Add fork as remote and configure git
       - name: Add fork as remote and configure git
         run: |
-          # Add fork as remote (current repository where workflow runs)
-          git remote add fork https://${{ secrets._GITHUB_TOKEN }}@github.com/${{ github.repository }}.git
+          # Show current remotes for debugging
+          echo "Current remotes before setup:"
+          git remote -v
+          
+          # Add fork as remote (the actual fork repository)
+          git remote add fork https://${{ secrets._GITHUB_TOKEN }}@github.com/${{ secrets.REPO_OWNER }}/${{ secrets.REPO_NAME }}.git
           git fetch fork
+          
+          # Set fork as the default push remote
+          git remote set-url --push origin https://${{ secrets._GITHUB_TOKEN }}@github.com/${{ secrets.REPO_OWNER }}/${{ secrets.REPO_NAME }}.git
+          
+          # Show remotes after setup
+          echo "Remotes after setup:"
+          git remote -v
           
           # Configure git for commits
           git config user.name "${{secrets.GIT_USER_NAME}}"
@@ -67,8 +78,8 @@ jobs:
         uses: anthropics/claude-code-action@v1
         env:
           ISSUE_NUMBER: ${{ github.event.issue.number }}
-          GITHUB_REPOSITORY: ${{ secrets.ORIGINAL_REPO }}  # Your original repo (target for PR)
-          FORK_REPOSITORY: ${{ github.repository }}  # Fork repo (source for PR)
+          GITHUB_REPOSITORY: ${{ github.repository }}  # Original repo (target for PR)
+          FORK_REPOSITORY: ${{ secrets.REPO_OWNER }}/${{ secrets.REPO_NAME }}  # Fork repo (source for PR)
           VERSION: ${{ env.VERSION }}
           REPO_OWNER: ${{ env.REPO_OWNER }}
           REPO_NAME: ${{ env.REPO_NAME }}
