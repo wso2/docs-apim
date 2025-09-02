@@ -1,7 +1,7 @@
 name: Claude Queue Runner
 on:
   schedule:
-    - cron: "0 * * * *" # every hour (at minute 0 of every hour)
+    - cron: "0 * * * *" 
   workflow_dispatch: {}
 
 concurrency:
@@ -61,5 +61,6 @@ jobs:
           gh issue edit $ISSUE --add-label "AI-Agent/In-Progress"
 
           # Add trigger comment for Claude
-          gh issue comment $ISSUE --body "@AI-Agent create a PR for this issue following repo conventions."
+          COMMENT_BODY="@AI-Agent create a PR for this issue following repo conventions"
+          gh issue comment $ISSUE --body "$COMMENT_BODY"
 
