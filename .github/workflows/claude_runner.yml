@@ -41,7 +41,7 @@ jobs:
           export LATEST_VERSION="${{ vars.LATEST_VERSION }}"  
           
           # Process the system prompt with variable substitution
-          SYSTEM_PROMPT=$(envsubst < ${{github.workspace}}/.claude/system_prompt.txt)
+          SYSTEM_PROMPT=$(envsubst < ${{github.workspace}}/.github/claude/system_prompt.txt)
           
           # Save to GitHub env
           echo "SYSTEM_PROMPT<<EOF" >> $GITHUB_ENV
