@@ -61,6 +61,5 @@ jobs:
           gh issue edit $ISSUE --add-label "AI-Agent/In-Progress"
 
           # Add trigger comment for Claude
-          COMMENT_BODY="@AI-Agent create a PR for this issue following repo conventions"
-          gh issue comment $ISSUE --body "$COMMENT_BODY"
+          gh issue comment $ISSUE --body "@AI-Agent create a PR for this issue following repo conventions"
 
