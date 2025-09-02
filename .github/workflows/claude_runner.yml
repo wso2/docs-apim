@@ -10,27 +10,19 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      # Checkout from upstream repository
-      - name: Checkout upstream repository
+      # Checkout original repository directly
+      - name: Checkout original repository
         uses: actions/checkout@v4
         with:
-          repository: ${{ secrets.ORIGINAL_REPO }}  # Clone from upstream (e.g., wso2/docs-apim)
+          repository: ${{ secrets.ORIGINAL_REPO }}  # Work directly in original repo (e.g., wso2/docs-apim)
           token: ${{ secrets._GITHUB_TOKEN }}
           fetch-depth: 0  # Fetch all history and branches
           
-      # Add fork as remote and configure git
-      - name: Add fork as remote and configure git
+      # Configure git for commits
+      - name: Configure git for commits
         run: |
           # Show current remotes for debugging
-          echo "Current remotes before setup:"
-          git remote -v
-          
-          # Add fork as remote (the actual fork repository)
-          git remote add fork https://${{ secrets._GITHUB_TOKEN }}@github.com/${{ secrets.REPO_OWNER }}/${{ secrets.REPO_NAME }}.git
-          git fetch fork
-          
-          # Show remotes after setup
-          echo "Remotes after setup:"
+          echo "Current remotes:"
           git remote -v
           
           # Configure git for commits
@@ -47,7 +39,7 @@ jobs:
           
           # Export environment variables for substitution
           export ISSUE_NUMBER="${{ github.event.issue.number }}"
-          export GITHUB_REPOSITORY="${{ github.repository }}"
+          export GITHUB_REPOSITORY="${{ secrets.ORIGINAL_REPO }}"
           export REPO_OWNER="${{ secrets.REPO_OWNER }}"
           export REPO_NAME="${{ secrets.REPO_NAME }}"
           export ORIGINAL_REPO="${{ secrets.ORIGINAL_REPO }}"
@@ -75,9 +67,7 @@ jobs:
         uses: anthropics/claude-code-action@v1
         env:
           ISSUE_NUMBER: ${{ github.event.issue.number }}
-          GITHUB_REPOSITORY: ${{ github.repository }}  # Original repo (where issues are, target for PR)
-          FORK_REPOSITORY: ${{ secrets.REPO_OWNER }}/${{ secrets.REPO_NAME }}  # Fork repo (source for PR)
-          ISSUE_REPOSITORY: ${{ github.repository }}  # Explicitly specify where to get issues from (original repo)
+          GITHUB_REPOSITORY: ${{ secrets.ORIGINAL_REPO }}  # Original repo (where everything happens)
           VERSION: ${{ env.VERSION }}
           REPO_OWNER: ${{ env.REPO_OWNER }}
           REPO_NAME: ${{ env.REPO_NAME }}

@@ -3,8 +3,8 @@
 =========================================
  REPOSITORY CONFIGURATION (You can find them in the repos secrets)
 =========================================
-- Upstream repository: ${ORIGINAL_REPO}
-- Fork repository:     ${REPO_OWNER}/${REPO_NAME}
+- Original repository: ${ORIGINAL_REPO}
+- Working directly in: ${ORIGINAL_REPO}
 - Default branch:      ${VERSION} (fallback: main → master)
 - Issue number:        ${ISSUE_NUMBER}
 
@@ -34,24 +34,22 @@
    - After PR creation for that version, check other versions sequentially (from 4.4.0 up to LATEST_VERSION).  
    - If the issue is present in other versions → fix them as well, creating **separate PRs for each version**.
 
-4. Branching:
-   origin --> Original repository (fetch only)
-   fork ----> Fork repository (push destination)
-   git checkout -b fixing-issue-ISSUE_NUMBER-VERSION origin/[version]
+4. Branching (work directly in original repo):
+   git checkout -b fixing-issue-${ISSUE_NUMBER}-${VERSION} origin/${VERSION}
 
 5. Apply ONLY the fix described in the issue.
 
 6. Verify with: mkdocs build --strict
 
-7. Commit & push:
+7. Commit & push (push directly to original repo):
    git add .
    git commit -m "Fix: [short description]"
-   git push -u fork fixing-issue-${ISSUE_NUMBER}-${VERSION}
+   git push -u origin fixing-issue-${ISSUE_NUMBER}-${VERSION}
 
-8. Create PR for that issue:
-   - Source: ${REPO_OWNER}/${REPO_NAME}:fixing-issue-${ISSUE_NUMBER}-${VERSION}
+8. Create PR within original repository:
+   - Source: ${ORIGINAL_REPO}:fixing-issue-${ISSUE_NUMBER}-${VERSION}
    - Target: ${ORIGINAL_REPO}:${VERSION}
-   - Always create PR from fork repository new branch → Upstream repository correct version branch
+   - Create PR from new branch → version branch (same repository)
 
 9. Repeat for other versions of the repository if the issue exists there.
 
@@ -90,7 +88,7 @@ Broken Links > Spelling > Grammar > Documentation > Suggestions
 
 - Remove only workflow labels (AI-Agent/In-Progress).
 - Add 'AI_Agent/In-Progress' label to the issue.
-- PR should be from the Fork repository branch ---> Upstream Repository correct version branch
+- PR should be from new branch in original repo → correct version branch in same original repo
 
 =========================================
  ERROR HANDLING
@@ -116,7 +114,7 @@ Broken Links > Spelling > Grammar > Documentation > Suggestions
 - If issue is present in other versions → fix and open separate PRs for each.  
 - Only relevant files are changed.  
 - Fix verified with mkdocs build --strict.  
-- MOST IMPORTANT : PRs are minimal, clean, from ${REPO_OWNER}/${REPO_NAME}:fixing-issue-${ISSUE_NUMBER}-${VERSION} → ${ORIGINAL_REPO}:${VERSION}   
+- MOST IMPORTANT : PRs are minimal, clean, from ${ORIGINAL_REPO}:fixing-issue-${ISSUE_NUMBER}-${VERSION} → ${ORIGINAL_REPO}:${VERSION}   
 - Workflow labels cleared only after PR.  
 - Unsolvable issues redirected to manual review.
 - Add 'AI-Agent/Fixed' label to the issue.
