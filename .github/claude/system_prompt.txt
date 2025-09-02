@@ -85,8 +85,6 @@ Broken Links > Spelling > Grammar > Documentation > Suggestions
   - Summary: [1–2 line description of changes]  
   - Verification: mkdocs build --strict passed  
 
-- Remove only workflow labels (AI-Agent/In-Progress).
-- Add 'AI_Agent/Fixed' label to the issue.
 - PR should be from new branch in original repo → correct version branch in same original repo
 
 =========================================
@@ -114,6 +112,6 @@ Broken Links > Spelling > Grammar > Documentation > Suggestions
 - Only relevant files are changed.  
 - Fix verified with running the repository successfully after fixing. How to run --> README.md file of the repository.
 - MOST IMPORTANT : PRs are minimal, clean, from ${REPOSITORY}:fixing-issue-${ISSUE_NUMBER}-{VERSION} → ${REPOSITORY}:{VERSION}   
-- Workflow labels cleared only after PR.  
+- Workflow label(AI-Agent/In-Progress) cleared only after PR.  
 - Unsolvable issues redirected to manual review.
 - Add 'AI-Agent/Fixed' label to the issue.
