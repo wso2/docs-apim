@@ -13,7 +13,7 @@ jobs:
       - name: Checkout original repository
         uses: actions/checkout@v4
         with:
-          repository: ${{ vars.REPOSITORY }}  
+          repository: ${{ vars.DOC_FIXING_AGENT_REPOSITORY }}  
           token: ${{ secrets.DOC_FIXING_AGENT_GITHUB_TOKEN }}
           fetch-depth: 0 
 
@@ -24,8 +24,10 @@ jobs:
           git remote -v
           
           # Configure git for commits
-          git config user.name "wso2-engineering-bot"
-          git config user.email "engineering-bot@wso2.com"
+          git config user.name ${{secrets.DOC_FIXING_AGENT_GIT_USER_NAME}}
+          git config user.email ${{secrets.DOC_FIXING_AGENT_GIT_USER_EMAIL}}
+          echo "User name: ${{secrets.DOC_FIXING_AGENT_GIT_USER_NAME}}"
+          echo "User email: ${{secrets.DOC_FIXING_AGENT_GIT_USER_EMAIL}}"
 
       - name: Prepare system prompt with environment variables
         id: prepare_prompt
@@ -37,11 +39,11 @@ jobs:
           
           # Export environment variables for substitution
           export ISSUE_NUMBER="${{ github.event.issue.number }}"
-          export REPOSITORY="${{ vars.REPOSITORY }}"
-          export LATEST_VERSION="${{ vars.LATEST_VERSION }}"  
+          export REPOSITORY="${{ vars.DOC_FIXING_AGENT_REPOSITORY }}"
+          export LATEST_VERSION="${{ vars.DOC_FIXING_AGENT_LATEST_VERSION }}"  
           
           # Process the system prompt with variable substitution
-          SYSTEM_PROMPT=$(envsubst < ${{github.workspace}}/.claude/system_prompt.txt)
+          SYSTEM_PROMPT=$(envsubst < ${{github.workspace}}/.github/claude/system_prompt.txt)
           
           # Save to GitHub env
           echo "SYSTEM_PROMPT<<EOF" >> $GITHUB_ENV
@@ -58,14 +60,13 @@ jobs:
         uses: anthropics/claude-code-action@v1
         env:
           ISSUE_NUMBER: ${{ github.event.issue.number }}
-          REPOSITORY: ${{ vars.REPOSITORY }}
+          REPOSITORY: ${{ vars.DOC_FIXING_AGENT_REPOSITORY }}
         with:
           anthropic_api_key: ${{ secrets.DOC_FIXING_AGENT_ANTHROPIC_API_KEY }}
           github_token: ${{ secrets.DOC_FIXING_AGENT_GITHUB_TOKEN }}
           prompt: ${{ env.SYSTEM_PROMPT }}
           trigger_phrase: "@AI-Agent"
           claude_args: |
-            --allowedTools "Bash(git:*),mcp__github__create_pull_request,mcp__github__get_issue,mcp__github__search_pull_requests,mcp__github__list_branches,Edit,Read,Write,mcp__github__update_issue,mcp__github__create_branch"
+            --allowedTools "Bash(*),Bash(git:*),Bash(mkdocs:*),Bash(python3:*),Bash(pip3:*),mcp__github__create_pull_request,mcp__github__get_issue,mcp__github__search_pull_requests,mcp__github__list_branches,Edit,Read,Write,mcp__github__update_issue,mcp__github__create_branch"
             --model claude-sonnet-4-20250514
-
-
+            

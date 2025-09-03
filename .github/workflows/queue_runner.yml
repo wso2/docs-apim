@@ -62,4 +62,3 @@ jobs:
 
           # Add trigger comment for Claude
           gh issue comment $ISSUE --body "@AI-Agent create a PR for this issue following repo conventions"
-
