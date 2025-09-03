@@ -26,8 +26,6 @@ jobs:
           # Configure git for commits
           git config user.name ${{secrets.DOC_FIXING_AGENT_GIT_USER_NAME}}
           git config user.email ${{secrets.DOC_FIXING_AGENT_GIT_USER_EMAIL}}
-          echo "User name: ${{secrets.DOC_FIXING_AGENT_GIT_USER_NAME}}"
-          echo "User email: ${{secrets.DOC_FIXING_AGENT_GIT_USER_EMAIL}}"
 
       - name: Prepare system prompt with environment variables
         id: prepare_prompt
