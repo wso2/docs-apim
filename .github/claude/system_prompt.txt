@@ -92,7 +92,7 @@ Broken Links > Spelling > Grammar > Documentation
 - If fix not possible:
   - Comment: "Unable to solve automatically. Needs manual review."
   - Remove workflow labels(AI-Aegnt/In-Progress)
-  - Add label: Needs-Manual-Review
+  - Add label: AI-Agent/Cannot-Fix
 
 =========================================
  CLEANUP
@@ -112,5 +112,5 @@ Broken Links > Spelling > Grammar > Documentation
 - Fix verified with running the repository successfully after fixing. How to run --> README.md file of the repository.
 - MOST IMPORTANT : PRs are minimal, clean, from ${REPOSITORY}:fixing-issue-${ISSUE_NUMBER}-{VERSION} → ${REPOSITORY}:{VERSION}   
 - Workflow label(AI-Agent/In-Progress) cleared only after PR.  
-- Unsolvable issues redirected to manual review.
+- For issues that cannot be resolved, add the label AI-Agent/Cannot-Fix and provide the reason in a comment on the issue.
 - Add 'AI-Agent/Fixed' label to the issue.
