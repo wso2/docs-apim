@@ -1,64 +1,71 @@
-name: Claude Queue Runner
-on:
-  schedule:
-    - cron: "0 * * * *" 
-  workflow_dispatch: {}
+name: Claude Code • Auto PR on Comment
 
-concurrency:
-  group: claude-queue-runner
-  cancel-in-progress: false
+on:
+  issue_comment:
+    types: [created]
 
 jobs:
-  queue-runner:
+  run-claude:
+    if: contains(github.event.comment.body, '@AI-Agent')
     runs-on: ubuntu-latest
-    name: Process next issue in Claude queue
+
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout original repository
+        uses: actions/checkout@v4
+        with:
+          repository: ${{ vars.DOC_FIXING_AGENT_REPOSITORY }}  
+          token: ${{ secrets.DOC_FIXING_AGENT_GITHUB_TOKEN }}
+          fetch-depth: 0 
 
-      - name: Install GitHub CLI
+      - name: Configure git for commits
         run: |
-          sudo apt-get update
-          sudo apt-get install -y gh jq 
+          # Show current remotes for debugging
+          echo "Current remotes:"
+          git remote -v
+          
+          # Configure git for commits
+          git config user.name ${{secrets.DOC_FIXING_AGENT_GIT_USER_NAME}}
+          git config user.email ${{secrets.DOC_FIXING_AGENT_GIT_USER_EMAIL}}
+          echo "User name: ${{secrets.DOC_FIXING_AGENT_GIT_USER_NAME}}"
+          echo "User email: ${{secrets.DOC_FIXING_AGENT_GIT_USER_EMAIL}}"
 
-      - name: Pick next queued issue
-        id: pick
-        env: 
-          GITHUB_TOKEN: ${{ secrets.DOC_FIXING_AGENT_GITHUB_TOKEN }}
-
+      - name: Prepare system prompt with environment variables
+        id: prepare_prompt
         run: |
-          # Check if any issue is already in progress
-          IN_PROGRESS=$(gh issue list --label "AI-Agent/In-Progress" --state open --json number | jq 'length')
-          if [ "$IN_PROGRESS" -gt 0 ]; then
-            echo "issue_in_progress=true" >> $GITHUB_OUTPUT
-            exit 0
+          # Install gettext if not available (for envsubst)
+          if ! command -v envsubst &> /dev/null; then
+            sudo apt-get update && sudo apt-get install -y gettext-base
           fi
+          
+          # Export environment variables for substitution
+          export ISSUE_NUMBER="${{ github.event.issue.number }}"
+          export REPOSITORY="${{ vars.DOC_FIXING_AGENT_REPOSITORY }}"
+          export LATEST_VERSION="${{ vars.DOC_FIXING_AGENT_LATEST_VERSION }}"  
+          
+          # Process the system prompt with variable substitution
+          SYSTEM_PROMPT=$(envsubst < ${{github.workspace}}/.github/claude/system_prompt.txt)
+          
+          # Save to GitHub env
+          echo "SYSTEM_PROMPT<<EOF" >> $GITHUB_ENV
+          echo "$SYSTEM_PROMPT" >> $GITHUB_ENV
+          echo "EOF" >> $GITHUB_ENV
+          
+          # Also set these for Claude
+          echo "ISSUE_NUMBER=$ISSUE_NUMBER" >> $GITHUB_ENV
+          echo "REPOSITORY=$REPOSITORY" >> $GITHUB_ENV
+          echo "LATEST_VERSION=$LATEST_VERSION" >> $GITHUB_ENV
 
-          # Get oldest open issue with AI-Agent/Queued label
-          ISSUE_JSON=$(gh issue list --label "AI-Agent/Queued" --state open --json number,createdAt --limit 100 \
-            | jq '[.[]] | sort_by(.createdAt) | .[0]')
-
-          if [ "$ISSUE_JSON" = "null" ] || [ -z "$ISSUE_JSON" ]; then
-            echo "issue_number=" >> $GITHUB_OUTPUT
-            exit 0
-          fi
-
-          ISSUE_NUMBER=$(echo "$ISSUE_JSON" | jq -r .number)
-          echo "issue_number=$ISSUE_NUMBER" >> $GITHUB_OUTPUT
-
-      - name: Exit if no queued issues
-        if: steps.pick.outputs.issue_number == ''
-        run: echo "No queued issues."
-
-      - name: Update labels and trigger Claude
-        env: 
-          GITHUB_TOKEN: ${{ secrets.DOC_FIXING_AGENT_GITHUB_TOKEN }}
-        if: steps.pick.outputs.issue_number != ''
-        run: | 
-          ISSUE=${{ steps.pick.outputs.issue_number }}
-
-          # Remove claude:queue, add claude:in-progress
-          gh issue edit $ISSUE --remove-label "AI-Agent/Queued"
-          gh issue edit $ISSUE --add-label "AI-Agent/In-Progress"
-
-          # Add trigger comment for Claude
-          gh issue comment $ISSUE --body "@AI-Agent create a PR for this issue following repo conventions"
+      - name: Run Claude
+        id: run_claude
+        uses: anthropics/claude-code-action@v1
+        env:
+          ISSUE_NUMBER: ${{ github.event.issue.number }}
+          REPOSITORY: ${{ vars.DOC_FIXING_AGENT_REPOSITORY }}
+        with:
+          anthropic_api_key: ${{ secrets.DOC_FIXING_AGENT_ANTHROPIC_API_KEY }}
+          github_token: ${{ secrets.DOC_FIXING_AGENT_GITHUB_TOKEN }}
+          prompt: ${{ env.SYSTEM_PROMPT }}
+          trigger_phrase: "@AI-Agent"
+          claude_args: |
+            --allowedTools "Bash(*),Bash(git:*),Bash(mkdocs:*),Bash(python3:*),Bash(pip3:*),mcp__github__create_pull_request,mcp__github__get_issue,mcp__github__search_pull_requests,mcp__github__list_branches,Edit,Read,Write,mcp__github__update_issue,mcp__github__create_branch"
+            --model claude-sonnet-4-20250514
