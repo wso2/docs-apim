@@ -13,7 +13,7 @@ jobs:
       - name: Checkout original repository
         uses: actions/checkout@v4
         with:
-          repository: ${{ vars.REPOSITORY }}  
+          repository: ${{ vars.DOC_FIXING_AGENT_REPOSITORY }}  
           token: ${{ secrets.DOC_FIXING_AGENT_GITHUB_TOKEN }}
           fetch-depth: 0 
 
@@ -60,14 +60,14 @@ jobs:
         uses: anthropics/claude-code-action@v1
         env:
           ISSUE_NUMBER: ${{ github.event.issue.number }}
-          REPOSITORY: ${{ vars.REPOSITORY }}
+          REPOSITORY: ${{ vars.DOC_FIXING_AGENT_REPOSITORY }}
         with:
           anthropic_api_key: ${{ secrets.DOC_FIXING_AGENT_ANTHROPIC_API_KEY }}
           github_token: ${{ secrets.DOC_FIXING_AGENT_GITHUB_TOKEN }}
           prompt: ${{ env.SYSTEM_PROMPT }}
           trigger_phrase: "@AI-Agent"
           claude_args: |
-            --allowedTools "Bash(*),Bash(git:*),Bash(mkdocs:*),Bash(python:*),Bash(python3:*),Bash(pip:*),Bash(pip3:*),mcp__github__create_pull_request,mcp__github__get_issue,mcp__github__search_pull_requests,mcp__github__list_branches,Edit,Read,Write,mcp__github__update_issue,mcp__github__create_branch"
+            --allowedTools "Bash(*),Bash(git:*),Bash(mkdocs:*),Bash(python3:*),Bash(pip3:*),mcp__github__create_pull_request,mcp__github__get_issue,mcp__github__search_pull_requests,mcp__github__list_branches,Edit,Read,Write,mcp__github__update_issue,mcp__github__create_branch"
             --model claude-sonnet-4-20250514
 
 
