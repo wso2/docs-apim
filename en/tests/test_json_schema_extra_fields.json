@@ -1,0 +1,9 @@
+{
+  "fullName": "Jane Doe",
+  "email": "jane@example.com",
+  "phoneNumber": "+1234567890",
+  "organization": "Acme Corp",
+  "preferredPlan": "Pro",
+  "referralCode": "REF123",
+  "extraField": "this should fail"
+}
