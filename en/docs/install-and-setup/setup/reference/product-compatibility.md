@@ -33,7 +33,7 @@ The following is the list of tested JDKs.
 <th>Supported Operating Systems</th>
 <td>
 <ul>
-<li>Ubuntu 18.04, 20.04</li>
+<li>Ubuntu 22.04</li>
 <li>CentOS 7.4, 7.5</li>
 <li>Red Hat Enterprise Linux 8.3, 8.7, 9.3</li>
 <li>SUSE Linux 12</li>
