@@ -6,7 +6,7 @@ In this step-by-step guide, you’ll learn how to create, publish, and invoke an
 
 ### Before you begin...
 
-Choose a deployment option to start WSO2 API Manager All-in-one package. The All-in-one package contains all core components in a single JVM for simplified deployment.
+Choose a deployment option to start the WSO2 API Manager All-in-one package. The All-in-one package contains all core components in a single JVM for simplified deployment.
 
 === "Run on VM"
 
