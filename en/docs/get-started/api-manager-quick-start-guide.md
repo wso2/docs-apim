@@ -8,14 +8,14 @@ In this step-by-step guide, you’ll learn how to create, publish, and invoke an
 
 Choose a deployment option to start the WSO2 API Manager All-in-one package. The All-in-one package contains all core components in a single JVM for simplified deployment.
 
-=== "Run on VM"
+### Run on VM
 
     Here's how you can download and run WSO2 API Manager All-in-one package locally on a VM:
 
     1. Install [Java SE Development Kit (JDK)](https://adoptium.net/temurin/releases/?arch=any&version=21) version **21** and set the `JAVA_HOME` environment variable.
     
         !!! tip
-            For more information on setting the `JAVA_HOME` environment variable for different operating systems, see [Setup and Install]({{base_path}}/install-and-setup/install/installing-the-product/installing-api-m-runtime/#setting-up-java_home)
+            For more information on setting the `JAVA_HOME` environment variable for different operating systems, see [Setup and Install](../install-and-setup/install/installing-the-product/installing-api-m-runtime/#setting-up-java_home)
     
     2. Download WSO2 API-Manager All-in-one package.
     - [Open Source Distribution](https://github.com/wso2/product-apim/releases/tag/v4.4.0)
@@ -27,10 +27,10 @@ Choose a deployment option to start the WSO2 API Manager All-in-one package. The
     
     5. To start WSO2 API Manager, execute the relevant command:
 
-        === "On MacOS/Linux"
-            ```bash
-            sh api-manager.sh
-            ```
+        ### On MacOS/Linux
+        ```bash
+        sh api-manager.sh
+
         
         === "On Windows"
             ```bash
@@ -65,9 +65,10 @@ Follow the instructions below to create, deploy and publish an API via the Publi
      
 2. Sign in with **`admin/admin`** as the credentials.
                                                  
-     [![Publisher portal home page]({{base_path}}/assets/img/get_started/api-publisher-home.png)]({{base_path}}/assets/img/get_started/api-publisher-home.png)
+     [![Publisher portal home page](../assets/img/get_started/api-publisher-home.png)]({{base_path}}/assets/img/get_started/api-publisher-home.png)
 
-3. Next, let's create a mock REST service by navigating to [Mocky.io](https://designer.mocky.io/design). You can provide the following configuration in order to create a mock service.
+3. Next, create a mock REST service using [Mocky.io](https://designer.mocky.io/design).
+4.  You can provide the following configuration in order to create a mock service.
     
     | Field                   | Value                 |
     | ----------------------- |-----------------------|
@@ -79,12 +80,12 @@ Follow the instructions below to create, deploy and publish an API via the Publi
     Finally click **Generate My HTTP Response** to save and generate the mock service url.
 
     
-4. Select **REST API** from the home screen and then click **Start From Scratch**.
+5. Select **REST API** from the home screen and then click **Start From Scratch**.
    
     [![Design a new REST API]({{base_path}}/assets/img/get_started/design-new-rest-api.png)]({{base_path}}/assets/img/get_started/design-new-rest-api.png)
 
 
-5. Enter the API details.
+6. Enter the API details.
 
     <table>
     <tr> 
@@ -115,7 +116,7 @@ Follow the instructions below to create, deploy and publish an API via the Publi
      </tr>
      </table>
      
-6. Click **Create & Publish**.
+7. Click **Create & Publish**.
 
     [![Create an API]({{base_path}}/assets/img/get_started/api-create.png){: style="width:100%"}]({{base_path}}/assets/img/get_started/api-create.png)
 
