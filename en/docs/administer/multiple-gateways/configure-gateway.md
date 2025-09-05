@@ -20,17 +20,23 @@ Each Gateway environment definition contains details related to a specific Gatew
 
     1. Click **Gateways**, and then click **Add Gateway Environment**.
 
-       [![Menu to add Gateway environment]({{base_path}}/assets/img/deploy/add-gateway-environment-menu.png)]({{base_path}}/assets/img/deploy/add-gateway-environment-menu.png)
+      <a href="{{base_path}}/assets/img/deploy/add-gateway-environment-menu.png">
+         <img src="{{base_path}}/assets/img/deploy/add-gateway-environment-menu.png" alt="Menu to add Gateway environment"
+         title="Menu to add Gateway environment" width="500px" />
+      </a>
 
     2. Enter a name, display name, description, and a virtual host.
 
-       The virtual hosts will define each of the custom hostnames. It is mandatory to specify a VHost when you create a Gateway environment.
+      The virtual hosts will define each of the custom hostnames. It is mandatory to specify a VHost when you create a Gateway environment.
 
        | **Environment** | **Display Name** | **Description**                               | **Virtual Host** |
                  |-------------|--------------|-------------------------------------------|--------------|
        | us-region   | US Region    | Gateway environment deployed in the US region. | us.wso2.com  |
 
-       [![Add a Gateway Environment]({{base_path}}/assets/img/deploy/add-gateway-environment.png)]({{base_path}}/assets/img/deploy/add-gateway-environment.png)
+      <a href="{{base_path}}/assets/img/deploy/add-gateway-environment.png">
+         <img src="{{base_path}}/assets/img/deploy/add-gateway-environment.png" alt="Add a Gateway Environment"
+         title="Add a Gateway Environment" width="500px" />
+      </a>
 
     3. Optionally, click **Advanced Settings** to add a HTTP(S) context and custom ports.
 
@@ -97,6 +103,16 @@ Follow the instructions below to use the `deployment.toml` file, which is the ce
     websub_event_receiver_https_endpoint = "https://foods.com:8021"
    ```
 
-3. [Start WSO2 API Manager]({{base_path}}/install-and-setup/install/installing-the-product/running-the-api-m/#starting-the-server).
+<ol start="3">
+<li><a href="{{base_path}}/install-and-setup/install/installing-the-product/running-the-api-m/#starting-the-server">Start WSO2 API Manager</a>.</li>
+</ol>
 
-   This will start WSO2 API Manager in the all-in-one mode, which includes the default Gateway as well.
+This will start WSO2 API Manager in the all-in-one mode, which includes the default Gateway as well.
+
+!!! note
+    Once the Gateway environment is set up, you can observe the active Gateway instances registered under the created environment, as shown in the image below. If a Gateway instance shows an **expired** status, it means the instance has not sent a heartbeat signal within the expected time interval and is considered inactive or unreachable.
+
+    <a href="{{base_path}}/assets/img/deploy/gateway-instances.png">
+        <img src="{{base_path}}/assets/img/deploy/gateway-instances.png" alt="observe gateway instances"
+        title="observe gateway instances" width="800px" /> 
+    </a>   
