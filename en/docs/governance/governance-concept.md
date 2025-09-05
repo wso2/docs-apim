@@ -59,7 +59,7 @@ Policies can be configured to take specific actions based on the severity of rul
 
 ## Label  
 
-A **label** is a tag that can be attached to a specific [governance artifact](#Artifact) to categorize them based on specific criteria. 
+A **label** is a tag that can be attached to a specific [governance artifact](#artifact) to categorize them based on specific criteria. 
 
 In the context of API governance, labels help group APIs according to their type, purpose, or any other classification relevant to the organization.  
 
