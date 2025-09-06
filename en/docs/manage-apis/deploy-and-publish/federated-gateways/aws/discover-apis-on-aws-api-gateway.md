@@ -21,8 +21,8 @@ Follow the instructions given below to configure AWS API Gateway as a Federated 
 3. Create an IAM user in AWS with `AmazonAPIGatewayAdministrator` permission.
 4. Obtain an Access Key and Secret Access Key for the IAM user created in the previous step. Select **Third-party service** as the use case.
 
-   !!!note
-   Note that it is not recommended to enter root credentials of the AWS account. Instead, create a new IAM user with the required permissions and use the credentials of the IAM user. For more information see [Best practices for managing AWS access keys](https://docs.aws.amazon.com/general/latest/gr/aws-access-keys-best-practices.html).
+    !!!note
+        Note that it is not recommended to enter root credentials of the AWS account. Instead, create a new IAM user with the required permissions and use the credentials of the IAM user. For more information see [Best practices for managing AWS access keys](https://docs.aws.amazon.com/general/latest/gr/aws-access-keys-best-practices.html).
 
 ## Step 2 : Register AWS API Gateway as a Federated Gateway in WSO2 API Manager
 
@@ -35,11 +35,14 @@ Follow the instructions given below to configure AWS API Gateway as a Federated 
    `https://localhost:9443/admin`
 
 3. Add a new Gateway Environment.
-    1. Select the Gateway type as AWS and provide the relevant details in the fields accordingly.
-    2. Enter the Access Key and Secret Key obtained in Step 1 under Gateway configurations.
-    3. Select the Gateway mode as ReadOnly, or ReadWrite based on the requirement.
-    4. Provide the Schedule time for the API discovery.
+    1. Select the Gateway Type as AWS Gateway from the dropdown and provide the relevant details in the fields accordingly.
+    2. Select the Gateway Mode as Read Only, or Read Write based on the requirement.
+    3. Enter the Access Key and Secret Key obtained in Step 1 under Gateway Connector Configurations. 
+    4. Provide the scheduling interval for API discovery in minutes.
     5. Save the configurations.
+
+    !!!tip
+        If you want to disable the scheduling of API Discovery for the configured gateway environment, specify 0 as the scheduling interval.
 
    [![add aws gateway discovery environment]({{base_path}}/assets/img/deploy/add-aws-gw-environment.png){: style="width:90%"}]({{base_path}}/assets/img/deploy/add-aws-gw-discovery.png)
 
