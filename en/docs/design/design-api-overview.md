@@ -64,7 +64,7 @@ API documentation helps API subscribers to understand the functionality of the A
 
 ## Test APIs
 
-You can test APIs directly in the API Publisher itself. Refer to [documentation on testing REST APIs]({{base_path}}/design/create-api/test-a-rest-api) for more information.
+You can test APIs directly in the API Publisher itself. Refer to [documentation on testing REST APIs]({{base_path}}/design/create-api/create-rest-api/test-a-rest-api) for more information.
 
 ## API Revisions
 
