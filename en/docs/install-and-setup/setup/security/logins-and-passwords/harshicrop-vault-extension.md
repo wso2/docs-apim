@@ -1,7 +1,7 @@
 
 # Integrate with HashiCorp Vault
 
-Using [HashiCorp Vault extension](https://github.com/wso2-extensions/carbon-securevault-hashicorp/tree/master), you can set up HashiCorp Vault to store passwords that are mapped to aliases instead of the actual passwords. When setting up Hashicrop Vault with APIM you can use either of the following authentication methords, based on your requirment.
+Using [HashiCorp Vault extension](https://github.com/wso2-extensions/carbon-securevault-hashicorp/tree/master), you can set up HashiCorp Vault to store passwords that are mapped to aliases instead of the actual passwords. When setting up Hashicorp Vault with APIM you can use either of the following authentication methods, based on your requirement.
    
 1. Using Root Token authentication
 2. Using App-Role authentication
@@ -66,7 +66,7 @@ This method uses a static root token to authenticate with HashiCorp Vault, provi
     logger.org-wso2-carbon-securevault-hashicorp.name=org.wso2.carbon.securevault.hashicorp
     logger.org-wso2-carbon-securevault-hashicorp.level=INFO
     logger.org-wso2-carbon-securevault-hashicorp.additivity=false
-    logger.org-wso2-carbon-securevault-hashicorp.appenderRefCARBON_CONSOLE.ref = CARBON_CONSOLE
+    logger.org-wso2-carbon-securevault-hashicorp.appenderRef.CARBON_CONSOLE.ref = CARBON_CONSOLE
     ```
 
 6. Then append `org-wso2-carbon-securevault-hashicorp` to the `loggers` list in the same file as follows.
