@@ -11,6 +11,7 @@ concurrency:
 jobs:
   queue-runner:
     runs-on: ubuntu-latest
+    timeout-minutes: 20
     name: Process next issue in Claude queue
     steps:
       - uses: actions/checkout@v4
@@ -61,4 +62,4 @@ jobs:
           gh issue edit $ISSUE --add-label "AI-Agent/In-Progress"
 
           # Add trigger comment for Claude
-          gh issue comment $ISSUE --body "@wso2-engineering-bot create a PR for this issue following repo conventions"
+          gh issue comment $ISSUE --body "@wso2-engineering-bot"
