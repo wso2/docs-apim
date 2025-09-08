@@ -775,11 +775,8 @@ markdown_extensions:
           alternate_style: true
 plugins:
     - search:
-        indexing: "full"
         separator: "[^\\w._-]+"
         lang: ['en']
-        prebuild_index: true
-        ngram_length: 3
     - markdownextradata: {}
     - exclude:
           glob:
