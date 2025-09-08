@@ -2352,6 +2352,26 @@ The following operations allow you to work with the File Connector version 4. Cl
                 Yes
             </td>
         </tr>
+        <tr>
+            <td>
+                File Name Encoding
+            </td>
+            <td>
+                fileNameEncoding
+            </td>
+            <td>
+                String
+            </td>
+            <td>
+                 The character encoding to interpret the file names inside the ZIP archive.
+            </td>
+            <td>
+                UTF-8
+            </td>
+            <td>
+                No
+            </td>
+        </tr>
     </table>
 
     > NOTE: The latest File connector (v4.0.7 onwards) supports decompressing the .gz files.

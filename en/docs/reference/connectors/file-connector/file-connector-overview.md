@@ -24,7 +24,7 @@ To see the available File connector, navigate to the [connector store](https://s
 			4.x (latest)
 		</td>
 		<td>
-			APIM 4.0.0, EI 6.4.0, EI 6.5.0, EI 6.6.0, EI 7.0.x, EI 7.1.0
+			MI 4.x.x, APIM 4.0.0, EI 6.4.0, EI 6.5.0, EI 6.6.0, EI 7.0.x, EI 7.1.0
 		</td>
 	</tr>
 	<tr>
@@ -46,6 +46,12 @@ For older versions, see the details in the connector store.
 * **[File Connector Reference]({{base_path}}/reference/connectors/file-connector/file-connector-config/)**: This documentation provides a reference guide for the File Connector.
 
 For older versions, see the details in the relevant links.
+
+## Prerequisites
+
+### File Connector 4.x
+
+For File Connector v4.0.41 and above, download [commons-compress-1.28.0.jar](https://mvnrepository.com/artifact/org.apache.commons/commons-compress/1.28.0) and copy it to the **<PRODUCT-HOME>/lib** folder.
 
 ## How to contribute
 
