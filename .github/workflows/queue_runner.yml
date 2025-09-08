@@ -61,4 +61,4 @@ jobs:
           gh issue edit $ISSUE --add-label "AI-Agent/In-Progress"
 
           # Add trigger comment for Claude
-          gh issue comment $ISSUE --body "@WSO2-Engineering-Bot create a PR for this issue following repo conventions"
+          gh issue comment $ISSUE --body "WSO2-Engineering-Bot create a PR for this issue following repo conventions"
