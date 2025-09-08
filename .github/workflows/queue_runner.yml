@@ -56,9 +56,9 @@ jobs:
         run: | 
           ISSUE=${{ steps.pick.outputs.issue_number }}
 
-          # Remove claude:queue, add claude:in-progress
+          # Remove AI-Agent/Queued, add AI-Agent/In-Progress
           gh issue edit $ISSUE --remove-label "AI-Agent/Queued"
           gh issue edit $ISSUE --add-label "AI-Agent/In-Progress"
 
           # Add trigger comment for Claude
-          gh issue comment $ISSUE --body "@AI-Agent create a PR for this issue following repo conventions"
+          gh issue comment $ISSUE --body "@wso2-engineering-bot create a PR for this issue following repo conventions"
