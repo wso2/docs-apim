@@ -121,6 +121,8 @@ Follow the steps given below to configure WSO2 IS 7.x as a Key Manager component
     | WSO2 Identity Server 7 Roles Endpoint                   | `https://localhost:9444/scim2/v2/Roles`                                                                                                                                                                                                                                                                             |
     | Create roles in WSO2 Identity Server 7                  | Enable this if you need to create roles in WSO2 Identity Server 7.                                                                                                                                                                                                                                                  |
 
+[![select mutual-tls as authentication type]({{base_path}}/assets/img/administer/wso2-is-7-select-mutualtls-auth-type.png)]({{base_path}}/assets/img/administer/wso2-is-7-select-mutualtls-auth-type.png)
+
 !!! Note
     When configuring a key manager manually, keep in mind to provide tenant qualified URLs
 
