@@ -165,3 +165,5 @@ When configuring the agent, update the following parameters in the `values.yaml`
 
 6. Click on **Try Out**, and then click **Execute** to invoke the API.
 
+    !!!note
+        To remove the deployment created for an API, delete the corresponding Service CR associated with that API from the Kubernetes cluster.
