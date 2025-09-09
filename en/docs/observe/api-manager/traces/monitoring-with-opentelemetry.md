@@ -82,7 +82,7 @@ For more information, see [OpenTelemetry Configurations]({{base_path}}/reference
 		remote_tracer.enable = true
 		remote_tracer.name = "zipkin"
 		remote_tracer.hostname = "<hostname-of-zikin-endpoint>"
-		remote_tracer..port = "<port-of-zipkin-endpoint>"
+		remote_tracer.port = "<port-of-zipkin-endpoint>"
 		```
 
 	=== "Example"
