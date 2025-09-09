@@ -3592,8 +3592,8 @@ paths:
             - apim:api_provider_change
       x-code-samples:
         - lang: Curl
-          source: 'curl -k -X PUT -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8"
-              -H "Content-Type: application/json" "https://127.0.0.1:9443/api/am/admin/v4/provider/admin/apis/33662a62-8db1-4d75-af08-afd63c6bd0b4/change-provider?provider=user1"'
+          source: 'curl -k -X POST -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8"
+              -H "Content-Type: application/json" "https://127.0.0.1:9443/api/am/admin/v4/apis/33662a62-8db1-4d75-af08-afd63c6bd0b4/change-provider?provider=user1"'
 components:
   schemas:
     Error:
