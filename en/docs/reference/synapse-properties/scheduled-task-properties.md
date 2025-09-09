@@ -122,6 +122,12 @@ The following properties are required when [creating a scheduled task]({{base_pa
    </tbody>
 </table>
 
+!!! Note
+      - From <strong>MI 4.1.0.145</strong> onwards, the task scheduler supports graceful shutdown. When the shutdown hook is triggered, the scheduler waits for currently running tasks to complete, up to a maximum of 180 seconds.
+      - You can configure the maximum graceful shutdown timeout (in seconds) using the system property `-DgracefulShutdownTimeout=value`
+      - Graceful shutdown currently works only with synchronous flows. If you are injecting the message into a sequence, make sure the `sequential` property is set to `true` as shown in the table below.
+      - Asynchronous mediation flows (for example, non-blocking Call mediator, Clone, or Iterate mediators with sequential mode disabled) can still cause the task scheduler to shut down before mediation completes. Hence, if you require a complete graceful shutdown for the task, ensure the sequence flow is fully synchronous.
+
 ### Task Implementation Properties
 
 Listed below are the optional task implementation properties you can use when [creating a scheduled task]({{base_path}}/integrate/develop/creating-artifacts/creating-scheduled-task).
@@ -213,6 +219,19 @@ Listed below are the optional task implementation properties you can use when [c
                   </div>
                </div>
             </div>
+         </td>
+      </tr>
+      <tr class="even">
+         <td>sequential</td>
+         <td>
+            This property is applicable only when the task injects the message into a sequence 
+            (<strong>injectTo</strong> parameter is set to <strong>sequence</strong>).  
+            When this property is set to <code>true</code>, the sequence will be executed in a 
+            synchronous manner. Otherwise, the task scheduler hands over the sequence execution 
+            to a new thread, resulting in an asynchronous flow.<br>
+            <code>&lt;property xmlns:task=&quot;http://www.wso2.org/products/wso2commons/tasks&quot; name=&quot;sequential&quot; value=&quot;true&quot;/&gt;</code><br>
+            <strong>Note:</strong> This property is available from MI 4.1.0.145 onwards.
+            
          </td>
       </tr>
       <tr class="even">
