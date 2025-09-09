@@ -267,7 +267,11 @@ nav:
                     - Deploy on AWS API Gateway: manage-apis/deploy-and-publish/federated-gateways/aws/deploy-on-aws-api-gateway.md
                     - Discover APIs on AWS API Gateway: manage-apis/deploy-and-publish/federated-gateways/aws/discover-apis-on-aws-api-gateway.md
                   - Kong:
-                    - Discover APIs on Kong Gateway: manage-apis/deploy-and-publish/federated-gateways/kong/discover-apis-on-kong-gateway.md
+                    - Kong on Kubernetes:
+                        - Deploy on Kong Gateway on Kubernetes: manage-apis/deploy-and-publish/federated-gateways/kong/kong-on-kubernetes/deploy-on-kong-gateway-on-kubernetes.md
+                        - Discover APIs on Kong Gateway on Kubernetes: manage-apis/deploy-and-publish/federated-gateways/kong/kong-on-kubernetes/discover-apis-on-kong-gateway-on-kubernetes.md
+                    - Kong on VMs:
+                        - Discover APIs on Kong Gateway: manage-apis/deploy-and-publish/federated-gateways/kong/kong-on-vms/discover-apis-on-kong-gateway.md
                   - Configure a Custom Gateway Agent: manage-apis/deploy-and-publish/deploy-on-gateway/federated-gateways/configure-custom-gateway-agent.md
     - Consume APIs:
         - Consume APIs - Overview: consume/consume-api-overview.md
@@ -1202,7 +1206,7 @@ extra:
             version: 1.2.0-1
             git_tag: v1.2.0.1
     site_version: 4.6.0
-#    base_path: http://localhost:8000/en/4.6.0
-    base_path: https://apim.docs.wso2.com/en/4.6.0
+    base_path: http://localhost:8000/en/4.6.0
+    # base_path: https://apim.docs.wso2.com/en/4.6.0
     envoy_path: https://www.envoyproxy.io/docs/envoy/v1.24.1
 
