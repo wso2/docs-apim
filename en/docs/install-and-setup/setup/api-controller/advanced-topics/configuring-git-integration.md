@@ -88,8 +88,8 @@ apictl set --vcs-config-path <full-path-to-store-vcs_config.yaml>
 
 !!! example
     ```bash
-    apictl set --vcs-config-path /home/wso2/api-manager/gitconfigs
-    VCS config file path is set to : /home/wso2/api-manager/gitconfigs
+    apictl set --vcs-config-path /home/wso2/api-manager/gitconfigs/vcs_config.yaml
+    VCS config file path is set to : /home/wso2/api-manager/gitconfigs/vcs_config.yaml
     ```
 
 By setting the above, `apictl vcs deploy` command will create the `vcs_config.yaml` if it is not available in the specified path and reuse it for the succeeding commands.
