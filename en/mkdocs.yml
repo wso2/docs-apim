@@ -527,6 +527,7 @@ nav:
             - Introduction to Multitenancy: administer/multitenancy/introduction-to-multitenancy.md
             - Manage Tenants: administer/multitenancy/managing-tenants.md
             - Configure the Tenant Loading Policy: administer/multitenancy/configuring-the-tenant-loading-policy.md
+            - Tenant Sharing with WSO2 Identity Server 7.x: administer/multitenancy/tenant-sharing-with-wso2is7.md
         - Monitoring API Manager:
            # - Configure Logs: administer/logging-and-monitoring/logging/configuring-logging.md
             # Remove After added TCP dump - TCP-Based Messages: administer/logging-and-monitoring/monitoring/monitoring-tcp-based-messages.md
