@@ -1,4 +1,4 @@
-# Discover APIs on Kong Gateway on Kubernetes
+# Discover APIs on Kong Gateway in Kubernetes
 
 From the 4.6.0 release onward, WSO2 API Manager introduces federated API discovery for APIs deployed on Kong Gateway in a Kubernetes cluster. WSO2 API Manager includes a built-in Kong Gateway connector and a separate Gateway Agent, which enables the discovery of APIs deployed on Kong Gateway in the cluster.
 
