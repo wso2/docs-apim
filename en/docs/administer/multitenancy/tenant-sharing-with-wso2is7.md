@@ -38,7 +38,7 @@ When configuring WSO2 IS 7.x as a Key Manager in the API Manager Admin Portal wi
 [[client_certificate_based_authentication.user_thumbprint_mapping]]
 trusted_issuer   = "<DN_of_the_Issuer>"
 cert_thumbprint  = "<thumbprint_of_trusted_certificate>"
-allowed_username = ["user1", "user2"]
+allowed_username = ["*"]
 ```
 
 !!! info
@@ -66,6 +66,9 @@ username = "<username>"
 password = "<password>”
 'header.X-WSO2-KEY-MANAGER' = "TENANT_MANAGEMENT"
 ```
+
+!!! note
+    The user in API Manager, whose credentials are provided above, must have the modify/tenant permission of the super admin.
 
 ## Tenant Synchronization from WSO2 API Manager to WSO2 IS 7.x
 
