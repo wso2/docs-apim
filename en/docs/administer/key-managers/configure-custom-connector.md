@@ -127,6 +127,9 @@ When registering a third-party Identity Provider as a Key Manager in the Admin P
     * Get an API Manager token by invoking the token endpoint of API Manager with the required parameters (i.e., the token obtained from the external Identity Provider)
     * Invoke the API with the exchanged token
 
+    !!! note
+        When configuring an external Key Manager with only the Token Exchange invocation method, ensure that the Resident Key Manager has the Token Exchange grant type enabled.
+
 
 1. Sign in to the Admin Portal using the following URL: `https://<hostname>:9443/admin`
 
