@@ -235,3 +235,121 @@ uninstallService.bat
 The console will display a message confirming that the WSO2CARBON service was removed.
 
 ![]({{base_path}}/assets/attachments/28717183/29364291.png)
+
+## Troubleshooting
+
+This section provides solutions for common issues you might encounter when installing and running WSO2 API Manager as a Windows service.
+
+### Common Installation Issues
+
+#### Insufficient Privileges Error
+
+**Problem:** Installation fails with permission errors even when using an administrative command prompt.
+
+**Solutions:**
+
+1. **Run Command Prompt as Administrator:** Right-click on Command Prompt and select "Run as administrator" rather than opening a regular command prompt.
+
+2. **Check User Account Control (UAC):** If you have limited elevation privileges:
+- Go to **Control Panel** → **User Accounts** → **Change User Account Control settings**
+- Temporarily lower UAC settings during installation
+- Restore UAC settings after successful installation
+
+3. **Use Built-in Administrator Account:** If your current account has limited privileges:
+- Enable the built-in Administrator account: `net user administrator /active:yes`
+- Login as Administrator and perform the installation
+- Disable the account after installation: `net user administrator /active:no`
+
+#### Path-related Issues
+
+**Problem:** "Error 2: The system cannot find the file specified" when starting the service.
+
+**Solutions:**
+
+1. **Verify Environment Variables:** Ensure the following environment variables are properly set:
+- `JAVA_HOME`: Points to your JDK installation directory
+- `carbon_home`: Points to your WSO2 API Manager installation directory
+
+2. **Use Absolute Paths:** In the `wrapper.conf` file, use absolute paths instead of relative paths:
+```bash
+wrapper.java.command = C:/Program Files/Java/jdk-11.0.x/bin/java
+wrapper.working.dir = C:/path/to/wso2am-4.x.x/
+```
+
+3. **Path with Spaces:** If your installation path contains spaces, ensure paths are properly quoted in the configuration.
+
+#### Service Installation Failures
+
+**Problem:** Service installation command completes but service is not visible in Windows Services.
+
+**Solutions:**
+
+1. **Refresh Services Console:** Press F5 in the Windows Services console to refresh the list.
+
+2. **Check Windows Event Logs:** 
+- Open Event Viewer (eventvwr.msc)
+- Navigate to **Windows Logs** → **Application** or **System**
+- Look for error messages related to WSO2CARBON service
+
+3. **Verify YAJSW Configuration:** Ensure the `wrapper.conf` file has the correct service name settings:
+```bash
+wrapper.ntservice.name=WSO2CARBON
+wrapper.ntservice.displayname=WSO2 Carbon
+```
+
+### Service Runtime Issues
+
+#### Service Starts but Stops Immediately
+
+**Problem:** The WSO2CARBON service starts but stops within seconds.
+
+**Solutions:**
+
+1. **Check Log Files:** Review the following log files for error details:
+- `<YAJSW_HOME>/log/wrapper.log`
+- `<CARBON_HOME>/repository/logs/wso2carbon.log`
+
+2. **Memory Configuration:** Verify memory settings in `wrapper.conf`:
+```bash
+wrapper.java.additional.2 = -Xms256m
+wrapper.java.additional.3 = -Xmx1024m
+```
+Increase memory allocation if needed based on your system resources.
+
+3. **Port Conflicts:** Ensure default ports (9443, 9763, 8280, 8243) are not in use by other applications:
+```cmd
+netstat -an | findstr :9443
+netstat -an | findstr :9763
+```
+
+#### Cannot Access Management Console
+
+**Problem:** Service is running but the management console is not accessible.
+
+**Solutions:**
+
+1. **Verify Service Status:** Ensure the WSO2CARBON service is running in Windows Services console.
+
+2. **Check Firewall Settings:** Configure Windows Firewall to allow traffic on WSO2 API Manager ports:
+- Management Console: 9443
+- HTTP API Traffic: 8280 
+- HTTPS API Traffic: 8243
+
+3. **Browser Configuration:** Try accessing the console using:
+- Different browsers
+- Incognito/private mode
+- Local IP address instead of localhost: `https://[your-ip]:9443/carbon`
+
+### Getting Additional Help
+
+If you continue to experience issues:
+
+1. **Enable Debug Logging:** Add the following to `wrapper.conf` for detailed logging:
+```bash
+wrapper.console.loglevel=DEBUG
+wrapper.logfile.loglevel=DEBUG
+```
+
+2. **Community Support:** Visit the [WSO2 Community](https://wso2.org/community/) for additional support.
+
+3. **Documentation:** Refer to the [WSO2 API Manager documentation]({{base_path}}) for comprehensive configuration details.
