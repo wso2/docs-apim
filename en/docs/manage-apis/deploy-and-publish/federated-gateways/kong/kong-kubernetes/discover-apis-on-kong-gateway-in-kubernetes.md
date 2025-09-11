@@ -114,6 +114,7 @@ When configuring the agent, update the following parameters in the `values.yaml`
     - HTTPRoute CRs (OPTIONS) – Handle CORS preflight requests for browser-based clients.
     - ACL KongPlugin – Restricts access to specific consumers/applications.
     - JWT KongPlugin – Enforces token validation against WSO2 APIM’s Key Manager.
+    - CORS KongPlugin - Enables cross-origin requests by configuring allowed origins, methods, and headers.
 
     !!!note
         You can use this sample [set of CRs](https://github.com/wso2-extensions/apim-gw-connectors/blob/main/kong/sample/api_crs) as a reference.
@@ -165,5 +166,8 @@ When configuring the agent, update the following parameters in the `values.yaml`
 
 6. Click on **Try Out**, and then click **Execute** to invoke the API.
 
-    !!!note
-        To remove the deployment created for an API, delete the corresponding Service CR associated with that API from the Kubernetes cluster.
+!!!note
+    To remove the deployment created for an API, delete the corresponding Service CR associated with that API from the Kubernetes cluster.
+
+!!!note
+    For more details, see the [Complete Testing Guide](https://github.com/wso2-extensions/apim-gw-connectors/tree/main/kong/gateway-connector#-complete-testing-guide).

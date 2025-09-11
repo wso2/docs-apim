@@ -161,3 +161,6 @@ When configuring the agent, update the following parameters in the `values.yaml`
 
 !!!note
     Please note that only **REST APIs** are supported for deployment to Kong Gateway in Kubernetes.
+
+!!!note
+    For more details, see the [complete testing guide](https://github.com/wso2-extensions/apim-gw-connectors/tree/main/kong/gateway-connector#-complete-testing-guide).
