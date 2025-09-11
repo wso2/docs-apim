@@ -32,8 +32,8 @@ Let's do the following API resource to backend mapping in this tutorial as an ex
 
     | Field         |   Value                                                  |
     |---------------|----------------------------------------------------------|
-    | HTTP Verb     |   `/business/{id}/details`                      |
-    | URL pattern   |   GET                                                    |
+    | HTTP Verb     |   GET                                                    |
+    | URL pattern   |   `/business/{id}/details`                      |
 
 3. Delete the auto generated wildcard `/*` resources. Otherwise all the requests will go to them.
 
