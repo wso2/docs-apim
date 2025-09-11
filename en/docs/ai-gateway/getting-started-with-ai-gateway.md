@@ -1,6 +1,6 @@
 # Getting Started with AI Gateway
 
-The AI Gateway in WSO2 API Manager simplifies the integration of AI services into applications by providing a seamless way to manage and expose AI APIs. With built-in support for leading AI Service Providers such as **OpenAI**, **Azure OpenAI**, and **Mistral**, as well as the flexibility to configure custom AI providers, AI Gateway enables organizations to adopt AI securely and efficiently.
+The AI Gateway in WSO2 API Manager simplifies the integration of AI services into applications by providing a seamless way to manage and expose AI APIs. With built-in support for leading AI Service Providers such as **Anthropic**, **AWS Bedrock**, **Azure AI Foundry**, **Azure OpenAI**, **Gemini**, **Mistral**, and **OpenAI**, as well as the flexibility to configure custom AI providers, AI Gateway enables organizations to adopt AI securely and efficiently.
 
 AI Gateway gives you the ability to create AI APIs, which serve as a bridge between your application and AI service providers. These AI APIs allow you to interact with AI models, send requests, and retrieve AI-generated responses.
 

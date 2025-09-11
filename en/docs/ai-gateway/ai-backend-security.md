@@ -21,11 +21,13 @@ You can do so for OpenAI by following the steps mentioned below:
 
     !!! Note
             API Manager supports below AI Service Providers by default. The authorization approach of each is mentioned below: 
-        - **MistralAI**: `Authorization` header
-        - **AzureOpenAI**: `api-key` header
-        - **OpenAI**: `Authorization` header
         - **Anthropic**: `x-api-key` header
         - **AWSBedrock**: Requires both an AWS Access Key and AWS Secret Key for authentication.
+        - **AzureAIFoundry**: `api-key` header
+        - **AzureOpenAI**: `api-key` header
+        - **Gemini**: `X-goog-api-key` header
+        - **MistralAI**: `Authorization` header
+        - **OpenAI**: `Authorization` header
 
         Note that we prepend "Bearer " to the header value that you provide when it comes to MistralAI and OpenAI since they are expecting an Authorization header.
 
