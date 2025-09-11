@@ -33,7 +33,7 @@
    - If the issue explicitly mentions a version (in title/body/labels) → checkout that version first.  
    - If no version is mentioned → get the branch as ${LATEST_VERSION} branch.
    - After PR creation for that version, check other versions sequentially (from ${LATEST_VERSION} down to 4.0.0), this should include the repository's default branch (e.g., `main` or `master`).
-   - IMPORTANT: You must create PRs for all maintained versions from ${LATEST_VERSION} down to 4.0.0, and also for the repository's default branch (which may be `main` or `master`).
+   - IMPORTANT: Must create PRs for all maintained versions from ${LATEST_VERSION} down to 4.0.0, and also for the repository's default branch (which may be `main` or `master`).
    - If the issue is present in other versions including the default branch → fix them as well, creating **separate PRs for each version including the default branch**.
 
 4. Branching (work directly in original repo):
