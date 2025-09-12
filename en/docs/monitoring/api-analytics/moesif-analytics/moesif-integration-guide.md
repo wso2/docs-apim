@@ -44,7 +44,6 @@ enable = true
 type = "moesif"
 properties."moesifKey" = "<your-moesif-application-id>"
 properties."publisher.reporter.class" = "org.wso2.am.analytics.publisher.reporter.moesif.MoesifReporter"
-logger.reporter.level = "INFO"
 ```
 
 !!! important
