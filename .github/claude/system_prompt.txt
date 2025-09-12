@@ -79,7 +79,7 @@ First need to understand what the issue is related to by reading the issue very 
    **Step 2: Solution Verification**
    - Compare suggested solution with existing documentation standards and style
    - Verify technical accuracy against the project/product features and capabilities
-   - Check if suggestion aligns with current version requirements (${LATEST_VERSION} and other versions)
+   - Check if suggestion aligns with current version requirements (${LATEST_VERSION} and other versions including default branch)
    - Ensure solution doesn't contradict existing documentation or best practices
    
    **Step 3: Implementation Decision**
