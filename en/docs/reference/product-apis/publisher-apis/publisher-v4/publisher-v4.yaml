@@ -17,6 +17,7 @@ info:
   title: WSO2 API Manager - Publisher API
   description: |
     This document specifies a **RESTful API** for WSO2 **API Manager** - **Publisher**.
+    Please see [full OpenAPI Specification](https://raw.githubusercontent.com/wso2/carbon-apimgt/master/components/apimgt/org.wso2.carbon.apimgt.rest.api.publisher.v1/src/main/resources/publisher-api.yaml) of the API which is written using [OAS 3.0](http://swagger.io/) specification.
 
     # Authentication
     The Publisher REST API is protected using OAuth2 and access control is achieved through scopes. Before you start invoking
@@ -99,8 +100,8 @@ info:
     * Make sure you have an API Manager instance up and running.
     * Update the `basepath` parameter to match the hostname and port of the APIM instance.
 
-    <a href="../../../../../assets/attachments/reference/publisher-v4.2-postman-collection.json"
-    download="WSO2 API Manager 4.4.0 Publisher REST API.postman_collection.json"
+    <a href="../../../../../assets/attachments/reference/publisher-v4.3-postman-collection.json"
+    download="WSO2 API Manager 4.5.0 Publisher REST API.postman_collection.json"
     style="display: inline-block; padding: 10px 15px; color: white; background-color: #ef5b25; text-align: center; text-decoration: none; border-radius: 5px;font-weight: bold;">
     Download Postman Collection
     </a>
@@ -267,6 +268,85 @@ paths:
           source: 'curl -k -X POST -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8"
           -H "Content-Type: application/json" -d @data.json "https://127.0.0.1:9443/api/am/publisher/v4/apis"'
       operationId: createAPI
+
+  #######################################################
+  # The "API Design Assistant - Chat" resource APIs
+  #######################################################
+  /design-assistant/chat:
+    post:
+      tags:
+        - API Design Assistant
+      summary: Generate API Specifications with API Design Assistant
+      description: |
+        Generates API specifications based on natural language input.
+
+        Key features:
+        - Converts text descriptions into structured API specifications
+        - Supports session-based API generation
+        - Provides QoS suggestions and other improvements
+      requestBody:
+        description: Input for API specification generation
+        required: true
+        content:
+          application/json:
+           schema:
+            $ref: '#/components/schemas/DesignAssistantChatQuery'
+      responses:
+        200:
+          description: Successful API specification generation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DesignAssistantChatResponse'
+        400:
+          $ref: '#/components/responses/BadRequest'
+        415:
+          $ref: '#/components/responses/UnsupportedMediaType'
+      security:
+        - OAuth2Security:
+            - apim:api_create
+            - apim:api_manage
+      x-code-samples:
+        - lang: Curl
+          source: 'curl -k -X POST -H Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" -H "Content-Type: application/json" -d "{\"text\": \"create an API for a banking transaction.\", \"sessionId\": \"1234567890\"}" "https://127.0.0.1:9443/api/am/publisher/v4/design-assistant/chat"'
+      operationId: designAssistantChat
+
+  ######################################################################
+  # The "API Design Assistant - Generate API Payloads" resource APIs
+  ######################################################################
+  /design-assistant/generate-api-payload:
+    post:
+      tags:
+        - API Design Assistant
+      summary: Create API Payload with API Design Assistant
+      description: |
+        Creates an API payload using the stored specification.
+      requestBody:
+        description: Input for API payload creation
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/DesignAssistantGenAPIPayload'
+      responses:
+        200:
+          description: API payload successfully created.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DesignAssistantAPIPayloadResponse'
+        400:
+          $ref: '#/components/responses/BadRequest'
+        415:
+          $ref: '#/components/responses/UnsupportedMediaType'
+      security:
+        - OAuth2Security:
+            - apim:api_create
+            - apim:api_manage
+      x-code-samples:
+        - lang: Curl
+          source: 'curl -k -X POST -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" -H "Content-Type: application/json" -d "{\"sessionId\": \"1234567890\"}" "https://127.0.0.1:9443/api/am/publisher/v4/design-assistant/generate-api-payload"'
+      operationId: designAssistantApiPayloadGen
 
   ######################################################
   # The "Individual API" resource APIs
@@ -1300,6 +1380,7 @@ paths:
         - $ref: '#/components/parameters/requestedTenant'
         - $ref: '#/components/parameters/If-None-Match'
         - $ref: '#/components/parameters/isAiApi'
+        - $ref: '#/components/parameters/organizationID'
       responses:
         200:
           description: |
@@ -1697,6 +1778,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/APIRevision'
+        400:
+          $ref: '#/components/responses/BadRequest'
         404:
           $ref: '#/components/responses/NotFound'
         412:
@@ -4329,6 +4412,14 @@ paths:
           required: false
           schema:
             type: boolean
+        - name: dryRun
+          in: query
+          description: |
+            Dry Run. This is used to validate the API without importing it
+          required: false
+          schema:
+            type: boolean
+            default: false   
         - $ref: '#/components/parameters/Accept'
       requestBody:
         content:
@@ -7492,8 +7583,34 @@ paths:
         - lang: Curl
           source: 'curl -k -I -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8"
           "https://127.0.0.1:9443/api/am/publisher/v4/me/roles/SW50ZXJuYWwvcHVibGlzaGVyCQ"'
-
-  ######################################################
+  /me/organization-information:
+    get:
+      tags:
+        - Users
+      summary: Get the Organization information of the user
+      description: |
+        Using this operation, logged-in user can get their organization information.
+      operationId: organizationInformation
+      responses:
+        200:
+          description: |
+            OK.
+            Key Manager list returned
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/OrganizationInfo'
+        400:
+          $ref: '#/components/responses/BadRequest'
+      security:
+        - OAuth2Security:
+            - apim:api_create
+            - apim:api_manage
+      x-code-samples:
+        - lang: Curl
+          source: 'curl -k -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8"
+          -H "Content-Type: application/json" -X POST -d @data.json "https://localhost:9443/api/am/publisher/v4/me/organization"'
+ ######################################################
   # The "ExternalStore Collection" resource APIs
   ######################################################
   /external-stores:
@@ -7566,6 +7683,17 @@ paths:
       description: |
         This operation can be used to get linter custom rules from tenant-config.
       operationId: getLinterCustomRules
+      parameters:
+        - name: apiId
+          in: query
+          required: false
+          schema:
+            type: string
+        - name: apiType
+          in: query
+          required: false
+          schema:
+            type: string
       responses:
         200:
           description: |
@@ -8561,12 +8689,225 @@ paths:
           "https://127.0.0.1:9443/api/am/publisher/v4/apis/96077508-fd01-4fae-bc64-5de0e2baf43c/operation-policies/f56eb8b4-128c-45aa-ad35-9c87a546261a/content"'
 
   ######################################################
+  # The "API Endpoint Collection" resource APIs
+  ######################################################
+  /apis/{apiId}/endpoints:
+    get:
+      tags:
+        - API Endpoints
+      summary: Get all API Endpoints
+      description: |
+        This operation can be used to get all the available endpoints of an API.
+      parameters:
+        - $ref: '#/components/parameters/apiId'
+        - $ref: '#/components/parameters/limit'
+        - $ref: '#/components/parameters/offset'
+      responses:
+        200:
+          description: |
+            OK.
+            List of API endpoints.
+          headers:
+            Content-Type:
+              description: |
+                The content type of the body.
+              schema:
+                type: string
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/APIEndpointList'
+        400:
+          $ref: '#/components/responses/BadRequest'
+        404:
+          $ref: '#/components/responses/NotFound'
+        500:
+          $ref: '#/components/responses/InternalServerError'
+      security:
+        - OAuth2Security:
+            - apim:api_view
+            - apim:api_create
+            - apim:api_manage
+            - apim:api_publish
+            - apim:api_import_export
+      x-code-samples:
+        - lang: Curl
+          source: 'curl -k -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8"
+          "https://127.0.0.1:9443/api/am/publisher/v4/apis/96077508-fd01-4fae-bc64-5de0e2baf43c/endpoints?limit=10&offset=0"'
+      operationId: getApiEndpoints
+
+    post:
+      tags:
+        - API Endpoints
+      summary: Add an Endpoint
+      description: |
+        This operation can be used to add an endpoint to an API.
+      parameters:
+        - $ref: '#/components/parameters/apiId'
+      requestBody:
+        description: Endpoint object that needs to be added
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/APIEndpoint'
+        required: true
+      responses:
+        201:
+          description: |
+            Created.
+            Successful response with the newly created API Endpoint object in the body.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/APIEndpoint'
+        400:
+          $ref: '#/components/responses/BadRequest'
+        415:
+          $ref: '#/components/responses/UnsupportedMediaType'
+      security:
+        - OAuth2Security:
+            - apim:api_create
+            - apim:api_manage
+            - apim:api_publish
+            - apim:api_import_export
+      x-code-samples:
+        - lang: Curl
+          source: 'curl -k -X POST -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8"
+          -H "Content-Type: application/json" -d @data.json
+          "https://127.0.0.1:9443/api/am/publisher/v4/apis/96077508-fd01-4fae-bc64-5de0e2baf43c/endpoints"'
+      operationId: addApiEndpoint
+
+  /apis/{apiId}/endpoints/{endpointId}:
+    get:
+      tags:
+        - API Endpoints
+      summary: Get an Endpoint
+      description: |
+        This operation can be used to get an endpoint of an API by UUID.
+      parameters:
+        - $ref: '#/components/parameters/apiId'
+        - $ref: '#/components/parameters/endpointId'
+      responses:
+        200:
+          description: |
+            OK.
+            API Endpoint object is returned.
+          headers:
+            Content-Type:
+              description: |
+                The content type of the body.
+              schema:
+                type: string
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/APIEndpoint'
+        500:
+          $ref: '#/components/responses/InternalServerError'
+        404:
+          $ref: '#/components/responses/NotFound'
+      security:
+        - OAuth2Security:
+            - apim:api_view
+            - apim:api_create
+            - apim:api_manage
+            - apim:api_publish
+            - apim:api_import_export
+      x-code-samples:
+        - lang: Curl
+          source: 'curl -k -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8"
+          "https://127.0.0.1:9443/api/am/publisher/v4/apis/96077508-fd01-4fae-bc64-5de0e2baf43c/endpoints/13092607-ed01-4fa1-bc64-5da0e2abe92c"'
+      operationId: getApiEndpoint
+
+    put:
+      tags:
+        - API Endpoints
+      summary: Update an Endpoint
+      description: |
+        This operation can be used to update a API endpoint.
+      parameters:
+        - $ref: '#/components/parameters/apiId'
+        - $ref: '#/components/parameters/endpointId'
+      requestBody:
+        description: API Endpoint object with updated details
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/APIEndpoint'
+      responses:
+        200:
+          description: |
+            OK.
+            Updated API Endpoint is returned.
+          headers:
+            Content-Type:
+              description: |
+                The content type of the body.
+              schema:
+                type: string
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/APIEndpoint'
+        400:
+          $ref: '#/components/responses/BadRequest'
+        404:
+          $ref: '#/components/responses/NotFound'
+        415:
+          $ref: '#/components/responses/UnsupportedMediaType'
+        500:
+          $ref: '#/components/responses/InternalServerError'
+      security:
+        - OAuth2Security:
+            - apim:api_create
+            - apim:api_manage
+            - apim:api_publish
+            - apim:api_import_export
+      x-code-samples:
+        - lang: Curl
+          source: 'curl -k -X PUT -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8"
+          -H "Content-Type: application/json" -d @data.json 
+          "https://127.0.0.1:9443/api/am/publisher/v4/apis/96077508-fd01-4fae-bc64-5de0e2baf43c/endpoints/13092607-ed01-4fa1-bc64-5da0e2abe92c"'
+      operationId: updateApiEndpoint
+
+    delete:
+      tags:
+        - API Endpoints
+      summary: Delete an Endpoint
+      description: |
+        This operation can be used to delete a API endpoint.
+      parameters:
+        - $ref: '#/components/parameters/apiId'
+        - $ref: '#/components/parameters/endpointId'
+      responses:
+        200:
+          description: |
+            OK.
+            Endpoint deleted successfully.
+          content: {}
+        404:
+          $ref: '#/components/responses/NotFound'
+        500:
+          $ref: '#/components/responses/InternalServerError'
+      security:
+        - OAuth2Security:
+            - apim:api_create
+            - apim:api_manage
+            - apim:api_publish
+            - apim:api_import_export
+      x-code-samples:
+        - lang: Curl
+          source: 'curl -k -X DELETE -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8"
+          "https://127.0.0.1:9443/api/am/publisher/v4/apis/96077508-fd01-4fae-bc64-5de0e2baf43c/endpoints/13092607-ed01-4fa1-bc64-5da0e2abe92c"'
+      operationId: deleteApiEndpoint
+
+  ######################################################
   # API Labels APIs
   ######################################################
   /apis/{apiId}/labels:
     get:
       tags:
-          - API Labels
+          - Labels
       summary: Get Labels of an API
       description: |
           This operation can be used to get the labels of an API.
@@ -8598,7 +8939,7 @@ paths:
   /apis/{apiId}/attach-labels:
     post:
       tags:
-        - API Labels Attach
+        - Labels
       summary: Attach Labels to an API
       description: |
         This operation can be used to attach labels to an API.
@@ -8639,7 +8980,7 @@ paths:
   /apis/{apiId}/detach-labels:
     post:
       tags:
-        - API Labels Detach
+        - Labels
       summary: Detach Labels from an API
       description: |
         This operation can be used to detach labels from an API.
@@ -8717,7 +9058,7 @@ paths:
   /llm-providers/{llmProviderId}/api-definition:
     get:
       tags:
-        - LLMProvider
+        - LLMProviders
       summary: Get LLM Provider's API Definition
       description: |
         Get LLM Provider's API Definition
@@ -8748,7 +9089,7 @@ paths:
   /llm-providers/{llmProviderId}/endpoint-configuration:
     get:
       tags:
-        - LLMProvider
+        - LLMProviders
       summary: Get LLM provider's security configurations
       description: |
         Get LLM provider's endpoint security configurations
@@ -8776,13 +9117,46 @@ paths:
           "https://127.0.0.1:9443/api/am/publisher/v4/llm-providers/a2f1e643-9b2a-4f58-bd7a-8c2d3f1e9d6f/endpoint-configuration"'
       operationId: getLLMProviderEndpointConfiguration
 
+  /llm-providers/{llmProviderId}/models:
+    get:
+      tags:
+        - LLMProviders
+      summary: Get LLM provider's model list
+      description: |
+        Get LLM provider's model list
+      parameters:
+        - name: llmProviderId
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        200:
+          description: |
+            OK.
+            List of models
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: string
+      security:
+        - OAuth2Security:
+            - apim:llm_provider_read
+      x-code-samples:
+        - lang: Curl
+          source: 'curl -k -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8"
+          "https://127.0.0.1:9443/api/am/publisher/v4/llm-providers/a2f1e643-9b2a-4f58-bd7a-8c2d3f1e9d6f/models"'
+      operationId: getLLMProviderModels
+
   ######################################################
   # The "Individual LLM Provider" resource APIs
   ######################################################
   /llm-providers/{llmProviderId}:
     get:
       tags:
-        - LLMProvider
+        - LLMProviders
       summary: Get LLM Provider
       description: |
         Get a LLM Provider
@@ -9591,7 +9965,7 @@ paths:
   /workflows:
     get:
       tags:
-        - Workflow (Collection)
+        - Workflows
       summary: |
         Retrieve All Pending Workflow Processes
       description: |
@@ -9641,7 +10015,7 @@ paths:
   /workflows/{externalWorkflowRef}:
     get:
       tags:
-        - Workflows (Individual)
+        - Workflows
       summary: |
         Get Pending Workflow Details by External Workflow Reference
       description: |
@@ -9683,7 +10057,7 @@ paths:
   /workflows/update-workflow-status:
     post:
       tags:
-        - Workflows (Individual)
+        - Workflows
       summary: Update Workflow Status
       description: |
         This operation can be used to approve or reject a workflow task.
@@ -9730,7 +10104,7 @@ paths:
   /labels:
     get:
       tags:
-        - Labels (Collection)
+        - Labels
       summary: Get all Labels
       description: |
         Get all Labels
@@ -9755,6 +10129,71 @@ paths:
 
 components:
   schemas:
+    ContentPublishStatus:
+      type: object
+      properties:
+        action:
+          type: string
+          enum:
+            - PUBLISH
+            - UNPUBLISH
+      example:
+        action: PUBLISH
+    ContentPublishStatusResponse:
+      type: object
+      properties:
+        id:
+          type: string
+          description: UUID of the api-theme
+        published:
+          type: boolean
+          description: Publish status of the api-theme
+    DesignAssistantChatQuery:
+      type: object
+      properties:
+        text:
+          type: string
+          example: create an API for a banking transaction
+        session_id:
+          type: string
+          example: 1234567890
+    DesignAssistantChatResponse:
+      type: object
+      properties:
+        backendResponse:
+          type: string
+        isSuggestions:
+          type: boolean
+          example: true
+        typeOfApi:
+          type: string
+          example: REST
+        code:
+          type: string
+        paths:
+          type: array
+          example: []
+          items:
+            type: string
+        apiTypeSuggestion:
+          type: string
+          example: This is suitable for CRUD operations in banking. Do you want to proceed?
+        missingValues:
+          type: string
+        state:
+          type: string
+          example: COMPLETE
+    DesignAssistantGenAPIPayload:
+      type: object
+      properties:
+        session_id:
+          type: string
+          example: 1234567890
+    DesignAssistantAPIPayloadResponse:
+      type: object
+      properties:
+        generated_payload:
+          type: string
     SequenceBackendList:
       title: Sequence Backend List
       type: object
@@ -10318,6 +10757,13 @@ components:
           x-otherScopes:
             - apim:api_publish
             - apim:api_manage
+        organizationPolicies:
+          type: array
+          items:
+            $ref: '#/components/schemas/OrganizationPolicies'
+          x-otherScopes:
+            - apim:api_publish
+            - apim:api_manage  
         apiThrottlingPolicy:
           type: string
           description: The API level throttling policy selected for the particular
@@ -10374,6 +10820,12 @@ components:
             - apim:api_manage
         visibleTenants:
           type: array
+          example: []
+          items:
+            type: string
+        visibleOrganizations:
+          type: array
+          description: The organizations that are able to access the API in Developer Portal
           example: []
           items:
             type: string
@@ -10592,6 +11044,12 @@ components:
               url: https://localhost:9443/am/sample/pizzashack/v3/api/
             production_endpoints:
               url: https://localhost:9443/am/sample/pizzashack/v3/api/
+        primaryProductionEndpointId:
+          type: string
+          example: "13092607-ed01-4fa1-bc64-5da0e2abe92c"
+        primarySandboxEndpointId:
+          type: string
+          example: "13092607-ed01-4fa1-bc64-5da0e2abe92c" 
         endpointImplementationType:
           type: string
           example: INLINE
@@ -10678,13 +11136,17 @@ components:
           title: field to identify gateway vendor
           type: string
           example:
-            wso2
+            - wso2
+            - external
         gatewayType:
           title: Field to identify gateway type.
           type: string
           description: The gateway type selected for the API policies. Accepts one of the
             following. wso2/synapse, wso2/apk.
-          example: wso2/synapse
+          example:
+            - wso2/synapse
+            - wso2/apk
+            - AWS
           default: wso2/synapse
         asyncTransportProtocols:
           type: array
@@ -12096,6 +12558,41 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/Environment'
+    APIEndpoint:
+      title: Endpoint
+      type: object
+      required:
+        - name
+      properties:
+        id:
+          type: string
+          example: "57a380b7-d852-4f56-bb23-db172722e9d4"
+        name:
+          type: string
+          example: "Endpoint1"
+        deploymentStage:
+          type: string
+          example: "PRODUCTION or SANDBOX"
+        endpointConfig:
+          type: object
+          properties: {}
+          description: |
+            Endpoint configuration of the API. This can be used to provide different types of endpoints including Simple REST Endpoints, Loadbalanced and Failover.
+    APIEndpointList:
+      title: Endpoints List
+      type: object
+      properties:
+        count:
+          type: integer
+          description: |
+            Number of Endpoints returned.
+          example: 1
+        list:
+          type: array
+          items:
+            $ref: '#/components/schemas/APIEndpoint'
+        pagination:
+          $ref: '#/components/schemas/Pagination'
     LLMProviderResponse:
       title: LLMProviderResponse
       type: object
@@ -12654,6 +13151,20 @@ components:
           example: ""
         operationPolicies:
           $ref: '#/components/schemas/APIOperationPolicies'
+    OrganizationPolicies:
+      title: Organization based Subscription Policies
+      type: object
+      required:
+        - organizationID
+      properties:
+        organizationID:
+          type: string
+          example: "36c87e00-57f0-4000-9f97-b379acc4e577"
+        policies:
+          type: array
+          example: ["Silver", "Gold", "Unlimited"]
+          items:
+            type: string      
     ScopeList:
       title: Scope List
       type: object
@@ -13413,8 +13924,23 @@ components:
           example:
             - Regular
             - APK
+            - AWS
           items:
             type: string
+        GatewayFeatureCatalog:
+          title: Gateway feature Catalog
+          type: object
+          properties:
+            gatewayFeatures:
+              type: object
+              additionalProperties:
+                type: object
+            apiTypes:
+              type: object
+              additionalProperties:
+                type: array
+                items:
+                  type: string    
         scopes:
           type: array
           example:
@@ -13476,11 +14002,25 @@ components:
         IsJWTEnabledForLoginTokens:
           type: boolean
           default: false
+        orgAccessControlEnabled:
+          type: boolean
+          description: |
+            Is Organization-based access control configuration enabled
+          example: true
         allowSubscriptionValidationDisabling:
           type: boolean
           description: |
             Allow subscription validation disabling for OAuth tokens
           default: true
+        designAssistantEnabled:
+          type: boolean
+          description: |
+            Specifies whether Design Assistant enabled
+          default: true
+        aiAuthTokenProvided:
+          type: boolean
+          description: Checks if the auth token is provided for AI service usage.
+          default: false  
         customProperties:
           type: array
           items:
@@ -13834,6 +14374,16 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/OperationPolicy'
+    OrganizationInfo:
+      title: Organization Info
+      type: object
+      properties:
+        organizationId:
+          type: string
+          example: 01234567-0123-0123-0123-012345678901
+        name:
+          type: string
+          example: My Organization        
     GatewayPolicyMappings:
       title: Gateway Policy Mappings
       type: object
@@ -13989,8 +14539,13 @@ components:
         supportedApiTypes:
           type: array
           items:
-            type: string
-            example: REST
+            type: object
+            properties: {}
+          description: |
+            Supported API types as an array of strings, or an array of maps
+            [HTTP, SOAP] 
+            [{apiType: HTTP, subType: AI}, {apiType: SOAP}]
+          example: [HTTP, SOAP]
         isAPISpecific:
           type: boolean
           example: true
@@ -14272,7 +14827,7 @@ components:
       name: apiId
       in: query
       description: |
-        **API ID** consisting of the **UUID** of the API.
+        **API ID** consisting of the **UUID** of the API**.
       required: true
       schema:
         type: string
@@ -14511,6 +15066,13 @@ components:
       schema:
         type: boolean
         default: false
+    organizationID:
+      name: organizationID
+      in: query
+      description: |
+        Indicates the organization ID
+      schema:
+        type: string
     offset:
       name: offset
       in: query
@@ -14697,3 +15259,6 @@ components:
             apim:subscription_approval_manage: Approve subscription update requests
             apim:llm_provider_read: Read LLM Providers
             apim:publisher_organization_read: Read organization
+            apim:gov_policy_read: Retrieve governance policies
+            apim:gov_result_read: Retrieve governance results
+            apim:gov_rule_read: Retrieve governance rules
