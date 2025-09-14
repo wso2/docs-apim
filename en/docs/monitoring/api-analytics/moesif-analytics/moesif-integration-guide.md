@@ -4,7 +4,7 @@ This guide outlines the steps required to integrate **Moesif Analytics** with **
 
 !!! Note
     Moesif Analytics integration is supported starting from WSO2 API Manager 4.5.0 Update Level 11 and onwards. Ensure that you are using a compatible update level of WSO2 API Manager 4.5.0.
-    Refer to this [guide](https://apim.docs.wso2.com/en/latest/administer/updating-wso2-api-manager/) to update your WSO2 API Manager to the required or latest update level.
+    Refer to this [guide]({{base_path}}/administer/updating-wso2-api-manager/) to update your WSO2 API Manager to the required or latest update level.
 
 <a href="{{base_path}}/assets/img/analytics/moesif/moesif-data-flow.png"><img src="{{base_path}}/assets/img/analytics/moesif/moesif-data-flow.png" alt="Moesif integration diagram"></a>
 
@@ -23,7 +23,7 @@ This section will cover necessary steps to integrate Moesif analytics with WSO2 
 
 #### 1.2 Create a New Application
 
-1. Once logged in, create a **new App** from the “Get Started” page.  
+1. Once logged in, create a **new App** from the "Get Started" page.  
 2. Follow the setup steps and click **Next**.  
 3. You’ll be presented with an **Application ID**. Copy this ID as it will be used in the WSO2 configuration.
 
@@ -36,7 +36,7 @@ To enable Moesif analytics in WSO2 APIM, you need to update the `deployment.toml
 
 #### Step 2.1 - Configuring the deployment.toml file.
 
-The Choreo based analytics will be enabled by default. Specify the `type` as `moesif` to enable Moesif analytics as shown below. Open the `<APIM-HOME>/repository/conf` directory. Edit the `apim.analyics` configuration in the `deployment.toml` file with the following configuration.
+The Choreo based analytics will be enabled by default. Specify the `type` as `moesif` to enable Moesif analytics as shown below. Open the `<APIM-HOME>/repository/conf/deployment.toml` file and edit the `apim.analyics` configuration as shown below.
 
 ```toml
 [apim.analytics]
@@ -52,7 +52,7 @@ properties."publisher.reporter.class" = "org.wso2.am.analytics.publisher.reporte
 !!! note
     Following are the details that are available on analytics log events: 
 
-    `apim_event_response` -  This event will be triggered for each successful API invocation. When a API associated backend returns an error    response still it will be logged through this event.
+    `apim_event_response` -  This event will be triggered for each successful API invocation. When an API associated backend returns an error response, it will be logged through this event.
 
     ```
     apim_event_response:
@@ -70,7 +70,7 @@ properties."publisher.reporter.class" = "org.wso2.am.analytics.publisher.reporte
         "applicationOwner": "admin",
         "backendLatency": 13,
         "correlationId": "79ed20c3-55b1-434a-adf6-eea25e2d09c3",
-        "destination": "http://192.168.114.51:8281/services/sampleAPIBackend",
+        "destination": "http://xxx.xxx.xxx.xx:8281/services/sampleAPIBackend",
         "eventType": "response",
         "gatewayType": "SYNAPSE",
         "keyType": "SANDBOX",
@@ -84,7 +84,7 @@ properties."publisher.reporter.class" = "org.wso2.am.analytics.publisher.reporte
         "responseMediationLatency": 6,
         "targetResponseCode": 202,
         "userAgent": "Chrome",
-        "userIp": "172.16.2.70",
+        "userIp": "xxx.xx.xx.xx",
         "properties": {
             "commonName": "N/A",
             "responseContentType": "application/json; charset=UTF-8",
