@@ -51,29 +51,28 @@ You can invoke these operations using a SOAP client like SOAP UI as follows:
             api-manager.bat
     ```
 
-        !!! tip
-    Get the list of available admin services
+    !!! tip "Get the list of available admin services"
 
-    If you want to discover the admin services that are exposed by your product:
+        If you want to discover the admin services that are exposed by your product:
 
-    1.  Execute the following command:
+        1.  Execute the following command:
 
-        **In Linux**
+            **In Linux**
 
-        ``` java
-                sh api-manager.sh -DosgiConsole
-        ```
+            ``` java
+            sh api-manager.sh -DosgiConsole
+            ```
 
-        **In Windows**
+            **In Windows**
 
-        ``` java
-                    api-manager.bat -DosgiConsole
-        ```
+            ``` java
+            api-manager.bat -DosgiConsole
+            ```
 
-    2.  When the server is started, hit the enter/return key several times to get the OSGI shell in the console.
-    3.  In the OSGI shell, enter the following: `listAdminServices`
+        2.  When the server is started, hit the enter/return key several times to get the OSGI shell in the console.
+        3.  In the OSGI shell, enter the following: `listAdminServices`
 
-    This will give the list of admin services for your product.
+        This will give the list of admin services for your product.
 
 
 3.  Start the SOAP UI client, and import the WSDL of the admin service that you are using:
