@@ -58,7 +58,7 @@ Before you start, ensure you have a Kong Gateway running in a Kubernetes cluster
     1. Enter a **Name** for the Gateway Environment. This **Name** will also be used by the Gateway Agent to identify the environment.
     2. Provide a **Display Name** and a **Description** for the Gateway Environment.
     3. Select **Kong Gateway** as the **Gateway Environment Type**.
-    4. Select the **Gateway Mode** as Read-Only, or Read-Write based on the requirement. Please note that Write-Only will not work for the Kubernetes Deployment Type.
+    4. Select the **Gateway Mode** as Read-Only, or Read-Write based on the requirement.
     5. Provide the **API Discovery Scheduling Interval** as **0**.
     6. Select the **Deployment Type** as **Kubernetes** under **Gateway Connector configurations**.
     7. Enter the **VHost** details according to your Gateway setup. Add the **Host**, **HTTP port** and **HTTPS port** under Advanced Settings.
@@ -121,6 +121,9 @@ When configuring the agent, update the following parameters in the `values.yaml`
 
     !!!note
         The hostname of the HTTPRoute CRs should match with the **Host** you set during the **step 1.3**
+
+    !!!note
+        If you define only the Service and HTTPRoute CRs, the discovered API can be invoked without any authentication or authorization. If you add only the JWT KongPlugin, you must use a valid token from the Dev Portal with an active subscription to any API deployed on the Kong Gateway.
 
 2. Sign in to the Publisher Portal and view the discovered API.
 

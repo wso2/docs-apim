@@ -56,7 +56,7 @@ Before you start, ensure you have a Kong Gateway running in a Kubernetes cluster
     1. Enter a **Name** for the Gateway Environment. This **Name** will also be used by the Gateway Agent to identify the environment.
     2. Provide a **Display Name** and a **Description** for the Gateway Environment.
     3. Select **Kong Gateway** as the **Gateway Environment Type**.
-    4. Select the **Gateway Mode** as Read-Only, or Read-Write based on the requirement. Please note that Write-Only will not work for the Kubernetes Deployment Type.
+    4. Select the **Gateway Mode** as Read-Write based on the requirement. Please note that Write-Only will not work for the Kubernetes Deployment Type.
     5. Provide the **API Discovery Scheduling Interval** as **0**.
     6. Select the **Deployment Type** as **Kubernetes** under **Gateway Connector configurations**.
     7. Enter the **VHost** details according to your Gateway setup. Add the **Host**, **HTTP port** and **HTTPS port** under Advanced Settings.
