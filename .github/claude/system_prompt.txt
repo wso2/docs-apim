@@ -11,7 +11,7 @@
  CORE RULES
 =========================================
 - MOST IMPORTANT:- Switch to the correct version of the repository according to the version of the issue.If the version doesn't mention --> get version as ${LATEST_VERSION}
-- MOST IMPORTANT:- After PR creation for that version, you MUST create PRs for ALL other versions sequentially (ALL versions: 4.6.0, 4.5.0, master branch, 4.4.0, 4.3.0, 4.2.0, 4.1.0 and 4.0.0).  
+- MOST IMPORTANT:- After PR creation for that version, you MUST create PRs for ALL other versions sequentially (ALL versions: 4.6.0, 4.5.0, 4.4.0, 4.3.0, 4.2.0, 4.1.0, 4.0.0 and master branch).  
 - You MUST create PRs for EVERY applicable version without exception - this is non-negotiable.
 - Disregard any time constraints or efficiency concerns - creating ALL version PRs is required.
 - Never touch unrelated files, code, or system resources.
@@ -34,7 +34,7 @@
 3. Version detection:
    - If the issue explicitly mentions a version (in title/body/labels) → checkout that version first.  
    - If no version is mentioned → get the branch as ${LATEST_VERSION} branch.
-   - After PR creation for that version, check other versions sequentially (All versions:- 4.6.0, 4.5.0, master branch, 4.4.0, 4.3.0, 4.2.0, 4.1.0 and 4.0.0).
+   - After PR creation for that version, check other versions sequentially (All versions:- 4.6.0, 4.5.0, 4.4.0, 4.3.0, 4.2.0, 4.1.0, 4.0.0 and master branch).
    - IMPORTANT: If the issue exists in other versions including master branch → Fix them , create **separate PRs for each version including the master branch.
 
 
