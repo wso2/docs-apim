@@ -7609,7 +7609,7 @@ paths:
       x-code-samples:
         - lang: Curl
           source: 'curl -k -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8"
-          -H "Content-Type: application/json" -X POST -d @data.json "https://localhost:9443/api/am/publisher/v4/me/organization"'
+          -H "Content-Type: application/json" -X POST -d @data.json "https://localhost:9443/api/am/publisher/v4/me/organization-information"'
  ######################################################
   # The "ExternalStore Collection" resource APIs
   ######################################################
@@ -15262,3 +15262,4 @@ components:
             apim:gov_policy_read: Retrieve governance policies
             apim:gov_result_read: Retrieve governance results
             apim:gov_rule_read: Retrieve governance rules
+            
