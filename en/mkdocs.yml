@@ -345,14 +345,23 @@ nav:
                 - Overview: ai-gateway/ai-vendor-management/custom-ai-vendors/overview.md
                 - Custom Connector: ai-gateway/ai-vendor-management/custom-ai-vendors/custom-connector.md
                 - Onboarding a Custom AI Service Provider: ai-gateway/ai-vendor-management/custom-ai-vendors/onboarding-custom-ai-service-provider.md
+        - Prompt Management:
+            - Overview: ai-gateway/prompt-management/overview.md
+            - Prompt Decorator: ai-gateway/prompt-management/prompt-decorator.md
+            - Prompt Template: ai-gateway/prompt-management/prompt-template.md
         - AI Guardrails:
             - Overview: ai-gateway/ai-guardrails/overview.md
-            - Safety Categories:
-                - Overview: ai-gateway/ai-guardrails/safety-categories/overview.md
-                # - LLM Safety: ai-gateway/ai-guardrails/safety-categories/llm-safety.md
-                - Content Safety: ai-gateway/ai-guardrails/safety-categories/content-safety.md
-                - Content Usage Control: ai-gateway/ai-guardrails/safety-categories/content-usage-control.md
-                # - PII Safety: ai-gateway/ai-guardrails/safety-categories/pii-safety.md
+            - Content Length Guardrail: ai-gateway/ai-guardrails/content-length-guardrail.md
+            - Regex Guardrail: ai-gateway/ai-guardrails/regex-guardrail.md
+            - JSON Schema Guardrail: ai-gateway/ai-guardrails/json-schema-guardrail.md
+            - Sentence Count Guardrail: ai-gateway/ai-guardrails/sentence-count-guardrail.md
+            - URL Guardrail: ai-gateway/ai-guardrails/url-guardrail.md
+            - Word Count Guardrail: ai-gateway/ai-guardrails/word-count-guardrail.md
+            - Semantic Prompt Guardrail: ai-gateway/ai-guardrails/semantic-prompt-guardrail.md
+            - PII Masking with Regex: ai-gateway/ai-guardrails/regex-pii-masking.md
+            - Azure Content Safety: ai-gateway/ai-guardrails/azure-content-safety.md
+            - AWS Bedrock Guardrail: ai-gateway/ai-guardrails/aws-bedrock-guardrail.md
+            - Guardrail Error Response: ai-gateway/ai-guardrails/guardrail-error-response.md
         - Semantic Caching: ai-gateway/semantic-caching.md
     - MCP Servers:
         - Overview: mcp/overview.md
