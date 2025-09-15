@@ -1,4 +1,4 @@
-name: Claude Code • auto-label issues
+name: Claude Code • Auto Label Issues
 
 on:
   issues:
