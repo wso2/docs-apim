@@ -266,6 +266,9 @@ nav:
                   - AWS:
                     - Deploy on AWS API Gateway: manage-apis/deploy-and-publish/federated-gateways/aws/deploy-on-aws-api-gateway.md
                     - Discover APIs on AWS API Gateway: manage-apis/deploy-and-publish/federated-gateways/aws/discover-apis-on-aws-api-gateway.md
+                  - Azure:
+                    - Deploy on Azure API Gateway: deploy-and-publish/federated-gateways/azure/deploy-on-azure-api-gateway.md
+                    - Discover APIs on Azure API Gateway: deploy-and-publish/federated-gateways/azure/discover-apis-on-azure-api-gateway.md
                   - Kong:
                     - Kong Kubernetes:
                         - Deploy on Kong Gateway in Kubernetes: manage-apis/deploy-and-publish/federated-gateways/kong/kong-kubernetes/deploy-on-kong-gateway-in-kubernetes.md
