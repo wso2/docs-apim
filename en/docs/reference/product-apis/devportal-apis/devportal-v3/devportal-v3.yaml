@@ -1,4 +1,4 @@
-#   Copyright (c) 2024, WSO2 LLC. (http://www.wso2.org) All Rights Reserved.
+#   Copyright (c) 2020, WSO2 Inc. (http://www.wso2.org) All Rights Reserved.
 #
 #   Licensed under the Apache License, Version 2.0 (the "License");
 #   you may not use this file except in compliance with the License.
@@ -100,7 +100,7 @@ info:
     * Make sure you have an API Manager instance up and running.
     * Update the `basepath` parameter to match the hostname and port of the APIM instance.
 
-    <a href="../../../../../assets/attachments/reference/devportal-v3.2-postman-collection.json"
+    <a href="../../../../../assets/attachments/reference/devportal-v3.3-postman-collection.json"
     download="WSO2 API Manager 4.5.0 DevPortal REST API.postman_collection.json"
     style="display: inline-block; padding: 10px 15px; color: white; background-color: #ef5b25; text-align: center; text-decoration: none; border-radius: 5px;font-weight: bold;">
     Download Postman Collection
@@ -2621,7 +2621,7 @@ paths:
 
         If application sharing is enabled, the **groupId** can be used to include subscriptions associated with the
         specified **groupId** in the results, provided the application is shared within the group.
-
+        
         **IMPORTANT:**
         * It is mandatory to provide either **apiId** or **applicationId**.
       parameters:
@@ -3201,8 +3201,8 @@ paths:
           $ref: '#/components/responses/InternalServerError'
       security:
         - OAuth2Security:
-            - apim:app_manage
-            - apim:subscribe
+          - apim:app_manage
+          - apim:subscribe
       x-code-samples:
         - lang: Curl
           source: 'curl -k \
@@ -3784,8 +3784,8 @@ paths:
         - lang: Curl
           source: 'curl -k -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8"
           -H "Content-Type: application/json" -X POST -d @data.json "https://localhost:9443/api/am/devportal/v3/me/organization"'
-
-  ######################################################
+          
+ ######################################################
   # The "Marketplace Assistant Feature" resource APIs
   ######################################################
   '/marketplace-assistant/api-count':
@@ -4269,10 +4269,10 @@ components:
           description: The average rating of the API
           example: "4.5"
         subscriptions:
-          type: integer
-          format: int64
-          description: The number of subscriptions for the API
-          example: 10
+            type: integer
+            format: int64
+            description: The number of subscriptions for the API
+            example: 10
         advertiseInfo:
           $ref: '#/components/schemas/AdvertiseInfo'
         isSubscriptionAvailable:
@@ -5620,7 +5620,7 @@ components:
         IsPasswordChangeEnabled:
           type: boolean
           default: true
-        IsJWTEnabledForLoginTokens:
+        IsJWTEnabledForLoginTokens: 
           type: boolean
           default: false
         orgAccessControlEnabled:
@@ -6555,8 +6555,7 @@ components:
       name: groupId
       in: query
       description: |
-        Application Group Id  
-        Please note that filtering by groupId is currently not supported.
+        Application Group Id
       schema:
         type: string
     subscriptionId:
