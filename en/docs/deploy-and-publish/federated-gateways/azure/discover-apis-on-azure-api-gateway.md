@@ -76,8 +76,8 @@ Follow the instructions given below to configure Azure API Gateway as a Federate
 
    `https://localhost:9443/devportal`
 
-3. Navigate to tryout and invoke the API.
+2. Navigate to tryout and invoke the API.
 
 !!!note
-    WSO2 API Manager currently does not support subsription keys for Azure API invocation. If you need to try out the API from WSO2 API Manager, disable the `subscription required` option in the API's settings tab on Azure.
+    WSO2 API Manager currently does not support subscription keys for Azure API invocation. If you need to try out the API from WSO2 API Manager, disable the `subscription required` option in the API's settings tab on Azure.
     If you have enabled the `validate-jwt` policy from Azure, then you can provide the token from WSO2 side in the try out portal.
