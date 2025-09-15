@@ -14456,3 +14456,62 @@ class="org.wso2.carbon.apimgt.gateway.handlers.custom.customer_handler"
     </section>
 </div>
 
+
+
+## JWT Token Persistence Optimization configurations
+
+
+<div class="mb-config-catalog">
+    <section>
+        <div class="mb-config-options">
+            <div class="superfences-tabs">
+            
+            <input name="21" type="checkbox" id="_tab_21">
+                <label class="tab-selector" for="_tab_21"><i class="icon fa fa-code"></i></label>
+                <div class="superfences-content">
+                    <div class="mb-config-example">
+<pre><code class="toml">[apim.key_manager]
+enable_revoked_token_event_validation = true
+</code></pre>
+                    </div>
+                </div>
+                <div class="doc-wrapper">
+                    <div class="mb-config">
+                        <div class="config-wrap">
+                            <code>[apim.key_manager]</code>
+                            <p>
+                                
+                            </p>
+                        </div>
+                        <div class="params-wrap">
+                            <div class="param">
+                                <div class="param-name">
+                                  <span class="param-name-wrap"> <code>enable_revoked_token_event_validation</code> </span>
+                                </div>
+                                <div class="param-info">
+                                    <div>
+                                        <p>
+                                            <span class="param-type string"> boolean </span>
+                                            
+                                        </p>
+                                        <div class="param-default">
+                                            <span class="param-default-value">Default: <code>FALSE</code></span>
+                                        </div>
+                                        
+                                    </div>
+                                    <div class="param-description">
+                                        <p>This configuration is available from WSO2 API Manager (API-M) 4.0 - update level 363 onwards. When JWT token optimization is active in WSO2 Identity Server, events like user changes or application revocations are recorded in IS. With this configuration enabled, the API Manager Gateway can subscribe to these events and validate them during API invocation, ensuring that tokens that have been indirectly revoked are no longer granted access.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+
+
+
+
