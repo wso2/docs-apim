@@ -123,7 +123,7 @@ When configuring the agent, update the following parameters in the `values.yaml`
         The hostname of the HTTPRoute CRs should match with the **Host** you set during the **step 1.3**
 
     !!!note
-        If you define only the Service and HTTPRoute CRs, the discovered API can be invoked without any authentication or authorization. If you add only the JWT KongPlugin, you must use a valid token from the Dev Portal with an active subscription to any API deployed on the Kong Gateway.
+        If you define only the Service and HTTPRoute CRs, the discovered API can be invoked without any authentication or authorization. If you add only the JWT KongPlugin, you must use a valid token from the Developer Portal with an active subscription to any API deployed on the Kong Gateway.
 
 2. Sign in to the Publisher Portal and view the discovered API.
 
