@@ -564,26 +564,4 @@ Checks if all the examples contains one of the 3 properties provided.
         given:
           - "$.host"
    ```
-
-## Building
-
-1. Build using `mvn clean install`.
-2. Use the `.jar` file generated in `component/target`.
-3. Use the following maven dependency
-   ```xml
-        <dependency>
-            <groupId>org.wso2.carbon</groupId>
-            <artifactId>org.wso2.rule.validator</artifactId>
-            <version>${rule.validator.version}</version>
-        </dependency>
-    ```
-4. Read the ruleset file into a string and call the `validateRuleset` method to validate the ruleset.
-    ```java
-        String document = new String(Files.readAllBytes(Paths.get("path/to/ruleset/ruleset.yaml")));
-        String rulesetValidationResult = Validator.validateRuleset(ruleset);
-    ```
-5. Read the target document file and the ruleset into strings and call the `validateDocument` method to validate the document against the ruleset.
-    ```java
-        String document = new String(Files.readAllBytes(Paths.get("path/to/document/document.yaml")));
-        String documentValidationResult = Validator.validateDocument(document, ruleset);
-    ```
+   
