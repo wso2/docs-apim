@@ -2,7 +2,7 @@
 
 To install and set up the API-M servers:
 
-1.  Download the [WSO2 API Manager](https://wso2.com/api-manager/).
+1.  Download the [WSO2 API Manager](https://wso2.com/products/downloads/?product=wso2am&package=enterprise).
 2.  Create copies of the API-M distribution for the individual profiles.
 
 ### Step 2 - Install and configure the databases
