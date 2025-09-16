@@ -21,8 +21,8 @@ An Endpoint is a specific destination for a message such as an address, WSDL, a 
 <td>The endpoints that the service tries to connect to in case of a failure. Selecting the endpoint when the primary endpoint fails, happens in a round-robin manner. Failover Group is a group of leaf endpoints (i.e., address endpoint, HTTP endpoint, and WSDL endpoint). When a failure occurs in the current endpoint (while sending a message), the failover group endpoint will try to send the message to another endpoint. The failover group ensures that the message is delivered as long as there is at least one active endpoint among the listed endpoints.</td>
 </tr>
 <tr>
-<td>Load Balance Endpoint</td>
-<td>The endpoints where the incoming requests are directed to in a round-robin manner. They automatically handle fail-over as well.</td>
+  <td>Load Balance Endpoint</td>
+  <td>The endpoints distribute incoming requests in a round-robin manner. When session management is set to Transport, SOAP or Client Id (session-affinity based types), failover is handled automatically. When session management is set to None, failover can be explicitly enabled or disabled as required.</td>
 </tr>
 <tr><td>Dynamic Endpoint</td>
 <td>Using a dynamic endpoint, the requests can be dynamically routed to an address based on a specific condition (e.g., request parameters, payload etc.). When using this endpoint type, a mediation sequence should be applied to the message <b>IN Flow</b> of the API. For more information, see <a href="{{base_path}}/design/api-policies/regular-gateway-policies/adding-dynamic-endpoints/">Adding Dynamic Endpoints</a>.</td>
