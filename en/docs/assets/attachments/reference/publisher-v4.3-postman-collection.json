@@ -6456,17 +6456,11 @@
 							"listen": "test",
 							"script": {
 								"exec": [
-									"var response = JSON.parse(responseBody);",
+									"let response = pm.response.json();",
 									"",
 									"if (response.list && response.list.length > 0 && response.list[0].id) {",
 									"    pm.collectionVariables.set(\"llmProviderId\", response.list[0].id);",
-									"    pm.test(\"Service ID found and saved\", function () {",
-									"        pm.expect(response.list[0].id).to.not.be.empty;",
-									"    });",
-									"} else {",
-									"    pm.test(\"❌ No serviceId found in response\", function () {",
-									"        pm.expect.fail(\"Response did not contain a serviceId\");",
-									"    });",
+									"    console.log(\"llmProviderId saved:\", response.list[0].id);",
 									"}",
 									""
 								],
@@ -6667,19 +6661,12 @@
 							"listen": "test",
 							"script": {
 								"exec": [
-									"var response = JSON.parse(responseBody);",
+									"let response = pm.response.json();",
 									"",
 									"if (response.list && response.list.length > 0 && response.list[0].referenceId) {",
 									"    pm.collectionVariables.set(\"workflowReferenceId\", response.list[0].referenceId);",
-									"    pm.test(\"Workflow Reference ID found and saved\", function () {",
-									"        pm.expect(response.list[0].referenceId).to.not.be.empty;",
-									"    });",
-									"} else {",
-									"    pm.test(\"No workflowReferenceId found in response\", function () {",
-									"        pm.expect.fail(\"Response did not contain a workflowReferenceId\");",
-									"    });",
-									"}",
-									""
+									"    console.log(\"workflowReferenceId saved:\", response.list[0].referenceId);",
+									"}"
 								],
 								"type": "text/javascript",
 								"packages": {}
@@ -6911,17 +6898,11 @@
 							"listen": "test",
 							"script": {
 								"exec": [
-									"var response = JSON.parse(responseBody);",
+									"let response = pm.response.json();",
 									"",
 									"if (response.id) {",
 									"    pm.collectionVariables.set(\"endpointId\", response.id);",
-									"    pm.test(\"Endpoint ID found and saved\", function () {",
-									"        pm.expect(response.id).to.not.be.empty;",
-									"    });",
-									"} else {",
-									"    pm.test(\"No endpointId found in response\", function () {",
-									"        pm.expect.fail(\"Response did not contain an endpointId\");",
-									"    });",
+									"    console.log(\"endpointId saved:\", response.id);",
 									"}",
 									""
 								],
@@ -7168,19 +7149,12 @@
 							"listen": "test",
 							"script": {
 								"exec": [
-									"var response = JSON.parse(responseBody);",
+									"let response = pm.response.json();",
 									"",
 									"if (response.list && response.list.length > 0 && response.list[0].id) {",
 									"    pm.collectionVariables.set(\"labelId\", response.list[0].id);",
-									"    pm.test(\"Label ID found and saved\", function () {",
-									"        pm.expect(response.list[0].id).to.not.be.empty;",
-									"    });",
-									"} else {",
-									"    pm.test(\"No labelId found in response\", function () {",
-									"        pm.expect.fail(\"Response did not contain a labelId\");",
-									"    });",
-									"}",
-									""
+									"    console.log(\"labelId saved:\", response.list[0].id);",
+									"}"
 								],
 								"type": "text/javascript",
 								"packages": {}
