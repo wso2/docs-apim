@@ -1,7 +1,7 @@
 {
 	"info": {
-		"_postman_id": "3c83ba4f-4c91-4181-bc77-805c857a1e28",
-		"name": "WSO2 API Manager 4.5.0 - Publisher REST API",
+		"_postman_id": "1ef4a658-e768-472f-806e-cc2b92862f16",
+		"name": "WSO2 API Manager 4.5.0 - Publisher REST API Copy 2",
 		"description": "This document specifies a **RESTful API** for WSO2 **API Manager - Publisher REST API** .\nIt is written with [OAS 3.0](http://swagger.io/).\n",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
 		"_exporter_id": "40371634"
@@ -7399,7 +7399,7 @@
 		},
 		{
 			"key": "basepath",
-			"value": "https://localhost:9443/api/am/publisher/v4.2"
+			"value": "https://localhost:9443/api/am/publisher/v4.3"
 		},
 		{
 			"key": "documentId",

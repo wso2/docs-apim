@@ -112,7 +112,7 @@ info:
   license:
     name: Apache 2.0
     url: http://www.apache.org/licenses/LICENSE-2.0.html
-  version: v3.2
+  version: v3.3
 servers:
   - url: https://apis.wso2.com/api/am/devportal/v3
 ######################################################
