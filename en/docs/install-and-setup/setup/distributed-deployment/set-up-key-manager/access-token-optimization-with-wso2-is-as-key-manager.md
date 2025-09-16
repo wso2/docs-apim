@@ -24,7 +24,7 @@ Follow the steps below to enable the validation of indirect token revocation eve
 
 You need to execute the following database scripts on the API Manager database (AM_DB).
 
-=== "DB2"
+??? Example "DB2"
 
     ```sql
     CREATE TABLE AM_APP_REVOKED_EVENT (
@@ -43,7 +43,7 @@ You need to execute the following database scripts on the API Manager database (
     /
     ```
 
-=== "H2"
+??? Example "H2"
 
     ```sql
     CREATE TABLE IF NOT EXISTS AM_APP_REVOKED_EVENT (
@@ -62,7 +62,7 @@ You need to execute the following database scripts on the API Manager database (
     );
     ```
 
-=== "MsSQL"
+??? Example "MSSQL"
 
     ```sql
 
@@ -84,7 +84,7 @@ You need to execute the following database scripts on the API Manager database (
     );
     ```
 
-=== "MYSQL"
+??? Example "MySQL"
 
     ```sql
     CREATE TABLE IF NOT EXISTS AM_APP_REVOKED_EVENT (
@@ -103,7 +103,7 @@ You need to execute the following database scripts on the API Manager database (
     )ENGINE INNODB;
     ```
 
-=== "MYSQL-Cluster"
+??? Example "MySQL-Cluster"
 
     ```sql
     CREATE TABLE IF NOT EXISTS AM_APP_REVOKED_EVENT (
@@ -122,7 +122,7 @@ You need to execute the following database scripts on the API Manager database (
     )ENGINE=NDB;       
     ```
 
-=== "Oracle"
+??? Example "Oracle"
 
     ```sql
     CREATE TABLE AM_APP_REVOKED_EVENT
@@ -146,7 +146,7 @@ You need to execute the following database scripts on the API Manager database (
 
     ```
 
-=== "OracleRac"
+??? Example "Oracle RAC"
 
     ```sql
     CREATE TABLE AM_APP_REVOKED_EVENT
@@ -168,10 +168,9 @@ You need to execute the following database scripts on the API Manager database (
     /
     ```
 
-=== "Postgres"
+??? Example "PostgreSQL"
 
     ```sql
-    DROP TABLE IF EXISTS AM_APP_REVOKED_EVENT;
     CREATE TABLE IF NOT EXISTS AM_APP_REVOKED_EVENT (
         CONSUMER_KEY    VARCHAR(255)    NOT NULL,
         TIME_REVOKED    TIMESTAMP       NOT NULL,
@@ -179,7 +178,6 @@ You need to execute the following database scripts on the API Manager database (
         PRIMARY KEY (CONSUMER_KEY, ORGANIZATION)
     );
 
-    DROP TABLE IF EXISTS AM_SUBJECT_ENTITY_REVOKED_EVENT;
     CREATE TABLE IF NOT EXISTS AM_SUBJECT_ENTITY_REVOKED_EVENT (
         ENTITY_ID      VARCHAR(255)    NOT NULL,
         ENTITY_TYPE VARCHAR(100)    NOT NULL,
