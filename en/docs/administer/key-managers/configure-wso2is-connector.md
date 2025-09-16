@@ -31,14 +31,14 @@ Follow the steps given below to configure WSO2 IS as a Key Manager component:
     'header.X-WSO2-KEY-MANAGER' = "WSO2-IS"
 
     [[resource.access_control]]
-    context = "(.)/keymanager-operations/user-info/claims(.)"
+    context = "(.*)/keymanager-operations/user-info/claims(.*)"
     secure = true
     http_method = "GET"
     permissions = "/permission/admin/manage/identity/usermgt/list"
     scopes = "internal_user_mgt_list"
 
     [[resource.access_control]]
-    context = "(.*)/keymanager-operations/user-info/claims/generate"
+    context = "(.*)/keymanager-operations/user-info/claims/generate(.*)"
     secure = true
     http_method = "POST"
     permissions = "/permission/admin/manage/identity/usermgt/list"
@@ -83,12 +83,12 @@ Follow the steps given below to configure WSO2 IS as a Key Manager component:
     custom_webapps = ["/keymanager-operations/"]
     ```
 
-3. Download the [WSO2 IS Connector]({{base_path}}/assets/attachments/administer/wso2is-extensions-1.2.10.zip).
+3. Download the [WSO2 IS Connector]({{base_path}}/assets/attachments/administer/wso2is-extensions-1.2.10.25.zip).
 
 4. Extract the distribution and copy the following JAR files to the `<IS_HOME>/repository/components/dropins` directory.
 
-     - `wso2is.key.manager.core-1.2.10.22`
-     - `wso2is.notification.event.handlers-1.2.10.22`
+     - `wso2is.key.manager.core-1.2.10.25`
+     - `wso2is.notification.event.handlers-1.2.10.25`
 
 5. Add `keymanager-operations.war` to the `<IS_HOME>/repository/deployment/server/webapps` directory.
 

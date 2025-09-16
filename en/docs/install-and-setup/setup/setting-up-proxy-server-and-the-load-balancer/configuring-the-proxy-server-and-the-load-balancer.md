@@ -59,7 +59,7 @@ Carry out the following steps to configure the load balancer to front multiple 
     <thead>
     <tr class="header">
     <th><b>Deployment</b></th>
-    <th><b>API-M Nodes</b></th>
+    <th><b>Components</b></th>
     <th><b>LB</b></th>
     <th><b>Reason</b></th>
     </tr>
@@ -75,23 +75,24 @@ Carry out the following steps to configure the load balancer to front multiple 
     <td>Active-active deployment using single all-in-one nodes</td>
     <td>N/A</td>
     <td>[NGINX Plus](https://www.nginx.com/products/)</td>
-    <td>This deployment requires Sticky Sessions, but NGINX Community version does not support it. You can use `ip_hash` as the sticky algorithm.</td>
+    <td>Even though Publisher, Developer and Admin portals use OIDC based login with session persistence, Management console relies on session affinity. 
+    Therefore, this deployment requires Sticky Sessions, but NGINX Community version does not support it. You can use `ip_hash` as the sticky algorithm.</td>
     </tr>
     <tr class="odd">
     <td rowspan="3">Distributed deployment</td>
-    <td>Gateway with a single Gateway Manager</td>
+    <td>HA for Traffic Manager</td>
     <td>[NGINX Community version](http://nginx.org/)</td>
-    <td>The Gateway node in this deployment does not need Sticky Sessions.</td>
+    <td>The Traffic Manager node does not need Sticky Sessions.</td>
     </tr>
     <tr class="even">
-    <td>Gateway with multiple Gateway Managers</td>
-    <td>[NGINX Plus](https://www.nginx.com/products/)</td>
-    <td>The Gateway Manager nodes require Sticky Sessions, but NGINX Community version does not support it. You can use `ip_hash` as the sticky algorithm. Sticky Sessions are needed for port 9443 in the Gateway, and not needed for the pass-through ports in the Gateway (8243, 8280).</td>
+    <td>HA for Gateway</td>
+    <td>[NGINX Community version](http://nginx.org/)</td>
+    <td>The Gateway node does not need Sticky Sessions.</td>
     </tr>
     <tr class="odd">
-    <td>Control Plane node running the Developer Portal, Publisher, and Key Manager</td>
+    <td>HA for Control Plane</td>
     <td>[NGINX Plus](https://www.nginx.com/products/)</td>
-    <td>Requires Sticky Sessions, but NGINX Community version does not support it. You can use `ip_hash` as the sticky algorithm.</td>
+    <td>Requires Sticky Sessions as the Management console is operated in the control plane. But NGINX Community version does not support it. You can use `ip_hash` as the sticky algorithm. </td>
     </tr>
     </tbody>
     </table>
@@ -124,22 +125,16 @@ Carry out the following steps to configure the load balancer to front multiple 
 
     - The placeholders {node-1-ip-address} and {node-2-ip-address} correspond to the IP addresses of the backend nodes in which APIM servers are running.
     - In the sample configuration given below, the hostname api.am.wso2.com is used to access an all-in-one instance of the API-M runtime and gw.am.wso2.com is used to invoke APIs. Only HTTPS is allowed.
-    - This configuration uses a session cookie to configure stickiness. However, if you are using Nginx community version, configuring sticky sessions based on session cookie is not supported. It is possible to use ip_hash method instead.
-
-    - In an Active-Active deployment, it is mandatory to set up sticky sessions (session affinity) in the load balancers for the **Publisher** and **Developer Portal** components of the API-M runtime. However, sticky sessions are not required for the **Key Manager** and **Gateway** components.
-    - However, authentication via session ID fails when sticky sessions are disabled in the load balancers (for the Publisher and Developer Portal).
 
     **HA for Gateway**
 
-    -   The placeholder {gwm-ip-address} corresponds to the IP addresses of the backend nodes in which Gateway Manager server is running. Similarly, {gw-1-ip-address} and {gw-2-ip-address} are the nodes in which Gateway Workers are running.
-    -   In the sample configuration given below, the mgtgw.am.wso2.com hostname is used to access management console of the Gateway Manager and gw.am.wso2.com is used to invoke APIs. Only HTTPS is allowed.
-    -   If you are using multiple Gateway Managers when using a shared file system (e.g., NFS), then you need to enable sticky sessions.
+    -   The placeholder {gwm-ip-address} corresponds to the IP addresses of the backend nodes in which Gateway is running. Similarly, {gw-1-ip-address} and {gw-2-ip-address} are the nodes in which Gateway Workers are running.
+    -   In the sample configuration given below, the mgtgw.am.wso2.com hostname is used to access management console of the Gateway and gw.am.wso2.com is used to invoke APIs. Only HTTPS is allowed.
 
     **HA for Control Plane**
 
     -   The placeholders {controlplane-1-ip-address} and {controlplane-2-ip-address} correspond to the IP addresses of the backend nodes in which API-M Control Planes are running.
     -   In the sample configuration given below, the hostname cp.am.wso2.com is used to access the Control Plane. Only HTTPS is allowed.
-    -   This configuration uses a session cookie to configure stickiness. However, if you are using Nginx community version, configuring sticky sessions based on session cookie is not supported. It is possible to use the ip_hash method instead.
 
     **HA for Traffic Manager**
 

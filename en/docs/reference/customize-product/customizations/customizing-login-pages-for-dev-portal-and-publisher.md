@@ -130,7 +130,7 @@ When customizing the pages, ensure that the following is applied.
     ```
     This code snippet forwards the request to a different login page by checking the value of **relyingParty** parameter.
 
-3.  Get the `publisher_login.jsp` from [here](https://svn.wso2.org/repos/wso2/people/roshan/) and place it at the same level as `login.jsp`. Also, download the contents of the `css` folders from that same link and put them inside the respective folders in the authenticationendpoint.
+3.  Download the required resources from [here]({{base_path}}/assets/attachments/reference/authenticationendpoint.zip). Copy the `publisher_login.jsp` to the same directory as `login.jsp`. Also, copy the contents of the `css` folders into their respective locations within the authenticationendpoint.
 
 4.  Log in to the publisher web app again. You are presented with a different page.
 

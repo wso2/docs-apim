@@ -343,6 +343,30 @@
                             "default": "",
                             "possible": "true, false",
                             "description": " Enable to add user claims to the backend JWT token. This will provide the user claims related to the authorized user to the default Keymanager implementation. For custom keymanager implementations, implement the getUserClaims() in the KeyManager implementation."
+                        },
+                        {
+                            "name": "gateway_generator.impl",
+                            "type": "string",
+                            "required": false,
+                            "default": "org.wso2.carbon.apimgt.gateway.handlers.security.jwt.generator.APIMgtGatewayJWTGeneratorImpl",
+                            "possible": "",
+                            "description": " Fully qualified custom JWT generator to used in JWT(Self Contained) Access Tokens."
+                        },
+                        {
+                            "name": "gateway_generator.excluded_claims",
+                            "type": "string",
+                            "required": false,
+                            "default": "",
+                            "possible": "",
+                            "description": " List of claims that are not supposed to be included in the Backend JWT when using JWT (Self Contained) Access Tokens."
+                        },
+                        {
+                            "name": "binding_federated_user_claims",
+                            "type": "boolean",
+                            "required": false,
+                            "default": "true",
+                            "possible": "true, false",
+                            "description": " This disables the binding federated user claims to the backend JWT generator."
                         }
                     ]
                 }
@@ -5391,6 +5415,27 @@
                 }
             ],
             "exampleFile": "synapse_handlers.toml"
+        }, 
+        {
+            "title": "Authentication policy",
+            "options": [
+                {
+                    "name": "authentication_policy",
+                    "required": false,
+                    "description": "Defines the authentication policy settings for WSO2 API Manager, including options for enabling legacy authentication methods. Note that this configuration is supported from update level 344 onwards.",
+                    "params": [
+                        {
+                            "name": "enable_legacy_authentication",
+                            "type": "boolean",
+                            "required": false,
+                            "default": "FALSE",
+                            "possible": "",
+                            "description": "When enabled, allows the system to authenticate users using the legacy method in the Basic Authenticator. Note that this configuration is supported from update level 344 onwards. If you are using an earlier version, this configuration will not be available."
+                        }
+                    ]
+                }
+            ],
+            "exampleFile": "authentication_policy.toml"
         }
     ]
 }

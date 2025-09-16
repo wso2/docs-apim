@@ -156,4 +156,12 @@ This will restrict simultaneous open incoming connections to 2. To disable throt
 !!! info
     Connection throttling is never exact. For example, setting this property to 2 will result in roughly two simultaneous open connections at any given time.
 
+!!! note "Configuring `passthru_http` Connection Parameters"
 
+    You can configure connection parameters for the `passthru_http` transport sender. These parameters control the behavior of connections in the connection pool:
+
+    1. **`transport.sender.connection.idle.time`**: Maximum time (in milliseconds) a connection can be idle in the pool.
+
+    2. **`transport.sender.connection.maximum.lifespan`**: Maximum lifespan (in milliseconds) of a connection in the pool.
+
+    3. **`transport.sender.connection.grace.time`**: Time (in milliseconds) to avoid using a connection when it's being closed.
