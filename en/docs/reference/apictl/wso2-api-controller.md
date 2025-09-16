@@ -823,7 +823,7 @@ Set configuration parameters. You can use one of the following flags.
                 <code>--export-directory</code>
             </th>
             <td>
-                The directory path where APIs should be saved.
+                The directory path where APIs should be saved. The directory path must be an existing folder.
             </td>
         </tr>
         <tr>
