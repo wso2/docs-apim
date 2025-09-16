@@ -40,7 +40,7 @@ Given below are the API-M nodes you can have in a distributed deployment by defa
 
 To install and set up the API-M servers:
 
-1.  Download the WSO2 API Manager All-in-One and WSO2 Universal Gateway component distributions from the [WSO2 API Manager website](https://wso2.com/api-manager/).
+1.  Download the WSO2 API Manager All-in-One and WSO2 Universal Gateway component distributions from the [WSO2 API Manager website](https://wso2.com/products/downloads/?product=wso2am&package=enterprise).
 
 ### Step 2 - Install and configure the databases
 
