@@ -45,9 +45,9 @@ Follow the instructions below to configure the Redis server with WSO2 API Manage
 
     ```
 
-3. Open the `<API-M_HOME>/repository/conf/deployment.toml` file of the gateway component.
+3.  Open the `<API-M_HOME>/repository/conf/deployment.toml` file of the gateway component.
 
-4. Add the following configurations to the `deployment.toml` file.
+4.  Add the following configurations to the `deployment.toml` file.
 
     ``` toml
     [[apim.throttling.url_group]]
@@ -59,4 +59,3 @@ Follow the instructions below to configure the Redis server with WSO2 API Manage
 #### Step 3 - Start the WSO2 API-M server
 
 For more information, see [Running the API Manager Runtime]({{base_path}}/install-and-setup/install/installing-the-product/running-the-api-m/).
-
