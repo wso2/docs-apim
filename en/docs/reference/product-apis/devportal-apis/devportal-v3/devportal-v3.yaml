@@ -1,4 +1,4 @@
-#   Copyright (c) 2024, WSO2 LLC. (http://www.wso2.org) All Rights Reserved.
+#   Copyright (c) 2020, WSO2 LLC. (http://www.wso2.org) All Rights Reserved.
 #
 #   Licensed under the Apache License, Version 2.0 (the "License");
 #   you may not use this file except in compliance with the License.
@@ -4269,10 +4269,10 @@ components:
           description: The average rating of the API
           example: "4.5"
         subscriptions:
-            type: integer
-            format: int64
-            description: The number of subscriptions for the API
-            example: 10
+          type: integer
+          format: int64
+          description: The number of subscriptions for the API
+          example: 10
         advertiseInfo:
           $ref: '#/components/schemas/AdvertiseInfo'
         isSubscriptionAvailable:
