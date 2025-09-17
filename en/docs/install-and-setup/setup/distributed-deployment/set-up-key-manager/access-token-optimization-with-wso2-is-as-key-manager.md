@@ -14,7 +14,7 @@ Before enabling this feature, ensure you have the following setup:
 
 1.  WSO2 IS Token Persistence Optimization: You must have the JWT access token persistence optimization enabled and configured in WSO2 IS as per the official documentation: [Optimizing JWT Access Token Persistence.](https://is.docs.wso2.com/en/5.11.0/setup/token-persistence/#optimizing-jwt-access-token-persistence)
 
-2.  WSO2 IS as Key Manager: WSO2 IS must be configured as the Key Manager for your WSO2 API-M deployment. Follow the steps outlined in the documentation: [Configuring WSO2 Identity Server as a Key Manager.](../configuring-wso2-identity-server-as-a-key-manager.md)
+2.  WSO2 IS as Key Manager: WSO2 IS must be configured as the Key Manager for your WSO2 API-M deployment. Follow the steps outlined in the documentation: [Configuring WSO2 Identity Server as a Key Manager.](../configuring-wso2-identity-server-as-a-key-manager.md). You will need WSO2 IS Connector version `1.2.10.27` or any newer version.
 
 ### Configuration Steps
 
@@ -189,7 +189,7 @@ You need to execute the following database scripts on the API Manager database (
 
 ### Step 2: Enable Revoked Token Event Validation
 
-To enable this feature, you need to add the following configuration to the deployment.toml file of your WSO2 API Manager instance.
+To enable this feature, you need to add the following configuration to the deployment.toml file of your WSO2 API Manager instance. Refer [Configuration Catalog](../reference/config-catalog/#jwt-token-persistence-optimization-configurations)
 
 ``` toml
 [apim.key_manager]
