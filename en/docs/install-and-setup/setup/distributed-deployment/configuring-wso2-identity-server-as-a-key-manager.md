@@ -153,7 +153,7 @@ Follow the instructions below to set up and configure the databases for the WSO2
      - `wso2is.key.manager.core-1.2.10.25`
      - `wso2is.notification.event.handlers-1.2.10.27`
 
-3. Add the `keymanager-operations.war`, which is in the `<wso2is-extensions-1.2.10.25>/webapps` directory, to the `<IS_HOME>/repository/deployment/server/webapps` directory.
+3. Add the `keymanager-operations.war`, which is in the `<wso2is-extensions-1.2.10.27>/webapps` directory, to the `<IS_HOME>/repository/deployment/server/webapps` directory.
 
 4.  Configure the Traffic Manager endpoints.
 
