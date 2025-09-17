@@ -8,7 +8,7 @@ The following are some of the main capabilities of the product.
 
 <div style="width: 100%; overflow: hidden;">
 
-<div class="leftContentOverview" style="width:75% !important;">A well-designed API can make your APIs easy to use. WSO2 API Manager’s API Publisher guides you through API creation to API Publishing, while adhering to the respective API’s specification. 
+<div class="leftContentOverview" style="width:75% !important;">A well-designed API makes it easier for developers to understand and use your services. WSO2 API Manager’s API Publisher guides you through API creation to API Publishing, while adhering to the respective API’s specification. 
     <ul>
         <li><a href="{{base_path}}/manage-apis/design/design-api-overview/">Design API Overview</li>
     </ul>
@@ -21,11 +21,11 @@ The following are some of the main capabilities of the product.
       </div>
 </div>
 
-### Make your APIs Discoverable
+### Make Your APIs Discoverable
 
 <div style="width: 100%; overflow: hidden;">
 
-<div class="leftContentOverview" style="width:75% !important;">Making your APIs easy to find will help you grow your customer base. You can use the WSO2 API Manager API Publisher to create categories or use tags to categorize the APIs. The API Developer Portal includes a text-full search engine that helps your customers find APIs easily.
+<div class="leftContentOverview" style="width:75% !important;">Making your APIs easy to find will help you grow your customer base. You can use the WSO2 API Manager API Publisher to create categories or use tags to categorize the APIs. The API Developer Portal includes a full-text search engine that helps your customers find APIs easily.
     <ul>
         <li><a href="{{base_path}}/consume/discover-apis/search/">Search</li>
     </ul>
@@ -38,7 +38,7 @@ The following are some of the main capabilities of the product.
       </div>
 </div>
 
-### Expose developer-friendly APIs
+### Expose Developer-Friendly APIs
 
 <div style="width: 100%; overflow: hidden;">
 
@@ -78,7 +78,7 @@ The following are some of the main capabilities of the product.
 
 <div class="leftContentOverview" style="width:75% !important;">Balancing the load of your system is critical to avoid system outages. WSO2 API Manager provides the capability to add rate limiting policies to your APIs. Furthermore, you can use these policies to monetize your APIs and bring revenue to your organization.  
     <ul>
-        <li><a href="{{base_path}}/manage-apis/design/rate-limiting/introducing-throttling-use-cases/">Rate limiting usecases</li>
+        <li><a href="{{base_path}}/manage-apis/design/rate-limiting/introducing-throttling-use-cases/">Rate Limiting Use Cases</li>
     </ul>
   </div>
   
@@ -89,11 +89,11 @@ The following are some of the main capabilities of the product.
       </div>
 </div>
 
-### Get more insight on your APIs
+### Get More Insights on Your APIs
 
 <div style="width: 100%; overflow: hidden;">
 
-<div class="leftContentOverview" style="width:75% !important;">WSO2 API Managers API Analytics Dashboard provides insights into your APIs. These insights can help you to understand your customers and make important strategic business decisions.
+<div class="leftContentOverview" style="width:75% !important;">WSO2 API Manager's API Analytics Dashboard provides insights into your APIs. These insights can help you to understand your customers and make important strategic business decisions.
     <ul>
         <li><a href="{{base_path}}/observe/observe-overview/">Observability</li>
         <li><a href="{{base_path}}/monitoring/api-analytics/choreo-analytics/getting-started-guide">API Manager Analytics</li>
