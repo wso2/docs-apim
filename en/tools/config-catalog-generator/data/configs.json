@@ -1188,7 +1188,7 @@
                     ]
                 }
             ],
-            "exampleFile": "apim.ai.toml"
+            "exampleFile": "apim.mcp.toml"
         },
         {
             "title": "API-M OAuth configurations",
