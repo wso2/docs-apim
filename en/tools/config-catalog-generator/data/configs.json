@@ -1252,6 +1252,207 @@
             "exampleFile": "apim.oauth_config.toml"
         },
         {
+            "title": "API-M gateway notification configurations",
+            "options": [
+                {
+                    "name": "apim.gateway_notification",
+                    "required": false,
+                    "description": "Gateway notification configurations for API revision deployment monitoring",
+                    "params": [
+                        {
+                            "name": "enabled",
+                            "type": "boolean",
+                            "required": false,
+                            "default": "true",
+                            "possible": "true,false",
+                            "description": "Enable or disable gateway notification feature."
+                        },
+                        {
+                            "name": "gateway_id",
+                            "type": "string",
+                            "required": false,
+                            "default": "Randomly generated UUID",
+                            "possible": "",
+                            "description": "Unique identifier for the gateway instance."
+                        }
+                    ]
+                }
+            ],
+            "exampleFile": "apim.gateway_notification.toml"
+        },
+        {
+            "title": "API-M gateway notification heartbeat configurations",
+            "options": [
+                {
+                    "name": "apim.gateway_notification.heartbeat",
+                    "required": false,
+                    "description": "Gateway heartbeat notification configurations",
+                    "params": [
+                        {
+                            "name": "notify_interval",
+                            "type": "string",
+                            "required": false,
+                            "default": "1m",
+                            "possible": "",
+                            "description": "Interval for sending heartbeat notifications from the gateway."
+                        }
+                    ]
+                }
+            ],
+            "exampleFile": "apim.gateway_notification.toml"
+        },
+        {
+            "title": "API-M deployment acknowledgment configurations",
+            "options": [
+                {
+                    "name": "apim.gateway_notification.deployment_ack",
+                    "required": false,
+                    "description": "Gateway deployment acknowledgment configurations",
+                    "params": [
+                        {
+                            "name": "batch_size",
+                            "type": "integer",
+                            "required": false,
+                            "default": "100",
+                            "possible": "",
+                            "description": "Number of deployment acknowledgments to process in a batch."
+                        },
+                        {
+                            "name": "batch_interval",
+                            "type": "string",
+                            "required": false,
+                            "default": "2s",
+                            "possible": "",
+                            "description": "Interval between batch processing operations."
+                        },
+                        {
+                            "name": "max_retry_count",
+                            "type": "integer",
+                            "required": false,
+                            "default": "5",
+                            "possible": "",
+                            "description": "Maximum number of retry attempts for failed acknowledgments."
+                        },
+                        {
+                            "name": "retry_duration",
+                            "type": "string",
+                            "required": false,
+                            "default": "10s",
+                            "possible": "",
+                            "description": "Initial retry duration for failed acknowledgments."
+                        },
+                        {
+                            "name": "retry_progression_factor",
+                            "type": "integer",
+                            "required": false,
+                            "default": "2",
+                            "possible": "",
+                            "description": "Factor by which retry duration increases after each failed attempt."
+                        },
+                        {
+                            "name": "batch_processor_min_thread",
+                            "type": "integer",
+                            "required": false,
+                            "default": "2",
+                            "possible": "",
+                            "description": "Minimum number of threads for batch processing."
+                        },
+                        {
+                            "name": "batch_processor_max_thread",
+                            "type": "integer",
+                            "required": false,
+                            "default": "8",
+                            "possible": "",
+                            "description": "Maximum number of threads for batch processing."
+                        },
+                        {
+                            "name": "batch_processor_keep_alive",
+                            "type": "string",
+                            "required": false,
+                            "default": "1m",
+                            "possible": "",
+                            "description": "Keep-alive time for idle threads in the batch processor."
+                        },
+                        {
+                            "name": "batch_processor_queue_size",
+                            "type": "integer",
+                            "required": false,
+                            "default": "50",
+                            "possible": "",
+                            "description": "Queue size for the batch processor."
+                        }
+                    ]
+                }
+            ],
+            "exampleFile": "apim.gateway_notification.toml"
+        },
+        {
+            "title": "API-M gateway notification registration configurations",
+            "options": [
+                {
+                    "name": "apim.gateway_notification.registration",
+                    "required": false,
+                    "description": "Gateway registration configurations",
+                    "params": [
+                        {
+                            "name": "max_retry_count",
+                            "type": "integer",
+                            "required": false,
+                            "default": "5",
+                            "possible": "",
+                            "description": "Maximum number of retry attempts for gateway registration."
+                        },
+                        {
+                            "name": "retry_duration",
+                            "type": "string",
+                            "required": false,
+                            "default": "10s",
+                            "possible": "",
+                            "description": "Initial retry duration for failed registration attempts."
+                        },
+                        {
+                            "name": "retry_progression_factor",
+                            "type": "integer",
+                            "required": false,
+                            "default": "2",
+                            "possible": "",
+                            "description": "Factor by which retry duration increases after each failed attempt."
+                        }
+                    ]
+                }
+            ],
+            "exampleFile": "apim.gateway_notification.toml"
+        },
+        {
+            "title": "API-M gateway notification cleanup configurations",
+            "options": [
+                {
+                    "name": "apim.gateway_notification.cleanup",
+                    "required": false,
+                    "description": "Gateway notification cleanup configurations for ACP or All In One deployments",
+                    "params": [
+                        {
+                            "name": "expiry_time",
+                            "type": "string",
+                            "required": false,
+                            "default": "2m",
+                            "possible": "",
+                            "description": "Time period after which a gateway is considered expired if no heartbeat is received."
+                        },
+                        {
+                            "name": "data_retention_period",
+                            "type": "string",
+                            "required": false,
+                            "default": "30d",
+                            "possible": "",
+                            "description": "Period for which notification data is retained before cleanup."
+                        }
+                    ]
+                }
+            ],
+            "exampleFile": "apim.gateway_notification.toml"
+        },
+        {
             "title": "API-M Mutual SSL Configuration",
             "options": [
                 {
