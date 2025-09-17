@@ -189,7 +189,7 @@ You need to execute the following database scripts on the API Manager database (
 
 ### Step 2: Enable Revoked Token Event Validation
 
-To enable this feature, you need to add the following configuration to the deployment.toml file of your WSO2 API Manager instance. Refer [Configuration Catalog](../reference/config-catalog/#jwt-token-persistence-optimization-configurations)
+To enable this feature, you need to add the following configuration to the deployment.toml file of your WSO2 API Manager instance. Refer [Configuration Catalog]({{base_path}}/reference/config-catalog/#jwt-token-persistence-optimization-configurations)
 
 ``` toml
 [apim.key_manager]
