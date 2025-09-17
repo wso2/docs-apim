@@ -2885,6 +2885,7 @@ key_validation_handler_impl = "org.wso2.carbon.apimgt.keymgt.handlers.DefaultKey
                                     <div>
                                         <p>
                                             <span class="param-type string"> boolean </span>
+                                            
                                         </p>
                                         <div class="param-default">
                                             <span class="param-default-value">Default: <code>false</code></span>
@@ -2894,7 +2895,7 @@ key_validation_handler_impl = "org.wso2.carbon.apimgt.keymgt.handlers.DefaultKey
                                         </div>
                                     </div>
                                     <div class="param-description">
-                                        <p>Enable the application scopes for the Resident Key Manager</p>
+                                        <p>Enable the application scopes for the Resident Key Manager.</p>
                                     </div>
                                 </div>
                             </div>
@@ -3136,15 +3137,8 @@ default_request_timeout = 30</code></pre>
                 <label class="tab-selector" for="_tab_27"><i class="icon fa fa-code"></i></label>
                 <div class="superfences-content">
                     <div class="mb-config-example">
-<pre><code class="toml">[apim.ai]
-enable = true
-token = "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
-endpoint = "https://e95488c8-8511-4882-967f-ec3ae2a0f86f-prod.e1-us-east-azure.choreoapis.dev/lgpt/interceptor-service/interceptor-service-be2/v1.0"
-default_request_timeout = 30
-
-[apim.ai.failover_configurations]
-failover_endpoints_limit = 10
-default_request_timeout = 30</code></pre>
+<pre><code class="toml">[apim.mcp]
+enable = true</code></pre>
                     </div>
                 </div>
                 <div class="doc-wrapper">
@@ -3348,8 +3342,6 @@ enable_token_hashing = false</code></pre>
     </section>
 </div>
 
-
-
 ## API-M Revision Deployment Monitoring
 
 
@@ -3357,7 +3349,7 @@ enable_token_hashing = false</code></pre>
     <section>
         <div class="mb-config-options">
             <div class="superfences-tabs">
-            
+
             <input name="29" type="checkbox" id="_tab_29">
                 <label class="tab-selector" for="_tab_29"><i class="icon fa fa-code"></i></label>
                 <div class="superfences-content">
@@ -3427,7 +3419,7 @@ gateway_id = "gateway_00"</code></pre>
     <section>
         <div class="mb-config-options">
             <div class="superfences-tabs">
-            
+
             <input name="30" type="checkbox" id="_tab_30">
                 <label class="tab-selector" for="_tab_30"><i class="icon fa fa-code"></i></label>
                 <div class="superfences-content">
@@ -3479,7 +3471,7 @@ notify_interval = "1m"</code></pre>
     <section>
         <div class="mb-config-options">
             <div class="superfences-tabs">
-            
+
             <input name="31" type="checkbox" id="_tab_31">
                 <label class="tab-selector" for="_tab_31"><i class="icon fa fa-code"></i></label>
                 <div class="superfences-content">
@@ -3675,7 +3667,7 @@ batch_processor_queue_size = 50</code></pre>
     <section>
         <div class="mb-config-options">
             <div class="superfences-tabs">
-            
+
             <input name="32" type="checkbox" id="_tab_32">
                 <label class="tab-selector" for="_tab_32"><i class="icon fa fa-code"></i></label>
                 <div class="superfences-content">
@@ -3763,7 +3755,7 @@ retry_progression_factor = 2</code></pre>
     <section>
         <div class="mb-config-options">
             <div class="superfences-tabs">
-            
+
             <input name="33" type="checkbox" id="_tab_33">
                 <label class="tab-selector" for="_tab_33"><i class="icon fa fa-code"></i></label>
                 <div class="superfences-content">
@@ -3825,7 +3817,6 @@ data_retention_period = "30d"</code></pre>
         </div>
     </section>
 </div>
-
 
 
 ## API-M Mutual SSL Configuration
@@ -4092,7 +4083,8 @@ display_multiple_versions = false
 display_deprecated_apis = false
 enable_comments = true
 enable_ratings = true
-enable_forum = true</code></pre>
+enable_forum = true
+mode = "HYBRID"</code></pre>
                     </div>
                 </div>
                 <div class="doc-wrapper">
@@ -16545,7 +16537,8 @@ secure_max_transport_pool_size = 250
 secure_max_idle_connections = 250
 secure_eviction_time_period = 5500
 secure_min_idle_time_in_pool = 5000
-max_reconnection_interval = 3600</code></pre>
+max_reconnection_interval = 3600
+</code></pre>
                     </div>
                 </div>
                 <div class="doc-wrapper">
