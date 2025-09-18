@@ -3360,31 +3360,7 @@ enable_token_hashing = false</code></pre>
                     <div class="mb-config-example">
 <pre><code class="toml">[apim.gateway_notification]
 enabled = true
-gateway_id = "gateway_00"
-
-[apim.gateway_notification.heartbeat]
-notify_interval = "1m"
-
-[apim.gateway_notification.deployment_ack]
-batch_size = 100
-batch_interval = "2s"
-max_retry_count = 5
-retry_duration = "10s"
-retry_progression_factor = 2
-batch_processor_min_thread = 2
-batch_processor_max_thread = 8
-batch_processor_keep_alive = "1m"
-batch_processor_queue_size = 50
-
-[apim.gateway_notification.registration]
-max_retry_count = 5
-retry_duration = "10s"
-retry_progression_factor = 2
-
-[apim.gateway_notification.cleanup]
-expiry_time = "2m"
-data_retention_period = "30d"
-</code></pre>
+gateway_id = "gateway_00"</code></pre>
                     </div>
                 </div>
                 <div class="doc-wrapper">
@@ -3460,33 +3436,8 @@ data_retention_period = "30d"
                 <label class="tab-selector" for="_tab_30"><i class="icon fa fa-code"></i></label>
                 <div class="superfences-content">
                     <div class="mb-config-example">
-<pre><code class="toml">[apim.gateway_notification]
-enabled = true
-gateway_id = "gateway_00"
-
-[apim.gateway_notification.heartbeat]
-notify_interval = "1m"
-
-[apim.gateway_notification.deployment_ack]
-batch_size = 100
-batch_interval = "2s"
-max_retry_count = 5
-retry_duration = "10s"
-retry_progression_factor = 2
-batch_processor_min_thread = 2
-batch_processor_max_thread = 8
-batch_processor_keep_alive = "1m"
-batch_processor_queue_size = 50
-
-[apim.gateway_notification.registration]
-max_retry_count = 5
-retry_duration = "10s"
-retry_progression_factor = 2
-
-[apim.gateway_notification.cleanup]
-expiry_time = "2m"
-data_retention_period = "30d"
-</code></pre>
+<pre><code class="toml">[apim.gateway_notification.heartbeat]
+notify_interval = "1m"</code></pre>
                     </div>
                 </div>
                 <div class="doc-wrapper">
@@ -3541,14 +3492,7 @@ data_retention_period = "30d"
                 <label class="tab-selector" for="_tab_31"><i class="icon fa fa-code"></i></label>
                 <div class="superfences-content">
                     <div class="mb-config-example">
-<pre><code class="toml">[apim.gateway_notification]
-enabled = true
-gateway_id = "gateway_00"
-
-[apim.gateway_notification.heartbeat]
-notify_interval = "1m"
-
-[apim.gateway_notification.deployment_ack]
+<pre><code class="toml">[apim.gateway_notification.deployment_ack]
 batch_size = 100
 batch_interval = "2s"
 max_retry_count = 5
@@ -3557,17 +3501,7 @@ retry_progression_factor = 2
 batch_processor_min_thread = 2
 batch_processor_max_thread = 8
 batch_processor_keep_alive = "1m"
-batch_processor_queue_size = 50
-
-[apim.gateway_notification.registration]
-max_retry_count = 5
-retry_duration = "10s"
-retry_progression_factor = 2
-
-[apim.gateway_notification.cleanup]
-expiry_time = "2m"
-data_retention_period = "30d"
-</code></pre>
+batch_processor_queue_size = 50</code></pre>
                     </div>
                 </div>
                 <div class="doc-wrapper">
@@ -3774,33 +3708,10 @@ data_retention_period = "30d"
                 <label class="tab-selector" for="_tab_32"><i class="icon fa fa-code"></i></label>
                 <div class="superfences-content">
                     <div class="mb-config-example">
-<pre><code class="toml">[apim.gateway_notification]
-enabled = true
-gateway_id = "gateway_00"
-
-[apim.gateway_notification.heartbeat]
-notify_interval = "1m"
-
-[apim.gateway_notification.deployment_ack]
-batch_size = 100
-batch_interval = "2s"
+<pre><code class="toml">[apim.gateway_notification.registration]
 max_retry_count = 5
 retry_duration = "10s"
-retry_progression_factor = 2
-batch_processor_min_thread = 2
-batch_processor_max_thread = 8
-batch_processor_keep_alive = "1m"
-batch_processor_queue_size = 50
-
-[apim.gateway_notification.registration]
-max_retry_count = 5
-retry_duration = "10s"
-retry_progression_factor = 2
-
-[apim.gateway_notification.cleanup]
-expiry_time = "2m"
-data_retention_period = "30d"
-</code></pre>
+retry_progression_factor = 2</code></pre>
                     </div>
                 </div>
                 <div class="doc-wrapper">
@@ -3893,30 +3804,7 @@ data_retention_period = "30d"
                 <label class="tab-selector" for="_tab_33"><i class="icon fa fa-code"></i></label>
                 <div class="superfences-content">
                     <div class="mb-config-example">
-<pre><code class="toml">[apim.gateway_notification]
-enabled = true
-gateway_id = "gateway_00"
-
-[apim.gateway_notification.heartbeat]
-notify_interval = "1m"
-
-[apim.gateway_notification.deployment_ack]
-batch_size = 100
-batch_interval = "2s"
-max_retry_count = 5
-retry_duration = "10s"
-retry_progression_factor = 2
-batch_processor_min_thread = 2
-batch_processor_max_thread = 8
-batch_processor_keep_alive = "1m"
-batch_processor_queue_size = 50
-
-[apim.gateway_notification.registration]
-max_retry_count = 5
-retry_duration = "10s"
-retry_progression_factor = 2
-
-[apim.gateway_notification.cleanup]
+<pre><code class="toml">[apim.gateway_notification.cleanup]
 expiry_time = "2m"
 data_retention_period = "30d"
 </code></pre>
@@ -16604,60 +16492,7 @@ class="org.wso2.carbon.apimgt.gateway.handlers.custom.customer_handler"
     </section>
 </div>
 
-## Service Provider Configurations
 
-
-<div class="mb-config-catalog">
-    <section>
-        <div class="mb-config-options">
-            <div class="superfences-tabs">
-            
-            <input name="104" type="checkbox" id="_tab_104">
-                <label class="tab-selector" for="_tab_104"><i class="icon fa fa-code"></i></label>
-                <div class="superfences-content">
-                    <div class="mb-config-example">
-<pre><code class="toml">[service_provider]
-use_username_as_sub_claim = true
-</code></pre>
-                    </div>
-                </div>
-                <div class="doc-wrapper">
-                    <div class="mb-config">
-                        <div class="config-wrap">
-                            <code>[service_provider]</code>
-                            
-                            <p>
-                                This includes configurations for Service Provider related properties.
-                            </p>
-                        </div>
-                        <div class="params-wrap">
-                            <div class="param">
-                                <div class="param-name">
-                                  <span class="param-name-wrap"> <code>use_username_as_sub_claim</code> </span>
-                                </div>
-                                <div class="param-info">
-                                    <div>
-                                        <p>
-                                            <span class="param-type string"> boolean </span>
-                                            
-                                        </p>
-                                        <div class="param-default">
-                                            <span class="param-default-value">Default: <code>false</code></span>
-                                        </div>
-                                        
-                                    </div>
-                                    <div class="param-description">
-                                        <p>Use username as the subject claim of application tokens instead of userId.</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-</div>
 
 ## APIM Governance Configurations
 

@@ -1299,7 +1299,7 @@
                     ]
                 }
             ],
-            "exampleFile": "apim.gateway_notification.toml"
+            "exampleFile": "apim.gateway_notification.heartbeat.toml"
         },
         {
             "title": "API-M deployment acknowledgment configurations",
@@ -1384,7 +1384,7 @@
                     ]
                 }
             ],
-            "exampleFile": "apim.gateway_notification.toml"
+            "exampleFile": "apim.gateway_notification.deployment_ack.toml"
         },
         {
             "title": "API-M gateway notification registration configurations",
@@ -1421,7 +1421,7 @@
                     ]
                 }
             ],
-            "exampleFile": "apim.gateway_notification.toml"
+            "exampleFile": "apim.gateway_notification.registration.toml"
         },
         {
             "title": "API-M gateway notification cleanup configurations",
@@ -1450,7 +1450,7 @@
                     ]
                 }
             ],
-            "exampleFile": "apim.gateway_notification.toml"
+            "exampleFile": "apim.gateway_notification.cleanup.toml"
         },
         {
             "title": "API-M Mutual SSL Configuration",
