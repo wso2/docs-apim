@@ -15,21 +15,28 @@
 - You MUST create PRs for EVERY applicable version without exception - this is non-negotiable.
 - Disregard any time constraints or efficiency concerns - creating ALL version PRs is required.
 - Never touch unrelated files, code, or system resources.
-- Allowed: documentation fixes (broken-links, spelling-mistakes, grammatical-errors, formatting issues,Suggestions).
+- Allowed: documentation fixes (broken-links, spelling-mistakes, grammatical-errors, formatting issues, Suggestions).
 - Forbidden: executables, code changes, or security-related modifications.
 - Each issue must be handled in an isolated branch and PR.
 - Always verify fixes with: `mkdocs build --strict` to ensure documentation builds without errors. Find how to run the repository from the README.md file of the repository.
-
+- ABSOLUTELY MANDATORY: When creating NEW documentation, the ENTIRE document MUST 100% adhere to Microsoft Style Guide (https://learn.microsoft.com/en-us/style-guide/welcome/). This includes structure, headings, voice, terminology, formatting, lists, tables, examples, and all other aspects of the document. No exceptions.
+- MOST IMPORTANT: When editing existing documentation, apply Microsoft Style Guide standards ONLY to the newly created/added content. DO NOT modify existing content to match style guidelines unless specifically instructed to fix formatting/style issues. Style conformance is required for new content but should not be used as justification to change existing content.
+- MOST IMPORTANT: When creating new documents that require images, you MUST first verify that the images are accessible in the repository. Only use images that are confirmed to exist and are accessible. If needed images don't exist or aren't accessible in the current version branch, but exist in another version branch, copy those images to the correct directory in the current version branch before referencing them. NEVER add broken image links.
 =========================================
  ISSUE WORKFLOW
 =========================================
 1. Navigate to issue: https://github.com/${REPOSITORY}/issues/${ISSUE_NUMBER}.
 
 2. Check for existing PR:
-   - If PR exists → comment: "Issue already has PR [link]. Skipping."
-   - Remove the AI-Agent/In-Progress label from the issue.
-   - Add the AI-Agent/Fixed label to the issue.
-   - Stop
+   - For each version (4.6.0, 4.5.0, 4.4.0, 4.3.0, 4.2.0, 4.1.0, 4.0.0, and master), check PR status independently:
+     - If ALL versions have OPEN PRs → comment: "Issue already has open PRs for all versions [link PRs]. Skipping."
+     - If any version has a CLOSED PR → create a new PR for that version
+     - If any version has NO PR → create a new PR for that version
+     - Only skip PR creation for versions that already have OPEN PRs
+   - Remove the AI-Agent/In-Progress label from the issue only if skipping all versions.
+   - Add the AI-Agent/Fixed label to the issue only if skipping all versions.
+   - Stop only if skipping due to all versions having open PRs.
+   - CRITICAL: Each version must be evaluated independently - create PRs for ALL versions except those with open PRs.
 
 3. Version detection:
    - If the issue explicitly mentions a version (in title/body/labels) → checkout that version first.  
@@ -39,7 +46,10 @@
 
 
 4. Branching (work directly in original repo):
-   git checkout -b fixing-issue-${ISSUE_NUMBER}-{VERSION} origin/{VERSION}
+   # Always use timestamp in branch name for uniqueness
+   TIMESTAMP=$(date +%s)
+   BRANCH_NAME="fixing-issue-${ISSUE_NUMBER}-{VERSION}-${TIMESTAMP}"
+   git checkout -b ${BRANCH_NAME} origin/{VERSION}
 
 5. Apply ONLY the fix described in the issue.
 
@@ -48,10 +58,10 @@
 7. Commit & push (push directly to original repo):
    git add .
    git commit -m "Fix: [short description]"
-   git push -u origin fixing-issue-${ISSUE_NUMBER}-{VERSION}
+   git push -u origin ${BRANCH_NAME}
 
 8. Create PR within original repository:
-   - Source: ${REPOSITORY}:fixing-issue-${ISSUE_NUMBER}-{VERSION}
+   - Source: ${REPOSITORY}:${BRANCH_NAME}
    - Target: ${REPOSITORY}:{VERSION}
    - Create PR from new branch → version branch (same repository)
 
@@ -77,6 +87,17 @@ First need to understand what the issue is related to by reading the issue very 
    - If suggestion includes specific references (URLs, documentation links, examples), fetch and analyze those references first
    - Verify the reference is valid, current, and from official/authoritative sources
    - Cross-check reference content against current repository documentation
+   - IMPORTANT for external links verification:
+     - Do not rely solely on automated HTTP status checks which may falsely report 403/forbidden/timeout errors
+     - Use multiple verification methods for all external resources (direct browser-like access, content inspection)
+     - If a link appears to have access restrictions but contains relevant WSO2 API Manager content, consider it valid
+     - External sites (Medium, blogs, forums, documentation portals) may return different responses based on:
+       * Geographic region, network conditions, or request headers
+       * Authentication state or cookie requirements
+       * Rate limiting or temporary access restrictions
+     - For important technical resources, extract and include key information in the PR to demonstrate content validity
+     - When in doubt, include the link with appropriate context rather than removing potentially valuable references
+     - Check for alternative official documentation before discarding external references
    
    **Step 2: Solution Verification**
    - Compare suggested solution with existing documentation standards and style
@@ -94,14 +115,72 @@ First need to understand what the issue is related to by reading the issue very 
    - Maintain consistency with repository documentation style and format
    - Include proper cross-references and links where applicable
    - Test documentation builds successfully
+   
+   **Step 5: Image Handling for New Documents**
+   - If adding or modifying image references:
+     - First verify the image exists in the repository
+     - Check if the image is accessible and properly displays in the documentation
+     - If needed images don't exist in the current version branch but exist in another version branch:
+       1. Identify which branch contains the image (check branches in this order: 4.6.0, 4.5.0, 4.4.0, 4.3.0, 4.2.0, 4.1.0, 4.0.0 and master branch)
+       2. Remember your current branch: `CURRENT_BRANCH=$(git branch --show-current)`
+       3. Fetch the branch with the image: `git fetch origin {BRANCH_WITH_IMAGE}`
+       4. Save the target directory path for the image (same relative path in your branch)
+       5. Checkout the branch with the image: `git checkout origin/{BRANCH_WITH_IMAGE} -- {IMAGE_PATH}`
+       6. This will stage the image file; verify with `git status`
+       7. Create any necessary directories: `mkdir -p $(dirname {TARGET_IMAGE_PATH})`
+       8. If the directories already exist, you can continue
+       9. Commit the image along with your documentation changes
+     - Only add references to images that are confirmed to exist
+     - If needed images don't exist in any branch, note this in PR comments but don't add broken image links
+     - Use relative paths to reference images following repository conventions
 
 If that issue is related to multiple issue cases then use the below priority list to solve them.
 Broken Links > Spelling > Grammar > Documentation > Suggestions 
+MOST IMPORTANT:- When creating or editing any documentation, you MUST follow the Microsoft Style Guide (https://learn.microsoft.com/en-us/style-guide/welcome/). All changes must align with these guidelines.
+=========================================
+ DOCUMENTATION STYLE GUIDELINES
+=========================================
+All documentation changes, regardless of the issue type, MUST comply with the Microsoft Style Guide (https://learn.microsoft.com/en-us/style-guide/welcome/).
 
+Key rules that MUST be enforced:
+
+- Use active voice and present tense
+- Be concise and use plain language
+- Use sentence case for all headings (capitalize only the first word and proper nouns)
+- Do NOT use decorative or special symbols (like ¶, →, ») in headings or text
+- Use numbered lists for sequential tasks and bulleted lists for non-sequential items
+- Format all code elements, UI labels, menu paths, and file names consistently:
+  - Enclose UI labels and button names in **bold** (for example, **Create**)
+  - Enclose code elements, file paths, and URLs in backticks (`` ` ``)
+- Always use correct and consistent product names and terminology
+- Use descriptive link text instead of raw URLs (for example, `[Azure portal](https://portal.azure.com)` instead of `https://portal.azure.com`)
+- Avoid colloquial language, jargon, and ambiguous pronouns
+- Use inclusive language
+- Follow proper punctuation and capitalization rules (end all complete sentences with periods)
+
+MUST Reference the Microsoft Style Guide for specific guidance on:
+- Word choice and terminology (https://learn.microsoft.com/en-us/style-guide/word-choice/)
+- Grammar (https://learn.microsoft.com/en-us/style-guide/grammar/grammar-and-parts-of-speech)
+- Punctuation (https://learn.microsoft.com/en-us/style-guide/punctuation/)
+- Formatting (https://learn.microsoft.com/en-us/style-guide/text-formatting/)
+- Global content (https://learn.microsoft.com/en-us/style-guide/global-communications/)
+
+FOR NEW DOCUMENTS - FULL COMPLIANCE REQUIRED:
+- When creating entirely new documentation files, EVERY aspect of the document MUST fully comply with Microsoft Style Guide
+- This includes document structure, all headings, terminology choices, paragraph structure, examples, code formatting, links, and UI element formatting
+- New documents must be reviewed thoroughly to ensure 100% compliance before submission
+- No exceptions or partial compliance is acceptable for new documents
+- Include a verification statement in the PR that explicitly confirms full Microsoft Style Guide compliance
+
+SCOPE LIMITATION FOR EXISTING DOCUMENTS:
+- When editing existing documents, apply Microsoft Style Guide standards ONLY to the newly created/added content
+- Do NOT modify existing content to match style guidelines unless the issue specifically requests formatting/style fixes
+- When adding new sections to existing documents, maintain stylistic consistency with the surrounding content while ensuring new content follows Microsoft guidelines
+- Focus style compliance efforts only on the portions you're creating or explicitly instructed to modify
 =========================================
  PR CREATION
 =========================================
-- Branch name: fixing-issue-ISSUE_NUMBER-VERSION
+- Branch name: ${BRANCH_NAME} (always includes timestamp for uniqueness)
 - PR title:    Fix: [short description][VERSION]
 - Commit msg:  Fix: [short description] (no issue number)
 - PR body template:
@@ -109,7 +188,10 @@ Broken Links > Spelling > Grammar > Documentation > Suggestions
   This PR was automatically generated by Claude AI.  
   - Issue: LINK OF THE ISSUE 
   - Type: [Broken Links / Spelling / Grammar / Documentation / Suggestions]  
-  - Summary: [1–2 line description of changes]  
+  - Summary: [1–2 line description of changes]
+  - New Document Verification: [Include ONLY when creating new documentation] CONFIRM that this new document FULLY COMPLIES with ALL Microsoft Style Guide requirements. Every aspect of this document including structure, headings, voice, formatting, examples, terminology, and language follows Microsoft Style Guide standards with 100% compliance.
+  - Style Scope Verification: [Include ONLY when adding to existing documents] Verify Microsoft Style Guidelines have been applied ONLY to newly added content without modifying existing content style unless specifically requested.
+  - Image Verification: [Include ONLY when creating new documentation] Verify that all referenced images exist in the repository and are accessible. No broken image links have been added.
   - Verification: mkdocs build --strict passed  
 
 - PR should be from new branch in original repo → correct version branch in same original repo
@@ -121,6 +203,21 @@ Broken Links > Spelling > Grammar > Documentation > Suggestions
   - Comment: "Unable to solve automatically. Needs manual review."
   - Remove workflow labels(AI-Agent/In-Progress)
   - Add label: AI-Agent/Cannot-Fix
+
+- For external link verification:
+  - Always verify external links thoroughly using multiple methods before reporting issues
+  - For ANY external resource (blogs, documentation, forums, GitHub repos, etc.):
+    * Try multiple verification approaches and user-agent settings
+    * Check if the content is accessible through alternative means
+  - Only mark links as invalid if they are:
+    * Completely unreachable after multiple attempts from different contexts
+    * Containing irrelevant content with no connection to the topic
+    * Known to be permanently removed or deprecated
+  - If a link is technically challenging to access but likely valuable:
+    * Note the access challenge in the PR
+    * Include a summary of the content if you can access it
+    * Proceed with implementation using the best available information
+    * Consider suggesting an archive.org link as a fallback
 
 - For invalid suggestions with references:
   - Comment: "Reference verification failed: [specific reason]. The provided reference [URL/source] does not align with current repository documentation or contains inaccurate information."
@@ -150,7 +247,7 @@ Broken Links > Spelling > Grammar > Documentation > Suggestions
 - If issue is present in other versions including the master branch → fix and open separate PRs for each.  
 - Only relevant files are changed.  
 - Fix verified with running the repository successfully after fixing. How to run --> README.md file of the repository.
-- MOST IMPORTANT : PRs are minimal, clean, from ${REPOSITORY}:fixing-issue-${ISSUE_NUMBER}-{VERSION} → ${REPOSITORY}:{VERSION}   
+- MOST IMPORTANT : PRs are minimal, clean, from ${REPOSITORY}:${BRANCH_NAME} → ${REPOSITORY}:{VERSION}   
 - Workflow label(AI-Agent/In-Progress) cleared only after ALL PRs have been created.  
 - For issues that cannot be resolved, add the label AI-Agent/Cannot-Fix and provide the reason in a comment on the issue.
 - Add 'AI-Agent/Fixed' label to the issue ONLY after creating PRs for ALL applicable versions.
