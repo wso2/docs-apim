@@ -144,7 +144,7 @@ Follow the instructions given below to configure the Gateway node so that it can
         ```
 
     !!! Info
-        To further optimize the gateway notification feature, you can use additional `gateway_notification` configurations. For more information, see [API-M Revision Deployment Monitoring](../../../../reference/config-catalog/#api-m-revision-deployment-monitoring).
+        To further optimize the gateway notification feature, you can use additional `gateway_notification` configurations. For more information, see [API-M Revision Deployment Monitoring](../../../../reference/config-catalog/#api-m-gateway-notification-configurations).
 
 5. Enable JSON Web Token (JWT) if required. For instructions, see [Generating JSON Web Token](../../../../deploy-and-publish/deploy-on-gateway/api-gateway/passing-enduser-attributes-to-the-backend-via-api-gateway).
 
