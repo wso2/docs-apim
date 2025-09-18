@@ -1,0 +1,4 @@
+[apim.gateway_notification.cleanup]
+expiry_time = "2m"
+data_retention_period = "30d"
+

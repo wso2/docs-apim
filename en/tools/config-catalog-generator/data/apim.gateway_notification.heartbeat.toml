@@ -1,0 +1,2 @@
+[apim.gateway_notification.heartbeat]
+notify_interval = "1m"
