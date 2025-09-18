@@ -383,7 +383,9 @@ nav:
             - API Creator/Publisher Capabilities: governance/api-governance-api-creator-capabilities.md
         - CI/CD-Driven Governance: governance/api-governance-cicd.md
         - References:
-            - Rule Validator: governance/rule-validator/rule-validator.md
+            - Rule Validator: 
+                  - How to use: governance/rule-validator/rule-validator.md
+                  - Sample Rules: governance/rule-validator/samples.md
             - Ruleset Catalog:
                   - WSO2 API Management Guidelines: reference/governance/wso2-api-management-guidelines.md
                   - WSO2 REST API Design Guidelines: reference/governance/wso2-rest-api-design-guidelines.md
@@ -445,7 +447,9 @@ nav:
             - API-M Config Catalog: reference/config-catalog.md
         - API Controller (APICTL): reference/apictl/wso2-api-controller.md
         - Governance:
-            - Rule Validator: governance/rule-validator/rule-validator.md
+            - Rule Validator: 
+                  - How to use: governance/rule-validator/rule-validator.md
+                  - Sample Rules: governance/rule-validator/samples.md
             - Ruleset Catalog:
                 - WSO2 API Management Guidelines: reference/governance/wso2-api-management-guidelines.md
                 - WSO2 REST API Design Guidelines: reference/governance/wso2-rest-api-design-guidelines.md
