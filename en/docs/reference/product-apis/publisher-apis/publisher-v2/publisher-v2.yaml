@@ -4229,6 +4229,13 @@ paths:
           schema:
             type: boolean
             default: false
+        - name: preserveCredentials
+          in: query
+          description: |
+            Preserve endpoint configuration credentials
+          required: false
+          schema:
+            type: boolean
       responses:
         200:
           description: |
