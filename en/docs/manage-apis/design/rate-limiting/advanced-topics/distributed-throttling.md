@@ -3,7 +3,7 @@
 
 In a distributed deployment of WSO2 API Manager with multiple Traffic Manager nodes, it is essential to maintain traffic counts at a global level to ensure all nodes have a consistent view of the current usage. This is achieved by connecting API Manager to a Redis or Valkey cluster, which is used to store and synchronize distributed counters across all Traffic Manager nodes.
 
-!!! note
+!!! important
     Ensure that the Redis or Valkey cluster is configured in replication mode. Sharded clusters are not supported for distributed throttling.
 
 ### Configuring a Redis cluster with API Manager to enable distributed counter for throttling
@@ -60,4 +60,4 @@ Follow the instructions below to configure the Redis server with WSO2 API Manage
 
 For more information, see [Running the API Manager Runtime]({{base_path}}/install-and-setup/install/installing-the-product/running-the-api-m/).
 
-In this setup, every TM node maintains its local counter and an unsynced counter. Instead of sending every increment/decrement to the Redis/Valkey store immediately, changes are accumulated locally. A scheduled background task periodically synchronizes the local counter with the Valkey/Redis store counter to keep the distributed state consistent across nodes. The accuracy of the counter value in each node can be fine tuned by adjusting the configs sync_intervaland core_pool_size.
+In this setup, every TM node maintains its local counter and an unsynced counter. Instead of sending every increment/decrement to the Redis/Valkey store immediately, changes are accumulated locally. A scheduled background task periodically synchronizes the local counter with the Valkey/Redis store counter to keep the distributed state consistent across nodes. The accuracy of the counter value in each node can be fine tuned by adjusting the configs `sync_interval` and `core_pool_size`.
