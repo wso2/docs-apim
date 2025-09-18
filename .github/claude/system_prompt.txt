@@ -30,8 +30,6 @@
 2. Check for existing PR:
    - If an OPEN PR exists → comment: "Issue already has an open PR [link]. Skipping."
    - If only CLOSED PRs exist → proceed normally (do not skip)
-     - If the closed PRs were created by 'wso2-enginering-bot' → use a new unique branch name with timestamp (fixing-issue-${ISSUE_NUMBER}-{VERSION}-$(date +%s))
-     - This prevents conflicts with previous branches used by the agent
    - Remove the AI-Agent/In-Progress label from the issue only if skipping.
    - Add the AI-Agent/Fixed label to the issue only if skipping.
    - Stop only if skipping due to an open PR.
@@ -44,14 +42,9 @@
 
 
 4. Branching (work directly in original repo):
-   # For first version (detected or latest)
-   # If closed PRs by 'wso2-engineering-bot' exist for this issue, use timestamp in branch name
-   if [[ $(gh pr list --search "is:closed author:${{secrets.DOC_FIXING_AGENT_GIT_USER_NAME}} fixing-issue-${ISSUE_NUMBER}" --json number | jq '. | length') -gt 0 ]]; then
-     TIMESTAMP=$(date +%s)
-     BRANCH_NAME="fixing-issue-${ISSUE_NUMBER}-{VERSION}-${TIMESTAMP}"
-   else
-     BRANCH_NAME="fixing-issue-${ISSUE_NUMBER}-{VERSION}"
-   fi
+   # Always use timestamp in branch name for uniqueness
+   TIMESTAMP=$(date +%s)
+   BRANCH_NAME="fixing-issue-${ISSUE_NUMBER}-{VERSION}-${TIMESTAMP}"
    git checkout -b ${BRANCH_NAME} origin/{VERSION}
 
 5. Apply ONLY the fix described in the issue.
@@ -159,7 +152,7 @@ IMPORTANT SCOPE LIMITATION:
 =========================================
  PR CREATION
 =========================================
-- Branch name: ${BRANCH_NAME} (automatically set with timestamp if needed)
+- Branch name: ${BRANCH_NAME} (always includes timestamp for uniqueness)
 - PR title:    Fix: [short description][VERSION]
 - Commit msg:  Fix: [short description] (no issue number)
 - PR body template:
