@@ -64,6 +64,9 @@
         !!!note
             `apictl export-api` command has been deprecated from the API Controller 4.0.0 onwards. Instead use `apictl export api` as shown above.
 
+        !!!note
+            `--preserve-credentials` is available only in WSO2AM version 4.5.0.24 and later. 
+
     -   **Response**
 
         === "Response Format"
