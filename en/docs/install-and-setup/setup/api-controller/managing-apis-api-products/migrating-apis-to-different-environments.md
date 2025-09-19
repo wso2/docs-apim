@@ -35,7 +35,7 @@
         ```
 
         ```go
-        apictl export api -n <API-name> -v <version> --rev <revision-number> -r <provider> -e <environment> --preserve-status=<preserve-status> --format <export-format>  
+        apictl export api -n <API-name> -v <version> --rev <revision-number> -r <provider> -e <environment> --preserve-status=<preserve-status> --preserve-credentials=true --format <export-format>  
         ``` 
 
         !!! info
@@ -50,6 +50,7 @@
                 `--provider` or `-r` : Provider of the API.   
                 `--latest` : Export the latest revision of the API.  
                 `--preserve-status` : Preserve API status when exporting. Otherwise, the API will be exported in the `CREATED` status. The default value is `true`.  
+                `--preserve-credentials` : Preserve API endpoint security credentials when exporting. Otherwise, the API will be exported with empty secret values.
                 `--format` : File format of exported archive (JSON or YAML). The default value is YAML.
             
         !!! example
@@ -57,11 +58,14 @@
             apictl export api -n PhoneVerification -v 1.0.0 -e dev 
             ```
             ```go
-            apictl export api -n PizzaShackAPI -v 1.0.0 --rev 2 -r Alice -e dev --preserve-status=true --format JSON 
+            apictl export api -n PizzaShackAPI -v 1.0.0 --rev 2 -r Alice -e dev --preserve-status=true --preserve-credentials=true --format JSON 
             ```            
 
         !!!note
             `apictl export-api` command has been deprecated from the API Controller 4.0.0 onwards. Instead use `apictl export api` as shown above.
+
+        !!!note
+            `--preserve-credentials` is available only in WSO2AM version 4.5.0.24 and later. 
 
     -   **Response**
 
@@ -335,6 +339,7 @@ You can use the below command to export all the APIs belong to the currently log
             `--all` : Export the working copy and all the revisions of APIs irrespective of the deployment status.  
             `--force` : Clean all the previously exported APIs of the given target tenant, in the given environment if any, and to export APIs from beginning  
             `--preserve-status` : Preserve API status when exporting. Otherwise, the APIs will be exported in the `CREATED` status. The default value is `true`.  
+            `--preserve-credentials` : Preserve API endpoint security credentials when exporting. Otherwise, the API will be exported with empty secret values.  
             `--format` : File format of exported archive (JSON or YAML). The default value is YAML.
 
     !!! example
@@ -342,7 +347,7 @@ You can use the below command to export all the APIs belong to the currently log
         apictl export apis -e production 
         ```
         ```go
-        apictl export apis --environment production --format json  --preserve-status --force 
+        apictl export apis --environment production --format json  --preserve-status --preserve-credentials --force 
         ```
         
     !!! info
