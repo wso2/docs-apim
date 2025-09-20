@@ -122,7 +122,8 @@ For comprehensive instructions, refer to the [K8s Deployment Guide](../setup/kub
 - **Description**: Deployment with separate gateway nodes and a control plane
 - **Use Case**: Environments with higher API traffic needing gateway scalability
 - **Components**: All-in-one, Universal Gateways
-- **Guides**:
+- **Guides**: 
+    - [Deploy on VM](../setup/distributed-deployment/deploying-wso2-api-m-in-a-simple-scalable-setup.md)
     - [Deploy on Kubernetes](../setup/kubernetes-deployment/kubernetes/am-pattern-2-all-in-one-gw.md)
 
 <a href="{{base_path}}/assets/img/setup-and-install/simple-distributed.png"><img src="{{base_path}}/assets/img/setup-and-install/simple-distributed.png" alt="simple scalable api-m deployment" width="60%"></a>
