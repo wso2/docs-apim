@@ -117,42 +117,43 @@ After creating the above pipeline, invoke a few APIs through API Manager to gene
 
 The published analytics events will be available in `Logs -> Search` view on the DataDog web UI.
 
-#### Step 2.3 - Create Facets and Mesures.
+#### Step 2.3 - Create Facets and Measures.
 
-1. For the following attributes, create facets by following this [documentation.](https://docs.datadoghq.com/logs/explorer/facets/#create-facets)
+##### Facets
+For the following attributes, create facets by following this [documentation.](https://docs.datadoghq.com/logs/explorer/facets/#create-facets)
 
-    ```
-    apiContext
-    apiCreator
-    apiName
-    apiType
-    apiVersion
-    apiResourceTemplate
-    apiMethod
-    applicationName
-    applicationOwner
-    errorType
-    eventType
-    Destination
-    Platform
-    responseCacheHit
-    userAgent
-    userName
-    userIp
-    ```
+| Attribute | Description |
+|-----------|-------------|
+| `apiContext` | The base path of the API (e.g., `/pizzashack/1.0.0`) |
+| `apiCreator` | Username of the user who created the API |
+| `apiName` | Name of the API being invoked |
+| `apiType` | Type of API protocol (e.g., HTTP, WEBSOCKET, GRAPHQL) |
+| `apiVersion` | Version of the API being invoked |
+| `apiResourceTemplate` | The resource path template that was matched (e.g., `/menu`, `/order/{id}`) |
+| `apiMethod` | HTTP method used for the API call (GET, POST, PUT, DELETE, etc.) |
+| `applicationName` | Name of the application making the API call |
+| `applicationOwner` | Username of the user who owns the application |
+| `errorType` | Type of error that occurred (only present in fault events) |
+| `eventType` | Type of analytics event (response, fault, throttle, etc.) |
+| `Destination` | Backend service endpoint URL |
+| `Platform` | Platform information from user agent (Android, iOS, Windows, etc.) |
+| `responseCacheHit` | Boolean indicating whether the response was served from cache |
+| `userAgent` | User agent string from the API request |
+| `userName` | Username of the authenticated user making the API call |
+| `userIp` | IP address of the client making the API request |
 
-2. Create a measure for following attributes
+##### Measures
+Create measures for the following attributes to enable numerical analysis and aggregations:
 
-    ```
-    backendLatency - Type Integer - Unit Milliseconds
-    responseLatency - Type Integer - Unit Milliseconds
-    responseMediationLatency - Type Integer - Unit Milliseconds
-    requestMediationLatency - Type Integer - Unit Milliseconds
-
-    targetResponseCode - Type Integer - Unit None
-    proxyResponseCode - Type Integer - Unit None
-    errorCode - Type Integer - Unit None
-    ```
+| Attribute | Type | Unit | Description | Calculation |
+|-----------|------|------|-------------|-------------|
+| `backendLatency` | Integer | Milliseconds | Time taken by the backend service to process the request | Measured from when the request is sent to backend until response is received |
+| `responseLatency` | Integer | Milliseconds | Total time taken to process the API request | Sum of request mediation latency + backend latency + response mediation latency |
+| `responseMediationLatency` | Integer | Milliseconds | Time taken by API Manager to process the response | Measured during response flow mediation (transformations, policies, etc.) |
+| `requestMediationLatency` | Integer | Milliseconds | Time taken by API Manager to process the request | Measured during request flow mediation (authentication, rate limiting, transformations, etc.) |
+| `targetResponseCode` | Integer | None | HTTP response code returned by the backend service | Raw HTTP status code from backend (200, 404, 500, etc.) |
+| `proxyResponseCode` | Integer | None | HTTP response code returned by API Manager to client | Final HTTP status code sent to client (may differ from backend if transformed) |
+| `errorCode` | Integer | None | Internal error code for faults | WSO2-specific error codes for different types of failures |
 
 #### Step 2.4 - Import Dashboards
 
