@@ -3963,6 +3963,8 @@ components:
 
             **OAUTH:** A UUID based access token
             **JWT:** A self-contained, signed JWT based access token which is issued by default.
+
+            **Note:** Only "OAUTH" and "JWT" values are accepted. Other values such as "DEFAULT" will result in deserialization errors.
           example: JWT
           default: JWT
           enum:
