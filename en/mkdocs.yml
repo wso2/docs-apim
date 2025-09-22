@@ -220,6 +220,7 @@ nav:
                     - Advanced Topics:
                         - Custom Rate Limiting: manage-apis/design/rate-limiting/advanced-topics/custom-throttling.md
                         - Distributed Burst Control, Backend Rate Limiting for API Gateway Cluster: manage-apis/design/rate-limiting/advanced-topics/configuring-rate-limiting-api-gateway-cluster.md
+                        - Distributed Throttling: manage-apis/design/rate-limiting/advanced-topics/distributed-throttling.md
             - API Monetization:
                 - Monetize an API: manage-apis/design/api-monetization/monetizing-an-api.md
             - B2B API Management:
