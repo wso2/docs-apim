@@ -1098,3 +1098,7 @@ Once you have successfully configured all the API-M nodes in the deployment, you
         cd <TM_HOME>\bin\
         traffic-manager.bat --run
         ```
+
+!!! note "Optional"
+    The backend for the sample PizzaShack API is not included with the WSO2 API Manager distributed deployment components.  
+    You need to set up the backend separately—either by updating the endpoint URL to point to an existing backend, or by deploying the [sample backend]({{base_path}}/assets/attachments/am#sample#pizzashack#v1.war) if you need to try out the sample PizzaShack API.
