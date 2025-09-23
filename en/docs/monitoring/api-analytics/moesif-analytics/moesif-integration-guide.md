@@ -19,7 +19,7 @@ This section will cover necessary steps to integrate Moesif analytics with WSO2 
 
 #### 1.2 Create a New Application
 
-1. Once logged in, create a **new App** from the “Get Started” page.  
+1. Once logged in, create a **new App** from the "Get Started" page.  
 2. Follow the setup steps and click **Next**.  
 3. You’ll be presented with an **Application ID**. Copy this ID as it will be used in the WSO2 configuration.
 
@@ -32,7 +32,7 @@ To enable Moesif analytics in WSO2 APIM, you need to update the `deployment.toml
 
 #### Step 2.1 - Configuring the deployment.toml file.
 
-The Choreo based analytics will be enabled by default. Specify the `type` as `moesif` to enable Moesif analytics as shown below. Open the `<APIM-HOME>/repository/conf` directory. Edit the `apim.analyics` configuration in the `deployment.toml` file with the following configuration.
+The Choreo based analytics will be enabled by default. Specify the `type` as `moesif` to enable Moesif analytics as shown below. Open the `<APIM-HOME>/repository/conf/deployment.toml` file and edit the `apim.analyics` configuration as shown below.
 
 ```toml
 [apim.analytics]
@@ -40,7 +40,6 @@ enable = true
 type = "moesif"
 properties."moesifKey" = "<your-moesif-application-id>"
 properties."publisher.reporter.class" = "org.wso2.am.analytics.publisher.reporter.moesif.MoesifReporter"
-logger.reporter.level = "INFO"
 ```
 
 !!! important
@@ -49,7 +48,7 @@ logger.reporter.level = "INFO"
 !!! note
     Following are the details that are available on analytics log events: 
 
-    `apim_event_response` -  This event will be triggered for each successful API invocation. When a API associated backend returns an error    response still it will be logged through this event.
+    `apim_event_response` -  This event will be triggered for each successful API invocation. When an API associated backend returns an error response, it will be logged through this event.
 
     ```
     apim_event_response:
@@ -67,7 +66,7 @@ logger.reporter.level = "INFO"
         "applicationOwner": "admin",
         "backendLatency": 13,
         "correlationId": "79ed20c3-55b1-434a-adf6-eea25e2d09c3",
-        "destination": "http://192.168.114.51:8281/services/sampleAPIBackend",
+        "destination": "http://xxx.xxx.xxx.xx:8281/services/sampleAPIBackend",
         "eventType": "response",
         "gatewayType": "SYNAPSE",
         "keyType": "SANDBOX",
@@ -81,7 +80,7 @@ logger.reporter.level = "INFO"
         "responseMediationLatency": 6,
         "targetResponseCode": 202,
         "userAgent": "Chrome",
-        "userIp": "172.16.2.70",
+        "userIp": "xxx.xx.xx.xx",
         "properties": {
             "commonName": "N/A",
             "responseContentType": "application/json; charset=UTF-8",
