@@ -10599,6 +10599,71 @@ components:
               url: https://localhost:9443/am/sample/pizzashack/v3/api/
             production_endpoints:
               url: https://localhost:9443/am/sample/pizzashack/v3/api/
+        endpointSecurity:
+          type: object
+          description: |
+            Endpoint security configuration for OAuth-protected endpoints. This configuration allows setting up proxy configurations for OAuth-protected backend token endpoints with retry logic. Introduced in API Manager 4.0.0 update level u2-331.
+          properties:
+            production:
+              type: object
+              description: Production endpoint security configuration
+              properties:
+                enabled:
+                  type: boolean
+                  description: Whether endpoint security is enabled for production endpoints
+                  example: true
+                type:
+                  type: string
+                  description: Type of endpoint security (basic, digest, oauth)
+                  example: oauth
+                username:
+                  type: string
+                  description: Username for endpoint authentication
+                  example: admin
+                password:
+                  type: string
+                  description: Password for endpoint authentication
+                  example: admin
+                grantType:
+                  type: string
+                  description: OAuth grant type for token endpoint
+                  example: client_credentials
+                clientId:
+                  type: string
+                  description: OAuth client ID for token endpoint
+                  example: client123
+                clientSecret:
+                  type: string
+                  description: OAuth client secret for token endpoint
+                  example: secret123
+                tokenUrl:
+                  type: string
+                  description: OAuth token endpoint URL
+                  example: https://localhost:8243/token
+                customParameters:
+                  type: string
+                  description: Additional custom parameters for OAuth token request
+                  example: scope=read
+            sandbox:
+              type: object
+              description: Sandbox endpoint security configuration
+              properties:
+                enabled:
+                  type: boolean
+                  description: Whether endpoint security is enabled for sandbox endpoints
+                  example: false
+                type:
+                  type: string
+                  description: Type of endpoint security (basic, digest, oauth)
+                  example: basic
+                username:
+                  type: string
+                  description: Username for endpoint authentication
+                  example: testuser
+                password:
+                  type: string
+                  description: Password for endpoint authentication
+                  example: testpass
         endpointImplementationType:
           type: string
           example: INLINE
