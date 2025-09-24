@@ -173,6 +173,7 @@ nav:
                     - Query Complexity Limit: design/rate-limiting/graphql-api/query-complexity-limitation.md
                 - Advanced Topics:
                     - Custom Throttling: design/rate-limiting/advanced-topics/custom-throttling.md
+                    - Distributed Throttling: design/rate-limiting/advanced-topics/distributed-throttling.md
         - API Monetization:
             - Monetize an API: design/api-monetization/monetizing-an-api.md
         - Advanced Topics:
