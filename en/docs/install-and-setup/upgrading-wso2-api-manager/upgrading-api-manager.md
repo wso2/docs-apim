@@ -17,6 +17,18 @@ Over the course of its lifetime, WSO2 API Manager has changed significantly. To 
 <div class="admonition info">
     <p class="admonition-title">Seamless product upgrade from WSO2 API Manager 4.2.0</p>
     <p>If you are upgrading from WSO2 API Manager 4.2.0 to 4.5.0, you can experience a seamless product upgrade with no data migration. This pivotal change facilitates a smooth transition for current API Manager 4.2.0 users to the latest version, eliminating the need for complex migrations.</p>
+    <p><strong>How to perform the seamless upgrade:</strong></p>
+    <ol>
+        <li><strong>For All-in-One deployment:</strong> Simply install WSO2 API Manager 4.5.0 in place of your existing 4.2.0 installation. The existing database and configuration will be automatically compatible.</li>
+        <li><strong>For distributed deployments (profiles):</strong> Since WSO2 API Manager 4.5.0 introduces separate component distributions (API Control Plane, Universal Gateway, Traffic Manager), you need to:
+            <ul>
+                <li>Replace the existing API Manager 4.2.0 installation with the appropriate 4.5.0 component distributions based on your current profile usage</li>
+                <li>Update your deployment scripts and configurations to use the new component-specific startup commands</li>
+                <li>Refer to the <a href="{{base_path}}/get-started/about-this-release/">Key Changes</a> section for detailed component mapping</li>
+            </ul>
+        </li>
+        <li><strong>No migration scripts required:</strong> Unlike other version upgrades, the 4.2.0 to 4.5.0 upgrade does not require running any database migration scripts or data transformation utilities.</li>
+    </ol>
 </div>
 
 !!! note
