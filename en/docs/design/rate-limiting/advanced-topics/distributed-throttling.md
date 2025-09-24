@@ -18,7 +18,7 @@ Refer to the [official Redis documentation](https://redis.io/docs/latest/operate
 
 Follow the instructions below to configure the Redis server with WSO2 API Manager.
 
-1.  Open the `<API-M_HOME>/repository/conf/deployment.toml` file for both the control plane and traffic-manager components.
+1.  Open the `<API-M_HOME>/repository/conf/deployment.toml` file for both the control plane and traffic-manager profiles.
 
 2.  Add the following configurations to the `deployment.toml` file.
 
@@ -45,7 +45,7 @@ Follow the instructions below to configure the Redis server with WSO2 API Manage
 
     ```
 
-3.  Open the `<API-M_HOME>/repository/conf/deployment.toml` file of the gateway component.
+3.  Open the `<API-M_HOME>/repository/conf/deployment.toml` file of the gateway profile.
 
 4.  Add the following configurations to the `deployment.toml` file.
 
