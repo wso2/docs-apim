@@ -1,11 +1,10 @@
 {
 	"info": {
-		"_postman_id": "26c47048-a0ea-4e46-8bdf-53919b68cd64",
-		"name": "WSO2 API Manager 4.4.0 - Admin REST API",
+		"_postman_id": "d4b8e96d-0d0c-4dea-8c2b-aed1bdb26dd6",
+		"name": "WSO2 API Manager 4.5.0 - Admin REST API",
 		"description": "This document specifies a **RESTful API** for WSO2 **API Manager - Admin REST API** .\nIt is written with [swagger 2.0](http://swagger.io/).\n",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-		"_exporter_id": "28719432",
-		"_collection_link": "https://www.postman.com/spaceflight-participant-24311919/workspace/wso2-apim-4-4-0/collection/28719432-26c47048-a0ea-4e46-8bdf-53919b68cd64?action=share&source=collection_link&creator=28719432"
+		"_exporter_id": "40371634"
 	},
 	"item": [
 		{
@@ -2734,6 +2733,50 @@
 						}
 					},
 					"response": []
+				},
+				{
+					"name": "Get a Gateway Environment Configuration",
+					"request": {
+						"auth": {
+							"type": "oauth2",
+							"oauth2": [
+								{
+									"key": "scope",
+									"value": "openid apim:policies_import_export apim:admin apim:tier_view apim:tier_manage apim:admin_tier_view apim:admin_tier_manage apim:bl_view apim:bl_manage apim:mediation_policy_view apim:mediation_policy_create apim:app_owner_change apim:app_import_export apim:api_import_export apim:api_product_import_export apim:environment_manage apim:environment_read apim:monetization_usage_publish apim:api_workflow_approve apim:bot_data apim:tenantInfo apim:tenant_theme_manage apim:admin_operations apim:api_category apim:admin_settings apim:admin_alert_manage apim:api_workflow_view apim:scope_manage apim:role_manage apim:admin_application_view apim:keymanagers_manage apim:api_provider_change apim:llm_provider_manage apim:gov_policy_read apim:gov_policy_manage apim:gov_result_read apim:gov_rule_read apim:gov_rule_manage apim:organization_manage apim:organization_read",
+									"type": "string"
+								},
+								{
+									"key": "accessTokenUrl",
+									"value": "https://localhost:9443/oauth2/token",
+									"type": "string"
+								},
+								{
+									"key": "grant_type",
+									"value": "password_credentials",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{basepath}}/environments/{{environmentId}}",
+							"host": [
+								"{{basepath}}"
+							],
+							"path": [
+								"environments",
+								"{{environmentId}}"
+							]
+						},
+						"description": "Retrieve a single Gateway Environment Configuration. We should provide the Id of the Environment as a path parameter.\n"
+					},
+					"response": []
 				}
 			]
 		},
@@ -3330,6 +3373,451 @@
 					"response": []
 				}
 			]
+		},
+		{
+			"name": "Organizations",
+			"item": [
+				{
+					"name": "Delete an Organization",
+					"request": {
+						"auth": {
+							"type": "oauth2",
+							"oauth2": [
+								{
+									"key": "scope",
+									"value": "openid apim:policies_import_export apim:admin apim:tier_view apim:tier_manage apim:admin_tier_view apim:admin_tier_manage apim:bl_view apim:bl_manage apim:mediation_policy_view apim:mediation_policy_create apim:app_owner_change apim:app_import_export apim:api_import_export apim:api_product_import_export apim:environment_manage apim:environment_read apim:monetization_usage_publish apim:api_workflow_approve apim:bot_data apim:tenantInfo apim:tenant_theme_manage apim:admin_operations apim:api_category apim:admin_settings apim:admin_alert_manage apim:api_workflow_view apim:scope_manage apim:role_manage apim:admin_application_view apim:keymanagers_manage apim:api_provider_change apim:llm_provider_manage apim:gov_policy_read apim:gov_policy_manage apim:gov_result_read apim:gov_rule_read apim:gov_rule_manage apim:organization_manage apim:organization_read",
+									"type": "string"
+								},
+								{
+									"key": "accessTokenUrl",
+									"value": "https://localhost:9443/oauth2/token",
+									"type": "string"
+								},
+								{
+									"key": "grant_type",
+									"value": "password_credentials",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{basepath}}/organizations/{{organizationId}}",
+							"host": [
+								"{{basepath}}"
+							],
+							"path": [
+								"organizations",
+								"{{organizationId}}"
+							]
+						},
+						"description": "Delete an organization by organization Id\n"
+					},
+					"response": []
+				},
+				{
+					"name": "Update an Organization",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access-token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"externalOrganizationId\": \"ece92bdc-e1e6-325c-b6f4-656208a041e9\",\n  \"displayName\": \"My Organization\",\n  \"description\": \"My Organization Description\"\n}",
+							"options": {
+								"raw": {
+									"headerFamily": "json",
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{basepath}}/organizations/{{organizationId}}",
+							"host": [
+								"{{basepath}}"
+							],
+							"path": [
+								"organizations",
+								"{{organizationId}}"
+							]
+						},
+						"description": "Update an organization by organization Id\n"
+					},
+					"response": []
+				},
+				{
+					"name": "Get an Organization",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access-token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{basepath}}/organizations/{{organizationId}}",
+							"host": [
+								"{{basepath}}"
+							],
+							"path": [
+								"organizations",
+								"{{organizationId}}"
+							]
+						},
+						"description": "Get an organization by organization Id\n"
+					},
+					"response": []
+				},
+				{
+					"name": "Get all registered Organizations",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access-token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{basepath}}/organizations",
+							"host": [
+								"{{basepath}}"
+							],
+							"path": [
+								"organizations"
+							]
+						},
+						"description": "Get all Registered Organizations\n"
+					},
+					"response": []
+				},
+				{
+					"name": "Add an Organizations",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"let response = pm.response.json();",
+									"pm.collectionVariables.set(\"organizationId\", response.organizationId);"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access-token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"externalOrganizationId\": \"5555554242423235423\",\n    \"displayName\": \"OrgTest01\",\n    \"description\": \"OrgTest01\"\n}",
+							"options": {
+								"raw": {
+									"headerFamily": "json",
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{basepath}}/organizations",
+							"host": [
+								"{{basepath}}"
+							],
+							"path": [
+								"organizations"
+							]
+						},
+						"description": "Add a new organization\n"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Labels",
+			"item": [
+				{
+					"name": "Delete a Label",
+					"request": {
+						"auth": {
+							"type": "oauth2",
+							"oauth2": [
+								{
+									"key": "scope",
+									"value": "openid apim:policies_import_export apim:admin apim:tier_view apim:tier_manage apim:admin_tier_view apim:admin_tier_manage apim:bl_view apim:bl_manage apim:mediation_policy_view apim:mediation_policy_create apim:app_owner_change apim:app_import_export apim:api_import_export apim:api_product_import_export apim:environment_manage apim:environment_read apim:monetization_usage_publish apim:api_workflow_approve apim:bot_data apim:tenantInfo apim:tenant_theme_manage apim:admin_operations apim:api_category apim:admin_settings apim:admin_alert_manage apim:api_workflow_view apim:scope_manage apim:role_manage apim:admin_application_view apim:keymanagers_manage apim:api_provider_change apim:llm_provider_manage apim:gov_policy_read apim:gov_policy_manage apim:gov_result_read apim:gov_rule_read apim:gov_rule_manage apim:organization_manage apim:organization_read",
+									"type": "string"
+								},
+								{
+									"key": "accessTokenUrl",
+									"value": "https://localhost:9443/oauth2/token",
+									"type": "string"
+								},
+								{
+									"key": "grant_type",
+									"value": "password_credentials",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{basepath}}/labels/{{labelId}}",
+							"host": [
+								"{{basepath}}"
+							],
+							"path": [
+								"labels",
+								"{{labelId}}"
+							]
+						},
+						"description": "Delete a Label by label id\n"
+					},
+					"response": []
+				},
+				{
+					"name": "Update a Label",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access-token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"name\": \"Health\",\n  \"description\": \"Health related APIs\"\n}",
+							"options": {
+								"raw": {
+									"headerFamily": "json",
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{basepath}}/labels/{{labelId}}",
+							"host": [
+								"{{basepath}}"
+							],
+							"path": [
+								"labels",
+								"{{labelId}}"
+							]
+						},
+						"description": "Update a Label by label id\n"
+					},
+					"response": []
+				},
+				{
+					"name": "Get a Label Usage",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access-token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{basepath}}/labels/{{labelId}}/usage",
+							"host": [
+								"{{basepath}}"
+							],
+							"path": [
+								"labels",
+								"{{labelId}}",
+								"usage"
+							]
+						},
+						"description": "Retrieve a single Label Usage. We should provide the Id of the Label as a path parameter.\n"
+					},
+					"response": []
+				},
+				{
+					"name": "Get all Labels",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access-token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{basepath}}/labels",
+							"host": [
+								"{{basepath}}"
+							],
+							"path": [
+								"labels"
+							]
+						},
+						"description": "Get all Labels\n"
+					},
+					"response": []
+				},
+				{
+					"name": "Add a new Label",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"let response = pm.response.json();",
+									"pm.environment.set(\"labelId\", response.id);",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access-token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"New 5\",\n    \"description\": \"check\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{basepath}}/labels",
+							"host": [
+								"{{basepath}}"
+							],
+							"path": [
+								"labels"
+							]
+						},
+						"description": "Add a new Label\n"
+					},
+					"response": []
+				}
+			]
 		}
 	],
 	"event": [
@@ -3571,13 +4059,19 @@
 		},
 		{
 			"key": "apiId",
-			"value": "de781385-06af-4803-8ef9-3c4e92f937a0",
-			"type": "string"
+			"value": "de781385-06af-4803-8ef9-3c4e92f937a0"
 		},
 		{
 			"key": "llmProviderId",
-			"value": "",
-			"type": "default"
+			"value": "4343432323"
+		},
+		{
+			"key": "organizationId",
+			"value": "2e78b31d-4ca7-409b-80b8-fd31c351263a"
+		},
+		{
+			"key": "labelId",
+			"value": "a12feab3-26d3-412c-9c2e-11b63ee500cd"
 		}
 	]
 }

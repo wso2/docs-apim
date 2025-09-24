@@ -1,11 +1,10 @@
 {
 	"info": {
-		"_postman_id": "ca9cc9d9-d5cb-43c2-8636-5af8063972e8",
-		"name": "WSO2 API Manager 4.4.0 - Publisher REST API",
+		"_postman_id": "1ef4a658-e768-472f-806e-cc2b92862f16",
+		"name": "WSO2 API Manager 4.5.0 - Publisher REST API",
 		"description": "This document specifies a **RESTful API** for WSO2 **API Manager - Publisher REST API** .\nIt is written with [OAS 3.0](http://swagger.io/).\n",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-		"_exporter_id": "28719432",
-		"_collection_link": "https://www.postman.com/spaceflight-participant-24311919/workspace/wso2-apim-4-4-0/collection/28719432-ca9cc9d9-d5cb-43c2-8636-5af8063972e8?action=share&source=collection_link&creator=28719432"
+		"_exporter_id": "40371634"
 	},
 	"item": [
 		{
@@ -164,6 +163,59 @@
 							""
 						]
 					}
+				}
+			]
+		},
+		{
+			"name": "API Design Assistant",
+			"item": [
+				{
+					"name": "Generate API Specifications with API Design Assistant",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access-token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"text\": \"Create an API for a banking transaction\",\n  \"sessionId\": \"YzIyZjY1NTYtZWQ4Ni00ZjY5LThhY2EtNWJhMjcxYzAwYjhmLTIwMjUtMDktMTBUMTc6Mzg6MjguMDcxWg==\"\n}",
+							"options": {
+								"raw": {
+									"headerFamily": "json",
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{basepath}}/design-assistant/chat",
+							"host": [
+								"{{basepath}}"
+							],
+							"path": [
+								"design-assistant",
+								"chat"
+							]
+						},
+						"description": "Generates API specifications based on natural language input.\n\nKey features:\n- Converts text descriptions into structured API specifications\n- Supports session-based API generation\n- Provides QoS suggestions and other improvements\n"
+					},
+					"response": []
 				}
 			]
 		},
@@ -6399,6 +6451,24 @@
 			"item": [
 				{
 					"name": "Get All LLM Providers",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"let response = pm.response.json();",
+									"",
+									"if (response.list && response.list.length > 0 && response.list[0].id) {",
+									"    pm.collectionVariables.set(\"llmProviderId\", response.list[0].id);",
+									"    console.log(\"llmProviderId saved:\", response.list[0].id);",
+									"}",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
 					"request": {
 						"auth": {
 							"type": "bearer",
@@ -6533,6 +6603,41 @@
 						"description": "Get LLM provider's endpoint security configurations\n"
 					},
 					"response": []
+				},
+				{
+					"name": "Get LLM provider's model list",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access-token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{basepath}}/llm-providers/{{llmProviderId}}/models",
+							"host": [
+								"{{basepath}}"
+							],
+							"path": [
+								"llm-providers",
+								"{{llmProviderId}}",
+								"models"
+							]
+						},
+						"description": "Get LLM provider's model list\n"
+					},
+					"response": []
 				}
 			]
 		},
@@ -6541,6 +6646,33 @@
 			"item": [
 				{
 					"name": "Retrieve All Pending Workflow Processes\n",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"let response = pm.response.json();",
+									"",
+									"if (response.list && response.list.length > 0 && response.list[0].referenceId) {",
+									"    pm.collectionVariables.set(\"workflowReferenceId\", response.list[0].referenceId);",
+									"    console.log(\"workflowReferenceId saved:\", response.list[0].referenceId);",
+									"}"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
 					"request": {
 						"auth": {
 							"type": "bearer",
@@ -6615,7 +6747,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n  \"status\": \"APPROVED\",\n  \"attributes\": {\n    \"tempor_4_b\": \"<string>\",\n    \"voluptatefa\": \"<string>\",\n    \"laboris91d\": \"<string>\"\n  },\n  \"description\": \"<string>\"\n}",
+							"raw": "{\n    \"status\": \"APPROVED\",\n    \"attributes\": {},\n    \"description\": \"Approve workflow request.\"\n}",
 							"options": {
 								"raw": {
 									"headerFamily": "json",
@@ -6624,7 +6756,7 @@
 							}
 						},
 						"url": {
-							"raw": "{{basepath}}/workflows/update-workflow-status?workflowReferenceId=<string>",
+							"raw": "{{basepath}}/workflows/update-workflow-status?workflowReferenceId={{workflowReferenceId}}",
 							"host": [
 								"{{basepath}}"
 							],
@@ -6635,8 +6767,7 @@
 							"query": [
 								{
 									"key": "workflowReferenceId",
-									"value": "<string>",
-									"description": "(Required) Workflow reference id\n"
+									"value": "{{workflowReferenceId}}"
 								}
 							]
 						},
@@ -6665,23 +6796,532 @@
 							}
 						],
 						"url": {
-							"raw": "{{basepath}}/workflows/:externalWorkflowRef",
+							"raw": "{{basepath}}/workflows/{{workflowReferenceId}}",
 							"host": [
 								"{{basepath}}"
 							],
 							"path": [
 								"workflows",
-								":externalWorkflowRef"
-							],
-							"variable": [
-								{
-									"key": "externalWorkflowRef",
-									"value": "<string>",
-									"description": "(Required) from the externel workflow reference we decide what is the the pending request that the are requesting.\n"
-								}
+								"{{workflowReferenceId}}"
 							]
 						},
 						"description": "Using this operation, you can retrieve complete details of a pending workflow request that either belongs to application creation, application subscription, application registration, api state change, user self sign up.. You need to provide the External_Workflow_Reference of the workflow Request to retrive it.\n"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Organizations",
+			"item": [
+				{
+					"name": "Organizations",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access-token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{basepath}}/organizations",
+							"host": [
+								"{{basepath}}"
+							],
+							"path": [
+								"organizations"
+							]
+						},
+						"description": "Get all Registered Organizations\n"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Users",
+			"item": [
+				{
+					"name": "Get the Organization information of the user",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access-token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{basepath}}/me/organization-information",
+							"host": [
+								"{{basepath}}"
+							],
+							"path": [
+								"me",
+								"organization-information"
+							]
+						},
+						"description": "Using this operation, logged-in user can get their organization information.\n"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "API Endpoints",
+			"item": [
+				{
+					"name": "Add an Endpoint",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"let response = pm.response.json();",
+									"",
+									"if (response.id) {",
+									"    pm.collectionVariables.set(\"endpointId\", response.id);",
+									"    console.log(\"endpointId saved:\", response.id);",
+									"}",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access-token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{{sampleEndpointObject}}",
+							"options": {
+								"raw": {
+									"headerFamily": "json",
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{basepath}}/apis/{{apiId}}/endpoints",
+							"host": [
+								"{{basepath}}"
+							],
+							"path": [
+								"apis",
+								"{{apiId}}",
+								"endpoints"
+							]
+						},
+						"description": "This operation can be used to add an endpoint to an API.\n"
+					},
+					"response": []
+				},
+				{
+					"name": "Get all API Endpoints",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access-token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{basepath}}/apis/{{apiId}}/endpoints?limit=25&offset=0",
+							"host": [
+								"{{basepath}}"
+							],
+							"path": [
+								"apis",
+								"{{apiId}}",
+								"endpoints"
+							],
+							"query": [
+								{
+									"key": "limit",
+									"value": "25",
+									"description": "Maximum size of resource array to return.\n"
+								},
+								{
+									"key": "offset",
+									"value": "0",
+									"description": "Starting point within the complete list of items qualified.\n"
+								}
+							]
+						},
+						"description": "This operation can be used to get all the available endpoints of an API.\n"
+					},
+					"response": []
+				},
+				{
+					"name": "Get an Endpoint",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access-token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{basepath}}/apis/{{apiId}}/endpoints/{{endpointId}}",
+							"host": [
+								"{{basepath}}"
+							],
+							"path": [
+								"apis",
+								"{{apiId}}",
+								"endpoints",
+								"{{endpointId}}"
+							]
+						},
+						"description": "This operation can be used to get an endpoint of an API by UUID.\n"
+					},
+					"response": []
+				},
+				{
+					"name": "Update an Endpoint",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access-token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{{sampleUpdateEndpointObject}}",
+							"options": {
+								"raw": {
+									"headerFamily": "json",
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{basepath}}/apis/{{apiId}}/endpoints/{{endpointId}}",
+							"host": [
+								"{{basepath}}"
+							],
+							"path": [
+								"apis",
+								"{{apiId}}",
+								"endpoints",
+								"{{endpointId}}"
+							]
+						},
+						"description": "This operation can be used to update a API endpoint.\n"
+					},
+					"response": []
+				},
+				{
+					"name": "Delete an Endpoint",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access-token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{basepath}}/apis/{{apiId}}/endpoints/{{endpointId}}",
+							"host": [
+								"{{basepath}}"
+							],
+							"path": [
+								"apis",
+								"{{apiId}}",
+								"endpoints",
+								"{{endpointId}}"
+							]
+						},
+						"description": "This operation can be used to delete a API endpoint.\n"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "API Labels",
+			"item": [
+				{
+					"name": "Get all Labels",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"let response = pm.response.json();",
+									"",
+									"if (response.list && response.list.length > 0 && response.list[0].id) {",
+									"    pm.collectionVariables.set(\"labelId\", response.list[0].id);",
+									"    console.log(\"labelId saved:\", response.list[0].id);",
+									"}"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access-token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{basepath}}/labels",
+							"host": [
+								"{{basepath}}"
+							],
+							"path": [
+								"labels"
+							]
+						},
+						"description": "Get all Labels\n"
+					},
+					"response": []
+				},
+				{
+					"name": "Attach Labels to an API",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access-token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"labels\": [\n    \"{{labelId}}\"\n  ]\n}",
+							"options": {
+								"raw": {
+									"headerFamily": "json",
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{basepath}}/apis/{{apiId}}/attach-labels",
+							"host": [
+								"{{basepath}}"
+							],
+							"path": [
+								"apis",
+								"{{apiId}}",
+								"attach-labels"
+							]
+						},
+						"description": "This operation can be used to attach labels to an API.\n"
+					},
+					"response": []
+				},
+				{
+					"name": "Detach Labels from an API",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access-token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"labels\": [\n    \"{{labelId}}\"\n  ]\n}",
+							"options": {
+								"raw": {
+									"headerFamily": "json",
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{basepath}}/apis/{{apiId}}/detach-labels",
+							"host": [
+								"{{basepath}}"
+							],
+							"path": [
+								"apis",
+								"{{apiId}}",
+								"detach-labels"
+							]
+						},
+						"description": "This operation can be used to detach labels from an API.\n"
+					},
+					"response": []
+				},
+				{
+					"name": "Get Labels of an API",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access-token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{basepath}}/apis/{{apiId}}}/labels",
+							"host": [
+								"{{basepath}}"
+							],
+							"path": [
+								"apis",
+								"{{apiId}}}",
+								"labels"
+							]
+						},
+						"description": "This operation can be used to get the labels of an API.\n"
 					},
 					"response": []
 				}
@@ -6715,7 +7355,7 @@
 		},
 		{
 			"key": "apiId",
-			"value": "b4d4deba-3388-4983-99cd-ea0863e3e204"
+			"value": "688ab96c-e120-4aa6-a05b-db21309d0ad8"
 		},
 		{
 			"key": "resourcePath",
@@ -6759,7 +7399,7 @@
 		},
 		{
 			"key": "basepath",
-			"value": "https://localhost:9443/api/am/publisher/v4.2"
+			"value": "https://localhost:9443/api/am/publisher/v4.3"
 		},
 		{
 			"key": "documentId",
@@ -6935,23 +7575,47 @@
 		},
 		{
 			"key": "apiIdToDelete",
-			"value": "b4d4deba-3388-4983-99cd-ea0863e3e208",
-			"type": "string"
+			"value": "6020a500-350a-4e2d-bd31-19a5355371d5"
 		},
 		{
 			"key": "asyncApiId",
-			"value": "c265ccd6-1a98-4744-840b-31bc9fc410e3",
-			"type": "string"
+			"value": "c265ccd6-1a98-4744-840b-31bc9fc410e3"
 		},
 		{
 			"key": "deploymentId",
-			"value": "UHJvZHVjdGlvbiBhbmQgU2FuZGJveA==",
-			"type": "string"
+			"value": "UHJvZHVjdGlvbiBhbmQgU2FuZGJveA=="
 		},
 		{
 			"key": "llmProviderId",
-			"value": "",
-			"type": "string"
+			"value": "b3503af7-b36a-4441-b71b-3297af2a6b66"
+		},
+		{
+			"key": "endpointId",
+			"value": "123123123"
+		},
+		{
+			"key": "sampleEndpointObject",
+			"value": "{\n    \"id\": 123123123,\n    \"name\": \"First endpoint\",\n    \"deploymentStage\": \"PRODUCTION\",\n    \"endpointConfig\": {\n        \"endpoint_type\": \"http\",\n        \"endpoint_security\": {\n            \"production\": {\n                \"enabled\": true,\n                \"type\": \"apikey\",\n                \"apiKeyIdentifier\": \"Authorization\",\n                \"apiKeyValue\": \"Bearer 123\",\n                \"apiKeyIdentifierType\": \"HEADER\",\n                \"username\": \"\",\n                \"password\": null,\n                \"grantType\": \"\",\n                \"tokenUrl\": \"\",\n                \"clientId\": null,\n                \"clientSecret\": null,\n                \"customParameters\": {},\n                \"connectionTimeoutDuration\": -1,\n                \"connectionRequestTimeoutDuration\": -1,\n                \"socketTimeoutDuration\": -1,\n                \"proxyConfigs\": {\n                    \"proxyEnabled\": false,\n                    \"proxyHost\": \"\",\n                    \"proxyPort\": \"\",\n                    \"proxyUsername\": \"\",\n                    \"proxyPassword\": \"\",\n                    \"proxyProtocol\": \"\"\n                }\n            }\n        },\n        \"production_endpoints\": {\n            \"url\": \"https://google.com\"\n        }\n    }\n}"
+		},
+		{
+			"key": "sampleUpdateEndpointObject",
+			"value": "{\n    \"id\": \"123123123\",\n    \"name\": \"Updated Endpoint\",\n    \"deploymentStage\": \"PRODUCTION\",\n    \"endpointConfig\": {\n        \"endpoint_type\": \"http\",\n        \"endpoint_security\": {\n            \"production\": {\n                \"apiKeyValue\": \"\",\n                \"tokenUrl\": \"\",\n                \"clientId\": null,\n                \"connectionTimeoutDuration\": -1,\n                \"apiKeyIdentifier\": \"Authorization\",\n                \"type\": \"apikey\",\n                \"socketTimeoutDuration\": -1,\n                \"enabled\": true,\n                \"apiKeyIdentifierType\": \"HEADER\",\n                \"proxyConfigs\": {\n                    \"proxyEnabled\": false,\n                    \"proxyHost\": \"\",\n                    \"proxyPort\": \"\",\n                    \"proxyUsername\": \"\",\n                    \"proxyPassword\": \"\",\n                    \"proxyProtocol\": \"\"\n                },\n                \"password\": null,\n                \"clientSecret\": null,\n                \"customParameters\": {},\n                \"grantType\": \"\",\n                \"connectionRequestTimeoutDuration\": -1,\n                \"username\": \"\"\n            }\n        },\n        \"production_endpoints\": {\n            \"url\": \"https://google.com\"\n        }\n    }\n}"
+		},
+		{
+			"key": "sampleDesignAssistantObject",
+			"value": "{\"text\":\"Create an API for a banking transaction\",\"sessionId\":\"YzIyZjY1NTYtZWQ4Ni00ZjY5LThhY2EtNWJhMjcxYzAwYjhmLTIwMjUtMDktMTBUMTc6Mzg6MjguMDcxWg==\"}"
+		},
+		{
+			"key": "workflowReferenceId",
+			"value": "8f0378a1-e823-4b56-a8f6-b05ab722861d"
+		},
+		{
+			"key": "labelId",
+			"value": "80c31335-bf31-46c3-9566-354de9bb8fc7"
+		},
+		{
+			"key": "serviceId",
+			"value": "b3503af7-b36a-4441-b71b-3297af2a6b66"
 		}
 	]
 }
