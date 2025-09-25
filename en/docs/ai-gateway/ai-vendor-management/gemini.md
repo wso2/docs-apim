@@ -1,15 +1,15 @@
-# OpenAI
+# Gemini
 
-OpenAI is a **default AI Service Provider** in WSO2 API Manager that allows you to integrate with OpenAI's advanced language models. For more information about OpenAI, see the [OpenAI API Documentation](https://platform.openai.com/docs).
+Gemini is a **default AI Service Provider** in WSO2 API Manager that allows you to integrate with Google's advanced language models. For more information about Gemini, see the [Gemini API Documentation](https://ai.google.dev/docs).
 
-## Configuring OpenAI
+## Configuring Gemini
 
 ### Step 1: Access Configuration
 
 1. Login to the Admin Portal (`https://<hostname>:9443/admin`)
-2. Navigate to **AI Service Providers** → **OpenAI**
+2. Navigate to **AI Service Providers** → **Gemini**
 
-[![OpenAI Configuration]({{base_path}}/assets/img/learn/ai-gateway/openai-config.png){: style="width:90%"}]({{base_path}}/assets/img/learn/ai-gateway/openai-config.png)
+[![Gemini Configuration]({{base_path}}/assets/img/learn/ai-gateway/gemini-config.png){: style="width:90%"}]({{base_path}}/assets/img/learn/ai-gateway/gemini-config.png)
 
 ### Step 2: Configure Models
 
@@ -83,12 +83,12 @@ The following configurations can be updated:
     </tbody>
 </table>
 
-- By default, the following models are included: `gpt-4o`, `gpt-4o-mini`, and `o3-mini`.
-- To add available models supported by OpenAI, type the model name and press enter. 
+- By default, the following models are included: `gemini-2.5-flash-lite`, `gemini-2.5-flash`, and `gemini-2.5-pro`.
+- To add available models supported by Gemini, type the model name and press enter.
 - This enables model-based load balancing and failover capabilities. For more details, see [Multi-Model Routing Overview]({{base_path}}/ai-gateway/multi-model-routing/overview/).
 
 ### Step 3: Save Configuration
 
 Click **Update** to apply your changes.
 
-Once you have saved your changes, the updated OpenAI configuration will be applied and made available for use in your AI APIs, enabling seamless integration with the selected models.
+Once you have saved your changes, the updated Gemini configuration will be applied and made available for use in your AI APIs, enabling seamless integration with the selected models.

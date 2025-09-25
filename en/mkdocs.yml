@@ -328,11 +328,13 @@ nav:
             - Load Balancing: ai-gateway/multi-model-routing/load-balancing.md
             - Failover: ai-gateway/multi-model-routing/failover.md
         - AI Service Provider Management:
-            - OpenAI: ai-gateway/ai-vendor-management/openai.md
-            - Azure OpenAI: ai-gateway/ai-vendor-management/azure-openai.md
-            - Mistral AI: ai-gateway/ai-vendor-management/mistral-ai.md
             - Anthropic: ai-gateway/ai-vendor-management/anthropic.md
             - AWS Bedrock: ai-gateway/ai-vendor-management/aws-bedrock.md
+            - Azure AI Foundry: ai-gateway/ai-vendor-management/azure-ai-foundry.md
+            - Azure OpenAI: ai-gateway/ai-vendor-management/azure-openai.md
+            - Gemini: ai-gateway/ai-vendor-management/gemini.md
+            - Mistral AI: ai-gateway/ai-vendor-management/mistral-ai.md
+            - OpenAI: ai-gateway/ai-vendor-management/openai.md
             - Custom AI Service Providers:
                 - Overview: ai-gateway/ai-vendor-management/custom-ai-vendors/overview.md
                 - Custom Connector: ai-gateway/ai-vendor-management/custom-ai-vendors/custom-connector.md
