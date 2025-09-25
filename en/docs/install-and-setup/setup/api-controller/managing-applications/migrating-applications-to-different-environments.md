@@ -76,7 +76,7 @@ You can export an application in the Developer Portal and download it as a zippe
         === "Response Format"
             ``` bash
             Successfully exported Application!
-            Find the exported Application at <USER_HOME>/.wso2apictl/exported/apps/<envrionment-name>/<Application-owner>_<Application-name>.zip
+            Find the exported Application at <USER_HOME>/.wso2apictl/exported/apps/<environment-name>/<Application-owner>_<Application-name>.zip
             ```
 
         === "Example Response"
@@ -241,7 +241,7 @@ You can import an application to your environment as a zipped application. When 
 
     -   **Response**
         ``` bash
-        Succesfully imported Application!
+        Successfully imported Application!
         ```
 
     !!! note
