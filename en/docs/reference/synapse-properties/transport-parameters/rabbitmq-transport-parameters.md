@@ -5,6 +5,131 @@ When you implement an integration use case that requires a RabbitMQ connection, 
 !!! Info
       The Micro Integrator can listen to a RabbitMQ instance or send messages to a RabbitMQ instance only if the RabbitMQ transport listener and sender are enabled and configured at the server level. Read about the [RabbitMQ transport]({{base_path}}/install-and-setup/setup/mi-setup/brokers/configure-with-rabbitmq).
 
+## RabbitMQ Listener Connection Configuration
+
+Before configuring proxy service parameters, you need to configure the RabbitMQ connection factory in the `deployment.toml` file. This is mandatory for RabbitMQ listeners. See [Connecting to RabbitMQ]({{base_path}}/install-and-setup/setup/mi-setup/brokers/configure-with-rabbitmq).
+
+**Configuration example**:
+
+Add the following configuration to your `deployment.toml` file:
+
+```toml
+[[transport.rabbitmq.listener]]
+name = "AMQPConnectionFactory"
+parameter.hostname = "localhost"
+parameter.port = 5672
+parameter.username = "guest"
+parameter.password = "guest"
+parameter.virtual_host = "/"
+```
+
+The following parameters can be specified under the connection factory configuration:
+
+### Basic Connection Parameters
+
+<table>
+  <tr>
+    <th>Parameter</th>
+    <th>Description</th>
+  </tr>
+  <tr>
+    <td>parameter.hostname</td>
+    <td>The hostname of the RabbitMQ server.</td>
+  </tr>
+  <tr>
+    <td>parameter.port</td>
+    <td>The port number of the RabbitMQ server.</td>
+  </tr>
+  <tr>
+    <td>parameter.username</td>
+    <td>The username for authenticating with the RabbitMQ server.</td>
+  </tr>
+  <tr>
+    <td>parameter.password</td>
+    <td>The password for authenticating with the RabbitMQ server.</td>
+  </tr>
+  <tr>
+    <td>parameter.virtual_host</td>
+    <td>The virtual host to connect to on the RabbitMQ server.</td>
+  </tr>
+</table>
+
+### Connection Management Parameters
+
+<table>
+  <tr>
+    <th>Parameter</th>
+    <th>Description</th>
+  </tr>
+  <tr>
+    <td>parameter.'rabbitmq.connection.factory.heartbeat'</td>
+    <td>The heartbeat timeout in milliseconds that will be used when negotiating with the server. This mechanism helps detect network failures and ensures connection reliability.</td>
+  </tr>
+  <tr>
+    <td>parameter.'rabbitmq.connection.factory.timeout'</td>
+    <td>The connection timeout in milliseconds for establishing the initial connection to the RabbitMQ server.</td>
+  </tr>
+  <tr>
+    <td>parameter.'rabbitmq.connection.factory.network.recovery.interval'</td>
+    <td>The interval in milliseconds between automatic network recovery attempts when the connection is lost.</td>
+  </tr>
+  <tr>
+    <td>parameter.retry_interval</td>
+    <td>The interval in milliseconds between connection retry attempts when reconnection fails. See <a href="{{base_path}}/install-and-setup/setup/mi-setup/brokers/configure-with-rabbitmq#configuring-connection-recovery">Configuring connection recovery</a> for more details.</td>
+  </tr>
+  <tr>
+    <td>parameter.retry_count</td>
+    <td>The maximum number of retry attempts when the connection is lost before giving up and terminating the connection.</td>
+  </tr>
+  <tr>
+    <td>parameter.'rabbitmq.max.inbound.message.body.size'</td>
+    <td>The maximum size limit in bytes for inbound message bodies.</td>
+  </tr>
+</table>
+
+### SSL/TLS Parameters
+
+For SSL configuration details, see [Enabling SSL]({{base_path}}/install-and-setup/setup/mi-setup/brokers/configure-with-rabbitmq#enabling-ssl) in the RabbitMQ configuration guide.
+
+<table>
+  <tr>
+    <th>Parameter</th>
+    <th>Description</th>
+  </tr>
+  <tr>
+    <td>parameter.ssl_enable</td>
+    <td>Whether SSL is enabled for the connection. Set to <code>true</code> to enable SSL.</td>
+  </tr>
+  <tr>
+    <td>parameter.keystore_location</td>
+    <td>The location of the keystore file for SSL connections.</td>
+  </tr>
+  <tr>
+    <td>parameter.keystore_type</td>
+    <td>The type of the keystore (e.g., JKS, PKCS12).</td>
+  </tr>
+  <tr>
+    <td>parameter.keystore_password</td>
+    <td>The password for the keystore.</td>
+  </tr>
+  <tr>
+    <td>parameter.truststore_location</td>
+    <td>The location of the truststore file for SSL connections.</td>
+  </tr>
+  <tr>
+    <td>parameter.truststore_type</td>
+    <td>The type of the truststore (e.g., JKS, PKCS12).</td>
+  </tr>
+  <tr>
+    <td>parameter.truststore_password</td>
+    <td>The password for the truststore.</td>
+  </tr>
+  <tr>
+    <td>parameter.ssl_version</td>
+    <td>The SSL protocol version to use (e.g., TLSv1.2, TLSv1.3).</td>
+  </tr>
+</table>
+
 ## Service-Level Parameters (Receiving Messages)
 
 {!reference/synapse-properties/pull/proxy-service-add-properties-pull.md!}
@@ -47,7 +172,7 @@ See [Creating a Proxy Service]({{base_path}}/integrate/develop/creating-artifact
          <td>
             Defines how the message processor sends the acknowledgement when consuming messages recived from the RabbitMQ message store. If you set this to true, the message processor automatically sends the acknowledgement to the messages store as soon as it receives messages from it. This is called an auto acknowledgement.
             If you set it to <code>false</code>, the message processor waits until it receives the response from the backend to send the acknowledgement to the mssage store. This is called a client acknowledgement.</br>
-            However, you can increase performance of message processors either by increasing the member count or by having multiple message processors. If you increase the member count, it will create multiple child processors of the message processor.
+            However, you can increase the performance of message processors either by increasing the member count or by having multiple message processors. If you increase the member count, it will create multiple child processors of the message processor.
          </td>
       </tr>
       <tr>
@@ -57,7 +182,7 @@ See [Creating a Proxy Service]({{base_path}}/integrate/develop/creating-artifact
       <tr>
          <td>rabbitmq.channel.consumer.qos</td>
          <td>
-            The consumer QoS value. You need to specify this parameter only if the <code>rabbitmq.queue.auto.ack</code> parameter is set to <code>false</code>.
+            The consumer's QoS value. You need to specify this parameter only if the <code>rabbitmq.queue.auto.ack</code> parameter is set to <code>false</code>.
          </td>
       </tr>
       <tr>
@@ -94,7 +219,7 @@ present. If set to <code>false</code>, the Micro Integrator will assume that a q
          <td>The type of the exchange.</td>
       </tr>
       <tr>
-         <td>rabbitmq.exchange.durable></td>
+         <td>rabbitmq.exchange.durable</td>
          <td>Whether the exchange should remain declared even if the broker restarts.</td>
       </tr>
       <tr>
@@ -216,12 +341,12 @@ In your integration solution, the following RabbitMQ send parameters can be spec
 
     ```xml
     <endpoint>
-       <address uri="rabbitmq:/AMQPProducerSample?rabbitmq.server.host.name=localhost&amp;rabbitmq.server.port=5672&amp;rabbitmq.queue.name=queue&amp;rabbitmq.queue.route.key=route&amp;rabbitmq.exchange.name=exchange">
+       <address uri="rabbitmq:/AMQPProducerSample?rabbitmq.server.host.name=localhost&amp;rabbitmq.server.port=5672&amp;rabbitmq.queue.name=queue&amp;rabbitmq.queue.routing.key=route&amp;rabbitmq.exchange.name=exchange">
        </address>
     </endpoint>
     ```
 
-### Required Parameters
+### Parameters
 
 <table>
   <tr>
@@ -236,93 +361,222 @@ In your integration solution, the following RabbitMQ send parameters can be spec
     <td>rabbitmq.server.port</td>
     <td>Port number of the server.</td>
   </tr>
+  <tr>
+    <td>rabbitmq.server.user.name</td>
+    <td>The username for authenticating with the RabbitMQ server.</td>
+  </tr>
+  <tr>
+    <td>rabbitmq.server.password</td>
+    <td>The password for authenticating with the RabbitMQ server.</td>
+  </tr>
+  <tr>
+    <td>rabbitmq.connection.factory</td>
+    <td>The name of the connection factory defined in the deployment.toml file. When specified, the connection parameters are retrieved from the global configuration. See <a href="#global-connection-factory-configuration">Global connection factory configuration</a>.</td>
+  </tr>
+  <tr>
+    <td>rabbitmq.exchange.name</td>
+    <td>
+      The name of the RabbitMQ exchange to which the queue is bound. Use this parameter instead of <code>rabbitmq.queue.routing.key</code>, if you need to use the default exchange and publish to a queue.
+    </td>
+  </tr>
+  <tr>
+    <td>rabbitmq.queue.routing.key</td>
+    <td>The exchange and queue binding key that will be used to route messages.</td>
+  </tr>
+  <tr>
+    <td>rabbitmq.replyto.name</td>
+    <td>The name of the callback­ queue. Specify this parameter if you expect a response.</td>
+  </tr>
+  <tr>
+    <td>rabbitmq.queue.delivery.mode</td>
+    <td>
+      The delivery mode of the queue. Possible values are 1 and 2.<br/>
+         1 - Non­-persistent.<br/>
+         2 - Persistent. This is the default value.
+    </td>
+  </tr>
+  <tr>
+    <td>rabbitmq.exchange.type</td>
+    <td>The type of the exchange.</td>
+  </tr>
+  <tr>
+    <td>rabbitmq.queue.name</td>
+    <td>The queue name to send or consume messages. If you do not specify this parameter, you need to specify the <code>rabbitmq.queue.routing.key</code> parameter.</td>
+  </tr>
+  <tr>
+    <td>rabbitmq.queue.durable</td>
+    <td>Whether the queue should remain declared even if the broker restarts. The default value is <code>false</code>.</td>
+  </tr>
+  <tr>
+    <td>rabbitmq.queue.exclusive</td>
+    <td>Whether the queue should be exclusive or should be consumable by other connections. The default value is <code>false</code>.</td>
+  </tr>
+  <tr>
+    <td>rabbitmq.queue.auto.delete</td>
+    <td>Whether to keep the queue even if it is not being consumed anymore. The default value is <code>false</code>.</td>
+  </tr>
+  <tr>
+    <td>rabbitmq.exchange.durable</td>
+    <td>Whether the exchange should remain declared even if the broker restarts.</td>
+  </tr>
+  <tr>
+    <td>rabbitmq.exchange.auto.delete</td>
+    <td>Whether to automatically delete the exchange when it is no longer bound to any queue. The default value is <code>false</code>.</td>
+  </tr>
+  <tr>
+    <td>rabbitmq.queue.autodeclare</td>
+    <td>
+      Whether to create queues if they are not present. However, you should set this parameter only if queues are not declared prior on the broker. Setting this parameter in the publish URL to <code>false</code> improves RabbitMQ transport performance.
+    </td>
+  </tr>
+  <tr>
+    <td>rabbitmq.exchange.autodeclare</td>
+    <td>Whether to create exchanges if they are not present. However, you should set this parameter only if exchanges are not declared prior on the broker. Setting this parameter in the publish URL to <code>false</code> improves RabbitMQ transport performance.</td>
+  </tr>
+  <tr>
+    <td>rabbitmq.message.correlation.id</td>
+    <td>
+      The correlation ID is required to identify a message that comes through one queue and requires a response back via another queue. This ID helps you map the messages and is unique for every request.
+    </td>
+  </tr>
+  <tr>
+    <td>rabbitmq.message.id</td>
+    <td>Every message has its own unique message ID.</td>
+  </tr>
+  <tr>
+    <td>CachedRabbitMQConnectionFactory</td>
+    <td>
+      This parameter increases the performance and provides higher throughput in message delivery.
+    </td>
+  </tr>
+  <tr>
+    <td>rabbitmq.connection.factory.heartbeat</td>
+    <td>The heartbeat timeout in milliseconds that will be used when negotiating with the server. Set to 0 to disable heartbeats.</td>
+  </tr>
+  <tr>
+    <td>rabbitmq.connection.factory.timeout</td>
+    <td>The connection timeout in milliseconds for the RabbitMQ connection factory.</td>
+  </tr>
+  <tr>
+    <td>rabbitmq.connection.factory.network.recovery.interval</td>
+    <td>The interval in milliseconds between network recovery attempts when the connection is lost.</td>
+  </tr>
+  <tr>
+    <td>rabbitmq.connection.retry.interval</td>
+    <td>The interval in milliseconds between connection retry attempts.</td>
+  </tr>
+  <tr>
+    <td>rabbitmq.connection.ssl.enabled</td>
+    <td>Whether SSL is enabled for the connection. Set to <code>true</code> to enable SSL.</td>
+  </tr>
+  <tr>
+    <td>rabbitmq.connection.ssl.keystore.location</td>
+    <td>The location of the keystore file for SSL connections.</td>
+  </tr>
+  <tr>
+    <td>rabbitmq.connection.ssl.keystore.type</td>
+    <td>The type of the keystore (e.g., JKS, PKCS12).</td>
+  </tr>
+  <tr>
+    <td>rabbitmq.connection.ssl.keystore.password</td>
+    <td>The password for the keystore.</td>
+  </tr>
+  <tr>
+    <td>rabbitmq.connection.ssl.truststore.location</td>
+    <td>The location of the truststore file for SSL connections.</td>
+  </tr>
+  <tr>
+    <td>rabbitmq.connection.ssl.truststore.type</td>
+    <td>The type of the truststore (e.g., JKS, PKCS12).</td>
+  </tr>
+  <tr>
+    <td>rabbitmq.connection.ssl.truststore.password</td>
+    <td>The password for the truststore.</td>
+  </tr>
+  <tr>
+    <td>rabbitmq.connection.ssl.version</td>
+    <td>The SSL protocol version to use (e.g., TLSv1.2, TLSv1.3).</td>
+  </tr>
+  <tr>
+    <td>rabbitmq.max.inbound.message.body.size</td>
+    <td>The maximum size limit for inbound message bodies in bytes.</td>
+  </tr>
+  <tr>
+    <td>rabbitmq.virtual.host</td>
+    <td>The virtual host to connect to on the RabbitMQ server.</td>
+  </tr>
+  <tr>
+   <td>rabbitmq.publisher.confirms.enabled</td>
+   <td>
+      Enables support for RabbitMQ publisher confirms, which allows the producer to receive acknowledgements from the broker when messages are successfully published. <br><br>
+      <b>Note:</b> When using the Publisher Confirms scenario, do not set the <code>OUT_ONLY</code> property to <code>true</code> in the mediation flow, as this will prevent publisher confirms from working correctly.
+   </td>
+  </tr>
 </table>
 
+### Global connection factory configuration
 
-### Optional Parameters
+Optionally, you can define the connection-related parameters globally, for message sender in the `deployment.toml` file. This approach centralizes connection management and improves reusability across multiple endpoints.
 
-<table>
-   <tr>
-    <th>Parameter</th>
-    <th>Description</th>
-   </tr>
-   <tbody>
-      <tr>
-         <td>rabbitmq.exchange.name</td>
-         <td>
-            The name of the RabbitMQ exchange to which the queue is bound. Use this parameter instead of <code>rabbitmq.queue.routing.key</code>, if you need to use the default exchange and publish to a queue.
-         </td>
-      </tr>
-      <tr>
-         <td>rabbitmq.queue.routing.key</td>
-         <td>The exchange and queue binding key that will be used to route messages.</td>
-      </tr>
-      <tr>
-         <td>rabbitmq.replyto.name</td>
-         <td>The name of the call back­ queue. Specify this parameter if you expect a response.</td>
-      </tr>
-      <tr>
-         <td>rabbitmq.queue.delivery.mode</td>
-         <td>
-            The delivery mode of the queue. Possible values are 1 and 2.<br/>
-               1 - Non­-persistent.<br/>
-               2 - Persistent. This is the default value.
-         </td>
-      </tr>
-      <tr>
-         <td>rabbitmq.exchange.type</td>
-         <td>The type of the exchange.</td>
-      </tr>
-      <tr>
-         <td>rabbitmq.queue.name</td>
-         <td>The queue name to send or consume messages. If you do not specify this parameter, you need to specify the <code>rabbitmq.queue.routing.key</code> parameter.</td>
-      </tr>
-      <tr>
-         <td>rabbitmq.queue.durable</td>
-         <td>Whether the queue should remain declared even if the broker restarts. The default value is <code>false</code>.</td>
-      </tr>
-      <tr>
-         <td>rabbitmq.queue.exclusive</td>
-         <td>Whether the queue should be exclusive or should be consumable by other connections. The default value is <code>false</code>.</td>
-      </tr>
-      <tr>
-         <td>rabbitmq.queue.auto.delete</td>
-         <td>Whether to keep the queue even if it is not being consumed anymore. The default value is <code>false</code>.</td>
-      </tr>
-      <tr>
-         <td>rabbitmq.exchange.durable</td>
-         <td>Whether the exchange should remain declared even if the broker restarts.</td>
-      </tr>
-      <tr>
-         <td>rabbitmq.queue.autodeclare</td>
-         <td>
-            Whether to create queues if they are not present. However, you should set this parameter only if queues are not declared prior on the broker. Setting this parameter in the publish URL to <code>false</code> improves RabbitMQ transport performance.
-         </td>
-      </tr>
-      <tr>
-         <td>rabbitmq.exchange.autodeclare</td>
-         <td>Whether to create exchanges if they are not present. However, you should set this parameter only if exchanges are not declared prior on the broker. Setting this parameter in the publish URL to <code>false</code> improves RabbitMQ transport performance.</td>
-      </tr>
-      <tr>
-         <td>rabbitmq.message.correlation.id</td>
-         <td>
-            The correlation ID is required to identify a message that comes through one queue and requires a response back via another queue. This ID helps you map the messages and is unique for every request.
-         </td>
-      </tr>
-      <tr>
-         <td>
-          rabbitmq.message.id
-         </td>
-         <td>Every message has its own unique message ID.</td>
-      </tr>
-      <tr>
-        <td>CachedRabbitMQConnectionFactory</td>
-        <td>
-           This parameter increases the performance and provides higher throughput in message delivery.
-        </td>
-      </tr>
-   </tbody>
-</table>
+**Configuration example**:
+
+Add the following configuration to your `deployment.toml` file:
+
+```toml
+[[transport.rabbitmq.sender]]
+name = "AMQPConnectionFactory"
+parameter.hostname = "localhost"
+parameter.port = 5672
+parameter.username = "guest"
+parameter.password = "guest"
+```
+
+**Usage example**:
+
+When using a connection factory defined in the `deployment.toml` file, reference it in your endpoint configuration as follows:
+
+```xml
+<endpoint>
+   <address uri="rabbitmq:/AMQPProducerSample?rabbitmq.connection.factory=AMQPConnectionFactory&amp;rabbitmq.queue.name=queue&amp;rabbitmq.queue.routing.key=route&amp;rabbitmq.exchange.name=exchange">
+   </address>
+</endpoint>
+```
+
+!!! Important "Parameter Precedence"
+    When a connection factory is defined in the `deployment.toml` file and referenced in the endpoint URL, the global configuration takes precedence over URL parameters for specific connection-related settings.
+    
+    The following parameters defined in the global connection factory will override any corresponding values specified in the endpoint URL:
+    
+    **Basic connection parameters:**
+    
+    - `rabbitmq.server.host.name` - Server hostname
+    - `rabbitmq.server.port` - Server port number
+    - `rabbitmq.server.user.name` - Authentication username
+    - `rabbitmq.server.password` - Authentication password
+    - `rabbitmq.server.virtual.host` - Virtual host name
+    
+    **Connection management parameters:**
+    
+    - `rabbitmq.connection.factory.heartbeat` - Heartbeat interval
+    - `rabbitmq.connection.factory.timeout` - Connection timeout
+    - `rabbitmq.connection.factory.network.recovery.interval` - Network recovery interval
+    - `rabbitmq.connection.retry.interval` - Connection retry interval
+    - `rabbitmq.max.inbound.message.body.size` - Maximum message body size limit
+
+    
+    **SSL/TLS security parameters:**
+    
+    - `rabbitmq.connection.ssl.enabled` - SSL enablement flag
+    - `rabbitmq.connection.ssl.keystore.location` - Keystore file path
+    - `rabbitmq.connection.ssl.keystore.type` - Keystore type
+    - `rabbitmq.connection.ssl.keystore.password` - Keystore password
+    - `rabbitmq.connection.ssl.truststore.location` - Truststore file path
+    - `rabbitmq.connection.ssl.truststore.type` - Truststore type
+    - `rabbitmq.connection.ssl.truststore.password` - Truststore password
+    - `rabbitmq.connection.ssl.version` - SSL/TLS protocol version    
+    
+    !!! Note
+        This precedence rule ensures that centrally managed connection settings in `deployment.toml` maintain consistency across all endpoints that reference the same connection factory.
 
 ### Mediator Properties
 
