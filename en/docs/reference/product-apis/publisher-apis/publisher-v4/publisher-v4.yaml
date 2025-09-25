@@ -3487,7 +3487,7 @@ paths:
         2. **FILE type**:
            The file will be downloaded with the related content type (eg. `application/pdf`)
         3. **URL type**:
-            The client will recieve the URL of the document as the Location header with the response with - `303 See Other`
+            The client will receive the URL of the document as the Location header with the response with - `303 See Other`
       parameters:
         - $ref: '#/components/parameters/apiId'
         - $ref: '#/components/parameters/documentId'
@@ -6665,7 +6665,7 @@ paths:
         2. **FILE type**:
            The file will be downloaded with the related content type (eg. `application/pdf`)
         3. **URL type**:
-            The client will recieve the URL of the document as the Location header with the response with - `303 See Other`
+            The client will receive the URL of the document as the Location header with the response with - `303 See Other`
       parameters:
         - $ref: '#/components/parameters/apiProductId'
         - $ref: '#/components/parameters/documentId'
@@ -13316,7 +13316,7 @@ components:
         delimiter:
           type: string
           description: |
-            delimiter to seperate the email address
+            delimiter to separate the email address
     MonetizationAttribute:
       title: Monetization attribute object
       type: object

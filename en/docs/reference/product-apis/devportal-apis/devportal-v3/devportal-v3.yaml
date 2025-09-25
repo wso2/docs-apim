@@ -785,7 +785,7 @@ paths:
         2. **FILE type**:
            The file will be downloaded with the related content type (eg. `application/pdf`)
         3. **URL type**:
-            The client will recieve the URL of the document as the Location header with the response with - `303 See Other`
+            The client will receive the URL of the document as the Location header with the response with - `303 See Other`
 
         `X-WSO2-Tenant` header can be used to retrive the content of a document of an API that belongs to a different tenant domain. If not specified super tenant will be used. If Authorization header is present in the request, the user's tenant associated with the access token will be used.
 

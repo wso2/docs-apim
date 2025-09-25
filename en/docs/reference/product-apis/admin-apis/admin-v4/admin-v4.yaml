@@ -4879,7 +4879,7 @@ components:
         status:
           type: string
           description: Status of the usage publish request
-          example: successfull
+          example: successful
         message:
           type: string
           description: detailed message of the status
@@ -4895,7 +4895,7 @@ components:
         status:
           type: string
           description: Status of usage publish job
-          example: SUCCESSFULL
+          example: SUCCESSFUL
         startedTime:
           type: string
           description: Timestamp of the started time of the Job
