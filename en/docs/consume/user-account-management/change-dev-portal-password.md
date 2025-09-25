@@ -18,7 +18,7 @@ Follow the instructions below to change your own password for the Developer Port
 
      The new password should adhere to the custom password policies as described below.
 
-     <img src="{{base_path}}/assets/img/learn/change-devportal-password-submiting.png" alt="Developer portal password change submit" width="600"/>
+     <img src="{{base_path}}/assets/img/learn/change-devportal-password-submitting.png" alt="Developer portal password change submit" width="600"/>
 
 !!! note
 

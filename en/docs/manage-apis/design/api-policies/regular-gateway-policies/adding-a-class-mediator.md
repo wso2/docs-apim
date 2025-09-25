@@ -26,7 +26,7 @@ public class SimpleClassMediator extends AbstractMediator {
     public SimpleClassMediator(){}
 
     public boolean mediate(MessageContext mc) {
-        // Do somthing useful..
+        // Do something useful..
         // Implementation of Reading the propertly values of Message context and modifying request / logging properties
         return true;
     }

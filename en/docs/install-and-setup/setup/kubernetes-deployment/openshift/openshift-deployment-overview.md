@@ -52,7 +52,7 @@ The official WSO2 Docker images run as a non-root user with a fixed UID. While t
 Also 
 
 1. Starting from v4.5.0, each component has a separate Docker image (All-in-one, Control-plane, Gateway, Traffic-manager).
-2. These Docker images do not contain any database connectors; therefore, we need to build custom Docker images based on each Docker image in order to make the deployment work with a seperate DB.
+2. These Docker images do not contain any database connectors; therefore, we need to build custom Docker images based on each Docker image in order to make the deployment work with a separate DB.
 3. Download a connector which is compatible with the DB version and copy the connector while building the image
 
 !!! example "Sample Dockerfile for All-in-One Image"

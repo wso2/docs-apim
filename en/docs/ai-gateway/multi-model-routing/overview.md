@@ -27,7 +27,7 @@ Detailed below is how to complete these two prerequisites:
 
 #### Configuring Model List
 
-Make sure to add the model list you desire to utilize prior to moving into the AI policy configuraiton section.
+Make sure to add the model list you desire to utilize prior to moving into the AI policy configuration section.
 
 !!! tip
      Note that the models that are listed under the corresponding AI/LLM Vendor gets listed down as available models at the time of policy configuration. 
