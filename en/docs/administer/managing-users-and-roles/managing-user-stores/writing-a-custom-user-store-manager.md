@@ -532,8 +532,7 @@ login. This ensures that all your configurations work as intended.
     1.  Sign in to the WSO2 API management console.
     2.  Click **Add** under User Stores.
     3.  Select the custom user store you just created as the value from the
-        **User Store Manager Class** dorp-down.
+        **User Store Manager Class** drop-down.
     4.  Expand the **Advanced** tab and deselect the **Claim Operations
         Supported** property that is right at the end of the list.
     5.  Click Add.
-    

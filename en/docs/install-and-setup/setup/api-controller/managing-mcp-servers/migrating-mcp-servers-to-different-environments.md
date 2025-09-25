@@ -65,7 +65,7 @@
         === "Response Format"
             ``` bash
             Successfully exported MCP Server!
-            Find the exported MCP Server at <USER_HOME>/.wso2apictl/exported/mcp-servers/<envrionment-name>/<MCP-Server-name>_<version>.zip
+            Find the exported MCP Server at <USER_HOME>/.wso2apictl/exported/mcp-servers/<environment-name>/<MCP-Server-name>_<version>.zip
             ```
 
         === "Example Response"
@@ -180,7 +180,7 @@ mcpServerIdentifier:
         </tr>
         <tr class="even">
             <td>Docs</td>
-            <td> This folder will contain documentation attached to a particular MCP Server. Each document will have a seperate folder by its name. Each folder will contain a file named <code>document.yaml</code> which will contain the meta information related to a document. Example for a <code>document.yaml</code> file is shown below.
+            <td> This folder will contain documentation attached to a particular MCP Server. Each document will have a separate folder by its name. Each folder will contain a file named <code>document.yaml</code> which will contain the meta information related to a document. Example for a <code>document.yaml</code> file is shown below.
             <pre><code>
 type: document
 version: v4.4.0

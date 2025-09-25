@@ -117,7 +117,7 @@ There are a few potential reasons for this
 3. If you've published the API and are still receiving the above response, there could be two reasons:
 
     - The API details may have failed to upload to the vector database due to reasons like network issues.
-    - The language model may not be responding correctly. Even if the APL is in the database, there's a chance the language model can't understand and answer properly. Trying different prompts may help clarify the issue.
+    - The language model may not be responding correctly. Even if the API is in the database, there's a chance the language model can't understand and answer properly. Trying different prompts may help clarify the issue.
 
 **7. I am getting this error response: `Apologies for the inconvenience. It appears that the token limit has been exceeded`**
 
