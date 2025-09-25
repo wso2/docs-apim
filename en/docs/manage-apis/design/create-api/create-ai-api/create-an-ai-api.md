@@ -97,11 +97,13 @@ Follow the instructions below to create an AI API using the basic flow:
 
     !!! Note
             API Manager supports the following AI service providers by default. The authorization approach of each is mentioned below: 
-        - **MistralAI**: `Authorization` header
-        - **AzureOpenAI**: `api-key` header
-        - **OpenAI**: `Authorization` header
         - **Anthropic**: `x-api-key` header
         - **AWSBedrock**: Requires both an AWS Access Key and AWS Secret Key for authentication.
+        - **AzureAIFoundry**: `api-key` header
+        - **AzureOpenAI**: `api-key` header
+        - **Gemini**: `X-goog-api-key` header
+        - **MistralAI**: `Authorization` header
+        - **OpenAI**: `Authorization` header
 
         Note that we prepend "Bearer " to the header value that you provide when it comes to MistralAI and OpenAI since they are expecting an Authorization header.
 
