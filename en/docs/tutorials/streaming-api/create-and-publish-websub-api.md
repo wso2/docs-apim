@@ -83,7 +83,7 @@ The tutorial demonstrates a simple WebSub/WebHook API that monitors your GitHub 
 
 7. Attach business plans to the WebSub/WebHook API.
 
-      1. Click **Subscriptions** and navigate to the Business Plans page.
+      1. Click **Portal Configurations** and click **Subscriptions** to navigate to the Business Plans page.
 
       2. Select **AsyncWHGold** and click on **Save**.
 
