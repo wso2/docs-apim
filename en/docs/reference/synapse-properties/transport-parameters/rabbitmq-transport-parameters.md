@@ -244,86 +244,157 @@ present. If set to <code>false</code>, the Micro Integrator will assume that a q
    </tbody>
 </table>
 
-### SSL Parameters (Optional)
+[//]: # (### SSL Parameters &#40;Optional&#41;)
 
-To enable SSL support in RabbitMQ, you need to configure the following parameters.
+[//]: # ()
+[//]: # (To enable SSL support in RabbitMQ, you need to configure the following parameters.)
 
-<table>
-  <tr>
-    <th>Parameter</th>
-    <th>Description</th>
-  </tr>
-  <tr>
-    <td>rabbitmq.connection.ssl.enabled</td>
-    <td>
-       Specifies whether SSL is enabled for the connection.
-    </td>
-  </tr>
-  <tr>
-    <td>rabbitmq.connection.ssl.version</td>
-    <td>
-       When SSL is enabled, you can specify the SSL protocols that are supported.
-    </td>
-  </tr>
-</table>
+[//]: # ()
+[//]: # (<table>)
 
-!!! Tip
-    Note that keystore information is not required for an SSL connection if the <code>fail_if_no_peer_cert</code> parameter is set to 'false' in the RabbitMQ broker. You only need to enable SSL in the Micro Integrator (using the `rabbitmq.connection.ssl.enabled` parameter).
+[//]: # (  <tr>)
 
-    However, if the <code>fail_if_no_peer_cert</code> parameter is set to 'true' in RabbitMQ, the keystore configurations (given below) are also required for the Micro Integrator.
+[//]: # (    <th>Parameter</th>)
 
-    Shown below is an example of the config file where `fail_if_no_peer_cert` is set to `false`:
-    ```
-    ssl_options.cacertfile = /path/to/ca_certificate.pem
-    ssl_options.certfile   = /path/to/server_certificate.pem
-    ssl_options.keyfile    = /path/to/server_key.pem
-    ssl_options.verify     = verify_peer
-    ssl_options.fail_if_no_peer_cert = false
-    ```
+[//]: # (    <th>Description</th>)
 
-<table>
-  <tr>
-    <th>Parameter</th>
-    <th>Description</th>
-  </tr>
-  <tr>
-    <td>rabbitmq.connection.ssl.keystore.location</td>
-    <td>
-       The location of the keystore that is used.
-    </td>
-  </tr>
-  <tr>
-    <td>rabbitmq.connection.ssl.keystore.type</td>
-    <td>
-       The type of keystore.
-    </td>
-  </tr>
-  <tr>
-    <td>rabbitmq.connection.ssl.keystore.password</td>
-    <td>
-       The keystore password.
-    </td>
-  </tr>
-  <tr>
-    <td>rabbitmq.connection.ssl.truststore.location</td>
-    <td>
-       The location of the truststore.
-    </td>
-  </tr>
-  <tr>
-    <td>rabbitmq.connection.ssl.truststore.type</td>
-    <td>
-       The type of the truststore.
-    </td>
-  </tr>
-  <tr>
-    <td>rabbitmq.connection.ssl.truststore.password</td>
-    <td>
-       The password of the keystore.
-    </td>
-  </tr>
-</table>
+[//]: # (  </tr>)
 
+[//]: # (  <tr>)
+
+[//]: # (    <td>rabbitmq.connection.ssl.enabled</td>)
+
+[//]: # (    <td>)
+
+[//]: # (       Specifies whether SSL is enabled for the connection.)
+
+[//]: # (    </td>)
+
+[//]: # (  </tr>)
+
+[//]: # (  <tr>)
+
+[//]: # (    <td>rabbitmq.connection.ssl.version</td>)
+
+[//]: # (    <td>)
+
+[//]: # (       When SSL is enabled, you can specify the SSL protocols that are supported.)
+
+[//]: # (    </td>)
+
+[//]: # (  </tr>)
+
+[//]: # (</table>)
+
+[//]: # ()
+[//]: # (!!! Tip)
+
+[//]: # (    Note that keystore information is not required for an SSL connection if the <code>fail_if_no_peer_cert</code> parameter is set to 'false' in the RabbitMQ broker. You only need to enable SSL in the Micro Integrator &#40;using the `rabbitmq.connection.ssl.enabled` parameter&#41;.)
+
+[//]: # ()
+[//]: # (    However, if the <code>fail_if_no_peer_cert</code> parameter is set to 'true' in RabbitMQ, the keystore configurations &#40;given below&#41; are also required for the Micro Integrator.)
+
+[//]: # ()
+[//]: # (    Shown below is an example of the config file where `fail_if_no_peer_cert` is set to `false`:)
+
+[//]: # (    ```)
+
+[//]: # (    ssl_options.cacertfile = /path/to/ca_certificate.pem)
+
+[//]: # (    ssl_options.certfile   = /path/to/server_certificate.pem)
+
+[//]: # (    ssl_options.keyfile    = /path/to/server_key.pem)
+
+[//]: # (    ssl_options.verify     = verify_peer)
+
+[//]: # (    ssl_options.fail_if_no_peer_cert = false)
+
+[//]: # (    ```)
+
+[//]: # ()
+[//]: # (<table>)
+
+[//]: # (  <tr>)
+
+[//]: # (    <th>Parameter</th>)
+
+[//]: # (    <th>Description</th>)
+
+[//]: # (  </tr>)
+
+[//]: # (  <tr>)
+
+[//]: # (    <td>rabbitmq.connection.ssl.keystore.location</td>)
+
+[//]: # (    <td>)
+
+[//]: # (       The location of the keystore that is used.)
+
+[//]: # (    </td>)
+
+[//]: # (  </tr>)
+
+[//]: # (  <tr>)
+
+[//]: # (    <td>rabbitmq.connection.ssl.keystore.type</td>)
+
+[//]: # (    <td>)
+
+[//]: # (       The type of keystore.)
+
+[//]: # (    </td>)
+
+[//]: # (  </tr>)
+
+[//]: # (  <tr>)
+
+[//]: # (    <td>rabbitmq.connection.ssl.keystore.password</td>)
+
+[//]: # (    <td>)
+
+[//]: # (       The keystore password.)
+
+[//]: # (    </td>)
+
+[//]: # (  </tr>)
+
+[//]: # (  <tr>)
+
+[//]: # (    <td>rabbitmq.connection.ssl.truststore.location</td>)
+
+[//]: # (    <td>)
+
+[//]: # (       The location of the truststore.)
+
+[//]: # (    </td>)
+
+[//]: # (  </tr>)
+
+[//]: # (  <tr>)
+
+[//]: # (    <td>rabbitmq.connection.ssl.truststore.type</td>)
+
+[//]: # (    <td>)
+
+[//]: # (       The type of the truststore.)
+
+[//]: # (    </td>)
+
+[//]: # (  </tr>)
+
+[//]: # (  <tr>)
+
+[//]: # (    <td>rabbitmq.connection.ssl.truststore.password</td>)
+
+[//]: # (    <td>)
+
+[//]: # (       The password of the keystore.)
+
+[//]: # (    </td>)
+
+[//]: # (  </tr>)
+
+[//]: # (</table>)
 
 ## Service-Level Parameters (Sending Messages)
 
