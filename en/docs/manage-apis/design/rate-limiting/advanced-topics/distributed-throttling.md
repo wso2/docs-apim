@@ -12,7 +12,7 @@ Follow the instructions below to configure a Redis cluster with API Manager:
 
 #### Step 1 - Setup and start the Redis server
 
-Refer to the [official Redis documentation](https://redis.com/) to set up and start the Redis server.
+Refer to the [official Redis documentation](https://redis.io/docs/latest/operate/rc/rc-quickstart/) to set up and start the Redis server.
 
 #### Step 2 - Configure the Redis server with WSO2 API-M
 
