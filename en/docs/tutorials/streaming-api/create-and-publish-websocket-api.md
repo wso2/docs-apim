@@ -103,7 +103,7 @@ This will demonstrate a simple command line based chat room which has two channe
 
 6. Attach business plans to your WebSocket API.
 
-     1. Click **Subscriptions** and navigate to the Business Plans page.
+     1. Click **Portal Configurations** and click **Subscriptions** to navigate to the Business Plans page.
 
      2. Select **AsyncGold** and click on **Save**.
 
