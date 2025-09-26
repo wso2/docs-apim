@@ -591,7 +591,7 @@ definitions:
     properties:
       deployStatus:
         description: |
-          This attribute declares whether deployment task is successfull or failed.
+          This attribute declares whether deployment task is successful or failed.
         type: string
         enum:
           - DEPLOYED

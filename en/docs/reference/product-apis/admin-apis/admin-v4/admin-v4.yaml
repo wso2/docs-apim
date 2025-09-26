@@ -71,8 +71,8 @@ info:
     of this document and scope for each resource is given in **authorizations** section of resource documentation.
     Following is the format of the request if you are using the password grant type.
     ```
-    curl -k -d "grant_type=password&username=<admin_username>&password=<admin_passowrd>&scope=<scopes seperated by space>"
-    \ -H "Authorization: Basic base64(cliet_id:client_secret)"
+    curl -k -d "grant_type=password&username=<admin_username>&password=<admin_password>&scope=<scopes separated by space>"
+    \ -H "Authorization: Basic base64(client_id:client_secret)"
     \ https://<host>:<server_port>/oauth2/token
     ```
     **Sample request**
@@ -524,7 +524,7 @@ paths:
         - Subscription Policy (Individual)
       summary: Get a Subscription Policy
       description: |
-        This operation can be used to retrieves subscription level throttling policy by specifying the Id of the policy as a path paramter
+        This operation can be used to retrieves subscription level throttling policy by specifying the Id of the policy as a path parameter
       parameters:
         - $ref: '#/components/parameters/policyId'
       responses:
@@ -648,7 +648,7 @@ paths:
         - Subscription Policy (Individual)
       summary: Delete a Subscription Policy
       description: |
-        This operation can be used to delete a subscription level throttling policy by specifying the Id of the policy as a path paramter.
+        This operation can be used to delete a subscription level throttling policy by specifying the Id of the policy as a path parameter.
       parameters:
         - $ref: '#/components/parameters/policyId'
       responses:
@@ -2743,7 +2743,7 @@ paths:
         - System Scopes
       summary: Retrieve Role Alias Mappings
       description: |
-        This operation can be used to retreive role alias mapping
+        This operation can be used to retreieve role alias mapping
       responses:
         200:
           description: |
@@ -4168,12 +4168,12 @@ components:
           properties:
             dataAmount:
               type: integer
-              description: Amount of data allowed to be transfered
+              description: Amount of data allowed to be transferred
               format: int64
               example: 1000
             dataUnit:
               type: string
-              description: Unit of data allowed to be transfered. Allowed values are
+              description: Unit of data allowed to be transferred. Allowed values are
                 "KB", "MB" and "GB"
               example: KB
     RequestCountLimit:
@@ -4547,7 +4547,7 @@ components:
         status:
           type: string
           description: Status of the usage publish request
-          example: successfull
+          example: successful
         message:
           type: string
           description: detailed message of the status
@@ -4563,7 +4563,7 @@ components:
         status:
           type: string
           description: Status of usage publish job
-          example: SUCCESSFULL
+          example: SUCCESSFUL
         startedTime:
           type: string
           description: Timestamp of the started time of the Job
