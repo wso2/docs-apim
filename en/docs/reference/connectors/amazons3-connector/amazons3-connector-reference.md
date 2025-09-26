@@ -1819,7 +1819,13 @@ To use the Amazon S3 connector, add the <amazons3.init> element in your configur
             **Note**: This parameter is available only with Amazon S3 connector v2.0.6 and above.</td>
             <td>Optional</td>
         </tr>    
-    </table>
+        <tr>
+            <td>escapeXmlCharacters</td>
+            <td>Escape XML characters.
+            <br>
+            **Note**: This parameter is available only with Amazon S3 connector v2.0.11 and above in the 2.x.x series.</td>
+            <td>Optional</td>
+        </tr>    </table>
 
     **Sample configuration**
 
