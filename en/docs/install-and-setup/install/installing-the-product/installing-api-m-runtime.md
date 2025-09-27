@@ -13,14 +13,14 @@ Java Development Kit (JDK) is essential to run the product.
 2.  Extract the archive file to a dedicated directory for the API Manager, which will hereafter be referred to as `<API-M_HOME>`.
 
 !!! note
-If you want to install and setup the **Enterprise package** of WSO2 API Manager, download the package from the [WSO2 API Manager website](https://wso2.com/api-manager/) and follow the instructions in [Configure a Distributed API-M Deployment]({{base_path}}/install-and-setup/setup/distributed-deployment/deploying-wso2-api-m-in-a-distributed-setup/) to setup a simple scalable deployment of WSO2 API Manager.
+    If you want to install and setup the **Enterprise package** of WSO2 API Manager, download the package from the [WSO2 API Manager website](https://wso2.com/api-manager/) and follow the instructions in [Configure a Distributed API-M Deployment]({{base_path}}/install-and-setup/setup/distributed-deployment/deploying-wso2-api-m-in-a-distributed-setup/) to setup a simple scalable deployment of WSO2 API Manager.
 
 ## Setting up JAVA_HOME
 
 You must set your `JAVA_HOME` environment variable to point to the directory where the Java Development Kit (JDK) is installed on the computer.
 
 !!! info
-Environment variables are global system variables accessible by all the processes running under the operating system.
+    Environment variables are global system variables accessible by all the processes running under the operating system.
 
 ??? note "On Linux/OS X"
 
@@ -31,7 +31,7 @@ Environment variables are global system variables accessible by all the processe
         On Linux:
         export JAVA_HOME=/usr/java/jdk-11.0.x
         export PATH=${JAVA_HOME}/bin:${PATH}
-
+             
         On OS X:
         export JAVA_HOME=/System/Library/Java/JavaVirtualMachines/11.0.x.jdk/Contents/Home
         ```
@@ -39,7 +39,7 @@ Environment variables are global system variables accessible by all the processe
     3.  Save the file.
 
         !!! info
-
+        
             If you do not know how to work with text editors in a Linux SSH session, run the following command: `cat >> .bashrc.` Paste the string from the clipboard and press "Ctrl+D."
 
 
@@ -115,8 +115,8 @@ Environment variables are global system variables accessible by all the processe
 
 If you need to set additional system properties when the server starts, you can take the following approaches:
 
-- **Set the properties from a script** : Setting your system properties in the startup script is ideal because it ensures that you set the properties every time you start the server. To avoid having to modify the script each time you upgrade, the best approach is to create your startup script that wraps the WSO2 startup script and adds the properties you want to set, rather than editing the WSO2 startup script directly.
-- **Set the properties from an external registry** : If you want to access properties from an external registry, you could create Java code that reads the properties at runtime from that registry. Be sure to store sensitive data such as username and password to connect to the registry in a property file instead of in the Java code and secure the properties file with the [secure vault](https://docs.wso2.com/display/ADMIN44x/Carbon+Secure+Vault+Implementation).
+-   **Set the properties from a script** : Setting your system properties in the startup script is ideal because it ensures that you set the properties every time you start the server. To avoid having to modify the script each time you upgrade, the best approach is to create your startup script that wraps the WSO2 startup script and adds the properties you want to set, rather than editing the WSO2 startup script directly.
+-   **Set the properties from an external registry** : If you want to access properties from an external registry, you could create Java code that reads the properties at runtime from that registry. Be sure to store sensitive data such as username and password to connect to the registry in a property file instead of in the Java code and secure the properties file with the [secure vault](https://docs.wso2.com/display/ADMIN44x/Carbon+Secure+Vault+Implementation).
 
 !!! info
 
@@ -124,4 +124,4 @@ If you need to set additional system properties when the server starts, you can 
 
 ## What's Next?
 
-- [Running the API-M Runtime]({{base_path}}/install-and-setup/install/installing-the-product/running-the-api-m).
+-   [Running the API-M Runtime]({{base_path}}/install-and-setup/install/installing-the-product/running-the-api-m).
