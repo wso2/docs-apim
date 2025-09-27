@@ -300,7 +300,7 @@ template: templates/single-column.html
         "links": [
             {"name": "Deploy on VM", "url": "install-and-setup/install/installing-the-product/running-the-api-m/"},
             {"name": "Deploy on Kubernetes", "url": "install-and-setup/install/deploying-api-manager-with-kubernetes-resources/"},
-            {"name": "SaaS", "url": "https://wso2.com/bijira/docs/"}
+            {"name": "SaaS", "url": "https://wso2.com/choreo/docs/"}
         ]
     }],
     [{
@@ -356,7 +356,7 @@ template: templates/single-column.html
         <div class="leftContent">
             </br>
             <p>
-                WSO2 API Manager is a complete platform for building, integrating, and exposing your digital services as managed APIs in the cloud, on-premise, and hybrid architectures to drive your digital transformation strategy. 
+                WSO2 API Manager is a complete platform for building, integrating and exposing your digital services as managed APIs across cloud, on-premises, and hybrid architectures to support digital transformation. 
             </p>
             <p>
                 It allows API developers to design, publish, and manage the lifecycle of APIs and API product 
@@ -502,7 +502,7 @@ template: templates/single-column.html
                                     </div>
                                 </div>
                                 <hr/>
-                                <p class="removeTopMargin">An API Gateway for micro services, which is cloud-native, decentralized and developer centric</p>
+                                <p class="removeTopMargin">WS02 provides an API Gateway for microservices, that is cloud-native, decentralized and developer-centric</p>
                                 <div>
                                     <ul>
                                         <li><a href="{{base_path}}/get-started/apim-architecture/#immutable-gateway">WSO2 Immutable Gateway Overview</a></li>
