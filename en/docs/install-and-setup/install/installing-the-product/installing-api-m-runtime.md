@@ -4,7 +4,7 @@ Follow the steps given below to install the WSO2 API Manager runtime.
 
 ## Before you begin
 
-See the [Installation Prerequisites]({{base_path}}/install-and-setup/install/installation-prerequisites). 
+See the [Installation Prerequisites]({{base_path}}/install-and-setup/install/installation-prerequisites).
 Java Development Kit (JDK) is essential to run the product.
 
 ## Installing the API Manager
@@ -24,8 +24,8 @@ You must set your `JAVA_HOME` environment variable to point to the directory whe
 
 ??? note "On Linux/OS X"
 
-    1.  In your home directory, open the BASHRC file (.bash\_profile file on Mac) using editors such as vi, emacs, pico, or mcedit.
-    2.  Assuming you have JDK 11 in your system, add the following two lines at the bottom of the file, replacing `/usr/java/jdk-11.0.x` with the actual directory where the JDK is installed.
+    1.  In your home directory, open the BASHRC file (.bash\_profile file on older macOS versions) using editors such as nano, vi, emacs, pico, or mcedit. Note that on macOS Catalina and newer, you should use the .zprofile file instead, as Zsh is the default shell.
+    2.  Assuming you have JDK 11 in your system, add the following two lines at the bottom of the file, replacing `/usr/java/jdk-11.0.x` with the actual directory where the JDK is installed (if you are working on macOS, you can use the command `/usr/libexec/java_home` to automatically get the path).
 
         ``` java
         On Linux:
@@ -48,7 +48,7 @@ You must set your `JAVA_HOME` environment variable to point to the directory whe
         ``` java
         On Linux:
         echo $JAVA_HOME
-            
+
         On OS X:
         which java
         If the above command gives you a path like /usr/bin/java, then it is a symbolic link to the real location. To get the real location, run the following:
@@ -69,7 +69,7 @@ You must set your `JAVA_HOME` environment variable to point to the directory whe
     3.  Save the file.
 
         !!! info
-            
+
             If you do not know how to work with text editors in an SSH session, run the following command: `cat >> .bashrc          `
 
         Paste the string from the clipboard and press "Ctrl+D."
@@ -125,4 +125,3 @@ If you need to set additional system properties when the server starts, you can 
 ## What's Next?
 
 -   [Running the API-M Runtime]({{base_path}}/install-and-setup/install/installing-the-product/running-the-api-m).
-
