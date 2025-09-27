@@ -55,7 +55,7 @@ First, enable the application registration workflow.
 
      It shows the application access token, consumer key and consumer secret.
     
-    ![Key generation successfull]({{base_path}}/assets/img/learn/application-key-generated.png)
+    ![Key generation successful]({{base_path}}/assets/img/learn/application-key-generated.png)
 
     If the workflow request is rejected  it will show a message.
 
