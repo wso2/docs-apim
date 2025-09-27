@@ -2743,7 +2743,7 @@ paths:
         - System Scopes
       summary: Retrieve Role Alias Mappings
       description: |
-        This operation can be used to retreieve role alias mapping
+        This operation can be used to retrieve role alias mapping
       responses:
         200:
           description: |
