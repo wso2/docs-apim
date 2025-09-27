@@ -68,7 +68,7 @@ info:
     of this document and scope for each resource is given in **authorization** section of resource documentation.
     Following is the format of the request if you are using the password grant type.
     ```
-    curl -k -d "grant_type=password&username=<admin_username>&password=<admin_passowrd&scope=<scopes seperated by space>"
+    curl -k -d "grant_type=password&username=<admin_username>&password=<admin_passowrd&scope=<scopes separated by space>"
     \ -H "Authorization: Basic base64(cliet_id:client_secret)"
     \ https://<host>:<servlet_port>/oauth2/token
     ```
@@ -3500,7 +3500,7 @@ paths:
         2. **FILE type**:
            The file will be downloaded with the related content type (eg. `application/pdf`)
         3. **URL type**:
-            The client will recieve the URL of the document as the Location header with the response with - `303 See Other`
+            The client will receive the URL of the document as the Location header with the response with - `303 See Other`
       parameters:
         - $ref: '#/components/parameters/apiId'
         - $ref: '#/components/parameters/documentId'
@@ -3653,7 +3653,7 @@ paths:
         - name: name
           in: query
           description: |
-            The name of the document which needs to be checked for the existance.
+            The name of the document which needs to be checked for the existence.
           required: true
           schema:
             type: string
@@ -6713,7 +6713,7 @@ paths:
         2. **FILE type**:
            The file will be downloaded with the related content type (eg. `application/pdf`)
         3. **URL type**:
-            The client will recieve the URL of the document as the Location header with the response with - `303 See Other`
+            The client will receive the URL of the document as the Location header with the response with - `303 See Other`
       parameters:
         - $ref: '#/components/parameters/apiProductId'
         - $ref: '#/components/parameters/documentId'
@@ -11560,7 +11560,7 @@ components:
           example: 50
         dataUnit:
           description: |
-            Unit of data allowed to be transfered. Allowed values are "KB", "MB" and "GB"
+            Unit of data allowed to be transferred. Allowed values are "KB", "MB" and "GB"
           type: string
           example: KB
         totalTokenCount:
@@ -11802,12 +11802,12 @@ components:
           properties:
             dataAmount:
               type: integer
-              description: Amount of data allowed to be transfered
+              description: Amount of data allowed to be transferred
               format: int64
               example: 1000
             dataUnit:
               type: string
-              description: Unit of data allowed to be transfered. Allowed values are
+              description: Unit of data allowed to be transferred. Allowed values are
                 "KB", "MB" and "GB"
               example: KB
     RequestCountLimit:
@@ -13571,7 +13571,7 @@ components:
         delimiter:
           type: string
           description: |
-            delimiter to seperate the email address
+            delimiter to separate the email address
     MonetizationAttribute:
       title: Monetization attribute object
       type: object
