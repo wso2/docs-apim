@@ -193,7 +193,7 @@ apiIdentifier:
         </tr>
         <tr class="odd">
             <td>Docs</td>
-            <td> This folder will contain documentation attached to a particular API Product. Each document will have a seperate folder by its name. Each folder will contain a file named <code>document.yaml</code> which will contain the meta information related to a document. Example for a <code>document.yaml</code> file is shown below.
+            <td> This folder will contain documentation attached to a particular API Product. Each document will have a separate folder by its name. Each folder will contain a file named <code>document.yaml</code> which will contain the meta information related to a document. Example for a <code>document.yaml</code> file is shown below.
             <pre><code>
 type: document
 version: v4.4.0
