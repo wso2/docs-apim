@@ -253,6 +253,7 @@ nav:
                     - Gateway Environments: manage-apis/deploy-and-publish/deploy-on-gateway/api-gateway/maintaining-separate-production-and-sandbox-gateways.md
                     - Scale the Gateway: manage-apis/deploy-and-publish/deploy-on-gateway/api-gateway/scaling-the-gateway.md
                     - Advanced Topics:
+                        - Universal Gateway with Dedicated Tenants: manage-apis/deploy-and-publish/deploy-on-gateway/api-gateway/maintain-seperate-gateways-per-tenants.md
                         - Universal Gateways with Dedicated Backends: manage-apis/deploy-and-publish/deploy-on-gateway/api-gateway/api-gateways-with-dedicated-backends.md
                         - Mutual SSL Between Universal Gateway and Backend: manage-apis/deploy-and-publish/deploy-on-gateway/api-gateway/mutual-ssl-between-api-gateway-and-backend.md
                         - Storing Custom Synapse Artifacts in the Gateway: manage-apis/deploy-and-publish/deploy-on-gateway/api-gateway/custom-synapse-artifacts.md

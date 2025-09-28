@@ -71,7 +71,7 @@ database</strong></p>
 <tr class="even">
 <td><p><strong>WSO2 Universal Gateway</strong></p></td>
 <td><p>Not used</p></td>
-<td><p>Used (in multi-tenancy mode/ in multiple gateway mode when Google Analytics is used)</p></td>
+<td><p>Not used</p></td>
 
 </tr>
 <tr class="odd">
@@ -82,8 +82,7 @@ database</strong></p>
 </tbody>
 </table>
 
-!!! Warning "WSO2 Universal Gateway - `shared_db` configuration"
-    Note that the registry data source **should not** be completely removed from the gateway node, although the `shared_db` is not required for certain use cases. During server initialization, the user core and registry modules rely on the registry and user store pointing to the default H2 shared db or the H2-based carbon DB. Therefore, ensure that at least the registry and user store configurations are appropriately set.
+
 
 ## API-M Components
 
