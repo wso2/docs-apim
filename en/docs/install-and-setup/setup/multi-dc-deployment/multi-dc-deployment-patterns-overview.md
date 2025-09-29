@@ -42,7 +42,6 @@ Take into account the following set of criteria for your new regional deployment
 - The feasibility of database replication.
 - Cost considerations that do not pose a constraint.
 - The imperative for low-latency operations within the region.
-- The requirement for Multi-Tenancy
 - Disaster recovery where regions need to survive independently with all the features
 
 In cases where the aforementioned criteria apply, [Pattern 1](#pattern-1-geo-regional-synchronized-api-management-with-replicated-databases) emerges as the optimal solution.
@@ -122,7 +121,6 @@ In Pattern 2 of a multi-datacenter (multi-DC) deployment of WSO2 API Manager, th
 
 - Since the control plane resides in the main region in pattern 2, in case of loss of connection or main region failure, communication between the control plane and gateway/traffic manager nodes will be disrupted. However, sub regions will still be capable of handling incoming traffic and perform throttling within the regions with the existing data. Once the main region control plane is connected again, the data will be synced to the sub region.
 - The gateways in the sub region depend on the main region control plane for API related data when starting the server. Therefore, gateway nodes in the sub region can only be restarted/started after the control plane is connected.
-- Pattern 2 does not support multi-tenancy. Therefore, if your deployment requires multi-tenancy, it is advisable to consider Pattern 1 for your deployment.
 
 ### Key Components
 
@@ -156,7 +154,3 @@ In this scenario, you can opt for either Pattern 1 or Pattern 2, depending on yo
 When dealing with a substantial number of customers from the region where the backends are hosted, the existing traffic handling can be inefficient. 
 
 To overcome this inefficiency, consider utilizing Pattern 2. By adding a sub region within the same region as the backends, you can optimize the gateway-to-backend communication. In this setup, the gateway and backend communication does not need to occur across different regions, resulting in improved efficiency. This pattern helps enhance the performance and responsiveness of your API deployment in multi-region scenarios.
-
-#### I am in the process of adding a new region to manage incoming traffic from another region. In my deployment, multi-tenancy is a crucial consideration. Which pattern is best suited for my requirement?
-
-In this scenario, Pattern 1 is the recommended choice. Pattern 1 seamlessly accommodates multi-tenancy across regions, making it the suitable solution for handling incoming traffic and ensuring the effective management of tenants in a multi-region deployment.

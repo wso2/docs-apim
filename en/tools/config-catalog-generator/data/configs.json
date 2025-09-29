@@ -580,6 +580,34 @@
             "exampleFile": "apim.gateway.environment.toml"
         },
         {
+            "options":[
+                {
+                    "name": "apim.sync_runtime_artifacts.tenant_loading",
+                    "required": true,
+                    "description": "Define information on tenants synchronization on gateway node",
+                    "params": [
+                        {
+                            "name": "enable",
+                            "type": "string",
+                            "required": false,
+                            "default": "FALSE",
+                            "possible": "",
+                            "description": "Set TRUE to enable "
+                        },
+                        {
+                            "name": "tenants",
+                            "type": "string",
+                            "required": false,
+                            "default": "*",
+                            "possible": "",
+                            "description": "Comma seperated list of tenants to be loaded on the gateway. Use * to load all tenants"
+                        }
+                    ]
+                }
+            ],
+            "exampleFile": "apim.sync_runtime_artifacts.toml"
+        },
+        {
             "options": [
                 {
                     "name": "apim.sync_runtime_artifacts.gateway",
@@ -1932,6 +1960,14 @@
                             "default": "super user password",
                             "possible": "",
                             "description": "If the credentials of the user is different, use the credentials of the user configured for deploying policies."
+                        },
+                        {
+                            "name": "policy_deploy.tenant_loading.tenants",
+                            "type": "string",
+                            "required": false,
+                            "default": "*",
+                            "possible": "",
+                            "description": "Define the tenants to load policies at startup. Use * to load all the tenants."
                         },
                         {
                             "name": "jms.username",
