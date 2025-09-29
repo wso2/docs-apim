@@ -19,9 +19,9 @@ To prevent these types of security attacks, it is encouraged to disable the weak
 
     ``` toml
     [transport.https.sslHostConfig.properties]
-    ciphers="TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384, TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256, TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384, TLS_ECDH_ECDSA_WITH_AES_256_GCM_SHA384, TLS_DHE_DSS_WITH_AES_256_GCM_SHA384, TLS_ECDH_RSA_WITH_AES_256_GCM_SHA384, TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256, TLS_ECDH_ECDSA_WITH_AES_128_GCM_SHA256, TLS_ECDH_RSA_WITH_AES_128_GCM_SHA256, TLS_DHE_DSS_WITH_AES_128_GCM_SHA256, TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA384, TLS_ECDH_ECDSA_WITH_AES_256_CBC_SHA384, TLS_ECDH_RSA_WITH_AES_256_CBC_SHA384, TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384, TLS_DHE_DSS_WITH_AES_256_CBC_SHA256, TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA, TLS_ECDH_ECDSA_WITH_AES_256_CBC_SHA, TLS_ECDH_RSA_WITH_AES_256_CBC_SHA, TLS_DHE_DSS_WITH_AES_256_CBC_SHA, TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256, TLS_ECDH_ECDSA_WITH_AES_128_CBC_SHA256, TLS_ECDH_RSA_WITH_AES_128_CBC_SHA256, TLS_DHE_DSS_WITH_AES_128_CBC_SHA256, TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA, TLS_ECDH_ECDSA_WITH_AES_128_CBC_SHA, TLS_ECDH_RSA_WITH_AES_128_CBC_SHA, TLS_DHE_DSS_WITH_AES_128_CBC_SHA, TLS_ECDHE_ECDSA_WITH_RC4_128_SHA, TLS_ECDH_ECDSA_WITH_RC4_128_SHA, TLS_ECDH_RSA_WITH_RC4_128_SHA, TLS_EMPTY_RENEGOTIATION_INFO_SCSVF"
+    ciphers="TLS_AES_256_GCM_SHA384, TLS_CHACHA20_POLY1305_SHA256, TLS_AES_128_GCM_SHA256, TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384, TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384, TLS_ECDHE_ECDSA_WITH_CHACHA20_POLY1305_SHA256, TLS_ECDHE_RSA_WITH_CHACHA20_POLY1305_SHA256, TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256, TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256, TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA384, TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384, TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256, TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256"
     ```
-     See the list of [supported cipher suites](https://wso2docs.atlassian.net/wiki/spaces/ADMIN44x/pages/6685439/Supported+Cipher+Suites) .
+     See the list of [supported cipher suites]({{base_path}}/install-and-setup/setup/reference/supported-cipher-suites/) .
 
 4.  Start the server.
 5.  To verify that the configurations are all set correctly, download and run the [testsslserver.jar]({{base_path}}/assets/attachments/admin/testsslserver-jar.zip).
@@ -31,7 +31,7 @@ To prevent these types of security attacks, it is encouraged to disable the weak
 
         -   The "Supported cipher suites" section in the output does not contain any EXPORT ciphers.
 
-        -   When you use the supported cipher suites listed [here](https://docs.wso2.com/display/ADMIN44x/Supported+Cipher+Suites), the BEAST attack status will be shown as vulnerable. Note that this is a client-side vulnerability caused by the TLSv1 protocol. You can make the BEAST status protected by removing TLSv1, which will make clients with TLSv1 unusable. Therefore, it is recommended tofixed this from the client side.
+        -   When you use the supported cipher suites listed [here]({{base_path}}/install-and-setup/setup/reference/supported-cipher-suites/), the BEAST attack status will be shown as vulnerable. Note that this is a client-side vulnerability caused by the TLSv1 protocol. You can make the BEAST status protected by removing TLSv1, which will make clients with TLSv1 unusable. Therefore, it is recommended to fix this from the client side.
 
         ``` java
         $ java -jar testsslserver.jar localhost 9443
@@ -74,6 +74,9 @@ To prevent these types of security attacks, it is encouraged to disable the weak
         [transport.passthru_https.listener.parameters]
         HttpsProtocols = "TLSv1.2,TLSv1.3"
         ```
+
+    !!! info "OWASP Recommendations"
+        According to OWASP guidelines, it is recommended to use only TLS 1.2 and TLS 1.3 protocols. Avoid using older protocols like TLS 1.0 and TLS 1.1 as they have known vulnerabilities.
 
 ## Changing the server name in HTTP response headers
 
