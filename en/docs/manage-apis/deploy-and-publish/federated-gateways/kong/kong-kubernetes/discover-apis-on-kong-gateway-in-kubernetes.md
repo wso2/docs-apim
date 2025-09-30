@@ -73,7 +73,7 @@ Before you start, ensure you have a Kong Gateway running in a Kubernetes cluster
 
 ## Step 2 : Add a PEM Certificate to the Resident Key Manager
 
-Kong Gateway on Kuberenetes requires PEM-format certificates. Therefore, you need to upload the PEM Certificate to the Resident Key Manager (or any other Key Manager you are using).
+Kong Gateway on Kubernetes requires PEM-format certificates. Therefore, you need to upload the PEM Certificate to the Resident Key Manager (or any other Key Manager you are using).
 
 1. In your WSO2 API Manager pack, navigate to the `<APIM-Home>/repository/resources/security` directory and run the following commands to generate a PEM certificate from the default keystore:
 
@@ -88,7 +88,7 @@ Kong Gateway on Kuberenetes requires PEM-format certificates. Therefore, you nee
 
     [![add pem to key manager for kong]({{base_path}}/assets/img/deploy/add-pem-to-key-manger-for-kong.png){: style="width:90%"}]({{base_path}}/assets/img/deploy/add-pem-to-key-manger-for-kong.png)
 
-## Step 3 : Setup WSO2 Kong Gateway Agent
+## Step 3 : Set up WSO2 Kong Gateway Agent
 
 Use Helm to install the WSO2 Common Agent for Kong. You can use the [Helm chart](https://github.com/wso2-extensions/apim-gw-connectors/tree/main/common-agent/helm) provided in the repository to setup the agent.
 
