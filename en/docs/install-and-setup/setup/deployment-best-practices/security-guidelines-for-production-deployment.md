@@ -316,6 +316,20 @@ tryItFunctionalityDisabled = true
 </code></pre>
 </td>
 </tr>
+<tr class="odd">
+<td><p>Enable script mediation class access control</p>
+<p><br />
+</p></td>
+<td><p>The Script Mediator is used to invoke the functions of a variety of scripting languages such as JavaScript. Script mediation access control can be used to restrict specific Java classes and methods within such scripts. To do so, add the following configuration to the <code>deployment.toml</code> file:
+<pre class="java" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence" style="brush: java; gutter: false; theme: Confluence"><code>[synapse_properties]
+'limit_java_class_access_in_scripts.enable' = true
+'limit_java_class_access_in_scripts.list_type' = "BLOCK_LIST" # Or ALLOW_LIST
+'limit_java_class_access_in_scripts.class_prefixes' = "java.lang,java.nio" # List the classes
+</code></pre>
+
+For more details, see <a href="{{base_path}}/manage-apis/design/prototype-api/create-mocked-js-api/#restricting-access-to-java-classes-and-methods">Restricting Access to Java Classes and Methods</a></p>
+</td>
+</tr>
 </tbody>
 </table>
 
