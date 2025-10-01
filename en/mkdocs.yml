@@ -100,7 +100,7 @@ nav:
                 - Endpoint Suspension: design/endpoints/resiliency/endpoint-suspension.md
                 - Prevent API Suspension: design/endpoints/resiliency/prevent-api-suspension.md
             - Manage Certificates: design/endpoints/certificates.md
-        - Lifecycle Managament:
+        - Lifecycle Management:
             - API Lifecycle: design/lifecycle-management/api-lifecycle.md
             - Customize API Life Cycle: design/lifecycle-management/customize-api-life-cycle.md
             - Extend the API Life Cycle: design/lifecycle-management/extending-the-api-life-cycle.md
