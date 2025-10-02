@@ -273,7 +273,6 @@ nav:
                     - Discover APIs on Azure API Gateway: deploy-and-publish/federated-gateways/azure/discover-apis-on-azure-api-gateway.md
                   - Kong:
                     - Kong Kubernetes:
-                        - Deploy on Kong Gateway in Kubernetes: manage-apis/deploy-and-publish/federated-gateways/kong/kong-kubernetes/deploy-on-kong-gateway-in-kubernetes.md
                         - Discover APIs on Kong Gateway in Kubernetes: manage-apis/deploy-and-publish/federated-gateways/kong/kong-kubernetes/discover-apis-on-kong-gateway-in-kubernetes.md
                     - Kong Standalone:
                         - Discover APIs on Kong Gateway: manage-apis/deploy-and-publish/federated-gateways/kong/kong-standalone/discover-apis-on-kong-gateway.md
