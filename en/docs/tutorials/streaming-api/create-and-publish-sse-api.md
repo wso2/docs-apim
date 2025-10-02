@@ -57,7 +57,7 @@ This tutorial will guide you to create a [SSE Streaming API]({{base_path}}/manag
 
 5. Attach business plans to the SSE API.
 
-      1. Click **Subscriptions** and navigate to the Business Plans page.
+      1. Click **Portal Configurations** and click **Subscriptions** to navigate to the Business Plans page.
 
       2. Select **AsyncGold** and click **Save**.
 
