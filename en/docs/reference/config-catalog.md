@@ -3455,7 +3455,8 @@ enable_token_hashing = false</code></pre>
                     <div class="mb-config-example">
 <pre><code class="toml">[apim.gateway_notification]
 enabled = true
-gateway_id = "gateway_00"</code></pre>
+gateway_id = "gateway_00"
+</code></pre>
                     </div>
                 </div>
                 <div class="doc-wrapper">
@@ -3532,7 +3533,8 @@ gateway_id = "gateway_00"</code></pre>
                 <div class="superfences-content">
                     <div class="mb-config-example">
 <pre><code class="toml">[apim.gateway_notification.heartbeat]
-notify_interval = "1m"</code></pre>
+notify_interval = "1m"
+</code></pre>
                     </div>
                 </div>
                 <div class="doc-wrapper">
@@ -3596,7 +3598,8 @@ retry_progression_factor = 2
 batch_processor_min_thread = 2
 batch_processor_max_thread = 8
 batch_processor_keep_alive = "1m"
-batch_processor_queue_size = 50</code></pre>
+batch_processor_queue_size = 50
+</code></pre>
                     </div>
                 </div>
                 <div class="doc-wrapper">
@@ -3806,7 +3809,8 @@ batch_processor_queue_size = 50</code></pre>
 <pre><code class="toml">[apim.gateway_notification.registration]
 max_retry_count = 5
 retry_duration = "10s"
-retry_progression_factor = 2</code></pre>
+retry_progression_factor = 2
+</code></pre>
                     </div>
                 </div>
                 <div class="doc-wrapper">
@@ -3902,6 +3906,7 @@ retry_progression_factor = 2</code></pre>
 <pre><code class="toml">[apim.gateway_notification.cleanup]
 expiry_time = "2m"
 data_retention_period = "30d"
+
 </code></pre>
                     </div>
                 </div>
