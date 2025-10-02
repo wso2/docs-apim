@@ -1,0 +1,5 @@
+[apim.basic_authenticator]
+init_idle_capacity = 20
+max_idle = 50
+max_active = 100
+max_wait_millis = 30000
