@@ -8849,7 +8849,7 @@ parameter.truststore_password = "$ref{truststore.password}"</code></pre>
 </div>
 
 
-## RabbitMQ Sender
+## RabbitMQ Sender (non-blocking mode)
 
 <div class="mb-config-catalog">
     <section>
@@ -9038,6 +9038,75 @@ parameter.connection_pool_size = 10</code></pre>
                                     </div>
                                 </div>
                             </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+
+## RabbitMQ Sender (blocking mode)
+
+<div class="mb-config-catalog">
+    <section>
+        <div class="mb-config-options">
+            <div class="superfences-tabs">
+
+            <input name="42" type="checkbox" id="_tab_42">
+                <label class="tab-selector" for="_tab_42"><i class="icon fa fa-code"></i></label>
+                <div class="superfences-content" style="display: none;">
+                    <div class="mb-config-example">
+<pre><code class="toml">[transport.rabbitmq]
+sender_enable = true
+
+[transport.blocking.rabbitmq.sender]
+name = "rabbitMQSender"
+parameter.hostname = "localhost"
+parameter.port = 5672
+parameter.username = "guest"
+parameter.password = "guest"
+parameter.connection_pool_size = 10</code></pre>
+                    </div>
+                </div>
+                <div class="doc-wrapper">
+                    <div class="mb-config">
+                        <div class="config-wrap">
+                            <code>[transport.rabbitmq]</code>
+
+                            <p>
+                                This configuration header is required for enabling the RabbitMQ listener in the MI Read more about <a href='../../install-and-setup/setup/mi-setup/brokers/configure-with-rabbitmq'>connecting the Micro Integator with RabbitMQ</a>.
+                            </p>
+                        </div>
+                        <div class="params-wrap">
+                            <div class="param">
+                                <div class="param-name">
+                                  <span class="param-name-wrap"> <code>sender_enable</code> </span>
+                                </div>
+                                <div class="param-info">
+                                    <div>
+                                        <p>
+                                            <span class="param-type string"> boolean </span>
+                                            <span class="badge-required">Required</span>
+                                        </p>
+                                        <div class="param-default">
+                                            <span class="param-default-value">Default: <code>false</code></span>
+                                        </div>
+                                        <div class="param-possible">
+                                            <span class="param-possible-values">Possible Values: <code>true</code> or <code>false</code></span>
+                                        </div>
+                                    </div>
+                                    <div class="param-description">
+                                        <p>Set this parameter to <code>true</code> if you want to configure the MI to send messages to a RabbitMQ broker.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div><div class="config-wrap">
+                            <code>[[transport.blocking.rabbitmq.sender]]</code>
+                            <span class="badge-required">Required</span>
+                            <p>
+                                This configuration header groups the parameters that are used to configure the RabbitMQ sender in blocking mode. You can use the <a href='#rabbitmq-sender-non-blocking-mode'>same list of parameters</a> that are available for the non-blocking RabbitMQ sender.
+                            </p>
                         </div>
                     </div>
                 </div>
