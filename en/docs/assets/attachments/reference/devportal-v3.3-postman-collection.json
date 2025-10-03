@@ -1,10 +1,9 @@
 {
 	"info": {
-		"_postman_id": "8f85f600-4886-44bc-a252-27f114c31da9",
-		"name": "WSO2 API Manager 4.4.0 - DevPortal REST API",
+		"_postman_id": "34fe751d-d083-4c32-99fa-972e9b47a1b6",
+		"name": "WSO2 API Manager 4.5.0 - DevPortal REST API",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-		"_exporter_id": "28719432",
-		"_collection_link": "https://www.postman.com/spaceflight-participant-24311919/workspace/wso2-apim-4-4-0/collection/28719432-8f85f600-4886-44bc-a252-27f114c31da9?action=share&source=collection_link&creator=28719432"
+		"_exporter_id": "40371634"
 	},
 	"item": [
 		{
@@ -2326,6 +2325,40 @@
 						}
 					},
 					"response": []
+				},
+				{
+					"name": "Get the Organization information of the user Copy",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access-token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{basepath}}/me/organization-information",
+							"host": [
+								"{{basepath}}"
+							],
+							"path": [
+								"me",
+								"organization-information"
+							]
+						},
+						"description": "Using this operation, logged-in user can get their organization information.\n"
+					},
+					"response": []
 				}
 			]
 		},
@@ -2642,7 +2675,7 @@
 	"variable": [
 		{
 			"key": "basepath",
-			"value": "https://localhost:9443/api/am/devportal/v3.1"
+			"value": "https://localhost:9443/api/am/devportal/v3.3"
 		},
 		{
 			"key": "apiId",
@@ -2778,13 +2811,11 @@
 		},
 		{
 			"key": "soapApiId",
-			"value": "bbba01a8-bc04-4f3f-b1c1-9c147753c89e",
-			"type": "string"
+			"value": "bbba01a8-bc04-4f3f-b1c1-9c147753c89e"
 		},
 		{
 			"key": "graphQLApiId",
-			"value": "bbba01a8-bc04-4f3f-b1c1-9c147753c89w",
-			"type": "string"
+			"value": "bbba01a8-bc04-4f3f-b1c1-9c147753c89w"
 		}
 	]
 }
