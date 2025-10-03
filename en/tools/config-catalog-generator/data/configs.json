@@ -5950,7 +5950,44 @@
                 }
             ],
             "exampleFile": "service_provider.toml"
-        }
+        },
+      {
+        "title": "OAuth token endpoint trust store configurations",
+        "options": [
+          {
+            "name": "apim.mediator_config.oauth.trust_store",
+            "required": false,
+            "description": "Trust store configurations used for OAuth token endpoint connection.",
+            "params": [
+              {
+                "name": "location",
+                "type": "string",
+                "required": false,
+                "default": "",
+                "possible": "",
+                "description": "Location path of the trust store file."
+              },
+              {
+                "name": "type",
+                "type": "string",
+                "required": false,
+                "default": "",
+                "possible": "",
+                "description": "Type of the trust store."
+              },
+              {
+                "name": "password",
+                "type": "string",
+                "required": false,
+                "default": "",
+                "possible": "",
+                "description": "Password for accessing the trust store."
+              }
+            ]
+          }
+        ],
+        "exampleFile": "apim.mediator_config.oauth.trust_store.toml"
+      }
     ]
 }
 
