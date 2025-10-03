@@ -2,7 +2,7 @@
 
 To install and set up the API-M servers:
 
-1.  Download the WSO2 API Control Plane, WSO2 Universal Gateway and WSO2 Traffic Manager component distributions from the [WSO2 API Manager website](https://wso2.com/api-manager/).
+1.  Download the WSO2 API Control Plane, WSO2 Universal Gateway and WSO2 Traffic Manager component distributions from the [WSO2 API Manager website](https://wso2.com/products/downloads/?product=wso2am&package=enterprise).
 
 ### Step 2 - Install and configure the databases
 
