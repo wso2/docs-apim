@@ -96,7 +96,7 @@ nav:
                     - Create a WebSub/WebHook API: manage-apis/design/create-api/create-streaming-api/create-a-websub-streaming-api.md
                     - Create a SSE API: manage-apis/design/create-api/create-streaming-api/create-a-sse-streaming-api.md
                     - Create a Streaming API from an AsyncAPI Definition: manage-apis/design/create-api/create-streaming-api/create-a-streaming-api-from-an-asyncapi-definition.md
-                    - Test a WebSub/WebHook API: manage-apis/design/create-api/create-streaming-api.md
+                    - Test a WebSub/WebHook API: manage-apis/design/create-api/create-streaming-api/test-a-websub-api.md
                 - Create an API Using a Service: manage-apis/design/create-api/create-an-api-using-a-service.md
                 - AI APIs: manage-apis/design/create-api/create-ai-api/create-an-ai-api.md
             - Create APIs with AI: manage-apis/design/create-api/create-api-with-ai.md
