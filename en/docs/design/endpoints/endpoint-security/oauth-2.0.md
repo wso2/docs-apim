@@ -129,3 +129,25 @@ If you are using an authenticated Redis server, you should add the following con
       connection_timeout = 36000
       ssl = true
       ```
+
+## Configuring a dedicated trust store for OAuth token endpoint connections
+
+By default, OAuth token endpoint connections use the existing SSL context in the system. If you want to configure a separate trust store for the OAuth token endpoint connection, you can use the following configuration.
+
+Add the following configuration to the `<API-M_HOME>/repository/conf/deployment.toml` file:
+
+=== "Format"
+      ```toml
+      [apim.mediator_config.oauth.trust_store]
+      location = "<path to the trust store file>"
+      type = "<trust store type, e.g., JKS>"
+      password = "<trust store password>"
+      ```
+
+=== "Example"
+      ```toml
+      [apim.mediator_config.oauth.trust_store]
+      location = "repository/resources/security/client-truststore-oauth.jks"
+      type = "JKS"
+      password = "wso2carbon"
+      ```
