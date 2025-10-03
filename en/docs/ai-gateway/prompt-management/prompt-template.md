@@ -83,12 +83,12 @@ This example demonstrates how the Prompt Template policy can be used to standard
     ```json
     [
       {
-        "name": "data-analyst-template",
+        "name": "customer-support-template",
         "prompt": "You are a professional customer support agent for SwiftTech Electronics. A customer has submitted the following message:\n\n\"[[customer_message]]\"\n\nCraft a helpful and empathetic response addressing the issue. Use a polite and understanding tone. If the issue is the company's fault, apologize sincerely. Offer a resolution or next steps where possible. Sign off in a friendly and professional manner."
       },
       {
         "name": "data-analyst-template",
-        "prompt": "You are a data analyst at SwiftTech Electronics. Analyze the following internal report:\n\n\"[[report_content]]\"\n\nSummarize the key points in 3–5 bullet points. Identify any actionable insights or recommendations. At the end, classify the overall sentiment of the report as Positive, Neutral, or Negative based on its content. Keep the tone professional and concise."
+        "prompt": "You are a data analyst at SwiftTech Electronics. Analyze the following internal report:\n\n\"[[report_content]]\"\n\nSummarize the key points in 3-5 bullet points. Identify any actionable insights or recommendations. At the end, classify the overall sentiment of the report as Positive, Neutral, or Negative based on its content. Keep the tone professional and concise."
       }
     ]
     ```

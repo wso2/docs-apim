@@ -64,7 +64,7 @@ Follow these steps to integrate the Regex Guardrail policy into your WSO2 API Ma
     | Field                           | Example                                                             |
     |---------------------------------|---------------------------------------------------------------------|
     | `Guardrail Name`                | `Regex Prompt Guard`                                                |
-    | `Regex Pattern`                 | `(?i)(DAN\|Do\sAnything\sNow\|ignore\sall\sprevious\sinstructions)` |
+    | `Regex Pattern`                 | `(?i)(DAN|Do\sAnything\sNow|ignore\sall\sprevious\sinstructions)` |
     | `JSON Path`                     | `$.messages[-1].content`                                            |
     | `Invert the Guardrail Decision` | `true`                                                              |
     | `Show Guardrail Assessment`     | `false`                                                             |
