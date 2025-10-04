@@ -8,35 +8,39 @@ In the Publisher Portal, you will:
 * Configure upstream and any APIM **policies** (auth, throttling, analytics).
 * Publish to make the proxied MCP tools available to consumers via APIM.
 
+<!-- -->
 
-   1. **Go to the Publisher Portal**
-      In the navigation, click **Proxy Existing MCP Server** → **Proxy an Existing MCP Server**.
+1. **Go to the Publisher Portal**
 
-   2. **Provide the definition**
+    * In the navigation, click **Proxy Existing MCP Server** → **Proxy an Existing MCP Server**.
 
-      * Select **MCP Server URL** and enter:
-      `https://db720294-98fd-40f4-85a1-cc6a3b65bc9a-prod.e1-us-east-azure.choreoapis.dev/godzilla/mcp-everything-server/v1.0`
+2. **Provide the definition**
 
-   3. **Select tools to import**
+    * Select **MCP Server URL** and enter:
+    `https://db720294-98fd-40f4-85a1-cc6a3b65bc9a-prod.e1-us-east-azure.choreoapis.dev/godzilla/mcp-everything-server/v1.0`
 
-      * Select the tools to expose through the MCP Server in APIM.
-      Click **Next**.
+3. **Select tools to import**
 
-      [![MCP Server Proxy Select Tools]({{base_path}}/assets/img/mcp/create-mcp-server-proxy-tools-selected.png){: style="width:90%"}]({{base_path}}/assets/img/mcp/create-mcp-server-proxy-tools-selected.png)
+    * Select the tools to expose through the MCP Server in APIM.
+    Click **Next**.
 
-   4. **Enter MCP Server details**
-      Fill in the details below and click **Create**.
-      !!! note
-      The **Endpoint** must be the backend base URL your tools will call at runtime—not the OpenAPI document URL.
+    [![MCP Server Proxy Select Tools]({{base_path}}/assets/img/mcp/create-mcp-server-proxy-tools-selected.png){: style="width:90%"}]({{base_path}}/assets/img/mcp/create-mcp-server-proxy-tools-selected.png)
 
-      | Field    | Sample value                                                               |
-      | -------- | -------------------------------------------------------------------------- |
-      | Name     | EverythingMCP                                                                   |
-      | Context  | /everything                                                                  |
-      | Version  | 1.0.0                                                                      |
-      | Endpoint | `https://db720294-98fd-40f4-85a1-cc6a3b65bc9a-prod.e1-us-east-azure.choreoapis.dev/godzilla/mcp-everything-server/v1.0` |
+4. **Enter MCP Server details**
 
-      [![MCP Server Proxy Create]({{base_path}}/assets/img/mcp/create-mcp-servers-proxy-create.png){: style="width:90%"}]({{base_path}}/assets/img/mcp/create-mcp-servers-proxy-create.png)
+    Fill in the details below and click **Create**.
+
+    !!! note
+        The **Endpoint** must be the backend base URL your tools will call at runtime—not the OpenAPI document URL.
+
+    | Field    | Sample value                                                               |
+    | -------- | -------------------------------------------------------------------------- |
+    | Name     | EverythingMCP                                                                   |
+    | Context  | /everything                                                                  |
+    | Version  | 1.0.0                                                                      |
+    | Endpoint | `https://db720294-98fd-40f4-85a1-cc6a3b65bc9a-prod.e1-us-east-azure.choreoapis.dev/godzilla/mcp-everything-server/v1.0` |
+
+    [![MCP Server Proxy Create]({{base_path}}/assets/img/mcp/create-mcp-servers-proxy-create.png){: style="width:90%"}]({{base_path}}/assets/img/mcp/create-mcp-servers-proxy-create.png)
 
 
 ### Next Step → Update and Deploy Your MCP Server
