@@ -12,33 +12,35 @@ This approach is faster when:
     Well-structured API resources with clear naming and descriptions will translate into more intuitive MCP tools.
 
 
-   1. **Go to the Publisher Portal**
-      In the navigation, click **Start from Existing API** → **Create MCP Server from Existing API**.
+1. **Go to the Publisher Portal**
+    
+    * In the navigation, click **Start from Existing API** → **Create MCP Server from Existing API**.
 
-   2. **Pick the source API**
+2. **Pick the source API**
 
-      * From the list of available APIs, select the one to generate tools from.
-      * Click **Next**.
+    * From the list of available APIs, select the one to generate tools from.
+    * Click **Next**.
 
-         [![MCP Server from API Validate]({{base_path}}/assets/img/mcp/create-mcp-servers-from-api-validate.png){: style="width:90%"}]({{base_path}}/assets/img/mcp/create-mcp-servers-from-api-validate.png)
+        [![MCP Server from API Validate]({{base_path}}/assets/img/mcp/create-mcp-servers-from-api-validate.png){: style="width:90%"}]({{base_path}}/assets/img/mcp/create-mcp-servers-from-api-validate.png)
 
-   3. **Select resources to become tools**
+3. **Select resources to become tools**
 
-      * Choose which API operations should become tools.
-      * Click **Next**.
+    * Choose which API operations should become tools.
+    * Click **Next**.
 
-      [![MCP Server from API Select Tools Selecteded]({{base_path}}/assets/img/mcp/create-mcp-servers-from-api-tools-selected.png){: style="width:90%"}]({{base_path}}/assets/img/mcp/create-mcp-servers-from-api-tools-selected.png)
+    [![MCP Server from API Select Tools Selecteded]({{base_path}}/assets/img/mcp/create-mcp-servers-from-api-tools-selected.png){: style="width:90%"}]({{base_path}}/assets/img/mcp/create-mcp-servers-from-api-tools-selected.png)
 
-   4. **Enter MCP Server details**
-      Provide the details and click **Create**.
+4. **Enter MCP Server details**
+  
+    Provide the details and click **Create**.
 
-      | Field    | Sample value                                                               |
-      | -------- | -------------------------------------------------------------------------- |
-      | Name     | Petstore                                                                   |
-      | Context  | /petstore                                                                  |
-      | Version  | 1.0.6                                                                      |
+    | Field    | Sample value                                                               |
+    | -------- | -------------------------------------------------------------------------- |
+    | Name     | Petstore                                                                   |
+    | Context  | /petstore                                                                  |
+    | Version  | 1.0.6                                                                      |
 
-      [![MCP Server from API Create]({{base_path}}/assets/img/mcp/create-mcp-servers-from-api-create.png){: style="width:90%"}]({{base_path}}/assets/img/mcp/create-mcp-servers-from-api-create.png)
+    [![MCP Server from API Create]({{base_path}}/assets/img/mcp/create-mcp-servers-from-api-create.png){: style="width:90%"}]({{base_path}}/assets/img/mcp/create-mcp-servers-from-api-create.png)
 
 ### Next Step → Update and Deploy Your MCP Server
 
