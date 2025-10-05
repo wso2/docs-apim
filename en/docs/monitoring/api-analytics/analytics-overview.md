@@ -1,3 +1,5 @@
+!!! info "New in 4.6.0 — Moesif-powered WSO2 Analytics replaces Choreo Analytics for enhanced insights and observability."
+
 # API Analytics Overview
 
 API Manager analytics provides insights into API usage, performance, and other key metrics to help API publishers and consumers make informed decisions. The analytics dashboard provides a comprehensive view of the API traffic, user engagement, and other relevant data. This section provides an overview of the analytics features available in WSO2 API Manager and guidance on how to use them effectively.
@@ -28,6 +30,7 @@ AI Analytics shows the Outbound analytics data that are specific to AI APIs. Thi
 
 WSO2 API Manager supports multiple platforms to monitor and analyze API traffic. This includes:
 
-- [**Choreo Based Analytics**](choreo-analytics/api-analytics-architecture.md) - A SaaS-based API analytics platform that provides real-time insights into API traffic, performance, and user engagement.
+- [**WSO2 Moesif Analytics**](moesif-analytics/moesif-integration-guide.md) - Default analytics platform integrated with WSO2 API Manager. A Powerful platform to monitor and analyze API traffic.
 - [**ELK Based Analytics**](on-prem/elk-installation-guide.md) - Native support for Elasticsearch, Logstash, and Kibana (ELK) stack to monitor and analyze API traffic.
+- [**OpenSearch Based Analytics**](on-prem/opensearch-installation-guide.md) - Native support for OpenSearch to monitor and analyze API traffic.
 - [**DataDog Based Analytics**](on-prem/datadog-installation-guide.md) - Integration with DataDog to monitor and analyze API traffic.
