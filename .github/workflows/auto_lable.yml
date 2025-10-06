@@ -27,7 +27,7 @@ jobs:
             echo "Checking if issue has assignee or is in Hacktoberfest project..."
 
             # Get issue details
-            ISSUE_JSON=$(gh issue view $ISSUE_NUMBER --json assignees,projectCards --repo ${{ github.repository }})
+            ISSUE_JSON=$(gh issue view $ISSUE_NUMBER --json assignees --repo ${{ github.repository }})
 
             # Check if the issue has assignees
             ASSIGNEES_COUNT=$(echo "$ISSUE_JSON" | jq '.assignees | length')
