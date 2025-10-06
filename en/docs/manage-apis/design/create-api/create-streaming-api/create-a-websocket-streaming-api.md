@@ -4,7 +4,7 @@
 
 A WebSocket API is a streaming API in WSO2 API Manager that is implemented based on the [WebSocket](https://www.w3.org/TR/websockets/) protocol specification, which is compatible with HTTP. The WebSocket protocol supports full-duplex communication over a channel that is established once. Therefore, WebSocket protocols allow a continuous two-way communication between the server and the client.
 
-You can create a WebSocket API from scratch in WSO2 API-M and export the WebSocket APIs that are created within WSO2 API-M as AsyncAPI definitions. Alternatively, you can also import [existing AsyncAPI definitions to create SSE APIs in WSO2 API-M](../../../../manage-apis/design/create-api/create-streaming-api/create-a-streaming-api-from-an-asyncapi-definition).
+You can create a WebSocket API from scratch in WSO2 API-M and export the WebSocket APIs that are created within WSO2 API-M as AsyncAPI definitions. Alternatively, you can also import [existing AsyncAPI definitions to create SSE APIs in WSO2 API-M](../create-a-streaming-api-from-an-asyncapi-definition).
 
 This section guides you through the process of creating a WebSocket API from scratch in which you can expose a WebSocket backend via WSO2 API Manager. After the API is created, you will be able to create independent channels to connect to each topic in the API. These topics can be mapped to different channels in the backend. As a result, the user can maintain multiple channels with the API to exchange different types of events simultaneously.
 
@@ -174,13 +174,13 @@ Click **Runtime** under the **API Configurations** section, select the required 
 
    <a href="{{base_path}}/assets/img/tutorials/streaming-api/websocket-api-runtime-configurations.png"><img src="{{base_path}}/assets/img/tutorials/streaming-api/websocket-api-runtime-configurations.png" width="65%" alt="Runtime Configurations of WebSocket API"></a>
 
-Now, you have successfully created and configured a Streaming API. Next, let's [Publish your API](../../../../manage-apis/deploy-and-publish/publish-on-dev-portal/publish-an-api).
+Now, you have successfully created and configured a Streaming API. Next, let's [Publish your API]({{base_path}}/manage-apis/deploy-and-publish/publish-on-dev-portal/publish-an-api).
 
 ## End-to-end tutorial
 
-Learn more by trying out an end-to-end tutorial on <a href="../../../../tutorials/streaming-api/create-and-publish-websocket-api">Creating and Publishing a WebSocket API</a>, which uses the default Streaming Provider that works with WSO2 API Manager, namely the WSO2 Streaming Integrator.
+Learn more by trying out an end-to-end tutorial on <a href="{{base_path}}/tutorials/streaming-api/create-and-publish-websocket-api">Creating and Publishing a WebSocket API</a>, which uses the default Streaming Provider that works with WSO2 API Manager, namely the WSO2 Streaming Integrator.
 
-Once you create and publish a WebSocket API, you can also <a href="../../../../manage-apis/deploy-and-publish/deploy-on-gateway/deploy-api/deploy-an-api/">deploy the API you created</a>.
+Once you create and publish a WebSocket API, you can also <a href="{{base_path}}/manage-apis/deploy-and-publish/deploy-on-gateway/deploy-api/deploy-an-api/">deploy the API you created</a>.
 
 ## See Also
 

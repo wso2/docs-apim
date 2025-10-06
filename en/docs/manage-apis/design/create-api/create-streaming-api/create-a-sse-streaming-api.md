@@ -4,7 +4,7 @@
 
 A Server-Sent Events (SSE) API is a streaming API in WSO2 API Manager (WSO2 API-M) that is implemented based on the [SSE](https://html.spec.whatwg.org/multipage/server-sent-events.html#server-sent-events) specification. SSE is an HTTP-based protocol that allows one-way communication similar to WebHooks, from the server to the client. The SSE server transfers events over an already established connection without creating new connections. Therefore, the SSE protocol has a lower delivery latency when compared to typical HTTP. WSO2 API Manager allows API Developers to integrate an SSE backend with an API and to receive events from the backend.
 
-You can create an SSE API from scratch in WSO2 API-M and export the SSE APIs that are created within WSO2 API-M as AsyncAPI definitions. Alternatively, you can also import [existing AsyncAPI definitions to create SSE APIs in WSO2 API-M](../../../../manage-apis/design/create-api/create-streaming-api/create-a-streaming-api-from-an-asyncapi-definition).
+You can create an SSE API from scratch in WSO2 API-M and export the SSE APIs that are created within WSO2 API-M as AsyncAPI definitions. Alternatively, you can also import [existing AsyncAPI definitions to create SSE APIs in WSO2 API-M](../create-a-streaming-api-from-an-asyncapi-definition).
 
 This section guides you through the process of creating an API from scratch, which will expose a SSE backend via WSO2 API Manager. After an SSE API is created, you will be able to add different topics and each topic can be mapped to different paths of the backend and can be used to manage them.
 
@@ -148,11 +148,11 @@ The AsyncAPI definition of the streaming API, which you just created, appears.
 
     Both HTTP and HTTPS transports are selected by default.
 
-Now, you have successfully created and configured a Streaming API. Next, let's [Publish your API](../../../../manage-apis/deploy-and-publish/publish-on-dev-portal/publish-an-api).
+Now, you have successfully created and configured a Streaming API. Next, let's [Publish your API]({{base_path}}/manage-apis/deploy-and-publish/publish-on-dev-portal/publish-an-api).
 
 ## End-to-end tutorial
 
-Learn more by trying out an end-to-end tutorial on <a href="../../../../tutorials/streaming-api/create-and-publish-sse-api">Creating and Publishing a SSE API</a>, which uses the default Streaming Provider that works with WSO2 API Manager, namely the WSO2 Streaming Integrator.
+Learn more by trying out an end-to-end tutorial on <a href="{{base_path}}/tutorials/streaming-api/create-and-publish-sse-api">Creating and Publishing a SSE API</a>, which uses the default Streaming Provider that works with WSO2 API Manager, namely the WSO2 Streaming Integrator.
 
 ## See Also
 
