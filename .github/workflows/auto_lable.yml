@@ -24,7 +24,23 @@ jobs:
             ISSUE_TITLE: ${{ github.event.issue.title }}
             ISSUE_BODY: ${{ github.event.issue.body }}
         run: |
-           echo "Sending issue to Claude for classification..."
+            echo "Checking if issue has assignee or is in Hacktoberfest project..."
+
+            # Get issue details
+            ISSUE_JSON=$(gh issue view $ISSUE_NUMBER --json assignees --repo ${{ github.repository }})
+
+            # Check if the issue has assignees
+            ASSIGNEES_COUNT=$(echo "$ISSUE_JSON" | jq '.assignees | length')
+            echo "Number of assignees: $ASSIGNEES_COUNT"
+
+            # Check if issue is part of Hacktoberfest project
+            HAS_HACKTOBERFEST_LABEL=$(gh issue view "$ISSUE_NUMBER" --repo "$GITHUB_REPOSITORY" --json labels | jq -r '.labels[].name' | grep -i '^hacktoberfest$' | wc -l)
+
+            if [[ "$ASSIGNEES_COUNT" -gt 0 || "$HAS_HACKTOBERFEST_LABEL" -gt 0 ]]; then
+              echo "Issue has assignee or is part of Hacktoberfest. Skipping AI-Agent/Queued label."
+              exit 0
+            fi
+            echo "Sending issue to Claude for classification..."
 
             # Build JSON payload safely with jq to escape newlines/quotes
             PROMPT="You are a GitHub issue classifier for documentation fixes. IMPORTANT: You can fix these specific types of issues:
