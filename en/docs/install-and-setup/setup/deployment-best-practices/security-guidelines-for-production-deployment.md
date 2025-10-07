@@ -276,9 +276,9 @@ This feature enables users to invoke external web services through API-M. Howeve
 tryItFunctionalityDisabled = true
 </code></pre>
 </td>
-<tr class="even">
-<td><p>Restrict Access to Java classes and Java Methods/Native Objects in Scripts
-</p>
+</tr>
+<tr class="odd" id="restrict-access-java">
+<td><p>Restrict Access to Java classes and Java Methods/Native Objects in Scripts</p>
 <td>
 <p>JS scripts can be used inside script mediators (eg: in Mock Endpoints) to access Java classes, methods and native objects. By default, all the classes are visible to these scripts. However, it is recommended to restrict access to these.
 <br/>
