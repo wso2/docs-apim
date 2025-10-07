@@ -3945,7 +3945,7 @@
 			"name": "Settings",
 			"item": [
 				{
-					"name": "Retreive Publisher Settings",
+					"name": "Retrieve Publisher Settings",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
 					},
