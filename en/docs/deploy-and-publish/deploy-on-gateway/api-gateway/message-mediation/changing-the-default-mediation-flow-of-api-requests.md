@@ -35,6 +35,17 @@ The following is a manually created sample custom mediation policy. This custom 
     </sequence>
     ```
 
+!!! note
+    Please note that JS scripts can be used inside the custom policy code to access Java classes, methods, and native objects. By default, all the classes are visible to these scripts. However, it is recommended to restrict access to these by adding the following configuration to the `deployment.toml` file:
+
+    <pre class="java" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence"
+            data-theme="Confluence" style="brush: java; gutter: false; theme: Confluence"><code>[synapse_properties]
+    'limit_java_class_access_in_scripts.enable' = true # or false
+    'limit_java_class_access_in_scripts.list_type' = "ALLOW_LIST" # or BLOCK_LIST
+    'limit_java_class_access_in_scripts.class_prefixes' = "java.util"</code></pre>
+
+    To further configure script mediation access control, please refer to the  <a href="{{base_path}}/install-and-setup/setup/deployment-best-practices/security-guidelines-for-production-deployment/#restrict-access-java">Restrict Access to Java classes and Java Methods/Native Objects in Scripts documentation.</a>
+
 Follow the instructions below to upload the above sequence as a custom mediation policy in the **Request** message flow:
 
 1.  Copy the above mediation sequence into a **XML** file.
@@ -86,6 +97,17 @@ Follow the instructions below to **edit an already attached mediation policy**:
     
 3.  Edit the downloaded mediation XML file and re-upload it as a Custom Policy.
 
+!!! note
+    Please note that JS scripts can be used inside the XML code to access Java classes, methods, and native objects. By default, all the classes are visible to these scripts. However, it is recommended to restrict access to these by adding the following configuration to the `deployment.toml` file:
+
+    <pre class="java" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence"
+            data-theme="Confluence" style="brush: java; gutter: false; theme: Confluence"><code>[synapse_properties]
+    'limit_java_class_access_in_scripts.enable' = true # or false
+    'limit_java_class_access_in_scripts.list_type' = "ALLOW_LIST" # or BLOCK_LIST
+    'limit_java_class_access_in_scripts.class_prefixes' = "java.util"</code></pre>
+
+    To further configure script mediation access control, please refer to the  <a href="{{base_path}}/install-and-setup/setup/deployment-best-practices/security-guidelines-for-production-deployment/#restrict-access-java">Restrict Access to Java classes and Java Methods/Native Objects in Scripts documentation.</a>
+
 Follow the instructions below to **disengage any mediation policy that is already engaged**:
 
 1.  Go to the Edit option in the **Message Mediation** section.
@@ -131,6 +153,17 @@ An example Synapse configuration of a per-API extension sequence created for th
 
 You can copy this content into an XML file (e.g., `twittersearch_ext.xml`) and save it in the `<API-M_HOME>/repository/deployment/server/synapse-configs/default/sequences` directory.
 
+!!! note
+    Please note that JS scripts can be used inside the XML code to access Java classes, methods, and native objects. By default, all the classes are visible to these scripts. However, it is recommended to restrict access to these by adding the following configuration to the `deployment.toml` file:
+
+    <pre class="java" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence"
+            data-theme="Confluence" style="brush: java; gutter: false; theme: Confluence"><code>[synapse_properties]
+    'limit_java_class_access_in_scripts.enable' = true # or false
+    'limit_java_class_access_in_scripts.list_type' = "ALLOW_LIST" # or BLOCK_LIST
+    'limit_java_class_access_in_scripts.class_prefixes' = "java.util"</code></pre>
+
+    To further configure script mediation access control, please refer to the  <a href="{{base_path}}/install-and-setup/setup/deployment-best-practices/security-guidelines-for-production-deployment/#restrict-access-java">Restrict Access to Java classes and Java Methods/Native Objects in Scripts documentation.</a>
+
 The above sequence prints a log message in the `wso2carbon` logs whenever the `TwitterSearch` API is invoked.
 
 ### Creating and uploading using WSO2 Integration Studio
@@ -153,6 +186,17 @@ An example synapse configuration of a global extension sequence is given below:
     ```
 
 This custom Sequence adds a trace log that gets printed when you invoke any of the APIs deployed in the Gateway.
+
+!!! note
+    Please note that JS scripts can be used inside the XML code to access Java classes, methods, and native objects. By default, all the classes are visible to these scripts. However, it is recommended to restrict access to these by adding the following configuration to the `deployment.toml` file:
+
+    <pre class="java" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence"
+            data-theme="Confluence" style="brush: java; gutter: false; theme: Confluence"><code>[synapse_properties]
+    'limit_java_class_access_in_scripts.enable' = true # or false
+    'limit_java_class_access_in_scripts.list_type' = "ALLOW_LIST" # or BLOCK_LIST
+    'limit_java_class_access_in_scripts.class_prefixes' = "java.util"</code></pre>
+
+    To further configure script mediation access control, please refer to the  <a href="{{base_path}}/install-and-setup/setup/deployment-best-practices/security-guidelines-for-production-deployment/#restrict-access-java">Restrict Access to Java classes and Java Methods/Native Objects in Scripts documentation.</a>
 
 You can copy this content into an XML file (e.g., `global_ext.xml`) and save it in the `<API-M_HOME>/repository/deployment/server/synapse-configs/default/sequences` directory.
 
