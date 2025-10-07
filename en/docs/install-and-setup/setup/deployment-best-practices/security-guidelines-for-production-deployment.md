@@ -264,7 +264,7 @@ been removed from Hotspot JVM.</p>
 <td><p>Client authentication is used to identify the application or client making a request to the WSO2 API Manager  REST APIs. By default, web applications provided with WSO2 API Manager use a set of default credentials for authentication. However, it is recommended to change these default credentials to enhance security. For more details see, <a href="{{base_path}}/install-and-setup/setup/deployment-best-practices/security-guidelines-for-production-deployment/#configure-client-authentication">Configure client authentication</a></p>
 </td>
 </tr>
-<tr class="even">
+<tr class="even" id="restrict-access-java">
 <td><p>Restrict Access to Java classes and Java Methods/Native Objects in Scripts</p>
 <p><br />
 </p></td>
