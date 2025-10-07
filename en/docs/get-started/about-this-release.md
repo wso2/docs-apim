@@ -2,7 +2,7 @@
 
 WSO2 API Manager is a complete platform for building, integrating, and exposing your digital services as managed APIs in the cloud, on-premise, and hybrid architectures to drive your digital transformation strategy. It comes with a cloud-native, standards-based messaging engine, and an integration framework for integrating APIs, services, data, SaaS, proprietary, and legacy systems and it can also serve streaming-based integrations. The product comes with command-line and developer tools that enable easy design, development, and testing.
 
-**WSO2 API Manager 4.4.0** is the latest **WSO2 API Manager release** and is the successor of **WSO2 API Manager 4.3.0**.
+**WSO2 API Manager 4.6.0** is the latest **WSO2 API Manager release** and is the successor of **WSO2 API Manager 4.5.0**.
 
 For more information on WSO2 API Manager, see the [overview]({{base_path}}/getting-started/overview/).
 
@@ -12,154 +12,101 @@ For more information on WSO2 API Manager, see the [overview]({{base_path}}/getti
 
 ## New features
 
-??? note "Egress API Management Capability with support for LLM/AI"
+??? note "Gateway Federation"
 
-    This release of API Manager introduces the capability to integrate AI services and large language models (LLMs) with APIs. It offers token-based rate limits and flexible business plans, making it simpler to manage. You also get detailed analytics on token usage, request counts, and performance, helping you make smart business decisions around AI models and vendors. With full API lifecycle management, you have complete control over your AI APIs. Plus, the optimized API gateways are designed to handle AI services efficiently, boosting overall performance.
+    WSO2 API Manager 4.6.0 introduces comprehensive Gateway Federation capabilities, enabling seamless integration with external gateway platforms and automatic API discovery across federated environments.
 
-    **[Learn more]({{base_path}}/manage-apis/design/create-api/create-ai-api/create-an-ai-api/)**
+    **Federated API Auto-discovery:**
+    
+    - **[AWS API Gateway]({{base_path}}/manage-apis/deploy-and-publish/federated-gateways/aws/discover-apis-on-aws-api-gateway/)**
+    - **[Azure API Gateway]({{base_path}}/deploy-and-publish/federated-gateways/azure/discover-apis-on-azure-api-gateway/)**
+    - **Kong Gateway:** [Kubernetes]({{base_path}}/manage-apis/deploy-and-publish/federated-gateways/kong/kong-kubernetes/discover-apis-on-kong-gateway-in-kubernetes/) | [Standalone]({{base_path}}/manage-apis/deploy-and-publish/federated-gateways/kong/kong-standalone/discover-apis-on-kong-gateway/)
+    - **Envoy Gateway**
 
-??? note "WSO2 Identity Server 7.0 Authorization Server Support"
+    **Federated Gateway Onboarding:**
+    
+    - **[Azure API Gateway]({{base_path}}/deploy-and-publish/federated-gateways/azure/deploy-on-azure-api-gateway/)**
 
-    Integration with WSO2 Identity Server 7.x as an authorization server (key manager) is now supported, providing a unified key management solution for your API management requirements.
+??? note "Enhanced AI Gateway Capabilities"
 
-    **[Learn more]({{base_path}}/administer/key-managers/configure-wso2is7-connector/)**
+    This release significantly expands AI Gateway functionality with unified AI model management, multi-provider support, and advanced AI governance features.
 
-??? note "Support for Consuming APIs without Subscriptions"
+    **Unified AI Model Management:**
+    
+    - Multi-provider model hierarchy for streamlined AI service management
+    - Enhanced token-based rate limits and flexible business plans
+    - Detailed analytics on token usage, request counts, and performance
 
-    API Manager now has the capability to disable the subscription requirement for API consumption. This simplifies the user experience by allowing users to avoid subscription approval and application creation processes.
+    **Additional AI/LLM Provider Support:**
+    
+    - **[AWS Bedrock]({{base_path}}/ai-gateway/ai-vendor-management/aws-bedrock/)**
+    - **[Azure AI Foundry]({{base_path}}/ai-gateway/ai-vendor-management/azure-ai-foundry/)**
+    - **[Gemini]({{base_path}}/ai-gateway/ai-vendor-management/gemini/)**
+    - **[Anthropic]({{base_path}}/ai-gateway/ai-vendor-management/anthropic/)**
 
-    **[Learn more]({{base_path}}/manage-apis/design/advanced-topics/disable-subscriptions-for-an-api/)**
+    **Advanced AI Features:**
+    
+    - **[AI Guardrails]({{base_path}}/ai-gateway/ai-guardrails/overview/)** - Comprehensive governance and safety controls for AI services
+    - **[Semantic Caching]({{base_path}}/ai-gateway/semantic-caching/)** - Intelligent caching for improved AI response performance
 
-??? note "API Microgateway / Immutable Gateway Support with APIM 4.x"
+    **[Learn more about AI API creation]({{base_path}}/manage-apis/design/create-api/create-ai-api/create-an-ai-api/)**
 
-    API Manager 4.4.0 and other members of the 4.x family can now be seamlessly integrated with the WSO2 Microgateway 3.2.0 allowing users to choose the most suitable gateway solution for their needs.
+??? note "MCP - Agent Integration Support"
 
-??? note "Dynamic API Flow Orchestration Support"
+    WSO2 API Manager now supports Model Context Protocol (MCP) for exposing tools and services to AI agents, enabling seamless AI agent integration and tool orchestration.
 
-    This feature lets developers easily manage messages, connect multiple services, and gather responses right within the API Gateway. With Synapse sequences as endpoints, you can route requests, add custom business logic, and orchestrate multiple services seamlessly, all without changing your backend APIs. It’s a straightforward way to handle complex API workflows and integrations.
+    **[Learn more about MCP Support]({{base_path}}/mcp/overview/)**
 
-    **[Learn more]({{base_path}}/tutorials/create-and-publish-a-sequencebackend-api/)**
+??? note "Enhanced Analytics Support"
 
-??? note "Enhanced Security with Client-Side mTLS Authentication"
+    Expanded analytics capabilities with support for additional analytics platforms, providing more flexibility in monitoring and analyzing API performance.
 
-    This feature boosts security with customized mTLS settings tailored to different environments, ensuring stronger protection. It also supports compliance by allowing environment-specific security configurations to meet various regulatory requirements. API consumers benefit from the flexibility to use different MTLS settings for production and sandbox environments without causing conflicts
+    - **[Moesif Analytics Integration]({{base_path}}/monitoring/api-analytics/moesif-analytics/moesif-integration-guide/)**
+    - **[OpenSearch Analytics Support]({{base_path}}/monitoring/api-analytics/on-prem/opensearch-installation-guide/)**
 
-??? note "Business Plan Updates for Existing Subscriptions"
+??? note "Distributed Throttling for Traffic Manager"
 
-    This approach offers flexibility to the users by allowing changes to business plans through API calls without requiring customers to unsubscribe and resubscribe.
+    Enhanced rate limiting capabilities with distributed throttling support for Traffic Manager, enabling more efficient and scalable rate limiting across distributed deployments.
 
-??? note "Application Level Throttle Policy Reset Support"
+    **[Learn more]({{base_path}}/manage-apis/design/rate-limiting/advanced-topics/distributed-throttling/)**
 
-    The latest version of API Manager introduces the capability to reset the Application level rate limiting policies once the throttling limit has been exceeded. With this, you no longer have to wait until the next access time if your API got throttled due to request spikes or unintended requests.
+??? note "Enhanced Gateway Management"
 
-    **[Learn more]({{base_path}}/manage-apis/design/rate-limiting/resetting-application-throttling-policies/)**
+    Improved gateway operations with comprehensive health monitoring and deployment tracking capabilities.
 
-??? note "Subscription Approval Support from API Publisher Portal"
+    - **Gateway Health Monitoring** - Real-time monitoring of gateway health and performance
+    - **API Deployment Monitoring** - Track and monitor API deployments across gateways
 
-    The latest version of API Manager allows API product managers more control by letting them directly manage and approve subscription requests
+??? note "Database-Free Universal Gateway with Tenancy"
 
-??? note "Audience Validation Support for JWTs"
+    The Universal Gateway now supports multi-tenant operations without database dependencies, simplifying deployment and improving performance in tenant-specific scenarios.
 
-    This feature improves the API security by introducing an extra level of validation to the JWTs. This approach is particularly useful when you need to restrict the API access to a particular audience when APIs are shared among multiple clients or services.
+    **[Learn more]({{base_path}}/manage-apis/deploy-and-publish/deploy-on-gateway/api-gateway/maintain-seperate-gateways-per-tenants/)**
 
-    **[Learn more]({{base_path}}/manage-apis/design/api-security/oauth2/access-token-types/jwt-tokens/#audience-validation)**
+??? note "IS and API Manager Tenancy Sharing"
 
-??? note "Enhanced Content Search Support"
+    Enhanced integration capabilities allowing tenancy sharing between WSO2 Identity Server and API Manager, providing unified tenant management across platforms.
 
-    The latest version of API Manager expands its content search capabilities by allowing the users to search within the OpenAPI/Swagger, GraphQL schema, AsyncAPI, and WSDL definitions of the APIs.
+    **[Learn more]({{base_path}}/administer/multitenancy/tenant-sharing-with-wso2is7/)**
 
-??? note "Multi DC Replication Support for PostgreSQL"
+??? note "Application Management Enhancements"
 
-    API Manager has database replication support with Oracle and SQL Server. With the introduction of support to PostgreSQL in the latest version, users have more options to deploy API Manager in multiple data centers with database replication.
+    Improved application lifecycle management with workflow support and enhanced scope management.
 
-??? note "Filtering Support for Denylist Throttling Policies"
+    - **[Application Update Workflow]({{base_path}}/consume/manage-application/advanced-topics/adding-an-application-update-workflow/)** - Introduce approval workflows for application updates
+    - **[Application Scope Support]({{base_path}}/administer/key-managers/application-scopes/)** - Fine-grained scope management for applications
 
-    This feature allows users to filter denylist throttling policies through the REST APIs.
+[//]: # (## Deprecated Features and Functionalities)
 
-## Deprecated Features and Functionalities
+[//]: # (TODO: Add the deprecated features and functionalities here)
 
-These features are deprecated and will be removed from subsequent versions of WSO2 API Manager.
+[//]: # (## Removed Features and Functionalities)
 
-## Removed Features and Functionalities
+[//]: # (TODO: Add the removed features and functionalities here)
 
-These features are unsupported and removed from WSO2 API Manager 4.4.0 onwards.
+[//]: # (## Key Changes)
 
-## Key Changes
-
-- With WSO2 API Manager 4.5.0, we introduce a Modular API Management Component Structure allowing independent deployment and lifecycle management of key components while maintaining compatibility across these different components. With this capability, users can update or upgrade different components as per their requirement without impacting the entire deployment. The components include,
-    1. The WSO2 API Control Plane (ACP) equivalent to the Control Plane (CP) in previous APIM releases without the traffic manager component, which manages the design, lifecycle, and governance of APIs at scale and consists of the Publisher, Developer Portal, Admin Portal and the Key management capabilities,
-    2. The WSO2 Universal Gateway which can secure and proxy API traffic with enterprise-grade features,
-    3. The Traffic Manager which handles API traffic policies and rate limiting at high volumes,
-    4. Other supporting components such as the WSO2 Kubernetes Gateway, API Controller and Immutable Gateway.
-
-- Product profiles are no longer available in the All-in-one distribution of WSO2 API Manager. Previously the API-M server allowed you to run the product on a selected profile so that only the features specific to that profile, along with common features, started with the server. Therefore if there is a requirement to configure a distributed deployment of WSO2 API Manager, you can use the Modular component architecture as mentioned above. The following table shows the component distributions you can use as a deployment alternative to the previous deployment architecture of your environment.
-
-<table>
-    <colgroup>
-        <col />
-        <col />
-        <col />
-        <col />
-        <col />
-        <col />
-    </colgroup>
-    <thead>
-        <tr>
-            <th>Previous Deployment Pattern</th>
-            <th colspan="5">New Deployment Alternative</th>
-        </tr>
-        <tr>
-            <th></th>
-            <th>All-in-one</th>
-            <th>API Control Plane (ACP)</th>
-            <th>Universal Gateway</th>
-            <th>Traffic Manager</th>
-            <th>Key Manager of ACP</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td>All-in-one</td>
-            <td style="text-align: center;">&#x2713;</td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-        </tr>
-        <tr>
-            <td>Control Plane + Gateway</td>
-            <td style="text-align: center;">&#x2713;</td>
-            <td></td>
-            <td style="text-align: center;">&#x2713;</td>
-            <td></td>
-            <td></td>
-        </tr>
-        <tr>
-            <td>Control Plane + Gateway + Traffic Manager</td>
-            <td></td>
-            <td style="text-align: center;">&#x2713;</td>
-            <td style="text-align: center;">&#x2713;</td>
-            <td style="text-align: center;">&#x2713;</td>
-            <td></td>
-        </tr>
-        <tr>
-            <td>Control Plane + Gateway + Key Manager</td>
-            <td style="text-align: center;">&#x2713;</td>
-            <td></td>
-            <td style="text-align: center;">&#x2713;</td>
-            <td></td>
-            <td style="text-align: center;">&#x2713;</td>
-        </tr>
-        <tr>
-            <td>Control Plane + Gateway + Traffic Manager + Key Manager</td>
-            <td></td>
-            <td style="text-align: center;">&#x2713;</td>
-            <td style="text-align: center;">&#x2713;</td>
-            <td style="text-align: center;">&#x2713;</td>
-            <td style="text-align: center;">&#x2713;</td>
-        </tr>
-    </tbody>
-</table>
+[//]: # (TODO: Add the key changes here)
 
 ## Compatible WSO2 product versions
 
@@ -167,8 +114,8 @@ These features are unsupported and removed from WSO2 API Manager 4.4.0 onwards.
 
 ## Fixed issues
 
-- [API Manager](https://github.com/wso2/api-manager/issues?q=is%3Aissue+is%3Aclosed+label%3AComponent%2FAPIM+closed%3A2024-04-11..2024-10-30+)
-- [API Controller](https://github.com/wso2/api-manager/issues?q=is%3Aissue+is%3Aclosed+label%3AComponent%2FAPICTL+label%3AType%2FBug++closed%3A2024-04-11..2024-10-30+)
+- [API Manager](https://github.com/wso2/api-manager/issues?q=is%3Aissue%20is%3Aclosed%20label%3AComponent%2FAPIM%20label%3A4.6.0%2C4.6.0-M1%2C4.6.0-Alpha%2C4.6.0-Alpha2%2C4.6.0-Alpha3%2C4.6.0-Beta)
+- [API Controller](https://github.com/wso2/api-manager/issues?q=is%3Aissue%20is%3Aclosed%20label%3AComponent%2FAPICTL%20label%3A4.6.0%2C4.6.0-M1%2C4.6.0-Alpha%2C4.6.0-Alpha2%2C4.6.0-Alpha3%2C4.6.0-Beta)
 
 ## Known issues
 
