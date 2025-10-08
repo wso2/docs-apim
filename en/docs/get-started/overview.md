@@ -112,3 +112,6 @@ The following are some of the main capabilities of the product.
 - Try out WSO2 API Manager by following the [Quick Start Guide]({{base_path}}/get-started/api-manager-quick-start-guide).
 - Understand the [basic architecture of the product]({{base_path}}/get-started/apim-architecture).
 - Learn more [about this release]({{base_path}}/get-started/about-this-release).
+
+
+> **Note:** This overview is designed to give new users a quick understanding of WSO2 API Manager’s key features and how it simplifies the process of designing, publishing, and managing APIs effectively.
