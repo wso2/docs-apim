@@ -58,7 +58,7 @@ The instructions below contain the steps that you require to follow to create a 
           * @param policyName           Name of the policy validated
           * @param rule                 The rule of the policy
           * @param opaResponse          The message to be authenticated
-          * @param additionalParameters Additional parameters that can be used to handle the the opa response
+          * @param additionalParameters Additional parameters that can be used to handle the opa response
           * @param messageContext       The message to be authenticated
           * @return true if the authentication is successful
           * @throws OPASecurityException If an authentication failure or some other error occurs

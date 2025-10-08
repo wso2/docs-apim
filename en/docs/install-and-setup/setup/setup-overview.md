@@ -99,7 +99,7 @@ In addition, the component-specific setup tasks are as follows:
     
     - [**Configuring message relay**](https://mi.docs.wso2.com/en/latest/install-and-setup/setup/message-builders-formatters/message-relay/)
     
-        Enabling message relay allows the Micro Integrator component to to pass messages along without building or processing them unless specifically requested to do so. This way, the Micro Integrator can handle a higher throughput.
+        Enabling message relay allows the Micro Integrator component to pass messages along without building or processing them unless specifically requested to do so. This way, the Micro Integrator can handle a higher throughput.
         
         This section guides you to enable and configure message relay.
         

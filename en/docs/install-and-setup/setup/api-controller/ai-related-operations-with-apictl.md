@@ -61,7 +61,7 @@ Run the following command to delete all the APIs and API Products from the vecto
               apictl ai delete artifacts --token 2fdca1b6-6a28-4aea-add6-77c97033bdb9 artifacts --endpoint https://dev-tools.wso2.com/apim-ai-service -e dev
           ```
     !!! note
-          - Note that if you have already set the token to the config variable, you dont have to use the --token flag
+          - Note that if you have already set the token to the config variable, you don't have to use the --token flag
 
 
 ### Upload APIs to vector database.
@@ -109,7 +109,7 @@ Run the following command to upload all the APIs to the vector database from the
           apictl ai upload apis --token 2fdca1b6-6a28-4aea-add6-77c97033bdb9 artifacts --endpoint https://dev-tools.wso2.com/apim-ai-service -e dev
           ```
     !!! note
-          - Note that if you have already set the token to the config variable, you dont have to use the --token flag
+          - Note that if you have already set the token to the config variable, you don't have to use the --token flag
 
 ### Upload API Products to vector database.
 
@@ -156,7 +156,7 @@ Run the following command to upload all the API Products to the vector database 
           apictl ai upload api-products --token 2fdca1b6-6a28-4aea-add6-77c97033bdb9 artifacts --endpoint https://dev-tools.wso2.com/apim-ai-service -e dev
           ```
     !!! note
-          - Note that if you have already set the token to the config variable, you dont have to use the --token flag
+          - Note that if you have already set the token to the config variable, you don't have to use the --token flag
 
 This process can be repeated for all tenants.
 
