@@ -274,7 +274,7 @@ tryItFunctionalityDisabled = true
 </code></pre>
 </td>
 </tr>
-<tr class="even">
+<tr class="odd" id="restrict-access-java">
 <td><p>Restrict Access to Java classes and Java Methods/Native Objects in Scripts</p>
 <p><br />
 </p></td>
