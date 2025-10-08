@@ -76,6 +76,17 @@ A common policy is a globally maintained policy and you can easily utilize this 
         Please note that the policy content should not contain any XML – Prolog components. You have to start from a root element or child elements.   
         Eg: Should not begin with `<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>`. 
 
+    !!! note
+        Please note that JS scripts can be used inside the custom policy code to access Java classes, methods, and native objects. By default, all the classes are visible to these scripts. However, it is recommended to restrict access to these by adding the following configuration to the `deployment.toml` file:
+
+        <pre class="java" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence"
+               data-theme="Confluence" style="brush: java; gutter: false; theme: Confluence"><code>[synapse_properties]
+        'limit_java_class_access_in_scripts.enable' = true # or false
+        'limit_java_class_access_in_scripts.list_type' = "ALLOW_LIST" # or BLOCK_LIST
+        'limit_java_class_access_in_scripts.class_prefixes' = "java.util"</code></pre>
+
+        To further configure script mediation access control, please refer to the  <a href="{{base_path}}/install-and-setup/setup/deployment-best-practices/security-guidelines-for-production-deployment/#restrict-access-java">Restrict Access to Java classes and Java Methods/Native Objects in Scripts documentation.</a>
+
 5. The final section in the form is the **Policy Attributes** section. These attributes are derived from the policy file that you uploaded in the previous step. If you observe the policy content you should notice two dynamic values embedded into that policy, namely the headerName and headerValue. Those are the attributes that we should include when creating our policy (note that you can have a static policy with no attributes if the policy content is static). Let’s fill the **Policy Attributes** section using the following details.
 
     [![Policy attributes]({{base_path}}/assets/img/design/api-policies/common-policy-4.png){: style="width:90%"}]({{base_path}}/assets/img/design/api-policies/common-policy-4.png)
@@ -191,3 +202,14 @@ If you would rather create a policy that is local to the API, you can follow the
 
     !!! note 
         The `Common Policies` only permit the **View** action as opposed to the `API Specific Policies` that permit both **View** and **Delete** actions. If you wish to delete a common policy, you need to navigate to the globally maintained common policy list to do so.
+
+    !!! note
+        Please note that JS scripts can be used inside the custom policy code to access Java classes, methods, and native objects. By default, all the classes are visible to these scripts. However, it is recommended to restrict access to these by adding the following configuration to the `deployment.toml` file:
+
+        <pre class="java" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence"
+               data-theme="Confluence" style="brush: java; gutter: false; theme: Confluence"><code>[synapse_properties]
+        'limit_java_class_access_in_scripts.enable' = true # or false
+        'limit_java_class_access_in_scripts.list_type' = "ALLOW_LIST" # or BLOCK_LIST
+        'limit_java_class_access_in_scripts.class_prefixes' = "java.util"</code></pre>
+
+        To further configure script mediation access control, please refer to the  <a href="{{base_path}}/install-and-setup/setup/deployment-best-practices/security-guidelines-for-production-deployment/#restrict-access-java">Restrict Access to Java classes and Java Methods/Native Objects in Scripts documentation.</a>
