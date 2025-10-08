@@ -58,7 +58,7 @@ We recommend the following patterns for denying requests.
         </tr>
         <tr class="odd">
             <td>JavaScript Exception</td>
-            <td><p><code>&lt;\s*script\b[^&gt;]*&gt;[^&lt;]+&lt;\s*/\s*script\s*&gt;</code></p></td>
+            <td><p><code><\s*script\b[^>]*>[^<]+<\s*/\s*script\s*></code></p></td>
         </tr>
         <tr class="even">
             <td>XPath Expanded Syntax Injection</td>
