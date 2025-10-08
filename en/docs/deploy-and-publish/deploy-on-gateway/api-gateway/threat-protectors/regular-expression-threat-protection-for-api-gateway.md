@@ -60,7 +60,7 @@ We recommend the following patterns for denying requests.
             <td>JavaScript Exception</td>
             <td><p>
             ```
-            &lt;\s*script\b[^&gt;]*&gt;[^&lt;]+&lt;\s*/\s*script\s*&gt;
+            <\s*script\b[^>]*>[^<]+<\s*/\s*script\s*>
             ```
             </p></td>
         </tr>
