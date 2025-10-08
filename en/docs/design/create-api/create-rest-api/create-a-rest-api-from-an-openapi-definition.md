@@ -213,7 +213,7 @@ The Transport Level Security defines the transport protocol on which the API is 
 
 3. Click **Save**
 
-    [![Business Plans page]({{base_path}}/assets/img/learn/add-business-plans-for-pet-store-api.png)]({{base_path}}/assets/img/learn/add-business-plans-for-pet-store-api.png)
+    [![Business Plans page]({{base_path}}/assets/img/learn/add-bussiness-plans-for-pet-store-api.png)]({{base_path}}/assets/img/learn/add-bussiness-plans-for-pet-store-api.png)
 
 
 Now, a REST API from an OpenAPI Definition has been created and configured successfully. 
