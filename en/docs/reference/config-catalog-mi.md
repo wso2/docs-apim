@@ -120,7 +120,7 @@ enable_swa=false
                                         </div>
                                     </div>
                                     <div class="param-description">
-                                        <p>Use this paramater to enable MTOM (Message Transmission Optimization Mechanism) for the product server.</p>
+                                        <p>Use this parameter to enable MTOM (Message Transmission Optimization Mechanism) for the product server.</p>
                                     </div>
                                 </div>
                             </div><div class="param">
@@ -139,7 +139,7 @@ enable_swa=false
                                         
                                     </div>
                                     <div class="param-description">
-                                        <p>Use this paramater to enable SwA (SOAP with Attachments) for the product server. When SwA is enabled, the Micro Integrator will process the files attached to SOAP messages.</p>
+                                        <p>Use this parameter to enable SwA (SOAP with Attachments) for the product server. When SwA is enabled, the Micro Integrator will process the files attached to SOAP messages.</p>
                                     </div>
                                 </div>
                             </div><div class="param">
@@ -2409,7 +2409,7 @@ pool_options.testOnBorrow = true</code></pre>
                                         </div>
                                     </div>
                                     <div class="param-description">
-                                        <p>Timeout value in seconds. Default value is 0. Similar to to the removeAbandonedTimeout value but instead of treating the connection as abandoned, and potentially closing the connection, this simply logs the warning if logAbandoned is set to true. If this value is equal or less than 0, no suspect checking will be performed. Suspect checking only takes place if the timeout value is larger than 0 and the connection was not abandoned or if abandon check is disabled. If a connection is suspect a WARN message gets logged and a JMX notification gets sent once.</p>
+                                        <p>Timeout value in seconds. Default value is 0. Similar to the removeAbandonedTimeout value but instead of treating the connection as abandoned, and potentially closing the connection, this simply logs the warning if logAbandoned is set to true. If this value is equal or less than 0, no suspect checking will be performed. Suspect checking only takes place if the timeout value is larger than 0 and the connection was not abandoned or if abandon check is disabled. If a connection is suspect a WARN message gets logged and a JMX notification gets sent once.</p>
                                     </div>
                                 </div>
                             </div>

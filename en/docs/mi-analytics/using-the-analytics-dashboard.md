@@ -202,7 +202,7 @@ In the Top APIS BY Request COUNT gadget, click `HealthcareAPI` to open the **OVE
     taken per message at different times within the last hour as
     shown below.  
     [![API message latency]({{base_path}}/assets/img/integrate/mi-analytics/119132315/119132321.png)]({{base_path}}/assets/img/integrate/mi-analytics/119132315/119132321.png) 
--   The **Messages** gadget lists all the the messages handled by
+-   The **Messages** gadget lists all the messages handled by
     the `StockQuoteAPI` REST API during the
     last hour with the following property details as follows.  
     [![Message per API]({{base_path}}/assets/img/integrate/mi-analytics/119132315/119132320.png)]({{base_path}}/assets/img/integrate/mi-analytics/119132315/119132320.png)
