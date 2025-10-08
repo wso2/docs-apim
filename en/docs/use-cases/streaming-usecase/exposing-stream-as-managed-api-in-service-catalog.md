@@ -20,7 +20,7 @@ The Streaming Integrator component in WSO2 API Manager is powered by [Siddhi](ht
 
 ```
 @App:name('AsyncAPIDef')
-@App:description('Receive events via WebSockettransport in XML format')
+@App:description('Receive events via WebSocket transport in XML format')
 
 @source(type='websocket-server',host = "localhost",port = "8025",
   @map(type='xml'))

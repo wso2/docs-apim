@@ -1094,7 +1094,7 @@
 			"name": "Deny Policies",
 			"item": [
 				{
-					"name": "Get all Blocking Condtions",
+					"name": "Get all Blocking Conditions",
 					"request": {
 						"auth": {
 							"type": "bearer",

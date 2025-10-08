@@ -7538,9 +7538,9 @@ paths:
     get:
       tags:
         - Settings
-      summary: Retreive Publisher Settings
+      summary: Retrieve Publisher Settings
       description: |
-        Retreive publisher settings
+        Retrieve publisher settings
       responses:
         200:
           description: |
