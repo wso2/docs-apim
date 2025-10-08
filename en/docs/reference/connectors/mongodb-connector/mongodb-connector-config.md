@@ -205,7 +205,7 @@ The supported connection URI types and connection options are listed in the [Mon
             String
         </td>
         <td>
-            Properties for the specified authorisation mechanism as a comma-separated list of colon-separated key-value pairs.
+            Properties for the specified authorization mechanism as a comma-separated list of colon-separated key-value pairs.
         </td>
         <td>
             -

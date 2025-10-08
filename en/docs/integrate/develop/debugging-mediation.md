@@ -83,7 +83,7 @@ Follow the steps below to enable debugging with respect to mediation.
             mediator
         -   **Toggle Skip Point:** Adds a skip point to the selected
             mediator
-        -   **Resend Debug Points:** I f you re-start the the Micro Integrator, or if you re-deploy the proxy service after changing its Synapse configuration, you need to re-send the information on breakpoints to the Micro Integrator server. T his re-sends all registered debugging points to the server.
+        -   **Resend Debug Points:** I f you re-start the Micro Integrator, or if you re-deploy the proxy service after changing its Synapse configuration, you need to re-send the information on breakpoints to the Micro Integrator server. T his re-sends all registered debugging points to the server.
         -   **Delete All Debug Points:** Deletes all registered debug points from the server and WSO2 Integration Studio.
 
 Now you can send a request to the external Micro Integrator and debug the flow as discussed under "Instant debugging using Micro Integrator".

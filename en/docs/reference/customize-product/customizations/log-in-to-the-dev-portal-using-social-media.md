@@ -71,7 +71,7 @@ Let's see how to configure WSO2 Identity Server to work with Facebook for user a
     | facebook               | <https://localhost:9444/oauth2/token> |
 
     !!! note
-        To authenticate the user with **Facebook** which is an external system, we have to configure the federated authenticator. For more details, see [Federated Authetication](https://is.docs.wso2.com/en/5.10.0/get-started/quick-start-guide/#federated-authentication).
+        To authenticate the user with **Facebook** which is an external system, we have to configure the federated authenticator. For more details, see [Federated Authentication](https://is.docs.wso2.com/en/5.10.0/get-started/quick-start-guide/#federated-authentication).
 
 3.  Go to **Facebook Configuration** under **Federated Authenticators**.
 

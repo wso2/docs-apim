@@ -88,7 +88,7 @@ Follow the instructions below if you want to pass additional attributes to the b
             String text = "This is custom JWT";
             Map map = new HashMap();
             map.put("current_timestamp", time.toString());
-            map.put("messge" , text);
+            map.put("message" , text);
             return map;
         }
     }

@@ -132,7 +132,7 @@ Create the sequence to retrieve the Salesforce objects created.
  
 2. Get a response from the user.
     
-    When you invoking the created API the request of the message is going through the `create` and `retrive` sequences. Finally pass to the the [Respond mediator]({{base_path}}/reference/mediators/respond-mediator/). In here the Respond Mediator stops the processing on the current message and sends the message back to the client as a response.            
+    When you invoking the created API the request of the message is going through the `create` and `retrive` sequences. Finally pass to the [Respond mediator]({{base_path}}/reference/mediators/respond-mediator/). In here the Respond Mediator stops the processing on the current message and sends the message back to the client as a response.            
     
     1. Drag and drop **respond mediator** to the **Design view**. 
     
