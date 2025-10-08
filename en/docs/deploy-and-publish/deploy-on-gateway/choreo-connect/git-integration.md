@@ -132,10 +132,10 @@ The following table describes the above configuration.
 <td><code>enabled</code></td>
 <td>Set this to <code>true</code> to enable Git integration for API Artifacts.</td>
 <tr><td><code>pollInterval</code></td>
-<td>The time interval (in seconds) in which the the Adapter should fetch updates from the repository.</td>
+<td>The time interval (in seconds) in which the Adapter should fetch updates from the repository.</td>
 </tr>
 <tr><td><code>retryInterval</code></td>                   
-<td>The time interval (in seconds) in which the the Adapter should retry fetching artifacts from the repository at startup (in case of failure).
+<td>The time interval (in seconds) in which the Adapter should retry fetching artifacts from the repository at startup (in case of failure).
 </td>
 </tr>
 <tr><td><code>maxRetryCount</code> </td>                      
