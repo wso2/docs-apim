@@ -24,6 +24,17 @@ flows as in, out and fault. You can extend these default mediation flows to do 
 You can create a per API mediation sequence manually and upload it from the API Publisher itself. Thereby, this allows 
 you to add a customized mediation policy to your API. 
 
+!!! note
+    Please note that JS scripts can be used inside the custom policy code to access Java classes, methods, and native objects. By default, all the classes are visible to these scripts. However, it is recommended to restrict access to these by adding the following configuration to the `deployment.toml` file:
+
+    <pre class="java" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence"
+            data-theme="Confluence" style="brush: java; gutter: false; theme: Confluence"><code>[synapse_properties]
+    'limit_java_class_access_in_scripts.enable' = true # or false
+    'limit_java_class_access_in_scripts.list_type' = "ALLOW_LIST" # or BLOCK_LIST
+    'limit_java_class_access_in_scripts.class_prefixes' = "java.util"</code></pre>
+
+    To further configure script mediation access control, please refer to the  <a href="{{base_path}}/install-and-setup/setup/deployment-best-practices/security-guidelines-for-production-deployment/#restrict-access-java">Restrict Access to Java classes and Java Methods/Native Objects in Scripts documentation.</a>
+
 Following is a manually created sample custom mediation policy. This custom sequence adds a trace log which is getting printed when you invoke any of the APIs deployed in the Gateway.
 
 !!! example
@@ -46,20 +57,20 @@ Follow the below steps to upload the above sequence as a custom mediation policy
   
     [![]({{base_path}}/assets/img/learn/api-gateway/message-mediation/edit-mediation.png)]({{base_path}}/assets/img/learn/api-gateway/message-mediation/edit-mediation.png)  
 
-6.  In the **Select a Mediation Policy** popup you can select **Custom Policies** radio button and upload the above-created mediation as a XML file.  
+1.  In the **Select a Mediation Policy** popup you can select **Custom Policies** radio button and upload the above-created mediation as a XML file.  
 
     [![]({{base_path}}/assets/img/learn/api-gateway/message-mediation/upload-mediation.png)]({{base_path}}/assets/img/learn/api-gateway/message-mediation/upload-mediation.png)
 
-7.  Once the file is uploaded, save the API.
+2.  Once the file is uploaded, save the API.
 
-9.  If the API is not in `PUBLISHED` state, go to **Lifecycle** tab, click `REDPLOY` to re-publish the API. 
+3.  If the API is not in `PUBLISHED` state, go to **Lifecycle** tab, click `REDPLOY` to re-publish the API. 
 
-10. Go **Developer Portal**, subscribe and obtain a token to invoke the published API. 
+4.  Go **Developer Portal**, subscribe and obtain a token to invoke the published API. 
 
     !!! tip
         Follow the instructions in [here]({{base_path}}/learn/consume-api/invoke-apis/invoke-apis-using-tools/invoke-an-api-using-the-integrated-api-console/) to invoke the API using the integrated API console. 
 
-8.  When you invoke the API using a valid subscription, you can see the following trace log in wso2carbon server logs.
+5.  When you invoke the API using a valid subscription, you can see the following trace log in wso2carbon server logs.
 
     ```bash
     [2019-12-19 13:55:11,887]  INFO - LogMediator TRACE = API Mediation Policy
@@ -93,6 +104,17 @@ You can do this for Request, Response and/or Fault message flows.
 
     [![]({{base_path}}/assets/img/learn/api-gateway/message-mediation/non-mediation.png)]({{base_path}}/assets/img/learn/api-gateway/message-mediation/non-mediation.png)
 
+!!! note
+    Please note that JS scripts can be used inside the custom policy code to access Java classes, methods, and native objects. By default, all the classes are visible to these scripts. However, it is recommended to restrict access to these by adding the following configuration to the `deployment.toml` file:
+
+    <pre class="java" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence"
+            data-theme="Confluence" style="brush: java; gutter: false; theme: Confluence"><code>[synapse_properties]
+    'limit_java_class_access_in_scripts.enable' = true # or false
+    'limit_java_class_access_in_scripts.list_type' = "ALLOW_LIST" # or BLOCK_LIST
+    'limit_java_class_access_in_scripts.class_prefixes' = "java.util"</code></pre>
+
+    To further configure script mediation access control, please refer to the  <a href="{{base_path}}/install-and-setup/setup/deployment-best-practices/security-guidelines-for-production-deployment/#restrict-access-java">Restrict Access to Java classes and Java Methods/Native Objects in Scripts documentation.</a>
+
 ### Creating Manually and Saving in the File System
 
 Alternatively, you can name the mediation XML file in the pattern `<API_NAME>:v<VERSION>--<DIRECTION>` and save it directly in the following location:
@@ -118,6 +140,17 @@ An example synapse configuration of a per-API extension sequence created for th
     ```
 
 You can copy this content into an XML file (e.g., `twittersearch_ext.xml` ) and save it in the `<API-M_HOME>/repository/deployment/server/synapse-configs/default/sequences` directory.
+
+!!! note
+    Please note that JS scripts can be used inside the custom policy code to access Java classes, methods, and native objects. By default, all the classes are visible to these scripts. However, it is recommended to restrict access to these by adding the following configuration to the `deployment.toml` file:
+
+    <pre class="java" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence"
+            data-theme="Confluence" style="brush: java; gutter: false; theme: Confluence"><code>[synapse_properties]
+    'limit_java_class_access_in_scripts.enable' = true # or false
+    'limit_java_class_access_in_scripts.list_type' = "ALLOW_LIST" # or BLOCK_LIST
+    'limit_java_class_access_in_scripts.class_prefixes' = "java.util"</code></pre>
+
+    To further configure script mediation access control, please refer to the  <a href="{{base_path}}/install-and-setup/setup/deployment-best-practices/security-guidelines-for-production-deployment/#restrict-access-java">Restrict Access to Java classes and Java Methods/Native Objects in Scripts documentation.</a>
 
 The above sequence prints a log message in the wso2carbon logs whenever the `TwitterSearch` API is invoked.
 
@@ -150,6 +183,17 @@ You can copy this content into an XML file (e.g., `global_ext.xml` ) and save it
 
 !!! note
     The mediation extension is applied to all resources of the API.
+
+!!! note
+    Please note that JS scripts can be used inside the custom policy code to access Java classes, methods, and native objects. By default, all the classes are visible to these scripts. However, it is recommended to restrict access to these by adding the following configuration to the `deployment.toml` file:
+
+    <pre class="java" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence"
+            data-theme="Confluence" style="brush: java; gutter: false; theme: Confluence"><code>[synapse_properties]
+    'limit_java_class_access_in_scripts.enable' = true # or false
+    'limit_java_class_access_in_scripts.list_type' = "ALLOW_LIST" # or BLOCK_LIST
+    'limit_java_class_access_in_scripts.class_prefixes' = "java.util"</code></pre>
+
+    To further configure script mediation access control, please refer to the  <a href="{{base_path}}/install-and-setup/setup/deployment-best-practices/security-guidelines-for-production-deployment/#restrict-access-java">Restrict Access to Java classes and Java Methods/Native Objects in Scripts documentation.</a>
 
 ## Sample Message Mediation Policies
 
