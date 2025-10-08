@@ -274,7 +274,7 @@ tryItFunctionalityDisabled = true
 </code></pre>
 </td>
 </tr>
-<tr class="odd">
+<tr class="odd" id="restrict-access-java">
 <td><p>Restrict Access to Java classes and Java Methods/Native Objects in Scripts</p>
 <td>
 <p>JS scripts can be used inside script mediators (eg: in Mock Endpoints) to access Java classes, methods and native objects. By default, all the classes are visible to these scripts. However, it is recommended to restrict access to these.
