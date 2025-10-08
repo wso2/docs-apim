@@ -81,7 +81,7 @@ For more information on WSO2 API Manager, see the [overview]({{base_path}}/getti
 
     The Universal Gateway now supports multi-tenant operations without database dependencies, simplifying deployment and improving performance in tenant-specific scenarios.
 
-    **[Learn more]({{base_path}}/manage-apis/deploy-and-publish/deploy-on-gateway/api-gateway/maintain-separate-gateways-per-tenants/)**
+    **[Learn more]({{base_path}}/manage-apis/deploy-and-publish/deploy-on-gateway/api-gateway/maintain-seperate-gateways-per-tenants/)**
 
 ??? note "IS and API Manager Tenancy Sharing"
 
