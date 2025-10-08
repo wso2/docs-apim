@@ -2580,7 +2580,7 @@
                             "required": false,
                             "default": "-1",
                             "possible": "",
-                            "description": "Time between execution cycles in miliseconds."
+                            "description": "Time between execution cycles in milliseconds."
                         }
                     ]
                 }

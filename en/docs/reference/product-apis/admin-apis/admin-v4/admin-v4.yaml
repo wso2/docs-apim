@@ -2287,7 +2287,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/PublishStatus'
         202:
-          description: Request is sucessfully accepted for processing.
+          description: Request is successfully accepted for processing.
           content:
             application/json:
               schema:
@@ -2718,9 +2718,9 @@ paths:
     get:
       tags:
         - Settings
-      summary: Retreive Admin Settings
+      summary: Retrieve Admin Settings
       description: |
-        Retreive admin settings
+        Retrieve admin settings
       responses:
         200:
           description: |

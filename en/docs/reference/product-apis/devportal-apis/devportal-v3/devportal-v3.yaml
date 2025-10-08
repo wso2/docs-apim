@@ -3400,9 +3400,9 @@ paths:
     get:
       tags:
         - Settings
-      summary: Retreive Developer Portal settings
+      summary: Retrieve Developer Portal settings
       description: |
-        Retreive Developer Portal settings
+        Retrieve Developer Portal settings
       parameters:
         - $ref: '#/components/parameters/requestedTenant'
       responses:

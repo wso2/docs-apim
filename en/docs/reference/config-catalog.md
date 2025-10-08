@@ -6804,7 +6804,7 @@ execution_interval_in_ms = "-1"</code></pre>
                                         
                                     </div>
                                     <div class="param-description">
-                                        <p>Time between execution cycles in miliseconds.</p>
+                                        <p>Time between execution cycles in milliseconds.</p>
                                     </div>
                                 </div>
                             </div>
