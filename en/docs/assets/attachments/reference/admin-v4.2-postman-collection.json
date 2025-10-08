@@ -1094,7 +1094,7 @@
 			"name": "Deny Policies",
 			"item": [
 				{
-					"name": "Get all Blocking Condtions",
+					"name": "Get all Blocking Conditions",
 					"request": {
 						"auth": {
 							"type": "bearer",
@@ -1809,7 +1809,7 @@
 			"name": "Settings",
 			"item": [
 				{
-					"name": "Retreive Admin Settings",
+					"name": "Retrieve Admin Settings",
 					"request": {
 						"method": "GET",
 						"header": [],
