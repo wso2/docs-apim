@@ -53,11 +53,19 @@ Follow the instructions below to display a list of Applications in an environmen
         36d51e55-3f1e-4f85-86ee-8fe73b0c8adff  SampleApplication   sampleUser  APPROVED   orgA
         ```
 
-        !!! tip 
+        !!! tip
             When using the `apictl get apps -e dev` command, you can either specify `-o` (`--owner`) flag or not.
 
             - When someone has invoked the command **without specifying the owner flag**, it will list all the applications in that environment which belongs to the tenant that the currently logged in user belongs.
             - When someone has invoked the command **by specifying the owner flag**, it will list all the applications belongs to that particular owner in that environment.
+
+        !!! important "Environment registration method affects --owner flag behavior"
+            The behavior of the `--owner` flag depends on how the environment was registered:
+
+            - **Unified endpoint registration** (using `--apim` flag): The `--owner` flag is supported because the command uses the Admin API (`/api/am/admin/v4/applications`) which allows filtering applications by owner.
+            - **Multi-endpoint registration** (using `--devportal` flag): The `--owner` flag has no effect because the command uses the DevPortal API (`/api/am/devportal/v3/applications`) which only returns applications belonging to the currently logged-in user.
+
+            When an environment is registered with the `--devportal` flag, the `apictl get apps` command will always list only the applications that belong to the currently logged-in user, regardless of the `--owner` flag value.
 
         !!!note
             Output of the `get apps` command can be formatted with Go Templates. For more information on formatting the get commands, see [Formatting the outputs of get commands]({{base_path}}/install-and-setup/setup/api-controller/advanced-topics/formatting-the-output-of-get-command).
