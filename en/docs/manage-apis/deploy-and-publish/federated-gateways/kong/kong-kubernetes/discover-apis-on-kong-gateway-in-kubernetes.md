@@ -95,15 +95,21 @@ Use Helm to install the WSO2 Common Agent for Kong. You can use the [Helm chart]
 When configuring the agent, update the following parameters in the `values.yaml` file:
 
 1. `environmentLabels` - The Name specified for the Kong Gateway Environment in the **step 1.3**
-2. `serviceURL` and `eventListeningEndpoints` - Update the URLs and ports based on the port offset and namespace
-3. `dataPlane.namespace` - The namespace where Kong Gateway is running
-4. `dataPlane.gatewayClassName` - The name of the Kong `GatewayClass` Instance
-5. `dataPlane.GatewayHTTPSPort` - The HTTPS port configured in the **step 1.3**
-6. `dataPlane.GatewayHTTPPort` - The HTTP Port configured in the **step 1.3**
-7. `agent.gateway` - Set to `Kong`
+2. `controlPlane.serviceURL` and `controlPlane.eventListeningEndpoints` - Update the URLs and ports based on the port offset and namespace
+3. `controlPlane.username` and `controlPlane.password` - Update the username and password based on the control plane credentials
+4. `dataPlane.namespace` - The namespace where Kong Gateway is running
+5. `dataPlane.gatewayClassName` - The name of the Kong `GatewayClass` Instance
+6. `dataPlane.GatewayHTTPSPort` - The HTTPS port configured in the **step 1.3**
+7. `dataPlane.GatewayHTTPPort` - The HTTP Port configured in the **step 1.3**
+8. `agent.gateway` - Set to `kong`
 
     !!!note
         You can use this sample [values.yaml](https://github.com/wso2-extensions/apim-gw-connectors/blob/main/kong/sample/helm/values.yaml) as a reference when setting up the agent.
+
+    !!!note
+        If you are using the Helm chart in the Git repository, you can use the below command to start the agent:
+        
+        `helm install kong-agent ./. -n kong -f ../../kong/sample/helm/values.yaml`
 
 ## Step 4 : Discover the APIs from Kong Gateway
 
