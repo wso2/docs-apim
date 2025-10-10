@@ -100,7 +100,7 @@ info:
     * Make sure you have an API Manager instance up and running.
     * Update the `basepath` parameter to match the hostname and port of the APIM instance.
      
-     <a href="../../../../../assets/attachments/reference/admin-v4.2-postman-collection.json"
+     <a href="../../../../../assets/attachments/reference/admin-v4.3-postman-collection.json"
      download="WSO2 API Manager 4.5.0 Admin REST API.postman_collection.json"
      style="display: inline-block; padding: 10px 15px; color: white; background-color: #ef5b25; text-align: center; text-decoration: none; border-radius: 5px;font-weight: bold;">
      Download Postman Collection
@@ -112,7 +112,7 @@ info:
   license:
     name: Apache 2.0
     url: http://www.apache.org/licenses/LICENSE-2.0.html
-  version: v4.2
+  version: v4.3
 servers:
   - url: https://apis.wso2.com/api/am/admin/v4
 paths:
@@ -5483,6 +5483,8 @@ components:
         host:
           maxLength: 255
           minLength: 1
+          # hostname regex as per RFC 1123 (http://tools.ietf.org/html/rfc1123) and appended *
+          pattern: '^(([a-zA-Z0-9]|[a-zA-Z0-9][a-zA-Z0-9\-]*[a-zA-Z0-9])\.)*([A-Za-z0-9]|[A-Za-z0-9][A-Za-z0-9\-]*[A-Za-z0-9])$'
           type: string
           example: mg.wso2.com
         httpContext:
@@ -5684,7 +5686,7 @@ components:
           type: array
           items:
             type: string
-        IsJWTEnabledForLoginTokens:
+        IsJWTEnabledForLoginTokens: 
           type: boolean
           default: false
         orgAccessControlEnabled:
