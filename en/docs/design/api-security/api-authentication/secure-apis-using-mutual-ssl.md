@@ -22,7 +22,7 @@ The following section explains as to how the APIs in WSO2 API Manager can be sec
 4.  Click **Add Certificate** to upload a new client certificate.
     
     !!! note
-        This feature currently supports only the `.crt` format for certificates.
+        This feature currently supports `.crt` and `.cer` formats for certificates.
 
         If you need to use a certificate in any other format, you can convert it using a standard tool before uploading it.
 
