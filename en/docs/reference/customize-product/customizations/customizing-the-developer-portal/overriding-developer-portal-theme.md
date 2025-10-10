@@ -7,7 +7,7 @@ There are mainly two ways to customize and override the developer portal theme.
 
 In this section, we will cover the first method which is the simplest way to change the appearance of Developer portal.
 
-For the second method, please refer [Advanced Customization]({{base_path}}/develop/customizations/advanced-ui-customization/) section.
+For the second method, please refer [Advanced Customization]({{base_path}}/reference/customize-product/customizations/advanced-ui-customization/) section.
 ## Global Theming
 
 You can find the default theme in the following location `<API-M_HOME>/repository/deployment/server/webapps/devportal/source/src/app/data/defaultTheme.js`.
