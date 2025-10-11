@@ -14,7 +14,7 @@ In both the above orchestration approaches, the WSO2 Micro Integrator can intera
 
 **Service chaining**
 
-Multiple services that need to be orchestrated are invoked one after the other in a synchronous manner. The input to one service is dependant on the output of another service. Invocation of services and input-output mapping is handled by the service orchestration layer (which is the WSO2 Micro Integrator). 
+Multiple services that need to be orchestrated are invoked one after the other in a synchronous manner. The input to one service is dependent on the output of another service. Invocation of services and input-output mapping is handled by the service orchestration layer (which is the WSO2 Micro Integrator). 
 
 **Parallel service invocations**
 

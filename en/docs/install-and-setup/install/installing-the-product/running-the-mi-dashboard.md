@@ -66,7 +66,7 @@ Follow the steps given below to connect the Micro Integrator Dashboard to your I
 				<code>enable</code>
 			</td>
 			<td>
-				Use this paramater to enable Single Sign-On.
+				Use this parameter to enable Single Sign-On.
 			</td>
 		</tr>
 		<tr>

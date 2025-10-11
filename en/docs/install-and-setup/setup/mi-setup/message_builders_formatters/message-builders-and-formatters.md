@@ -123,7 +123,7 @@ your product by default, be sure to create a new file.
 When this configuration is enabled, all the illegal characters found in
 a payload will be replaced with the actual character that is represented
 by the unicode value that you specify for the parameter. The below
-example uses whitespaces (represented by by the ' \\u0020' unicode
+example uses whitespaces (represented by the ' \\u0020' unicode
 value) to replace illegal characters in payloads.
 
 ```bash

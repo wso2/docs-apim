@@ -81,7 +81,7 @@
         {
           "name": "adapter.truststore",
           "required": true,
-          "description": "The configurations of trust store used in in the Choreo Connect Adapter.",
+          "description": "The configurations of trust store used in the Choreo Connect Adapter.",
           "params": [
             {
               "name": "location",
@@ -217,14 +217,14 @@
               "type": "integer",
               "required": false,
               "default": 30,
-              "description": "The time interval (in seconds) in which the the Adapter should fetch updates from the repository."
+              "description": "The time interval (in seconds) in which the Adapter should fetch updates from the repository."
             },
             {
               "name": "retryInterval",
               "type": "integer",
               "required": false,
               "default": 5,
-              "description": "The time interval (in seconds) in which the the Adapter should retry fetching artifacts from the repository at startup (in case of failure)."
+              "description": "The time interval (in seconds) in which the Adapter should retry fetching artifacts from the repository at startup (in case of failure)."
             },
             {
               "name": "maxRetryCount",

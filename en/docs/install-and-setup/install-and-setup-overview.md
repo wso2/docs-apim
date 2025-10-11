@@ -690,7 +690,7 @@ To set up and configure the Micro Integrator runtime, see the topics given below
         <a href="{{base_path}}/install-and-setup/setup/mi-setup/message_builders_formatters/message-relay">Message Relay</a>
     </th>
     <td>
-        Enabling message relay allows the Micro Integrator component to to pass messages along without building or processing them unless specifically requested to do so. This way, the Micro Integrator can handle a higher throughput.
+        Enabling message relay allows the Micro Integrator component to pass messages along without building or processing them unless specifically requested to do so. This way, the Micro Integrator can handle a higher throughput.
     </td>
 </tr>
 <tr>

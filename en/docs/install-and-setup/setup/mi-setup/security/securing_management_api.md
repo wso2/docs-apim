@@ -110,7 +110,7 @@ path = "/apis"
 
 ## Configuring CORS
 
-CORS is enabled for the management API by default. The default configuration allows all origins (denoted by the `*` symbol). The `Authorization` header is also enabled by default to cater to the functionalities of the the Micro Integrator dashboard.
+CORS is enabled for the management API by default. The default configuration allows all origins (denoted by the `*` symbol). The `Authorization` header is also enabled by default to cater to the functionalities of the Micro Integrator dashboard.
 
 Add the following to the `deployment.toml` file and update the values.
 

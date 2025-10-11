@@ -68,7 +68,7 @@ following.
     ``` java
     {
       "type":"success",
-      "message":"Siddhi App saved succesfully and will be deployed in next deployment cycle"
+      "message":"Siddhi App saved successfully and will be deployed in next deployment cycle"
     }
     ```
 
@@ -180,7 +180,7 @@ curl -X PUT "https://localhost:9443/siddhi-apps" -H "accept: application/json" -
     ```
     {
       "type":"success",
-      "message":"Siddhi App updated succesfully and will be deployed in next deployment cycle"}
+      "message":"Siddhi App updated successfully and will be deployed in next deployment cycle"}
     ```
 
 -   If the API request is invalid due to invalid content in the Siddhi
