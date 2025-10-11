@@ -193,7 +193,7 @@ paths:
       summary: |
         Get Details of an API
       description: |
-        Using this operation, you can retrieve complete details of a single API. You need to provide the Id of the API to retrive it.
+        Using this operation, you can retrieve complete details of a single API. You need to provide the Id of the API to retrieve it.
 
         `X-WSO2-Tenant` header can be used to retrieve an API of a different tenant domain. If not specified super tenant will be used. If Authorization header is present in the request, the user's tenant associated with the access token will be used.
 
@@ -675,9 +675,9 @@ paths:
       summary: |
         Get a List of Documents of an API
       description: |
-        This operation can be used to retrive a list of documents belonging to an API by providing the id of the API.
+        This operation can be used to retrieve a list of documents belonging to an API by providing the id of the API.
 
-        `X-WSO2-Tenant` header can be used to retrive documents of an API that belongs to a different tenant domain. If not specified super tenant will be used. If Authorization header is present in the request, the user's tenant associated with the access token will be used.
+        `X-WSO2-Tenant` header can be used to retrieve documents of an API that belongs to a different tenant domain. If not specified super tenant will be used. If Authorization header is present in the request, the user's tenant associated with the access token will be used.
 
         **NOTE:**
         * This operation does not require an Authorization header by default. But in order to see a restricted API's documents, you need to provide Authorization header.
@@ -729,7 +729,7 @@ paths:
       description: |
         This operation can be used to retrieve a particular document's metadata associated with an API.
 
-        `X-WSO2-Tenant` header can be used to retrive a document of an API that belongs to a different tenant domain. If not specified super tenant will be used. If Authorization header is present in the request, the user's tenant associated with the access token will be used.
+        `X-WSO2-Tenant` header can be used to retrieve a document of an API that belongs to a different tenant domain. If not specified super tenant will be used. If Authorization header is present in the request, the user's tenant associated with the access token will be used.
 
         **NOTE:**
         * This operation does not require an Authorization header by default. But in order to see a restricted API's document, you need to provide Authorization header.
@@ -776,7 +776,7 @@ paths:
       summary: |
         Get the Content of an API Document
       description: |
-        This operation can be used to retrive the content of an API's document.
+        This operation can be used to retrieve the content of an API's document.
 
         The document can be of 3 types. In each cases responses are different.
 
@@ -818,7 +818,7 @@ paths:
         303:
           description: |
             See Other.
-            Source can be retrived from the URL specified at the Location header.
+            Source can be retrieved from the URL specified at the Location header.
           headers:
             Location:
               description: |
@@ -849,7 +849,7 @@ paths:
       description: |
         This operation can be used to download a thumbnail image of an API.
 
-        `X-WSO2-Tenant` header can be used to retrive a thumbnail of an API that belongs to a different tenant domain. If not specified super tenant will be used. If Authorization header is present in the request, the user's tenant associated with the access token will be used.
+        `X-WSO2-Tenant` header can be used to retrieve a thumbnail of an API that belongs to a different tenant domain. If not specified super tenant will be used. If Authorization header is present in the request, the user's tenant associated with the access token will be used.
 
         **NOTE:**
         * This operation does not require an Authorization header by default. But in order to see a restricted API's thumbnail, you need to provide Authorization header.
@@ -1420,7 +1420,7 @@ paths:
       description: |
         This operation can be used to retrieve details of the subscription throttling policy of an API by specifying the API Id.
 
-        `X-WSO2-Tenant` header can be used to retrive API subscription throttling policies that belongs to a different tenant domain. If not specified super tenant will be used. If Authorization header is present in the request, the user's tenant associated with the access token will be used.
+        `X-WSO2-Tenant` header can be used to retrieve API subscription throttling policies that belongs to a different tenant domain. If not specified super tenant will be used. If Authorization header is present in the request, the user's tenant associated with the access token will be used.
       parameters:
         - $ref: '#/components/parameters/apiId'
         - $ref: '#/components/parameters/requestedTenant'
@@ -3119,7 +3119,7 @@ paths:
       description: |
         This operation can be used to retrieve details of a single throttling policy by specifying the policy level and policy name.
 
-        `X-WSO2-Tenant` header can be used to retrive throttling policy that belongs to a different tenant domain. If not specified super tenant will be used. If Authorization header is present in the request, the user's tenant associated with the access token will be used.
+        `X-WSO2-Tenant` header can be used to retrieve throttling policy that belongs to a different tenant domain. If not specified super tenant will be used. If Authorization header is present in the request, the user's tenant associated with the access token will be used.
       parameters:
         - $ref: '#/components/parameters/policyId'
         - $ref: '#/components/parameters/policyLevel'
@@ -3223,7 +3223,7 @@ paths:
       description: |
         This operation can be used to retrieve a list of tags that are already added to APIs.
 
-        `X-WSO2-Tenant` header can be used to retrive tags that belongs to a different tenant domain. If not specified super tenant will be used. If Authorization header is present in the request, the user's tenant associated with the access token will be used.
+        `X-WSO2-Tenant` header can be used to retrieve tags that belongs to a different tenant domain. If not specified super tenant will be used. If Authorization header is present in the request, the user's tenant associated with the access token will be used.
 
         **NOTE:**
         * This operation does not require an Authorization header by default. But in order to see a restricted API's tags, you need to provide Authorization header.
@@ -3400,9 +3400,9 @@ paths:
     get:
       tags:
         - Settings
-      summary: Retreive Developer Portal settings
+      summary: Retrieve Developer Portal settings
       description: |
-        Retreive Developer Portal settings
+        Retrieve Developer Portal settings
       parameters:
         - $ref: '#/components/parameters/requestedTenant'
       responses:

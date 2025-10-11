@@ -126,7 +126,7 @@ Follow the instructions below to configure the Redis server with WSO2 API Manage
         'throttling.local_quota_buffer_percentage' = <local quota buffer value>
         ```
 
-    === "Exmaple"
+    === "Example"
         ```toml
         [apim.redis_config]
         host = "localhost"

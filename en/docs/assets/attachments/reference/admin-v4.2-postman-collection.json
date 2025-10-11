@@ -1809,7 +1809,7 @@
 			"name": "Settings",
 			"item": [
 				{
-					"name": "Retreive Admin Settings",
+					"name": "Retrieve Admin Settings",
 					"request": {
 						"method": "GET",
 						"header": [],

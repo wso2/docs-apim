@@ -38,7 +38,7 @@
                             "required": false,
                             "default": "false",
                             "possible": "true,false",
-                            "description": "Use this paramater to enable MTOM (Message Transmission Optimization Mechanism) for the product server."
+                            "description": "Use this parameter to enable MTOM (Message Transmission Optimization Mechanism) for the product server."
                         }, 
                         {
                             "name": "enableSwA",
@@ -46,7 +46,7 @@
                             "required": false,
                             "default": "false",
                             "possible": "true,false",
-                            "description": "Use this paramater to enable SwA (SOAP with Attachments) for the product server. When SwA is enabled, the API Manager will process the files attached to SOAP messages."
+                            "description": "Use this parameter to enable SwA (SOAP with Attachments) for the product server. When SwA is enabled, the API Manager will process the files attached to SOAP messages."
                         },   
                         {
                             "name": "disable_shutdown_from_ui",
@@ -310,7 +310,7 @@
                             "required": false,
                             "default": "",
                             "possible": "",
-                            "description": "You can define the custom claim retiriver implmentation by adding the following apim.jwt.enable_user_claims=true. Make sure that it is the fully-qualified class name."
+                            "description": "You can define the custom claim retriever implementation by adding the following apim.jwt.enable_user_claims=true. Make sure that it is the fully-qualified class name."
                         },
                         {
                             "name": "claim_dialect",
@@ -1063,7 +1063,7 @@
                             "required": false,
                             "default": "",
                             "possible": "",
-                            "description": "You can provide a custom key validation handler implmentation. To do this, set the \"key_validation_handler_type\" to custom"
+                            "description": "You can provide a custom key validation handler implementation. To do this, set the \"key_validation_handler_type\" to custom"
                         },
                         {
                             "name": "enable_application_scopes_for_resident_km",
@@ -1572,7 +1572,7 @@
                             "required": false,
                             "default": "If the config is not mentioned, then undefined.default",
                             "possible": "default, saml",
-                            "description": "Use the application_sharing_impl as default implmentationIf it is saml, the group extractor extracts the claims to group the applications from the saml response."
+                            "description": "Use the application_sharing_impl as default implementationIf it is saml, the group extractor extracts the claims to group the applications from the saml response."
                         },
                         {
                             "name": "application_sharing_impl",
