@@ -290,19 +290,19 @@ Below is a list of core functions that is supported by the rule validator, with 
     <td>Can the target not contain numbers?</td>
   </tr>
   <tr>
-    <td>seperator</td>
+    <td>separator</td>
     <td>Object which contains the following values</td>
     <td>No</td>
     <td>Contains the following sub options. This object (the next 2 options) can be leveraged to accomplish custom cases.</td>
   </tr>
   <tr>
-    <td>seperator.char</td>
+    <td>separator.char</td>
     <td>String (single character)</td>
     <td>No</td>
     <td>Custom character to separate groups of words.</td>
   </tr>
   <tr>
-    <td>seperator.allowLeading</td>
+    <td>separator.allowLeading</td>
     <td>boolean</td>
     <td>No</td>
     <td>Can the separator character be used as the first character?</td>
