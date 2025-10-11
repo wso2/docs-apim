@@ -12503,7 +12503,7 @@ timeout_factor = 3.0</code></pre>
                             <code>[qpid.heartbeat]</code>
                             
                             <p>
-                                This includes configurations related to the frequency of the internal heartbeat sent by the underlying Qpid brocker component of Traffic Manager. You need to to configure a proper delay for the heartbeat value if the connections will stay idle for a long time.
+                                This includes configurations related to the frequency of the internal heartbeat sent by the underlying Qpid broker component of Traffic Manager. You need to configure a proper delay for the heartbeat value if the connections will stay idle for a long time.
                             </p>
                         </div>
                         <div class="params-wrap">

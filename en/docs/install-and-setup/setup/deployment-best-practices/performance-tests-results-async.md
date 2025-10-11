@@ -124,7 +124,7 @@ The following table shows the number of concurrent connections with error rate. 
 
 !!! note
       The backend used here is a Tornado backend. The error rates observed in the above graph are due to limitations in the Tornado backend. API Manager
-      was able to succesfully handle upto 1000 concurrent connections even in the 10 events per second scenario.
+      was able to successfully handle upto 1000 concurrent connections even in the 10 events per second scenario.
 
 **Key observations:**
 

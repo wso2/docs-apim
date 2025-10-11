@@ -136,7 +136,7 @@ In addition to the primary, internal keystores and truststore files, you can als
   sh cipher-tool.sh -Dconfigure
   ```
 - Also the apictl can be used to encrypt password as well. Reference can be found in [following](https://apim.docs.wso2.com/en/latest/install-and-setup/setup/api-controller/encrypting-secrets-with-ctl/).
-- Then the encrypted values should be filled in the the relevant fields of values.yaml.
+- Then the encrypted values should be filled in the relevant fields of values.yaml.
 - Since internal keystore password is required to resolve the encrypted value in runtime, we need to store the value in the cloud provider's secret manager. You can use the cloud provider's secret store to store the password of the internal keystore. The following section can be used to add the cloud provider's credentials to fetch the internal keystore password. Configuration for aws can be at as below. 
   ```yaml
   internalKeystorePassword:
