@@ -48,7 +48,7 @@ A default log file provider that implements the `LogFileProvider` interface has 
 
 After implementing the above interfaces, update the `logging-config.xml` file stored in the `<PRODUCT_HOME>/repository/conf/etc/` directory.
 
--   Shown below is the configuration for the the default log provider and the default log file provider of a Carbon product:
+-   Shown below is the configuration for the default log provider and the default log file provider of a Carbon product:
 
     ``` java
         <loggingConfig xmlns="http://wso2.org/projects/carbon/carbon.xml">

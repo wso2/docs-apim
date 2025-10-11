@@ -103,7 +103,7 @@ Configure a relational database to persist transaction count information and the
     			<code>enable</code>
     		</td>
     		<td>
-    			This paramter is used for enabling the Transaction Counter. Default value if 'false'.
+    			This parameter is used for enabling the Transaction Counter. Default value if 'false'.
     		</td>
     	</tr>
     	<tr>

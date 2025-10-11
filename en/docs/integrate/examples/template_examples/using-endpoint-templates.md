@@ -57,7 +57,7 @@ Note that these two endpoints have different set of error codes and different pr
 ```
 
 !!! Note
-    - The endpoint template uses parameters as inputs. Hence, these parameters can be refered using the `$` prefix within the template. Unlike sequence templates, endpoint templates are always parameterized using `$` prefixed values (not XPath expressions). e.g., You can refer to a parameter named `codes` as `$codes`.
+    - The endpoint template uses parameters as inputs. Hence, these parameters can be referred using the `$` prefix within the template. Unlike sequence templates, endpoint templates are always parameterized using `$` prefixed values (not XPath expressions). e.g., You can refer to a parameter named `codes` as `$codes`.
     - `$name` and `$uri` are default parameters that a template can use anywhere within the endpoint template (usually as parameters for endpoint name and address attributes).
 
 The template is now complete. Therefore, you can use template endpoints to create two concrete endpoint instances with different parameter values for this scenario as shown below.

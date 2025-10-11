@@ -48,7 +48,7 @@ The **EJB mediator** calls an external Enterprise JavaBean(EJB) and stores the r
 </tr>
 <tr class="odd">
 <td>Target</td>
-<td><p>If a particular EJB method returns, then the return object can be saved against the the name provided in the target at the synapse property context.</p></td>
+<td><p>If a particular EJB method returns, then the return object can be saved against the name provided in the target at the synapse property context.</p></td>
 </tr>
 <tr class="even">
 <td>JNDI Name</td>

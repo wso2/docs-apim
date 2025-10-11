@@ -788,7 +788,7 @@ WSO2 API Manager Server 4.0.0 brings a range of new features and major improveme
         </am:fault>
     ```
 
-    In API-M 4.0.0 onwards the above resopnse will changed as follows.
+    In API-M 4.0.0 onwards the above response will changed as follows.
         
     ```json  
     {
@@ -810,7 +810,7 @@ WSO2 API Manager Server 4.0.0 brings a range of new features and major improveme
         </am:fault>
     ```
 
-    In API-M 4.0.0 onwards the above resopnse will changed as follows.
+    In API-M 4.0.0 onwards the above response will changed as follows.
         
     ```json
     {

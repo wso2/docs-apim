@@ -33,7 +33,7 @@ This application demonstrates how to configure WSO2 Streaming Integrator Tooling
 2019-03-14_12-50-21_966] INFO {io.siddhi.core.stream.output.sink.LogSink} - SendEvent : BarStream : Event{timestamp=1552548021825, data=[Hello], isExpired=false}
 
 ## Notes:
-Make sure the the credential file is correct and user have write access to make API calls.<br/>
+Make sure the credential file is correct and user have write access to make API calls.<br/>
 Stop this Siddhi application.
 
 ```sql

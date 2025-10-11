@@ -2046,7 +2046,7 @@ enable = true</code></pre>
                                         
                                     </div>
                                     <div class="param-description">
-                                        <p>Enabel cache for scopes. This expires in 15 minutes by default.</p>
+                                        <p>Enable cache for scopes. This expires in 15 minutes by default.</p>
                                     </div>
                                 </div>
                             </div>

@@ -26,7 +26,7 @@ Follow the instructions in the guide [Deploying a REST API in Choreo Connect]({{
         ``` 
 
     !!! info
-        The Internal key is also a JWT and has the `token_type` as `InternalKey` in its payload. This value is refered during validation in Choreo Connect to identify Internal Keys.
+        The Internal key is also a JWT and has the `token_type` as `InternalKey` in its payload. This value is referred during validation in Choreo Connect to identify Internal Keys.
 
 ### Step 3 - Invoke the API using the Internal Key
 Use the cURL command below to invoke the API via the Gateway.

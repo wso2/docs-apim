@@ -142,7 +142,7 @@ Create a resource to send an SMS to the Short Message Service Center.
                         <message>{$ctx:message}</message>
                     </SMPP.sendSMS>
                     <log level="full">
-                        <property name="Message delivered sucessfully" value="Message delivered sucessfully"/>
+                        <property name="Message delivered successfully" value="Message delivered successfully"/>
                     </log>
                     <respond/>
                 </inSequence>

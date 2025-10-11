@@ -28,7 +28,7 @@ See the output on the terminal:
 INFO {io.siddhi.core.stream.output.sink.LogSink} - ReceiveEvent : BarStream : Event{timestamp=1552548124599, data=[message:"Hello"], isExpired=false} (Encoded)
 
 ## Notes:
-	Make sure the the credential file is correct and user have write access to make api calls.
+	Make sure the credential file is correct and user have write access to make api calls.
 Stop this Siddhi application
 
 ```sql

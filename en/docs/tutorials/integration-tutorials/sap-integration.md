@@ -464,7 +464,7 @@ Given below are general troubleshooting guidelines.
 An example of this error message is as follows:
 
 ```java
-[2010-10-25 19:53:00,405] ERROR - DefaultErrorListener Exception occured on :
+[2010-10-25 19:53:00,405] ERROR - DefaultErrorListener Exception occurred on :
 JCOSERVER01 and connection : null
 com.sap.conn.jco.JCoException: (129) JCO_ERROR_SERVER_STARTUP: Server startup
 failed at Mon Oct 25 19:53:00 IST 2010.

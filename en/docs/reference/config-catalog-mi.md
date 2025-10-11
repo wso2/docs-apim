@@ -970,7 +970,7 @@ user.password = "pwd-2"
                                         </div>
                                     </div>
                                     <div class="param-description">
-                                        <p>Set this paramter to &#39;false&#39; if you want to disable the default file-based user store. This allows you to use an external user store for user authentication in the Management API.</p>
+                                        <p>Set this parameter to &#39;false&#39; if you want to disable the default file-based user store. This allows you to use an external user store for user authentication in the Management API.</p>
                                     </div>
                                 </div>
                             </div>
@@ -2449,7 +2449,7 @@ token_config.size= "2048"
                                         </div>
                                     </div>
                                     <div class="param-description">
-                                        <p>Set this paramter to &#39;false&#39; if you want to disable JWT authentication for the management API.</p>
+                                        <p>Set this parameter to &#39;false&#39; if you want to disable JWT authentication for the management API.</p>
                                     </div>
                                 </div>
                             </div><div class="param">
@@ -2491,7 +2491,7 @@ token_config.size= "2048"
                                         </div>
                                     </div>
                                     <div class="param-description">
-                                        <p>Token cleanup will be handled through a seperate thread and the frequency of the token clean up can be configured from this setting. This will clean all the expired and revoked security tokens. The thread will run only when there are tokens in the store. If it is empty, the cleanup thread will automatically stop. Interval is specified in seconds.</p>
+                                        <p>Token cleanup will be handled through a separate thread and the frequency of the token clean up can be configured from this setting. This will clean all the expired and revoked security tokens. The thread will run only when there are tokens in the store. If it is empty, the cleanup thread will automatically stop. Interval is specified in seconds.</p>
                                     </div>
                                 </div>
                             </div><div class="param">
@@ -2617,7 +2617,7 @@ path = "/apis"
                                         </div>
                                     </div>
                                     <div class="param-description">
-                                        <p>Set this paramter to &#39;false&#39; if you want to disable authorization for the management API.</p>
+                                        <p>Set this parameter to &#39;false&#39; if you want to disable authorization for the management API.</p>
                                     </div>
                                 </div>
                             </div>
@@ -2705,7 +2705,7 @@ allowed_headers = "Authorization"</code></pre>
                                         </div>
                                     </div>
                                     <div class="param-description">
-                                        <p>Set this paramter to &#39;false&#39; if you want to disable CORs for the Management API.</p>
+                                        <p>Set this parameter to &#39;false&#39; if you want to disable CORs for the Management API.</p>
                                     </div>
                                 </div>
                             </div><div class="param">

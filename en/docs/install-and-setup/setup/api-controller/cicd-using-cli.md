@@ -536,7 +536,7 @@ For example, let us consider there is an [API Product]({{base_path}}/design/crea
                     </tr>
                     <tr class="odd">
                         <td>importApis</td>
-                        <td>Import the dependant API(s) along with the API Product if the dependant API(s) are not available in the target environment</td>
+                        <td>Import the dependent API(s) along with the API Product if the dependent API(s) are not available in the target environment</td>
                     </tr>
                     <tr class="even">
                         <td>preserveProvider</td>
