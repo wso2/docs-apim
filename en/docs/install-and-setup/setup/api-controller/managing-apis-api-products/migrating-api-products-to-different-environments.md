@@ -48,7 +48,7 @@
             -    Optional :   
                 `--rev` : Revision Number of the API Product. If not provided, working copy of the API Product will be exported.     
                 `--provider` or `-r` : Provider of the API Product.    
-                `--preserve-status` : Preserve API Product status when exporting. Otherwise, the API Product will be exported in the CREATED status The default value is true. (Please note that this flag is only applicable to the API Products. The status of dependant APIs will not get affected).    
+                `--preserve-status` : Preserve API Product status when exporting. Otherwise, the API Product will be exported in the CREATED status The default value is true. (Please note that this flag is only applicable to the API Products. The status of dependent APIs will not get affected).    
                 `--latest` : Export the latest revision of the API Product.  
                 `--format` : File format of exported archive (JSON or YAML). The default value is YAML. 
             
@@ -266,7 +266,7 @@ mentioned gateway environments. If the **deployment environments are not provide
                 `--preserve-provider` : Preserve existing provider of API Product after importing. Default value is `true`.  
                 `--rotate-revision` : If the maximum revision limit reached, delete the oldest revision and create a new revision.  
                 `--skip-deployments` : Skip the deployment environments specified in the project and only update the working copy of the API Product.  
-                `--import-apis` : Import depedent APIs to the environment along with the API Product. Default value is `false`.  
+                `--import-apis` : Import dependent APIs to the environment along with the API Product. Default value is `false`.  
                 `--update-api-product` : Update an existing API Product or create a new API Product in the importing environment. Default value is `false`.  
                 `--update-apis` : Update dependent APIs of the API Product. Default value is `false`.  
                 `--params` : Define the API Manager environment params file.  
@@ -336,7 +336,7 @@ mentioned gateway environments. If the **deployment environments are not provide
     !!! note
         **Preserving Provider while Importing API Product**  
 
-        The `--preserve-provider` flag is used to decide whether to keep the actual provider as the provider of the API Product and the depedent APIs or change the provider to the user who is importing the API Product to a different environment.  
+        The `--preserve-provider` flag is used to decide whether to keep the actual provider as the provider of the API Product and the dependent APIs or change the provider to the user who is importing the API Product to a different environment.  
 
         As an example, If `--preserve-provider` is set to `true`, when importing an API Product created by user-1 in environment-1 will be preserved with user-1 as the provider when and after importing that API Product to environment-2 by user-2. If `--preserve-provider` is set to `false`, when importing that API Product created by user-1 to the environment-2, the provider will be changed (not preserved) to user-2 who is importing the API Product. (Same goes with dependent APIs as well)
 

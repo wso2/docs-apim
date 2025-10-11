@@ -428,7 +428,7 @@ value = "C123d"
                                         </div>
                                     </div>
                                     <div class="param-description">
-                                        <p>Use this paramater to enable Single Sign-On.</p>
+                                        <p>Use this parameter to enable Single Sign-On.</p>
                                     </div>
                                 </div>
                             </div><div class="param">
@@ -510,7 +510,7 @@ value = "C123d"
                                         
                                     </div>
                                     <div class="param-description">
-                                        <p>Use this paramater to manually define the OpenID Connect endpoints of the Identity Provider. When overriding is enabled, you need to define authorization, token, user-info, token-revocation, introspection and logout endpoints.</p>
+                                        <p>Use this parameter to manually define the OpenID Connect endpoints of the Identity Provider. When overriding is enabled, you need to define authorization, token, user-info, token-revocation, introspection and logout endpoints.</p>
                                     </div>
                                 </div>
                             </div>
@@ -747,7 +747,7 @@ value = "C123d"
                                         
                                     </div>
                                     <div class="param-description">
-                                        <p>Use this paramater to specify if a PKCE should be sent with the request for the authorization code.</p>
+                                        <p>Use this parameter to specify if a PKCE should be sent with the request for the authorization code.</p>
                                     </div>
                                 </div>
                             </div>
@@ -765,7 +765,7 @@ value = "C123d"
                                         </div>                                   
                                     </div>
                                     <div class="param-description">
-                                        <p>Use this paramater to specify the requested scopes.</p>
+                                        <p>Use this parameter to specify the requested scopes.</p>
                                     </div>
                                 </div>
                             </div>
@@ -783,7 +783,7 @@ value = "C123d"
                                         </div>
                                     </div>
                                     <div class="param-description">
-                                        <p>Use this paramater to specify the attribute you need to use as the user name in the dashboard.</p>
+                                        <p>Use this parameter to specify the attribute you need to use as the user name in the dashboard.</p>
                                     </div>
                                 </div>
                             </div>

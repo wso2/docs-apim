@@ -29,14 +29,14 @@
                             "required": "false",
                             "default": "false",
                             "possible": "\"true\" or \"false\"",
-                            "description": "Use this paramater to enable MTOM (Message Transmission Optimization Mechanism) for the product server."
+                            "description": "Use this parameter to enable MTOM (Message Transmission Optimization Mechanism) for the product server."
                         },
                         {
                             "name": "enable_swa",
                             "type": "boolean",
                             "required": "false",
                             "default": "\"true\" or \"false\"",
-                            "description": "Use this paramater to enable SwA (SOAP with Attachments) for the product server. When SwA is enabled, the Micro Integrator will process the files attached to SOAP messages."
+                            "description": "Use this parameter to enable SwA (SOAP with Attachments) for the product server. When SwA is enabled, the Micro Integrator will process the files attached to SOAP messages."
                         },
                         {
                             "name": "userAgent",
