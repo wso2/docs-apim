@@ -194,7 +194,7 @@ You can deploy multiple Siddhi applications in one or more selected containers v
             insert into PowerSurgeAlertStream;
     ```
 
-3. Add a section named `container' and and parameters with values to configure the container in which the Siddhi application is to be deployed.
+3. Add a section named `container' and parameters with values to configure the container in which the Siddhi application is to be deployed.
 
     ```
     container:

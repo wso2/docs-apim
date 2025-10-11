@@ -141,6 +141,6 @@ if you encounter any issues or have further questions, go to the Issues tab of t
 
 ### This error message is prompted in the terminal when I use the apictl to upload my APIs: `context deadline exceeded (Client.Timeout exceeded while awaiting headers)`.
 
-The dafault HTTP request timeout for apictl is 10s. Due to network connnectivity or some other issues, the uploading might exceed this limit. If you encounter this issue you can simply set the timeout to a higher value.
+The default HTTP request timeout for apictl is 10s. Due to network connectivity or some other issues, the uploading might exceed this limit. If you encounter this issue you can simply set the timeout to a higher value.
 
 you can modify the `main_config.yaml` file, which you can find in the `APICTL_CONFIG_DIR` and increase the `http_request_timeout` value (Note that the value should be given in milli seconds, e.g: `http_request_timeout: 20000`).

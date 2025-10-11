@@ -325,7 +325,7 @@ To create a business rules template group from the design view, follow the proce
 
     ![Add Variables]({{base_path}}/assets/img/streaming/working-with-business-rules/add-variables.png)
 
-5. To specify the attributes that need to be considered as variables, select the relevant check boxes under **Select templated elements**. In this example, you can select the **username** and **timeRange** check boxes to to select the attributes with those names as the variables.
+5. To specify the attributes that need to be considered as variables, select the relevant check boxes under **Select templated elements**. In this example, you can select the **username** and **timeRange** check boxes to select the attributes with those names as the variables.
 
     ![Select Templated Elements]({{base_path}}/assets/img/streaming/working-with-business-rules/select-templated-elements.png)
 

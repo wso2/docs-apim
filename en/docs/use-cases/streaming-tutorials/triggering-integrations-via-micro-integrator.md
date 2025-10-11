@@ -38,7 +38,7 @@ Let's design a Siddhi application that triggers an integration flow and deploy i
     ```
 
 
-3. Let's add an input stream to define the schema of input production events, and connect a source of the `http` type to to receive those events.
+3. Let's add an input stream to define the schema of input production events, and connect a source of the `http` type to receive those events.
 
     ```
     @source(type = 'http',

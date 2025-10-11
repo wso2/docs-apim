@@ -82,7 +82,7 @@ Before you begin, make sure you do the following.
 
 ## Step 2 - Setup API-Manager
 
-1. Log in in to `https://localhost:9443/carbon`. 
+1. Log in to `https://localhost:9443/carbon`. 
 
 2. Create a role that needs to be assigned to users that will be provisioned from Okta.
 

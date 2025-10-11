@@ -113,7 +113,7 @@ To configure the Streaming Integrator nodes and deploy them as an active-active 
 
     !!! tip
         - To maintain data consistency, do not change the shard IDs after the first configuration. <br/>
-        - When you enable the aggregation partitioning feature, a new column ID named `SHARD_ID` is introduced to the aggregation tables. Therefore, you need to do one of the following options after enabling this feature to avoid errors occuring due to the differences in the table schema.<br/>
+        - When you enable the aggregation partitioning feature, a new column ID named `SHARD_ID` is introduced to the aggregation tables. Therefore, you need to do one of the following options after enabling this feature to avoid errors occurring due to the differences in the table schema.<br/>
             - Delete all the aggregation tables for `SECONDS`, `MINUTES`, `HOURS`, `DAYS`, `MONTHS`, `YEARS`. <br/>
             - Edit the aggregation tables by adding a new column named `SHARD_ID`, and add that to the existing primary key list of the table..
 
