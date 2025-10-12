@@ -278,7 +278,7 @@ nav:
                         - Discover APIs on Kong Gateway in Kubernetes: manage-apis/deploy-and-publish/federated-gateways/kong/kong-kubernetes/discover-apis-on-kong-gateway-in-kubernetes.md
                     - Kong Standalone:
                         - Discover APIs on Kong Gateway: manage-apis/deploy-and-publish/federated-gateways/kong/kong-standalone/discover-apis-on-kong-gateway.md
-                  - Configure a Custom Gateway Agent: manage-apis/deploy-and-publish/deploy-on-gateway/federated-gateways/configure-custom-gateway-agent.md
+                  - Configure a Custom Gateway Agent: manage-apis/deploy-and-publish/federated-gateways/configure-custom-gateway-agent.md
     - Consume APIs:
         - Consume APIs - Overview: consume/consume-api-overview.md
         - Discover APIs:
