@@ -91,7 +91,7 @@ Please follow the steps below to configure the security for the API.
 
    i. Navigate to IAM > roles in AWS console and create a new role with below details.
    
-    ```
+   ```
    Trusted Entity Type : AWS Service
    Use Case : Lambda
    ```
@@ -100,7 +100,7 @@ Please follow the steps below to configure the security for the API.
 
    iii. Provide a role name and edit the Trust Policy as below to allow API Gateway service as well.
    
-    ```
+   ```
    {
         "Version": "2012-10-17",
         "Statement": [
