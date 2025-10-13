@@ -1,7 +1,7 @@
 # Starting TCPMon
 
 TCPMon is available in the `         MI_HOME/bin        `
-directory of the the Micro Integrator distribution. Alternatively,
+directory of the Micro Integrator distribution. Alternatively,
 you can download TCPMon from Apache and run the tool.
 
 ## Running TCPMon (from the product distribution)

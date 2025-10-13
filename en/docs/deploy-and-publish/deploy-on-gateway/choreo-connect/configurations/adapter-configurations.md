@@ -272,7 +272,7 @@ See the example .toml file given below.
                             <code>[adapter.truststore]</code>
                             <span class="badge-required">Required</span>
                             <p>
-                                The configurations of trust store used in in the Choreo Connect Adapter.
+                                The configurations of trust store used in the Choreo Connect Adapter.
                             </p>
                         </div>
                         <div class="params-wrap">
@@ -679,7 +679,7 @@ See the example .toml file given below.
                                         
                                     </div>
                                     <div class="param-description">
-                                        <p>The time interval (in seconds) in which the the Adapter should fetch updates from the repository.</p>
+                                        <p>The time interval (in seconds) in which the Adapter should fetch updates from the repository.</p>
                                     </div>
                                 </div>
                             </div><div class="param">
@@ -698,7 +698,7 @@ See the example .toml file given below.
                                         
                                     </div>
                                     <div class="param-description">
-                                        <p>The time interval (in seconds) in which the the Adapter should retry fetching artifacts from the repository at startup (in case of failure).</p>
+                                        <p>The time interval (in seconds) in which the Adapter should retry fetching artifacts from the repository at startup (in case of failure).</p>
                                     </div>
                                 </div>
                             </div><div class="param">

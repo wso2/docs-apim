@@ -53,7 +53,7 @@ See the descriptions of the above configurations:
   <tr>
     <td>Message Store</td>
     <td>
-      Set the value of the the <code>java.naming.provider.url</code> property to point to the <code>jndi.properties</code>file. In this case, <code> store.jms.destination></code> is a mandatory parameter. If you are using the WSO2 Message Broker, you need to create a q ueue named 'JMSMS' using the Message Broker (i.e., the value you specify for the <code>store.jms.destination</code>.
+      Set the value of the <code>java.naming.provider.url</code> property to point to the <code>jndi.properties</code>file. In this case, <code> store.jms.destination></code> is a mandatory parameter. If you are using the WSO2 Message Broker, you need to create a q ueue named 'JMSMS' using the Message Broker (i.e., the value you specify for the <code>store.jms.destination</code>.
     </td>
   </tr>
   <tr>
@@ -196,7 +196,7 @@ See the descriptions of the above configurations:
   <tr>
     <td>Message Store</td>
     <td>
-      Set the value of the the <code>java.naming.provider.url</code> property to point to the <code>jndi.properties</code>file. In this case, <code> store.jms.destination></code> is a mandatory parameter. If you are using the WSO2 Message Broker, you need to create a q ueue named 'JMSMS' using the Message Broker (i.e., the value you specify for the <code>store.jms.destination</code>.
+      Set the value of the <code>java.naming.provider.url</code> property to point to the <code>jndi.properties</code>file. In this case, <code> store.jms.destination></code> is a mandatory parameter. If you are using the WSO2 Message Broker, you need to create a q ueue named 'JMSMS' using the Message Broker (i.e., the value you specify for the <code>store.jms.destination</code>.
     </td>
   </tr>
   <tr>

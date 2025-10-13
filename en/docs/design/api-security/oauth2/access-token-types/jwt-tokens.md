@@ -151,7 +151,7 @@ curl -k -X GET "https://localhost:8243/pizzashack/1.0.0/menu" -H "accept: applic
    },
    { 
       "name":"Double Bacon 6Cheese",
-      "description":"Hickory-smoked bacon, Julienne cut Canadian bacon, Parmesan, mozzarella, Romano, Asiago and and Fontina cheese",
+      "description":"Hickory-smoked bacon, Julienne cut Canadian bacon, Parmesan, mozzarella, Romano, Asiago and Fontina cheese",
       "price":"26.99",
       "icon":"/images/9.png"
    },

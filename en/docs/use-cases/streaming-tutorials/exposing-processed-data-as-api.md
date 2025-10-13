@@ -91,7 +91,7 @@ This tutorial demonstrates how you can use the Siddhi query API to perform essen
   Upon successful deployment, the following response is logged for the `CURL` command you just executed.
   
     ```
-    {"type":"success","message":"Siddhi App saved succesfully and will be deployed in next deployment cycle"}
+    {"type":"success","message":"Siddhi App saved successfully and will be deployed in next deployment cycle"}
     ```
 
   In addition to that, the following is logged in the SI console.
@@ -207,7 +207,7 @@ In this section, deploy a stateful Siddhi application and use the REST API to ta
 
    Upon successful deployment, the following response is logged for the `CURL` command you just executed.
     ```
-    {"type":"success","message":"Siddhi App saved succesfully and will be deployed in next deployment cycle"}
+    {"type":"success","message":"Siddhi App saved successfully and will be deployed in next deployment cycle"}
     ```
 
    In addition to that, the following log appears in the SI console.
