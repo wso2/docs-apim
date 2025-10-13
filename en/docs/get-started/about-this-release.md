@@ -10,103 +10,122 @@ For more information on WSO2 API Manager, see the [overview]({{base_path}}/getti
 
 <a href="https://wso2.com/api-manager/#"><img src="{{base_path}}/assets/img/get_started/download-apim.png" title="Download WSO2 API Manager" width="25%" alt="Download WSO2 API Manager"/></a>
 
-## New features
+## New Features
 
 ??? note "Gateway Federation"
 
     WSO2 API Manager 4.6.0 introduces comprehensive Gateway Federation capabilities, enabling seamless integration with external gateway platforms and automatic API discovery across federated environments.
+    Administrators can now centrally manage, govern, and analyze APIs deployed in multiple third-party gateways through a unified control plane.
 
     **Federated API Auto-discovery:**
-    
-    - **[AWS API Gateway]({{base_path}}/manage-apis/deploy-and-publish/federated-gateways/aws/discover-apis-on-aws-api-gateway/)**
-    - **[Azure API Gateway]({{base_path}}/deploy-and-publish/federated-gateways/azure/discover-apis-on-azure-api-gateway/)**
-    - **Kong Gateway:** [Kubernetes]({{base_path}}/manage-apis/deploy-and-publish/federated-gateways/kong/kong-kubernetes/discover-apis-on-kong-gateway-in-kubernetes/) | [Standalone]({{base_path}}/manage-apis/deploy-and-publish/federated-gateways/kong/kong-standalone/discover-apis-on-kong-gateway/)
-    - **Envoy Gateway**
+
+    - AWS API Gateway
+    - Azure API Gateway
+    - Kong Gateway: Kubernetes | Standalone
+    - Envoy Gateway
 
     **Federated Gateway Onboarding:**
-    
-    - **[Azure API Gateway]({{base_path}}/deploy-and-publish/federated-gateways/azure/deploy-on-azure-api-gateway/)**
+
+    - AWS Gateway (Improvements to the already existing support)
+    - Azure API Gateway
 
 ??? note "Enhanced AI Gateway Capabilities"
 
-    This release significantly expands AI Gateway functionality with unified AI model management, multi-provider support, and advanced AI governance features.
+    This release significantly expands AI Gateway functionality with unified AI model management, multi-provider support, and advanced AI governance features that simplify enterprise-scale AI integration.
 
-    **Unified AI Model Management:**
-    
-    - Multi-provider model hierarchy for streamlined AI service management
-    - Enhanced token-based rate limits and flexible business plans
-    - Detailed analytics on token usage, request counts, and performance
+    #### Unified AI Model Management
 
-    **Additional AI/LLM Provider Support:**
-    
-    - **[AWS Bedrock]({{base_path}}/ai-gateway/ai-vendor-management/aws-bedrock/)**
-    - **[Azure AI Foundry]({{base_path}}/ai-gateway/ai-vendor-management/azure-ai-foundry/)**
-    - **[Gemini]({{base_path}}/ai-gateway/ai-vendor-management/gemini/)**
-    - **[Anthropic]({{base_path}}/ai-gateway/ai-vendor-management/anthropic/)**
+    - Provides a hierarchical model structure (Service Provider → Model Provider → Model) to unify AI model operations across multiple providers.
+    - Supports dynamic model selection based on performance, cost, or compliance, with detailed usage analytics and flexible business plans.
 
-    **Advanced AI Features:**
-    
-    - **[AI Guardrails]({{base_path}}/ai-gateway/ai-guardrails/overview/)** - Comprehensive governance and safety controls for AI services
-    - **[Semantic Caching]({{base_path}}/ai-gateway/semantic-caching/)** - Intelligent caching for improved AI response performance
+    #### Additional AI/LLM Provider Support
 
-    **[Learn more about AI API creation]({{base_path}}/manage-apis/design/create-api/create-ai-api/create-an-ai-api/)**
+    - AWS Bedrock
+    - Azure AI Foundry
+    - Gemini
+    - Anthropic
 
-??? note "MCP - Agent Integration Support"
+    #### Advanced AI Features
 
-    WSO2 API Manager now supports Model Context Protocol (MCP) for exposing tools and services to AI agents, enabling seamless AI agent integration and tool orchestration.
+    - **AI Guardrails:** Real-time validation and enforcement to ensure AI safety, reliability, and compliance.
+    - **Semantic Caching:** Meaning-based response caching for improved performance and reduced latency in AI workloads.
 
-    **[Learn more about MCP Support]({{base_path}}/mcp/overview/)**
+??? note "MCP – Agent Integration Support"
 
-??? note "Enhanced Analytics Support"
+    WSO2 API Manager now supports the Model Context Protocol (MCP), enabling seamless integration between APIs and AI agents.
+    This feature allows organizations to transform existing APIs into MCP-compatible services without code changes, exposing tools and data sources to AI agents in a governed, secure manner.
 
-    Expanded analytics capabilities with support for additional analytics platforms, providing more flexibility in monitoring and analyzing API performance.
+    The control plane can also function as an MCP Hub, enabling centralized discovery and reuse of MCP servers across teams and environments.
 
-    - **[Moesif Analytics Integration]({{base_path}}/monitoring/api-analytics/moesif-analytics/moesif-integration-guide/)**
-    - **[OpenSearch Analytics Support]({{base_path}}/monitoring/api-analytics/on-prem/opensearch-installation-guide/)**
+    **Key Capabilities:**
 
-??? note "Distributed Throttling for Traffic Manager"
+    - **API to MCP Conversion:** Automatically convert existing APIs into MCP-compatible services.
+    - **MCP Servers from APIs:** Import and expose external APIs as MCP servers.
+    - **QoS for MCP Servers:** Apply rate limiting, authentication, and other policies to unprotected MCP endpoints.
+    - **MCP Hub Support:** Centralized discovery and federation of MCP servers.
 
-    Enhanced rate limiting capabilities with distributed throttling support for Traffic Manager, enabling more efficient and scalable rate limiting across distributed deployments.
+??? note "Enhanced Analytics Capabilities"
 
-    **[Learn more]({{base_path}}/manage-apis/design/rate-limiting/advanced-topics/distributed-throttling/)**
+    This release introduces expanded analytics options with Moesif integration and OpenSearch support, providing scalable, AI-powered observability across API environments.
 
-??? note "Enhanced Gateway Management"
+    #### APIM Analytics for Moesif
 
-    Improved gateway operations with comprehensive health monitoring and deployment tracking capabilities.
+    - Integrates with Moesif to deliver cloud-based API analytics, offering deep insights into usage, user behavior, and revenue metrics.
+    - Provides AI-driven anomaly detection, centralized analytics across federated gateways, and quick, cloud-native deployment with minimal operational overhead.
 
-    - **Gateway Health Monitoring** - Real-time monitoring of gateway health and performance
-    - **API Deployment Monitoring** - Track and monitor API deployments across gateways
+    #### OpenSearch Support for Private Cloud
 
-??? note "Database-Free Universal Gateway with Tenancy"
+    - Adds support for OpenSearch as the analytics provider for private cloud and on-premises environments.
+    - Delivers real-time, scalable API analytics with full control over data retention, governance, and infrastructure, all within a self-managed, open-source stack.
 
-    The Universal Gateway now supports multi-tenant operations without database dependencies, simplifying deployment and improving performance in tenant-specific scenarios.
+## Improvements
 
-    **[Learn more]({{base_path}}/manage-apis/deploy-and-publish/deploy-on-gateway/api-gateway/maintain-seperate-gateways-per-tenants/)**
+??? note "Enhanced Platform and Gateway Management Capabilities"
+
+    #### Distributed Throttling for Traffic Manager
+
+    - Introduces distributed throttling powered by external CRDT-based counters (e.g., Redis, Valkey) as the underlying mechanism for API rate limiting in multi-node and multi-cluster environments.
+    - All gateways share throttling state through distributed counters, ensuring consistent and accurate rate limiting regardless of which node or cluster processes a request.
+    - This model supports billions of API calls per day while maintaining high performance and real-time throttling decisions.
+
+    #### Enhanced Gateway Management
+
+    Adds new observability and monitoring capabilities for gateway operations.
+
+    - **Gateway Health Monitoring:** View real-time gateway availability, status, and performance via the Admin Portal.
+    - **API Deployment Monitoring:** Track API deployments and undeployments per gateway instance, with active revision visibility in the Publisher Portal.
+
+    These enhancements improve transparency, troubleshooting efficiency, and operational confidence across distributed environments.
+
+??? note "Scalable Universal Gateway with Database-Free Tenancy"
+
+    - Introduces database dependency removal for the Universal Gateway to improve scalability and deployment flexibility in multi-tenant environments.
+    - Gateways now operate independently without shared database access, synchronizing only tenant-specific data with the control plane.
+    - This architecture enhances horizontal scalability, fault isolation, and resilience, enabling seamless scaling across distributed and high-traffic deployments.
 
 ??? note "IS and API Manager Tenancy Sharing"
 
-    Enhanced integration capabilities allowing tenancy sharing between WSO2 Identity Server and API Manager, providing unified tenant management across platforms.
-
-    **[Learn more]({{base_path}}/administer/multitenancy/tenant-sharing-with-wso2is7/)**
+    - Reintroduces shared tenancy between WSO2 Identity Server and API Manager, allowing unified tenant management across both platforms.
+    - This simplifies identity and API governance, reduces administrative effort, and ensures seamless interoperability in multi-tenant environments.
 
 ??? note "Application Management Enhancements"
 
-    Improved application lifecycle management with workflow support and enhanced scope management.
+    Enhances application lifecycle management with workflow-driven updates and fine-grained scope management.
 
-    - **[Application Update Workflow]({{base_path}}/consume/manage-application/advanced-topics/adding-an-application-update-workflow/)** - Introduce approval workflows for application updates
-    - **[Application Scope Support]({{base_path}}/administer/key-managers/application-scopes/)** - Fine-grained scope management for applications
+    - **Application Update Workflow:** Adds an approval process for application updates, ensuring governance and compliance before changes are applied. Applications enter an UPDATE PENDING state until updates are reviewed and approved.
+    - **Application Scope Support:** Enables fine-grained control over scopes and permissions for better application security and flexibility.
 
-[//]: # (## Deprecated Features and Functionalities)
+## Key Changes
 
-[//]: # (TODO: Add the deprecated features and functionalities here)
+Before upgrading to WSO2 API Manager 4.6.0, review the following architectural considerations that may affect your deployment setup:
 
-[//]: # (## Removed Features and Functionalities)
+- **Database Dependency Removal:**
+With the removal of database dependency in the Universal Gateway and Traffic Manager, users no longer need to share databases with the control plane to support multi-tenancy.
+This change improves scalability and simplifies deployment across distributed environments.
 
-[//]: # (TODO: Add the removed features and functionalities here)
-
-[//]: # (## Key Changes)
-
-[//]: # (TODO: Add the key changes here)
+- **Tenant Sharing Between API Manager and Identity Server:**
+When using WSO2 Identity Server as a Key Manager, tenants are now automatically shared between the two systems.
+Users are no longer required to manually create tenants in both servers, streamlining tenant provisioning and synchronization.
 
 ## Compatible WSO2 product versions
 
