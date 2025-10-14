@@ -5,7 +5,7 @@ This section explains how to configure data tables to store the events you need 
 The data handled by WSO2 Stream Processor are stored in the following two types of tables:
 
 -   **In-memory tables** : If no  store-backed tables are defined, data
-    is stored in memory tables by default.
+    is stored in in-memory tables by default.
 
 -   **Store-backed tables** : These are tables that are defined by you
     in an external database. For a list of database types supported and
