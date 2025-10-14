@@ -142,8 +142,65 @@ Devops REST API can be used to configure log level of APIs. It only allows the u
 4. Set log level of a resource in an API.
 
     !!! note
-        This particular capability to enable resource level logging is available in APIM 4.2.0 only after
-        update level 4.2.0.154.full.
+        The capability to enable resource level logging is available in APIM 4.2.0 only from update level 154 onwards.
+        This feature allows to set separate log levels to each resource of an API (Does not support API products yet). To be able to do this, you have to complete the below mentioned steps and restart the server prior to setting the log level for the resource using the API given below.
+
+         1. Set the below system property to true.
+
+        ```toml
+        enableResourceLogging=true
+        ```
+
+        2. Update the `WSO2AM_DB` database using the relevant script mentioned below.
+
+        ??? info "DB Scripts"
+            === "DB2"
+                ```
+                ALTER TABLE AM_API_URL_MAPPING 
+                ADD COLUMN LOG_LEVEL VARCHAR(255) DEFAULT 'OFF'
+                ```
+
+            === "H2"
+                ```
+                ALTER TABLE AM_API_URL_MAPPING 
+                ADD COLUMN LOG_LEVEL VARCHAR(255) DEFAULT 'OFF'
+                ```
+
+            === "MSSQL"
+                ```
+                ALTER TABLE AM_API_URL_MAPPING 
+                ADD COLUMN LOG_LEVEL VARCHAR(255) DEFAULT 'OFF' 
+                ```
+
+            === "MySQL"
+                ```
+                ALTER TABLE AM_API_URL_MAPPING 
+                ADD COLUMN LOG_LEVEL VARCHAR(255) DEFAULT 'OFF'
+                ```
+
+            === "MySQL Cluster"
+                ```
+                ALTER TABLE AM_API_URL_MAPPING 
+                ADD COLUMN LOG_LEVEL VARCHAR(255) DEFAULT 'OFF'
+                ```
+
+            === "Oracle"
+                ```
+                ALTER TABLE AM_API_URL_MAPPING 
+                ADD (LOG_LEVEL VARCHAR2(255) DEFAULT 'OFF')
+                ```
+
+            === "Oracle RAC"
+                ```
+                ALTER TABLE AM_API_URL_MAPPING 
+                ADD (LOG_LEVEL VARCHAR2(255) DEFAULT 'OFF')
+                ```
+            
+            === "PostgreSQL"
+                ```
+                ALTER TABLE AM_API_URL_MAPPING 
+                ADD COLUMN LOG_LEVEL VARCHAR(255) DEFAULT 'OFF'
+                ```
 
     === "cURL command"
         ```bash
