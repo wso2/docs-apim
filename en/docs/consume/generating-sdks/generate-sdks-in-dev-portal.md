@@ -12,7 +12,7 @@ Follow the instructions below to generate and download client-side SDKs via the 
 
 2. Click on the API for which you want to generate a client-side SDK (e.g., `PizzaShackAPI`).
 
-      [![API Overview]({{base_path}}/assets/img/consume/select-api-dev-portal-with-business-info.png){: style="width:80%"}]({{base_path}}/assets/img/consume/select-api-dev-portal-with-business-info.png)
+      [![API Overview]({{base_path}}/assets/img/select-api-dev-portal-with-business-info.png){: style="width:80%"}]({{base_path}}/assets/img/select-api-dev-portal-with-business-info.png)
  
 3.  Click **SDKs**. 
 

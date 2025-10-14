@@ -32,7 +32,7 @@ Follow the instructions below to create the API using the basic flow.
       </div>
     </html>
 
-    [![Design New Streaming API](../../../assets/img/design/create-api/streaming-api/design-new-streaming-api.png)](../../../assets/img/design/create-api/streaming-api/design-new-streaming-api.png)
+    [![Design New Streaming API]({{base_path}}/assets/img/design/create-api/streaming-api/design-new-streaming-api.png)]({{base_path}}/assets/img/design/create-api/streaming-api/design-new-streaming-api.png)
 
 3.  Enter API details.
 
@@ -99,13 +99,13 @@ Follow the instructions below to create the API using the basic flow.
          </tbody>
      </table>
 
-     <a href="../../../../assets/img/design/create-api/streaming-api/create-sse-api-form.png"><img src="../../../../assets/img/design/create-api/streaming-api/create-sse-api-form.png" width="80%" alt="SE Create API Page"></a>
+     <a href="{{base_path}}/assets/img/design/create-api/streaming-api/create-sse-api-form.png"><img src="{{base_path}}/assets/img/design/create-api/streaming-api/create-sse-api-form.png" width="80%" alt="SE Create API Page"></a>
 
 4.  Click **CREATE** to create the API.
 
      The overview page of the newly created API appears.
 
-    [![SSE API overview page](../../../assets/img/design/create-api/streaming-api/sse-api-overview-page.png)](../../../assets/img/design/create-api/streaming-api/sse-api-overview-page.png)
+    [![SSE API overview page]({{base_path}}/assets/img/design/create-api/streaming-api/sse-api-overview-page.png)]({{base_path}}/assets/img/design/create-api/streaming-api/sse-api-overview-page.png)
 
 
 ### Step 2 - Configure the Topics
@@ -118,15 +118,15 @@ Topics of an SSE API are always **Subscribe only**, where the flow of events wil
 
     1. Optionally, click delete, as shown below, to delete an existing topic.
 
-         <a href="../../../../assets/img/design/create-api/streaming-api/sse-api-delete-default-topic.png"><img src="../../../../assets/img/design/create-api/streaming-api/sse-api-delete-default-topic.png" width="80%" alt="SSE API Delete Existing Topic"></a>
+         <a href="{{base_path}}/assets/img/design/create-api/streaming-api/sse-api-delete-default-topic.png"><img src="{{base_path}}/assets/img/design/create-api/streaming-api/sse-api-delete-default-topic.png" width="80%" alt="SSE API Delete Existing Topic"></a>
 
     2. Select **sub** under **Types**, enter the **Topic Name**, and click **+** as shown below, to add a new topic.
 
-         <a href="../../../../assets/img/design/create-api/streaming-api/sse-api-create-new-topic.png"><img src="../../../../assets/img/design/create-api/streaming-api/sse-api-create-new-topic.png" width="80%" alt="SSE API Add Topic"></a>
+         <a href="{{base_path}}/assets/img/design/create-api/streaming-api/sse-api-create-new-topic.png"><img src="{{base_path}}/assets/img/design/create-api/streaming-api/sse-api-create-new-topic.png" width="80%" alt="SSE API Add Topic"></a>
 
          The newly added topic is displayed as follows.
 
-         <a href="../../../../assets/img/design/create-api/streaming-api/sse-api-newly-added-topic.png"><img src="../../../../assets/img/design/create-api/streaming-api/sse-api-newly-added-topic.png" width="80%" alt="SSE API Newly Added Topic"></a>
+         <a href="{{base_path}}/assets/img/design/create-api/streaming-api/sse-api-newly-added-topic.png"><img src="{{base_path}}/assets/img/design/create-api/streaming-api/sse-api-newly-added-topic.png" width="80%" alt="SSE API Newly Added Topic"></a>
 
 ### Step 3 - View the AsyncAPI Definition
 
@@ -134,7 +134,7 @@ Click **AsyncAPI Definition** under **API Configurations**.
 
 The AsyncAPI definition of the streaming API, which you just created, appears.
 
-<a href="../../../../assets/img/design/create-api/streaming-api/sse-api-asyncapi.png"><img src="../../../../assets/img/design/create-api/streaming-api/sse-api-asyncapi.png" width="80%" alt="SSE API AsyncAPI Definition"></a>
+<a href="{{base_path}}/assets/img/design/create-api/streaming-api/sse-api-asyncapi.png"><img src="{{base_path}}/assets/img/design/create-api/streaming-api/sse-api-asyncapi.png" width="80%" alt="SSE API AsyncAPI Definition"></a>
 
 ### Step 4 - Configure the Runtime Configurations
 
@@ -142,17 +142,17 @@ The AsyncAPI definition of the streaming API, which you just created, appears.
 
     Transport Level Security defines the transport protocol on which the API is exposed.
 
-    [![SSE API Runtime Configurations Page](../../../assets/img/design/create-api/streaming-api/sse-api-runtime-configurations-page.png)](../../../assets/img/design/create-api/streaming-api/sse-api-runtime-configurations-page.png)
+    [![SSE API Runtime Configurations Page]({{base_path}}/assets/img/design/create-api/streaming-api/sse-api-runtime-configurations-page.png)]({{base_path}}/assets/img/design/create-api/streaming-api/sse-api-runtime-configurations-page.png)
 
 2. If you wish to limit the API availability to only one transport (e.g., HTTPS), uncheck the appropriate checkbox under **Transport Level Security**.
 
     Both HTTP and HTTPS transports are selected by default.
 
-Now, you have successfully created and configured a Streaming API. Next, let's [Publish your API](../../../../manage-apis/deploy-and-publish/publish-on-dev-portal/publish-an-api).
+Now, you have successfully created and configured a Streaming API. Next, let's [Publish your API]({{base_path}}/manage-apis/deploy-and-publish/publish-on-dev-portal/publish-an-api).
 
 ## End-to-end tutorial
 
-Learn more by trying out an end-to-end tutorial on <a href="../../../../tutorials/streaming-api/create-and-publish-sse-api">Creating and Publishing a SSE API</a>, which uses the default Streaming Provider that works with WSO2 API Manager, namely the WSO2 Streaming Integrator.
+Learn more by trying out an end-to-end tutorial on <a href="{{base_path}}/tutorials/streaming-api/create-and-publish-sse-api">Creating and Publishing a SSE API</a>, which uses the default Streaming Provider that works with WSO2 API Manager, namely the WSO2 Streaming Integrator.
 
 ## See Also
 

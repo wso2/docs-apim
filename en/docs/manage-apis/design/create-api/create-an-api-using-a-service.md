@@ -20,11 +20,7 @@ Follow the instructions below to discover the integration services:
 
 1.  {!includes/sign-in-publisher.md!}
 
-2.  Click **Services**.
-
-      <a href="{{base_path}}/assets/img/integrate/service-catalog/select-services.png"><img src="{{base_path}}/assets/img/integrate/service-catalog/select-services.png" alt="open service catalog" width="30%"></a>
-
-      The available integration services appear.
+2.  Click **Services**. The available integration services appear.
 
       <a href="{{base_path}}/assets/img/common/service-catalog/services-catalog-list.png"><img src="{{base_path}}/assets/img/common/service-catalog/services-catalog-list.png" width="50%" alt="service catalog listings"></a>
 

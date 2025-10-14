@@ -36,7 +36,7 @@ Let's use the Star Wars sample backend server as the backend for the GraphQL API
 
     Let's use `admin` as the username and password to sign in.
 
-2. Click **Create API** and then click **Import GraphQL SDL**.
+2. Click **Create API**, go to **GraphQL** and then click **Create a GraphQL API**.
 
      [![Create GraphQL Schema Option](/en/4.6.0/assets/img/learn/create-graphql-schema-option.png)](/en/4.6.0/assets/img/learn/create-graphql-schema-option.png)
 
@@ -51,7 +51,7 @@ Let's use the Star Wars sample backend server as the backend for the GraphQL API
        <li>The file extension can be either `.graphql`, `.txt`, or `.json`. </li><li> The file name can be any name, which is based on your preference.</li></ul>
        </div>
 
-      [![Import a GraphQL schema by adding a file](../../assets/img/learn/import-graphql-schema-via-file.png){: style="width:80%"}](../../assets/img/learn/import-graphql-schema-via-file.png)
+      [![Import a GraphQL schema by adding a file](/en/4.6.0/assets/img/learn/import-graphql-schema-via-file.png){: style="width:80%"}](/en/4.6.0/assets/img/learn/import-graphql-schema-via-file.png)
 
 4. Enter the GraphQL API related details and click **Create**.
     

@@ -7,7 +7,7 @@ For governing each API's documentation, the WSO2 API Manager arranges API docume
 count: 3 # Total number of documents attached to the API.
 docs:
   - type: "document" # The type of document, usually "document" for text-based documents.
-    version: "v4.5.0" # The version of the API manager.
+    version: "v4.6.0" # The version of the API manager.
     data:
       documentId: "62b16c62-67c8-4716-8144-322c9d64ef2c" # Unique identifier for the document. This is a UUID string.
       name: "How to document" # The name or title of the document.

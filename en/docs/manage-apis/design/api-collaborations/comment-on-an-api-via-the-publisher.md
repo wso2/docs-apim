@@ -14,15 +14,11 @@ Follow the instructions below to comment and reply to an API:
 
 2. Click on an API.
 
-    [![Select an API]({{base_path}}/assets/img/learn/select-api-with-business-info.png)]({{base_path}}/assets/img/learn/select-api-with-business-info.png)
-
 3. Optionally, **Add a comment**.
     
      Type a comment and click **COMMENT**.
 
      Note that the comments appear sorted by the time they were entered, alongside the author's name.
-
-    [![Add a comments]({{base_path}}/assets/img/design/community-features/publisher-reply-to-comment.png)]({{base_path}}/assets/img/design/community-features/publisher-reply-to-comment.png)
 
 5. Optionally, **Reply to a comment**.
 

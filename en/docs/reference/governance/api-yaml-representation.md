@@ -93,7 +93,7 @@ The structure of the `api.yaml` file follows a specific format as shown below fo
 === "Sample"
     ```toml
       type: api
-      version: v4.5.0
+      version: v4.6.0
       data:
         id: 1eac20a4-4240-4fb7-8ced-c257e25e542d
         name: PizzaShackAPI
