@@ -3028,7 +3028,7 @@ enable_forum = true</code></pre>
                                         </div>
                                     </div>
                                     <div class="param-description">
-                                        <p>Use the application_sharing_impl as default implementationIf it is saml, the group extractor extracts the claims to group the applications from the saml response.</p>
+                                        <p>Use the application_sharing_impl as default implementation. If it is saml, the group extractor extracts the claims to group the applications from the saml response.</p>
                                     </div>
                                 </div>
                             </div><div class="param">
