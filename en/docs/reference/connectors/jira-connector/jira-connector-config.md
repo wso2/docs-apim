@@ -1072,7 +1072,7 @@ The following operations allow you to work with the Jira Connector. Click an ope
 
     **Sample response**
 
-    200 will be returned if it updated the issue succesfully.
+    200 will be returned if it updated the issue successfully.
     
 ??? note "updateIssueAssignee"
     To assign an issue to another user, use `updateIssueAssignee` and specify the issue ID.

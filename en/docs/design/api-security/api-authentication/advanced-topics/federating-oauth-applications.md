@@ -8,7 +8,7 @@ In the following document we will be explaining how to federate the OAuth applic
 ### Configuration
 
 1. Go to ```<APIM_HOME>/repository/conf/identity/service-providers/``` and open ```default.xml```
-2.  Comment out or remove the the ```<LocalAuthenticatorConfigs ...``` section and add the following. 
+2.  Comment out or remove the ```<LocalAuthenticatorConfigs ...``` section and add the following. 
     ```xml
         <FederatedIdentityProviders>
             <IdentityProvider>
