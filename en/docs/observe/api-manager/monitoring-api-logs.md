@@ -139,19 +139,17 @@ Devops REST API can be used to configure log level of APIs. It only allows the u
         {"logLevel":"FULL"}
         ```
 
-4. Set log level of a resource in an API.
-
-    !!! note
+    !!! note "Set log level of a resource in an API."
         The capability to enable resource level logging is available in APIM 4.2.0 only from update level 154 onwards.
-        This feature allows to set separate log levels to each resource of an API (Does not support API products yet). To be able to do this, you have to complete the below mentioned steps and restart the server prior to setting the log level for the resource using the API given below.
+        This feature allows to set separate log levels to each resource of an API (Does not support API products yet). To be able to do this, you have to complete the step a and b and restart the server prior to setting the log level for the resource using the step c.
 
-         1. Set the below system property to true.
+         a. Set the below system property to true.
 
         ```toml
         enableResourceLogging=true
         ```
 
-        2. Update the `WSO2AM_DB` database using the relevant script mentioned below.
+         b. Update the `WSO2AM_DB` database using the relevant script mentioned below.
 
         ??? info "DB Scripts"
             === "DB2"
@@ -202,20 +200,22 @@ Devops REST API can be used to configure log level of APIs. It only allows the u
                 ADD COLUMN LOG_LEVEL VARCHAR(255) DEFAULT 'OFF'
                 ```
 
-    === "cURL command"
-        ```bash
-        curl -X PUT 'http://<HOST_NAME>:<PORT>/api/am/devops/v0/tenant-logs/{tenant-domain}/apis/{api-id}' -H 'Authorization: Basic <base64Encode(username:password)>' -H 'Content-Type: application/json' -d '{"logLevel": "<logLevel>","resourceMethod":"<resourceMethod>","resourcePath":"/<resourcePath>"}' -k
-        ```
+         c. Set log level of a resource in an API using the below Devops API.
+        
+        === "cURL command"
+            ```bash
+            curl -X PUT 'http://<HOST_NAME>:<PORT>/api/am/devops/v0/tenant-logs/{tenant-domain}/apis/{api-id}' -H 'Authorization: Basic <base64Encode(username:password)>' -H 'Content-Type: application/json' -d '{"logLevel": "<logLevel>","resourceMethod":"<resourceMethod>","resourcePath":"/<resourcePath>"}' -k
+            ```
    
-    === "Sample cURL command"
-        ```bash
-        curl -X PUT 'https://localhost:9443/api/am/devops/v0/tenant-logs/carbon.super/apis/64f06bef-0019-4bf4-875a-76c03b10d2fc' -H 'Authorization: Basic YWRtaW46YWRtaW4=' -H 'Content-Type: application/json' -d '{"logLevel": "full","resourceMethod":"GET","resourcePath":"/menu"}' -k
-        ```
+        === "Sample cURL command"
+            ```bash
+            curl -X PUT 'https://localhost:9443/api/am/devops/v0/tenant-logs/carbon.super/apis/64f06bef-0019-4bf4-875a-76c03b10d2fc' -H 'Authorization: Basic YWRtaW46YWRtaW4=' -H 'Content-Type: application/json' -d '{"logLevel": "full","resourceMethod":"GET","resourcePath":"/menu"}' -k
+            ```
 
-    === "Sample response"
-        ```bash
-        {"logLevel": "full","resourceMethod":"GET","resourcePath":"/menu"}
-        ```
+        === "Sample response"
+            ```bash
+            {"logLevel": "full","resourceMethod":"GET","resourcePath":"/menu"}
+            ```
 
 ## Configure API Logs using API Controller (APICTL)
 
