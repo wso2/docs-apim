@@ -92,6 +92,9 @@ The API-M layer of this deployment consists of two clusters of API-M components 
         </th>
         <td>
             The APIM control plane consists of two nodes of the <b>Control Pane</b> API-M profile (Publisher, Devportal, Key Manager, Traffic Manager). The two node cluster is the simplest deployment for this pattern. If required you can scale the number of nodes.
+
+            !!! warning
+                Having 3 Control Plane nodes is not a recommended pattern due to potential clustering and synchronization issues.
         </td>
     </tr>
     <tr>
@@ -142,6 +145,9 @@ The API-M layer of this deployment consists of two clusters of API-M components 
         </th>
         <td>
             The APIM control plane consists of two nodes of the <b>Control Pane</b> API-M profile (Publisher, Devportal, Key Manager, Traffic Manager). The two node cluster is the simplest deployment for this pattern. If required you can scale the number of nodes.
+
+            !!! warning
+                Having 3 Control Plane nodes is not a recommended pattern due to potential clustering and synchronization issues.
         </td>
     </tr>
     <tr>
