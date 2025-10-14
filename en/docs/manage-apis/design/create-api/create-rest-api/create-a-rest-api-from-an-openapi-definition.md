@@ -18,7 +18,7 @@ Follow the instructions below to create a REST API using an OpenAPI definition f
 
 2. Click **Create API** and then click **Import OpenAPI**.
 
-    [![Create an API]({{base_path}}/assets/img/learn/import-open-api.png)]({{base_path}}/assets/img/learn/import-open-api.png)
+    [![Create an API]({{base_path}}/assets/img/get_started/design-new-rest-api.png)]({{base_path}}/assets/img/get_started/design-new-rest-api.png)
 
 3. Select one of the following options:
 
@@ -76,6 +76,7 @@ Follow the instructions below to create a REST API using an OpenAPI definition f
         | Field    | Sample value                   |
         |----------|--------------------------------|
         | Name     | SwaggerPetstore                |
+        | Display Name | SwaggerPetstore            |
         | Context  | /petstore                      |
         | Version  | 1.0.5                          |
         | Endpoint | https://petstore.swagger.io/v2 |
@@ -84,7 +85,8 @@ Follow the instructions below to create a REST API using an OpenAPI definition f
      | Field    | Sample value                        |
      |----------|-------------------------------------|
      | Name     | SwaggerPetstore                     |
-     | Context  | /petstore                            |
+     | Display Name | SwaggerPetstore                 |
+     | Context  | /petstore                           |
      | Version  | 1.0.6                               |
      | Endpoint | https://petstore3.swagger.io/api/v3 |
  

@@ -14,12 +14,9 @@ In this tutorial, let's see how you can add interactive documentation to an API 
     This tutorial uses the `PizzaShack` API created in [Create a REST API]({{base_path}}/manage-apis/design/create-api/create-rest-api/create-a-rest-api/) section and Published in the [Publish an API]({{base_path}}/manage-apis/deploy-and-publish/publish-on-dev-portal/publish-an-api/) section.
 
 
-1.  Sign in to the API Publisher and choose to design a new REST API. `https://<hostname>:9443/publisher`
+1.  Sign in to the API Publisher and click **Create API** and then select **REST API** from the home screen and then click **Start From Scratch**. `https://<hostname>:9443/publisher`
 
-    ![create_a_rest_api]({{base_path}}/assets/img/learn/create-a-rest-api.jpg)
-
-
-2.  Click **Design a New REST API**.
+    ![create_a_rest_api]({{base_path}}/assets/img/get_started/design-new-rest-api.png)
 
 3.  In the **Create an API** page, give an API name, a context a version and the endpoint as follows and click **Create**. 
 

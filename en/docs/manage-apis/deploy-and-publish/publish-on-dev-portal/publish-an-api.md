@@ -29,7 +29,7 @@ Follow the steps below to publish an API using WSO2 API Manager.
         
 3.  Click **Lifecycle**.
 
-     [![Lifecycle tab]({{base_path}}/assets/img/learn/lifecycle-tab.png)]({{base_path}}/assets/img/learn/lifecycle-tab.png)
+     [![Lifecycle tab]({{base_path}}/assets/img/learn/default-lifecycle.png)]({{base_path}}/assets/img/learn/default-lifecycle.png)
 
      The lifecycle state transition grid appears. Before publishing an API, the following requirements have to be satisfied.
 

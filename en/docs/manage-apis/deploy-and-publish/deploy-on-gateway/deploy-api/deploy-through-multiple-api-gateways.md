@@ -294,8 +294,6 @@ Make sure to start instance 1 first before starting the other two instances.
 
 1.  Sign in to the API Publisher in the **first** WSO2 API-M instance and click to edit an API.
 
-    <a href="{{base_path}}/assets/img/learn/pizzashack-api-publisher-with-business-info.png"><img src="{{base_path}}/assets/img/learn/pizzashack-api-publisher-with-business-info.png" title="Pizza Shack Publisher" width="30%" alt="Pizza Shack Publisher"/></a>
-     
 2.  Click **Deployments** and click **Deploy New Revision**.
 
     <a href="{{base_path}}/assets/img/learn/api-revisions-mutiple-gateways.png"><img src="{{base_path}}/assets/img/learn/api-revisions-mutiple-gateways.png" title="API Revisions Multiple Gateways" width="80%" alt="API Revisions Multiple Gateways"/></a>
@@ -314,8 +312,6 @@ Make sure to start instance 1 first before starting the other two instances.
 
 4.  Sign in to the Developer Portal (of the **first** instance) and click on the respective API to open it.
 
-    <a href="{{base_path}}/assets/img/learn/pizzashack-api-devportal-with-business-info.png"><img src="{{base_path}}/assets/img/learn/pizzashack-api-devportal-with-business-info.png" title="Dev Portal Pizza Shack" width="30%" alt="Dev Portal Pizza Shack"/></a>
-     
     In the **Overview** tab that corresponds to the API, note that it has two sets of URLs for the two Gateway instances:
 
     <a href="{{base_path}}/assets/img/learn/multiple-gateways-devportal-overview.png"><img src="{{base_path}}/assets/img/learn/multiple-gateways-devportal-overview.png" title="Multiple Gateways Deploy Overview" width="50%" alt="Multiple Gateways Deploy Overview"/></a>

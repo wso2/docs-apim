@@ -95,6 +95,14 @@ Follow the instructions below to create, deploy and publish an API via the Publi
      HelloWorld
      </td>
      </tr>
+     <tr>
+     <th>
+     Display Name
+     </th>
+     <td>
+     Hello World
+     </td>
+     </tr>
      <tr> 
      <th>Context
      </th>

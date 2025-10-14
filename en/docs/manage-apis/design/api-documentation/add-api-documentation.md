@@ -16,8 +16,6 @@ Follow the instructions below to add documentation to an API:
      `https://<hostname>:9443/publisher`
 
 2. Click on the API (e.g., `PizzaShackAPI 1.0.0` ) for which you want to add the documentation.
-   
-    [![Select API in API Publisher]({{base_path}}/assets/img/learn/select-api-with-business-info.png){: style="width:30%"}]({{base_path}}/assets/img/learn/select-api-with-business-info.png)
 
 3. Add the specific documentation.
     
@@ -200,8 +198,6 @@ Follow the instructions below to add documentation to an API:
     
      `https://<hostname>:9443/devportal`
     
-     [![API in Developer Portal]({{base_path}}/assets/img/learn/view-docs-devportal-with-business-info.png){: style="width:70%"}]({{base_path}}/assets/img/learn/view-docs-devportal-with-business-info.png)
-
 5. Click **Documents**.
  
      The documents that you added, which are listed by type, appears.

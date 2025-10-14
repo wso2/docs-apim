@@ -80,7 +80,7 @@ Follow the instructions below to generate REST APIs in WSO2 API Manager for an e
 
 2.  Click **CREATE API** and then click **Import WSDL** under **SOAP API**.
 
-    [![Create SOAP API]({{base_path}}/assets/img/learn/create-soap-api.jpg)]({{base_path}}/assets/img/learn/create-soap-api.jpg)
+    [![Create SOAP API]({{base_path}}/assets/img/learn/create-soap-api.png)]({{base_path}}/assets/img/learn/create-soap-api.png)
  
     <html><div class="admonition info">
       <p class="admonition-title">Info</p>

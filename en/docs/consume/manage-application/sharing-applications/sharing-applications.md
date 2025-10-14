@@ -50,8 +50,6 @@ Share an application with multiple users who are in the same group or who are in
 
      `https://<hostname>:9443/devportal`
 
-     [![Sign in to Developer Portal]({{base_path}}/assets/img/learn/application-sharing-signin.png)]({{base_path}}/assets/img/learn/application-sharing-signin.png)
-
 2. Click **Create Account**.
       
      [![Create Account in Developer Portal]({{base_path}}/assets/img/learn/application-sharing-signup.png)]({{base_path}}/assets/img/learn/application-sharing-signup.png)

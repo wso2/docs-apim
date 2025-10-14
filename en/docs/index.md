@@ -528,7 +528,7 @@ template: templates/single-column.html
                                 <p class="removeTopMargin">Manage APIs spanning multiple cloud platforms, on-premises systems, or regions</p>
                                 <div>
                                     <ul>
-                                        <li><a href="{{base_path}}/manage-apis/deploy-and-publish/deploy-on-gateway/federated-gateways/deploy-on-aws-api-gateway/">AWS API Gateway</a></li>
+                                        <li><a href="{{base_path}}/manage-apis/deploy-and-publish/federated-gateways/aws/deploy-on-aws-api-gateway/">AWS API Gateway</a></li>
                                         <li><a href="{{base_path}}/tutorials/integrating-with-solace/">Solace Broker</a></li>
                                     </ul>
                                 </div>
