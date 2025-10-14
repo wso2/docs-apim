@@ -1,4 +1,4 @@
-# Publishing HTTP Events to to an OAuth-protected Endpoint
+# Publishing HTTP Events to an OAuth-protected Endpoint
 
 ## Purpose
 
