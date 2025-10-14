@@ -139,6 +139,27 @@ Devops REST API can be used to configure log level of APIs. It only allows the u
         {"logLevel":"FULL"}
         ```
 
+4. Set log level of a resource in an API.
+
+    !!! note
+        This particular capability to enable resource level logging is available in APIM 4.2.0 only after
+        update level 4.2.0.154.full.
+
+    === "cURL command"
+        ```bash
+        curl -X PUT 'http://<HOST_NAME>:<PORT>/api/am/devops/v0/tenant-logs/{tenant-domain}/apis/{api-id}' -H 'Authorization: Basic <base64Encode(username:password)>' -H 'Content-Type: application/json' -d '{"logLevel": "<logLevel>","resourceMethod":"<resourceMethod>","resourcePath":"/<resourcePath>"}' -k
+        ```
+   
+    === "Sample cURL command"
+        ```bash
+        curl -X PUT 'https://localhost:9443/api/am/devops/v0/tenant-logs/carbon.super/apis/64f06bef-0019-4bf4-875a-76c03b10d2fc' -H 'Authorization: Basic YWRtaW46YWRtaW4=' -H 'Content-Type: application/json' -d '{"logLevel": "full","resourceMethod":"GET","resourcePath":"/menu"}' -k
+        ```
+
+    === "Sample response"
+        ```bash
+        {"logLevel": "full","resourceMethod":"GET","resourcePath":"/menu"}
+        ```
+
 ## Configure API Logs using API Controller (APICTL)
 
 APICTL provides the functionality to get and set the log level of APIs. It only allows the user with super admission permissions to configure API Logs. For more instructions, refer to the following doc pages.
