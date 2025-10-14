@@ -43,7 +43,7 @@ Following are the integration artifacts that we can used to implement this scena
     ```xml tab='Fault Sequence'
     <sequence xmlns="http://ws.apache.org/ns/synapse" name="fault">
         <log level="custom">
-            <property name="text" value="An unexpected error occured"/>
+            <property name="text" value="An unexpected error occurred"/>
             <property name="message" expression="get-property('ERROR_MESSAGE')"/>
         </log>
         <drop/>
@@ -53,7 +53,7 @@ Following are the integration artifacts that we can used to implement this scena
     ```xml tab='Error Handling Sequence with Logs'
     <sequence xmlns="http://ws.apache.org/ns/synapse" name="sunErrorHandler">
         <log level="custom">
-            <property name="text" value="An unexpected error occured for stock SUN"/>
+            <property name="text" value="An unexpected error occurred for stock SUN"/>
             <property name="message" expression="get-property('ERROR_MESSAGE')"/>
         </log>
         <drop/>
@@ -73,7 +73,7 @@ the `get-property` XPath function. The following log mediator logs the actual er
 
 ```xml
 <log level="custom">  
-    <property name="text" value="An unexpected error occured"/>
+    <property name="text" value="An unexpected error occurred"/>
     <property name="message" expression="get-property('ERROR_MESSAGE')"/>
 </log>
 ``` 
@@ -162,5 +162,5 @@ User-Agent: Apache-HttpClient/4.1.1 (java 1.5)
 
 The following line is logged:
 ```bash
-INFO {org.apache.synapse.mediators.builtin.LogMediator} - text = An unexpected error occured for stock SUN, message = Couldn't find the endpoint with the key : sunPort
+INFO {org.apache.synapse.mediators.builtin.LogMediator} - text = An unexpected error occurred for stock SUN, message = Couldn't find the endpoint with the key : sunPort
 ```

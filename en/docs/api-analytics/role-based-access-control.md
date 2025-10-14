@@ -38,7 +38,7 @@ Enterprises and companies who want to use Choreo Insights collaboratively can ut
 
 ## Viewing and modifying organization related settings
 
-When you are a part of multiple organizations, you are allowed to modify/view settings related to each organization based on the privileges given to you by the group administrator. You will be able to modify the setting only if you are invited and added to the the **Admin** group.
+When you are a part of multiple organizations, you are allowed to modify/view settings related to each organization based on the privileges given to you by the group administrator. You will be able to modify the setting only if you are invited and added to the **Admin** group.
 
 1. Sign in to the Choreo console.
  

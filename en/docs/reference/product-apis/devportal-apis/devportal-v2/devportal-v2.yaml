@@ -3151,9 +3151,9 @@ paths:
     get:
       tags:
         - Settings
-      summary: Retreive Devportal settings
+      summary: Retrieve Devportal settings
       description: |
-        Retreive Devportal Settings
+        Retrieve Devportal Settings
       parameters:
         - $ref: '#/components/parameters/requestedTenant'
       responses:

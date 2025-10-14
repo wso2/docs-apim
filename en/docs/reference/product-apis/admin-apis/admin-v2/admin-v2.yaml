@@ -2277,9 +2277,9 @@ paths:
     get:
       tags:
         - Settings
-      summary: Retreive Admin Settings
+      summary: Retrieve Admin Settings
       description: |
-        Retreive admin settings
+        Retrieve admin settings
       responses:
         200:
           description: |
@@ -2690,7 +2690,7 @@ paths:
         - System Scopes
       summary: Retrieve Role Alias Mappings
       description: |
-        This operation can be used to retreive role alias mapping
+        This operation can be used to retrieve role alias mapping
       responses:
         200:
           description: |

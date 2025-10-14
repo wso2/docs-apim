@@ -79,7 +79,7 @@ documentation in the official [Smooks website](http://www.smooks.org/) .
    intermediate DOM, so we can process huge messages...
    -->
    <core:filterSettings type="SAX" />
-   <!-- Capture the message data 2 seperate DOM model, for "order" and "order-item" fragments... -->
+   <!-- Capture the message data 2 separate DOM model, for "order" and "order-item" fragments... -->
    <resource-config selector="order,order-item">
      <resource>org.milyn.delivery.DomModelCreator</resource>
    </resource-config>

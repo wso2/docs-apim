@@ -1298,7 +1298,7 @@ curl -X PUT "https://localhost:9443/siddhi-apps/TestSiddhiApp/statistics" -H "ac
     ```
       {
         "type":"success",
-        "message":"Sucessfully updated Aiddhi App : TestSiddhiApp"
+        "message":"Successfully updated Aiddhi App : TestSiddhiApp"
       }
     ```
   
@@ -1313,7 +1313,7 @@ curl -X PUT "https://localhost:9443/siddhi-apps/TestSiddhiApp/statistics" -H "ac
     ```
       {
         "type":"success",
-        "message":"Sucessfully updated Aiddhi App : TestSiddhiApp"
+        "message":"Successfully updated Aiddhi App : TestSiddhiApp"
       }
     ```
   
@@ -1404,7 +1404,7 @@ curl -X PUT "https://localhost:9443/siddhi-apps/statistics" -H "accept: applicat
 ```
 {
   "type":"success",
-  "message":"All siddhi apps Sucessfully updated."
+  "message":"All siddhi apps Successfully updated."
 }
 ```
 

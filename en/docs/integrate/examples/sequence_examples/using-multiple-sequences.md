@@ -19,7 +19,7 @@ Following are the integration artifacts that we can used to implement this scena
     <sequence xmlns="http://ws.apache.org/ns/synapse" name="StockQuoteSeq" onError="StockQuoteErrorSeq">
         <log level="custom">
             <property name="Sequence" value="StockQuoteSeq"/>
-            <property name="Description" value="Request recieved"/>
+            <property name="Description" value="Request received"/>
         </log>
         <sequence key="CallStockQuoteSeq"/>
         <sequence key="TransformAndRespondSeq"/>

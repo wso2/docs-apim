@@ -59,7 +59,7 @@ token_config.size= "2048"
     </tr>
     <tr>
           <td><code>clean_up_interval</code></td>
-         <td>Token cleanup will be handled through a seperate thread and the frequency of the token clean up can be configured from this setting. This will clean all the expired and revoked security tokens. The thread will run only when there are tokens in the store. If it is empty, the cleanup thread will automatically stop. Interval is specified in seconds.</td>
+         <td>Token cleanup will be handled through a separate thread and the frequency of the token clean up can be configured from this setting. This will clean all the expired and revoked security tokens. The thread will run only when there are tokens in the store. If it is empty, the cleanup thread will automatically stop. Interval is specified in seconds.</td>
     </tr>
     <tr>
           <td><code>remove_oldest_token_on_overflow</code></td>
@@ -110,7 +110,7 @@ path = "/apis"
 
 ## Configuring CORS
 
-CORS is enabled for the management API by default. The default configuration allows all origins (denoted by the `*` symbol). The `Authorization` header is also enabled by default to cater to the functionalities of the the Micro Integrator dashboard.
+CORS is enabled for the management API by default. The default configuration allows all origins (denoted by the `*` symbol). The `Authorization` header is also enabled by default to cater to the functionalities of the Micro Integrator dashboard.
 
 Add the following to the `deployment.toml` file and update the values.
 

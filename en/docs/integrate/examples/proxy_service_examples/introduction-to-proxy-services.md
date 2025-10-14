@@ -112,7 +112,7 @@ use the `getSimpleQuote` operation.
     </ser:placeOrder>
     ```
 
--   Send the following paylaod to get a market activity report
+-   Send the following payload to get a market activity report
     for the day (i.e. quotes for multiple symbols). You can use the `getMarketActivity` operation.
 
     ```xml

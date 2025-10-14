@@ -45,7 +45,7 @@ This section covers the dashboards that are available to view statistics relatin
 
 ### Last Delete
 
-### Last Change Occured At
+### Last Change Occurred At
 
 ### Table Status
 

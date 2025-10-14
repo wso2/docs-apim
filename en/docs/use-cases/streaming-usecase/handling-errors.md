@@ -321,7 +321,7 @@ This can be used with the following:
     insert into StreamB;
     
     -- consumes from the fault stream
-    from !StreamA#log("Error Occured")
+    from !StreamA#log("Error Occurred")
     select symbol, amount, _error
     insert into tempStream;
     ```
@@ -341,7 +341,7 @@ This can be used with the following:
     define stream StreamA (name string, volume long);
    
     -- consumes from the fault stream
-    from !StreamA#log("Error Occured")
+    from !StreamA#log("Error Occurred")
     select symbol, volume, _error
     insert into tempStream;
     ```
@@ -377,7 +377,7 @@ To try out streaming events with errors, follow the procedure below.
     insert into CopyProductionStream;
     
     @info(name = 'streamerrors')
-    from !ProductionStream#log("Error Occured")
+    from !ProductionStream#log("Error Occurred")
     select name, amount, _error
     insert into ErrorStream;
     ```
@@ -392,7 +392,7 @@ To try out streaming events with errors, follow the procedure below.
     As a result, the following is logged in the Streaming Integrator terminal.
     
     ```text
-    INFO {io.siddhi.core.query.processor.stream.LogStreamProcessor} - CopyingProductionStatsApp: Error Occured, StreamEvent{ timestamp=1604408058031, beforeWindowData=null, onAfterWindowData=null, outputData=[Crossaints, abc, java.lang.ClassCastException: class java.lang.String cannot be cast to class java.lang.Double (java.lang.String and java.lang.Double are in module java.base of loader 'bootstrap')], type=CURRENT, next=null} 
+    INFO {io.siddhi.core.query.processor.stream.LogStreamProcessor} - CopyingProductionStatsApp: Error Occurred, StreamEvent{ timestamp=1604408058031, beforeWindowData=null, onAfterWindowData=null, outputData=[Crossaints, abc, java.lang.ClassCastException: class java.lang.String cannot be cast to class java.lang.Double (java.lang.String and java.lang.Double are in module java.base of loader 'bootstrap')], type=CURRENT, next=null} 
     ```   
 
 ## Waiting 

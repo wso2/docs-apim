@@ -37,7 +37,7 @@ We do the following mapping in this tutorial:
 
     As the API's resource is appended to its endpoint by Synapse at runtime, let's write a custom sequence to remove this appended resource.
 
-4.  Copy the the following to a text editor and save the file in XML format.  
+4.  Copy the following to a text editor and save the file in XML format.  
     (e.g., `TestSequence.xml` ).
 
     !!! example
