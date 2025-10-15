@@ -373,7 +373,7 @@ nav:
             - Guardrail Error Response: ai-gateway/ai-guardrails/guardrail-error-response.md
         - Semantic Caching: ai-gateway/semantic-caching.md
         - AI APIs via SDKs: ai-gateway/using-proxy-apis-in-sdks.md
-    - MCP Servers:
+    - MCP Gateway:
         - Overview: mcp/overview.md
         - Create from an OpenAPI Definition: mcp/create-from-openapi.md
         - Create from an Existing API: mcp/create-from-api.md
@@ -1222,4 +1222,3 @@ extra:
     # base_path: http://localhost:8000/en/4.6.0
     base_path: https://apim.docs.wso2.com/en/4.6.0
     envoy_path: https://www.envoyproxy.io/docs/envoy/v1.24.1
-
