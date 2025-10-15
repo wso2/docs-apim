@@ -21,7 +21,7 @@ To rate an API,
 
 2.  Click on a published API.
 
-    [![Select an API]({{base_path}}/assets/iimg/get_started/architecture/developer-portal-overview.png)]({{base_path}}/assets/iimg/get_started/architecture/developer-portal-overview.png)
+    [![Select an API]({{base_path}}/assets/img/get_started/architecture/developer-portal-overview.png)]({{base_path}}/assets/img/get_started/architecture/developer-portal-overview.png)
 
      The **Overview** page appears.
 

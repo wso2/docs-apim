@@ -118,7 +118,7 @@ This configuration will be used when engaging the custom data provider class.
 
 3. Enabling Logs
 
-    To [enable trace logs]({{base_path}}/administer/logging-and-monitoring/logging/configuring-logging/#enabling-logs-for-a-component) for the component: `org.wso2.am.analytics.publisher`, edit `log4j2.properties` file located inside `<APIM_HOME>/repository/conf` directory. 
+    To [enable trace logs]({{base_path}}/monitoring/observability/configuring-logging/#enabling-logs-for-a-component) for the component: `org.wso2.am.analytics.publisher`, edit `log4j2.properties` file located inside `<APIM_HOME>/repository/conf` directory. 
 
     1. Add new publisher to the loggers list:
 

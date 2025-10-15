@@ -17,7 +17,7 @@ WSO2 API Manager supports creating GraphQL APIs using the GraphQL schema. Follow
 1. Log in to Publisher Portal [https://localhost:9443/publisher](https://localhost:9443/publisher) using `apiprovider@quantis.com` and password `user123`.
 2. Select **Create API → Import GraphQL SDL**
 
-    ![Select GraphQL]({{base_path}}/assets/img/tutorials/scenarios/select-graphql.png)
+    ![Select GraphQL]({{base_path}}/assets/img/learn/create-graphql-schema-option.png)
 
 3. Import the **train.graphql** in the **/resources** and create the API. Use `http://backend-service:8080/train-operations/graphql` as the backend endpoint URL.
 
