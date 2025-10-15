@@ -139,6 +139,84 @@ Devops REST API can be used to configure log level of APIs. It only allows the u
         {"logLevel":"FULL"}
         ```
 
+    !!! note "Set log level of a resource in an API."
+        The capability to enable resource level logging is available in APIM 4.2.0 only from update level 154 onwards.
+        This feature allows to set separate log levels to each resource of an API. Note that this is not supported for API Products yet. To be able to do this, you have to complete the step a and b and restart the server prior to setting the log level for the resource using the step c.
+
+         a. Set the below system property to true in <APIM_HOME>/bin/api-manager.sh or <APIM_HOME>/bin/api-manager.bat file depending on your operating system or provide it as a system property during server startup.
+
+        ```toml
+        -DenableResourceLogging=true
+        ```
+
+         b. Update the `WSO2AM_DB` database using the relevant script mentioned below.
+
+        ??? info "DB Scripts"
+            === "DB2"
+                ```
+                ALTER TABLE AM_API_URL_MAPPING 
+                ADD COLUMN LOG_LEVEL VARCHAR(255) DEFAULT 'OFF'
+                ```
+
+            === "H2"
+                ```
+                ALTER TABLE AM_API_URL_MAPPING 
+                ADD COLUMN LOG_LEVEL VARCHAR(255) DEFAULT 'OFF'
+                ```
+
+            === "MSSQL"
+                ```
+                ALTER TABLE AM_API_URL_MAPPING 
+                ADD COLUMN LOG_LEVEL VARCHAR(255) DEFAULT 'OFF' 
+                ```
+
+            === "MySQL"
+                ```
+                ALTER TABLE AM_API_URL_MAPPING 
+                ADD COLUMN LOG_LEVEL VARCHAR(255) DEFAULT 'OFF'
+                ```
+
+            === "MySQL Cluster"
+                ```
+                ALTER TABLE AM_API_URL_MAPPING 
+                ADD COLUMN LOG_LEVEL VARCHAR(255) DEFAULT 'OFF'
+                ```
+
+            === "Oracle"
+                ```
+                ALTER TABLE AM_API_URL_MAPPING 
+                ADD (LOG_LEVEL VARCHAR2(255) DEFAULT 'OFF')
+                ```
+
+            === "Oracle RAC"
+                ```
+                ALTER TABLE AM_API_URL_MAPPING 
+                ADD (LOG_LEVEL VARCHAR2(255) DEFAULT 'OFF')
+                ```
+            
+            === "PostgreSQL"
+                ```
+                ALTER TABLE AM_API_URL_MAPPING 
+                ADD COLUMN LOG_LEVEL VARCHAR(255) DEFAULT 'OFF'
+                ```
+
+         c. Set log level of a resource in an API using the below Devops API.
+        
+        === "cURL command"
+            ```bash
+            curl -X PUT 'http://<HOST_NAME>:<PORT>/api/am/devops/v0/tenant-logs/{tenant-domain}/apis/{api-id}' -H 'Authorization: Basic <base64Encode(username:password)>' -H 'Content-Type: application/json' -d '{"logLevel": "<logLevel>","resourceMethod":"<resourceMethod>","resourcePath":"/<resourcePath>"}' -k
+            ```
+   
+        === "Sample cURL command"
+            ```bash
+            curl -X PUT 'https://localhost:9443/api/am/devops/v0/tenant-logs/carbon.super/apis/64f06bef-0019-4bf4-875a-76c03b10d2fc' -H 'Authorization: Basic YWRtaW46YWRtaW4=' -H 'Content-Type: application/json' -d '{"logLevel": "full","resourceMethod":"GET","resourcePath":"/menu"}' -k
+            ```
+
+        === "Sample response"
+            ```bash
+            {"logLevel": "full","resourceMethod":"GET","resourcePath":"/menu"}
+            ```
+
 ## Configure API Logs using API Controller (APICTL)
 
 APICTL provides the functionality to get and set the log level of APIs. It only allows the user with super admission permissions to configure API Logs. For more instructions, refer to the following doc pages.
