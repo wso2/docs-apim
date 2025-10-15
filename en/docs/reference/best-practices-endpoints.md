@@ -104,7 +104,7 @@
   immediately and subsequent messages to that endpoint get rejected
   without being sent to the backend service. This might not be the
   expected behaviour in every use case. Therefore, it is important to
-  perform [endpoint error handling]({{base_path}}/reference/synapse-properties/endpoint-properties/#endpoint-error-handling-properties)
+  perform [endpoint error handling](https://mi.docs.wso2.com/en/latest/reference/synapse-properties/endpoint-properties/#endpoint-error-handling-properties)
   based on the use case.
 
 - Use the [HTTP endpoint]({{base_path}}/install-and-setup/setup/mi-setup/transport_configurations/configuring-transports)

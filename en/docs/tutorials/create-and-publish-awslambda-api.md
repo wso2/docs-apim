@@ -8,11 +8,11 @@ When using AWS Lambda, you can execute your code without having to manage or pro
 
 2. Click **CREATE API** and then click **Start From Scrach**.
 
-    [![Create a new REST API]({{base_path}}/assets/img/learn/create-lambda-api.png)]({{base_path}}/assets/img/learn/create-lambda-api.png)
+    [![Create a new REST API]({{base_path}}/assets/img/get_started/design-new-rest-api.png)]({{base_path}}/assets/img/get_started/design-new-rest-api.png)
 
 3. Enter the API details without an endpoint URL and click **Create**.  
 
-    [![Create a test API]({{base_path}}/assets/img/learn/create-lambda-api-details.png)]({{base_path}}/assets/img/learn/create-lambda-api-details.png)
+    [![Create a test API]({{base_path}}/assets/img/learn/design-new-rest-api-details.png)]({{base_path}}/assets/img/learn/design-new-rest-api-details.png)
 
 ## Step 2 - Add AWS Lambda Endpoint
 

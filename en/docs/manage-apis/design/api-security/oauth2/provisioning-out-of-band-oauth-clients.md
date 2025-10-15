@@ -84,7 +84,7 @@ Follow the instructions below to provision the out-of-band OAuth2 client that yo
     
 6.  Click on the respective application to view the credential details.
     
-     [![App listing]({{base_path}}/assets/img/learn/application-select.png)]({{base_path}}/assets/img/learn/application-select.png)   
+     [![App listing]({{base_path}}/assets/img/learn/application-listing.png)]({{base_path}}/assets/img/learn/application-listing.png)   
     
 7.  Click **OAuth2 Tokens** under **Production Keys** tab and navigate to the respective key manager tab (here it is `IS`).
 

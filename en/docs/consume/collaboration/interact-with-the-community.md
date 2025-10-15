@@ -21,7 +21,7 @@ To rate an API,
 
 2.  Click on a published API.
 
-    [![Select an API]({{base_path}}/assets/img/consume/community-features/apis-select-devportal-with-business-info.png)]({{base_path}}/assets/img/consume/community-features/apis-select-devportal-with-business-info.png)
+    [![Select an API]({{base_path}}/assets/iimg/get_started/architecture/developer-portal-overview.png)]({{base_path}}/assets/iimg/get_started/architecture/developer-portal-overview.png)
 
      The **Overview** page appears.
 
@@ -45,7 +45,7 @@ Let's see how to add a comment and how to reply to a comment:
 
 2. Click on a published API.
 
-    [![Select an API]({{base_path}}/assets/img/consume/community-features/apis-select-devportal-with-business-info.png)]({{base_path}}/assets/img/consume/community-features/apis-select-devportal-with-business-info.png)
+    [![Select an API]({{base_path}}/assets/img/get_started/architecture/developer-portal-overview.png)]({{base_path}}/assets/img/get_started/architecture/developer-portal-overview.png)
 
 3.  Click **Comments**.
 

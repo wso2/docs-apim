@@ -32,10 +32,6 @@ Follow the instructions below to create a REST API using the basic flow:
       [![Create an API page]({{base_path}}/assets/img/learn/create-rest-api-form.png){: style="width:70%"}]({{base_path}}/assets/img/learn/create-rest-api-form.png)
 
 4.  Click **Create** to create the API.
-    
-    ??? note "If you click Create & Publish"
-        If you click **Create & Publish**, WSO2 API Manager will automatically create a revision for the API, deploy the revision on the Gateway, and also publish your API to the Developer Portal.
-        [![API overview page]({{base_path}}/assets/img/learn/rest-api-create-publish.png)]({{base_path}}/assets/img/learn/rest-api-create-publish.png)
 
     The overview page of the newly created API appears. 
     

@@ -29,7 +29,7 @@ invoke it using the **wscat** WebSocket client.
       </div>
      </html>
     
-     [![Create WebSocket API menu]({{base_path}}/assets/img/learn/create-websocket-api.jpg)]({{base_path}}/assets/img/learn/create-websocket-api.jpg)
+     [![Create WebSocket API menu]({{base_path}}/assets/img/learn/design-new-streaming-api.jpg)]({{base_path}}/assets/img/learn/design-new-streaming-api.jpg)
 
 3.  Enter the details of the new WebSocket API.
 

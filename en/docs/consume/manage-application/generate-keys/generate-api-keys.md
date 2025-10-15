@@ -15,7 +15,7 @@ Follow the instructions below to generate/renew application keys:
             
 2.  Click **Applications** to navigate to the applications listing page and click on the respective application for which you want to generate keys.
 
-     [![Application view]({{base_path}}/assets/img/learn/application-select.png)]({{base_path}}/assets/img/learn/application-select.png)
+     [![Application view]({{base_path}}/assets/img/learn/application-listing.png)]({{base_path}}/assets/img/learn/application-listing.png)
  
 3.  Click **Production Keys** or **Sandbox Keys** based on the environment for which you need to generate keys.
       

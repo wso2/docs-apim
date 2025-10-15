@@ -452,7 +452,7 @@ The response payload will look like this:
 
 Note that we have used the Property mediator to mark the outgoing payload to be formatted as JSON. For more information 
 about the Property Mediator, see the 
-[Property Mediator]({{base_path}}/reference/mediators/property-mediator) page.
+[Property Mediator](https://mi.docs.wso2.com/en/latest/reference/mediators/property-mediator/) page.
 
 ``` xml
 <property name="messageType" value="application/json" scope="axis2"/>
