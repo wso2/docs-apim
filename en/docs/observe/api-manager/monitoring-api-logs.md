@@ -143,10 +143,10 @@ Devops REST API can be used to configure log level of APIs. It only allows the u
         The capability to enable resource level logging is available in APIM 4.2.0 only from update level 154 onwards.
         This feature allows to set separate log levels to each resource of an API (Does not support API products yet). To be able to do this, you have to complete the step a and b and restart the server prior to setting the log level for the resource using the step c.
 
-         a. Set the below system property to true.
+         a. Set the below system property to true in <APIM_HOME>/bin/api-manager.sh file or during server startup as follows.
 
         ```toml
-        enableResourceLogging=true
+        -DenableResourceLogging=true
         ```
 
          b. Update the `WSO2AM_DB` database using the relevant script mentioned below.
