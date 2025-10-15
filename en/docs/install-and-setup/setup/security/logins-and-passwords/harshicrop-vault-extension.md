@@ -36,7 +36,7 @@ This method uses a static root token to authenticate with HashiCorp Vault, provi
 3. Add **HashiCorp Vault Java Driver** (e.g., `vault-java-driver-5.1.0.jar`) to the
    `<API-M_HOME>/repository/components/lib/` directory.
 
-4. Create the `/repository/conf/security/secret-conf.properties` file and set the following configurations.
+4. Create the `<API-M_HOME>/repository/conf/security/secret-conf.properties` file and set the following configurations.
 
     ```properties
     keystore.identity.location=repository/resources/security/wso2carbon.jks
@@ -50,7 +50,7 @@ This method uses a static root token to authenticate with HashiCorp Vault, provi
     secVault.enabled=true
     secretRepositories=vault
     secretRepositories.vault.provider=org.wso2.carbon.securevault.hashicorp.repository.HashiCorpSecretRepositoryProvider
-    secretRepositories.vault.properties.address=https://127.0.0.1:8200
+    secretRepositories.vault.properties.address=http://127.0.0.1:8200
     secretRepositories.vault.properties.namespace=ns1
     secretRepositories.vault.properties.enginePath=wso2apim
     secretRepositories.vault.properties.engineVersion=2
@@ -195,7 +195,7 @@ This method uses dynamic authentication based on role IDs and secret IDs, allowi
 3. Add **HashiCorp Vault Java Driver** (e.g., `vault-java-driver-5.1.0.jar`) to the
    `<API-M_HOME>/repository/components/lib/` directory.
 
-4. Create the `/repository/conf/security/secret-conf.properties` file and set the following configurations.
+4. Create the `<API-M_HOME>/repository/conf/security/secret-conf.properties` file and set the following configurations.
 
     ```properties
     keystore.identity.location=repository/resources/security/wso2carbon.jks
@@ -209,7 +209,7 @@ This method uses dynamic authentication based on role IDs and secret IDs, allowi
     secVault.enabled=true
     secretRepositories=vault
     secretRepositories.vault.provider=org.wso2.carbon.securevault.hashicorp.repository.HashiCorpSecretRepositoryProvider
-    secretRepositories.vault.properties.address=https://127.0.0.1:8200
+    secretRepositories.vault.properties.address=http://127.0.0.1:8200
     secretRepositories.vault.properties.namespace=ns1
     secretRepositories.vault.properties.enginePath=wso2apim
     secretRepositories.vault.properties.engineVersion=2
