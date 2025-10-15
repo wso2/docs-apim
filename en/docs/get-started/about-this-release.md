@@ -18,7 +18,7 @@ For more information on WSO2 API Manager, see the [overview]({{base_path}}/get-s
 
     The control plane can also function as an MCP Hub, enabling centralized discovery and reuse of MCP Servers across teams and environments.
 
-    **Key Capabilities:**
+    Key Capabilities:
 
     - **API to MCP Conversion:** Automatically convert existing APIs into MCP-compatible services.
     - **MCP Servers from APIs:** Import and expose external APIs as MCP servers.
@@ -32,14 +32,14 @@ For more information on WSO2 API Manager, see the [overview]({{base_path}}/get-s
 
     WSO2 API Manager 4.6.0 release introduces the API discovery support for Federated Gateways. The allows organizations to manage APIs deployed in multiple third-party gateways through a unified control plane. Gateways supported in this release include:
 
-    - AWS API Gateway
-    - Azure API Gateway
-    - Kong Gateway: Kubernetes | Standalone
-    - Envoy Gateway
+    - [AWS API Gateway]({{base_path}}/manage-apis/deploy-and-publish/federated-gateways/aws/discover-apis-on-aws-api-gateway/)
+    - [Azure API Gateway]({{base_path}}/deploy-and-publish/federated-gateways/azure/discover-apis-on-azure-api-gateway/)
+    - Kong Gateway: [Kubernetes]({{base_path}}/manage-apis/deploy-and-publish/federated-gateways/kong/kong-kubernetes/discover-apis-on-kong-gateway-in-kubernetes/) | [Standalone]({{base_path}}/manage-apis/deploy-and-publish/federated-gateways/kong/kong-standalone/discover-apis-on-kong-gateway/)
+    - [Envoy Gateway]({{base_path}}/manage-apis/deploy-and-publish/federated-gateways/envoygateway/eg-k8s/discover-apis-on-eg-gateway-in-kubernetes/)
 
     **[Learn more]({{base_path}}/manage-apis/deploy-and-publish/deploy-on-gateway/federated-gateways/overview/)**
 
-??? note "Unified AI Model Management with Multi-provider Model Hierarchy"
+??? note "Unified AI Model Management with Multi-provider Model Hierarchy or Multi-model AI Service Provider Support"
 
     This release introduces support for configuring multi-model AI Service Providers, extending beyond the single provider support available previously. Organizations can now onboard AI Service Providers to gain unified AI model management capabilities across multiple providers.
 
@@ -48,6 +48,13 @@ For more information on WSO2 API Manager, see the [overview]({{base_path}}/get-s
 
      **[Learn more]({{base_path}}/ai-gateway/ai-vendor-management/aws-bedrock/)**
 
+??? note "AI Guardrails and Semantic Caching for AI Gateway"
+
+    With API Manager 4.6.0 release, we have equiped AI Gateway with AI Guardrails and Semantic Caching.
+
+    - **AI Guardrails:** Real-time validation and enforcement to ensure AI safety, reliability, and compliance. **[Learn more]({{base_path}}/ai-gateway/ai-guardrails/overview/)**
+    - **Semantic Caching:** Meaning-based response caching for improved performance and reduced latency in AI workloads. **[Learn more]({{base_path}}/ai-gateway/semantic-caching/)**
+
 ??? note "APIM Analytics with Moesif"
 
     Moesif-powered WSO2 Analytics replaces Choreo Analytics for enhanced insights and observability.
@@ -55,6 +62,12 @@ For more information on WSO2 API Manager, see the [overview]({{base_path}}/get-s
     This integration enables you to collect and publish API analytics data to the Moesif dashboard, providing insights into API usage, traffic trends, and error tracking in near real-time.
 
      **[Learn more]({{base_path}}/monitoring/api-analytics/moesif-analytics/moesif-integration-guide/)**
+
+??? note "APIM Analytics with OpenSearch"
+
+    WSO2 API Manager now supports OpenSearch as the analytics provider for private cloud and on-premises environments. This solution publishes analytics data into log files, which are then processed through a deployment architecture consisting of Fluent Bit, OpenSearch, and OpenSearch Dashboards.
+
+     **[Learn more]({{base_path}}/monitoring/api-analytics/on-prem/opensearch-installation-guide/)**
 
 ## Improvements
 
@@ -66,7 +79,7 @@ For more information on WSO2 API Manager, see the [overview]({{base_path}}/get-s
 
      **[Learn more]({{base_path}}/manage-apis/design/rate-limiting/advanced-topics/distributed-throttling/)**
 
-??? note "Gateway Monitoring Support: Gateway Health and API Deployment Monitoring"
+??? note "Gateway Health and API Deployment Monitoring Support"
 
     Adds new observability and monitoring capabilities for gateway operations.
 
@@ -80,10 +93,10 @@ For more information on WSO2 API Manager, see the [overview]({{base_path}}/get-s
     Enables integration between WSO2 API Manager and third-party gateways for unified governance and analytics.
     APIs hosted externally can now be created, governed, and monitored from WSO2's control plane.
 
-    **Supported in this release:**
+    Supported in this release:
 
-    - AWS Gateway (Improvements to the already existing support) **[Learn more]({{base_path}}/manage-apis/deploy-and-publish/federated-gateways/aws/deploy-on-aws-api-gateway/)**
-    - Azure API Gateway **[Learn more]({{base_path}}/deploy-and-publish/federated-gateways/azure/deploy-on-azure-api-gateway/)**
+    - [AWS Gateway]({{base_path}}/manage-apis/deploy-and-publish/federated-gateways/aws/deploy-on-aws-api-gateway/) (Improvements to the already existing support)
+    - [Azure API Gateway]({{base_path}}/deploy-and-publish/federated-gateways/azure/deploy-on-azure-api-gateway/)
 
 ??? note "Scalable Universal Gateway with Database-Free Tenancy"
 
@@ -100,39 +113,31 @@ For more information on WSO2 API Manager, see the [overview]({{base_path}}/get-s
 
      **[Learn more]({{base_path}}/administer/multitenancy/tenant-sharing-with-wso2is7/)**
 
-??? note "Application Management Enhancements"
+??? note "Application Update Workflow Support"
 
-    Enhances application lifecycle management with workflow-driven updates and fine-grained scope management.
+    Enhances application lifecycle management by introducing workflow-driven updates with an approval process. This ensures governance and compliance before changes are applied, as applications enter an UPDATE PENDING state until updates are reviewed and approved.
 
-    - **Application Update Workflow:** Adds an approval process for application updates, ensuring governance and compliance before changes are applied. Applications enter an UPDATE PENDING state until updates are reviewed and approved. **[Learn more]({{base_path}}/consume/manage-application/advanced-topics/adding-an-application-update-workflow/)**
-    - **Application Scope Support:** Enables fine-grained control over scopes and permissions for better application security and flexibility. **[Learn more]({{base_path}}/administer/key-managers/application-scopes/)**
+     **[Learn more]({{base_path}}/consume/manage-application/advanced-topics/adding-an-application-update-workflow/)**
+
+??? note "Application Scope Support"
+
+    Application scopes provide fine-grained control over permissions at the application level, enhancing security and flexibility. These scopes are configured as allowed scopes for specific applications and can only be selected from the subscribed scopes (scopes available from all subscribed APIs).
+
+     **[Learn more]({{base_path}}/administer/key-managers/application-scopes/)** 
 
 ??? note "Newly Onboarded AI Service Providers"
 
     With this release, we have onboarded the following AI Service Providers that are ready for use out of the box.
 
-    - AWS Bedrock
-    - Azure AI Foundry
-    - Gemini
-    - Anthropic
+    - [AWS Bedrock]({{base_path}}/ai-gateway/ai-vendor-management/aws-bedrock/)
+    - [Azure AI Foundry]({{base_path}}/ai-gateway/ai-vendor-management/azure-ai-foundry/)
+    - [Gemini]({{base_path}}/ai-gateway/ai-vendor-management/gemini/)
+    - [Anthropic]({{base_path}}/ai-gateway/ai-vendor-management/anthropic/)
 
     Also, we have shipped version 2.0.0 for the following AI Service Providers:
 
     - OpenAI
     - AzureOpenAI
-
-??? note "AI Guardrails and Semantic Caching for AI Gateway"
-
-    With API Manager 4.6.0 release, we have equiped AI Gateway with AI Guardrails and Semantic Caching.
-
-    - **AI Guardrails:** Real-time validation and enforcement to ensure AI safety, reliability, and compliance. **[Learn more]({{base_path}}/ai-gateway/ai-guardrails/overview/)**
-    - **Semantic Caching:** Meaning-based response caching for improved performance and reduced latency in AI workloads. **[Learn more]({{base_path}}/ai-gateway/semantic-caching/)**
-
-??? note "OpenSearch Analytics Support for Private Cloud"
-
-    WSO2 API Manager now supports OpenSearch as the analytics provider for private cloud and on-premises environments. This solution publishes analytics data into log files, which are then processed through a deployment architecture consisting of Fluent Bit, OpenSearch, and OpenSearch Dashboards. The integration delivers real-time, scalable API analytics with full control over data retention, governance, and infrastructure, all within a self-managed, open-source stack.
-
-     **[Learn more]({{base_path}}/monitoring/api-analytics/on-prem/opensearch-installation-guide/)**
 
 ## Key Changes
 
