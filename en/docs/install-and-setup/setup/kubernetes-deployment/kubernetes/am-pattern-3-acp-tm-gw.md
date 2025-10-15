@@ -5,7 +5,7 @@ This is the standard distributed deployment for API Manager. The default configu
 <a href="{{base_path}}/assets/img/setup-and-install/distributed-deployment-tm.png"><img src="{{base_path}}/assets/img/setup-and-install/distributed-deployment-tm.png" alt="simple scalable api-m deployment" width="60%"></a>
 
 For advanced details on the deployment pattern, please refer to the official
-[documentation](kubernetes-deployment-overview.md).
+[documentation](kubernetes-overview.md).
 
 ## Contents
 

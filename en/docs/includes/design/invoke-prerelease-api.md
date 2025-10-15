@@ -18,7 +18,7 @@ Once deployed to the Gateway, you can [test the REST type APIs via the Publisher
 
 		2. Select the required Business Plans and click **Save**.
 
-    [![Select Prototype API Business Plans](../../../../assets/img/learn/prototype-api/create-prototype-api-subscription.png)](../../assets/img/learn/prototype-api/create-prototype-api-subscription.png)
+    [![Select Prototype API Business Plans]({{base_path}}/assets/img/learn/prototype-api/create-prototype-api-subscription.png)]({{base_path}}/assets/img/learn/prototype-api/create-prototype-api-subscription.png)
 
 Follow the instructions below to publish the API to the Developer Portal as a Prototype:
 
@@ -26,6 +26,6 @@ Follow the instructions below to publish the API to the Developer Portal as a Pr
     
     For both options, **When creating an API with the Mock Implementation** and **When creating an API with an actual backend URL**, you will have the option to either promote your API to the **PRE-RELEASED** state or to the **PUBLISHED** state in the API lifecycle.
 
-    [![Publish as Pre-Released API when using backend URL](../../../../assets/img/learn/prototype-api/backend-url-lifecycle.png)](../../../../assets/img/learn/prototype-api/backend-url-lifecycle.png)
+    [![Publish as Pre-Released API when using backend URL]({{base_path}}/assets/img/learn/prototype-api/backend-url-lifecycle.png)]({{base_path}}/assets/img/learn/prototype-api/backend-url-lifecycle.png)
 
 2. Click **Pre-Release** to publish the API as a Prototype API to the Developer Portal.

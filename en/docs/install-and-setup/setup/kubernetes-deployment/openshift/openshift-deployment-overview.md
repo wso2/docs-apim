@@ -9,7 +9,7 @@ This guide provides comprehensive instructions for deploying WSO2 API Manager on
     - [Configuring security context settings in `values.yaml`](#step-4---configure-openshift-specific-settings-in-valuesyaml)
     - [Applying proper permissions for container execution](#step-1---preparing-the-docker-images)
 
-For an all-in-one deployment, following this guide is sufficient. If you need a distributed deployment, please refer to the [Deployment Patterns guide](../kubernetes/kubernetes-deployment-overview.md) and apply the additional configurations mentioned in this document on top of the provided `default_values.yaml` files.
+For an all-in-one deployment, following this guide is sufficient. If you need a distributed deployment, please refer to the [Deployment Patterns guide](../kubernetes/kubernetes-overview.md) and apply the additional configurations mentioned in this document on top of the provided `default_values.yaml` files.
 
 ## Contents
 
@@ -310,7 +310,7 @@ For distributed deployments of WSO2 API Manager on OpenShift, you need to apply 
 
 ### Step 1 - Select an Appropriate Pattern
 
-Review the [WSO2 API-M Deployment Patterns](../kubernetes/kubernetes-deployment-overview.md) and choose the pattern that suits your requirements:
+Review the [WSO2 API-M Deployment Patterns](../kubernetes/kubernetes-overview.md) and choose the pattern that suits your requirements:
 
 - [Pattern 1: HA All-in-One Deployment](../kubernetes/am-pattern-1-all-in-one-ha.md)
 - [Pattern 2: All-in-One with Gateway](../kubernetes/am-pattern-2-all-in-one-gw.md) 

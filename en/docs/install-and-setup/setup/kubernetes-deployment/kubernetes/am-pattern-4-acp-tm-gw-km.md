@@ -5,7 +5,7 @@ This is the fully distributed deployment for API Manager. The default configurat
 <a href="{{base_path}}/assets/img/setup-and-install/distributed-deployment-km.png"><img src="{{base_path}}/assets/img/setup-and-install/distributed-deployment-km.png" alt="fully distributed deployment" width="60%"></a>
 
 !!! info
-    For advanced details on the deployment pattern, please refer to the official [documentation](kubernetes-deployment-overview.md).
+    For advanced details on the deployment pattern, please refer to the official [documentation](kubernetes-overview.md).
 
 ## Contents
 

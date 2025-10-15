@@ -13,7 +13,7 @@ This document provides step-by-step instructions to deploy WSO2 API Manager in a
 <a href="{{base_path}}/assets/img/setup-and-install/deployment-km.png"><img src="{{base_path}}/assets/img/setup-and-install/deployment-km.png" alt="Simple Scalable Deployment" width="100%"></a>
 
 !!! tip
-    For advanced details on this deployment pattern, please refer to the official [WSO2 API Manager documentation](kubernetes-deployment-overview.md).
+    For advanced details on this deployment pattern, please refer to the official [WSO2 API Manager documentation](kubernetes-overview.md).
 
 ## Contents
 
