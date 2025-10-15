@@ -39,7 +39,7 @@ For more information on WSO2 API Manager, see the [overview]({{base_path}}/get-s
 
     **[Learn more]({{base_path}}/manage-apis/deploy-and-publish/deploy-on-gateway/federated-gateways/overview/)**
 
-??? note "Unified AI Model Management with Multi-provider Model Hierarchy or Multi-model AI Service Provider Support"
+??? note "Multi-Model AI Service Provider Support"
 
     This release introduces support for configuring multi-model AI Service Providers, extending beyond the single provider support available previously. Organizations can now onboard AI Service Providers to gain unified AI model management capabilities across multiple providers.
 
