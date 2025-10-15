@@ -18,7 +18,7 @@ The following are the two methods available in the Developer Portal to subscribe
 
 1.  Sign in to the WSO2 API Developer Portal (`https://<hostname>:<port>/devportal`) and click on the API (e.g., `PizzaShackAPI`) to go to the API overview.
 
-     ![[API overview]({{base_path}}/assets/img/learn/select-api-dev-portal-with-business-info.png)]({{base_path}}/assets/img/learn/select-api-dev-portal-with-business-info.png)
+     ![[API overview]({{base_path}}/assets/img/get_started/architecture/developer-portal-overview.png)]({{base_path}}/assets/img/get_started/architecture/developer-portal-overview.png)
  
 2.  Click **SUBSCRIPTION & KEY GENERATION WIZARD** to start the key generation wizard.
 
@@ -59,7 +59,7 @@ If you already have an existing application, follow the instructions below to su
 
 1.  Sign in to the Developer Portal (`https://<hostname>:<port>/devportal`) and click on the API (e.g., `PizzaShackAPI`) to go to the API overview.
 
-     [![API overview]({{base_path}}/assets/img/learn/select-api-dev-portal-with-business-info.png)]({{base_path}}/assets/img/learn/select-api-dev-portal-with-business-info.png)
+     [![API overview]({{base_path}}/assets/img/get_started/architecture/developer-portal-overview.png)]({{base_path}}/assets/img/get_started/architecture/developer-portal-overview.png)
         
 2.  Click **SUBSCRIBE TO AN APPLICATION**.
 
@@ -99,7 +99,7 @@ Follow the instructions below to delete the API subscription:
 
 1.  Sign in to the WSO2 API Developer Portal (`https://<hostname>:<port>/devportal`) and click on the API (e.g., `PizzaShackAPI`) for which you need to delete the application subscription.
     
-    [![API Overview]({{base_path}}/assets/img/learn/select-api-dev-portal-with-business-info.png)]({{base_path}}/assets/img/learn/select-api-dev-portal-with-business-info.png)
+    [![API Overview]({{base_path}}/assets/img/get_started/architecture/developer-portal-overview.png)]({{base_path}}/assets/img/get_started/architecture/developer-portal-overview.png)
     
 2.  Click **Subscriptions**.
 

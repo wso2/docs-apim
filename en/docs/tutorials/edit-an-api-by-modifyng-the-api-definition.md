@@ -26,7 +26,7 @@ In this tutorial, let's see how you can add interactive documentation to an API 
 
     The **Overview** of the created API will be displayed. 
 
-    ![create_a_rest_api]({{base_path}}/assets/img/learn/overviewpage-rest-api.jpg)
+    ![create_a_rest_api]({{base_path}}/assets/img/learn/overviewpage-rest-api.png)
 
 
 4. Click on **API definition** to view the API Definition in the swagger UI.

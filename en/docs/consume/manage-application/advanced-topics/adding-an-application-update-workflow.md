@@ -42,7 +42,7 @@ First, enable the approval workflow executor for application update.
    
           Note that the Status field of the application is changed to UPDATE PENDING.
 
-    ![Application status is UPDATE PENDING]({{base_path}}/img/learn/application-update-pending.png)
+    ![Application status is UPDATE PENDING]({{base_path}}/assets/img/learn/application-update-pending.png)
 
 
 5.  Sign in to the Admin Portal (`https://localhost:9443/admin`), list all the tasks for application update from **Tasks** → **Application Update** and approve or reject the task.

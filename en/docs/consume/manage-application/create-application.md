@@ -46,4 +46,4 @@ WSO2 API Manager comes with a pre-created default application, which allows unli
     
     You will find the PizzaShack application listed with the other applications. The application can be edited or deleted by the application owner.
 
-    [![Application listing]({{base_path}}/assets/img/learn/applications-listing.png)]({{base_path}}/assets/img/learn/applications-listing.png)
+    [![Application listing]({{base_path}}/assets/img/learn/application-listing.png)]({{base_path}}/assets/img/learn/application-listing.png)
