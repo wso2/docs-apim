@@ -36,7 +36,7 @@ This indicates that the backend is working fine. Next, let’s expose this API t
 1. Log on to https://localhost:9443/publisher/apis using a Coltrain publisher user. Use user as `apiprovider@coltrain.com` and password as `user123`.
 2. Select **Import Open API** option under **REST API** section
    
-    ![Create API]({{base_path}}/assets/img/tutorials/scenarios/create-api-oas-def.png)
+    ![Create API]({{base_path}}/assets/img/get_started/design-new-rest-api.png)
 
 
 3. Select **OpenAPI File/Archive** radio button and import the **coltrain-public-openapi.yaml** definition from `/resources` location.

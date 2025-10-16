@@ -13,7 +13,7 @@ WSO2 API Manager has integrated the support for invoking **REST API** with custo
 
 3. Enter the API details without an endpoint URL and click **Create**.  
 
-    [![Create a test API]({{base_path}}/assets/img/learn/create-sequence-backend-api.png)]({{base_path}}/assets/img/learn/create-sequence-backend-api.png)
+    [![Create a test API]({{base_path}}/assets/img/learn/design-new-rest-api-details.png)]({{base_path}}/assets/img/learn/design-new-rest-api-details.png)
 
 ## Step 2 - Add Sequence Backend Endpoint
 
@@ -43,7 +43,6 @@ WSO2 API Manager has integrated the support for invoking **REST API** with custo
 
 
 4. Download sequence uploaded of the preferred key type. This will download the sequence uploaded by the user.
-    [![Download Sequence Backend]({{base_path}}/assets/img/learn/sequence-backend-operations.png)]({{base_path}}/assets/img/learn/sequence-backend-operations.png)
 
 5. Delete sequence uploaded from the preferred key type
     If there's only one item to be deleted, you will not be permitted to perform the operation as atleast one sequence should be provided under the "Sequence Backend" endpoint type.

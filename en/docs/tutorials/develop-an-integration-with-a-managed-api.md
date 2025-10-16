@@ -31,7 +31,7 @@ Let’s create an API in WSO2 API Manager.
    
      You can use any option to create the REST API.
 	 
-	 [![API from scratch menu]({{base_path}}/assets/img/tutorials/api-from-scratch-menu.png)]({{base_path}}/assets/img/tutorials/api-from-scratch-menu.png)
+	 [![API from scratch menu]({{base_path}}/assets/img/get_started/design-new-rest-api.png)]({{base_path}}/assets/img/get_started/design-new-rest-api.png)
 
 1. Enter the details of the API and click **Create** to create the REST API.
     
