@@ -1572,7 +1572,7 @@
                             "required": false,
                             "default": "If the config is not mentioned, then undefined.default",
                             "possible": "default, saml",
-                            "description": "Use the application_sharing_impl as default implementationIf it is saml, the group extractor extracts the claims to group the applications from the saml response."
+                            "description": "Use the application_sharing_impl as default implementation. If it is saml, the group extractor extracts the claims to group the applications from the saml response."
                         },
                         {
                             "name": "application_sharing_impl",
