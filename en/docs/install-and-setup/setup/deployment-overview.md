@@ -145,9 +145,6 @@ For comprehensive instructions, refer to the [K8s Deployment Guide](../setup/kub
 - **Description**: Fully distributed deployment with separate Key Manager component
 - **Use Case**: Large-scale production environments with complex security requirements
 - **Components**: API Control Plane (ACP), Traffic Manager (TM), Universal Gateway (GW), Key Manager (KM)
-
-!!! warning
-    Having 3 Control Plane nodes is not a recommended pattern due to potential clustering and synchronization issues.
 - **Guides**: 
     - [Deploy on VM](../setup/distributed-deployment/deploying-wso2-api-m-in-a-distributed-setup-with-km-separated.md)
     - [Deploy on Kubernetes](../setup/kubernetes-deployment/kubernetes/am-pattern-4-acp-tm-gw-km.md)
