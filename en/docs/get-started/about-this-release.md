@@ -126,6 +126,10 @@ For more information on WSO2 API Manager, see the [overview]({{base_path}}/get-s
 
      **[Learn more]({{base_path}}/monitoring/api-analytics/on-prem/opensearch-installation-guide/)**
 
+## Compatible WSO2 product versions
+
+{!includes/compatibility-matrix.md!}
+
 ## Key Changes
 
 Before upgrading to WSO2 API Manager 4.6.0, review the following architectural considerations that may affect your deployment setup:
@@ -135,10 +139,6 @@ With the removal of database dependency in the Universal Gateway and Traffic Man
 This change improves scalability and simplifies deployment across distributed environments.
 
 - **Disabled Admin Services**
-
-## Compatible WSO2 product versions
-
-{!includes/compatibility-matrix.md!}
 
 ## Deprecated Features
 
