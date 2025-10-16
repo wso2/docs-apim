@@ -14,20 +14,22 @@ For more information on WSO2 API Manager, see the [overview]({{base_path}}/get-s
 
 ??? note "MCP Gateway"
 
-    WSO2 API Manager now supports the Model Context Protocol (MCP), enabling seamless integration between APIs and AI agents. This feature allows organizations to transform existing APIs into MCP-compatible services without code changes, exposing tools and data sources to AI agents in a governed, secure manner.
+    WSO2 API Manager now supports the Model Context Protocol (MCP), enabling seamless integration between APIs and AI agents. Organizations can transform existing APIs into MCP-compatible services, import and expose external APIs as MCP servers, or proxy remote MCP servers through API Manager for centralized governance.
 
     Key Capabilities:
 
-    - **API to MCP conversion:** Automatically convert existing APIs into MCP-compatible services.
-    - **MCP Servers from APIs:** Import and expose external APIs as MCP servers.
+    - **Existing API to MCP conversion:** Automatically convert existing APIs into MCP-compatible services.
+    - **MCP Servers from external APIs:** Import and expose external APIs as MCP Servers.
     - **Managing remote MCP Servers:** Import an external MCP Server and proxy via WSO2 API Manager.
-    - **QoS for MCP servers:** Apply rate limiting, authentication, and other policies.
+    - **QoS for MCP Servers:** Apply rate limiting, authentication, and other policies.
 
     **[Learn more]({{base_path}}/mcp/overview/)**
 
-??? note "MCP Hub support"
+??? note "MCP Hub"
 
     The control plane can now function as a MCP Hub, enabling centralized discovery and reuse of MCP Servers across teams and environments.
+
+    **[Learn more]({{base_path}}/mcp/overview/)**
 
 ??? note "Multi-Model AI Service Provider Support"
 
@@ -40,8 +42,6 @@ For more information on WSO2 API Manager, see the [overview]({{base_path}}/get-s
 
     - [AWS Bedrock]({{base_path}}/ai-gateway/ai-vendor-management/aws-bedrock/)
     - [Azure AI Foundry]({{base_path}}/ai-gateway/ai-vendor-management/azure-ai-foundry/)
-
-     **[Learn more]({{base_path}}/ai-gateway/ai-vendor-management/aws-bedrock/)**
 
 ??? note "AI Guardrails and Semantic Caching for AI Gateway"
 
