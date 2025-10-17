@@ -372,6 +372,7 @@ nav:
             - AWS Bedrock Guardrail: ai-gateway/ai-guardrails/aws-bedrock-guardrail.md
             - Guardrail Error Response: ai-gateway/ai-guardrails/guardrail-error-response.md
         - Semantic Caching: ai-gateway/semantic-caching.md
+        - AI APIs via SDKs: ai-gateway/using-proxy-apis-in-sdks.md
     - MCP Servers:
         - Overview: mcp/overview.md
         - Create from an OpenAPI Definition: mcp/create-from-openapi.md
