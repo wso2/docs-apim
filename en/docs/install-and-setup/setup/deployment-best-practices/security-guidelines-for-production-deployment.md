@@ -300,6 +300,17 @@ Only the Java classes having names starting with any of the values given under <
 Likewise, when <code>limit_java_class_access_in_scripts.list_type</code> is <code>BLOCK_LIST</code>, classes with matching names will be selectively blocked.
 <br/>
 <br/>
+
+The following sample configuration can be applied to block java method access through the script mediator. If you have any use cases related to script mediators, modify and apply this accordingly.
+<pre class="java" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence" style="brush: java; gutter: false; theme: Confluence">
+<code>
+[synapse_properties]
+'limit_java_class_access_in_scripts.enable'=true
+'limit_java_class_access_in_scripts.list_type' = "BLOCK_LIST"
+'limit_java_class_access_in_scripts.class_prefixes' = "java.util,java.lang,java.io,java.nio,java.net"
+</code>
+</pre>
+
 <b>Limiting Access to Java Methods/Native Objects</b>
 <br/>
 Access to Java Methods/Native Objects can be restricted by providing the following configurations in <code>deployment.toml</code>.
