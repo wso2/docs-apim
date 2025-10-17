@@ -11,7 +11,12 @@ In the Publisher Portal, you will:
 <!-- -->
 
 1. **Go to the Publisher Portal**
-
+    
+    * Navigate to **MCP Servers** in the Publisher Portal.
+    * If you have existing MCP Servers, click the **Create MCP Server** button.
+    [![MCP Server Overview]({{base_path}}/assets/img/mcp/create-mcp-server-button.png){: style="width:70%"}]({{base_path}}/assets/img/mcp/create-mcp-server-button.png)
+    * If this is your first MCP Server, you'll see the "Let’s get started!" page.
+    [![MCP Server Overview]({{base_path}}/assets/img/mcp/create-mcp-server-overview.png){: style="width:90%"}]({{base_path}}/assets/img/mcp/create-mcp-server-overview.png)
     * In the navigation, click **Proxy Existing MCP Server** → **Proxy an Existing MCP Server**.
 
 2. **Provide the definition**
