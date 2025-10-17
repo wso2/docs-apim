@@ -19,6 +19,28 @@ Over the course of its lifetime, WSO2 API Manager has changed significantly. To 
     <p>If you are upgrading from WSO2 API Manager 4.2.0 to 4.3.0, you can experience a seamless product upgrade with no data migration. This pivotal change facilitates a smooth transition for current API Manager 4.2.0 users to the latest version, eliminating the need for complex migrations.</p>
 </div>
 
+## Migration configuration for separate databases
+
+If you are using separate User Management (UM) and Registry (REG) databases in your current deployment, you need to configure the migration client properly to handle this setup.
+
+### Configuring isSeparateRegistryDB parameter
+
+When the migration client is configured to handle separate UM and REG databases, the `isSeparateRegistryDB` property in the `migration-config.yaml` file must be set to `true` to ensure that registry-related queries are executed on the correct REG database.
+
+```yaml
+# migration-config.yaml
+isSeparateRegistryDB: true
+```
+
+This configuration is essential when:
+
+- Your current API Manager deployment uses separate databases for User Management and Registry data
+- You are migrating from an earlier version where UM_DB and REG_DB are configured as separate databases
+- You want to ensure registry-related migration queries target the correct database during the migration process
+
+!!! warning
+    If you have separate UM and REG databases but do not set `isSeparateRegistryDB` to `true`, the migration may encounter issues or data inconsistencies. Always verify your database configuration before starting the migration process.
+
 ## Get started
 
 To make sure that the upgrade process is smooth and you have the best experience, WSO2 recommends that you reach out to WSO2 Support in order to upgrade WSO2 API Manager with minimal difficulty.
