@@ -61,6 +61,14 @@ For more information on WSO2 API Manager, see the [overview]({{base_path}}/get-s
 
     **[Learn more]({{base_path}}/manage-apis/deploy-and-publish/deploy-on-gateway/federated-gateways/overview/)**
 
+??? note "API Analytics with Moesif"
+
+    Moesif-powered Analytics for enhanced insights and observability.
+
+    This integration enables you to collect and publish API analytics data to the Moesif dashboard, providing insights into API usage, traffic trends, and error tracking in near real-time.
+
+     **[Learn more]({{base_path}}/monitoring/api-analytics/moesif-analytics/moesif-integration-guide/)**
+
 ??? note "Application update workflow"
 
     Enhances application lifecycle management by introducing workflow-driven updates with an approval process. This ensures governance and compliance before changes are applied, as applications enter an UPDATE PENDING state until updates are reviewed and approved.
@@ -73,17 +81,23 @@ For more information on WSO2 API Manager, see the [overview]({{base_path}}/get-s
 
      **[Learn more]({{base_path}}/administer/key-managers/application-scopes/)** 
 
-??? note "API Analytics with Moesif"
-
-    Moesif-powered WSO2 Analytics for enhanced insights and observability.
-
-    This integration enables you to collect and publish API analytics data to the Moesif dashboard, providing insights into API usage, traffic trends, and error tracking in near real-time.
-
-     **[Learn more]({{base_path}}/monitoring/api-analytics/moesif-analytics/moesif-integration-guide/)**
-
 ## Improvements
 
-??? note "Support for long term  API traffic quota management"
+??? note "Newly onboarded AI Service Providers"
+
+    With this release, we have onboarded the following AI Service Providers that are ready for use out of the box.
+
+    - [AWS Bedrock]({{base_path}}/ai-gateway/ai-vendor-management/aws-bedrock/)
+    - [Azure AI Foundry]({{base_path}}/ai-gateway/ai-vendor-management/azure-ai-foundry/)
+    - [Gemini]({{base_path}}/ai-gateway/ai-vendor-management/gemini/)
+    - [Anthropic]({{base_path}}/ai-gateway/ai-vendor-management/anthropic/)
+
+    Also, we have shipped version 2.0.0 for the following AI Service Providers:
+
+    - OpenAI
+    - AzureOpenAI
+
+??? note "Redis-based counter sharing for traffic management"
 
     - Introduces distributed throttling powered by external CRDT-based counters (e.g., Redis, Valkey) as the underlying mechanism for API rate limiting in multi-node and multi-cluster environments.
     - All gateways share throttling state through distributed counters, ensuring consistent and accurate rate limiting regardless of which node or cluster processes a request.
@@ -108,18 +122,6 @@ For more information on WSO2 API Manager, see the [overview]({{base_path}}/get-s
 
      **[Learn more]({{base_path}}/manage-apis/deploy-and-publish/deploy-on-gateway/api-gateway/maintain-seperate-gateways-per-tenants/)**
 
-??? note "Newly onboarded AI Service Providers"
-
-    With this release, we have onboarded the following AI Service Providers that are ready for use out of the box.
-
-    - [Gemini]({{base_path}}/ai-gateway/ai-vendor-management/gemini/)
-    - [Anthropic]({{base_path}}/ai-gateway/ai-vendor-management/anthropic/)
-
-    Also, we have shipped version 2.0.0 for the following AI Service Providers:
-
-    - OpenAI
-    - AzureOpenAI
-
 ??? note "API Analytics with OpenSearch"
 
     WSO2 API Manager now supports OpenSearch as the analytics provider for private cloud and on-premises environments. This solution publishes analytics data into log files, which are then processed through a deployment architecture consisting of Fluent Bit, OpenSearch, and OpenSearch Dashboards.
@@ -134,65 +136,51 @@ For more information on WSO2 API Manager, see the [overview]({{base_path}}/get-s
 
 Before upgrading to WSO2 API Manager 4.6.0, review the following architectural considerations that may affect your deployment setup:
 
-- **Database Dependency Removal:**
+- **Removing database dependency of multi-tenant API gateways:**
 With the removal of database dependency in the Universal Gateway and Traffic Manager, users no longer need to share databases with the control plane to support multi-tenancy.
 This change improves scalability and simplifies deployment across distributed environments.
 
-- **Disabled Admin Services**
+- **Disabled Admin Services:**
+[Admin Services]({{base_path}}/reference/wso2-admin-services/) are SOAP-based web services that are used for internal management. We have disabled the below listed services from APIM 4.6.0 onwards:
 
-## Deprecated Features
+    ??? note "List of denied admin services"
+        - ClassMediatorAdmin
+        - CommandMediatorAdmin
+        - ConfigServiceAdmin
+        - CustomMeteringService
+        - DeploymentSynchronizerAdmin
+        - EndpointTemplateAdminService
+        - ESBNTaskAdmin
+        - MediationLibraryAdminService
+        - MediationLibraryUploader
+        - MediationSecurityAdminService
+        - MetricsDataService
+        - ModuleAdminService
+        - RemoteTaskAdmin
+        - StatisticsAdmin
+        - SynapseApplicationAdmin
+        - SynapseArtifactUploaderAdmin
+        - TemplateAdminService
+        - ThemeMgtService
+        - TierCacheService
+        - WebappAdmin
 
-The following admin services will be deprecated from APIM 4.6.0 onwards:
+## Deprecations
+
+[Admin Services]({{base_path}}/reference/wso2-admin-services/) are SOAP-based web services that are used for internal management. Note that we have deprecated the below listed services from APIM 4.6.0 onwards:
 
 ??? note "Deprecated admin services"
     - APIGatewayAdmin
     - APIKeyMgtRemoteUserStoreMgtService
     - APILocalEntryAdmin
-    - AuthenticationAdmin
-    - AuthenticationAdmin/login
-    - ChallengeQuestionManagementAdminService/getChallengeQuestionsForLocale
-    - ChallengeQuestionManagementAdminService/getChallengeQuestionsForUser
-    - ChallengeQuestionManagementAdminService/getChallengeQuestionsOfTenant
-    - ChallengeQuestionManagementAdminService/getUserChallengeAnswers
-    - ChallengeQuestionManagementAdminService/setUserChallengeAnswers
-    - CommandMediatorAdmin
     - CustomMeteringService
     - EmailVerificationService
-    - FileDownloadService
-    - FileUploadService
-    - IdentityApplicationManagementService/getAllIdentityProviders
-    - IdentityProviderAdminService
-    - IdentityProviderMgtService/getAllIdPs
-    - IdentityProviderMgtService/getAllIdPsSearch
-    - LoggedUserInfoAdmin
     - LoginStatisticsAdmin
     - LogViewer
-    - ManageGenericArtifactService/canChange
-    - ManageGenericArtifactService/getArtifactUIConfiguration
-    - ManageGenericArtifactService/getAvailableAspects
-    - MultipleCredentialsUserAdmin/getAllUserClaimValues
-    - OAuthAdminService/getAppsAuthorizedByUser
-    - OAuthAdminService/revokeAuthzForAppsByResoureOwner
     - PackageInfoService
     - QpidAdminService
-    - RedirectorServletService
-    - RegistryAdminService
     - RegistryCacheInvalidationService
-    - SAML2SSOAuthenticationService
-    - ServerAdmin/getServerData
-    - SessionManagementService/removeMySession
     - TierCacheService
-    - UserAdmin/getRolesOfCurrentUser
-    - UserAdmin/getUserRealmInfo
-    - UserAdmin/hasMultipleUserStores
-    - UserIdentityManagementAdminService/changeUserPassword
-    - UserIdentityManagementAdminService/getAllChallengeQuestions
-    - UserIdentityManagementAdminService/getAllUserIdentityClaims
-    - UserIdentityManagementAdminService/getChallengeQuestionsOfUser
-    - UserIdentityManagementAdminService/setChallengeQuestionsOfUser
-    - UserIdentityManagementAdminService/updateUserIdentityClaims
-    - UserInformationRecoveryService
-    - UserRegistrationAdminService
 
 ## Fixed issues
 
