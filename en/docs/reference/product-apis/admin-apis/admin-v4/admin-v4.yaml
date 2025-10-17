@@ -2067,7 +2067,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/PublishStatus'
         202:
-          description: Request is sucessfully accepted for processing.
+          description: Request is successfully accepted for processing.
           content:
             application/json:
               schema:
@@ -2180,7 +2180,7 @@ paths:
       summary: |
         Get Pending Workflow Details by External Workflow Reference
       description: |
-        Using this operation, you can retrieve complete details of a pending workflow request that either belongs to application creation, application subscription, application registration, api state change, user self sign up.. You need to provide the External_Workflow_Reference of the workflow Request to retrive it.
+        Using this operation, you can retrieve complete details of a pending workflow request that either belongs to application creation, application subscription, application registration, api state change, user self sign up.. You need to provide the External_Workflow_Reference of the workflow Request to retrieve it.
       parameters:
         - name: externalWorkflowRef
           in: path
@@ -2498,9 +2498,9 @@ paths:
     get:
       tags:
         - Settings
-      summary: Retreive Admin Settings
+      summary: Retrieve Admin Settings
       description: |
-        Retreive admin settings
+        Retrieve admin settings
       responses:
         200:
           description: |
@@ -6189,7 +6189,7 @@ components:
             apim:api_category: Manage API categories
             apim:admin_settings: Retrieve admin settings
             apim:admin_alert_manage: Manage admin alerts
-            apim:api_workflow_view: Retrive workflow requests
+            apim:api_workflow_view: Retrieve workflow requests
             apim:scope_manage: Manage system scopes
             apim:role_manage: Manage system roles
             apim:admin_application_view: View Applications
