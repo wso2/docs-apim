@@ -8,7 +8,12 @@ You can then configure your MCP Server details—such as name, context, version,
     The quality of the imported tools depends on the quality of your OpenAPI definition. Clear operation IDs, descriptions, and parameter schemas will result in more usable and descriptive tools.
 
 1. **Go to the Publisher Portal**
-
+    
+    * Navigate to **MCP Servers** in the Publisher Portal.
+    * If you have existing MCP Servers, click the **Create MCP Server** button.
+    [![MCP Server Overview]({{base_path}}/assets/img/mcp/create-mcp-server-button.png){: style="width:90%"}]({{base_path}}/assets/img/mcp/create-mcp-server-button.png)
+    * If this is your first MCP Server, you'll see the "Let’s get started!" page.
+    [![MCP Server Overview]({{base_path}}/assets/img/mcp/create-mcp-server-overview.png){: style="width:90%"}]({{base_path}}/assets/img/mcp/create-mcp-server-overview.png)
     * In the navigation, click **Import API Definition** → **Create MCP Server from Definition**.
 
 2. **Provide the definition**
