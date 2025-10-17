@@ -517,7 +517,23 @@ in your WSO2 product.
         different primary user store configured. For more information
         configuring user stores in WSO2 products, see [Configuring User
         Stores]({{base_path}}/administer/product-administration/managing-users-and-roles/managing-user-stores/configuring-secondary-user-stores/).
-    
+
+
+**Adding custom user store as a secondary user store**
+
+If you need to add the custom user store as a **secondary** user store, you must use one of the following configurations in the `<API-M_HOME>/repository/conf/deployment.toml` file instead of the configuration shown above:
+
+**Option 1:** Add to the allowed user stores list
+``` toml
+[user_store_mgt]
+allowed_user_stores=["org.wso2.carbon.user.core.jdbc.UniqueIDJDBCUserStoreManager", "org.wso2.carbon.user.core.ldap.UniqueIDActiveDirectoryUserStoreManager","org.wso2.carbon.user.core.ldap.UniqueIDReadOnlyLDAPUserStoreManager","org.wso2.carbon.user.core.ldap.UniqueIDReadWriteLDAPUserStoreManager","org.wso2.custom.user.store.CustomUserStoreManager"]
+```
+
+**Option 2:** Add to the custom user stores list
+``` toml
+[user_store_mgt]
+custom_user_stores=["org.wso2.custom.user.store.CustomUserStoreManager"]
+```
 
     You do not need to change anything else since you extend the
     JDBCUserStoreManager class, so the configurations will remain the
@@ -527,6 +543,10 @@ You have now implemented a custom user store manager for a WSO2 product.
 Once you have done this, start the product and see the log messages that
 you have placed inside overridden methods when you create a new user or
 login. This ensures that all your configurations work as intended.
+
+## Sample implementations
+
+For additional reference and sample implementations, see the [sample custom user store manager](https://github.com/wso2/product-is/tree/v5.10.0/modules/samples/user-mgt/sample-custom-user-store-manager) available in the WSO2 Identity Server repository. This sample demonstrates how to extend default user store managers by implementing a new user store, with comprehensive examples and project structure.
 
 !!! note "Do you want to create a custom user store that only has few enabled methods? Follow the steps given below:"
     1.  Sign in to the WSO2 API management console.
