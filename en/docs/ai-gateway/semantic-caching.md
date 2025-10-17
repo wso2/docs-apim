@@ -34,7 +34,7 @@ Choose one of the following embedding providers and add the configuration to you
 
     ```toml
     [apim.ai.embedding_provider]
-    type = "azure"
+    type = "azure-openai"
     [apim.ai.embedding_provider.properties]
     apikey = "<your-azure-openai-api-key>"
     embedding_endpoint = "<your-azure-openai-embedding-endpoint>"
@@ -71,21 +71,36 @@ Follow these steps to integrate the Semantic Cache policy into your WSO2 API Man
 1. Log in to the API Publisher Portal at `https://<host>:<port>/publisher`.
 2. Select the API you want to configure.
 3. Navigate to **Develop > API Configurations > Policies > Request/Response Flow**.
-4. Click **Add Policy** and choose **Semantic Cache** from the list.
-5. Fill in the required settings, such as the cache policy name and similarity threshold.
-6. Save your changes and deploy the API.
+4. **Add the policy to both Request and Response flows:**
+   - **Request Flow**: Click **Add Policy** and choose **Semantic Cache** from the list. Configure the cache policy name, similarity threshold, and JSONPath expression.
+   - **Response Flow**: Click **Add Policy** and choose **Semantic Cache** from the list. Configure the cache policy name and similarity threshold (JSONPath is not required for response flow).
+5. Save your changes and deploy the API.
+
+!!! note "Important"
+    The Semantic Cache policy must be added to both request and response flows to function properly. The request flow handles cache lookup using the JSONPath to extract content for semantic similarity checking, while the response flow handles cache storage.
 
 ## Example Policy Configuration
 
 ??? example "Click to expand configuration steps"
     1. Create an AI API using OpenAI or any supported AI provider.  
-    2. Add the Semantic Cache policy to the API with the following configuration:
+    2. Add the Semantic Cache policy to both request and response flows with the following configuration:
 
+    **Request Flow Configuration:**
     | Field                         | Example Value              | Description |
     |-------------------------------|----------------------------|--------------------------------------------------------|
     | `Semantic Cache Policy Name`   | `SemanticCache`            | Unique name for the semantic cache policy |
     | `Threshold`                   | `0.35`                     | Dissimilarity threshold for semantic matching (decimal value)|
-    | `JSONPath`                    | `$.messages[-1].content`   | JSONPath expression to extract content for cache|
+    | `JSONPath`                    | `$.messages[-1].content`   | JSONPath expression to extract content for semantic similarity checking|
+
+    **Response Flow Configuration:**
+    | Field                         | Example Value              | Description |
+    |-------------------------------|----------------------------|--------------------------------------------------------|
+    | `Semantic Cache Policy Name`   | `SemanticCache`            | Unique name for the semantic cache policy (should match request flow) |
+    | `Threshold`                   | `0.35`                     | Dissimilarity threshold for semantic matching (decimal value)|
+    | `JSONPath`                    | Not required               | JSONPath is not needed in response flow as it only handles cache storage|
+
+    **JSONPath Usage**:  
+    The JSONPath expression is used to extract the specific content from the request payload that will be used for semantic similarity comparison. This should only be configured in the request flow where the cache lookup occurs.
 
     **Threshold**:  
     The threshold sets the maximum allowed dissimilarity for semantic cache matches, measured using L2 (Euclidean) distance between embeddings.
