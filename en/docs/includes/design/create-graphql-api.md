@@ -42,7 +42,7 @@ Let's use the Star Wars sample backend server as the backend for the GraphQL API
 
 3. Import the schema by dragging and dropping the file or by uploading the file, and click **Next**.
 
-       Let's use the [StarWarsAPI schema definition](/en/{{site_version}}/assets/attachments/learn/schema_graphql.graphql) to create the schema file. 
+       Let's use the [StarWarsAPI schema definition](../../assets/attachments/learn/schema_graphql.graphql) to create the schema file. 
 
        <div class="admonition note">
        <p class="admonition-title">Note</p>
