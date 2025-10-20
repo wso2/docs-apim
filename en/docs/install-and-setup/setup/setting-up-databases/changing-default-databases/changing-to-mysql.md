@@ -67,6 +67,17 @@ Follow the  instructions below to set up a MySQL database:
         - If you are using MySQL to configure your datasource, we recommend that you use a case sensitive database collation. For more information, see the [MySQL Official Manual](https://dev.mysql.com/doc/refman/5.7/en/charset-mysql.html). The default database collation, which is `latin1_swedish_ci`, is case insensitive. However, you need to maintain case sensitivity for database collation, because when the database or table has a case-insensitive collation in MySQL 5.6 or 5.7, if a user creates an API with letters using mixed case, deletes the API, and then creates another API with the same name, but in lower case letters, then the later created API loses its permission information because when deleting the API, it keeps the Registry collection left behind.
         
         - This issue could be avoided if you use a case sensitive collation for database and tables. In that case, when creating the second API (which has the same name, but is entirely in lowercase letters), it will create a new record with the lowercase name in the `UM_PERMISSION` table.
+
+        - **UTF8/UTF8MB4 charset support**: While WSO2 recommends using `latin1` character set for MySQL databases due to product-level limitations, customers who require support for Chinese or non-ASCII characters may need to use UTF8 or UTF8MB4 character sets. When using UTF8/UTF8MB4 character sets, you must alter certain UUID columns to reduce their length to 64 characters to avoid index key length issues. Execute the following ALTER commands after creating the database tables:
+
+          ```sql
+          -- For tables with UUID columns that exceed MySQL's index key length limits
+          -- Reduce UUID column length to 64 characters for UTF8/UTF8MB4 compatibility
+          ALTER TABLE <TABLE_NAME> MODIFY <UUID_COLUMN_NAME> VARCHAR(64);
+          ```
+
+          !!! warning
+              Before implementing UTF8/UTF8MB4 character sets, ensure you modify all relevant UUID columns in your database schema. Test thoroughly in a development environment as this change affects index performance and storage requirements.
     
 
 1.  Provide authorization to the user that you use to access the databases. 
