@@ -129,6 +129,9 @@ Using [HashiCorp Vault extension](https://github.com/wso2-extensions/carbon-secu
     [Enter KeyStore and Private Key Password :] wso2carbon
     ```
 
+    !!! note "YAJSW wrapper behavior on Windows"
+        When starting WSO2 API Manager via the YAJSW wrapper on Windows (for example, through `runConsole.bat` or `api-manager.bat start`), no interactive console is available for password input. Therefore, the keystore password prompt (`[Enter KeyStore and Private Key Password:]`) will not appear. In such cases, you must provide the keystore password through a password file (`password-tmp.txt` or `password-persist.txt`) placed under the `<APIM_HOME>` directory.
+
 
 ## Setting up using App-Role authentication
 
@@ -283,9 +286,13 @@ Using [HashiCorp Vault extension](https://github.com/wso2-extensions/carbon-secu
     ```
 
 2. Start the WSO2 API Manager Server and enter the keystore password at startup when prompted.
+
    ```shell
    [Enter KeyStore and Private Key Password :] wso2carbon
    ```
-    
-    
+
+    !!! note "YAJSW wrapper behavior on Windows"
+        When starting WSO2 API Manager via the YAJSW wrapper on Windows (for example, through `runConsole.bat` or `api-manager.bat start`), no interactive console is available for password input. Therefore, the keystore password prompt (`[Enter KeyStore and Private Key Password:]`) will not appear. In such cases, you must provide the keystore password through a password file (`password-tmp.txt` or `password-persist.txt`) placed under the `<APIM_HOME>` directory.
+
+
 
