@@ -11,6 +11,13 @@
 
         If not, follow the steps in [Add an Environment]({{base_path}}/install-and-setup/setup//api-controller/getting-started-with-wso2-api-controller#add-an-environment).
 
+To help you get started quickly, you can set up a sample MCP Server project.
+
+-   **Sample MCP Server Project** - Follow the same folder and file structure as the sample projects below to create your own local directory:
+    -   [SampleMCP](https://github.com/wso2/product-apim-tooling/tree/master/import-export-cli/integration/testdata/MCPFromOpenAPI) - For creating an MCP Server from an OpenAPI specification.
+    -   [ProxyExistingMCP](https://github.com/wso2/product-apim-tooling/tree/master/import-export-cli/integration/testdata/ProxyExistingMCP) - For proxying an existing MCP Server.
+
+You can use these sample projects as reference for creating your own MCP Server project before importing it to your environment.
 
 ## Import an MCP Server project
 
