@@ -114,7 +114,7 @@ info:
   license:
     name: Apache 2.0
     url: http://www.apache.org/licenses/LICENSE-2.0.html
-  version: v4.3
+  version: v4.4
 servers:
   - url: https://apis.wso2.com/api/am/publisher/v4
 security:
