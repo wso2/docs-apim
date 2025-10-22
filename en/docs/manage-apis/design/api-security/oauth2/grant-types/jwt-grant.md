@@ -35,13 +35,21 @@ You can use any identity provider to obtain a JWT. As an example, this step will
 
 3. Sign in to the WSO2 IS Console (`https://<IS_Server_Host>:9443/console`). 
 
+     [![Sign in to WSO2 IS Console]({{base_path}}/assets/img/learn/api-security/oauth2/jwt-grant/7.x/sign-in-is-console.png)]({{base_path}}/assets/img/learn/api-security/oauth2/jwt-grant/7.x/sign-in-is-console.png)
+
 4. Go to **Applications** > **Applications** > **+ Add Application**.
 
+     [![Add Application]({{base_path}}/assets/img/learn/api-security/oauth2/jwt-grant/7.x/add-application.png)]({{base_path}}/assets/img/learn/api-security/oauth2/jwt-grant/7.x/add-application.png)
+
 5. Select **Standard-Based Application**.
+
+     [![Select Standard-Based Application]({{base_path}}/assets/img/learn/api-security/oauth2/jwt-grant/7.x/oauth2-openid-connect.png)]({{base_path}}/assets/img/learn/api-security/oauth2/jwt-grant/7.x/oauth2-openid-connect.png)
 
 6. Enter the name of the application and select **OAuth 2.0/OpenID Connect** as the protocol, then click **Register**.
 
 7. In the application details, note the **Client ID** and **Client Secret**.
+
+     [![Client ID and Client Secret]({{base_path}}/assets/img/learn/api-security/oauth2/jwt-grant/7.x/client-id-client-secret.png)]({{base_path}}/assets/img/learn/api-security/oauth2/jwt-grant/7.x/client-id-client-secret.png)
 
 Now you have successfully created an OAuth2 application and obtained the client ID and client secret.
 
