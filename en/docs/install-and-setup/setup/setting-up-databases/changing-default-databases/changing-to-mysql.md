@@ -61,7 +61,31 @@ Follow the  instructions below to set up a MySQL database:
         - If you are using MySQL to configure your datasource, we recommend that you use a case sensitive database collation. For more information, see the [MySQL Official Manual](https://dev.mysql.com/doc/refman/5.7/en/charset-mysql.html). The default database collation, which is `latin1_swedish_ci`, is case insensitive. However, you need to maintain case sensitivity for database collation, because when the database or table has a case-insensitive collation in MySQL 5.6 or 5.7, if a user creates an API with letters using mixed case, deletes the API, and then creates another API with the same name, but in lower case letters, then the later created API loses its permission information because when deleting the API, it keeps the Registry collection left behind.
         
         - This issue could be avoided if you use a case sensitive collation for database and tables. In that case, when creating the second API (which has the same name, but is entirely in lowercase letters), it will create a new record with the lowercase name in the `UM_PERMISSION` table.
-    
+
+    !!! note "UTF8/UTF8MB4 charset support for non-ASCII characters"
+        While WSO2 API Manager officially supports the `latin1` character set for MySQL due to product-level limitations, some customers may need to use UTF8 or UTF8MB4 character sets to support Chinese characters or other non-ASCII characters. If you require UTF8/UTF8MB4 charset support, you must reduce the column length of UUID columns and other affected columns to avoid MySQL index key length limitations.
+
+        **Important**: Use UTF8/UTF8MB4 character sets at your own risk, as they are not officially supported and may cause issues.
+
+        If you decide to use UTF8/UTF8MB4 character sets, run the following SQL commands after creating the database tables to modify the affected columns:
+
+        ```sql
+        -- Reduce UUID columns in AM_API_ENDPOINTS table to 64 characters
+        ALTER TABLE AM_API_ENDPOINTS MODIFY API_UUID VARCHAR(64) NOT NULL;
+        ALTER TABLE AM_API_ENDPOINTS MODIFY ENDPOINT_UUID VARCHAR(64) NOT NULL;
+        ALTER TABLE AM_API_ENDPOINTS MODIFY REVISION_UUID VARCHAR(64) NOT NULL DEFAULT 'Current API';
+
+        -- Reduce ATTR_NAME column in IDN_SCIM_GROUP table to 256 characters
+        ALTER TABLE IDN_SCIM_GROUP MODIFY ATTR_NAME VARCHAR(256) NOT NULL;
+
+        -- Reduce TOKEN_BINDING_VALUE column in IDN_OAUTH2_TOKEN_BINDING table to 256 characters
+        ALTER TABLE IDN_OAUTH2_TOKEN_BINDING MODIFY TOKEN_BINDING_VALUE VARCHAR(256);
+
+        -- Reduce TOKEN_IDENTIFIER column in IDN_INVALID_TOKENS table to 512 characters
+        ALTER TABLE IDN_INVALID_TOKENS MODIFY TOKEN_IDENTIFIER VARCHAR(512) NOT NULL;
+        ```
+
+        These modifications ensure that the database tables can work with UTF8/UTF8MB4 character sets while staying within MySQL's index key length limits.
 
 1.  Provide authorization to the user that you use to access the databases. 
 
