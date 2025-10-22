@@ -22,7 +22,7 @@ info:
     # Try out in Postman
     If you want to try-out the Postman collection, please follow the guidelines listed below.
     * Download and import the following collection to Postman.
-    * All of the OAuth2 secured endpoints have been configured with an Authorization Bearer header with a parameterized access token. Before invoking any REST API resource make sure you run the `Register DCR Application` and `Generate Access Token` requests to fetch an access token with all required scopes.
+    * All of the endpoints have been configured with an Authorization Basic header with encoded credentials. Before invoking any REST API resource make sure you update the credentials.
     * Make sure you have an API Manager instance up and running.
     * Update the `basepath` parameter to match the hostname and port of the APIM instance.
 
