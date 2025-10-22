@@ -787,7 +787,7 @@ paths:
         3. **URL type**:
             The client will receive the URL of the document as the Location header with the response with - `303 See Other`
 
-        `X-WSO2-Tenant` header can be used to retrive the content of a document of an API that belongs to a different tenant domain. If not specified super tenant will be used. If Authorization header is present in the request, the user's tenant associated with the access token will be used.
+        `X-WSO2-Tenant` header can be used to retrieve the content of a document of an API that belongs to a different tenant domain. If not specified super tenant will be used. If Authorization header is present in the request, the user's tenant associated with the access token will be used.
 
         **NOTE:**
         * This operation does not require an Authorization header by default. But in order to see a restricted API's document content, you need to provide Authorization header.
@@ -1098,22 +1098,7 @@ paths:
         content:
           application/json:
             schema:
-              title: Post request body
-              type: object
-              properties:
-                content:
-                  type: string
-                  maxLength: 512
-                  description: |
-                    Content of the comment
-                  example: This is a comment
-                category:
-                  type: string
-                  description: |
-                    Category of the comment
-                  example: general
-              required:
-                - content
+              $ref: '#/components/schemas/PostRequestBody'
         required: true
       responses:
         201:
@@ -1222,20 +1207,7 @@ paths:
         content:
           application/json:
             schema:
-              title: Patch request body
-              type: object
-              properties:
-                content:
-                  type: string
-                  maxLength: 512
-                  description: |
-                    Content of the comment
-                  example: This is a comment
-                category:
-                  type: string
-                  description: |
-                    Category of the comment
-                  example: general
+              $ref: '#/components/schemas/PatchRequestBody'
         required: true
       responses:
         200:
@@ -1461,6 +1433,902 @@ paths:
       x-code-samples:
         - lang: Curl
           source: curl -k "https://localhost:9443/api/am/devportal/v3/apis/268c9e55-3dc1-4f47-82e7-977e5343d077/subscription-policies"
+
+  /mcp-servers:
+    get:
+      tags:
+        - MCP Servers
+      summary: |
+        Retrieve/Search MCP Servers
+      description: |
+        This operation provides you a list of available MCP servers qualifying under a given search condition.
+
+        Each retrieved MCP Server is represented with a minimal amount of attributes. If you want to get complete 
+        details of a MCP server, you need to use **Get details of a MCP** operation.
+
+        This operation supports retrieving MCP servers of other tenants. The required tenant domain need to be 
+        specified as a header `X-WSO2-Tenant`. If not specified super tenant's MCP servers will be retrieved. If you 
+        used an Authorization header, the user's tenant associated with the access token will be used.
+
+        **NOTE:**
+        * By default, this operation retrieves Published MCP Server. 
+        * This operation does not require an Authorization header by default. But if it is provided, it will be validated and checked for permissions of the user, hence you may be able to see APIs which are restricted for special permissions/roles.
+      parameters:
+        - $ref: '#/components/parameters/limit'
+        - $ref: '#/components/parameters/offset'
+        - $ref: '#/components/parameters/requestedTenant'
+        - name: query
+          in: query
+          description: |
+            **Search condition**.
+
+            You can search in attributes by using an **"<attribute>:"** modifier.
+
+            Eg.
+            "provider:wso2" will match an MCP Server if the provider of the MCP Server is exactly "wso2".
+
+            Additionally you can use wildcards.
+
+            Eg.
+            "provider:wso2*" will match a MCP Server if the provider of the MCP Server starts with "wso2".
+
+            Supported attribute modifiers are [**version, context, status,
+            description, doc, provider, tag**]
+
+            To search by Properties provide the query in below format.
+
+            **property_name:property_value**
+
+            Eg.
+            "environment:test" where environment is the property name and test is the propert value.
+
+            If no advanced attribute modifier has been specified, search will match the
+            given query string against API Name.
+          schema:
+            type: string
+        - $ref: '#/components/parameters/If-None-Match'
+      responses:
+        200:
+          description: |
+            OK.
+            List of qualifying MCP Servers is returned.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/APIList'
+        406:
+          $ref: '#/components/responses/NotAcceptable'
+      security:
+        - OAuth2Security: [ ]
+      x-code-samples:
+        - lang: Curl
+          source: curl -k "https://localhost:9443/api/am/devportal/v3/mcp-servers"
+      operationId: getAllMCPServers
+
+  /mcp-servers/{mcpServerId}:
+    get:
+      tags:
+        - MCP Servers
+      summary: |
+        Get Details of a MCP Server
+      description: |
+        Using this operation, you can retrieve complete details of a single MCP Server. You need to provide the Id of 
+        the MCP Server to retrieve it.
+
+        `X-WSO2-Tenant` header can be used to retrieve a MCP Server of a different tenant domain. If not specified 
+        super tenant will be used. If Authorization header is present in the request, the user's tenant associated 
+        with the access token will be used.
+
+        **NOTE:**
+        * This operation does not require an Authorization header by default. But if it is provided, it will be 
+        validated and checked for permissions of the user, hence you may be able to see APIs which are restricted for
+        special permissions/roles. \n
+      parameters:
+        - $ref: '#/components/parameters/mcpServerId'
+        - $ref: '#/components/parameters/requestedTenant'
+        - $ref: '#/components/parameters/If-None-Match'
+      responses:
+        200:
+          description: |
+            OK.
+            Requested API is returned
+          headers:
+            ETag:
+              description: |
+                Entity Tag of the response resource. Used by caches, or in conditional requests.
+              schema:
+                type: string
+            Last-Modified:
+              description: |
+                Date and time the resource has been modified the last time.
+                Used by caches, or in conditional requests.
+              schema:
+                type: string
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/API'
+        304:
+          description: |
+            Not Modified.
+            Empty body because the client has already the latest version of the requested resource.
+          content: { }
+        404:
+          $ref: '#/components/responses/NotFound'
+        406:
+          $ref: '#/components/responses/NotAcceptable'
+      security:
+        - OAuth2Security: [ ]
+      x-code-samples:
+        - lang: Curl
+          source: curl -k "https://localhost:9443/api/am/devportal/v3/mcp-servers/c43a325c-260b-4302-81cb-768eafaa3aed"
+      operationId: getMCPServer
+
+  ######################################################
+  # The "Document Collection" resource MCP Servers
+  ######################################################
+  /mcp-servers/{mcpServerId}/documents:
+    get:
+      tags:
+        - MCP Server Documents
+      summary: |
+        Get a List of Documents of a MCP Server
+      description: |
+        This operation can be used to retrieve a list of documents belonging to a MCP Server by providing the id of the 
+        MCP Server.
+
+        `X-WSO2-Tenant` header can be used to retrieve documents of a MCP Server that belongs to a different tenant 
+        domain. If not specified super tenant will be used. If Authorization header is present in the request, the 
+        user's tenant associated with the access token will be used.
+
+        **NOTE:**
+        * This operation does not require an Authorization header by default. But in order to see a restricted MCP 
+        Server's documents, you need to provide Authorization header.
+      parameters:
+        - $ref: '#/components/parameters/mcpServerId'
+        - $ref: '#/components/parameters/limit'
+        - $ref: '#/components/parameters/offset'
+        - $ref: '#/components/parameters/requestedTenant'
+        - $ref: '#/components/parameters/If-None-Match'
+      responses:
+        200:
+          description: |
+            OK.
+            Document list is returned.
+          headers:
+            ETag:
+              description: |
+                Entity Tag of the response resource. Used by caches, or in conditional requests.
+              schema:
+                type: string
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DocumentList'
+        304:
+          description: |
+            Not Modified.
+            Empty body because the client has already the latest version of the requested resource.
+          content: { }
+        404:
+          $ref: '#/components/responses/NotFound'
+        406:
+          $ref: '#/components/responses/NotAcceptable'
+      security:
+        - OAuth2Security: [ ]
+      x-code-samples:
+        - lang: Curl
+          source: curl -k "https://localhost:9443/api/am/devportal/v3/mcp-servers/c43a325c-260b-4302-81cb-768eafaa3aed/documents"
+      operationId: getMCPServerDocuments
+
+  ######################################################
+  # The "Individual Document" resource APIs
+  ######################################################
+  /mcp-servers/{mcpServerId}/documents/{documentId}:
+    get:
+      tags:
+        - MCP Server Documents
+      summary: |
+        Get a Document of a MCP Server
+      description: |
+        This operation can be used to retrieve a particular document's metadata associated with a MCP Server.
+
+        `X-WSO2-Tenant` header can be used to retrieve a document of a MCP Server that belongs to a different tenant 
+        domain. If not specified super tenant will be used. If Authorization header is present in the request, the 
+        user's tenant associated with the access token will be used.
+
+        **NOTE:**
+        * This operation does not require an Authorization header by default. But in order to see a restricted MCP 
+        Server's document, you need to provide Authorization header.
+      parameters:
+        - $ref: '#/components/parameters/mcpServerId'
+        - $ref: '#/components/parameters/documentId'
+        - $ref: '#/components/parameters/requestedTenant'
+        - $ref: '#/components/parameters/If-None-Match'
+      responses:
+        200:
+          description: |
+            OK.
+            Document returned.
+          headers:
+            ETag:
+              description: |
+                Entity Tag of the response resource.
+                Used by caches, or in conditional requests.
+              schema:
+                type: string
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Document'
+        304:
+          description: |
+            Not Modified.
+            Empty body because the client has already the latest version of the requested resource.
+          content: { }
+        404:
+          $ref: '#/components/responses/NotFound'
+        406:
+          $ref: '#/components/responses/NotAcceptable'
+      security:
+        - OAuth2Security: [ ]
+      x-code-samples:
+        - lang: Curl
+          source: curl -k "https://localhost:9443/api/am/devportal/v3/mcp-servers/c43a325c-260b-4302-81cb-768eafaa3aed/documents/850a4f34-db2c-4d23-9d85-3f95fbfb082c"
+      operationId: getMCPServerDocument
+
+  /mcp-servers/{mcpServerId}/documents/{documentId}/content:
+    get:
+      tags:
+        - MCP Server Documents
+      summary: |
+        Get the Content of a MCP Server Document
+      description: |
+        This operation can be used to retrieve the content of a MCP Server's document.
+
+        The document can be of 3 types. In each cases responses are different.
+
+        1. **Inline type**:
+           The content of the document will be retrieved in `text/plain` content type
+        2. **FILE type**:
+           The file will be downloaded with the related content type (eg. `application/pdf`)
+        3. **URL type**:
+            The client will recieve the URL of the document as the Location header with the response with - `303 See Other`
+
+        `X-WSO2-Tenant` header can be used to retrieve the content of a document of a MCP Server that belongs to a 
+        different tenant domain. If not specified super tenant will be used. If Authorization header is present in the 
+        request, the user's tenant associated with the access token will be used.
+
+        **NOTE:**
+        * This operation does not require an Authorization header by default. But in order to see a restricted MCP 
+        Server's document content, you need to provide Authorization header.
+      parameters:
+        - $ref: '#/components/parameters/mcpServerId'
+        - $ref: '#/components/parameters/documentId'
+        - $ref: '#/components/parameters/requestedTenant'
+        - $ref: '#/components/parameters/If-None-Match'
+      responses:
+        200:
+          description: |
+            OK.
+            File or inline content returned.
+          headers:
+            ETag:
+              description: |
+                Entity Tag of the response resource.
+                Used by caches, or in conditional requests.
+              schema:
+                type: string
+            Last-Modified:
+              description: |
+                Date and time the resource has been modified the last time.
+                Used by caches, or in conditional requests.
+              schema:
+                type: string
+          content: { }
+        303:
+          description: |
+            See Other.
+            Source can be retrieved from the URL specified at the Location header.
+          headers:
+            Location:
+              description: |
+                The Source URL of the document.
+              schema:
+                type: string
+          content: { }
+        304:
+          description: |
+            Not Modified.
+            Empty body because the client has already the latest version of the requested resource.
+          content: { }
+        404:
+          $ref: '#/components/responses/NotFound'
+        406:
+          $ref: '#/components/responses/NotAcceptable'
+      security:
+        - OAuth2Security: [ ]
+      x-code-samples:
+        - lang: Curl
+          source: curl -k "https://localhost:9443/api/am/devportal/v3/mcp-servers/890a4f4d-09eb-4877-a323-57f6ce2ed79b/documents/0bcb7f05-599d-4e1a-adce-5cb89bfe58d5/content"
+      operationId: getMCPServerDocumentContent
+
+  /mcp-servers/{mcpServerId}/thumbnail:
+    get:
+      tags:
+        - MCP Servers
+      summary: Get Thumbnail Image
+      description: |
+        This operation can be used to download a thumbnail image of a MCP Server.
+
+        `X-WSO2-Tenant` header can be used to retrieve a thumbnail of a MCP Server that belongs to a different tenant 
+        domain. If not specified super tenant will be used. If Authorization header is present in the request, the 
+        user's tenant associated with the access token will be used.
+
+        **NOTE:**
+        * This operation does not require an Authorization header by default. But in order to see a restricted 
+        MCP Server's thumbnail, you need to provide Authorization header.
+      parameters:
+        - $ref: '#/components/parameters/mcpServerId'
+        - $ref: '#/components/parameters/requestedTenant'
+        - $ref: '#/components/parameters/If-None-Match'
+      responses:
+        200:
+          description: |
+            OK.
+            Thumbnail image returned
+          headers:
+            ETag:
+              description: |
+                Entity Tag of the response resource.
+                Used by caches, or in conditional requests.
+              schema:
+                type: string
+            Last-Modified:
+              description: |
+                Date and time the resource has been modified the last time.
+                Used by caches, or in conditional requests (Will be supported in future).
+              schema:
+                type: string
+            Content-Type:
+              description: |
+                The content type of the body.
+              schema:
+                type: string
+          content: { }
+        304:
+          description: |
+            Not Modified.
+            Empty body because the client has already the latest version of the requested resource.
+          content: { }
+        404:
+          $ref: '#/components/responses/NotFound'
+        406:
+          $ref: '#/components/responses/NotAcceptable'
+      security:
+        - OAuth2Security: [ ]
+      x-code-samples:
+        - lang: Curl
+          source: 'curl -k "https://localhost:9443/api/am/devportal/v3/mcp-servers/e93fb282-b456-48fc-8981-003fb89086ae/thumbnail" > image.jpeg'
+      operationId: getMCPServerThumbnail
+
+  /mcp-servers/{mcpServerId}/ratings:
+    get:
+      tags:
+        - Ratings
+      summary: Retrieve MCP Server Ratings
+      description: |
+        This operation can be used to retrieve the list of ratings of a MCP Server.
+
+        `X-WSO2-Tenant` header can be used to retrieve ratings of a MCP Server that belongs to a different tenant 
+        domain. If not specified super tenant will be used. If Authorization header is present in the request, the 
+        user's tenant associated with the access token will be used.
+      parameters:
+        - $ref: '#/components/parameters/mcpServerId'
+        - $ref: '#/components/parameters/limit'
+        - $ref: '#/components/parameters/offset'
+        - $ref: '#/components/parameters/requestedTenant'
+      responses:
+        200:
+          description: |
+            OK.
+            Rating list returned.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RatingList'
+        406:
+          $ref: '#/components/responses/NotAcceptable'
+      security:
+        - OAuth2Security: [ ]
+      x-code-samples:
+        - lang: Curl
+          source: curl -k "https://localhost:9443/api/am/devportal/v3/mcp-servers/e93fb282-b456-48fc-8981-003fb89086ae/ratings"
+      operationId: getMCPServerRatings
+
+  /mcp-servers/{mcpServerId}/user-rating:
+    get:
+      tags:
+        - Ratings
+      summary: Retrieve MCP Server Rating of User
+      description: |
+        This operation can be used to get the user rating of a MCP Server.
+
+        `X-WSO2-Tenant` header can be used to retrieve the logged in user rating of a MCP Server that belongs to a 
+        different tenant domain. If not specified super tenant will be used. If Authorization header is present in the request, the user's tenant associated with the access token will be used.
+      parameters:
+        - $ref: '#/components/parameters/mcpServerId'
+        - $ref: '#/components/parameters/requestedTenant'
+        - $ref: '#/components/parameters/If-None-Match'
+      responses:
+        200:
+          description: |
+            OK.
+            Rating returned.
+          headers:
+            ETag:
+              description: |
+                Entity Tag of the response resource.
+                Used by caches, or in conditional requests.
+              schema:
+                type: string
+            Last-Modified:
+              description: |
+                Date and time the resource has been modified the last time.
+                Used by caches, or in conditional requests.
+              schema:
+                type: string
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Rating'
+        304:
+          description: |
+            Not Modified.
+            Empty body because the client already has the latest version of the requested resource.
+          content: { }
+        404:
+          $ref: '#/components/responses/NotFound'
+        406:
+          $ref: '#/components/responses/NotAcceptable'
+      security:
+        - OAuth2Security:
+            - apim:subscribe
+      x-code-samples:
+        - lang: Curl
+          source: curl -k -H "Authorization:Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8"
+            "https://localhost:9443/api/am/devportal/v3/mcp-servers/e93fb282-b456-48fc-8981-003fb89086ae/user-rating"
+      operationId: getMCPServerRating
+
+    put:
+      tags:
+        - Ratings
+      summary: Add or Update Logged in User's Rating for a MCP Server
+      description: |
+        This operation can be used to add or update a MCP Server rating.
+
+        `X-WSO2-Tenant` header can be used to add or update the logged in user rating of a MCP Server that belongs to a 
+        different tenant domain. If not specified super tenant will be used. If Authorization header is present in 
+        the request, the user's tenant associated with the access token will be used.
+      parameters:
+        - $ref: '#/components/parameters/mcpServerId'
+        - $ref: '#/components/parameters/requestedTenant'
+      requestBody:
+        description: |
+          Rating object that should to be added
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Rating'
+        required: true
+      responses:
+        200:
+          description: |
+            OK.
+            Successful response with the newly created or updated object as entity in the body.
+          headers:
+            ETag:
+              description: |
+                Entity Tag of the response resource. Used by caches, or in conditional request.
+              schema:
+                type: string
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Rating'
+        400:
+          $ref: '#/components/responses/BadRequest'
+        415:
+          $ref: '#/components/responses/UnsupportedMediaType'
+      security:
+        - OAuth2Security:
+            - apim:subscribe
+      x-code-samples:
+        - lang: Curl
+          source: 'curl -k -X PUT -H "Authorization:Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8"
+          -H "Content-Type: application/json" -d @data.json 
+          "https://localhost:9443/api/am/devportal/v3/mcp-servers/e93fb282-b456-48fc-8981-003fb89086ae/user-rating"'
+      operationId: addMCPServerRating
+
+    delete:
+      tags:
+        - Ratings
+      summary: Delete User MCP Server Rating
+      description: |
+        This operation can be used to delete logged in user MCP Server rating.
+
+        `X-WSO2-Tenant` header can be used to delete the logged in user rating of a MCP Server that belongs to a 
+        different tenant domain. If not specified super tenant will be used. If Authorization header is present in the 
+        request, the user's tenant associated with the access token will be used.
+      parameters:
+        - $ref: '#/components/parameters/mcpServerId'
+        - $ref: '#/components/parameters/requestedTenant'
+        - $ref: '#/components/parameters/If-Match'
+      responses:
+        200:
+          description: |
+            OK.
+            Resource successfully deleted.
+          content: { }
+      security:
+        - OAuth2Security:
+            - apim:subscribe
+      x-code-samples:
+        - lang: Curl
+          source: curl -k -X DELETE -H "Authorization:Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8"
+            "https://localhost:9443/api/am/devportal/v3/mcp-servers/e93fb282-b456-48fc-8981-003fb89086ae/user-rating"
+      operationId: deleteMCPServerRating
+
+  /mcp-servers/{mcpServerId}/comments:
+    get:
+      tags:
+        - Comments
+      summary: Retrieve MCP Server Comments
+      description: |
+        Get a list of Comments that are already added to MCP Servers
+      parameters:
+        - $ref: '#/components/parameters/mcpServerId'
+        - $ref: '#/components/parameters/requestedTenant'
+        - $ref: '#/components/parameters/limit'
+        - $ref: '#/components/parameters/offset'
+        - $ref: '#/components/parameters/includeCommenterInfo'
+      responses:
+        200:
+          description: |
+            OK.
+            Comments list is returned.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CommentList'
+        404:
+          $ref: '#/components/responses/NotFound'
+        500:
+          $ref: '#/components/responses/InternalServerError'
+      security:
+        - OAuth2Security: [ ]
+      x-code-samples:
+        - lang: Curl
+          source: curl -k "https://localhost:9443/api/am/devportal/v3/mcp-servers/e93fb282-b456-48fc-8981-003fb89086ae/comments"
+      operationId: getAllCommentsOfMCPServer
+
+    post:
+      tags:
+        - Comments
+      summary: Add a MCP Server Comment
+      parameters:
+        - $ref: '#/components/parameters/mcpServerId'
+        - $ref: '#/components/parameters/parentCommentID'
+      requestBody:
+        description: |
+          Comment object that should to be added
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PostRequestBody'
+        required: true
+      responses:
+        201:
+          description: |
+            Created.
+            Successful response with the newly created object as entity in the body.
+            Location header contains URL of newly created entity.
+          headers:
+            ETag:
+              description: |
+                Entity Tag of the response resource. Used by caches, or in conditional request.
+              schema:
+                type: string
+            Location:
+              description: |
+                Location to the newly created Comment.
+              schema:
+                type: string
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Comment'
+        400:
+          $ref: '#/components/responses/BadRequest'
+        401:
+          $ref: '#/components/responses/Unauthorized'
+        404:
+          $ref: '#/components/responses/NotFound'
+        415:
+          $ref: '#/components/responses/UnsupportedMediaType'
+        500:
+          $ref: '#/components/responses/InternalServerError'
+      security:
+        - OAuth2Security:
+            - apim:subscribe
+      x-code-samples:
+        - lang: Curl
+          source: 'curl -k -X POST -H "Authorization:Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8"
+          -H "Content-Type: application/json" -d @data.json 
+          "https://localhost:9443/api/am/devportal/v3/mcp-servers/e93fb282-b456-48fc-8981-003fb89086ae/comments"'
+      operationId: addCommentToMCPServer
+
+  /mcp-servers/{mcpServerId}/comments/{commentId}:
+    get:
+      tags:
+        - Comments
+      summary: Get Details of a MCP Server Comment
+      description: |
+        Get the individual comment given by a user for a certain MCP Server.
+      parameters:
+        - $ref: '#/components/parameters/mcpServerId'
+        - $ref: '#/components/parameters/commentId'
+        - $ref: '#/components/parameters/requestedTenant'
+        - $ref: '#/components/parameters/If-None-Match'
+        - $ref: '#/components/parameters/includeCommenterInfo'
+        - $ref: '#/components/parameters/replyLimit'
+        - $ref: '#/components/parameters/replyOffset'
+      responses:
+        200:
+          description: |
+            OK.
+            Comment returned.
+          headers:
+            ETag:
+              description: |
+                Entity Tag of the response resource.
+                Used by caches, or in conditional requests.
+              schema:
+                type: string
+            Last-Modified:
+              description: |
+                Date and time the resource has been modified the last time.
+                Used by caches, or in conditional requests.
+              schema:
+                type: string
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Comment'
+        401:
+          $ref: '#/components/responses/Unauthorized'
+        404:
+          $ref: '#/components/responses/NotFound'
+        406:
+          $ref: '#/components/responses/NotAcceptable'
+        500:
+          $ref: '#/components/responses/InternalServerError'
+      security:
+        - OAuth2Security: [ ]
+      x-code-samples:
+        - lang: Curl
+          source: curl -k "https://localhost:9443/api/am/devportal/v3/mcp-servers/e93fb282-b456-48fc-8981-003fb89086ae/comments/d4cf1704-5d09-491c-bc48-4d19ce6ea9b4"
+      operationId: getCommentOfMCPServer
+
+    patch:
+      tags:
+        - Comments
+      summary: Edit a comment
+      description: |
+        Edit the individual comment
+      parameters:
+        - $ref: '#/components/parameters/mcpServerId'
+        - $ref: '#/components/parameters/commentId'
+      requestBody:
+        description: |
+          Comment object that should to be updated
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PatchRequestBody'
+        required: true
+      responses:
+        200:
+          description: |
+            OK.
+            Comment updated.
+          headers:
+            ETag:
+              description: |
+                Entity Tag of the response resource. Used by caches, or in conditional request.
+              schema:
+                type: string
+            Location:
+              description: |
+                Location to the newly created Comment.
+              schema:
+                type: string
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Comment'
+        400:
+          $ref: '#/components/responses/BadRequest'
+        401:
+          $ref: '#/components/responses/Unauthorized'
+        403:
+          description: |
+            Forbidden.
+            The request must be conditional but no condition has been specified.
+        404:
+          $ref: '#/components/responses/NotFound'
+        415:
+          $ref: '#/components/responses/UnsupportedMediaType'
+        500:
+          $ref: '#/components/responses/InternalServerError'
+      security:
+        - OAuth2Security:
+            - apim:subscribe
+      x-code-samples:
+        - lang: Curl
+          source: 'curl -k -X PATCH -H "Authorization:Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8"
+          -H "Content-Type: application/json" -d @data.json 
+          "https://localhost:9443/api/am/devportal/v3/mcp-servers/e93fb282-b456-48fc-8981-003fb89086ae/comments/d4cf1704-5d09-491c-bc48-4d19ce6ea9b4"'
+      operationId: editCommentOfMCPServer
+
+    delete:
+      tags:
+        - Comments
+      summary: Delete a MCP Server Comment
+      description: |
+        Remove a Comment
+      parameters:
+        - $ref: '#/components/parameters/mcpServerId'
+        - $ref: '#/components/parameters/commentId'
+        - $ref: '#/components/parameters/If-Match'
+      responses:
+        200:
+          description: |
+            OK.
+            Resource successfully deleted.
+          content: { }
+        401:
+          $ref: '#/components/responses/Unauthorized'
+        403:
+          description: |
+            Forbidden.
+            The request must be conditional but no condition has been specified.
+          content: { }
+        404:
+          $ref: '#/components/responses/NotFound'
+        405:
+          description: |
+            MethodNotAllowed.
+            Request method is known by the server but is not supported by the target resource.
+          content: { }
+        500:
+          $ref: '#/components/responses/InternalServerError'
+      security:
+        - OAuth2Security:
+            - apim:subscribe
+            - apim:admin # special scope added to moderate comments
+      x-code-samples:
+        - lang: Curl
+          source: curl -k -X DELETE -H "Authorization:Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8"
+            "https://localhost:9443/api/am/devportal/v3/mcp-servers/e93fb282-b456-48fc-8981-003fb89086ae/comments/d4cf1704-5d09-491c-bc48-4d19ce6ea9b4"
+      operationId: deleteCommentOfMCPServer
+
+  /mcp-servers/{mcpServerId}/comments/{commentId}/replies:
+    get:
+      tags:
+        - Comments
+      summary: Get replies of a comment
+      description: |
+        Get replies of a comment
+      parameters:
+        - $ref: '#/components/parameters/mcpServerId'
+        - $ref: '#/components/parameters/commentId'
+        - $ref: '#/components/parameters/requestedTenant'
+        - $ref: '#/components/parameters/limit'
+        - $ref: '#/components/parameters/offset'
+        - $ref: '#/components/parameters/If-None-Match'
+        - $ref: '#/components/parameters/includeCommenterInfo'
+      responses:
+        200:
+          description: |
+            OK.
+            Comment returned.
+          headers:
+            ETag:
+              description: |
+                Entity Tag of the response resource.
+                Used by caches, or in conditional requests.
+              schema:
+                type: string
+            Last-Modified:
+              description: |
+                Date and time the resource has been modified the last time.
+                Used by caches, or in conditional requests.
+              schema:
+                type: string
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CommentList'
+        401:
+          $ref: '#/components/responses/Unauthorized'
+        404:
+          $ref: '#/components/responses/NotFound'
+        406:
+          $ref: '#/components/responses/NotAcceptable'
+        500:
+          $ref: '#/components/responses/InternalServerError'
+      security:
+        - OAuth2Security: [ ]
+      x-code-samples:
+        - lang: Curl
+          source: curl -k -H "Authorization:Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" "https://localhost:9443/api/am/devportal/v3/mcp-servers/e93fb282-b456-48fc-8981-003fb89086ae/comments/d4cf1704-5d09-491c-bc48-4d19ce6ea9b4/replies"
+      operationId: getRepliesOfCommentOfMCPServer
+
+  /mcp-servers/{mcpServerId}/subscription-policies:
+    get:
+      tags:
+        - MCP Servers
+      summary: |
+        Get Details of the Subscription Throttling Policies of a MCP Server
+      description: |
+        This operation can be used to retrieve details of the subscription throttling policy of a MCP Server by 
+        specifying the MCP Server Id.
+
+        `X-WSO2-Tenant` header can be used to retrieve MCP Server subscription throttling policies that belongs to a 
+        different tenant domain. If not specified super tenant will be used. If Authorization header is present in the 
+        request, the user's tenant associated with the access token will be used.
+      parameters:
+        - $ref: '#/components/parameters/mcpServerId'
+        - $ref: '#/components/parameters/requestedTenant'
+        - $ref: '#/components/parameters/If-None-Match'
+      responses:
+        200:
+          description: |
+            OK.
+            Throttling Policy returned
+          headers:
+            ETag:
+              description: |
+                Entity Tag of the response resource.
+                Used by caches, or in conditional requests.
+              schema:
+                type: string
+            Last-Modified:
+              description: |
+                Date and time the resource has been modified the last time.
+                Used by caches, or in conditional requests.
+              schema:
+                type: string
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ThrottlingPolicy'
+        304:
+          description: |
+            Not Modified.
+            Empty body because the client has already the latest version of the requested resource.
+          content: { }
+        404:
+          $ref: '#/components/responses/NotFound'
+        406:
+          $ref: '#/components/responses/NotAcceptable'
+      security:
+        - OAuth2Security: [ ]
+      x-code-samples:
+        - lang: Curl
+          source: curl -k "https://localhost:9443/api/am/devportal/v3/mcp-servers/268c9e55-3dc1-4f47-82e7-977e5343d077/subscription-policies"
+      operationId: getMCPServerSubscriptionPolicies
 
   ######################################################
   # The "Application Collection" resource APIs
@@ -2551,6 +3419,12 @@ paths:
           in: query
           description: |
             Update if application exists
+          schema:
+            type: boolean
+        - name: ignoreTier
+          in: query
+          description: |
+            Ignore tier and proceed with subscribed APIs
           schema:
             type: boolean
       requestBody:
@@ -3956,6 +4830,13 @@ components:
         name:
           type: string
           example: CalculatorAPI
+        displayName:
+          type: string
+          example: Calculator API
+          description: |
+            Display name of the API.
+            This is the name that will be displayed in the Publisher and DevPortal.
+            If not provided, the name will be used as the display name.
         description:
           type: string
           example: A calculator API that supports basic operations
@@ -4004,6 +4885,9 @@ components:
         monetizationLabel:
           type: string
           example: Free
+        gatewayType:
+          type: string
+          example: solace
         gatewayVendor:
           type: string
           example: WSO2
@@ -4067,6 +4951,10 @@ components:
           type: string
           description: Name of the API
           example: CalculatorAPI
+        displayName:
+          description: Human-friendly name shown in UI. Length limited to DB column size.
+          type: string
+          example: Pizza Shack API
         description:
           type: string
           description: A brief description about the API
@@ -4278,6 +5166,10 @@ components:
         isSubscriptionAvailable:
           type: boolean
           example: false
+        initiatedFromGateway:
+          type: boolean
+          description: Flag indicating this API was discovered/initiated via the gateway (federated discovery) rather than created in the Control Plane.
+          example: false
         categories:
           type: array
           description: |
@@ -4297,6 +5189,10 @@ components:
         lastUpdatedTime:
           type: string
           example: 2020-10-31T13:57:16.229
+        gatewayType:
+          title: Gateway type of the API
+          type: string
+          example: solace
         gatewayVendor:
           title: Gateway vendor of the API
           type: string
@@ -4375,12 +5271,9 @@ components:
           type: string
           description: |
             Type of the access token generated for this application.
-            
-            **Accepted values:**
-            - **OAUTH:** A UUID based access token
-            - **JWT:** A self-contained, signed JWT based access token which is issued by default.
-            
-            **Note:** Only the above values are accepted. Other values like "DEFAULT" will result in a deserialization error.
+
+            **OAUTH:** A UUID based access token
+            **JWT:** A self-contained, signed JWT based access token which is issued by default.
           example: JWT
           default: JWT
           enum:
@@ -4433,6 +5326,11 @@ components:
           type: string
           readOnly: true
           example: 1651555310208
+        visibility:
+          type: string
+          enum:
+            - PRIVATE
+            - SHARED_WITH_ORG
     ApplicationInfo:
       title: Application info object with basic application details
       type: object
@@ -4587,7 +5485,7 @@ components:
           example: 50
         dataUnit:
           description: |
-            Unit of data allowed to be transfered. Allowed values are "KB", "MB" and "GB"
+            Unit of data allowed to be transferred. Allowed values are "KB", "MB" and "GB"
           type: string
           example: KB
         unitTime:
@@ -4955,7 +5853,7 @@ components:
           example: 1.2345678901234568E30
         tokenScopes:
           type: array
-          description: Valid comma seperated scopes for the access token
+          description: Valid comma separated scopes for the access token
           example:
             - default
             - read_api
@@ -5163,7 +6061,7 @@ components:
           example: 3600
         scopes:
           type: array
-          description: Allowed scopes (space seperated) for the access token
+          description: Allowed scopes (space separated) for the access token
           example:
             - apim:subscribe
           items:
@@ -5391,6 +6289,7 @@ components:
             - API
             - APIProduct
             - DEFINITION
+            - MCP
         transportType:
           type: string
           description: Accepted values are HTTP, WS, SOAPTOREST, GRAPHQL
@@ -5402,6 +6301,10 @@ components:
         - $ref: '#/components/schemas/SearchResult'
         - type: object
           properties:
+            displayName:
+              description: Human-friendly name shown in UI. Length limited to DB column size.
+              type: string
+              example: Pizza Shack API
             description:
               type: string
               description: A brief description about the API
@@ -5482,6 +6385,10 @@ components:
               type: string
               description: The name of the associated API
               example: TestAPI
+            apiDisplayName:
+              description: Human-friendly name shown in UI for associated API. Length limited to DB column size.
+              type: string
+              example: Pizza Shack API
             apiVersion:
               type: string
               description: The version of the associated API
@@ -5490,6 +6397,8 @@ components:
               type: string
               example: admin
             apiUUID:
+              type: string
+            associatedType:
               type: string
     APIDefinitionSearchResult:
       title: API Definition Search Result
@@ -5500,6 +6409,10 @@ components:
               type: string
               description: The name of the associated API
               example: TestAPI
+            apiDisplayName:
+              description: Human-friendly name shown in UI for associated API. Length limited to DB column size.
+              type: string
+              example: Pizza Shack API
             apiVersion:
               type: string
               description: The version of the associated API
@@ -5621,6 +6534,11 @@ components:
         IsJWTEnabledForLoginTokens: 
           type: boolean
           default: false
+        orgAccessControlEnabled:
+          type: boolean
+          description: |
+            Is Organization-based access control configuration enabled
+          example: true
         userStorePasswordPattern:
           type: string
           description: The 'PasswordJavaRegEx' cofigured in the UserStoreManager
@@ -5659,6 +6577,22 @@ components:
           type: boolean
           description: Specifies whether Marketplace Assistant feature is enabled.
           default: true
+        orgWideAppUpdateEnabled:
+          type: boolean
+          default: false
+        devportalMode:
+          type: string
+          description: >
+            This indicates the mode of the Developer Portal.
+            Possible values are:
+            - HYBRID: Both MCP and API portals are enabled.
+            - MCP_ONLY: Only the MCP portal is enabled.
+            - API_ONLY: Only the API portal is enabled.
+          enum:
+            - HYBRID
+            - MCP_ONLY
+            - API_ONLY
+          default: HYBRID
     ApplicationAttribute:
       title: Application attributes
       type: object
@@ -5807,6 +6741,16 @@ components:
           type: string
           description: Average rating of the API
           example: "4.5"
+    OrganizationInfo:
+      title: Organization Info
+      type: object
+      properties:
+        organizationId:
+          type: string
+          example: 01234567-0123-0123-0123-012345678901
+        name:
+          type: string
+          example: My Organization
     KeyManagerInfo:
       title: Key Manager Info
       required:
@@ -5995,7 +6939,7 @@ components:
           items:
             type: string
     CurrentAndNewPasswords:
-      title: Current and new passowrd of the user
+      title: Current and new password of the user
       type: object
       properties:
         currentPassword:
@@ -6307,6 +7251,38 @@ components:
           type: integer
           description: maximum no of apis allowed for an org.
           example: "1000"
+    PostRequestBody:
+      title: Post request body
+      type: object
+      properties:
+        content:
+          type: string
+          maxLength: 512
+          description: |
+            Content of the comment
+          example: This is a comment
+        category:
+          type: string
+          description: |
+            Category of the comment
+          example: general
+      required:
+        - content
+    PatchRequestBody:
+      title: Patch request body
+      type: object
+      properties:
+        content:
+          type: string
+          maxLength: 512
+          description: |
+            Content of the comment
+          example: This is a comment
+        category:
+          type: string
+          description: |
+            Category of the comment
+          example: general
 
   responses:
     BadRequest:
@@ -6450,6 +7426,14 @@ components:
       in: path
       description: |
         **API ID** consisting of the **UUID** of the API.
+      required: true
+      schema:
+        type: string
+    mcpServerId:
+      name: mcpServerId
+      in: path
+      description: |
+        **MCP Server ID** consisting of the **UUID** of the MCP Server.
       required: true
       schema:
         type: string
