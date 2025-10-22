@@ -385,6 +385,16 @@
             visibility: PUBLIC
     ```
 
+!!! note
+    For AI APIs, use the AnthropicAPI sample project as a reference and follow its folder and file structure:
+    [AnthropicAPI](https://github.com/wso2/product-apim-tooling/tree/master/import-export-cli/integration/testdata/AnthropicAPI)
+
+    Replicate the structure in your project and update:
+    
+    - api.yaml (API metadata, endpoints, policies)
+    - Definitions/swagger.yaml
+    - Policies, certificates, and other subfolders as applicable
+
 ## Import an API project
 
 !!! info
