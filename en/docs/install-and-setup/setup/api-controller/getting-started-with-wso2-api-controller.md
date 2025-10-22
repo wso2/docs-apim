@@ -73,7 +73,7 @@ Run the following apictl command to check the version.
 -   **Response**
 
     ```bash
-    Version: 4.6.0-rc2
+    Version: 4.6.0
     Build Date: 2024-10-24 18:51:53 UTC
     ```
 
