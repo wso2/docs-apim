@@ -1091,7 +1091,7 @@ paths:
       operationId: addCommentToAPI
       parameters:
         - $ref: '#/components/parameters/apiId'
-        - $ref: '#/components/parameters/parentCommentID'
+        - $ref: '#/components/parameters/parentCommentId'
       requestBody:
         description: |
           Comment object that should to be added
@@ -2018,7 +2018,7 @@ paths:
       summary: Add a MCP Server Comment
       parameters:
         - $ref: '#/components/parameters/mcpServerId'
-        - $ref: '#/components/parameters/parentCommentID'
+        - $ref: '#/components/parameters/parentCommentId'
       requestBody:
         description: |
           Comment object that should to be added
@@ -7398,7 +7398,7 @@ components:
             moreInfo: ""
             error: [ ]
   parameters:
-    parentCommentID:
+    parentCommentId:
       name: replyTo
       in: query
       description: |

@@ -137,8 +137,6 @@ paths:
       parameters:
         - $ref: '#/components/parameters/limit'
         - $ref: '#/components/parameters/offset'
-        - $ref: '#/components/parameters/sortBy'
-        - $ref: '#/components/parameters/sortOrder'
         - $ref: '#/components/parameters/requestedTenant'
         - name: query
           in: query
@@ -284,7 +282,6 @@ paths:
 
         Key features:
         - Converts text descriptions into structured API specifications
-        - Supports session-based API generation
         - Provides QoS suggestions and other improvements
       requestBody:
         description: Input for API specification generation
@@ -1726,8 +1723,6 @@ paths:
         - $ref: '#/components/parameters/apiId'
         - name: query
           in: query
-          description: |
-            The query filters revisions based on deployment status, where "deployed:true" returns deployed revisions, "deployed:false" returns non-deployed revisions, and any other query returns all revisions of the API.
           schema:
             type: string
       responses:
@@ -5667,8 +5662,6 @@ paths:
         content:
           multipart/form-data:
             schema:
-              required:
-                - file
               properties:
                 file:
                   type: string
@@ -11304,29 +11297,7 @@ paths:
               properties:
                 policySpecFile:
                   type: string
-                  description: |
-                    Policy specification to upload. Can be YAML or JSON. A sample json would be as below.
-                    ```json
-                    {
-                      "category": "Mediation",
-                      "name": "logSequence",
-                      "displayName": "Log Policy",
-                      "version": "v1",
-                      "description": "Log important details",
-                      "applicableFlows": [
-                        "request",
-                        "response",
-                        "fault"
-                      ],
-                      "supportedApiTypes": [
-                        "HTTP"
-                      ],
-                      "supportedGateways": [
-                        "Synapse"
-                      ],
-                      "policyAttributes": []
-                    }
-                    ```
+                  description: Policy specification to upload
                   format: binary
                 synapsePolicyDefinitionFile:
                   type: string
@@ -14094,19 +14065,8 @@ components:
             - ENDPOINT
             - MOCKED_OAS
         subtypeConfiguration:
-          type: object
-          description: Configuration settings for the API subtype.
-          properties:
-            subtype:
-              type: string
-              description: The designated name of the API subtype.
-              default: DEFAULT
-              example: AIAPI
-              readOnly: true
-            configuration:
-              type: object
-              description: Specific configuration properties related to the API subtype.
-        scopes:
+          $ref: '#/components/schemas/SubtypeConfiguration'
+          scopes:
           type: array
           items:
             $ref: '#/components/schemas/APIScope'
@@ -19065,30 +19025,6 @@ components:
       schema:
         type: integer
         default: 0
-    sortBy:
-      name: sortBy
-      in: query
-      description: |
-        Criteria for sorting.
-      schema:
-        type: string
-        default: createdTime
-        enum:
-          - apiName
-          - version
-          - createdTime
-          - status
-    sortOrder:
-      name: sortOrder
-      in: query
-      description: |
-        Order of sorting(ascending/descending).
-      schema:
-        type: string
-        default: desc
-        enum:
-          - asc
-          - desc
     If-None-Match:
       name: If-None-Match
       in: header
