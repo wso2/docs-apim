@@ -1,6 +1,6 @@
 # Moesif Analytics Integration
 
-> **New in 4.6.0** — Moesif-powered WSO2 Analytics replaces Choreo Analytics for enhanced insights and observability.
+!!! info "New in 4.6.0 — Moesif-powered WSO2 Analytics replaces Choreo Analytics for enhanced insights and observability."
 
 ## Overview
 
@@ -53,7 +53,7 @@ type = "moesif"
 
 [apim.analytics.properties]
 moesifKey = "YOUR_MOESIF_API_KEY_HERE"
-moesif_base_url = "https://api.moesif.com"
+moesif_base_url = "https://api.moesif.net"
 send_headers = false
 ```
 
