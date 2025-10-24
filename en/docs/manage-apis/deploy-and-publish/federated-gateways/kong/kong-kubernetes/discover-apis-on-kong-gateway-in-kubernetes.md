@@ -147,7 +147,7 @@ When configuring the agent, update the following parameters in the `values.yaml`
 1. Select the Discovered API
 2. Access the Lifecycle tab in the left menu and click on the Publish button to publish the API to Developer Portal.
 
-## Step 6 : Invoke the API
+## Step 6 : Subscribe and Invoke the API
 
 1. Sign in to the Developer Portal.
 
@@ -160,7 +160,14 @@ When configuring the agent, update the following parameters in the `values.yaml`
         https://<hostname>:9443/devportal
         ```
 
-2. Navigate to tryout and invoke the API.
+2. Create an Application and generate keys for both the environment types Production and Sandbox.
+3. Subscribe to the API using the application created.
+4. In the application, go to **OAuth2 Tokens** under **Production Keys**. Generate and copy the access token.
+5. Navigate to the **API Console** under the **Try Out** of the subscribed API, and paste the copied token inside the **Authorization Header Value field**.
+
+    [![try out for kong gateway]({{base_path}}/assets/img/deploy/try-out-for-kong-gateway.png){: style="width:90%"}]({{base_path}}/assets/img/deploy/try-out-for-kong-gateway.png)
+
+6. Click on **Try Out**, and then click **Execute** to invoke the API.
 
 !!!note
     To remove the deployment created for an API, delete the corresponding Service CR associated with that API from the Kubernetes cluster.
