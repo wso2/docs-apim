@@ -67,7 +67,44 @@ Follow the  instructions below to set up a MySQL database:
         - If you are using MySQL to configure your datasource, we recommend that you use a case sensitive database collation. For more information, see the [MySQL Official Manual](https://dev.mysql.com/doc/refman/5.7/en/charset-mysql.html). The default database collation, which is `latin1_swedish_ci`, is case insensitive. However, you need to maintain case sensitivity for database collation, because when the database or table has a case-insensitive collation in MySQL 5.6 or 5.7, if a user creates an API with letters using mixed case, deletes the API, and then creates another API with the same name, but in lower case letters, then the later created API loses its permission information because when deleting the API, it keeps the Registry collection left behind.
         
         - This issue could be avoided if you use a case sensitive collation for database and tables. In that case, when creating the second API (which has the same name, but is entirely in lowercase letters), it will create a new record with the lowercase name in the `UM_PERMISSION` table.
-    
+
+    !!! note
+        **UTF8/UTF8MB4 Charset Support**
+
+        While WSO2 API Manager officially supports only the latin1 character set for MySQL due to product-level limitations, customers who require support for Chinese or other non-ASCII characters may need to use UTF8 or UTF8MB4 character sets. If you choose to use UTF8/UTF8MB4, you must alter certain database tables to reduce column lengths to accommodate the increased byte requirements of these character sets.
+
+        !!! warning
+            Using UTF8/UTF8MB4 character sets is not officially supported and should be used at your own risk. Ensure thorough testing in your environment before implementing in production.
+
+        Execute the following SQL commands to alter the affected tables and columns:
+
+        ```sql
+        -- Alter AM_API_ENDPOINTS table UUID columns
+        ALTER TABLE AM_API_ENDPOINTS MODIFY COLUMN API_UUID VARCHAR(64) NOT NULL;
+        ALTER TABLE AM_API_ENDPOINTS MODIFY COLUMN ENDPOINT_UUID VARCHAR(64) NOT NULL;
+        ALTER TABLE AM_API_ENDPOINTS MODIFY COLUMN REVISION_UUID VARCHAR(64) NOT NULL DEFAULT 'Current API';
+
+        -- Alter IDN_SCIM_GROUP table
+        ALTER TABLE IDN_SCIM_GROUP MODIFY COLUMN ATTR_NAME VARCHAR(255) NOT NULL;
+
+        -- Alter IDN_OAUTH2_TOKEN_BINDING table
+        ALTER TABLE IDN_OAUTH2_TOKEN_BINDING MODIFY COLUMN TOKEN_BINDING_VALUE VARCHAR(255);
+
+        -- Alter IDN_INVALID_TOKENS table
+        ALTER TABLE IDN_INVALID_TOKENS MODIFY COLUMN TOKEN_IDENTIFIER VARCHAR(512) NOT NULL;
+
+        -- Alter IDN_SCIM_GROUP index
+        DROP INDEX IDX_IDN_SCIM_GROUP_TI_RN_AN ON IDN_SCIM_GROUP;
+        CREATE INDEX IDX_IDN_SCIM_GROUP_TI_RN_AN ON IDN_SCIM_GROUP (TENANT_ID, ROLE_NAME, ATTR_NAME(255));
+        ```
+
+        These modifications reduce the column sizes as follows:
+        - **AM_API_ENDPOINTS**: UUID columns (API_UUID, ENDPOINT_UUID, REVISION_UUID) reduced to 64 characters
+        - **IDN_SCIM_GROUP**: ATTR_NAME column reduced to 255 characters
+        - **IDN_OAUTH2_TOKEN_BINDING**: TOKEN_BINDING_VALUE column reduced to 255 characters
+        - **IDN_INVALID_TOKENS**: TOKEN_IDENTIFIER column reduced to 512 characters
+        - **IDN_SCIM_GROUP index**: Updated to use only 255 characters for ATTR_NAME
+
 
 1.  Provide authorization to the user that you use to access the databases. 
 
