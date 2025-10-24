@@ -1,8 +1,8 @@
 {
 	"info": {
-		"_postman_id": "34fe751d-d083-4c32-99fa-972e9b47a1b6",
-		"name": "WSO2 API Manager 4.5.0 - DevPortal REST API",
-		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_postman_id": "f35afd9b-413e-450f-8371-b32ca74804cb",
+		"name": "WSO2 API Manager 4.6.0 - DevPortal REST API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
 		"_exporter_id": "40371634"
 	},
 	"item": [
@@ -32,23 +32,11 @@
 					"request": {
 						"auth": {
 							"type": "basic",
-							"basic": [
-								{
-									"key": "username",
-									"value": "admin",
-									"type": "string"
-								},
-								{
-									"key": "password",
-									"value": "admin",
-									"type": "string"
-								},
-								{
-									"key": "showPassword",
-									"value": false,
-									"type": "boolean"
-								}
-							]
+							"basic": {
+								"username": "admin",
+								"password": "admin",
+								"showPassword": false
+							}
 						},
 						"method": "POST",
 						"header": [],
@@ -61,12 +49,7 @@
 								}
 							}
 						},
-						"url": {
-							"raw": "{{dcrEndpoint}}",
-							"host": [
-								"{{dcrEndpoint}}"
-							]
-						}
+						"url": "{{dcrEndpoint}}"
 					},
 					"response": []
 				},
@@ -130,12 +113,7 @@
 							"mode": "raw",
 							"raw": "{\"grant_type\": \"password\",\n\"username\":\"admin\",\n\"password\":\"admin\",\n\"scope\": \"apim:admin apim:api_key apim:app_import_export apim:app_manage apim:store_settings apim:sub_alert_manage apim:sub_manage apim:subscribe openid apim:subscribe\"\n}"
 						},
-						"url": {
-							"raw": "{{tokenEndpoint}}",
-							"host": [
-								"{{tokenEndpoint}}"
-							]
-						}
+						"url": "{{tokenEndpoint}}"
 					},
 					"response": []
 				}
@@ -174,13 +152,9 @@
 					"request": {
 						"auth": {
 							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "{{access-token}}",
-									"type": "string"
-								}
-							]
+							"bearer": {
+								"token": "{{access-token}}"
+							}
 						},
 						"method": "GET",
 						"header": [
@@ -191,15 +165,7 @@
 								"disabled": true
 							}
 						],
-						"url": {
-							"raw": "{{basepath}}/apis",
-							"host": [
-								"{{basepath}}"
-							],
-							"path": [
-								"apis"
-							]
-						}
+						"url": "{{basepath}}/apis"
 					},
 					"response": []
 				},
@@ -208,13 +174,9 @@
 					"request": {
 						"auth": {
 							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "{{access-token}}",
-									"type": "string"
-								}
-							]
+							"bearer": {
+								"token": "{{access-token}}"
+							}
 						},
 						"method": "GET",
 						"header": [
@@ -225,16 +187,7 @@
 								"disabled": true
 							}
 						],
-						"url": {
-							"raw": "{{basepath}}/apis/{{apiId}}",
-							"host": [
-								"{{basepath}}"
-							],
-							"path": [
-								"apis",
-								"{{apiId}}"
-							]
-						}
+						"url": "{{basepath}}/apis/{{apiId}}"
 					},
 					"response": []
 				},
@@ -243,13 +196,9 @@
 					"request": {
 						"auth": {
 							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "{{access-token}}",
-									"type": "string"
-								}
-							]
+							"bearer": {
+								"token": "{{access-token}}"
+							}
 						},
 						"method": "GET",
 						"header": [
@@ -260,17 +209,7 @@
 								"disabled": true
 							}
 						],
-						"url": {
-							"raw": "{{basepath}}/apis/{{apiId}}/swagger",
-							"host": [
-								"{{basepath}}"
-							],
-							"path": [
-								"apis",
-								"{{apiId}}",
-								"swagger"
-							]
-						}
+						"url": "{{basepath}}/apis/{{apiId}}/swagger"
 					},
 					"response": []
 				},
@@ -279,13 +218,9 @@
 					"request": {
 						"auth": {
 							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "{{access-token}}",
-									"type": "string"
-								}
-							]
+							"bearer": {
+								"token": "{{access-token}}"
+							}
 						},
 						"method": "GET",
 						"header": [
@@ -296,17 +231,7 @@
 								"disabled": true
 							}
 						],
-						"url": {
-							"raw": "{{basepath}}/apis/{{graphQLApiId}}/graphql-schema",
-							"host": [
-								"{{basepath}}"
-							],
-							"path": [
-								"apis",
-								"{{graphQLApiId}}",
-								"graphql-schema"
-							]
-						}
+						"url": "{{basepath}}/apis/{{graphQLApiId}}/graphql-schema"
 					},
 					"response": []
 				},
@@ -315,13 +240,9 @@
 					"request": {
 						"auth": {
 							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "{{access-token}}",
-									"type": "string"
-								}
-							]
+							"bearer": {
+								"token": "{{access-token}}"
+							}
 						},
 						"method": "GET",
 						"header": [
@@ -332,17 +253,7 @@
 								"disabled": true
 							}
 						],
-						"url": {
-							"raw": "{{basepath}}/apis/{{soapApiId}}/wsdl",
-							"host": [
-								"{{basepath}}"
-							],
-							"path": [
-								"apis",
-								"{{soapApiId}}",
-								"wsdl"
-							]
-						}
+						"url": "{{basepath}}/apis/{{soapApiId}}/wsdl"
 					},
 					"response": []
 				},
@@ -351,13 +262,9 @@
 					"request": {
 						"auth": {
 							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "{{access-token}}",
-									"type": "string"
-								}
-							]
+							"bearer": {
+								"token": "{{access-token}}"
+							}
 						},
 						"method": "GET",
 						"header": [
@@ -368,17 +275,7 @@
 								"disabled": true
 							}
 						],
-						"url": {
-							"raw": "{{basepath}}/apis/{{apiId}}/thumbnail",
-							"host": [
-								"{{basepath}}"
-							],
-							"path": [
-								"apis",
-								"{{apiId}}",
-								"thumbnail"
-							]
-						}
+						"url": "{{basepath}}/apis/{{apiId}}/thumbnail"
 					},
 					"response": []
 				},
@@ -387,13 +284,9 @@
 					"request": {
 						"auth": {
 							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "{{access-token}}",
-									"type": "string"
-								}
-							]
+							"bearer": {
+								"token": "{{access-token}}"
+							}
 						},
 						"method": "GET",
 						"header": [
@@ -404,17 +297,7 @@
 								"disabled": true
 							}
 						],
-						"url": {
-							"raw": "{{basepath}}/apis/{{apiId}}/subscription-policies",
-							"host": [
-								"{{basepath}}"
-							],
-							"path": [
-								"apis",
-								"{{apiId}}",
-								"subscription-policies"
-							]
-						}
+						"url": "{{basepath}}/apis/{{apiId}}/subscription-policies"
 					},
 					"response": []
 				}
@@ -428,13 +311,9 @@
 					"request": {
 						"auth": {
 							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "{{access-token}}",
-									"type": "string"
-								}
-							]
+							"bearer": {
+								"token": "{{access-token}}"
+							}
 						},
 						"method": "GET",
 						"header": [
@@ -450,18 +329,7 @@
 								"disabled": true
 							}
 						],
-						"url": {
-							"raw": "{{basepath}}/apis/{{apiId}}/sdks/{{language}}",
-							"host": [
-								"{{basepath}}"
-							],
-							"path": [
-								"apis",
-								"{{apiId}}",
-								"sdks",
-								"{{language}}"
-							]
-						}
+						"url": "{{basepath}}/apis/{{apiId}}/sdks/{{language}}"
 					},
 					"response": []
 				},
@@ -470,26 +338,13 @@
 					"request": {
 						"auth": {
 							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "{{access-token}}",
-									"type": "string"
-								}
-							]
+							"bearer": {
+								"token": "{{access-token}}"
+							}
 						},
 						"method": "GET",
 						"header": [],
-						"url": {
-							"raw": "{{basepath}}/sdk-gen/languages",
-							"host": [
-								"{{basepath}}"
-							],
-							"path": [
-								"sdk-gen",
-								"languages"
-							]
-						}
+						"url": "{{basepath}}/sdk-gen/languages"
 					},
 					"response": []
 				}
@@ -517,13 +372,9 @@
 					"request": {
 						"auth": {
 							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "{{access-token}}",
-									"type": "string"
-								}
-							]
+							"bearer": {
+								"token": "{{access-token}}"
+							}
 						},
 						"method": "GET",
 						"header": [
@@ -534,17 +385,7 @@
 								"disabled": true
 							}
 						],
-						"url": {
-							"raw": "{{basepath}}/apis/{{apiId}}/documents",
-							"host": [
-								"{{basepath}}"
-							],
-							"path": [
-								"apis",
-								"{{apiId}}",
-								"documents"
-							]
-						}
+						"url": "{{basepath}}/apis/{{apiId}}/documents"
 					},
 					"response": []
 				},
@@ -553,13 +394,9 @@
 					"request": {
 						"auth": {
 							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "{{access-token}}",
-									"type": "string"
-								}
-							]
+							"bearer": {
+								"token": "{{access-token}}"
+							}
 						},
 						"method": "GET",
 						"header": [
@@ -570,18 +407,7 @@
 								"disabled": true
 							}
 						],
-						"url": {
-							"raw": "{{basepath}}/apis/{{apiId}}/documents/{{documentId}}",
-							"host": [
-								"{{basepath}}"
-							],
-							"path": [
-								"apis",
-								"{{apiId}}",
-								"documents",
-								"{{documentId}}"
-							]
-						}
+						"url": "{{basepath}}/apis/{{apiId}}/documents/{{documentId}}"
 					},
 					"response": []
 				},
@@ -590,13 +416,9 @@
 					"request": {
 						"auth": {
 							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "{{access-token}}",
-									"type": "string"
-								}
-							]
+							"bearer": {
+								"token": "{{access-token}}"
+							}
 						},
 						"method": "GET",
 						"header": [
@@ -607,19 +429,7 @@
 								"disabled": true
 							}
 						],
-						"url": {
-							"raw": "{{basepath}}/apis/{{apiId}}/documents/{{documentId}}/content",
-							"host": [
-								"{{basepath}}"
-							],
-							"path": [
-								"apis",
-								"{{apiId}}",
-								"documents",
-								"{{documentId}}",
-								"content"
-							]
-						}
+						"url": "{{basepath}}/apis/{{apiId}}/documents/{{documentId}}/content"
 					},
 					"response": []
 				}
@@ -633,13 +443,9 @@
 					"request": {
 						"auth": {
 							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "{{access-token}}",
-									"type": "string"
-								}
-							]
+							"bearer": {
+								"token": "{{access-token}}"
+							}
 						},
 						"method": "GET",
 						"header": [
@@ -650,17 +456,7 @@
 								"disabled": true
 							}
 						],
-						"url": {
-							"raw": "{{basepath}}/apis/{{apiId}}/ratings",
-							"host": [
-								"{{basepath}}"
-							],
-							"path": [
-								"apis",
-								"{{apiId}}",
-								"ratings"
-							]
-						}
+						"url": "{{basepath}}/apis/{{apiId}}/ratings"
 					},
 					"response": []
 				},
@@ -669,13 +465,9 @@
 					"request": {
 						"auth": {
 							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "{{access-token}}",
-									"type": "string"
-								}
-							]
+							"bearer": {
+								"token": "{{access-token}}"
+							}
 						},
 						"method": "GET",
 						"header": [
@@ -686,17 +478,7 @@
 								"disabled": true
 							}
 						],
-						"url": {
-							"raw": "{{basepath}}/apis/{{apiId}}/user-rating",
-							"host": [
-								"{{basepath}}"
-							],
-							"path": [
-								"apis",
-								"{{apiId}}",
-								"user-rating"
-							]
-						}
+						"url": "{{basepath}}/apis/{{apiId}}/user-rating"
 					},
 					"response": []
 				},
@@ -705,13 +487,9 @@
 					"request": {
 						"auth": {
 							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "{{access-token}}",
-									"type": "string"
-								}
-							]
+							"bearer": {
+								"token": "{{access-token}}"
+							}
 						},
 						"method": "PUT",
 						"header": [
@@ -731,17 +509,7 @@
 								}
 							}
 						},
-						"url": {
-							"raw": "{{basepath}}/apis/{{apiId}}/user-rating",
-							"host": [
-								"{{basepath}}"
-							],
-							"path": [
-								"apis",
-								"{{apiId}}",
-								"user-rating"
-							]
-						}
+						"url": "{{basepath}}/apis/{{apiId}}/user-rating"
 					},
 					"response": []
 				},
@@ -750,13 +518,9 @@
 					"request": {
 						"auth": {
 							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "{{access-token}}",
-									"type": "string"
-								}
-							]
+							"bearer": {
+								"token": "{{access-token}}"
+							}
 						},
 						"method": "DELETE",
 						"header": [
@@ -767,17 +531,153 @@
 								"disabled": true
 							}
 						],
+						"url": "{{basepath}}/apis/{{apiId}}/user-rating"
+					},
+					"response": []
+				},
+				{
+					"name": "Retrieve MCP Server Ratings",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{access-token}}"
+							}
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-WSO2-Tenant",
+								"value": "carbon.super",
+								"description": "For cross-tenant invocations, this is used to specify the tenant domain, where the resource need to be\n  retrieved from.\n"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
 						"url": {
-							"raw": "{{basepath}}/apis/{{apiId}}/user-rating",
+							"raw": "{{basepath}}/mcp-servers/{{mcpServerId}}/ratings?limit=25&offset=0",
 							"host": [
 								"{{basepath}}"
 							],
 							"path": [
-								"apis",
-								"{{apiId}}",
-								"user-rating"
+								"mcp-servers",
+								"{{mcpServerId}}",
+								"ratings"
+							],
+							"query": [
+								{
+									"key": "limit",
+									"value": "25",
+									"description": "Maximum size of resource array to return.\n"
+								},
+								{
+									"key": "offset",
+									"value": "0",
+									"description": "Starting point within the complete list of items qualified.\n"
+								}
 							]
-						}
+						},
+						"description": "This operation can be used to retrieve the list of ratings of a MCP Server.\n\n`X-WSO2-Tenant` header can be used to retrieve ratings of a MCP Server that belongs to a different tenant \ndomain. If not specified super tenant will be used. If Authorization header is present in the request, the \nuser's tenant associated with the access token will be used.\n"
+					},
+					"response": []
+				},
+				{
+					"name": "Add or Update Logged in User's Rating for a MCP Server",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{access-token}}"
+							}
+						},
+						"method": "PUT",
+						"header": [
+							{
+								"key": "X-WSO2-Tenant",
+								"value": "carbon.super",
+								"description": "For cross-tenant invocations, this is used to specify the tenant domain, where the resource need to be\n  retrieved from.\n"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"rating\": 4\n}",
+							"options": {
+								"raw": {
+									"headerFamily": "json",
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{basepath}}/mcp-servers/{{mcpServerId}}/user-rating",
+						"description": "This operation can be used to add or update a MCP Server rating.\n\n`X-WSO2-Tenant` header can be used to add or update the logged in user rating of a MCP Server that belongs to a \ndifferent tenant domain. If not specified super tenant will be used. If Authorization header is present in \nthe request, the user's tenant associated with the access token will be used.\n"
+					},
+					"response": []
+				},
+				{
+					"name": "Retrieve MCP Server Rating of User",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{access-token}}"
+							}
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-WSO2-Tenant",
+								"value": "carbon.super",
+								"description": "For cross-tenant invocations, this is used to specify the tenant domain, where the resource need to be\n  retrieved from.\n"
+							},
+							{
+								"key": "If-None-Match",
+								"value": "string",
+								"description": "Validator for conditional requests; based on the ETag of the formerly retrieved\nvariant of the resourec.\n"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"url": "{{basepath}}/mcp-servers/{{mcpServerId}}/user-rating",
+						"description": "This operation can be used to get the user rating of a MCP Server.\n\n`X-WSO2-Tenant` header can be used to retrieve the logged in user rating of a MCP Server that belongs to a \ndifferent tenant domain. If not specified super tenant will be used. If Authorization header is present in the request, the user's tenant associated with the access token will be used.\n"
+					},
+					"response": []
+				},
+				{
+					"name": "Delete User MCP Server Rating",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{access-token}}"
+							}
+						},
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "X-WSO2-Tenant",
+								"value": "carbon.super",
+								"description": "For cross-tenant invocations, this is used to specify the tenant domain, where the resource need to be\n  retrieved from.\n"
+							},
+							{
+								"key": "If-Match",
+								"value": "string",
+								"description": "Validator for conditional requests; based on ETag.\n"
+							}
+						],
+						"url": "{{basepath}}/mcp-servers/{{mcpServerId}}/user-rating",
+						"description": "This operation can be used to delete logged in user MCP Server rating.\n\n`X-WSO2-Tenant` header can be used to delete the logged in user rating of a MCP Server that belongs to a \ndifferent tenant domain. If not specified super tenant will be used. If Authorization header is present in the \nrequest, the user's tenant associated with the access token will be used.\n"
 					},
 					"response": []
 				}
@@ -791,27 +691,13 @@
 					"request": {
 						"auth": {
 							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "{{access-token}}",
-									"type": "string"
-								}
-							]
+							"bearer": {
+								"token": "{{access-token}}"
+							}
 						},
 						"method": "GET",
 						"header": [],
-						"url": {
-							"raw": "{{basepath}}/apis/{{apiId}}/comments",
-							"host": [
-								"{{basepath}}"
-							],
-							"path": [
-								"apis",
-								"{{apiId}}",
-								"comments"
-							]
-						}
+						"url": "{{basepath}}/apis/{{apiId}}/comments"
 					},
 					"response": []
 				},
@@ -832,13 +718,9 @@
 					"request": {
 						"auth": {
 							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "{{access-token}}",
-									"type": "string"
-								}
-							]
+							"bearer": {
+								"token": "{{access-token}}"
+							}
 						},
 						"method": "POST",
 						"header": [],
@@ -851,17 +733,7 @@
 								}
 							}
 						},
-						"url": {
-							"raw": "{{basepath}}/apis/{{apiId}}/comments",
-							"host": [
-								"{{basepath}}"
-							],
-							"path": [
-								"apis",
-								"{{apiId}}",
-								"comments"
-							]
-						}
+						"url": "{{basepath}}/apis/{{apiId}}/comments"
 					},
 					"response": []
 				},
@@ -870,28 +742,13 @@
 					"request": {
 						"auth": {
 							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "{{access-token}}",
-									"type": "string"
-								}
-							]
+							"bearer": {
+								"token": "{{access-token}}"
+							}
 						},
 						"method": "GET",
 						"header": [],
-						"url": {
-							"raw": "{{basepath}}/apis/{{apiId}}/comments/{{commentId}}",
-							"host": [
-								"{{basepath}}"
-							],
-							"path": [
-								"apis",
-								"{{apiId}}",
-								"comments",
-								"{{commentId}}"
-							]
-						}
+						"url": "{{basepath}}/apis/{{apiId}}/comments/{{commentId}}"
 					},
 					"response": []
 				},
@@ -900,13 +757,9 @@
 					"request": {
 						"auth": {
 							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "{{access-token}}",
-									"type": "string"
-								}
-							]
+							"bearer": {
+								"token": "{{access-token}}"
+							}
 						},
 						"method": "PATCH",
 						"header": [],
@@ -919,18 +772,7 @@
 								}
 							}
 						},
-						"url": {
-							"raw": "{{basepath}}/apis/{{apiId}}/comments/{{commentId}}",
-							"host": [
-								"{{basepath}}"
-							],
-							"path": [
-								"apis",
-								"{{apiId}}",
-								"comments",
-								"{{commentId}}"
-							]
-						}
+						"url": "{{basepath}}/apis/{{apiId}}/comments/{{commentId}}"
 					},
 					"response": []
 				},
@@ -939,29 +781,13 @@
 					"request": {
 						"auth": {
 							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "{{access-token}}",
-									"type": "string"
-								}
-							]
+							"bearer": {
+								"token": "{{access-token}}"
+							}
 						},
 						"method": "GET",
 						"header": [],
-						"url": {
-							"raw": "{{basepath}}/apis/{{apiId}}/comments/{{commentId}}/replies",
-							"host": [
-								"{{basepath}}"
-							],
-							"path": [
-								"apis",
-								"{{apiId}}",
-								"comments",
-								"{{commentId}}",
-								"replies"
-							]
-						}
+						"url": "{{basepath}}/apis/{{apiId}}/comments/{{commentId}}/replies"
 					},
 					"response": []
 				},
@@ -970,28 +796,256 @@
 					"request": {
 						"auth": {
 							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "{{access-token}}",
-									"type": "string"
-								}
-							]
+							"bearer": {
+								"token": "{{access-token}}"
+							}
 						},
 						"method": "DELETE",
 						"header": [],
+						"url": "{{basepath}}/apis/{{apiId}}/comments/{{commentId}}"
+					},
+					"response": []
+				},
+				{
+					"name": "Retrieve MCP Server Comments",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{access-token}}"
+							}
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-WSO2-Tenant",
+								"value": "carbon.super",
+								"description": "For cross-tenant invocations, this is used to specify the tenant domain, where the resource need to be\n  retrieved from.\n"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
 						"url": {
-							"raw": "{{basepath}}/apis/{{apiId}}/comments/{{commentId}}",
+							"raw": "{{basepath}}/mcp-servers/{{mcpServerId}}/comments?limit=25&offset=0&includeCommenterInfo=false",
 							"host": [
 								"{{basepath}}"
 							],
 							"path": [
-								"apis",
-								"{{apiId}}",
-								"comments",
-								"{{commentId}}"
+								"mcp-servers",
+								"{{mcpServerId}}",
+								"comments"
+							],
+							"query": [
+								{
+									"key": "limit",
+									"value": "25",
+									"description": "Maximum size of resource array to return.\n"
+								},
+								{
+									"key": "offset",
+									"value": "0",
+									"description": "Starting point within the complete list of items qualified.\n"
+								},
+								{
+									"key": "includeCommenterInfo",
+									"value": "false",
+									"description": "Whether we need to display commentor details.\n"
+								}
+							]
+						},
+						"description": "Get a list of Comments that are already added to MCP Servers\n"
+					},
+					"response": []
+				},
+				{
+					"name": "Add a MCP Server Comment",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var response = JSON.parse(responseBody);",
+									"",
+									"if (response.id) {",
+									"    pm.collectionVariables.set(\"commentId\", response.id);",
+									"}",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {},
+								"requests": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{access-token}}"
+							}
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"content\": \"This is a comment\",\n  \"category\": \"general\"\n}",
+							"options": {
+								"raw": {
+									"headerFamily": "json",
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{basepath}}/mcp-servers/{{mcpServerId}}/comments",
+							"host": [
+								"{{basepath}}"
+							],
+							"path": [
+								"mcp-servers",
+								"{{mcpServerId}}",
+								"comments"
+							],
+							"query": [
+								{
+									"key": "replyTo",
+									"value": "string",
+									"description": "ID of the perent comment.\n",
+									"disabled": true
+								}
 							]
 						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Details of a MCP Server Comment",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{access-token}}"
+							}
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-WSO2-Tenant",
+								"value": "carbon.super",
+								"description": "For cross-tenant invocations, this is used to specify the tenant domain, where the resource need to be\n  retrieved from.\n"
+							},
+							{
+								"key": "If-None-Match",
+								"value": "string",
+								"description": "Validator for conditional requests; based on the ETag of the formerly retrieved\nvariant of the resourec.\n"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{basepath}}/mcp-servers/{{mcpServerId}}/comments/{{commentId}}?includeCommenterInfo=false&replyLimit=25&replyOffset=0",
+							"host": [
+								"{{basepath}}"
+							],
+							"path": [
+								"mcp-servers",
+								"{{mcpServerId}}",
+								"comments",
+								"{{commentId}}"
+							],
+							"query": [
+								{
+									"key": "includeCommenterInfo",
+									"value": "false",
+									"description": "Whether we need to display commentor details.\n"
+								},
+								{
+									"key": "replyLimit",
+									"value": "25",
+									"description": "Maximum size of replies array to return.\n"
+								},
+								{
+									"key": "replyOffset",
+									"value": "0",
+									"description": "Starting point within the complete list of replies.\n"
+								}
+							]
+						},
+						"description": "Get the individual comment given by a user for a certain MCP Server.\n"
+					},
+					"response": []
+				},
+				{
+					"name": "Edit a comment",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{access-token}}"
+							}
+						},
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"content\": \"This is a comment\",\n  \"category\": \"general\"\n}",
+							"options": {
+								"raw": {
+									"headerFamily": "json",
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{basepath}}/apis/{{apiId}}/comments/{{commentId}}",
+						"description": "Edit the individual comment\n"
+					},
+					"response": []
+				},
+				{
+					"name": "Delete a MCP Server Comment",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{access-token}}"
+							}
+						},
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "If-Match",
+								"value": "string",
+								"description": "Validator for conditional requests; based on ETag.\n"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"url": "{{basepath}}/mcp-servers/{{mcpServerId}}/comments/{{commentId}}",
+						"description": "Remove a Comment\n"
 					},
 					"response": []
 				}
@@ -1005,25 +1059,13 @@
 					"request": {
 						"auth": {
 							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "{{access-token}}",
-									"type": "string"
-								}
-							]
+							"bearer": {
+								"token": "{{access-token}}"
+							}
 						},
 						"method": "GET",
 						"header": [],
-						"url": {
-							"raw": "{{basepath}}/applications",
-							"host": [
-								"{{basepath}}"
-							],
-							"path": [
-								"applications"
-							]
-						}
+						"url": "{{basepath}}/applications"
 					},
 					"response": []
 				},
@@ -1045,13 +1087,9 @@
 					"request": {
 						"auth": {
 							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "{{access-token}}",
-									"type": "string"
-								}
-							]
+							"bearer": {
+								"token": "{{access-token}}"
+							}
 						},
 						"method": "POST",
 						"header": [],
@@ -1064,15 +1102,7 @@
 								}
 							}
 						},
-						"url": {
-							"raw": "{{basepath}}/applications",
-							"host": [
-								"{{basepath}}"
-							],
-							"path": [
-								"applications"
-							]
-						}
+						"url": "{{basepath}}/applications"
 					},
 					"response": []
 				},
@@ -1081,26 +1111,13 @@
 					"request": {
 						"auth": {
 							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "{{access-token}}",
-									"type": "string"
-								}
-							]
+							"bearer": {
+								"token": "{{access-token}}"
+							}
 						},
 						"method": "GET",
 						"header": [],
-						"url": {
-							"raw": "{{basepath}}/applications/{{applicationId}}",
-							"host": [
-								"{{basepath}}"
-							],
-							"path": [
-								"applications",
-								"{{applicationId}}"
-							]
-						}
+						"url": "{{basepath}}/applications/{{applicationId}}"
 					},
 					"response": []
 				},
@@ -1109,13 +1126,9 @@
 					"request": {
 						"auth": {
 							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "{{access-token}}",
-									"type": "string"
-								}
-							]
+							"bearer": {
+								"token": "{{access-token}}"
+							}
 						},
 						"method": "PUT",
 						"header": [],
@@ -1128,16 +1141,7 @@
 								}
 							}
 						},
-						"url": {
-							"raw": "{{basepath}}/applications/{{applicationId}}",
-							"host": [
-								"{{basepath}}"
-							],
-							"path": [
-								"applications",
-								"{{applicationId}}"
-							]
-						}
+						"url": "{{basepath}}/applications/{{applicationId}}"
 					},
 					"response": []
 				},
@@ -1146,26 +1150,13 @@
 					"request": {
 						"auth": {
 							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "{{access-token}}",
-									"type": "string"
-								}
-							]
+							"bearer": {
+								"token": "{{access-token}}"
+							}
 						},
 						"method": "DELETE",
 						"header": [],
-						"url": {
-							"raw": "{{basepath}}/applications/{{applicationId}}",
-							"host": [
-								"{{basepath}}"
-							],
-							"path": [
-								"applications",
-								"{{applicationId}}"
-							]
-						}
+						"url": "{{basepath}}/applications/{{applicationId}}"
 					},
 					"response": []
 				}
@@ -1195,13 +1186,9 @@
 					"request": {
 						"auth": {
 							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "{{access-token}}",
-									"type": "string"
-								}
-							]
+							"bearer": {
+								"token": "{{access-token}}"
+							}
 						},
 						"method": "POST",
 						"header": [],
@@ -1214,17 +1201,7 @@
 								}
 							}
 						},
-						"url": {
-							"raw": "{{basepath}}/applications/{{applicationId}}/generate-keys",
-							"host": [
-								"{{basepath}}"
-							],
-							"path": [
-								"applications",
-								"{{applicationId}}",
-								"generate-keys"
-							]
-						}
+						"url": "{{basepath}}/applications/{{applicationId}}/generate-keys"
 					},
 					"response": []
 				},
@@ -1233,13 +1210,9 @@
 					"request": {
 						"auth": {
 							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "{{access-token}}",
-									"type": "string"
-								}
-							]
+							"bearer": {
+								"token": "{{access-token}}"
+							}
 						},
 						"method": "POST",
 						"header": [],
@@ -1252,17 +1225,7 @@
 								}
 							}
 						},
-						"url": {
-							"raw": "{{basepath}}/applications/{{applicationId}}/map-keys",
-							"host": [
-								"{{basepath}}"
-							],
-							"path": [
-								"applications",
-								"{{applicationId}}",
-								"map-keys"
-							]
-						}
+						"url": "{{basepath}}/applications/{{applicationId}}/map-keys"
 					},
 					"response": []
 				},
@@ -1271,27 +1234,13 @@
 					"request": {
 						"auth": {
 							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "{{access-token}}",
-									"type": "string"
-								}
-							]
+							"bearer": {
+								"token": "{{access-token}}"
+							}
 						},
 						"method": "GET",
 						"header": [],
-						"url": {
-							"raw": "{{basepath}}/applications/{{applicationId}}/oauth-keys",
-							"host": [
-								"{{basepath}}"
-							],
-							"path": [
-								"applications",
-								"{{applicationId}}",
-								"oauth-keys"
-							]
-						}
+						"url": "{{basepath}}/applications/{{applicationId}}/oauth-keys"
 					},
 					"response": []
 				},
@@ -1300,28 +1249,13 @@
 					"request": {
 						"auth": {
 							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "{{access-token}}",
-									"type": "string"
-								}
-							]
+							"bearer": {
+								"token": "{{access-token}}"
+							}
 						},
 						"method": "GET",
 						"header": [],
-						"url": {
-							"raw": "{{basepath}}/applications/{{applicationId}}/oauth-keys/{{keyMappingId}}",
-							"host": [
-								"{{basepath}}"
-							],
-							"path": [
-								"applications",
-								"{{applicationId}}",
-								"oauth-keys",
-								"{{keyMappingId}}"
-							]
-						}
+						"url": "{{basepath}}/applications/{{applicationId}}/oauth-keys/{{keyMappingId}}"
 					},
 					"response": []
 				},
@@ -1330,13 +1264,9 @@
 					"request": {
 						"auth": {
 							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "{{access-token}}",
-									"type": "string"
-								}
-							]
+							"bearer": {
+								"token": "{{access-token}}"
+							}
 						},
 						"method": "PUT",
 						"header": [],
@@ -1349,18 +1279,7 @@
 								}
 							}
 						},
-						"url": {
-							"raw": "{{basepath}}/applications/{{applicationId}}/oauth-keys/{{keyMappingId}}",
-							"host": [
-								"{{basepath}}"
-							],
-							"path": [
-								"applications",
-								"{{applicationId}}",
-								"oauth-keys",
-								"{{keyMappingId}}"
-							]
-						}
+						"url": "{{basepath}}/applications/{{applicationId}}/oauth-keys/{{keyMappingId}}"
 					},
 					"response": []
 				},
@@ -1369,29 +1288,13 @@
 					"request": {
 						"auth": {
 							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "{{access-token}}",
-									"type": "string"
-								}
-							]
+							"bearer": {
+								"token": "{{access-token}}"
+							}
 						},
 						"method": "POST",
 						"header": [],
-						"url": {
-							"raw": "{{basepath}}/applications/{{applicationId}}/oauth-keys/{{keyMappingId}}/regenerate-secret",
-							"host": [
-								"{{basepath}}"
-							],
-							"path": [
-								"applications",
-								"{{applicationId}}",
-								"oauth-keys",
-								"{{keyMappingId}}",
-								"regenerate-secret"
-							]
-						}
+						"url": "{{basepath}}/applications/{{applicationId}}/oauth-keys/{{keyMappingId}}/regenerate-secret"
 					},
 					"response": []
 				},
@@ -1400,29 +1303,13 @@
 					"request": {
 						"auth": {
 							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "{{access-token}}",
-									"type": "string"
-								}
-							]
+							"bearer": {
+								"token": "{{access-token}}"
+							}
 						},
 						"method": "POST",
 						"header": [],
-						"url": {
-							"raw": "{{basepath}}/applications/{{applicationId}}/oauth-keys/{{keyMappingId}}/clean-up",
-							"host": [
-								"{{basepath}}"
-							],
-							"path": [
-								"applications",
-								"{{applicationId}}",
-								"oauth-keys",
-								"{{keyMappingId}}",
-								"clean-up"
-							]
-						}
+						"url": "{{basepath}}/applications/{{applicationId}}/oauth-keys/{{keyMappingId}}/clean-up"
 					},
 					"response": []
 				}
@@ -1436,13 +1323,9 @@
 					"request": {
 						"auth": {
 							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "{{access-token}}",
-									"type": "string"
-								}
-							]
+							"bearer": {
+								"token": "{{access-token}}"
+							}
 						},
 						"method": "POST",
 						"header": [],
@@ -1455,19 +1338,7 @@
 								}
 							}
 						},
-						"url": {
-							"raw": "{{basepath}}/applications/{{applicationId}}/oauth-keys/{{keyMappingId}}/generate-token",
-							"host": [
-								"{{basepath}}"
-							],
-							"path": [
-								"applications",
-								"{{applicationId}}",
-								"oauth-keys",
-								"{{keyMappingId}}",
-								"generate-token"
-							]
-						}
+						"url": "{{basepath}}/applications/{{applicationId}}/oauth-keys/{{keyMappingId}}/generate-token"
 					},
 					"response": []
 				}
@@ -1493,13 +1364,9 @@
 					"request": {
 						"auth": {
 							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "{{access-token}}",
-									"type": "string"
-								}
-							]
+							"bearer": {
+								"token": "{{access-token}}"
+							}
 						},
 						"method": "POST",
 						"header": [],
@@ -1512,19 +1379,7 @@
 								}
 							}
 						},
-						"url": {
-							"raw": "{{basepath}}/applications/{{applicationId}}/api-keys/{{keyType}}/generate",
-							"host": [
-								"{{basepath}}"
-							],
-							"path": [
-								"applications",
-								"{{applicationId}}",
-								"api-keys",
-								"{{keyType}}",
-								"generate"
-							]
-						}
+						"url": "{{basepath}}/applications/{{applicationId}}/api-keys/{{keyType}}/generate"
 					},
 					"response": []
 				},
@@ -1544,13 +1399,9 @@
 					"request": {
 						"auth": {
 							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "{{access-token}}",
-									"type": "string"
-								}
-							]
+							"bearer": {
+								"token": "{{access-token}}"
+							}
 						},
 						"method": "POST",
 						"header": [],
@@ -1563,19 +1414,7 @@
 								}
 							}
 						},
-						"url": {
-							"raw": "{{basepath}}/applications/{{applicationId}}/api-keys/{{keyType}}/revoke",
-							"host": [
-								"{{basepath}}"
-							],
-							"path": [
-								"applications",
-								"{{applicationId}}",
-								"api-keys",
-								"{{keyType}}",
-								"revoke"
-							]
-						}
+						"url": "{{basepath}}/applications/{{applicationId}}/api-keys/{{keyType}}/revoke"
 					},
 					"response": []
 				}
@@ -1589,13 +1428,9 @@
 					"request": {
 						"auth": {
 							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "{{access-token}}",
-									"type": "string"
-								}
-							]
+							"bearer": {
+								"token": "{{access-token}}"
+							}
 						},
 						"method": "GET",
 						"header": [],
@@ -1634,13 +1469,9 @@
 					"request": {
 						"auth": {
 							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "{{access-token}}",
-									"type": "string"
-								}
-							]
+							"bearer": {
+								"token": "{{access-token}}"
+							}
 						},
 						"method": "POST",
 						"header": [],
@@ -1653,15 +1484,7 @@
 								}
 							}
 						},
-						"url": {
-							"raw": "{{basepath}}/subscriptions",
-							"host": [
-								"{{basepath}}"
-							],
-							"path": [
-								"subscriptions"
-							]
-						}
+						"url": "{{basepath}}/subscriptions"
 					},
 					"response": []
 				},
@@ -1670,13 +1493,9 @@
 					"request": {
 						"auth": {
 							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "{{access-token}}",
-									"type": "string"
-								}
-							]
+							"bearer": {
+								"token": "{{access-token}}"
+							}
 						},
 						"method": "POST",
 						"header": [],
@@ -1689,16 +1508,7 @@
 								}
 							}
 						},
-						"url": {
-							"raw": "{{basepath}}/subscriptions/multiple",
-							"host": [
-								"{{basepath}}"
-							],
-							"path": [
-								"subscriptions",
-								"multiple"
-							]
-						}
+						"url": "{{basepath}}/subscriptions/multiple"
 					},
 					"response": []
 				},
@@ -1707,26 +1517,13 @@
 					"request": {
 						"auth": {
 							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "{{access-token}}",
-									"type": "string"
-								}
-							]
+							"bearer": {
+								"token": "{{access-token}}"
+							}
 						},
 						"method": "GET",
 						"header": [],
-						"url": {
-							"raw": "{{basepath}}/subscriptions/{{subscriptionId}}",
-							"host": [
-								"{{basepath}}"
-							],
-							"path": [
-								"subscriptions",
-								"{{subscriptionId}}"
-							]
-						}
+						"url": "{{basepath}}/subscriptions/{{subscriptionId}}"
 					},
 					"response": []
 				},
@@ -1735,13 +1532,9 @@
 					"request": {
 						"auth": {
 							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "{{access-token}}",
-									"type": "string"
-								}
-							]
+							"bearer": {
+								"token": "{{access-token}}"
+							}
 						},
 						"method": "PUT",
 						"header": [],
@@ -1754,16 +1547,7 @@
 								}
 							}
 						},
-						"url": {
-							"raw": "{{basepath}}/subscriptions/{{subscriptionId}}",
-							"host": [
-								"{{basepath}}"
-							],
-							"path": [
-								"subscriptions",
-								"{{subscriptionId}}"
-							]
-						}
+						"url": "{{basepath}}/subscriptions/{{subscriptionId}}"
 					},
 					"response": []
 				},
@@ -1772,26 +1556,13 @@
 					"request": {
 						"auth": {
 							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "{{access-token}}",
-									"type": "string"
-								}
-							]
+							"bearer": {
+								"token": "{{access-token}}"
+							}
 						},
 						"method": "DELETE",
 						"header": [],
-						"url": {
-							"raw": "{{basepath}}/subscriptions/{{subscriptionId}}",
-							"host": [
-								"{{basepath}}"
-							],
-							"path": [
-								"subscriptions",
-								"{{subscriptionId}}"
-							]
-						}
+						"url": "{{basepath}}/subscriptions/{{subscriptionId}}"
 					},
 					"response": []
 				}
@@ -1805,27 +1576,13 @@
 					"request": {
 						"auth": {
 							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "{{access-token}}",
-									"type": "string"
-								}
-							]
+							"bearer": {
+								"token": "{{access-token}}"
+							}
 						},
 						"method": "GET",
 						"header": [],
-						"url": {
-							"raw": "{{basepath}}/subscriptions/{{subscriptionId}}/usage",
-							"host": [
-								"{{basepath}}"
-							],
-							"path": [
-								"subscriptions",
-								"{{subscriptionId}}",
-								"usage"
-							]
-						}
+						"url": "{{basepath}}/subscriptions/{{subscriptionId}}/usage"
 					},
 					"response": []
 				}
@@ -1839,26 +1596,13 @@
 					"request": {
 						"auth": {
 							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "{{access-token}}",
-									"type": "string"
-								}
-							]
+							"bearer": {
+								"token": "{{access-token}}"
+							}
 						},
 						"method": "GET",
 						"header": [],
-						"url": {
-							"raw": "{{basepath}}/throttling-policies/{{policyLevel}}",
-							"host": [
-								"{{basepath}}"
-							],
-							"path": [
-								"throttling-policies",
-								"{{policyLevel}}"
-							]
-						}
+						"url": "{{basepath}}/throttling-policies/{{policyLevel}}"
 					},
 					"response": []
 				},
@@ -1867,13 +1611,9 @@
 					"request": {
 						"auth": {
 							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "{{access-token}}",
-									"type": "string"
-								}
-							]
+							"bearer": {
+								"token": "{{access-token}}"
+							}
 						},
 						"method": "GET",
 						"header": [
@@ -1884,17 +1624,7 @@
 								"disabled": true
 							}
 						],
-						"url": {
-							"raw": "{{basepath}}/throttling-policies/{{policyLevel}}/{{policyId}}",
-							"host": [
-								"{{basepath}}"
-							],
-							"path": [
-								"throttling-policies",
-								"{{policyLevel}}",
-								"{{policyId}}"
-							]
-						}
+						"url": "{{basepath}}/throttling-policies/{{policyLevel}}/{{policyId}}"
 					},
 					"response": []
 				},
@@ -1903,13 +1633,9 @@
 					"request": {
 						"auth": {
 							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "{{access-token}}",
-									"type": "string"
-								}
-							]
+							"bearer": {
+								"token": "{{access-token}}"
+							}
 						},
 						"method": "POST",
 						"header": [
@@ -1932,17 +1658,7 @@
 								}
 							}
 						},
-						"url": {
-							"raw": "{{basepath}}/applications/{{applicationId}}/reset-throttle-policy",
-							"host": [
-								"{{basepath}}"
-							],
-							"path": [
-								"applications",
-								"{{applicationId}}",
-								"reset-throttle-policy"
-							]
-						},
+						"url": "{{basepath}}/applications/{{applicationId}}/reset-throttle-policy",
 						"description": "This operation can be used to reset the application-level throttle policy for a specific user.\n"
 					},
 					"response": []
@@ -1957,13 +1673,9 @@
 					"request": {
 						"auth": {
 							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "{{access-token}}",
-									"type": "string"
-								}
-							]
+							"bearer": {
+								"token": "{{access-token}}"
+							}
 						},
 						"method": "GET",
 						"header": [
@@ -1974,15 +1686,7 @@
 								"disabled": true
 							}
 						],
-						"url": {
-							"raw": "{{basepath}}/tags",
-							"host": [
-								"{{basepath}}"
-							],
-							"path": [
-								"tags"
-							]
-						}
+						"url": "{{basepath}}/tags"
 					},
 					"response": []
 				}
@@ -1996,13 +1700,9 @@
 					"request": {
 						"auth": {
 							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "{{access-token}}",
-									"type": "string"
-								}
-							]
+							"bearer": {
+								"token": "{{access-token}}"
+							}
 						},
 						"method": "GET",
 						"header": [],
@@ -2034,25 +1734,13 @@
 					"request": {
 						"auth": {
 							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "{{access-token}}",
-									"type": "string"
-								}
-							]
+							"bearer": {
+								"token": "{{access-token}}"
+							}
 						},
 						"method": "GET",
 						"header": [],
-						"url": {
-							"raw": "{{basepath}}/settings",
-							"host": [
-								"{{basepath}}"
-							],
-							"path": [
-								"settings"
-							]
-						}
+						"url": "{{basepath}}/settings"
 					},
 					"response": []
 				},
@@ -2061,26 +1749,13 @@
 					"request": {
 						"auth": {
 							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "{{access-token}}",
-									"type": "string"
-								}
-							]
+							"bearer": {
+								"token": "{{access-token}}"
+							}
 						},
 						"method": "GET",
 						"header": [],
-						"url": {
-							"raw": "{{basepath}}/settings/application-attributes",
-							"host": [
-								"{{basepath}}"
-							],
-							"path": [
-								"settings",
-								"application-attributes"
-							]
-						}
+						"url": "{{basepath}}/settings/application-attributes"
 					},
 					"response": []
 				}
@@ -2094,13 +1769,9 @@
 					"request": {
 						"auth": {
 							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "{{access-token}}",
-									"type": "string"
-								}
-							]
+							"bearer": {
+								"token": "{{access-token}}"
+							}
 						},
 						"method": "GET",
 						"header": [],
@@ -2132,25 +1803,13 @@
 					"request": {
 						"auth": {
 							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "{{access-token}}",
-									"type": "string"
-								}
-							]
+							"bearer": {
+								"token": "{{access-token}}"
+							}
 						},
 						"method": "GET",
 						"header": [],
-						"url": {
-							"raw": "{{basepath}}/recommendations",
-							"host": [
-								"{{basepath}}"
-							],
-							"path": [
-								"recommendations"
-							]
-						}
+						"url": "{{basepath}}/recommendations"
 					},
 					"response": []
 				}
@@ -2164,25 +1823,13 @@
 					"request": {
 						"auth": {
 							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "{{access-token}}",
-									"type": "string"
-								}
-							]
+							"bearer": {
+								"token": "{{access-token}}"
+							}
 						},
 						"method": "GET",
 						"header": [],
-						"url": {
-							"raw": "{{basepath}}/api-categories",
-							"host": [
-								"{{basepath}}"
-							],
-							"path": [
-								"api-categories"
-							]
-						}
+						"url": "{{basepath}}/api-categories"
 					},
 					"response": []
 				}
@@ -2196,25 +1843,13 @@
 					"request": {
 						"auth": {
 							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "{{access-token}}",
-									"type": "string"
-								}
-							]
+							"bearer": {
+								"token": "{{access-token}}"
+							}
 						},
 						"method": "GET",
 						"header": [],
-						"url": {
-							"raw": "{{basepath}}/key-managers",
-							"host": [
-								"{{basepath}}"
-							],
-							"path": [
-								"key-managers"
-							]
-						}
+						"url": "{{basepath}}/key-managers"
 					},
 					"response": []
 				}
@@ -2228,28 +1863,13 @@
 					"request": {
 						"auth": {
 							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "{{access-token}}",
-									"type": "string"
-								}
-							]
+							"bearer": {
+								"token": "{{access-token}}"
+							}
 						},
 						"method": "GET",
 						"header": [],
-						"url": {
-							"raw": "{{basepath}}/apis/{{graphQLApiId}}/graphql-policies/complexity",
-							"host": [
-								"{{basepath}}"
-							],
-							"path": [
-								"apis",
-								"{{graphQLApiId}}",
-								"graphql-policies",
-								"complexity"
-							]
-						}
+						"url": "{{basepath}}/apis/{{graphQLApiId}}/graphql-policies/complexity"
 					},
 					"response": []
 				},
@@ -2258,29 +1878,13 @@
 					"request": {
 						"auth": {
 							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "{{access-token}}",
-									"type": "string"
-								}
-							]
+							"bearer": {
+								"token": "{{access-token}}"
+							}
 						},
 						"method": "GET",
 						"header": [],
-						"url": {
-							"raw": "{{basepath}}/apis/{{graphQLApiId}}/graphql-policies/complexity/types",
-							"host": [
-								"{{basepath}}"
-							],
-							"path": [
-								"apis",
-								"{{graphQLApiId}}",
-								"graphql-policies",
-								"complexity",
-								"types"
-							]
-						}
+						"url": "{{basepath}}/apis/{{graphQLApiId}}/graphql-policies/complexity/types"
 					},
 					"response": []
 				}
@@ -2294,13 +1898,9 @@
 					"request": {
 						"auth": {
 							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "{{access-token}}",
-									"type": "string"
-								}
-							]
+							"bearer": {
+								"token": "{{access-token}}"
+							}
 						},
 						"method": "POST",
 						"header": [],
@@ -2313,16 +1913,7 @@
 								}
 							}
 						},
-						"url": {
-							"raw": "{{basepath}}/me/change-password",
-							"host": [
-								"{{basepath}}"
-							],
-							"path": [
-								"me",
-								"change-password"
-							]
-						}
+						"url": "{{basepath}}/me/change-password"
 					},
 					"response": []
 				},
@@ -2331,13 +1922,9 @@
 					"request": {
 						"auth": {
 							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "{{access-token}}",
-									"type": "string"
-								}
-							]
+							"bearer": {
+								"token": "{{access-token}}"
+							}
 						},
 						"method": "GET",
 						"header": [
@@ -2346,16 +1933,7 @@
 								"value": "application/json"
 							}
 						],
-						"url": {
-							"raw": "{{basepath}}/me/organization-information",
-							"host": [
-								"{{basepath}}"
-							],
-							"path": [
-								"me",
-								"organization-information"
-							]
-						},
+						"url": "{{basepath}}/me/organization-information",
 						"description": "Using this operation, logged-in user can get their organization information.\n"
 					},
 					"response": []
@@ -2370,13 +1948,9 @@
 					"request": {
 						"auth": {
 							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "{{access-token}}",
-									"type": "string"
-								}
-							]
+							"bearer": {
+								"token": "{{access-token}}"
+							}
 						},
 						"method": "GET",
 						"header": [],
@@ -2412,13 +1986,9 @@
 					"request": {
 						"auth": {
 							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "{{access-token}}",
-									"type": "string"
-								}
-							]
+							"bearer": {
+								"token": "{{access-token}}"
+							}
 						},
 						"method": "POST",
 						"header": [],
@@ -2432,16 +2002,7 @@
 								}
 							]
 						},
-						"url": {
-							"raw": "{{basepath}}/applications/import",
-							"host": [
-								"{{basepath}}"
-							],
-							"path": [
-								"applications",
-								"import"
-							]
-						}
+						"url": "{{basepath}}/applications/import"
 					},
 					"response": []
 				}
@@ -2455,13 +2016,9 @@
 					"request": {
 						"auth": {
 							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "{{access-token}}",
-									"type": "string"
-								}
-							]
+							"bearer": {
+								"token": "{{access-token}}"
+							}
 						},
 						"method": "GET",
 						"header": [],
@@ -2498,27 +2055,13 @@
 					"request": {
 						"auth": {
 							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "{{access-token}}",
-									"type": "string"
-								}
-							]
+							"bearer": {
+								"token": "{{access-token}}"
+							}
 						},
 						"method": "GET",
 						"header": [],
-						"url": {
-							"raw": "{{basepath}}/apis/{{apiId}}/topics",
-							"host": [
-								"{{basepath}}"
-							],
-							"path": [
-								"apis",
-								"{{apiId}}",
-								"topics"
-							]
-						}
+						"url": "{{basepath}}/apis/{{apiId}}/topics"
 					},
 					"response": []
 				}
@@ -2532,13 +2075,9 @@
 					"request": {
 						"auth": {
 							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "{{access-token}}",
-									"type": "string"
-								}
-							]
+							"bearer": {
+								"token": "{{access-token}}"
+							}
 						},
 						"method": "POST",
 						"header": [
@@ -2584,27 +2123,13 @@
 					"request": {
 						"auth": {
 							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "{{access-token}}",
-									"type": "string"
-								}
-							]
+							"bearer": {
+								"token": "{{access-token}}"
+							}
 						},
 						"method": "GET",
 						"header": [],
-						"url": {
-							"raw": "{{basepath}}/apis/marketplace-assistant/api-count",
-							"host": [
-								"{{basepath}}"
-							],
-							"path": [
-								"apis",
-								"marketplace-assistant",
-								"api-count"
-							]
-						}
+						"url": "{{basepath}}/apis/marketplace-assistant/api-count"
 					},
 					"response": []
 				},
@@ -2613,13 +2138,9 @@
 					"request": {
 						"auth": {
 							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "{{access-token}}",
-									"type": "string"
-								}
-							]
+							"bearer": {
+								"token": "{{access-token}}"
+							}
 						},
 						"method": "POST",
 						"header": [
@@ -2635,17 +2156,286 @@
 								"src": "/Users/wso2/Documents/Release/430/Postman/request.json"
 							}
 						},
+						"url": "{{basepath}}/apis/marketplace-assistant/chat"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "MCP Servers",
+			"item": [
+				{
+					"name": "Retrieve/Search MCP Servers",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var response = JSON.parse(responseBody);",
+									"",
+									"if (response.list && response.list.length > 0) {",
+									"    pm.collectionVariables.set(\"mcpServerId\", response.list[0].id);",
+									"}",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {},
+								"requests": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{access-token}}"
+							}
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-WSO2-Tenant",
+								"value": "carbon.super",
+								"description": "For cross-tenant invocations, this is used to specify the tenant domain, where the resource need to be\n  retrieved from.\n"
+							},
+							{
+								"key": "If-None-Match",
+								"value": "string",
+								"description": "Validator for conditional requests; based on the ETag of the formerly retrieved\nvariant of the resourec.\n"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
 						"url": {
-							"raw": "{{basepath}}/apis/marketplace-assistant/chat",
+							"raw": "{{basepath}}/mcp-servers?limit=25&offset=0",
 							"host": [
 								"{{basepath}}"
 							],
 							"path": [
-								"apis",
-								"marketplace-assistant",
-								"chat"
+								"mcp-servers"
+							],
+							"query": [
+								{
+									"key": "limit",
+									"value": "25",
+									"description": "Maximum size of resource array to return.\n"
+								},
+								{
+									"key": "offset",
+									"value": "0",
+									"description": "Starting point within the complete list of items qualified.\n"
+								},
+								{
+									"key": "query",
+									"value": "string",
+									"description": "**Search condition**.\n\nYou can search in attributes by using an **\"<attribute>:\"** modifier.\n\nEg.\n\"provider:wso2\" will match an MCP Server if the provider of the MCP Server is exactly \"wso2\".\n\nAdditionally you can use wildcards.\n\nEg.\n\"provider:wso2*\" will match a MCP Server if the provider of the MCP Server starts with \"wso2\".\n\nSupported attribute modifiers are [**version, context, status,\ndescription, doc, provider, tag**]\n\nTo search by Properties provide the query in below format.\n\n**property_name:property_value**\n\nEg.\n\"environment:test\" where environment is the property name and test is the propert value.\n\nIf no advanced attribute modifier has been specified, search will match the\ngiven query string against API Name.\n",
+									"disabled": true
+								}
 							]
+						},
+						"description": "This operation provides you a list of available MCP servers qualifying under a given search condition.\n\nEach retrieved MCP Server is represented with a minimal amount of attributes. If you want to get complete \ndetails of a MCP server, you need to use **Get details of a MCP** operation.\n\nThis operation supports retrieving MCP servers of other tenants. The required tenant domain need to be \nspecified as a header `X-WSO2-Tenant`. If not specified super tenant's MCP servers will be retrieved. If you \nused an Authorization header, the user's tenant associated with the access token will be used.\n\n**NOTE:**\n* By default, this operation retrieves Published MCP Server. \n* This operation does not require an Authorization header by default. But if it is provided, it will be validated and checked for permissions of the user, hence you may be able to see APIs which are restricted for special permissions/roles.\n"
+					},
+					"response": []
+				},
+				{
+					"name": "Get Details of a MCP Server",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{access-token}}"
+							}
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-WSO2-Tenant",
+								"value": "carbon.super",
+								"description": "For cross-tenant invocations, this is used to specify the tenant domain, where the resource need to be\n  retrieved from.\n"
+							},
+							{
+								"key": "If-None-Match",
+								"value": "string",
+								"description": "Validator for conditional requests; based on the ETag of the formerly retrieved\nvariant of the resourec.\n"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"url": "{{basepath}}/mcp-servers/{{mcpServerId}}",
+						"description": "Using this operation, you can retrieve complete details of a single MCP Server. You need to provide the Id of \nthe MCP Server to retrieve it.\n\n`X-WSO2-Tenant` header can be used to retrieve a MCP Server of a different tenant domain. If not specified \nsuper tenant will be used. If Authorization header is present in the request, the user's tenant associated \nwith the access token will be used.\n\n**NOTE:**\n* This operation does not require an Authorization header by default. But if it is provided, it will be \nvalidated and checked for permissions of the user, hence you may be able to see APIs which are restricted for\nspecial permissions/roles. \\n\n"
+					},
+					"response": []
+				},
+				{
+					"name": "Get Details of the Subscription Throttling Policies of a MCP Servers",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{access-token}}"
+							}
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-WSO2-Tenant",
+								"value": "carbon.super",
+								"description": "For cross-tenant invocations, this is used to specify the tenant domain, where the resource need to be\n  retrieved from.\n"
+							},
+							{
+								"key": "If-None-Match",
+								"value": "string",
+								"description": "Validator for conditional requests; based on the ETag of the formerly retrieved\nvariant of the resourec.\n"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"url": "{{basepath}}/mcp-servers/{{mcpServerId}}/subscription-policies",
+						"description": "This operation can be used to retrieve details of the subscription throttling policy of a MCP Server by \nspecifying the MCP Server Id.\n\n`X-WSO2-Tenant` header can be used to retrieve MCP Server subscription throttling policies that belongs to a \ndifferent tenant domain. If not specified super tenant will be used. If Authorization header is present in the \nrequest, the user's tenant associated with the access token will be used.\n"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "MCP Server Documents",
+			"item": [
+				{
+					"name": "Get a List of Documents of a MCP Server",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var response = JSON.parse(responseBody);",
+									"",
+									"if (response.list && response.list.length > 0) {",
+									"    pm.collectionVariables.set(\"documentId\", response.list[0].documentId);",
+									"}"
+								],
+								"type": "text/javascript",
+								"packages": {},
+								"requests": {}
+							}
 						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{access-token}}"
+							}
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-WSO2-Tenant",
+								"value": "carbon.super",
+								"description": "For cross-tenant invocations, this is used to specify the tenant domain, where the resource need to be\n  retrieved from.\n"
+							},
+							{
+								"key": "If-None-Match",
+								"value": "string",
+								"description": "Validator for conditional requests; based on the ETag of the formerly retrieved\nvariant of the resourec.\n"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{basepath}}/mcp-servers/{{mcpServerId}}/documents?limit=25&offset=0",
+							"host": [
+								"{{basepath}}"
+							],
+							"path": [
+								"mcp-servers",
+								"{{mcpServerId}}",
+								"documents"
+							],
+							"query": [
+								{
+									"key": "limit",
+									"value": "25",
+									"description": "Maximum size of resource array to return.\n"
+								},
+								{
+									"key": "offset",
+									"value": "0",
+									"description": "Starting point within the complete list of items qualified.\n"
+								}
+							]
+						},
+						"description": "This operation can be used to retrieve a list of documents belonging to a MCP Server by providing the id of the \nMCP Server.\n\n`X-WSO2-Tenant` header can be used to retrieve documents of a MCP Server that belongs to a different tenant \ndomain. If not specified super tenant will be used. If Authorization header is present in the request, the \nuser's tenant associated with the access token will be used.\n\n**NOTE:**\n* This operation does not require an Authorization header by default. But in order to see a restricted MCP \nServer's documents, you need to provide Authorization header.\n"
+					},
+					"response": []
+				},
+				{
+					"name": "Get a Document of a MCP Server",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{access-token}}"
+							}
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-WSO2-Tenant",
+								"value": "carbon.super",
+								"description": "For cross-tenant invocations, this is used to specify the tenant domain, where the resource need to be\n  retrieved from.\n"
+							},
+							{
+								"key": "If-None-Match",
+								"value": "string",
+								"description": "Validator for conditional requests; based on the ETag of the formerly retrieved\nvariant of the resourec.\n"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"url": "{{basepath}}/mcp-servers/{{mcpServerId}}/documents/{{documentId}}",
+						"description": "This operation can be used to retrieve a particular document's metadata associated with a MCP Server.\n\n`X-WSO2-Tenant` header can be used to retrieve a document of a MCP Server that belongs to a different tenant \ndomain. If not specified super tenant will be used. If Authorization header is present in the request, the \nuser's tenant associated with the access token will be used.\n\n**NOTE:**\n* This operation does not require an Authorization header by default. But in order to see a restricted MCP \nServer's document, you need to provide Authorization header.\n"
+					},
+					"response": []
+				},
+				{
+					"name": "Get the Content of a MCP Server Document\n Copy",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{access-token}}"
+							}
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-WSO2-Tenant",
+								"value": "carbon.super",
+								"description": "For cross-tenant invocations, this is used to specify the tenant domain, where the resource need to be\n  retrieved from.\n"
+							},
+							{
+								"key": "If-None-Match",
+								"value": "string",
+								"description": "Validator for conditional requests; based on the ETag of the formerly retrieved\nvariant of the resourec.\n"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"url": "{{basepath}}/mcp-servers/{{mcpServerId}}/documents/{{documentId}}/content",
+						"description": "This operation can be used to retrieve the content of a MCP Server's document.\n\nThe document can be of 3 types. In each cases responses are different.\n\n1. **Inline type**:\n   The content of the document will be retrieved in `text/plain` content type\n2. **FILE type**:\n   The file will be downloaded with the related content type (eg. `application/pdf`)\n3. **URL type**:\n    The client will recieve the URL of the document as the Location header with the response with - `303 See Other`\n\n`X-WSO2-Tenant` header can be used to retrieve the content of a document of a MCP Server that belongs to a \ndifferent tenant domain. If not specified super tenant will be used. If Authorization header is present in the \nrequest, the user's tenant associated with the access token will be used.\n\n**NOTE:**\n* This operation does not require an Authorization header by default. But in order to see a restricted MCP \nServer's document content, you need to provide Authorization header.\n"
 					},
 					"response": []
 				}
@@ -2657,6 +2447,7 @@
 			"listen": "prerequest",
 			"script": {
 				"type": "text/javascript",
+				"requests": {},
 				"exec": [
 					""
 				]
@@ -2666,6 +2457,7 @@
 			"listen": "test",
 			"script": {
 				"type": "text/javascript",
+				"requests": {},
 				"exec": [
 					""
 				]
@@ -2816,6 +2608,14 @@
 		{
 			"key": "graphQLApiId",
 			"value": "bbba01a8-bc04-4f3f-b1c1-9c147753c89w"
+		},
+		{
+			"key": "mcpServerId",
+			"value": "b43ee609-3c4e-457e-8b47-5aac358c5d7c"
+		},
+		{
+			"key": "documentId",
+			"value": "7485aad1-ce71-42f6-8473-fd95ed9115c6"
 		}
 	]
 }

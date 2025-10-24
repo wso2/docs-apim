@@ -1,9 +1,9 @@
 {
 	"info": {
-		"_postman_id": "d4b8e96d-0d0c-4dea-8c2b-aed1bdb26dd6",
-		"name": "WSO2 API Manager 4.5.0 - Admin REST API",
+		"_postman_id": "74ec5f10-a649-4b4c-b13c-1f7878ddd9b8",
+		"name": "WSO2 API Manager 4.6.0 - Admin REST API",
 		"description": "This document specifies a **RESTful API** for WSO2 **API Manager - Admin REST API** .\nIt is written with [swagger 2.0](http://swagger.io/).\n",
-		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
 		"_exporter_id": "40371634"
 	},
 	"item": [
@@ -33,23 +33,11 @@
 					"request": {
 						"auth": {
 							"type": "basic",
-							"basic": [
-								{
-									"key": "username",
-									"value": "admin",
-									"type": "string"
-								},
-								{
-									"key": "password",
-									"value": "admin",
-									"type": "string"
-								},
-								{
-									"key": "showPassword",
-									"value": false,
-									"type": "boolean"
-								}
-							]
+							"basic": {
+								"username": "admin",
+								"password": "admin",
+								"showPassword": false
+							}
 						},
 						"method": "POST",
 						"header": [],
@@ -62,12 +50,7 @@
 								}
 							}
 						},
-						"url": {
-							"raw": "{{dcrEndpoint}}",
-							"host": [
-								"{{dcrEndpoint}}"
-							]
-						}
+						"url": "{{dcrEndpoint}}"
 					},
 					"response": []
 				},
@@ -148,12 +131,7 @@
 								}
 							]
 						},
-						"url": {
-							"raw": "{{tokenEndpoint}}",
-							"host": [
-								"{{tokenEndpoint}}"
-							]
-						}
+						"url": "{{tokenEndpoint}}"
 					},
 					"response": []
 				}
@@ -187,27 +165,13 @@
 					"request": {
 						"auth": {
 							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "{{access-token}}",
-									"type": "string"
-								}
-							]
+							"bearer": {
+								"token": "{{access-token}}"
+							}
 						},
 						"method": "GET",
 						"header": [],
-						"url": {
-							"raw": "{{basepath}}/throttling/policies/application",
-							"host": [
-								"{{basepath}}"
-							],
-							"path": [
-								"throttling",
-								"policies",
-								"application"
-							]
-						}
+						"url": "{{basepath}}/throttling/policies/application"
 					},
 					"response": []
 				},
@@ -228,13 +192,9 @@
 					"request": {
 						"auth": {
 							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "{{access-token}}",
-									"type": "string"
-								}
-							]
+							"bearer": {
+								"token": "{{access-token}}"
+							}
 						},
 						"method": "POST",
 						"header": [],
@@ -247,17 +207,7 @@
 								}
 							}
 						},
-						"url": {
-							"raw": "{{basepath}}/throttling/policies/application",
-							"host": [
-								"{{basepath}}"
-							],
-							"path": [
-								"throttling",
-								"policies",
-								"application"
-							]
-						}
+						"url": "{{basepath}}/throttling/policies/application"
 					},
 					"response": []
 				},
@@ -266,28 +216,13 @@
 					"request": {
 						"auth": {
 							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "{{access-token}}",
-									"type": "string"
-								}
-							]
+							"bearer": {
+								"token": "{{access-token}}"
+							}
 						},
 						"method": "GET",
 						"header": [],
-						"url": {
-							"raw": "{{basepath}}/throttling/policies/application/{{applicationPolicyId}}",
-							"host": [
-								"{{basepath}}"
-							],
-							"path": [
-								"throttling",
-								"policies",
-								"application",
-								"{{applicationPolicyId}}"
-							]
-						}
+						"url": "{{basepath}}/throttling/policies/application/{{applicationPolicyId}}"
 					},
 					"response": []
 				},
@@ -296,13 +231,9 @@
 					"request": {
 						"auth": {
 							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "{{access-token}}",
-									"type": "string"
-								}
-							]
+							"bearer": {
+								"token": "{{access-token}}"
+							}
 						},
 						"method": "PUT",
 						"header": [],
@@ -315,18 +246,7 @@
 								}
 							}
 						},
-						"url": {
-							"raw": "{{basepath}}/throttling/policies/application/{{applicationPolicyId}}",
-							"host": [
-								"{{basepath}}"
-							],
-							"path": [
-								"throttling",
-								"policies",
-								"application",
-								"{{applicationPolicyId}}"
-							]
-						}
+						"url": "{{basepath}}/throttling/policies/application/{{applicationPolicyId}}"
 					},
 					"response": []
 				},
@@ -335,28 +255,13 @@
 					"request": {
 						"auth": {
 							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "{{access-token}}",
-									"type": "string"
-								}
-							]
+							"bearer": {
+								"token": "{{access-token}}"
+							}
 						},
 						"method": "DELETE",
 						"header": [],
-						"url": {
-							"raw": "{{basepath}}/throttling/policies/application/{{applicationPolicyId}}",
-							"host": [
-								"{{basepath}}"
-							],
-							"path": [
-								"throttling",
-								"policies",
-								"application",
-								"{{applicationPolicyId}}"
-							]
-						}
+						"url": "{{basepath}}/throttling/policies/application/{{applicationPolicyId}}"
 					},
 					"response": []
 				}
@@ -370,26 +275,13 @@
 					"request": {
 						"auth": {
 							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "{{access-token}}",
-									"type": "string"
-								}
-							]
+							"bearer": {
+								"token": "{{access-token}}"
+							}
 						},
 						"method": "GET",
 						"header": [],
-						"url": {
-							"raw": "{{basepath}}/policies/mediation",
-							"host": [
-								"{{basepath}}"
-							],
-							"path": [
-								"policies",
-								"mediation"
-							]
-						}
+						"url": "{{basepath}}/policies/mediation"
 					},
 					"response": []
 				},
@@ -410,13 +302,9 @@
 					"request": {
 						"auth": {
 							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "{{access-token}}",
-									"type": "string"
-								}
-							]
+							"bearer": {
+								"token": "{{access-token}}"
+							}
 						},
 						"method": "POST",
 						"header": [],
@@ -429,16 +317,7 @@
 								}
 							}
 						},
-						"url": {
-							"raw": "{{basepath}}/policies/mediation",
-							"host": [
-								"{{basepath}}"
-							],
-							"path": [
-								"policies",
-								"mediation"
-							]
-						}
+						"url": "{{basepath}}/policies/mediation"
 					},
 					"response": []
 				},
@@ -447,27 +326,13 @@
 					"request": {
 						"auth": {
 							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "{{access-token}}",
-									"type": "string"
-								}
-							]
+							"bearer": {
+								"token": "{{access-token}}"
+							}
 						},
 						"method": "GET",
 						"header": [],
-						"url": {
-							"raw": "{{basepath}}/policies/mediation/{{globalMediationPolicyId}}",
-							"host": [
-								"{{basepath}}"
-							],
-							"path": [
-								"policies",
-								"mediation",
-								"{{globalMediationPolicyId}}"
-							]
-						}
+						"url": "{{basepath}}/policies/mediation/{{globalMediationPolicyId}}"
 					},
 					"response": []
 				},
@@ -476,13 +341,9 @@
 					"request": {
 						"auth": {
 							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "{{access-token}}",
-									"type": "string"
-								}
-							]
+							"bearer": {
+								"token": "{{access-token}}"
+							}
 						},
 						"method": "PUT",
 						"header": [],
@@ -495,17 +356,7 @@
 								}
 							}
 						},
-						"url": {
-							"raw": "{{basepath}}/policies/mediation/{{globalMediationPolicyId}}",
-							"host": [
-								"{{basepath}}"
-							],
-							"path": [
-								"policies",
-								"mediation",
-								"{{globalMediationPolicyId}}"
-							]
-						}
+						"url": "{{basepath}}/policies/mediation/{{globalMediationPolicyId}}"
 					},
 					"response": []
 				},
@@ -514,27 +365,13 @@
 					"request": {
 						"auth": {
 							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "{{access-token}}",
-									"type": "string"
-								}
-							]
+							"bearer": {
+								"token": "{{access-token}}"
+							}
 						},
 						"method": "DELETE",
 						"header": [],
-						"url": {
-							"raw": "{{basepath}}/policies/mediation/{{globalMediationPolicyId}}",
-							"host": [
-								"{{basepath}}"
-							],
-							"path": [
-								"policies",
-								"mediation",
-								"{{globalMediationPolicyId}}"
-							]
-						}
+						"url": "{{basepath}}/policies/mediation/{{globalMediationPolicyId}}"
 					},
 					"response": []
 				}
@@ -548,27 +385,13 @@
 					"request": {
 						"auth": {
 							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "{{access-token}}",
-									"type": "string"
-								}
-							]
+							"bearer": {
+								"token": "{{access-token}}"
+							}
 						},
 						"method": "GET",
 						"header": [],
-						"url": {
-							"raw": "{{basepath}}/throttling/policies/subscription",
-							"host": [
-								"{{basepath}}"
-							],
-							"path": [
-								"throttling",
-								"policies",
-								"subscription"
-							]
-						}
+						"url": "{{basepath}}/throttling/policies/subscription"
 					},
 					"response": []
 				},
@@ -589,13 +412,9 @@
 					"request": {
 						"auth": {
 							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "{{access-token}}",
-									"type": "string"
-								}
-							]
+							"bearer": {
+								"token": "{{access-token}}"
+							}
 						},
 						"method": "POST",
 						"header": [],
@@ -608,17 +427,7 @@
 								}
 							}
 						},
-						"url": {
-							"raw": "{{basepath}}/throttling/policies/subscription",
-							"host": [
-								"{{basepath}}"
-							],
-							"path": [
-								"throttling",
-								"policies",
-								"subscription"
-							]
-						}
+						"url": "{{basepath}}/throttling/policies/subscription"
 					},
 					"response": []
 				},
@@ -627,28 +436,13 @@
 					"request": {
 						"auth": {
 							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "{{access-token}}",
-									"type": "string"
-								}
-							]
+							"bearer": {
+								"token": "{{access-token}}"
+							}
 						},
 						"method": "GET",
 						"header": [],
-						"url": {
-							"raw": "{{basepath}}/throttling/policies/subscription/{{subscriptionPolicyId}}",
-							"host": [
-								"{{basepath}}"
-							],
-							"path": [
-								"throttling",
-								"policies",
-								"subscription",
-								"{{subscriptionPolicyId}}"
-							]
-						}
+						"url": "{{basepath}}/throttling/policies/subscription/{{subscriptionPolicyId}}"
 					},
 					"response": []
 				},
@@ -657,13 +451,9 @@
 					"request": {
 						"auth": {
 							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "{{access-token}}",
-									"type": "string"
-								}
-							]
+							"bearer": {
+								"token": "{{access-token}}"
+							}
 						},
 						"method": "PUT",
 						"header": [],
@@ -676,18 +466,7 @@
 								}
 							}
 						},
-						"url": {
-							"raw": "{{basepath}}/throttling/policies/subscription/{{subscriptionPolicyId}}",
-							"host": [
-								"{{basepath}}"
-							],
-							"path": [
-								"throttling",
-								"policies",
-								"subscription",
-								"{{subscriptionPolicyId}}"
-							]
-						}
+						"url": "{{basepath}}/throttling/policies/subscription/{{subscriptionPolicyId}}"
 					},
 					"response": []
 				},
@@ -696,28 +475,13 @@
 					"request": {
 						"auth": {
 							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "{{access-token}}",
-									"type": "string"
-								}
-							]
+							"bearer": {
+								"token": "{{access-token}}"
+							}
 						},
 						"method": "DELETE",
 						"header": [],
-						"url": {
-							"raw": "{{basepath}}/throttling/policies/subscription/{{subscriptionPolicyId}}",
-							"host": [
-								"{{basepath}}"
-							],
-							"path": [
-								"throttling",
-								"policies",
-								"subscription",
-								"{{subscriptionPolicyId}}"
-							]
-						}
+						"url": "{{basepath}}/throttling/policies/subscription/{{subscriptionPolicyId}}"
 					},
 					"response": []
 				}
@@ -731,27 +495,13 @@
 					"request": {
 						"auth": {
 							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "{{access-token}}",
-									"type": "string"
-								}
-							]
+							"bearer": {
+								"token": "{{access-token}}"
+							}
 						},
 						"method": "GET",
 						"header": [],
-						"url": {
-							"raw": "{{basepath}}/throttling/policies/custom",
-							"host": [
-								"{{basepath}}"
-							],
-							"path": [
-								"throttling",
-								"policies",
-								"custom"
-							]
-						}
+						"url": "{{basepath}}/throttling/policies/custom"
 					},
 					"response": []
 				},
@@ -772,13 +522,9 @@
 					"request": {
 						"auth": {
 							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "{{access-token}}",
-									"type": "string"
-								}
-							]
+							"bearer": {
+								"token": "{{access-token}}"
+							}
 						},
 						"method": "POST",
 						"header": [],
@@ -791,17 +537,7 @@
 								}
 							}
 						},
-						"url": {
-							"raw": "{{basepath}}/throttling/policies/custom",
-							"host": [
-								"{{basepath}}"
-							],
-							"path": [
-								"throttling",
-								"policies",
-								"custom"
-							]
-						}
+						"url": "{{basepath}}/throttling/policies/custom"
 					},
 					"response": []
 				},
@@ -810,28 +546,13 @@
 					"request": {
 						"auth": {
 							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "{{access-token}}",
-									"type": "string"
-								}
-							]
+							"bearer": {
+								"token": "{{access-token}}"
+							}
 						},
 						"method": "GET",
 						"header": [],
-						"url": {
-							"raw": "{{basepath}}/throttling/policies/custom/{{customRuleId}}",
-							"host": [
-								"{{basepath}}"
-							],
-							"path": [
-								"throttling",
-								"policies",
-								"custom",
-								"{{customRuleId}}"
-							]
-						}
+						"url": "{{basepath}}/throttling/policies/custom/{{customRuleId}}"
 					},
 					"response": []
 				},
@@ -840,13 +561,9 @@
 					"request": {
 						"auth": {
 							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "{{access-token}}",
-									"type": "string"
-								}
-							]
+							"bearer": {
+								"token": "{{access-token}}"
+							}
 						},
 						"method": "PUT",
 						"header": [],
@@ -859,18 +576,7 @@
 								}
 							}
 						},
-						"url": {
-							"raw": "{{basepath}}/throttling/policies/custom/{{customRuleId}}",
-							"host": [
-								"{{basepath}}"
-							],
-							"path": [
-								"throttling",
-								"policies",
-								"custom",
-								"{{customRuleId}}"
-							]
-						}
+						"url": "{{basepath}}/throttling/policies/custom/{{customRuleId}}"
 					},
 					"response": []
 				},
@@ -879,28 +585,13 @@
 					"request": {
 						"auth": {
 							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "{{access-token}}",
-									"type": "string"
-								}
-							]
+							"bearer": {
+								"token": "{{access-token}}"
+							}
 						},
 						"method": "DELETE",
 						"header": [],
-						"url": {
-							"raw": "{{basepath}}/throttling/policies/custom/{{customRuleId}}",
-							"host": [
-								"{{basepath}}"
-							],
-							"path": [
-								"throttling",
-								"policies",
-								"custom",
-								"{{customRuleId}}"
-							]
-						}
+						"url": "{{basepath}}/throttling/policies/custom/{{customRuleId}}"
 					},
 					"response": []
 				}
@@ -914,27 +605,13 @@
 					"request": {
 						"auth": {
 							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "{{access-token}}",
-									"type": "string"
-								}
-							]
+							"bearer": {
+								"token": "{{access-token}}"
+							}
 						},
 						"method": "GET",
 						"header": [],
-						"url": {
-							"raw": "{{basepath}}/throttling/policies/advanced",
-							"host": [
-								"{{basepath}}"
-							],
-							"path": [
-								"throttling",
-								"policies",
-								"advanced"
-							]
-						}
+						"url": "{{basepath}}/throttling/policies/advanced"
 					},
 					"response": []
 				},
@@ -955,13 +632,9 @@
 					"request": {
 						"auth": {
 							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "{{access-token}}",
-									"type": "string"
-								}
-							]
+							"bearer": {
+								"token": "{{access-token}}"
+							}
 						},
 						"method": "POST",
 						"header": [],
@@ -974,17 +647,7 @@
 								}
 							}
 						},
-						"url": {
-							"raw": "{{basepath}}/throttling/policies/advanced",
-							"host": [
-								"{{basepath}}"
-							],
-							"path": [
-								"throttling",
-								"policies",
-								"advanced"
-							]
-						}
+						"url": "{{basepath}}/throttling/policies/advanced"
 					},
 					"response": []
 				},
@@ -993,28 +656,13 @@
 					"request": {
 						"auth": {
 							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "{{access-token}}",
-									"type": "string"
-								}
-							]
+							"bearer": {
+								"token": "{{access-token}}"
+							}
 						},
 						"method": "GET",
 						"header": [],
-						"url": {
-							"raw": "{{basepath}}/throttling/policies/advanced/{{advancedPolicyId}}",
-							"host": [
-								"{{basepath}}"
-							],
-							"path": [
-								"throttling",
-								"policies",
-								"advanced",
-								"{{advancedPolicyId}}"
-							]
-						}
+						"url": "{{basepath}}/throttling/policies/advanced/{{advancedPolicyId}}"
 					},
 					"response": []
 				},
@@ -1023,13 +671,9 @@
 					"request": {
 						"auth": {
 							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "{{access-token}}",
-									"type": "string"
-								}
-							]
+							"bearer": {
+								"token": "{{access-token}}"
+							}
 						},
 						"method": "PUT",
 						"header": [],
@@ -1042,18 +686,7 @@
 								}
 							}
 						},
-						"url": {
-							"raw": "{{basepath}}/throttling/policies/advanced/{{advancedPolicyId}}",
-							"host": [
-								"{{basepath}}"
-							],
-							"path": [
-								"throttling",
-								"policies",
-								"advanced",
-								"{{advancedPolicyId}}"
-							]
-						}
+						"url": "{{basepath}}/throttling/policies/advanced/{{advancedPolicyId}}"
 					},
 					"response": []
 				},
@@ -1062,28 +695,13 @@
 					"request": {
 						"auth": {
 							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "{{access-token}}",
-									"type": "string"
-								}
-							]
+							"bearer": {
+								"token": "{{access-token}}"
+							}
 						},
 						"method": "DELETE",
 						"header": [],
-						"url": {
-							"raw": "{{basepath}}/throttling/policies/advanced/{{advancedPolicyId}}",
-							"host": [
-								"{{basepath}}"
-							],
-							"path": [
-								"throttling",
-								"policies",
-								"advanced",
-								"{{advancedPolicyId}}"
-							]
-						}
+						"url": "{{basepath}}/throttling/policies/advanced/{{advancedPolicyId}}"
 					},
 					"response": []
 				}
@@ -1097,26 +715,13 @@
 					"request": {
 						"auth": {
 							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "{{access-token}}",
-									"type": "string"
-								}
-							]
+							"bearer": {
+								"token": "{{access-token}}"
+							}
 						},
 						"method": "GET",
 						"header": [],
-						"url": {
-							"raw": "{{basepath}}/throttling/deny-policies",
-							"host": [
-								"{{basepath}}"
-							],
-							"path": [
-								"throttling",
-								"deny-policies"
-							]
-						}
+						"url": "{{basepath}}/throttling/deny-policies"
 					},
 					"response": []
 				},
@@ -1137,13 +742,9 @@
 					"request": {
 						"auth": {
 							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "{{access-token}}",
-									"type": "string"
-								}
-							]
+							"bearer": {
+								"token": "{{access-token}}"
+							}
 						},
 						"method": "POST",
 						"header": [],
@@ -1156,16 +757,7 @@
 								}
 							}
 						},
-						"url": {
-							"raw": "{{basepath}}/throttling/deny-policies",
-							"host": [
-								"{{basepath}}"
-							],
-							"path": [
-								"throttling",
-								"deny-policies"
-							]
-						}
+						"url": "{{basepath}}/throttling/deny-policies"
 					},
 					"response": []
 				},
@@ -1174,27 +766,13 @@
 					"request": {
 						"auth": {
 							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "{{access-token}}",
-									"type": "string"
-								}
-							]
+							"bearer": {
+								"token": "{{access-token}}"
+							}
 						},
 						"method": "GET",
 						"header": [],
-						"url": {
-							"raw": "{{basepath}}/throttling/deny-policy/{{denyConditionId}}",
-							"host": [
-								"{{basepath}}"
-							],
-							"path": [
-								"throttling",
-								"deny-policy",
-								"{{denyConditionId}}"
-							]
-						}
+						"url": "{{basepath}}/throttling/deny-policy/{{denyConditionId}}"
 					},
 					"response": []
 				},
@@ -1203,13 +781,9 @@
 					"request": {
 						"auth": {
 							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "{{access-token}}",
-									"type": "string"
-								}
-							]
+							"bearer": {
+								"token": "{{access-token}}"
+							}
 						},
 						"method": "PATCH",
 						"header": [],
@@ -1222,17 +796,7 @@
 								}
 							}
 						},
-						"url": {
-							"raw": "{{basepath}}/throttling/deny-policy/{{denyConditionId}}",
-							"host": [
-								"{{basepath}}"
-							],
-							"path": [
-								"throttling",
-								"deny-policy",
-								"{{denyConditionId}}"
-							]
-						}
+						"url": "{{basepath}}/throttling/deny-policy/{{denyConditionId}}"
 					},
 					"response": []
 				},
@@ -1241,27 +805,13 @@
 					"request": {
 						"auth": {
 							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "{{access-token}}",
-									"type": "string"
-								}
-							]
+							"bearer": {
+								"token": "{{access-token}}"
+							}
 						},
 						"method": "DELETE",
 						"header": [],
-						"url": {
-							"raw": "{{basepath}}/throttling/deny-policy/{{denyConditionId}}",
-							"host": [
-								"{{basepath}}"
-							],
-							"path": [
-								"throttling",
-								"deny-policy",
-								"{{denyConditionId}}"
-							]
-						}
+						"url": "{{basepath}}/throttling/deny-policy/{{denyConditionId}}"
 					},
 					"response": []
 				}
@@ -1293,25 +843,13 @@
 					"request": {
 						"auth": {
 							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "{{access-token}}",
-									"type": "string"
-								}
-							]
+							"bearer": {
+								"token": "{{access-token}}"
+							}
 						},
 						"method": "GET",
 						"header": [],
-						"url": {
-							"raw": "{{basepath}}/applications",
-							"host": [
-								"{{basepath}}"
-							],
-							"path": [
-								"applications"
-							]
-						}
+						"url": "{{basepath}}/applications"
 					},
 					"response": []
 				},
@@ -1320,13 +858,9 @@
 					"request": {
 						"auth": {
 							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "{{access-token}}",
-									"type": "string"
-								}
-							]
+							"bearer": {
+								"token": "{{access-token}}"
+							}
 						},
 						"method": "POST",
 						"header": [],
@@ -1355,26 +889,13 @@
 					"request": {
 						"auth": {
 							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "{{access-token}}",
-									"type": "string"
-								}
-							]
+							"bearer": {
+								"token": "{{access-token}}"
+							}
 						},
 						"method": "DELETE",
 						"header": [],
-						"url": {
-							"raw": "{{basepath}}/applications/{{applicationId}}",
-							"host": [
-								"{{basepath}}"
-							],
-							"path": [
-								"applications",
-								"{{applicationId}}"
-							]
-						}
+						"url": "{{basepath}}/applications/{{applicationId}}"
 					},
 					"response": []
 				}
@@ -1388,25 +909,13 @@
 					"request": {
 						"auth": {
 							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "{{access-token}}",
-									"type": "string"
-								}
-							]
+							"bearer": {
+								"token": "{{access-token}}"
+							}
 						},
 						"method": "GET",
 						"header": [],
-						"url": {
-							"raw": "{{basepath}}/bot-detection-data",
-							"host": [
-								"{{basepath}}"
-							],
-							"path": [
-								"bot-detection-data"
-							]
-						}
+						"url": "{{basepath}}/bot-detection-data"
 					},
 					"response": []
 				}
@@ -1420,26 +929,13 @@
 					"request": {
 						"auth": {
 							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "{{access-token}}",
-									"type": "string"
-								}
-							]
+							"bearer": {
+								"token": "{{access-token}}"
+							}
 						},
 						"method": "POST",
 						"header": [],
-						"url": {
-							"raw": "{{basepath}}/monetization/publish-usage",
-							"host": [
-								"{{basepath}}"
-							],
-							"path": [
-								"monetization",
-								"publish-usage"
-							]
-						}
+						"url": "{{basepath}}/monetization/publish-usage"
 					},
 					"response": []
 				},
@@ -1448,27 +944,13 @@
 					"request": {
 						"auth": {
 							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "{{access-token}}",
-									"type": "string"
-								}
-							]
+							"bearer": {
+								"token": "{{access-token}}"
+							}
 						},
 						"method": "GET",
 						"header": [],
-						"url": {
-							"raw": "{{basepath}}/monetization/publish-usage/status",
-							"host": [
-								"{{basepath}}"
-							],
-							"path": [
-								"monetization",
-								"publish-usage",
-								"status"
-							]
-						}
+						"url": "{{basepath}}/monetization/publish-usage/status"
 					},
 					"response": []
 				}
@@ -1482,25 +964,13 @@
 					"request": {
 						"auth": {
 							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "{{access-token}}",
-									"type": "string"
-								}
-							]
+							"bearer": {
+								"token": "{{access-token}}"
+							}
 						},
 						"method": "GET",
 						"header": [],
-						"url": {
-							"raw": "{{basepath}}/workflows",
-							"host": [
-								"{{basepath}}"
-							],
-							"path": [
-								"workflows"
-							]
-						}
+						"url": "{{basepath}}/workflows"
 					},
 					"response": []
 				},
@@ -1509,26 +979,13 @@
 					"request": {
 						"auth": {
 							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "{{access-token}}",
-									"type": "string"
-								}
-							]
+							"bearer": {
+								"token": "{{access-token}}"
+							}
 						},
 						"method": "GET",
 						"header": [],
-						"url": {
-							"raw": "{{basepath}}/workflows/{{externalWorkflowRef}}",
-							"host": [
-								"{{basepath}}"
-							],
-							"path": [
-								"workflows",
-								"{{externalWorkflowRef}}"
-							]
-						}
+						"url": "{{basepath}}/workflows/{{externalWorkflowRef}}"
 					},
 					"response": []
 				},
@@ -1537,13 +994,9 @@
 					"request": {
 						"auth": {
 							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "{{access-token}}",
-									"type": "string"
-								}
-							]
+							"bearer": {
+								"token": "{{access-token}}"
+							}
 						},
 						"method": "POST",
 						"header": [],
@@ -1597,26 +1050,13 @@
 					"request": {
 						"auth": {
 							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "{{access-token}}",
-									"type": "string"
-								}
-							]
+							"bearer": {
+								"token": "{{access-token}}"
+							}
 						},
 						"method": "GET",
 						"header": [],
-						"url": {
-							"raw": "{{basepath}}/tenant-info/{{username}}",
-							"host": [
-								"{{basepath}}"
-							],
-							"path": [
-								"tenant-info",
-								"{{username}}"
-							]
-						}
+						"url": "{{basepath}}/tenant-info/{{username}}"
 					},
 					"response": []
 				},
@@ -1625,26 +1065,13 @@
 					"request": {
 						"auth": {
 							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "{{access-token}}",
-									"type": "string"
-								}
-							]
+							"bearer": {
+								"token": "{{access-token}}"
+							}
 						},
 						"method": "GET",
 						"header": [],
-						"url": {
-							"raw": "{{basepath}}/custom-urls/{{tenantDomain}}",
-							"host": [
-								"{{basepath}}"
-							],
-							"path": [
-								"custom-urls",
-								"{{tenantDomain}}"
-							]
-						}
+						"url": "{{basepath}}/custom-urls/{{tenantDomain}}"
 					},
 					"response": []
 				}
@@ -1658,25 +1085,13 @@
 					"request": {
 						"auth": {
 							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "{{access-token}}",
-									"type": "string"
-								}
-							]
+							"bearer": {
+								"token": "{{access-token}}"
+							}
 						},
 						"method": "GET",
 						"header": [],
-						"url": {
-							"raw": "{{basepath}}/api-categories",
-							"host": [
-								"{{basepath}}"
-							],
-							"path": [
-								"api-categories"
-							]
-						}
+						"url": "{{basepath}}/api-categories"
 					},
 					"response": []
 				},
@@ -1697,13 +1112,9 @@
 					"request": {
 						"auth": {
 							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "{{access-token}}",
-									"type": "string"
-								}
-							]
+							"bearer": {
+								"token": "{{access-token}}"
+							}
 						},
 						"method": "POST",
 						"header": [],
@@ -1716,15 +1127,7 @@
 								}
 							}
 						},
-						"url": {
-							"raw": "{{basepath}}/api-categories",
-							"host": [
-								"{{basepath}}"
-							],
-							"path": [
-								"api-categories"
-							]
-						}
+						"url": "{{basepath}}/api-categories"
 					},
 					"response": []
 				},
@@ -1733,13 +1136,9 @@
 					"request": {
 						"auth": {
 							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "{{access-token}}",
-									"type": "string"
-								}
-							]
+							"bearer": {
+								"token": "{{access-token}}"
+							}
 						},
 						"method": "PUT",
 						"header": [],
@@ -1752,16 +1151,7 @@
 								}
 							}
 						},
-						"url": {
-							"raw": "{{basepath}}/api-categories/{{apiCategoryId}}",
-							"host": [
-								"{{basepath}}"
-							],
-							"path": [
-								"api-categories",
-								"{{apiCategoryId}}"
-							]
-						}
+						"url": "{{basepath}}/api-categories/{{apiCategoryId}}"
 					},
 					"response": []
 				},
@@ -1770,13 +1160,9 @@
 					"request": {
 						"auth": {
 							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "{{access-token}}",
-									"type": "string"
-								}
-							]
+							"bearer": {
+								"token": "{{access-token}}"
+							}
 						},
 						"method": "DELETE",
 						"header": [],
@@ -1789,16 +1175,7 @@
 								}
 							}
 						},
-						"url": {
-							"raw": "{{basepath}}/api-categories/{{apiCategoryId}}",
-							"host": [
-								"{{basepath}}"
-							],
-							"path": [
-								"api-categories",
-								"{{apiCategoryId}}"
-							]
-						}
+						"url": "{{basepath}}/api-categories/{{apiCategoryId}}"
 					},
 					"response": []
 				}
@@ -1812,15 +1189,7 @@
 					"request": {
 						"method": "GET",
 						"header": [],
-						"url": {
-							"raw": "{{basepath}}/settings",
-							"host": [
-								"{{basepath}}"
-							],
-							"path": [
-								"settings"
-							]
-						}
+						"url": "{{basepath}}/settings"
 					},
 					"response": []
 				}
@@ -1834,25 +1203,13 @@
 					"request": {
 						"auth": {
 							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "{{access-token}}",
-									"type": "string"
-								}
-							]
+							"bearer": {
+								"token": "{{access-token}}"
+							}
 						},
 						"method": "GET",
 						"header": [],
-						"url": {
-							"raw": "{{basepath}}/alert-types",
-							"host": [
-								"{{basepath}}"
-							],
-							"path": [
-								"alert-types"
-							]
-						}
+						"url": "{{basepath}}/alert-types"
 					},
 					"response": []
 				}
@@ -1866,25 +1223,13 @@
 					"request": {
 						"auth": {
 							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "{{access-token}}",
-									"type": "string"
-								}
-							]
+							"bearer": {
+								"token": "{{access-token}}"
+							}
 						},
 						"method": "GET",
 						"header": [],
-						"url": {
-							"raw": "{{basepath}}/alert-subscriptions",
-							"host": [
-								"{{basepath}}"
-							],
-							"path": [
-								"alert-subscriptions"
-							]
-						}
+						"url": "{{basepath}}/alert-subscriptions"
 					},
 					"response": []
 				},
@@ -1893,13 +1238,9 @@
 					"request": {
 						"auth": {
 							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "{{access-token}}",
-									"type": "string"
-								}
-							]
+							"bearer": {
+								"token": "{{access-token}}"
+							}
 						},
 						"method": "PUT",
 						"header": [],
@@ -1912,15 +1253,7 @@
 								}
 							}
 						},
-						"url": {
-							"raw": "{{basepath}}/alert-subscriptions",
-							"host": [
-								"{{basepath}}"
-							],
-							"path": [
-								"alert-subscriptions"
-							]
-						}
+						"url": "{{basepath}}/alert-subscriptions"
 					},
 					"response": []
 				},
@@ -1929,25 +1262,13 @@
 					"request": {
 						"auth": {
 							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "{{access-token}}",
-									"type": "string"
-								}
-							]
+							"bearer": {
+								"token": "{{access-token}}"
+							}
 						},
 						"method": "DELETE",
 						"header": [],
-						"url": {
-							"raw": "{{basepath}}/alert-subscriptions",
-							"host": [
-								"{{basepath}}"
-							],
-							"path": [
-								"alert-subscriptions"
-							]
-						}
+						"url": "{{basepath}}/alert-subscriptions"
 					},
 					"response": []
 				}
@@ -1961,13 +1282,9 @@
 					"request": {
 						"auth": {
 							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "{{access-token}}",
-									"type": "string"
-								}
-							]
+							"bearer": {
+								"token": "{{access-token}}"
+							}
 						},
 						"method": "GET",
 						"header": [],
@@ -1995,25 +1312,13 @@
 					"request": {
 						"auth": {
 							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "{{access-token}}",
-									"type": "string"
-								}
-							]
+							"bearer": {
+								"token": "{{access-token}}"
+							}
 						},
 						"method": "GET",
 						"header": [],
-						"url": {
-							"raw": "{{basepath}}/system-scopes",
-							"host": [
-								"{{basepath}}"
-							],
-							"path": [
-								"system-scopes"
-							]
-						}
+						"url": "{{basepath}}/system-scopes"
 					},
 					"response": []
 				},
@@ -2022,13 +1327,9 @@
 					"request": {
 						"auth": {
 							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "{{access-token}}",
-									"type": "string"
-								}
-							]
+							"bearer": {
+								"token": "{{access-token}}"
+							}
 						},
 						"method": "PUT",
 						"header": [],
@@ -2041,15 +1342,7 @@
 								}
 							}
 						},
-						"url": {
-							"raw": "{{basepath}}/system-scopes",
-							"host": [
-								"{{basepath}}"
-							],
-							"path": [
-								"system-scopes"
-							]
-						}
+						"url": "{{basepath}}/system-scopes"
 					},
 					"response": []
 				},
@@ -2058,26 +1351,13 @@
 					"request": {
 						"auth": {
 							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "{{access-token}}",
-									"type": "string"
-								}
-							]
+							"bearer": {
+								"token": "{{access-token}}"
+							}
 						},
 						"method": "GET",
 						"header": [],
-						"url": {
-							"raw": "{{basepath}}/system-scopes/role-aliases",
-							"host": [
-								"{{basepath}}"
-							],
-							"path": [
-								"system-scopes",
-								"role-aliases"
-							]
-						}
+						"url": "{{basepath}}/system-scopes/role-aliases"
 					},
 					"response": []
 				},
@@ -2086,13 +1366,9 @@
 					"request": {
 						"auth": {
 							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "{{access-token}}",
-									"type": "string"
-								}
-							]
+							"bearer": {
+								"token": "{{access-token}}"
+							}
 						},
 						"method": "PUT",
 						"header": [],
@@ -2105,16 +1381,7 @@
 								}
 							}
 						},
-						"url": {
-							"raw": "{{basepath}}/system-scopes/role-aliases",
-							"host": [
-								"{{basepath}}"
-							],
-							"path": [
-								"system-scopes",
-								"role-aliases"
-							]
-						}
+						"url": "{{basepath}}/system-scopes/role-aliases"
 					},
 					"response": []
 				}
@@ -2128,25 +1395,13 @@
 					"request": {
 						"auth": {
 							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "{{access-token}}",
-									"type": "string"
-								}
-							]
+							"bearer": {
+								"token": "{{access-token}}"
+							}
 						},
 						"method": "GET",
 						"header": [],
-						"url": {
-							"raw": "{{basepath}}/tenant-theme",
-							"host": [
-								"{{basepath}}"
-							],
-							"path": [
-								"tenant-theme"
-							]
-						}
+						"url": "{{basepath}}/tenant-theme"
 					},
 					"response": []
 				},
@@ -2155,13 +1410,9 @@
 					"request": {
 						"auth": {
 							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "{{access-token}}",
-									"type": "string"
-								}
-							]
+							"bearer": {
+								"token": "{{access-token}}"
+							}
 						},
 						"method": "PUT",
 						"header": [],
@@ -2175,15 +1426,7 @@
 								}
 							]
 						},
-						"url": {
-							"raw": "{{basepath}}/tenant-theme",
-							"host": [
-								"{{basepath}}"
-							],
-							"path": [
-								"tenant-theme"
-							]
-						}
+						"url": "{{basepath}}/tenant-theme"
 					},
 					"response": []
 				}
@@ -2197,25 +1440,13 @@
 					"request": {
 						"auth": {
 							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "{{access-token}}",
-									"type": "string"
-								}
-							]
+							"bearer": {
+								"token": "{{access-token}}"
+							}
 						},
 						"method": "GET",
 						"header": [],
-						"url": {
-							"raw": "{{basepath}}/key-managers",
-							"host": [
-								"{{basepath}}"
-							],
-							"path": [
-								"key-managers"
-							]
-						}
+						"url": "{{basepath}}/key-managers"
 					},
 					"response": []
 				},
@@ -2224,13 +1455,9 @@
 					"request": {
 						"auth": {
 							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "{{access-token}}",
-									"type": "string"
-								}
-							]
+							"bearer": {
+								"token": "{{access-token}}"
+							}
 						},
 						"method": "POST",
 						"header": [],
@@ -2244,16 +1471,7 @@
 								}
 							]
 						},
-						"url": {
-							"raw": "{{basepath}}/key-managers/discover",
-							"host": [
-								"{{basepath}}"
-							],
-							"path": [
-								"key-managers",
-								"discover"
-							]
-						}
+						"url": "{{basepath}}/key-managers/discover"
 					},
 					"response": []
 				},
@@ -2274,13 +1492,9 @@
 					"request": {
 						"auth": {
 							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "{{access-token}}",
-									"type": "string"
-								}
-							]
+							"bearer": {
+								"token": "{{access-token}}"
+							}
 						},
 						"method": "POST",
 						"header": [],
@@ -2293,15 +1507,7 @@
 								}
 							}
 						},
-						"url": {
-							"raw": "{{basepath}}/key-managers",
-							"host": [
-								"{{basepath}}"
-							],
-							"path": [
-								"key-managers"
-							]
-						}
+						"url": "{{basepath}}/key-managers"
 					},
 					"response": []
 				},
@@ -2310,13 +1516,9 @@
 					"request": {
 						"auth": {
 							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "{{access-token}}",
-									"type": "string"
-								}
-							]
+							"bearer": {
+								"token": "{{access-token}}"
+							}
 						},
 						"method": "PUT",
 						"header": [],
@@ -2329,16 +1531,7 @@
 								}
 							}
 						},
-						"url": {
-							"raw": "{{basepath}}/key-managers/{{keyManagerId}}",
-							"host": [
-								"{{basepath}}"
-							],
-							"path": [
-								"key-managers",
-								"{{keyManagerId}}"
-							]
-						}
+						"url": "{{basepath}}/key-managers/{{keyManagerId}}"
 					},
 					"response": []
 				},
@@ -2347,26 +1540,13 @@
 					"request": {
 						"auth": {
 							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "{{access-token}}",
-									"type": "string"
-								}
-							]
+							"bearer": {
+								"token": "{{access-token}}"
+							}
 						},
 						"method": "GET",
 						"header": [],
-						"url": {
-							"raw": "{{basepath}}/key-managers/{{keyManagerId}}",
-							"host": [
-								"{{basepath}}"
-							],
-							"path": [
-								"key-managers",
-								"{{keyManagerId}}"
-							]
-						}
+						"url": "{{basepath}}/key-managers/{{keyManagerId}}"
 					},
 					"response": []
 				},
@@ -2375,26 +1555,13 @@
 					"request": {
 						"auth": {
 							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "{{access-token}}",
-									"type": "string"
-								}
-							]
+							"bearer": {
+								"token": "{{access-token}}"
+							}
 						},
 						"method": "DELETE",
 						"header": [],
-						"url": {
-							"raw": "{{basepath}}/key-managers/{{keyManagerId}}",
-							"host": [
-								"{{basepath}}"
-							],
-							"path": [
-								"key-managers",
-								"{{keyManagerId}}"
-							]
-						}
+						"url": "{{basepath}}/key-managers/{{keyManagerId}}"
 					},
 					"response": []
 				},
@@ -2403,27 +1570,13 @@
 					"request": {
 						"auth": {
 							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "{{access-token}}",
-									"type": "string"
-								}
-							]
+							"bearer": {
+								"token": "{{access-token}}"
+							}
 						},
 						"method": "GET",
 						"header": [],
-						"url": {
-							"raw": "{{basepath}}/key-managers/{{keyManagerId}}/api-usages",
-							"host": [
-								"{{basepath}}"
-							],
-							"path": [
-								"key-managers",
-								"{{keyManagerId}}",
-								"api-usages"
-							]
-						}
+						"url": "{{basepath}}/key-managers/{{keyManagerId}}/api-usages"
 					},
 					"response": []
 				},
@@ -2432,27 +1585,13 @@
 					"request": {
 						"auth": {
 							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "{{access-token}}",
-									"type": "string"
-								}
-							]
+							"bearer": {
+								"token": "{{access-token}}"
+							}
 						},
 						"method": "GET",
 						"header": [],
-						"url": {
-							"raw": "{{basepath}}/key-managers/{{keyManagerId}}/app-usages",
-							"host": [
-								"{{basepath}}"
-							],
-							"path": [
-								"key-managers",
-								"{{keyManagerId}}",
-								"app-usages"
-							]
-						}
+						"url": "{{basepath}}/key-managers/{{keyManagerId}}/app-usages"
 					},
 					"response": []
 				}
@@ -2466,26 +1605,13 @@
 					"request": {
 						"auth": {
 							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "{{access-token}}",
-									"type": "string"
-								}
-							]
+							"bearer": {
+								"token": "{{access-token}}"
+							}
 						},
 						"method": "GET",
 						"header": [],
-						"url": {
-							"raw": "{{basepath}}/alert-subscriptions/bot-detection",
-							"host": [
-								"{{basepath}}"
-							],
-							"path": [
-								"alert-subscriptions",
-								"bot-detection"
-							]
-						}
+						"url": "{{basepath}}/alert-subscriptions/bot-detection"
 					},
 					"response": []
 				},
@@ -2506,13 +1632,9 @@
 					"request": {
 						"auth": {
 							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "{{access-token}}",
-									"type": "string"
-								}
-							]
+							"bearer": {
+								"token": "{{access-token}}"
+							}
 						},
 						"method": "POST",
 						"header": [],
@@ -2525,16 +1647,7 @@
 								}
 							}
 						},
-						"url": {
-							"raw": "{{basepath}}/alert-subscriptions/bot-detection",
-							"host": [
-								"{{basepath}}"
-							],
-							"path": [
-								"alert-subscriptions",
-								"bot-detection"
-							]
-						}
+						"url": "{{basepath}}/alert-subscriptions/bot-detection"
 					},
 					"response": []
 				},
@@ -2543,27 +1656,13 @@
 					"request": {
 						"auth": {
 							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "{{access-token}}",
-									"type": "string"
-								}
-							]
+							"bearer": {
+								"token": "{{access-token}}"
+							}
 						},
 						"method": "DELETE",
 						"header": [],
-						"url": {
-							"raw": "{{basepath}}/alert-subscriptions/bot-detection/{{botDetectionUUID}}",
-							"host": [
-								"{{basepath}}"
-							],
-							"path": [
-								"alert-subscriptions",
-								"bot-detection",
-								"{{botDetectionUUID}}"
-							]
-						}
+						"url": "{{basepath}}/alert-subscriptions/bot-detection/{{botDetectionUUID}}"
 					},
 					"response": []
 				}
@@ -2577,25 +1676,13 @@
 					"request": {
 						"auth": {
 							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "{{access-token}}",
-									"type": "string"
-								}
-							]
+							"bearer": {
+								"token": "{{access-token}}"
+							}
 						},
 						"method": "GET",
 						"header": [],
-						"url": {
-							"raw": "{{basepath}}/environments",
-							"host": [
-								"{{basepath}}"
-							],
-							"path": [
-								"environments"
-							]
-						}
+						"url": "{{basepath}}/environments"
 					},
 					"response": []
 				},
@@ -2616,13 +1703,9 @@
 					"request": {
 						"auth": {
 							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "{{access-token}}",
-									"type": "string"
-								}
-							]
+							"bearer": {
+								"token": "{{access-token}}"
+							}
 						},
 						"method": "POST",
 						"header": [],
@@ -2635,15 +1718,7 @@
 								}
 							}
 						},
-						"url": {
-							"raw": "{{basepath}}/environments",
-							"host": [
-								"{{basepath}}"
-							],
-							"path": [
-								"environments"
-							]
-						}
+						"url": "{{basepath}}/environments"
 					},
 					"response": []
 				},
@@ -2663,13 +1738,9 @@
 					"request": {
 						"auth": {
 							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "{{access-token}}",
-									"type": "string"
-								}
-							]
+							"bearer": {
+								"token": "{{access-token}}"
+							}
 						},
 						"method": "PUT",
 						"header": [],
@@ -2682,16 +1753,7 @@
 								}
 							}
 						},
-						"url": {
-							"raw": "{{basepath}}/environments/{{environmentId}}",
-							"host": [
-								"{{basepath}}"
-							],
-							"path": [
-								"environments",
-								"{{environmentId}}"
-							]
-						}
+						"url": "{{basepath}}/environments/{{environmentId}}"
 					},
 					"response": []
 				},
@@ -2711,26 +1773,13 @@
 					"request": {
 						"auth": {
 							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "{{access-token}}",
-									"type": "string"
-								}
-							]
+							"bearer": {
+								"token": "{{access-token}}"
+							}
 						},
 						"method": "DELETE",
 						"header": [],
-						"url": {
-							"raw": "{{basepath}}/environments/{{environmentId}}",
-							"host": [
-								"{{basepath}}"
-							],
-							"path": [
-								"environments",
-								"{{environmentId}}"
-							]
-						}
+						"url": "{{basepath}}/environments/{{environmentId}}"
 					},
 					"response": []
 				},
@@ -2739,23 +1788,32 @@
 					"request": {
 						"auth": {
 							"type": "oauth2",
-							"oauth2": [
-								{
-									"key": "scope",
-									"value": "openid apim:policies_import_export apim:admin apim:tier_view apim:tier_manage apim:admin_tier_view apim:admin_tier_manage apim:bl_view apim:bl_manage apim:mediation_policy_view apim:mediation_policy_create apim:app_owner_change apim:app_import_export apim:api_import_export apim:api_product_import_export apim:environment_manage apim:environment_read apim:monetization_usage_publish apim:api_workflow_approve apim:bot_data apim:tenantInfo apim:tenant_theme_manage apim:admin_operations apim:api_category apim:admin_settings apim:admin_alert_manage apim:api_workflow_view apim:scope_manage apim:role_manage apim:admin_application_view apim:keymanagers_manage apim:api_provider_change apim:llm_provider_manage apim:gov_policy_read apim:gov_policy_manage apim:gov_result_read apim:gov_rule_read apim:gov_rule_manage apim:organization_manage apim:organization_read",
-									"type": "string"
-								},
-								{
-									"key": "accessTokenUrl",
-									"value": "https://localhost:9443/oauth2/token",
-									"type": "string"
-								},
-								{
-									"key": "grant_type",
-									"value": "password_credentials",
-									"type": "string"
-								}
-							]
+							"oauth2": {
+								"scope": "openid apim:policies_import_export apim:admin apim:tier_view apim:tier_manage apim:admin_tier_view apim:admin_tier_manage apim:bl_view apim:bl_manage apim:mediation_policy_view apim:mediation_policy_create apim:app_owner_change apim:app_import_export apim:api_import_export apim:api_product_import_export apim:environment_manage apim:environment_read apim:monetization_usage_publish apim:api_workflow_approve apim:bot_data apim:tenantInfo apim:tenant_theme_manage apim:admin_operations apim:api_category apim:admin_settings apim:admin_alert_manage apim:api_workflow_view apim:scope_manage apim:role_manage apim:admin_application_view apim:keymanagers_manage apim:api_provider_change apim:llm_provider_manage apim:gov_policy_read apim:gov_policy_manage apim:gov_result_read apim:gov_rule_read apim:gov_rule_manage apim:organization_manage apim:organization_read",
+								"accessTokenUrl": "https://localhost:9443/oauth2/token",
+								"grant_type": "password_credentials"
+							}
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"url": "{{basepath}}/environments/{{environmentId}}",
+						"description": "Retrieve a single Gateway Environment Configuration. We should provide the Id of the Environment as a path parameter.\n"
+					},
+					"response": []
+				},
+				{
+					"name": "Get Gateway Instances in a Gateway Environment",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{access-token}}"
+							}
 						},
 						"method": "GET",
 						"header": [
@@ -2765,18 +1823,211 @@
 							}
 						],
 						"url": {
-							"raw": "{{basepath}}/environments/{{environmentId}}",
+							"raw": "{{basepath}}/environments/:environmentId/gateways",
 							"host": [
 								"{{basepath}}"
 							],
 							"path": [
 								"environments",
-								"{{environmentId}}"
+								":environmentId",
+								"gateways"
+							],
+							"variable": [
+								{
+									"key": "environmentId",
+									"value": "{{environmentId}}",
+									"description": "Environment UUID (or Environment name defined in config), in case the ID contains special characters it should\nbe base64 encoded\n"
+								}
 							]
 						},
-						"description": "Retrieve a single Gateway Environment Configuration. We should provide the Id of the Environment as a path parameter.\n"
+						"description": "Retrieve list of gateway Instances in the gateway environment.\n"
 					},
-					"response": []
+					"response": [
+						{
+							"name": "OK.\nList of gateway Instances in the gateway environment returned\n",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json"
+									},
+									{
+										"key": "Authorization",
+										"value": "<token>",
+										"description": "Added as a part of security scheme: oauth2"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/environments/:environmentId/gateways",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"environments",
+										":environmentId",
+										"gateways"
+									],
+									"variable": [
+										{
+											"key": "environmentId"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Content-Type",
+									"value": "string",
+									"description": {
+										"content": "The content type of the body.\n",
+										"type": "text/plain"
+									}
+								}
+							],
+							"cookie": [],
+							"body": "{\n  \"count\": 1,\n  \"list\": [\n    {\n      \"gatewayId\": \"Env1_1372344\",\n      \"lastActive\": \"2025-06-26T06:47:50Z\",\n      \"status\": \"ACTIVE\"\n    },\n    {\n      \"gatewayId\": \"Env1_1372344\",\n      \"lastActive\": \"2025-06-26T06:47:50Z\",\n      \"status\": \"ACTIVE\"\n    }\n  ]\n}"
+						},
+						{
+							"name": "Bad Request. Invalid request or validation error.",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json"
+									},
+									{
+										"key": "Authorization",
+										"value": "<token>",
+										"description": "Added as a part of security scheme: oauth2"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/environments/:environmentId/gateways",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"environments",
+										":environmentId",
+										"gateways"
+									],
+									"variable": [
+										{
+											"key": "environmentId"
+										}
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n  \"code\": 400,\n  \"message\": \"Bad Request\",\n  \"description\": \"Invalid request or validation error\",\n  \"moreInfo\": \"\",\n  \"error\": []\n}"
+						},
+						{
+							"name": "Not Found. The specified resource does not exist.",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json"
+									},
+									{
+										"key": "Authorization",
+										"value": "<token>",
+										"description": "Added as a part of security scheme: oauth2"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/environments/:environmentId/gateways",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"environments",
+										":environmentId",
+										"gateways"
+									],
+									"variable": [
+										{
+											"key": "environmentId"
+										}
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n  \"code\": 404,\n  \"message\": \"Not Found\",\n  \"description\": \"The specified resource does not exist\",\n  \"moreInfo\": \"\",\n  \"error\": []\n}"
+						},
+						{
+							"name": "Not Acceptable. The requested media type is not supported.",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json"
+									},
+									{
+										"key": "Authorization",
+										"value": "<token>",
+										"description": "Added as a part of security scheme: oauth2"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/environments/:environmentId/gateways",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"environments",
+										":environmentId",
+										"gateways"
+									],
+									"variable": [
+										{
+											"key": "environmentId"
+										}
+									]
+								}
+							},
+							"status": "Not Acceptable",
+							"code": 406,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n  \"code\": 406,\n  \"message\": \"Not Acceptable\",\n  \"description\": \"The requested media type is not supported\",\n  \"moreInfo\": \"\",\n  \"error\": []\n}"
+						}
+					]
 				}
 			]
 		},
@@ -2788,26 +2039,13 @@
 					"request": {
 						"auth": {
 							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "{{access-token}}",
-									"type": "string"
-								}
-							]
+							"bearer": {
+								"token": "{{access-token}}"
+							}
 						},
 						"method": "HEAD",
 						"header": [],
-						"url": {
-							"raw": "{{basepath}}/roles/{{roleId}}",
-							"host": [
-								"{{basepath}}"
-							],
-							"path": [
-								"roles",
-								"{{roleId}}"
-							]
-						}
+						"url": "{{basepath}}/roles/{{roleId}}"
 					},
 					"response": []
 				}
@@ -2821,25 +2059,13 @@
 					"request": {
 						"auth": {
 							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "{{access-token}}",
-									"type": "string"
-								}
-							]
+							"bearer": {
+								"token": "{{access-token}}"
+							}
 						},
 						"method": "GET",
 						"header": [],
-						"url": {
-							"raw": "{{basepath}}/global-key-managers",
-							"host": [
-								"{{basepath}}"
-							],
-							"path": [
-								"global-key-managers"
-							]
-						}
+						"url": "{{basepath}}/global-key-managers"
 					},
 					"response": []
 				},
@@ -2861,13 +2087,9 @@
 					"request": {
 						"auth": {
 							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "{{access-token}}",
-									"type": "string"
-								}
-							]
+							"bearer": {
+								"token": "{{access-token}}"
+							}
 						},
 						"method": "POST",
 						"header": [
@@ -2881,15 +2103,7 @@
 							"mode": "raw",
 							"raw": "{\n    \"id\": \"81878053-4df6-4cce-8b4b-e57f4cab9473\",\n    \"name\": \"WSO2IS\",\n    \"displayName\": \"WSO2IS\",\n    \"type\": \"WSO2-IS\",\n    \"description\": \"WSO2 IS as Global KM\",\n    \"wellKnownEndpoint\": null,\n    \"introspectionEndpoint\": \"https://localhost:9444/oauth2/introspect\",\n    \"clientRegistrationEndpoint\": \"https://localhost:9444/client-registration/v0.17/register\",\n    \"tokenEndpoint\": \"https://localhost:9444/oauth2/token\",\n    \"displayTokenEndpoint\": \"https://localhost:9444/oauth2/token\",\n    \"revokeEndpoint\": \"https://localhost:9444/oauth2/revoke\",\n    \"displayRevokeEndpoint\": \"https://localhost:9444/oauth2/revoke\",\n    \"userInfoEndpoint\": \"https://localhost:9444/oauth2/userinfo\",\n    \"authorizeEndpoint\": \"https://localhost:9444/oauth2/userinfo\",\n    \"endpoints\": [],\n    \"certificates\": {\n        \"type\": \"PEM\",\n        \"value\": \"\"\n    },\n    \"issuer\": \"https://localhost:9444/oauth2/token\",\n    \"alias\": \"\",\n    \"scopeManagementEndpoint\": \"https://localhost:9444/oauth2/scope\",\n    \"availableGrantTypes\": [\n        \"client_credentials\",\n        \"password\"\n    ],\n    \"enableTokenGeneration\": true,\n    \"enableTokenEncryption\": false,\n    \"enableTokenHashing\": false,\n    \"enableMapOAuthConsumerApps\": true,\n    \"enableOAuthAppCreation\": true,\n    \"enableSelfValidationJWT\": true,\n    \"claimMapping\": [],\n    \"consumerKeyClaim\": \"azp\",\n    \"scopesClaim\": \"scope\",\n    \"tokenValidation\": [],\n    \"enabled\": true,\n    \"global\": true,\n    \"additionalProperties\": {\n        \"self_validate_jwt\": true,\n        \"Username\": \"admin\",\n        \"Password\": \"admin\"\n    },\n    \"permissions\": {\n        \"permissionType\": \"PUBLIC\",\n        \"roles\": []\n    },\n    \"tokenType\": \"DIRECT\"\n}"
 						},
-						"url": {
-							"raw": "{{basepath}}/global-key-managers",
-							"host": [
-								"{{basepath}}"
-							],
-							"path": [
-								"global-key-managers"
-							]
-						}
+						"url": "{{basepath}}/global-key-managers"
 					},
 					"response": []
 				},
@@ -2898,26 +2112,13 @@
 					"request": {
 						"auth": {
 							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "{{access-token}}",
-									"type": "string"
-								}
-							]
+							"bearer": {
+								"token": "{{access-token}}"
+							}
 						},
 						"method": "GET",
 						"header": [],
-						"url": {
-							"raw": "{{basepath}}/global-key-managers/{{globalKeyManagerId}}",
-							"host": [
-								"{{basepath}}"
-							],
-							"path": [
-								"global-key-managers",
-								"{{globalKeyManagerId}}"
-							]
-						}
+						"url": "{{basepath}}/global-key-managers/{{globalKeyManagerId}}"
 					},
 					"response": []
 				},
@@ -2926,13 +2127,9 @@
 					"request": {
 						"auth": {
 							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "{{access-token}}",
-									"type": "string"
-								}
-							]
+							"bearer": {
+								"token": "{{access-token}}"
+							}
 						},
 						"method": "PUT",
 						"header": [
@@ -2951,16 +2148,7 @@
 								}
 							}
 						},
-						"url": {
-							"raw": "{{basepath}}/global-key-managers/{{globalKeyManagerId}}",
-							"host": [
-								"{{basepath}}"
-							],
-							"path": [
-								"global-key-managers",
-								"{{globalKeyManagerId}}"
-							]
-						}
+						"url": "{{basepath}}/global-key-managers/{{globalKeyManagerId}}"
 					},
 					"response": []
 				},
@@ -2969,26 +2157,13 @@
 					"request": {
 						"auth": {
 							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "{{access-token}}",
-									"type": "string"
-								}
-							]
+							"bearer": {
+								"token": "{{access-token}}"
+							}
 						},
 						"method": "DELETE",
 						"header": [],
-						"url": {
-							"raw": "{{basepath}}/global-key-managers/{{globalKeyManagerId}}",
-							"host": [
-								"{{basepath}}"
-							],
-							"path": [
-								"global-key-managers",
-								"{{globalKeyManagerId}}"
-							]
-						}
+						"url": "{{basepath}}/global-key-managers/{{globalKeyManagerId}}"
 					},
 					"response": []
 				}
@@ -3002,25 +2177,13 @@
 					"request": {
 						"auth": {
 							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "{{access-token}}",
-									"type": "string"
-								}
-							]
+							"bearer": {
+								"token": "{{access-token}}"
+							}
 						},
 						"method": "GET",
 						"header": [],
-						"url": {
-							"raw": "{{basepath}}/apis",
-							"host": [
-								"{{basepath}}"
-							],
-							"path": [
-								"apis"
-							]
-						}
+						"url": "{{basepath}}/apis"
 					},
 					"response": []
 				},
@@ -3029,13 +2192,9 @@
 					"request": {
 						"auth": {
 							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "{{access-token}}",
-									"type": "string"
-								}
-							]
+							"bearer": {
+								"token": "{{access-token}}"
+							}
 						},
 						"method": "POST",
 						"header": [
@@ -3075,13 +2234,9 @@
 					"request": {
 						"auth": {
 							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "{{access-token}}",
-									"type": "string"
-								}
-							]
+							"bearer": {
+								"token": "{{access-token}}"
+							}
 						},
 						"method": "DELETE",
 						"header": [
@@ -3090,16 +2245,7 @@
 								"value": "application/json"
 							}
 						],
-						"url": {
-							"raw": "{{basepath}}/llm-providers/{{llmProviderId}}",
-							"host": [
-								"{{basepath}}"
-							],
-							"path": [
-								"llm-providers",
-								"{{llmProviderId}}"
-							]
-						},
+						"url": "{{basepath}}/llm-providers/{{llmProviderId}}",
 						"description": "Delete a LLM Provider by llmProviderId\n"
 					},
 					"response": []
@@ -3121,13 +2267,9 @@
 					"request": {
 						"auth": {
 							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "{{access-token}}",
-									"type": "string"
-								}
-							]
+							"bearer": {
+								"token": "{{access-token}}"
+							}
 						},
 						"method": "GET",
 						"header": [
@@ -3136,16 +2278,7 @@
 								"value": "application/json"
 							}
 						],
-						"url": {
-							"raw": "{{basepath}}/llm-providers/{{llmProviderId}}",
-							"host": [
-								"{{basepath}}"
-							],
-							"path": [
-								"llm-providers",
-								"{{llmProviderId}}"
-							]
-						},
+						"url": "{{basepath}}/llm-providers/{{llmProviderId}}",
 						"description": "Get a LLM Provider\n"
 					},
 					"response": []
@@ -3155,13 +2288,9 @@
 					"request": {
 						"auth": {
 							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "{{access-token}}",
-									"type": "string"
-								}
-							]
+							"bearer": {
+								"token": "{{access-token}}"
+							}
 						},
 						"method": "GET",
 						"header": [
@@ -3170,15 +2299,7 @@
 								"value": "application/json"
 							}
 						],
-						"url": {
-							"raw": "{{basepath}}/llm-providers",
-							"host": [
-								"{{basepath}}"
-							],
-							"path": [
-								"llm-providers"
-							]
-						},
+						"url": "{{basepath}}/llm-providers",
 						"description": "Get all LLM providers\n"
 					},
 					"response": []
@@ -3188,13 +2309,9 @@
 					"request": {
 						"auth": {
 							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "{{access-token}}",
-									"type": "string"
-								}
-							]
+							"bearer": {
+								"token": "{{access-token}}"
+							}
 						},
 						"method": "POST",
 						"header": [
@@ -3239,15 +2356,7 @@
 								}
 							]
 						},
-						"url": {
-							"raw": "{{basepath}}/llm-providers",
-							"host": [
-								"{{basepath}}"
-							],
-							"path": [
-								"llm-providers"
-							]
-						},
+						"url": "{{basepath}}/llm-providers",
 						"description": "Add a new LLM provider\n"
 					},
 					"response": []
@@ -3257,13 +2366,9 @@
 					"request": {
 						"auth": {
 							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "{{access-token}}",
-									"type": "string"
-								}
-							]
+							"bearer": {
+								"token": "{{access-token}}"
+							}
 						},
 						"method": "PUT",
 						"header": [
@@ -3308,16 +2413,7 @@
 								}
 							]
 						},
-						"url": {
-							"raw": "{{basepath}}/llm-providers/{{llmProviderId}}",
-							"host": [
-								"{{basepath}}"
-							],
-							"path": [
-								"llm-providers",
-								"{{llmProviderId}}"
-							]
-						},
+						"url": "{{basepath}}/llm-providers/{{llmProviderId}}",
 						"description": "Update a LLM provider by LLMProviderId\n"
 					},
 					"response": []
@@ -3332,13 +2428,9 @@
 					"request": {
 						"auth": {
 							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "{{access-token}}",
-									"type": "string"
-								}
-							]
+							"bearer": {
+								"token": "{{access-token}}"
+							}
 						},
 						"method": "GET",
 						"header": [
@@ -3382,23 +2474,11 @@
 					"request": {
 						"auth": {
 							"type": "oauth2",
-							"oauth2": [
-								{
-									"key": "scope",
-									"value": "openid apim:policies_import_export apim:admin apim:tier_view apim:tier_manage apim:admin_tier_view apim:admin_tier_manage apim:bl_view apim:bl_manage apim:mediation_policy_view apim:mediation_policy_create apim:app_owner_change apim:app_import_export apim:api_import_export apim:api_product_import_export apim:environment_manage apim:environment_read apim:monetization_usage_publish apim:api_workflow_approve apim:bot_data apim:tenantInfo apim:tenant_theme_manage apim:admin_operations apim:api_category apim:admin_settings apim:admin_alert_manage apim:api_workflow_view apim:scope_manage apim:role_manage apim:admin_application_view apim:keymanagers_manage apim:api_provider_change apim:llm_provider_manage apim:gov_policy_read apim:gov_policy_manage apim:gov_result_read apim:gov_rule_read apim:gov_rule_manage apim:organization_manage apim:organization_read",
-									"type": "string"
-								},
-								{
-									"key": "accessTokenUrl",
-									"value": "https://localhost:9443/oauth2/token",
-									"type": "string"
-								},
-								{
-									"key": "grant_type",
-									"value": "password_credentials",
-									"type": "string"
-								}
-							]
+							"oauth2": {
+								"scope": "openid apim:policies_import_export apim:admin apim:tier_view apim:tier_manage apim:admin_tier_view apim:admin_tier_manage apim:bl_view apim:bl_manage apim:mediation_policy_view apim:mediation_policy_create apim:app_owner_change apim:app_import_export apim:api_import_export apim:api_product_import_export apim:environment_manage apim:environment_read apim:monetization_usage_publish apim:api_workflow_approve apim:bot_data apim:tenantInfo apim:tenant_theme_manage apim:admin_operations apim:api_category apim:admin_settings apim:admin_alert_manage apim:api_workflow_view apim:scope_manage apim:role_manage apim:admin_application_view apim:keymanagers_manage apim:api_provider_change apim:llm_provider_manage apim:gov_policy_read apim:gov_policy_manage apim:gov_result_read apim:gov_rule_read apim:gov_rule_manage apim:organization_manage apim:organization_read",
+								"accessTokenUrl": "https://localhost:9443/oauth2/token",
+								"grant_type": "password_credentials"
+							}
 						},
 						"method": "DELETE",
 						"header": [
@@ -3407,16 +2487,7 @@
 								"value": "application/json"
 							}
 						],
-						"url": {
-							"raw": "{{basepath}}/organizations/{{organizationId}}",
-							"host": [
-								"{{basepath}}"
-							],
-							"path": [
-								"organizations",
-								"{{organizationId}}"
-							]
-						},
+						"url": "{{basepath}}/organizations/{{organizationId}}",
 						"description": "Delete an organization by organization Id\n"
 					},
 					"response": []
@@ -3426,13 +2497,9 @@
 					"request": {
 						"auth": {
 							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "{{access-token}}",
-									"type": "string"
-								}
-							]
+							"bearer": {
+								"token": "{{access-token}}"
+							}
 						},
 						"method": "PUT",
 						"header": [
@@ -3455,16 +2522,7 @@
 								}
 							}
 						},
-						"url": {
-							"raw": "{{basepath}}/organizations/{{organizationId}}",
-							"host": [
-								"{{basepath}}"
-							],
-							"path": [
-								"organizations",
-								"{{organizationId}}"
-							]
-						},
+						"url": "{{basepath}}/organizations/{{organizationId}}",
 						"description": "Update an organization by organization Id\n"
 					},
 					"response": []
@@ -3474,13 +2532,9 @@
 					"request": {
 						"auth": {
 							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "{{access-token}}",
-									"type": "string"
-								}
-							]
+							"bearer": {
+								"token": "{{access-token}}"
+							}
 						},
 						"method": "GET",
 						"header": [
@@ -3489,16 +2543,7 @@
 								"value": "application/json"
 							}
 						],
-						"url": {
-							"raw": "{{basepath}}/organizations/{{organizationId}}",
-							"host": [
-								"{{basepath}}"
-							],
-							"path": [
-								"organizations",
-								"{{organizationId}}"
-							]
-						},
+						"url": "{{basepath}}/organizations/{{organizationId}}",
 						"description": "Get an organization by organization Id\n"
 					},
 					"response": []
@@ -3508,13 +2553,9 @@
 					"request": {
 						"auth": {
 							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "{{access-token}}",
-									"type": "string"
-								}
-							]
+							"bearer": {
+								"token": "{{access-token}}"
+							}
 						},
 						"method": "GET",
 						"header": [
@@ -3523,15 +2564,7 @@
 								"value": "application/json"
 							}
 						],
-						"url": {
-							"raw": "{{basepath}}/organizations",
-							"host": [
-								"{{basepath}}"
-							],
-							"path": [
-								"organizations"
-							]
-						},
+						"url": "{{basepath}}/organizations",
 						"description": "Get all Registered Organizations\n"
 					},
 					"response": []
@@ -3564,13 +2597,9 @@
 					"request": {
 						"auth": {
 							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "{{access-token}}",
-									"type": "string"
-								}
-							]
+							"bearer": {
+								"token": "{{access-token}}"
+							}
 						},
 						"method": "POST",
 						"header": [
@@ -3593,15 +2622,7 @@
 								}
 							}
 						},
-						"url": {
-							"raw": "{{basepath}}/organizations",
-							"host": [
-								"{{basepath}}"
-							],
-							"path": [
-								"organizations"
-							]
-						},
+						"url": "{{basepath}}/organizations",
 						"description": "Add a new organization\n"
 					},
 					"response": []
@@ -3616,23 +2637,11 @@
 					"request": {
 						"auth": {
 							"type": "oauth2",
-							"oauth2": [
-								{
-									"key": "scope",
-									"value": "openid apim:policies_import_export apim:admin apim:tier_view apim:tier_manage apim:admin_tier_view apim:admin_tier_manage apim:bl_view apim:bl_manage apim:mediation_policy_view apim:mediation_policy_create apim:app_owner_change apim:app_import_export apim:api_import_export apim:api_product_import_export apim:environment_manage apim:environment_read apim:monetization_usage_publish apim:api_workflow_approve apim:bot_data apim:tenantInfo apim:tenant_theme_manage apim:admin_operations apim:api_category apim:admin_settings apim:admin_alert_manage apim:api_workflow_view apim:scope_manage apim:role_manage apim:admin_application_view apim:keymanagers_manage apim:api_provider_change apim:llm_provider_manage apim:gov_policy_read apim:gov_policy_manage apim:gov_result_read apim:gov_rule_read apim:gov_rule_manage apim:organization_manage apim:organization_read",
-									"type": "string"
-								},
-								{
-									"key": "accessTokenUrl",
-									"value": "https://localhost:9443/oauth2/token",
-									"type": "string"
-								},
-								{
-									"key": "grant_type",
-									"value": "password_credentials",
-									"type": "string"
-								}
-							]
+							"oauth2": {
+								"scope": "openid apim:policies_import_export apim:admin apim:tier_view apim:tier_manage apim:admin_tier_view apim:admin_tier_manage apim:bl_view apim:bl_manage apim:mediation_policy_view apim:mediation_policy_create apim:app_owner_change apim:app_import_export apim:api_import_export apim:api_product_import_export apim:environment_manage apim:environment_read apim:monetization_usage_publish apim:api_workflow_approve apim:bot_data apim:tenantInfo apim:tenant_theme_manage apim:admin_operations apim:api_category apim:admin_settings apim:admin_alert_manage apim:api_workflow_view apim:scope_manage apim:role_manage apim:admin_application_view apim:keymanagers_manage apim:api_provider_change apim:llm_provider_manage apim:gov_policy_read apim:gov_policy_manage apim:gov_result_read apim:gov_rule_read apim:gov_rule_manage apim:organization_manage apim:organization_read",
+								"accessTokenUrl": "https://localhost:9443/oauth2/token",
+								"grant_type": "password_credentials"
+							}
 						},
 						"method": "DELETE",
 						"header": [
@@ -3641,16 +2650,7 @@
 								"value": "application/json"
 							}
 						],
-						"url": {
-							"raw": "{{basepath}}/labels/{{labelId}}",
-							"host": [
-								"{{basepath}}"
-							],
-							"path": [
-								"labels",
-								"{{labelId}}"
-							]
-						},
+						"url": "{{basepath}}/labels/{{labelId}}",
 						"description": "Delete a Label by label id\n"
 					},
 					"response": []
@@ -3660,13 +2660,9 @@
 					"request": {
 						"auth": {
 							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "{{access-token}}",
-									"type": "string"
-								}
-							]
+							"bearer": {
+								"token": "{{access-token}}"
+							}
 						},
 						"method": "PUT",
 						"header": [
@@ -3689,16 +2685,7 @@
 								}
 							}
 						},
-						"url": {
-							"raw": "{{basepath}}/labels/{{labelId}}",
-							"host": [
-								"{{basepath}}"
-							],
-							"path": [
-								"labels",
-								"{{labelId}}"
-							]
-						},
+						"url": "{{basepath}}/labels/{{labelId}}",
 						"description": "Update a Label by label id\n"
 					},
 					"response": []
@@ -3708,13 +2695,9 @@
 					"request": {
 						"auth": {
 							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "{{access-token}}",
-									"type": "string"
-								}
-							]
+							"bearer": {
+								"token": "{{access-token}}"
+							}
 						},
 						"method": "GET",
 						"header": [
@@ -3723,17 +2706,7 @@
 								"value": "application/json"
 							}
 						],
-						"url": {
-							"raw": "{{basepath}}/labels/{{labelId}}/usage",
-							"host": [
-								"{{basepath}}"
-							],
-							"path": [
-								"labels",
-								"{{labelId}}",
-								"usage"
-							]
-						},
+						"url": "{{basepath}}/labels/{{labelId}}/usage",
 						"description": "Retrieve a single Label Usage. We should provide the Id of the Label as a path parameter.\n"
 					},
 					"response": []
@@ -3743,25 +2716,13 @@
 					"request": {
 						"auth": {
 							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "{{access-token}}",
-									"type": "string"
-								}
-							]
+							"bearer": {
+								"token": "{{access-token}}"
+							}
 						},
 						"method": "GET",
 						"header": [],
-						"url": {
-							"raw": "{{basepath}}/labels",
-							"host": [
-								"{{basepath}}"
-							],
-							"path": [
-								"labels"
-							]
-						},
+						"url": "{{basepath}}/labels",
 						"description": "Get all Labels\n"
 					},
 					"response": []
@@ -3785,13 +2746,9 @@
 					"request": {
 						"auth": {
 							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "{{access-token}}",
-									"type": "string"
-								}
-							]
+							"bearer": {
+								"token": "{{access-token}}"
+							}
 						},
 						"method": "POST",
 						"header": [],
@@ -3804,16 +2761,270 @@
 								}
 							}
 						},
+						"url": "{{basepath}}/labels",
+						"description": "Add a new Label\n"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Ai Service Providers",
+			"item": [
+				{
+					"name": "Get all AI Service providers",
+					"request": {
+						"auth": {
+							"type": "oauth2",
+							"oauth2": {
+								"scope": "openid apim:policies_import_export apim:admin apim:tier_view apim:tier_manage apim:admin_tier_view apim:admin_tier_manage apim:bl_view apim:bl_manage apim:mediation_policy_view apim:mediation_policy_create apim:app_owner_change apim:app_import_export apim:api_import_export apim:api_product_import_export apim:environment_manage apim:environment_read apim:monetization_usage_publish apim:api_workflow_approve apim:bot_data apim:tenantInfo apim:tenant_theme_manage apim:admin_operations apim:api_category apim:admin_settings apim:admin_alert_manage apim:api_workflow_view apim:scope_manage apim:role_manage apim:admin_application_view apim:keymanagers_manage apim:api_provider_change apim:llm_provider_manage apim:gov_policy_read apim:gov_policy_manage apim:gov_result_read apim:gov_rule_read apim:gov_rule_manage apim:organization_manage apim:organization_read",
+								"accessTokenUrl": "https://localhost:9443/oauth2/token",
+								"grant_type": "password_credentials"
+							}
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"url": "{{basepath}}/ai-service-providers",
+						"description": "Get all AI Service providers\n"
+					},
+					"response": []
+				},
+				{
+					"name": "Add a AI Service provider",
+					"request": {
+						"auth": {
+							"type": "oauth2",
+							"oauth2": {
+								"scope": "openid apim:policies_import_export apim:admin apim:tier_view apim:tier_manage apim:admin_tier_view apim:admin_tier_manage apim:bl_view apim:bl_manage apim:mediation_policy_view apim:mediation_policy_create apim:app_owner_change apim:app_import_export apim:api_import_export apim:api_product_import_export apim:environment_manage apim:environment_read apim:monetization_usage_publish apim:api_workflow_approve apim:bot_data apim:tenantInfo apim:tenant_theme_manage apim:admin_operations apim:api_category apim:admin_settings apim:admin_alert_manage apim:api_workflow_view apim:scope_manage apim:role_manage apim:admin_application_view apim:keymanagers_manage apim:api_provider_change apim:llm_provider_manage apim:gov_policy_read apim:gov_policy_manage apim:gov_result_read apim:gov_rule_read apim:gov_rule_manage apim:organization_manage apim:organization_read",
+								"accessTokenUrl": "https://localhost:9443/oauth2/token",
+								"grant_type": "password_credentials"
+							}
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "multipart/form-data"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "OpenAI",
+									"type": "text"
+								},
+								{
+									"key": "apiVersion",
+									"value": "1.0.0",
+									"type": "text"
+								},
+								{
+									"key": "configurations",
+									"value": "string",
+									"description": "LLM Provider configurations",
+									"type": "text"
+								},
+								{
+									"key": "apiDefinition",
+									"description": "OpenAPI specification",
+									"type": "file",
+									"src": []
+								},
+								{
+									"key": "description",
+									"value": "OpenAI LLM",
+									"type": "text"
+								},
+								{
+									"key": "multipleModelProviderSupport",
+									"value": "false",
+									"description": "Indicates whether the AI Service Provider supports multiple model providers.\nIf true, the AI Service Provider can support multiple model providers.\nIf false, the AI Service Provider supports only one model provider.\n",
+									"type": "text"
+								},
+								{
+									"key": "modelProviders",
+									"value": "string",
+									"type": "text"
+								}
+							]
+						},
+						"url": "{{basepath}}/ai-service-providers",
+						"description": "Add a new AI Service provider\n"
+					},
+					"response": []
+				},
+				{
+					"name": "Update an AI Service provider",
+					"request": {
+						"auth": {
+							"type": "oauth2",
+							"oauth2": {
+								"scope": "openid apim:policies_import_export apim:admin apim:tier_view apim:tier_manage apim:admin_tier_view apim:admin_tier_manage apim:bl_view apim:bl_manage apim:mediation_policy_view apim:mediation_policy_create apim:app_owner_change apim:app_import_export apim:api_import_export apim:api_product_import_export apim:environment_manage apim:environment_read apim:monetization_usage_publish apim:api_workflow_approve apim:bot_data apim:tenantInfo apim:tenant_theme_manage apim:admin_operations apim:api_category apim:admin_settings apim:admin_alert_manage apim:api_workflow_view apim:scope_manage apim:role_manage apim:admin_application_view apim:keymanagers_manage apim:api_provider_change apim:llm_provider_manage apim:gov_policy_read apim:gov_policy_manage apim:gov_result_read apim:gov_rule_read apim:gov_rule_manage apim:organization_manage apim:organization_read",
+								"accessTokenUrl": "https://localhost:9443/oauth2/token",
+								"grant_type": "password_credentials"
+							}
+						},
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "multipart/form-data"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "OpenAI",
+									"type": "text"
+								},
+								{
+									"key": "apiVersion",
+									"value": "1.0.0",
+									"type": "text"
+								},
+								{
+									"key": "configurations",
+									"value": "string",
+									"description": "LLM Provider configurations",
+									"type": "text"
+								},
+								{
+									"key": "apiDefinition",
+									"description": "OpenAPI specification",
+									"type": "file",
+									"src": []
+								},
+								{
+									"key": "description",
+									"value": "OpenAI LLM",
+									"type": "text"
+								},
+								{
+									"key": "multipleModelProviderSupport",
+									"value": "false",
+									"description": "Indicates whether the AI Service Provider supports multiple model providers.\nIf true, the AI Service Provider can support multiple model providers.\nIf false, the AI Service Provider supports only one model provider.\n",
+									"type": "text"
+								},
+								{
+									"key": "modelProviders",
+									"value": "string",
+									"type": "text"
+								}
+							]
+						},
 						"url": {
-							"raw": "{{basepath}}/labels",
+							"raw": "{{basepath}}/ai-service-providers/:aiServiceProviderId",
 							"host": [
 								"{{basepath}}"
 							],
 							"path": [
-								"labels"
+								"ai-service-providers",
+								":aiServiceProviderId"
+							],
+							"variable": [
+								{
+									"key": "aiServiceProviderId",
+									"value": "string",
+									"description": "AI Service Provider UUID\n"
+								}
 							]
 						},
-						"description": "Add a new Label\n"
+						"description": "Update a AI Service provider by AIServiceProviderId\n"
+					},
+					"response": []
+				},
+				{
+					"name": "Delete a AI Service Provider",
+					"request": {
+						"auth": {
+							"type": "oauth2",
+							"oauth2": {
+								"scope": "openid apim:policies_import_export apim:admin apim:tier_view apim:tier_manage apim:admin_tier_view apim:admin_tier_manage apim:bl_view apim:bl_manage apim:mediation_policy_view apim:mediation_policy_create apim:app_owner_change apim:app_import_export apim:api_import_export apim:api_product_import_export apim:environment_manage apim:environment_read apim:monetization_usage_publish apim:api_workflow_approve apim:bot_data apim:tenantInfo apim:tenant_theme_manage apim:admin_operations apim:api_category apim:admin_settings apim:admin_alert_manage apim:api_workflow_view apim:scope_manage apim:role_manage apim:admin_application_view apim:keymanagers_manage apim:api_provider_change apim:llm_provider_manage apim:gov_policy_read apim:gov_policy_manage apim:gov_result_read apim:gov_rule_read apim:gov_rule_manage apim:organization_manage apim:organization_read",
+								"accessTokenUrl": "https://localhost:9443/oauth2/token",
+								"grant_type": "password_credentials"
+							}
+						},
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{basepath}}/ai-service-providers/:aiServiceProviderId",
+							"host": [
+								"{{basepath}}"
+							],
+							"path": [
+								"ai-service-providers",
+								":aiServiceProviderId"
+							],
+							"variable": [
+								{
+									"key": "aiServiceProviderId",
+									"value": "string",
+									"description": "AI Service Provider UUID\n"
+								}
+							]
+						},
+						"description": "Delete a AI Service Provider by aiServiceProviderId\n"
+					},
+					"response": []
+				},
+				{
+					"name": "Get AI Service Provider",
+					"request": {
+						"auth": {
+							"type": "oauth2",
+							"oauth2": {
+								"scope": "openid apim:policies_import_export apim:admin apim:tier_view apim:tier_manage apim:admin_tier_view apim:admin_tier_manage apim:bl_view apim:bl_manage apim:mediation_policy_view apim:mediation_policy_create apim:app_owner_change apim:app_import_export apim:api_import_export apim:api_product_import_export apim:environment_manage apim:environment_read apim:monetization_usage_publish apim:api_workflow_approve apim:bot_data apim:tenantInfo apim:tenant_theme_manage apim:admin_operations apim:api_category apim:admin_settings apim:admin_alert_manage apim:api_workflow_view apim:scope_manage apim:role_manage apim:admin_application_view apim:keymanagers_manage apim:api_provider_change apim:llm_provider_manage apim:gov_policy_read apim:gov_policy_manage apim:gov_result_read apim:gov_rule_read apim:gov_rule_manage apim:organization_manage apim:organization_read",
+								"accessTokenUrl": "https://localhost:9443/oauth2/token",
+								"grant_type": "password_credentials"
+							}
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{basepath}}/ai-service-providers/:aiServiceProviderId",
+							"host": [
+								"{{basepath}}"
+							],
+							"path": [
+								"ai-service-providers",
+								":aiServiceProviderId"
+							],
+							"variable": [
+								{
+									"key": "aiServiceProviderId",
+									"value": "string",
+									"description": "AI Service Provider UUID\n"
+								}
+							]
+						},
+						"description": "Get a AI Service Provider\n"
 					},
 					"response": []
 				}
