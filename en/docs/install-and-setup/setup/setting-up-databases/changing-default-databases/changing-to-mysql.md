@@ -61,7 +61,81 @@ Follow the  instructions below to set up a MySQL database:
         - If you are using MySQL to configure your datasource, we recommend that you use a case sensitive database collation. For more information, see the [MySQL Official Manual](https://dev.mysql.com/doc/refman/5.7/en/charset-mysql.html). The default database collation, which is `latin1_swedish_ci`, is case insensitive. However, you need to maintain case sensitivity for database collation, because when the database or table has a case-insensitive collation in MySQL 5.6 or 5.7, if a user creates an API with letters using mixed case, deletes the API, and then creates another API with the same name, but in lower case letters, then the later created API loses its permission information because when deleting the API, it keeps the Registry collection left behind.
         
         - This issue could be avoided if you use a case sensitive collation for database and tables. In that case, when creating the second API (which has the same name, but is entirely in lowercase letters), it will create a new record with the lowercase name in the `UM_PERMISSION` table.
-    
+
+    !!! note "UTF8/UTF8MB4 charset support"
+        Due to product level limitations, WSO2 API Manager supports only latin1 as the compatible charset for MySQL by default. However, latin1 lacks support for Chinese characters and other non-ASCII characters.
+
+        If you require support for Chinese or other non-ASCII characters, you can use UTF8 or UTF8MB4 charsets. Note that using these charsets is **not officially supported** and should be done at your own risk.
+
+        **Option 1: Create database with UTF8/UTF8MB4 charset and adjust column lengths**
+
+        If you want to create the database directly with UTF8 or UTF8MB4 charset, first adjust the column lengths in the database scripts before running them:
+
+        1. **AM_API_ENDPOINTS table** - Reduce UUID columns to 64 characters:
+            ```sql
+            -- Modify these columns in your database script:
+            -- API_UUID VARCHAR(64) NOT NULL (instead of VARCHAR(256))
+            -- ENDPOINT_UUID VARCHAR(64) NOT NULL (instead of VARCHAR(256))
+            -- REVISION_UUID VARCHAR(64) NOT NULL (instead of VARCHAR(255))
+            ```
+
+        2. **IDN_SCIM_GROUP table** - Reduce ATTR_NAME column to 255 characters:
+            ```sql
+            -- Modify this column in your database script:
+            -- ATTR_NAME VARCHAR(255) NOT NULL (instead of VARCHAR(1024))
+            ```
+
+        3. **IDN_OAUTH2_TOKEN_BINDING table** - Reduce TOKEN_BINDING_VALUE column to 255 characters:
+            ```sql
+            -- Modify this column in your database script:
+            -- TOKEN_BINDING_VALUE VARCHAR(255) (instead of VARCHAR(1024))
+            ```
+
+        4. **IDN_INVALID_TOKENS table** - Reduce TOKEN_IDENTIFIER column to 512 characters:
+            ```sql
+            -- Modify this column in your database script:
+            -- TOKEN_IDENTIFIER VARCHAR(512) NOT NULL (instead of VARCHAR(2048))
+            ```
+
+        5. **IDN_SCIM_GROUP index** - Update index to use 255 characters for ATTR_NAME:
+            ```sql
+            -- Update the index creation command:
+            -- CREATE INDEX IDX_IDN_SCIM_GROUP_TI_RN_AN ON IDN_SCIM_GROUP (TENANT_ID, ROLE_NAME, ATTR_NAME(255));
+            ```
+
+        **Option 2: Create database with latin1 and convert to UTF8/UTF8MB4**
+
+        If you already have a database created with latin1 charset, you can convert it to UTF8 or UTF8MB4 by running the following ALTER commands:
+
+        ```sql
+        -- First, alter the column lengths
+        ALTER TABLE AM_API_ENDPOINTS
+        MODIFY COLUMN API_UUID VARCHAR(64) NOT NULL,
+        MODIFY COLUMN ENDPOINT_UUID VARCHAR(64) NOT NULL,
+        MODIFY COLUMN REVISION_UUID VARCHAR(64) NOT NULL;
+
+        ALTER TABLE IDN_SCIM_GROUP
+        MODIFY COLUMN ATTR_NAME VARCHAR(255) NOT NULL;
+
+        ALTER TABLE IDN_OAUTH2_TOKEN_BINDING
+        MODIFY COLUMN TOKEN_BINDING_VALUE VARCHAR(255);
+
+        ALTER TABLE IDN_INVALID_TOKENS
+        MODIFY COLUMN TOKEN_IDENTIFIER VARCHAR(512) NOT NULL;
+
+        -- Update the index
+        DROP INDEX IDX_IDN_SCIM_GROUP_TI_RN_AN ON IDN_SCIM_GROUP;
+        CREATE INDEX IDX_IDN_SCIM_GROUP_TI_RN_AN ON IDN_SCIM_GROUP (TENANT_ID, ROLE_NAME, ATTR_NAME(255));
+
+        -- Then convert the database charset (example for UTF8MB4)
+        ALTER DATABASE <your_database_name> CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+        ```
+
+        !!! warning
+            - Using UTF8 or UTF8MB4 charsets with WSO2 API Manager is not officially supported and may cause unexpected issues.
+            - Always test thoroughly in a non-production environment before implementing in production.
+            - UUID columns are reduced to 64 characters as UUIDs typically contain only 64 bytes.
+            - These changes are required due to MySQL's key length limitations when using UTF8/UTF8MB4 charsets.
 
 1.  Provide authorization to the user that you use to access the databases. 
 
