@@ -58,13 +58,13 @@ Before you start, ensure you have a Kong Gateway running in a Kubernetes cluster
     1. Enter a **Name** for the Gateway Environment. This **Name** will also be used by the Gateway Agent to identify the environment.
     2. Provide a **Display Name** and a **Description** for the Gateway Environment.
     3. Select **Kong Gateway** as the **Gateway Environment Type**.
-    4. Select the **Gateway Mode** as Read-Only, or Read-Write based on the requirement.
+    4. Select the **Gateway Mode** as Read-Only.
     5. Provide the **API Discovery Scheduling Interval** as **0**.
     6. Select the **Deployment Type** as **Kubernetes** under **Gateway Connector configurations**.
     7. Enter the **VHost** details according to your Gateway setup. Add the **Host**, **HTTP port** and **HTTPS port** under Advanced Settings.
     9. Click **Add** button to add the Gateway.
 
-         [![add kong k8s gateway]({{base_path}}/assets/img/deploy/add-kong-k8s-gateway.png){: style="width:90%"}]({{base_path}}/assets/img/deploy/add-kong-k8s-gateway.png)
+         [![add kong k8s gateway]({{base_path}}/assets/img/deploy/add-kong-k8s-gateway.png){: style="width:100%"}]({{base_path}}/assets/img/deploy/add-kong-k8s-gateway.png)
 
     !!!note
         If you are running Kong Gateway locally and using a custom hostname, make sure to add that hostname to your /etc/hosts file so it resolves correctly. For example:
@@ -142,13 +142,10 @@ When configuring the agent, update the following parameters in the `values.yaml`
         https://<hostname>:9443/publisher
         ```
 
-## Step 5 : Deploy and Publish API
+## Step 5 : Publish the API to Developer Portal
 
-1. Navigate to Deployments, view the API being deployed to the Kong Gateway configured in **step 1**.
-
-    [![discover api on kong]({{base_path}}/assets/img/deploy/discover-api-on-kong.png){: style="width:90%"}]({{base_path}}/assets/img/deploy/discover-api-on-kong.png)
-
-2. Publish the API to Developer Portal.
+1. Select the Discovered API
+2. Access the Lifecycle tab in the left menu and click on the Publish button to publish the API to Developer Portal.
 
 ## Step 6 : Subscribe and Invoke the API
 
@@ -163,12 +160,9 @@ When configuring the agent, update the following parameters in the `values.yaml`
         https://<hostname>:9443/devportal
         ```
 
-2. Create an Application and generate keys for both the environments.
-
+2. Create an Application and generate keys for both the environment types Production and Sandbox.
 3. Subscribe to the API using the application created.
-
-4. In the application, go to the **OAuth2 Tokens** under **Production Keys**. Generate and copy the access token.
-
+4. In the application, go to **OAuth2 Tokens** under **Production Keys**. Generate and copy the access token.
 5. Navigate to the **API Console** under the **Try Out** of the subscribed API, and paste the copied token inside the **Authorization Header Value field**.
 
     [![try out for kong gateway]({{base_path}}/assets/img/deploy/try-out-for-kong-gateway.png){: style="width:90%"}]({{base_path}}/assets/img/deploy/try-out-for-kong-gateway.png)
