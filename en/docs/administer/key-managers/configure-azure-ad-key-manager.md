@@ -159,7 +159,7 @@ Start the API Manager server and log-in to the Admin portal to configure Azure A
   </table>
 
 
- 4. Fill the Consumer Key Claim URI: `appid` in the `Claim URIs` section.
+ 4. If you are using v1.0, fill the Consumer Key Claim URI with the value `appid` in the `Claim URIs` section. If you are using v2.0, fill the Consumer Key Claim URI with the value `azp`.
  5. Set the Grant Types: `client_credentials` (Only use this grant type).
  6. Provide the relevant details in the `Connector Configurations` section.
   <table>
