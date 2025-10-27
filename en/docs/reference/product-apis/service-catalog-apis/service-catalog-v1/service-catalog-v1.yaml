@@ -146,7 +146,7 @@ paths:
         - name: key
           in: query
           description: |
-            Comma seperated keys of the services to check
+            Comma separated keys of the services to check
           schema:
             type: string
         - name: shrink

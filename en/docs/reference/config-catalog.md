@@ -144,7 +144,7 @@ disable_restart_from_ui = false</code></pre>
                                         </div>
                                     </div>
                                     <div class="param-description">
-                                        <p>Use this paramater to enable MTOM (Message Transmission Optimization Mechanism) for the product server.</p>
+                                        <p>Use this parameter to enable MTOM (Message Transmission Optimization Mechanism) for the product server.</p>
                                     </div>
                                 </div>
                             </div><div class="param">
@@ -165,7 +165,7 @@ disable_restart_from_ui = false</code></pre>
                                         </div>
                                     </div>
                                     <div class="param-description">
-                                        <p>Use this paramater to enable SwA (SOAP with Attachments) for the product server. When SwA is enabled, the API Manager will process the files attached to SOAP messages.</p>
+                                        <p>Use this parameter to enable SwA (SOAP with Attachments) for the product server. When SwA is enabled, the API Manager will process the files attached to SOAP messages.</p>
                                     </div>
                                 </div>
                             </div><div class="param">
@@ -897,7 +897,7 @@ claims_extractor_impl = "org.wso2.carbon.apimgt.impl.token.DefaultClaimsRetrieve
                                         
                                     </div>
                                     <div class="param-description">
-                                        <p>You can define the custom claim retiriver implmentation by adding the following apim.jwt.enable_user_claims=true. Make sure that it is the fully-qualified class name.</p>
+                                        <p>You can define the custom claim retriever implementation by adding the following apim.jwt.enable_user_claims=true. Make sure that it is the fully-qualified class name.</p>
                                     </div>
                                 </div>
                             </div><div class="param">
@@ -2148,7 +2148,7 @@ enable = true</code></pre>
                                         
                                     </div>
                                     <div class="param-description">
-                                        <p>Enabel cache for scopes. This expires in 15 minutes by default.</p>
+                                        <p>Enable cache for scopes. This expires in 15 minutes by default.</p>
                                     </div>
                                 </div>
                             </div>
@@ -2875,7 +2875,7 @@ enable_application_scopes_for_resident_km = false</code></pre>
                                         
                                     </div>
                                     <div class="param-description">
-                                        <p>You can provide a custom key validation handler implmentation. To do this, set the &quot;key_validation_handler_type&quot; to custom</p>
+                                        <p>You can provide a custom key validation handler implementation. To do this, set the &quot;key_validation_handler_type&quot; to custom</p>
                                     </div>
                                 </div>
                             </div><div class="param">
@@ -4230,7 +4230,7 @@ mode = "HYBRID"
                                         </div>
                                     </div>
                                     <div class="param-description">
-                                        <p>Use the application_sharing_impl as default implmentationIf it is saml, the group extractor extracts the claims to group the applications from the saml response.</p>
+                                        <p>Use the application_sharing_impl as default implementation. If it is saml, the group extractor extracts the claims to group the applications from the saml response.</p>
                                     </div>
                                 </div>
                             </div><div class="param">
