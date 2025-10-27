@@ -934,7 +934,7 @@
                   "name": "moesif_base_url",
                   "type": "string",
                   "required": false,
-                  "default": "https://api.moesif.com",
+                  "default": "https://api.moesif.net",
                   "possible": "",
                   "description": "Base URL of the Moesif ingestion endpoint. (Only when type is 'moesif')"
                 },
@@ -6432,6 +6432,51 @@
                 }
             ],
             "exampleFile": "basic_authenticator.toml"
+        },
+        {
+            "title": "Synapse Artifact Generator Pool Configurations",
+            "options": [
+                {
+                    "name": "synapse_artifact_generator_pool",
+                    "required": false,
+                    "description": "This configuration is available from WSO2 API Manager (API-M) 4.0 - update level 368 onwards. Defines the settings for the dedicated thread pool used for parallel synapse artifact generation. Proper tuning of these parameters is recommended based on the Control Plane server's hardware (CPU cores, memory) and the expected load (number of APIs, artifact size).",
+                    "params": [
+                        {
+                            "name": "core_pool_size",
+                            "type": "integer",
+                            "required": false,
+                            "default": "4",
+                            "possible": "",
+                            "description": "The initial number of threads to keep in the pool, even if they are idle. For CPU-intensive tasks like artifact generation, setting this close to the number of available CPU cores is often optimal for stability, especially on lower-resource machines."
+                        },
+                        {
+                            "name": "max_pool_size",
+                            "type": "integer",
+                            "required": false,
+                            "default": "4",
+                            "possible": "",
+                            "description": "The maximum number of threads allowed in the pool. When the queue is full and the current number of threads is less than max_pool_size, the pool will create new threads to handle the load. For CPU-bound tasks, setting this significantly higher than the number of CPU cores can lead to performance degradation due to context switching. Setting it equal to core_pool_size creates a fixed-size pool."
+                        },
+                        {
+                            "name": "keep_alive_time_ms",
+                            "type": "integer",
+                            "required": false,
+                            "default": "60000",
+                            "possible": "",
+                            "description": "When the number of threads is greater than the core_pool_size, this is the maximum time (in milliseconds) that excess idle threads will wait for new tasks before terminating. This allows the pool to shrink during idle periods, saving resources. This setting has no effect if core_pool_size is equal to max_pool_size."
+                        },
+                        {
+                            "name": "queue_capacity",
+                            "type": "integer",
+                            "required": false,
+                            "default": "50",
+                            "possible": "",
+                            "description": "The size of the queue used to hold tasks before they are executed. A bounded queue prevents the system from running out of memory under high load. When the queue is full and the max_pool_size is reached, the rejection policy (CallerRunsPolicy) is triggered, providing back-pressure. A smaller queue applies back-pressure sooner, prioritizing stability, while a larger queue can absorb larger bursts but increases memory usage."
+                        }
+                    ]
+                }
+            ],
+            "exampleFile": "synapse_artifact_generator_pool.toml"
         }
     ]
 }

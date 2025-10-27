@@ -2425,7 +2425,7 @@ expiry_time = "2m"
 
 
 
-## API-M Analytics configurations
+## API Manager Analytics Configuration
 
 
 <div class="mb-config-catalog">
@@ -2438,13 +2438,14 @@ expiry_time = "2m"
                 <div class="superfences-content">
                     <div class="mb-config-example">
 <pre><code class="toml">[apim.analytics]
-enable = false
-store_api_url = "https://localhost:7444"
-username = "$ref{super_admin.username}"
-password = "$ref{super_admin.password}"
-event_publisher_type = "custom"
-event_publisher_impl = "org.wso2.carbon.apimgt.usage.publisher.APIMgtUsageDataBridgeDataPublisher"
-publish_response_size = true</code></pre>
+enable = true
+type = "moesif"
+
+[apim.analytics.properties]
+moesifKey = "estY2FtcGxlLW1vZXNpZi1rZXk="
+moesif_base_url = "https://api.moesif.net"
+send_headers = false
+build_response_message = false</code></pre>
                     </div>
                 </div>
                 <div class="doc-wrapper">
@@ -2453,7 +2454,7 @@ publish_response_size = true</code></pre>
                             <code>[apim.analytics]</code>
                             <span class="badge-required">Required</span>
                             <p>
-                                
+                                Top-level Analytics configuration.
                             </p>
                         </div>
                         <div class="params-wrap">
@@ -2464,40 +2465,23 @@ publish_response_size = true</code></pre>
                                 <div class="param-info">
                                     <div>
                                         <p>
-                                            <span class="param-type string"> string </span>
+                                            <span class="param-type string"> boolean </span>
                                             <span class="badge-required">Required</span>
                                         </p>
                                         <div class="param-default">
-                                            <span class="param-default-value">Default: <code>FALSE</code></span>
+                                            <span class="param-default-value">Default: <code>false</code></span>
                                         </div>
-                                        
+                                        <div class="param-possible">
+                                            <span class="param-possible-values">Possible Values: <code>TRUE | FALSE</code></span>
+                                        </div>
                                     </div>
                                     <div class="param-description">
-                                        <p>Set TRUE to enable analytics in API Manager</p>
+                                        <p>Enable or disable Analytics in API Manager.</p>
                                     </div>
                                 </div>
                             </div><div class="param">
                                 <div class="param-name">
-                                  <span class="param-name-wrap"> <code>store_api_url</code> </span>
-                                </div>
-                                <div class="param-info">
-                                    <div>
-                                        <p>
-                                            <span class="param-type string"> string </span>
-                                            <span class="badge-required">Required</span>
-                                        </p>
-                                        <div class="param-default">
-                                            <span class="param-default-value">Default: <code>https://localhost:7444</code></span>
-                                        </div>
-                                        
-                                    </div>
-                                    <div class="param-description">
-                                        <p>The Store REST API URL for Analytics. If there are mutiple analytics node, use the loadbalancing URL</p>
-                                    </div>
-                                </div>
-                            </div><div class="param">
-                                <div class="param-name">
-                                  <span class="param-name-wrap"> <code>username</code> </span>
+                                  <span class="param-name-wrap"> <code>type</code> </span>
                                 </div>
                                 <div class="param-info">
                                     <div>
@@ -2506,118 +2490,34 @@ publish_response_size = true</code></pre>
                                             <span class="badge-required">Required</span>
                                         </p>
                                         <div class="param-default">
-                                            <span class="param-default-value">Default: <code>Credentials of the super admin user.</code></span>
+                                            <span class="param-default-value">Default: <code>moesif</code></span>
                                         </div>
-                                        
+                                        <div class="param-possible">
+                                            <span class="param-possible-values">Possible Values: <code>moesif, log</code></span>
+                                        </div>
                                     </div>
                                     <div class="param-description">
-                                        <p>Credentials of the super admin user, in the analytics node</p>
+                                        <p>Analytics provider type. For API-M 4.6.0+, use &#39;moesif&#39; or &#39;log&#39;.</p>
                                     </div>
                                 </div>
-                            </div><div class="param">
+                            </div>
+                        </div><div class="config-wrap">
+                            <code>[apim.analytics.properties]</code>
+                            <span class="badge-required">Required</span>
+                            <p>
+                                Provider-specific properties for the selected analytics type.
+                            </p>
+                        </div>
+                        <div class="params-wrap">
+                            <div class="param">
                                 <div class="param-name">
-                                  <span class="param-name-wrap"> <code>password</code> </span>
+                                  <span class="param-name-wrap"> <code>moesifKey</code> </span>
                                 </div>
                                 <div class="param-info">
                                     <div>
                                         <p>
                                             <span class="param-type string"> string </span>
                                             <span class="badge-required">Required</span>
-                                        </p>
-                                        <div class="param-default">
-                                            <span class="param-default-value">Default: <code>Credentials of the super admin user.</code></span>
-                                        </div>
-                                        
-                                    </div>
-                                    <div class="param-description">
-                                        <p>Credentials of the super admin user, in the analytics node</p>
-                                    </div>
-                                </div>
-                            </div><div class="param">
-                                <div class="param-name">
-                                  <span class="param-name-wrap"> <code>receiver_username</code> </span>
-                                </div>
-                                <div class="param-info">
-                                    <div>
-                                        <p>
-                                            <span class="param-type string"> string </span>
-                                            
-                                        </p>
-                                        <div class="param-default">
-                                            <span class="param-default-value">Default: <code>Uses the &quot;apim.analytics.username&quot;</code></span>
-                                        </div>
-                                        
-                                    </div>
-                                    <div class="param-description">
-                                        <p>Change this if a specific user is required for event publishing.</p>
-                                    </div>
-                                </div>
-                            </div><div class="param">
-                                <div class="param-name">
-                                  <span class="param-name-wrap"> <code>receiver_password</code> </span>
-                                </div>
-                                <div class="param-info">
-                                    <div>
-                                        <p>
-                                            <span class="param-type string"> string </span>
-                                            
-                                        </p>
-                                        <div class="param-default">
-                                            <span class="param-default-value">Default: <code>Uses the &quot;apim.analytics.password&quot;</code></span>
-                                        </div>
-                                        
-                                    </div>
-                                    <div class="param-description">
-                                        <p>Change this if a specific user is required for event publishing.</p>
-                                    </div>
-                                </div>
-                            </div><div class="param">
-                                <div class="param-name">
-                                  <span class="param-name-wrap"> <code>store_api_username</code> </span>
-                                </div>
-                                <div class="param-info">
-                                    <div>
-                                        <p>
-                                            <span class="param-type string"> string </span>
-                                            
-                                        </p>
-                                        <div class="param-default">
-                                            <span class="param-default-value">Default: <code>use apim.analytics.username</code></span>
-                                        </div>
-                                        
-                                    </div>
-                                    <div class="param-description">
-                                        <p>Change this if a specific user is required to access the Store REST API.</p>
-                                    </div>
-                                </div>
-                            </div><div class="param">
-                                <div class="param-name">
-                                  <span class="param-name-wrap"> <code>store_api_password</code> </span>
-                                </div>
-                                <div class="param-info">
-                                    <div>
-                                        <p>
-                                            <span class="param-type string"> string </span>
-                                            
-                                        </p>
-                                        <div class="param-default">
-                                            <span class="param-default-value">Default: <code>use apim.analytics.password</code></span>
-                                        </div>
-                                        
-                                    </div>
-                                    <div class="param-description">
-                                        <p>Change this if a specific user is required to access the Store REST API.</p>
-                                    </div>
-                                </div>
-                            </div><div class="param">
-                                <div class="param-name">
-                                  <span class="param-name-wrap"> <code>event_publisher_impl</code> </span>
-                                </div>
-                                <div class="param-info">
-                                    <div>
-                                        <p>
-                                            <span class="param-type string"> string </span>
-                                            
                                         </p>
                                         <div class="param-default">
                                             <span class="param-default-value">Default: <code></code></span>
@@ -2625,14 +2525,12 @@ publish_response_size = true</code></pre>
                                         
                                     </div>
                                     <div class="param-description">
-                                        <p>If you have defined a custom &quot;event_publisher_type&quot;, the custom publisher needs to be defined to the following value 
-
- &#39;event_publisher_impl = &quot;org.wso2.carbon.apimgt.usage.publisher.APIMgtUsageDataBridgeDataPublisher&quot;</p>
+                                        <p>Moesif API key used to authenticate ingestion. (Only when type is &#39;moesif&#39;)</p>
                                     </div>
                                 </div>
                             </div><div class="param">
                                 <div class="param-name">
-                                  <span class="param-name-wrap"> <code>publish_response_size</code> </span>
+                                  <span class="param-name-wrap"> <code>moesif_base_url</code> </span>
                                 </div>
                                 <div class="param-info">
                                     <div>
@@ -2641,12 +2539,54 @@ publish_response_size = true</code></pre>
                                             
                                         </p>
                                         <div class="param-default">
-                                            <span class="param-default-value">Default: <code>FALSE</code></span>
+                                            <span class="param-default-value">Default: <code>https://api.moesif.net</code></span>
                                         </div>
                                         
                                     </div>
                                     <div class="param-description">
-                                        <p>Set TRUE to enable and define size of the publisher response sent to Analytics. Size is set bytes.</p>
+                                        <p>Base URL of the Moesif ingestion endpoint. (Only when type is &#39;moesif&#39;)</p>
+                                    </div>
+                                </div>
+                            </div><div class="param">
+                                <div class="param-name">
+                                  <span class="param-name-wrap"> <code>send_headers</code> </span>
+                                </div>
+                                <div class="param-info">
+                                    <div>
+                                        <p>
+                                            <span class="param-type string"> boolean </span>
+                                            
+                                        </p>
+                                        <div class="param-default">
+                                            <span class="param-default-value">Default: <code>false</code></span>
+                                        </div>
+                                        <div class="param-possible">
+                                            <span class="param-possible-values">Possible Values: <code>TRUE | FALSE</code></span>
+                                        </div>
+                                    </div>
+                                    <div class="param-description">
+                                        <p>If TRUE, include request/response headers in events sent to analytics.</p>
+                                    </div>
+                                </div>
+                            </div><div class="param">
+                                <div class="param-name">
+                                  <span class="param-name-wrap"> <code>build_response_message</code> </span>
+                                </div>
+                                <div class="param-info">
+                                    <div>
+                                        <p>
+                                            <span class="param-type string"> boolean </span>
+                                            
+                                        </p>
+                                        <div class="param-default">
+                                            <span class="param-default-value">Default: <code>false</code></span>
+                                        </div>
+                                        <div class="param-possible">
+                                            <span class="param-possible-values">Possible Values: <code>TRUE | FALSE</code></span>
+                                        </div>
+                                    </div>
+                                    <div class="param-description">
+                                        <p>If TRUE, response will be build and calculate the responseSize which will includes in response analytics event</p>
                                     </div>
                                 </div>
                             </div>
@@ -3455,8 +3395,7 @@ enable_token_hashing = false</code></pre>
                     <div class="mb-config-example">
 <pre><code class="toml">[apim.gateway_notification]
 enabled = true
-gateway_id = "gateway_00"
-</code></pre>
+gateway_id = "gateway_00"</code></pre>
                     </div>
                 </div>
                 <div class="doc-wrapper">
@@ -3533,8 +3472,7 @@ gateway_id = "gateway_00"
                 <div class="superfences-content">
                     <div class="mb-config-example">
 <pre><code class="toml">[apim.gateway_notification.heartbeat]
-notify_interval = "1m"
-</code></pre>
+notify_interval = "1m"</code></pre>
                     </div>
                 </div>
                 <div class="doc-wrapper">
@@ -3598,8 +3536,7 @@ retry_progression_factor = 2
 batch_processor_min_thread = 2
 batch_processor_max_thread = 8
 batch_processor_keep_alive = "1m"
-batch_processor_queue_size = 50
-</code></pre>
+batch_processor_queue_size = 50</code></pre>
                     </div>
                 </div>
                 <div class="doc-wrapper">
@@ -3809,8 +3746,7 @@ batch_processor_queue_size = 50
 <pre><code class="toml">[apim.gateway_notification.registration]
 max_retry_count = 5
 retry_duration = "10s"
-retry_progression_factor = 2
-</code></pre>
+retry_progression_factor = 2</code></pre>
                     </div>
                 </div>
                 <div class="doc-wrapper">
@@ -3906,7 +3842,6 @@ retry_progression_factor = 2
 <pre><code class="toml">[apim.gateway_notification.cleanup]
 expiry_time = "2m"
 data_retention_period = "30d"
-
 </code></pre>
                     </div>
                 </div>
@@ -16832,6 +16767,57 @@ password = "wso2carbon"</code></pre>
 
 
 
+
+<div class="mb-config-catalog">
+    <section>
+        <div class="mb-config-options">
+            <div class="superfences-tabs">
+            
+            <input name="112" type="checkbox" id="_tab_112">
+                <label class="tab-selector" for="_tab_112"><i class="icon fa fa-code"></i></label>
+                <div class="superfences-content">
+                    <div class="mb-config-example">
+<pre><code class="toml">[transport.receiver]
+enable = true
+tcpPort = 9611
+sslPort = 9711
+sslEnabledProtocols = "TLSv1,TLSv1.1,TLSv1.2"
+ciphers = "TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256,TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256"
+sslReceiverThreadPoolSize = 100
+tcpReceiverThreadPoolSize = 100
+
+[transport.binary.agent]
+queue_size = 32768
+batch_size = 200
+core_pool_size = 1
+socket_timeout_ms = 30000
+max_pool_size = 1
+keep_alive_time_in_pool = 20
+reconnection_interval = 30
+max_transport_pool_size = 250
+max_idle_connections = 250
+eviction_time_period = 5500
+min_idle_time_in_pool = 5000
+secure_max_transport_pool_size = 250
+secure_max_idle_connections = 250
+secure_eviction_time_period = 5500
+secure_min_idle_time_in_pool = 5000
+max_reconnection_interval = 3600
+</code></pre>
+                    </div>
+                </div>
+                <div class="doc-wrapper">
+                    <div class="mb-config">
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+
+
+
 ## API-M Basic auth configurations
 
 
@@ -16840,8 +16826,8 @@ password = "wso2carbon"</code></pre>
         <div class="mb-config-options">
             <div class="superfences-tabs">
             
-            <input name="111" type="checkbox" id="_tab_111">
-                <label class="tab-selector" for="_tab_111"><i class="icon fa fa-code"></i></label>
+            <input name="113" type="checkbox" id="_tab_113">
+                <label class="tab-selector" for="_tab_113"><i class="icon fa fa-code"></i></label>
                 <div class="superfences-content">
                     <div class="mb-config-example">
 <pre><code class="toml">[apim.basic_authenticator]
@@ -16936,6 +16922,122 @@ max_wait_millis = 30000
                                     </div>
                                     <div class="param-description">
                                         <p>Maximum time (in milliseconds) to wait for a connection from the pool when the pool is exhausted.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+
+
+
+## Synapse Artifact Generator Pool Configurations
+
+
+<div class="mb-config-catalog">
+    <section>
+        <div class="mb-config-options">
+            <div class="superfences-tabs">
+            
+            <input name="114" type="checkbox" id="_tab_114">
+                <label class="tab-selector" for="_tab_114"><i class="icon fa fa-code"></i></label>
+                <div class="superfences-content">
+                    <div class="mb-config-example">
+<pre><code class="toml">[apim.synapse_artifact_generator.thread_pool]
+core_pool_size = 4
+max_pool_size = 4
+keep_alive_time_ms = 60000
+queue_capacity = 50</code></pre>
+                    </div>
+                </div>
+                <div class="doc-wrapper">
+                    <div class="mb-config">
+                        <div class="config-wrap">
+                            <code>[synapse_artifact_generator_pool]</code>
+                            
+                            <p>
+                                This configuration is available from WSO2 API Manager (API-M) 4.0 - update level 368 onwards. Defines the settings for the dedicated thread pool used for parallel synapse artifact generation. Proper tuning of these parameters is recommended based on the Control Plane server's hardware (CPU cores, memory) and the expected load (number of APIs, artifact size).
+                            </p>
+                        </div>
+                        <div class="params-wrap">
+                            <div class="param">
+                                <div class="param-name">
+                                  <span class="param-name-wrap"> <code>core_pool_size</code> </span>
+                                </div>
+                                <div class="param-info">
+                                    <div>
+                                        <p>
+                                            <span class="param-type string"> integer </span>
+                                            
+                                        </p>
+                                        <div class="param-default">
+                                            <span class="param-default-value">Default: <code>4</code></span>
+                                        </div>
+                                        
+                                    </div>
+                                    <div class="param-description">
+                                        <p>The initial number of threads to keep in the pool, even if they are idle. For CPU-intensive tasks like artifact generation, setting this close to the number of available CPU cores is often optimal for stability, especially on lower-resource machines.</p>
+                                    </div>
+                                </div>
+                            </div><div class="param">
+                                <div class="param-name">
+                                  <span class="param-name-wrap"> <code>max_pool_size</code> </span>
+                                </div>
+                                <div class="param-info">
+                                    <div>
+                                        <p>
+                                            <span class="param-type string"> integer </span>
+                                            
+                                        </p>
+                                        <div class="param-default">
+                                            <span class="param-default-value">Default: <code>4</code></span>
+                                        </div>
+                                        
+                                    </div>
+                                    <div class="param-description">
+                                        <p>The maximum number of threads allowed in the pool. When the queue is full and the current number of threads is less than max_pool_size, the pool will create new threads to handle the load. For CPU-bound tasks, setting this significantly higher than the number of CPU cores can lead to performance degradation due to context switching. Setting it equal to core_pool_size creates a fixed-size pool.</p>
+                                    </div>
+                                </div>
+                            </div><div class="param">
+                                <div class="param-name">
+                                  <span class="param-name-wrap"> <code>keep_alive_time_ms</code> </span>
+                                </div>
+                                <div class="param-info">
+                                    <div>
+                                        <p>
+                                            <span class="param-type string"> integer </span>
+                                            
+                                        </p>
+                                        <div class="param-default">
+                                            <span class="param-default-value">Default: <code>60000</code></span>
+                                        </div>
+                                        
+                                    </div>
+                                    <div class="param-description">
+                                        <p>When the number of threads is greater than the core_pool_size, this is the maximum time (in milliseconds) that excess idle threads will wait for new tasks before terminating. This allows the pool to shrink during idle periods, saving resources. This setting has no effect if core_pool_size is equal to max_pool_size.</p>
+                                    </div>
+                                </div>
+                            </div><div class="param">
+                                <div class="param-name">
+                                  <span class="param-name-wrap"> <code>queue_capacity</code> </span>
+                                </div>
+                                <div class="param-info">
+                                    <div>
+                                        <p>
+                                            <span class="param-type string"> integer </span>
+                                            
+                                        </p>
+                                        <div class="param-default">
+                                            <span class="param-default-value">Default: <code>50</code></span>
+                                        </div>
+                                        
+                                    </div>
+                                    <div class="param-description">
+                                        <p>The size of the queue used to hold tasks before they are executed. A bounded queue prevents the system from running out of memory under high load. When the queue is full and the max_pool_size is reached, the rejection policy (CallerRunsPolicy) is triggered, providing back-pressure. A smaller queue applies back-pressure sooner, prioritizing stability, while a larger queue can absorb larger bursts but increases memory usage.</p>
                                     </div>
                                 </div>
                             </div>
