@@ -130,6 +130,66 @@ If you are using an authenticated Redis server, you should add the following con
       ssl = true
       ```
 
+## Configuring proxy profiles for OAuth token endpoint connections
+
+OAuth token endpoint connections can be configured to use proxy servers for improved security and network control. You can configure proxy profiles globally in WSO2 API Manager to route OAuth token endpoint requests through proxy servers.
+
+Add the following configuration to the `<API-M_HOME>/repository/conf/deployment.toml` file:
+
+=== "Format"
+      ```toml
+      [apim.proxy_config]
+      enable = true
+      host = "<proxy-server-hostname>"
+      port = "<proxy-server-port>"
+      nonProxyHosts = "<comma-separated-list-of-non-proxy-hosts>"
+      protocol = "<proxy-protocol>"
+      targetProxyHosts = "<comma-separated-list-of-target-hosts>"
+      ```
+
+=== "Example"
+      ```toml
+      [apim.proxy_config]
+      enable = true
+      host = "127.0.0.1"
+      port = "8080"
+      nonProxyHosts = "localhost|127.0.0.1|10.*.*.*|\\*.example.org"
+      protocol = "http"
+      targetProxyHosts = "am.wso2.com"
+      ```
+
+<table>
+<tbody>
+   <tr>
+      <td>`enable`</td>
+      <td>Enables or disables the proxy configuration. Set to `true` to enable proxy usage.</td>
+   </tr>
+   <tr>
+      <td>`host`</td>
+      <td>The hostname or IP address of the proxy server.</td>
+   </tr>
+   <tr>
+      <td>`port`</td>
+      <td>The port number of the proxy server.</td>
+   </tr>
+   <tr>
+      <td>`nonProxyHosts`</td>
+      <td>A pipe-separated list of hosts that should bypass the proxy. Use patterns like `*.example.org` for wildcard matching.</td>
+   </tr>
+   <tr>
+      <td>`protocol`</td>
+      <td>The protocol used to communicate with the proxy server (e.g., `http` or `https`).</td>
+   </tr>
+   <tr>
+      <td>`targetProxyHosts`</td>
+      <td>A comma-separated list of target hosts that should use the proxy configuration for OAuth token endpoint connections.</td>
+   </tr>
+</tbody>
+</table>
+
+!!! note
+    The `targetProxyHosts` property is available from Update Level 187 and later versions.
+
 ## Configuring a dedicated trust store for OAuth token endpoint connections
 
 By default, OAuth token endpoint connections use the existing SSL context in the system. If you want to configure a separate trust store for the OAuth token endpoint connection, you can use the following configuration.
