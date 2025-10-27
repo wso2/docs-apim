@@ -2729,7 +2729,8 @@ password = "$ref{super_admin.password}"
 pool.init_idle_capacity = 50
 pool.max_idle = 100
 key_validation_handler_type = "custom"
-key_validation_handler_impl = "org.wso2.carbon.apimgt.keymgt.handlers.DefaultKeyValidationHandler"</code></pre>
+key_validation_handler_impl = "org.wso2.carbon.apimgt.keymgt.handlers.DefaultKeyValidationHandler"
+enable_application_scopes_for_resident_km = false</code></pre>
                     </div>
                 </div>
                 <div class="doc-wrapper">
@@ -2875,6 +2876,27 @@ key_validation_handler_impl = "org.wso2.carbon.apimgt.keymgt.handlers.DefaultKey
                                     </div>
                                     <div class="param-description">
                                         <p>You can provide a custom key validation handler implmentation. To do this, set the &quot;key_validation_handler_type&quot; to custom</p>
+                                    </div>
+                                </div>
+                            </div><div class="param">
+                                <div class="param-name">
+                                  <span class="param-name-wrap"> <code>disable_retrieve_key_mapping</code> </span>
+                                </div>
+                                <div class="param-info">
+                                    <div>
+                                        <p>
+                                            <span class="param-type string"> boolean </span>
+                                            
+                                        </p>
+                                        <div class="param-default">
+                                            <span class="param-default-value">Default: <code>false</code></span>
+                                        </div>
+                                        <div class="param-possible">
+                                            <span class="param-possible-values">Possible Values: <code>true,false</code></span>
+                                        </div>
+                                    </div>
+                                    <div class="param-description">
+                                        <p>Disables the retrieval of key mapping from the internal API when subscription validation is disabled.</p>
                                     </div>
                                 </div>
                             </div>
@@ -16074,6 +16096,123 @@ use_username_as_sub_claim = true
                                     </div>
                                     <div class="param-description">
                                         <p>Use username as the subject claim of application tokens instead of userId.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+
+
+
+## API-M Basic auth configurations
+
+
+<div class="mb-config-catalog">
+    <section>
+        <div class="mb-config-options">
+            <div class="superfences-tabs">
+            
+            <input name="106" type="checkbox" id="_tab_106">
+                <label class="tab-selector" for="_tab_106"><i class="icon fa fa-code"></i></label>
+                <div class="superfences-content">
+                    <div class="mb-config-example">
+<pre><code class="toml">[apim.basic_authenticator]
+init_idle_capacity = 20
+max_idle = 50
+max_active = 100
+max_wait_millis = 30000
+</code></pre>
+                    </div>
+                </div>
+                <div class="doc-wrapper">
+                    <div class="mb-config">
+                        <div class="config-wrap">
+                            <code>[apim.basic_authenticator]</code>
+                            
+                            <p>
+                                This includes configuration for basic authenticator client pool mechanism to access Axis2 services. The client pool prevents intermittent 500 server errors by managing client connections efficiently.
+                            </p>
+                        </div>
+                        <div class="params-wrap">
+                            <div class="param">
+                                <div class="param-name">
+                                  <span class="param-name-wrap"> <code>init_idle_capacity</code> </span>
+                                </div>
+                                <div class="param-info">
+                                    <div>
+                                        <p>
+                                            <span class="param-type string"> integer </span>
+                                            
+                                        </p>
+                                        <div class="param-default">
+                                            <span class="param-default-value">Default: <code>20</code></span>
+                                        </div>
+                                        
+                                    </div>
+                                    <div class="param-description">
+                                        <p>Initial number of idle connections to maintain in the client pool.</p>
+                                    </div>
+                                </div>
+                            </div><div class="param">
+                                <div class="param-name">
+                                  <span class="param-name-wrap"> <code>max_idle</code> </span>
+                                </div>
+                                <div class="param-info">
+                                    <div>
+                                        <p>
+                                            <span class="param-type string"> integer </span>
+                                            
+                                        </p>
+                                        <div class="param-default">
+                                            <span class="param-default-value">Default: <code>50</code></span>
+                                        </div>
+                                        
+                                    </div>
+                                    <div class="param-description">
+                                        <p>Maximum number of idle connections that can be maintained in the pool.</p>
+                                    </div>
+                                </div>
+                            </div><div class="param">
+                                <div class="param-name">
+                                  <span class="param-name-wrap"> <code>max_active</code> </span>
+                                </div>
+                                <div class="param-info">
+                                    <div>
+                                        <p>
+                                            <span class="param-type string"> integer </span>
+                                            
+                                        </p>
+                                        <div class="param-default">
+                                            <span class="param-default-value">Default: <code>100</code></span>
+                                        </div>
+                                        
+                                    </div>
+                                    <div class="param-description">
+                                        <p>Maximum number of active connections that can be allocated from the pool at any given time.</p>
+                                    </div>
+                                </div>
+                            </div><div class="param">
+                                <div class="param-name">
+                                  <span class="param-name-wrap"> <code>max_wait_millis</code> </span>
+                                </div>
+                                <div class="param-info">
+                                    <div>
+                                        <p>
+                                            <span class="param-type string"> integer </span>
+                                            
+                                        </p>
+                                        <div class="param-default">
+                                            <span class="param-default-value">Default: <code>30000</code></span>
+                                        </div>
+                                        
+                                    </div>
+                                    <div class="param-description">
+                                        <p>Maximum time (in milliseconds) to wait for a connection from the pool when the pool is exhausted.</p>
                                     </div>
                                 </div>
                             </div>

@@ -1064,6 +1064,14 @@
                             "default": "",
                             "possible": "",
                             "description": "You can provide a custom key validation handler implmentation. To do this, set the \"key_validation_handler_type\" to custom"
+                        },
+                        {
+                            "name": "disable_retrieve_key_mapping",
+                            "type": "boolean",
+                            "required": false,
+                            "default": "false",
+                            "possible": "true,false",
+                            "description": "Disables the retrieval of key mapping from the internal API when subscription validation is disabled."
                         }
                     ]
                 },
@@ -5981,6 +5989,47 @@
                 }
             ],
             "exampleFile": "service_provider.toml"
+        },
+        {
+            "title": "API-M Basic auth configurations",
+            "options": [
+                {
+                    "name": "apim.basic_authenticator",
+                    "required": false,
+                    "description": "This includes configuration for basic authenticator client pool mechanism to access Axis2 services. The client pool prevents intermittent 500 server errors by managing client connections efficiently.",
+                    "params": [
+                        {
+                            "name": "init_idle_capacity",
+                            "type": "integer",
+                            "required": false,
+                            "default": "20",
+                            "description": "Initial number of idle connections to maintain in the client pool."
+                        },
+                        {
+                            "name": "max_idle",
+                            "type": "integer",
+                            "required": false,
+                            "default": "50",
+                            "description": "Maximum number of idle connections that can be maintained in the pool."
+                        },
+                        {
+                            "name": "max_active",
+                            "type": "integer",
+                            "required": false,
+                            "default": "100",
+                            "description": "Maximum number of active connections that can be allocated from the pool at any given time."
+                        },
+                        {
+                            "name": "max_wait_millis",
+                            "type": "integer",
+                            "required": false,
+                            "default": "30000",
+                            "description": "Maximum time (in milliseconds) to wait for a connection from the pool when the pool is exhausted."
+                        }
+                    ]
+                }
+            ],
+            "exampleFile": "basic_authenticator.toml"
         }
     ]
 }
