@@ -6011,6 +6011,24 @@
 			"item": [
 				{
 					"name": "Create a MCP server using an OpenAPI definition",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var response = JSON.parse(responseBody);",
+									"",
+									"if (response.id) {",
+									"    pm.collectionVariables.set(\"mcpServerId\", response.id);",
+									"}",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {},
+								"requests": {}
+							}
+						}
+					],
 					"protocolProfileBehavior": {
 						"disabledSystemHeaders": {}
 					},
@@ -6038,7 +6056,7 @@
 							"formdata": [
 								{
 									"key": "additionalProperties",
-									"value": "{\"name\":\"PizzaShackServer\",\"description\":\"This is a simple MCP Server for Pizza Shack online pizza delivery store.\",\"context\":\"/pizzashackserver\",\"version\":\"1.0.0\",\"transport\":[\"http\",\"https\"],\"tags\":[\"pizza\"],\"policies\":[\"Unlimited\"],\"securityScheme\":[\"oauth2\"],\"visibility\":\"PUBLIC\",\"businessInformation\":{\"businessOwner\":\"Jane Roe\",\"businessOwnerEmail\":\"marketing@pizzashack.com\",\"technicalOwner\":\"John Doe\",\"technicalOwnerEmail\":\"architecture@pizzashack.com\"},\"endpointConfig\":{\"endpoint_type\":\"http\",\"sandbox_endpoints\":{\"url\":\"https://localhost:9443/am/sample/pizzashack/v1/api/\"},\"production_endpoints\":{\"url\":\"https://localhost:9443/am/sample/pizzashack/v1/api/\"}},\"operations\":[{\"feature\":\"TOOL\",\"backendOperationMapping\":{\"backendId\":\"\",\"backendOperation\":{\"target\":\"/order/{orderId}\",\"verb\":\"GET\"}}},{\"feature\":\"TOOL\",\"backendOperationMapping\":{\"backendId\":\"\",\"backendOperation\":{\"target\":\"/order/{orderId}\",\"verb\":\"DELETE\"}}},{\"feature\":\"TOOL\",\"backendOperationMapping\":{\"backendId\":\"\",\"backendOperation\":{\"target\":\"/order/{orderId}\",\"verb\":\"PUT\"}}},{\"feature\":\"TOOL\",\"backendOperationMapping\":{\"backendId\":\"\",\"backendOperation\":{\"target\":\"/menu\",\"verb\":\"GET\"}}},{\"feature\":\"TOOL\",\"backendOperationMapping\":{\"backendId\":\"\",\"backendOperation\":{\"target\":\"/order\",\"verb\":\"POST\"}}}]}",
+									"value": "{\"name\":\"SwaggerPetstore-OpenAPI3.0\",\"version\":\"1.0.27\",\"context\":\"swaggerpetstore-openapi3.0.0\",\"gatewayType\":\"wso2/synapse\",\"policies\":[\"Unlimited\"],\"operations\":[{\"feature\":\"TOOL\",\"backendOperationMapping\":{\"backendId\":\"\",\"backendOperation\":{\"target\":\"/pet\",\"verb\":\"PUT\"}}},{\"feature\":\"TOOL\",\"backendOperationMapping\":{\"backendId\":\"\",\"backendOperation\":{\"target\":\"/pet\",\"verb\":\"POST\"}}},{\"feature\":\"TOOL\",\"backendOperationMapping\":{\"backendId\":\"\",\"backendOperation\":{\"target\":\"/pet/findByStatus\",\"verb\":\"GET\"}}},{\"feature\":\"TOOL\",\"backendOperationMapping\":{\"backendId\":\"\",\"backendOperation\":{\"target\":\"/pet/findByTags\",\"verb\":\"GET\"}}},{\"feature\":\"TOOL\",\"backendOperationMapping\":{\"backendId\":\"\",\"backendOperation\":{\"target\":\"/pet/{petId}\",\"verb\":\"GET\"}}}],\"endpointConfig\":{\"endpoint_type\":\"http\",\"sandbox_endpoints\":{\"url\":\"https://petstore3.swagger.io/api/v3\"},\"production_endpoints\":{\"url\":\"https://petstore3.swagger.io/api/v3\"}}}",
 									"type": "text"
 								},
 								{
@@ -7815,7 +7833,7 @@
 		},
 		{
 			"key": "basepath",
-			"value": "https://localhost:9443/api/am/publisher/v4.3"
+			"value": "https://localhost:9443/api/am/publisher/v4.4"
 		},
 		{
 			"key": "documentId",
@@ -7959,7 +7977,7 @@
 		},
 		{
 			"key": "restAPIScopes",
-			"value": ""
+			"value": "apim:admin apim:api_create apim:api_definition_view apim:api_delete apim:api_generate_key apim:api_import_export apim:api_list_view apim:api_manage apim:api_mediation_policy_manage apim:api_product_import_export apim:api_publish apim:api_view apim:app_import_export apim:client_certificates_add apim:client_certificates_manage apim:client_certificates_update apim:client_certificates_view apim:comment_manage apim:comment_view apim:comment_write apim:common_operation_policy_manage apim:common_operation_policy_view apim:document_create apim:document_manage apim:ep_certificates_add apim:ep_certificates_manage apim:ep_certificates_update apim:ep_certificates_view apim:gateway_policy_manage apim:gateway_policy_view apim:gov_policy_read apim:gov_result_read apim:gov_rule_read apim:llm_provider_read apim:mcp_server_create apim:mcp_server_delete apim:mcp_server_generate_key apim:mcp_server_import_export apim:mcp_server_list_view apim:mcp_server_manage apim:mcp_server_publish apim:mcp_server_view apim:mediation_policy_create apim:mediation_policy_manage apim:mediation_policy_view apim:policies_import_export apim:pub_alert_manage apim:publisher_organization_read apim:publisher_settings apim:shared_scope_manage apim:subscription_approval_manage apim:subscription_approval_view apim:subscription_block apim:subscription_manage apim:subscription_view apim:threat_protection_policy_create apim:threat_protection_policy_manage apim:tier_manage apim:tier_view openid"
 		},
 		{
 			"key": "dcrEndpoint",

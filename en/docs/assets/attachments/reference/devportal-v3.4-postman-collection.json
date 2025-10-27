@@ -2467,7 +2467,7 @@
 	"variable": [
 		{
 			"key": "basepath",
-			"value": "https://localhost:9443/api/am/devportal/v3.3"
+			"value": "https://localhost:9443/api/am/devportal/v3.4"
 		},
 		{
 			"key": "apiId",
@@ -2583,7 +2583,7 @@
 		},
 		{
 			"key": "restAPIScopes",
-			"value": ""
+			"value": "apim:admin apim:api_key apim:app_import_export apim:app_manage apim:store_settings apim:sub_alert_manage apim:sub_manage apim:subscribe openid"
 		},
 		{
 			"key": "dcrEndpoint",

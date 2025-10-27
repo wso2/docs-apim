@@ -3036,6 +3036,7 @@
 			"listen": "prerequest",
 			"script": {
 				"type": "text/javascript",
+				"requests": {},
 				"exec": [
 					""
 				]
@@ -3045,6 +3046,7 @@
 			"listen": "test",
 			"script": {
 				"type": "text/javascript",
+				"requests": {},
 				"exec": [
 					""
 				]
@@ -3250,7 +3252,7 @@
 		},
 		{
 			"key": "restAPIScopes",
-			"value": "openid apim:policies_import_export apim:admin apim:tier_view apim:tier_manage apim:admin_tier_view apim:admin_tier_manage apim:bl_view apim:bl_manage apim:mediation_policy_view apim:mediation_policy_create apim:app_owner_change apim:app_import_export apim:api_import_export apim:api_product_import_export apim:environment_manage apim:environment_read apim:monetization_usage_publish apim:api_workflow_approve apim:bot_data apim:tenantInfo apim:tenant_theme_manage apim:admin_operations apim:api_category apim:admin_settings apim:admin_alert_manage apim:api_workflow_view apim:scope_manage apim:role_manage apim:admin_application_view apim:keymanagers_manage apim:api_provider_change apim:llm_provider_manage\n"
+			"value": "apim:admin apim:admin_alert_manage apim:admin_application_view apim:admin_operations apim:admin_settings apim:admin_tier_manage apim:admin_tier_view apim:api_category apim:api_import_export apim:api_product_import_export apim:api_provider_change apim:api_workflow_approve apim:api_workflow_view apim:app_import_export apim:app_owner_change apim:bl_manage apim:bl_view apim:bot_data apim:environment_manage apim:environment_read apim:gov_policy_manage apim:gov_policy_read apim:gov_result_read apim:gov_rule_manage apim:gov_rule_read apim:keymanagers_manage apim:llm_provider_manage apim:mediation_policy_create apim:mediation_policy_view apim:monetization_usage_publish apim:organization_manage apim:organization_read apim:policies_import_export apim:role_manage apim:scope_manage apim:tenantInfo apim:tenant_theme_manage apim:tier_manage apim:tier_view openid"
 		},
 		{
 			"key": "dcrEndpoint",
