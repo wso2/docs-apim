@@ -2729,7 +2729,8 @@ password = "$ref{super_admin.password}"
 pool.init_idle_capacity = 50
 pool.max_idle = 100
 key_validation_handler_type = "custom"
-key_validation_handler_impl = "org.wso2.carbon.apimgt.keymgt.handlers.DefaultKeyValidationHandler"</code></pre>
+key_validation_handler_impl = "org.wso2.carbon.apimgt.keymgt.handlers.DefaultKeyValidationHandler"
+enable_application_scopes_for_resident_km = false</code></pre>
                     </div>
                 </div>
                 <div class="doc-wrapper">
@@ -2896,6 +2897,27 @@ key_validation_handler_impl = "org.wso2.carbon.apimgt.keymgt.handlers.DefaultKey
                                     </div>
                                     <div class="param-description">
                                         <p>Enable the application scopes for the Resident Key Manager.</p>
+                                    </div>
+                                </div>
+                            </div><div class="param">
+                                <div class="param-name">
+                                  <span class="param-name-wrap"> <code>disable_retrieve_key_mapping</code> </span>
+                                </div>
+                                <div class="param-info">
+                                    <div>
+                                        <p>
+                                            <span class="param-type string"> boolean </span>
+                                            
+                                        </p>
+                                        <div class="param-default">
+                                            <span class="param-default-value">Default: <code>false</code></span>
+                                        </div>
+                                        <div class="param-possible">
+                                            <span class="param-possible-values">Possible Values: <code>true,false</code></span>
+                                        </div>
+                                    </div>
+                                    <div class="param-description">
+                                        <p>Disables the retrieval of key mapping from the internal API when subscription validation is disabled.</p>
                                     </div>
                                 </div>
                             </div>
@@ -3138,7 +3160,8 @@ default_request_timeout = 30</code></pre>
                 <div class="superfences-content">
                     <div class="mb-config-example">
 <pre><code class="toml">[apim.mcp]
-enable = true</code></pre>
+enable = true
+</code></pre>
                     </div>
                 </div>
                 <div class="doc-wrapper">
@@ -3358,7 +3381,8 @@ enable_token_hashing = false</code></pre>
                     <div class="mb-config-example">
 <pre><code class="toml">[apim.gateway_notification]
 enabled = true
-gateway_id = "gateway_00"</code></pre>
+gateway_id = "gateway_00"
+</code></pre>
                     </div>
                 </div>
                 <div class="doc-wrapper">
@@ -3435,7 +3459,8 @@ gateway_id = "gateway_00"</code></pre>
                 <div class="superfences-content">
                     <div class="mb-config-example">
 <pre><code class="toml">[apim.gateway_notification.heartbeat]
-notify_interval = "1m"</code></pre>
+notify_interval = "1m"
+</code></pre>
                     </div>
                 </div>
                 <div class="doc-wrapper">
@@ -3499,7 +3524,8 @@ retry_progression_factor = 2
 batch_processor_min_thread = 2
 batch_processor_max_thread = 8
 batch_processor_keep_alive = "1m"
-batch_processor_queue_size = 50</code></pre>
+batch_processor_queue_size = 50
+</code></pre>
                     </div>
                 </div>
                 <div class="doc-wrapper">
@@ -3709,7 +3735,8 @@ batch_processor_queue_size = 50</code></pre>
 <pre><code class="toml">[apim.gateway_notification.registration]
 max_retry_count = 5
 retry_duration = "10s"
-retry_progression_factor = 2</code></pre>
+retry_progression_factor = 2
+</code></pre>
                     </div>
                 </div>
                 <div class="doc-wrapper">
@@ -3805,6 +3832,7 @@ retry_progression_factor = 2</code></pre>
 <pre><code class="toml">[apim.gateway_notification.cleanup]
 expiry_time = "2m"
 data_retention_period = "30d"
+
 </code></pre>
                     </div>
                 </div>
@@ -17101,7 +17129,7 @@ max_reconnection_interval = 3600
 
 
 
-## OAuth token endpoint trust store configurations
+## API-M Basic auth configurations
 
 
 <div class="mb-config-catalog">
@@ -17111,6 +17139,123 @@ max_reconnection_interval = 3600
             
             <input name="111" type="checkbox" id="_tab_111">
                 <label class="tab-selector" for="_tab_111"><i class="icon fa fa-code"></i></label>
+                <div class="superfences-content">
+                    <div class="mb-config-example">
+<pre><code class="toml">[apim.basic_authenticator]
+init_idle_capacity = 20
+max_idle = 50
+max_active = 100
+max_wait_millis = 30000
+</code></pre>
+                    </div>
+                </div>
+                <div class="doc-wrapper">
+                    <div class="mb-config">
+                        <div class="config-wrap">
+                            <code>[apim.basic_authenticator]</code>
+                            
+                            <p>
+                                This includes configuration for basic authenticator client pool mechanism to access Axis2 services. The client pool prevents intermittent 500 server errors by managing client connections efficiently.
+                            </p>
+                        </div>
+                        <div class="params-wrap">
+                            <div class="param">
+                                <div class="param-name">
+                                  <span class="param-name-wrap"> <code>init_idle_capacity</code> </span>
+                                </div>
+                                <div class="param-info">
+                                    <div>
+                                        <p>
+                                            <span class="param-type string"> integer </span>
+                                            
+                                        </p>
+                                        <div class="param-default">
+                                            <span class="param-default-value">Default: <code>20</code></span>
+                                        </div>
+                                        
+                                    </div>
+                                    <div class="param-description">
+                                        <p>Initial number of idle connections to maintain in the client pool.</p>
+                                    </div>
+                                </div>
+                            </div><div class="param">
+                                <div class="param-name">
+                                  <span class="param-name-wrap"> <code>max_idle</code> </span>
+                                </div>
+                                <div class="param-info">
+                                    <div>
+                                        <p>
+                                            <span class="param-type string"> integer </span>
+                                            
+                                        </p>
+                                        <div class="param-default">
+                                            <span class="param-default-value">Default: <code>50</code></span>
+                                        </div>
+                                        
+                                    </div>
+                                    <div class="param-description">
+                                        <p>Maximum number of idle connections that can be maintained in the pool.</p>
+                                    </div>
+                                </div>
+                            </div><div class="param">
+                                <div class="param-name">
+                                  <span class="param-name-wrap"> <code>max_active</code> </span>
+                                </div>
+                                <div class="param-info">
+                                    <div>
+                                        <p>
+                                            <span class="param-type string"> integer </span>
+                                            
+                                        </p>
+                                        <div class="param-default">
+                                            <span class="param-default-value">Default: <code>100</code></span>
+                                        </div>
+                                        
+                                    </div>
+                                    <div class="param-description">
+                                        <p>Maximum number of active connections that can be allocated from the pool at any given time.</p>
+                                    </div>
+                                </div>
+                            </div><div class="param">
+                                <div class="param-name">
+                                  <span class="param-name-wrap"> <code>max_wait_millis</code> </span>
+                                </div>
+                                <div class="param-info">
+                                    <div>
+                                        <p>
+                                            <span class="param-type string"> integer </span>
+                                            
+                                        </p>
+                                        <div class="param-default">
+                                            <span class="param-default-value">Default: <code>30000</code></span>
+                                        </div>
+                                        
+                                    </div>
+                                    <div class="param-description">
+                                        <p>Maximum time (in milliseconds) to wait for a connection from the pool when the pool is exhausted.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+
+
+
+## OAuth token endpoint trust store configurations
+
+
+<div class="mb-config-catalog">
+    <section>
+        <div class="mb-config-options">
+            <div class="superfences-tabs">
+            
+            <input name="112" type="checkbox" id="_tab_112">
+                <label class="tab-selector" for="_tab_112"><i class="icon fa fa-code"></i></label>
                 <div class="superfences-content">
                     <div class="mb-config-example">
 <pre><code class="toml">[apim.mediator_config.oauth.trust_store]
