@@ -202,7 +202,7 @@ nav:
                     - Obtain User Profile Information with OpenID Connect: manage-apis/design/api-security/openid-connect/obtaining-user-profile-information-with-openid-connect.md
                 - Open Policy Agent (OPA) Validation:
                     - Overview: manage-apis/design/api-security/opa-validation/overview.md
-                    - Custom OPA Policy for Regualr Gateway: manage-apis/design/api-security/opa-validation/custom-opa-policy-for-regular-gateway.md
+                    - Custom OPA Policy for Regular Gateway: manage-apis/design/api-security/opa-validation/custom-opa-policy-for-regular-gateway.md
             - Rate Limiting:
                     - Throttling Use-Cases: manage-apis/design/rate-limiting/introducing-throttling-use-cases.md
                     - Add New Throttling Policies: manage-apis/design/rate-limiting/adding-new-throttling-policies.md
@@ -1180,7 +1180,7 @@ extra:
         helm_chart:
             version: 1.2.0-1
             git_tag: v1.2.0.1
-    site_version: 4.4.0
+    site_version: 4.6.0
     # base_path: http://localhost:8000/en/latest
     base_path: https://apim.docs.wso2.com/en/latest
     envoy_path: https://www.envoyproxy.io/docs/envoy/v1.24.1

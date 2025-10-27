@@ -14,7 +14,7 @@ APIM supports the configuration of crypto provider to either Bouncy Castle (defa
 
 ### Change the crypto provider to BCFIPS (Bouncy Castle FIPS)
 
-1. Run the script fips.sh or fips.bat in the <APIM-HOME>/bin directory before starting the server.
+1. Navigate to the `<APIM_HOME>/bin` directory and run the `fips.sh` or `fips.bat` script before starting the server.
 
     === "Linux/Mac OS"
         ``` java
