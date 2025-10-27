@@ -2443,7 +2443,7 @@ type = "moesif"
 
 [apim.analytics.properties]
 moesifKey = "estY2FtcGxlLW1vZXNpZi1rZXk="
-moesif_base_url = "https://api.moesif.com"
+moesif_base_url = "https://api.moesif.net"
 send_headers = false
 build_response_message = false</code></pre>
                     </div>
@@ -2539,7 +2539,7 @@ build_response_message = false</code></pre>
                                             
                                         </p>
                                         <div class="param-default">
-                                            <span class="param-default-value">Default: <code>https://api.moesif.com</code></span>
+                                            <span class="param-default-value">Default: <code>https://api.moesif.net</code></span>
                                         </div>
                                         
                                     </div>

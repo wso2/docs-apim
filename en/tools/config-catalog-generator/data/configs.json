@@ -934,7 +934,7 @@
                   "name": "moesif_base_url",
                   "type": "string",
                   "required": false,
-                  "default": "https://api.moesif.com",
+                  "default": "https://api.moesif.net",
                   "possible": "",
                   "description": "Base URL of the Moesif ingestion endpoint. (Only when type is 'moesif')"
                 },
