@@ -2629,7 +2629,8 @@ pool.init_idle_capacity = 50
 pool.max_idle = 100
 key_validation_handler_type = "default"
 key_validation_handler_type = "custom"
-key_validation_handler_impl = "org.wso2.carbon.apimgt.keymgt.handlers.DefaultKeyValidationHandler"</code></pre>
+key_validation_handler_impl = "org.wso2.carbon.apimgt.keymgt.handlers.DefaultKeyValidationHandler"
+enable_revoked_token_event_validation = false</code></pre>
                     </div>
                 </div>
                 <div class="doc-wrapper">
@@ -2775,6 +2776,25 @@ key_validation_handler_impl = "org.wso2.carbon.apimgt.keymgt.handlers.DefaultKey
                                     </div>
                                     <div class="param-description">
                                         <p>You can provide a custom key validation handler implmentation. To do this, set the &quot;key_validation_handler_type&quot; to custom</p>
+                                    </div>
+                                </div>
+                            </div><div class="param">
+                                <div class="param-name">
+                                  <span class="param-name-wrap"> <code>enable_revoked_token_event_validation</code> </span>
+                                </div>
+                                <div class="param-info">
+                                    <div>
+                                        <p>
+                                            <span class="param-type string"> boolan </span>
+                                            
+                                        </p>
+                                        <div class="param-default">
+                                            <span class="param-default-value">Default: <code>FALSE</code></span>
+                                        </div>
+                                        
+                                    </div>
+                                    <div class="param-description">
+                                        <p>This configuration is available from WSO2 API Manager (API-M) 4.0 - update level 363 onwards. When JWT token optimization is active in WSO2 Identity Server, events like user changes or application revocations are recorded in IS. With this configuration enabled, the API Manager Gateway can subscribe to these events and validate them during API invocation, ensuring that tokens that have been indirectly revoked are no longer granted access.</p>
                                     </div>
                                 </div>
                             </div>
@@ -14573,7 +14593,7 @@ enable_legacy_authentication = true</code></pre>
 
 
 
-## JWT Token Persistence Optimization configurations
+## Synapse Artifact Generator Pool Configurations
 
 
 <div class="mb-config-catalog">
@@ -14581,41 +14601,101 @@ enable_legacy_authentication = true</code></pre>
         <div class="mb-config-options">
             <div class="superfences-tabs">
             
-            <input name="21" type="checkbox" id="_tab_21">
-                <label class="tab-selector" for="_tab_21"><i class="icon fa fa-code"></i></label>
+            <input name="100" type="checkbox" id="_tab_100">
+                <label class="tab-selector" for="_tab_100"><i class="icon fa fa-code"></i></label>
                 <div class="superfences-content">
                     <div class="mb-config-example">
-<pre><code class="toml">[apim.key_manager]
-enable_revoked_token_event_validation = true
-</code></pre>
+<pre><code class="toml">[apim.synapse_artifact_generator.thread_pool]
+core_pool_size = 4
+max_pool_size = 4
+keep_alive_time_ms = 60000
+queue_capacity = 50</code></pre>
                     </div>
                 </div>
                 <div class="doc-wrapper">
                     <div class="mb-config">
                         <div class="config-wrap">
-                            <code>[apim.key_manager]</code>
+                            <code>[synapse_artifact_generator_pool]</code>
+                            
                             <p>
-                                
+                                This configuration is available from WSO2 API Manager (API-M) 4.0 - update level 371 onwards. Defines the settings for the dedicated thread pool used for parallel synapse artifact generation. Proper tuning of these parameters is recommended based on the Control Plane server's hardware (CPU cores, memory) and the expected load (number of APIs, artifact size).
                             </p>
                         </div>
                         <div class="params-wrap">
                             <div class="param">
                                 <div class="param-name">
-                                  <span class="param-name-wrap"> <code>enable_revoked_token_event_validation</code> </span>
+                                  <span class="param-name-wrap"> <code>core_pool_size</code> </span>
                                 </div>
                                 <div class="param-info">
                                     <div>
                                         <p>
-                                            <span class="param-type string"> boolean </span>
+                                            <span class="param-type string"> integer </span>
                                             
                                         </p>
                                         <div class="param-default">
-                                            <span class="param-default-value">Default: <code>FALSE</code></span>
+                                            <span class="param-default-value">Default: <code>4</code></span>
                                         </div>
                                         
                                     </div>
                                     <div class="param-description">
-                                        <p>This configuration is available from WSO2 API Manager (API-M) 4.0 - update level 363 onwards. When JWT token optimization is active in WSO2 Identity Server, events like user changes or application revocations are recorded in IS. With this configuration enabled, the API Manager Gateway can subscribe to these events and validate them during API invocation, ensuring that tokens that have been indirectly revoked are no longer granted access.</p>
+                                        <p>The initial number of threads to keep in the pool, even if they are idle. For CPU-intensive tasks like artifact generation, setting this close to the number of available CPU cores is often optimal for stability, especially on lower-resource machines.</p>
+                                    </div>
+                                </div>
+                            </div><div class="param">
+                                <div class="param-name">
+                                  <span class="param-name-wrap"> <code>max_pool_size</code> </span>
+                                </div>
+                                <div class="param-info">
+                                    <div>
+                                        <p>
+                                            <span class="param-type string"> integer </span>
+                                            
+                                        </p>
+                                        <div class="param-default">
+                                            <span class="param-default-value">Default: <code>4</code></span>
+                                        </div>
+                                        
+                                    </div>
+                                    <div class="param-description">
+                                        <p>The maximum number of threads allowed in the pool. When the queue is full and the current number of threads is less than max_pool_size, the pool will create new threads to handle the load. For CPU-bound tasks, setting this significantly higher than the number of CPU cores can lead to performance degradation due to context switching. Setting it equal to core_pool_size creates a fixed-size pool.</p>
+                                    </div>
+                                </div>
+                            </div><div class="param">
+                                <div class="param-name">
+                                  <span class="param-name-wrap"> <code>keep_alive_time_ms</code> </span>
+                                </div>
+                                <div class="param-info">
+                                    <div>
+                                        <p>
+                                            <span class="param-type string"> integer </span>
+                                            
+                                        </p>
+                                        <div class="param-default">
+                                            <span class="param-default-value">Default: <code>60000</code></span>
+                                        </div>
+                                        
+                                    </div>
+                                    <div class="param-description">
+                                        <p>When the number of threads is greater than the core_pool_size, this is the maximum time (in milliseconds) that excess idle threads will wait for new tasks before terminating. This allows the pool to shrink during idle periods, saving resources. This setting has no effect if core_pool_size is equal to max_pool_size.</p>
+                                    </div>
+                                </div>
+                            </div><div class="param">
+                                <div class="param-name">
+                                  <span class="param-name-wrap"> <code>queue_capacity</code> </span>
+                                </div>
+                                <div class="param-info">
+                                    <div>
+                                        <p>
+                                            <span class="param-type string"> integer </span>
+                                            
+                                        </p>
+                                        <div class="param-default">
+                                            <span class="param-default-value">Default: <code>50</code></span>
+                                        </div>
+                                        
+                                    </div>
+                                    <div class="param-description">
+                                        <p>The size of the queue used to hold tasks before they are executed. A bounded queue prevents the system from running out of memory under high load. When the queue is full and the max_pool_size is reached, the rejection policy (CallerRunsPolicy) is triggered, providing back-pressure. A smaller queue applies back-pressure sooner, prioritizing stability, while a larger queue can absorb larger bursts but increases memory usage.</p>
                                     </div>
                                 </div>
                             </div>
@@ -14626,7 +14706,4 @@ enable_revoked_token_event_validation = true
         </div>
     </section>
 </div>
-
-
-
 

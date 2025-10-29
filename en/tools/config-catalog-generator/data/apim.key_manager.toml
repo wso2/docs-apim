@@ -7,3 +7,4 @@ pool.max_idle = 100
 key_validation_handler_type = "default"
 key_validation_handler_type = "custom"
 key_validation_handler_impl = "org.wso2.carbon.apimgt.keymgt.handlers.DefaultKeyValidationHandler"
+enable_revoked_token_event_validation = false
