@@ -168,11 +168,11 @@ api_key_alias = "<custom-alias>"
 
 ### Configuring Certificate Rotation
 
-In WSO2 API Manager, API keys are signed by the Key Manager (KM) using a private key. The Gateway validates these tokens using the corresponding public certificate.
+In WSO2 API Manager, API keys are signed by the Control Plane (CP) using a private key. The Gateway validates these tokens using the corresponding public certificate.
 
 So, when rotating certificates, you must:
 - Generate a new key pair.
-- Update configs in both Key Manager and Gateway.
+- Update configs in both Control Plane and Gateway.
 - Ensure old tokens are still validated during the transition (grace period).
 
 In order to rotate the certificate,
@@ -182,14 +182,14 @@ In order to rotate the certificate,
     keytool -genkeypair -alias wso2carbon_new -keyalg RSA -keysize 2048 -validity 3650 -keystore wso2carbon.jks -storepass wso2carbon -keypass wso2carbon
     ```
 
-2. In `<API-M_HOME>/repository/conf/deployment.toml`, update the Key Manager config.
+2. In `<API-M_HOME>/repository/conf/deployment.toml`, update the Control Plane config.
 
     ```
     [keystore.primary]
     alias = "wso2carbon_new"`
     ```
 
-3. Restart the Key Manager node(s). From this point, newly issued tokens (API Keys) will be signed with the new key.
+3. Restart the Control Plane node(s). From this point, newly issued tokens (API Keys) will be signed with the new key.
 
 4. Add both keys (old and new) to the JWT truststore used by the Gateway. This ensures that tokens signed with the old certificate remain valid during the transition.
 
@@ -213,8 +213,6 @@ In order to rotate the certificate,
     [apim.devportal]
     api_key_alias = "new_cert"
     ```
-   
-7. Run curl -k `https://localhost:9443/oauth2/jwks` and check whether it show the new key as well.
 
 ### API key restriction for IP address and HTTP referrer
 
