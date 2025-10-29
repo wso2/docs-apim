@@ -14618,7 +14618,7 @@ queue_capacity = 50</code></pre>
                             <code>[synapse_artifact_generator_pool]</code>
                             
                             <p>
-                                This configuration is available from WSO2 API Manager (API-M) 4.0 - update level 368 onwards. Defines the settings for the dedicated thread pool used for parallel synapse artifact generation. Proper tuning of these parameters is recommended based on the Control Plane server's hardware (CPU cores, memory) and the expected load (number of APIs, artifact size).
+                                This configuration is available from WSO2 API Manager (API-M) 4.0 - update level 371 onwards. Defines the settings for the dedicated thread pool used for parallel synapse artifact generation. Proper tuning of these parameters is recommended based on the Control Plane server's hardware (CPU cores, memory) and the expected load (number of APIs, artifact size).
                             </p>
                         </div>
                         <div class="params-wrap">
