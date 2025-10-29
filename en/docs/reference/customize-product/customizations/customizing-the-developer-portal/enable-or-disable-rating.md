@@ -1,19 +1,20 @@
 # Enable or Disable Rating
 
-The star rating is enabled by default. You can disable the star rating by configuring the `userTheme.js` file.
+The star rating is enabled by default. You can disable the star rating by configuring the `userTheme.json` file.
 
-The `userTheme.js` file has all the parameters defining the look and feel of the developer portal. To learn more about `userTheme.js` refer [here]({{base_path}}/reference/customize-product/customizations/customizing-the-developer-portal/overriding-developer-portal-theme/#global-theming).
+The `defaultTheme.js` file has all the parameters defining the look and feel of the developer portal. To learn more about `defaultTheme.js` refer [here]({{base_path}}/reference/customize-product/customizations/customizing-the-developer-portal/overriding-developer-portal-theme/#global-theming).
 
-1. Open the `<API-M_HOME>/repository/deployment/server/webapps/devportal/site/public/theme/userTheme.js` file in a text editor and set the `themes.light.custom.social.showRating` attribute to `false` if you want to disable the star rating.
+1. Open the `<API-M_HOME>/repository/deployment/server/webapps/devportal/site/public/theme/userTheme.json` file in a text editor and set the `custom.social.showRating` attribute to `false` if you want to disable the star rating.
 
-    ```js
-    const Configurations = {
-        custom: {
-            social: {
-                showRating: false,
-            },
-        },
-    };
-    ```
+```json
+{
+    "custom": {
+        "social": {
+            "showRating": true
+        }
+    }
+}
+
+```
 
 2. Refresh the Developer Portal to view the changes.
