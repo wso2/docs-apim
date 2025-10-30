@@ -17,7 +17,7 @@ WSO2 API Manager (WSO2 API-M), as an OAuth 2.0 Authorization Server with its key
 ## Configuring the JWT grant
 
 !!! warning "WSO2 Identity Server Version Compatibility"
-    The steps in this guide are compatible with **WSO2 Identity Server 7.x**. If you are using an earlier version, the configuration steps and UI elements differ significantly. Please ensure you use IS 7.x to follow these instructions.
+    This guide provides instructions for both **WSO2 Identity Server 7.x** and **WSO2 Identity Server 6.1.0**. The configuration steps and UI elements differ significantly between these versions. By default, the IS 7.x instructions are shown. If you are using IS 6.1.0, expand the collapsible sections marked for IS 6.1.0.
 
 ### Step 1 - Obtain a JWT from an external Identity Provider 
 
@@ -33,19 +33,21 @@ You can use any identity provider to obtain a JWT. As an example, this step will
 
       `sh wso2server.sh -DportOffset=1`
 
-3. Sign in to the WSO2 IS Console (`https://<IS_Server_Host>:9443/console`). 
+3. Sign in to the WSO2 IS Console (`https://<IS_Server_Host>:9444/console`). 
 
      [![Sign in to WSO2 IS Console]({{base_path}}/assets/img/learn/api-security/oauth2/jwt-grant/7.x/sign-in-is-console.png)]({{base_path}}/assets/img/learn/api-security/oauth2/jwt-grant/7.x/sign-in-is-console.png)
 
 4. Go to **Applications** > **Applications** > **+ Add Application**.
 
-     [![Add Application]({{base_path}}/assets/img/learn/api-security/oauth2/jwt-grant/7.x/add-application.png)]({{base_path}}/assets/img/learn/api-security/oauth2/jwt-grant/7.x/add-application.png)
+     [![Add Application]({{base_path}}/assets/img/learn/api-security/oauth2/jwt-grant/7.x/is-console-add-application.png)]({{base_path}}/assets/img/learn/api-security/oauth2/jwt-grant/7.x/is-console-add-application.png)
 
 5. Select **Standard-Based Application**.
 
-     [![Select Standard-Based Application]({{base_path}}/assets/img/learn/api-security/oauth2/jwt-grant/7.x/oauth2-openid-connect.png)]({{base_path}}/assets/img/learn/api-security/oauth2/jwt-grant/7.x/oauth2-openid-connect.png)
+     [![Select Standard-Based Application]({{base_path}}/assets/img/learn/api-security/oauth2/jwt-grant/7.x/add-application.png)]({{base_path}}/assets/img/learn/api-security/oauth2/jwt-grant/7.x/add-application.png)
 
 6. Enter the name of the application and select **OAuth 2.0/OpenID Connect** as the protocol, then click **Register**.
+
+     [![Enter the name of Application]({{base_path}}/assets/img/learn/api-security/oauth2/jwt-grant/7.x/oauth2-openid-connect.png)]({{base_path}}/assets/img/learn/api-security/oauth2/jwt-grant/7.x/oauth2-openid-connect.png)
 
 7. In the application details, note the **Client ID** and **Client Secret**.
 
@@ -54,6 +56,49 @@ You can use any identity provider to obtain a JWT. As an example, this step will
 Now you have successfully created an OAuth2 application and obtained the client ID and client secret.
 
 Now you have configured a service provider in WSO2 IS that can be used [later](#using-the-jwt-grant) to obtain a JWT. In the next step, let's register an identity provider and create a service provider in WSO2 API-M.
+
+<details>
+  <summary><b>Steps for WSO2 Identity Server 6.1.0</b></summary><br/>
+  If you are using WSO2 Identity Server 6.1.0, follow these steps instead:
+
+  1. Download and install [WSO2 Identity Server 6.1.0](https://wso2.com/identity-server/).
+
+      If you downloaded the archive, extract it. `<IS_HOME>` refers to the root folder of the extracted WSO2 IS.
+
+  2. Start WSO2 IS with a port offset.
+
+      `portOffset` is required only if you are running both API-M and IS in the same JVM.
+
+      `sh wso2server.sh -DportOffset=1`
+
+  3. Sign in to the WSO2 IS Management Console (`https://<IS_Server_Host>:9444/carbon`).
+
+      [![Sign in to WSO2 IS Management Console]({{base_path}}/assets/img/learn/api-security/oauth2/jwt-grant/is-console.png)]({{base_path}}/assets/img/learn/api-security/oauth2/jwt-grant/is-console.png)
+
+  4. Click **Main** --> **Service Providers** --> **Add**.
+
+      <a href="{{base_path}}/assets/img/learn/api-security/oauth2/jwt-grant/add-service-provider-menu.png" >
+      <img src="{{base_path}}/assets/img/learn/api-security/oauth2/jwt-grant/add-service-provider-menu.png" alt="Add Service Provider Menu" title="Add Service Provider Menu" width="30%" />
+      </a>
+
+  5. Enter the name of the service provider and click **Register**.
+
+      [![Add Service Provider]({{base_path}}/assets/img/learn/api-security/oauth2/jwt-grant/create-external-sp.png)]({{base_path}}/assets/img/learn/api-security/oauth2/jwt-grant/create-external-sp.png)
+
+  6. Click **Inbound Authentication Configuration** --> **OAuth/OpenID Connect Configuration** --> **Configure** to add a new OAuth2 client.
+
+      [![Add Oauth app]({{base_path}}/assets/img/learn/api-security/oauth2/jwt-grant/add-oauth-app.png)]({{base_path}}/assets/img/learn/api-security/oauth2/jwt-grant/add-oauth-app.png)
+
+  7. Provide a **Callback URL** and set the **Token Issuer** as `JWT`, then click **Add**.
+
+      If you do not have a **Callback URL**, you can clear the **Code** and **Implicit** authorization grant types and add the OAuth2 client.
+
+      <a href="{{base_path}}/assets/img/learn/api-security/oauth2/jwt-grant/register-oauth-app.png" ><img src="{{base_path}}/assets/img/learn/api-security/oauth2/jwt-grant/register-oauth-app.png" alt="Register Oauth app" title="Register Oauth app"/></a>
+
+      Now you have successfully created an OAuth2 client and generated a consumer key and consumer secret for it.
+
+      [![OAuth app credentials]({{base_path}}/assets/img/learn/api-security/oauth2/jwt-grant/external-oauthapp-credentials.png)]({{base_path}}/assets/img/learn/api-security/oauth2/jwt-grant/external-oauthapp-credentials.png)
+</details>
 
 ### Step 2 - Configure an Identity Provider and a Service Provider in WSO2 API-M
 
@@ -64,7 +109,7 @@ Now you have configured a service provider in WSO2 IS that can be used [later](#
 3. Navigate to the **Identity Providers** section in the **Main** -> **Identity** section and click **Add.**
 
 4. Provide the following values to configure the Identity Provider.
-    -   **Identity Provider Name :** Enter the issuer name as the identity provider name. This is used to generate the JWT assertion. The issuer of a JWT generated by WSO2 IS is by default `https://localhost:9443/oauth2/token`.
+    -   **Identity Provider Name :** Enter the issuer name as the identity provider name. This is used to generate the JWT assertion. The issuer of a JWT generated by WSO2 IS is by default `https://localhost:9444/oauth2/token`.
     -   **Identity Provider Public Certificate :** Choose the radio button named **Upload IDP certificate** so that the field named **Identity Provider Public Certificate** will be enabled. This is the certificate which will be used to sign the JWT assertion.
 
         !!! info
@@ -93,7 +138,7 @@ Now you have configured a service provider in WSO2 IS that can be used [later](#
 
 5. Navigate to the **Service Providers** section in the **Main** -> **Identity** section and click **Add.**
 
-6. Fill in the **Service Provider Name** and provide a brief **Description** of the service provider. See [Adding a Service Provider](https://is.docs.wso2.com/en/6.1.0/guides/applications/register-sp/) for more information.
+6. Fill in the **Service Provider Name** and provide a brief **Description** of the service provider. See [Register a SAML2 web application](https://is.docs.wso2.com/en/latest/guides/authentication/saml-app-config-advanced/) for more information on application registration in IS 7.x.
 
 7. Expand the **OAuth/OpenID Connect Configuration** under Inbound Authentication Configuration and click **Configure.**
 
@@ -118,7 +163,7 @@ Now you have a registered identity provider and as well as a service provider wi
 
     === "Example"
         ``` java
-        curl -k -d "grant_type=password&username=admin&password=admin" -H "Authorization: Basic cEJ6dUlaaEdwaGZRbWRjVVgwbG5lRmlpdXh3YTo0U0pnV19qTU56aGpIU284OGJuZVhtTnFNMjRh" -H "Content-Type: application/x-www-form-urlencoded" https://localhost:9443/oauth2/token
+        curl -k -d "grant_type=password&username=admin&password=admin" -H "Authorization: Basic cEJ6dUlaaEdwaGZRbWRjVVgwbG5lRmlpdXh3YTo0U0pnV19qTU56aGpIU284OGJuZVhtTnFNMjRh" -H "Content-Type: application/x-www-form-urlencoded" https://localhost:9444/oauth2/token
         ```
 
     **Sample Response**
