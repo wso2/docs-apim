@@ -58,7 +58,7 @@ Let’s create an API in WSO2 API Manager.
 
 	 [![Create Healthcare API]({{base_path}}/assets/img/tutorials/create-healthcare-api.png){: style=width:80%}]({{base_path}}/assets/img/tutorials/create-healthcare-api.png)
 
-4.	Let’s add a new GET resource named `/queryDocter/{category}` to the REST API.
+4.	Let’s add a new GET resource named `/queryDoctor/{category}` to the REST API.
 
 	 [![Add GET resource]({{base_path}}/assets/img/tutorials/querydocter-resource.png)]({{base_path}}/assets/img/tutorials/querydocter-resource.png)
 
@@ -377,7 +377,7 @@ Now let’s add the developed backend service to the API.
 
 ## Step 8 - Deploy the API
 
-Depoly the `HealthcareAPI` REST API in the Gateway. For more information, see [Deploy an API]({{base_path}}/manage-apis/deploy-and-publish/deploy-on-gateway/deploy-api/deploy-an-api/#deploy-an-api).
+Deploy the `HealthcareAPI` REST API in the Gateway. For more information, see [Deploy an API]({{base_path}}/manage-apis/deploy-and-publish/deploy-on-gateway/deploy-api/deploy-an-api/#deploy-an-api).
 
 ## Step 9 - Start the backend service
 
