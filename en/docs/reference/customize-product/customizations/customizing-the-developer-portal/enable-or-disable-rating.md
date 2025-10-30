@@ -10,7 +10,7 @@ The `defaultTheme.js` file has all the parameters defining the look and feel of 
 {
     "custom": {
         "social": {
-            "showRating": true
+            "showRating": false
         }
     }
 }
