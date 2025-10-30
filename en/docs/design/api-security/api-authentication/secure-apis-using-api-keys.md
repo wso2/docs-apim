@@ -166,6 +166,54 @@ api_key_keystore = "APIKeyKeyStore"
 api_key_alias = "<custom-alias>"
 ```
 
+### Configuring Certificate Rotation
+
+In WSO2 API Manager, API keys are signed by the Control Plane (CP) using a private key. The Gateway validates these tokens using the corresponding public certificate.
+
+So, when rotating certificates, you must:
+- Generate a new key pair.
+- Update configs in both Control Plane and Gateway.
+- Ensure old tokens are still validated during the transition (grace period).
+
+In order to rotate the certificate,
+1. Generate a new key pair in the same keystore or a new one:
+
+    ```
+    keytool -genkeypair -alias wso2carbon_new -keyalg RSA -keysize 2048 -validity 3650 -keystore wso2carbon.jks -storepass wso2carbon -keypass wso2carbon
+    ```
+
+2. In `<API-M_HOME>/repository/conf/deployment.toml`, update the Control Plane config.
+
+    ```
+    [keystore.primary]
+    alias = "wso2carbon_new"`
+    ```
+
+3. Restart the Control Plane node(s). From this point, newly issued tokens (API Keys) will be signed with the new key.
+
+4. Add both keys (old and new) to the JWT truststore used by the Gateway. This ensures that tokens signed with the old certificate remain valid during the transition.
+
+5. Export the old certificate and import both into the Gateway truststore.
+
+    ```
+    # Export the old public certificate
+    keytool -export -alias wso2carbon -file old_cert.pem -keystore wso2carbon.jks -storepass wso2carbon
+    
+    # Export the new one
+    keytool -export -alias wso2carbon_new -file new_cert.pem -keystore wso2carbon.jks -storepass wso2carbon
+    
+    # Import both into the Gateway truststore
+    keytool -import -alias old_cert -file old_cert.pem -keystore client-truststore.jks -storepass wso2carbon
+    keytool -import -alias new_cert -file new_cert.pem -keystore client-truststore.jks -storepass wso2carbon
+    ```
+   
+6. Update the api_key_alias with the new alias given.
+
+    ```
+    [apim.devportal]
+    api_key_alias = "new_cert"
+    ```
+
 ### API key restriction for IP address and HTTP referrer
 
 After issuing an API key for an application, it can be used by anyone to invoke an API subscribed to the application. However, if an unauthorized party gets hold of the token, they can create unnecessary invocations to the APIs. To prevent this issue, you can define the authorized parties when generating a token. 
