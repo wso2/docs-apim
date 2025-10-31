@@ -4,33 +4,34 @@ The banner section is hidden by default. The banner section can be used to show 
 
  ![enable or disable banner]({{base_path}}/assets/img/learn/enable-or-disable-banner.png) 
 
-You can show a banner by configuring the `userTheme.js` file.
+You can show a banner by configuring the `userTheme.json` file.
 
-The `userTheme.js` file has all the parameters defining the look and feel of the developer portal. To learn more about `userTheme.js` refer [here]({{base_path}}/reference/customize-product/customizations/customizing-the-developer-portal/overriding-developer-portal-theme/#global-theming).
+The `defaultTheme.js` file has all the parameters defining the look and feel of the developer portal. To learn more about `defaultTheme.js` refer [here]({{base_path}}/reference/customize-product/customizations/customizing-the-developer-portal/overriding-developer-portal-theme/#global-theming).
 
-1. Open the `<API-M_HOME>/repository/deployment/server/webapps/devportal/site/public/theme/userTheme.js` file in a text editor and set the `themes.light.custom.banner.active` attribute as `true` to show the banner.
+1. Open the `<API-M_HOME>/repository/deployment/server/webapps/devportal/site/public/theme/userTheme.json` file in a text editor and set the `custom.banner.active` to `true` to display the banner.
 
 2. Refresh the Developer Portal to view the changes.
 
 ### The following attributes available for the banner
 
-```js
-const Configurations = {
-    custom: {
-        banner: {
-            active: true,
-            style: 'text',
-            image: '/site/public/images/landing/01.jpg',
-            text: 'This is a very important announcement',
-            color: '#ffffff',
-            background: '#e08a00',
-            padding: 20,
-            margin: 0,
-            fontSize: 18,
-            textAlign: 'center',
-        },
-    },
-};
+```json
+{
+    "custom": {
+        "banner": {
+            "active": true,
+            "style": "text",
+            "image": "/site/public/images/landing/01.jpg",
+            "text": "This is a very important announcement",
+            "color": "#ffffff",
+            "background": "#e08a00",
+            "padding": 20,
+            "margin": 0,
+            "fontSize": 18,
+            "textAlign": "center"
+        }
+    }
+}
+
 ```
 
 | Option | type | Description |

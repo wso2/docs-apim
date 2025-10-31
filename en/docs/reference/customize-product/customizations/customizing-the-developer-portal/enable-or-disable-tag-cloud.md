@@ -1,35 +1,35 @@
 # Enable or Disable Tag Cloud
 
-The tag cloud is enabled by default. You can disable the tag cloud by configuring the `userTheme.js` file.
+The tag cloud is enabled by default. You can disable the tag cloud by configuring the `userTheme.json` file.
 
-The `userTheme.js` file has all the parameters defining the look and feel of the developer portal. To learn more about `userTheme.js` refer [here]({{base_path}}/reference/customize-product/customizations/customizing-the-developer-portal/overriding-developer-portal-theme/#global-theming).
+The `defaultTheme.js` file has all the parameters defining the look and feel of the developer portal. To learn more about `defaultTheme.js` refer [here]({{base_path}}/reference/customize-product/customizations/customizing-the-developer-portal/overriding-developer-portal-theme/#global-theming).
 
-1. Open the `<API-M_HOME>/repository/deployment/server/webapps/devportal/site/public/theme/userTheme.js` file in a text editor and set the `themes.light.custom.tagCloud.active` attribute as `false`.
+1. Open the `<API-M_HOME>/repository/deployment/server/webapps/devportal/site/public/theme/userTheme.json` file in a text editor and set the `custom.tagCloud.active` attribute as `false`.
 
 2. Refresh the Developer Portal to view the changes.
 
-```js
-const Configurations = {
-    custom: {
-        tagCloud: {
-            active: true,
-            colorOptions: {
-                luminosity: 'dark',
-                hue: 'blue',
+```json
+{
+    "custom": {
+        "tagCloud": {
+            "active": true,
+            "colorOptions": {
+                "luminosity": "dark",
+                "hue": "blue"
             },
-            leftMenu: {
-                width: 200,
-                height: 'calc(100vh - 222px)',
-                background: '#d8e4e9',
-                color: '#000',
-                titleBackground: '#222',
-                sliderBackground: '#222',
-                sliderWidth: 25,
-                hasIcon: false,
-            },
-        },
-    },
-};
+            "leftMenu": {
+                "width": 200,
+                "height": "calc(100vh - 222px)",
+                "background": "#d8e4e9",
+                "color": "#000",
+                "titleBackground": "#222",
+                "sliderBackground": "#222",
+                "sliderWidth": 25,
+                "hasIcon": false
+            }
+        }
+    }
+}
 ```
 `leftMenu` object properties are applied only if the `tagCloud.style='fixed-left'`.
 
