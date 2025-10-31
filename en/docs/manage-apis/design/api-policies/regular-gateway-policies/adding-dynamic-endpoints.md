@@ -17,6 +17,10 @@ The default endpoint sends the message to the address specified in the **To** he
 In this example, you have constructed the `service_ep` property dynamically and assigned the value of this property to the **To** header. The default endpoint sends the message to the address specified in the **To** header, in this case, 
 `http://jsonplaceholder.typicode.com/posts/`. 
 
+## Adding the To Header Policy
+
+To implement the dynamic endpoint functionality, you need to create a custom API policy that sets the **To** header. Follow the steps below:
+
 !!! info
     The dynamic endpoint functionality is suitable for scenarios where the application client can send an attribute in the request correlating to the intended endpoint (such as an HTTP transport header or as part of the payload), which can be used in the mediation extension.
 
@@ -25,10 +29,6 @@ In this example, you have constructed the `service_ep` property dynamically and 
 
 !!! tip
     For more details about working with dynamic endpoints, see [Endpoint Types]({{base_path}}/manage-apis/design/endpoints/endpoint-types).
-
-## Adding the To Header Policy
-
-To implement the dynamic endpoint functionality, you need to create a custom API policy that sets the **To** header. Follow the steps below:
 
 ### Step 1: Create the Policy File
 
