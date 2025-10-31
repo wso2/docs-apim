@@ -117,10 +117,12 @@ Follow the instructions below to generate REST APIs in WSO2 API Manager for an e
      The generated API resources are added to the API, as shown below.
      [![Generated resources of SOAP backend]({{base_path}}/assets/img/learn/generated-resources-of-soap-backend.jpg)]({{base_path}}/assets/img/learn/generated-resources-of-soap-backend.jpg)
 
-7.  Click on a resource to view the In and Out sequences of the API.
-    [![In out sequences of generated rest API]({{base_path}}/assets/img/learn/in-out-sequences-of-generated-rest-api.jpg)]({{base_path}}/assets/img/learn/in-out-sequences-of-generated-rest-api.jpg)
+7.  View the generated mediation logic for the API.
 
-     The following sample shows the generated API In-sequence for a POST method.
+    !!! note "API Policies vs Legacy Sequences"
+        Starting from recent versions of WSO2 API Manager, the traditional **In/Out sequences view** has been deprecated and replaced with the more powerful **[API Policies]({{base_path}}/manage-apis/design/api-policies/overview/)** feature. The mediation logic for generated REST APIs from SOAP backends is now handled automatically by the system and can be customized using API Policies if needed.
+
+     The following sample shows the generated API mediation logic for a POST method that is automatically applied when you create a REST API from a SOAP backend:
 
      ``` xml
         <header description="SOAPAction" name="SOAPAction" scope="transport" value="http://ws.cdyne.com/PhoneVerify/query/CheckPhoneNumber"/>
@@ -152,4 +154,21 @@ Follow the instructions below to generate REST APIs in WSO2 API Manager for an e
      ```
 
     The incoming JSON message parameters are stored using properties. A payload factory mediator is used to generate the SOAP payload required for the backend.
+
+## Accessing API Policies for Custom Mediation
+
+If you need to customize the mediation logic for your generated REST API from SOAP backend, you can use the **API Policies** feature instead of the deprecated sequence view:
+
+1. Navigate to **API Configurations** → **Policies** in the API Publisher.
+2. From the **Policy List**, you can add pre-built policies or create custom policies for:
+   - **Request Flow**: Modify incoming requests before they reach the backend
+   - **Response Flow**: Transform responses before they are sent to the client  
+   - **Fault Flow**: Handle error scenarios
+
+3. For advanced mediation scenarios similar to the generated sequences shown above, create a **Custom Policy** using the mediation XML.
+
+!!! tip "Learn More About API Policies"
+    - [API Policies Overview]({{base_path}}/manage-apis/design/api-policies/overview/)
+    - [Create a Policy]({{base_path}}/manage-apis/design/api-policies/create-policy/)
+    - [Attach Policies]({{base_path}}/manage-apis/design/api-policies/attach-policy/)
 
