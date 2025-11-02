@@ -25,7 +25,7 @@ The following are some of the main capabilities of the product.
 
 <div style="width: 100%; overflow: hidden;">
 
-<div class="leftContentOverview" style="width:75% !important;">Making your APIs easy to find will help you grow your customer base. You can use the WSO2 API Manager API Publisher to create categories or use tags to categorize the APIs. The API Developer Portal includes a text-full search engine that helps your customers find APIs easily.
+<div class="leftContentOverview" style="width:75% !important;">Making your APIs easy to find will help you grow your customer base. You can use the WSO2 API Manager's API Publisher to create categories or use tags to categorize the APIs. The API Developer Portal includes a full-text search engine that helps your customers find APIs easily.
     <ul>
         <li><a href="{{base_path}}/consume/discover-apis/search/">Search</li>
     </ul>
@@ -76,7 +76,7 @@ The following are some of the main capabilities of the product.
 
 <div style="width: 100%; overflow: hidden;">
 
-<div class="leftContentOverview" style="width:75% !important;">Balancing the load of your system is critical to avoid system outages. WSO2 API Manager provides the capability to add rate limiting policies to your APIs. Furthermore, you can use these policies to monetize your APIs and bring revenue to your organization.  
+<div class="leftContentOverview" style="width:75% !important;">Balancing the load of your system is critical to avoid system outages. WSO2 API Manager's provides the capability to add rate limiting policies to your APIs. Furthermore, you can use these policies to monetize your APIs and bring revenue to your organization.  
     <ul>
         <li><a href="{{base_path}}/manage-apis/design/rate-limiting/introducing-throttling-use-cases/">Rate limiting usecases</li>
     </ul>
@@ -93,7 +93,7 @@ The following are some of the main capabilities of the product.
 
 <div style="width: 100%; overflow: hidden;">
 
-<div class="leftContentOverview" style="width:75% !important;">WSO2 API Managers API Analytics Dashboard provides insights into your APIs. These insights can help you to understand your customers and make important strategic business decisions.
+<div class="leftContentOverview" style="width:75% !important;">WSO2 API Manager's API Analytics Dashboard provides insights into your APIs. These insights can help you to understand your customers and make important strategic business decisions.
     <ul>
         <li><a href="{{base_path}}/observe/observe-overview/">Observability</li>
         <li><a href="{{base_path}}/monitoring/api-analytics/choreo-analytics/getting-started-guide">API Manager Analytics</li>
