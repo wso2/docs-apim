@@ -327,6 +327,22 @@ Likewise, when <code>limit_java_native_object_access_in_scripts.list_type</code>
 <b>Note: This feature is enabled by default in APIM 4.6.0. </b>
 </td>
 </tr>
+<tr class="even" id="case-sensitive-user-store">
+<td><p>Configuring Case-Sensitive User Stores</p></td>
+<td>
+<p>
+If you are using a <b>case-sensitive</b> user store, it is important to configure the Developer Portal to handle usernames in a case-sensitive manner.  
+This ensures consistent username handling across components and prevents potential cross-user data sharing.
+Add the following configuration to the <code>deployment.toml</code> file:
+</p>
+<pre class="java" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence" style="brush: java; gutter: false; theme: Confluence">
+<code>
+[apim.devportal]
+login_username_case_insensitive = false
+</code>
+</pre>
+</td>
+</tr>
 </tbody>
 </table>
 
