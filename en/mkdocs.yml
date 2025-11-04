@@ -380,7 +380,7 @@ nav:
         - Proxy an Existing MCP Server: mcp/create-from-mcp-server.md
         - Update and Deploy a MCP Server: mcp/update-and-deploy-mcp-server.md
         - Subscribe to a MCP Server: mcp/subscribe-to-a-mcp-server.md
-        - Test with the MCP Playground: mcp/invoke-a-mcp-server-using-playground.md
+        - Consume MCP Servers from MCP Hub: mcp/invoke-a-mcp-server-using-playground.md
     - Governance:
         - Overview: governance/overview.md
         - Concepts: governance/governance-concept.md

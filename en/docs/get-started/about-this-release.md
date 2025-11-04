@@ -29,7 +29,7 @@ For more information on WSO2 API Manager, see the [overview]({{base_path}}/get-s
 
     The control plane can now function as a MCP Hub, enabling centralized discovery and reuse of MCP Servers across teams and environments.
 
-    **[Learn more]({{base_path}}/mcp/overview/)**
+    **[Learn more]({{base_path}}/mcp/invoke-a-mcp-server-using-playground/)**
 
 ??? note "Multi-Model AI Service Provider Support"
 
