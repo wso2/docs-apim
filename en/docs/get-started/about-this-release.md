@@ -184,8 +184,8 @@ This change improves scalability and simplifies deployment across distributed en
 
 ## Fixed issues
 
-- [API Manager](https://github.com/wso2/api-manager/issues?q=is%3Aissue%20is%3Aclosed%20label%3AComponent%2FAPIM%20label%3A4.6.0%2C4.6.0-M1%2C4.6.0-Alpha%2C4.6.0-Alpha2%2C4.6.0-Alpha3%2C4.6.0-Beta)
-- [API Controller](https://github.com/wso2/api-manager/issues?q=is%3Aissue%20is%3Aclosed%20label%3AComponent%2FAPICTL%20label%3A4.6.0%2C4.6.0-M1%2C4.6.0-Alpha%2C4.6.0-Alpha2%2C4.6.0-Alpha3%2C4.6.0-Beta)
+- [API Manager](https://github.com/wso2/api-manager/issues?q=is%3Aissue%20is%3Aclosed%20label%3AComponent%2FAPIM%20closed%3A2025-03-06..2025-10-28%20-label%3AResolution%2FInvalid%20-label%3AResolution%2FDuplicate%20-label%3A%22Resolution%2FNot%20a%20bug%22%20-label%3A%22Resolution%2FCannot%20Reproduce%22%20-label%3A%22Resolution%2FWon%E2%80%99t%20Fix%22)
+- [API Controller](https://github.com/wso2/api-manager/issues?q=is%3Aissue%20is%3Aclosed%20label%3AComponent%2FAPICTL%20closed%3A2025-03-06..2025-10-28%20-label%3AResolution%2FInvalid%20-label%3AResolution%2FDuplicate%20-label%3A%22Resolution%2FNot%20a%20bug%22%20-label%3A%22Resolution%2FCannot%20Reproduce%22%20-label%3A%22Resolution%2FWon%E2%80%99t%20Fix%22)
 
 ## Known issues
 
