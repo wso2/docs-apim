@@ -83,7 +83,7 @@ Open the `wso2am-4.x.x/repository/conf` directory. To enable logging for a repor
     The `apim_metrics.log` file be rolled each day or when the log size reaches the limit of 1000 MB by default. Furthermore, only 10 revisions will be kept and older revisions will be deleted automatically. You can change these configurations by updating the configurations provided in step 2 given above in this. section.
 
 !!! note
-    Following are the details that are available on analytics log events: 
+    The following are the details that are available on analytics log events: 
 
     `apim_event_response` -  This event will be triggered for each successful API invocation. When a API associated backend returns an error    response still it will be logged through this event.
 
