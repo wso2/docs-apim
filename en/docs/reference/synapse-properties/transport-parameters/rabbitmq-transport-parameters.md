@@ -400,12 +400,6 @@ present. If set to <code>false</code>, the Micro Integrator will assume that a q
 
 In your integration solution, the following RabbitMQ send parameters can be specified in the **Address URL** that you specify in your [Endpoint artifact]({{base_path}}/integrate/develop/creating-artifacts/creating-endpoints).
 
-**Format of the Address URL**:
-
-```
-rabbitmq:/<placeholder>?<query-parameter-name1>=<query-parameter-value1>&amp;<query-parameter-name2>=<query-parameter-value2>
-```
-
 **Example**:
 
 -   Design view of an address endpoint in WSO2 Integration Studio:
@@ -429,10 +423,6 @@ rabbitmq:/<placeholder>?<query-parameter-name1>=<query-parameter-value1>&amp;<qu
   <tr>
     <th>Parameter</th>
     <th>Description</th>
-  </tr>
-  <tr>
-    <td>placeholder</td>
-    <td>Specifies the routing key to use when both <code>rabbitmq.queue.name</code> and <code>rabbitmq.queue.routing.key</code> query parameters are not defined. Otherwise, it serves as a placeholder.</td>
   </tr>
   <tr>
     <td>rabbitmq.server.host.name</td>
