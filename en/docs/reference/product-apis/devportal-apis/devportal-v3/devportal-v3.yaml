@@ -101,7 +101,7 @@ info:
     * Update the `basepath` parameter to match the hostname and port of the APIM instance.
 
     <a href="../../../../../assets/attachments/reference/devportal-v3.4-postman-collection.json"
-    download="WSO2 API Manager 4.5.0 DevPortal REST API.postman_collection.json"
+    download="WSO2 API Manager 4.6.0 DevPortal REST API.postman_collection.json"
     style="display: inline-block; padding: 10px 15px; color: white; background-color: #ef5b25; text-align: center; text-decoration: none; border-radius: 5px;font-weight: bold;">
     Download Postman Collection
     </a>
@@ -112,7 +112,7 @@ info:
   license:
     name: Apache 2.0
     url: http://www.apache.org/licenses/LICENSE-2.0.html
-  version: v3.4
+  version: v3
 servers:
   - url: https://apis.wso2.com/api/am/devportal/v3
 ######################################################

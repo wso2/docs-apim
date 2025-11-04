@@ -101,7 +101,7 @@ info:
     * Update the `basepath` parameter to match the hostname and port of the APIM instance.
      
      <a href="../../../../../assets/attachments/reference/admin-v4.4-postman-collection.json"
-     download="WSO2 API Manager 4.5.0 Admin REST API.postman_collection.json"
+     download="WSO2 API Manager 4.6.0 Admin REST API.postman_collection.json"
      style="display: inline-block; padding: 10px 15px; color: white; background-color: #ef5b25; text-align: center; text-decoration: none; border-radius: 5px;font-weight: bold;">
      Download Postman Collection
      </a>
@@ -112,7 +112,7 @@ info:
   license:
     name: Apache 2.0
     url: http://www.apache.org/licenses/LICENSE-2.0.html
-  version: v4.4
+  version: v4
 servers:
   - url: https://apis.wso2.com/api/am/admin/v4
 paths:
@@ -5633,7 +5633,7 @@ components:
         count:
           type: integer
           description: |
-            Number of Organizationa returned.
+            Number of Organizations returned.
           example: 1
         list:
           type: array
