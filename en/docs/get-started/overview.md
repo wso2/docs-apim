@@ -76,7 +76,7 @@ The following are some of the main capabilities of the product.
 
 <div style="width: 100%; overflow: hidden;">
 
-<div class="leftContentOverview" style="width:75% !important;">Balancing the load of your system is critical to avoid system outages. WSO2 API Manager's provides the capability to add rate limiting policies to your APIs. Furthermore, you can use these policies to monetize your APIs and bring revenue to your organization.  
+<div class="leftContentOverview" style="width:75% !important;">Balancing the load of your system is critical to avoid system outages. WSO2 API Manager provides the capability to add rate limiting policies to your APIs. Furthermore, you can use these policies to monetize your APIs and bring revenue to your organization.  
     <ul>
         <li><a href="{{base_path}}/manage-apis/design/rate-limiting/introducing-throttling-use-cases/">Rate limiting usecases</li>
     </ul>
