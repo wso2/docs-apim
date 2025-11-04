@@ -1,6 +1,27 @@
-# Test a MCP Server Using the MCP Playground
+# Consume MCP Servers from MCP Hub
 
-WSO2 API Manager has an Integrated MCP Playground, which allows you to visualize the MCP Server schema and interact with MCP Server's tools.
+WSO2 API Manager can act as an MCP Hub, providing centralized discovery, management, and reuse of MCP Servers across teams and environments. When running as an MCP Hub, the API Manager Developer Portal exclusively works with MCP Servers — no APIs are available in this mode.
+
+## Configure WSO2 API Manager Developer Portal as a MCP Hub
+
+To configure the Developer Portal to operate in MCP-ONLY mode, add or update the following in `deployment.toml` and restart the server:
+
+```toml
+[apim.devportal]
+# Other existing configurations
+mode = "MCP_ONLY"
+```
+
+!!! tip
+    You can run the API Manager Developer Portal in different modes depending on your needs:
+
+    - MCP_ONLY — operate only with MCP Servers (pure MCP Hub).
+    - HYBRID — support both APIs and MCP Servers.
+    - API_ONLY — operate only with APIs.
+
+## Test MCP Servers using the Integrated MCP Playground
+
+The Integrated MCP Playground is a visual testing interface in the Developer Portal that lets you explore an MCP Server schema and invoke its tools directly.
 
 Follow the instructions below to use the MCP Playground to test a MCP Server:
 
@@ -30,7 +51,7 @@ The examples here use the `Petstore` MCP Server, which was created in [Create a 
 
     [![Connect to MCP Server in Playground]({{base_path}}/assets/img/mcp/mcp-playground-connect.png)]({{base_path}}/assets/img/mcp/mcp-playground-connect.png)
 
-    Once connected, you will see the available tools for the MCP Server. You can select and call individual tools by providing the parameters if necessary.
+    Once connected, you can click **List Tools** button to see the available tools of the MCP Server. You can select and call individual tools by providing the parameters if necessary.
 
 6. Expand a method and enter the values to test. Click on the execute button to invoke the tool.
 

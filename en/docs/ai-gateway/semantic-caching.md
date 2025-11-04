@@ -86,6 +86,7 @@ Follow these steps to integrate the Semantic Cache policy into your WSO2 API Man
     2. Add the Semantic Cache policy to both request and response flows with the following configuration:
 
     **Request Flow Configuration:**
+    
     | Field                         | Example Value              | Description |
     |-------------------------------|----------------------------|--------------------------------------------------------|
     | `Semantic Cache Policy Name`   | `SemanticCache`            | Unique name for the semantic cache policy |
@@ -93,6 +94,7 @@ Follow these steps to integrate the Semantic Cache policy into your WSO2 API Man
     | `JSONPath`                    | `$.messages[-1].content`   | JSONPath expression to extract content for semantic similarity checking|
 
     **Response Flow Configuration:**
+
     | Field                         | Example Value              | Description |
     |-------------------------------|----------------------------|--------------------------------------------------------|
     | `Semantic Cache Policy Name`   | `SemanticCache`            | Unique name for the semantic cache policy (should match request flow) |
