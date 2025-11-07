@@ -1193,6 +1193,13 @@ plugins:
               'deploy-and-publish/deploy-on-gateway/api-gateway/message-tracing.md': 'https://apim.docs.wso2.com/en/4.4.0/get-started/about-this-release/#removed-features-and-functionalities'
               'develop/customizations/customizing-the-developer-portal/customize-api-listing/categorizing-and-grouping-apis/api-category-based-grouping.md': 'https://apim.docs.wso2.com/en/4.4.0/reference/customize-product/customizations/customizing-the-developer-portal/customize-api-listing/api-category-based-grouping/'
               'administer/logging-and-monitoring/logging/configuring-logging.md': 'https://apim.docs.wso2.com/en/4.4.0/observe/api-manager/configuring-logging/'
+              'mcp/overview.md': 'https://apim.docs.wso2.com/en/4.6.0/mcp-gateway/overview/'
+              'mcp/create-from-api.md': 'https://apim.docs.wso2.com/en/4.6.0/mcp-gateway/create-from-api/'
+              'mcp/create-from-openapi.md': 'https://apim.docs.wso2.com/en/4.6.0/mcp-gateway/create-from-openapi/'
+              'mcp/create-from-mcp-server.md': 'https://apim.docs.wso2.com/en/4.6.0/mcp-gateway/create-from-mcp-server/'
+              'mcp/update-and-deploy-mcp-server.md': 'https://apim.docs.wso2.com/en/4.6.0/mcp-gateway/update-and-deploy-mcp-server/'
+              'mcp/subscribe-to-a-mcp-server.md': 'https://apim.docs.wso2.com/en/4.6.0/mcp-gateway/subscribe-to-a-mcp-server/'
+              'mcp/invoke-a-mcp-server-using-playground.md': 'https://apim.docs.wso2.com/en/4.6.0/mcp-gateway/invoke-a-mcp-server-using-playground/'
     # Extra
 extra_css:
     - assets/lib/highlightjs/default.min.css
