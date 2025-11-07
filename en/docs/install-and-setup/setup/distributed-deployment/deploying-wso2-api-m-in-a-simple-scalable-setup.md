@@ -67,7 +67,7 @@ For more information, see [Creating SSL Certificates](../../../../install-and-se
 
 API Manager Analytics is delivered via the API Manager Analytics cloud solution. You need to configure the WSO2 Universal Gateway distribution to publish analytics data to the cloud.
 
-See the instructions on [configuring the Gateway](../../../../monitoring/api-analytics/choreo-analytics/getting-started-guide/) with the cloud-based analytics solution.
+See the instructions on [configuring the Gateway](../../../../monitoring/api-analytics/moesif-analytics/moesif-integration-guide/) with the cloud-based analytics solution.
 
 ### Step 6 - Configure and start the component nodes
 
