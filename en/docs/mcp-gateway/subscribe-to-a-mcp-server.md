@@ -10,7 +10,7 @@ If you already have an existing application, follow the instructions below to su
 
 1.  Sign in to the Developer Portal (`https://<hostname>:<port>/devportal`) and click on the MCP Server (e.g., `Petstore`) to go to the MCP Server overview.
 
-    [![MCP Server overview]({{base_path}}/assets/img/mcp/mcp-server-overview.png)]({{base_path}}/assets/img/mcp/mcp-server-overview.png)
+    [![MCP Server overview]({{base_path}}/assets/img/mcp-gateway/mcp-server-overview.png)]({{base_path}}/assets/img/mcp-gateway/mcp-server-overview.png)
         
 2.  Click **SUBSCRIBE TO AN APPLICATION**.
 

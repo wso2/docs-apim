@@ -374,13 +374,13 @@ nav:
         - Semantic Caching: ai-gateway/semantic-caching.md
         - AI APIs via SDKs: ai-gateway/using-proxy-apis-in-sdks.md
     - MCP Gateway:
-        - Overview: mcp/overview.md
-        - Create from an OpenAPI Definition: mcp/create-from-openapi.md
-        - Create from an Existing API: mcp/create-from-api.md
-        - Proxy an Existing MCP Server: mcp/create-from-mcp-server.md
-        - Update and Deploy a MCP Server: mcp/update-and-deploy-mcp-server.md
-        - Subscribe to a MCP Server: mcp/subscribe-to-a-mcp-server.md
-        - Consume MCP Servers from MCP Hub: mcp/invoke-a-mcp-server-using-playground.md
+        - Overview: mcp-gateway/overview.md
+        - Create from an OpenAPI Definition: mcp-gateway/create-from-openapi.md
+        - Create from an Existing API: mcp-gateway/create-from-api.md
+        - Proxy an Existing MCP Server: mcp-gateway/create-from-mcp-server.md
+        - Update and Deploy a MCP Server: mcp-gateway/update-and-deploy-mcp-server.md
+        - Subscribe to a MCP Server: mcp-gateway/subscribe-to-a-mcp-server.md
+        - Consume MCP Servers from MCP Hub: mcp-gateway/invoke-a-mcp-server-using-playground.md
     - Governance:
         - Overview: governance/overview.md
         - Concepts: governance/governance-concept.md
