@@ -180,7 +180,7 @@ public class REQUESTHASHGenerator extends DOMHASHGenerator {
     }
 	
 	/**
-     * This is an overloaded method for the digest generation for HTTP header propery
+     * This is an overloaded method for the digest generation for HTTP header property
      *
      * @param key         - Key of the header property subjected to the key generation
      * @param value         - Value of the header property subjected to the key generation
