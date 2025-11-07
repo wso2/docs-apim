@@ -202,10 +202,13 @@ Follow the instructions below to change any password that you have already encry
 
     * On Linux: `./api-manager.sh`
     * On Windows: `./api-manager.bat`
-    
+
     When you run the startup script, the following message will be prompted before starting the server: `[Enter KeyStore and Private Key Password:]`.
 
-2.  When prompted, you as the administrator who is starting the server must provide the private key password and the keystore password using the command-line to proceed. 
+    !!! note "YAJSW wrapper behavior on Windows"
+        When starting WSO2 API Manager via the YAJSW wrapper on Windows (for example, through `runConsole.bat` or `api-manager.bat start`), no interactive console is available for password input. Therefore, the keystore password prompt (`[Enter KeyStore and Private Key Password:]`) will not appear. In such cases, you must provide the keystore password through a password file (`password-tmp.txt` or `password-persist.txt`) placed under the `<APIM_HOME>` directory. For more information, see [Start server as a background job](#start-server-as-a-background-job).
+
+2.  When prompted, you as the administrator who is starting the server must provide the private key password and the keystore password using the command-line to proceed.
 
      Note that passwords are hidden from the terminal and log files.
 
@@ -216,6 +219,9 @@ Follow the instructions below to change any password that you have already encry
 ### Start server as a background job
 
 If you start the WSO2 API Manager as a background job, you will not be able to provide password values on the command line. Therefore, you must start the server in `daemon` mode as explained below.
+
+!!! note "Required for YAJSW wrapper on Windows"
+    This method is mandatory when starting WSO2 API Manager via the YAJSW wrapper on Windows (for example, using `runConsole.bat` or the Windows service), as the wrapper does not provide an interactive console for password input.
 
 1.  Create a new file in the `<APIM_HOME>` directory. The file should be named according to your OS as explained below.
 
