@@ -14,9 +14,9 @@ In the Publisher Portal, you will:
     
     * Navigate to **MCP Servers** in the Publisher Portal.
     * If you have existing MCP Servers, click the **Create MCP Server** button.
-    [![MCP Server Overview]({{base_path}}/assets/img/mcp/create-mcp-server-button.png){: style="width:70%"}]({{base_path}}/assets/img/mcp/create-mcp-server-button.png)
+    [![MCP Server Overview]({{base_path}}/assets/img/mcp-gateway/create-mcp-server-button.png){: style="width:70%"}]({{base_path}}/assets/img/mcp-gateway/create-mcp-server-button.png)
     * If this is your first MCP Server, you'll see the "Let’s get started!" page.
-    [![MCP Server Overview]({{base_path}}/assets/img/mcp/create-mcp-server-overview.png){: style="width:90%"}]({{base_path}}/assets/img/mcp/create-mcp-server-overview.png)
+    [![MCP Server Overview]({{base_path}}/assets/img/mcp-gateway/create-mcp-server-overview.png){: style="width:90%"}]({{base_path}}/assets/img/mcp-gateway/create-mcp-server-overview.png)
     * In the navigation, click **Proxy Existing MCP Server** → **Proxy an Existing MCP Server**.
 
 2. **Provide the definition**
@@ -29,7 +29,7 @@ In the Publisher Portal, you will:
     * Select the tools to expose through the MCP Server in APIM.
     Click **Next**.
 
-    [![MCP Server Proxy Select Tools]({{base_path}}/assets/img/mcp/create-mcp-server-proxy-tools-selected.png){: style="width:90%"}]({{base_path}}/assets/img/mcp/create-mcp-server-proxy-tools-selected.png)
+    [![MCP Server Proxy Select Tools]({{base_path}}/assets/img/mcp-gateway/create-mcp-server-proxy-tools-selected.png){: style="width:90%"}]({{base_path}}/assets/img/mcp-gateway/create-mcp-server-proxy-tools-selected.png)
 
 4. **Enter MCP Server details**
 
@@ -45,7 +45,7 @@ In the Publisher Portal, you will:
     | Version  | 1.0.0                                                                      |
     | Endpoint | `https://db720294-98fd-40f4-85a1-cc6a3b65bc9a-prod.e1-us-east-azure.choreoapis.dev/godzilla/mcp-everything-server/v1.0` |
 
-    [![MCP Server Proxy Create]({{base_path}}/assets/img/mcp/create-mcp-servers-proxy-create.png){: style="width:90%"}]({{base_path}}/assets/img/mcp/create-mcp-servers-proxy-create.png)
+    [![MCP Server Proxy Create]({{base_path}}/assets/img/mcp-gateway/create-mcp-servers-proxy-create.png){: style="width:90%"}]({{base_path}}/assets/img/mcp-gateway/create-mcp-servers-proxy-create.png)
 
 
 ### Next Step → Update and Deploy Your MCP Server

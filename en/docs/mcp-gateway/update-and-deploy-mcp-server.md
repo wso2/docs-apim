@@ -11,7 +11,7 @@ Once your MCP Server is created, the **Tools** section allows you to adjust exis
 1. In the left navigation menu, go to **API Configurations** → **Tools**.
    This view lists all the tools automatically generated from the API resources.
 
-   [![MCP Tools]({{base_path}}/assets/img/mcp/mcp-tools.png){: style="width:90%"}]({{base_path}}/assets/img/mcp/mcp-tools.png)
+   [![MCP Tools]({{base_path}}/assets/img/mcp-gateway/mcp-tools.png){: style="width:90%"}]({{base_path}}/assets/img/mcp-gateway/mcp-tools.png)
 
 #### Editing Existing Tools
 
@@ -57,7 +57,7 @@ Before your MCP Server can be tested or used, it must be deployed to a specific 
 3. Click **Deploy**.
 4. Wait for the deployment confirmation message.
 
-[![MCP Server Deploy]({{base_path}}/assets/img/mcp/mcp-server-deploy.png){: style="width:90%"}]({{base_path}}/assets/img/mcp/mcp-server-deploy.png)
+[![MCP Server Deploy]({{base_path}}/assets/img/mcp-gateway/mcp-server-deploy.png){: style="width:90%"}]({{base_path}}/assets/img/mcp-gateway/mcp-server-deploy.png)
 
 #### Deployment Tips
 
@@ -79,7 +79,7 @@ The **MCP Playground** in the Publisher Portal allows you to test tools without 
       * Check if the output matches expectations.
       * Validate that descriptions guide the correct usage.
 
-      [![MCP Inspector]({{base_path}}/assets/img/mcp/mcp-inspector-publisher.png){: style="width:90%"}]({{base_path}}/assets/img/mcp/mcp-inspector-publisher.png)
+      [![MCP Inspector]({{base_path}}/assets/img/mcp-gateway/mcp-inspector-publisher.png){: style="width:90%"}]({{base_path}}/assets/img/mcp-gateway/mcp-inspector-publisher.png)
 
    4. Note any issues and update tool configurations as needed.
 
@@ -93,7 +93,7 @@ Once the MCP Server and its tools are tested and verified, you can publish it to
 
 #### Publishing Steps
 
-   [![MCP Server Lifecycles]({{base_path}}/assets/img/mcp/mcp-lifecycles.png){: style="width:90%"}]({{base_path}}/assets/img/mcp/mcp-lifecycles.png)
+   [![MCP Server Lifecycles]({{base_path}}/assets/img/mcp-gateway/mcp-lifecycles.png){: style="width:90%"}]({{base_path}}/assets/img/mcp-gateway/mcp-lifecycles.png)
 
 1. In the left menu, go to **Publish** → **Lifecycle**.
 2. Review the MCP Server details to ensure:

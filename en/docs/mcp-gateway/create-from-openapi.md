@@ -11,9 +11,9 @@ You can then configure your MCP Server details—such as name, context, version,
     
     * Navigate to **MCP Servers** in the Publisher Portal.
     * If you have existing MCP Servers, click the **Create MCP Server** button.
-    [![MCP Server Overview]({{base_path}}/assets/img/mcp/create-mcp-server-button.png){: style="width:90%"}]({{base_path}}/assets/img/mcp/create-mcp-server-button.png)
+    [![MCP Server Overview]({{base_path}}/assets/img/mcp-gateway/create-mcp-server-button.png){: style="width:90%"}]({{base_path}}/assets/img/mcp-gateway/create-mcp-server-button.png)
     * If this is your first MCP Server, you'll see the "Let’s get started!" page.
-    [![MCP Server Overview]({{base_path}}/assets/img/mcp/create-mcp-server-overview.png){: style="width:90%"}]({{base_path}}/assets/img/mcp/create-mcp-server-overview.png)
+    [![MCP Server Overview]({{base_path}}/assets/img/mcp-gateway/create-mcp-server-overview.png){: style="width:90%"}]({{base_path}}/assets/img/mcp-gateway/create-mcp-server-overview.png)
     * In the navigation, click **Import API Definition** → **Create MCP Server from Definition**.
 
 2. **Provide the definition**
@@ -22,7 +22,7 @@ You can then configure your MCP Server details—such as name, context, version,
     `https://petstore3.swagger.io/api/v3/openapi.json`
     * Click **Next**.
 
-    [![MCP Server from OpenAPI Validate]({{base_path}}/assets/img/mcp/create-mcp-servers-from-open-api-validate.png){: style="width:90%"}]({{base_path}}/assets/img/mcp/create-mcp-servers-from-open-api-validate.png)
+    [![MCP Server from OpenAPI Validate]({{base_path}}/assets/img/mcp-gateway/create-mcp-servers-from-open-api-validate.png){: style="width:90%"}]({{base_path}}/assets/img/mcp-gateway/create-mcp-servers-from-open-api-validate.png)
 
 3. **Select tools to import**
 
@@ -30,7 +30,7 @@ You can then configure your MCP Server details—such as name, context, version,
     * Select the operations to expose as tools.
     Click **Next**.
 
-    [![MCP Server from OpenAPI Select Tools Selected]({{base_path}}/assets/img/mcp/create-mcp-servers-from-open-api-tools-selected.png){: style="width:90%"}]({{base_path}}/assets/img/mcp/create-mcp-servers-from-open-api-tools-selected.png)
+    [![MCP Server from OpenAPI Select Tools Selected]({{base_path}}/assets/img/mcp-gateway/create-mcp-servers-from-open-api-tools-selected.png){: style="width:90%"}]({{base_path}}/assets/img/mcp-gateway/create-mcp-servers-from-open-api-tools-selected.png)
 
 4. **Enter MCP Server details**
 
@@ -47,7 +47,7 @@ You can then configure your MCP Server details—such as name, context, version,
     | Endpoint | [https://petstore3.swagger.io/api/v3](https://petstore3.swagger.io/api/v3) |
 
 
-    [![MCP Server from OpenAPI Create]({{base_path}}/assets/img/mcp/create-mcp-servers-from-open-api-create.png){: style="width:90%"}]({{base_path}}/assets/img/mcp/create-mcp-servers-from-open-api-create.png)
+    [![MCP Server from OpenAPI Create]({{base_path}}/assets/img/mcp-gateway/create-mcp-servers-from-open-api-create.png){: style="width:90%"}]({{base_path}}/assets/img/mcp-gateway/create-mcp-servers-from-open-api-create.png)
 
 
 ### Next Step → Update and Deploy Your MCP Server

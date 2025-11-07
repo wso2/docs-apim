@@ -23,13 +23,13 @@ For more information on WSO2 API Manager, see the [overview]({{base_path}}/get-s
     - **Managing remote MCP Servers:** Import an external MCP Server and proxy via WSO2 API Manager.
     - **QoS for MCP Servers:** Apply rate limiting, authentication, and other policies.
 
-    **[Learn more]({{base_path}}/mcp/overview/)**
+    **[Learn more]({{base_path}}/mcp-gateway/overview/)**
 
 ??? note "MCP Hub"
 
     The control plane can now function as a MCP Hub, enabling centralized discovery and reuse of MCP Servers across teams and environments.
 
-    **[Learn more]({{base_path}}/mcp/invoke-a-mcp-server-using-playground/)**
+    **[Learn more]({{base_path}}/mcp-gateway/invoke-a-mcp-server-using-playground/)**
 
 ??? note "Multi-Model AI Service Provider Support"
 

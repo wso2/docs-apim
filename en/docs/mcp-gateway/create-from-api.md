@@ -15,9 +15,9 @@ This approach is faster when:
     
     * Navigate to **MCP Servers** in the Publisher Portal.
     * If you have existing MCP Servers, click the **Create MCP Server** button.
-    [![MCP Server Overview]({{base_path}}/assets/img/mcp/create-mcp-server-button.png){: style="width:90%"}]({{base_path}}/assets/img/mcp/create-mcp-server-button.png)
+    [![MCP Server Overview]({{base_path}}/assets/img/mcp-gateway/create-mcp-server-button.png){: style="width:90%"}]({{base_path}}/assets/img/mcp-gateway/create-mcp-server-button.png)
     * If this is your first MCP Server, you'll see the "Let’s get started!" page.
-    [![MCP Server Overview]({{base_path}}/assets/img/mcp/create-mcp-server-overview.png){: style="width:90%"}]({{base_path}}/assets/img/mcp/create-mcp-server-overview.png)
+    [![MCP Server Overview]({{base_path}}/assets/img/mcp-gateway/create-mcp-server-overview.png){: style="width:90%"}]({{base_path}}/assets/img/mcp-gateway/create-mcp-server-overview.png)
     * In the navigation, click **Start from Existing API** → **Create MCP Server from Existing API**.
 
 2. **Pick the source API**
@@ -25,14 +25,14 @@ This approach is faster when:
     * From the list of available APIs, select the one to generate tools from.
     * Click **Next**.
 
-        [![MCP Server from API Validate]({{base_path}}/assets/img/mcp/create-mcp-servers-from-api-validate.png){: style="width:90%"}]({{base_path}}/assets/img/mcp/create-mcp-servers-from-api-validate.png)
+        [![MCP Server from API Validate]({{base_path}}/assets/img/mcp-gateway/create-mcp-servers-from-api-validate.png){: style="width:90%"}]({{base_path}}/assets/img/mcp-gateway/create-mcp-servers-from-api-validate.png)
 
 3. **Select resources to become tools**
 
     * Choose which API operations should become tools.
     * Click **Next**.
 
-    [![MCP Server from API Select Tools Selecteded]({{base_path}}/assets/img/mcp/create-mcp-servers-from-api-tools-selected.png){: style="width:90%"}]({{base_path}}/assets/img/mcp/create-mcp-servers-from-api-tools-selected.png)
+    [![MCP Server from API Select Tools Selecteded]({{base_path}}/assets/img/mcp-gateway/create-mcp-servers-from-api-tools-selected.png){: style="width:90%"}]({{base_path}}/assets/img/mcp-gateway/create-mcp-servers-from-api-tools-selected.png)
 
 4. **Enter MCP Server details**
   
@@ -44,7 +44,7 @@ This approach is faster when:
     | Context  | /petstore                                                                  |
     | Version  | 1.0.6                                                                      |
 
-    [![MCP Server from API Create]({{base_path}}/assets/img/mcp/create-mcp-servers-from-api-create.png){: style="width:90%"}]({{base_path}}/assets/img/mcp/create-mcp-servers-from-api-create.png)
+    [![MCP Server from API Create]({{base_path}}/assets/img/mcp-gateway/create-mcp-servers-from-api-create.png){: style="width:90%"}]({{base_path}}/assets/img/mcp-gateway/create-mcp-servers-from-api-create.png)
 
 ### Next Step → Update and Deploy Your MCP Server
 
