@@ -356,10 +356,10 @@ template: templates/single-column.html
         <div class="leftContent">
             </br>
             <p>
-                WSO2 API Manager is a complete platform for building, integrating, and exposing your digital services as managed APIs in the cloud, on-premise, and hybrid architectures to drive your digital transformation strategy. 
+                WSO2 API Manager is a complete platform for building, integrating, and exposing your digital services as managed APIs in the cloud, on-premises, and hybrid architectures to drive your digital transformation strategy. 
             </p>
             <p>
-                It allows API developers to design, publish, and manage the lifecycle of APIs and API product 
+                It allows API developers to design, publish, and manage the lifecycle of APIs, and API product 
                 managers to create API products from one or more APIs.
             </p>
         </div>
@@ -402,7 +402,7 @@ template: templates/single-column.html
     <div>
         <h3>Components</h3>
         <hr/>
-        <p>WSO2 API Manager offers multiple components designed to work together to solve the challenges of diverse infrastructure requirements. A unified control plane supporting multiple gateways provides deployment flexibility, minimizes downtime, and provides scalability and resource optimization by allowing independent component management, flexible deployment packages, and seamless upgrades and maintenance. For more information see <a href="{{base_path}}/get-started/apim-architecture/">Architecture.</a></p>
+        <p>WSO2 API Manager offers multiple components designed to work together to solve the challenges of diverse infrastructure requirements. A unified control plane supporting multiple gateways provides deployment flexibility, minimizes downtime, and provides scalability and resource optimization by allowing independent component management, flexible deployment packages, and seamless upgrades and maintenance. For more information, see <a href="{{base_path}}/get-started/apim-architecture/">Architecture.</a></p>
         </br>
         </br>
         <div class="component-section">
@@ -425,7 +425,7 @@ template: templates/single-column.html
                                     </div>
                                 </div>
                                 <hr/>
-                                <p class="removeTopMargin">A Unified control plane which centrally manages and governs APIs across multiple Gateways</p>
+                                <p class="removeTopMargin">A unified control plane which centrally manages and governs APIs across multiple Gateways</p>
                                 <div>
                                     <ul>
                                         <li><a href="{{base_path}}/get-started/apim-architecture/#api-control-plane">WSO2 API Control Plane Overview</a></li>
@@ -479,7 +479,7 @@ template: templates/single-column.html
                                     </div>
                                 </div>
                                 <hr/>
-                                <p class="removeTopMargin">Designed to build, deploy, and manage APIs in a cloud environment</p>
+                                <p class="removeTopMargin">Designed to build, deploy, and manage APIs in a cloud environments</p>
                                 <div>
                                     <ul>
                                         <li><a href="{{base_path}}/get-started/apim-architecture/#kubernetes-gateway">WSO2 Kubernetes Gateway Overview</a></li>
@@ -502,7 +502,7 @@ template: templates/single-column.html
                                     </div>
                                 </div>
                                 <hr/>
-                                <p class="removeTopMargin">An API Gateway for micro services, which is cloud-native, decentralized and developer centric</p>
+                                <p class="removeTopMargin">An API Gateway for microservices, which is cloud-native, decentralized and developer centric</p>
                                 <div>
                                     <ul>
                                         <li><a href="{{base_path}}/get-started/apim-architecture/#immutable-gateway">WSO2 Immutable Gateway Overview</a></li>
