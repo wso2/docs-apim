@@ -144,7 +144,7 @@ disable_restart_from_ui = false</code></pre>
                                         </div>
                                     </div>
                                     <div class="param-description">
-                                        <p>Use this paramater to enable MTOM (Message Transmission Optimization Mechanism) for the product server.</p>
+                                        <p>Use this parameter to enable MTOM (Message Transmission Optimization Mechanism) for the product server.</p>
                                     </div>
                                 </div>
                             </div><div class="param">
@@ -165,7 +165,7 @@ disable_restart_from_ui = false</code></pre>
                                         </div>
                                     </div>
                                     <div class="param-description">
-                                        <p>Use this paramater to enable SwA (SOAP with Attachments) for the product server. When SwA is enabled, the API Manager will process the files attached to SOAP messages.</p>
+                                        <p>Use this parameter to enable SwA (SOAP with Attachments) for the product server. When SwA is enabled, the API Manager will process the files attached to SOAP messages.</p>
                                     </div>
                                 </div>
                             </div><div class="param">
@@ -897,7 +897,7 @@ claims_extractor_impl = "org.wso2.carbon.apimgt.impl.token.DefaultClaimsRetrieve
                                         
                                     </div>
                                     <div class="param-description">
-                                        <p>You can define the custom claim retiriver implmentation by adding the following apim.jwt.enable_user_claims=true. Make sure that it is the fully-qualified class name.</p>
+                                        <p>You can define the custom claim retriever implementation by adding the following apim.jwt.enable_user_claims=true. Make sure that it is the fully-qualified class name.</p>
                                     </div>
                                 </div>
                             </div><div class="param">
@@ -2148,7 +2148,7 @@ enable = true</code></pre>
                                         
                                     </div>
                                     <div class="param-description">
-                                        <p>Enabel cache for scopes. This expires in 15 minutes by default.</p>
+                                        <p>Enable cache for scopes. This expires in 15 minutes by default.</p>
                                     </div>
                                 </div>
                             </div>
@@ -2875,7 +2875,7 @@ enable_application_scopes_for_resident_km = false</code></pre>
                                         
                                     </div>
                                     <div class="param-description">
-                                        <p>You can provide a custom key validation handler implmentation. To do this, set the &quot;key_validation_handler_type&quot; to custom</p>
+                                        <p>You can provide a custom key validation handler implementation. To do this, set the &quot;key_validation_handler_type&quot; to custom</p>
                                     </div>
                                 </div>
                             </div><div class="param">
@@ -4230,7 +4230,7 @@ mode = "HYBRID"
                                         </div>
                                     </div>
                                     <div class="param-description">
-                                        <p>Use the application_sharing_impl as default implmentationIf it is saml, the group extractor extracts the claims to group the applications from the saml response.</p>
+                                        <p>Use the application_sharing_impl as default implementation. If it is saml, the group extractor extracts the claims to group the applications from the saml response.</p>
                                     </div>
                                 </div>
                             </div><div class="param">
@@ -17329,6 +17329,122 @@ password = "changeit"</code></pre>
                                     </div>
                                     <div class="param-description">
                                         <p>Password for accessing the trust store.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+
+
+
+## Synapse Artifact Generator Pool Configurations
+
+
+<div class="mb-config-catalog">
+    <section>
+        <div class="mb-config-options">
+            <div class="superfences-tabs">
+            
+            <input name="113" type="checkbox" id="_tab_113">
+                <label class="tab-selector" for="_tab_113"><i class="icon fa fa-code"></i></label>
+                <div class="superfences-content">
+                    <div class="mb-config-example">
+<pre><code class="toml">[apim.synapse_artifact_generator.thread_pool]
+core_pool_size = 4
+max_pool_size = 4
+keep_alive_time_ms = 60000
+queue_capacity = 50</code></pre>
+                    </div>
+                </div>
+                <div class="doc-wrapper">
+                    <div class="mb-config">
+                        <div class="config-wrap">
+                            <code>[synapse_artifact_generator_pool]</code>
+                            
+                            <p>
+                                This configuration is available from WSO2 API Manager (API-M) 4.0 - update level 368 onwards. Defines the settings for the dedicated thread pool used for parallel synapse artifact generation. Proper tuning of these parameters is recommended based on the Control Plane server's hardware (CPU cores, memory) and the expected load (number of APIs, artifact size).
+                            </p>
+                        </div>
+                        <div class="params-wrap">
+                            <div class="param">
+                                <div class="param-name">
+                                  <span class="param-name-wrap"> <code>core_pool_size</code> </span>
+                                </div>
+                                <div class="param-info">
+                                    <div>
+                                        <p>
+                                            <span class="param-type string"> integer </span>
+                                            
+                                        </p>
+                                        <div class="param-default">
+                                            <span class="param-default-value">Default: <code>4</code></span>
+                                        </div>
+                                        
+                                    </div>
+                                    <div class="param-description">
+                                        <p>The initial number of threads to keep in the pool, even if they are idle. For CPU-intensive tasks like artifact generation, setting this close to the number of available CPU cores is often optimal for stability, especially on lower-resource machines.</p>
+                                    </div>
+                                </div>
+                            </div><div class="param">
+                                <div class="param-name">
+                                  <span class="param-name-wrap"> <code>max_pool_size</code> </span>
+                                </div>
+                                <div class="param-info">
+                                    <div>
+                                        <p>
+                                            <span class="param-type string"> integer </span>
+                                            
+                                        </p>
+                                        <div class="param-default">
+                                            <span class="param-default-value">Default: <code>4</code></span>
+                                        </div>
+                                        
+                                    </div>
+                                    <div class="param-description">
+                                        <p>The maximum number of threads allowed in the pool. When the queue is full and the current number of threads is less than max_pool_size, the pool will create new threads to handle the load. For CPU-bound tasks, setting this significantly higher than the number of CPU cores can lead to performance degradation due to context switching. Setting it equal to core_pool_size creates a fixed-size pool.</p>
+                                    </div>
+                                </div>
+                            </div><div class="param">
+                                <div class="param-name">
+                                  <span class="param-name-wrap"> <code>keep_alive_time_ms</code> </span>
+                                </div>
+                                <div class="param-info">
+                                    <div>
+                                        <p>
+                                            <span class="param-type string"> integer </span>
+                                            
+                                        </p>
+                                        <div class="param-default">
+                                            <span class="param-default-value">Default: <code>60000</code></span>
+                                        </div>
+                                        
+                                    </div>
+                                    <div class="param-description">
+                                        <p>When the number of threads is greater than the core_pool_size, this is the maximum time (in milliseconds) that excess idle threads will wait for new tasks before terminating. This allows the pool to shrink during idle periods, saving resources. This setting has no effect if core_pool_size is equal to max_pool_size.</p>
+                                    </div>
+                                </div>
+                            </div><div class="param">
+                                <div class="param-name">
+                                  <span class="param-name-wrap"> <code>queue_capacity</code> </span>
+                                </div>
+                                <div class="param-info">
+                                    <div>
+                                        <p>
+                                            <span class="param-type string"> integer </span>
+                                            
+                                        </p>
+                                        <div class="param-default">
+                                            <span class="param-default-value">Default: <code>50</code></span>
+                                        </div>
+                                        
+                                    </div>
+                                    <div class="param-description">
+                                        <p>The size of the queue used to hold tasks before they are executed. A bounded queue prevents the system from running out of memory under high load. When the queue is full and the max_pool_size is reached, the rejection policy (CallerRunsPolicy) is triggered, providing back-pressure. A smaller queue applies back-pressure sooner, prioritizing stability, while a larger queue can absorb larger bursts but increases memory usage.</p>
                                     </div>
                                 </div>
                             </div>

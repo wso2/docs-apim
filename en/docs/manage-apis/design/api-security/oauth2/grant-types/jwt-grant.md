@@ -16,49 +16,92 @@ WSO2 API Manager (WSO2 API-M), as an OAuth 2.0 Authorization Server with its key
 
 ## Configuring the JWT grant
 
-### Step 1 - Obtain a JWT from an external Identity Provider 
+!!! warning "WSO2 Identity Server Version Compatibility"
+    This guide provides instructions for both **WSO2 Identity Server 7.x** and **WSO2 Identity Server 6.x**. The configuration steps and UI elements differ significantly between these versions. By default, the IS 7.x instructions are shown. If you are using IS 6.x, expand the collapsible sections marked for IS 6.x.
 
+### Step 1 - Obtain a JWT from an external Identity Provider
 You can use any identity provider to obtain a JWT. As an example, this step will discuss how to obtain a JWT from WSO2 Identity Server (WSO2 IS).
 
-1. Download and install the [latest WSO2 IS](https://wso2.com/identity-and-access-management/#).
-     
-     If you downloaded the archive, extract it. `<IS_HOME>` refers to the root folder of the extracted WSO2 IS.
+<details>
+<summary><b>Steps for WSO2 Identity Server 6.x</b></summary>
+<p>If you are using WSO2 Identity Server 6.x, follow these steps instead:</p>
+<ol>
+<li>
+<p>Download and install <a href="https://wso2.com/identity-server/">WSO2 Identity Server 6.x</a>.</p>
+<p>If you downloaded the archive, extract it. <code>&lt;IS_HOME&gt;</code> refers to the root folder of the extracted WSO2 IS.</p>
+</li>
+<li>
+<p>Start WSO2 IS with a port offset.</p>
+<p><code>portOffset</code> is required only if you are running both API-M and IS in the same JVM.</p>
+<p><code>sh wso2server.sh -DportOffset=1</code></p>
+</li>
+<li>
+<p>Sign in to the WSO2 IS Management Console (<code>https://&lt;IS_Server_Host&gt;:9444/carbon</code>).</p>
+</li>
+<li>
+<p>Click <strong>Main</strong> --> <strong>Service Providers</strong> --> <strong>Add</strong>.</p>
+<a href="{{base_path}}/assets/img/learn/api-security/oauth2/jwt-grant/add-service-provider-menu.png" >
+<img src="{{base_path}}/assets/img/learn/api-security/oauth2/jwt-grant/add-service-provider-menu.png" alt="Add Service Provider Menu" title="Add Service Provider Menu" width="30%" />
+</a>
+</li>
+<li>
+<p>Enter the name of the service provider and click <strong>Register</strong>.</p>
+<a href="{{base_path}}/assets/img/learn/api-security/oauth2/jwt-grant/create-external-sp.png" >
+<img src="{{base_path}}/assets/img/learn/api-security/oauth2/jwt-grant/create-external-sp.png" alt="Add Service Provider" title="Add Service Provider" />
+</a>
+</li>
+<li>
+<p>Click <strong>Inbound Authentication Configuration</strong> --> <strong>OAuth/OpenID Connect Configuration</strong> --> <strong>Configure</strong> to add a new OAuth2 client.</p>
+<a href="{{base_path}}/assets/img/learn/api-security/oauth2/jwt-grant/add-oauth-app.png" >
+<img src="{{base_path}}/assets/img/learn/api-security/oauth2/jwt-grant/add-oauth-app.png" alt="Add Oauth app" title="Add Oauth app" />
+</a>
+</li>
+<li>
+<p>Provide a <strong>Callback URL</strong> and set the <strong>Token Issuer</strong> as <code>JWT</code>, then click <strong>Add</strong>.</p>
+<p>If you do not have a <strong>Callback URL</strong>, you can clear the <strong>Code</strong> and <strong>Implicit</strong> authorization grant types and add the OAuth2 client.</p>
+<a href="{{base_path}}/assets/img/learn/api-security/oauth2/jwt-grant/register-oauth-app.png" ><img src="{{base_path}}/assets/img/learn/api-security/oauth2/jwt-grant/register-oauth-app.png" alt="Register Oauth app" title="Register Oauth app"/></a>
+<p>Now you have successfully created an OAuth2 client and generated a consumer key and consumer secret for it.</p>
+<a href="{{base_path}}/assets/img/learn/api-security/oauth2/jwt-grant/external-oauthapp-credentials.png" >
+<img src="{{base_path}}/assets/img/learn/api-security/oauth2/jwt-grant/external-oauthapp-credentials.png" alt="OAuth app credentials" title="OAuth app credentials" />
+</a>
+</li>
+</ol>
+</details>
+
+1. Download and install [WSO2 Identity Server 7.x](https://wso2.com/identity-server/).
+
+    If you downloaded the archive, extract it. `<IS_HOME>` refers to the root folder of the extracted WSO2 IS.
 
 2. Start WSO2 IS with a port offset.
 
-     `portOffset` is required only if you are running both API-M and IS in the same JVM.
+    `portOffset` is required only if you are running both API-M and IS in the same JVM.
 
-      `sh wso2server.sh -DportOffset=1`
+    `sh wso2server.sh -DportOffset=1`
 
-3. Sign in to the WSO2 IS Management Console (`https://<IS_Server_Host>:9444/carbon`). 
-
-4. Click **Main** --> **Service Providers** --> **Add**.
-
-     <a href="{{base_path}}/assets/img/learn/api-security/oauth2/jwt-grant/add-service-provider-menu.png" >
-     <img src="{{base_path}}/assets/img/learn/api-security/oauth2/jwt-grant/add-service-provider-menu.png" alt="Add Service Provider Menu" title="Add Service Provider Menu" width="30%" />
+3. Sign in to the WSO2 IS Console (`https://<IS_Server_Host>:9444/console`).
+     <a href="{{base_path}}/assets/img/learn/api-security/oauth2/jwt-grant/7.x/sign-in-is-console.png" >
+     <img src="{{base_path}}/assets/img/learn/api-security/oauth2/jwt-grant/7.x/sign-in-is-console.png" alt="Sign in to WSO2 IS Console" title="Sign in to WSO2 IS Console" />
+     </a>
+4. Go to **Applications** > **Applications** > **+ Add Application**.
+     <a href="{{base_path}}/assets/img/learn/api-security/oauth2/jwt-grant/7.x/is-console.png" >
+     <img src="{{base_path}}/assets/img/learn/api-security/oauth2/jwt-grant/7.x/is-console.png" alt="Add Application" title="Add Application" />
+     </a>
+5. Select **Standard-Based Application**.
+     <a href="{{base_path}}/assets/img/learn/api-security/oauth2/jwt-grant/7.x/standard-based-application.png" >
+     <img src="{{base_path}}/assets/img/learn/api-security/oauth2/jwt-grant/7.x/standard-based-application.png" alt="Select Standard-Based Application" title="Select Standard-Based Application" />
+     </a>
+6. Enter the name of the application and select **OAuth 2.0/OpenID Connect** as the protocol, then click **Register**.
+     <a href="{{base_path}}/assets/img/learn/api-security/oauth2/jwt-grant/7.x/oauth2-openid-connect.png" >
+     <img src="{{base_path}}/assets/img/learn/api-security/oauth2/jwt-grant/7.x/oauth2-openid-connect.png" alt="Enter the name of Application" title="Enter the name of Application" />
+     </a>
+7. In the application details, note the **Client ID** and **Client Secret**.
+     <a href="{{base_path}}/assets/img/learn/api-security/oauth2/jwt-grant/7.x/client-id-client-secret.png" >
+     <img src="{{base_path}}/assets/img/learn/api-security/oauth2/jwt-grant/7.x/client-id-client-secret.png" alt="Client ID and Client Secret" title="Client ID and Client Secret" />
      </a>
 
-5.  Enter the name of the service provider and click **Register**.
+Now you have successfully created an OAuth2 application and obtained the client ID and client secret.
 
-     [![Add Service Provider]({{base_path}}/assets/img/learn/api-security/oauth2/jwt-grant/create-external-sp.png)]({{base_path}}/assets/img/learn/api-security/oauth2/jwt-grant/create-external-sp.png)
-             
-6.  Click **Inbound Authentication Configuration** --> **OAuth/OpenID Connect Configuration** --> **Configure** to add a new OAuth2 client.
-
-     [![Add Oauth app]({{base_path}}/assets/img/learn/api-security/oauth2/jwt-grant/add-oauth-app.png)]({{base_path}}/assets/img/learn/api-security/oauth2/jwt-grant/add-oauth-app.png)
-
-     <a name="step5"></a>
-
-7.  Provide a **Callback URL** and set the **Token Issuer** as `JWT`, then click **Add**.
-    
-     If you do not have a **Callback URL**, you can clear the **Code** and **Implicit** authorization grant types and add the OAuth2 client.
-    
-     <a href="{{base_path}}/assets/img/learn/api-security/oauth2/jwt-grant/register-oauth-app.png" ><img src="{{base_path}}/assets/img/learn/api-security/oauth2/jwt-grant/register-oauth-app.png" alt="Register Oauth app" title="Register Oauth app"/></a>  
-    
-    Now you have successfully created an OAuth2 client and generated a consumer key and consumer secret for it. 
-   
-    [![OAuth app credentials]({{base_path}}/assets/img/learn/api-security/oauth2/jwt-grant/external-oauthapp-credentials.png)]({{base_path}}/assets/img/learn/api-security/oauth2/jwt-grant/external-oauthapp-credentials.png)
-
-Now you have configured a service provider in WSO2 IS that can be used [later](#using-the-jwt-grant) to obtain a JWT. In the next step, let's register an identity provider and create a service provider in WSO2 API-M.
+This configures a service provider in WSO2 IS that can be used [later](#using-the-jwt-grant) to obtain a JWT. In the next step, let's register an identity provider and create a service provider in WSO2 API-M.
 
 ### Step 2 - Configure an Identity Provider and a Service Provider in WSO2 API-M
 
@@ -92,21 +135,25 @@ Now you have configured a service provider in WSO2 IS that can be used [later](#
     !!! tip
          When testing, you can find the values such as issuer name (`iss`) and audience (`aud`) by decoding the JWT obtained in [Step 1](#step-1-obtain-a-jwt-from-an-external-identity-provider) using a JWT decoder such as [https://jwt.io](https://jwt.io). For more information, see [JWT Bearer Grant](#jwt-bearer-grant).
 
-    [![Add Identity Provider]({{base_path}}/assets/img/learn/api-security/oauth2/jwt-grant/add-identity-provider.png)]({{base_path}}/assets/img/learn/api-security/oauth2/jwt-grant/add-identity-provider.png)
+    <a href="{{base_path}}/assets/img/learn/api-security/oauth2/jwt-grant/add-identity-provider.png" >
+    <img src="{{base_path}}/assets/img/learn/api-security/oauth2/jwt-grant/add-identity-provider.png" alt="Add Identity Provider" title="Add Identity Provider" />
+    </a>
 
 4. Click **Register** to complete the registration of the identity provider.
 
 5. Navigate to the **Service Providers** section in the **Main** -> **Identity** section and click **Add.**
 
-6. Fill in the **Service Provider Name** and provide a brief **Description** of the service provider. See [Adding a Service Provider](https://is.docs.wso2.com/en/5.10.0/learn/adding-and-configuring-a-service-provider/) for more information.
+6. Fill in the **Service Provider Name** and provide a brief **Description** of the service provider.
 
 7. Expand the **OAuth/OpenID Connect Configuration** under Inbound Authentication Configuration and click **Configure.**
 
 8. Enter a **Callback URL.** For example, use `http://localhost:8080/playground` and click **Add**. 
 
-     The **OAuth Client Key** and **OAuth Client Secret** will now be visible.
+     The **OAuth Client Key** and an **OAuth Client Secret** will now be visible.
 
-    [![]({{base_path}}/assets/img/learn/add-service-provider.png)]({{base_path}}/assets/img/learn/add-service-provider.png)
+    <a href="{{base_path}}/assets/img/learn/add-service-provider.png" >
+    <img src="{{base_path}}/assets/img/learn/add-service-provider.png" alt="Add Service Provider" title="Add Service Provider" />
+    </a>
 
 Now you have a registered identity provider and as well as a service provider with an **OAuth Client Key** and an **OAuth Client Secret**. In the next section, you can test the JWT grant with the configured setup.
 

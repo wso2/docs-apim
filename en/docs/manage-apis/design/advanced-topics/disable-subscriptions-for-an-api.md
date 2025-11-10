@@ -9,7 +9,7 @@ To disable subscription validation requirement, deselect all the Business Plans 
 [![Disable subscription validation]({{base_path}}/assets/img/design/advanced/disable-sub-validation.png)]({{base_path}}/assets/img/design/advanced/disable-sub-validation.png)
 
 !!! info
-    Once the subscription validation has been disabled, you can invoke the API with any valid OAuth token. The OAuth token can be either associated with an application in the devportal or a token obtained directly from a key manager that has been registerd with APIM as a third party key manager.
+    Once the subscription validation has been disabled, you can invoke the API with any valid OAuth token. The OAuth token can be either associated with an application in the devportal or a token obtained directly from a key manager that has been registered with APIM as a third party key manager.
 
 !!! warning
     Disabling subscription requirement for an API means that the API will be overly permissive as neither Subscription Level nor Application Level rate limiting will be applicable. Please make sure you apply proper Advanced (API or Resource level) rate limiting policies to secure your APIs.
@@ -19,7 +19,7 @@ To disable subscription validation requirement, deselect all the Business Plans 
 To enable subscription requirement for an API, you simply have to save the API after specifying a business plan from the Publisher.
 
 !!! warning
-    Please note that re-enabling subscription validation can have an impact on the existing API consumers. If someone is consuming the API using a token associated with an Application in the Developer Portal, they should be able to continue using the API without any disruptions. However, those who use tokens obatined directly from the IdP will face disruption due to subscription validation failures.
+    Please note that re-enabling subscription validation can have an impact on the existing API consumers. If someone is consuming the API using a token associated with an Application in the Developer Portal, they should be able to continue using the API without any disruptions. However, those who use tokens obtained directly from the IdP will face disruption due to subscription validation failures.
 
 #### Prevent disabling subscription requirement for an API
 
