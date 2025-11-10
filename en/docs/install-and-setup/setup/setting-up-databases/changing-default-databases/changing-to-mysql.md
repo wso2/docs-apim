@@ -116,7 +116,6 @@ Follow the  instructions below to set up a MySQL database:
         ```sql
         -- First, alter the column lengths
         ALTER TABLE AM_API_ENDPOINTS
-        MODIFY COLUMN API_UUID VARCHAR(64) NOT NULL,
         MODIFY COLUMN ENDPOINT_UUID VARCHAR(64) NOT NULL,
         MODIFY COLUMN REVISION_UUID VARCHAR(64) NOT NULL;
 
