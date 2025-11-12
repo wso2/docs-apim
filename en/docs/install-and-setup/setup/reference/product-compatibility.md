@@ -1,17 +1,17 @@
 # Product Compatibility
 
-Given below are the compatibility details of the WSO2 API Manager (WSO2 API-M) 4.5.0 runtimes.
+Given below are the compatibility details of the WSO2 API Manager (WSO2 API-M) 4.6.0 runtimes.
 
 !!! Note
     Even though the tested operating systems are listed in compatibility sections for each product, ideally WSO2 products relies on the tested versions of the JDK.
 
 ## API-M runtime compatibility
 
-Given below is the tested compatibility of the API-M runtime of WSO2 API Manager 4.5.0.
+Given below is the tested compatibility of the API-M runtime of WSO2 API Manager 4.6.0.
 
 #### Tested Operating Systems
 
-As WSO2 API Manager is a Java application, you can generally run it on most operating systems. Listed below are the operating systems that have been tested with the API-M 4.5.0 runtime.
+As WSO2 API Manager is a Java application, you can generally run it on most operating systems. Listed below are the operating systems that have been tested with the API-M 4.6.0 runtime.
 
 |**Operating System**|**Versions**  |
 |--------------------|--------------|
@@ -46,7 +46,7 @@ The **WSO2 API-M** runtime is tested with the following databases:
 
 #### WSO2 Product Compatibility Matrix
 
-The following is a list of other WSO2 products and components that have been tested with WSO2 API Manager 4.5.0.
+The following is a list of other WSO2 products and components that have been tested with WSO2 API Manager 4.6.0.
 
 {!includes/compatibility-matrix.md!}
 
@@ -64,7 +64,7 @@ The following is a list of other WSO2 products and components that have been tes
 </thead>
 <tbody>
 <tr class="even">
-<td>API-M 4.5.0 GA</td>
+<td>API-M 4.6.0 GA</td>
 <td>
 GA or update for:
 <ul>
@@ -74,7 +74,7 @@ GA or update for:
 </td>
 </tr>
 <tr class="even">
-<td>API-M-4.5.0 update</td>
+<td>API-M-4.6.0 update</td>
 <td>GA or update for:
 <ul>
 <li>WSO2 IS-6.0.0/WSO2 IS-6.1.0</li>
