@@ -72,7 +72,7 @@ Two key performance metrics were used to measure the performance of each test.
 </table>
 
 - Token type: JWT
-- The operating system is Ubuntu 18.04
+- The operating system is Ubuntu 22.04
 - MySQL version in RDS instance is 8.0
 - Java version is Termurin JDK 17
 
@@ -86,7 +86,7 @@ All scripts used to run the performance tests and analyze results are in the fol
 
 ## Results
 
-Considering the fact that an average WSO2 API Manager user uses ~1KiB messages, the performance test highlights for that scenario are represented in the charts below. The complete results can be found [here](https://github.com/wso2/performance-apim/blob/performance-test-496-2025-03-19_16-37-39/performance/benchmarks/summary.md).
+Considering the fact that an average WSO2 API Manager user uses ~1KiB messages, the performance test highlights for that scenario are represented in the charts below. The complete results can be found [here](https://github.com/wso2/performance-apim/blob/performance-test-613-2025-11-06_05-38-11/performance/benchmarks/summary.md).
 
 The following graph depicts the throughput changes based on the number of concurrent users.
 
@@ -111,7 +111,7 @@ The following graph depicts the average response time changes based on the numbe
 
 Let’s look at the 90th, 95th, and 99th response time percentiles when the message size is 1KiB. It is useful to measure the percentage of requests that exceeded the response time value for a given percentile. A percentile can be used to determine the percentage of requests completed below the particular response time value.
 
-For example, when there are 100 concurrent users, the 90th response time percentile for Echo API is 41ms. This means that 10% of the requests have taken more than 41ms to respond. Similarly, the 99th response time percentile for Echo API is 76ms, which means that 99% of the requests have been completed within 76ms.
+For example, when there are 100 concurrent users, the 90th response time percentile for Echo API is 51ms. This means that 10% of the requests have taken more than 51ms to respond. Similarly, the 99th response time percentile for Echo API is 133ms, which means that 99% of the requests have been completed within 133ms.
 
 The figure below represents the percentile values for Echo API (PassThrough Scenario).
 
