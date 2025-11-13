@@ -136,6 +136,9 @@ For more information on WSO2 API Manager, see the [overview]({{base_path}}/get-s
 
 Before upgrading to WSO2 API Manager 4.6.0, review the following architectural considerations that may affect your deployment setup:
 
+- **Support for Choreo Analytics has been deprecated:**
+Choreo Analytics has been deprecated in favor of Moesif-powered WSO2 Analytics, which offers enhanced insights and observability.
+
 - **Removing database dependency of multi-tenant API gateways:**
 With the removal of database dependency in the Universal Gateway and Traffic Manager, users no longer need to share databases with the control plane to support multi-tenancy.
 This change improves scalability and simplifies deployment across distributed environments.
