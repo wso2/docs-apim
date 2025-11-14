@@ -98,18 +98,18 @@ Follow the steps given below to configure WSO2 IS 7.x as a Key Manager component
         !!! warning "Important"
             When importing configurations using the well-known URL, manually set the value of <strong>UserInfo Endpoint</strong> to <code>https://localhost:9444/scim2/Me</code>. The auto-import populates this field with <code>https://localhost:9444/oauth2/userInfo</code>.
 
-    | Configuration | Value |
-    | --- | --- |
-    | Issuer | `https://localhost:9444/oauth2/token` |
-    | Client Registration Endpoint | `https://localhost:9444/api/identity/oauth2/dcr/v1.1/register` |
-    | Introspection Endpoint | `https://localhost:9444/oauth2/introspect` |
-    | Token Endpoint | `https://localhost:9444/oauth2/token` |
-    | Display Token Endpoint | `https://localhost:9444/oauth2/token` |
-    | Revoke Endpoint | `https://localhost:9444/oauth2/revoke` |
-    | Display Revoke Endpoint | `https://localhost:9444/oauth2/revoke` |
-    | UserInfo Endpoint | `https://localhost:9444/scim2/Me` |
-    | Authorize Endpoint | `https://localhost:9444/oauth2/authorize` |
-    | Scope Management Endpoint | `https://localhost:9444/api/identity/oauth2/v1.0/scopes` |
+    | Configuration                 | Value                                                                                                                                                                                                                                               |
+    |-------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+    | Issuer                        | `https://localhost:9444/oauth2/token`                                                                                                                                                                                                               |
+    | Client Registration Endpoint  | `https://localhost:9444/api/identity/oauth2/dcr/v1.1/register`                                                                                                                                                                                      |
+    | Introspection Endpoint        | `https://localhost:9444/oauth2/introspect`                                                                                                                                                                                                          |
+    | Token Endpoint                | `https://localhost:9444/oauth2/token`                                                                                                                                                                                                               |
+    | Display Token Endpoint        | `https://localhost:9444/oauth2/token`                                                                                                                                                                                                               |
+    | Revoke Endpoint               | `https://localhost:9444/oauth2/revoke`                                                                                                                                                                                                              |
+    | Display Revoke Endpoint       | `https://localhost:9444/oauth2/revoke`                                                                                                                                                                                                              |
+    | UserInfo Endpoint             | <ul><li>`https://localhost:9444/scim2/Me` or <li>`https://localhost:9444/keymanager-operations/user-info` (supported only from WSO2 API Manager 4.4.0.53 update level onwards). </ul> See [UserInfo Endpoint](#userinfo-endpoint) for more details. |
+    | Authorize Endpoint            | `https://localhost:9444/oauth2/authorize`                                                                                                                                                                                                           |
+    | Scope Management Endpoint     | `https://localhost:9444/api/identity/oauth2/v1.0/scopes`                                                                                                                                                                                            |
 
 7. Under **Grant types**, provide all the following: `password`, `client_credentials`, `refresh_token`, `urn:ietf:params:oauth:grant-type:saml2-bearer`, `iwa:ntlm`, `urn:ietf:params:oauth:grant-type:device_code`, `authorization_code`, `urn:ietf:params:oauth:grant-type:jwt-bearer`, `urn:ietf:params:oauth:grant-type:token-exchange`.
 8. Under **Certificates** section, select **JWKS**. Enter `https://localhost:9444/oauth2/jwks` as the **URL**. 
@@ -144,11 +144,20 @@ allow_system_prefix_for_role = true
 
 When enabled, the following naming conventions are followed when creating/accessing roles in WSO2 IS 7.x, corresponding to the types of WSO2 APIM roles.
 
-    | Type of role in WSO2 API Manager             | Naming convention in WSO2 IS 7.x                           |
-    |----------------------------------------------|------------------------------------------------------------|
-    | _PRIMARY_ roles (eg: `manager`)              | `system_primary_<roleName>` (eg: `system_primary_manager`) |
-    | _Internal_ roles (eg: `Internal/publisher`)  | `<roleName>` (eg: `publisher`)                             |
+| Type of role in WSO2 API Manager             | Naming convention in WSO2 IS 7.x                           |
+|----------------------------------------------|------------------------------------------------------------|
+| _PRIMARY_ roles (e.g., `manager`)            | `system_primary_<roleName>` (e.g., `system_primary_manager`) |
+| _Internal_ roles (e.g., `Internal/publisher`) | `<roleName>` (e.g., `publisher`)                           |
 
-    !!! Note
-        **_Application_ roles** are not used.
+!!! Note
+    **_Application_ roles** are not used.
 
+## UserInfo Endpoint
+
+The **UserInfo Endpoint** allows clients to verify the identity of the end-user based on the authentication performed by an authorization server, as well as to obtain basic profile information about the end-user. One of the following can be used as the **UserInfo Endpoint**:
+
+!!! Note
+    Using `https://localhost:9444/keymanager-operations/user-info` is supported from WSO2 API Manager 4.4.0.53 update level onwards.
+
+- `https://localhost:9444/scim2/Me`
+- `https://localhost:9444/keymanager-operations/user-info` - This should be used if WSO2 Identity Server 7.x is using a federated login for applications that are created by the WSO2 IS 7.x Key Manager, and the users are not stored in WSO2 IS 7.x. In order to use this, download the [`keymanager-operations.war`]({{base_path}}/assets/attachments/administer/wso2-is7-km/keymanager-operations.war) and place it in the `<IS7_HOME>/repository/deployment/server/webapps/` directory.
