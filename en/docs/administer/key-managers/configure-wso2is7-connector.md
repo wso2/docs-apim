@@ -144,13 +144,13 @@ allow_system_prefix_for_role = true
 
 When enabled, the following naming conventions are followed when creating/accessing roles in WSO2 IS 7.x, corresponding to the types of WSO2 APIM roles.
 
-    | Type of role in WSO2 API Manager             | Naming convention in WSO2 IS 7.x                           |
-    |----------------------------------------------|------------------------------------------------------------|
-    | _PRIMARY_ roles (eg: `manager`)              | `system_primary_<roleName>` (eg: `system_primary_manager`) |
-    | _Internal_ roles (eg: `Internal/publisher`)  | `<roleName>` (eg: `publisher`)                             |
+| Type of role in WSO2 API Manager             | Naming convention in WSO2 IS 7.x                           |
+|----------------------------------------------|------------------------------------------------------------|
+| _PRIMARY_ roles (e.g., `manager`)            | `system_primary_<roleName>` (e.g., `system_primary_manager`) |
+| _Internal_ roles (e.g., `Internal/publisher`) | `<roleName>` (e.g., `publisher`)                           |
 
-    !!! Note
-        **_Application_ roles** are not used.
+!!! Note
+    **_Application_ roles** are not used.
 
 ## UserInfo Endpoint
 
