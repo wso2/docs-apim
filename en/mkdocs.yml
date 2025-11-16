@@ -405,6 +405,12 @@ nav:
                 - ELK Based Analytics Installation Guide: monitoring/api-analytics/on-prem/elk-installation-guide.md
                 - Datadog Analytics Installation Guide : monitoring/api-analytics/on-prem/datadog-installation-guide.md
                 - OpenSearch Analytics Installation Guide: monitoring/api-analytics/on-prem/opensearch-installation-guide.md
+                - Choreo Based Analytics:
+                    - Architecture: monitoring/api-analytics/choreo-analytics/api-analytics-architecture.md
+                    - Getting Started Guide: monitoring/api-analytics/choreo-analytics/getting-started-guide.md
+                    - Role-based Access Control : monitoring/api-analytics/choreo-analytics/role-based-access-control.md
+                    - Alerts: monitoring/api-analytics/choreo-analytics/configure-alerts.md
+                    - Choreo Based Analytics via Proxy: monitoring/api-analytics/choreo-analytics/choreo-based-analytics-via-proxy.md
             - Publish Analytics Events to External Systems: monitoring/api-analytics/samples/publishing-analytics-events-to-external-systems.md
             - Publish Custom Analytics Events Data: monitoring/api-analytics/samples/publishing-custom-analytics-data.md
         - Observability:
