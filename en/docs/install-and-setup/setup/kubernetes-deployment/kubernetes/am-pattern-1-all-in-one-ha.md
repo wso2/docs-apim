@@ -135,10 +135,10 @@ Deploy API Manager with minimal configuration using the following commands:
 
 ```bash
 # Deploy first instance
-helm install apim-1 wso2/wso2am-all-in-one --version 4.6.0-1 -f https://raw.githubusercontent.com/wso2/helm-apim/main/docs/am-pattern-1-all-in-one-HA/default_values_1.yaml
+helm install apim-1 wso2/wso2am-all-in-one --version 4.6.0-1 -f https://raw.githubusercontent.com/wso2/helm-apim/4.6.x/docs/am-pattern-1-all-in-one-HA/default_values_1.yaml
 
 # Deploy second instance (for high availability)
-helm install apim-2 wso2/wso2am-all-in-one --version 4.6.0-1 -f https://raw.githubusercontent.com/wso2/helm-apim/main/docs/am-pattern-1-all-in-one-HA/default_values_2.yaml
+helm install apim-2 wso2/wso2am-all-in-one --version 4.6.0-1 -f https://raw.githubusercontent.com/wso2/helm-apim/4.6.x/docs/am-pattern-1-all-in-one-HA/default_values_2.yaml
 ```
 
 !!! important
@@ -152,7 +152,7 @@ Once the service is up and running, make sure you have the NGINX Ingress Control
 
 ### 1. General Configuration of Helm Charts
 
-The Helm charts for the API Manager deployment are available in the [WSO2 Helm Chart Repository](https://github.com/wso2/helm-apim/tree/4.5.x). You can either use the charts from the repository or clone the repository and use the charts from the local copy.
+The Helm charts for the API Manager deployment are available in the [WSO2 Helm Chart Repository](https://github.com/wso2/helm-apim/tree/4.6.x). You can either use the charts from the repository or clone the repository and use the charts from the local copy.
 - The Helm naming convention for APIM follows a simple pattern. The following format is used for naming the resources:
 ```<RELEASE_NAME>-<CHART_NAME>-<RESOURCE_NAME>```
 

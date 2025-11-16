@@ -153,7 +153,7 @@ helm install is wso2/identity-server --version next \
 - Deploy API Manager with minimal configuration using the following command:
 
 ```bash
-helm install apim wso2/wso2am-all-in-one --version 4.6.0-1 -f https://raw.githubusercontent.com/wso2/helm-apim/main/docs/am-pattern-0-all-in-one/default_values.yaml
+helm install apim wso2/wso2am-all-in-one --version 4.6.0-1 -f https://raw.githubusercontent.com/wso2/helm-apim/4.6.x/docs/am-pattern-0-all-in-one/default_values.yaml
 ```
 
 Once the service is up and running, make sure you have the NGINX Ingress Controller deployed by following the steps outlined in the [Add Ingress Controller](#11-add-ingress-controller) section.
@@ -176,7 +176,7 @@ Review these resources to tailor your deployment to your specific requirements a
 
 ### 1. General Configuration of Helm Charts
 
-The Helm charts for the API Manager deployment are available in the [WSO2 Helm Chart Repository](https://github.com/wso2/helm-apim/tree/4.5.x). You can either use the charts from the repository or clone the repository and use the charts from the local copy.
+The Helm charts for the API Manager deployment are available in the [WSO2 Helm Chart Repository](https://github.com/wso2/helm-apim/tree/4.6.x). You can either use the charts from the repository or clone the repository and use the charts from the local copy.
 
 !!! note "Resource Naming Convention"
     The helm naming convention for APIM follows a simple pattern:

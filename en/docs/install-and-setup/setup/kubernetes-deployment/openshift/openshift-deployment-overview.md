@@ -273,7 +273,7 @@ The All-in-One deployment is the simplest pattern to deploy WSO2 API Manager on 
      --version 4.6.0-1 \
      --set wso2.subscription.username=<USERNAME> \
      --set wso2.subscription.password=<PASSWORD> \
-     -f https://raw.githubusercontent.com/wso2/helm-apim/main/docs/am-pattern-0-all-in-one/default_openshift_values.yaml
+     -f https://raw.githubusercontent.com/wso2/helm-apim/4.6.x/docs/am-pattern-0-all-in-one/default_openshift_values.yaml
    ```
 
 ### Step 3 - Verify Deployment
