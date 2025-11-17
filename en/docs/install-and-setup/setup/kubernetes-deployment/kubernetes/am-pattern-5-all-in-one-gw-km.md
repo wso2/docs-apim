@@ -189,19 +189,19 @@ If you want to quickly try out WSO2 API Manager on Kubernetes with minimal confi
    **Deploy Control Plane (All-in-One)**:
    ```bash
    helm install apim wso2/wso2am-all-in-one --version 4.6.0-1 \
-     -f https://raw.githubusercontent.com/wso2/helm-apim/main/docs/am-pattern-5-all-in-one_GW_KM/default_values.yaml
+     -f https://raw.githubusercontent.com/wso2/helm-apim/4.6.x/docs/am-pattern-5-all-in-one_GW_KM/default_values.yaml
    ```
 
    **Deploy Key Manager**:
    ```bash
    helm install km wso2/wso2am-acp --version 4.6.0-1 \
-     -f https://raw.githubusercontent.com/wso2/helm-apim/main/docs/am-pattern-5-all-in-one_GW_KM/default_km_values.yaml
+     -f https://raw.githubusercontent.com/wso2/helm-apim/4.6.x/docs/am-pattern-5-all-in-one_GW_KM/default_km_values.yaml
    ```
 
    **Deploy Universal Gateway**:
    ```bash
    helm install gw wso2/wso2am-universal-gw --version 4.6.0-1 \
-     -f https://raw.githubusercontent.com/wso2/helm-apim/main/docs/am-pattern-5-all-in-one_GW_KM/default_gw_values.yaml
+     -f https://raw.githubusercontent.com/wso2/helm-apim/4.6.x/docs/am-pattern-5-all-in-one_GW_KM/default_gw_values.yaml
    ```
 
 3. **Set Up Ingress**:
@@ -212,7 +212,7 @@ If you want to quickly try out WSO2 API Manager on Kubernetes with minimal confi
 
 ### 1. General Configuration of Helm Charts
 
-The Helm charts for the API Manager deployment are available in the [WSO2 Helm Chart Repository](https://github.com/wso2/helm-apim/tree/4.5.x). You can either use the charts from the repository or clone the repository and use the charts from the local copy.
+The Helm charts for the API Manager deployment are available in the [WSO2 Helm Chart Repository](https://github.com/wso2/helm-apim/tree/4.6.x). You can either use the charts from the repository or clone the repository and use the charts from the local copy.
 - The Helm naming convention for APIM follows a simple pattern. The following format is used for naming the resources:
 ```<RELEASE_NAME>-<CHART_NAME>-<RESOURCE_NAME>```
 

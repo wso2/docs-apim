@@ -39,7 +39,7 @@ Following Postman collection provides quick start guide for WSO2 API Manager RES
  * Create, subscribe and invoke a sample API Product 
 
 <a href="../../../assets/attachments/reference/quick-start-postman-collection.json"
-download="WSO2 API Manager 4.4.0 Quick Start.postman_collection.json"
+download="WSO2 API Manager 4.6.0 Quick Start.postman_collection.json"
 style="display: inline-block; padding: 10px 15px; color: white; background-color: #ef5b25; text-align: center; text-decoration: none; border-radius: 5px;font-weight: bold;">
 Download Postman Collection
 </a>
