@@ -1,6 +1,7 @@
 # Create a REST API
 
-**API creation** is the process of linking an existing backend API implementation to the [API Publisher](../../../get-started/apim-architecture/#api-publisher), so that you can manage and monitor the [API's lifecycle]({{base_path}}/manage-apis/design/lifecycle-management/api-lifecycle/), documentation, security, community, and subscriptions. Alternatively, you can provide the API implementation in-line in the [API Publisher](../../../get-started/apim-architecture/#api-publisher) itself.
+**API creation** is the process of linking an existing backend API implementation to the [API Publisher](../../../../get-started/apim-architecture/#api-publisher), so that you can manage and monitor the [API's lifecycle]({{base_path}}/manage-apis/design/lifecycle-management/api-lifecycle/), documentation, security, community, and subscriptions. Alternatively, you can provide the API implementation in-line in the [API Publisher](../../../../get-started/apim-architecture/#api-publisher)
+ itself.
 
 Follow the instructions below to create a REST API using the basic flow:
 
