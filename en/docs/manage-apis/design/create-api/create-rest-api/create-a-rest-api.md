@@ -8,7 +8,7 @@ Follow the instructions below to create a REST API using the basic flow:
 
     `https://<hostname>:9443/publisher` 
    
-    Example: `https://localhost:9443/publisher/login`
+    Example: `https://localhost:9443/publisher`
 
     <html><div class="admonition note">
       <p class="admonition-title">Note</p>
@@ -16,11 +16,8 @@ Follow the instructions below to create a REST API using the basic flow:
       </div>
     </html>
    
-2. Select **REST API** from the options available.
-3. Click **Start from Scratch**.
-
-
-4.  Enter API details. 
+2. Select **REST API** from the options available and click **Start from Scratch**.
+3. Enter API details. 
     
      <table><colgroup> <col/> <col/> <col/> </colgroup><tbody><tr><th colspan="2" >Field</th><th >Sample value</th></tr><tr><td colspan="2" class="confluenceTd">Name</td><td class="confluenceTd">PizzaShack</td></tr><tr><td colspan="2" class="confluenceTd">Version</td><td colspan="1" class="confluenceTd">1.0.0</td></tr><tr><td colspan="2" class="confluenceTd">Context</td><td class="confluenceTd"><div class="content-wrapper"><p><code>/pizzashack</code></p><div><div class="confluence-information-macro-body"><p>The API context is used by the Gateway to identify the API. Therefore, the API context must be unique. This context is the API's root context when invoking the API through the Gateway.</p></div><div class="confluence-information-macro confluence-information-macro-tip"><span class="aui-icon aui-icon-small aui-iconfont-approve confluence-information-macro-icon"></span><div class="confluence-information-macro-body"><p>You can define the API's version as a parameter of its context by adding the <code>{version}</code> into the context. For example, <code>{version}/pizzashack</code>. The API Manager assigns the actual version of the API to the <code>{version}</code> parameter internally. For example, <code>https://localhost:8243/1.0.0/pizzashack</code>. Note that the version appears before the context, allowing you to group your APIs based on the versions.</p></div></div></div></div></td></tr><tr><td colspan="2" class="confluenceTd">Endpoint</td><td colspan="1" class="confluenceTd"><p><a class="external-link" href="http://ws.cdyne.com/phoneverify/phoneverify.asmx" rel="nofollow">https://localhost:9443/am/sample/pizzashack/v1/api/</a></p><p>The endpoint that you add is automatically added as the production and sandbox endpoints.</p></td></tr></tbody></table>
 
@@ -31,7 +28,7 @@ Follow the instructions below to create a REST API using the basic flow:
      
       [![Create an API page](https://apim.docs.wso2.com/en/latest/assets/img/learn/create-rest-api-form.png)](https://apim.docs.wso2.com/en/latest/assets/img/learn/create-rest-api-form.png)
 
-5.  Click **Create** to create the API.
+4.  Click **Create** to create the API.
     
     ??? note "If you click Create & Publish"
         If you click **Create & Publish**, WSO2 API Manager will automatically create a revision for the API, deploy the revision on the Gateway, and also publish your API to the Developer Portal.
@@ -41,7 +38,7 @@ Follow the instructions below to create a REST API using the basic flow:
     
     [![API overview page](https://apim.docs.wso2.com/en/latest/assets/img/learn/overviewpage-rest-api.png)](https://apim.docs.wso2.com/en/latest/assets/img/learn/overviewpage-rest-api.png)
 
-6. Go to **Develop**, **Portal Configurations**, and click **Basic Info**.
+5. Go to **Develop**, **Portal Configurations**, and click **Basic Info**.
 
      <a href="https://apim.docs.wso2.com/en/latest/assets/img/learn/click-basic-info.png">
      <img src="https://apim.docs.wso2.com/en/latest/assets/img/learn/click-basic-info.png" alt="Click Basic Info button location" width="20%"></a>
@@ -84,7 +81,7 @@ Follow the instructions below to create a REST API using the basic flow:
 
      4. Click **Save**.
 
-7. Configure the runtime configurations.
+6. Configure the runtime configurations.
 
     1. Click **Runtime**, which is under the **API Configurations** section.
 
@@ -96,7 +93,7 @@ Follow the instructions below to create a REST API using the basic flow:
            
          Both HTTP and HTTPS transports are selected by default.
 
-8. Configure the resources.
+7. Configure the resources.
 
      By default, the API will have five resources with `/*` as the URL pattern.
 
@@ -140,7 +137,7 @@ Follow the instructions below to create a REST API using the basic flow:
                 | `cookie` | Operations can also pass parameters in the Cookie header, as `Cookie: name=value`. Multiple cookie parameters are sent in the same header, separated by a semicolon and space.                                                                                            |
                 | `body`| An arbitrary amount of data of any type is sent with a POST message.                                                                                                                                |
 
-9.  Optionally, view the API definition.
+8.  Optionally, view the API definition.
 
      Click **API Definition**. 
      
