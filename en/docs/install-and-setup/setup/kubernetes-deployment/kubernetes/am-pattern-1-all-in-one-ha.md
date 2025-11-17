@@ -135,7 +135,7 @@ Deploy API Manager with minimal configuration using the following commands:
 
 ```bash
 # Deploy first instance
-helm install apim wso2/wso2am-all-in-one --version 4.5.0-3 -f https://raw.githubusercontent.com/wso2/helm-apim/main/docs/am-pattern-1-all-in-one-HA/default_values.yaml
+helm install apim wso2/wso2am-all-in-one --version 4.5.0-3 -f https://raw.githubusercontent.com/wso2/helm-apim/4.5.x/docs/am-pattern-1-all-in-one-HA/default_values.yaml
 ```
 
 !!! important
