@@ -15,9 +15,8 @@ Follow the instructions below to create a REST API using the basic flow:
       <p>The <b>Create API</b> button will only appear for a user who has the <code>creator</code> role permission.</p>
       </div>
     </html>
-
+   
 2. Select **REST API** from the options available.
-
 3. Click **Start from Scratch**.
 
 
@@ -45,7 +44,7 @@ Follow the instructions below to create a REST API using the basic flow:
 6. Go to **Develop**, **Portal Configurations**, and click **Basic Info**.
 
      <a href="https://apim.docs.wso2.com/en/latest/assets/img/learn/click-basic-info.png">
-     <img src="https://apim.docs.wso2.com/en/latest/assets/img/learn/click-basic-info.png" width="20%"></a>
+     <img src="https://apim.docs.wso2.com/en/latest/assets/img/learn/click-basic-info.png" alt="Click Basic Info button location" width="20%"></a>
 
      1. Configure the API design configurations.
 
