@@ -314,6 +314,7 @@ nav:
                 - Load Balancing: ai-gateway/multi-model-routing/load-balancing.md
                 - Failover: ai-gateway/multi-model-routing/failover.md
             - AI Service Provider Management:
+                - Overview: ai-gateway/ai-vendor-management/overview.md
                 - Anthropic: ai-gateway/ai-vendor-management/anthropic.md
                 - AWS Bedrock: ai-gateway/ai-vendor-management/aws-bedrock.md
                 - Azure AI Foundry: ai-gateway/ai-vendor-management/azure-ai-foundry.md
