@@ -231,7 +231,8 @@ present. If set to <code>false</code>, the Micro Integrator will assume that a q
       <tr>
          <td>rabbitmq.message.content.type</td>
          <td>
-            The content type of the consumer. <b>Note</b>: If the content type is specified in the message, this parameter does not override the specified content type. The default value is <code>text/xml</code>.
+            The content type of the consumer. <b>Note</b>: If the content type is specified in the message, this parameter does not override the specified content type. The default value is <code>text/xml</code>. <br><br>
+            <b>Note:</b> If you are consuming SOAP messages, set this parameter to <code>application/soap+xml</code> or <code>text/xml</code>. For other XML messages, set this parameter to <code>application/xml</code>.
          </td>
       </tr>
       <tr>
