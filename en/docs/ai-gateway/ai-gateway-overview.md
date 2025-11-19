@@ -40,28 +40,28 @@ The **LLM Gateway** specializes in managing Large Language Model interactions fo
 
 #### Core LLM Operations
 
-- **[AI API Creation](getting-started-with-ai-gateway.md)**: Create AI APIs by selecting an AI Service Provider and version
-- **[AI Service Provider Management](ai-vendor-management/overview.md)**: Manage built-in providers (OpenAI, Azure OpenAI, AWS Bedrock, Anthropic, Google Gemini, Mistral AI, Azure AI Foundry) and integrate custom AI services
+- **[AI API Creation]({{base_path}}/ai-gateway/getting-started-with-ai-gateway/)**: Create AI APIs by selecting an AI Service Provider and version
+- **[AI Service Provider Management]({{base_path}}/ai-gateway/ai-vendor-management/overview/)**: Manage built-in providers (OpenAI, Azure OpenAI, AWS Bedrock, Anthropic, Google Gemini, Mistral AI, Azure AI Foundry) and integrate custom AI services
 
 #### Traffic Management & Performance
-- **[Multi-Model Routing](multi-model-routing/overview.md)**: Dynamically route requests across multiple models within a Service Provider for optimized performance
-- **[Load Balancing](multi-model-routing/load-balancing.md)**: Distribute requests across multiple AI models or providers for optimal performance
-- **[Failover](multi-model-routing/failover.md)**: Automatically route requests to backup providers when primary services are unavailable
-- **[Semantic Caching](semantic-caching.md)**: Reduce latency and cost by serving semantically similar responses via embedding-based cache with similarity thresholds and TTLs
+- **[Multi-Model Routing]({{base_path}}/ai-gateway/multi-model-routing/overview/)**: Dynamically route requests across multiple models within a Service Provider for optimized performance
+- **[Load Balancing]({{base_path}}/ai-gateway/multi-model-routing/load-balancing/)**: Distribute requests across multiple AI models or providers for optimal performance
+- **[Failover]({{base_path}}/ai-gateway/multi-model-routing/failover/)**: Automatically route requests to backup providers when primary services are unavailable
+- **[Semantic Caching]({{base_path}}/ai-gateway/semantic-caching/)**: Reduce latency and cost by serving semantically similar responses via embedding-based cache with similarity thresholds and TTLs
 
 #### Security & Governance
-- **[AI Backend Security](ai-backend-security.md)**: Secure AI service access with OAuth2, API keys, and custom authentication methods
-- **[AI Guardrails](ai-guardrails/overview.md)**: Enforce safety and policy controls on inputs and outputs using provider-native and custom guardrails (regex, JSON schema, content safety)
-- **[Data Privacy Controls](ai-guardrails/regex-pii-masking.md)**: Mask sensitive information in prompts and responses
+- **[AI Backend Security]({{base_path}}/ai-gateway/ai-backend-security/)**: Secure AI service access with OAuth2, API keys, and custom authentication methods
+- **[AI Guardrails]({{base_path}}/ai-gateway/ai-guardrails/overview/)**: Enforce safety and policy controls on inputs and outputs using provider-native and custom guardrails (regex, JSON schema, content safety)
+- **[Data Privacy Controls]({{base_path}}/ai-gateway/ai-guardrails/regex-pii-masking/)**: Mask sensitive information in prompts and responses
 
 #### Cost Control & Monitoring
-- **[Rate Limiting](rate-limiting.md)**: Protect AI backends by enforcing token-based rate limits to manage resource consumption
-- **[Cost Control](rate-limiting.md)**: Monitor and control AI service usage with advanced rate limiting and spending limits
-- **[AI API Observability](../monitoring/api-analytics/moesif-analytics/moesif-integration-guide.md)**: Track AI API usage statistics and performance metrics
+- **[Rate Limiting]({{base_path}}/ai-gateway/rate-limiting/)**: Protect AI backends by enforcing token-based rate limits to manage resource consumption
+- **[Cost Control]({{base_path}}/ai-gateway/rate-limiting/)**: Monitor and control AI service usage with advanced rate limiting and spending limits
+- **[AI API Observability]({{base_path}}/monitoring/api-analytics/moesif-analytics/moesif-integration-guide/)**: Track AI API usage statistics and performance metrics
 
 #### Development & Management
-- **[Prompt Management](prompt-management/overview.md)**: Centrally author, version, and reuse prompts and templates with decorators for standardization
-- **[AI APIs via SDKs](using-proxy-apis-in-sdks.md)**: Generate and manage SDKs for AI API consumption
+- **[Prompt Management]({{base_path}}/ai-gateway/prompt-management/overview/)**: Centrally author, version, and reuse prompts and templates with decorators for standardization
+- **[AI APIs via SDKs]({{base_path}}/ai-gateway/using-proxy-apis-in-sdks/)**: Generate and manage SDKs for AI API consumption
 
 ## MCP Gateway
 
@@ -86,28 +86,27 @@ This standardized approach enables structured AI workflows where AI agents can s
 ### MCP Gateway Features  
 
 #### Tool Management & Discovery
-- **[API-to-Tool Transformation](../mcp/create-from-api.md)**: Transform existing APIs into AI-ready tools with machine-readable schemas
-- **[MCP Server Creation](../mcp/create-from-openapi.md)**: Create MCP servers from OpenAPI definitions, existing APIs, or by proxying existing MCP servers
-- **[Tool Discovery](../mcp/overview.md)**: Standardized tool discovery and schema retrieval for AI agents
-- **[Schema Management](../mcp/create-from-openapi.md)**: Define and manage tool schemas with input/output specifications
-- **[Versioned Tool Changes](../mcp/update-and-deploy-mcp-server.md)**: Ship tool updates with minimal disruption to AI workflows
+- **[API-to-Tool Transformation]({{base_path}}/mcp/create-from-api/)**: Transform existing APIs into AI-ready tools with machine-readable schemas
+- **[MCP Server Creation]({{base_path}}/mcp/create-from-openapi/)**: Create MCP servers from OpenAPI definitions, existing APIs, or by proxying existing MCP servers
+- **[Tool Discovery]({{base_path}}/mcp/create-from-mcp-server/)**: Standardized tool discovery and schema retrieval for AI agents
+- **[Versioned Tool Changes]({{base_path}}/mcp/update-and-deploy-mcp-server/)**: Ship tool updates with minimal disruption to AI workflows
 
-#### Execution & Validation
-- **[Tool Invocation](../mcp/subscribe-to-a-mcp-server.md)**: JSON-RPC based tool execution with structured input/output validation
-- **[MCP Playground](../mcp/invoke-a-mcp-server-using-playground.md)**: Interactive testing environment for MCP servers and tools
+#### Execution & Testing
+- **[Tool Invocation]({{base_path}}/mcp/subscribe-to-a-mcp-server/)**: JSON-RPC based tool execution through subscriptions and access tokens
+- **[MCP Playground]({{base_path}}/mcp/invoke-a-mcp-server-using-playground/)**: Interactive testing environment for MCP servers and tools
 
 #### Security & Analytics
-- **[Enterprise Security](../mcp/overview.md)**: Consistent security policies and data privacy controls across tool interactions  
-- **[Tool Usage Analytics](../mcp/overview.md)**: Track usage patterns and audit tool invocations for compliance
-- **[Rate Limiting](../mcp/overview.md)**: Control tool usage with quotas and usage limits
+- **[API Security]({{base_path}}/api-design-manage/design/api-security/api-authentication/secure-apis-using-oauth2-tokens/)**: Leverage platform security policies including OAuth2, JWT, and mutual SSL for tool access
+- **[API Analytics]({{base_path}}/monitoring/api-analytics/analytics-overview/)**: Track tool usage patterns and performance metrics through platform analytics
+- **[Rate Limiting]({{base_path}}/api-design-manage/design/rate-limiting/setting-throttling-limits/)**: Control tool usage with platform throttling policies and quotas
 
 ## Platform Capabilities
 
 Both gateway modes share WSO2 API Manager's enterprise platform capabilities:
 
-- **[Multi-Tenancy](../administer/multitenancy/introduction-to-multitenancy.md)**: Tenant isolation, usage billing, and custom policies per tenant
-- **[Enterprise Governance](../../api-design-manage/design/api-policies/overview/)**: Apply governance policies to AI service consumption and tool access
-- **[Compliance Monitoring](../monitoring/)**: Comprehensive audit logging for regulatory compliance
+- **[Multi-Tenancy]({{base_path}}/administer/multitenancy/introduction-to-multitenancy/)**: Tenant isolation, usage billing, and custom policies per tenant
+- **[Enterprise Governance]({{base_path}}/api-design-manage/design/api-policies/overview/)**: Apply governance policies to AI service consumption and tool access
+- **[Compliance Monitoring]({{base_path}}/monitoring/api-analytics/analytics-overview/)**: Comprehensive audit logging for regulatory compliance
 - **Cloud-Native Operations**: Kubernetes integration, automatic scaling, and rolling updates
 
 ## Getting Started
@@ -115,51 +114,38 @@ Both gateway modes share WSO2 API Manager's enterprise platform capabilities:
 ### Choose Your Implementation Path
 
 **New to AI in Production:**
-Start with basic gateway deployment for immediate cost control and monitoring.
+Start with the essentials - deploy the gateway and gain immediate cost visibility.
 
-1. Deploy [LLM Gateway](getting-started-with-ai-gateway.md) for centralized AI access
-2. Configure usage quotas and spending limits
-3. Enable monitoring dashboards for usage and costs
+1. Deploy [LLM Gateway]({{base_path}}/ai-gateway/getting-started-with-ai-gateway/) for centralized AI access
+2. Set up basic cost controls and monitoring
 
-**Migrating Existing AI Applications:**
-Route current AI traffic through the gateway without disrupting operations.
+**Migrating Existing Applications:**
+Route your current AI traffic through the gateway without disruption.
 
-1. Assess current costs, reliability issues, and integration complexity
+1. Assess current costs and reliability issues 
 2. Gradually migrate traffic through the gateway
-3. Add [AI Guardrails](ai-guardrails/) and governance incrementally
+3. Add security and governance policies as needed
 
-**Planning Enterprise Scale:**
-Build comprehensive infrastructure for autonomous agents and complex workflows.
+**Enterprise Scale Deployment:**
+Build comprehensive infrastructure for production AI operations.
 
-1. Configure [Multi-Provider Support](ai-vendor-management/) for resilience
-2. Deploy [MCP Gateway](../mcp/overview.md) for AI agent capabilities
-3. Enable [Semantic Caching](semantic-caching.md) and [Multi-Model Routing](multi-model-routing/)
+1. Configure multiple AI providers for resilience
+2. Implement advanced security and compliance controls
+3. Enable AI agent workflows with [API-to-tool]({{base_path}}/mcp/create-from-api/) transformation
 
 ## Best Practices
 
-### Implementation Strategy
+### Start with Security and Cost Control
+Always implement [AI Guardrails]({{base_path}}/ai-gateway/ai-guardrails/overview/) and cost controls before production deployment. Set conservative usage quotas initially and gradually increase based on actual needs. This prevents unexpected costs and security incidents from day one.
 
-- **Phase 1: Establish Basic AI Gateway**
-Deploy an AI gateway to centralize LLM access, track usage, and enforce rate limits. Focus on cost control and observability to prevent runaway token consumption. Even with a single provider, this foundation enables reliable AI operations and provides actionable insights into traffic patterns.
+### Avoid Vendor Lock-in Early
+Configure [multiple AI providers]({{base_path}}/ai-gateway/ai-vendor-management/overview/) even if you initially use only one. This provides immediate failover capability and negotiating leverage. Test failover scenarios regularly to ensure seamless switching when needed.
 
-- **Phase 2: Add Agent Capabilities**
-Identify enterprise tools and data sources that agents require. Start with read-only resources (databases, documentation), then gradually add executable tools (calculations, notifications, workflow triggers). This phase enables agents to perform meaningful actions while maintaining security and observability.
+### Optimize Costs with Caching
+Enable [semantic caching]({{base_path}}/ai-gateway/semantic-caching/) to reduce API calls by 40-60%. Start with conservative similarity thresholds (0.95) and adjust based on your application's tolerance for cached responses. Monitor cache hit rates and cost savings regularly.
 
-- **Phase 3: Introduce Advanced Governance**
-As usage grows, add centralized governance: rate limiting per agent/team/tool, analytics for usage patterns, fine-grained access control, and comprehensive audit logging for compliance. This ensures your AI infrastructure scales safely.
+### Plan for AI Agent Workflows
+If building AI agents that need to interact with your business systems, implement [MCP Gateway]({{base_path}}/mcp/overview/) to standardize tool access. Start by exposing read-only APIs as tools, then gradually add write operations with appropriate access controls.
 
-- **Phase 4: Multi-Provider Optimization**
-Add support for multiple LLM providers to increase resilience and optimize cost/quality balance. Implement intelligent routing based on workload type and cache frequent queries to reduce redundant computation.
-
-### Security & Compliance
-
-- **[AI Guardrails](ai-guardrails/)**: Prompt injection protection and content filtering
-- **Data Privacy**: PII/PHI masking and geographic routing for data residency  
-- **Access Control**: Scoped permissions and usage quotas at organization, team, and user levels
-- **Monitoring**: Anomaly detection, audit trails, and circuit breaking for compliance
-
-### Performance & Cost Optimization
-
-- **Smart Routing**: Route by complexity, latency requirements, and content type for optimal cost/performance balance  
-- **[Semantic Caching](semantic-caching.md)**: Reduce API calls by 40-60% with intelligent response caching
-- **Efficiency**: Response deduplication, connection pooling, and streaming for enhanced performance
+### Use Smart Routing for Production
+Implement [smart routing]({{base_path}}/ai-gateway/multi-model-routing/overview/) to balance cost and performance. Route simple queries to cost-effective models and complex reasoning tasks to premium models. Set up automated failover between providers to maintain availability.
