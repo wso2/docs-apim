@@ -20,7 +20,6 @@ site_name: WSO2 API Manager Documentation
 site_description: Documentation for WSO2 API Manager
 site_author: WSO2
 site_url: https://dushaniw.github.io/docs-apim/
-use_directory_urls: true
 
 # Repository
 repo_name: wso2/docs-apim
@@ -1235,6 +1234,6 @@ extra:
             version: 1.2.0-1
             git_tag: v1.2.0.1
     site_version: 4.6.0
-    base_path: https://dushaniw.github.io/docs-apim/
+    base_path: https://dushaniw.github.io/docs-apim
     #base_path: https://apim.docs.wso2.com/en/4.6.0
     envoy_path: https://www.envoyproxy.io/docs/envoy/v1.24.1

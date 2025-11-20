@@ -75,7 +75,7 @@ The MCP Gateway implements a three-tier architecture:
 
 This standardized approach enables structured AI workflows where AI agents can seamlessly call your business logic as tools.
 
-[![API Manager MCP Architecture]({{base_path}}/assets/img/mcp/mcp-architecture.png)]({{base_path}}/assets/img/mcp/mcp-architecture.png)
+[![API Manager MCP Architecture]({{base_path}}/assets/img/mcp-gateway/mcp-architecture.png)]({{base_path}}/assets/img/mcp-gateway/mcp-architecture.png)
 
 ### Use MCP Gateway when you need
 - Transform existing APIs into AI-callable tools
