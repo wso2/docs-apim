@@ -181,8 +181,8 @@ nav:
                 - Enabling CORS for APIs: api-design-manage/design/advanced-topics/enabling-cors-for-apis.md
                 - Adding an API State Change Workflow: api-design-manage/design/advanced-topics/adding-an-api-state-change-workflow.md
                 - Validate API Definitions with Linters: api-design-manage/design/advanced-topics/validate-api-definitions-with-linters.md
-                - Publisher Portal in Read Only Mode: manage-apis/design/api-security/authorization/publisher-portal-in-read-only-mode.md
-                - API Creator/Publisher Governance Capabilities: governance/api-governance-api-creator-capabilities.md
+                - Publisher Portal in Read Only Mode: api-design-manage/design/api-security/authorization/publisher-portal-in-read-only-mode.md
+                - API Creator/Publisher Governance Capabilities: api-design-manage/governance/api-governance-api-creator-capabilities.md
         - Deploy and Publish APIs:
             - Deploy on Gateway:
                 - Deploy API:
@@ -356,7 +356,7 @@ nav:
 
     - API Analytics and Monetization:
         - API Monetization:
-            - Monetize an API: manage-apis/design/api-monetization/monetizing-an-api.md
+            - Monetize an API: monitoring/api-monetization/monetizing-an-api.md
         - API Analytics:
             - Overview: monitoring/api-analytics/analytics-overview.md
             - Moesif Analytics: monitoring/api-analytics/moesif-analytics/moesif-integration-guide.md
@@ -392,9 +392,6 @@ nav:
     - Key Manager:
         - Key Management Concepts:
             - Overview: key-manager/key-manager-overview.md
-            - Key Management Flows: key-manager/key-management-flows.md
-            - Security Types and Standards: key-manager/security-types-standards.md
-            - Third-Party Key Manager Integration: key-manager/third-party-key-manager-integration.md
         - OAuth2:
             - Access Token Types:
                 - JWT Tokens: key-manager/oauth2/access-token-types/jwt-tokens.md
@@ -464,10 +461,10 @@ nav:
         - Rate Limiting:
             - Adding New Throttling Policies: api-design-manage/design/rate-limiting/adding-new-throttling-policies.md
         - Governance:
-            - Overview: governance/overview.md
-            - Concepts: governance/governance-concept.md
-            - Administrative Capabilities: governance/api-governance-admin-capabilities.md
-            - CI/CD-Driven Governance: governance/api-governance-cicd.md
+            - Overview: administer/governance/overview.md
+            - Concepts: administer/governance/governance-concept.md
+            - Administrative Capabilities: administer/governance/api-governance-admin-capabilities.md
+            - CI/CD-Driven Governance: administer/governance/api-governance-cicd.md
 
     - APIOps:
         - CI/CD:
@@ -651,7 +648,7 @@ nav:
             - API-M Config Catalog: reference/config-catalog.md
         - API Controller (APICTL): reference/apictl/wso2-api-controller.md
         - Governance:
-            - Rule Validator: governance/rule-validator/rule-validator.md
+            - Rule Validator: reference/governance/rule-validator/rule-validator.md
             - Ruleset Catalog:
                 - WSO2 API Management Guidelines: reference/governance/wso2-api-management-guidelines.md
                 - WSO2 REST API Design Guidelines: reference/governance/wso2-rest-api-design-guidelines.md
@@ -688,7 +685,7 @@ nav:
                     - Customize API Listing:
                         - API Category based Grouping: reference/customize-product/customizations/customizing-the-developer-portal/customize-api-listing/api-category-based-grouping.md
                         - Change Default View: reference/customize-product/customizations/customizing-the-developer-portal/customize-api-listing/change-default-view.md
-                    - Enable or Disabl API Detail Tabs: reference/customize-product/customizations/customizing-the-developer-portal/enabling-or-disabling-api-detail-tabs.md
+                    - Enable or Disable API Detail Tabs: reference/customize-product/customizations/customizing-the-developer-portal/enabling-or-disabling-api-detail-tabs.md
                     - Override API Overview Page per API: reference/customize-product/customizations/customizing-the-developer-portal/override-api-overview-page-per-api.md
                     - Enable or Disable Rating: reference/customize-product/customizations/customizing-the-developer-portal/enable-or-disable-rating.md
                     - Enable or Disable Home Page: reference/customize-product/customizations/customizing-the-developer-portal/enable-or-disable-home-page.md
@@ -696,7 +693,6 @@ nav:
                     - Enable or Disable Footer: reference/customize-product/customizations/customizing-the-developer-portal/enable-or-disable-footer.md
                     - Enable or Disable Banner: reference/customize-product/customizations/customizing-the-developer-portal/enable-or-disable-banner.md
                     - Styling API Details Left Menu: reference/customize-product/customizations/customizing-the-developer-portal/styling-api-details-left-menu.md
-                    - Styling API Details Info Section: reference/customize-product/customizations/customizing-the-developer-portal/styling-api-details-info-section.md
                     - Styling the Logo and Header: reference/customize-product/customizations/customizing-the-developer-portal/styling-the-logo-and-header.md
                     - Enable or Disabling Self Signup: reference/customize-product/customizations/customizing-the-developer-portal/enabling-or-disabling-self-signup.md
                     - Configure reCaptcha for Self-SignUp: reference/customize-product/customizations/customizing-the-developer-portal/configuring-recaptcha-for-self-signup.md

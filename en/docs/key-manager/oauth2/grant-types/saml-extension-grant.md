@@ -108,7 +108,7 @@ In this example, **WSO2 Identity Server 5.7.0** is used as the IdP to get a SAML
 
     [![]({{base_path}}/assets/img/learn/add-service-provider-menu.png)]({{base_path}}/assets/img/learn/add-service-provider-menu.png)
 
-5.  Choose to edit the service provider that you just registered and click **Inbound Authentication Configuration &gt; SAML2 Web SSO Configuration
+5.  Choose to edit the service provider that you just registered and click **Inbound Authentication Configuration** SAML2 Web SSO Configuration
 
     [![]({{base_path}}/assets/img/learn/add-service-provider-saml-config.png)]({{base_path}}/assets/img/learn/add-service-provider-saml-config.png)
     
