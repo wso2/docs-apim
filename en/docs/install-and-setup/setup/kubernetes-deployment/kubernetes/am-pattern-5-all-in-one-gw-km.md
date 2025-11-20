@@ -101,11 +101,11 @@ If you need to customize the Docker images (e.g., adding JDBC drivers, custom li
 
    **All-in-One** (Control Plane/Key Manager):
    ```dockerfile
-   FROM docker.wso2.com/wso2am:4.5.0.0
+   FROM docker.wso2.com/wso2am:4.6.0.0
 
    ARG USER_HOME=/home/${USER}
    ARG WSO2_SERVER_NAME=wso2am
-   ARG WSO2_SERVER_VERSION=4.5.0
+   ARG WSO2_SERVER_VERSION=4.6.0
    ARG WSO2_SERVER=${WSO2_SERVER_NAME}-${WSO2_SERVER_VERSION}
    ARG WSO2_SERVER_HOME=${USER_HOME}/${WSO2_SERVER}
 
@@ -115,18 +115,18 @@ If you need to customize the Docker images (e.g., adding JDBC drivers, custom li
 
    **Universal Gateway**:
    ```dockerfile
-   FROM docker.wso2.com/wso2am-universal-gw:4.5.0.0
+   FROM docker.wso2.com/wso2am-universal-gw:4.6.0.0
 
    ARG USER_HOME=/home/${USER}
    ARG WSO2_SERVER_NAME=wso2am-universal-gw
-   ARG WSO2_SERVER_VERSION=4.5.0
+   ARG WSO2_SERVER_VERSION=4.6.0
    ARG WSO2_SERVER=${WSO2_SERVER_NAME}-${WSO2_SERVER_VERSION}
    ARG WSO2_SERVER_HOME=${USER_HOME}/${WSO2_SERVER}
 
    # Copy JDBC MySQL driver
    ADD --chown=wso2carbon:wso2 https://repo1.maven.org/maven2/mysql/mysql-connector-java/8.0.28/mysql-connector-java-8.0.28.jar ${WSO2_SERVER_HOME}/repository/components/lib
    ```
-    ARG WSO2_SERVER_VERSION=4.5.0
+    ARG WSO2_SERVER_VERSION=4.6.0
     ARG WSO2_SERVER=${WSO2_SERVER_NAME}-${WSO2_SERVER_VERSION}
     ARG WSO2_SERVER_HOME=${USER_HOME}/${WSO2_SERVER}
 
@@ -188,20 +188,20 @@ If you want to quickly try out WSO2 API Manager on Kubernetes with minimal confi
 
    **Deploy Control Plane (All-in-One)**:
    ```bash
-   helm install apim wso2/wso2am-all-in-one --version 4.5.0-3 \
-     -f https://raw.githubusercontent.com/wso2/helm-apim/main/docs/am-pattern-5-all-in-one_GW_KM/default_values.yaml
+   helm install apim wso2/wso2am-all-in-one --version 4.6.0-1 \
+     -f https://raw.githubusercontent.com/wso2/helm-apim/4.6.x/docs/am-pattern-5-all-in-one_GW_KM/default_values.yaml
    ```
 
    **Deploy Key Manager**:
    ```bash
-   helm install km wso2/wso2am-acp --version 4.5.0-3 \
-     -f https://raw.githubusercontent.com/wso2/helm-apim/main/docs/am-pattern-5-all-in-one_GW_KM/default_km_values.yaml
+   helm install km wso2/wso2am-acp --version 4.6.0-1 \
+     -f https://raw.githubusercontent.com/wso2/helm-apim/4.6.x/docs/am-pattern-5-all-in-one_GW_KM/default_km_values.yaml
    ```
 
    **Deploy Universal Gateway**:
    ```bash
-   helm install gw wso2/wso2am-universal-gw --version 4.5.0-3 \
-     -f https://raw.githubusercontent.com/wso2/helm-apim/main/docs/am-pattern-5-all-in-one_GW_KM/default_gw_values.yaml
+   helm install gw wso2/wso2am-universal-gw --version 4.6.0-1 \
+     -f https://raw.githubusercontent.com/wso2/helm-apim/4.6.x/docs/am-pattern-5-all-in-one_GW_KM/default_gw_values.yaml
    ```
 
 3. **Set Up Ingress**:
@@ -212,7 +212,7 @@ If you want to quickly try out WSO2 API Manager on Kubernetes with minimal confi
 
 ### 1. General Configuration of Helm Charts
 
-The Helm charts for the API Manager deployment are available in the [WSO2 Helm Chart Repository](https://github.com/wso2/helm-apim/tree/4.5.x). You can either use the charts from the repository or clone the repository and use the charts from the local copy.
+The Helm charts for the API Manager deployment are available in the [WSO2 Helm Chart Repository](https://github.com/wso2/helm-apim/tree/4.6.x). You can either use the charts from the repository or clone the repository and use the charts from the local copy.
 - The Helm naming convention for APIM follows a simple pattern. The following format is used for naming the resources:
 ```<RELEASE_NAME>-<CHART_NAME>-<RESOURCE_NAME>```
 
@@ -412,7 +412,7 @@ kubectl create namespace <namespace>
 
 # Install using Helm
 helm install <release-name> wso2/wso2am-all-in-one \
-  --version 4.5.0-3 \
+  --version 4.6.0-1 \
   --namespace <namespace> \
   --dependency-update \
   -f values.yaml \
@@ -445,7 +445,7 @@ Deploy the Key Manager component with your custom configuration:
 ```bash
 # Install Key Manager component
 helm install <release-name> wso2/wso2am-acp \
-  --version 4.5.0-3 \
+  --version 4.6.0-1 \
   --namespace <namespace> \
   --dependency-update \
   -f km-values.yaml \
@@ -567,7 +567,7 @@ Deploy the Universal Gateway component with your custom configuration:
 ```bash
 # Install Gateway component
 helm install <release-name> wso2/wso2am-universal-gw \
-  --version 4.5.0-3 \
+  --version 4.6.0-1 \
   --namespace <namespace> \
   --dependency-update \
   -f gw-values.yaml \

@@ -1,5 +1,9 @@
 # Choreo Based Analytics Getting Started Guide
 
+!!! note
+    **Support for Choreo Analytics has been deprecated:**
+    Choreo Analytics has been deprecated in favor of Moesif-powered WSO2 Analytics, which offers enhanced insights and observability.
+
 API Manager offers analytics as a cloud service. Therefore, you need to register with the analytics cloud in order to use API Manager Analytics. Follow the instructions below to get started with analytics:
 
 ## Step 1 - Sign in to Choreo

@@ -1,6 +1,6 @@
 # Overview
 
-WSO2 API Manager 4.5.0 introduces a modular component architecture with separate distributions for API Control Plane, Universal Gateway, and Traffic Manager. This document provides an overview of various deployment patterns to help you choose the optimal configuration for deployment on virtual machines (VMs) based on your specific requirements.
+WSO2 API Manager 4.6.0 provides a modular component architecture with separate distributions for API Control Plane, Universal Gateway, and Traffic Manager. This document provides an overview of various deployment patterns to help you choose the optimal configuration for deployment on virtual machines (VMs) based on your specific requirements.
 
 ## All-in-One Deployment Patterns
 
@@ -19,7 +19,7 @@ Two all-in-one instances of WSO2 API Manager in active-active configuration prov
 
 ## Distributed Deployment Patterns
 
-WSO2 API Manager 4.5.0 offers separate component distributions:
+WSO2 API Manager 4.6.0 offers separate component distributions:
 
 - **WSO2 API Control Plane (ACP)**: Includes Key Manager, Publisher Portal, and Developer Portal
 - **WSO2 Universal Gateway**: Handles API traffic and security

@@ -346,15 +346,13 @@ nav:
             - Semantic Caching: ai-gateway/semantic-caching.md
             - AI APIs via SDKs: ai-gateway/using-proxy-apis-in-sdks.md
         - MCP Gateway:
-            - Getting Started: mcp/overview.md
-            - Create MCP Server:
-                - Create from an OpenAPI Definition: mcp/create-from-openapi.md
-                - Create from an Existing API: mcp/create-from-api.md
-                - Proxy an Existing MCP Server: mcp/create-from-mcp-server.md
-            - Manage MCP Server:
-                - Update and Deploy a MCP Server: mcp/update-and-deploy-mcp-server.md
-                - Subscribe to a MCP Server: mcp/subscribe-to-a-mcp-server.md
-            - Test with the MCP Playground: mcp/invoke-a-mcp-server-using-playground.md
+            - Getting Started: mcp-gateway/overview.md
+            - Create from an OpenAPI Definition: mcp-gateway/create-from-openapi.md
+            - Create from an Existing API: mcp-gateway/create-from-api.md
+            - Proxy an Existing MCP Server: mcp-gateway/create-from-mcp-server.md
+            - Update and Deploy a MCP Server: mcp-gateway/update-and-deploy-mcp-server.md
+            - Subscribe to a MCP Server: mcp-gateway/subscribe-to-a-mcp-server.md
+            - Consume MCP Servers from MCP Hub: mcp-gateway/invoke-a-mcp-server-using-playground.md
 
     - API Analytics and Monetization:
         - API Monetization:
@@ -366,6 +364,12 @@ nav:
                 - ELK Based Analytics Installation Guide: monitoring/api-analytics/on-prem/elk-installation-guide.md
                 - Datadog Analytics Installation Guide : monitoring/api-analytics/on-prem/datadog-installation-guide.md
                 - OpenSearch Analytics Installation Guide: monitoring/api-analytics/on-prem/opensearch-installation-guide.md
+                - Choreo Based Analytics:
+                    - Architecture: monitoring/api-analytics/choreo-analytics/api-analytics-architecture.md
+                    - Getting Started Guide: monitoring/api-analytics/choreo-analytics/getting-started-guide.md
+                    - Role-based Access Control : monitoring/api-analytics/choreo-analytics/role-based-access-control.md
+                    - Alerts: monitoring/api-analytics/choreo-analytics/configure-alerts.md
+                    - Choreo Based Analytics via Proxy: monitoring/api-analytics/choreo-analytics/choreo-based-analytics-via-proxy.md
             - Publish Analytics Events to External Systems: monitoring/api-analytics/samples/publishing-analytics-events-to-external-systems.md
             - Publish Custom Analytics Events Data: monitoring/api-analytics/samples/publishing-custom-analytics-data.md
         - Observability:
@@ -1202,6 +1206,13 @@ plugins:
               'deploy-and-publish/deploy-on-gateway/api-gateway/message-tracing.md': 'https://apim.docs.wso2.com/en/4.4.0/get-started/about-this-release/#removed-features-and-functionalities'
               'develop/customizations/customizing-the-developer-portal/customize-api-listing/categorizing-and-grouping-apis/api-category-based-grouping.md': 'https://apim.docs.wso2.com/en/4.4.0/reference/customize-product/customizations/customizing-the-developer-portal/customize-api-listing/api-category-based-grouping/'
               'administer/logging-and-monitoring/logging/configuring-logging.md': 'https://apim.docs.wso2.com/en/4.4.0/observe/api-manager/configuring-logging/'
+              'mcp/overview.md': 'https://apim.docs.wso2.com/en/4.6.0/mcp-gateway/overview/'
+              'mcp/create-from-api.md': 'https://apim.docs.wso2.com/en/4.6.0/mcp-gateway/create-from-api/'
+              'mcp/create-from-openapi.md': 'https://apim.docs.wso2.com/en/4.6.0/mcp-gateway/create-from-openapi/'
+              'mcp/create-from-mcp-server.md': 'https://apim.docs.wso2.com/en/4.6.0/mcp-gateway/create-from-mcp-server/'
+              'mcp/update-and-deploy-mcp-server.md': 'https://apim.docs.wso2.com/en/4.6.0/mcp-gateway/update-and-deploy-mcp-server/'
+              'mcp/subscribe-to-a-mcp-server.md': 'https://apim.docs.wso2.com/en/4.6.0/mcp-gateway/subscribe-to-a-mcp-server/'
+              'mcp/invoke-a-mcp-server-using-playground.md': 'https://apim.docs.wso2.com/en/4.6.0/mcp-gateway/invoke-a-mcp-server-using-playground/'
     # Extra
 extra_css:
     - assets/lib/highlightjs/default.min.css

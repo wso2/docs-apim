@@ -23,13 +23,13 @@ For more information on WSO2 API Manager, see the [overview]({{base_path}}/get-s
     - **Managing remote MCP Servers:** Import an external MCP Server and proxy via WSO2 API Manager.
     - **QoS for MCP Servers:** Apply rate limiting, authentication, and other policies.
 
-    **[Learn more]({{base_path}}/mcp/overview/)**
+    **[Learn more]({{base_path}}/mcp-gateway/overview/)**
 
 ??? note "MCP Hub"
 
     The control plane can now function as a MCP Hub, enabling centralized discovery and reuse of MCP Servers across teams and environments.
 
-    **[Learn more]({{base_path}}/mcp/overview/)**
+    **[Learn more]({{base_path}}/mcp-gateway/invoke-a-mcp-server-using-playground/)**
 
 ??? note "Multi-Model AI Service Provider Support"
 
@@ -136,6 +136,9 @@ For more information on WSO2 API Manager, see the [overview]({{base_path}}/get-s
 
 Before upgrading to WSO2 API Manager 4.6.0, review the following architectural considerations that may affect your deployment setup:
 
+- **Support for Choreo Analytics has been deprecated:**
+Choreo Analytics has been deprecated in favor of Moesif-powered WSO2 Analytics, which offers enhanced insights and observability.
+
 - **Removing database dependency of multi-tenant API gateways:**
 With the removal of database dependency in the Universal Gateway and Traffic Manager, users no longer need to share databases with the control plane to support multi-tenancy.
 This change improves scalability and simplifies deployment across distributed environments.
@@ -184,8 +187,8 @@ This change improves scalability and simplifies deployment across distributed en
 
 ## Fixed issues
 
-- [API Manager](https://github.com/wso2/api-manager/issues?q=is%3Aissue%20is%3Aclosed%20label%3AComponent%2FAPIM%20label%3A4.6.0%2C4.6.0-M1%2C4.6.0-Alpha%2C4.6.0-Alpha2%2C4.6.0-Alpha3%2C4.6.0-Beta)
-- [API Controller](https://github.com/wso2/api-manager/issues?q=is%3Aissue%20is%3Aclosed%20label%3AComponent%2FAPICTL%20label%3A4.6.0%2C4.6.0-M1%2C4.6.0-Alpha%2C4.6.0-Alpha2%2C4.6.0-Alpha3%2C4.6.0-Beta)
+- [API Manager](https://github.com/wso2/api-manager/issues?q=is%3Aissue%20is%3Aclosed%20label%3AComponent%2FAPIM%20closed%3A2025-03-06..2025-10-28%20-label%3AResolution%2FInvalid%20-label%3AResolution%2FDuplicate%20-label%3A%22Resolution%2FNot%20a%20bug%22%20-label%3A%22Resolution%2FCannot%20Reproduce%22%20-label%3A%22Resolution%2FWon%E2%80%99t%20Fix%22)
+- [API Controller](https://github.com/wso2/api-manager/issues?q=is%3Aissue%20is%3Aclosed%20label%3AComponent%2FAPICTL%20closed%3A2025-03-06..2025-10-28%20-label%3AResolution%2FInvalid%20-label%3AResolution%2FDuplicate%20-label%3A%22Resolution%2FNot%20a%20bug%22%20-label%3A%22Resolution%2FCannot%20Reproduce%22%20-label%3A%22Resolution%2FWon%E2%80%99t%20Fix%22)
 
 ## Known issues
 

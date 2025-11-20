@@ -1,6 +1,6 @@
 # Pattern 2: API-M Deployment with Simple Scalable Setup
 
-This is the standard distributed deployment for API Manager. The default configuration consists of a single API Control Plane and two Universal Gateways for better scalability and performance.
+This is the standard distributed deployment for API Manager. The default configuration consists of a single All-in-One and two Universal Gateways for better scalability and performance.
 
 <a href="{{base_path}}/assets/img/setup-and-install/deployment-no-tm.png"><img src="{{base_path}}/assets/img/setup-and-install/deployment-no-tm.png" alt="simple scalable api-m deployment" width="60%"></a>
 
@@ -27,7 +27,7 @@ This is the standard distributed deployment for API Manager. The default configu
         - [2.1 Configure Multiple Gateways](#21-configure-multiple-gateways)
         - [2.2 Configure User Store Properties](#22-configure-user-store-properties)
         - [2.4 Configure JWKS URL](#24-configure-jwks-url)
-        - [2.5 Deploy Control Plane](#25-deploy-control-plane)
+        - [2.5 Deploy All-in-One](#25-deploy-all-in-one)
         - [2.6 Enable High Availability](#26-enable-high-availability)
     - [3. Universal Gateway Configuration](#3-universal-gateway-configuration)
         - [3.1 Configure Key Manager, Eventhub and Throttling](#31-configure-key-manager-eventhub-and-throttling)
@@ -69,7 +69,7 @@ Before you begin, ensure you have the following prerequisites in place:
   For a production-grade deployment of the desired WSO2 product version, it is highly recommended to use the relevant
   Docker image which packages WSO2 Updates, available at [WSO2 Private Docker Registry](https://docker.wso2.com/). To use these images, you need an active [WSO2 Subscription](https://wso2.com/subscription).
 
-- WSO2 API Manager 4.5.0 provides three Docker images:
+- WSO2 API Manager 4.6.0 provides three Docker images:
   - All-in-one - [wso2am](https://hub.docker.com/r/wso2/wso2am)
   - Universal Gateway (GW) - [wso2am-universal-gw](https://hub.docker.com/r/wso2/wso2am-universal-gw)
 
@@ -79,17 +79,17 @@ Before you begin, ensure you have the following prerequisites in place:
   ```
 - Furthermore, if there are any customizations to the JARs in the product, those can also be included in the Docker image itself rather than mounting them from the deployment level (assuming that they are common to all environments).
 - The following is a sample Dockerfile to build a custom WSO2 APIM image. Depending on your requirements, you may refer to the following and make the necessary additions. The script below will:
-  - Use WSO2 APIM 4.5.0 as the base image
+  - Use WSO2 APIM 4.6.0 as the base image
   - Change UID and GID to 10001 (the default APIM image has 802 as UID and GID)
   - Copy third-party libraries to the `<APIM_HOME>/lib` directory
 
   - Dockerfile for All-in-one
     ```dockerfile
-    FROM docker.wso2.com/wso2am:4.5.0.0
+    FROM docker.wso2.com/wso2am:4.6.0.0
 
     ARG USER_HOME=/home/${USER}
     ARG WSO2_SERVER_NAME=wso2am
-    ARG WSO2_SERVER_VERSION=4.5.0
+    ARG WSO2_SERVER_VERSION=4.6.0
     ARG WSO2_SERVER=${WSO2_SERVER_NAME}-${WSO2_SERVER_VERSION}
     ARG WSO2_SERVER_HOME=${USER_HOME}/${WSO2_SERVER}
 
@@ -99,11 +99,11 @@ Before you begin, ensure you have the following prerequisites in place:
   
   - Dockerfile for Universal Gateway
     ```dockerfile
-    FROM docker.wso2.com/wso2am-universal-gw:4.5.0.0
+    FROM docker.wso2.com/wso2am-universal-gw:4.6.0.0
 
     ARG USER_HOME=/home/${USER}
     ARG WSO2_SERVER_NAME=wso2am-universal-gw
-    ARG WSO2_SERVER_VERSION=4.5.0
+    ARG WSO2_SERVER_VERSION=4.6.0
     ARG WSO2_SERVER=${WSO2_SERVER_NAME}-${WSO2_SERVER_VERSION}
     ARG WSO2_SERVER_HOME=${USER_HOME}/${WSO2_SERVER}
 
@@ -148,7 +148,7 @@ If you want to quickly try out WSO2 API Manager on Kubernetes with minimal confi
     
     - External database connection (requires setup)
     - Default keystore and truststore
-    - Basic settings for a scalable deployment with Control Plane and Gateway separation
+    - Basic settings for a scalable deployment with All-in-One and Gateway separation
 
     **Note:** This deployment requires separate databases. Follow the steps in [Step 2 - Build Docker Images](#step-2---build-docker-images) to build the Docker images with JDBC drivers, and [Step 3 - Configure Database](#step-3---configure-database) to set up the database.
 
@@ -162,11 +162,11 @@ kubectl create secret generic apim-keystore-secret --from-file=wso2carbon.jks --
 Deploy API Manager with minimal configuration using the following commands:
 
 ```bash
-# Deploy API Manager Control Plane
-helm install apim wso2/wso2am-all-in-one --version 4.5.0-3 -f https://raw.githubusercontent.com/wso2/helm-apim/main/docs/am-pattern-2-all-in-one_GW/default_values.yaml
+# Deploy All-in-One
+helm install apim wso2/wso2am-all-in-one --version 4.6.0-1 -f https://raw.githubusercontent.com/wso2/helm-apim/4.6.x/docs/am-pattern-2-all-in-one_GW/default_values.yaml
 
 # Deploy Universal Gateway
-helm install apim-gw wso2/wso2am-universal-gw --version 4.5.0-3 -f https://raw.githubusercontent.com/wso2/helm-apim/main/docs/am-pattern-2-all-in-one_GW/default_gw_values.yaml
+helm install apim-gw wso2/wso2am-universal-gw --version 4.6.0-1 -f https://raw.githubusercontent.com/wso2/helm-apim/4.6.x/docs/am-pattern-2-all-in-one_GW/default_gw_values.yaml
 ```
 
 !!! important
@@ -178,7 +178,7 @@ Once the services are up and running, make sure you have the NGINX Ingress Contr
 
 ### 1. General Configuration of Helm Charts
 
-The Helm charts for the API Manager deployment are available in the [WSO2 Helm Chart Repository](https://github.com/wso2/helm-apim/tree/4.5.x). You can either use the charts from the repository or clone the repository and use the charts from the local copy.
+The Helm charts for the API Manager deployment are available in the [WSO2 Helm Chart Repository](https://github.com/wso2/helm-apim/tree/4.6.x). You can either use the charts from the repository or clone the repository and use the charts from the local copy.
 - The Helm naming convention for APIM follows a simple pattern. The following format is used for naming the resources:
 ```<RELEASE_NAME>-<CHART_NAME>-<RESOURCE_NAME>```
 
@@ -362,9 +362,9 @@ wso2:
       oauth_config:
         oauth2JWKSUrl: "https://<ALL-IN-ONE_SERVICE_NAME>:9443/oauth2/jwks"
 ```
-#### 2.5 Deploy Control Plane
+#### 2.5 Deploy All-in-One
 
-After configuring all the necessary parameters, you can deploy the Control Plane using Helm:
+After configuring all the necessary parameters, you can deploy the All-in-One using Helm:
 
 1. Create a namespace for your deployment
 2. Install the Helm chart with your custom configurations
@@ -373,9 +373,9 @@ After configuring all the necessary parameters, you can deploy the Control Plane
 # Create namespace for deployment
 kubectl create namespace <namespace>
 
-# Deploy API Manager Control Plane using Helm
+# Deploy All-in-One using Helm
 helm install <release-name> <helm-chart-path> \
-  --version 4.5.0-3 \
+  --version 4.6.0-1 \
   --namespace <namespace> \
   --dependency-update \
   -f values.yaml \
@@ -401,9 +401,9 @@ wso2:
 
 #### 3.1 Configure Key Manager, Eventhub and Throttling
 
-The following configurations are needed to connect the Universal Gateway to the Control Plane:
+The following configurations are needed to connect the Universal Gateway to the All-in-One:
 
-- Configure Control Plane as the Key Manager:
+- Configure All-in-One as the Key Manager:
    ```yaml
    km:
      # -- Key manager service name if default Resident KM is used
@@ -416,23 +416,23 @@ The following configurations are needed to connect the Universal Gateway to the 
 
     ```yaml
     eventhub:
-      # -- Event hub (control plane) load balancer service URL
-      serviceUrl: "<CONTROL_PLANE_SERVICE_NAME>"
+      # -- Event hub (all-in-one) load balancer service URL
+      serviceUrl: "<ALL_IN_ONE_SERVICE_NAME>"
       # -- Event hub service URLs
       urls:
-        - "<CONTROL_PLANE_SERVICE_NAME>"
+        - "<ALL_IN_ONE_SERVICE_NAME>"
     ```
 
 === "All-in-One with High Availability"
 
     ```yaml
     eventhub:
-      # -- Event hub (control plane) load balancer service URL
-      serviceUrl: "<CONTROL_PLANE_SERVICE_NAME>"
+      # -- Event hub (all-in-one) load balancer service URL
+      serviceUrl: "<ALL_IN_ONE_SERVICE_NAME>"
       # -- Event hub service URLs
       urls:
-        - "<CONTROL_PLANE_1_SERVICE_NAME>"
-        - "<CONTROL_PLANE_2_SERVICE_NAME>"
+        - "<ALL_IN_ONE_1_SERVICE_NAME>"
+        - "<ALL_IN_ONE_2_SERVICE_NAME>"
     ```
 
 - Configure throttling settings:
@@ -441,13 +441,13 @@ The following configurations are needed to connect the Universal Gateway to the 
 
     ```yaml
     throttling:
-      serviceUrl: "<CONTROL_PLANE_SERVICE_NAME>"
+      serviceUrl: "<ALL_IN_ONE_SERVICE_NAME>"
       portOffset: 0
       # -- Port of the service URL
       servicePort: 9443
       # -- Traffic manager service URLs. You only need to define one if the TM is not in HA.
       urls:
-      - "<CONTROL_PLANE_SERVICE_NAME>"
+      - "<ALL_IN_ONE_SERVICE_NAME>"
       # -- Enable unlimited throttling tier
       unlimitedTier: true
       # -- Enable header-based throttling
@@ -468,8 +468,8 @@ The following configurations are needed to connect the Universal Gateway to the 
       servicePort: 9443
       # -- Traffic manager service URLs. You only need to define one if the Traffic Manager is not in HA.
       urls:
-      - "<CONTROL_PLANE_1_SERVICE_NAME>"
-      - "<CONTROL_PLANE_2_SERVICE_NAME>"
+      - "<ALL_IN_ONE_1_SERVICE_NAME>"
+      - "<ALL_IN_ONE_2_SERVICE_NAME>"
       # -- Enable unlimited throttling tier
       unlimitedTier: true
       # -- Enable header-based throttling
@@ -504,7 +504,7 @@ After configuring all the necessary parameters, you can deploy the Universal Gat
 ```bash
 # Deploy Universal Gateway using Helm
 helm install <release-name> <helm-chart-path> \
-  --version 4.5.0-3 \
+  --version 4.6.0-1 \
   --namespace <namespace> \
   --dependency-update \
   -f values.yaml \
@@ -513,7 +513,7 @@ helm install <release-name> <helm-chart-path> \
 
 !!! tip "Deployment Parameters"
     - `<release-name>`: Choose a name for your gateway release (e.g., `apim-gw`)
-    - `<namespace>`: Specify the same Kubernetes namespace as the Control Plane
+    - `<namespace>`: Specify the same Kubernetes namespace as the All-in-One
     - `<helm-chart-path>`: Path to the Gateway Helm chart (e.g., `./distributed/gateway` or use the repository URL)
 
 ### 4. Add a DNS Record Mapping the Hostnames and the External IP
