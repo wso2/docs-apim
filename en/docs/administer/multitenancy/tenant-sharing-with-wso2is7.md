@@ -53,6 +53,13 @@ allowed_username = ["*"]
 
 ## Tenant Synchronization from WSO2 IS 7.x to WSO2 API Manager
 
+!!! note 
+    Starting from WSO2 Identity Server 7.2.0, it is possible to create tenant domains without a mandatory dot extension (e.g., abc instead of abc.com). If you intend to support tenant domains in this format, please add the following configuration to the `<Product-Home>/repository/conf/deployment.toml` file of API Manager to avoid errors during tenant synchronization: : 
+    ```toml
+    [multi_tenancy]
+    stratos.public_cloud_setup = false
+    ```
+
 If you want to sync the tenant create/ update/ tenant enable or disable status update events made in WSO2 IS 7.x to API Manager, you have to enable this config in the `<Product-Home>/repository/conf/deployment.toml` file of the WSO2 IS 7.x. 
 ```toml
 [[event_listener]]
