@@ -20,10 +20,10 @@ The following is an example of a backend JWT:
 
 ``` json
 {
-    "typ": "JWT",
-    "alg": "RS256",
-    "x5t": "ODE3Y2ZhMTBjMDM4ZTBmMjAyYzliYTI2YjRhYTZlOGIyZmUxNWE3YQ==",
-    "kid": "Q049bG9jYWxob3N0LCBPVT1XU08yLCBPPVdTTzIsIEw9TW91bnRhaW4gVmlldywgU1Q9Q0EsIEM9VVMjMTY3NzA4OTI4Mw"
+    "typ":"JWT",
+    "alg":"RS256",
+    "x5t":"ODE3Y2ZhMTBjMDM4ZTBmMjAyYzliYTI2YjRhYTZlOGIyZmUxNWE3YQ==",
+    "kid":"Q049bG9jYWxob3N0LCBPVT1XU08yLCBPPVdTTzIsIEw9TW91bnRhaW4gVmlldywgU1Q9Q0EsIEM9VVMjMTY3NzA4OTI4Mw"
 }
 {
     "iss":"wso2.org/products/am",
@@ -51,11 +51,11 @@ The above JSON Web Token (JWT) contains the following information.
 -   `"iss"` - The issuer of the JWT
 -   `"exp"` - The token expiration time
 -   `"http://wso2.org/claims/subscriber"` - Subscriber to the API, usually the app developer
--   `" http://wso2.org/claims/applicationname"` - Application through which API invocation is done
--   `" http://wso2.org/claims/apicontext"` - Context of the API
--   `" http://wso2.org/claims/version "` - API version
--   `" http://wso2.org/claims/tier"` - Tier/price band for the subscription
--   `" http://wso2.org/claims/enduser"` - End-user of the app who's action invoked the API
+-   `"http://wso2.org/claims/applicationname"` - Application through which API invocation is done
+-   `"http://wso2.org/claims/apicontext"` - Context of the API
+-   `"http://wso2.org/claims/version "` - API version
+-   `"http://wso2.org/claims/tier"` - Tier/price band for the subscription
+-   `"http://wso2.org/claims/enduser"` - End-user of the app whose action invoked the API
 
 ## Changing the JWT encoding to Base64URL encoding
 
@@ -138,7 +138,7 @@ Before passing end user attributes, you need to enable and configure the JWT imp
      enable = true
      ```
 
-     For more information, see [JWT generation configuration details](#jwt-generation-configuration-details).
+     For more information, see [JWT generation configuration details](#backend-jwt-generator-configuration-details).
 
 3. [Start WSO2 API Manager]({{base_path}}/install-and-setup/install/installing-the-product/running-the-api-m/#starting-the-server).
 
