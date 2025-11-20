@@ -149,3 +149,10 @@ If building AI agents that need to interact with your business systems, implemen
 
 ### Use Smart Routing for Production
 Implement [smart routing]({{base_path}}/ai-gateway/multi-model-routing/overview/) to balance cost and performance. Route simple queries to cost-effective models and complex reasoning tasks to premium models. Set up automated failover between providers to maintain availability.
+
+## Next Steps
+
+Choose your path based on your use case:
+
+- **[Getting Started with LLM Gateway]({{base_path}}/ai-gateway/getting-started-with-ai-gateway/)** - For direct AI model integration (chat, completion, content generation)
+- **[Getting Started with MCP Gateway]({{base_path}}/mcp/overview/)** - For transforming APIs into AI-callable tools
