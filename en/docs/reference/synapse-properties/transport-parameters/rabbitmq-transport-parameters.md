@@ -433,7 +433,7 @@ rabbitmq:/<placeholder>?<query-parameter-name1>=<query-parameter-value1>&amp;<qu
   </tr>
   <tr>
     <td>placeholder</td>
-    <td>Specifies the routing key to use when both rabbitmq.queue.name and rabbitmq.queue.routing.key query parameters are not defined. Otherwise, it serves as a placeholder.</td>
+    <td>Specifies the routing key to use when both rabbitmq.queue.name and rabbitmq.queue.routing.key query parameters are not defined. If both parameters are provided, this path value is not used for routing and can be omitted from the URI.</td>
   </tr>
   <tr>
     <td>rabbitmq.server.host.name</td>
