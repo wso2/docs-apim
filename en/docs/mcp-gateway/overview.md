@@ -1,33 +1,4 @@
-# Getting Started with MCP
-
-The **Model Context Protocol (MCP)** in WSO2 API Manager provides a standardized way to expose *tool-style* capabilities as first-class APIs for AI, automation, and structured integrations. A MCP Server **describes its capabilities as tools** with machine-readable schemas and discovery.
-
-## What is Model Context Protocol?
-
-**MCP is a JSON-RPC–based protocol** that standardizes how applications interact with LLMs. It lets applications both share context (files, databases, APIs) with LLMs and **expose callable tools** that agents can invoke in workflows.
-
-### Architecture (host–client–server)
-
-* **Host** – Runtime where the MCP client lives (e.g., agent or gateway).
-* **Client** – Mediates communication with one or more MCP servers.
-* **Server** – Publishes tools, schemas, and metadata for discovery and invocation.
-
-> For full protocol details, see the [official MCP specification](https://modelcontextprotocol.io/docs/getting-started/intro).
-
-## MCP Core Concepts
-
-* **Server** – The MCP API you manage, can expose one or more tools.
-* **Tool** – A callable capability (e.g., `echo`, `summarize`, `getOrderStatus`) defined by input/output schemas.
-* **Discovery** – Clients list tools, read metadata, and fetch schemas before invocation.
-
-## Why MCP in APIM is Valuable
-
-* Enforce **consistent security** across AI/automation endpoints.
-* Provide **standardized metadata** for zero-guesswork client integration.
-* Track **tool usage analytics** for capacity and optimization.
-* Ship **versioned tool changes** with minimal disruption.
-
-## Manage MCP Servers with WSO2 API Manager
+# Getting Started with MCP Gateway
 
 WSO2 API Manager provides a unified platform for managing MCP Servers, enabling you to transform APIs into AI-ready tools and govern their lifecycle. With a centralized control plane, you can create, discover, and manage MCP Servers efficiently—streamlining workflows for both API developers and AI agent builders.
 
