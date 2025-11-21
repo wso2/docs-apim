@@ -69,7 +69,7 @@ theme:
 strict: false
 # Navigation
 nav:
-    - Documentation: index.md
+    - Home: index.md
     - Get Started:
           - Overview: get-started/overview.md
           - Key Concepts: get-started/key-concepts.md
@@ -614,7 +614,7 @@ nav:
                     -   API-M Performance Tuning: install-and-setup/setup/deployment-best-practices/tuning-performance.md
 
         - Upgrade: install-and-setup/upgrading-wso2-api-manager/upgrading-api-manager.md
-        - Reference:
+        - References:
             - Common Runtime and Configuration Artifacts: install-and-setup/setup/reference/common-runtime-and-configuration-artifacts.md
             - Default Product Ports: install-and-setup/setup/reference/default-product-ports.md
             - Product Compatibility: install-and-setup/setup/reference/product-compatibility.md
@@ -1220,7 +1220,7 @@ extra:
     generator: false
     product_name: WSO2 API Manager
     explicit_tab_list:
-      - Documentation
+      - Home
       - Get Started
       - API Design and Manage
       - API Developer Portal
@@ -1360,7 +1360,7 @@ extra:
       options:
         - verticle-line
         - divider
-    - title: API Analytics and Monetization
+    - title: API Analytics & Monetization
       options:
         - verticle-line
         - divider
@@ -1390,8 +1390,8 @@ extra:
         - divider
 
     nav_icons:
-      Documentation:
-        icon: octicons/file-16
+      Home:
+        icon: octicons/home-16
         level: 1
       Get Started:
         icon: octicons/rocket-16
@@ -1408,7 +1408,7 @@ extra:
       AI Gateway:
         icon: octicons/tools-16
         level: 1
-      API Analytics and Monetization:
+      API Analytics & Monetization:
         icon: octicons/graph-16
         level: 1
       Key Manager:
