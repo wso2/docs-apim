@@ -15,8 +15,6 @@ As the central security authority for API access, it enables:
 
 ## Architecture
 
-The Key Manager operates as the authorization server within WSO2 API Manager, providing both built-in key management capabilities and seamless integration with external authorization servers for enterprise identity provider scenarios.
-
 WSO2 API Manager supports multiple key managers within a single tenant, enabling organizations to integrate various authorization servers simultaneously. Administrators can configure different key managers via the Admin Portal, making them available for application developers and API creators.
 
 When an administrator adds a key manager through the Admin Portal:
