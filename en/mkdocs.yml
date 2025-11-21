@@ -83,7 +83,7 @@ nav:
               - Kubernetes Deployment: install-and-setup/setup/kubernetes-deployment/kubernetes/kubernetes-overview.md
           - About this Release: get-started/about-this-release.md
 
-    - API Design and Manage:
+    - API Design & Manage:
         - Design APIs:
             - Design APIs Overview: api-design-manage/design/design-api-overview.md
             - Create APIs:
@@ -353,7 +353,7 @@ nav:
             - Subscribe to a MCP Server: mcp-gateway/subscribe-to-a-mcp-server.md
             - Consume MCP Servers from MCP Hub: mcp-gateway/invoke-a-mcp-server-using-playground.md
 
-    - API Analytics and Monetization:
+    - API Analytics & Monetization:
         - API Monetization:
             - Monetize an API: monitoring/api-monetization/monetizing-an-api.md
         - API Analytics:
@@ -504,8 +504,8 @@ nav:
                 - Format the Outputs of Get Commands: install-and-setup/setup/api-controller/advanced-topics/formatting-the-output-of-get-command.md
                 - Configure Git Integration: install-and-setup/setup/api-controller/advanced-topics/configuring-git-integration.md
 
-    - Install and Setup:
-        - Install and Setup Overview: install-and-setup/install-and-setup-overview.md
+    - Install & Setup:
+        - Overview: install-and-setup/install-and-setup-overview.md
         - Install:
             - Installation Prerequisites: install-and-setup/install/installation-prerequisites.md
             - Install the API Manager Runtime:
@@ -1222,7 +1222,7 @@ extra:
     explicit_tab_list:
       - Home
       - Get Started
-      - API Design and Manage
+      - API Design & Manage
       - API Developer Portal
       - API Gateway
       - AI Gateway
@@ -1344,7 +1344,7 @@ extra:
       options:
         - divider
         - verticle-line
-    - title: API Design and Manage
+    - title: API Design & Manage
       options:
         - verticle-line
         - divider
@@ -1376,7 +1376,7 @@ extra:
       options:
         - verticle-line
         - divider
-    - title: Install and Setup
+    - title: Install & Setup
       options:
         - verticle-line
         - divider
@@ -1396,7 +1396,7 @@ extra:
       Get Started:
         icon: octicons/rocket-16
         level: 1
-      API Design and Manage:
+      API Design & Manage:
         icon: octicons/tools-16
         level: 1
       API Developer Portal:
@@ -1420,7 +1420,7 @@ extra:
       APIOps:
         icon: octicons/desktop-download-16
         level: 1
-      Install and Setup:
+      Install & Setup:
         icon: octicons/mortar-board-16
         level: 1
       Reference:
