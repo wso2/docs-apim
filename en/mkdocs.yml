@@ -353,7 +353,7 @@ nav:
             - Subscribe to a MCP Server: mcp-gateway/subscribe-to-a-mcp-server.md
             - Consume MCP Servers from MCP Hub: mcp-gateway/invoke-a-mcp-server-using-playground.md
 
-    - API Analytics & Monetization:
+    - API Analytics and Monetization:
         - API Monetization:
             - Monetize an API: monitoring/api-monetization/monetizing-an-api.md
         - API Analytics:
@@ -1220,7 +1220,7 @@ extra:
     generator: false
     product_name: WSO2 API Manager
     explicit_tab_list:
-      - Documentation
+      - Home
       - Get Started
       - API Design and Manage
       - API Developer Portal
@@ -1360,7 +1360,7 @@ extra:
       options:
         - verticle-line
         - divider
-    - title: API Analytics and Monetization
+    - title: API Analytics & Monetization
       options:
         - verticle-line
         - divider
@@ -1390,8 +1390,8 @@ extra:
         - divider
 
     nav_icons:
-      Documentation:
-        icon: octicons/file-16
+      Home:
+        icon: octicons/home-16
         level: 1
       Get Started:
         icon: octicons/rocket-16
@@ -1408,7 +1408,7 @@ extra:
       AI Gateway:
         icon: octicons/tools-16
         level: 1
-      API Analytics and Monetization:
+      API Analytics & Monetization:
         icon: octicons/graph-16
         level: 1
       Key Manager:
