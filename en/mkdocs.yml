@@ -16,7 +16,7 @@
 # under the License.
 
 # Project information
-site_name: WSO2 API Manager Documentation
+site_name: &site_name WSO2 API Manager Documentation
 site_description: Documentation for WSO2 API Manager
 site_author: WSO2
 site_url: https://apim.docs.wso2.com/en/4.6.0/
@@ -34,37 +34,36 @@ copyright: WSO2 API Manager - Documentation
 theme:
     name: material
     custom_dir: theme/material
+    font: false
+    toc: false
     palette:
-
-    # Palette toggle for automatic mode
-    - media: "(prefers-color-scheme)"
-    #   toggle:
-    #     icon: material/brightness-auto
-    #     name: Switch to light mode
-
-    # Palette toggle for light mode
-    - media: "(prefers-color-scheme: light)"
-      scheme: default 
-    #   toggle:
-    #     icon: material/brightness-7
-    #     name: Switch to dark mode
-
-    # Palette toggle for dark mode
-    - media: "(prefers-color-scheme: dark)"
-      scheme: slate
-    #   toggle:
-    #     icon: material/brightness-4
-    #     name: Switch to system preference
-    logo: images/logo.svg
-    favicon: images/favicon.png
+      # Palette toggle for light mode
+       - media: "(prefers-color-scheme: light)"
+         scheme: default 
+         toggle:
+          icon: assets/libs/oxygen-ui-icons/1.7.3/crescent-bright-16.svg
+          name: Switch to dark mode
+      # Palette toggle for dark mode
+       - media: "(prefers-color-scheme: dark)"
+         scheme: slate
+         toggle:
+           icon: assets/libs/oxygen-ui-icons/1.7.3/sun-16.svg
+           name: Switch to light mode
+    logo: assets/images/logo.svg
+    logo_light: assets/images/logo-for-light.svg
+    favicon: assets/images/favicon.png
     features:
-        - content.code.copy
-        - navigation.tabs
-        - navigation.tabs.sticky
-        - content.action.edit
-        - content.action.view
-        - navigation.top
-        - toc.follow
+       - navigation.indexes
+       - navigation.path
+       - navigation.top
+       - navigation.footer
+       - navigation.instant.progress
+       - content.code.copy
+       - content.action.edit
+       - content.action.view
+       - content.tabs.link
+       - search.suggest
+       - search.share
     language: 'en'
 #Breaks build if there's a warning
 strict: false
@@ -764,46 +763,41 @@ nav:
             - Create and Publish an API with Sequence as a Backend: tutorials/create-and-publish-a-sequencebackend-api.md
             - Expose a SOAP Service as a REST API: tutorials/expose-a-soap-service-as-a-rest-api.md
             - Edit an API by Modifying the API Definition: tutorials/edit-an-api-by-modifyng-the-api-definition.md
+
+# Hooks
+hooks:
+    - hooks.py
+
 # Extensions
 markdown_extensions:
-    - admonition
-    - markdown.extensions.codehilite:
-          linenums: true
-          use_pygments: false
+    - markdown.extensions.admonition
     - markdown.extensions.def_list
     - markdown.extensions.footnotes
-    - markdown.extensions.meta
+    - admonition
     - markdown.extensions.toc:
-          permalink: true
-    - markdown_include.include:
-          base_path: docs
+        permalink: true
+        toc_depth: 3
     - pymdownx.arithmatex
     - pymdownx.betterem:
-          smart_enable: all
+        smart_enable: all
     - pymdownx.caret
     - pymdownx.critic
     - pymdownx.details
     - pymdownx.emoji:
-        emoji_index: !!python/name:materialx.emoji.twemoji
-        emoji_generator: !!python/name:materialx.emoji.to_svg
+        emoji_generator: !!python/name:pymdownx.emoji.to_svg
     - pymdownx.inlinehilite
     - pymdownx.keys
     - pymdownx.mark
     - pymdownx.smartsymbols
     - pymdownx.superfences
-    - pymdownx.tasklist:
-          custom_checkbox: true
-    - pymdownx.tilde
-    - pymdownx.highlight:
-          use_pygments: true
-          line_spans: __codeline
-          anchor_linenums: true
-          pygments_lang_class: true
-    - pymdownx.snippets:
-          base_path: docs
-    - attr_list
     - pymdownx.tabbed:
-          alternate_style: true
+        alternate_style: true
+    - pymdownx.tasklist:
+        custom_checkbox: true
+    - pymdownx.tilde
+    - pymdownx.snippets:
+        base_path: docs
+    - attr_list
 plugins:
     - search:
         indexing: "full"
@@ -1220,6 +1214,220 @@ extra_javascript:
     - assets/lib/highlightjs/highlight.min.js
     - assets/js/theme.js
 extra:
+    material:
+      jinja2content: true
+    generator: false
+    product_name: *site_name
+    explicit_tab_list:
+      - Documentation
+      - Get Started
+      - API Design and Manage
+      - API Developer Portal
+      - API Gateway
+      - AI Gateway
+      - API Analytics & Monetization
+      - Key Manager
+      - Admin Portal
+      - APIOps
+      - Install & Setup
+      - Reference
+      - Tutorials
+    home_page_cards:
+    - section:
+      - title: Get Started
+        icon: octicons/rocket-16
+        icon_color: icon-color-1
+        list_items:
+          - title: Overview
+            url: Get started|Overview
+          - title: Key Concepts
+            url: Get started|Key Concepts
+          - title: Quick Start Guide
+            url: Get started|Quick Start Guide
+          - title: About This Release
+            url: Get started|About this Release
+    - section:
+      - title: Deployment Options
+        icon: octicons/server-16
+        icon_color: icon-color-4
+        list_items:
+          - title: Deploy on VM
+            url: Install and Setup|Install|Run API-M
+          - title: Deploy on Kubernetes
+            url: Install and Setup|Install|Deploy on Kubernetes
+          - title: SaaS
+            url: https://wso2.com/bijira/docs/
+    - section:
+      - title: Setup
+        icon: octicons/gear-16
+        icon_color: icon-color-3
+        list_items:
+          - title: Install
+            url: Install and Setup|Install|Install API-M
+          - title: Deploy
+            url: Install and Setup|Setup|Overview
+          - title: Upgrade WSO2 API Manager
+            url: Install and Setup|Upgrade
+    - section:
+      - title: Developer Resources
+        icon: octicons/code-16
+        icon_color: icon-color-3
+        list_items:
+          - title: Product Rest APIs
+            url: Reference|Product REST APIs|Overview
+          - title: Tooling
+            url: Reference|API Controller (APICTL)
+          - title: SDKs
+            url: Consume APIs|Generating SDKs|Generate SDK in Developer Portal
+          - title: Configuration Catalog
+            url: Reference|Product|API-M Config Catalog
+    - section:
+      - title: Guides
+        icon: octicons/book-16
+        icon_color: icon-color-3
+        list_items:
+          - title: Designing APIs
+            url: Manage APIs|Design APIs Overview
+          - title: Create an API Product
+            url: Manage APIs|Design APIs|Create an API Product
+          - title: Authentication
+            url: Manage APIs|Design APIs|API Security|Authentication|Overview
+          - title: Authorization
+            url: Reference|Product|API-M Config Catalog
+    control_plain_cards:
+    - section:
+      - title: WSO2 API Control Plane
+        icon: octicons/gear-16
+        icon_color: icon-color-1
+        description: A Unified control plane which centrally manages and governs APIs across multiple Gateways
+        list_items:
+          - title: WSO2 API Control Plane Overview
+            url: Get Started|Architecture
+    data_plane_cards:
+    - section:
+      - title: WSO2 Universal Gateway
+        icon: octicons/tools-16
+        icon_color: icon-color-1
+        description: Secure and proxy API traffic with enterprise-grade features
+        list_items:
+          - title: WSO2 Universal Gateway Overview
+            url: API Gateway|Regular Gateway|Overview of the WSO2 Universal Gateway
+    - section:
+      - title: WSO2 Kubernetes Gateway
+        icon: octicons/link-external-16
+        icon_color: icon-color-1
+        description: Designed to build, deploy, and manage APIs in a cloud environment
+        list_items:
+          - title: WSO2 Kubernetes Gateway Overview
+            url: Install and Setup|Setup|Set up API Manager|Set up Kubernetes Gateway with APIM
+    - section:
+      - title: WSO2 Immutable Gateway
+        icon: octicons/mortar-board-16
+        icon_color: icon-color-1
+        description: An API Gateway for micro services, which is cloud-native, decentralized and developer centric
+        list_items:
+          - title: WSO2 Immutable Gateway Overview
+            url: get-started/apim-architecture/#immutable-gateway
+    - section:
+      - title: Federated Gateways
+        icon: octicons/mortar-board-16
+        icon_color: icon-color-1
+        description: Manage APIs spanning multiple cloud platforms, on-premises systems, or regions
+        list_items:
+          - title: AWS API Gateway
+            url: manage-apis/deploy-and-publish/federated-gateways/aws/deploy-on-aws-api-gateway/
+          - title: Solace Broker
+            url: tutorials/integrating-with-solace/
+    expanded_navs:
+    - title: Get Started
+      options:
+        - divider
+        - verticle-line
+    - title: API Design and Manage
+      options:
+        - verticle-line
+        - divider
+    - title: API Developer Portal
+      options:
+        - verticle-line
+        - divider
+    - title: API Gateway
+      options:
+        - verticle-line
+        - divider
+    - title: AI Gateway
+      options:
+        - verticle-line
+        - divider
+    - title: API Analytics and Monetization
+      options:
+        - verticle-line
+        - divider
+    - title: Key Manager
+      options:
+        - verticle-line
+        - divider
+    - title: Admin Portal
+      options:
+        - verticle-line
+        - divider
+    - title: APIOps
+      options:
+        - verticle-line
+        - divider
+    - title: Install and Setup
+      options:
+        - verticle-line
+        - divider
+    - title: Reference
+      options:
+        - verticle-line
+        - divider
+    - title: Tutorials
+      options:
+        - verticle-line
+        - divider
+
+    nav_icons:
+      Documentation:
+        icon: octicons/file-16
+        level: 1
+      Get Started:
+        icon: octicons/rocket-16
+        level: 1
+      API Design and Manage:
+        icon: octicons/tools-16
+        level: 1
+      API Developer Portal:
+        icon: octicons/plug-16
+        level: 1
+      API Gateway:
+        icon: octicons/mortar-board-16
+        level: 1
+      AI Gateway:
+        icon: octicons/tools-16
+        level: 1
+      API Analytics and Monetization:
+        icon: octicons/graph-16
+        level: 1
+      Key Manager:
+        icon: octicons/link-external-16
+        level: 1
+      Admin Portal:
+        icon: octicons/gear-16
+        level: 1
+      APIOps:
+        icon: octicons/desktop-download-16
+        level: 1
+      Install and Setup:
+        icon: octicons/mortar-board-16
+        level: 1
+      Reference:
+        icon: octicons/book-16
+        level: 1
+      Tutorials:
+        icon: octicons/light-bulb-16
+        level: 1
     social:
         - icon: fontawesome/brands/github-alt
           link: https://github.com/wso2
@@ -1237,3 +1445,8 @@ extra:
     #base_path: http://localhost:8000/en/4.6.0
     base_path: https://apim.docs.wso2.com/en/4.6.0-revamp
     envoy_path: https://www.envoyproxy.io/docs/envoy/v1.24.1
+    redoc_theme: '{
+    "colors": {
+      "primary": { "main": "#ff7300" }
+    }
+  }'

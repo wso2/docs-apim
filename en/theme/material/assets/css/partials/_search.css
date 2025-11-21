@@ -1,0 +1,204 @@
+/**
+ * Copyright (c) 2024, WSO2 LLC. (https://www.wso2.com).
+ *
+ * WSO2 LLC. licenses this file to you under the Apache License,
+ * Version 2.0 (the "License"); you may not use this file except
+ * in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing,
+ * software distributed under the License is distributed on an
+ * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+ * KIND, either express or implied. See the License for the
+ * specific language governing permissions and limitations
+ * under the License.
+ */
+
+:root,
+[data-md-color-scheme=default] {
+  --md-home-search-background-color: #ffffff;
+  --md-search-results-meta-background-color: #f5f5fa;
+  --md-home-search-box-shadow: 0 10px 15px -3px rgba(0, 0, 0, .1), 0 4px 6px -4px rgba(0, 0, 0, .1);
+  --md-home-search-box-shadow-hover: 0 10px 15px 2px rgba(0, 0, 0, .1), 0 4px 6px -4px rgba(0, 0, 0, .1);
+  --md-home-search-border-radius: 9999px;
+  --md-home-search-expanded-width: 60%;
+  --md-home-search-expanded-box-shadow: 0 8px 22px 0 rgba(37, 44, 97, .15), 0 4px 6px 0 rgba(93, 100, 148, .2);
+  --md-home-search-expanded-border-radius: 8px;
+  --md-home-search-border-color: #f2f2f3;
+
+  --md-header-search-background-color: #f6f6f7;
+  --md-header-search-hover-border-color: var(--md-primary-fg-color);
+  --md-header-search-border-color: var(--md-divider-color);
+}
+
+:root,
+[data-md-color-scheme=slate] {
+  --md-home-search-background-color: #1b1b1d;
+  --md-home-search-box-shadow: 0 10px 15px -3px rgba(0, 0, 0, .1), 0 4px 6px -4px rgba(0, 0, 0, .1);
+  --md-home-search-box-shadow-hover: 0 10px 15px 2px rgba(0, 0, 0, .1), 0 4px 6px -4px rgba(0, 0, 0, .1);
+  --md-home-search-border-color: #2c2c2c;
+
+  --md-header-search-background-color: #161618;
+  --md-search-results-meta-background-color: #2d2d37;
+}
+
+/* common */
+.md-search-result__meta {
+  background-color: var(--md-search-results-meta-background-color);
+  line-height: 1rem;
+}
+
+.md-search__output .md-search-result .md-search-result__meta {
+  padding-top: 10px;
+  padding-bottom: 6px;
+  margin-top: 3px;
+}
+
+[data-md-toggle=search]:checked~.md-container .md-search__output .md-search-result__more {
+  border-radius: 0;
+  border-right: 0;
+  border-left: 0;
+}
+
+[data-md-toggle=search]:checked~.md-container .md-search__output .md-search-result__more summary {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+}
+
+[data-md-toggle=search]:checked~.md-container .md-search__output .md-search-result__more summary::after {
+  position: relative;
+  right: 0;
+}
+
+.md-search-result__more>summary:focus>div,
+.md-search-result__more>summary:hover>div {
+  background-color: transparent;
+}
+
+/* Setting the border-bottom radius to 0 when the search bar is expanded */
+[data-md-toggle=search]:checked~.md-header .md-search .md-search__inner .md-search__form,
+[data-md-toggle=search]:checked~.md-container .md-home-search-container .md-search__form {
+  border-radius: var(--md-home-search-expanded-border-radius);
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+/**
+ * This section contains styles related to the search bar on the home page.
+ *
+ * It is organized as follows:
+ * 1. Base styles for the search bar container
+ * 2. Styles for the search input field
+ * 3. Styles for the search button
+ *
+ * The search bar is designed to be responsive and works across various screen sizes.
+ * Please ensure to test any changes in different screen resolutions.
+ */
+
+.md-home-search-container .md-search .md-search__inner {
+  background-color: var(--md-home-search-background-color);
+  box-shadow: var(--md-home-search-box-shadow);
+  border-radius: var(--md-home-search-border-radius);
+  border: 1px solid var(--md-home-search-border-color);
+  padding: 0;
+}
+
+.md-home-search-container .md-search .md-search__inner:hover {
+  box-shadow: var(--md-home-search-box-shadow-hover);
+}
+
+.md-home-search-container .md-search .md-search__inner .md-search__form {
+  background: transparent;
+}
+
+.md-home-search-container .md-search .md-search__inner .md-search__form .md-search__input::placeholder {
+  --text-opacity: 0.8;
+  color: var(--md-typeset-color);
+  opacity: var(--text-opacity);
+}
+
+[data-md-toggle=search]:checked~.md-container .md-home-search-container .md-search__inner {
+  width: var(--md-home-search-expanded-width);
+  box-shadow: var(--md-home-search-expanded-box-shadow);
+}
+
+@media screen and (max-width: 59.9375em) {
+  [data-md-toggle=search]:checked~.md-container .md-home-search-container .md-search__inner {
+    width: 100%;
+  }
+}
+
+[data-md-toggle=search]:checked~.md-container .md-home-search-container .md-search__output {
+  box-shadow: var(--md-home-search-expanded-box-shadow);
+  border-bottom-left-radius: var(--md-home-search-expanded-border-radius);
+  border-bottom-right-radius: var(--md-home-search-expanded-border-radius);
+  padding-top: 5px;
+  margin-top: -13px;
+}
+
+/**
+  * This section contains styles related to the search bar on header bar.
+  */
+ 
+.md-header .md-search__input,
+.md-header .md-search__input::placeholder,
+.md-header .md-search .md-search__inner .md-search__form .md-search__suggest {
+  font-size: var(--md-header-link-font-size);
+}
+
+[dir=ltr] .md-search__suggest {
+    padding-left: 1.8rem;
+    top: 1px;
+}
+
+.md-header .md-search .md-search__inner .md-search__form .md-search__icon.md-icon,
+.md-header .md-search .md-search__inner .md-search__form .md-search__options {
+  display: flex;
+  align-items: center;
+}
+
+.md-header .md-search__input {
+  padding-left: 1.8rem;
+}
+
+
+.md-header .md-search .md-search__inner .md-search__form .md-search__icon.md-icon svg,
+.md-header .md-search .md-search__inner .md-search__form .md-search__options svg {
+  height: var(--md-header-link-icon-size);
+  width: var(--md-header-link-icon-size);
+}
+
+.md-header .md-search .md-search__inner .md-search__form {
+  background-color: var(--md-header-search-background-color);
+  border: 1px solid var(--md-header-search-border-color);
+  border-radius: var(--md-border-radius);
+}
+
+[data-md-toggle=search]:not(:checked)~.md-header .md-search .md-search__inner .md-search__form:hover {
+  border-color: var(--md-header-search-hover-border-color);
+}
+
+[data-md-toggle=search]:checked~.md-header .md-search__output {
+  box-shadow: var(--md-home-search-expanded-box-shadow);
+  border-bottom-left-radius: var(--md-home-search-expanded-border-radius);
+  border-bottom-right-radius: var(--md-home-search-expanded-border-radius);
+  border: 1px solid var(--md-home-search-border-color);
+  padding-top: 5px;
+  margin-top: -13px;
+}
+
+@media screen and (max-width: 59.9375em) {
+  .md-search {
+    margin: 0 !important;
+  }
+}
+
+@media screen and (min-width: 60em) {
+    [dir=ltr] .md-search__suggest {
+        top: 0;
+    }
+}

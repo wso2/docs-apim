@@ -1,5 +1,5 @@
-<!--
- * Copyright (c) 2023, WSO2 LLC. (https://www.wso2.com).
+/**
+ * Copyright (c) 2024, WSO2 LLC. (https://www.wso2.com).
  *
  * WSO2 LLC. licenses this file to you under the Apache License,
  * Version 2.0 (the "License"); you may not use this file except
@@ -14,16 +14,29 @@
  * KIND, either express or implied. See the License for the
  * specific language governing permissions and limitations
  * under the License.
--->
+ */
 
-{% extends "base.html" %}
+:root,
+[data-md-color-scheme=default] {
+  --md-icon-padding: 8px;
+  --md-icon-hover-background-color: var(--colors-mystic);
+}
 
-{% block styles %}
-  {{ super() }}
-  <link rel="stylesheet" href="{{ 'assets/css/redoc.css' | url }}">
-{% endblock %}
+:root,
+[data-md-color-scheme=slate] {
+  --md-icon-hover-background-color: #393939;
+}
 
-{% block container %}
-  {{ page.content }}
-  <script src="{{ 'assets/js/redoc.standalone.js' | url }}"></script>
-{% endblock %}
+:root,
+[data-md-color-scheme=slate] {
+  --md-header-box-shadow: none;
+}
+
+.md-icon.md-icon--hover {
+  padding: 8px;
+}
+
+.md-icon.md-icon--hover:hover {
+  background: var(--md-icon-hover-background-color);
+  border-radius: 50%;
+}
