@@ -1342,52 +1342,42 @@ extra:
     expanded_navs:
     - title: Get Started
       options:
-        - divider
         - verticle-line
     - title: API Design & Manage
       options:
-        - verticle-line
         - divider
+        - verticle-line
     - title: API Developer Portal
       options:
-        - verticle-line
-        - divider
+        - verticle-line   
     - title: API Gateway
       options:
-        - verticle-line
-        - divider
+        - verticle-line  
     - title: AI Gateway
       options:
-        - verticle-line
-        - divider
+        - verticle-line      
     - title: API Analytics & Monetization
       options:
-        - verticle-line
-        - divider
+        - verticle-line      
     - title: Key Manager
       options:
-        - verticle-line
-        - divider
+        - verticle-line      
     - title: Admin Portal
       options:
-        - verticle-line
-        - divider
+        - verticle-line      
     - title: APIOps
       options:
-        - verticle-line
-        - divider
+        - verticle-line      
     - title: Install & Setup
       options:
         - verticle-line
         - divider
     - title: Reference
       options:
-        - verticle-line
-        - divider
+        - verticle-line      
     - title: Tutorials
       options:
-        - verticle-line
-        - divider
+        - verticle-line      
 
     nav_icons:
       Home:
@@ -1443,8 +1433,8 @@ extra:
             version: 1.2.0-1
             git_tag: v1.2.0.1
     site_version: 4.6.0
-    base_path: https://dushaniw.github.io/docs-apim
-    #base_path: http://localhost:8000/docs-apim
+    #base_path: https://dushaniw.github.io/docs-apim
+    base_path: http://localhost:8000/docs-apim
     envoy_path: https://www.envoyproxy.io/docs/envoy/v1.24.1
     redoc_theme: '{
         "colors": {

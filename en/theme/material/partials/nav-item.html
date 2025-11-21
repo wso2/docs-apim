@@ -101,6 +101,10 @@
       {% set class = class ~ " md-nav__item--section" %}
     {% endif %}
 
+    {% if nav_item.title in expanded_nav_titles %}
+      {% set class = class ~ " md-nav--expanded-section" %}
+    {% endif %}
+
     <!-- Pre-filter the relevant nav entry -->
     {% set matched_expanded_nav = config.extra.expanded_navs | selectattr("title", "equalto", nav_item.title) | first %}
 
@@ -143,13 +147,13 @@
       {% endif %}
 
       <!-- Active checkbox expands items contained within nested section -->
-        <input
-          class="md-nav__toggle md-toggle {{ indeterminate }}"
-          type="checkbox"
-          id="{{ path }}"
-          {% if nav_item.active %}checked{% endif %}
-          {{ disabled }}
-        />
+      <input
+        class="md-nav__toggle md-toggle {{ indeterminate }}"
+        type="checkbox"
+        id="{{ path }}"
+        {{ checked }}
+        {{ disabled }}
+      />
 
       <!-- Determine all nested items that are index pages -->
       {% set indexes = [] %}
