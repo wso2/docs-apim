@@ -75,7 +75,7 @@ The MCP Gateway implements a three-tier architecture:
 
 This standardized approach enables structured AI workflows where AI agents can seamlessly call your business logic as tools.
 
-[![API Manager MCP Architecture]({{base_path}}/assets/img/mcp/mcp-architecture.png)]({{base_path}}/assets/img/mcp/mcp-architecture.png)
+[![API Manager MCP Architecture]({{base_path}}/assets/img/mcp-gateway/mcp-architecture.png)]({{base_path}}/assets/img/mcp-gateway/mcp-architecture.png)
 
 ### Use MCP Gateway when you need
 - Transform existing APIs into AI-callable tools
@@ -86,15 +86,14 @@ This standardized approach enables structured AI workflows where AI agents can s
 ### MCP Gateway Features  
 
 #### Tool Management & Discovery
-- **[API-to-Tool Transformation]({{base_path}}/mcp/create-from-api/)**: Transform existing APIs into AI-ready tools with machine-readable schemas
-- **[MCP Server Creation]({{base_path}}/mcp/create-from-openapi/)**: Create MCP servers from OpenAPI definitions, existing APIs, or by proxying existing MCP servers
-- **[Tool Discovery]({{base_path}}/mcp/create-from-mcp-server/)**: Standardized tool discovery and schema retrieval for AI agents
-- **[Versioned Tool Changes]({{base_path}}/mcp/update-and-deploy-mcp-server/)**: Ship tool updates with minimal disruption to AI workflows
+- **[API-to-Tool Transformation]({{base_path}}/mcp-gateway/create-from-api/)**: Transform existing APIs into AI-ready tools with machine-readable schemas
+- **[MCP Server Creation]({{base_path}}/mcp-gateway/create-from-openapi/)**: Create MCP servers from OpenAPI definitions, existing APIs, or by proxying existing MCP servers
+- **[Tool Discovery]({{base_path}}/mcp-gateway/create-from-mcp-server/)**: Standardized tool discovery and schema retrieval for AI agents
+- **[Versioned Tool Changes]({{base_path}}/mcp-gateway/update-and-deploy-mcp-server/)**: Ship tool updates with minimal disruption to AI workflows
 
 #### Execution & Testing
-- **[Tool Invocation]({{base_path}}/mcp/subscribe-to-a-mcp-server/)**: JSON-RPC based tool execution through subscriptions and access tokens
-- **[MCP Playground]({{base_path}}/mcp/invoke-a-mcp-server-using-playground/)**: Interactive testing environment for MCP servers and tools
-
+- **[Tool Invocation]({{base_path}}/mcp-gateway/subscribe-to-a-mcp-server/)**: JSON-RPC based tool execution through subscriptions and access tokens
+- **[MCP Playground]({{base_path}}/mcp-gateway/invoke-a-mcp-server-using-playground/)**: Interactive testing environment for MCP servers and tools
 #### Security & Analytics
 - **[API Security]({{base_path}}/api-design-manage/design/api-security/api-authentication/secure-apis-using-oauth2-tokens/)**: Leverage platform security policies including OAuth2, JWT, and mutual SSL for tool access
 - **[API Analytics]({{base_path}}/monitoring/api-analytics/analytics-overview/)**: Track tool usage patterns and performance metrics through platform analytics
@@ -131,7 +130,7 @@ Build comprehensive infrastructure for production AI operations.
 
 1. Configure multiple AI providers for resilience
 2. Implement advanced security and compliance controls
-3. Enable AI agent workflows with [API-to-tool]({{base_path}}/mcp/create-from-api/) transformation
+3. Enable AI agent workflows with [API-to-tool]({{base_path}}/mcp-gateway/create-from-api/) transformation
 
 ## Best Practices
 
@@ -145,8 +144,7 @@ Configure [multiple AI providers]({{base_path}}/ai-gateway/ai-vendor-management/
 Enable [semantic caching]({{base_path}}/ai-gateway/semantic-caching/) to reduce API calls by 40-60%. Start with conservative similarity thresholds (0.95) and adjust based on your application's tolerance for cached responses. Monitor cache hit rates and cost savings regularly.
 
 ### Plan for AI Agent Workflows
-If building AI agents that need to interact with your business systems, implement [MCP Gateway]({{base_path}}/mcp/overview/) to standardize tool access. Start by exposing read-only APIs as tools, then gradually add write operations with appropriate access controls.
-
+If building AI agents that need to interact with your business systems, implement [MCP Gateway]({{base_path}}/mcp-gateway/overview/) to standardize tool access. Start by exposing read-only APIs as tools, then gradually add write operations with appropriate access controls.
 ### Use Smart Routing for Production
 Implement [smart routing]({{base_path}}/ai-gateway/multi-model-routing/overview/) to balance cost and performance. Route simple queries to cost-effective models and complex reasoning tasks to premium models. Set up automated failover between providers to maintain availability.
 
@@ -155,4 +153,4 @@ Implement [smart routing]({{base_path}}/ai-gateway/multi-model-routing/overview/
 Choose your path based on your use case:
 
 - **[Getting Started with LLM Gateway]({{base_path}}/ai-gateway/getting-started-with-ai-gateway/)** - For direct AI model integration (chat, completion, content generation)
-- **[Getting Started with MCP Gateway]({{base_path}}/mcp/overview/)** - For transforming APIs into AI-callable tools
+- **[Getting Started with MCP Gateway]({{base_path}}/mcp-gateway/overview/)** - For transforming APIs into AI-callable tools
