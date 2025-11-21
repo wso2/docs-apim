@@ -1218,7 +1218,7 @@ extra:
     material:
       jinja2content: true
     generator: false
-    product_name: *site_name
+    product_name: WSO2 API Manager
     explicit_tab_list:
       - Documentation
       - Get Started
