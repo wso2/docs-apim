@@ -16,7 +16,7 @@
 # under the License.
 
 # Project information
-site_name: &site_name WSO2 API Manager Documentation
+site_name: WSO2 API Manager Documentation
 site_description: Documentation for WSO2 API Manager
 site_author: WSO2
 site_url: https://dushaniw.github.io/docs-apim/
@@ -353,7 +353,7 @@ nav:
             - Subscribe to a MCP Server: mcp-gateway/subscribe-to-a-mcp-server.md
             - Consume MCP Servers from MCP Hub: mcp-gateway/invoke-a-mcp-server-using-playground.md
 
-    - API Analytics and Monetization:
+    - API Analytics & Monetization:
         - API Monetization:
             - Monetize an API: monitoring/api-monetization/monetizing-an-api.md
         - API Analytics:
@@ -390,7 +390,7 @@ nav:
 
     - Key Manager:
         - Overview: key-manager/key-manager-overview.md
-        - Authentication:
+        - Authentication & Authorization:
             - Grant Types:
                 - Overview: key-manager/authentication/grant-types/overview.md
                 - Password Grant: key-manager/authentication/grant-types/password-grant.md
@@ -1447,7 +1447,7 @@ extra:
     #base_path: https://apim.docs.wso2.com/en/4.6.0
     envoy_path: https://www.envoyproxy.io/docs/envoy/v1.24.1
     redoc_theme: '{
-    "colors": {
-      "primary": { "main": "#ff7300" }
-    }
-  }'
+        "colors": {
+            "primary": { "main": "#ff7300" }
+        }
+    }'
