@@ -16,14 +16,6 @@
  * under the License.
 -->
 
-{% extends "base.html" %}
-
-{% block styles %}
-  {{ super() }}
-  <link rel="stylesheet" href="{{ 'assets/css/redoc.css' | url }}">
-{% endblock %}
-
-{% block container %}
-  {{ page.content }}
-  <script src="{{ 'assets/js/redoc.standalone.js' | url }}"></script>
-{% endblock %}
+<svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <path fill-rule="evenodd" clip-rule="evenodd" d="M9.12461 7.55826L8 4.09706L6.87539 7.55826H3.23607L6.18034 9.6974L5.05573 13.1586L8 11.0195L10.9443 13.1586L9.81966 9.6974L12.7639 7.55826H9.12461ZM0 6.5068H6.11146L8 0.694458L9.88854 6.5068H16L11.0557 10.099L12.9443 15.9114L8 12.3191L3.05573 15.9114L4.94427 10.099L0 6.5068Z" fill="black"/>
+</svg>

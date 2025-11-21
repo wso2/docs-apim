@@ -1,5 +1,5 @@
 <!--
- * Copyright (c) 2023, WSO2 LLC. (https://www.wso2.com).
+ * Copyright (c) 2024, WSO2 LLC. (https://www.wso2.com).
  *
  * WSO2 LLC. licenses this file to you under the Apache License,
  * Version 2.0 (the "License"); you may not use this file except
@@ -20,10 +20,18 @@
 
 {% block styles %}
   {{ super() }}
-  <link rel="stylesheet" href="{{ 'assets/css/redoc.css' | url }}">
-{% endblock %}
+  <style>
+      .md-sidebar--primary {
+          display: none !important;
+      }
 
-{% block container %}
-  {{ page.content }}
-  <script src="{{ 'assets/js/redoc.standalone.js' | url }}"></script>
+      .md-sidebar--secondary {
+          display: none !important;
+      }
+
+      [dir=ltr] .md-sidebar--secondary:not([hidden])~.md-content > .md-content__inner,
+      [dir=rtl] .md-sidebar--primary:not([hidden])~.md-content > .md-content__inner {
+          max-width: 1200px !important;
+      }
+  </style>
 {% endblock %}
