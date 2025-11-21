@@ -1,0 +1,3 @@
+[mkdocs.plugins]
+exclude = mkdocs_exclude:Exclude
+

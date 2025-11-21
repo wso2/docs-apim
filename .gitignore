@@ -34,4 +34,6 @@ en/site
 
 # prefers Python virtual environment for development
 venv/
+en/.venv/
 env/
+

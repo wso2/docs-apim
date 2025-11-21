@@ -1,0 +1,143 @@
+/**
+ * Copyright (c) 2024, WSO2 LLC. (https://www.wso2.com).
+ *
+ * WSO2 LLC. licenses this file to you under the Apache License,
+ * Version 2.0 (the "License"); you may not use this file except
+ * in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing,
+ * software distributed under the License is distributed on an
+ * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+ * KIND, either express or implied. See the License for the
+ * specific language governing permissions and limitations
+ * under the License.
+ */
+
+:root,
+[data-md-color-scheme=default] {
+  --md-footer-bg-color: var(--colors-alabaster);
+  --md-footer-section-icon-size: 24px;
+  --md-footer-section-horizontal-spacing: 3.5rem;
+  --md-footer-link-font-weight: 500;
+  --md-footer-link-chevron-size: var(--rem);
+  --md-footer-community-logo-size: 18px;
+}
+
+.md-footer {
+  color: var(--md-typeset-color);
+  background-color: var(--md-default-bg-color);
+  border-top: 1px solid var(--md-divider-color);
+}
+
+.md-footer__content {
+  max-width: var(--md-main-content-max-width);
+  margin: 3rem auto 2rem auto;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  flex-direction: column;
+}
+
+@media screen and (max-width: 768px) {
+  .md-footer__content {
+    padding: 0 2rem;
+  }
+}
+
+.md-footer__meta {
+  background-color: var(--md-footer-bg-color);
+}
+
+.md-footer .md-footer__content .md-footer__meta-sections {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-gap: var(--md-footer-section-horizontal-spacing);
+}
+
+.md-footer .md-footer__content .md-footer__meta-sections .md-footer__meta-section--discord .discord-icon {
+  height: var(--md-footer-section-icon-size);
+  width: var(--md-footer-section-icon-size);
+  fill: var(--colors-discord-blurple);
+}
+
+.md-footer .md-footer__content .md-footer__meta-sections .md-footer__meta-section .md-footer__meta-section__links {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+.md-footer .md-footer__content .md-footer__meta-sections .md-footer__meta-section .md-footer__meta-section__text-content .md-footer__meta-section__heading {
+  margin-top: 0.4rem;
+}
+
+.md-footer .md-footer__content .md-footer__meta-sections .md-footer__meta-section .md-footer__meta-section__text-content .md-footer__meta-section__description {
+  margin-bottom: 1rem;
+}
+
+.md-footer .md-footer__content .md-footer__meta-sections .md-footer__meta-section .md-footer__meta-section__link {
+  color: var(--md-typeset-color);
+  font-weight: var(--md-footer-link-font-weight);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.md-footer .md-footer__content .md-footer__meta-sections .md-footer__meta-section .md-footer__meta-section__link:hover:not(.md-footer__meta-section__link--composite) {
+  color: var(--md-primary-fg-color);
+}
+
+.md-footer .md-footer__content .md-footer__meta-sections .md-footer__meta-section .md-footer__meta-section__link:hover:not(.md-footer__meta-section__link--composite) svg {
+  fill: var(--md-primary-fg-color);
+}
+
+.md-footer .md-footer__content .md-footer__meta-sections .md-footer__meta-section .md-footer__meta-section__link .chevron {
+  width: var(--md-footer-link-chevron-size);
+  height: var(--md-footer-link-chevron-size);
+}
+
+.md-footer .md-footer__content .md-footer__meta-sections .md-footer__meta-section .md-footer__meta-section__link--composite label {
+  font-weight: 400;
+}
+
+.md-footer .md-footer__content .md-footer__meta-sections .md-footer__meta-section .md-footer__meta-section__link--composite a {
+  cursor: pointer;
+}
+
+.md-footer .md-footer__content .md-footer__meta-sections .md-footer__meta-section .md-footer__meta-section__link--composite .community-logo {
+  height: var(--md-footer-community-logo-size);
+  width: var(--md-footer-community-logo-size);
+}
+
+.md-footer .md-footer__content .md-footer__meta-sections .md-footer__meta-section .md-footer__meta-section__link--composite .community-logo--monochrome path {
+  fill: var(--md-typeset-color);
+}
+
+.md-footer .md-copyright {
+  border-top: 1px solid var(--md-divider-color);
+  color: var(--md-typeset-color);
+}
+
+.md-footer .md-copyright .md-copyright__content {
+  margin: 0 auto;
+  max-width: var(--md-main-content-max-width);
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.md-footer .md-copyright .md-copyright__highlight {
+  color: var(--md-typeset-color);
+}
+
+.md-footer .md-copyright .md-copyright__content a {
+  color: var(--md-typeset-color);
+}
+
+.md-footer .md-copyright .md-copyright__content a:hover {
+  color: var(--md-primary-fg-color);
+}
