@@ -1,16 +1,37 @@
-{% set class = "md-tabs" %}
-{% if page.ancestors | length > 0 %}
-  {% set class = "md-tabs md-tabs--active" %}
-{% endif %}
-<nav class="{{ class }}" data-md-component="tabs">
-  <div class="md-tabs__inner md-grid">
+<!--
+ * Copyright (c) 2024, WSO2 LLC. (https://www.wso2.com).
+ *
+ * WSO2 LLC. licenses this file to you under the Apache License,
+ * Version 2.0 (the "License"); you may not use this file except
+ * in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing,
+ * software distributed under the License is distributed on an
+ * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+ * KIND, either express or implied. See the License for the
+ * specific language governing permissions and limitations
+ * under the License.
+-->
+
+<!-- Hack: unset variable, as we're using it recursively in tabs-item.html -->
+{% set class = "" %}
+
+<!-- Navigation tabs -->
+<nav
+  class="md-tabs"
+  aria-label="{{ lang.t('tabs') }}"
+  data-md-component="tabs"
+>
+  <div class="md-grid">
     <ul class="md-tabs__list">
       {% for nav_item in nav %}
-        {% include "partials/tabs-item.html" %}
+        {% if config.extra.explicit_tab_list and nav_item.title in config.extra.explicit_tab_list %}
+          {% include "partials/tabs-item.html" %}
+        {% endif %}
       {% endfor %}
     </ul>
-    <a href="#" title="Report Issues" class="feedbackBtn" 
-        onclick=window.open("https://github.com/"+"{{config.repo_name}}"+"/issues/new?title=Doc%20Feedback:&body=Location%20:%20"+window.location.href); >
-        Report Issues</a>
   </div>
 </nav>

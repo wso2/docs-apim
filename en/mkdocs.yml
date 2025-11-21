@@ -16,16 +16,16 @@
 # under the License.
 
 # Project information
-site_name: WSO2 API Manager Documentation
+site_name: &site_name WSO2 API Manager Documentation
 site_description: Documentation for WSO2 API Manager
 site_author: WSO2
-site_url: https://apim.docs.wso2.com/en/4.6.0/
+site_url: https://apim.docs.wso2.com/en/latest/
 
 # Repository
 repo_name: wso2/docs-apim
 repo_url: https://github.com/wso2/docs-apim
-edit_uri: https://github.com/wso2/docs-apim/edit/4.6.0/en/docs/
-dev_addr: localhost:8000
+edit_uri: https://github.com/wso2/docs-apim/edit/master/en/docs/
+dev_addr: localhost:8080
 
 # Copyright
 copyright: WSO2 API Manager - Documentation
@@ -34,37 +34,36 @@ copyright: WSO2 API Manager - Documentation
 theme:
     name: material
     custom_dir: theme/material
+    font: false
+    toc: false
     palette:
-
-    # Palette toggle for automatic mode
-    - media: "(prefers-color-scheme)"
-    #   toggle:
-    #     icon: material/brightness-auto
-    #     name: Switch to light mode
-
-    # Palette toggle for light mode
-    - media: "(prefers-color-scheme: light)"
-      scheme: default 
-    #   toggle:
-    #     icon: material/brightness-7
-    #     name: Switch to dark mode
-
-    # Palette toggle for dark mode
-    - media: "(prefers-color-scheme: dark)"
-      scheme: slate
-    #   toggle:
-    #     icon: material/brightness-4
-    #     name: Switch to system preference
-    logo: images/logo.svg
-    favicon: images/favicon.png
+      # Palette toggle for light mode
+       - media: "(prefers-color-scheme: light)"
+         scheme: default 
+         toggle:
+          icon: assets/libs/oxygen-ui-icons/1.7.3/crescent-bright-16.svg
+          name: Switch to dark mode
+      # Palette toggle for dark mode
+       - media: "(prefers-color-scheme: dark)"
+         scheme: slate
+         toggle:
+           icon: assets/libs/oxygen-ui-icons/1.7.3/sun-16.svg
+           name: Switch to light mode
+    logo: assets/images/logo.svg
+    logo_light: assets/images/logo-for-light.svg
+    favicon: assets/images/favicon.png
     features:
-        - content.code.copy
-        - navigation.tabs
-        - navigation.tabs.sticky
-        - content.action.edit
-        - content.action.view
-        - navigation.top
-        - toc.follow
+       - navigation.indexes
+       - navigation.path
+       - navigation.top
+       - navigation.footer
+       - navigation.instant.progress
+       - content.code.copy
+       - content.action.edit
+       - content.action.view
+       - content.tabs.link
+       - search.suggest
+       - search.share
     language: 'en'
 #Breaks build if there's a warning
 strict: false
@@ -76,300 +75,300 @@ nav:
           - Key Concepts: get-started/key-concepts.md
           - Architecture: get-started/apim-architecture.md
           - Quick Start Guide: get-started/api-manager-quick-start-guide.md
-          - Deployment Options:
-              - Deployment Patterns Overview: install-and-setup/setup/deployment-overview.md
-              - Single Node Deployment: install-and-setup/setup/single-node/configuring-a-single-node.md
-              - Active-Active Deployment: install-and-setup/setup/single-node/configuring-an-active-active-deployment.md
-              - Distributed Deployment (Recommended): install-and-setup/setup/distributed-deployment/deploying-wso2-api-m-in-a-distributed-setup.md
-              - Kubernetes Deployment: install-and-setup/setup/kubernetes-deployment/kubernetes/kubernetes-overview.md
           - About this Release: get-started/about-this-release.md
-
-    - API Design and Manage:
+    - Manage APIs:
         - Design APIs:
-            - Design APIs Overview: api-design-manage/design/design-api-overview.md
+            - Design APIs Overview: manage-apis/design/design-api-overview.md
             - Create APIs:
                 - REST APIs:
-                    - Create a REST API: api-design-manage/design/create-api/create-rest-api/create-a-rest-api.md
-                    - Create a REST API from an OpenAPI Definition: api-design-manage/design/create-api/create-rest-api/create-a-rest-api-from-an-openapi-definition.md
-                    - Expose a SOAP Service as a REST API: api-design-manage/design/create-api/create-rest-api/expose-a-soap-service-as-a-rest-api.md
-                    - Generate REST API from SOAP Backend: api-design-manage/design/create-api/create-rest-api/generate-rest-api-from-soap-backend.md
-                    - Test a REST API: api-design-manage/design/create-api/create-rest-api/test-a-rest-api.md
-                - GraphQL APIs:
-                    - Create a GraphQL API: api-design-manage/design/create-api/create-a-graphql-api.md
+                    - Create a REST API: manage-apis/design/create-api/create-rest-api/create-a-rest-api.md
+                    - Create a REST API from an OpenAPI Definition: manage-apis/design/create-api/create-rest-api/create-a-rest-api-from-an-openapi-definition.md
+                    - Expose a SOAP Service as a REST API: manage-apis/design/create-api/create-rest-api/expose-a-soap-service-as-a-rest-api.md
+                    - Generate REST API from SOAP Backend: manage-apis/design/create-api/create-rest-api/generate-rest-api-from-soap-backend.md
+                    - Test a REST API: manage-apis/design/create-api/create-rest-api/test-a-rest-api.md
+                - GraphQL APIs: manage-apis/design/create-api/create-a-graphql-api.md
                 - Streaming APIs:
-                    - Streaming API Overview: api-design-manage/design/create-api/create-streaming-api/streaming-api-overview.md
-                    - Create a WebSocket API: api-design-manage/design/create-api/create-streaming-api/create-a-websocket-streaming-api.md
-                    - Create a WebSub/WebHook API: api-design-manage/design/create-api/create-streaming-api/create-a-websub-streaming-api.md
-                    - Create a SSE API: api-design-manage/design/create-api/create-streaming-api/create-a-sse-streaming-api.md
-                    - Create a Streaming API from an AsyncAPI Definition: api-design-manage/design/create-api/create-streaming-api/create-a-streaming-api-from-an-asyncapi-definition.md
-                    - Test a WebSub/WebHook API: api-design-manage/design/create-api/create-streaming-api/test-a-websub-api.md
-                - Create an API Using a Service: api-design-manage/design/create-api/create-an-api-using-a-service.md
-                - AI APIs: api-design-manage/design/create-api/create-ai-api/create-an-ai-api.md
-            - Create APIs with AI: api-design-manage/design/create-api/create-api-with-ai.md
-            - Create API Revisions: api-design-manage/design/create-api/create-api-revisions.md
-            - Add Custom Properties to APIs: api-design-manage/design/create-api/adding-custom-properties-to-apis.md
-            - Change the Thumbnail of an API: api-design-manage/design/create-api/change-api-thumbnail.md
+                    - Streaming API Overview: manage-apis/design/create-api/create-streaming-api/streaming-api-overview.md
+                    - Create a WebSocket API: manage-apis/design/create-api/create-streaming-api/create-a-websocket-streaming-api.md
+                    - Create a WebSub/WebHook API: manage-apis/design/create-api/create-streaming-api/create-a-websub-streaming-api.md
+                    - Create a SSE API: manage-apis/design/create-api/create-streaming-api/create-a-sse-streaming-api.md
+                    - Create a Streaming API from an AsyncAPI Definition: manage-apis/design/create-api/create-streaming-api/create-a-streaming-api-from-an-asyncapi-definition.md
+                    - Test a WebSub/WebHook API: manage-apis/design/create-api/create-streaming-api.md
+                - Create an API Using a Service: manage-apis/design/create-api/create-an-api-using-a-service.md
+                - AI APIs: manage-apis/design/create-api/create-ai-api/create-an-ai-api.md
+            - Create APIs with AI: manage-apis/design/create-api/create-api-with-ai.md
+            - Create API Revisions: manage-apis/design/create-api/create-api-revisions.md
+            - Add Custom Properties to APIs: manage-apis/design/create-api/adding-custom-properties-to-apis.md
+            - Change the Thumbnail of an API: manage-apis/design/create-api/change-api-thumbnail.md
             - Create Prototype APIs:
-                - Overview: api-design-manage/design/prototype-api/overview.md
+                - Overview: manage-apis/design/prototype-api/overview.md
                 - Mock Implementation:
-                    - With API Gateway: api-design-manage/design/prototype-api/create-mocked-js-api.md
-                - Existing Backend Implementation as a Prototype API: api-design-manage/design/prototype-api/backend-url-prototype-api.md
+                    - With API Gateway: manage-apis/design/prototype-api/create-mocked-js-api.md
+                - Existing Backend Implementation as a Prototype API: manage-apis/design/prototype-api/backend-url-prototype-api.md
             - Create API Products:
-                - API Product Overview: api-design-manage/design/create-api-product/api-product-overview.md
-                - Create an API Product: api-design-manage/design/create-api-product/create-api-product.md
+                    - API Product Overview: manage-apis/design/create-api-product/api-product-overview.md
+                    - Create an API Product: manage-apis/design/create-api-product/create-api-product.md
             - Endpoints:
-                - Endpoint Types: api-design-manage/design/endpoints/endpoint-types.md
-                - Endpoint Security:
-                    - Basic Auth: api-design-manage/design/endpoints/endpoint-security/basic-auth.md
-                    - Digest Auth: api-design-manage/design/endpoints/endpoint-security/digest-auth.md
-                    - OAuth 2.0: api-design-manage/design/endpoints/endpoint-security/oauth-2.0.md
+                - Endpoint Types: manage-apis/design/endpoints/endpoint-types.md
+                - Security:
+                    - Secure Endpoint with Basic Auth: manage-apis/design/endpoints/endpoint-security/basic-auth.md
+                    - Secure Endpoint with Digest Auth: manage-apis/design/endpoints/endpoint-security/digest-auth.md
+                    - Secure Endpoint with OAuth 2.0: manage-apis/design/endpoints/endpoint-security/oauth-2.0.md
+                - High Availability for Endpoints: manage-apis/design/endpoints/high-availability-for-endpoints.md
                 - Resiliency:
-                    - Endpoint Timeouts: api-design-manage/design/endpoints/resiliency/endpoint-timeouts.md
-                    - Endpoint Suspension: api-design-manage/design/endpoints/resiliency/endpoint-suspension.md
-                    - Prevent API Suspension: api-design-manage/design/endpoints/resiliency/prevent-api-suspension.md
-                - High Availability for Endpoints: api-design-manage/design/endpoints/high-availability-for-endpoints.md
-                - Manage Certificates: api-design-manage/design/endpoints/certificates.md
+                    - Endpoint Timeouts: manage-apis/design/endpoints/resiliency/endpoint-timeouts.md
+                    - Endpoint Suspension: manage-apis/design/endpoints/resiliency/endpoint-suspension.md
+                    - Prevent API Suspension: manage-apis/design/endpoints/resiliency/prevent-api-suspension.md
+                - Manage Certificates: manage-apis/design/endpoints/certificates.md
             - Lifecycle Management:
-                - API Lifecycle: api-design-manage/design/lifecycle-management/api-lifecycle.md
-                - Customize API Life Cycle: api-design-manage/design/lifecycle-management/customize-api-life-cycle.md
+                - API Lifecycle: manage-apis/design/lifecycle-management/api-lifecycle.md
+                - Customize API Life Cycle: manage-apis/design/lifecycle-management/customize-api-life-cycle.md
             - API Versioning:
-                - Create a New API Version: api-design-manage/design/api-versioning/create-a-new-api-version.md
-                - Deprecate the Old Version: api-design-manage/design/api-versioning/deprecate-the-old-version.md
-                - Backward Compatibility: api-design-manage/design/api-versioning/backward-compatibility.md
-                - Enable Notifications: api-design-manage/design/api-versioning/enabling-notifications.md
+                - Create a New API Version: manage-apis/design/api-versioning/create-a-new-api-version.md
+                - Deprecate the Old Version: manage-apis/design/api-versioning/deprecate-the-old-version.md
+                - Backward Compatibility: manage-apis/design/api-versioning/backward-compatibility.md
+                - Enable Notifications: manage-apis/design/api-versioning/enabling-notifications.md
             - API Documentation:
-                - Add API Documentation: api-design-manage/design/api-documentation/add-api-documentation.md
-                - View Generated Documentation: api-design-manage/design/api-documentation/view-generated-documentation.md
+                - Add API Documentation: manage-apis/design/api-documentation/add-api-documentation.md
+                - View Generated Documentation : manage-apis/design/api-documentation/view-generated-documentation.md
             - API Collaboration:
-                - Comment on an API via the Publisher: api-design-manage/design/api-collaborations/comment-on-an-api-via-the-publisher.md
-                - Enable Social Media Interaction: api-design-manage/design/api-collaborations/enable-social-media-interaction.md
+                - Comment on an API via the Publisher: manage-apis/design/api-collaborations/comment-on-an-api-via-the-publisher.md
+                - Enable Social Media Interaction: manage-apis/design/api-collaborations/enable-social-media-interaction.md
             - API Policies:
-                - Overview: api-design-manage/design/api-policies/overview.md
-                - Attach Policy: api-design-manage/design/api-policies/attach-policy.md
-                - Create Policy: api-design-manage/design/api-policies/create-policy.md
+                - Overview: manage-apis/design/api-policies/overview.md
+                - Attach Policies: manage-apis/design/api-policies/attach-policy.md
+                - Create a Policy: manage-apis/design/api-policies/create-policy.md
+                - Regular Gateway Policies:
+                    - Add Dynamic Endpoints: manage-apis/design/api-policies/regular-gateway-policies/adding-dynamic-endpoints.md
+                    - Remove Specific Request Headers From Response: manage-apis/design/api-policies/regular-gateway-policies/removing-specific-request-headers-from-response.md
+                    - Pass a Custom Authorization Token to the Backend: manage-apis/design/api-policies/regular-gateway-policies/passing-a-custom-authorization-token-to-the-backend.md
+                    - URL Mapping: manage-apis/design/api-policies/regular-gateway-policies/mapping-the-parameters-of-your-backend-urls-with-the-api-publisher-urls.md
+                    - Disable Message Chunking: manage-apis/design/api-policies/regular-gateway-policies/disabling-message-chunking.md
+                    - Transform API Message Payload: manage-apis/design/api-policies/regular-gateway-policies/transforming-api-message-payload.md
+                    - Add a Non-Blocking Send Operation: manage-apis/design/api-policies/regular-gateway-policies/adding-a-non-blocking-send-operation.md
+                    - Add a Class Mediator: manage-apis/design/api-policies/regular-gateway-policies/adding-a-class-mediator.md
+                    - Configure Message Builders and Formatters: manage-apis/design/api-policies/regular-gateway-policies/configuring-message-builders-formatters.md
+                    - JWT claim based access validator: manage-apis/design/api-policies/regular-gateway-policies/jwt-claim-based-access-validator.md
+                    - Revoke One Time Tokens Policy: manage-apis/design/api-policies/regular-gateway-policies/revoke-one-time-tokens-policy.md
             - API Security:
                 - Authentication:
-                    - Overview: api-design-manage/design/api-security/api-authentication/api-authentication-overview.md
-                    - Disable Security: api-design-manage/design/api-security/api-authentication/disable-security.md
-                    - Secure APIs Using API Keys: api-design-manage/design/api-security/api-authentication/secure-apis-using-api-keys.md
-                    - Secure APIs Using Basic Authentication: api-design-manage/design/api-security/api-authentication/secure-apis-using-basic-authentication.md
-                    - Secure APIs Using Mutual SSL: api-design-manage/design/api-security/api-authentication/secure-apis-using-mutual-ssl.md
-                    - Secure APIs Using OAuth2 Tokens: api-design-manage/design/api-security/api-authentication/secure-apis-using-oauth2-tokens.md
-                    - Securing APIs Using Certificate Bound Access Tokens: api-design-manage/design/api-security/api-authentication/securing-apis-using-certificate-bound-access-tokens.md
+                    - Overview: manage-apis/design/api-security/api-authentication/api-authentication-overview.md
+                    - Secure APIs using OAuth2 Access Tokens: manage-apis/design/api-security/api-authentication/secure-apis-using-oauth2-tokens.md
+                    - Secure APIs using API Keys: manage-apis/design/api-security/api-authentication/secure-apis-using-api-keys.md
+                    - Secure APIs using Mutual SSL: manage-apis/design/api-security/api-authentication/secure-apis-using-mutual-ssl.md
+                    - Secure APIs using Basic Authentication: manage-apis/design/api-security/api-authentication/secure-apis-using-basic-authentication.md
+                    - Secure APIs using Certificate Bound Access Token: manage-apis/design/api-security/api-authentication/securing-apis-using-certificate-bound-access-tokens.md
+                    - Federating OAuth Applications: manage-apis/design/api-security/api-authentication/advanced-topics/federating-oauth-applications.md
+                    - Disable Security: manage-apis/design/api-security/api-authentication/disable-security.md
                 - Authorization:
-                    - Overview: api-design-manage/design/api-security/authorization/api-authorization.md
-                    - Role-based Access Control Using XACML: api-design-manage/design/api-security/authorization/role-based-access-control-using-xacml.md
-                    - Fine Grained Access Control with OAuth Scopes: api-design-manage/design/api-security/oauth2/oauth2-scopes/fine-grained-access-control-with-oauth-scopes.md
-                - Configuring API Security Audit: api-design-manage/design/api-security/configuring-api-security-audit.md
-                - API Request Response Schema Validation:
-                    - JSON Schema Validator: api-design-manage/design/api-security/api-request-response-schema-validation/json-schema-validator.md
-                - OPA Validation:
-                    - Overview: api-design-manage/design/api-security/opa-validation/overview.md
-                    - Custom OPA Policy for Regular Gateway: api-design-manage/design/api-security/opa-validation/custom-opa-policy-for-regular-gateway.md
+                    - Overview: manage-apis/design/api-security/authorization/api-authorization.md
+                    - Role-Based Access Control using Scopes: manage-apis/design/api-security/oauth2/oauth2-scopes/fine-grained-access-control-with-oauth-scopes.md
+                    - Role-Based Access Control using XACML: manage-apis/design/api-security/authorization/role-based-access-control-using-xacml.md
+                    - Publisher Portal in Read Only Mode: manage-apis/design/api-security/authorization/publisher-portal-in-read-only-mode.md
+                - Secure APIs by Auditing API Definitions: manage-apis/design/api-security/configuring-api-security-audit.md
+                - Request-Response Schema Validation:
+                    - JSON Schema Validator: manage-apis/design/api-security/api-request-response-schema-validation/json-schema-validator.md
+                - OAuth2:
+                    - Token types:
+                        - JWT Access Tokens: manage-apis/design/api-security/oauth2/access-token-types/jwt-tokens.md
+                    - OAuth2 Scopes:
+                        - Role-Based Access Control with OAuth Scopes: manage-apis/design/api-security/oauth2/oauth2-scopes/fine-grained-access-control-with-oauth-scopes.md
+                        - Scope Whitelisting: manage-apis/design/api-security/oauth2/oauth2-scopes/scope-whitelisting.md
+                    - Grant Types:
+                        - Overview: manage-apis/design/api-security/oauth2/grant-types/overview.md
+                        - Password Grant: manage-apis/design/api-security/oauth2/grant-types/password-grant.md
+                        - Client Credentials Grant: manage-apis/design/api-security/oauth2/grant-types/client-credentials-grant.md
+                        - Authorization Code Grant: manage-apis/design/api-security/oauth2/grant-types/authorization-code-grant.md
+                        - Refresh Token Grant: manage-apis/design/api-security/oauth2/grant-types/refresh-token-grant.md
+                        - JWT Grant: manage-apis/design/api-security/oauth2/grant-types/jwt-grant.md
+                        - SAML Extension Grant: manage-apis/design/api-security/oauth2/grant-types/saml-extension-grant.md
+                        - Kerberos OAuth2 Grant: manage-apis/design/api-security/oauth2/grant-types/kerberos-oauth2-grant.md
+                        - NTLM Grant: manage-apis/design/api-security/oauth2/grant-types/ntlm-grant.md
+                    - Token Revocation: manage-apis/design/api-security/oauth2/token-revocation.md
+                    - Token Expiration: manage-apis/design/api-security/oauth2/token-expiration.md
+                    - Token Persistence: manage-apis/design/api-security/oauth2/token-persistence.md
+                    - Encrypting OAuth2 Tokens: manage-apis/design/api-security/oauth2/encrypting-oauth2-tokens.md
+                    - Hashing OAuth Keys: manage-apis/design/api-security/oauth2/hashing-oauth-keys.md
+                    - Multiple Active Access Tokens: manage-apis/design/api-security/oauth2/multiple-active-access-tokens.md
+                    - Provisioning Out-of-Band OAuth Clients: manage-apis/design/api-security/oauth2/provisioning-out-of-band-oauth-clients.md
+                    - Securing OAuth Token with HMAC Validation: manage-apis/design/api-security/oauth2/securing-oauth-token-with-hmac-validation.md
+                - Threat Protection:
+                    - Gateway Threat Protectors: manage-apis/design/api-security/threat-protection/gateway-threat-protectors/gateway-threat-protectors-for-api-manager.md
+                    - Regular Expression Threat Protection: manage-apis/deploy-and-publish/deploy-on-gateway/api-gateway/threat-protectors/regular-expression-threat-protection-for-api-gateway.md
+                    - JSON Threat Protection: manage-apis/deploy-and-publish/deploy-on-gateway/api-gateway/threat-protectors/json-threat-protection-for-api-gateway.md
+                    - XML Threat Protection: manage-apis/deploy-and-publish/deploy-on-gateway/api-gateway/threat-protectors/xml-threat-protection-for-api-gateway.md
+                - OpenID Connect:
+                    - Obtain User Profile Information with OpenID Connect: manage-apis/design/api-security/openid-connect/obtaining-user-profile-information-with-openid-connect.md
+                - Open Policy Agent (OPA) Validation:
+                    - Overview: manage-apis/design/api-security/opa-validation/overview.md
+                    - Custom OPA Policy for Regular Gateway: manage-apis/design/api-security/opa-validation/custom-opa-policy-for-regular-gateway.md
             - Rate Limiting:
-                - Throttling Use-Cases: api-design-manage/design/rate-limiting/introducing-throttling-use-cases.md
-                - Setting Throttling Limits: api-design-manage/design/rate-limiting/setting-throttling-limits.md
-                - Access Control: api-design-manage/design/rate-limiting/access-control.md
-                - GraphQL API:
-                    - Query Complexity Analysis: api-design-manage/design/rate-limiting/graphql-api/query-complexity-analysis.md
-                    - Query Depth Analysis: api-design-manage/design/rate-limiting/graphql-api/query-depth-analysis.md
+                    - Throttling Use-Cases: manage-apis/design/rate-limiting/introducing-throttling-use-cases.md
+                    - Add New Throttling Policies: manage-apis/design/rate-limiting/adding-new-throttling-policies.md
+                    - Set Throttling Limits: manage-apis/design/rate-limiting/setting-throttling-limits.md
+                    - Reset Application Throttling Policies: manage-apis/design/rate-limiting/resetting-application-throttling-policies.md
+                    - Access Control: manage-apis/design/rate-limiting/access-control.md
+                    - Enforce Throttling and Resource Access Policies: manage-apis/design/rate-limiting/enforce-throttling-and-resource-access-policies.md
+                    - Set Maximum Backend Throughput Limits: manage-apis/design/rate-limiting/setting-maximum-backend-throughput-limits.md
+                    - Rate Limiting for Streaming APIs: manage-apis/design/rate-limiting/rate-limiting-for-streaming-apis.md
+                    - Rate Limiting for AI APIs: manage-apis/design/rate-limiting/rate-limiting-for-ai-apis.md
+                    - Query Limits for GraphQL:
+                        - Overview: manage-apis/design/rate-limiting/graphql-api/overview-query-limits-for-graphql.md
+                        - Query Depth Limit: manage-apis/design/rate-limiting/graphql-api/query-depth-limitation.md
+                        - Query Complexity Limit: manage-apis/design/rate-limiting/graphql-api/query-complexity-limitation.md
+                    - Advanced Topics:
+                        - Custom Rate Limiting: manage-apis/design/rate-limiting/advanced-topics/custom-throttling.md
+                        - Distributed Burst Control, Backend Rate Limiting for API Gateway Cluster: manage-apis/design/rate-limiting/advanced-topics/configuring-rate-limiting-api-gateway-cluster.md
+                        - Distributed Throttling: manage-apis/design/rate-limiting/advanced-topics/distributed-throttling.md
+            - API Monetization:
+                - Monetize an API: manage-apis/design/api-monetization/monetizing-an-api.md
+            - B2B API Management:
+                - B2B API Consumption: manage-apis/design/b2b-api-management/api-consumption.md
+                - Setup WSO2 Identity Server as a Federated Authenticator: manage-apis/design/b2b-api-management/setup-identity-server.md
             - Advanced Topics:
-                - Enable Publisher Access Control: api-design-manage/design/advanced-topics/enable-publisher-access-control-in-api-publisher-portal.md
-                - Control API Visibility and Subscription Availability: api-design-manage/design/advanced-topics/control-api-visibility-and-subscription-availability-in-developer-portal.md
-                - Block Subscription to an API: api-design-manage/design/advanced-topics/block-subscription-to-an-api.md
-                - Disable Subscriptions for an API: api-design-manage/design/advanced-topics/disable-subscriptions-for-an-api.md
-                - Enabling CORS for APIs: api-design-manage/design/advanced-topics/enabling-cors-for-apis.md
-                - Adding an API State Change Workflow: api-design-manage/design/advanced-topics/adding-an-api-state-change-workflow.md
-                - Validate API Definitions with Linters: api-design-manage/design/advanced-topics/validate-api-definitions-with-linters.md
-                - Publisher Portal in Read Only Mode: api-design-manage/design/api-security/authorization/publisher-portal-in-read-only-mode.md
-                - API Creator/Publisher Governance Capabilities: api-design-manage/governance/api-governance-api-creator-capabilities.md
+                - Enable Publisher Access Control: manage-apis/design/advanced-topics/enable-publisher-access-control-in-api-publisher-portal.md
+                - Control API Visibility and Subscription Availability in the Developer Portal: manage-apis/design/advanced-topics/control-api-visibility-and-subscription-availability-in-developer-portal.md
+                - Enable CORS for APIs: manage-apis/design/advanced-topics/enabling-cors-for-apis.md
+                - Add an API State Change Workflow: manage-apis/design/advanced-topics/adding-an-api-state-change-workflow.md
+                - Block Subscription to an API: manage-apis/design/advanced-topics/block-subscription-to-an-api.md
+                - Disable Subscription Requirement for an API: manage-apis/design/advanced-topics/disable-subscriptions-for-an-api.md
+                - Validate API Definitions with Linters: manage-apis/design/advanced-topics/validate-api-definitions-with-linters.md
+                - API Governance CLI Tool: manage-apis/design/advanced-topics/api-governance-cli-tool.md
         - Deploy and Publish APIs:
             - Deploy on Gateway:
                 - Deploy API:
-                    - Deploy an API: api-design-manage/deploy-and-publish/deploy-on-gateway/deploy-api/deploy-an-api.md
-                    - Expose APIs via Custom Hostnames: api-design-manage/deploy-and-publish/deploy-on-gateway/deploy-api/exposing-apis-via-custom-hostnames.md
-                    - Deploy Through Multiple API Gateways: api-design-manage/deploy-and-publish/deploy-on-gateway/deploy-api/deploy-through-multiple-api-gateways.md
-                    - Revision Deployment Workflow: api-design-manage/deploy-and-publish/deploy-on-gateway/deploy-api/revision-deployment-workflow.md
+                    - Deploy an API: manage-apis/deploy-and-publish/deploy-on-gateway/deploy-api/deploy-an-api.md
+                    - Expose APIs via Custom Hostnames: manage-apis/deploy-and-publish/deploy-on-gateway/deploy-api/exposing-apis-via-custom-hostnames.md
+                    - Deploy Through Multiple API Gateways: manage-apis/deploy-and-publish/deploy-on-gateway/deploy-api/deploy-through-multiple-api-gateways.md
+                    - Revision Deployment Workflow: manage-apis/deploy-and-publish/deploy-on-gateway/deploy-api/revision-deployment-workflow.md
+                - Universal Gateway:
+                    - Overview of the WSO2 Universal Gateway: manage-apis/deploy-and-publish/deploy-on-gateway/api-gateway/overview-of-the-api-gateway.md
+                    - Gateway Policies: manage-apis/deploy-and-publish/deploy-on-gateway/api-gateway/gateway-policies.md
+                    - Response Caching: manage-apis/deploy-and-publish/deploy-on-gateway/api-gateway/response-caching.md
+                    - Threat Protectors:
+                        - Regular Expression Threat Protection: manage-apis/deploy-and-publish/deploy-on-gateway/api-gateway/threat-protectors/regular-expression-threat-protection-for-api-gateway.md
+                        - JSON Threat Protection: manage-apis/deploy-and-publish/deploy-on-gateway/api-gateway/threat-protectors/json-threat-protection-for-api-gateway.md
+                        - XML Threat Protection: manage-apis/deploy-and-publish/deploy-on-gateway/api-gateway/threat-protectors/xml-threat-protection-for-api-gateway.md
+                    - Pass End User Attributes to the Backend: manage-apis/deploy-and-publish/deploy-on-gateway/api-gateway/passing-enduser-attributes-to-the-backend-via-api-gateway.md
+                    - Gateway Environments: manage-apis/deploy-and-publish/deploy-on-gateway/api-gateway/maintaining-separate-production-and-sandbox-gateways.md
+                    - Scale the Gateway: manage-apis/deploy-and-publish/deploy-on-gateway/api-gateway/scaling-the-gateway.md
+                    - Advanced Topics:
+                        - Universal Gateways with Dedicated Backends: manage-apis/deploy-and-publish/deploy-on-gateway/api-gateway/api-gateways-with-dedicated-backends.md
+                        - Mutual SSL Between Universal Gateway and Backend: manage-apis/deploy-and-publish/deploy-on-gateway/api-gateway/mutual-ssl-between-api-gateway-and-backend.md
+                        - Storing Custom Synapse Artifacts in the Gateway: manage-apis/deploy-and-publish/deploy-on-gateway/api-gateway/custom-synapse-artifacts.md
+                - Federated Gateways:
+                    - Deploy on AWS API Gateway: manage-apis/deploy-and-publish/deploy-on-gateway/federated-gateways/deploy-on-aws-api-gateway.md
+                    - Configure a Custom Gateway Agent: manage-apis/deploy-and-publish/deploy-on-gateway/federated-gateways/configure-custom-gateway-agent.md
             - Publish on Developer Portal:
-                - Publish an API: api-design-manage/deploy-and-publish/publish-on-dev-portal/publish-an-api.md
-                - Add a Third-party API: api-design-manage/deploy-and-publish/publish-on-dev-portal/third-party-api-support.md
-                - Publish to Multiple External API Developer Portals: api-design-manage/deploy-and-publish/publish-on-dev-portal/publish-to-multiple-external-api-stores.md
-                - Import APIs From AWS API-Gateway to WSO2 API-M: api-design-manage/deploy-and-publish/publish-on-dev-portal/publish-aws-apis-in-the-dev-portal.md
-
-    - API Developer Portal:
-        - Consume APIs Overview: api-developer-portal/consume-api-overview.md
+                - Publish an API: manage-apis/deploy-and-publish/publish-on-dev-portal/publish-an-api.md
+                - Add a Third-party API: manage-apis/deploy-and-publish/publish-on-dev-portal/third-party-api-support.md
+                - Publish to Multiple External API Developer Portals: manage-apis/deploy-and-publish/publish-on-dev-portal/publish-to-multiple-external-api-stores.md
+                - Import APIs From AWS API-Gateway to WSO2 API-M: manage-apis/deploy-and-publish/publish-on-dev-portal/publish-aws-apis-in-the-dev-portal.md
+    - Consume APIs:
+        - Consume APIs - Overview: consume/consume-api-overview.md
         - Discover APIs:
-            - Search: api-developer-portal/discover-apis/search.md
-            - Marketplace Assistant: api-developer-portal/discover-apis/marketplace-assistant.md
+            - Search: consume/discover-apis/search.md
+            - Marketplace Assistant: consume/discover-apis/marketplace-assistant.md
         - Manage Applications:
-            - Create Application: api-developer-portal/manage-application/create-application.md
+            - Create Application: consume/manage-application/create-application.md
             - Generate Keys:
-                - Application Keys: api-developer-portal/manage-application/generate-keys/generate-api-keys.md
+                - Application Keys: consume/manage-application/generate-keys/generate-api-keys.md
+                - Grant Types:
+                    - Password Grant: manage-apis/design/api-security/oauth2/grant-types/password-grant.md
+                    - Client Credentials Grant: manage-apis/design/api-security/oauth2/grant-types/client-credentials-grant.md
+                    - JWT Grant: manage-apis/design/api-security/oauth2/grant-types/jwt-grant.md
+                    - Kerberos OAuth2 Grant: manage-apis/design/api-security/oauth2/grant-types/kerberos-oauth2-grant.md
+                    - Refresh Token Grant: manage-apis/design/api-security/oauth2/grant-types/refresh-token-grant.md
+                    - Authorization Code Grant: manage-apis/design/api-security/oauth2/grant-types/authorization-code-grant.md
+                    - SAML Extension Grant: manage-apis/design/api-security/oauth2/grant-types/saml-extension-grant.md
+                    - NTLM Grant: manage-apis/design/api-security/oauth2/grant-types/ntlm-grant.md
             - Obtain Access Token:
-                - Overview of Access Tokens: api-developer-portal/manage-application/generate-keys/obtain-access-token/overview-of-access-tokens.md
-                - Access Tokens Per Device: api-developer-portal/manage-application/generate-keys/obtain-access-token/access-tokens-per-device.md
-                - Change the Default Token Expiration Time: api-developer-portal/manage-application/generate-keys/obtain-access-token/changing-the-default-token-expiration-time.md
-                - Revoke OAuth2 Application: api-developer-portal/manage-application/generate-keys/revoke-oauth2-application.md
-            - Share Applications: api-developer-portal/manage-application/sharing-applications/sharing-applications.md
+                - Overview of Access Tokens: consume/manage-application/generate-keys/obtain-access-token/overview-of-access-tokens.md
+                - Access Tokens Per Device: consume/manage-application/generate-keys/obtain-access-token/access-tokens-per-device.md
+                - Change the Default Token Expiration Time: consume/manage-application/generate-keys/obtain-access-token/changing-the-default-token-expiration-time.md
+                - Revoke OAuth2 Application: consume/manage-application/generate-keys/revoke-oauth2-application.md
+            - Share Applications: consume/manage-application/sharing-applications/sharing-applications.md
             - Advanced Topics:
-                - Add Custom Attributes to Applications: api-developer-portal/manage-application/advanced-topics/add-custom-attributes-to-applications.md
-                - Change the Owner of an Application: api-developer-portal/manage-application/advanced-topics/changing-the-owner-of-an-application.md
-                - Change the Provider of an Api: api-developer-portal/manage-application/advanced-topics/changing-the-provider-of-an-api.md
-                - Add an Application Creation Workflow: api-developer-portal/manage-application/advanced-topics/adding-an-application-creation-workflow.md
-                - Add an Application Update Workflow: api-developer-portal/manage-application/advanced-topics/adding-an-application-update-workflow.md
-                - Add an Application Key Generation Workflow: api-developer-portal/manage-application/advanced-topics/adding-an-application-key-generation-workflow.md
+                - Add Custom Attributes to Applications: consume/manage-application/advanced-topics/add-custom-attributes-to-applications.md
+                - Change the Owner of an Application: consume/manage-application/advanced-topics/changing-the-owner-of-an-application.md
+                - Change the Provider of an Api: consume/manage-application/advanced-topics/changing-the-provider-of-an-api.md
+                - Add an Application Creation Workflow: consume/manage-application/advanced-topics/adding-an-application-creation-workflow.md
+                - Add an Application Update Workflow: consume/manage-application/advanced-topics/adding-an-application-update-workflow.md
+                - Add an Application Key Generation Workflow: consume/manage-application/advanced-topics/adding-an-application-key-generation-workflow.md
         - Manage Subscriptions:
-            - Subscribe to an API: api-developer-portal/manage-subscription/subscribe-to-an-api.md
+            - Subscribe to an API: consume/manage-subscription/subscribe-to-an-api.md
             - Advanced Topics:
-                - Add an API Subscription Workflow: api-developer-portal/manage-subscription/advanced-topics/adding-an-api-subscription-workflow.md
-                - Add an API Subscription Tier Update Workflow: api-developer-portal/manage-subscription/advanced-topics/adding-an-api-subscription-tier-update-workflow.md
-                - Add an API Subscription Deletion Workflow: api-developer-portal/manage-subscription/advanced-topics/adding-an-api-subscription-deletion-workflow.md
+                - Add an API Subscription Workflow: consume/manage-subscription/advanced-topics/adding-an-api-subscription-workflow.md
+                - Add an API Subscription Tier Update Workflow: consume/manage-subscription/advanced-topics/adding-an-api-subscription-tier-update-workflow.md
+                - Add an API Subscription Deletion Workflow: consume/manage-subscription/advanced-topics/adding-an-api-subscription-deletion-workflow.md
         - Test APIs:
             - Integrated API Console:
-                - Test a REST API: api-developer-portal/invoke-apis/invoke-apis-using-tools/invoke-an-api-using-the-integrated-api-console.md
-                - Test a GraphQL API: api-developer-portal/invoke-apis/invoke-apis-using-tools/invoke-an-graphql-api-using-the-integrated-graphql-console.md
-                - Add Additional Headers to Test a REST API: api-developer-portal/invoke-apis/invoke-apis-using-tools/include-additional-headers-in-the-api-console.md
-            - SOAP Client: api-developer-portal/invoke-apis/invoke-apis-using-tools/invoke-an-api-using-a-soap-client.md
-            - Postman: api-developer-portal/invoke-apis/invoke-apis-using-tools/try-out-using-postman.md
-            - Test APIs with API Chat: api-developer-portal/invoke-apis/invoke-apis-using-tools/test-apis-with-apichat.md
+                - Test a REST API: consume/invoke-apis/invoke-apis-using-tools/invoke-an-api-using-the-integrated-api-console.md
+                - Test a GraphQL API: consume/invoke-apis/invoke-apis-using-tools/invoke-an-graphql-api-using-the-integrated-graphql-console.md
+                - Add Additional Headers to Test a REST API: consume/invoke-apis/invoke-apis-using-tools/include-additional-headers-in-the-api-console.md
+            - SOAP Client: consume/invoke-apis/invoke-apis-using-tools/invoke-an-api-using-a-soap-client.md
+            - Postman: consume/invoke-apis/invoke-apis-using-tools/try-out-using-postman.md
+            - Test APIs with API Chat: consume/invoke-apis/invoke-apis-using-tools/test-apis-with-apichat.md
         - Collaborations:
-            - Interact with the Community: api-developer-portal/collaboration/interact-with-the-community.md
+            - Interact with the Community: consume/collaboration/interact-with-the-community.md
         - Generating SDKs:
-            - Generate SDKs in Developer Portal: api-developer-portal/generating-sdks/generate-sdks-in-dev-portal.md
-            - Write a Client Application Using the SDK: api-developer-portal/generating-sdks/write-a-client-application-using-the-sdk.md
+            - Generate SDKs in Developer Portal: consume/generating-sdks/generate-sdks-in-dev-portal.md
+            - Write a Client Application Using the SDK: consume/generating-sdks/write-a-client-application-using-the-sdk.md
         - User Account Management:
-            - Recover Password: api-developer-portal/user-account-management/recover-password.md
-            - Change Password: api-developer-portal/user-account-management/change-dev-portal-password.md
-        - Rate Limiting:
-            - Resetting Application Throttling Policies: api-developer-portal/rate-limiting/resetting-application-throttling-policies.md
-        - B2B API Consumption:
-            - B2B API Consumption: api-developer-portal/b2b-api-consumption/api-consumption.md
-            - Setup WSO2 Identity Server as a Federated Authenticator: api-developer-portal/b2b-api-consumption/setup-identity-server.md
-
-    - API Gateway:
-        - Regular Gateway:
-            - Overview of the WSO2 Universal Gateway: api-gateway/overview-of-the-api-gateway.md
-            - Gateway Policies: api-gateway/gateway-policies.md
-            - Response Caching: api-gateway/response-caching.md
-            - Pass End User Attributes to the Backend: api-gateway/passing-enduser-attributes-to-the-backend-via-api-gateway.md
-            - Gateway Environments: api-gateway/maintaining-separate-production-and-sandbox-gateways.md
-            - Scale the Gateway: api-gateway/scaling-the-gateway.md
-            - Advanced Topics:
-                - Universal Gateway with Dedicated Tenants: api-gateway/maintain-seperate-gateways-per-tenants.md
-                - Universal Gateways with Dedicated Backends: api-gateway/api-gateways-with-dedicated-backends.md
-                - Mutual SSL Between Universal Gateway and Backend: api-gateway/mutual-ssl-between-api-gateway-and-backend.md
-                - Storing Custom Synapse Artifacts in the Gateway: api-gateway/custom-synapse-artifacts.md
-            - Regular Gateway Policies:
-                - Adding Dynamic Endpoints: api-gateway/policies/adding-dynamic-endpoints.md
-                - Adding a Class Mediator: api-gateway/policies/adding-a-class-mediator.md
-                - Adding a Non-Blocking Send Operation: api-gateway/policies/adding-a-non-blocking-send-operation.md
-                - Configuring Message Builders Formatters: api-gateway/policies/configuring-message-builders-formatters.md
-                - Disabling Message Chunking: api-gateway/policies/disabling-message-chunking.md
-                - JWT Claim Based Access Validator: api-gateway/policies/jwt-claim-based-access-validator.md
-                - Mapping Backend URLs with Publisher URLs: api-gateway/policies/mapping-the-parameters-of-your-backend-urls-with-the-api-publisher-urls.md
-                - Passing Custom Authorization Token to Backend: api-gateway/policies/passing-a-custom-authorization-token-to-the-backend.md
-                - Removing Specific Request Headers from Response: api-gateway/policies/removing-specific-request-headers-from-response.md
-                - Revoke One Time Tokens Policy: api-gateway/policies/revoke-one-time-tokens-policy.md
-                - Transforming API Message Payload: api-gateway/policies/transforming-api-message-payload.md
-            - Threat Protectors:
-                - Gateway Threat Protectors: api-gateway/threat-protectors/gateway-threat-protectors-for-api-manager.md
-                - Regular Expression Threat Protection: api-gateway/threat-protectors/regular-expression-threat-protection-for-api-gateway.md
-                - JSON Threat Protection: api-gateway/threat-protectors/json-threat-protection-for-api-gateway.md
-                - XML Threat Protection: api-gateway/threat-protectors/xml-threat-protection-for-api-gateway.md
-                - Bot Detection: api-gateway/threat-protectors/bot-detection.md
-            - Rate Limiting:
-                - Enforce Throttling and Resource Access Policies: api-gateway/rate-limiting/enforce-throttling-and-resource-access-policies.md
-                - Setting Maximum Backend Throughput Limits: api-gateway/rate-limiting/setting-maximum-backend-throughput-limits.md
-                - Rate Limiting for AI APIs: api-gateway/rate-limiting/rate-limiting-for-ai-apis.md
-                - Rate Limiting for Streaming APIs: api-gateway/rate-limiting/rate-limiting-for-streaming-apis.md
-                - Advanced Topics:
-                    - Distributed Burst Control for API Gateway Cluster: api-gateway/rate-limiting/configuring-rate-limiting-api-gateway-cluster.md
-                    - Distributed Throttling: api-gateway/rate-limiting/distributed-throttling.md
-                    - Custom Throttling: api-gateway/rate-limiting/custom-throttling.md
-        - Federated Gateways:
-              - Overview: api-gateway/federated-gateways/overview.md
-              - AWS:
-                - Deploy on AWS API Gateway: api-gateway/federated-gateways/aws/deploy-on-aws-api-gateway.md
-                - Discover APIs on AWS API Gateway: api-gateway/federated-gateways/aws/discover-apis-on-aws-api-gateway.md
-              - Azure:
-                - Deploy on Azure API Gateway: api-gateway/federated-gateways/azure/deploy-on-azure-api-gateway.md
-                - Discover APIs on Azure API Gateway: api-gateway/federated-gateways/azure/discover-apis-on-azure-api-gateway.md
-              - EnvoyGateway:
-                - Discover APIs on Envoy Gateway: api-gateway/federated-gateways/envoygateway/eg-k8s/discover-apis-on-eg-gateway-in-kubernetes.md
-              - Kong:
-                - Kong Kubernetes:
-                    - Discover APIs on Kong Gateway in Kubernetes: api-gateway/federated-gateways/kong/kong-kubernetes/discover-apis-on-kong-gateway-in-kubernetes.md
-                - Kong Standalone:
-                    - Discover APIs on Kong Gateway: api-gateway/federated-gateways/kong/kong-standalone/discover-apis-on-kong-gateway.md
-              - Configure a Custom Gateway Agent: api-gateway/federated-gateways/configure-custom-gateway-agent.md
-        
+            - Recover Password: consume/user-account-management/recover-password.md
+            - Change Password: consume/user-account-management/change-dev-portal-password.md
     - AI Gateway:
-        - Overview: ai-gateway/ai-gateway-overview.md
-        - LLM Gateway:
-            - Getting Started: ai-gateway/getting-started-with-ai-gateway.md
-            - AI Backend Security: ai-gateway/ai-backend-security.md
-            - Rate Limiting: ai-gateway/rate-limiting.md
-            - Multi-Model Routing:
-                - Overview: ai-gateway/multi-model-routing/overview.md
-                - Load Balancing: ai-gateway/multi-model-routing/load-balancing.md
-                - Failover: ai-gateway/multi-model-routing/failover.md
-            - AI Service Provider Management:
-                - Overview: ai-gateway/ai-vendor-management/overview.md
-                - Anthropic: ai-gateway/ai-vendor-management/anthropic.md
-                - AWS Bedrock: ai-gateway/ai-vendor-management/aws-bedrock.md
-                - Azure AI Foundry: ai-gateway/ai-vendor-management/azure-ai-foundry.md
-                - Azure OpenAI: ai-gateway/ai-vendor-management/azure-openai.md
-                - Gemini: ai-gateway/ai-vendor-management/gemini.md
-                - Mistral AI: ai-gateway/ai-vendor-management/mistral-ai.md
-                - OpenAI: ai-gateway/ai-vendor-management/openai.md
-                - Custom AI Service Providers:
-                    - Overview: ai-gateway/ai-vendor-management/custom-ai-vendors/overview.md
-                    - Custom Connector: ai-gateway/ai-vendor-management/custom-ai-vendors/custom-connector.md
-                    - Onboarding a Custom AI Service Provider: ai-gateway/ai-vendor-management/custom-ai-vendors/onboarding-custom-ai-service-provider.md
-            - Prompt Management:
-                - Overview: ai-gateway/prompt-management/overview.md
-                - Prompt Decorator: ai-gateway/prompt-management/prompt-decorator.md
-                - Prompt Template: ai-gateway/prompt-management/prompt-template.md
-            - AI Guardrails:
-                - Overview: ai-gateway/ai-guardrails/overview.md
-                - Content Length Guardrail: ai-gateway/ai-guardrails/content-length-guardrail.md
-                - Regex Guardrail: ai-gateway/ai-guardrails/regex-guardrail.md
-                - JSON Schema Guardrail: ai-gateway/ai-guardrails/json-schema-guardrail.md
-                - Sentence Count Guardrail: ai-gateway/ai-guardrails/sentence-count-guardrail.md
-                - URL Guardrail: ai-gateway/ai-guardrails/url-guardrail.md
-                - Word Count Guardrail: ai-gateway/ai-guardrails/word-count-guardrail.md
-                - Semantic Prompt Guardrail: ai-gateway/ai-guardrails/semantic-prompt-guardrail.md
-                - PII Masking with Regex: ai-gateway/ai-guardrails/regex-pii-masking.md
-                - Azure Content Safety: ai-gateway/ai-guardrails/azure-content-safety.md
-                - AWS Bedrock Guardrail: ai-gateway/ai-guardrails/aws-bedrock-guardrail.md
-                - Guardrail Error Response: ai-gateway/ai-guardrails/guardrail-error-response.md
-            - Semantic Caching: ai-gateway/semantic-caching.md
-            - AI APIs via SDKs: ai-gateway/using-proxy-apis-in-sdks.md
-        - MCP Gateway:
-            - Getting Started: mcp-gateway/overview.md
-            - Create from an OpenAPI Definition: mcp-gateway/create-from-openapi.md
-            - Create from an Existing API: mcp-gateway/create-from-api.md
-            - Proxy an Existing MCP Server: mcp-gateway/create-from-mcp-server.md
-            - Update and Deploy a MCP Server: mcp-gateway/update-and-deploy-mcp-server.md
-            - Subscribe to a MCP Server: mcp-gateway/subscribe-to-a-mcp-server.md
-            - Consume MCP Servers from MCP Hub: mcp-gateway/invoke-a-mcp-server-using-playground.md
-
-    - API Analytics and Monetization:
-        - API Monetization:
-            - Monetize an API: monitoring/api-monetization/monetizing-an-api.md
+        - Overview: ai-gateway/overview.md
+        - Getting started with AI Gateway: ai-gateway/getting-started-with-ai-gateway.md
+        - AI Backend Security: ai-gateway/ai-backend-security.md
+        - Rate Limiting: ai-gateway/rate-limiting.md
+        - Multi-Model Routing:
+            - Overview: ai-gateway/multi-model-routing/overview.md
+            - Load Balancing: ai-gateway/multi-model-routing/load-balancing.md
+            - Failover: ai-gateway/multi-model-routing/failover.md
+        - AI Service Provider Management:
+            - Anthropic: ai-gateway/ai-vendor-management/anthropic.md
+            - AWS Bedrock: ai-gateway/ai-vendor-management/aws-bedrock.md
+            - Azure AI Foundry: ai-gateway/ai-vendor-management/azure-ai-foundry.md
+            - Azure OpenAI: ai-gateway/ai-vendor-management/azure-openai.md
+            - Gemini: ai-gateway/ai-vendor-management/gemini.md
+            - Mistral AI: ai-gateway/ai-vendor-management/mistral-ai.md
+            - OpenAI: ai-gateway/ai-vendor-management/openai.md
+            - Custom AI Service Providers:
+                - Overview: ai-gateway/ai-vendor-management/custom-ai-vendors/overview.md
+                - Custom Connector: ai-gateway/ai-vendor-management/custom-ai-vendors/custom-connector.md
+                - Onboarding a Custom AI Service Provider: ai-gateway/ai-vendor-management/custom-ai-vendors/onboarding-custom-ai-service-provider.md
+        - AI Guardrails:
+            - Overview: ai-gateway/ai-guardrails/overview.md
+            - Safety Categories:
+                - Overview: ai-gateway/ai-guardrails/safety-categories/overview.md
+                # - LLM Safety: ai-gateway/ai-guardrails/safety-categories/llm-safety.md
+                - Content Safety: ai-gateway/ai-guardrails/safety-categories/content-safety.md
+                - Content Usage Control: ai-gateway/ai-guardrails/safety-categories/content-usage-control.md
+                # - PII Safety: ai-gateway/ai-guardrails/safety-categories/pii-safety.md
+        - Semantic Caching: ai-gateway/semantic-caching.md
+    - MCP Servers:
+        - Overview: mcp/overview.md
+        - Create from an OpenAPI Definition: mcp/create-from-openapi.md
+        - Create from an Existing API: mcp/create-from-api.md
+        - Proxy an Existing MCP Server: mcp/create-from-mcp-server.md
+        - Update and Deploy a MCP Server: mcp/update-and-deploy-mcp-server.md
+        - Subscribe to a MCP Server: mcp/subscribe-to-a-mcp-server.md
+        - Test with the MCP Playground: mcp/invoke-a-mcp-server-using-playground.md
+    - Monitoring:
         - API Analytics:
             - Overview: monitoring/api-analytics/analytics-overview.md
-            - Moesif Analytics: monitoring/api-analytics/moesif-analytics/moesif-integration-guide.md
-            - Other Analytics Solutions:
+            - Choreo Based Analytics:
+                - Architecture: monitoring/api-analytics/choreo-analytics/api-analytics-architecture.md
+                - Getting Started Guide: monitoring/api-analytics/choreo-analytics/getting-started-guide.md
+                - Role-based Access Control : monitoring/api-analytics/choreo-analytics/role-based-access-control.md
+                - Alerts: monitoring/api-analytics/choreo-analytics/configure-alerts.md
+                - Choreo Based Analytics via Proxy: monitoring/api-analytics/choreo-analytics/choreo-based-analytics-via-proxy.md
+            - Other Analytics Solutions: 
                 - ELK Based Analytics Installation Guide: monitoring/api-analytics/on-prem/elk-installation-guide.md
                 - Datadog Analytics Installation Guide : monitoring/api-analytics/on-prem/datadog-installation-guide.md
                 - OpenSearch Analytics Installation Guide: monitoring/api-analytics/on-prem/opensearch-installation-guide.md
-                - Choreo Based Analytics:
-                    - Architecture: monitoring/api-analytics/choreo-analytics/api-analytics-architecture.md
-                    - Getting Started Guide: monitoring/api-analytics/choreo-analytics/getting-started-guide.md
-                    - Role-based Access Control : monitoring/api-analytics/choreo-analytics/role-based-access-control.md
-                    - Alerts: monitoring/api-analytics/choreo-analytics/configure-alerts.md
-                    - Choreo Based Analytics via Proxy: monitoring/api-analytics/choreo-analytics/choreo-based-analytics-via-proxy.md
+            - Moesif Analytics: monitoring/api-analytics/moesif-analytics/moesif-integration-guide.md
             - Publish Analytics Events to External Systems: monitoring/api-analytics/samples/publishing-analytics-events-to-external-systems.md
             - Publish Custom Analytics Events Data: monitoring/api-analytics/samples/publishing-custom-analytics-data.md
         - Observability:
@@ -388,38 +387,101 @@ nav:
                 - OpenTelemetry: monitoring/observability/traces/monitoring-with-opentelemetry.md
             - Metrics:
                 - JMX-Based Monitoring: monitoring/observability/metrics/jmx-based-monitoring.md
-
-    - Key Manager:
-        - Key Management Concepts:
-            - Overview: key-manager/key-manager-overview.md
-        - OAuth2:
-            - Access Token Types:
-                - JWT Tokens: key-manager/oauth2/access-token-types/jwt-tokens.md
-            - Encrypting OAuth2 Tokens: key-manager/oauth2/encrypting-oauth2-tokens.md
-            - Grant Types:
-                - Overview: key-manager/oauth2/grant-types/overview.md
-                - Password Grant: key-manager/oauth2/grant-types/password-grant.md
-                - Client Credentials Grant: key-manager/oauth2/grant-types/client-credentials-grant.md
-                - Authorization Code Grant: key-manager/oauth2/grant-types/authorization-code-grant.md
-                - Refresh Token Grant: key-manager/oauth2/grant-types/refresh-token-grant.md
-                - JWT Grant: key-manager/oauth2/grant-types/jwt-grant.md
-                - SAML Extension Grant: key-manager/oauth2/grant-types/saml-extension-grant.md
-                - Kerberos OAuth2 Grant: key-manager/oauth2/grant-types/kerberos-oauth2-grant.md
-                - NTLM Grant: key-manager/oauth2/grant-types/ntlm-grant.md
-            - Hashing OAuth Keys: key-manager/oauth2/hashing-oauth-keys.md
-            - Multiple Active Access Tokens: key-manager/oauth2/multiple-active-access-tokens.md
-            - OAuth2 Scopes:
-                - Scope Whitelisting: key-manager/oauth2/oauth2-scopes/scope-whitelisting.md
-            - Provisioning Out-of-Band OAuth Clients: key-manager/oauth2/provisioning-out-of-band-oauth-clients.md
-            - Securing OAuth Token with HMAC Validation: key-manager/oauth2/securing-oauth-token-with-hmac-validation.md
-            - Token Expiration: key-manager/oauth2/token-expiration.md
-            - Token Persistence: key-manager/oauth2/token-persistence.md
-            - Token Revocation: key-manager/oauth2/token-revocation.md
-            - Federating OAuth Applications: key-manager/oauth2/federating-oauth-applications.md
-        - OpenID Connect:
-            - Obtain User Profile Information with OpenID Connect: key-manager/openid-connect/obtaining-user-profile-information-with-openid-connect.md
-
-    - Admin Portal:
+    - Reference:
+        - Product REST APIs:
+            - Overview: reference/product-apis/overview.md
+            - Publisher APIs:
+                - Publisher API v4: reference/product-apis/publisher-apis/publisher-v4/publisher-v4.md
+            - Developer Portal APIs:
+                - Developer Portal API v3: reference/product-apis/devportal-apis/devportal-v3/devportal-v3.md
+            - Admin APIs:
+                - Admin API v4: reference/product-apis/admin-apis/admin-v4/admin-v4.md
+            - Gateway APIs:
+                - Gateway API v2: reference/product-apis/gateway-apis/gateway-v2/gateway-v2.md
+            - Service Catalog APIs:
+                - Service Catalog API v1: reference/product-apis/service-catalog-apis/service-catalog-v1/service-catalog-v1.md
+            - DevOps APIs:
+                - DevOps API v0: reference/product-apis/devops-apis/devops-v0/devops-v0.md
+            - Advanced Configurations: reference/product-apis/advanced-configurations.md
+        - Product Configurations:
+            - Understand the New Configuration Model: reference/understanding-the-new-configuration-model.md
+            - API-M Config Catalog: reference/config-catalog.md
+        - API Controller (APICTL): reference/apictl/wso2-api-controller.md
+        - Customizations:
+            - Vendor Specific Extensions: reference/vendor-extensions-catalog.md
+            - Extend WSO2 API Manager:
+                - Extend Key Management:
+                    - Extend Key Validation: reference/customize-product/extending-api-manager/extending-key-management/extending-key-validation.md
+                    - Extend Scope Validation: reference/customize-product/extending-api-manager/extending-key-management/extending-scope-validation.md
+                    - Extend Key Manager: reference/customize-product/extending-api-manager/extending-key-management/extending-the-key-manager-interface.md
+                    - Write Custom Grant Types: reference/customize-product/extending-api-manager/extending-key-management/writing-custom-grant-types.md
+                - Extend API Gateway:
+                    - Customize API Template: reference/customize-product/extending-api-manager/extending-gateway/customizing-api-template-for-gateway.md
+                    - Write Custom Handlers: reference/customize-product/extending-api-manager/extending-gateway/writing-custom-handlers.md
+                - Extend Workflows:
+                    - Invoke the API Manager from the BPEL Engine: reference/customize-product/extending-api-manager/extending-workflows/invoking-the-api-manager-from-the-bpel-engine.md
+                    - Customize a Workflow Extension: reference/customize-product/extending-api-manager/extending-workflows/customizing-a-workflow-extension.md
+                    - Configure HTTP Redirection for Workflows: reference/customize-product/extending-api-manager/extending-workflows/configuring-http-redirection-for-workflows.md
+                    - Configure Workflows for Tenants: reference/customize-product/extending-api-manager/extending-workflows/configuring-workflows-for-tenants.md
+                    - Configure Workflows in a Cluster: reference/customize-product/extending-api-manager/extending-workflows/configuring-workflows-in-a-cluster.md
+                    - Change the Default User Role in Workflows: reference/customize-product/extending-api-manager/extending-workflows/changing-the-default-user-role-in-workflows.md
+                    - Clean Up Workflow Tasks: reference/customize-product/extending-api-manager/extending-workflows/cleaning-up-workflow-tasks.md
+                - SAML2 SSO:
+                    - Configure Single Sign On with SAML2: reference/customize-product/extending-api-manager/saml2-sso/configuring-single-sign-on-with-saml2.md
+                    - Configure External IDP Through Identity Server for SSO: reference/customize-product/extending-api-manager/saml2-sso/configuring-external-idp-through-identity-server-for-sso.md
+                    - Configure Identity Server as IDP for SSO: reference/customize-product/extending-api-manager/saml2-sso/configuring-identity-server-as-idp-for-sso.md
+                    - Multi Factor Authentication for Publisher and Developer Portals: reference/customize-product/extending-api-manager/saml2-sso/multi-factor-authentication-mfa-for-publisher-and-developer-portals.md
+            - Customizations:
+                - Customize the Developer Portal:
+                    - Override the Developer Portal Theme: reference/customize-product/customizations/customizing-the-developer-portal/overriding-developer-portal-theme.md
+                    - Customize API Listing:
+                        - API Category based Grouping: reference/customize-product/customizations/customizing-the-developer-portal/customize-api-listing/api-category-based-grouping.md
+                        - Change Default View: reference/customize-product/customizations/customizing-the-developer-portal/customize-api-listing/change-default-view.md
+                    - Enable or Disabl API Detail Tabs: reference/customize-product/customizations/customizing-the-developer-portal/enabling-or-disabling-api-detail-tabs.md
+                    - Override API Overview Page per API: reference/customize-product/customizations/customizing-the-developer-portal/override-api-overview-page-per-api.md
+                    - Enable or Disable Rating: reference/customize-product/customizations/customizing-the-developer-portal/enable-or-disable-rating.md
+                    - Enable or Disable Home Page: reference/customize-product/customizations/customizing-the-developer-portal/enable-or-disable-home-page.md
+                    - Enable or Disable Tag Cloud: reference/customize-product/customizations/customizing-the-developer-portal/enable-or-disable-tag-cloud.md
+                    - Enable or Disable Footer: reference/customize-product/customizations/customizing-the-developer-portal/enable-or-disable-footer.md
+                    - Enable or Disable Banner: reference/customize-product/customizations/customizing-the-developer-portal/enable-or-disable-banner.md
+                    - Styling API Details Left Menu: reference/customize-product/customizations/customizing-the-developer-portal/styling-api-details-left-menu.md
+                    - Styling the Logo and Header: reference/customize-product/customizations/customizing-the-developer-portal/styling-the-logo-and-header.md
+                    - Enable or Disabling Self Signup: reference/customize-product/customizations/customizing-the-developer-portal/enabling-or-disabling-self-signup.md
+                    - Configure reCaptcha for Self-SignUp: reference/customize-product/customizations/customizing-the-developer-portal/configuring-recaptcha-for-self-signup.md
+                - Override the Publisher Portal Theme: reference/customize-product/customizations/overriding-the-publisher-portal-theme.md
+                - Log in to the Developer Portal Using Social Media: reference/customize-product/customizations/log-in-to-the-dev-portal-using-social-media.md
+                - Directing the Root Context to the Developer Portal: reference/customize-product/customizations/directing-the-root-context-to-the-developer-portal.md
+                - Customize User Signup in Developer Portal: reference/customize-product/customizations/customizing-user-signup-in-developer-portal.md
+                - Customize Login Pages for Developer Portal and Publisher: reference/customize-product/customizations/customizing-login-pages-for-dev-portal-and-publisher.md
+                - Customize the Developer Portal and Gateway URLs for Tenants: reference/customize-product/customizations/customize-the-api-store-and-gateway-urls-for-tenants.md
+                - Add a User Signup Workflow: reference/customize-product/customizations/adding-a-user-signup-workflow.md
+                - Add internationalization: reference/customize-product/customizations/adding-internationalization.md
+                - Define Custom Linter Rules: reference/customize-product/customizations/define-custom-linters.md
+                - Advanced UI Customization: reference/customize-product/customizations/advanced-ui-customization.md
+                - Modify Workflow Approval Task Limit: reference/customize-product/customizations/modify-workflow-approval-task-limit.md
+            - Admin Services: reference/wso2-admin-services.md
+            - Work with the Source Code: reference/working-with-the-source-code.md
+            - Java Documentation: reference/java-documentation.md
+        - Best Practices:
+            - WSO2 API-M Best Practices: reference/wso2-api-manager-best-practices.md
+            - Best Practices for Working with Endpoints: reference/best-practices-endpoints.md
+        - Accessibility Compliance: reference/accessibility-compliance.md
+        - Guides:
+            - Message Flow in the API Manager Gateway: reference/guides/message-flow-in-the-api-manager-gateway.md
+            - Accessing API Manager by Multiple Devices Simultaneously: reference/guides/accessing-api-manager-by-multiple-devices-simultaneously.md
+            - admin_Directory Structure of WSO2 Products: reference/guides/directory-structure-of-wso2-products.md
+        - Troubleshooting:
+              - Error Handling: troubleshooting/error-handling.md
+              - Capturing System Data in Error Situations: troubleshooting/capturing-system-data-in-error-situations.md
+              - Troubleshooting in Production Environments: troubleshooting/admin-troubleshooting-in-production-environments.md
+              - Utilizing Runtime Diagnostic Tool: troubleshooting/utilizing-runtime-diagnostic-tool.md
+              - Cleaning Up Partially Created Keys: troubleshooting/cleaning-up-partially-created-keys.md
+              - Configure XSLT Mediation with Xalan: troubleshooting/configuring-xslt-mediation-with-xalan.md
+              - Troubleshooting 'Registered callback does not match with the provided url' error: troubleshooting/troubleshooting-invalid-callback-error.md
+              - Troubleshooting JMS: troubleshooting/troubleshooting-jms.md
+              - Troubleshooting WebSocket APIs: troubleshooting/troubleshooting-websocket-api.md
+        - FAQ: reference/faq.md
+    - Administer:
         - Administer Overview: administer/admin-overview.md
         - Manage Users and Roles:
             - Introduction to User Management: administer/managing-users-and-roles/introduction-to-user-management.md
@@ -439,6 +501,8 @@ nav:
             - Configure the Tenant Loading Policy: administer/multitenancy/configuring-the-tenant-loading-policy.md
             - Tenant Sharing with WSO2 Identity Server 7.x: administer/multitenancy/tenant-sharing-with-wso2is7.md
         - Monitoring API Manager:
+           # - Configure Logs: administer/logging-and-monitoring/logging/configuring-logging.md
+            # Remove After added TCP dump - TCP-Based Messages: administer/logging-and-monitoring/monitoring/monitoring-tcp-based-messages.md
             - Server Health: administer/logging-and-monitoring/monitoring/monitoring-server-health.md
         - Multiple Gateways:
               - Configure a Gateway: administer/multiple-gateways/configure-gateway.md
@@ -458,52 +522,6 @@ nav:
             - Application Scopes: administer/key-managers/application-scopes.md
         - Advanced Configurations: administer/advanced-configurations.md
         - Manage Role based access control for the Admin portal: administer/role-based-access-control.md
-        - Rate Limiting:
-            - Adding New Throttling Policies: api-design-manage/design/rate-limiting/adding-new-throttling-policies.md
-        - Governance:
-            - Overview: administer/governance/overview.md
-            - Concepts: administer/governance/governance-concept.md
-            - Administrative Capabilities: administer/governance/api-governance-admin-capabilities.md
-            - CI/CD-Driven Governance: administer/governance/api-governance-cicd.md
-
-    - APIOps:
-        - CI/CD:
-            - CI/CD for APIs - Overview: install-and-setup/setup/api-controller/ci-cd-with-wso2-api-management.md
-            - Build a CI/CD Pipeline for APIs Using the CLI: install-and-setup/setup/api-controller/cicd-using-cli.md
-            - Build a CI/CD Pipeline for APIs using Jenkins: install-and-setup/setup/api-controller/building-jenkins-ci-cd-pipeline.md
-        - CLI:
-            - Getting Started with WSO2 API Controller (apictl): install-and-setup/setup/api-controller/getting-started-with-wso2-api-controller.md
-            - API Governance CLI Tool: api-design-manage/design/advanced-topics/api-governance-cli-tool.md
-            - Manage APIs and API Products:
-                - Manage APIs and API Products: install-and-setup/setup/api-controller/managing-apis-api-products/managing-apis-and-api-products.md
-                - Import APIs Via Dev First Approach: install-and-setup/setup/api-controller/managing-apis-api-products/importing-apis-via-dev-first-approach.md
-                - Migrate APIs to Different Environments: install-and-setup/setup/api-controller/managing-apis-api-products/migrating-apis-to-different-environments.md
-                - Migrate API Products (with or without Dependent APIs) to Different Environments: install-and-setup/setup/api-controller/managing-apis-api-products/migrating-api-products-to-different-environments.md
-            - Manage MCP Servers:
-                - Manage MCP Servers: install-and-setup/setup/api-controller/managing-mcp-servers/managing-mcp-servers.md
-                - Import MCP Servers Via Dev First Approach: install-and-setup/setup/api-controller/managing-mcp-servers/importing-mcp-servers-via-dev-first-approach.md
-                - Migrate MCP Servers to Different Environments: install-and-setup/setup/api-controller/managing-mcp-servers/migrating-mcp-servers-to-different-environments.md
-            - Manage Applications:
-                - Manage Applications: install-and-setup/setup/api-controller/managing-applications/managing-applications.md
-                - Migrate Apps to Different Environments: install-and-setup/setup/api-controller/managing-applications/migrating-applications-to-different-environments.md
-            - Manage Rate Limiting Policies: 
-                - Manage Rate Limiting Policies: install-and-setup/setup/api-controller/managing-rate-limiting-policies/throttle-policy-import-export.md
-                - Migrate Rate Limiting Policies to Different Environments: install-and-setup/setup/api-controller/managing-rate-limiting-policies/migrating-rate-limiting-policies-to-different-environments.md
-            - Manage Common API Policies:
-                - Manage Common API Policies: install-and-setup/setup/api-controller/managing-common-api-policies/managing-common-api-policies.md
-                - Migrate Common API Policies to Different Environments: install-and-setup/setup/api-controller/managing-common-api-policies/migrating-common-api-policies-to-different-environments.md
-            - Encrypt Secrets with apictl: install-and-setup/setup/api-controller/encrypting-secrets-with-ctl.md
-            - Enable Correlation Logs with apictl: install-and-setup/setup/api-controller/enabling-correlation-logs-with-apictl.md
-            - AI Related Operations with apictl: install-and-setup/setup/api-controller/ai-related-operations-with-apictl.md
-            - Advanced Topics:
-                - Create Custom Users to Perform apictl Operations: install-and-setup/setup/api-controller/advanced-topics/creating-custom-users-to-perform-api-controller-operations.md
-                - Configure Environment Specific Parameters: install-and-setup/setup/api-controller/advanced-topics/configuring-environment-specific-parameters.md
-                - Use Dynamic Data in apictl Projects: install-and-setup/setup/api-controller/advanced-topics/using-dynamic-data-in-api-controller-projects.md
-                - Configure Different Endpoint Types: install-and-setup/setup/api-controller/advanced-topics/configuring-different-endpoint-types.md
-                - Configuring Different Endpoint Security Types: install-and-setup/setup/api-controller/advanced-topics/configuring-different-endpoint-security-types.md
-                - Format the Outputs of Get Commands: install-and-setup/setup/api-controller/advanced-topics/formatting-the-output-of-get-command.md
-                - Configure Git Integration: install-and-setup/setup/api-controller/advanced-topics/configuring-git-integration.md
-
     - Install and Setup:
         - Install and Setup Overview: install-and-setup/install-and-setup-overview.md
         - Install:
@@ -612,9 +630,45 @@ nav:
                 - Backup and Recovery: install-and-setup/setup/deployment-best-practices/backup-recovery.md
                 - Performance Tuning:
                     -   API-M Performance Tuning: install-and-setup/setup/deployment-best-practices/tuning-performance.md
-
+        - CI/CD:
+            - CI/CD - APIs:
+                - CI/CD for APIs - Overview: install-and-setup/setup/api-controller/ci-cd-with-wso2-api-management.md
+                - Build a CI/CD Pipeline for APIs Using the CLI: install-and-setup/setup/api-controller/cicd-using-cli.md
+                - Build a CI/CD Pipeline for APIs using Jenkins: install-and-setup/setup/api-controller/building-jenkins-ci-cd-pipeline.md
+            - Manage Environments Using the CLI:
+                - Getting Started with WSO2 API Controller (apictl): install-and-setup/setup/api-controller/getting-started-with-wso2-api-controller.md
+                - Manage APIs and API Products:
+                    - Manage APIs and API Products: install-and-setup/setup/api-controller/managing-apis-api-products/managing-apis-and-api-products.md
+                    - Import APIs Via Dev First Approach: install-and-setup/setup/api-controller/managing-apis-api-products/importing-apis-via-dev-first-approach.md
+                    - Migrate APIs to Different Environments: install-and-setup/setup/api-controller/managing-apis-api-products/migrating-apis-to-different-environments.md
+                    - Migrate API Products (with or without Dependent APIs) to Different Environments: install-and-setup/setup/api-controller/managing-apis-api-products/migrating-api-products-to-different-environments.md
+                - Manage MCP Servers:
+                    - Manage MCP Servers: install-and-setup/setup/api-controller/managing-mcp-servers/managing-mcp-servers.md
+                    - Import MCP Servers Via Dev First Approach: install-and-setup/setup/api-controller/managing-mcp-servers/importing-mcp-servers-via-dev-first-approach.md
+                    - Migrate MCP Servers to Different Environments: install-and-setup/setup/api-controller/managing-mcp-servers/migrating-mcp-servers-to-different-environments.md
+                - Manage Applications:
+                    - Manage Applications: install-and-setup/setup/api-controller/managing-applications/managing-applications.md
+                    - Migrate Apps to Different Environments: install-and-setup/setup/api-controller/managing-applications/migrating-applications-to-different-environments.md
+                - Manage Rate Limiting Policies: 
+                    - Manage Rate Limiting Policies: install-and-setup/setup/api-controller/managing-rate-limiting-policies/throttle-policy-import-export.md
+                    - Migrate Rate Limiting Policies to Different Environments: install-and-setup/setup/api-controller/managing-rate-limiting-policies/migrating-rate-limiting-policies-to-different-environments.md
+                - Manage Common API Policies:
+                    - Manage Common API Policies: install-and-setup/setup/api-controller/managing-common-api-policies/managing-common-api-policies.md
+                    - Migrate Common API Policies to Different Environments: install-and-setup/setup/api-controller/managing-common-api-policies/migrating-common-api-policies-to-different-environments.md
+                - Manage Integrations: install-and-setup/setup/api-controller/managing-integrations/managing-integrations-with-ctl.md
+                - Encrypt Secrets with apictl: install-and-setup/setup/api-controller/encrypting-secrets-with-ctl.md
+                - Enable Correlation Logs with apictl: install-and-setup/setup/api-controller/enabling-correlation-logs-with-apictl.md
+                - AI Related Operations with apictl: install-and-setup/setup/api-controller/ai-related-operations-with-apictl.md
+                - Advanced Topics:
+                    - Create Custom Users to Perform apictl Operations: install-and-setup/setup/api-controller/advanced-topics/creating-custom-users-to-perform-api-controller-operations.md
+                    - Configure Environment Specific Parameters: install-and-setup/setup/api-controller/advanced-topics/configuring-environment-specific-parameters.md
+                    - Use Dynamic Data in apictl Projects: install-and-setup/setup/api-controller/advanced-topics/using-dynamic-data-in-api-controller-projects.md
+                    - Configure Different Endpoint Types: install-and-setup/setup/api-controller/advanced-topics/configuring-different-endpoint-types.md
+                    - Configuring Different Endpoint Security Types: install-and-setup/setup/api-controller/advanced-topics/configuring-different-endpoint-security-types.md
+                    - Format the Outputs of Get Commands: install-and-setup/setup/api-controller/advanced-topics/formatting-the-output-of-get-command.md
+                    - Configure Git Integration: install-and-setup/setup/api-controller/advanced-topics/configuring-git-integration.md
         - Upgrade: install-and-setup/upgrading-wso2-api-manager/upgrading-api-manager.md
-        - Reference:
+        - References:
             - Common Runtime and Configuration Artifacts: install-and-setup/setup/reference/common-runtime-and-configuration-artifacts.md
             - Default Product Ports: install-and-setup/setup/reference/default-product-ports.md
             - Product Compatibility: install-and-setup/setup/reference/product-compatibility.md
@@ -624,113 +678,6 @@ nav:
                 # - API Manager (GraphQL APIs): install-and-setup/setup/deployment-best-practices/performance-tests-results-graphql.md
                 - Token Persistence: install-and-setup/setup/deployment-best-practices/performance-test-results-token-persistence.md
             - Supported Cipher Suites: install-and-setup/setup/reference/supported-cipher-suites.md
-
-    - Reference:
-        - Product REST APIs:
-            - Overview: reference/product-apis/overview.md
-            - Publisher APIs:
-                - Publisher API v4: reference/product-apis/publisher-apis/publisher-v4/publisher-v4.md
-            - Developer Portal APIs:
-                - Developer Portal API v3: reference/product-apis/devportal-apis/devportal-v3/devportal-v3.md
-            - Admin APIs:
-                - Admin API v4: reference/product-apis/admin-apis/admin-v4/admin-v4.md
-            - Gateway APIs:
-                - Gateway API v2: reference/product-apis/gateway-apis/gateway-v2/gateway-v2.md
-            - Service Catalog APIs:
-                - Service Catalog API v1: reference/product-apis/service-catalog-apis/service-catalog-v1/service-catalog-v1.md
-            - DevOps APIs:
-                - DevOps API v0: reference/product-apis/devops-apis/devops-v0/devops-v0.md
-            - Governance APIs:
-                  - Governance API v1: reference/product-apis/governance-apis/governance-v1/governance-v1.md
-            - Advanced Configurations: reference/product-apis/advanced-configurations.md
-        - Product Configurations:
-            - Understand the New Configuration Model: reference/understanding-the-new-configuration-model.md
-            - API-M Config Catalog: reference/config-catalog.md
-        - API Controller (APICTL): reference/apictl/wso2-api-controller.md
-        - Governance:
-            - Rule Validator: reference/governance/rule-validator/rule-validator.md
-            - Ruleset Catalog:
-                - WSO2 API Management Guidelines: reference/governance/wso2-api-management-guidelines.md
-                - WSO2 REST API Design Guidelines: reference/governance/wso2-rest-api-design-guidelines.md
-                - OWASP Top 10: reference/governance/owasp-top-10.md
-            - API YAML Representation: reference/governance/api-yaml-representation.md
-            - API Documentation YAML Representation: reference/governance/api-doc-yaml-representation.md
-        - Customizations:
-            - Vendor Specific Extensions: reference/vendor-extensions-catalog.md
-            - Extend WSO2 API Manager:
-                - Extend Key Management:
-                    - Extend Key Validation: reference/customize-product/extending-api-manager/extending-key-management/extending-key-validation.md
-                    - Extend Scope Validation: reference/customize-product/extending-api-manager/extending-key-management/extending-scope-validation.md
-                    - Extend Key Manager: reference/customize-product/extending-api-manager/extending-key-management/extending-the-key-manager-interface.md
-                    - Write Custom Grant Types: reference/customize-product/extending-api-manager/extending-key-management/writing-custom-grant-types.md
-                - Extend API Gateway:
-                    - Customize API Template: reference/customize-product/extending-api-manager/extending-gateway/customizing-api-template-for-gateway.md
-                    - Write Custom Handlers: reference/customize-product/extending-api-manager/extending-gateway/writing-custom-handlers.md
-                - Extend Workflows:
-                    - Invoke the API Manager from the BPEL Engine: reference/customize-product/extending-api-manager/extending-workflows/invoking-the-api-manager-from-the-bpel-engine.md
-                    - Customize a Workflow Extension: reference/customize-product/extending-api-manager/extending-workflows/customizing-a-workflow-extension.md
-                    - Configure HTTP Redirection for Workflows: reference/customize-product/extending-api-manager/extending-workflows/configuring-http-redirection-for-workflows.md
-                    - Configure Workflows for Tenants: reference/customize-product/extending-api-manager/extending-workflows/configuring-workflows-for-tenants.md
-                    - Configure Workflows in a Cluster: reference/customize-product/extending-api-manager/extending-workflows/configuring-workflows-in-a-cluster.md
-                    - Change the Default User Role in Workflows: reference/customize-product/extending-api-manager/extending-workflows/changing-the-default-user-role-in-workflows.md
-                    - Clean Up Workflow Tasks: reference/customize-product/extending-api-manager/extending-workflows/cleaning-up-workflow-tasks.md
-                - SAML2 SSO:
-                    - Configure Single Sign On with SAML2: reference/customize-product/extending-api-manager/saml2-sso/configuring-single-sign-on-with-saml2.md
-                    - Configure External IDP Through Identity Server for SSO: reference/customize-product/extending-api-manager/saml2-sso/configuring-external-idp-through-identity-server-for-sso.md
-                    - Configure Identity Server as IDP for SSO: reference/customize-product/extending-api-manager/saml2-sso/configuring-identity-server-as-idp-for-sso.md
-                    - Multi Factor Authentication for Publisher and Developer Portals: reference/customize-product/extending-api-manager/saml2-sso/multi-factor-authentication-mfa-for-publisher-and-developer-portals.md
-            - Customizations:
-                - Customize the Developer Portal:
-                    - Override the Developer Portal Theme: reference/customize-product/customizations/customizing-the-developer-portal/overriding-developer-portal-theme.md
-                    - Customize API Listing:
-                        - API Category based Grouping: reference/customize-product/customizations/customizing-the-developer-portal/customize-api-listing/api-category-based-grouping.md
-                        - Change Default View: reference/customize-product/customizations/customizing-the-developer-portal/customize-api-listing/change-default-view.md
-                    - Enable or Disable API Detail Tabs: reference/customize-product/customizations/customizing-the-developer-portal/enabling-or-disabling-api-detail-tabs.md
-                    - Override API Overview Page per API: reference/customize-product/customizations/customizing-the-developer-portal/override-api-overview-page-per-api.md
-                    - Enable or Disable Rating: reference/customize-product/customizations/customizing-the-developer-portal/enable-or-disable-rating.md
-                    - Enable or Disable Home Page: reference/customize-product/customizations/customizing-the-developer-portal/enable-or-disable-home-page.md
-                    - Enable or Disable Tag Cloud: reference/customize-product/customizations/customizing-the-developer-portal/enable-or-disable-tag-cloud.md
-                    - Enable or Disable Footer: reference/customize-product/customizations/customizing-the-developer-portal/enable-or-disable-footer.md
-                    - Enable or Disable Banner: reference/customize-product/customizations/customizing-the-developer-portal/enable-or-disable-banner.md
-                    - Styling API Details Left Menu: reference/customize-product/customizations/customizing-the-developer-portal/styling-api-details-left-menu.md
-                    - Styling the Logo and Header: reference/customize-product/customizations/customizing-the-developer-portal/styling-the-logo-and-header.md
-                    - Enable or Disabling Self Signup: reference/customize-product/customizations/customizing-the-developer-portal/enabling-or-disabling-self-signup.md
-                    - Configure reCaptcha for Self-SignUp: reference/customize-product/customizations/customizing-the-developer-portal/configuring-recaptcha-for-self-signup.md
-                - Override the Publisher Portal Theme: reference/customize-product/customizations/overriding-the-publisher-portal-theme.md
-                - Log in to the Developer Portal Using Social Media: reference/customize-product/customizations/log-in-to-the-dev-portal-using-social-media.md
-                - Directing the Root Context to the Developer Portal: reference/customize-product/customizations/directing-the-root-context-to-the-developer-portal.md
-                - Customize User Signup in Developer Portal: reference/customize-product/customizations/customizing-user-signup-in-developer-portal.md
-                - Customize Login Pages for Developer Portal and Publisher: reference/customize-product/customizations/customizing-login-pages-for-dev-portal-and-publisher.md
-                - Customize the Developer Portal and Gateway URLs for Tenants: reference/customize-product/customizations/customize-the-api-store-and-gateway-urls-for-tenants.md
-                - Add a User Signup Workflow: reference/customize-product/customizations/adding-a-user-signup-workflow.md
-                - Add internationalization: reference/customize-product/customizations/adding-internationalization.md
-                - Define Custom Linter Rules: reference/customize-product/customizations/define-custom-linters.md
-                - Advanced UI Customization: reference/customize-product/customizations/advanced-ui-customization.md
-                - Modify Workflow Approval Task Limit: reference/customize-product/customizations/modify-workflow-approval-task-limit.md
-                - Implementing a Custom Validation Engine: reference/customize-product/customizations/implementing-a-custom-validation-engine.md
-            - Admin Services: reference/wso2-admin-services.md
-            - Work with the Source Code: reference/working-with-the-source-code.md
-            - Java Documentation: reference/java-documentation.md
-        - Best Practices:
-            - WSO2 API-M Best Practices: reference/wso2-api-manager-best-practices.md
-            - Best Practices for Working with Endpoints: reference/best-practices-endpoints.md
-        - Accessibility Compliance: reference/accessibility-compliance.md
-        - Guides:
-            - Message Flow in the API Manager Gateway: reference/guides/message-flow-in-the-api-manager-gateway.md
-            - Accessing API Manager by Multiple Devices Simultaneously: reference/guides/accessing-api-manager-by-multiple-devices-simultaneously.md
-            - admin_Directory Structure of WSO2 Products: reference/guides/directory-structure-of-wso2-products.md
-        - Troubleshooting:
-              - Error Handling: troubleshooting/error-handling.md
-              - Capturing System Data in Error Situations: troubleshooting/capturing-system-data-in-error-situations.md
-              - Troubleshooting in Production Environments: troubleshooting/admin-troubleshooting-in-production-environments.md
-              - Utilizing Runtime Diagnostic Tool: troubleshooting/utilizing-runtime-diagnostic-tool.md
-              - Cleaning Up Partially Created Keys: troubleshooting/cleaning-up-partially-created-keys.md
-              - Configure XSLT Mediation with Xalan: troubleshooting/configuring-xslt-mediation-with-xalan.md
-              - Troubleshooting 'Registered callback does not match with the provided url' error: troubleshooting/troubleshooting-invalid-callback-error.md
-              - Troubleshooting JMS: troubleshooting/troubleshooting-jms.md
-              - Troubleshooting WebSocket APIs: troubleshooting/troubleshooting-websocket-api.md
-        - FAQ: reference/faq.md
-
     - Tutorials:
           - Tutorials Overview: tutorials/tutorials-overview.md
           - Scenario Tutorials:
@@ -764,46 +711,41 @@ nav:
             - Create and Publish an API with Sequence as a Backend: tutorials/create-and-publish-a-sequencebackend-api.md
             - Expose a SOAP Service as a REST API: tutorials/expose-a-soap-service-as-a-rest-api.md
             - Edit an API by Modifying the API Definition: tutorials/edit-an-api-by-modifyng-the-api-definition.md
+
+# Hooks
+hooks:
+    - hooks.py
+
 # Extensions
 markdown_extensions:
-    - admonition
-    - markdown.extensions.codehilite:
-          linenums: true
-          use_pygments: false
+    - markdown.extensions.admonition
     - markdown.extensions.def_list
     - markdown.extensions.footnotes
-    - markdown.extensions.meta
+    - admonition
     - markdown.extensions.toc:
-          permalink: true
-    - markdown_include.include:
-          base_path: docs
+        permalink: true
+        toc_depth: 3
     - pymdownx.arithmatex
     - pymdownx.betterem:
-          smart_enable: all
+        smart_enable: all
     - pymdownx.caret
     - pymdownx.critic
     - pymdownx.details
     - pymdownx.emoji:
-        emoji_index: !!python/name:materialx.emoji.twemoji
-        emoji_generator: !!python/name:materialx.emoji.to_svg
+        emoji_generator: !!python/name:pymdownx.emoji.to_svg
     - pymdownx.inlinehilite
     - pymdownx.keys
     - pymdownx.mark
     - pymdownx.smartsymbols
     - pymdownx.superfences
-    - pymdownx.tasklist:
-          custom_checkbox: true
-    - pymdownx.tilde
-    - pymdownx.highlight:
-          use_pygments: true
-          line_spans: __codeline
-          anchor_linenums: true
-          pygments_lang_class: true
-    - pymdownx.snippets:
-          base_path: docs
-    - attr_list
     - pymdownx.tabbed:
-          alternate_style: true
+        alternate_style: true
+    - pymdownx.tasklist:
+        custom_checkbox: true
+    - pymdownx.tilde
+    - pymdownx.snippets:
+        base_path: docs
+    - attr_list
 plugins:
     - search:
         indexing: "full"
@@ -1202,13 +1144,6 @@ plugins:
               'deploy-and-publish/deploy-on-gateway/api-gateway/message-tracing.md': 'https://apim.docs.wso2.com/en/4.4.0/get-started/about-this-release/#removed-features-and-functionalities'
               'develop/customizations/customizing-the-developer-portal/customize-api-listing/categorizing-and-grouping-apis/api-category-based-grouping.md': 'https://apim.docs.wso2.com/en/4.4.0/reference/customize-product/customizations/customizing-the-developer-portal/customize-api-listing/api-category-based-grouping/'
               'administer/logging-and-monitoring/logging/configuring-logging.md': 'https://apim.docs.wso2.com/en/4.4.0/observe/api-manager/configuring-logging/'
-              'mcp/overview.md': 'https://apim.docs.wso2.com/en/4.6.0/mcp-gateway/overview/'
-              'mcp/create-from-api.md': 'https://apim.docs.wso2.com/en/4.6.0/mcp-gateway/create-from-api/'
-              'mcp/create-from-openapi.md': 'https://apim.docs.wso2.com/en/4.6.0/mcp-gateway/create-from-openapi/'
-              'mcp/create-from-mcp-server.md': 'https://apim.docs.wso2.com/en/4.6.0/mcp-gateway/create-from-mcp-server/'
-              'mcp/update-and-deploy-mcp-server.md': 'https://apim.docs.wso2.com/en/4.6.0/mcp-gateway/update-and-deploy-mcp-server/'
-              'mcp/subscribe-to-a-mcp-server.md': 'https://apim.docs.wso2.com/en/4.6.0/mcp-gateway/subscribe-to-a-mcp-server/'
-              'mcp/invoke-a-mcp-server-using-playground.md': 'https://apim.docs.wso2.com/en/4.6.0/mcp-gateway/invoke-a-mcp-server-using-playground/'
     # Extra
 extra_css:
     - assets/lib/highlightjs/default.min.css
@@ -1220,6 +1155,204 @@ extra_javascript:
     - assets/lib/highlightjs/highlight.min.js
     - assets/js/theme.js
 extra:
+    material:
+      jinja2content: true
+    generator: false
+    product_name: *site_name
+    explicit_tab_list:
+      - Documentation
+      - Get Started
+      - Manage APIs
+      - Consume APIs
+      - AI Gateway
+      - MCP Servers
+      - Monitoring
+      - Reference
+      - Administer
+      - Install & Setup
+      - Tutorials
+    home_page_cards:
+    - section:
+      - title: Get Started
+        icon: octicons/rocket-16
+        icon_color: icon-color-1
+        list_items:
+          - title: Overview
+            url: Get started|Overview
+          - title: Key Concepts
+            url: Get started|Key Concepts
+          - title: Quick Start Guide
+            url: Get started|Quick Start Guide
+          - title: About This Release
+            url: Get started|About this Release
+    - section:
+      - title: Deployment Options
+        icon: octicons/server-16
+        icon_color: icon-color-4
+        list_items:
+          - title: Deploy on VM
+            url: Install and Setup|Install|Run API-M
+          - title: Deploy on Kubernetes
+            url: Install and Setup|Install|Deploy on Kubernetes
+          - title: SaaS
+            url: https://wso2.com/bijira/docs/
+    - section:
+      - title: Setup
+        icon: octicons/gear-16
+        icon_color: icon-color-3
+        list_items:
+          - title: Install
+            url: Install and Setup|Install|Install API-M
+          - title: Deploy
+            url: Install and Setup|Setup|Overview
+          - title: Upgrade WSO2 API Manager
+            url: Install and Setup|Upgrade
+    - section:
+      - title: Developer Resources
+        icon: octicons/code-16
+        icon_color: icon-color-3
+        list_items:
+          - title: Product Rest APIs
+            url: Reference|Product REST APIs|Overview
+          - title: Tooling
+            url: Reference|API Controller (APICTL)
+          - title: SDKs
+            url: Consume APIs|Generating SDKs|Generate SDK in Developer Portal
+          - title: Configuration Catalog
+            url: Reference|Product|API-M Config Catalog
+    - section:
+      - title: Guides
+        icon: octicons/book-16
+        icon_color: icon-color-3
+        list_items:
+          - title: Designing APIs
+            url: Manage APIs|Design APIs Overview
+          - title: Create an API Product
+            url: Manage APIs|Design APIs|Create an API Product
+          - title: Authentication
+            url: Manage APIs|Design APIs|API Security|Authentication|Overview
+          - title: Authorization
+            url: Reference|Product|API-M Config Catalog
+    control_plain_cards:
+    - section:
+      - title: WSO2 API Control Plane
+        icon: octicons/gear-16
+        icon_color: icon-color-1
+        description: A Unified control plane which centrally manages and governs APIs across multiple Gateways
+        list_items:
+          - title: WSO2 API Control Plane Overview
+            url: Get Started|Architecture
+    data_plane_cards:
+    - section:
+      - title: WSO2 Universal Gateway
+        icon: octicons/tools-16
+        icon_color: icon-color-1
+        description: Secure and proxy API traffic with enterprise-grade features
+        list_items:
+          - title: WSO2 Universal Gateway Overview
+            url: API Gateway|Regular Gateway|Overview of the WSO2 Universal Gateway
+    - section:
+      - title: WSO2 Kubernetes Gateway
+        icon: octicons/link-external-16
+        icon_color: icon-color-1
+        description: Designed to build, deploy, and manage APIs in a cloud environment
+        list_items:
+          - title: WSO2 Kubernetes Gateway Overview
+            url: Install and Setup|Setup|Set up API Manager|Set up Kubernetes Gateway with APIM
+    - section:
+      - title: WSO2 Immutable Gateway
+        icon: octicons/mortar-board-16
+        icon_color: icon-color-1
+        description: An API Gateway for micro services, which is cloud-native, decentralized and developer centric
+        list_items:
+          - title: WSO2 Immutable Gateway Overview
+            url: get-started/apim-architecture/#immutable-gateway
+    - section:
+      - title: Federated Gateways
+        icon: octicons/mortar-board-16
+        icon_color: icon-color-1
+        description: Manage APIs spanning multiple cloud platforms, on-premises systems, or regions
+        list_items:
+          - title: AWS API Gateway
+            url: manage-apis/deploy-and-publish/federated-gateways/aws/deploy-on-aws-api-gateway/
+          - title: Solace Broker
+            url: tutorials/integrating-with-solace/
+    expanded_navs:
+    - title: Get Started
+      options:
+        - divider
+        - verticle-line
+    - title: Manage APIs
+      options:
+        - verticle-line
+        - divider
+    - title: Consume APIs
+      options:
+        - verticle-line
+        - divider
+    - title: AI Gateway
+      options:
+        - verticle-line
+        - divider
+    - title: MCP Servers
+      options:
+        - verticle-line
+        - divider
+    - title: Monitoring
+      options:
+        - verticle-line
+        - divider
+    - title: Reference
+      options:
+        - verticle-line
+        - divider
+    - title: Administer
+      options:
+        - verticle-line
+        - divider
+    - title: Install and Setup
+      options:
+        - verticle-line
+        - divider
+    - title: Tutorials
+      options:
+        - verticle-line
+        - divider
+
+    nav_icons:
+      Documentation:
+        icon: octicons/file-16
+        level: 1
+      Get Started:
+        icon: octicons/rocket-16
+        level: 1
+      Manage APIs:
+        icon: octicons/tools-16
+        level: 1
+      Consume APIs:
+        icon: octicons/plug-16
+        level: 1
+      AI Gateway:
+        icon: octicons/mortar-board-16
+        level: 1
+      MCP Servers:
+        icon: octicons/tools-16
+        level: 1
+      Monitoring:
+        icon: octicons/graph-16
+        level: 1
+      Reference:
+        icon: octicons/link-external-16
+        level: 1
+      Administer:
+        icon: octicons/gear-16
+        level: 1
+      Install and Setup:
+        icon: octicons/desktop-download-16
+        level: 1
+      Tutorials:
+        icon: octicons/mortar-board-16
+        level: 1
     social:
         - icon: fontawesome/brands/github-alt
           link: https://github.com/wso2
@@ -1234,6 +1367,11 @@ extra:
             version: 1.2.0-1
             git_tag: v1.2.0.1
     site_version: 4.6.0
-    #base_path: http://localhost:8000/en/4.6.0
-    base_path: https://apim.docs.wso2.com/en/4.6.0-revamp
+    # base_path: http://localhost:8000/en/latest
+    base_path: https://apim.docs.wso2.com/en/latest
     envoy_path: https://www.envoyproxy.io/docs/envoy/v1.24.1
+    redoc_theme: '{
+    "colors": {
+      "primary": { "main": "#ff7300" }
+    }
+  }'

@@ -1,0 +1,262 @@
+<!--
+ * Copyright (c) 2023-2024, WSO2 LLC. (https://www.wso2.com).
+ *
+ * WSO2 LLC. licenses this file to you under the Apache License,
+ * Version 2.0 (the "License"); you may not use this file except
+ * in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing,
+ * software distributed under the License is distributed on an
+ * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+ * KIND, either express or implied. See the License for the
+ * specific language governing permissions and limitations
+ * under the License.
+-->
+
+{% macro home_card_icon(icon) %}
+  {% if icon.endswith(".svg") or icon.endswith(".png") %}
+    {% include icon %}
+  {% else %}
+    {% include ".icons/" ~ icon ~ ".svg" %}
+  {% endif %}
+{% endmacro %}
+
+{% extends "base.html" %}
+
+{% block styles %}
+  {{ super() }}
+  <link rel="stylesheet" href="{{ 'assets/css/home.css' | url }}">
+{% endblock %}
+
+{% block container %}
+  <div class="md-content">
+    <article class="md-content__inner md-typeset">
+
+      <div class="md-home-search-container">
+        <span class="md-home-gradient"></span>
+        <h1 class="md-home-search-input-label">How can we help?</h1>
+
+        {% include "partials/search.html" %}
+
+        <p class="md-home-search-input-description">
+          Welcome to {{ config.extra.product_name }} documentation! Within these pages, 
+          you will learn how to build a seamless login experience for your applications using 
+          {{ config.extra.product_name }}.
+        </p>
+      <div class="description-section" style="display: flex; flex-direction: row; align-items: flex-start; margin-top: 30px;">
+        <div class="leftContent" style="width: 45%;">
+          <p>
+            WSO2 API Manager is a complete platform for building, integrating, and exposing your digital services as managed APIs in the cloud, on-premise, and hybrid architectures to drive your digital transformation strategy. 
+          </p>
+          <p>
+            It allows API developers to design, publish, and manage the lifecycle of APIs and API product 
+            managers to create API products from one or more APIs.
+          </p>
+        </div>
+        <div class="md-main md-content" style="float:right; width: 55%; align:right; flex-shrink: 0; min-width: 30%; max-height: 100%; max-width:40%; margin-left:5px; margin-top:50px; margin-right:90px">
+          <iframe width="800" height="250" src="https://www.youtube.com/embed/nr1cFyxVdDw" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+      </div>
+      </div>
+
+      {{ page.content }}
+
+      <div class="md-home-sections md-column-grid">
+        {% for columns in config.extra.home_page_cards %}
+          <div class="md-grid-column">
+            {% for column in columns.section %}
+              <div class="md-card md-column-grid-item">
+                <div class="md-column-grid-item-header-container">
+                  <div class="md-column-grid-item-header-text">{{ column.title }}</div>
+
+                  {% set header_icon_class = "md-column-grid-item-header-icon" %}
+                  {% if column.icon_color %}
+                    {% set header_icon_class = header_icon_class ~ " " ~ column.icon_color %}
+                  {% endif %}
+
+                  <div class="{{ header_icon_class }}">
+                    {% if column.icon %}
+                      {{ home_card_icon(column.icon) }}
+                    {% else %}
+                      {% include "assets/libs/oxygen-ui-icons/1.7.3/star-16.svg" %}
+                    {% endif %}
+                  </div>
+                </div>
+                {% for item in column.list_items %}
+                  <div class="md-list-item-container">
+                    <div class="md-list-item">
+                      
+                      {% if item.url %}
+
+                        {% set link = item.url %}
+
+                        {% if link.startswith("http") %}
+
+                          {% set link_url = item.url %}
+                          {% set target = '_blank' %}
+ 
+                        {% else %}
+                          {% set nav_path_keys = link.split('|') %}
+
+                          {% set glob = {
+                            'nav_config': nav,
+                            'break_loop': false,
+                            'item_url': None
+                          } %}
+
+                          {% macro loop_children(key) %}
+
+                            {% set _ = glob.update({ 'nav_config': glob.nav_config }) %}
+
+                            {% if not glob.nav_config.url %}
+                              {% for nav_item in glob.nav_config %}
+                                {% if glob.break_loop == false %}
+                                  {% if nav_item.title == key %}
+
+                                    {% if nav_item.url %}
+                                      {% set _ = glob.update({ 'item_url': nav_item.url }) %}
+                                    {% endif %}
+
+                                    {% if nav_item.children %}
+                                      {% set _ = glob.update({ 'nav_config': nav_item.children }) %}
+
+                                      {% set first = nav_item.children | first %}
+                                      {% if first.title == 'Index' %}
+                                        {% set _ = glob.update({ 'item_url': first.url }) %}
+                                      {% endif %}
+                                    {% else %}
+                                      {% set _ = glob.update({ 'item_url': nav_item.url }) %}
+                                      {% set _ = glob.update({ 'nav_config': nav_item }) %}
+                                    {% endif %}
+
+                                    {% set _ = glob.update({ 'break_loop': true }) %}
+
+                                  {% endif %}
+                                {% endif %}
+                              {% endfor %}
+                              
+                              {% set _ = glob.update({ 'break_loop': false }) %}
+                            {% else %}
+                              {% set _ = glob.update({ 'item_url': glob.nav_config.url }) %}
+                            {% endif %}
+
+                            {% if glob.break_loop == true %}
+                              {{ loop_children(key) }}
+                            {% endif %}
+                          {% endmacro %}
+
+                          {% for key in nav_path_keys %}
+                            {{ loop_children(key) }}
+                          {% endfor %}
+
+                          {% set link_url = glob.item_url | replace('index.md', '') | replace('.md', '/') %}
+                          {% set target = '_self' %}
+
+                        {% endif %}
+
+                        <a href="{{ link_url }}" target="{{ target }}">
+                          <div class="md-list-item-icon">
+                              <svg width="11" height="15" viewBox="0 -3 11 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M5.95801 0.0537109L10.748 4.83643L5.95801 9.62646L5.21094 8.88672L8.76318 5.36377L0.0473633 5.34912V4.33105L8.74854 4.31641L5.21094 0.793457L5.95801 0.0537109Z"></path>
+                              </svg>
+                          </div>
+                          <div class="md-list-item-text">{{ item.title }}</div>
+                        </a>
+                      {% endif %}
+                    </div>
+                  </div>
+                {% endfor %}
+              </div>
+            {% endfor %}
+          </div>
+        {% endfor %}
+      </div>
+      <h3>Components</h3>
+    <hr/>
+    <p>WSO2 API Manager offers multiple components designed to work together to solve the challenges of diverse infrastructure requirements. A unified control plane supporting multiple gateways provides deployment flexibility, minimizes downtime, and provides scalability and resource optimization by allowing independent component management, flexible deployment packages, and seamless upgrades and maintenance. For more information see <a href="{{base_path}}/get-started/apim-architecture/">Architecture.</a></p>
+        </br>
+        </br>
+
+      <div style="display: flex; justify-content: space-between; align-items: center;">
+            <h3 style="margin: 0; text-align: left;">Control Plane</h3>
+            <h3 style="margin: 0; text-align: left;">Data Plane</h3>
+            
+        </div>
+          <hr/>
+          <div style="display: flex; justify-content: flex-end;">
+            <div style="display: flex; justify-content: space-between; gap: 32px;">
+              <div style="width: 48%;">
+                {% if config.extra.control_plain_cards %}
+                  {% for columns in config.extra.control_plain_cards %}
+                    {% for column in columns.section %}
+                      <div class="md-card md-column-grid-item">
+                        <div class="md-column-grid-item-header-container">
+                          <div class="md-column-grid-item-header-text">{{ column.title }}</div>
+                          <div class="md-column-grid-item-header-icon">
+                            {{ home_card_icon(column.icon) }}
+                          </div>
+                        </div>
+                        {% if column.description %}
+                          <p>{{ column.description }}</p>
+                        {% endif %}
+                        {% if column.list_items %}
+                          <ul>
+                            {% for item in column.list_items %}
+                              <li>
+                                {% if item.url %}
+                                  <a href="{{ item.url }}">{{ item.title }}</a>
+                                {% else %}
+                                  {{ item.title }}
+                                {% endif %}
+                              </li>
+                            {% endfor %}
+                          </ul>
+                        {% endif %}
+                      </div>
+                    {% endfor %}
+                  {% endfor %}
+                {% endif %}
+              </div>
+              <div style="width: 48%;">
+                {% if config.extra.data_plane_cards %}
+                  {% for columns in config.extra.data_plane_cards %}
+                    {% for column in columns.section %}
+                      <div class="md-card md-column-grid-item">
+                        <div class="md-column-grid-item-header-container">
+                          <div class="md-column-grid-item-header-text">{{ column.title }}</div>
+                          <div class="md-column-grid-item-header-icon">
+                            {{ home_card_icon(column.icon) }}
+                          </div>
+                        </div>
+                        {% if column.description %}
+                          <p>{{ column.description }}</p>
+                        {% endif %}
+                        {% if column.list_items %}
+                          <ul>
+                            {% for item in column.list_items %}
+                              <li>
+                                {% if item.url %}
+                                  <a href="{{ item.url }}">{{ item.title }}</a>
+                                {% else %}
+                                  {{ item.title }}
+                                {% endif %}
+                              </li>
+                            {% endfor %}
+                          </ul>
+                        {% endif %}
+                      </div>
+                    {% endfor %}
+                  {% endfor %}
+                {% endif %}
+              </div>
+            </div>
+
+  
+      </div>
+    
+    </article>
+  </div>
+{% endblock %}
