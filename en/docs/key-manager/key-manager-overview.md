@@ -182,4 +182,4 @@ Use [OAuth2 scopes]({{base_path}}/key-manager/oauth2/oauth2-scopes/scope-whiteli
 Choose your path based on your authentication requirements:
 
 - **[OAuth2 Grant Types Overview]({{base_path}}/key-manager/oauth2/grant-types/overview/)** - For understanding authentication flows and choosing appropriate grant types
-- **[Configure Third-Party Key Managers]({{base_path}}/administer/key-managers/configure-wso2is-connector/)** - For integrating with existing enterprise identity providers
+- **[Configure Third-Party Key Managers]({{base_path}}/administer/key-managers/overview/)** - For integrating with existing enterprise identity providers
