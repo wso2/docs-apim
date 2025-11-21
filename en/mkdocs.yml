@@ -614,7 +614,7 @@ nav:
                     -   API-M Performance Tuning: install-and-setup/setup/deployment-best-practices/tuning-performance.md
 
         - Upgrade: install-and-setup/upgrading-wso2-api-manager/upgrading-api-manager.md
-        - Reference:
+        - References:
             - Common Runtime and Configuration Artifacts: install-and-setup/setup/reference/common-runtime-and-configuration-artifacts.md
             - Default Product Ports: install-and-setup/setup/reference/default-product-ports.md
             - Product Compatibility: install-and-setup/setup/reference/product-compatibility.md

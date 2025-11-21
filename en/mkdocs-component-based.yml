@@ -4,7 +4,7 @@
 
 # Navigation structure organized by platform components
 nav:
-    - Documentation: index.md
+    - Home: index.md
     - Get Started:
           - Overview: get-started/overview.md
           - Key Concepts: get-started/key-concepts.md
