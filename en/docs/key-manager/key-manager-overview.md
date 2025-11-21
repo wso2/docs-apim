@@ -31,33 +31,33 @@ The **Built-in Key Manager** provides comprehensive OAuth2 and OpenID Connect ca
 ### Built-in Key Manager Features
 
 #### OAuth2 Token Management
-- **[JWT Access Tokens]({{base_path}}/key-manager/oauth2/access-token-types/jwt-tokens/)**: Self-contained tokens with embedded claims for gateway validation
-- **[Token Persistence]({{base_path}}/key-manager/oauth2/token-persistence/)**: Optimized storage strategies for JWT and opaque tokens
-- **[Token Expiration]({{base_path}}/key-manager/oauth2/token-expiration/)**: Configurable token lifetimes and automatic cleanup
-- **[Token Revocation]({{base_path}}/key-manager/oauth2/token-revocation/)**: Immediate token invalidation for security incidents
+- **[JWT Access Tokens]({{base_path}}/key-manager/tokens/jwt-tokens/)**: Self-contained tokens with embedded claims for gateway validation
+- **[Token Persistence]({{base_path}}/key-manager/tokens/token-persistence/)**: Optimized storage strategies for JWT and opaque tokens
+- **[Token Expiration]({{base_path}}/key-manager/tokens/token-expiration/)**: Configurable token lifetimes and automatic cleanup
+- **[Token Revocation]({{base_path}}/key-manager/tokens/token-revocation/)**: Immediate token invalidation for security incidents
 
 #### Grant Type Support
-- **[Authorization Code Grant]({{base_path}}/key-manager/oauth2/grant-types/authorization-code-grant/)**: Web application authentication flows with user consent
-- **[Client Credentials Grant]({{base_path}}/key-manager/oauth2/grant-types/client-credentials-grant/)**: Service-to-service authentication without user interaction
-- **[Password Grant]({{base_path}}/key-manager/oauth2/grant-types/password-grant/)**: Direct credential authentication for trusted applications
-- **[Refresh Token Grant]({{base_path}}/key-manager/oauth2/grant-types/refresh-token-grant/)**: Token renewal without re-authentication
-- **[JWT Bearer Grant]({{base_path}}/key-manager/oauth2/grant-types/jwt-grant/)**: Token exchange using signed JWT assertions
-- **[SAML Extension Grant]({{base_path}}/key-manager/oauth2/grant-types/saml-extension-grant/)**: SAML assertion-based authentication
-- **[Kerberos OAuth2 Grant]({{base_path}}/key-manager/oauth2/grant-types/kerberos-oauth2-grant/)**: Windows authentication integration
-- **[NTLM Grant]({{base_path}}/key-manager/oauth2/grant-types/ntlm-grant/)**: Windows domain authentication support
+- **[Authorization Code Grant]({{base_path}}/key-manager/authentication/grant-types/authorization-code-grant/)**: Web application authentication flows with user consent
+- **[Client Credentials Grant]({{base_path}}/key-manager/authentication/grant-types/client-credentials-grant/)**: Service-to-service authentication without user interaction
+- **[Password Grant]({{base_path}}/key-manager/authentication/grant-types/password-grant/)**: Direct credential authentication for trusted applications
+- **[Refresh Token Grant]({{base_path}}/key-manager/authentication/grant-types/refresh-token-grant/)**: Token renewal without re-authentication
+- **[JWT Bearer Grant]({{base_path}}/key-manager/authentication/grant-types/jwt-grant/)**: Token exchange using signed JWT assertions
+- **[SAML Extension Grant]({{base_path}}/key-manager/authentication/grant-types/saml-extension-grant/)**: SAML assertion-based authentication
+- **[Kerberos OAuth2 Grant]({{base_path}}/key-manager/authentication/grant-types/kerberos-oauth2-grant/)**: Windows authentication integration
+- **[NTLM Grant]({{base_path}}/key-manager/authentication/grant-types/ntlm-grant/)**: Windows domain authentication support
 
 #### Security & Access Control
-- **[OAuth2 Scopes]({{base_path}}/key-manager/oauth2/oauth2-scopes/scope-whitelisting/)**: Fine-grained permission management with scope whitelisting
-- **[Token Encryption]({{base_path}}/key-manager/oauth2/encrypting-oauth2-tokens/)**: Encrypt tokens at rest and in transit
-- **[OAuth Key Hashing]({{base_path}}/key-manager/oauth2/hashing-oauth-keys/)**: Secure storage of client credentials
-- **[HMAC Token Validation]({{base_path}}/key-manager/oauth2/securing-oauth-token-with-hmac-validation/)**: Additional token integrity verification
+- **[OAuth2 Scopes]({{base_path}}/key-manager/authentication/oauth2-scopes/scope-whitelisting/)**: Fine-grained permission management with scope whitelisting
+- **[Token Encryption]({{base_path}}/key-manager/tokens/encrypting-oauth2-tokens/)**: Encrypt tokens at rest and in transit
+- **[OAuth Key Hashing]({{base_path}}/key-manager/applications/hashing-oauth-keys/)**: Secure storage of client credentials
+- **[HMAC Token Validation]({{base_path}}/key-manager/tokens/securing-oauth-token-with-hmac-validation/)**: Additional token integrity verification
 
 #### Application & Client Management
-- **[Out-of-Band OAuth Clients]({{base_path}}/key-manager/oauth2/provisioning-out-of-band-oauth-clients/)**: Register applications outside standard flows
-- **[OAuth Application Federation]({{base_path}}/key-manager/oauth2/federating-oauth-applications/)**: Cross-tenant application sharing
+- **[Out-of-Band OAuth Clients]({{base_path}}/key-manager/applications/provisioning-out-of-band-oauth-clients/)**: Register applications outside standard flows
+- **[OAuth Application Federation]({{base_path}}/key-manager/applications/federating-oauth-applications/)**: Cross-tenant application sharing
 
 #### Identity Integration
-- **[OpenID Connect]({{base_path}}/key-manager/openid-connect/obtaining-user-profile-information-with-openid-connect/)**: User profile information retrieval with standard claims
+- **[OpenID Connect]({{base_path}}/key-manager/identity/obtaining-user-profile-information-with-openid-connect/)**: User profile information retrieval with standard claims
 
 ## Third-Party Key Manager Integration
 
@@ -72,18 +72,18 @@ The **Built-in Key Manager** provides comprehensive OAuth2 and OpenID Connect ca
 ### Supported Third-Party Key Managers
 
 #### Enterprise Identity Providers
-- **[WSO2 Identity Server]({{base_path}}/administer/key-managers/configure-wso2is-connector/)**: Full-featured identity and access management platform
-- **[WSO2 Identity Server 7.x]({{base_path}}/administer/key-managers/configure-wso2is7-connector/)**: Latest identity server with enhanced capabilities
-- **[Keycloak]({{base_path}}/administer/key-managers/configure-keycloak-connector/)**: Open-source identity and access management solution
-- **[Okta]({{base_path}}/administer/key-managers/configure-okta-connector/)**: Cloud-based identity service integration
+- **[WSO2 Identity Server]({{base_path}}/key-manager/third-party-key-managers/configure-wso2is-connector/)**: Full-featured identity and access management platform
+- **[WSO2 Identity Server 7.x]({{base_path}}/key-manager/third-party-key-managers/configure-wso2is7-connector/)**: Latest identity server with enhanced capabilities
+- **[Keycloak]({{base_path}}/key-manager/third-party-key-managers/configure-keycloak-connector/)**: Open-source identity and access management solution
+- **[Okta]({{base_path}}/key-manager/third-party-key-managers/configure-okta-connector/)**: Cloud-based identity service integration
 
 #### Custom Integration
-- **[Custom Key Manager]({{base_path}}/administer/key-managers/configure-custom-connector/)**: Build connectors for proprietary authorization servers
-- **[Global Key Manager]({{base_path}}/administer/key-managers/configure-global-key-manager/)**: Cross-tenant key manager configuration
+- **[Custom Key Manager]({{base_path}}/key-manager/third-party-key-managers/configure-custom-connector/)**: Build connectors for proprietary authorization servers
+- **[Global Key Manager]({{base_path}}/key-manager/third-party-key-managers/configure-global-key-manager/)**: Cross-tenant key manager configuration
 
 #### Cloud Provider Integration
-- **[Azure AD Key Manager]({{base_path}}/administer/key-managers/configure-azure-ad-key-manager/)**: Microsoft Azure Active Directory integration
-- **[ForgeRock]({{base_path}}/administer/key-managers/configure-forgerock-connector/)**: ForgeRock Identity Platform integration
+- **[Azure AD Key Manager]({{base_path}}/key-manager/third-party-key-managers/configure-azure-ad-key-manager/)**: Microsoft Azure Active Directory integration
+- **[ForgeRock]({{base_path}}/key-manager/third-party-key-managers/configure-forgerock-connector/)**: ForgeRock Identity Platform integration
 
 ## Multiple Key Manager Supporttoke
 
@@ -182,4 +182,4 @@ Use [OAuth2 scopes]({{base_path}}/key-manager/oauth2/oauth2-scopes/scope-whiteli
 Choose your path based on your authentication requirements:
 
 - **[OAuth2 Grant Types Overview]({{base_path}}/key-manager/oauth2/grant-types/overview/)** - For understanding authentication flows and choosing appropriate grant types
-- **[Configure Third-Party Key Managers]({{base_path}}/administer/key-managers/overview/)** - For integrating with existing enterprise identity providers
+- **[Configure Third-Party Key Managers]({{base_path}}/key-manager/third-party-key-managers/overview/)** - For integrating with existing enterprise identity providers
