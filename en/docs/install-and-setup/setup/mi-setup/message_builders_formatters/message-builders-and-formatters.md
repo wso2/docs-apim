@@ -241,3 +241,27 @@ class="org.apache.axis2.transport.http.HTMLMessageFormatter"
 ```
 
 The class name used in the above line should be the name used for the class when writing the formatter.
+
+## Configuring custom builders/formatters in blocking mode
+
+The `custom_message_builders` and `custom_message_formatters` configurations shown above apply to non-blocking transports.
+
+When the Micro Integrator runs in blocking mode, use the following configurations instead.
+
+**Custom message builders (Blocking mode)**
+
+```toml
+[[blocking.custom_message_builders]]
+content_type = "<content_type>"
+class = "<message_builder_class>"
+```
+
+**Custom message formatters (Blocking mode)**
+
+```toml
+[[blocking.custom_message_formatters]]
+content_type = "<content_type>"
+class = "<message_formatter_class>"
+```
+
+These configurations function similarly to their non-blocking equivalents, but are applied only when the Micro Integrator uses blocking transport.
