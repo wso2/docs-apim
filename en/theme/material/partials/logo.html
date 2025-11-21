@@ -16,14 +16,14 @@
  * under the License.
 -->
 
-{% extends "base.html" %}
-
-{% block styles %}
-  {{ super() }}
-  <link rel="stylesheet" href="{{ 'assets/css/redoc.css' | url }}">
-{% endblock %}
-
-{% block container %}
-  {{ page.content }}
-  <script src="{{ 'assets/js/redoc.standalone.js' | url }}"></script>
-{% endblock %}
+{% if config.theme.logo or config.logo_light %}
+    {% if config.theme.logo %}
+        <img src="{{ config.theme.logo | url }}" alt="logo" data-md-component="logo" data-md-color="default">
+    {% endif %}
+    {% if config.theme.logo_light %}
+        <img src="{{ config.theme.logo_light | url }}" alt="logo" data-md-component="logo" data-md-color="slate">
+    {% endif %}
+{% else %}
+  {% set icon = config.theme.icon.logo or "material/library" %}
+  {% include ".icons/" ~ icon ~ ".svg" %}
+{% endif %}
