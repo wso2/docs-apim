@@ -24,7 +24,7 @@ site_url: https://dushaniw.github.io/docs-apim/
 # Repository
 repo_name: wso2/docs-apim
 repo_url: https://github.com/wso2/docs-apim
-edit_uri: https://github.com/wso2/docs-apim/edit/4.6.0/en/docs/
+edit_uri: https://github.com/wso2/docs-apim/edit/4.6.0-revamp/en/docs/
 dev_addr: localhost:8000
 
 # Copyright
@@ -1444,7 +1444,7 @@ extra:
             git_tag: v1.2.0.1
     site_version: 4.6.0
     base_path: https://dushaniw.github.io/docs-apim
-    #base_path: https://apim.docs.wso2.com/en/4.6.0
+    #base_path: http://localhost:8000/docs-apim
     envoy_path: https://www.envoyproxy.io/docs/envoy/v1.24.1
     redoc_theme: '{
         "colors": {
