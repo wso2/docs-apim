@@ -809,7 +809,7 @@ plugins:
     - exclude:
           glob:
               - wip/*
-     - redirects:
+    - redirects:
           redirect_maps:
               'learn/consume-api/customizations/customizing-the-developer-portal/customize-api-listing/api-category-based-grouping.md': 'https://apim.docs.wso2.com/en/4.4.0/reference/customize-product/customizations/customizing-the-developer-portal/customize-api-listing/api-category-based-grouping/'
               'learn/consume-api/customizations/customizing-the-developer-portal/customize-api-listing/change-default-view.md': 'https://apim.docs.wso2.com/en/4.4.0/reference/customize-product/customizations/customizing-the-developer-portal/customize-api-listing/change-default-view/'
@@ -1221,14 +1221,16 @@ extra:
     explicit_tab_list:
       - Documentation
       - Get Started
-      - Manage APIs
-      - Consume APIs
+      - API Design and Manage
+      - API Developer Portal
+      - API Gateway
       - AI Gateway
-      - MCP Servers
-      - Monitoring
-      - Reference
-      - Administer
+      - API Analytics & Monetization
+      - Key Manager
+      - Admin Portal
+      - APIOps
       - Install & Setup
+      - Reference
       - Tutorials
     home_page_cards:
     - section:
@@ -1341,11 +1343,15 @@ extra:
       options:
         - divider
         - verticle-line
-    - title: Manage APIs
+    - title: API Design and Manage
       options:
         - verticle-line
         - divider
-    - title: Consume APIs
+    - title: API Developer Portal
+      options:
+        - verticle-line
+        - divider
+    - title: API Gateway
       options:
         - verticle-line
         - divider
@@ -1353,23 +1359,27 @@ extra:
       options:
         - verticle-line
         - divider
-    - title: MCP Servers
+    - title: API Analytics and Monetization
       options:
         - verticle-line
         - divider
-    - title: Monitoring
+    - title: Key Manager
       options:
         - verticle-line
         - divider
-    - title: Reference
+    - title: Admin Portal
       options:
         - verticle-line
         - divider
-    - title: Administer
+    - title: APIOps
       options:
         - verticle-line
         - divider
     - title: Install and Setup
+      options:
+        - verticle-line
+        - divider
+    - title: Reference
       options:
         - verticle-line
         - divider
@@ -1385,32 +1395,38 @@ extra:
       Get Started:
         icon: octicons/rocket-16
         level: 1
-      Manage APIs:
+      API Design and Manage:
         icon: octicons/tools-16
         level: 1
-      Consume APIs:
+      API Developer Portal:
         icon: octicons/plug-16
         level: 1
-      AI Gateway:
+      API Gateway:
         icon: octicons/mortar-board-16
         level: 1
-      MCP Servers:
+      AI Gateway:
         icon: octicons/tools-16
         level: 1
-      Monitoring:
+      API Analytics and Monetization:
         icon: octicons/graph-16
         level: 1
-      Reference:
+      Key Manager:
         icon: octicons/link-external-16
         level: 1
-      Administer:
+      Admin Portal:
         icon: octicons/gear-16
         level: 1
-      Install and Setup:
+      APIOps:
         icon: octicons/desktop-download-16
         level: 1
-      Tutorials:
+      Install and Setup:
         icon: octicons/mortar-board-16
+        level: 1
+      Reference:
+        icon: octicons/book-16
+        level: 1
+      Tutorials:
+        icon: octicons/light-bulb-16
         level: 1
     social:
         - icon: fontawesome/brands/github-alt
