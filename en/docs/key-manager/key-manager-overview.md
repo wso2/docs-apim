@@ -24,7 +24,7 @@ When an administrator adds a key manager through the Admin Portal:
 3. **Gateway Registration**: The Gateway receives the event and registers the new key manager
 4. **Tenant Availability**: The key manager becomes available for all APIs within that tenant
 
-[![Multiple Key Manager Support]({{base_path}}/assets/img/administer/add-km-overview.png){: style="width:80%"}]({{base_path}}/assets/img/administer/add-km-overview.png)
+[![Multiple Key Manager Support]({{base_path}}/assets/img/keymanager/add-km-overview.png){: style="width:80%"}]({{base_path}}/assets/img/keymanager/add-km-overview.png)
 
 ### Application Developer Experience
 
