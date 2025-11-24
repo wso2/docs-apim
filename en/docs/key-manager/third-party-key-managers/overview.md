@@ -6,7 +6,7 @@ WSO2 API Manager supports integration with external authorization servers as Key
 
 Organizations can configure multiple Key Managers within a single tenant, allowing different APIs and applications to use different authorization servers based on business requirements. Administrators configure these through the Admin Portal, making them available for developers and API creators.
 
-[![Add new Key Manager]({{base_path}}/assets/img/administer/add-km-overview.png){: style="width:80%"}]({{base_path}}/assets/img/administer/add-km-overview.png)
+[![Add new Key Manager]({{base_path}}/assets/img/key-manager/add-km-overview.png){: style="width:80%"}]({{base_path}}/assets/img/key-manager/add-km-overview.png)
 
 ## Supported Third-Party Key Managers
 

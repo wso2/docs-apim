@@ -15,9 +15,44 @@ As the central security authority for API access, it enables:
 
 ## Architecture
 
-The Key Manager operates as the authorization server within WSO2 API Manager, providing both built-in key management capabilities and seamless integration with external authorization servers for enterprise identity provider scenarios.
+WSO2 API Manager supports multiple key managers within a single tenant, enabling organizations to integrate various authorization servers simultaneously. Administrators can configure different key managers via the Admin Portal, making them available for application developers and API creators.
 
-[![Multiple Key Manager Support]({{base_path}}/assets/img/administer/add-km-overview.png){: style="width:80%"}]({{base_path}}/assets/img/administer/add-km-overview.png)
+When an administrator adds a key manager through the Admin Portal:
+
+1. **Persistence**: The configuration is stored in the API Manager database
+2. **Event Propagation**: An event is triggered to the Traffic Manager
+3. **Gateway Registration**: The Gateway receives the event and registers the new key manager
+4. **Tenant Availability**: The key manager becomes available for all APIs within that tenant
+
+[![Multiple Key Manager Support]({{base_path}}/assets/img/key-manager/add-km-overview.png){: style="width:80%"}]({{base_path}}/assets/img/key-manager/add-km-overview.png)
+
+### Application Developer Experience
+
+**Key Generation**: Application developers see all configured key managers as options when generating keys for their applications. No additional configuration is required - all available key managers are automatically presented as choices.
+
+**Dynamic Registration**: Applications can be dynamically registered with any key manager that supports consumer application creation, subject to the key manager's validation requirements.
+
+### API Developer Control
+
+**Key Manager Restrictions**: API developers can configure their APIs to restrict access to specific key managers based on security requirements. This allows fine-grained control over which authentication providers can access each API.
+
+**Gateway Integration**: The API Gateway works with key managers to authenticate requests and validate tokens:
+
+**JWT Tokens**: For JWT tokens, the Gateway retrieves issuer details from the token to identify the relevant key manager. If the key manager is not enabled for the API, validation fails.
+
+**Non-JWT Tokens**: For opaque tokens, validation occurs based on the token handling options configured in the relevant key manager.
+
+### Role-Based Key Manager Restrictions
+
+Administrators can implement role-based access control for key managers:
+
+**ALLOW Permission**: Only users with specified roles can use the key manager for key generation
+**DENY Permission**: Users with specified roles cannot use the key manager for key generation
+
+!!! Note
+    - Exercise caution when restricting key managers to avoid scenarios where users lose access
+    - A key manager can have either whitelist (ALLOW) or blacklist (DENY) permissions, not both
+    - Keys generated before access restriction remain valid until expiration
 
 ## Built-in Key Manager
 
@@ -84,49 +119,6 @@ The **Built-in Key Manager** provides comprehensive OAuth2 and OpenID Connect ca
 #### Cloud Provider Integration
 - **[Azure AD Key Manager]({{base_path}}/key-manager/third-party-key-managers/configure-azure-ad-key-manager/)**: Microsoft Azure Active Directory integration
 - **[ForgeRock]({{base_path}}/key-manager/third-party-key-managers/configure-forgerock-connector/)**: ForgeRock Identity Platform integration
-
-## Multiple Key Manager Supporttoke
-
-WSO2 API Manager supports multiple key managers within a single tenant, enabling organizations to integrate various authorization servers simultaneously. Administrators can configure different key managers via the Admin Portal, making them available for application developers and API creators.
-
-### How Multiple Key Managers Work
-
-When an administrator adds a key manager through the Admin Portal:
-
-1. **Persistence**: The configuration is stored in the API Manager database
-2. **Event Propagation**: An event is triggered to the Traffic Manager
-3. **Gateway Registration**: The Gateway receives the event and registers the new key manager
-4. **Tenant Availability**: The key manager becomes available for all APIs within that tenant
-
-[![Multiple Key Manager Support]({{base_path}}/assets/img/administer/add-km-overview.png){: style="width:80%"}]({{base_path}}/assets/img/administer/add-km-overview.png)
-
-### Application Developer Experience
-
-**Key Generation**: Application developers see all configured key managers as options when generating keys for their applications. No additional configuration is required - all available key managers are automatically presented as choices.
-
-**Dynamic Registration**: Applications can be dynamically registered with any key manager that supports consumer application creation, subject to the key manager's validation requirements.
-
-### API Developer Control
-
-**Key Manager Restrictions**: API developers can configure their APIs to restrict access to specific key managers based on security requirements. This allows fine-grained control over which authentication providers can access each API.
-
-**Gateway Integration**: The API Gateway works with key managers to authenticate requests and validate tokens:
-
-**JWT Tokens**: For JWT tokens, the Gateway retrieves issuer details from the token to identify the relevant key manager. If the key manager is not enabled for the API, validation fails.
-
-**Non-JWT Tokens**: For opaque tokens, validation occurs based on the token handling options configured in the relevant key manager.
-
-### Role-Based Key Manager Restrictions
-
-Administrators can implement role-based access control for key managers:
-
-**ALLOW Permission**: Only users with specified roles can use the key manager for key generation
-**DENY Permission**: Users with specified roles cannot use the key manager for key generation
-
-!!! Note
-    - Exercise caution when restricting key managers to avoid scenarios where users lose access
-    - A key manager can have either whitelist (ALLOW) or blacklist (DENY) permissions, not both
-    - Keys generated before access restriction remain valid until expiration
 
 ## Getting Started
 
