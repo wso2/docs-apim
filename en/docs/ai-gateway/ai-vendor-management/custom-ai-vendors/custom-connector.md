@@ -10,7 +10,7 @@ This guide provides step-by-step instructions for creating and deploying a custo
 
     You can download a sample Maven project from [here]({{base_path}}/assets/attachments/administer/llm.provider.connector.zip).
 
-    When manually creating a maven project, you will need to define a class that implements the `LLMProviderService` interface that is responsible of handling request/response payloads specific to AI service providers.
+    When manually creating a Maven project, you will need to define a class that implements the `LLMProviderService` interface that is responsible for handling request/response payloads specific to AI service providers.
 
 2. Implement `LLMProviderService`.
 
@@ -46,7 +46,7 @@ This guide provides step-by-step instructions for creating and deploying a custo
         </tr>
         <tr class="even">
         <td><strong>registerLLMProvider</strong></td>
-        <td><p>This method handles the registration of a new custom LLM provider. It programmatically onboard's the provider during the startup process. If the LLM provider is being onboarded manually through the admin portal, the method can return null. The method accepts the organization's name and the path to the API definition file associated with the provider, and it returns an instance of <strong>LLMProvider</strong> representing the newly registered provider. If any errors occur during the registration process, the method throws an <strong>APIManagementException</strong>.
+        <td><p>This method handles the registration of a new custom LLM provider. It programmatically onboards the provider during the startup process. If the LLM provider is being onboarded manually through the admin portal, the method can return null. The method accepts the organisation's name and the path to the API definition file associated with the provider, and it returns an instance of <strong>LLMProvider</strong> representing the newly registered provider. If any errors occur during the registration process, the method throws an <strong>APIManagementException</strong>.
         </p></td>
         </tr>
         </tbody>
