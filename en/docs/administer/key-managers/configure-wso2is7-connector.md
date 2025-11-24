@@ -96,7 +96,7 @@ Follow the steps given below to configure WSO2 IS 7.x as a Key Manager component
         You can use `https://localhost:9444/oauth2/token/.well-known/openid-configuration` as the **Well-known URL**, and click on **Import** to populate most of the fields mentioned below, **Grant types**, and the **Certificates** section.
 
         !!! warning "Important"
-            When importing configurations using the well-known URL, manually set the value of <strong>UserInfo Endpoint</strong> to <code>https://localhost:9444/scim2/Me</code>. The auto-import populates this field with <code>https://localhost:9444/oauth2/userInfo</code>.
+            When importing configurations using the well-known URL, value of the <strong>UserInfo Endpoint</strong> should be manually set to one of the values specified in the table below. The auto-import populates this field with <code>https://localhost:9444/oauth2/userInfo</code>.
 
     | Configuration                 | Value                                                                                                                                                                                                                                               |
     |-------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
