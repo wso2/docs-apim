@@ -64,7 +64,6 @@ theme:
        - content.tabs.link
        - search.suggest
        - search.share
-      
     language: 'en'
 #Breaks build if there's a warning
 strict: false
