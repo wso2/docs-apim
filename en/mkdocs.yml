@@ -1343,41 +1343,15 @@ extra:
     - title: Get Started
       options:
         - verticle-line
+        - divider
     - title: API Design & Manage
       options:
-        - divider
         - verticle-line
-    - title: API Developer Portal
-      options:
-        - verticle-line   
-    - title: API Gateway
-      options:
-        - verticle-line  
-    - title: AI Gateway
-      options:
-        - verticle-line      
-    - title: API Analytics & Monetization
-      options:
-        - verticle-line      
-    - title: Key Manager
-      options:
-        - verticle-line      
-    - title: Admin Portal
-      options:
-        - verticle-line      
-    - title: APIOps
-      options:
-        - verticle-line      
+        - divider     
     - title: Install & Setup
       options:
         - verticle-line
-        - divider
-    - title: Reference
-      options:
-        - verticle-line      
-    - title: Tutorials
-      options:
-        - verticle-line      
+        - divider    
 
     nav_icons:
       Home:
