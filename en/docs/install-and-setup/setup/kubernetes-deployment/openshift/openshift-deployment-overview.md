@@ -147,10 +147,11 @@ In each `values.yaml` file for your deployment, make the following OpenShift-spe
 !!! info "Security Context Configuration"
     The following settings need to be applied to make your deployment compatible with OpenShift's security model:
 
-1. **Update Security Context Settings**:
+1. **Update Openshift Specific Settings**:
 
    | Setting | Description |
    |---------|-------------|
+   | `openshift.enabled: true` | Allows to handle file system related changes to be made upon deployment |
    | `runAsUser: null` | Allows OpenShift to assign arbitrary UIDs |
    | `seLinux.enabled: true/false` | Enables/disables SELinux support |
    | `enableAppArmor: false` | Disables AppArmor profiles |
@@ -160,6 +161,10 @@ In each `values.yaml` file for your deployment, make the following OpenShift-spe
    **Example Configuration**:
 
    ```yaml
+   # -- When deploying on OpenShift.
+   openshift:
+     enabled: true
+      
    securityContext:
      # -- Set to null to allow OpenShift to assign arbitrary UIDs
      runAsUser: null
@@ -198,6 +203,8 @@ The All-in-One deployment is the simplest pattern to deploy WSO2 API Manager on 
    ```yaml
    # OpenShift-specific settings
    kubernetes:
+     openshift:
+       enabled: true
      securityContext:
        runAsUser: null
        seLinux:
@@ -326,7 +333,7 @@ For each component in your selected pattern:
     Each component requires the same OpenShift-specific configurations:
 
     1. **Custom Docker Images**: Build OpenShift-compatible images for each component
-    2. **Security Context**: Apply the same security context settings as described in [Step 4](#step-4---configure-openshift-specific-settings-in-valuesyaml)
+    2. **Security Context**: Apply the same openshift specific settings as described in [Step 4](#step-4---configure-openshift-specific-settings-in-valuesyaml)
     3. **Database Connections**: Configure the database connections for each component
     4. **Service and Route Configuration**: Configure services and routes appropriate for OpenShift
 
@@ -335,6 +342,8 @@ For each component in your selected pattern:
 ```yaml
 # OpenShift security context settings for Control Plane component
 kubernetes:
+  openshift:
+    enabled: true
   securityContext:
     runAsUser: null
     seLinux:
