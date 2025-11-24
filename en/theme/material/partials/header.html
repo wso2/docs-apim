@@ -33,16 +33,28 @@
     </label>
     <div class="md-header__title" data-md-component="header-title">
       <div class="md-header__ellipsis">
-        {% if config.extra.is_version != 'versions' %}
-          {% if "navigation.tabs.sticky" in features %}
-              {% if "navigation.tabs" in features %}
-              {% include "partials/tabs.html" %}
-              {% endif %}
-          {% endif %}
-        {% endif %}
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            {{ config.site_name | replace('WSO2', '') }}
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            {% if page.meta and page.meta.title %}
+              {{ page.meta.title }}
+            {% else %}
+              {{ page.title }}
+            {% endif %}
+          </span>
+        </div>
       </div>
     </div>
-      {% set is_version = config.extra.is_version %}
+{% if "material/search" in config.plugins and not page.is_homepage %}
+<label class="md-header__button md-icon" for="__search">
+  {% include ".icons/material/magnify.svg" %}
+</label>
+{% include "partials/search.html" %}
+{% endif %}
     {% if not config.theme.palette is mapping %}
       <form class="md-header__option" data-md-component="palette">
         {% for option in config.theme.palette %}
