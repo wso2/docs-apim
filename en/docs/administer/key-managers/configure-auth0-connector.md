@@ -1,6 +1,6 @@
 # Configure Auth0 as a Key Manager
 
-It is possible to integrate the WSO2 API Manager with an external Identity and Access Management server (IAM) using the Auth0 OAuth Authorization Server to manage the OAuth clients and tokens that are required by WSO2 API Manager. WSO2 API Manager has inbuilt support to consume APIs exposed by Auth0 OAuth.
+It is possible to integrate the WSO2 API Manager with an external Identity and Access Management server (IAM) using the Auth0 OAuth Authorization Server to manage the OAuth clients and tokens that are required by WSO2 API Manager. WSO2 API Manager has inbuilt support for consume APIs exposed by Auth0 OAuth.
 
 Follow the instructions below to configure Auth0 as a third-party Key Manager:
 
@@ -56,7 +56,7 @@ Follow the instructions below to configure Auth0 as a third-party Key Manager:
         [![auth0 km type]({{base_path}}/assets/img/administer/auth0-km-type.png)]({{base_path}}/assets/img/administer/auth0-km-type.png)
 
         !!! info
-            A list of well know addresses can be found in the advance section of the Auth0 Application settings
+            A list of well known addresses can be found in the advanced section of the Auth0 Application settings
 
             Example: ```https://my-tenant.us.auth0.com/.well-known/openid-configuration```
 
@@ -284,7 +284,7 @@ Follow the instructions below to configure Auth0 as a third-party Key Manager:
         </tr>
         <tr class="even">
             <td>JWT</td>
-            <td>The tokens that match a specific JWT is validated.</td>
+            <td>The tokens that match a specific JWT are validated.</td>
             <td></td>
         </tr>
         <tr class="odd">
