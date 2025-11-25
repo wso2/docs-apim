@@ -1362,37 +1362,37 @@ extra:
         icon: octicons/rocket-16
         level: 1
       API Design & Manage:
-        icon: octicons/tools-16
+        icon: octicons/pencil-16
         level: 1
       API Developer Portal:
-        icon: octicons/plug-16
+        icon: octicons/browser-16
         level: 1
       API Gateway:
-        icon: octicons/mortar-board-16
+        icon: octicons/server-16
         level: 1
       AI Gateway:
-        icon: octicons/tools-16
+        icon: octicons/hubot-16
         level: 1
       API Analytics & Monetization:
         icon: octicons/graph-16
         level: 1
-      Key Manager:
-        icon: octicons/link-external-16
+      API Security:
+        icon: octicons/shield-check-16
         level: 1
       Admin Portal:
         icon: octicons/gear-16
         level: 1
       APIOps:
-        icon: octicons/desktop-download-16
+        icon: octicons/workflow-16
         level: 1
       Install & Setup:
-        icon: octicons/mortar-board-16
+        icon: octicons/download-16
         level: 1
       Reference:
         icon: octicons/book-16
         level: 1
       Tutorials:
-        icon: octicons/light-bulb-16
+        icon: octicons/mortar-board-16
         level: 1
     social:
         - icon: fontawesome/brands/github-alt
