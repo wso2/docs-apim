@@ -107,6 +107,7 @@
 
     <!-- Pre-filter the relevant nav entry -->
     {% set matched_expanded_nav = config.extra.expanded_navs | selectattr("title", "equalto", nav_item.title) | first %}
+    {% set show_collapsible_icon = true %}
 
     {% if matched_expanded_nav is defined and matched_expanded_nav.options is defined %}
       {% if "divider" in matched_expanded_nav.options and not hide_nav %}
@@ -119,6 +120,12 @@
 
       {% if "no-indent" in matched_expanded_nav.options %}
         {% set class = class ~ " md-nav--expanded-section-no-indent" %}
+      {% endif %}
+      
+      <!-- Check if collapsible option is explicitly disabled -->
+      {% if "no-collapsible" in matched_expanded_nav.options %}
+        {% set show_collapsible_icon = false %}
+        {% set class = class ~ " md-nav--no-collapsible" %}
       {% endif %}
     {% endif %}
 
@@ -140,9 +147,69 @@
     <li class="{{ class }} md-nav__item--nested {{ has_icon_class }} {{ hide_nav_class }}">
       {% set expanded = "navigation.expand" in features %}
       {% set active = nav_item.active or expanded %}
+      
+      <!-- For expanded sections, we want them to start checked (expanded) -->
+      {% set is_expanded_section = nav_item.title in expanded_nav_titles %}
+      {% if is_expanded_section %}
+        <!-- Check for auto-collapse behavior configuration -->
+                {% set should_collapse_list = [] %}
+        {% if config.extra.nav_behaviors and config.extra.nav_behaviors.auto_collapse %}
+          {% for behavior_config in config.extra.nav_behaviors.auto_collapse %}
+            {% if behavior_config.title == nav_item.title %}
+              {% if page and page.url %}
+                  {% set base_path = config.extra.base_path if config.extra.base_path is defined else 'docs-apim/' %}
+                  {% set current_url = page.url.lstrip('/') %}
+                  {% set normalized_base_path = base_path.lstrip('/').rstrip('/') ~ '/' %}
+                  {% if current_url.startswith(normalized_base_path) %}
+                    {% set current_url = current_url[len(normalized_base_path):] %}
+                  {% endif %}
+                {% set current_page = page.file.src_path %}
+                
+                <!-- First check if page should stay expanded -->
+                {% set should_stay_expanded = false %}
+                
+                <!-- Check stay_expanded_when_url_starts_with -->
+                {% if behavior_config.stay_expanded_when_url_starts_with and not should_stay_expanded %}
+                  {% for stay_pattern in behavior_config.stay_expanded_when_url_starts_with %}
+                      {% if current_url.startswith(stay_pattern) %}
+                      {% set should_stay_expanded = true %}
+                    {% endif %}
+                  {% endfor %}
+                {% endif %}
+                
+                <!-- Check stay_expanded_on_pages -->
+                {% if not should_stay_expanded and behavior_config.stay_expanded_on_pages %}
+                  {% for stay_page in behavior_config.stay_expanded_on_pages %}
+                    {% if current_page == stay_page %}
+                      {% set should_stay_expanded = true %}
+                    {% endif %}
+                  {% endfor %}
+                {% endif %}
+                
+                <!-- If not staying expanded, check collapse conditions -->
+                {% if not should_stay_expanded and behavior_config.collapse_when_url_starts_with %}
+                  {% for url_pattern in behavior_config.collapse_when_url_starts_with %}
+                    {% if current_url.startswith(url_pattern) %}
+                      {% set _ = should_collapse_list.append(1) %}
+                    {% endif %}
+                  {% endfor %}
+                {% endif %}
+              {% endif %}
+            {% endif %}
+          {% endfor %}
+        {% endif %}
+        
+  {% if should_collapse_list|length > 0 %}
+          {% set checked_attr = "" %}
+        {% else %}
+          {% set checked_attr = "checked" %}
+        {% endif %}
+      {% else %}
+        {% set checked_attr = checked %}
+      {% endif %}
 
       <!-- Determine checked and indeterminate state -->
-      {% if expanded and not checked %}
+      {% if expanded and not checked_attr %}
         {% set indeterminate = "md-toggle--indeterminate" %}
       {% endif %}
 
@@ -151,7 +218,7 @@
         class="md-nav__toggle md-toggle {{ indeterminate }}"
         type="checkbox"
         id="{{ path }}"
-        {{ checked }}
+        {{ checked_attr }}
         {{ disabled }}
       />
 
@@ -184,7 +251,7 @@
               {{ nav_chip(chip_type) }}
             {% endif %}
           </span>
-          {% if not disabled %}
+          {% if not disabled and show_collapsible_icon %}
             <span class="md-nav__icon md-icon"></span>
           {% endif %}
         </label>
@@ -208,7 +275,7 @@
 
           <!-- Only render toggle if there's at least one more page -->
           {% if nav_item.children | length > 1 %}
-            {% if not disabled %}
+            {% if not disabled and show_collapsible_icon %}
             <label for="{{ path }}">
               <span class="md-nav__icon md-icon"></span>
             </label>

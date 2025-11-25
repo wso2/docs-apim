@@ -517,8 +517,17 @@
     padding-left: 29px;
 }
 
-.md-nav__item.md-nav--expanded-section > label,
-.md-nav__item.md-nav--expanded-section > .md-nav__link--index > a > span {
+.md-nav__item.md-nav--expanded-section.md-nav__item--active > label,
+.md-nav__item.md-nav--expanded-section.md-nav__item--active > .md-nav__link--index > a > span {
+    font-weight: 500;
+}
+
+.md-nav__item--active > .md-nav__link > span {
+    font-weight: 500;
+}
+
+.md-nav__item.md-nav--expanded-section > .md-nav__toggle:checked ~ label,
+.md-nav__item.md-nav--expanded-section > .md-nav__toggle:checked ~ .md-nav__link--index > a > span {
     font-weight: 500;
 }
 
@@ -534,6 +543,16 @@
 
 .md-nav__item.md-nav--expanded-section > nav.md-nav {
     margin: 15px 0;
+}
+
+/* Allow expanded sections to be collapsible - only show content when checkbox is checked */
+.md-nav__item.md-nav--expanded-section > .md-nav__toggle:not(:checked) ~ nav.md-nav {
+    display: none;
+}
+
+/* Always show content for non-collapsible expanded sections */
+.md-nav__item.md-nav--expanded-section.md-nav--no-collapsible > nav.md-nav {
+    display: block !important;
 }
 
 .md-nav:not(.md-nav--lifted) .md-nav__item.md-nav--hide,
@@ -786,9 +805,19 @@
         display: none;
     }
 
-    .md-nav__item.md-nav--expanded-section > nav.md-nav,
-    .md-nav__item.md-nav--expanded-section.md-nav--expanded-section-verticle-line > nav.md-nav > ul.md-nav__list {
+    .md-nav__item.md-nav--expanded-section > .md-nav__toggle:checked ~ nav.md-nav,
+    .md-nav__item.md-nav--expanded-section.md-nav--expanded-section-verticle-line > .md-nav__toggle:checked ~ nav.md-nav > ul.md-nav__list {
         margin: 0;
+    }
+    
+    /* Hide content when collapsed in mobile view */
+    .md-nav__item.md-nav--expanded-section > .md-nav__toggle:not(:checked) ~ nav.md-nav {
+        display: none;
+    }
+    
+    /* Always show content for non-collapsible expanded sections in mobile view */
+    .md-nav__item.md-nav--expanded-section.md-nav--no-collapsible > nav.md-nav {
+        display: block !important;
     }
 
     .md-nav__item.md-nav__item--nested.md-nav--has-icon nav.md-nav > ul.md-nav__list > li.md-nav__item,
@@ -849,13 +878,14 @@
         opacity: 0;
     }
 
-    .md-nav__item.md-nav--expanded-section > nav.md-nav {
+    .md-nav__item.md-nav--expanded-section > .md-nav__toggle:checked ~ nav.md-nav {
         display: block;
     }
 
-    .md-nav__item.md-nav--expanded-section > .md-nav__link .md-nav__icon.md-icon {
+    /* Removed the rule that hides navigation icons for expanded sections */
+    /* .md-nav__item.md-nav--expanded-section > .md-nav__link .md-nav__icon.md-icon {
         display: none;
-    }
+    } */
 
     .md-nav__item.md-nav__item--nested.md-nav--has-icon.md-nav--expanded-section-verticle-line > nav.md-nav > ul.md-nav__list > li.md-nav__item {
         padding-left: 22px;

@@ -1,4 +1,3 @@
-
 # Copyright (c) 2019, WSO2 Inc. (http://www.wso2.org) All Rights Reserved.
 #
 # WSO2 Inc. licenses this file to you under the Apache License,
@@ -1344,15 +1343,42 @@ extra:
     - title: Get Started
       options:
         - verticle-line
-        - divider
+        - no-collapsible
     - title: API Design & Manage
       options:
         - verticle-line
-        - divider     
+        - divider
     - title: Install & Setup
       options:
         - verticle-line
-        - divider    
+        - divider
+
+    # Navigation behaviors configuration - Define all interactive behaviors here
+    nav_behaviors:
+      # Define which sections should auto-collapse when user navigates to other sections
+      auto_collapse:
+        - title: API Design & Manage
+          collapse_when_url_starts_with:
+            - api-developer-portal/
+            - api-gateway/
+            - ai-gateway/
+            - monitoring/
+            - key-manager/
+            - administer/
+          stay_expanded_when_url_starts_with:
+            - api-design-manage/
+            - get-started/
+          stay_expanded_on_pages:
+            - index.md
+        - title: Install & Setup
+          collapse_when_url_starts_with:
+            - reference/
+            - tutorials/
+          stay_expanded_when_url_starts_with:
+            - install-and-setup/
+            - get-started/
+          stay_expanded_on_pages:
+            - index.md
 
     nav_icons:
       Home:
