@@ -324,4 +324,3 @@ Now let us read the information on `wso2engineers` that we stored in the Amazon 
     ```
 
 In this example Amazon S3 connector is used to perform operations with Amazon S3 storage. You can receive details of the errors that occur when invoking S3 operations using the S3 responses itself. Please read the [Amazon S3 connector reference guide]({{base_path}}/reference/connectors/amazons3-connector/1.x/amazons3-connector-1.x-reference) to learn more about the operations you can perform with the Amazon S3 connector.
-
