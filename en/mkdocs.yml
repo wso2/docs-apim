@@ -1348,10 +1348,37 @@ extra:
       options:
         - verticle-line
         - divider
+    - title: API Developer Portal
+      options:
+        - verticle-line-only
+    - title: API Gateway
+      options:
+        - verticle-line-only
+    - title: AI Gateway
+      options:
+        - verticle-line-only
+    - title: API Analytics & Monetization
+      options:
+        - verticle-line-only
+    - title: Key Manager
+      options:
+        - verticle-line-only
+    - title: Admin Portal
+      options:
+        - verticle-line-only
+    - title: APIOps
+      options:
+        - verticle-line-only
     - title: Install & Setup
       options:
         - verticle-line
         - divider
+    - title: Reference
+      options:
+        - verticle-line-only
+    - title: Tutorials
+      options:
+        - verticle-line-only
 
     # Navigation behaviors configuration - Define all interactive behaviors here
     nav_behaviors:

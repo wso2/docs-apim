@@ -531,7 +531,7 @@
     font-weight: 500;
 }
 
-.md-nav__item.md-nav--expanded-section.md-nav--expanded-section-verticle-line > nav.md-nav > ul.md-nav__list{
+.md-nav__item.md-nav--expanded-section-verticle-line > .md-nav__toggle:checked ~ nav.md-nav > ul.md-nav__list {
     border-left: 1px solid var(--md-default-fg-color--light);
     margin: 15px 0;
     padding-left: 15px;
