@@ -40,8 +40,8 @@ The Simple Queue Service will receive messages from the outside, while the Amazo
            <parameter name="waitTime">19</parameter>
            <parameter name="maxNoOfMessage">10</parameter>
            <parameter name="destination">https://sqs.us-east-2.amazonaws.com/610968236798/eiconnectortestSQS</parameter>
-           <parameter name="accessKey">AKIAY4QELOL7GF35XBW5</parameter>
-           <parameter name="secretKey">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</parameter>
+           <parameter name=\"accessKey\"><!-- access key --></parameter>
+           <parameter name=\"secretKey\"><!-- secret key --></parameter>
            <parameter name="attributeNames">attributeName1,contentType</parameter>
            <parameter name="contentType">application/json</parameter>
            <parameter name="class">org.wso2.carbon.inbound.amazonsqs.AmazonSQSPollingConsumer</parameter>
