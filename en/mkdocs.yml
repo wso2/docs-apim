@@ -244,6 +244,51 @@ nav:
             - B2B API Consumption: api-developer-portal/b2b-api-consumption/api-consumption.md
             - Setup WSO2 Identity Server as a Federated Authenticator: api-developer-portal/b2b-api-consumption/setup-identity-server.md
 
+    - API Security:
+        - Key Management:
+            - Overview: key-manager/key-manager-overview.md
+            - Authentication & Authorization:
+                - Grant Types:
+                    - Overview: key-manager/authentication/grant-types/overview.md
+                    - Password Grant: key-manager/authentication/grant-types/password-grant.md
+                    - Client Credentials Grant: key-manager/authentication/grant-types/client-credentials-grant.md
+                    - Authorization Code Grant: key-manager/authentication/grant-types/authorization-code-grant.md
+                    - Refresh Token Grant: key-manager/authentication/grant-types/refresh-token-grant.md
+                    - JWT Grant: key-manager/authentication/grant-types/jwt-grant.md
+                    - SAML Extension Grant: key-manager/authentication/grant-types/saml-extension-grant.md
+                    - Kerberos OAuth2 Grant: key-manager/authentication/grant-types/kerberos-oauth2-grant.md
+                    - NTLM Grant: key-manager/authentication/grant-types/ntlm-grant.md
+                - OAuth2 Scopes:
+                    - Fine-grained Access Control with OAuth Scopes: key-manager/authentication/oauth2-scopes/fine-grained-access-control-with-oauth-scopes.md
+                    - Scope Whitelisting: key-manager/authentication/oauth2-scopes/scope-whitelisting.md
+            - Tokens:
+                - JWT Tokens: key-manager/tokens/jwt-tokens.md
+                - Token Expiration: key-manager/tokens/token-expiration.md
+                - Token Persistence: key-manager/tokens/token-persistence.md
+                - Token Revocation: key-manager/tokens/token-revocation.md
+                - Encrypting OAuth2 Tokens: key-manager/tokens/encrypting-oauth2-tokens.md
+                - Hashing OAuth Keys: key-manager/tokens/hashing-oauth-keys.md
+                - Multiple Active Access Tokens: key-manager/tokens/multiple-active-access-tokens.md
+                - Securing OAuth Token with HMAC Validation: key-manager/tokens/securing-oauth-token-with-hmac-validation.md
+            - Applications:
+                - Provisioning Out-of-Band OAuth Clients: key-manager/applications/provisioning-out-of-band-oauth-clients.md
+                - Federating OAuth Applications: key-manager/applications/federating-oauth-applications.md
+            - Identity:
+                - Obtain User Profile Information with OpenID Connect: key-manager/identity/obtaining-user-profile-information-with-openid-connect.md
+            - Third-Party Key Managers:
+                - Overview: key-manager/third-party-key-managers/overview.md
+                - Configure WSO2 IS as a Key Manager: key-manager/third-party-key-managers/configure-wso2is-connector.md
+                - Configure WSO2 IS 7.x as a Key Manager: key-manager/third-party-key-managers/configure-wso2is7-connector.md
+                - Configure Keycloak as a Key Manager: key-manager/third-party-key-managers/configure-keycloak-connector.md
+                - Configure Okta as a Key Manager: key-manager/third-party-key-managers/configure-okta-connector.md
+                - Configure Auth0 as a Key Manager: key-manager/third-party-key-managers/configure-auth0-connector.md
+                - Configure PingFederate as A Key Manager: key-manager/third-party-key-managers/configure-pingfederate-connector.md
+                - Configure ForgeRock as a Key Manager: key-manager/third-party-key-managers/configure-forgerock-connector.md
+                - Configure a Custom Key Manager: key-manager/third-party-key-managers/configure-custom-connector.md
+                - Configure the Global Key Manager: key-manager/third-party-key-managers/configure-global-key-manager.md
+                - Configure the Azure AD as a Key Manager: key-manager/third-party-key-managers/configure-azure-ad-key-manager.md
+                - Application Scopes: key-manager/third-party-key-managers/application-scopes.md
+
     - API Gateway:
         - Regular Gateway:
             - Overview of the WSO2 Universal Gateway: api-gateway/overview-of-the-api-gateway.md
@@ -386,51 +431,6 @@ nav:
                 - OpenTelemetry: monitoring/observability/traces/monitoring-with-opentelemetry.md
             - Metrics:
                 - JMX-Based Monitoring: monitoring/observability/metrics/jmx-based-monitoring.md
-
-    - API Security:
-        - Key Management:
-            - Overview: key-manager/key-manager-overview.md
-            - Authentication & Authorization:
-                - Grant Types:
-                    - Overview: key-manager/authentication/grant-types/overview.md
-                    - Password Grant: key-manager/authentication/grant-types/password-grant.md
-                    - Client Credentials Grant: key-manager/authentication/grant-types/client-credentials-grant.md
-                    - Authorization Code Grant: key-manager/authentication/grant-types/authorization-code-grant.md
-                    - Refresh Token Grant: key-manager/authentication/grant-types/refresh-token-grant.md
-                    - JWT Grant: key-manager/authentication/grant-types/jwt-grant.md
-                    - SAML Extension Grant: key-manager/authentication/grant-types/saml-extension-grant.md
-                    - Kerberos OAuth2 Grant: key-manager/authentication/grant-types/kerberos-oauth2-grant.md
-                    - NTLM Grant: key-manager/authentication/grant-types/ntlm-grant.md
-                - OAuth2 Scopes:
-                    - Fine-grained Access Control with OAuth Scopes: key-manager/authentication/oauth2-scopes/fine-grained-access-control-with-oauth-scopes.md
-                    - Scope Whitelisting: key-manager/authentication/oauth2-scopes/scope-whitelisting.md
-            - Tokens:
-                - JWT Tokens: key-manager/tokens/jwt-tokens.md
-                - Token Expiration: key-manager/tokens/token-expiration.md
-                - Token Persistence: key-manager/tokens/token-persistence.md
-                - Token Revocation: key-manager/tokens/token-revocation.md
-                - Encrypting OAuth2 Tokens: key-manager/tokens/encrypting-oauth2-tokens.md
-                - Hashing OAuth Keys: key-manager/tokens/hashing-oauth-keys.md
-                - Multiple Active Access Tokens: key-manager/tokens/multiple-active-access-tokens.md
-                - Securing OAuth Token with HMAC Validation: key-manager/tokens/securing-oauth-token-with-hmac-validation.md
-            - Applications:
-                - Provisioning Out-of-Band OAuth Clients: key-manager/applications/provisioning-out-of-band-oauth-clients.md
-                - Federating OAuth Applications: key-manager/applications/federating-oauth-applications.md
-            - Identity:
-                - Obtain User Profile Information with OpenID Connect: key-manager/identity/obtaining-user-profile-information-with-openid-connect.md
-            - Third-Party Key Managers:
-                - Overview: key-manager/third-party-key-managers/overview.md
-                - Configure WSO2 IS as a Key Manager: key-manager/third-party-key-managers/configure-wso2is-connector.md
-                - Configure WSO2 IS 7.x as a Key Manager: key-manager/third-party-key-managers/configure-wso2is7-connector.md
-                - Configure Keycloak as a Key Manager: key-manager/third-party-key-managers/configure-keycloak-connector.md
-                - Configure Okta as a Key Manager: key-manager/third-party-key-managers/configure-okta-connector.md
-                - Configure Auth0 as a Key Manager: key-manager/third-party-key-managers/configure-auth0-connector.md
-                - Configure PingFederate as A Key Manager: key-manager/third-party-key-managers/configure-pingfederate-connector.md
-                - Configure ForgeRock as a Key Manager: key-manager/third-party-key-managers/configure-forgerock-connector.md
-                - Configure a Custom Key Manager: key-manager/third-party-key-managers/configure-custom-connector.md
-                - Configure the Global Key Manager: key-manager/third-party-key-managers/configure-global-key-manager.md
-                - Configure the Azure AD as a Key Manager: key-manager/third-party-key-managers/configure-azure-ad-key-manager.md
-                - Application Scopes: key-manager/third-party-key-managers/application-scopes.md
 
     - Admin Portal:
         - Administer Overview: administer/admin-overview.md
