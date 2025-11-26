@@ -241,6 +241,7 @@ nav:
                 - Overview: api-security/runtime/authorization/api-authorization.md
                 - Role-based Access Control Using XACML: api-security/runtime/authorization/role-based-access-control-using-xacml.md
                 - Fine Grained Access Control with OAuth Scopes: api-security/runtime/oauth2/oauth2-scopes/fine-grained-access-control-with-oauth-scopes.md
+                - Scope Whitelisting: key-manager/authentication/oauth2-scopes/scope-whitelisting.md
             - API Request Response Schema Validation:
                 - JSON Schema Validator: api-security/runtime/api-request-response-schema-validation/json-schema-validator.md
             - OPA Validation:
@@ -248,20 +249,16 @@ nav:
                 - Custom OPA Policy for Regular Gateway: api-security/runtime/opa-validation/custom-opa-policy-for-regular-gateway.md
         - Key Management:
             - Overview: key-manager/key-manager-overview.md
-            - Authentication & Authorization:
-                - Grant Types:
-                    - Overview: key-manager/authentication/grant-types/overview.md
-                    - Password Grant: key-manager/authentication/grant-types/password-grant.md
-                    - Client Credentials Grant: key-manager/authentication/grant-types/client-credentials-grant.md
-                    - Authorization Code Grant: key-manager/authentication/grant-types/authorization-code-grant.md
-                    - Refresh Token Grant: key-manager/authentication/grant-types/refresh-token-grant.md
-                    - JWT Grant: key-manager/authentication/grant-types/jwt-grant.md
-                    - SAML Extension Grant: key-manager/authentication/grant-types/saml-extension-grant.md
-                    - Kerberos OAuth2 Grant: key-manager/authentication/grant-types/kerberos-oauth2-grant.md
-                    - NTLM Grant: key-manager/authentication/grant-types/ntlm-grant.md
-                - OAuth2 Scopes:
-                    - Fine-grained Access Control with OAuth Scopes: key-manager/authentication/oauth2-scopes/fine-grained-access-control-with-oauth-scopes.md
-                    - Scope Whitelisting: key-manager/authentication/oauth2-scopes/scope-whitelisting.md
+            - Grant Types:
+                - Overview: key-manager/authentication/grant-types/overview.md
+                - Password Grant: key-manager/authentication/grant-types/password-grant.md
+                - Client Credentials Grant: key-manager/authentication/grant-types/client-credentials-grant.md
+                - Authorization Code Grant: key-manager/authentication/grant-types/authorization-code-grant.md
+                - Refresh Token Grant: key-manager/authentication/grant-types/refresh-token-grant.md
+                - JWT Grant: key-manager/authentication/grant-types/jwt-grant.md
+                - SAML Extension Grant: key-manager/authentication/grant-types/saml-extension-grant.md
+                - Kerberos OAuth2 Grant: key-manager/authentication/grant-types/kerberos-oauth2-grant.md
+                - NTLM Grant: key-manager/authentication/grant-types/ntlm-grant.md
             - Tokens:
                 - JWT Tokens: key-manager/tokens/jwt-tokens.md
                 - Token Expiration: key-manager/tokens/token-expiration.md
