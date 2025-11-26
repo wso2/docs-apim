@@ -363,10 +363,16 @@ template: templates/single-column.html
                 managers to create API products from one or more APIs.
             </p>
         </div>
-        <div class="md-main .md-content " style="float:right; width: 55%; align:right;  flex-shrink: 0;min-width: 30%; max-height: 100%; max-width:40%; margin-left:5px; margin-top:50px; margin-right:90px">
-        <iframe width="800" height="250" src="https://www.youtube.com/embed/nr1cFyxVdDw" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-        </div>
+    <div class="md-main md-content video-wrapper" style="float:right; width:55%; flex-shrink:0; min-width:30%; max-width:40%; margin-left:5px; margin-top:50px; margin-right:90px;">
+        <!-- Responsive iframe: width:100% will keep it within container; max-width controlled by CSS below -->
+        <iframe src="https://www.youtube.com/embed/nr1cFyxVdDw"
+                title="WSO2 API Manager overview"
+                frameborder="0"
+                allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen
+                style="width:100%; height:250px; max-width:800px;"></iframe>
     </div>
+</div>
     <div class="section05">
         <div class="tiles-container">
             {% for column in tiles %}
