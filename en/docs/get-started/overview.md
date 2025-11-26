@@ -8,8 +8,8 @@ The following are some of the main capabilities of the product.
 
 <div style="width: 100%; overflow: hidden;">
 
-<div class="leftContentOverview" style="width:75% !important;">A well-designed API can make your APIs easy to use. WSO2 API Manager’s API Publisher guides you through API creation to API Publishing, while adhering to the respective API’s specification. 
-    <ul>
+<div class="leftContentOverview" style="width:75% !important;">A well-designed API can make your APIs easy to use. WSO2 API Manager’s API Publisher guides you through API creation to API publishing, while adhering to the respective API’s specification.
+ <ul>
         <li><a href="{{base_path}}/manage-apis/design/design-api-overview/">Design API Overview</li>
     </ul>
   </div>
