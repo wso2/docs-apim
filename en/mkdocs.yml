@@ -291,7 +291,7 @@ nav:
                 - Application Scopes: key-manager/third-party-key-managers/application-scopes.md
 
     - API Gateway:
-        - Regular Gateway:
+        - Universal Gateway:
             - Overview of the WSO2 Universal Gateway: api-gateway/overview-of-the-api-gateway.md
             - Gateway Policies: api-gateway/gateway-policies.md
             - Response Caching: api-gateway/response-caching.md
@@ -303,7 +303,7 @@ nav:
                 - Universal Gateways with Dedicated Backends: api-gateway/api-gateways-with-dedicated-backends.md
                 - Mutual SSL Between Universal Gateway and Backend: api-gateway/mutual-ssl-between-api-gateway-and-backend.md
                 - Storing Custom Synapse Artifacts in the Gateway: api-gateway/custom-synapse-artifacts.md
-            - Regular Gateway Policies:
+            - Universal Gateway Policies:
                 - Adding Dynamic Endpoints: api-gateway/policies/adding-dynamic-endpoints.md
                 - Adding a Class Mediator: api-gateway/policies/adding-a-class-mediator.md
                 - Adding a Non-Blocking Send Operation: api-gateway/policies/adding-a-non-blocking-send-operation.md
@@ -399,8 +399,6 @@ nav:
             - Consume MCP Servers from MCP Hub: mcp-gateway/invoke-a-mcp-server-using-playground.md
 
     - API Analytics & Monetization:
-        - API Monetization:
-            - Monetize an API: monitoring/api-monetization/monetizing-an-api.md
         - API Analytics:
             - Overview: monitoring/api-analytics/analytics-overview.md
             - Moesif Analytics: monitoring/api-analytics/moesif-analytics/moesif-integration-guide.md
@@ -416,6 +414,8 @@ nav:
                     - Choreo Based Analytics via Proxy: monitoring/api-analytics/choreo-analytics/choreo-based-analytics-via-proxy.md
             - Publish Analytics Events to External Systems: monitoring/api-analytics/samples/publishing-analytics-events-to-external-systems.md
             - Publish Custom Analytics Events Data: monitoring/api-analytics/samples/publishing-custom-analytics-data.md
+        - API Monetization:
+            - Monetize an API: monitoring/api-monetization/monetizing-an-api.md
         - Observability:
             - Overview: monitoring/observability/observability-overview.md
             - Logs:
