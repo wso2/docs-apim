@@ -297,8 +297,8 @@ To use the Amazon S3 connector, add the <amazons3.init> element in your configur
 
     ```xml
     <getBuckets>
-        <accessKeyId>AKIAXXXXXXXXXXQM7G5EA</accessKeyId>
-        <secretAccessKey>qHZBBzXXXXXXXXXXDYQc4oMQMnAOj+34XXXXXXXXXXO2s</secretAccessKey>
+        <accessKeyId><!-- access key id --></accessKeyId>
+        <secretAccessKey><!-- secret access key --></secretAccessKey>
         <methodType>GET</methodType>
         <contentLength></contentLength>
         <contentType>application/xml</contentType>
@@ -346,8 +346,8 @@ To use the Amazon S3 connector, add the <amazons3.init> element in your configur
 
     ```xml
     <createBucketWebsiteConfiguration>
-        <accessKeyId>AKIXXXXXXXXXXA</accessKeyId>
-        <secretAccessKey>qHZXXXXXXQc4oMQMnAOj+340XXxO2s</secretAccessKey>
+        <accessKeyId><!-- access key id --></accessKeyId>
+        <secretAccessKey><!-- secret access key --></secretAccessKey>
         <region>us-east-2</region>
         <methodType>PUT</methodType>
         <contentLength>256</contentLength>

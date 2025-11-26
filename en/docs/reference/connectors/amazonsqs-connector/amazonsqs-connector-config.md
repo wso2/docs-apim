@@ -162,8 +162,8 @@ To use the Amazon SQS connector, add the <amazonsqs.init> element in your config
 
     ```xml
     <root>
-        <accessKeyId>AKIAJXHDKJWR2ZDDVPEBTQ</accessKeyId>
-        <secretAccessKey>N9VT2P3MdfaL7Li1P3hJu1GTdtOO7Kd7NfPlyYG8f/6</secretAccessKey>
+        <accessKeyId><!-- access key id --></accessKeyId>
+        <secretAccessKey><!-- secret access key --></secretAccessKey>
         <version>2009-02-01</version>
         <region>us-east-1</region>
         <queueId>899940420354</queueId>
@@ -239,8 +239,8 @@ To use the Amazon SQS connector, add the <amazonsqs.init> element in your config
 
     ```xml
     <root>
-        <accessKeyId>AKIAJXHDKJWRDD2ZVPfghEBTQ</accessKeyId>
-        <secretAccessKey>N9VT2P3MaL7LikjhyhJu1GTtOO7Kd7NfPlfghyYG8f/6</secretAccessKey>
+        <accessKeyId><!-- access key id --></accessKeyId>
+        <secretAccessKey><!-- secret access key --></secretAccessKey>
         <version>2009-02-01</version>
         <region>us-east-1</region>
         <queueId>899940420354</queueId>
@@ -312,8 +312,8 @@ To use the Amazon SQS connector, add the <amazonsqs.init> element in your config
 
     ```xml
     <root>
-        <accessKeyId>AKIAJXHDKJWRDD2ZVPfghEBTQ</accessKeyId>
-        <secretAccessKey>N9VT2P3MaL7Li1P3hjgGTtOO7Kd7NfPlfghyYG8f/6</secretAccessKey>
+        <accessKeyId><!-- access key id --></accessKeyId>
+        <secretAccessKey><!-- secret access key --></secretAccessKey>
         <version>2009-02-01</version>
         <region>us-east-1</region>
         <queueId>492228198692</queueId>
@@ -365,8 +365,8 @@ To use the Amazon SQS connector, add the <amazonsqs.init> element in your config
 
     ```xml
     <root>
-        <accessKeyId>AKIAJXHDKJWR2ZVSDPEBTQ</accessKeyId>
-        <secretAccessKey>N9VT2P3MaL7Li1PjkhGTtOO7Kddf7NfPlyYG8f/6</secretAccessKey>
+        <accessKeyId><!-- access key id --></accessKeyId>
+        <secretAccessKey><!-- secret access key --></secretAccessKey>
         <version>2009-02-01</version>
         <region>us-east-1</region>
         <queueId>899940420354</queueId>
@@ -415,8 +415,8 @@ To use the Amazon SQS connector, add the <amazonsqs.init> element in your config
 
     ```xml
     <root>
-        <accessKeyId>AKIAJXHDKJWR2ZVSDPEBTQ</accessKeyId>
-        <secretAccessKey>N9VT2P3MaL7Li1PjkhGTtOO7Kddf7NfPlyYG8f/6</secretAccessKey>
+        <accessKeyId><!-- access key id --></accessKeyId>
+        <secretAccessKey><!-- secret access key --></secretAccessKey>
         <version>2009-02-01</version>
         <region>us-east-1</region>
         <queueId>899940420354</queueId>
@@ -480,8 +480,8 @@ To use the Amazon SQS connector, add the <amazonsqs.init> element in your config
 
     ```xml
     <root>
-        <accessKeyId>AKIAJXHDKJWR2ZVPESSBTQ</accessKeyId>
-        <secretAccessKey>N9VT2P3MaL7Lhgu1GTtOO7Kd7NfPlyYG8f/6</secretAccessKey>
+        <accessKeyId><!-- access key id --></accessKeyId>
+        <secretAccessKey><!-- secret access key --></secretAccessKey>
         <version>2009-02-01</version>
         <region>us-east-1</region>
         <queueId>899940420354</queueId>
@@ -530,8 +530,8 @@ To use the Amazon SQS connector, add the <amazonsqs.init> element in your config
 
     ```xml
     <root>
-        <accessKeyId>AKIAJXHDKJWR2ZVPESSBTQ</accessKeyId>
-        <secretAccessKey>N9VT2P3MaL7Li1P3GjhgDNTtOO7Kd7NfPlyYG8f/6</secretAccessKey>
+        <accessKeyId><!-- access key id --></accessKeyId>
+        <secretAccessKey><!-- secret access key --></secretAccessKey>
         <version>2009-02-01</version>
         <region>us-east-1</region>
         <queueId>899940420354</queueId>
@@ -599,8 +599,8 @@ To use the Amazon SQS connector, add the <amazonsqs.init> element in your config
 
     ```xml
     <root>
-        <accessKeyId>AKIAJXHDKJWDDR2ZVPEBTQ</accessKeyId>
-        <secretAccessKey>N9VT2P3MaL7Li1P3hJu1GsdfTtOO7Kd7NfPlyYG8f/6</secretAccessKey>
+        <accessKeyId><!-- access key id --></accessKeyId>
+        <secretAccessKey><!-- secret access key --></secretAccessKey>
         <awsAccountNumbers>AWSAccountId.1=899940420354&amp;AWSAccountId.2=294598218081</awsAccountNumbers>
         <actionNames>ActionName.1=SendMessage&amp;ActionName.2=ReceiveMessage</actionNames>
         <label>qazwsx</label>
