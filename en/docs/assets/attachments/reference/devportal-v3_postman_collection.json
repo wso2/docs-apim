@@ -1196,7 +1196,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n  \"consumerKey\": \"oYhwZu4P2ThDmiDprBk6c0YfjR8a\",\n  \"consumerSecret\": \"ondWGtFTCOVM4sfPyOfZ7fel610a\",\n  \"keyManager\": \"Resident Key Manager\",\n  \"keyType\": \"PRODUCTION\"\n}",
+							"raw": "{\n  \"consumerKey\": \"your consumer key\",\n  \"consumerSecret\": \"your consumer secret\",\n  \"keyManager\": \"Resident Key Manager\",\n  \"keyType\": \"PRODUCTION\"\n}",
 							"options": {
 								"raw": {
 									"language": "json"

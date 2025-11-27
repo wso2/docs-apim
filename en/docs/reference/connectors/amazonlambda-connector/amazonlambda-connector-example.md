@@ -175,8 +175,8 @@ Follow these steps to deploy the exported CApp in the integration runtime.
    ``` 
    curl -v POST -d 
    '{
-     "secretAccessKey":"xxxx",
-     "accessKeyId":"xxxx",
+    "secretAccessKey":"<!-- secret access key -->",
+    "accessKeyId":"<!-- access key id -->",
      "region":"us-east-2",
      "blocking":"false",
      "s3Bucket":"eiconnectortest",
