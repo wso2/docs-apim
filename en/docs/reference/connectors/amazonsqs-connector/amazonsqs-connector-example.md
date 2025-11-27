@@ -67,8 +67,8 @@ Follow these steps to set up the Integration Project and the Connector Exporter 
     <?xml version="1.0" encoding="UTF-8"?>
     <sequence name="createQueue" trace="disable" xmlns="http://ws.apache.org/ns/synapse">
         <amazonsqs.init>
-            <accessKeyId>AKIAJRM3ROHOPXQ4V6QA</accessKeyId>
-            <secretAccessKey>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</secretAccessKey>
+            <accessKeyId><!-- access key id --></accessKeyId>
+            <secretAccessKey><!-- secret access key --></secretAccessKey>
             <version>2009-02-01</version>
             <region>us-east-2</region>
         </amazonsqs.init>
@@ -91,8 +91,8 @@ Follow these steps to set up the Integration Project and the Connector Exporter 
       <?xml version="1.0" encoding="UTF-8"?>
       <sequence name="sendMessage" trace="disable" xmlns="http://ws.apache.org/ns/synapse">
           <amazonsqs.init>
-              <accessKeyId>AKIAJRM3ROJKJJXQ4V6QA</accessKeyId>
-              <secretAccessKey>r7hfmtqVjdwieILi4mq7MJ2kkUZ2GlcCkBNg</secretAccessKey>
+              <accessKeyId><!-- access key id --></accessKeyId>
+              <secretAccessKey><!-- secret access key --></secretAccessKey>
               <version>2009-02-01</version>
               <region>us-east-2</region>
           </amazonsqs.init>
@@ -109,8 +109,8 @@ Follow these steps to set up the Integration Project and the Connector Exporter 
       <?xml version="1.0" encoding="UTF-8"?>
       <sequence name="ReceiveAndForwardMessage" trace="disable" xmlns="http://ws.apache.org/ns/synapse">
           <amazonsqs.init>
-              <accessKeyId>AKIAJRM3ROJKJJXQ4V6QA</accessKeyId>
-              <secretAccessKey>r7hfmtqVjdwieILi4mq7MJ2kkUZ2GlcCkBNg</secretAccessKey>
+              <accessKeyId><!-- access key id --></accessKeyId>
+              <secretAccessKey><!-- secret access key --></secretAccessKey>
               <version>2009-02-01</version>
               <region>us-east-2</region>
           </amazonsqs.init>

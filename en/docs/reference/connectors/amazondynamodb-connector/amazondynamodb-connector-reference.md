@@ -108,8 +108,8 @@ To use the Amazon DynamoDB connector, add the <amazondynamodb.init> element in y
 
     ```json
     {
-        "accessKeyId":"AKIAxxxxxxxxxxxx",
-        "secretAccessKey":"id4qxxxxxxxx",
+        "accessKeyId":"<!-- access key id -->",
+        "secretAccessKey":"<!-- secret access key -->",
         "region":"us-east-1",
         "blocking":"false",
         "requestItems": {
@@ -216,8 +216,8 @@ To use the Amazon DynamoDB connector, add the <amazondynamodb.init> element in y
 
     ```json
     {
-        "accessKeyId":"AKIAxxxxxxxxxxxx",
-        "secretAccessKey":"id4qxxxxxxxx",
+        "accessKeyId":"<!-- access key id -->",
+        "secretAccessKey":"<!-- secret access key -->",
         "region":"us-east-1",
         "blocking":"false",
         "requestItems": {
@@ -367,8 +367,8 @@ To use the Amazon DynamoDB connector, add the <amazondynamodb.init> element in y
 
     ```json
     {
-        "accessKeyId":"AKIxxxxxxxxxx",
-        "secretAccessKey":"id4xxxxxx",
+        "accessKeyId":"<!-- access key id -->",
+        "secretAccessKey":"<!-- secret access key -->",
         "region":"us-east-1",
         "blocking":"false",
         "tableName": "Thread",
@@ -483,8 +483,8 @@ To use the Amazon DynamoDB connector, add the <amazondynamodb.init> element in y
 
     ```json
     {
-        "accessKeyId":"AKIxxxxxxxxxx",
-        "secretAccessKey":"id4xxxxxx",
+        "accessKeyId":"<!-- access key id -->",
+        "secretAccessKey":"<!-- secret access key -->",
         "region":"us-east-1",
         "blocking":"false",
         "tableName": "Thread",
@@ -637,8 +637,8 @@ To use the Amazon DynamoDB connector, add the <amazondynamodb.init> element in y
 
     ```json
     {
-        "accessKeyId":"AKIxxxxxxxxxx",
-        "secretAccessKey":"id4xxxxxx",
+        "accessKeyId":"<!-- access key id -->",
+        "secretAccessKey":"<!-- secret access key -->",
         "region":"us-east-1",
         "blocking":"false",
         "tableName": "Thread",
@@ -822,8 +822,8 @@ To use the Amazon DynamoDB connector, add the <amazondynamodb.init> element in y
 
     ```json
     {
-        "accessKeyId":"AKIxxxxxxxxxx",
-        "secretAccessKey":"id4xxxxxx",
+        "accessKeyId":"<!-- access key id -->",
+        "secretAccessKey":"<!-- secret access key -->",
         "region":"us-east-1",
         "blocking":"false",
         "tableName": "Thread",
@@ -984,8 +984,8 @@ To use the Amazon DynamoDB connector, add the <amazondynamodb.init> element in y
 
     ```json
     {
-        "accessKeyId":"AKIxxxxxxxxxx",
-        "secretAccessKey":"id4xxxxxx",
+        "accessKeyId":"<!-- access key id -->",
+        "secretAccessKey":"<!-- secret access key -->",
         "region":"us-east-1",
         "blocking":"false",
         "tableName": "Thread",
@@ -1362,8 +1362,8 @@ To use the Amazon DynamoDB connector, add the <amazondynamodb.init> element in y
 
     ```json
     {
-        "accessKeyId":"AKIAxxxxxxxxxxxx",
-        "secretAccessKey":"id4qxxxxxxxx",
+        "accessKeyId":"<!-- access key id -->",
+        "secretAccessKey":"<!-- secret access key -->",
         "region":"us-east-1",
         "blocking":"false",
         "attributeDefinitions": [
@@ -1508,8 +1508,8 @@ To use the Amazon DynamoDB connector, add the <amazondynamodb.init> element in y
 
     ```json
     {
-        "accessKeyId":"AKIAxxxxxxxxxxxx",
-        "secretAccessKey":"id4qxxxxxxxx",
+        "accessKeyId":"<!-- access key id -->",
+        "secretAccessKey":"<!-- secret access key -->",
         "region":"us-east-1",
         "blocking":"false",
         "tableName": "TestTable"
@@ -1562,8 +1562,8 @@ To use the Amazon DynamoDB connector, add the <amazondynamodb.init> element in y
 
     ```json
     {
-        "accessKeyId":"AKIAxxxxxxxxxxxx",
-        "secretAccessKey":"id4qxxxxxxxx",
+        "accessKeyId":"<!-- access key id -->",
+        "secretAccessKey":"<!-- secret access key -->",
         "region":"us-east-1",
         "blocking":"false",
         "tableName": "TestTable"
@@ -1668,8 +1668,8 @@ To use the Amazon DynamoDB connector, add the <amazondynamodb.init> element in y
 
     ```json
     {
-        "accessKeyId":"AKIAxxxxxxxxxxxx",
-        "secretAccessKey":"id4qxxxxxxxx",
+        "accessKeyId":"<!-- access key id -->",
+        "secretAccessKey":"<!-- secret access key -->",
         "region":"us-east-1",
         "blocking":"false",
         "exclusiveStartTableName":"Music",
@@ -1754,8 +1754,8 @@ To use the Amazon DynamoDB connector, add the <amazondynamodb.init> element in y
 
     ```json
     {
-        "accessKeyId":"AKIAxxxxxxxxxxxx",
-        "secretAccessKey":"id4qxxxxxxxx",
+        "accessKeyId":"<!-- access key id -->",
+        "secretAccessKey":"<!-- secret access key -->",
         "region":"us-east-1",
         "blocking":"false",
         "tableName":"Thread",
@@ -1846,8 +1846,8 @@ To use the Amazon DynamoDB connector, add the <amazondynamodb.init> element in y
 
     ```json
     {
-        "accessKeyId":"AKIAxxxxxxxxxxxx",
-        "secretAccessKey":"id4qxxxxxxxx",
+        "accessKeyId":"<!-- access key id -->",
+        "secretAccessKey":"<!-- secret access key -->",
         "region":"us-east-1",
         "blocking":"false"
     }

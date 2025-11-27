@@ -274,8 +274,8 @@ To use the Amazon S3 connector, add the <amazons3.init> element in your configur
 
     ```json
     {
-        "awsAccessKeyId": "AKXXXXXXXXX5EAS",
-        "awsSecretAccessKey": "qHXXXXXXNMDYadDdsQMnAOj+3XXXXPs",
+        "awsAccessKeyId": "<!-- access key id -->",
+        "awsSecretAccessKey": "<!-- secret access key -->",
         "region":"us-east-2",
         "connectionName": "amazonS3",
         "bucketName": "signv4test",
