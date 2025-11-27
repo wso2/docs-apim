@@ -362,8 +362,8 @@ Now you can switch into the Source view and check the XML configuration files of
                 <property expression="json-eval($.provisionedThroughput)" name="provisionedThroughput" scope="default" type="STRING" />
                 <amazondynamodb.init>
                    <region>us-east-2</region>
-                   <accessKeyId>AKIAY4QELOL7GF35XBW5</accessKeyId>
-                   <secretAccessKey>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</secretAccessKey>
+                   <accessKeyId><!-- access key id --></accessKeyId>
+                   <secretAccessKey><!-- secret access key --></secretAccessKey>
                    <blocking>false</blocking>
                 </amazondynamodb.init>
                 <amazondynamodb.createTable>
@@ -386,8 +386,8 @@ Now you can switch into the Source view and check the XML configuration files of
                 <property expression="json-eval($.tableName)" name="tableName" scope="default" type="STRING" />
                 <amazondynamodb.init>
                    <region>us-east-2</region>
-                   <accessKeyId>AKIAY4QELOL7GF35XBW5</accessKeyId>
-                   <secretAccessKey>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</secretAccessKey>
+                          <accessKeyId><!-- access key id --></accessKeyId>
+                   <secretAccessKey><!-- secret access key --></secretAccessKey>
                    <blocking>false</blocking>
                 </amazondynamodb.init>
                 <amazondynamodb.putItem>
@@ -407,8 +407,8 @@ Now you can switch into the Source view and check the XML configuration files of
                 <property expression="json-eval($.tableName)" name="tableName" scope="default" type="STRING" />
                 <amazondynamodb.init>
                    <region>us-east-2</region>
-                   <accessKeyId>AKIAY4QELOL7GF35XBW5</accessKeyId>
-                   <secretAccessKey>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</secretAccessKey>
+                   <accessKeyId><!-- access key id --></accessKeyId>
+                   <secretAccessKey><!-- secret access key --></secretAccessKey>
                    <blocking>false</blocking>
                 </amazondynamodb.init>
                 <amazondynamodb.deleteItem>
@@ -430,8 +430,8 @@ Now you can switch into the Source view and check the XML configuration files of
                 <property expression="json-eval($.tableName)" name="tableName" scope="default" type="STRING" />
                 <amazondynamodb.init>
                    <region>us-east-2</region>
-                   <accessKeyId>AKIAY4QELOL7GF35XBW5</accessKeyId>
-                   <secretAccessKey>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</secretAccessKey>
+                   <accessKeyId><!-- access key id --></accessKeyId>
+                   <secretAccessKey><!-- secret access key --></secretAccessKey>
                    <blocking>false</blocking>
                 </amazondynamodb.init>
                 <amazondynamodb.getItem>
@@ -451,8 +451,8 @@ Now you can switch into the Source view and check the XML configuration files of
                 <property expression="json-eval($.limit)" name="limit" scope="default" type="STRING" />
                 <amazondynamodb.init>
                    <region>us-east-2</region>
-                   <accessKeyId>AKIAY4QELOL7GF35XBW5</accessKeyId>
-                   <secretAccessKey>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</secretAccessKey>
+                   <accessKeyId><!-- access key id --></accessKeyId>
+                   <secretAccessKey><!-- secret access key --></secretAccessKey>
                    <blocking>false</blocking>
                 </amazondynamodb.init>
                 <amazondynamodb.listTables>
@@ -472,8 +472,8 @@ Now you can switch into the Source view and check the XML configuration files of
                 <property expression="json-eval($.provisionedThroughput)" name="provisionedThroughput" scope="default" type="STRING" />
                 <amazondynamodb.init>
                    <region>us-east-2</region>
-                   <accessKeyId>AKIAY4QELOL7GF35XBW5</accessKeyId>
-                   <secretAccessKey>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</secretAccessKey>
+                   <accessKeyId><!-- access key id --></accessKeyId>
+                   <secretAccessKey><!-- secret access key --></secretAccessKey>
                    <blocking>false</blocking>
                 </amazondynamodb.init>
                 <amazondynamodb.updateTable>
@@ -492,8 +492,8 @@ Now you can switch into the Source view and check the XML configuration files of
                 <property expression="json-eval($.tableName)" name="tableName" scope="default" type="STRING" />
                 <amazondynamodb.init>
                    <region>us-east-2</region>
-                   <accessKeyId>AKIAY4QELOL7GF35XBW5</accessKeyId>
-                   <secretAccessKey>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</secretAccessKey>
+                   <accessKeyId><!-- access key id --></accessKeyId>
+                   <secretAccessKey><!-- secret access key --></secretAccessKey>
                    <blocking>false</blocking>
                 </amazondynamodb.init>
                 <amazondynamodb.deleteTable>

@@ -203,11 +203,11 @@ Now follow the steps below to add configurations to the `insertEmployeeBulkRecor
                                  <property expression="//source/text()" name="source" scope="default" type="STRING"/>
                                  <salesforcebulk.init>
                                      <apiUrl>https://ap17.salesforce.com</apiUrl>
-                                     <accessToken>00D2x000000pIxA!AR0AQJxgll8UgZqaocCP_U516yo.bpzV19USOFzw4tFsvjbdE6x_ccIKrZgQXLQesOt_VX6FeuSrGq_VxyLdrjvryqh8EBas</accessToken>
-                                     <apiVersion>34</apiVersion>
-                                     <refreshToken>5Aep861Xq7VoDavIt5QG2vWIHGbv.B1Q.4rMXb9o3DFmhvbChN3tF24fOGHvUcOU2iMWSF06w5bWFjmHgu0bA5s</refreshToken>
-                                     <clientSecret>37D9E930DEEB0BAF7842124352065F6DB2D90219D9DB06238978590665EDEFEC</clientSecret>
-                                     <clientId>3MVG97quAmFZJfVyr_k_q7IC1iEc71lap9m4ayJWpUrkVe85mnF0GNjsIu2G4__FGC4NOzS.3o10Eh_H81xX8</clientId>
+                                    <accessToken><!-- access token --></accessToken>
+                                    <apiVersion>34</apiVersion>
+                                    <refreshToken><!-- refresh token --></refreshToken>
+                                    <clientSecret><!-- client secret --></clientSecret>
+                                    <clientId><!-- client id --></clientId>
                                  </salesforcebulk.init>
                                  <salesforcebulk.createJob>
                                      <operation>insert</operation>
@@ -223,11 +223,11 @@ Now follow the steps below to add configurations to the `insertEmployeeBulkRecor
                                  <datamapper config="gov:datamapper/NewConfig.dmc" inputSchema="gov:datamapper/NewConfig_inputSchema.json" inputType="XML" outputSchema="gov:datamapper/NewConfig_outputSchema.json" outputType="XML" xsltStyleSheet="gov:datamapper/NewConfig_xsltStyleSheet.xml"/>
                                  <salesforcebulk.init>
                                      <apiUrl>https://ap17.salesforce.com</apiUrl>
-                                     <accessToken>00D2x000000pIxA!AR0AQJxgll8UgZqaocCP_U516yo.bpzV19USOFzw4tFsvjbdE6x_ccIKrZgQXLQesOt_VX6FeuSrGq_VxyLdrjvryqh8EBas</accessToken>
+                                     <accessToken><!-- access token --></accessToken>
                                      <apiVersion>34</apiVersion>
-                                     <refreshToken>5Aep861Xq7VoDavIt5QG2vWIHGbv.B1Q.4rMXb9o3DFmhvbChN3tF24fOGHvUcOU2iMWSF06w5bWFjmHgu0bA5s</refreshToken>
-                                     <clientSecret>37D9E930DEEB0BAF7842124352065F6DB2D90219D9DB06238978590665EDEFEC</clientSecret>
-                                     <clientId>3MVG97quAmFZJfVyr_k_q7IC1iEc71lap9m4ayJWpUrkVe85mnF0GNjsIu2G4__FGC4NOzS.3o10Eh_H81xX8</clientId>
+                                     <refreshToken><!-- refresh token --></refreshToken>
+                                     <clientSecret><!-- client secret --></clientSecret>
+                                     <clientId><!-- client id --></clientId>
                                  </salesforcebulk.init>
                                  <salesforcebulk.addBatch>
                                      <objects>{//values}</objects>
@@ -246,11 +246,11 @@ Now follow the steps below to add configurations to the `insertEmployeeBulkRecor
                                  <property expression="//batchId/text()" name="batchId" scope="default" type="STRING"/>
                                  <salesforcebulk.init>
                                      <apiUrl>https://ap17.salesforce.com</apiUrl>
-                                     <accessToken>00D2x000000pIxA!AR0AQJxgll8UgZqaocCP_U516yo.bpzV19USOFzw4tFsvjbdE6x_ccIKrZgQXLQesOt_VX6FeuSrGq_VxyLdrjvryqh8EBas</accessToken>
+                                     <accessToken><!-- access token --></accessToken>
                                      <apiVersion>34</apiVersion>
-                                     <refreshToken>5Aep861Xq7VoDavIt5QG2vWIHGbv.B1Q.4rMXb9o3DFmhvbChN3tF24fOGHvUcOU2iMWSF06w5bWFjmHgu0bA5s</refreshToken>
-                                     <clientSecret>37D9E930DEEB0BAF7842124352065F6DB2D90219D9DB06238978590665EDEFEC</clientSecret>
-                                     <clientId>3MVG97quAmFZJfVyr_k_q7IC1iEc71lap9m4ayJWpUrkVe85mnF0GNjsIu2G4__FGC4NOzS.3o10Eh_H81xX8</clientId>
+                                     <refreshToken><!-- refresh token --></refreshToken>
+                                     <clientSecret><!-- client secret --></clientSecret>
+                                     <clientId><!-- client id --></clientId>
                                  </salesforcebulk.init>
                                  <salesforcebulk.getBatchStatus>
                                      <jobId>{$ctx:jobId}</jobId>
