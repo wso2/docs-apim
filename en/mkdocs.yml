@@ -75,11 +75,9 @@ nav:
           - Architecture: get-started/apim-architecture.md
           - Quick Start Guide: get-started/api-manager-quick-start-guide.md
           - Deployment Options:
-              - Deployment Patterns Overview: install-and-setup/setup/deployment-overview.md
-              - Single Node Deployment: install-and-setup/setup/single-node/configuring-a-single-node.md
-              - Active-Active Deployment: install-and-setup/setup/single-node/configuring-an-active-active-deployment.md
-              - Distributed Deployment (Recommended): install-and-setup/setup/distributed-deployment/deploying-wso2-api-m-in-a-distributed-setup.md
-              - Kubernetes Deployment: install-and-setup/setup/kubernetes-deployment/kubernetes/kubernetes-overview.md
+              - Deployment Platforms: get-started/deployment-platforms.md
+              - Deployment Patterns: get-started/deployment-patterns.md 
+              - Choosing Your Deployment Strategy: get-started/choosing-your-deployment-strategy.md
           - About this Release: get-started/about-this-release.md
 
     - API Design & Manage:
@@ -573,14 +571,12 @@ nav:
                     - Customize the Management Console: install-and-setup/setup/advance-configurations/customizing-the-management-console.md
                     - Configure the Crypto Provider: install-and-setup/setup/advance-configurations/configuring-the-crypto-provider.md
         - Deploy:
-            - Deployment Patterns Overview: install-and-setup/setup/deployment-overview.md
             - Deploy on VMs:
-                - Overview: install-and-setup/setup/single-node/deployment-overview.md
                 - All-In-One Deployment:
                     - Single Node Deployment: install-and-setup/setup/single-node/configuring-a-single-node.md
                     - Active-Active Deployment: install-and-setup/setup/single-node/configuring-an-active-active-deployment.md
                 - Distributed Deployment:
-                    - Overview: install-and-setup/setup/distributed-deployment/understanding-the-distributed-deployment-of-wso2-api-m.md
+                    
                     - Simple Scalable Deployment: install-and-setup/setup/distributed-deployment/deploying-wso2-api-m-in-a-simple-scalable-setup.md
                     - Distributed Deployment (Recommended): install-and-setup/setup/distributed-deployment/deploying-wso2-api-m-in-a-distributed-setup.md
                     - Distributed Deployment with Key Manager Separation: install-and-setup/setup/distributed-deployment/deploying-wso2-api-m-in-a-distributed-setup-with-km-separated.md
