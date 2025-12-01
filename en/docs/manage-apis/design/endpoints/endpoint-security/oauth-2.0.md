@@ -129,3 +129,104 @@ If you are using an authenticated Redis server, you should add the following con
       connection_timeout = 36000
       ssl = true
       ```
+
+## Implementing OAuth token retry mechanism for protected backends
+
+WSO2 API Manager provides an advanced token retry mechanism for OAuth-protected backends. This feature enables the API Gateway to automatically retry failed requests to OAuth-protected backend services when the backend returns a 401 Unauthorized status code. When a 401 error occurs, the API Manager automatically renews the access token by invoking the token endpoint and retries the original request with the new token.
+
+This mechanism improves the resilience of API calls to OAuth-protected backends by handling token expiration scenarios transparently, reducing the likelihood of API request failures due to expired tokens.
+
+### Key features
+
+- **Automatic token renewal**: When a backend returns a 401 status code, the API Manager automatically requests a new access token from the OAuth token endpoint.
+- **Seamless retry**: After obtaining a new token, the original API request is retried with the updated credentials.
+- **Configurable behavior**: You can enable or disable the retry mechanism based on your requirements.
+- **Enhanced reliability**: Reduces API failures caused by token expiration in OAuth-protected backend scenarios.
+
+### Configuration
+
+To enable the OAuth token retry mechanism, add the following configuration to the `<API-M_HOME>/repository/conf/deployment.toml` file:
+
+=== "Format"
+    ```toml
+    [apim.mediator_config.oauth]
+    expires_in = "{token-expiration-time-in-minutes}"
+    enable_retry_call_with_new_token = {true|false}
+    ```
+
+=== "Example"
+    ```toml
+    [apim.mediator_config.oauth]
+    expires_in = "10"
+    enable_retry_call_with_new_token = true
+    ```
+
+### Configuration parameters
+
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+<th>Default Value</th>
+<th>Required</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>expires_in</code></td>
+<td>Specifies the token expiration time in minutes. This parameter is only applicable when <code>enable_retry_call_with_new_token</code> is set to <code>false</code>. When retry is enabled (<code>true</code>), this parameter is ignored as the token expiration is determined dynamically based on the backend response.</td>
+<td>No default</td>
+<td>No</td>
+</tr>
+<tr>
+<td><code>enable_retry_call_with_new_token</code></td>
+<td>Enables or disables the automatic token retry mechanism. When set to <code>true</code>, the API Manager will automatically retry requests with a new token upon receiving a 401 response. When set to <code>false</code>, the retry mechanism is disabled.</td>
+<td><code>false</code></td>
+<td>Yes</td>
+</tr>
+</tbody>
+</table>
+
+### Configuration behavior
+
+The relationship between the `expires_in` and `enable_retry_call_with_new_token` parameters is important to understand:
+
+- **When `enable_retry_call_with_new_token = true`**: The `expires_in` parameter is not applicable. The API Manager dynamically handles token expiration based on actual backend responses (401 errors) rather than predefined expiration times.
+
+- **When `enable_retry_call_with_new_token = false`**: The `expires_in` parameter becomes applicable and controls the token caching behavior. The API Manager uses this value to determine when to proactively refresh tokens.
+
+!!! info "Important Configuration Note"
+    The `expires_in` parameter is only effective when `enable_retry_call_with_new_token` is set to `false`. When the retry mechanism is enabled (`true`), token expiration is handled dynamically based on backend responses, making the `expires_in` setting unnecessary.
+
+### How the retry mechanism works
+
+When the OAuth token retry mechanism is enabled, the following sequence occurs:
+
+1. **Initial request**: The API Manager sends a request to the OAuth-protected backend using the current access token.
+
+2. **401 response handling**: If the backend returns a 401 Unauthorized status code, the API Manager detects that the token may have expired.
+
+3. **Token renewal**: The API Manager automatically invokes the configured OAuth token endpoint to obtain a new access token using the stored client credentials.
+
+4. **Request retry**: Once a new token is obtained, the API Manager retries the original request with the updated access token.
+
+5. **Response handling**: The backend processes the retry request with the valid token and returns the appropriate response to the client.
+
+!!! warning "Single Retry Policy"
+    The retry mechanism attempts token renewal only once per request. If the retry also fails with a 401 status code, the error is returned to the client to prevent infinite retry loops.
+
+### Best practices
+
+When implementing the OAuth token retry mechanism, consider the following best practices:
+
+- **Enable retry for production environments**: The retry mechanism is particularly useful in production environments where token expiration can cause intermittent API failures.
+
+- **Monitor backend compatibility**: Ensure that your OAuth-protected backend correctly returns 401 status codes for expired tokens to trigger the retry mechanism.
+
+- **Configure appropriate timeouts**: Set reasonable timeout values for token endpoint calls to avoid delays in request processing during token renewal.
+
+- **Test retry scenarios**: Thoroughly test the retry mechanism by simulating token expiration scenarios to ensure proper functionality.
+
+!!! note "Performance Considerations"
+    While the retry mechanism improves reliability, it may introduce slight latency during token renewal. Consider this when setting API response time expectations.
