@@ -14,15 +14,11 @@ Application-level rate limiting applies to all API calls made by your applicatio
 
 ### How Application-Level Limits Work
 
-An application is a logical collection of one or more APIs. When you create an application, you select a rate limiting tier (e.g., 10PerMin, 50PerMin) that defines the maximum total requests your application can make across all subscribed APIs within a given time period.
+An application is a logical collection of one or more APIs. When you create an application in the Developer Portal, you select a rate limiting tier (e.g., 10PerMin, 50PerMin) that defines the maximum total requests your application can make across all subscribed APIs within a given time period.
 
 For example, if your application has a **20PerMin** tier and subscribes to three APIs, your application can make a combined total of 20 requests per minute across those three APIs—not 20 requests per API.
 
-### Creating an Application with Rate Limiting
-
-When creating an application in the Developer Portal, you select a rate limiting tier as shown below:
-
-[![Application create policy]({{base_path}}/assets/img/learn/application-create-policy.png){: style="width:65%"}]({{base_path}}/assets/img/learn/application-create-policy.png)
+For step-by-step instructions on creating an application, see [Creating an Application with Rate Limiting]({{base_path}}/api-developer-portal/rate-limiting/manage-application-rate-limits/#creating-an-application-with-rate-limiting).
 
 ### Default Application Tiers
 
@@ -66,11 +62,7 @@ Each subscription tier specifies how many requests your application can make to 
 
 For example, if you subscribe to an API using the **Bronze** tier (1000 requests per minute), all users of your application share that 1000 request quota for that API.
 
-### Subscribing to an API
-
-When subscribing to an API in the Developer Portal, you select from the available subscription tiers as shown below:
-
-[![Subscribe application tier]({{base_path}}/assets/img/learn/subscribe-application-tier.png)]({{base_path}}/assets/img/learn/subscribe-application-tier.png)
+For step-by-step instructions on subscribing to APIs with business plans, see [Subscribe to an API]({{base_path}}/api-developer-portal/rate-limiting/manage-application-rate-limits/#subscribe-to-an-api).
 
 ### Default Subscription Tiers
 
@@ -119,31 +111,21 @@ API publishers can configure advanced rate limiting policies that filter request
 
 As an application developer, you should be aware that these additional restrictions may apply to your API requests, even if you haven't exceeded your application or subscription limits.
 
-### Understanding API Type-Specific Rate Limits
-
-Different API types may count requests differently, which affects how quickly you consume your quota:
-
-- **REST APIs**: Standard request counting—each HTTP request counts as one request
-- **Streaming APIs**: Event-based counting (WebSocket frames, SSE events)
-- **GraphQL APIs**: Complexity-based or depth-based limiting
-- **AI APIs**: Token-based limiting (prompt + completion tokens)
-
-Understanding these differences helps you estimate quota consumption accurately. The specific rate limiting configuration for each API type is determined by the API publisher when designing the API.
-
 ## What Happens When Limits Are Exceeded
 
 When your application exceeds a rate limit, the API Gateway rejects the request with an HTTP **429 Too Many Requests** response. The response includes details about which limit was exceeded.
 
-### Handling Rate Limit Errors
+For information on throttled responses, see [Handle Rate Limiting Errors]({{base_path}}/api-developer-portal/rate-limiting/handle-rate-limiting-errors/).
 
-Your application should handle 429 responses gracefully by implementing strategies such as:
+## Additional Considerations
 
-1. **Exponential backoff retry logic** - Wait progressively longer between retry attempts
-2. **Response caching** - Cache API responses where appropriate to reduce repeated requests
-3. **Request distribution** - Distribute requests evenly over time rather than sending bursts
-4. **Usage monitoring** - Monitor your application's API usage patterns to identify trends
+### Per Token Quota
 
-For detailed guidance on implementing these strategies, see [Handle Rate Limiting Errors]({{base_path}}/api-developer-portal/rate-limiting/handle-rate-limiting-errors/).
+Application-level limits are enforced per access token. Each user with their own token gets the full application quota, ensuring fair access. Subscription-level limits are shared across all users of your application accessing that specific API.
+
+### Rate Limiting Precision
+
+The rate limiting solution in API Manager is designed in a fully asynchronous and distributed manner. While this architecture enhances scalability and responsiveness, it may lead to some degree of variation beyond the defined throttle limits. Absolute precision cannot always be guaranteed due to factors such as network latency and the complexities of asynchronous processing.
 
 ## Next Steps
 

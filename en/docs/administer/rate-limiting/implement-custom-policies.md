@@ -1,8 +1,14 @@
-# Custom Rate Limiting
+# Implement Custom Policies
 
-Custom rate limiting allows system administrators to define dynamic rules for specific use cases, which are applied globally across all tenants. When a custom rate limiting policy is created, it is possible to define any policy you like. The Traffic Manager acts as the global rate limiting engine and is based on the same technology as WSO2 Complex Event Processor (CEP), which uses the [Siddhi query language](https://docs.wso2.com/complex-event-processor/SiddhiQL+Guide+3.1) . Users are therefore able to create their own custom rate limiting policies by writing custom Siddhi queries. The specific combination of attributes being checked in the policy need to be defined as the key (also called the key template). The key template usually includes a predefined format and a set of predefined parameters. It can contain a combination of allowed keys separated by a colon (:), where each key must start with the prefix $. The following keys can be used to create custom rate limiting policies:
+Custom rate limiting allows system administrators to define dynamic rules for specific use cases, which are applied globally across all tenants. When a custom rate limiting policy is created, it is possible to define any policy you like. The Traffic Manager acts as the global rate limiting engine and is based on the same technology as WSO2 Complex Event Processor (CEP), which uses the [Siddhi query language](https://docs.wso2.com/complex-event-processor/SiddhiQL+Guide+3.1). Users are therefore able to create their own custom rate limiting policies by writing custom Siddhi queries.
+
+## Key Template
+
+The specific combination of attributes being checked in the policy need to be defined as the key (also called the key template). The key template usually includes a predefined format and a set of predefined parameters. It can contain a combination of allowed keys separated by a colon (:), where each key must start with the prefix $. The following keys can be used to create custom rate limiting policies:
 
 `resourceKey, userId, apiContext, apiVersion, appTenant, apiTenant, appId, clientIp`
+
+## Adding a Custom Throttling Policy
 
 For example, the following sample custom policy allows the admin user to send 5 requests per minute to the Pizza Shack API. 
 
@@ -20,7 +26,7 @@ For example, the following sample custom policy allows the admin user to send 5 
 
     [![Add Custom policy page]({{base_path}}/assets/img/learn/click_custom_policy.png)]({{base_path}}/assets/img/learn/click_custom_policy.png)
 
-4.  Fill in the required details and click **Save**.
+4.  Fill in the required details and click **Save**.
     
     <table>
     <tr>
@@ -66,4 +72,5 @@ For example, the following sample custom policy allows the admin user to send 5 
 
     [![Add Custom policy page]({{base_path}}/assets/img/learn/throttling-custom-policy.png)]({{base_path}}/assets/img/learn/throttling-custom-policy.png)
 
-As shown in the above Siddhi query, the throttle key must match the key template format. If there is a mismatch between the key template format and the throttle key, requests will not be throttled.
+!!! important
+    As shown in the above Siddhi query, the throttle key must match the key template format. If there is a mismatch between the key template format and the throttle key, requests will not be throttled.

@@ -321,17 +321,12 @@ nav:
                 - XML Threat Protection: api-gateway/threat-protectors/xml-threat-protection-for-api-gateway.md
                 - Bot Detection: api-gateway/threat-protectors/bot-detection.md
             - Rate Limiting:
-                - Enforcement Logic & Hierarchy:
-                    - Priority Chain: api-design-manage/design/rate-limiting/enforce-throttling-and-resource-access-policies.md
-                    - GraphQL Enforcement: api-design-manage/design/rate-limiting/graphql-api/query-complexity-analysiss.md
-                    - Streaming Enforcement: api-design-manage/design/rate-limiting/rate-limiting-for-streaming-apis.md
-                - Configuring Distributed Throttling:
-                    - Architecture Overview: api-gateway/rate-limiting/distributed-throttling.md
-                    - Connecting to Redis/Valkey: api-gateway/rate-limiting/configuring-rate-limiting-api-gateway-cluster.md
-                - Advanced Runtime Configurations:
-                    - Distributed Burst Control: api-gateway/rate-limiting/configuring-rate-limiting-api-gateway-cluster.md
-                    - Cluster-Wide Backend Limiting: api-design-manage/design/rate-limiting/setting-maximum-backend-throughput-limits.md
-                    - Custom Throttling: api-gateway/rate-limiting/custom-throttling.md
+                - Understand Rate Limit Enforcement: api-gateway/rate-limiting/understand-rate-limit-enforcement.md
+                - Enforce GraphQL Query Limits: api-gateway/rate-limiting/enforce-graphql-query-limits.md
+                - Enforce Streaming API Limits: api-gateway/rate-limiting/enforce-streaming-api-limits.md
+                - Enforce Custom Throttling: api-gateway/rate-limiting/enforce-custom-throttling.md
+                - Configure Distributed Burst Control & Backend Rate Limiting: api-gateway/rate-limiting/configuring-rate-limiting-api-gateway-cluster.md
+                - Configure Distributed Throttling: api-gateway/rate-limiting/distributed-throttling.md
         - Federated Gateways:
               - Overview: api-gateway/federated-gateways/overview.md
               - AWS:
@@ -354,14 +349,7 @@ nav:
         - LLM Gateway:
             - Getting Started: ai-gateway/getting-started-with-ai-gateway.md
             - AI Backend Security: ai-gateway/ai-backend-security.md
-            - Rate Limiting:
-                - LLM Rate Limiting Fundamentals:
-                    - Overview: ai-gateway/rate-limiting.md
-                    - Requests vs Tokens per Minute: ai-gateway/rate-limiting.md
-                    - Prompt vs Completion Tokens: ai-gateway/rate-limiting.md
-                - Enforcing Egress Limits:
-                    - Controlling LLM Provider Costs: api-design-manage/design/rate-limiting/rate-limiting-for-ai-apis.md
-                    - Rate Limiting for AI APIs: api-design-manage/design/rate-limiting/rate-limiting-for-ai-apis.md
+            - Rate Limiting: ai-gateway/rate-limiting.md
             - Multi-Model Routing:
                 - Overview: ai-gateway/multi-model-routing/overview.md
                 - Load Balancing: ai-gateway/multi-model-routing/load-balancing.md
@@ -469,19 +457,13 @@ nav:
         - Advanced Configurations: administer/advanced-configurations.md
         - Manage Role based access control for the Admin portal: administer/role-based-access-control.md
         - Rate Limiting:
-            - Managing Subscription Policies (Business Plans):
-                - Creating REST Subscription Policies: api-design-manage/design/rate-limiting/adding-new-throttling-policies.md
-                - Defining AI Subscription Policies: api-design-manage/design/rate-limiting/rate-limiting-for-ai-apis.md
-                - Defining GraphQL Subscription Limits: api-design-manage/design/rate-limiting/graphql-api/query-complexity-analysiss.md
-                - Defining Streaming Subscription Limits: api-design-manage/design/rate-limiting/rate-limiting-for-streaming-apis.md
-            - Managing Application Policies:
-                - Defining Per-Application Limits: api-design-manage/design/rate-limiting/adding-new-throttling-policies.md
-            - Managing Advanced Policies:
-                - Defining Technical Limits: api-design-manage/design/rate-limiting/adding-new-throttling-policies.md
-            - Managing Deny Policies (Blocklisting):
-                - Blocking Requests: api-design-manage/design/rate-limiting/access-control.md
-            - Managing Custom Policies:
-                - Writing Siddhi Queries: api-gateway/rate-limiting/custom-throttling.md
+            - Manage Subscription Policies: administer/rate-limiting/manage-subscription-policies.md
+            - Manage AI Subscription Policies: administer/rate-limiting/manage-ai-subscription-policies.md
+            - Manage Application Policies: administer/rate-limiting/manage-application-policies.md
+            - Manage Advanced Policies: administer/rate-limiting/manage-advanced-policies.md
+            - Manage Deny Policies: administer/rate-limiting/manage-deny-policies.md
+            - Implement Custom Policies: administer/rate-limiting/implement-custom-policies.md
+            - Change Default Tiers: administer/rate-limiting/change-default-tiers.md
         - Governance:
             - Overview: administer/governance/overview.md
             - Concepts: administer/governance/governance-concept.md

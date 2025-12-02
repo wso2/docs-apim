@@ -1,6 +1,5 @@
 # Configure Distributed Throttling for API Manager
 
-
 In a distributed deployment of WSO2 API Manager with multiple Traffic Manager nodes, it is essential to maintain traffic counts at a global level to ensure all nodes have a consistent view of the current usage. This is achieved by connecting API Manager to a Redis or Valkey cluster, which is used to store and synchronize distributed counters across all Traffic Manager nodes.
 
 !!! important

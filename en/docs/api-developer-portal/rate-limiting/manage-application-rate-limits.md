@@ -2,6 +2,28 @@
 
 As an application developer, you can view and modify your application's rate limiting configuration, manage API subscriptions, and reset individual user quotas when needed. This guide shows you how to perform these management tasks in the Developer Portal.
 
+## Creating an Application with Rate Limiting
+
+When you create a new application, you must select a rate limiting tier that defines the total number of requests your application can make across all subscribed APIs.
+
+### Create a New Application
+
+To create an application with rate limiting:
+
+1. Sign in to the Developer Portal
+2. Navigate to **Applications**
+3. Click **Add New Application**
+4. Enter the following details:
+   - **Application Name**: A unique name for your application
+   - **Per Token Quota**: Select a rate limiting tier from the dropdown (e.g., 10PerMin, 20PerMin, 50PerMin, or Unlimited)
+   - **Description**: (Optional) Add a description for your application
+5. Click **Save** to create the application
+
+[![Application create policy]({{base_path}}/assets/img/learn/application-create-policy.png){: style="width:65%"}]({{base_path}}/assets/img/learn/application-create-policy.png)
+
+!!! tip
+    The available rate limiting tiers are configured by your API administrator. If you need a custom tier with specific limits, contact your administrator before creating the application.
+
 ## Viewing and Modifying Application Tiers
 
 Your application's rate limiting tier controls the total number of requests your application can make across all subscribed APIs.
@@ -72,52 +94,6 @@ If your usage requirements change, you can upgrade or downgrade your subscriptio
 
 !!! warning
     After modifying a subscription, regenerate your access tokens to ensure the new tier takes effect.
-
-## Additional Considerations
-
-### Fair Quota Distribution
-
-When your application serves multiple users, understanding quota distribution is important:
-
-- **Per Token Quota**: Application-level limits are enforced per access token. Each user with their own token gets the full application quota, ensuring fair access.
-- **Shared Subscription Quota**: Subscription-level limits are shared across all users of your application accessing that specific API.
-
-This dual-layer approach ensures fairness while preventing individual users from exhausting shared resources.
-
-### Infrastructure Limitations
-
-Application rate limiting helps you manage your infrastructure limitations:
-
-- If your backend services can only handle a certain number of requests at a time, select appropriate application tiers
-- Use burst control policies (when available) to prevent sudden traffic spikes
-- Monitor your application's usage patterns to identify when tier upgrades are needed
-
-### Service Level Agreements
-
-Applications provide flexibility for offering different service levels:
-
-- You can subscribe to the same API multiple times with different subscription tiers
-- This allows you to offer premium access to certain user segments
-- Use separate applications for different service levels if needed
-
-For example, you might have:
-- A "Free Tier" application with a 10PerMin limit
-- A "Premium Tier" application with a 50PerMin limit
-- Each subscribed to the same APIs but with different subscription tiers
-
-### Monitoring and Planning
-
-To effectively manage your application's rate limits:
-
-1. **Monitor usage patterns**: Track your application's API usage to understand peak times and average request rates
-2. **Plan capacity**: Select tiers that accommodate your typical usage plus a buffer for growth
-3. **Handle errors gracefully**: Implement proper error handling for rate limit responses. See [Handle Rate Limiting Errors]({{base_path}}/api-developer-portal/rate-limiting/handle-rate-limiting-errors/)
-4. **Regular reviews**: Periodically review your tier selections to ensure they still match your needs
-
-!!! info
-    **Understanding Rate Limiting Precision**
-    
-    The rate limiting solution in API Manager is designed in a fully asynchronous and distributed manner. While this architecture enhances scalability and responsiveness, it may lead to some degree of variation beyond the defined throttle limits. Absolute precision cannot always be guaranteed due to factors such as network latency and the complexities of asynchronous processing.
 
 ## Related Topics
 

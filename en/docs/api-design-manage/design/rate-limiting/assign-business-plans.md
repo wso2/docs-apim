@@ -41,6 +41,13 @@ The system includes the following default tiers:
 !!! note
     Administrators can disable the Unlimited tier by editing the `enable_unlimited_tier` element under `[apim.throttling]` in the `<API-M_HOME>/repository/conf/deployment.toml` file.
 
+### Business Plans for AI APIs
+
+API Creators need to select a minimum of one business plan when creating an AI API through the API-M Publisher Portal. These business plans can be either a default business plan or a custom business plan created through the API-M Admin Portal. The business plans are used to enforce rate limiting by allowing you to limit the number of events via the AI API during a given period of time.
+
+[![AI API Business Plans]({{base_path}}/assets/img/design/rate-limiting/ai-api-business-plans.png)]({{base_path}}/assets/img/design/rate-limiting/ai-api-business-plans.png)
+
+
 ## Burst Control (Spike Arrest)
 
 When selecting subscription tiers for your API, it's important to understand whether those tiers include burst control configuration. Burst control is defined at the subscription tier level by Administrators and determines how granularly rate limits are enforced within the broader subscription quota.
