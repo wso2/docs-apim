@@ -1,4 +1,3 @@
-
 # Copyright (c) 2019, WSO2 Inc. (http://www.wso2.org) All Rights Reserved.
 #
 # WSO2 Inc. licenses this file to you under the Apache License,
@@ -76,11 +75,9 @@ nav:
           - Architecture: get-started/apim-architecture.md
           - Quick Start Guide: get-started/api-manager-quick-start-guide.md
           - Deployment Options:
-              - Deployment Patterns Overview: install-and-setup/setup/deployment-overview.md
-              - Single Node Deployment: install-and-setup/setup/single-node/configuring-a-single-node.md
-              - Active-Active Deployment: install-and-setup/setup/single-node/configuring-an-active-active-deployment.md
-              - Distributed Deployment (Recommended): install-and-setup/setup/distributed-deployment/deploying-wso2-api-m-in-a-distributed-setup.md
-              - Kubernetes Deployment: install-and-setup/setup/kubernetes-deployment/kubernetes/kubernetes-overview.md
+              - Deployment Platforms: get-started/deployment-platforms.md
+              - Deployment Patterns: get-started/deployment-patterns.md 
+              - Choosing Your Deployment Strategy: get-started/choosing-your-deployment-strategy.md
           - About this Release: get-started/about-this-release.md
 
     - API Design & Manage:
@@ -146,32 +143,14 @@ nav:
                 - Overview: api-design-manage/design/api-policies/overview.md
                 - Attach Policy: api-design-manage/design/api-policies/attach-policy.md
                 - Create Policy: api-design-manage/design/api-policies/create-policy.md
-            - API Security:
-                - Authentication:
-                    - Overview: api-design-manage/design/api-security/api-authentication/api-authentication-overview.md
-                    - Disable Security: api-design-manage/design/api-security/api-authentication/disable-security.md
-                    - Secure APIs Using API Keys: api-design-manage/design/api-security/api-authentication/secure-apis-using-api-keys.md
-                    - Secure APIs Using Basic Authentication: api-design-manage/design/api-security/api-authentication/secure-apis-using-basic-authentication.md
-                    - Secure APIs Using Mutual SSL: api-design-manage/design/api-security/api-authentication/secure-apis-using-mutual-ssl.md
-                    - Secure APIs Using OAuth2 Tokens: api-design-manage/design/api-security/api-authentication/secure-apis-using-oauth2-tokens.md
-                    - Securing APIs Using Certificate Bound Access Tokens: api-design-manage/design/api-security/api-authentication/securing-apis-using-certificate-bound-access-tokens.md
-                - Authorization:
-                    - Overview: api-design-manage/design/api-security/authorization/api-authorization.md
-                    - Role-based Access Control Using XACML: api-design-manage/design/api-security/authorization/role-based-access-control-using-xacml.md
-                    - Fine Grained Access Control with OAuth Scopes: api-design-manage/design/api-security/oauth2/oauth2-scopes/fine-grained-access-control-with-oauth-scopes.md
-                - Configuring API Security Audit: api-design-manage/design/api-security/configuring-api-security-audit.md
-                - API Request Response Schema Validation:
-                    - JSON Schema Validator: api-design-manage/design/api-security/api-request-response-schema-validation/json-schema-validator.md
-                - OPA Validation:
-                    - Overview: api-design-manage/design/api-security/opa-validation/overview.md
-                    - Custom OPA Policy for Regular Gateway: api-design-manage/design/api-security/opa-validation/custom-opa-policy-for-regular-gateway.md
             - Rate Limiting:
-                - Throttling Use-Cases: api-design-manage/design/rate-limiting/introducing-throttling-use-cases.md
-                - Setting Throttling Limits: api-design-manage/design/rate-limiting/setting-throttling-limits.md
-                - Access Control: api-design-manage/design/rate-limiting/access-control.md
-                - GraphQL API:
-                    - Query Complexity Analysis: api-design-manage/design/rate-limiting/graphql-api/query-complexity-analysis.md
-                    - Query Depth Analysis: api-design-manage/design/rate-limiting/graphql-api/query-depth-analysis.md
+                - Set API Operation Limits: api-design-manage/design/rate-limiting/set-api-level-throttling.md
+                - Protect Backend Services: api-design-manage/design/rate-limiting/protect-backend-services.md
+                - Assign Business Plans: api-design-manage/design/rate-limiting/assign-business-plans.md
+                - Set GraphQL Query Limits:
+                    - Limit Query Complexity: api-design-manage/design/rate-limiting/graphql-api/query-complexity-analysis.md
+                    - Limit Query Depth: api-design-manage/design/rate-limiting/graphql-api/query-depth-analysis.md
+                - Set Streaming API Limits: api-design-manage/design/rate-limiting/set-streaming-api-limits.md
             - Advanced Topics:
                 - Enable Publisher Access Control: api-design-manage/design/advanced-topics/enable-publisher-access-control-in-api-publisher-portal.md
                 - Control API Visibility and Subscription Availability: api-design-manage/design/advanced-topics/control-api-visibility-and-subscription-availability-in-developer-portal.md
@@ -240,13 +219,78 @@ nav:
             - Recover Password: api-developer-portal/user-account-management/recover-password.md
             - Change Password: api-developer-portal/user-account-management/change-dev-portal-password.md
         - Rate Limiting:
-            - Resetting Application Throttling Policies: api-developer-portal/rate-limiting/resetting-application-throttling-policies.md
+            - Rate Limiting for App Developers: api-developer-portal/rate-limiting/rate-limiting-for-app-developers.md
+            - Manage Application Rate Limits: api-developer-portal/rate-limiting/manage-application-rate-limits.md
+            - Handle Rate Limiting Errors: api-developer-portal/rate-limiting/handle-rate-limiting-errors.md
+            - Reset Application Throttling Policies: api-developer-portal/rate-limiting/resetting-application-throttling-policies.md
         - B2B API Consumption:
             - B2B API Consumption: api-developer-portal/b2b-api-consumption/api-consumption.md
             - Setup WSO2 Identity Server as a Federated Authenticator: api-developer-portal/b2b-api-consumption/setup-identity-server.md
 
+    - API Security:
+        - Design-Time Security:
+            - Configuring API Security Audit: api-security/design-time/configuring-api-security-audit.md
+        - Runtime Security:
+            - Authentication:
+                - Overview: api-security/runtime/api-authentication/api-authentication-overview.md
+                - Disable Security: api-security/runtime/api-authentication/disable-security.md
+                - Secure APIs Using API Keys: api-security/runtime/api-authentication/secure-apis-using-api-keys.md
+                - Secure APIs Using Basic Authentication: api-security/runtime/api-authentication/secure-apis-using-basic-authentication.md
+                - Secure APIs Using Mutual SSL: api-security/runtime/api-authentication/secure-apis-using-mutual-ssl.md
+                - Secure APIs Using OAuth2 Tokens: api-security/runtime/api-authentication/secure-apis-using-oauth2-tokens.md
+                - Securing APIs Using Certificate Bound Access Tokens: api-design-manage/design/api-security/api-authentication/securing-apis-using-certificate-bound-access-tokens.md
+            - Authorization:
+                - Overview: api-security/runtime/authorization/api-authorization.md
+                - Role-based Access Control Using XACML: api-security/runtime/authorization/role-based-access-control-using-xacml.md
+                - Fine Grained Access Control with OAuth Scopes: api-security/runtime/oauth2/oauth2-scopes/fine-grained-access-control-with-oauth-scopes.md
+                - Scope Whitelisting: key-manager/authentication/oauth2-scopes/scope-whitelisting.md
+            - API Request Response Schema Validation:
+                - JSON Schema Validator: api-security/runtime/api-request-response-schema-validation/json-schema-validator.md
+            - OPA Validation:
+                - Overview: api-security/runtime/opa-validation/overview.md
+                - Custom OPA Policy for Regular Gateway: api-security/runtime/opa-validation/custom-opa-policy-for-regular-gateway.md
+        - Key Management:
+            - Overview: key-manager/key-manager-overview.md
+            - Grant Types:
+                - Overview: key-manager/authentication/grant-types/overview.md
+                - Password Grant: key-manager/authentication/grant-types/password-grant.md
+                - Client Credentials Grant: key-manager/authentication/grant-types/client-credentials-grant.md
+                - Authorization Code Grant: key-manager/authentication/grant-types/authorization-code-grant.md
+                - Refresh Token Grant: key-manager/authentication/grant-types/refresh-token-grant.md
+                - JWT Grant: key-manager/authentication/grant-types/jwt-grant.md
+                - SAML Extension Grant: key-manager/authentication/grant-types/saml-extension-grant.md
+                - Kerberos OAuth2 Grant: key-manager/authentication/grant-types/kerberos-oauth2-grant.md
+                - NTLM Grant: key-manager/authentication/grant-types/ntlm-grant.md
+            - Tokens:
+                - JWT Tokens: key-manager/tokens/jwt-tokens.md
+                - Token Expiration: key-manager/tokens/token-expiration.md
+                - Token Persistence: key-manager/tokens/token-persistence.md
+                - Token Revocation: key-manager/tokens/token-revocation.md
+                - Encrypting OAuth2 Tokens: key-manager/tokens/encrypting-oauth2-tokens.md
+                - Hashing OAuth Keys: key-manager/tokens/hashing-oauth-keys.md
+                - Multiple Active Access Tokens: key-manager/tokens/multiple-active-access-tokens.md
+                - Securing OAuth Token with HMAC Validation: key-manager/tokens/securing-oauth-token-with-hmac-validation.md
+            - Applications:
+                - Provisioning Out-of-Band OAuth Clients: key-manager/applications/provisioning-out-of-band-oauth-clients.md
+                - Federating OAuth Applications: key-manager/applications/federating-oauth-applications.md
+            - Identity:
+                - Obtain User Profile Information with OpenID Connect: key-manager/identity/obtaining-user-profile-information-with-openid-connect.md
+            - Third-Party Key Managers:
+                - Overview: key-manager/third-party-key-managers/overview.md
+                - Configure WSO2 IS as a Key Manager: key-manager/third-party-key-managers/configure-wso2is-connector.md
+                - Configure WSO2 IS 7.x as a Key Manager: key-manager/third-party-key-managers/configure-wso2is7-connector.md
+                - Configure Keycloak as a Key Manager: key-manager/third-party-key-managers/configure-keycloak-connector.md
+                - Configure Okta as a Key Manager: key-manager/third-party-key-managers/configure-okta-connector.md
+                - Configure Auth0 as a Key Manager: key-manager/third-party-key-managers/configure-auth0-connector.md
+                - Configure PingFederate as A Key Manager: key-manager/third-party-key-managers/configure-pingfederate-connector.md
+                - Configure ForgeRock as a Key Manager: key-manager/third-party-key-managers/configure-forgerock-connector.md
+                - Configure a Custom Key Manager: key-manager/third-party-key-managers/configure-custom-connector.md
+                - Configure the Global Key Manager: key-manager/third-party-key-managers/configure-global-key-manager.md
+                - Configure the Azure AD as a Key Manager: key-manager/third-party-key-managers/configure-azure-ad-key-manager.md
+                - Application Scopes: key-manager/third-party-key-managers/application-scopes.md
+
     - API Gateway:
-        - Regular Gateway:
+        - Universal Gateway:
             - Overview of the WSO2 Universal Gateway: api-gateway/overview-of-the-api-gateway.md
             - Gateway Policies: api-gateway/gateway-policies.md
             - Response Caching: api-gateway/response-caching.md
@@ -258,7 +302,7 @@ nav:
                 - Universal Gateways with Dedicated Backends: api-gateway/api-gateways-with-dedicated-backends.md
                 - Mutual SSL Between Universal Gateway and Backend: api-gateway/mutual-ssl-between-api-gateway-and-backend.md
                 - Storing Custom Synapse Artifacts in the Gateway: api-gateway/custom-synapse-artifacts.md
-            - Regular Gateway Policies:
+            - Universal Gateway Policies:
                 - Adding Dynamic Endpoints: api-gateway/policies/adding-dynamic-endpoints.md
                 - Adding a Class Mediator: api-gateway/policies/adding-a-class-mediator.md
                 - Adding a Non-Blocking Send Operation: api-gateway/policies/adding-a-non-blocking-send-operation.md
@@ -277,14 +321,12 @@ nav:
                 - XML Threat Protection: api-gateway/threat-protectors/xml-threat-protection-for-api-gateway.md
                 - Bot Detection: api-gateway/threat-protectors/bot-detection.md
             - Rate Limiting:
-                - Enforce Throttling and Resource Access Policies: api-gateway/rate-limiting/enforce-throttling-and-resource-access-policies.md
-                - Setting Maximum Backend Throughput Limits: api-gateway/rate-limiting/setting-maximum-backend-throughput-limits.md
-                - Rate Limiting for AI APIs: api-gateway/rate-limiting/rate-limiting-for-ai-apis.md
-                - Rate Limiting for Streaming APIs: api-gateway/rate-limiting/rate-limiting-for-streaming-apis.md
-                - Advanced Topics:
-                    - Distributed Burst Control for API Gateway Cluster: api-gateway/rate-limiting/configuring-rate-limiting-api-gateway-cluster.md
-                    - Distributed Throttling: api-gateway/rate-limiting/distributed-throttling.md
-                    - Custom Throttling: api-gateway/rate-limiting/custom-throttling.md
+                - Understand Rate Limit Enforcement: api-gateway/rate-limiting/understand-rate-limit-enforcement.md
+                - Enforce GraphQL Query Limits: api-gateway/rate-limiting/enforce-graphql-query-limits.md
+                - Enforce Streaming API Limits: api-gateway/rate-limiting/enforce-streaming-api-limits.md
+                - Enforce Custom Throttling: api-gateway/rate-limiting/enforce-custom-throttling.md
+                - Configure Distributed Burst Control & Backend Rate Limiting: api-gateway/rate-limiting/configuring-rate-limiting-api-gateway-cluster.md
+                - Configure Distributed Throttling: api-gateway/rate-limiting/distributed-throttling.md
         - Federated Gateways:
               - Overview: api-gateway/federated-gateways/overview.md
               - AWS:
@@ -354,8 +396,6 @@ nav:
             - Consume MCP Servers from MCP Hub: mcp-gateway/invoke-a-mcp-server-using-playground.md
 
     - API Analytics & Monetization:
-        - API Monetization:
-            - Monetize an API: monitoring/api-monetization/monetizing-an-api.md
         - API Analytics:
             - Overview: monitoring/api-analytics/analytics-overview.md
             - Moesif Analytics: monitoring/api-analytics/moesif-analytics/moesif-integration-guide.md
@@ -371,6 +411,8 @@ nav:
                     - Choreo Based Analytics via Proxy: monitoring/api-analytics/choreo-analytics/choreo-based-analytics-via-proxy.md
             - Publish Analytics Events to External Systems: monitoring/api-analytics/samples/publishing-analytics-events-to-external-systems.md
             - Publish Custom Analytics Events Data: monitoring/api-analytics/samples/publishing-custom-analytics-data.md
+        - API Monetization:
+            - Monetize an API: monitoring/api-monetization/monetizing-an-api.md
         - Observability:
             - Overview: monitoring/observability/observability-overview.md
             - Logs:
@@ -387,50 +429,6 @@ nav:
                 - OpenTelemetry: monitoring/observability/traces/monitoring-with-opentelemetry.md
             - Metrics:
                 - JMX-Based Monitoring: monitoring/observability/metrics/jmx-based-monitoring.md
-
-    - Key Manager:
-        - Overview: key-manager/key-manager-overview.md
-        - Authentication & Authorization:
-            - Grant Types:
-                - Overview: key-manager/authentication/grant-types/overview.md
-                - Password Grant: key-manager/authentication/grant-types/password-grant.md
-                - Client Credentials Grant: key-manager/authentication/grant-types/client-credentials-grant.md
-                - Authorization Code Grant: key-manager/authentication/grant-types/authorization-code-grant.md
-                - Refresh Token Grant: key-manager/authentication/grant-types/refresh-token-grant.md
-                - JWT Grant: key-manager/authentication/grant-types/jwt-grant.md
-                - SAML Extension Grant: key-manager/authentication/grant-types/saml-extension-grant.md
-                - Kerberos OAuth2 Grant: key-manager/authentication/grant-types/kerberos-oauth2-grant.md
-                - NTLM Grant: key-manager/authentication/grant-types/ntlm-grant.md
-            - OAuth2 Scopes:
-                - Fine-grained Access Control with OAuth Scopes: key-manager/authentication/oauth2-scopes/fine-grained-access-control-with-oauth-scopes.md
-                - Scope Whitelisting: key-manager/authentication/oauth2-scopes/scope-whitelisting.md
-        - Tokens:
-            - JWT Tokens: key-manager/tokens/jwt-tokens.md
-            - Token Expiration: key-manager/tokens/token-expiration.md
-            - Token Persistence: key-manager/tokens/token-persistence.md
-            - Token Revocation: key-manager/tokens/token-revocation.md
-            - Encrypting OAuth2 Tokens: key-manager/tokens/encrypting-oauth2-tokens.md
-            - Hashing OAuth Keys: key-manager/tokens/hashing-oauth-keys.md
-            - Multiple Active Access Tokens: key-manager/tokens/multiple-active-access-tokens.md
-            - Securing OAuth Token with HMAC Validation: key-manager/tokens/securing-oauth-token-with-hmac-validation.md
-        - Applications:
-            - Provisioning Out-of-Band OAuth Clients: key-manager/applications/provisioning-out-of-band-oauth-clients.md
-            - Federating OAuth Applications: key-manager/applications/federating-oauth-applications.md
-        - Identity:
-            - Obtain User Profile Information with OpenID Connect: key-manager/identity/obtaining-user-profile-information-with-openid-connect.md
-        - Third-Party Key Managers:
-            - Overview: key-manager/third-party-key-managers/overview.md
-            - Configure WSO2 IS as a Key Manager: key-manager/third-party-key-managers/configure-wso2is-connector.md
-            - Configure WSO2 IS 7.x as a Key Manager: key-manager/third-party-key-managers/configure-wso2is7-connector.md
-            - Configure Keycloak as a Key Manager: key-manager/third-party-key-managers/configure-keycloak-connector.md
-            - Configure Okta as a Key Manager: key-manager/third-party-key-managers/configure-okta-connector.md
-            - Configure Auth0 as a Key Manager: key-manager/third-party-key-managers/configure-auth0-connector.md
-            - Configure PingFederate as A Key Manager: key-manager/third-party-key-managers/configure-pingfederate-connector.md
-            - Configure ForgeRock as a Key Manager: key-manager/third-party-key-managers/configure-forgerock-connector.md
-            - Configure a Custom Key Manager: key-manager/third-party-key-managers/configure-custom-connector.md
-            - Configure the Global Key Manager: key-manager/third-party-key-managers/configure-global-key-manager.md
-            - Configure the Azure AD as a Key Manager: key-manager/third-party-key-managers/configure-azure-ad-key-manager.md
-            - Application Scopes: key-manager/third-party-key-managers/application-scopes.md
 
     - Admin Portal:
         - Administer Overview: administer/admin-overview.md
@@ -459,7 +457,13 @@ nav:
         - Advanced Configurations: administer/advanced-configurations.md
         - Manage Role based access control for the Admin portal: administer/role-based-access-control.md
         - Rate Limiting:
-            - Adding New Throttling Policies: api-design-manage/design/rate-limiting/adding-new-throttling-policies.md
+            - Manage Subscription Policies: administer/rate-limiting/manage-subscription-policies.md
+            - Manage AI Subscription Policies: administer/rate-limiting/manage-ai-subscription-policies.md
+            - Manage Application Policies: administer/rate-limiting/manage-application-policies.md
+            - Manage Advanced Policies: administer/rate-limiting/manage-advanced-policies.md
+            - Manage Deny Policies: administer/rate-limiting/manage-deny-policies.md
+            - Implement Custom Policies: administer/rate-limiting/implement-custom-policies.md
+            - Change Default Tiers: administer/rate-limiting/change-default-tiers.md
         - Governance:
             - Overview: administer/governance/overview.md
             - Concepts: administer/governance/governance-concept.md
@@ -575,14 +579,12 @@ nav:
                     - Customize the Management Console: install-and-setup/setup/advance-configurations/customizing-the-management-console.md
                     - Configure the Crypto Provider: install-and-setup/setup/advance-configurations/configuring-the-crypto-provider.md
         - Deploy:
-            - Deployment Patterns Overview: install-and-setup/setup/deployment-overview.md
             - Deploy on VMs:
-                - Overview: install-and-setup/setup/single-node/deployment-overview.md
                 - All-In-One Deployment:
                     - Single Node Deployment: install-and-setup/setup/single-node/configuring-a-single-node.md
                     - Active-Active Deployment: install-and-setup/setup/single-node/configuring-an-active-active-deployment.md
                 - Distributed Deployment:
-                    - Overview: install-and-setup/setup/distributed-deployment/understanding-the-distributed-deployment-of-wso2-api-m.md
+                    
                     - Simple Scalable Deployment: install-and-setup/setup/distributed-deployment/deploying-wso2-api-m-in-a-simple-scalable-setup.md
                     - Distributed Deployment (Recommended): install-and-setup/setup/distributed-deployment/deploying-wso2-api-m-in-a-distributed-setup.md
                     - Distributed Deployment with Key Manager Separation: install-and-setup/setup/distributed-deployment/deploying-wso2-api-m-in-a-distributed-setup-with-km-separated.md
@@ -1343,15 +1345,69 @@ extra:
     - title: Get Started
       options:
         - verticle-line
-        - divider
+        - no-collapsible
     - title: API Design & Manage
       options:
         - verticle-line
-        - divider     
+        - divider
+    - title: API Developer Portal
+      options:
+        - verticle-line-only
+    - title: API Gateway
+      options:
+        - verticle-line-only
+    - title: AI Gateway
+      options:
+        - verticle-line-only
+    - title: API Analytics & Monetization
+      options:
+        - verticle-line-only
+    - title: API Security
+      options:
+        - verticle-line-only
+    - title: Admin Portal
+      options:
+        - verticle-line-only
+    - title: APIOps
+      options:
+        - verticle-line-only
     - title: Install & Setup
       options:
         - verticle-line
-        - divider    
+        - divider
+    - title: Reference
+      options:
+        - verticle-line-only
+    - title: Tutorials
+      options:
+        - verticle-line-only
+
+    # Navigation behaviors configuration - Define all interactive behaviors here
+    nav_behaviors:
+      # Define which sections should auto-collapse when user navigates to other sections
+      auto_collapse:
+        - title: API Design & Manage
+          collapse_when_url_starts_with:
+            - api-developer-portal/
+            - api-gateway/
+            - ai-gateway/
+            - monitoring/
+            - key-manager/
+            - administer/
+          stay_expanded_when_url_starts_with:
+            - api-design-manage/
+            - get-started/
+          stay_expanded_on_pages:
+            - index.md
+        - title: Install & Setup
+          collapse_when_url_starts_with:
+            - reference/
+            - tutorials/
+          stay_expanded_when_url_starts_with:
+            - install-and-setup/
+            - get-started/
+          stay_expanded_on_pages:
+            - index.md
 
     nav_icons:
       Home:
@@ -1361,37 +1417,37 @@ extra:
         icon: octicons/rocket-16
         level: 1
       API Design & Manage:
-        icon: octicons/tools-16
+        icon: octicons/pencil-16
         level: 1
       API Developer Portal:
-        icon: octicons/plug-16
+        icon: octicons/browser-16
         level: 1
       API Gateway:
-        icon: octicons/mortar-board-16
+        icon: octicons/server-16
         level: 1
       AI Gateway:
-        icon: octicons/tools-16
+        icon: octicons/hubot-16
         level: 1
       API Analytics & Monetization:
         icon: octicons/graph-16
         level: 1
-      Key Manager:
-        icon: octicons/link-external-16
+      API Security:
+        icon: octicons/shield-check-16
         level: 1
       Admin Portal:
         icon: octicons/gear-16
         level: 1
       APIOps:
-        icon: octicons/desktop-download-16
+        icon: octicons/workflow-16
         level: 1
       Install & Setup:
-        icon: octicons/mortar-board-16
+        icon: octicons/download-16
         level: 1
       Reference:
         icon: octicons/book-16
         level: 1
       Tutorials:
-        icon: octicons/light-bulb-16
+        icon: octicons/mortar-board-16
         level: 1
     social:
         - icon: fontawesome/brands/github-alt

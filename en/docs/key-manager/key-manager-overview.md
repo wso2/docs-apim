@@ -2,7 +2,7 @@
 
 Production API deployments face authentication and authorization challenges: token management complexity, OAuth application lifecycle overhead, inconsistent security policies across providers, and the need for enterprise-grade access control systems.
 
-**WSO2 Key Manager** serves as the authentication and authorization service (STS) that the API Gateway and AI Gateway use to secure APIs within the WSO2 API Manager platform.
+**WSO2 Key Manager** serves as the authentication and authorization service (STS) that the API Gateway and AI Gateway use to secure API runtimes within the WSO2 API Manager platform.
 
 As the central security authority for API access, it enables:
 
@@ -81,8 +81,7 @@ The **Built-in Key Manager** provides comprehensive OAuth2 and OpenID Connect ca
 - **[Kerberos OAuth2 Grant]({{base_path}}/key-manager/authentication/grant-types/kerberos-oauth2-grant/)**: Windows authentication integration
 - **[NTLM Grant]({{base_path}}/key-manager/authentication/grant-types/ntlm-grant/)**: Windows domain authentication support
 
-#### Security & Access Control
-- **[OAuth2 Scopes]({{base_path}}/key-manager/authentication/oauth2-scopes/scope-whitelisting/)**: Fine-grained permission management with scope whitelisting
+#### Security
 - **[Token Encryption]({{base_path}}/key-manager/tokens/encrypting-oauth2-tokens/)**: Encrypt tokens at rest and in transit
 - **[OAuth Key Hashing]({{base_path}}/key-manager/applications/hashing-oauth-keys/)**: Secure storage of client credentials
 - **[HMAC Token Validation]({{base_path}}/key-manager/tokens/securing-oauth-token-with-hmac-validation/)**: Additional token integrity verification
