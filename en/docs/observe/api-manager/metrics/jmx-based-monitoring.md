@@ -212,7 +212,7 @@ The WSO2 product that you are using may have product-specific MBeans enabled for
 
 Follow the steps below to use Jolokia to monitor a WSO2 product.
 
-1.  Download [Jolokia OSGi Agent](https://jolokia.org/download.html). (These instructions are tested with the Jolokia OSGI Agent version 1.3.6 by downloading the `jolokia-osgi-1.3.6.jar` file.)
+1.  Download [Jolokia OSGi Agent](https://jolokia.org/download.html). (These instructions are tested with the Jolokia OSGI Agent version 1.7.2 by downloading the `jolokia-osgi-1.7.2.jar` file.)
 2.  Add it to the `<API-M_HOME>/repository/components/dropins/` directory.
 3.  Start the WSO2 product server.
 
