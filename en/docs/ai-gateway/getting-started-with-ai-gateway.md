@@ -13,15 +13,15 @@ AI Gateway gives you the ability to create AI APIs, which serve as a bridge betw
 
 2. Create an **AI API** by clicking on **Create AI API**.
 
-    [![Select AI API]({{base_path}}/assets/img/learn/ai-gateway/select-ai-api.png){: style="width:90%"}]({{base_path}}/assets/img/learn/ai-gateway/select-ai-api.png)
+    [![Select AI API](../assets/img/learn/select-ai-api.png)](../assets/img/learn/select-ai-api.png)
 
 3. Select the desired provider and version. Then, click Next.
 
-    [![Select AI Service Provider and Version]({{base_path}}/assets/img/learn/ai-gateway/select-service-provider.png){: style="width:90%"}]({{base_path}}/assets/img/learn/ai-gateway/select-service-provider.png)
+    [![Select AI Service Provider and Version](../assets/img/learn/ai-gateway/select-service-provider.png)](../assets/img/learn/ai-gateway/select-service-provider.png)
 
     <div class="admonition tip">
     <p class="admonition-title">Tip</p>
-    <p>The built-in AI service providers and versions will appear on relevant dropdowns. In addition to the default Service Providers, you can add custom AI Service Providers by following the <a href='{{base_path}}/ai-gateway/ai-vendor-management/custom-ai-vendors/overview'>custom AI Service Provider integration</a> documentation.</p>
+    <p>The built-in AI service providers and versions will appear on relevant dropdowns. In addition to the default Service Providers, you can add custom AI Service Providers by following the <a href='../ai-gateway/ai-vendor-management/custom-ai-vendors'>custom AI Service Provider integration</a> documentation.</p>
     </div>
 
 4. Fill in the AI API details and click **Create**.
@@ -80,13 +80,13 @@ AI Gateway gives you the ability to create AI APIs, which serve as a bridge betw
         </tbody>
     </table>
 
-    [![Create OpenAI API]({{base_path}}/assets/img/learn/ai-gateway/create-openai-api.png){: style="width:90%"}]({{base_path}}/assets/img/learn/ai-gateway/create-openai-api.png)
+    [![Create OpenAI API](../assets/img/learn/ai-gateway/create-openai-api.png)](../assets/img/learn/ai-gateway/create-openai-api.png)
 
     The overview page of the newly created API appears.
 
 ### Configure Backend Security
 
-Now that the AI API is successfully created, next step is to configure the backend security to ensure AI provider accessibility. You can follow along the steps mentioned below. For detailed steps, see [AI Backend Security]({{base_path}}/ai-gateway/ai-backend-security/).
+Now that the AI API is successfully created, next step is to configure the backend security to ensure AI provider accessibility. You can follow along the steps mentioned below. For detailed steps, see [AI Backend Security](../ai-gateway/ai-backend-security.md).
 
 1. Create an **API key** to access the OpenAI API.
 2. Navigate to **API Configurations** --> **Endpoints**.
@@ -95,7 +95,7 @@ Now that the AI API is successfully created, next step is to configure the backe
 
 ### Deploy, Test and Publish your AI API
 
-Following the successful AI API creation and backend security configuration, you can proceed to [deploy]({{base_path}}/manage-apis/deploy-and-publish/deploy-on-gateway/deploy-api/deploy-an-api/), [test]({{base_path}}/manage-apis/design/create-api/create-rest-api/test-a-rest-api/), and [publish]({{base_path}}/manage-apis/deploy-and-publish/publish-on-dev-portal/publish-an-api) the AI API.
+Following the successful AI API creation and backend security configuration, you can proceed to [deploy](../manage-apis/deploy-and-publish/deploy-on-gateway/deploy-api/deploy-an-api.md), [test](../manage-apis/design/create-api/create-rest-api/test-a-rest-api.md), and [publish](../manage-apis/deploy-and-publish/publish-on-dev-portal/publish-an-api.md) the AI API.
 
 ### Invoke AI API
 
@@ -114,6 +114,7 @@ Following the successful AI API creation and backend security configuration, you
 
 6. Note the successful response for the API invocation.
 
-    [![AI API Invocation Success]({{base_path}}/assets/img/learn/ai-gateway/ai-api-invocation-success.png){: style="width:90%"}]({{base_path}}/assets/img/learn/ai-gateway/ai-api-invocation-success.png)
+    [![AI API Invocation Success](../assets/img/learn/ai-gateway/ai-api-invocation-success.png)](../assets/img/learn/ai-gateway/ai-api-invocation-success.png)
 
 Now, you have successfully created, deployed, published and invoked an AI API.
+
