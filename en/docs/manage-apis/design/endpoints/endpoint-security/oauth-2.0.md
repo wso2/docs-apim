@@ -129,3 +129,32 @@ If you are using an authenticated Redis server, you should add the following con
       connection_timeout = 36000
       ssl = true
       ```
+
+## Configuring OAuth token management behavior
+
+By default, WSO2 API Manager handles OAuth access token management at the Gateway (Synapse) level. The Gateway is configured to automatically retry requests when the backend responds with an Unauthorized HTTP status code (401). Upon receiving such a response, the Gateway obtains a new access token from the OAuth authorization server and retries the backend request with the refreshed token.
+
+If you want to change this behavior and manage access tokens at the Control Plane instead, you can configure the following settings in the `<API-M_HOME>/repository/conf/deployment.toml` file:
+
+=== "Format"
+      ```toml
+      [apim.mediator_config.oauth]
+      enable_retry_call_with_new_token = false
+      expires_in = "<default-token-expiry-time-in-seconds>"
+      ```
+
+=== "Example"
+      ```toml
+      [apim.mediator_config.oauth]
+      enable_retry_call_with_new_token = false
+      expires_in = "3600"
+      ```
+
+When `enable_retry_call_with_new_token` is set to `false`, the system proactively validates token expiry before invoking backend services. The `expires_in` configuration specifies the default token expiry time in seconds and is used when the OAuth authorization server returns an access token without an `expires_in` value, as this field is optional in the OAuth 2.0 specification.
+
+!!! note
+    **Difference between the two token management approaches:**
+    
+    - **Gateway-level management (default, `enable_retry_call_with_new_token = true`)**: Employs a reactive approach where tokens are managed based on backend responses. The Gateway detects token expiry through Unauthorized HTTP responses (401) from the backend and automatically obtains a new token and retries the request.
+    
+    - **Control Plane management (`enable_retry_call_with_new_token = false`)**: Employs a proactive approach where the system validates token expiry before invoking backend services. Token refresh is triggered based on the `expires_in` value prior to backend invocation. The `expires_in` configuration only applies when the OAuth authorization server does not provide an `expires_in` value in the token response.
