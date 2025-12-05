@@ -488,9 +488,10 @@
 }
 
 .md-nav__list hr {
-    border: 1px solid var(--md-default-fg-color--lighter);
+    border: 1px solid var(--md-divider-color);
+    opacity: 0.3;
     height: 0;
-    margin: 20px 0;
+    margin: 8px 16px 18px 16px;
 }
 
 .md-nav__link .icon {
