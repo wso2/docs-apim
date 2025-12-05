@@ -314,8 +314,9 @@ nav:
             - Publish Integrations to the API Manager: integrate/develop/working-with-service-catalog.md
     - Analytics:
         - API Analytics:
+            - Moesif Analytics: api-analytics/moesif-analytics/moesif-integration-guide.md
             - Choreo Based Analytics: 
-                - Architecture: api-analytics/choreo-analytics/api-analytics-architecture.md
+                - Architecture: api-analytics/moesif-analytics/api-analytics-architecture.md
                 - Getting Started Guide: api-analytics/choreo-analytics/getting-started-guide.md
                 - Role-based Access Control : api-analytics/choreo-analytics/role-based-access-control.md
                 - Alerts: api-analytics/choreo-analytics/configure-alerts.md
