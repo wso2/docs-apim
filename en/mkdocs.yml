@@ -18,7 +18,7 @@
 site_name: WSO2 API Manager Documentation
 site_description: Documentation for WSO2 API Manager
 site_author: WSO2
-site_url: https://dushaniw.github.io/docs-apim/
+site_url: https://apim-docs-stg.wso2.com/en/4.6.0/
 
 # Repository
 repo_name: wso2/docs-apim
@@ -70,7 +70,7 @@ strict: false
 nav:
     - Home: index.md
     - Get Started:
-          - Overview: get-started/overview.md
+          - Introduction: get-started/overview.md
           - Key Concepts: get-started/key-concepts.md
           - Architecture: get-started/apim-architecture.md
           - Quick Start Guide: get-started/api-manager-quick-start-guide.md
@@ -80,6 +80,149 @@ nav:
               - Choosing Your Deployment Strategy: get-started/choosing-your-deployment-strategy.md
           - About this Release: get-started/about-this-release.md
 
+    - Install & Setup:
+        - Overview: install-and-setup/install-and-setup-overview.md
+        - Install:
+            - Installation Prerequisites: install-and-setup/install/installation-prerequisites.md
+            - Install the API Manager Runtime:
+                - Install API-M: install-and-setup/install/installing-the-product/installing-api-m-runtime.md
+                - Run API-M: install-and-setup/install/installing-the-product/running-the-api-m.md
+                - Run API-M as a Linux Service: install-and-setup/install/installing-the-product/installing-api-m-as-a-linux-service.md
+                - Run API-M as a Windows Service: install-and-setup/install/installing-the-product/installing-api-m-as-a-windows-service.md
+            - Installation Options: install-and-setup/install/installation-options.md
+        - Setup:
+            - Set up API Manager:
+                - Update WSO2 API Manager: administer/updating-wso2-api-manager.md
+                - Set up Kubernetes Gateway with APIM: install-and-setup/setup/distributed-deployment/configuring-apim-as-a-gateway.md
+                - Set up a Key Manager:
+                    - Set up a Third-party Key Manager: install-and-setup/setup/distributed-deployment/configure-a-third-party-key-manager.md
+                    - Set up WSO2 Identity Server as a Resident Key Manager: install-and-setup/setup/distributed-deployment/configuring-wso2-identity-server-as-a-key-manager.md
+                - Set up Databases:
+                    - Overview: install-and-setup/setup/setting-up-databases/overview.md
+                    - Change Default Databases:
+                        - Change to MySQL: install-and-setup/setup/setting-up-databases/changing-default-databases/changing-to-mysql.md
+                        - Change to MSSQL: install-and-setup/setup/setting-up-databases/changing-default-databases/changing-to-mssql.md
+                        - Change to PostgreSQL: install-and-setup/setup/setting-up-databases/changing-default-databases/changing-to-postgresql.md
+                        - Change to Oracle: install-and-setup/setup/setting-up-databases/changing-default-databases/changing-to-oracle.md
+                        - Change to IBM DB2: install-and-setup/setup/setting-up-databases/changing-default-databases/changing-to-ibm-db2.md
+                        - Change to Oracle RAC: install-and-setup/setup/setting-up-databases/changing-default-databases/changing-to-oracle-rac.md
+                    - Manage Data Growth and Improving Performance: install-and-setup/setup/setting-up-databases/managing-data-growth-and-improving-performance.md
+                - Set up Proxy Server and the Load Balancer:
+                    - Configure the Proxy Server and the Load Balancer: install-and-setup/setup/setting-up-proxy-server-and-the-load-balancer/configuring-the-proxy-server-and-the-load-balancer.md
+                    - Add a custom Proxy Path: install-and-setup/setup/setting-up-proxy-server-and-the-load-balancer/adding-a-custom-proxy-path.md
+                - Security:
+                    - Logins and Passwords:
+                        - Maintain Logins and Passwords: install-and-setup/setup/security/logins-and-passwords/maintaining-logins-and-passwords.md
+                        - Secure Passwords:
+                            - Customize Secure Vault: install-and-setup/setup/security/logins-and-passwords/carbon-secure-vault-implementation.md
+                            - Set Passwords Using Environment Variables/System Properties: install-and-setup/setup/security/logins-and-passwords/set-passwords-using-vars-and-sys-props.md
+                            - Work with Encrypted Passwords: install-and-setup/setup/security/logins-and-passwords/working-with-encrypted-passwords.md
+                            - Set Up ReCaptcha: install-and-setup/setup/security/logins-and-passwords/setting-up-recaptcha.md
+                            - Configure reCaptcha for Single Sign On : install-and-setup/setup/security/logins-and-passwords/configuring-recaptcha-for-single-sign-on.md
+                            - Integrate with HashiCorp Vault : install-and-setup/setup/security/logins-and-passwords/harshicrop-vault-extension.md
+                    - Configure Keystores:
+                        - Configure Keystores in API Manager: install-and-setup/setup/security/configuring-keystores/configuring-keystores-in-wso2-api-manager.md
+                        - Keystore Basics:
+                            - Create a New Keystore: install-and-setup/setup/security/configuring-keystores/keystore-basics/creating-new-keystores.md
+                            - Renew a CA Signed Certificate: install-and-setup/setup/security/configuring-keystores/keystore-basics/renewing-a-ca-signed-certificate-in-a-keystore.md
+                            - About Asymetric Cryptography: install-and-setup/setup/security/configuring-keystores/keystore-basics/about-asymetric-cryptography.md
+                    - Enable HostName Verification: install-and-setup/setup/security/enabling-hostname-verification.md
+                    - Enable Java Security Manager: install-and-setup/setup/security/enabling-java-security-manager.md
+                    - General Data Protection Regulation (GDPR) for WSO2 API Manager: install-and-setup/setup/security/general-data-protection-regulation-gdpr-for-wso2-api-manager.md
+                    - Configure Transport Level Security: install-and-setup/setup/security/configuring-transport-level-security.md
+                    - User Account Management: install-and-setup/setup/security/user-account-management.md
+                    - Secure Web Portals: install-and-setup/setup/security/securing-api-m-web-portals.md
+                - Configure Userstores:
+                    - Introduction to User Stores: administer/managing-users-and-roles/managing-user-stores/introduction-to-userstores.md
+                    - Configure Primary User Stores:
+                        - Configure Primary User Stores: administer/managing-users-and-roles/managing-user-stores/configure-primary-user-store/configuring-the-primary-user-store.md
+                        - Configure a JDBC User Store: administer/managing-users-and-roles/managing-user-stores/configure-primary-user-store/configuring-a-jdbc-user-store.md
+                        - Configure a Read-Write LDAP User Store: administer/managing-users-and-roles/managing-user-stores/configure-primary-user-store/configuring-a-read-write-ldap-user-store.md
+                        - Configure a Read-Only LDAP User Store: administer/managing-users-and-roles/managing-user-stores/configure-primary-user-store/configuring-a-read-only-ldap-user-store.md
+                        - Configure a Read-Write Active Directory User Store: administer/managing-users-and-roles/managing-user-stores/configure-primary-user-store/configuring-a-read-write-active-directory-user-store.md
+                - SSO:
+                    - Configure Identity Server As External IDP with OIDC: install-and-setup/setup/sso/configuring-identity-server-as-external-idp-using-oidc.md
+                    - Configure Identity Server As External IDP with SAML: install-and-setup/setup/sso/configuring-identity-server-as-external-idp-using-saml.md
+                    - OKTA As An External IDP With OIDC: install-and-setup/setup/sso/okta-as-an-external-idp-using-oidc.md
+                    - OKTA As An External IDP With SAML: install-and-setup/setup/sso/okta-as-an-external-idp-using-saml.md
+                - Advanced Configurations:
+                    - Change the Default Transport: install-and-setup/setup/advance-configurations/changing-the-default-transport.md
+                    - Configure Caching: install-and-setup/setup/advance-configurations/configuring-caching.md
+                    - Customize the Management Console: install-and-setup/setup/advance-configurations/customizing-the-management-console.md
+                    - Configure the Crypto Provider: install-and-setup/setup/advance-configurations/configuring-the-crypto-provider.md
+        - Deploy:
+            - Deploy on VMs:
+                - All-In-One Deployment:
+                    - Single Node Deployment: install-and-setup/setup/single-node/configuring-a-single-node.md
+                    - Active-Active Deployment: install-and-setup/setup/single-node/configuring-an-active-active-deployment.md
+                - Distributed Deployment:
+                    
+                    - Simple Scalable Deployment: install-and-setup/setup/distributed-deployment/deploying-wso2-api-m-in-a-simple-scalable-setup.md
+                    - Distributed Deployment (Recommended): install-and-setup/setup/distributed-deployment/deploying-wso2-api-m-in-a-distributed-setup.md
+                    - Distributed Deployment with Key Manager Separation: install-and-setup/setup/distributed-deployment/deploying-wso2-api-m-in-a-distributed-setup-with-km-separated.md
+                - Multi-DC Deployment:
+                    - Patterns Overview: install-and-setup/setup/multi-dc-deployment/multi-dc-deployment-patterns-overview.md
+                    - Multi-DC Deployment - Pattern 1: install-and-setup/setup/multi-dc-deployment/configuring-multi-dc-deployment-pattern-1.md
+                    - Multi-DC Deployment - Pattern 2: install-and-setup/setup/multi-dc-deployment/configuring-multi-dc-deployment-pattern-2.md
+            - Deploy on Kubernetes:
+                - API-M on K8s:
+                    - Overview: install-and-setup/setup/kubernetes-deployment/kubernetes/kubernetes-overview.md
+                    - All-In-One Deployment:
+                        - Single Node Deployment: install-and-setup/setup/kubernetes-deployment/kubernetes/am-pattern-0-all-in-one.md
+                        - Active-Active Deployment: install-and-setup/setup/kubernetes-deployment/kubernetes/am-pattern-1-all-in-one-ha.md
+                    - Distributed Deployment:
+                        - Simple Scalable Deployment: install-and-setup/setup/kubernetes-deployment/kubernetes/am-pattern-2-all-in-one-gw.md
+                        - Distributed Deployment (Recommended): install-and-setup/setup/kubernetes-deployment/kubernetes/am-pattern-3-acp-tm-gw.md
+                        - Distributed Deployment with Key Manager Separation: install-and-setup/setup/kubernetes-deployment/kubernetes/am-pattern-4-acp-tm-gw-km.md
+                        - Simple Scalable Deployment with Key Manager Separation: install-and-setup/setup/kubernetes-deployment/kubernetes/am-pattern-5-all-in-one-gw-km.md
+                        - Configure IS as Key Manager: install-and-setup/setup/kubernetes-deployment/kubernetes/am-pattern-6-all-in-one-is-as-km.md
+                - API-M on Openshift: install-and-setup/setup/kubernetes-deployment/openshift/openshift-deployment-overview.md
+            - Deployment Best Practices:
+                - Deployment Checklist: install-and-setup/setup/deployment-best-practices/production-deployment-guidelines.md
+                - Security Guidelines for a Production Deployment: install-and-setup/setup/deployment-best-practices/security-guidelines-for-production-deployment.md
+                - Basic Health Checks: install-and-setup/setup/deployment-best-practices/basic-health-checks.md
+                - Change the Hostname: install-and-setup/setup/deployment-best-practices/changing-the-hostname.md
+                - Change the Default Ports: install-and-setup/setup/deployment-best-practices/changing-the-default-ports-with-offset.md
+                - Backup and Recovery: install-and-setup/setup/deployment-best-practices/backup-recovery.md
+                - Performance Tuning:
+                    -   API-M Performance Tuning: install-and-setup/setup/deployment-best-practices/tuning-performance.md
+
+        - Upgrade: install-and-setup/upgrading-wso2-api-manager/upgrading-api-manager.md
+
+    - Tutorials:
+        - Tutorials Overview: tutorials/tutorials-overview.md
+        - Scenario Tutorials:
+          - Scenario Overview: tutorials/scenarios/scenario-overview.md
+          - Scenario 1 - Create a REST API from an OpenAPI Definition: tutorials/scenarios/scenario1-create-rest-api.md
+          - Scenario 2 - Engage Access Control to the API: tutorials/scenarios/scenario2-access-control.md
+          - Scenario 3 - Implement an API: tutorials/scenarios/scenario3-implementing-an-api.md
+          - Scenario 4 - Sign Up a New User: tutorials/scenarios/scenario4-user-signup-approval-flow.md
+          - Scenario 5 - Get the Developer Community Involved: tutorials/scenarios/scenario5-developer-community-feature.md
+          - Scenario 6 - Integrate with Data Sources: tutorials/scenarios/scenario6-integrating-with-data-sources.md
+          - Scenario 7 - Analytics: tutorials/scenarios/scenario7-analytics.md
+          - Scenario 8 - Rate Limiting: tutorials/scenarios/scenario8-rate-limiting.md
+          - Scenario 9 - Realtime Data with WebSocket API: tutorials/scenarios/scenario9-realtime-data.md
+          - Scenario 10 - Notifications Using WebHooks: tutorials/scenarios/scenario10-notifications-webhooks.md
+          - Scenario 11 - GraphQL Support: tutorials/scenarios/scenario11-graphql.md
+          - Scenario 12 - Guaranteed Message Delivery: tutorials/scenarios/scenario12-message-delivery.md
+          - Scenario 13 - Integrate with Services via Connectors: tutorials/scenarios/scenario13-integrate-with-connectors.md
+          - Scenario 14 - External Key Manager Support: tutorials/scenarios/scenario14-external-key-manager.md
+        - API Management Tutorials:
+          - Setting Up a Distributed Setup Using the APIM Enterprise Package: tutorials/create-distributed-setup-using-the-enterprise-package.md
+          - Integrating API Manager with an External Broker and Gateway: tutorials/integrating-with-solace.md
+          - Develop an Integration From a Managed API: tutorials/develop-an-integration-with-a-managed-api.md
+          - The Single Control Plane for Multiple Gateways: tutorials/single-control-plane-for-multiple-gateways.md
+          - Federated API Gateway Deployment: tutorials/deploying-apis-to-federated-gateways-with-wso2.md
+          - Create and Publish a GraphQL API: tutorials/create-and-publish-a-graphql-api.md
+          - Create and Publish a Streaming API:
+              - Create and Publish a WebSocket API: tutorials/streaming-api/create-and-publish-websocket-api.md
+              - Create and Publish a WebSub/WebHook API: tutorials/streaming-api/create-and-publish-websub-api.md
+              - Create and Publish a SSE API: tutorials/streaming-api/create-and-publish-sse-api.md
+          - Create and Publish an AWS Lambda API: tutorials/create-and-publish-awslambda-api.md
+          - Create and Publish an API with Sequence as a Backend: tutorials/create-and-publish-a-sequencebackend-api.md
+          - Expose a SOAP Service as a REST API: tutorials/expose-a-soap-service-as-a-rest-api.md
+          - Edit an API by Modifying the API Definition: tutorials/edit-an-api-by-modifyng-the-api-definition.md
+          - Enforce Rate Limiting and Resource Access Policies: tutorials/enforce-throttling-and-resource-access-policies.md
     - API Design & Manage:
         - Design APIs:
             - Design APIs Overview: api-design-manage/design/design-api-overview.md
@@ -508,125 +651,6 @@ nav:
                 - Format the Outputs of Get Commands: install-and-setup/setup/api-controller/advanced-topics/formatting-the-output-of-get-command.md
                 - Configure Git Integration: install-and-setup/setup/api-controller/advanced-topics/configuring-git-integration.md
 
-    - Install & Setup:
-        - Overview: install-and-setup/install-and-setup-overview.md
-        - Install:
-            - Installation Prerequisites: install-and-setup/install/installation-prerequisites.md
-            - Install the API Manager Runtime:
-                - Install API-M: install-and-setup/install/installing-the-product/installing-api-m-runtime.md
-                - Run API-M: install-and-setup/install/installing-the-product/running-the-api-m.md
-                - Run API-M as a Linux Service: install-and-setup/install/installing-the-product/installing-api-m-as-a-linux-service.md
-                - Run API-M as a Windows Service: install-and-setup/install/installing-the-product/installing-api-m-as-a-windows-service.md
-            - Installation Options: install-and-setup/install/installation-options.md
-        - Setup:
-            - Set up API Manager:
-                - Update WSO2 API Manager: administer/updating-wso2-api-manager.md
-                - Set up Kubernetes Gateway with APIM: install-and-setup/setup/distributed-deployment/configuring-apim-as-a-gateway.md
-                - Set up a Key Manager:
-                    - Set up a Third-party Key Manager: install-and-setup/setup/distributed-deployment/configure-a-third-party-key-manager.md
-                    - Set up WSO2 Identity Server as a Resident Key Manager: install-and-setup/setup/distributed-deployment/configuring-wso2-identity-server-as-a-key-manager.md
-                - Set up Databases:
-                    - Overview: install-and-setup/setup/setting-up-databases/overview.md
-                    - Change Default Databases:
-                        - Change to MySQL: install-and-setup/setup/setting-up-databases/changing-default-databases/changing-to-mysql.md
-                        - Change to MSSQL: install-and-setup/setup/setting-up-databases/changing-default-databases/changing-to-mssql.md
-                        - Change to PostgreSQL: install-and-setup/setup/setting-up-databases/changing-default-databases/changing-to-postgresql.md
-                        - Change to Oracle: install-and-setup/setup/setting-up-databases/changing-default-databases/changing-to-oracle.md
-                        - Change to IBM DB2: install-and-setup/setup/setting-up-databases/changing-default-databases/changing-to-ibm-db2.md
-                        - Change to Oracle RAC: install-and-setup/setup/setting-up-databases/changing-default-databases/changing-to-oracle-rac.md
-                    - Manage Data Growth and Improving Performance: install-and-setup/setup/setting-up-databases/managing-data-growth-and-improving-performance.md
-                - Set up Proxy Server and the Load Balancer:
-                    - Configure the Proxy Server and the Load Balancer: install-and-setup/setup/setting-up-proxy-server-and-the-load-balancer/configuring-the-proxy-server-and-the-load-balancer.md
-                    - Add a custom Proxy Path: install-and-setup/setup/setting-up-proxy-server-and-the-load-balancer/adding-a-custom-proxy-path.md
-                - Security:
-                    - Logins and Passwords:
-                        - Maintain Logins and Passwords: install-and-setup/setup/security/logins-and-passwords/maintaining-logins-and-passwords.md
-                        - Secure Passwords:
-                            - Customize Secure Vault: install-and-setup/setup/security/logins-and-passwords/carbon-secure-vault-implementation.md
-                            - Set Passwords Using Environment Variables/System Properties: install-and-setup/setup/security/logins-and-passwords/set-passwords-using-vars-and-sys-props.md
-                            - Work with Encrypted Passwords: install-and-setup/setup/security/logins-and-passwords/working-with-encrypted-passwords.md
-                            - Set Up ReCaptcha: install-and-setup/setup/security/logins-and-passwords/setting-up-recaptcha.md
-                            - Configure reCaptcha for Single Sign On : install-and-setup/setup/security/logins-and-passwords/configuring-recaptcha-for-single-sign-on.md
-                            - Integrate with HashiCorp Vault : install-and-setup/setup/security/logins-and-passwords/harshicrop-vault-extension.md
-                    - Configure Keystores:
-                        - Configure Keystores in API Manager: install-and-setup/setup/security/configuring-keystores/configuring-keystores-in-wso2-api-manager.md
-                        - Keystore Basics:
-                            - Create a New Keystore: install-and-setup/setup/security/configuring-keystores/keystore-basics/creating-new-keystores.md
-                            - Renew a CA Signed Certificate: install-and-setup/setup/security/configuring-keystores/keystore-basics/renewing-a-ca-signed-certificate-in-a-keystore.md
-                            - About Asymetric Cryptography: install-and-setup/setup/security/configuring-keystores/keystore-basics/about-asymetric-cryptography.md
-                    - Enable HostName Verification: install-and-setup/setup/security/enabling-hostname-verification.md
-                    - Enable Java Security Manager: install-and-setup/setup/security/enabling-java-security-manager.md
-                    - General Data Protection Regulation (GDPR) for WSO2 API Manager: install-and-setup/setup/security/general-data-protection-regulation-gdpr-for-wso2-api-manager.md
-                    - Configure Transport Level Security: install-and-setup/setup/security/configuring-transport-level-security.md
-                    - User Account Management: install-and-setup/setup/security/user-account-management.md
-                    - Secure Web Portals: install-and-setup/setup/security/securing-api-m-web-portals.md
-                - Configure Userstores:
-                    - Introduction to User Stores: administer/managing-users-and-roles/managing-user-stores/introduction-to-userstores.md
-                    - Configure Primary User Stores:
-                        - Configure Primary User Stores: administer/managing-users-and-roles/managing-user-stores/configure-primary-user-store/configuring-the-primary-user-store.md
-                        - Configure a JDBC User Store: administer/managing-users-and-roles/managing-user-stores/configure-primary-user-store/configuring-a-jdbc-user-store.md
-                        - Configure a Read-Write LDAP User Store: administer/managing-users-and-roles/managing-user-stores/configure-primary-user-store/configuring-a-read-write-ldap-user-store.md
-                        - Configure a Read-Only LDAP User Store: administer/managing-users-and-roles/managing-user-stores/configure-primary-user-store/configuring-a-read-only-ldap-user-store.md
-                        - Configure a Read-Write Active Directory User Store: administer/managing-users-and-roles/managing-user-stores/configure-primary-user-store/configuring-a-read-write-active-directory-user-store.md
-                - SSO:
-                    - Configure Identity Server As External IDP with OIDC: install-and-setup/setup/sso/configuring-identity-server-as-external-idp-using-oidc.md
-                    - Configure Identity Server As External IDP with SAML: install-and-setup/setup/sso/configuring-identity-server-as-external-idp-using-saml.md
-                    - OKTA As An External IDP With OIDC: install-and-setup/setup/sso/okta-as-an-external-idp-using-oidc.md
-                    - OKTA As An External IDP With SAML: install-and-setup/setup/sso/okta-as-an-external-idp-using-saml.md
-                - Advanced Configurations:
-                    - Change the Default Transport: install-and-setup/setup/advance-configurations/changing-the-default-transport.md
-                    - Configure Caching: install-and-setup/setup/advance-configurations/configuring-caching.md
-                    - Customize the Management Console: install-and-setup/setup/advance-configurations/customizing-the-management-console.md
-                    - Configure the Crypto Provider: install-and-setup/setup/advance-configurations/configuring-the-crypto-provider.md
-        - Deploy:
-            - Deploy on VMs:
-                - All-In-One Deployment:
-                    - Single Node Deployment: install-and-setup/setup/single-node/configuring-a-single-node.md
-                    - Active-Active Deployment: install-and-setup/setup/single-node/configuring-an-active-active-deployment.md
-                - Distributed Deployment:
-                    
-                    - Simple Scalable Deployment: install-and-setup/setup/distributed-deployment/deploying-wso2-api-m-in-a-simple-scalable-setup.md
-                    - Distributed Deployment (Recommended): install-and-setup/setup/distributed-deployment/deploying-wso2-api-m-in-a-distributed-setup.md
-                    - Distributed Deployment with Key Manager Separation: install-and-setup/setup/distributed-deployment/deploying-wso2-api-m-in-a-distributed-setup-with-km-separated.md
-                - Multi-DC Deployment:
-                    - Patterns Overview: install-and-setup/setup/multi-dc-deployment/multi-dc-deployment-patterns-overview.md
-                    - Multi-DC Deployment - Pattern 1: install-and-setup/setup/multi-dc-deployment/configuring-multi-dc-deployment-pattern-1.md
-                    - Multi-DC Deployment - Pattern 2: install-and-setup/setup/multi-dc-deployment/configuring-multi-dc-deployment-pattern-2.md
-            - Deploy on Kubernetes:
-                - API-M on K8s:
-                    - Overview: install-and-setup/setup/kubernetes-deployment/kubernetes/kubernetes-overview.md
-                    - All-In-One Deployment:
-                        - Single Node Deployment: install-and-setup/setup/kubernetes-deployment/kubernetes/am-pattern-0-all-in-one.md
-                        - Active-Active Deployment: install-and-setup/setup/kubernetes-deployment/kubernetes/am-pattern-1-all-in-one-ha.md
-                    - Distributed Deployment:
-                        - Simple Scalable Deployment: install-and-setup/setup/kubernetes-deployment/kubernetes/am-pattern-2-all-in-one-gw.md
-                        - Distributed Deployment (Recommended): install-and-setup/setup/kubernetes-deployment/kubernetes/am-pattern-3-acp-tm-gw.md
-                        - Distributed Deployment with Key Manager Separation: install-and-setup/setup/kubernetes-deployment/kubernetes/am-pattern-4-acp-tm-gw-km.md
-                        - Simple Scalable Deployment with Key Manager Separation: install-and-setup/setup/kubernetes-deployment/kubernetes/am-pattern-5-all-in-one-gw-km.md
-                        - Configure IS as Key Manager: install-and-setup/setup/kubernetes-deployment/kubernetes/am-pattern-6-all-in-one-is-as-km.md
-                - API-M on Openshift: install-and-setup/setup/kubernetes-deployment/openshift/openshift-deployment-overview.md
-            - Deployment Best Practices:
-                - Deployment Checklist: install-and-setup/setup/deployment-best-practices/production-deployment-guidelines.md
-                - Security Guidelines for a Production Deployment: install-and-setup/setup/deployment-best-practices/security-guidelines-for-production-deployment.md
-                - Basic Health Checks: install-and-setup/setup/deployment-best-practices/basic-health-checks.md
-                - Change the Hostname: install-and-setup/setup/deployment-best-practices/changing-the-hostname.md
-                - Change the Default Ports: install-and-setup/setup/deployment-best-practices/changing-the-default-ports-with-offset.md
-                - Backup and Recovery: install-and-setup/setup/deployment-best-practices/backup-recovery.md
-                - Performance Tuning:
-                    -   API-M Performance Tuning: install-and-setup/setup/deployment-best-practices/tuning-performance.md
-
-        - Upgrade: install-and-setup/upgrading-wso2-api-manager/upgrading-api-manager.md
-        - References:
-            - Common Runtime and Configuration Artifacts: install-and-setup/setup/reference/common-runtime-and-configuration-artifacts.md
-            - Default Product Ports: install-and-setup/setup/reference/default-product-ports.md
-            - Product Compatibility: install-and-setup/setup/reference/product-compatibility.md
-            - Performance Test Results:
-                - API Manager: install-and-setup/setup/deployment-best-practices/performance-tests-results.md
-                # - API Manager (Streaming APIs): install-and-setup/setup/deployment-best-practices/performance-tests-results-async.md
-                # - API Manager (GraphQL APIs): install-and-setup/setup/deployment-best-practices/performance-tests-results-graphql.md
-                - Token Persistence: install-and-setup/setup/deployment-best-practices/performance-test-results-token-persistence.md
-            - Supported Cipher Suites: install-and-setup/setup/reference/supported-cipher-suites.md
-
     - Reference:
         - Product REST APIs:
             - Overview: reference/product-apis/overview.md
@@ -721,51 +745,26 @@ nav:
             - Message Flow in the API Manager Gateway: reference/guides/message-flow-in-the-api-manager-gateway.md
             - Accessing API Manager by Multiple Devices Simultaneously: reference/guides/accessing-api-manager-by-multiple-devices-simultaneously.md
             - admin_Directory Structure of WSO2 Products: reference/guides/directory-structure-of-wso2-products.md
+        - Common Runtime and Configuration Artifacts: install-and-setup/setup/reference/common-runtime-and-configuration-artifacts.md
+        - Default Product Ports: install-and-setup/setup/reference/default-product-ports.md
+        - Product Compatibility: install-and-setup/setup/reference/product-compatibility.md
+        - Performance Test Results:
+            - API Manager: install-and-setup/setup/deployment-best-practices/performance-tests-results.md
+            # - API Manager (Streaming APIs): install-and-setup/setup/deployment-best-practices/performance-tests-results-async.md
+            # - API Manager (GraphQL APIs): install-and-setup/setup/deployment-best-practices/performance-tests-results-graphql.md
+            - Token Persistence: install-and-setup/setup/deployment-best-practices/performance-test-results-token-persistence.md
+        - Supported Cipher Suites: install-and-setup/setup/reference/supported-cipher-suites.md    
         - Troubleshooting:
-              - Error Handling: troubleshooting/error-handling.md
-              - Capturing System Data in Error Situations: troubleshooting/capturing-system-data-in-error-situations.md
-              - Troubleshooting in Production Environments: troubleshooting/admin-troubleshooting-in-production-environments.md
-              - Utilizing Runtime Diagnostic Tool: troubleshooting/utilizing-runtime-diagnostic-tool.md
-              - Cleaning Up Partially Created Keys: troubleshooting/cleaning-up-partially-created-keys.md
-              - Configure XSLT Mediation with Xalan: troubleshooting/configuring-xslt-mediation-with-xalan.md
-              - Troubleshooting 'Registered callback does not match with the provided url' error: troubleshooting/troubleshooting-invalid-callback-error.md
-              - Troubleshooting JMS: troubleshooting/troubleshooting-jms.md
-              - Troubleshooting WebSocket APIs: troubleshooting/troubleshooting-websocket-api.md
+            - Error Handling: troubleshooting/error-handling.md
+            - Capturing System Data in Error Situations: troubleshooting/capturing-system-data-in-error-situations.md
+            - Troubleshooting in Production Environments: troubleshooting/admin-troubleshooting-in-production-environments.md
+            - Utilizing Runtime Diagnostic Tool: troubleshooting/utilizing-runtime-diagnostic-tool.md
+            - Cleaning Up Partially Created Keys: troubleshooting/cleaning-up-partially-created-keys.md
+            - Configure XSLT Mediation with Xalan: troubleshooting/configuring-xslt-mediation-with-xalan.md
+            - Troubleshooting 'Registered callback does not match with the provided url' error: troubleshooting/troubleshooting-invalid-callback-error.md
+            - Troubleshooting JMS: troubleshooting/troubleshooting-jms.md
+            - Troubleshooting WebSocket APIs: troubleshooting/troubleshooting-websocket-api.md
         - FAQ: reference/faq.md
-
-    - Tutorials:
-          - Tutorials Overview: tutorials/tutorials-overview.md
-          - Scenario Tutorials:
-            - Scenario Overview: tutorials/scenarios/scenario-overview.md
-            - Scenario 1 - Create a REST API from an OpenAPI Definition: tutorials/scenarios/scenario1-create-rest-api.md
-            - Scenario 2 - Engage Access Control to the API: tutorials/scenarios/scenario2-access-control.md
-            - Scenario 3 - Implement an API: tutorials/scenarios/scenario3-implementing-an-api.md
-            - Scenario 4 - Sign Up a New User: tutorials/scenarios/scenario4-user-signup-approval-flow.md
-            - Scenario 5 - Get the Developer Community Involved: tutorials/scenarios/scenario5-developer-community-feature.md
-            - Scenario 6 - Integrate with Data Sources: tutorials/scenarios/scenario6-integrating-with-data-sources.md
-            - Scenario 7 - Analytics: tutorials/scenarios/scenario7-analytics.md
-            - Scenario 8 - Rate Limiting: tutorials/scenarios/scenario8-rate-limiting.md
-            - Scenario 9 - Realtime Data with WebSocket API: tutorials/scenarios/scenario9-realtime-data.md
-            - Scenario 10 - Notifications Using WebHooks: tutorials/scenarios/scenario10-notifications-webhooks.md
-            - Scenario 11 - GraphQL Support: tutorials/scenarios/scenario11-graphql.md
-            - Scenario 12 - Guaranteed Message Delivery: tutorials/scenarios/scenario12-message-delivery.md
-            - Scenario 13 - Integrate with Services via Connectors: tutorials/scenarios/scenario13-integrate-with-connectors.md
-            - Scenario 14 - External Key Manager Support: tutorials/scenarios/scenario14-external-key-manager.md
-          - API Management Tutorials:
-            - Setting Up a Distributed Setup Using the APIM Enterprise Package: tutorials/create-distributed-setup-using-the-enterprise-package.md
-            - Integrating API Manager with an External Broker and Gateway: tutorials/integrating-with-solace.md
-            - Develop an Integration From a Managed API: tutorials/develop-an-integration-with-a-managed-api.md
-            - The Single Control Plane for Multiple Gateways: tutorials/single-control-plane-for-multiple-gateways.md
-            - Federated API Gateway Deployment: tutorials/deploying-apis-to-federated-gateways-with-wso2.md
-            - Create and Publish a GraphQL API: tutorials/create-and-publish-a-graphql-api.md
-            - Create and Publish a Streaming API:
-                - Create and Publish a WebSocket API: tutorials/streaming-api/create-and-publish-websocket-api.md
-                - Create and Publish a WebSub/WebHook API: tutorials/streaming-api/create-and-publish-websub-api.md
-                - Create and Publish a SSE API: tutorials/streaming-api/create-and-publish-sse-api.md
-            - Create and Publish an AWS Lambda API: tutorials/create-and-publish-awslambda-api.md
-            - Create and Publish an API with Sequence as a Backend: tutorials/create-and-publish-a-sequencebackend-api.md
-            - Expose a SOAP Service as a REST API: tutorials/expose-a-soap-service-as-a-rest-api.md
-            - Edit an API by Modifying the API Definition: tutorials/edit-an-api-by-modifyng-the-api-definition.md
 # Hooks
 hooks:
     - hooks.py
@@ -830,6 +829,8 @@ extra:
     explicit_tab_list:
       - Home
       - Get Started
+      - Install & Setup
+      - Tutorials
       - API Design & Manage
       - API Developer Portal
       - API Gateway
@@ -838,9 +839,7 @@ extra:
       - Key Manager
       - Administer
       - APIOps
-      - Install & Setup
       - Reference
-      - Tutorials
     home_page_cards:
     - section:
       - title: Get Started
@@ -952,6 +951,13 @@ extra:
       options:
         - verticle-line
         - no-collapsible
+    - title: Install & Setup
+      options:
+        - verticle-line
+        - divider 
+    - title: Tutorials
+      options:
+        - verticle-line-only       
     - title: API Design & Manage
       options:
         - verticle-line
@@ -977,17 +983,10 @@ extra:
     - title: APIOps
       options:
         - verticle-line-only
-    - title: Install & Setup
-      options:
-        - verticle-line
-        - divider
     - title: Reference
       options:
         - verticle-line-only
-    - title: Tutorials
-      options:
-        - verticle-line-only
-
+        - divider 
     # Navigation behaviors configuration - Define all interactive behaviors here
     nav_behaviors:
       # Define which sections should auto-collapse when user navigates to other sections
@@ -998,7 +997,7 @@ extra:
             - api-gateway/
             - ai-gateway/
             - monitoring/
-            - key-manager/
+            - api-security/
             - administer/
           stay_expanded_when_url_starts_with:
             - api-design-manage/
@@ -1007,7 +1006,6 @@ extra:
             - index.md
         - title: Install & Setup
           collapse_when_url_starts_with:
-            - reference/
             - tutorials/
           stay_expanded_when_url_starts_with:
             - install-and-setup/
@@ -1041,13 +1039,13 @@ extra:
         icon: octicons/shield-check-16
         level: 1
       Administer:
-        icon: octicons/gear-16
+        icon: octicons/person-16
         level: 1
       APIOps:
         icon: octicons/workflow-16
         level: 1
       Install & Setup:
-        icon: octicons/download-16
+        icon: octicons/gear-16
         level: 1
       Reference:
         icon: octicons/book-16
@@ -1069,8 +1067,8 @@ extra:
             version: 1.2.0-1
             git_tag: v1.2.0.1
     site_version: 4.6.0
-    base_path: https://dushaniw.github.io/docs-apim
-    #base_path: http://localhost:8000/docs-apim
+    # base_path: http://localhost:8000/en/latest
+    base_path: https://apim-docs-stg.wso2.com/en/4.6.0
     envoy_path: https://www.envoyproxy.io/docs/envoy/v1.24.1
     redoc_theme: '{
         "colors": {

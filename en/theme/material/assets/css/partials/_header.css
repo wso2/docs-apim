@@ -39,7 +39,28 @@
 }
 
 .md-header__topic {
-  font-size: .7rem;
+  font-size: .8rem;
+  position: relative;
+  top: -2px;
+  left: -8px;
+  transform: none !important;
+  opacity: 1 !important;
+}
+
+.md-header__topic:first-child {
+  font-weight: 400;
+  display: block !important;
+  position: relative !important;
+  left: -8px;
+}
+
+/* Hide the page title topic to keep site name always visible */
+.md-header__topic:last-child {
+  display: none !important;
+}
+
+.md-header__ellipsis {
+  overflow: visible !important;
 }
 
 /* Search */
