@@ -1,7 +1,12 @@
 {
-  "4.2.0": "4.2.0",
-  "current": "4.2.0",
+  "4.6.0": "4.6.0",
+  "current": "4.6.0",
+  "latest": "4.6.0",
   "list": [
+    "4.6.0",
+    "4.5.0",
+    "4.4.0",
+    "4.3.0",
     "4.2.0",
     "4.1.0",
     "4.0.0",
@@ -10,29 +15,77 @@
     "3.0.0"
    ],
   "all": {
+    "4.6.0":{
+        "doc": "latest",
+        "notes": "4.6.0/get-started/about-this-release"
+    },
+    "4.5.0":{
+        "doc": "https://apim.docs.wso2.com/en/4.5.0",
+        "notes": "https://apim.docs.wso2.com/en/4.5.0/get-started/about-this-release"
+    },
+    "4.4.0":{
+        "doc": "https://apim.docs.wso2.com/en/4.4.0",
+        "notes": "https://apim.docs.wso2.com/en/4.4.0/get-started/about-this-release"
+    },
+    "4.3.0":{
+        "doc": "https://apim.docs.wso2.com/en/4.3.0",
+        "notes": "https://apim.docs.wso2.com/en/4.3.0/get-started/about-this-release"
+    },
     "4.2.0":{
-        "doc": "4.2.0/",
-        "notes": "4.2.0/get-started/about-this-release"
+        "doc": "https://apim.docs.wso2.com/en/4.2.0",
+        "notes": "https://apim.docs.wso2.com/en/4.2.0/get-started/about-this-release"
     },
     "4.1.0":{
-        "doc": "https://apim-docs-stg.wso2.com/en/4.1.0",
-        "notes": "https://apim-docs-stg.wso2.com/en/4.1.0/get-started/about-this-release"
+        "doc": "https://apim.docs.wso2.com/en/4.1.0",
+        "notes": "https://apim.docs.wso2.com/en/4.1.0/get-started/about-this-release"
     },
     "4.0.0":{
-        "doc": "https://apim-docs-stg.wso2.com/en/4.0.0",
-        "notes": "https://apim-docs-stg.wso2.com/en/4.0.0/get-started/about-this-release"
+        "doc": "https://apim.docs.wso2.com/en/4.0.0",
+        "notes": "https://apim.docs.wso2.com/en/4.0.0/get-started/about-this-release"
     },   
     "3.2.0":{
-        "doc": "https://apim-docs-stg.wso2.com/en/3.2.0",
-        "notes": "https://apim-docs-stg.wso2.com/en/3.2.0/getting-started/about-this-release"
+        "doc": "https://apim.docs.wso2.com/en/3.2.0",
+        "notes": "https://apim.docs.wso2.com/en/3.2.0/getting-started/about-this-release"
     },  
     "3.1.0":{
-        "doc": "https://apim-docs-stg.wso2.com/en/3.1.0",
-        "notes": "https://apim-docs-stg.wso2.com/en/3.1.0/getting-started/about-this-release"
+        "doc": "https://apim.docs.wso2.com/en/3.1.0",
+        "notes": "https://apim.docs.wso2.com/en/3.1.0/getting-started/about-this-release"
     },	    
     "3.0.0": {
-        "doc": "https://apim-docs-stg.wso2.com/en/3.0.0",
-        "notes": "https://apim-docs-stg.wso2.com/en/3.0.0/getting-started/about-this-release"
+        "doc": "https://apim.docs.wso2.com/en/3.0.0",
+        "notes": "https://apim.docs.wso2.com/en/3.0.0/getting-started/about-this-release"
+    },
+    "2.6.0": {
+        "doc": "https://wso2docs.atlassian.net/wiki/spaces/AM260/overview",
+        "notes": "https://wso2docs.atlassian.net/wiki/spaces/AM260/pages/30902402/About+this+Release"
+    },
+    "2.5.0": {
+        "doc": "https://wso2docs.atlassian.net/wiki/spaces/AM250/overview",
+        "notes": "https://wso2docs.atlassian.net/wiki/spaces/AM250/pages/28345969/About+this+Release"
+    },
+    "2.2.0": {
+        "doc": "https://wso2docs.atlassian.net/wiki/spaces/AM220/overview",
+        "notes": "https://wso2docs.atlassian.net/wiki/spaces/AM220/pages/37652086/About+this+Release"
+    },
+    "2.1.0": {
+        "doc": "https://wso2docs.atlassian.net/wiki/spaces/AM210/overview",
+        "notes": "https://wso2docs.atlassian.net/wiki/spaces/AM210/pages/32735278/About+this+Release"
+    },
+    "2.0.0": {
+        "doc": "https://wso2docs.atlassian.net/wiki/spaces/AM200/overview",
+        "notes": "https://wso2docs.atlassian.net/wiki/spaces/AM200/pages/39518234/About+this+Release"
+    },
+    "1.10.0": {
+        "doc": "https://wso2docs.atlassian.net/wiki/spaces/AM1100/overview",
+        "notes": "https://wso2docs.atlassian.net/wiki/spaces/AM1100/pages/51151021/About+this+Release"
+    },
+    "1.9.1": {
+        "doc": "https://wso2docs.atlassian.net/wiki/spaces/AM191/overview",
+        "notes": "https://wso2docs.atlassian.net/wiki/spaces/AM191/pages/15007762/About+this+Release"
+    },
+    "1.9.0": {
+        "doc": "https://wso2docs.atlassian.net/wiki/spaces/AM190/overview",
+        "notes": "https://wso2docs.atlassian.net/wiki/spaces/AM190/pages/8159257/About+this+Release"
     }
   }
 }
