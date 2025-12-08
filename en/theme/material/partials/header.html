@@ -22,7 +22,7 @@
 {% elif "navigation.tabs" not in features %}
   {% set class = class ~ " md-header--shadow" %}
 {% endif %}
-<header class="{{ class }}" data-md-component="header">
+<header class="{{ class }}" data-md-component="header" id="page-header">
   <nav class="md-header__inner md-grid" aria-label="{{ lang.t('header') }}">
     <a href="{{ config.extra.homepage | d(nav.homepage.url, true) | url }}" title="{{ config.site_name | e }}" class="md-header__button md-logo" aria-label="{{ config.site_name }}" data-md-component="logo">
       {% include "partials/logo.html" %}
@@ -31,7 +31,6 @@
       {% set icon = config.theme.icon.menu or "material/menu" %}
       {% include ".icons/" ~ icon ~ ".svg" %}
     </label>
-      {% set is_version = config.extra.is_version %}
     <div class="md-header__title" data-md-component="header-title">
       <div class="md-header__ellipsis">
         <div class="md-header__topic">
@@ -52,14 +51,25 @@
     </div>
      <div class="md-header__title" data-md-component="header-title">
       <div class="md-header__ellipsis">
-        {% if config.extra.is_version != 'versions' %}
-          {% if "navigation.tabs.sticky" in features %}
-              {% if "navigation.tabs" in features %}
-              {% include "partials/tabs.html" %}
-              {% endif %}
-          {% endif %}
+        {% if "navigation.tabs.sticky" in features %}
+            {% if "navigation.tabs" in features %}
+            {% include "partials/tabs.html" %}
+            {% endif %}
         {% endif %}
       </div>
+    </div>
+    <div class="md-header__version-select-dropdown">
+      <a class="dropdown-link" href="#!">
+          {{ config.extra.site_version }}
+        <span class="icon">
+          {% set chevron_icon = "fontawesome/solid/chevron-down" %}
+          {% include ".icons/" ~ chevron_icon ~ ".svg" %}
+        </span>
+      </a>
+      <ul id="version-select-dropdown" class="dropdown-content" tabindex="0">
+        <!-- Versions will added here dynamically -->
+        <li><a href="#" id="show-all-versions-link">Show all</a></li>
+      </ul>
     </div>
 {% if "material/search" in config.plugins and not page.is_homepage %}
 <label class="md-header__button md-icon" for="__search">
