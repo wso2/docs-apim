@@ -1,3 +1,3 @@
 # docs-apim
 
-test2-new
+staging branch for WSO2 API Manager documentation site versions
