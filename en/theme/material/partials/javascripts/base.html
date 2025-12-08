@@ -1,0 +1,38 @@
+<!-- Fix for HTML files loads with wrong resource relative paths when the trailing slash is missing -->
+<script>
+    // Check if the path does not end with a slash and has no file extension
+    if (!window.location.pathname.endsWith('/') && !window.location.pathname.split('/').pop().includes('.')) {
+        var newPath = window.location.pathname + '/' + window.location.search + window.location.hash;
+        window.location.replace(newPath);
+    }
+</script>
+
+<script>__md_scope=new URL("{{ config.extra.scope | d(base_url) }}",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+
+<!-- Google Tag Manager -->
+<script>
+  if (window.location.hostname.endsWith('wso2.com')) {
+    (function(w, d, s, l, i) {
+      w[l] = w[l] || [];
+      w[l].push({
+        'gtm.start': new Date().getTime(),
+        event: 'gtm.js'
+      });
+      var f = d.getElementsByTagName(s)[0],
+        j = d.createElement(s),
+        dl = l != 'dataLayer' ? '&l=' + l : '';
+      j.setAttributeNode(d.createAttribute('data-ot-ignore'));
+      j.async = true;
+      j.src =
+        'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
+      f.parentNode.insertBefore(j, f);
+    })(window, document, 'script', 'dataLayer', 'GTM-PSTXMT');
+  } else {
+    console.warn("GTM not loaded: not on an allowed domain");
+  }
+</script>
+<!-- End Google Tag Manager -->
+
+{% for path in config.extra_javascript %}
+<script src="{{ path | url }}"></script>
+{% endfor %}
