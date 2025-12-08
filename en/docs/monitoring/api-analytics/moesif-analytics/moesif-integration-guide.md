@@ -42,8 +42,9 @@ The Choreo based analytics will be enabled by default. Specify the `type` as `mo
 [apim.analytics]
 enable = true
 type = "moesif"
-properties."moesifKey" = "<your-moesif-application-id>"
-properties."publisher.reporter.class" = "org.wso2.am.analytics.publisher.reporter.moesif.MoesifReporter"
+
+[apim.analytics.properties]
+moesifKey = "MOESIF_APPLICATION_ID"
 ```
 
 !!! important
