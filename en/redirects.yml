@@ -505,7 +505,7 @@
 'manage-apis/design/api-security/api-authentication/securing-apis-using-certificate-bound-access-tokens.md': '{{SITE_URL}}/api-design-manage/design/api-security/api-authentication/securing-apis-using-certificate-bound-access-tokens/'
 'manage-apis/design/api-security/api-request-response-schema-validation/json-schema-validator.md': '{{SITE_URL}}/api-security/runtime/api-request-response-schema-validation/json-schema-validator/'
 'manage-apis/design/api-security/authorization/api-authorization.md': '{{SITE_URL}}/api-security/runtime/authorization/api-authorization/'
-'manage-apis/design/api-security/authorization/publisher-portal-in-read-only-mode.md': '{{SITE_URL}}/api-design-manage/design/api-security/authorization/publisher-portal-in-read-only-mode/'
+'manage-apis/design/api-security/authorization/publisher-portal-in-read-only-mode.md': '{{SITE_URL}}/administer/publisher-portal-in-read-only-mode/'
 'manage-apis/design/api-security/authorization/role-based-access-control-using-xacml.md': '{{SITE_URL}}/api-security/runtime/authorization/role-based-access-control-using-xacml/'
 'manage-apis/design/api-security/configuring-api-security-audit.md': '{{SITE_URL}}/api-security/design-time/configuring-api-security-audit/'
 'manage-apis/design/api-security/oauth2/access-token-types/jwt-tokens.md': '{{SITE_URL}}/key-manager/tokens/jwt-tokens/'
