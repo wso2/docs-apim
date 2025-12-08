@@ -144,7 +144,7 @@ window.addEventListener('DOMContentLoaded', function() {
   versionsLoaded = true;
   
   var pageHeader = document.getElementById('page-header');
-  var docSetLang = pageHeader ? pageHeader.getAttribute('data-lang') : 'en';
+  var docSetLang = pageHeader.getAttribute('data-lang') == null ? 'en' : pageHeader.getAttribute('data-lang');
 
   (window.location.pathname.split('/')[1] !== docSetLang) ? 
       docSetLang = '' :
