@@ -157,84 +157,136 @@
       <p>WSO2 API Manager offers multiple components designed to work together to solve the challenges of diverse
         infrastructure requirements.</p>
 
-      <div style="display: flex; justify-content: flex-end;">
-        <div style="display: flex; justify-content: space-between; gap: 32px;">
-          <div style="width: 48%;">
-            {% if config.extra.design_and_manage_apis_cards %}
-            <h3>Design & Manage APIs</h3>
-            <p>Build, iterate, and apply policies to your APIs and API products.</p>
-            {% for columns in config.extra.design_and_manage_apis_cards %}
-            {% for column in columns.section %}
-            <div class="md-card md-column-grid-item">
-              <div class="md-column-grid-item-header-container">
-                <div class="md-column-grid-item-header-text">
-                  <h4 style="margin: 0;">{{ column.title }}</h4>
+      <div class="components-hub-container">
+
+        <div class="components-grid-split">
+
+          <div>
+            <div class="components-section-header">
+              <h3>Design & Manage APIs</h3>
+              <p>Build, iterate, and apply policies to your APIs and API products.</p>
+            </div>
+            <div class="components-card">
+              <div>
+                <h4>API Design</h4>
+                <div class="components-card-content">
+                  The complete toolkit for API Creators. Design, document, mock, and apply policies for your REST,
+                  GraphQL, and AsyncAPI specifications.
                 </div>
               </div>
-              {% if column.description %}
-              <p>{{ column.description }}</p>
-              {% endif %}
-              {{ cta.render_cta('Design APIs Overview', 'api-design-manage/design/design-api-overview') }}
+              <a href="#" class="components-card-link">More <span>-></span></a>
             </div>
-            {% endfor %}
-            {% endfor %}
-            {% endif %}
           </div>
-          <div style="width: 48%;">
-            {% if config.extra.discover_apis_cards %}
-            <h3>Discover APIs</h3>
-            <p>Find, explore, and subscribe to APIs for your applications.</p>
-            {% for columns in config.extra.discover_apis_cards %}
-            {% for column in columns.section %}
-            <div class="md-card md-column-grid-item">
-              <div class="md-column-grid-item-header-container">
-                <div class="md-column-grid-item-header-text">
-                  <h4 style="margin: 0;">{{ column.title }}</h4>
+
+          <div>
+            <div class="components-section-header">
+              <h3>Discover APIs</h3>
+              <p>Find, explore, and subscribe to APIs for your applications</p>
+            </div>
+            <div class="components-card">
+              <div>
+                <h4>API Developer Portal</h4>
+                <div class="components-card-content">
+                  The hub for Application Developers. Discover a catalog of available APIs, subscribe your applications,
+                  and manage your API keys and credentials.
                 </div>
               </div>
-              {% if column.description %}
-              <p>{{ column.description }}</p>
-              {% endif %}
-              {{ cta.render_cta('Consume APIs Overview', 'api-developer-portal/consume-api-overview/') }}
+              <a href="#" class="components-card-link">More <span>-></span></a>
             </div>
-            {% endfor %}
-            {% endfor %}
-            {% endif %}
-          </div>
-          <div style="width: 48%;">
-            {% if config.extra.run_apis_cards %}
-            <h3>Run APIs</h3>
-            <p>Deploy and manage the runtime environment for your API traffic.</p>
-            {% for columns in config.extra.run_apis_cards %}
-            {% for column in columns.section %}
-            <div class="md-card md-column-grid-item">
-              <div class="md-column-grid-item-header-container">
-                <div class="md-column-grid-item-header-text">
-                  <h4 style="margin: 0;">{{ column.title }}</h4>
-                </div>
-              </div>
-              {% if column.description %}
-              <p>{{ column.description }}</p>
-              {% endif %}
-              {% if column.cta_items %}
-              <ul>
-                {% for item in column.cta_items %}
-                <li>
-                  {{ cta.render_cta(item.cta_text, item.url) }}
-                </li>
-                {% endfor %}
-              </ul>
-              {% endif %}
-            </div>
-            {% endfor %}
-            {% endfor %}
-            {% endif %}
           </div>
         </div>
 
+        <div class="components-section-header">
+          <h3>Run APIs</h3>
+          <p>Deploy and manage the runtime environment for your API traffic.</p>
+        </div>
+
+        <div class="components-grid-2">
+          <div class="components-card">
+            <div>
+              <h4>API Gateway</h4>
+              <div class="components-card-content">
+                Secure, manage, and scale your API traffic. Learn to deploy the runtime, enforce security policies, and
+                manage deployments.
+              </div>
+            </div>
+            <a href="#" class="components-card-link">More <span>-></span></a>
+          </div>
+
+          <div class="components-card">
+            <div>
+              <h4>AI Gateway</h4>
+              <div class="components-card-content">
+                A specialized gateway to secure, monitor, and manage access to LLMs. Get started with the MCP server and
+                AI-specific policies.
+              </div>
+            </div>
+            <a href="#" class="components-card-link">More <span>-></span></a>
+          </div>
+        </div>
+
+        <div class="components-section-header">
+          <h3>Govern APIs</h3>
+          <p>Oversee and control the security, usage, and automation of your API ecosystem.</p>
+        </div>
+
+        <div class="components-grid-3">
+          <div class="components-card">
+            <div>
+              <h4>Key Manager</h4>
+              <div class="components-card-content">
+                Your central security component. Manage OAuth2 clients, issue tokens, and configure external identity
+                providers.
+              </div>
+            </div>
+            <a href="#" class="components-card-link">More <span>-></span></a>
+          </div>
+
+          <div class="components-card">
+            <div>
+              <h4>API Analytics & Monetization</h4>
+              <div class="components-card-content">
+                Track usage, monitor performance, and configure billing. Gain insights and govern your API products.
+              </div>
+            </div>
+            <a href="#" class="components-card-link">More <span>-></span></a>
+          </div>
+
+          <div class="components-card">
+            <div>
+              <h4>API Controller (CLI)</h4>
+              <div class="components-card-content">
+                Automate your API lifecycle and governance. Use the command-line tool to script operations and enforce
+                standards.
+              </div>
+            </div>
+            <a href="#" class="components-card-link">More <span>-></span></a>
+          </div>
+        </div>
+
+        <div class="components-section-header">
+          <h3>Administer</h3>
+          <p>Configure and manage the core system, tenants, and other entities.</p>
+        </div>
+
+        <div style="max-width: 50%;">
+          <div class="components-card">
+            <div>
+              <h4>Admin Portal</h4>
+              <div class="components-card-content">
+                Configure the platform: manage users, tenants, and system-wide policies like rate limiting. Register
+                Gateways and Key Managers.
+              </div>
+            </div>
+            <a href="#" class="components-card-link">More <span>-></span></a>
+          </div>
+        </div>
 
       </div>
 
-  </article>
+
+</div>
+
+</article>
 </div>
 {% endblock %}

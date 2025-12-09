@@ -275,3 +275,95 @@
         display: block;
     }
 }
+
+/* Rules for styling APIM component cards */
+/* Container for the whole layout */
+.components-hub-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  color: var(--md-accent-fg-color);
+}
+
+/* Typography for Section Headers */
+.components-section-header {
+  margin-bottom: 1rem;
+  margin-top: 2rem;
+}
+
+.components-section-header h3 {
+  font-weight: 700;
+  margin: 0 0 0.25rem 0;
+  color: #000;
+}
+
+.components-section-header p {
+  color: #555;
+  font-style: italic;
+  margin: 0;
+}
+
+/* Grid Layouts */
+.components-grid-split {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+}
+
+.components-grid-2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+}
+
+.components-grid-3 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+}
+
+/* Responsive on mobile screens; stack columns on small screens */
+@media (max-width: 768px) {
+  .components-grid-split, .components-grid-2, .components-grid-3 {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Card Styling */
+.components-card {
+  box-shadow: var(--md-default-box-shadow);
+  border: 1px solid var(--md-divider-color);
+  border-radius: var(--md-card-border-radius);
+  background-color: var(--md-surface-fg-color);
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 220px; /* Ensures consistent height */
+}
+
+.components-card h4 {
+  margin-top: 0;
+  margin-bottom: 1rem;
+  font-weight: 500;
+  color: #222;
+}
+
+.components-card-content {
+  line-height: 1.5;
+  color: #000;
+  margin-bottom: 1.5rem;
+  flex-grow: 1; /* Pushes the 'More' link to the bottom */
+}
+
+.components-card-link {
+  font-weight: 500;
+  color: #666;
+  text-decoration: none;
+  display: flex;
+  justify-content: space-between;
+  width: 80px;
+}
+
+.components-card-link:hover {
+  color: #4bbfa0;
+}
