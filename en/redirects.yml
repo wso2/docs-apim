@@ -608,26 +608,14 @@
 'manage-apis/design/rate-limiting/rate-limiting-for-streaming-apis.md': '{{SITE_URL}}/api-gateway/rate-limiting/enforce-streaming-api-limits/'
 'manage-apis/design/rate-limiting/setting-maximum-backend-throughput-limits.md': '{{SITE_URL}}/api-design-manage/design/rate-limiting/protect-backend-services/'
 'manage-apis/design/rate-limiting/setting-throttling-limits.md': '{{SITE_URL}}/api-gateway/rate-limiting/understand-rate-limit-enforcement/'
-# Redirects for file reorganization - December 2025
-# Moving files to match nav-behaviors.yml URL patterns
-
-# updating-wso2-api-manager.md moved from administer/ to install-and-setup/setup/
 'administer/updating-wso2-api-manager.md': '{{SITE_URL}}/install-and-setup/setup/updating-wso2-api-manager/'
-
-# Reference files moved from install-and-setup/setup/reference/ to reference/
 'install-and-setup/setup/reference/common-runtime-and-configuration-artifacts.md': '{{SITE_URL}}/reference/common-runtime-and-configuration-artifacts/'
 'install-and-setup/setup/reference/default-product-ports.md': '{{SITE_URL}}/reference/default-product-ports/'
 'install-and-setup/setup/reference/product-compatibility.md': '{{SITE_URL}}/reference/product-compatibility/'
-
-# Performance test files moved from install-and-setup/setup/deployment-best-practices/ to reference/
 'install-and-setup/setup/deployment-best-practices/performance-tests-results.md': '{{SITE_URL}}/reference/performance-tests-results/'
 'install-and-setup/setup/deployment-best-practices/performance-test-results-token-persistence.md': '{{SITE_URL}}/reference/performance-test-results-token-persistence/'
-
-# Governance files reorganized
 'administer/governance/api-governance-api-creator-capabilities.md': '{{SITE_URL}}/api-design-manage/governance/api-governance-api-creator-capabilities/'
 'api-design-manage/design/advanced-topics/api-governance-cli-tool.md': '{{SITE_URL}}/apiops/cli/api-governance-cli-tool/'
-
-# APIOps - API Controller files moved from install-and-setup/setup/api-controller/ to apiops/cli/
 'install-and-setup/setup/api-controller/ci-cd-with-wso2-api-management.md': '{{SITE_URL}}/apiops/cli/ci-cd-with-wso2-api-management/'
 'install-and-setup/setup/api-controller/cicd-using-cli.md': '{{SITE_URL}}/apiops/cli/cicd-using-cli/'
 'install-and-setup/setup/api-controller/building-jenkins-ci-cd-pipeline.md': '{{SITE_URL}}/apiops/cli/building-jenkins-ci-cd-pipeline/'
@@ -655,8 +643,6 @@
 'install-and-setup/setup/api-controller/advanced-topics/configuring-different-endpoint-security-types.md': '{{SITE_URL}}/apiops/cli/advanced-topics/configuring-different-endpoint-security-types/'
 'install-and-setup/setup/api-controller/advanced-topics/formatting-the-output-of-get-command.md': '{{SITE_URL}}/apiops/cli/advanced-topics/formatting-the-output-of-get-command/'
 'install-and-setup/setup/api-controller/advanced-topics/configuring-git-integration.md': '{{SITE_URL}}/apiops/cli/advanced-topics/configuring-git-integration/'
-
-# Userstore configuration files moved from administer/ to install-and-setup/setup/configure-userstores/
 'administer/managing-users-and-roles/managing-user-stores/introduction-to-userstores.md': '{{SITE_URL}}/install-and-setup/setup/configure-userstores/introduction-to-userstores/'
 'administer/managing-users-and-roles/managing-user-stores/configure-primary-user-store/configuring-the-primary-user-store.md': '{{SITE_URL}}/install-and-setup/setup/configure-userstores/configure-primary-user-store/configuring-the-primary-user-store/'
 'administer/managing-users-and-roles/managing-user-stores/configure-primary-user-store/configuring-a-jdbc-user-store.md': '{{SITE_URL}}/install-and-setup/setup/configure-userstores/configure-primary-user-store/configuring-a-jdbc-user-store/'
