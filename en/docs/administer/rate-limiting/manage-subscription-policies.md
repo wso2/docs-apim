@@ -2,6 +2,18 @@
 
 Subscription-level rate limiting policies (Business Plans) are used to limit the number of requests an application can make to an API during a given period of time.
 
+### Default Tiers
+
+The system includes the following default tiers:
+
+- **Bronze**: 1000 requests per minute
+- **Silver**: 2000 requests per minute
+- **Gold**: 5000 requests per minute
+- **Unlimited**: Allows unlimited access.
+
+!!! note
+    Administrators can disable the Unlimited tier by editing the `enable_unlimited_tier` element under `[apim.throttling]` in the `<API-M_HOME>/repository/conf/deployment.toml` file.
+
 ## Adding a New Subscription-Level Rate Limiting Tier
 
 1.  Sign in to the Admin Portal using the URL `https://localhost:9443/admin` and your admin credentials.
@@ -45,7 +57,7 @@ Subscription-level rate limiting policies (Business Plans) are used to limit the
      | WebHooks                        | Maximum number of WebHooks allowed for a WebHooks API using this policy. |
      | Stop On Quota Reach             | This indicates the action to be taken when a user goes beyond the allocated quota. If the check box is selected, the user's requests are dropped and an error response (HTTP Status code 429) is given. If the check box is cleared, the requests are allowed to pass through.             |
      | Billing Plan                    | This field only makes sense if you have API Monetization enabled. The available **billing plans** are **Free, Commercial, and Freemium**. An API is tagged/labelled as Free, Paid, or Freemium depending on its subscription tiers(e.g., Unlimited, Gold, etc.), which are the tiers selected when creating an API. |
-     | Custom Attributes               | You can choose to display additional information about tiers using custom attributes during custom implementations. The main objective of these fields are to provide more information regarding the tier to Application Developers at the time of API subscription. An example usage of custom attributes is API Monetization. See [Enabling Monetization of APIs-]({{base_path}}/manage-apis/design/api-monetization/monetizing-an-api/) for more information on practical usage of custom attributes in the subscription tier.      |
+     | Custom Attributes               | You can choose to display additional information about tiers using custom attributes during custom implementations. The main objective of these fields are to provide more information regarding the tier to Application Developers at the time of API subscription. An example usage of custom attributes is API Monetization. See [Enabling Monetization of APIs-]({{base_path}}/monitoring/api-monetization/monetizing-an-api/) for more information on practical usage of custom attributes in the subscription tier.      |
      | Permissions                     | You can allow or deny permission for specific roles. Once permission is denied to a role, the new subscription tier that you add here will not be available to that role in the Developer Portal.          |
     
     <div class="admonition info">

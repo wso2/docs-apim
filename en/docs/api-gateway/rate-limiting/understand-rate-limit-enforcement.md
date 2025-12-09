@@ -163,7 +163,7 @@ The throttling solution in API Manager is designed in a fully asynchronous and d
 
 GraphQL and Streaming APIs have specialized enforcement mechanisms due to their unique characteristics:
 
-- **GraphQL APIs**: GraphQL APIs use complexity-based and depth-based limiting in addition to request-based rate limiting and burst control. The maximum values for complexity and depth can be set in the subscription policy. See [GraphQL Query Enforcement]({{base_path}}/api-design-manage/design/rate-limiting/graphql-api/query-complexity-analysiss/) for details.
+- **GraphQL APIs**: GraphQL APIs use complexity-based and depth-based limiting in addition to request-based rate limiting and burst control. The maximum values for complexity and depth can be enforced through the subscription policy. See [GraphQL Query Complexity Limit]({{base_path}}/api-design-manage/design/rate-limiting/graphql-api/query-complexity-analysis/) and [GraphQL Query Depth Limit]({{base_path}}/api-design-manage/design/rate-limiting/graphql-api/query-depth-analysis/) for details.
 
 - **Streaming APIs**: Business plans for Streaming APIs count events/frames rather than HTTP requests, and limit number of active long-lived connections. See [Streaming API Enforcement]({{base_path}}/api-design-manage/design/rate-limiting/rate-limiting-for-streaming-apis/) for details.
 
@@ -183,8 +183,8 @@ When a request is throttled, the 429 response includes details about which polic
 
 Check the Gateway logs for more detailed information about which specific limit was triggered.
 
-## Related Topics
+## See Also
 
-- [Configuring Distributed Throttling]({{base_path}}/api-gateway/rate-limiting/distributed-throttling/) - Architecture overview
-- [Connecting to Redis/Valkey]({{base_path}}/api-gateway/rate-limiting/configuring-rate-limiting-api-gateway-cluster/) - Enable distributed counters
-- [Custom Throttling]({{base_path}}/api-gateway/rate-limiting/custom-throttling/) - Implement custom rate limiting logic
+- [Configuring Distributed Throttling]({{base_path}}/api-gateway/rate-limiting/distributed-throttling/) - To maintain traffic counts at a global level
+- [Connecting to Redis/Valkey]({{base_path}}/api-gateway/rate-limiting/configuring-rate-limiting-api-gateway-cluster/) - Configure Distributed Burst Control, Backend Rate Limiting for an API Gateway Cluster
+- [Custom Throttling]({{base_path}}/api-gateway/rate-limiting/enforce-custom-throttling/) - To implement custom rate limiting logic

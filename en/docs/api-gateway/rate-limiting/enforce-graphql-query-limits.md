@@ -137,8 +137,6 @@ GraphQL query limits are configured through subscription policies:
 
 Publishers can customize field complexity values for their GraphQL APIs to accurately reflect the computational cost of resolving each field.
 
-## Related Topics
+## See Also
 
-- [Query Depth Limitation]({{base_path}}/api-design-manage/design/rate-limiting/graphql-api/query-depth-limitation/) - How to configure Max Depth
-- [Query Complexity Limitation]({{base_path}}/api-design-manage/design/rate-limiting/graphql-api/query-complexity-limitation/) - How to configure Max Complexity and field values
-- [GraphQL Rate Limiting Overview]({{base_path}}/api-design-manage/design/rate-limiting/graphql-api/overview-query-limits-for-graphql/) - Complete GraphQL rate limiting concepts
+- For more information on creating and configuring graphql query limits in subscription level policies, see [Managing Subscription Policies]({{base_path}}/administer/rate-limiting/manage-subscription-policies/#graphql-query-limits-in-subscription-policies)

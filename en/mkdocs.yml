@@ -302,7 +302,6 @@ nav:
                 - Enabling CORS for APIs: api-design-manage/design/advanced-topics/enabling-cors-for-apis.md
                 - Adding an API State Change Workflow: api-design-manage/design/advanced-topics/adding-an-api-state-change-workflow.md
                 - Validate API Definitions with Linters: api-design-manage/design/advanced-topics/validate-api-definitions-with-linters.md
-                - Publisher Portal in Read Only Mode: api-design-manage/design/api-security/authorization/publisher-portal-in-read-only-mode.md
                 - API Creator/Publisher Governance Capabilities: api-design-manage/governance/api-governance-api-creator-capabilities.md
         - Deploy and Publish APIs:
             - Deploy on Gateway:
@@ -381,12 +380,12 @@ nav:
                 - Secure APIs Using Basic Authentication: api-security/runtime/api-authentication/secure-apis-using-basic-authentication.md
                 - Secure APIs Using Mutual SSL: api-security/runtime/api-authentication/secure-apis-using-mutual-ssl.md
                 - Secure APIs Using OAuth2 Tokens: api-security/runtime/api-authentication/secure-apis-using-oauth2-tokens.md
-                - Securing APIs Using Certificate Bound Access Tokens: api-design-manage/design/api-security/api-authentication/securing-apis-using-certificate-bound-access-tokens.md
+                - Securing APIs Using Certificate Bound Access Tokens: api-security/runtime/api-authentication/securing-apis-using-certificate-bound-access-tokens.md
             - Authorization:
                 - Overview: api-security/runtime/authorization/api-authorization.md
                 - Role-based Access Control Using XACML: api-security/runtime/authorization/role-based-access-control-using-xacml.md
                 - Fine Grained Access Control with OAuth Scopes: api-security/runtime/oauth2/oauth2-scopes/fine-grained-access-control-with-oauth-scopes.md
-                - Scope Whitelisting: key-manager/authentication/oauth2-scopes/scope-whitelisting.md
+                - Scope Whitelisting: api-security/runtime/oauth2/oauth2-scopes/scope-whitelisting.md
             - API Request Response Schema Validation:
                 - JSON Schema Validator: api-security/runtime/api-request-response-schema-validation/json-schema-validator.md
             - OPA Validation:
@@ -612,6 +611,8 @@ nav:
             - Concepts: administer/governance/governance-concept.md
             - Administrative Capabilities: administer/governance/api-governance-admin-capabilities.md
             - CI/CD-Driven Governance: administer/governance/api-governance-cicd.md
+        - Publisher Portal in Read Only Mode: administer/publisher-portal-in-read-only-mode.md
+
 
     - APIOps:
         - CI/CD:
@@ -796,6 +797,8 @@ markdown_extensions:
         custom_checkbox: true
     - pymdownx.tilde
     - pymdownx.snippets:
+        base_path: docs
+    - markdown_include.include:
         base_path: docs
     - attr_list
 plugins:
@@ -1067,7 +1070,7 @@ extra:
             version: 1.2.0-1
             git_tag: v1.2.0.1
     site_version: 4.6.0
-    # base_path: http://localhost:8000/en/latest
+    #base_path: http://localhost:8000/en/4.6.0
     base_path: https://apim-docs-stg.wso2.com/en/4.6.0
     envoy_path: https://www.envoyproxy.io/docs/envoy/v1.24.1
     redoc_theme: '{

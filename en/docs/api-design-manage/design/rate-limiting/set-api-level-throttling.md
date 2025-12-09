@@ -9,10 +9,10 @@ You can apply rate limits at different levels depending on your needs:
 - **API-Level**: Applies a single limit to all operations within an API.
 - **Resource-Level (Operation-Level)**: Applies individual limits to specific HTTP operations (GET, POST, etc.) within an API.
 
-Resource-level limiting is useful when different operations have different performance characteristics. For example, a financial transaction operation might need stricter limits than a simple lookup operation.
+Resource-level limiting is useful when different operations have different performance characteristics. For example, a financial transaction operation might need stricter limits than a simple lookup operation. Advanced policies can also specify bandwidth limits per unit time instead of request counts.
 
 !!! tip
-    Advanced Rate Limiting policies are defined by Administrators in the Admin Portal. As a Publisher, you select which policies to apply to your API or its operations. For information on creating custom advanced policies, see [Adding a new advanced Rate Limiting policy]({{base_path}}/design/rate-limiting/adding-new-throttling-policies/#adding-a-new-advanced-rate-limiting-policy).
+    Advanced Rate Limiting policies are defined by Administrators in the Admin Portal. As a Publisher, you select which policies to apply to your API or its operations. For information on creating custom advanced policies, see [Adding a new Advanced Rate Limiting policy]({{base_path}}/administer/rate-limiting/manage-advanced-policies).
 
 ## Applying API-Level Rate Limiting
 
@@ -43,11 +43,6 @@ The system includes the following default advanced rate limiting tiers:
 - **20KPerMin**: 20,000 requests per minute
 - **50KPerMin**: 50,000 requests per minute
 - **Unlimited**: Allows unlimited access
-
-!!! note
-    Administrators can disable the Unlimited tier by editing the `enable_unlimited_tier` element under `[apim.throttling]` in the `<API-M_HOME>/repository/conf/deployment.toml` file.
-
-Advanced policies can also specify bandwidth limits per unit time instead of request counts. Administrators can configure these via the Admin Portal. For details, see [Adding a new advanced Rate Limiting policy]({{base_path}}/design/rate-limiting/adding-new-throttling-policies/#adding-a-new-advanced-rate-limiting-policy).
 
 ### Defining Policies via API Definition
 
@@ -91,4 +86,8 @@ As a Publisher, you simply select the appropriate policy name from the dropdown.
 !!! tip
     If you need a custom advanced policy with specific filtering rules for your API, contact your Administrator to create the policy in the Admin Portal. You can then select it from the available policies when configuring your API.
 
-For more information on creating and configuring advanced rate limiting policies, see [Adding a new advanced rate limiting policy]({{base_path}}/design/rate-limiting/adding-new-throttling-policies/#adding-a-new-advanced-rate-limiting-policy).
+## See Also
+
+- For more information on creating and configuring advanced rate limiting policies, see [Managing Advanced Rate Limiting policies]({{base_path}}/administer/rate-limiting/manage-advanced-policies).
+
+- Learn how to ensure your backend remain stable even as API usage grows, see [Protect Backend Services]({{base_path}}/api-design-manage/design/rate-limiting/protect-backend-services).

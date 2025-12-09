@@ -35,7 +35,7 @@ INSERT ALL EVENTS into ResultStream;
 !!! important
     The throttle key in the Siddhi query must match the key template format. If there is a mismatch between the key template format and the throttle key, the Gateway will not throttle requests correctly.
 
-## Related Topics
+## See Also
 
-- [Custom Throttling Configuration]({{base_path}}/api-design-manage/design/rate-limiting/adding-new-throttling-policies/#adding-a-new-custom-throttling-policy) - How to create custom throttling policies
+- [Custom Throttling Configuration]({{base_path}}/administer/rate-limiting/implement-custom-policies/) - How to create custom throttling policies
 - [Siddhi Query Language Guide](https://docs.wso2.com/complex-event-processor/SiddhiQL+Guide+3.1) - Complete Siddhi query language reference

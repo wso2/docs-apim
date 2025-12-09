@@ -5,7 +5,7 @@ GraphQL schemas often have circular relationships between types. For example, a 
 Query Depth Limitation protects your GraphQL API by restricting how many levels deep a query can nest. Queries exceeding the configured maximum depth are rejected before reaching your backend.
 
 !!! tip
-    Depth limits are defined in subscription tiers by Administrators. As a Publisher, you select which tiers to make available for your GraphQL API. For creating custom subscription tiers with depth limits, see [Adding a new subscription-level Rate Limiting tier]({{base_path}}/design/rate-limiting/adding-new-throttling-policies/#adding-a-new-subscription-level-rate-limiting-tier).
+    Depth limits are defined in subscription tiers by Administrators. As a Publisher, you select which tiers to make available for your GraphQL API. For creating custom subscription tiers with depth limits, see [Adding a new subscription-level Rate Limiting tier]({{base_path}}/administer/rate-limiting/manage-subscription-policies).
 
 ## Understanding Query Depth
 
@@ -71,3 +71,8 @@ Applications subscribing to your API will be limited by the depth value defined 
     Choose appropriate depth limits based on your schema structure and backend capabilities. Consider the deepest legitimate queries your clients need to make, and set limits slightly above that to allow flexibility while preventing abuse.
 
 By assigning subscription tiers with appropriate depth limits, you protect your GraphQL backend from expensive nested queries while ensuring legitimate use cases remain functional.
+
+## See Also
+
+- For more information on setting GraphQL Query Limits in Subscription Policies, see [GraphQL Query Limits in Subscription Policies]({{base_path}}/administer/rate-limiting/manage-subscription-policies/#graphql-query-limits-in-subscription-policies).
+- Learn how to limit query complexity to protect your backend from computationally expensive queries, see [GraphQL Query Complexity Analysis]({{base_path}}/api-design-manage/design/rate-limiting/graphql-api/query-complexity-analysis).
