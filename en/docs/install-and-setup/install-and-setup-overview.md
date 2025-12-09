@@ -400,7 +400,7 @@ To upgrade to the current API Manager component from a previous version refer [U
     </tr>
     <tr>
         <th>
-            <a href="{{base_path}}/install-and-setup/setup/reference/supported-cipher-suites">Supported Cipher Suites</a>
+            <a href="{{base_path}}/reference/supported-cipher-suites">Supported Cipher Suites</a>
         </th>
         <td>
             Provides details of the supported cipher suites.

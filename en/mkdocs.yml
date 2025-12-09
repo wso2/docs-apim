@@ -92,7 +92,7 @@ nav:
             - Installation Options: install-and-setup/install/installation-options.md
         - Setup:
             - Set up API Manager:
-                - Update WSO2 API Manager: administer/updating-wso2-api-manager.md
+                - Update WSO2 API Manager: install-and-setup/setup/updating-wso2-api-manager.md
                 - Set up Kubernetes Gateway with APIM: install-and-setup/setup/distributed-deployment/configuring-apim-as-a-gateway.md
                 - Set up a Key Manager:
                     - Set up a Third-party Key Manager: install-and-setup/setup/distributed-deployment/configure-a-third-party-key-manager.md
@@ -133,13 +133,13 @@ nav:
                     - User Account Management: install-and-setup/setup/security/user-account-management.md
                     - Secure Web Portals: install-and-setup/setup/security/securing-api-m-web-portals.md
                 - Configure Userstores:
-                    - Introduction to User Stores: administer/managing-users-and-roles/managing-user-stores/introduction-to-userstores.md
+                    - Introduction to User Stores: install-and-setup/setup/configure-userstores/introduction-to-userstores.md
                     - Configure Primary User Stores:
-                        - Configure Primary User Stores: administer/managing-users-and-roles/managing-user-stores/configure-primary-user-store/configuring-the-primary-user-store.md
-                        - Configure a JDBC User Store: administer/managing-users-and-roles/managing-user-stores/configure-primary-user-store/configuring-a-jdbc-user-store.md
-                        - Configure a Read-Write LDAP User Store: administer/managing-users-and-roles/managing-user-stores/configure-primary-user-store/configuring-a-read-write-ldap-user-store.md
-                        - Configure a Read-Only LDAP User Store: administer/managing-users-and-roles/managing-user-stores/configure-primary-user-store/configuring-a-read-only-ldap-user-store.md
-                        - Configure a Read-Write Active Directory User Store: administer/managing-users-and-roles/managing-user-stores/configure-primary-user-store/configuring-a-read-write-active-directory-user-store.md
+                        - Configure Primary User Stores: install-and-setup/setup/configure-userstores/configure-primary-user-store/configuring-the-primary-user-store.md
+                        - Configure a JDBC User Store: install-and-setup/setup/configure-userstores/configure-primary-user-store/configuring-a-jdbc-user-store.md
+                        - Configure a Read-Write LDAP User Store: install-and-setup/setup/configure-userstores/configure-primary-user-store/configuring-a-read-write-ldap-user-store.md
+                        - Configure a Read-Only LDAP User Store: install-and-setup/setup/configure-userstores/configure-primary-user-store/configuring-a-read-only-ldap-user-store.md
+                        - Configure a Read-Write Active Directory User Store: install-and-setup/setup/configure-userstores/configure-primary-user-store/configuring-a-read-write-active-directory-user-store.md
                 - SSO:
                     - Configure Identity Server As External IDP with OIDC: install-and-setup/setup/sso/configuring-identity-server-as-external-idp-using-oidc.md
                     - Configure Identity Server As External IDP with SAML: install-and-setup/setup/sso/configuring-identity-server-as-external-idp-using-saml.md
@@ -392,44 +392,44 @@ nav:
                 - Overview: api-security/runtime/opa-validation/overview.md
                 - Custom OPA Policy for Regular Gateway: api-security/runtime/opa-validation/custom-opa-policy-for-regular-gateway.md
         - Key Management:
-            - Overview: key-manager/key-manager-overview.md
+            - Overview: api-security/key-management/key-manager-overview.md
             - Grant Types:
-                - Overview: key-manager/authentication/grant-types/overview.md
-                - Password Grant: key-manager/authentication/grant-types/password-grant.md
-                - Client Credentials Grant: key-manager/authentication/grant-types/client-credentials-grant.md
-                - Authorization Code Grant: key-manager/authentication/grant-types/authorization-code-grant.md
-                - Refresh Token Grant: key-manager/authentication/grant-types/refresh-token-grant.md
-                - JWT Grant: key-manager/authentication/grant-types/jwt-grant.md
-                - SAML Extension Grant: key-manager/authentication/grant-types/saml-extension-grant.md
-                - Kerberos OAuth2 Grant: key-manager/authentication/grant-types/kerberos-oauth2-grant.md
-                - NTLM Grant: key-manager/authentication/grant-types/ntlm-grant.md
+                - Overview: api-security/key-management/authentication/grant-types/overview.md
+                - Password Grant: api-security/key-management/authentication/grant-types/password-grant.md
+                - Client Credentials Grant: api-security/key-management/authentication/grant-types/client-credentials-grant.md
+                - Authorization Code Grant: api-security/key-management/authentication/grant-types/authorization-code-grant.md
+                - Refresh Token Grant: api-security/key-management/authentication/grant-types/refresh-token-grant.md
+                - JWT Grant: api-security/key-management/authentication/grant-types/jwt-grant.md
+                - SAML Extension Grant: api-security/key-management/authentication/grant-types/saml-extension-grant.md
+                - Kerberos OAuth2 Grant: api-security/key-management/authentication/grant-types/kerberos-oauth2-grant.md
+                - NTLM Grant: api-security/key-management/authentication/grant-types/ntlm-grant.md
             - Tokens:
-                - JWT Tokens: key-manager/tokens/jwt-tokens.md
-                - Token Expiration: key-manager/tokens/token-expiration.md
-                - Token Persistence: key-manager/tokens/token-persistence.md
-                - Token Revocation: key-manager/tokens/token-revocation.md
-                - Encrypting OAuth2 Tokens: key-manager/tokens/encrypting-oauth2-tokens.md
-                - Hashing OAuth Keys: key-manager/tokens/hashing-oauth-keys.md
-                - Multiple Active Access Tokens: key-manager/tokens/multiple-active-access-tokens.md
-                - Securing OAuth Token with HMAC Validation: key-manager/tokens/securing-oauth-token-with-hmac-validation.md
+                - JWT Tokens: api-security/key-management/tokens/jwt-tokens.md
+                - Token Expiration: api-security/key-management/tokens/token-expiration.md
+                - Token Persistence: api-security/key-management/tokens/token-persistence.md
+                - Token Revocation: api-security/key-management/tokens/token-revocation.md
+                - Encrypting OAuth2 Tokens: api-security/key-management/tokens/encrypting-oauth2-tokens.md
+                - Hashing OAuth Keys: api-security/key-management/tokens/hashing-oauth-keys.md
+                - Multiple Active Access Tokens: api-security/key-management/tokens/multiple-active-access-tokens.md
+                - Securing OAuth Token with HMAC Validation: api-security/key-management/tokens/securing-oauth-token-with-hmac-validation.md
             - Applications:
-                - Provisioning Out-of-Band OAuth Clients: key-manager/applications/provisioning-out-of-band-oauth-clients.md
-                - Federating OAuth Applications: key-manager/applications/federating-oauth-applications.md
+                - Provisioning Out-of-Band OAuth Clients: api-security/key-management/applications/provisioning-out-of-band-oauth-clients.md
+                - Federating OAuth Applications: api-security/key-management/applications/federating-oauth-applications.md
             - Identity:
-                - Obtain User Profile Information with OpenID Connect: key-manager/identity/obtaining-user-profile-information-with-openid-connect.md
+                - Obtain User Profile Information with OpenID Connect: api-security/key-management/identity/obtaining-user-profile-information-with-openid-connect.md
             - Third-Party Key Managers:
-                - Overview: key-manager/third-party-key-managers/overview.md
-                - Configure WSO2 IS as a Key Manager: key-manager/third-party-key-managers/configure-wso2is-connector.md
-                - Configure WSO2 IS 7.x as a Key Manager: key-manager/third-party-key-managers/configure-wso2is7-connector.md
-                - Configure Keycloak as a Key Manager: key-manager/third-party-key-managers/configure-keycloak-connector.md
-                - Configure Okta as a Key Manager: key-manager/third-party-key-managers/configure-okta-connector.md
-                - Configure Auth0 as a Key Manager: key-manager/third-party-key-managers/configure-auth0-connector.md
-                - Configure PingFederate as A Key Manager: key-manager/third-party-key-managers/configure-pingfederate-connector.md
-                - Configure ForgeRock as a Key Manager: key-manager/third-party-key-managers/configure-forgerock-connector.md
-                - Configure a Custom Key Manager: key-manager/third-party-key-managers/configure-custom-connector.md
-                - Configure the Global Key Manager: key-manager/third-party-key-managers/configure-global-key-manager.md
-                - Configure the Azure AD as a Key Manager: key-manager/third-party-key-managers/configure-azure-ad-key-manager.md
-                - Application Scopes: key-manager/third-party-key-managers/application-scopes.md
+                - Overview: api-security/key-management/third-party-key-managers/overview.md
+                - Configure WSO2 IS as a Key Manager: api-security/key-management/third-party-key-managers/configure-wso2is-connector.md
+                - Configure WSO2 IS 7.x as a Key Manager: api-security/key-management/third-party-key-managers/configure-wso2is7-connector.md
+                - Configure Keycloak as a Key Manager: api-security/key-management/third-party-key-managers/configure-keycloak-connector.md
+                - Configure Okta as a Key Manager: api-security/key-management/third-party-key-managers/configure-okta-connector.md
+                - Configure Auth0 as a Key Manager: api-security/key-management/third-party-key-managers/configure-auth0-connector.md
+                - Configure PingFederate as A Key Manager: api-security/key-management/third-party-key-managers/configure-pingfederate-connector.md
+                - Configure ForgeRock as a Key Manager: api-security/key-management/third-party-key-managers/configure-forgerock-connector.md
+                - Configure a Custom Key Manager: api-security/key-management/third-party-key-managers/configure-custom-connector.md
+                - Configure the Global Key Manager: api-security/key-management/third-party-key-managers/configure-global-key-manager.md
+                - Configure the Azure AD as a Key Manager: api-security/key-management/third-party-key-managers/configure-azure-ad-key-manager.md
+                - Application Scopes: api-security/key-management/third-party-key-managers/application-scopes.md
 
     - API Gateway:
         - Universal Gateway:
@@ -529,13 +529,13 @@ nav:
             - Semantic Caching: ai-gateway/semantic-caching.md
             - AI APIs via SDKs: ai-gateway/using-proxy-apis-in-sdks.md
         - MCP Gateway:
-            - Getting Started: mcp-gateway/overview.md
-            - Create from an OpenAPI Definition: mcp-gateway/create-from-openapi.md
-            - Create from an Existing API: mcp-gateway/create-from-api.md
-            - Proxy an Existing MCP Server: mcp-gateway/create-from-mcp-server.md
-            - Update and Deploy a MCP Server: mcp-gateway/update-and-deploy-mcp-server.md
-            - Subscribe to a MCP Server: mcp-gateway/subscribe-to-a-mcp-server.md
-            - Consume MCP Servers from MCP Hub: mcp-gateway/invoke-a-mcp-server-using-playground.md
+            - Getting Started: ai-gateway/mcp-gateway/overview.md
+            - Create from an OpenAPI Definition: ai-gateway/mcp-gateway/create-from-openapi.md
+            - Create from an Existing API: ai-gateway/mcp-gateway/create-from-api.md
+            - Proxy an Existing MCP Server: ai-gateway/mcp-gateway/create-from-mcp-server.md
+            - Update and Deploy a MCP Server: ai-gateway/mcp-gateway/update-and-deploy-mcp-server.md
+            - Subscribe to a MCP Server: ai-gateway/mcp-gateway/subscribe-to-a-mcp-server.md
+            - Consume MCP Servers from MCP Hub: ai-gateway/mcp-gateway/invoke-a-mcp-server-using-playground.md
 
     - API Analytics & Monetization:
         - API Analytics:
@@ -616,41 +616,41 @@ nav:
 
     - APIOps:
         - CI/CD:
-            - CI/CD for APIs - Overview: install-and-setup/setup/api-controller/ci-cd-with-wso2-api-management.md
-            - Build a CI/CD Pipeline for APIs Using the CLI: install-and-setup/setup/api-controller/cicd-using-cli.md
-            - Build a CI/CD Pipeline for APIs using Jenkins: install-and-setup/setup/api-controller/building-jenkins-ci-cd-pipeline.md
+            - CI/CD for APIs - Overview: apiops/cli/ci-cd-with-wso2-api-management.md
+            - Build a CI/CD Pipeline for APIs Using the CLI: apiops/cli/cicd-using-cli.md
+            - Build a CI/CD Pipeline for APIs using Jenkins: apiops/cli/building-jenkins-ci-cd-pipeline.md
         - CLI:
-            - Getting Started with WSO2 API Controller (apictl): install-and-setup/setup/api-controller/getting-started-with-wso2-api-controller.md
-            - API Governance CLI Tool: api-design-manage/design/advanced-topics/api-governance-cli-tool.md
+            - Getting Started with WSO2 API Controller (apictl): apiops/cli/getting-started-with-wso2-api-controller.md
+            - API Governance CLI Tool: apiops/cli/api-governance-cli-tool.md
             - Manage APIs and API Products:
-                - Manage APIs and API Products: install-and-setup/setup/api-controller/managing-apis-api-products/managing-apis-and-api-products.md
-                - Import APIs Via Dev First Approach: install-and-setup/setup/api-controller/managing-apis-api-products/importing-apis-via-dev-first-approach.md
-                - Migrate APIs to Different Environments: install-and-setup/setup/api-controller/managing-apis-api-products/migrating-apis-to-different-environments.md
-                - Migrate API Products (with or without Dependent APIs) to Different Environments: install-and-setup/setup/api-controller/managing-apis-api-products/migrating-api-products-to-different-environments.md
+                - Manage APIs and API Products: apiops/cli/managing-apis-api-products/managing-apis-and-api-products.md
+                - Import APIs Via Dev First Approach: apiops/cli/managing-apis-api-products/importing-apis-via-dev-first-approach.md
+                - Migrate APIs to Different Environments: apiops/cli/managing-apis-api-products/migrating-apis-to-different-environments.md
+                - Migrate API Products (with or without Dependent APIs) to Different Environments: apiops/cli/managing-apis-api-products/migrating-api-products-to-different-environments.md
             - Manage MCP Servers:
-                - Manage MCP Servers: install-and-setup/setup/api-controller/managing-mcp-servers/managing-mcp-servers.md
-                - Import MCP Servers Via Dev First Approach: install-and-setup/setup/api-controller/managing-mcp-servers/importing-mcp-servers-via-dev-first-approach.md
-                - Migrate MCP Servers to Different Environments: install-and-setup/setup/api-controller/managing-mcp-servers/migrating-mcp-servers-to-different-environments.md
+                - Manage MCP Servers: apiops/cli/managing-mcp-servers/managing-mcp-servers.md
+                - Import MCP Servers Via Dev First Approach: apiops/cli/managing-mcp-servers/importing-mcp-servers-via-dev-first-approach.md
+                - Migrate MCP Servers to Different Environments: apiops/cli/managing-mcp-servers/migrating-mcp-servers-to-different-environments.md
             - Manage Applications:
-                - Manage Applications: install-and-setup/setup/api-controller/managing-applications/managing-applications.md
-                - Migrate Apps to Different Environments: install-and-setup/setup/api-controller/managing-applications/migrating-applications-to-different-environments.md
+                - Manage Applications: apiops/cli/managing-applications/managing-applications.md
+                - Migrate Apps to Different Environments: apiops/cli/managing-applications/migrating-applications-to-different-environments.md
             - Manage Rate Limiting Policies: 
-                - Manage Rate Limiting Policies: install-and-setup/setup/api-controller/managing-rate-limiting-policies/throttle-policy-import-export.md
-                - Migrate Rate Limiting Policies to Different Environments: install-and-setup/setup/api-controller/managing-rate-limiting-policies/migrating-rate-limiting-policies-to-different-environments.md
+                - Manage Rate Limiting Policies: apiops/cli/managing-rate-limiting-policies/throttle-policy-import-export.md
+                - Migrate Rate Limiting Policies to Different Environments: apiops/cli/managing-rate-limiting-policies/migrating-rate-limiting-policies-to-different-environments.md
             - Manage Common API Policies:
-                - Manage Common API Policies: install-and-setup/setup/api-controller/managing-common-api-policies/managing-common-api-policies.md
-                - Migrate Common API Policies to Different Environments: install-and-setup/setup/api-controller/managing-common-api-policies/migrating-common-api-policies-to-different-environments.md
-            - Encrypt Secrets with apictl: install-and-setup/setup/api-controller/encrypting-secrets-with-ctl.md
-            - Enable Correlation Logs with apictl: install-and-setup/setup/api-controller/enabling-correlation-logs-with-apictl.md
-            - AI Related Operations with apictl: install-and-setup/setup/api-controller/ai-related-operations-with-apictl.md
+                - Manage Common API Policies: apiops/cli/managing-common-api-policies/managing-common-api-policies.md
+                - Migrate Common API Policies to Different Environments: apiops/cli/managing-common-api-policies/migrating-common-api-policies-to-different-environments.md
+            - Encrypt Secrets with apictl: apiops/cli/encrypting-secrets-with-ctl.md
+            - Enable Correlation Logs with apictl: apiops/cli/enabling-correlation-logs-with-apictl.md
+            - AI Related Operations with apictl: apiops/cli/ai-related-operations-with-apictl.md
             - Advanced Topics:
-                - Create Custom Users to Perform apictl Operations: install-and-setup/setup/api-controller/advanced-topics/creating-custom-users-to-perform-api-controller-operations.md
-                - Configure Environment Specific Parameters: install-and-setup/setup/api-controller/advanced-topics/configuring-environment-specific-parameters.md
-                - Use Dynamic Data in apictl Projects: install-and-setup/setup/api-controller/advanced-topics/using-dynamic-data-in-api-controller-projects.md
-                - Configure Different Endpoint Types: install-and-setup/setup/api-controller/advanced-topics/configuring-different-endpoint-types.md
-                - Configuring Different Endpoint Security Types: install-and-setup/setup/api-controller/advanced-topics/configuring-different-endpoint-security-types.md
-                - Format the Outputs of Get Commands: install-and-setup/setup/api-controller/advanced-topics/formatting-the-output-of-get-command.md
-                - Configure Git Integration: install-and-setup/setup/api-controller/advanced-topics/configuring-git-integration.md
+                - Create Custom Users to Perform apictl Operations: apiops/cli/advanced-topics/creating-custom-users-to-perform-api-controller-operations.md
+                - Configure Environment Specific Parameters: apiops/cli/advanced-topics/configuring-environment-specific-parameters.md
+                - Use Dynamic Data in apictl Projects: apiops/cli/advanced-topics/using-dynamic-data-in-api-controller-projects.md
+                - Configure Different Endpoint Types: apiops/cli/advanced-topics/configuring-different-endpoint-types.md
+                - Configuring Different Endpoint Security Types: apiops/cli/advanced-topics/configuring-different-endpoint-security-types.md
+                - Format the Outputs of Get Commands: apiops/cli/advanced-topics/formatting-the-output-of-get-command.md
+                - Configure Git Integration: apiops/cli/advanced-topics/configuring-git-integration.md
 
     - Reference:
         - Product REST APIs:
@@ -746,25 +746,25 @@ nav:
             - Message Flow in the API Manager Gateway: reference/guides/message-flow-in-the-api-manager-gateway.md
             - Accessing API Manager by Multiple Devices Simultaneously: reference/guides/accessing-api-manager-by-multiple-devices-simultaneously.md
             - admin_Directory Structure of WSO2 Products: reference/guides/directory-structure-of-wso2-products.md
-        - Common Runtime and Configuration Artifacts: install-and-setup/setup/reference/common-runtime-and-configuration-artifacts.md
-        - Default Product Ports: install-and-setup/setup/reference/default-product-ports.md
-        - Product Compatibility: install-and-setup/setup/reference/product-compatibility.md
+        - Common Runtime and Configuration Artifacts: reference/common-runtime-and-configuration-artifacts.md
+        - Default Product Ports: reference/default-product-ports.md
+        - Product Compatibility: reference/product-compatibility.md
         - Performance Test Results:
-            - API Manager: install-and-setup/setup/deployment-best-practices/performance-tests-results.md
+            - API Manager: reference/performance-tests-results.md
             # - API Manager (Streaming APIs): install-and-setup/setup/deployment-best-practices/performance-tests-results-async.md
             # - API Manager (GraphQL APIs): install-and-setup/setup/deployment-best-practices/performance-tests-results-graphql.md
-            - Token Persistence: install-and-setup/setup/deployment-best-practices/performance-test-results-token-persistence.md
-        - Supported Cipher Suites: install-and-setup/setup/reference/supported-cipher-suites.md    
+            - Token Persistence: reference/performance-test-results-token-persistence.md
+        - Supported Cipher Suites: reference/supported-cipher-suites.md    
         - Troubleshooting:
-            - Error Handling: troubleshooting/error-handling.md
-            - Capturing System Data in Error Situations: troubleshooting/capturing-system-data-in-error-situations.md
-            - Troubleshooting in Production Environments: troubleshooting/admin-troubleshooting-in-production-environments.md
-            - Utilizing Runtime Diagnostic Tool: troubleshooting/utilizing-runtime-diagnostic-tool.md
-            - Cleaning Up Partially Created Keys: troubleshooting/cleaning-up-partially-created-keys.md
-            - Configure XSLT Mediation with Xalan: troubleshooting/configuring-xslt-mediation-with-xalan.md
-            - Troubleshooting 'Registered callback does not match with the provided url' error: troubleshooting/troubleshooting-invalid-callback-error.md
-            - Troubleshooting JMS: troubleshooting/troubleshooting-jms.md
-            - Troubleshooting WebSocket APIs: troubleshooting/troubleshooting-websocket-api.md
+            - Error Handling: reference/troubleshooting/error-handling.md
+            - Capturing System Data in Error Situations: reference/troubleshooting/capturing-system-data-in-error-situations.md
+            - Troubleshooting in Production Environments: reference/troubleshooting/admin-troubleshooting-in-production-environments.md
+            - Utilizing Runtime Diagnostic Tool: reference/troubleshooting/utilizing-runtime-diagnostic-tool.md
+            - Cleaning Up Partially Created Keys: reference/troubleshooting/cleaning-up-partially-created-keys.md
+            - Configure XSLT Mediation with Xalan: reference/troubleshooting/configuring-xslt-mediation-with-xalan.md
+            - Troubleshooting 'Registered callback does not match with the provided url' error: reference/troubleshooting/troubleshooting-invalid-callback-error.md
+            - Troubleshooting JMS: reference/troubleshooting/troubleshooting-jms.md
+            - Troubleshooting WebSocket APIs: reference/troubleshooting/troubleshooting-websocket-api.md
         - FAQ: reference/faq.md
 # Hooks
 hooks:

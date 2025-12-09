@@ -115,7 +115,7 @@ auto_collapse:
   # GROUP 2: APIOps - Collapsed everywhere except own pages
   - title: APIOps
     stay_expanded_when_url_starts_with:
-      - install-and-setup/setup/api-controller/
+      - apiops/
 
   # GROUP 3: Reference - Collapsed everywhere except own pages
   - title: Reference

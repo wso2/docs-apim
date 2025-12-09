@@ -69,7 +69,7 @@ There may be situations where immediate token revocation is needed in each Gatew
 If you are using any other third party Key Manager with WSO2 API-M, follow the instructions below to configure immediate token revocation:
 
 !!! info
-    For more information on configuring third party key managers, see [Third-Party Key Manager Integration]({{base_path}}/key-manager/third-party-key-managers/overview/).
+    For more information on configuring third party key managers, see [Third-Party Key Manager Integration]({{base_path}}/api-security/key-management/third-party-key-managers/overview/).
 
 1. Implement a listener or a handler at the third party Key Manager side to capture each token revocation event.
 
