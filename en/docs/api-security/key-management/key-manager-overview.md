@@ -66,32 +66,32 @@ The **Built-in Key Manager** provides comprehensive OAuth2 and OpenID Connect ca
 ### Built-in Key Manager Features
 
 #### OAuth2 Token Management
-- **[JWT Access Tokens]({{base_path}}/key-manager/tokens/jwt-tokens/)**: Self-contained tokens with embedded claims for gateway validation
-- **[Token Persistence]({{base_path}}/key-manager/tokens/token-persistence/)**: Optimized storage strategies for JWT and opaque tokens
-- **[Token Expiration]({{base_path}}/key-manager/tokens/token-expiration/)**: Configurable token lifetimes and automatic cleanup
-- **[Token Revocation]({{base_path}}/key-manager/tokens/token-revocation/)**: Immediate token invalidation for security incidents
+- **[JWT Access Tokens]({{base_path}}/api-security/key-management/tokens/jwt-tokens/)**: Self-contained tokens with embedded claims for gateway validation
+- **[Token Persistence]({{base_path}}/api-security/key-management/tokens/token-persistence/)**: Optimized storage strategies for JWT and opaque tokens
+- **[Token Expiration]({{base_path}}/api-security/key-management/tokens/token-expiration/)**: Configurable token lifetimes and automatic cleanup
+- **[Token Revocation]({{base_path}}/api-security/key-management/tokens/token-revocation/)**: Immediate token invalidation for security incidents
 
 #### Grant Type Support
-- **[Authorization Code Grant]({{base_path}}/key-manager/authentication/grant-types/authorization-code-grant/)**: Web application authentication flows with user consent
-- **[Client Credentials Grant]({{base_path}}/key-manager/authentication/grant-types/client-credentials-grant/)**: Service-to-service authentication without user interaction
-- **[Password Grant]({{base_path}}/key-manager/authentication/grant-types/password-grant/)**: Direct credential authentication for trusted applications
-- **[Refresh Token Grant]({{base_path}}/key-manager/authentication/grant-types/refresh-token-grant/)**: Token renewal without re-authentication
-- **[JWT Bearer Grant]({{base_path}}/key-manager/authentication/grant-types/jwt-grant/)**: Token exchange using signed JWT assertions
-- **[SAML Extension Grant]({{base_path}}/key-manager/authentication/grant-types/saml-extension-grant/)**: SAML assertion-based authentication
-- **[Kerberos OAuth2 Grant]({{base_path}}/key-manager/authentication/grant-types/kerberos-oauth2-grant/)**: Windows authentication integration
-- **[NTLM Grant]({{base_path}}/key-manager/authentication/grant-types/ntlm-grant/)**: Windows domain authentication support
+- **[Authorization Code Grant]({{base_path}}/api-security/key-management/authentication/grant-types/authorization-code-grant/)**: Web application authentication flows with user consent
+- **[Client Credentials Grant]({{base_path}}/api-security/key-management/authentication/grant-types/client-credentials-grant/)**: Service-to-service authentication without user interaction
+- **[Password Grant]({{base_path}}/api-security/key-management/authentication/grant-types/password-grant/)**: Direct credential authentication for trusted applications
+- **[Refresh Token Grant]({{base_path}}/api-security/key-management/authentication/grant-types/refresh-token-grant/)**: Token renewal without re-authentication
+- **[JWT Bearer Grant]({{base_path}}/api-security/key-management/authentication/grant-types/jwt-grant/)**: Token exchange using signed JWT assertions
+- **[SAML Extension Grant]({{base_path}}/api-security/key-management/authentication/grant-types/saml-extension-grant/)**: SAML assertion-based authentication
+- **[Kerberos OAuth2 Grant]({{base_path}}/api-security/key-management/authentication/grant-types/kerberos-oauth2-grant/)**: Windows authentication integration
+- **[NTLM Grant]({{base_path}}/api-security/key-management/authentication/grant-types/ntlm-grant/)**: Windows domain authentication support
 
 #### Security
-- **[Token Encryption]({{base_path}}/key-manager/tokens/encrypting-oauth2-tokens/)**: Encrypt tokens at rest and in transit
-- **[OAuth Key Hashing]({{base_path}}/key-manager/applications/hashing-oauth-keys/)**: Secure storage of client credentials
-- **[HMAC Token Validation]({{base_path}}/key-manager/tokens/securing-oauth-token-with-hmac-validation/)**: Additional token integrity verification
+- **[Token Encryption]({{base_path}}/api-security/key-management/tokens/encrypting-oauth2-tokens/)**: Encrypt tokens at rest and in transit
+- **[OAuth Key Hashing]({{base_path}}/api-security/key-management/applications/hashing-oauth-keys/)**: Secure storage of client credentials
+- **[HMAC Token Validation]({{base_path}}/api-security/key-management/tokens/securing-oauth-token-with-hmac-validation/)**: Additional token integrity verification
 
 #### Application & Client Management
-- **[Out-of-Band OAuth Clients]({{base_path}}/key-manager/applications/provisioning-out-of-band-oauth-clients/)**: Register applications outside standard flows
-- **[OAuth Application Federation]({{base_path}}/key-manager/applications/federating-oauth-applications/)**: Cross-tenant application sharing
+- **[Out-of-Band OAuth Clients]({{base_path}}/api-security/key-management/applications/provisioning-out-of-band-oauth-clients/)**: Register applications outside standard flows
+- **[OAuth Application Federation]({{base_path}}/api-security/key-management/applications/federating-oauth-applications/)**: Cross-tenant application sharing
 
 #### Identity Integration
-- **[OpenID Connect]({{base_path}}/key-manager/identity/obtaining-user-profile-information-with-openid-connect/)**: User profile information retrieval with standard claims
+- **[OpenID Connect]({{base_path}}/api-security/key-management/identity/obtaining-user-profile-information-with-openid-connect/)**: User profile information retrieval with standard claims
 
 ## Third-Party Key Manager Integration
 
@@ -106,18 +106,18 @@ The **Built-in Key Manager** provides comprehensive OAuth2 and OpenID Connect ca
 ### Supported Third-Party Key Managers
 
 #### Enterprise Identity Providers
-- **[WSO2 Identity Server]({{base_path}}/key-manager/third-party-key-managers/configure-wso2is-connector/)**: Full-featured identity and access management platform
-- **[WSO2 Identity Server 7.x]({{base_path}}/key-manager/third-party-key-managers/configure-wso2is7-connector/)**: Latest identity server with enhanced capabilities
-- **[Keycloak]({{base_path}}/key-manager/third-party-key-managers/configure-keycloak-connector/)**: Open-source identity and access management solution
-- **[Okta]({{base_path}}/key-manager/third-party-key-managers/configure-okta-connector/)**: Cloud-based identity service integration
+- **[WSO2 Identity Server]({{base_path}}/api-security/key-management/third-party-key-managers/configure-wso2is-connector/)**: Full-featured identity and access management platform
+- **[WSO2 Identity Server 7.x]({{base_path}}/api-security/key-management/third-party-key-managers/configure-wso2is7-connector/)**: Latest identity server with enhanced capabilities
+- **[Keycloak]({{base_path}}/api-security/key-management/third-party-key-managers/configure-keycloak-connector/)**: Open-source identity and access management solution
+- **[Okta]({{base_path}}/api-security/key-management/third-party-key-managers/configure-okta-connector/)**: Cloud-based identity service integration
 
 #### Custom Integration
-- **[Custom Key Manager]({{base_path}}/key-manager/third-party-key-managers/configure-custom-connector/)**: Build connectors for proprietary authorization servers
-- **[Global Key Manager]({{base_path}}/key-manager/third-party-key-managers/configure-global-key-manager/)**: Cross-tenant key manager configuration
+- **[Custom Key Manager]({{base_path}}/api-security/key-management/third-party-key-managers/configure-custom-connector/)**: Build connectors for proprietary authorization servers
+- **[Global Key Manager]({{base_path}}/api-security/key-management/third-party-key-managers/configure-global-key-manager/)**: Cross-tenant key manager configuration
 
 #### Cloud Provider Integration
-- **[Azure AD Key Manager]({{base_path}}/key-manager/third-party-key-managers/configure-azure-ad-key-manager/)**: Microsoft Azure Active Directory integration
-- **[ForgeRock]({{base_path}}/key-manager/third-party-key-managers/configure-forgerock-connector/)**: ForgeRock Identity Platform integration
+- **[Azure AD Key Manager]({{base_path}}/api-security/key-management/third-party-key-managers/configure-azure-ad-key-manager/)**: Microsoft Azure Active Directory integration
+- **[ForgeRock]({{base_path}}/api-security/key-management/third-party-key-managers/configure-forgerock-connector/)**: ForgeRock Identity Platform integration
 
 ## Getting Started
 
@@ -148,29 +148,29 @@ Start here for organizations with diverse authentication requirements.
 ## Best Practices
 
 ### Start with JWT Tokens for Production
-Always use [JWT access tokens]({{base_path}}/key-manager/oauth2/access-token-types/jwt-tokens/) in production deployments. JWT tokens enable gateway-side validation without key manager round-trips, significantly improving performance and reducing latency. Start with standard JWT configurations and customize claims as needed for your applications.
+Always use [JWT access tokens]({{base_path}}/api-security/key-management/oauth2/access-token-types/jwt-tokens/) in production deployments. JWT tokens enable gateway-side validation without key manager round-trips, significantly improving performance and reducing latency. Start with standard JWT configurations and customize claims as needed for your applications.
 
 ### Implement Token Lifecycle Management Early
-Configure appropriate [token expiration]({{base_path}}/key-manager/oauth2/token-expiration/) and implement [token revocation]({{base_path}}/key-manager/oauth2/token-revocation/) capabilities from day one. Set conservative token lifetimes initially and monitor usage patterns to optimize refresh cycles. This prevents token sprawl and security incidents.
+Configure appropriate [token expiration]({{base_path}}/api-security/key-management/oauth2/token-expiration/) and implement [token revocation]({{base_path}}/api-security/key-management/oauth2/token-revocation/) capabilities from day one. Set conservative token lifetimes initially and monitor usage patterns to optimize refresh cycles. This prevents token sprawl and security incidents.
 
 ### Design Client Applications for Proper Token Management
 Client applications should implement proper token lifecycle management by **persisting access tokens and refresh tokens** rather than requesting new tokens for every API call. Store tokens securely and use refresh tokens to obtain new access tokens when they expire. This reduces load on the key manager and improves application performance.
 
 ### Optimize Token Persistence for High-Volume Deployments
-For deployments with millions of users and high token generation rates, consider enabling [JWT token persistence optimization]({{base_path}}/key-manager/oauth2/token-persistence/). This approach uses JWT tokens without persisting them in the database, significantly improving performance for short-lived tokens. Enable persistence optimization when you have:
+For deployments with millions of users and high token generation rates, consider enabling [JWT token persistence optimization]({{base_path}}/api-security/key-management/oauth2/token-persistence/). This approach uses JWT tokens without persisting them in the database, significantly improving performance for short-lived tokens. Enable persistence optimization when you have:
 - High concurrent user logins and token generation
 - Short token lifespans (recommended for this optimization)
 - Need to reduce database load and improve TPS (Transactions Per Second)
 
 ### Choose Grant Types Based on Application Architecture
-Map [OAuth2 grant types]({{base_path}}/key-manager/oauth2/grant-types/overview/) to your application types: use client credentials for service-to-service, authorization code for web applications, and password grant only for highly trusted internal applications. Avoid the implicit grant type in production environments.
+Map [OAuth2 grant types]({{base_path}}/api-security/key-management/oauth2/grant-types/overview/) to your application types: use client credentials for service-to-service, authorization code for web applications, and password grant only for highly trusted internal applications. Avoid the implicit grant type in production environments.
 
 ### Implement Comprehensive Scope Management
-Use [OAuth2 scopes]({{base_path}}/key-manager/oauth2/oauth2-scopes/scope-whitelisting/) to implement fine-grained access control from the beginning. Design your scope hierarchy to match your API resource structure and business permissions. Implement scope whitelisting to prevent privilege escalation.
+Use [OAuth2 scopes]({{base_path}}/api-security/key-management/oauth2/oauth2-scopes/scope-whitelisting/) to implement fine-grained access control from the beginning. Design your scope hierarchy to match your API resource structure and business permissions. Implement scope whitelisting to prevent privilege escalation.
 
 ## Next Steps
 
 Choose your path based on your authentication requirements:
 
-- **[OAuth2 Grant Types Overview]({{base_path}}/key-manager/oauth2/grant-types/overview/)** - For understanding authentication flows and choosing appropriate grant types
-- **[Configure Third-Party Key Managers]({{base_path}}/key-manager/third-party-key-managers/overview/)** - For integrating with existing enterprise identity providers
+- **[OAuth2 Grant Types Overview]({{base_path}}/api-security/key-management/oauth2/grant-types/overview/)** - For understanding authentication flows and choosing appropriate grant types
+- **[Configure Third-Party Key Managers]({{base_path}}/api-security/key-management/third-party-key-managers/overview/)** - For integrating with existing enterprise identity providers

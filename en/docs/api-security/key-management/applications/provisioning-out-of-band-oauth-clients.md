@@ -11,10 +11,10 @@ In this example, let's use WSO2 IS configured as a third-party Key Manager. An O
 
 ## Step 1 - Configure a third-party key manager
 
-Follow the steps in [Configure WSO2 IS as a Key Manager]({{base_path}}/key-manager/third-party-key-managers/configure-wso2is-connector) to setup WSO2 IS as a third-party key manager.
+Follow the steps in [Configure WSO2 IS as a Key Manager]({{base_path}}/api-security/key-management/third-party-key-managers/configure-wso2is-connector) to setup WSO2 IS as a third-party key manager.
 
 !!! note
-     You can use any Key Manager mentioned under [Third-Party Key Manager Integration]({{base_path}}/key-manager/third-party-key-managers/overview/) and configure it as a third-party key manager.
+     You can use any Key Manager mentioned under [Third-Party Key Manager Integration]({{base_path}}/api-security/key-management/third-party-key-managers/overview/) and configure it as a third-party key manager.
 
 In this example, it will be assumed that WSO2 IS and WSO2 API-M are up and running in `https://<Server Host>:9444` and `https://<Server Host>:9443` respectively.
 

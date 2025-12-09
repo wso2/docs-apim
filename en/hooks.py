@@ -24,6 +24,16 @@ def load_redirects():
     
     return redirects_dict
 
+def load_nav_behaviors():
+    """Load navigation behaviors from external nav-behaviors.yml file"""
+    nav_behaviors_path = os.path.join(os.getcwd(), 'nav-behaviors.yml')
+    
+    if os.path.exists(nav_behaviors_path):
+        with open(nav_behaviors_path, 'r') as f:
+            return yaml.safe_load(f)
+    
+    return {}
+
 def parse_json(file_path):
     features_to_remove = {"feature": {}, "page": []}
     with open(file_path, 'r') as json_file:
@@ -95,5 +105,14 @@ def on_config(config):
             if hasattr(redirects_plugin, 'config'):
                 redirects_plugin.config['redirect_maps'].update(processed_redirects)
                 print(f"✓ Injected {len(processed_redirects)} redirects into redirects plugin (using site_url: {site_url})")
+    
+    # Load nav_behaviors from external file
+    nav_behaviors = load_nav_behaviors()
+    if nav_behaviors:
+        print(f"✓ Loading navigation behaviors from nav-behaviors.yml")
+        # Inject nav_behaviors into extra config
+        if 'extra' not in config:
+            config['extra'] = {}
+        config['extra']['nav_behaviors'] = nav_behaviors
     
     return config

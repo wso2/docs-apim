@@ -186,7 +186,9 @@
             {% endif %}
           {% endfor %}
         {% endif %}
-        {% if should_collapse_list|length > 0 %}
+        {% if should_stay_expanded %}
+          {% set checked_attr = "checked" %}
+        {% elif should_collapse_list|length > 0 %}
           {% set checked_attr = "" %}
         {% else %}
           {% set checked_attr = "checked" %}
