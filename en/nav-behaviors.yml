@@ -1,0 +1,123 @@
+# Navigation Behaviors Configuration
+# This file defines how navigation sections expand/collapse based on user navigation
+#
+# GROUPING STRUCTURE:
+# - Getting Started: Always expanded (no rules = always visible)
+# - Group 1: Install & Setup (default), Tutorials
+# - Group 2: API Design & Manage (default), API Developer Portal, API Gateway, AI Gateway, 
+#            API Analytics & Monetization, API Security, Administer, APIOps
+# - Group 3: Reference (collapsed by default)
+#
+# LOGIC:
+# - collapse_when_url_starts_with: URLs that trigger this section to collapse
+# - stay_expanded_when_url_starts_with: URLs that keep this section expanded
+# - stay_expanded_on_pages: Specific pages where this section stays expanded
+
+auto_collapse:
+  # GROUP 1: Install & Setup - Default expanded everywhere except Tutorials
+  - title: Install & Setup
+    collapse_when_url_starts_with:
+      # Collapse only when visiting Tutorials
+      - tutorials/
+    stay_expanded_when_url_starts_with:
+      # Stay expanded in own section
+      - install-and-setup/
+      # Stay expanded on getting started
+      - get-started/
+      # Stay expanded when visiting Group 2
+      - api-design-manage/
+      - api-developer-portal/
+      - api-gateway/
+      - ai-gateway/
+      - monitoring/
+      - api-security/
+      - administer/
+      # Stay expanded when visiting Group 3
+      - reference/
+    stay_expanded_on_pages:
+      - index.md
+
+  # GROUP 1: Tutorials - Collapses when Install & Setup or other groups are visited
+  - title: Tutorials
+    collapse_when_url_starts_with:
+      # Collapse when visiting Group 1 - Install & Setup
+      - install-and-setup/
+      # Collapse when visiting Group 2
+      - api-design-manage/
+      - api-developer-portal/
+      - api-gateway/
+      - ai-gateway/
+      - monitoring/
+      - api-security/
+      - administer/
+      # Collapse when visiting Group 3
+      - reference/
+      # Collapse on getting started
+      - get-started/
+    stay_expanded_when_url_starts_with:
+      # Stay expanded only when in Tutorials
+      - tutorials/
+
+
+  # GROUP 2: API Design & Manage - Default expanded in Group 2
+  - title: API Design & Manage
+    collapse_when_url_starts_with:
+      # Collapse when visiting other sections in Group 2
+      - api-developer-portal/
+      - api-gateway/
+      - ai-gateway/
+      - monitoring/
+      - api-security/
+      - administer/
+    stay_expanded_when_url_starts_with:
+      # Stay expanded in own section
+      - api-design-manage/
+      # Stay expanded when visiting Group 1
+      - install-and-setup/
+      - tutorials/
+      # Stay expanded when visiting Group 3
+      - reference/
+      # Stay expanded on getting started
+      - get-started/
+    stay_expanded_on_pages:
+      - index.md
+
+  # GROUP 2: API Developer Portal - Collapsed everywhere except own pages
+  - title: API Developer Portal
+    stay_expanded_when_url_starts_with:
+      - api-developer-portal/
+
+  # GROUP 2: API Gateway - Collapsed everywhere except own pages
+  - title: API Gateway
+    stay_expanded_when_url_starts_with:
+      - api-gateway/
+
+  # GROUP 2: AI Gateway - Collapsed everywhere except own pages
+  - title: AI Gateway
+    stay_expanded_when_url_starts_with:
+      - ai-gateway/
+
+  # GROUP 2: API Analytics & Monetization - Collapsed everywhere except own pages
+  - title: API Analytics & Monetization
+    stay_expanded_when_url_starts_with:
+      - monitoring/
+
+  # GROUP 2: API Security - Collapsed everywhere except own pages
+  - title: API Security
+    stay_expanded_when_url_starts_with:
+      - api-security/
+
+  # GROUP 2: Administer - Collapsed everywhere except own pages
+  - title: Administer
+    stay_expanded_when_url_starts_with:
+      - administer/
+
+  # GROUP 2: APIOps - Collapsed everywhere except own pages
+  - title: APIOps
+    stay_expanded_when_url_starts_with:
+      - install-and-setup/setup/api-controller/
+
+  # GROUP 3: Reference - Collapsed everywhere except own pages
+  - title: Reference
+    stay_expanded_when_url_starts_with:
+      - reference/

@@ -990,32 +990,8 @@ extra:
       options:
         - verticle-line-only
         - divider 
-    # Navigation behaviors configuration - Define all interactive behaviors here
-    nav_behaviors:
-      # Define which sections should auto-collapse when user navigates to other sections
-      auto_collapse:
-        - title: API Design & Manage
-          collapse_when_url_starts_with:
-            - api-developer-portal/
-            - api-gateway/
-            - ai-gateway/
-            - monitoring/
-            - api-security/
-            - administer/
-          stay_expanded_when_url_starts_with:
-            - api-design-manage/
-            - get-started/
-          stay_expanded_on_pages:
-            - index.md
-        - title: Install & Setup
-          collapse_when_url_starts_with:
-            - tutorials/
-          stay_expanded_when_url_starts_with:
-            - install-and-setup/
-            - get-started/
-          stay_expanded_on_pages:
-            - index.md
-
+    # Navigation behaviors - Loaded from nav-behaviors.yml via hooks.py
+    # See nav-behaviors.yml for navigation collapse/expand configuration
     nav_icons:
       Home:
         icon: octicons/home-16
