@@ -1,5 +1,17 @@
 # Manage Advanced Policies
 
+### Default Advanced Rate Limiting Tiers
+
+The system includes the following default advanced rate limiting tiers:
+
+- **10KPerMin**: 10,000 requests per minute
+- **20KPerMin**: 20,000 requests per minute
+- **50KPerMin**: 50,000 requests per minute
+- **Unlimited**: Allows unlimited access
+
+!!! note
+    Administrators can disable the Unlimited tier by editing the `enable_unlimited_tier` element under `[apim.throttling]` in the `<API-M_HOME>/repository/conf/deployment.toml` file.
+
 Advanced rate limiting policies can be applied to both APIs and resources.
 
 ## Adding a New Advanced Rate Limiting Policy
@@ -121,7 +133,7 @@ You can add rate limiting limits with different parameters to the conditions by 
 </div>
 
 
-## Allowed IPs
+## Manage API Access Control by Defining Allowed IPs
 
 When requests to an API should be permitted from only a set of known/trusted IPs, you can achieve this by configuring a group of Allowed IPs through the Advanced Rate Limiting feature.
 

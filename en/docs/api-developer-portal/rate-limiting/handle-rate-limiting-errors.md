@@ -33,7 +33,7 @@ The error code in the response indicates which specific limit was exceeded:
 
 For complete information on all error codes, see [Error Handling]({{base_path}}/troubleshooting/error-handling/#api-handlers-error-codes).
 
-## Next Steps
+## See Also
 
 - Learn about rate limiting tiers: [Rate Limiting for App Developers]({{base_path}}/api-developer-portal/rate-limiting/rate-limiting-for-app-developers/)
 - Reset user quotas in your application: [Reset Application Throttling Policies]({{base_path}}/api-developer-portal/rate-limiting/resetting-application-throttling-policies/)

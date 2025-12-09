@@ -13,7 +13,7 @@ Streaming APIs support three types of limits through subscription tiers:
 - **Hybrid Limits** - Combine both event count and time constraints (e.g., 1M events within 24 hours).
 
 !!! tip
-    Subscription tiers with streaming-specific limits are created by Administrators. As a Publisher, you select which tiers to make available for your Streaming API. For creating custom subscription tiers, see [Adding a new subscription-level Rate Limiting tier]({{base_path}}/design/rate-limiting/adding-new-throttling-policies/#adding-a-new-subscription-level-rate-limiting-tier).
+    Subscription tiers with streaming-specific limits are created by Administrators. As a Publisher, you select which tiers to make available for your Streaming API. For creating custom subscription tiers, see [Adding a new subscription-level Rate Limiting tier]({{base_path}}/administer/rate-limiting/manage-subscription-policies).
 
 ## How Events Are Counted
 
@@ -58,3 +58,7 @@ The following default subscription tiers are available for Streaming APIs:
 
 !!! note
     Choose tiers based on your backend's capacity to handle concurrent connections and event throughput. WebSocket and SSE APIs can generate high event volumes with persistent connections, while WebHook APIs typically have lower event rates but require tracking active callback registrations.
+
+## See Also
+
+- For more information on setting Streaming API Limits in Subscription Policies, see [Streaming API Limits in Subscription Policies]({{base_path}}/administer/rate-limiting/manage-subscription-policies/#streaming-api-limits-in-subscription-policies).

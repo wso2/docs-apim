@@ -9,7 +9,7 @@ As an application developer, you encounter rate limiting at two levels: applicat
 Application-level rate limiting applies to all API calls made by your application, regardless of which specific API you're calling. When you create an application in the Developer Portal, you select a rate limiting tier that defines your application's total request capacity.
 
 !!! tip
-    Application level throttle policies are defined by Administrators in the Admin Portal. For information on creating custom application plans, see [Adding a new application-level Rate Limiting tier]({{base_path}}/design/rate-limiting/adding-new-throttling-policies/#adding-a-new-application-level-rate-limiting-tier).
+    Application level throttle policies are defined by Administrators in the Admin Portal. For information on creating custom application plans, see [Adding a new application-level Rate Limiting tier]({{base_path}}/administer/rate-limiting/manage-application-policies/).
 
 
 ### How Application-Level Limits Work
@@ -33,7 +33,7 @@ The default rate limiting tiers are as follows:
 
 !!! note
     The **Default Application**, which is provided out of the box, has the tier set to Unlimited. Custom tiers with different limits or bandwidth-based restrictions may also be available depending on your administrator's configuration.
-
+    
 ### Per Token Quota
 
 Application-level limits are enforced per access token. When your application serves multiple users with different access tokens, each token has its own quota based on the application tier. This ensures fair distribution of the quota among all users of your application.
@@ -127,7 +127,7 @@ Application-level limits are enforced per access token. Each user with their own
 
 The rate limiting solution in API Manager is designed in a fully asynchronous and distributed manner. While this architecture enhances scalability and responsiveness, it may lead to some degree of variation beyond the defined throttle limits. Absolute precision cannot always be guaranteed due to factors such as network latency and the complexities of asynchronous processing.
 
-## Next Steps
+## See Also
 
 - **Manage your rate limits**: Learn how to view, modify, and optimize your application's rate limiting configuration. See [Manage Application Rate Limits]({{base_path}}/api-developer-portal/rate-limiting/manage-application-rate-limits/).
 - **Handle errors gracefully**: Implement robust error handling for rate limit responses. See [Handle Rate Limiting Errors]({{base_path}}/api-developer-portal/rate-limiting/handle-rate-limiting-errors/).

@@ -56,8 +56,8 @@ The username or UUID used by the traffic manager to identify users depends on th
 
 You can use log-based analytics solutions to identify user UUIDs:
 
-- [ELK Analytics]({{base_path}}/api-analytics/on-prem/elk-installation-guide/)
-- [Datadog Analytics]({{base_path}}/api-analytics/on-prem/datadog-installation-guide/)
+- [ELK Analytics]({{base_path}}/monitoring/api-analytics/on-prem/elk-installation-guide/)
+- [Datadog Analytics]({{base_path}}/monitoring/api-analytics/on-prem/datadog-installation-guide/)
 
 Each successful API invocation generates a log entry containing details about the API, application, and user. Look for the `userName` field in the logs. For example:
 

@@ -5,7 +5,7 @@ When you publish an API, you must define the limits under which applications can
 Subscription tiers effectively differentiate your product offerings, allowing you to monetize your APIs by charging higher rates for developers requiring larger quotas or bandwidth.
 
 !!! tip
-    Subscription tiers are defined by Administrators in the Admin Portal. As a Publisher, you select which tiers to make available for your API. For information on creating custom business plans, see [Adding a new subscription-level Rate Limiting tier]({{base_path}}/design/rate-limiting/adding-new-throttling-policies/#adding-a-new-subscription-level-rate-limiting-tier).
+    Subscription tiers are defined by Administrators in the Admin Portal. As a Publisher, you select which tiers to make available for your API. For information on creating custom business plans, see [Adding a new subscription-level Rate Limiting tier]({{base_path}}/administer/rate-limiting/manage-subscription-policies/).
 
 ## How Quotas Work
 
@@ -38,9 +38,6 @@ The system includes the following default tiers:
 - **Gold**: 5000 requests per minute
 - **Unlimited**: Allows unlimited access.
 
-!!! note
-    Administrators can disable the Unlimited tier by editing the `enable_unlimited_tier` element under `[apim.throttling]` in the `<API-M_HOME>/repository/conf/deployment.toml` file.
-
 ### Business Plans for AI APIs
 
 API Creators need to select a minimum of one business plan when creating an AI API through the API-M Publisher Portal. These business plans can be either a default business plan or a custom business plan created through the API-M Admin Portal. The business plans are used to enforce rate limiting by allowing you to limit the number of events via the AI API during a given period of time.
@@ -62,3 +59,7 @@ For instance, if a subscription tier allows 1000 requests per hour, you can add 
     The time period specified for burst control must always be smaller than the time period of the corresponding subscription tier. Note that burst control limits apply only to request counts, not data bandwidth.
     
     By default, burst control limits are enforced locally on each Gateway node. For clustered deployments where you need consistent enforcement across all nodes, you can configure distributed counters using Redis. See [Configuring Distributed Throttling]({{base_path}}/api-gateway/rate-limiting/configuring-rate-limiting-api-gateway-cluster) for details.
+
+## See Also
+
+- For more information on creating and configuring subscription level policies, see [Managing Subscription Policies]({{base_path}}/administer/rate-limiting/manage-subscription-policies).

@@ -95,7 +95,7 @@ If your usage requirements change, you can upgrade or downgrade your subscriptio
 !!! warning
     After modifying a subscription, regenerate your access tokens to ensure the new tier takes effect.
 
-## Related Topics
+## See Also
 
 - [Rate Limiting for App Developers]({{base_path}}/api-developer-portal/rate-limiting/rate-limiting-for-app-developers/) - Understand how rate limiting works
 - [Handle Rate Limiting Errors]({{base_path}}/api-developer-portal/rate-limiting/handle-rate-limiting-errors/) - Implement error handling strategies

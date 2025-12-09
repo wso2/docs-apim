@@ -5,7 +5,7 @@ GraphQL allows clients to request any data they need, but some fields are more e
 Query Complexity Limitation protects your GraphQL API by analyzing how computationally expensive a query is before execution. Each field in your schema is assigned a complexity value representing its cost to resolve. Queries exceeding the configured maximum complexity are rejected before reaching your backend.
 
 !!! tip
-    Complexity limits are defined in subscription tiers by Administrators. As a Publisher, you assign these tiers to your GraphQL API and configure field-specific complexity values. For creating custom subscription tiers with complexity limits, see [Adding a new subscription-level Rate Limiting tier]({{base_path}}/design/rate-limiting/adding-new-throttling-policies/#adding-a-new-subscription-level-rate-limiting-tier).
+    Complexity limits are defined in subscription tiers by Administrators. As a Publisher, you assign these tiers to your GraphQL API and configure field-specific complexity values. For creating custom subscription tiers with complexity limits, see [Adding a new subscription-level Rate Limiting tier]({{base_path}}/administer/rate-limiting/manage-subscription-policies).
 
 ## How Complexity Calculation Works
 
@@ -95,3 +95,8 @@ You can customize the complexity value for each field in your GraphQL schema:
     Assign higher complexity values to fields that perform expensive operations like database joins, external API calls, or complex computations. Fields that simply return stored values can use lower complexity values.
 
 By configuring appropriate complexity values and assigning subscription tiers with complexity limits, you protect your backend services from expensive GraphQL queries while allowing legitimate use.
+
+## See Also
+
+- For more information on setting GraphQL Query Limits in Subscription Policies, see [GraphQL Query Limits in Subscription Policies]({{base_path}}/administer/rate-limiting/manage-subscription-policies/#graphql-query-limits-in-subscription-policies).
+- Learn how to limit query depth to protect your backend from deeply nested queries, see [GraphQL Query Depth Analysis]({{base_path}}/api-design-manage/design/rate-limiting/graphql-api/query-depth-analysis).

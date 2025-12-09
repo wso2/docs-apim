@@ -72,6 +72,6 @@ The Gateway enforces the following default Business Plans for Streaming APIs:
 | AsyncWHSilver     | 5,000 events per month and 500 active subscriptions      |
 | AsyncWHBronze     | 1,000 events per month and 500 active subscriptions      |
 
-## Related Topics
+## See Also
 
-- [Rate Limiting for Streaming APIs]({{base_path}}/api-design-manage/design/rate-limiting/rate-limiting-for-streaming-apis/) - How to configure Business Plans for Streaming APIs
+- [Setting Rate Limiting for Streaming APIs]({{base_path}}/api-design-manage/design/rate-limiting/set-streaming-api-limits/) - How to configure Business Plans for Streaming APIs
