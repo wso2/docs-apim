@@ -88,3 +88,11 @@
   height: var(--md-header-link-icon-size);
   width: var(--md-header-link-icon-size);
 }
+
+/* Custom class for the Modular CTA Button */
+.cta-button {
+  width: 100%;           /* Fills the width of the parent card */
+  text-align: center;    /* Centers the text */
+  font-weight: 700;      /* Bolder text for emphasis */
+  display: flex;         /* Allows icon alignment */
+}
