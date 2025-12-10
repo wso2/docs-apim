@@ -93,9 +93,9 @@ This standardized approach enables structured AI workflows where AI agents can s
 - **[Tool Invocation]({{base_path}}/ai-gateway/mcp-gateway/subscribe-to-a-mcp-server/)**: JSON-RPC based tool execution through subscriptions and access tokens
 - **[MCP Playground]({{base_path}}/ai-gateway/mcp-gateway/invoke-a-mcp-server-using-playground/)**: Interactive testing environment for MCP servers and tools
 #### Security & Analytics
-- **[API Security]({{base_path}}/api-design-manage/design/api-security/api-authentication/secure-apis-using-oauth2-tokens/)**: Leverage platform security policies including OAuth2, JWT, and mutual SSL for tool access
+- **[API Security]({{base_path}}/api-security/runtime/api-authentication/secure-apis-using-oauth2-tokens/)**: Leverage platform security policies including OAuth2, JWT, and mutual SSL for tool access
 - **[API Analytics]({{base_path}}/monitoring/api-analytics/analytics-overview/)**: Track tool usage patterns and performance metrics through platform analytics
-- **[Rate Limiting]({{base_path}}/api-design-manage/design/rate-limiting/setting-throttling-limits/)**: Control tool usage with platform throttling policies and quotas
+- **[Rate Limiting]({{base_path}}/api-design-manage/design/rate-limiting/set-api-level-throttling/)**: Control tool usage with platform throttling policies and quotas
 
 ## Platform Capabilities
 
