@@ -20,5 +20,5 @@ WSO2 API Manager allows prototyping an API at two different stages.
 
 For more information on prototyping an API, see the following links.
 
-- [Mock responses based on the OpenAPI specification with API Gateway]({{base_path}}/manage-apis/design/prototype-api/create-mocked-js-api/)    
-- [Expose an existing backend implementation as a Pre-Released API]({{base_path}}/manage-apis/design/prototype-api/backend-url-prototype-api/)
+- [Mock responses based on the OpenAPI specification with API Gateway]({{base_path}}/api-design-manage/design/prototype-api/create-mocked-js-api/)    
+- [Expose an existing backend implementation as a Pre-Released API]({{base_path}}/api-design-manage/design/prototype-api/backend-url-prototype-api/)

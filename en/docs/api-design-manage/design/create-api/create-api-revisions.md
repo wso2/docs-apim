@@ -1,7 +1,7 @@
 # API Revisions
 
-[Publishing]({{base_path}}/manage-apis/deploy-and-publish/publish-on-dev-portal/publish-an-api/) displays the 
-API in the Developer Portal, and [deployment]({{base_path}}/manage-apis/deploy-and-publish/deploy-on-gateway/deploy-api/deploy-an-api/) 
+[Publishing]({{base_path}}/api-design-manage/deploy-and-publish/publish-on-dev-portal/publish-an-api/) displays the 
+API in the Developer Portal, and [deployment]({{base_path}}/api-design-manage/deploy-and-publish/deploy-on-gateway/deploy-api/deploy-an-api/) 
 makes the API available for invocation via a Gateway. In previous versions of WSO2 API Manager, API publishing and deployment in Gateways were tightly coupled. In the API life cycle, whenever the publisher promotes an API to the `Published` state, the API will be displayed in the Developer Portal as well as deployed in the specified Gateway environments. The publisher only has two options regarding API deployment: either to deploy the current state of the API in a Gateway or not deploy the API at all.
 
 The Publisher Test Console provides a space to test the API before publishing and deploying an API. However, the Test Console does not provide the option to test the API in an actual Gateway with the runtime configurations. Making such changes to an API without proper testings and especially if the changes are reflected instantly in the Developer Portal and all the serving Gateways, is not a good approach for a production setup.  

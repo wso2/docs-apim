@@ -9,7 +9,7 @@ Note the following when creating an interface for the API.
 - You can create either a new API or a new version of an existing API for this purpose.
 - Leave the endpoint field empty since the gateway will be acting as a backend using the javascript definitions we provide.
 
-For this example, let's follow [steps 1 to 5 in the Create a REST API from an OpenAPI Definition - basic flow guide]({{base_path}}/manage-apis/design/create-api/create-rest-api/create-a-rest-api-from-an-openapi-definition/#create-an-api-using-the-basic-flow) to create the basic structure of the API interface using the following details.
+For this example, let's follow [steps 1 to 5 in the Create a REST API from an OpenAPI Definition - basic flow guide]({{base_path}}/api-design-manage/design/create-api/create-rest-api/create-a-rest-api-from-an-openapi-definition/#create-an-api-using-the-basic-flow) to create the basic structure of the API interface using the following details.
 
 | **Field**    | **Value**                        |
 |----------|-------------------------------------|
@@ -167,14 +167,14 @@ Follow the instructions below to add a mock implementation to the API:
 1. Click **View in Dev Portal** to navigate to the Developer Portal.
 
     !!! note 
-        If you have enabled security for the prototype API, follow the [Subscribe to an API]({{base_path}}/consume/manage-subscription/subscribe-to-an-api/) guide to subscribe and obtain an access token to invoke the prototype API.
+        If you have enabled security for the prototype API, follow the [Subscribe to an API]({{base_path}}/api-developer-portal/manage-subscription/subscribe-to-an-api/) guide to subscribe and obtain an access token to invoke the prototype API.
 
 2. Click **Try Out** to navigate to the API Console.
 
 3. If you have enabled security, you can either use the access token that you got from the above step or use the **GET TEST KEY** option.
      
     !!! note
-        Skip this step if you have [disabled security for the API]({{base_path}}/manage-apis/design/api-security/api-authentication/disable-security/), and leave the **Access Token** field empty.
+        Skip this step if you have [disabled security for the API]({{base_path}}/api-design-manage/design/api-security/api-authentication/disable-security/), and leave the **Access Token** field empty.
 
      [![Try out prototype]({{base_path}}/assets/img/learn/prototype-api/create-prototype-api-dev-portal-tryout-petstore.png)]({{base_path}}/assets/img/learn/prototype-api/create-prototype-api-dev-portal-tryout-petstore.png)
 
@@ -299,11 +299,11 @@ com.sun.phobos.script.util.ExtendedScriptException: org.mozilla.javascript.EcmaE
 
 Learn more on the concepts that you need to know when creating a Prototype API:
 
--   [Endpoints]({{base_path}}/manage-apis/design/endpoints/endpoint-types/)
--   [API Security]({{base_path}}/manage-apis/design/api-security/api-authentication/secure-apis-using-oauth2-tokens/)
--   [Rate Limiting]({{base_path}}/manage-apis/design/rate-limiting/introducing-throttling-use-cases/)
--   [Life Cycle Management]({{base_path}}/manage-apis/design/lifecycle-management/api-lifecycle/)
--   [API Monetization]({{base_path}}/manage-apis/design/api-monetization/monetizing-an-api/)
--   [API Visibility]({{base_path}}/manage-apis/design/advanced-topics/control-api-visibility-and-subscription-availability-in-developer-portal/)
--   [API Documentation]({{base_path}}/manage-apis/design/api-documentation/add-api-documentation/)
--   [Custom Properties]({{base_path}}/manage-apis/design/create-api/adding-custom-properties-to-apis/)
+-   [Endpoints]({{base_path}}/api-design-manage/design/endpoints/endpoint-types/)
+-   [API Security]({{base_path}}/api-security/runtime/secure-apis-using-oauth2-tokens/)
+-   [Rate Limiting]({{base_path}}/api-design-manage/design/rate-limiting/introducing-throttling-use-cases/)
+-   [Life Cycle Management]({{base_path}}/api-design-manage/design/lifecycle-management/api-lifecycle/)
+-   [API Monetization]({{base_path}}/api-design-manage/design/api-monetization/monetizing-an-api/)
+-   [API Visibility]({{base_path}}/api-design-manage/design/advanced-topics/control-api-visibility-and-subscription-availability-in-developer-portal/)
+-   [API Documentation]({{base_path}}/api-design-manage/design/api-documentation/add-api-documentation/)
+-   [Custom Properties]({{base_path}}/api-design-manage/design/create-api/adding-custom-properties-to-apis/)

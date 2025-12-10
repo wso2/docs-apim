@@ -14,7 +14,7 @@ To remove request headers from responses for per API or globally, add the name o
         ``` bash
         <property name="CustomTransportHeader" scope="transport" action="remove"/>
         ```
-Check out [Changing the Default Mediation Flow of API Requests]({{base_path}}/manage-apis/deploy-and-publish/deploy-on-gateway/api-gateway/message-mediation/changing-the-default-mediation-flow-of-api-requests) to learn on how to
+Check out [Changing the Default Mediation Flow of API Requests]({{base_path}}/api-gateway/message-mediation/changing-the-default-mediation-flow-of-api-requests) to learn on how to
 add the above mediation policy per API or globally.
 
 ## Handling Error Responses

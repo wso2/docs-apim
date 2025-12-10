@@ -1,6 +1,6 @@
 # Gateways with Dedicated Backends
 
-We can extend the [multiple gateway environments]({{base_path}}/manage-apis/deploy-and-publish/api-gateway/maintaining-separate-production-and-sandbox-gateways) feature by utilizing parameterized endpoint capabilities of WSO2 API Manager to have each gateway point to a different back-end endpoint. Universal Gateway is the actual runtime of the APIs that are developed and published from the API Publisher. WSO2 API Manager is capable of publishing APIs to different Gateways where API users connect to those Universal Gateways in order to do the actual API calls through the applications to which they are subscribed.
+We can extend the [multiple gateway environments]({{base_path}}/api-gateway/maintaining-separate-production-and-sandbox-gateways) feature by utilizing parameterized endpoint capabilities of WSO2 API Manager to have each gateway point to a different back-end endpoint. Universal Gateway is the actual runtime of the APIs that are developed and published from the API Publisher. WSO2 API Manager is capable of publishing APIs to different Gateways where API users connect to those Universal Gateways in order to do the actual API calls through the applications to which they are subscribed.
 
 However, the API Publisher can only provide a single static endpoint for an API in the implementation. Therefore, the API call is directed to a single endpoint in whichever Gateway the API is deployed in, as depicted in the diagram below.
 
@@ -18,7 +18,7 @@ Follow the steps below to configure a parameterized endpoint as the API endpoint
 
     [![Dedicated backend definition]({{base_path}}/assets/img/learn/dedicated-backend-def.png)]({{base_path}}/assets/img/learn/dedicated-backend-def.png)
 
-3.  Save and [publish]({{base_path}}/manage-apis/deploy-and-publish/publish-on-dev-portal/publish-an-api) the API.
+3.  Save and [publish]({{base_path}}/api-design-manage/deploy-and-publish/publish-on-dev-portal/publish-an-api) the API.
 
 4.  Navigate to the `<API-M_HOME>/repository/deployment/server/synapse-configs/default/sequences` directory of each Gateway and create the following sequence.
 

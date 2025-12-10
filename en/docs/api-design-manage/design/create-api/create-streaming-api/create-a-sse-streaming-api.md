@@ -148,7 +148,7 @@ The AsyncAPI definition of the streaming API, which you just created, appears.
 
     Both HTTP and HTTPS transports are selected by default.
 
-Now, you have successfully created and configured a Streaming API. Next, let's [Publish your API]({{base_path}}/manage-apis/deploy-and-publish/publish-on-dev-portal/publish-an-api).
+Now, you have successfully created and configured a Streaming API. Next, let's [Publish your API]({{base_path}}/api-design-manage/deploy-and-publish/publish-on-dev-portal/publish-an-api).
 
 ## End-to-end tutorial
 

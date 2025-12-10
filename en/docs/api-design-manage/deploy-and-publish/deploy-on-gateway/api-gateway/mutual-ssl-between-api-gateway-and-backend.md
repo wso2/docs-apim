@@ -110,7 +110,7 @@ Now both the backend service and API Manager are configured to use default key s
 
 You can do the following to test your mutual SSL configurations
 
-1.  [Create an API]({{base_path}}/manage-apis/design/create-api/create-rest-api/create-a-rest-api)
-2.  [Publish the API]({{base_path}}/manage-apis/deploy-and-publish/publish-on-dev-portal/publish-an-api)
-3.  [Subscribe to the API]({{base_path}}/consume/manage-subscription/subscribe-to-an-api)
-4.  [Invoke the API]({{base_path}}/consume/invoke-apis/invoke-apis-using-tools/invoke-an-api-using-the-integrated-api-console)
+1.  [Create an API]({{base_path}}/api-design-manage/design/create-api/create-rest-api/create-a-rest-api)
+2.  [Publish the API]({{base_path}}/api-design-manage/deploy-and-publish/publish-on-dev-portal/publish-an-api)
+3.  [Subscribe to the API]({{base_path}}/api-developer-portal/manage-subscription/subscribe-to-an-api)
+4.  [Invoke the API]({{base_path}}/api-developer-portal/invoke-apis/invoke-apis-using-tools/invoke-an-api-using-the-integrated-api-console)

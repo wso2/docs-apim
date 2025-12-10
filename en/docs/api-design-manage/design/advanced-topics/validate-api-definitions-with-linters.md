@@ -45,7 +45,7 @@ Now, the new rule is enforced and the API Publisher can observe the validation r
 
 ### When creating an API from OpenAPI definition
 
-When you are following the [API creation steps]({{base_path}}/manage-apis/design/create-api/create-rest-api/create-a-rest-api-from-an-openapi-definition), the linter results will be shown as below.
+When you are following the [API creation steps]({{base_path}}/api-design-manage/design/create-api/create-rest-api/create-a-rest-api-from-an-openapi-definition), the linter results will be shown as below.
 
 [![Linter results]({{base_path}}/assets/img/design/create-api/linter-observe/linters2.png)]({{base_path}}/assets/img/design/create-api/linter-observe/linters2.png)
 

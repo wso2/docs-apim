@@ -6,11 +6,11 @@ This allows you to create a prototype API with an actual working backend URL and
 
 Note the following when creating an interface for the API:
 
-- [Create any type of interface for the Prototype API]({{base_path}}/manage-apis/design/design-api-overview/#create-an-api). 
+- [Create any type of interface for the Prototype API]({{base_path}}/api-design-manage/design/design-api-overview/#create-an-api). 
 - You can create either a new API or a new version of an existing API for this purpose.
 - Fill the **Endpoint** field with the actual backend URL. For example, `https://petstore3.swagger.io/api/v3`
 
-For this example, let's follow [steps 1 to 5 in the Create a REST API from an OpenAPI Definition - basic flow guide]({{base_path}}/manage-apis/design/create-api/create-rest-api/create-a-rest-api-from-an-openapi-definition/#create-an-api-using-the-basic-flow) to create the basic structure of the API interface using the following details.
+For this example, let's follow [steps 1 to 5 in the Create a REST API from an OpenAPI Definition - basic flow guide]({{base_path}}/api-design-manage/design/create-api/create-rest-api/create-a-rest-api-from-an-openapi-definition/#create-an-api-using-the-basic-flow) to create the basic structure of the API interface using the following details.
 
 | **Field**    | **Value**                        |
 |----------|-------------------------------------|
@@ -44,7 +44,7 @@ If you did not provide an endpoint in the above step, follow the steps given bel
      3. Click **Save** to save the Endpoint configurations in the API.
    
     !!! note
-        For more information, see [Endpoint Types]({{base_path}}/manage-apis/design/endpoints/endpoint-types/) and the other sections related to the **Endpoints** documentation.
+        For more information, see [Endpoint Types]({{base_path}}/api-design-manage/design/endpoints/endpoint-types/) and the other sections related to the **Endpoints** documentation.
 
 {!includes/design/invoke-prerelease-api.md!}
 
@@ -53,6 +53,6 @@ If you did not provide an endpoint in the above step, follow the steps given bel
 1. Click **View in Dev Portal** to navigate to the Developer Portal.
 
     !!! note 
-        If you have enabled security for the prototype API, follow the [Subscribe to an API]({{base_path}}/consume/manage-subscription/subscribe-to-an-api/) guide to subscribe and obtain an access token to invoke the prototype API.
+        If you have enabled security for the prototype API, follow the [Subscribe to an API]({{base_path}}/api-developer-portal/manage-subscription/subscribe-to-an-api/) guide to subscribe and obtain an access token to invoke the prototype API.
 
 2. Click **Try Out** to navigate to the API Console and invoke the API as for a regular API.
