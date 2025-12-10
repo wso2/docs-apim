@@ -6,7 +6,7 @@ The refresh token grant can be used when the current access token is expired or 
     
     This refresh token needs to be kept private, similar to the access token. When using this token, keep in mind that it issues the access token without a user interaction.
 
-#### Flow
+## Flow
 
 After an access token is generated, sometimes you might have to renew the old token due to expiration or security concerns. You can renew an access token using a refresh token, by issuing a REST call to the Token API with the following parameters.
 A refresh token has to be obtained before using it with a grant type such as the authorization code or password grant type. Using the obtained refresh token, you can obtain a new access token along with a renewed refresh token without having to go through any other additional steps.
@@ -22,7 +22,7 @@ The diagram below illustrates the refresh token grant flow.
       - [Option 1](#option-1)
       - [Option 2](#option-2)
 
-### Generating a new access token and refresh token
+## Generating a new access token and refresh token
 
 To use this grant type, you need a refresh token, using which you can get a new access token and a refresh token. This can be done by issuing a REST call to the Token API through a REST client like cURL, with the following parameters:
 
@@ -70,11 +70,11 @@ The above REST response grants you a renewed access token along with a refresh t
     refresh_token_validity = 3600
 ```
 
-### Revoking a refresh token
+## Revoking a refresh token
 
 After issuing an access token and refresh token, a user or an admin can revoke it in case of theft or a security violation. You can do this by calling the Revoke API using a utility like cURL. The Revoke API's endpoint URL is <https://localhost:9443/oauth2/revoke>.
 
-#### Option 1
+### Option 1
 
 The parameters required to invoke the following API are as follows:
 
@@ -118,7 +118,7 @@ The parameters required to invoke the following API are as follows:
 < Server: WSO2 Carbon Server
 ```
 
-#### Option 2
+### Option 2
 
 The parameters required to invoke the following API are as follows:
 

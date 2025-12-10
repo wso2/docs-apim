@@ -27,4 +27,3 @@ Organizations can configure multiple Key Managers within a single tenant, allowi
 ### Custom Integration
 - **[Custom Key Manager]({{base_path}}/api-security/key-management/third-party-key-managers/configure-custom-connector/)**: Build connectors for proprietary authorization servers
 - **[Global Key Manager]({{base_path}}/api-security/key-management/third-party-key-managers/configure-global-key-manager/)**: Cross-tenant key manager configuration
-- **[Application Scopes]({{base_path}}/api-security/key-management/third-party-key-managers/application-scopes/)**: Fine-grained application scope management

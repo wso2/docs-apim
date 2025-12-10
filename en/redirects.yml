@@ -405,7 +405,7 @@
 'troubleshooting/troubleshooting-jms.md': '{{SITE_URL}}/reference/troubleshooting/troubleshooting-jms/'
 'troubleshooting/troubleshooting-websocket-api.md': '{{SITE_URL}}/reference/troubleshooting/troubleshooting-websocket-api/'
 # Navigation restructuring redirects (auto-generated from nav comparison)
-'administer/key-managers/application-scopes.md': '{{SITE_URL}}/api-security/key-management/third-party-key-managers/application-scopes/'
+'administer/key-managers/application-scopes.md': '{{SITE_URL}}/api-security/runtime/authorization/oauth2-scopes/application-scopes/'
 'administer/key-managers/configure-auth0-connector.md': '{{SITE_URL}}/api-security/key-management/third-party-key-managers/configure-auth0-connector/'
 'administer/key-managers/configure-azure-ad-key-manager.md': '{{SITE_URL}}/api-security/key-management/third-party-key-managers/configure-azure-ad-key-manager/'
 'administer/key-managers/configure-custom-connector.md': '{{SITE_URL}}/api-security/key-management/third-party-key-managers/configure-custom-connector/'
