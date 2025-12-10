@@ -277,11 +277,12 @@
 }
 
 /* Rules for styling APIM component cards */
+
 /* Container for the whole layout */
 .components-hub-container {
   max-width: 1200px;
   margin: 0 auto;
-  color: var(--md-accent-fg-color);
+  color: var(--md-default-fg-color);
 }
 
 .components-section-header {
@@ -292,11 +293,11 @@
 .components-section-header h3 {
   font-weight: 700;
   margin: 0 0 0.25rem 0;
-  color: #000;
+  color: var(--md-default-fg-color);
 }
 
 .components-section-header p {
-  color: #555;
+  color: var(--md-default-fg-color--light);
   margin: 0;
 }
 
@@ -327,31 +328,38 @@
 
 /* Card Styling */
 .components-card {
-  box-shadow: var(--md-default-box-shadow);
-  border: 1px solid var(--md-divider-color);
-  border-radius: var(--md-card-border-radius);
-  background-color: var(--md-surface-fg-color);
-  padding: 30px;
+  box-shadow: var(--md-shadow-z1); 
+  border: 1px solid var(--md-default-fg-color--lightest);
+  border-radius: 12px; 
+  
+  background-color: var(--md-default-bg-color);
+  
+  padding: 15px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   min-height: 220px;
+  transition: box-shadow 0.2s;
+}
+
+.components-card:hover {
+    box-shadow: var(--md-shadow-z2);
 }
 
 .components-card h4 {
   margin-top: 0;
   margin-bottom: 1rem;
   font-weight: 500;
-  color: #222;
+  /* Dynamic header color */
+  color: var(--md-default-fg-color);
 }
 
 .components-card-content {
   line-height: 1.5;
-  color: #000;
+  color: var(--md-default-fg-color);
   margin-bottom: 1.5rem;
   flex-grow: 1;
 }
-
 
 /* Container for the links in the components cards. 
    Uses negative margins to counteract the .components-card padding
@@ -359,9 +367,9 @@
 */
 .components-card-footer {
   margin-top: auto; 
-  margin-left: -1.5rem;
-  margin-right: -1.5rem;
-  margin-bottom: -1.5rem;
+  margin-left: -15px; 
+  margin-right: -15px;
+  margin-bottom: -15px;
   display: flex;
   flex-direction: column;
   border-top: 1px solid var(--md-default-fg-color--lightest);
@@ -371,9 +379,11 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0.8rem 1.5rem;
+  padding: 0.8rem 15px; 
   text-decoration: none;
   border-bottom: 1px solid var(--md-default-fg-color--lightest);
+  color: var(--md-default-fg-color--light); 
+  transition: background-color 0.2s, color 0.2s;
 }
 
 /* Remove border from last item so it doesn't double up with card border */
@@ -384,7 +394,7 @@
   border-bottom-right-radius: 12px;
 }
 
-.api-resource-link:hover span {
+.components-resource-link:hover span {
   transform: translateX(3px);
   transition: transform 0.2s;
 }
