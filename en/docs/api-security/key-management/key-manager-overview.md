@@ -83,7 +83,7 @@ The **Built-in Key Manager** provides comprehensive OAuth2 and OpenID Connect ca
 
 #### Security
 - **[Token Encryption]({{base_path}}/api-security/key-management/tokens/encrypting-oauth2-tokens/)**: Encrypt tokens at rest and in transit
-- **[OAuth Key Hashing]({{base_path}}/api-security/key-management/applications/hashing-oauth-keys/)**: Secure storage of client credentials
+- **[OAuth Key Hashing]({{base_path}}/api-security/key-management/tokens/hashing-oauth-keys/)**: Secure storage of client credentials
 - **[HMAC Token Validation]({{base_path}}/api-security/key-management/tokens/securing-oauth-token-with-hmac-validation/)**: Additional token integrity verification
 
 #### Application & Client Management
@@ -148,29 +148,29 @@ Start here for organizations with diverse authentication requirements.
 ## Best Practices
 
 ### Start with JWT Tokens for Production
-Always use [JWT access tokens]({{base_path}}/api-security/key-management/oauth2/access-token-types/jwt-tokens/) in production deployments. JWT tokens enable gateway-side validation without key manager round-trips, significantly improving performance and reducing latency. Start with standard JWT configurations and customize claims as needed for your applications.
+Always use [JWT access tokens]({{base_path}}/api-security/key-management/tokens/jwt-tokens/) in production deployments. JWT tokens enable gateway-side validation without key manager round-trips, significantly improving performance and reducing latency. Start with standard JWT configurations and customize claims as needed for your applications.
 
 ### Implement Token Lifecycle Management Early
-Configure appropriate [token expiration]({{base_path}}/api-security/key-management/oauth2/token-expiration/) and implement [token revocation]({{base_path}}/api-security/key-management/oauth2/token-revocation/) capabilities from day one. Set conservative token lifetimes initially and monitor usage patterns to optimize refresh cycles. This prevents token sprawl and security incidents.
+Configure appropriate [token expiration]({{base_path}}/api-security/key-management/tokens/token-expiration/) and implement [token revocation]({{base_path}}/api-security/key-management/tokens/token-revocation/) capabilities from day one. Set conservative token lifetimes initially and monitor usage patterns to optimize refresh cycles. This prevents token sprawl and security incidents.
 
 ### Design Client Applications for Proper Token Management
 Client applications should implement proper token lifecycle management by **persisting access tokens and refresh tokens** rather than requesting new tokens for every API call. Store tokens securely and use refresh tokens to obtain new access tokens when they expire. This reduces load on the key manager and improves application performance.
 
 ### Optimize Token Persistence for High-Volume Deployments
-For deployments with millions of users and high token generation rates, consider enabling [JWT token persistence optimization]({{base_path}}/api-security/key-management/oauth2/token-persistence/). This approach uses JWT tokens without persisting them in the database, significantly improving performance for short-lived tokens. Enable persistence optimization when you have:
+For deployments with millions of users and high token generation rates, consider enabling [JWT token persistence optimization]({{base_path}}/api-security/key-management/tokens/token-persistence/). This approach uses JWT tokens without persisting them in the database, significantly improving performance for short-lived tokens. Enable persistence optimization when you have:
 - High concurrent user logins and token generation
 - Short token lifespans (recommended for this optimization)
 - Need to reduce database load and improve TPS (Transactions Per Second)
 
 ### Choose Grant Types Based on Application Architecture
-Map [OAuth2 grant types]({{base_path}}/api-security/key-management/oauth2/grant-types/overview/) to your application types: use client credentials for service-to-service, authorization code for web applications, and password grant only for highly trusted internal applications. Avoid the implicit grant type in production environments.
+Map [OAuth2 grant types]({{base_path}}/api-security/keymanagement/authentication/grant-types/overview/) to your application types: use client credentials for service-to-service, authorization code for web applications, and password grant only for highly trusted internal applications. Avoid the implicit grant type in production environments.
 
 ### Implement Comprehensive Scope Management
-Use [OAuth2 scopes]({{base_path}}/api-security/key-management/oauth2/oauth2-scopes/scope-whitelisting/) to implement fine-grained access control from the beginning. Design your scope hierarchy to match your API resource structure and business permissions. Implement scope whitelisting to prevent privilege escalation.
+Use [OAuth2 scopes]({{base_path}}/api-security/runtime/authorization/oauth2-scopes/fine-grained-access-control-with-oauth-scopes/) to implement fine-grained access control from the beginning. Design your scope hierarchy to match your API resource structure and business permissions. Implement scope whitelisting to prevent privilege escalation.
 
 ## Next Steps
 
 Choose your path based on your authentication requirements:
 
-- **[OAuth2 Grant Types Overview]({{base_path}}/api-security/key-management/oauth2/grant-types/overview/)** - For understanding authentication flows and choosing appropriate grant types
+- **[OAuth2 Grant Types Overview]({{base_path}}/api-security/runtime/oauth2/grant-types/overview/)** - For understanding authentication flows and choosing appropriate grant types
 - **[Configure Third-Party Key Managers]({{base_path}}/api-security/key-management/third-party-key-managers/overview/)** - For integrating with existing enterprise identity providers
