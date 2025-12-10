@@ -2,8 +2,8 @@
 
 WSO2 API Manager enables OAuth 2.0 security for APIs by default. Therefore, all APIs must be invoked with an access token. You can get an access token in the following ways.
 
-- [Get an internal test key from Publisher]({{base_path}}/manage-apis/design/create-api/create-rest-api/test-a-rest-api/)
-- [Get an access token for a subscription from Developer Portal]({{base_path}}/consume/consume-api-overview/)
+- [Get an internal test key from Publisher]({{base_path}}/api-design-manage/design/create-api/create-rest-api/test-a-rest-api/)
+- [Get an access token for a subscription from Developer Portal]({{base_path}}/api-developer-portal/consume-api-overview/)
 
 For testing purposes, you can eliminate the need of an access token by disabling security for the entire API or a specific resource.
 

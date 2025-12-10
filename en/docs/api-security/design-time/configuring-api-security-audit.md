@@ -81,7 +81,7 @@ You need to add the API Token and Collection ID properties inside the configurat
 #### Enable Audit API for a single tenant
 
 !!! tip
-    For more information on creating a tenant, see [Managing Tenants]({{base_path}}/administer/product-administration/multitenancy/introduction-to-multitenancy/).
+    For more information on creating a tenant, see [Managing Tenants]({{base_path}}/administer/multitenancy/managing-tenants/).
 
 1.  Navigate to the Admin Console [https://localhost:9443/admin](https://localhost:9443/admin) and sign in with your tenant credentials.
 

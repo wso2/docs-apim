@@ -302,7 +302,7 @@ When a client application invokes an API that is secured with audience validatio
  1.  [Sign in to the Publisher]({{base_path}}/install-and-setup/install/installing-the-product/running-the-api-m/#accessing-the-api-publisher).
  `https://<server-host>:9443/publisher         `
  
- 2.  When [creating]({{base_path}}/manage-apis/design/create-api/create-rest-api/create-a-rest-api/) or updating an API, enable **Audience Validation** in the **Application Level Security** tab under **Develop -> API Configurations -> Runtime**. 
+ 2.  When [creating]({{base_path}}/api-design-manage/design/create-api/create-rest-api/create-a-rest-api/) or updating an API, enable **Audience Validation** in the **Application Level Security** tab under **Develop -> API Configurations -> Runtime**. 
 
  3. Type **Allowed Audience** value or values, and press Enter. 
 

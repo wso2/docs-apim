@@ -6,7 +6,7 @@ For a detailed explanation on this grant type, go to the [WSO2 IS documentation]
 
 ## Flow
 
-The client can request an access token using only its client credentials with this grant type. It is similar to the [resource owner password credentials grant]({{base_path}}/manage-apis/design/api-security/oauth2/grant-types/password-grant) type, except in this case, only the client’s credentials are used to authenticate a request for an access token.
+The client can request an access token using only its client credentials with this grant type. It is similar to the [resource owner password credentials grant]({{base_path}}/api-security/key-management/authentication/grant-types/password-grant) type, except in this case, only the client's credentials are used to authenticate a request for an access token.
 
 [![OAuth Client Credentials]({{base_path}}/assets/img/learn/oauth-client-credentials-diagram.png){: style="width:60%"}]({{base_path}}/assets/img/learn/oauth-client-credentials-diagram.png)
 
