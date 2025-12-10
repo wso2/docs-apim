@@ -2,9 +2,9 @@
 
 WSO2 API Manager has three types of threat protectors for the Gateway.
 
--   [Regular Expression Threat Protection for API Gateway]({{base_path}}/manage-apis/deploy-and-publish/deploy-on-gateway/api-gateway/threat-protectors/regular-expression-threat-protection-for-api-gateway/)
--   [JSON Threat Protection for API Gateway]({{base_path}}/manage-apis/deploy-and-publish/deploy-on-gateway/api-gateway/threat-protectors/json-threat-protection-for-api-gateway/)
--   [XML Threat Protection for API Gateway]({{base_path}}/manage-apis/deploy-and-publish/deploy-on-gateway/api-gateway/threat-protectors/xml-threat-protection-for-api-gateway/)
+-   [Regular Expression Threat Protection for API Gateway]({{base_path}}/api-gateway/threat-protectors/regular-expression-threat-protection-for-api-gateway/)
+-   [JSON Threat Protection for API Gateway]({{base_path}}/api-gateway/threat-protectors/json-threat-protection-for-api-gateway/)
+-   [XML Threat Protection for API Gateway]({{base_path}}/api-gateway/threat-protectors/xml-threat-protection-for-api-gateway/)
 
 ### Combining threat protectors
 
@@ -42,4 +42,4 @@ You can use a combination of the threat protectors given above to validate the m
 ### Add a custom sequence
 
 You can add custom sequences depending on the threats that you need to address. You can create a policy using the custom sequence and attach it to the API. 
-Please refer [API Policies]({{base_path}}/manage-apis/design/api-policies/overview/) for more information on how to attach a policy to an API
+Please refer [API Policies]({{base_path}}/api-design-manage/design/api-policies/overview/) for more information on how to attach a policy to an API

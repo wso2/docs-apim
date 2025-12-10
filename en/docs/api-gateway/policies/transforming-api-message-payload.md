@@ -14,7 +14,7 @@ from the message. As with message builders, the message formatter is selected ba
     Note that if you edit an API's synapse configuration as mentioned in this guide and then go back to the API 
     Publisher and save the API, your changes will be overwritten. Therefore, we do not recommend changing the API's 
     synapse configuration directly. The recommended way to extend an API's mediation flow is by 
-    [attaching policies to API operations]({{base_path}}/manage-apis/design/api-policies/attach-policy/).
+    [attaching policies to API operations]({{base_path}}/api-design-manage/design/api-policies/attach-policy/).
 
 
 !!! info
