@@ -538,6 +538,20 @@
     padding-left: 15px;
 }
 
+/* Keep vertical line visible when section is active (clicked) */
+.md-nav__item.md-nav--expanded-section-verticle-line.md-nav__item--active > nav.md-nav > ul.md-nav__list {
+    border-left: 1px solid var(--md-default-fg-color--light);
+    margin: 15px 0;
+    padding-left: 15px;
+}
+
+/* Always show vertical line for no-collapsible sections */
+.md-nav__item.md-nav--expanded-section-verticle-line.md-nav--no-collapsible > nav.md-nav > ul.md-nav__list {
+    border-left: 1px solid var(--md-default-fg-color--light);
+    margin: 15px 0;
+    padding-left: 15px;
+}
+
 .md-nav__item.md-nav--expanded-section.md-nav--expanded-section-no-indent > nav.md-nav > ul.md-nav__list > .md-nav__item {
     padding-left: 0;
 }
