@@ -32,6 +32,7 @@ auto_collapse:
       - monitoring/
       - api-security/
       - administer/
+      - apiops/
       # Stay expanded when visiting Group 3
       - reference/
     stay_expanded_on_pages:
@@ -50,6 +51,7 @@ auto_collapse:
       - monitoring/
       - api-security/
       - administer/
+      - apiops/
       # Collapse when visiting Group 3
       - reference/
       # Collapse on getting started
@@ -69,6 +71,7 @@ auto_collapse:
       - monitoring/
       - api-security/
       - administer/
+      - apiops/
     stay_expanded_when_url_starts_with:
       # Stay expanded in own section
       - api-design-manage/
