@@ -325,6 +325,17 @@ Java methods/native objects having names equal to any of the values given under 
 Likewise, when <code>limit_java_native_object_access_in_scripts.list_type</code> is <code>ALLOW_LIST</code>, classes with matching names will be selectively allowed.
 </td>
 </tr>
+<tr class="even">
+<td><p>Override codepoint limit of SnakeYAML Dependency</p>
+<p><br />
+</p></td>
+<td>The default codepoint limit of SnakeYAML Dependency is 3,145,728 (~3MB), which is set to avoid exposing the system to DoS attacks via large malicious files. By default, API-M uses this default limit. However, the <a href="{{base_path}}/reference/config-catalog/#dependency-configurations">dependency configuration</a> of SnakeYAML Dependency can be overriden using the following configuration:
+<pre class="java" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence" style="brush: java; gutter: false; theme: Confluence"><code>[dependency_properties]
+'snakeyaml.max_file_size_limit' = 10
+</code></pre>
+In a production environment, it is strongly recommended to set this value according to your file size requirements and security policies to mitigate potential security risks.
+</td>
+</tr>
 </tbody>
 </table>
 
