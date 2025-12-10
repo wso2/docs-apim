@@ -53,7 +53,6 @@
 
 .md-home-sections {
     max-width: var(--md-main-content-max-width);
-    margin-bottom: 5rem !important;
 }
 
 .md-column-grid {
@@ -275,4 +274,127 @@
         width: 100%;
         display: block;
     }
+}
+
+/* Rules for styling APIM component cards */
+
+/* Container for the whole layout */
+.components-hub-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  color: var(--md-default-fg-color);
+}
+
+.components-section-header {
+  margin-bottom: 1rem;
+  margin-top: 2rem;
+}
+
+.components-section-header h3 {
+  font-weight: 700;
+  margin: 0 0 0.25rem 0;
+  color: var(--md-default-fg-color);
+}
+
+.components-section-header p {
+  color: var(--md-default-fg-color--light);
+  margin: 0;
+}
+
+.components-grid-split {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+}
+
+.components-grid-2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+}
+
+.components-grid-3 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+}
+
+/* Stack columns on small screens */
+@media (max-width: 768px) {
+  .components-grid-split, .components-grid-2, .components-grid-3 {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Card Styling */
+.components-card {
+  box-shadow: var(--md-shadow-z1); 
+  border: 1px solid var(--md-default-fg-color--lightest);
+  border-radius: 12px; 
+  
+  background-color: var(--md-default-bg-color);
+  
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 220px;
+  transition: box-shadow 0.2s;
+}
+
+.components-card:hover {
+    box-shadow: var(--md-shadow-z2);
+}
+
+.components-card h4 {
+  margin-top: 0;
+  margin-bottom: 1rem;
+  font-weight: 500;
+  /* Dynamic header color */
+  color: var(--md-default-fg-color);
+}
+
+.components-card-content {
+  line-height: 1.5;
+  color: var(--md-default-fg-color);
+  margin-bottom: 1.5rem;
+  flex-grow: 1;
+}
+
+/* Container for the links in the components cards. 
+   Uses negative margins to counteract the .components-card padding
+   so the links span the full width of the card.
+*/
+.components-card-footer {
+  margin-top: auto; 
+  margin-left: -15px; 
+  margin-right: -15px;
+  margin-bottom: -15px;
+  display: flex;
+  flex-direction: column;
+  border-top: 1px solid var(--md-default-fg-color--lightest);
+}
+
+.components-resource-link {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.8rem 15px; 
+  text-decoration: none;
+  border-bottom: 1px solid var(--md-default-fg-color--lightest);
+  color: var(--md-default-fg-color--light); 
+  transition: background-color 0.2s, color 0.2s;
+}
+
+/* Remove border from last item so it doesn't double up with card border */
+.components-resource-link:last-child {
+  border-bottom: none;
+  /* Rounds the corners of the last link to match the card */
+  border-bottom-left-radius: 12px;
+  border-bottom-right-radius: 12px;
+}
+
+.components-resource-link:hover span {
+  transform: translateX(3px);
+  transition: transform 0.2s;
 }
