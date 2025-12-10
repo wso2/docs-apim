@@ -45,7 +45,7 @@ The following are the two methods available in the Developer Portal to subscribe
         [![Edit grant types]({{base_path}}/assets/img/learn/edit-application-grant-types.png)]({{base_path}}/assets/img/learn/edit-application-grant-types.png)
         
     
-6.  Select the access token validity period and [scopes]({{base_path}}/manage-apis/design/api-security/oauth2/oauth2-scopes/fine-grained-access-control-with-oauth-scopes/) to generate an access token to invoke the API, then click **Next** to continue.
+6.  Select the access token validity period and [scopes]({{base_path}}/api-security/runtime/authorization/oauth2-scopes/fine-grained-access-control-with-oauth-scopes/) to generate an access token to invoke the API, then click **Next** to continue.
     
 7.  Copy the generated access token. 
 

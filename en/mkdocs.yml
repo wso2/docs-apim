@@ -384,8 +384,8 @@ nav:
             - Authorization:
                 - Overview: api-security/runtime/authorization/api-authorization.md
                 - Role-based Access Control Using XACML: api-security/runtime/authorization/role-based-access-control-using-xacml.md
-                - Fine Grained Access Control with OAuth Scopes: api-security/runtime/oauth2/oauth2-scopes/fine-grained-access-control-with-oauth-scopes.md
-                - Scope Whitelisting: api-security/runtime/oauth2/oauth2-scopes/scope-whitelisting.md
+                - Fine Grained Access Control with OAuth Scopes: api-security/runtime/authorization/oauth2-scopes/fine-grained-access-control-with-oauth-scopes.md
+                - Scope Whitelisting: api-security/runtime/authorization/oauth2-scopes/scope-whitelisting.md
             - API Request Response Schema Validation:
                 - JSON Schema Validator: api-security/runtime/api-request-response-schema-validation/json-schema-validator.md
             - OPA Validation:

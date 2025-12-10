@@ -37,4 +37,4 @@ The policy has one attribute called scope. If a JWT in your application has the 
 
 ### Add the relevant scope to the JWT
 
-The second step is to add the scope that was defined in the scope attribute of the ‘Revoke One Time Token’ policy. Further information on adding scope to JWTs can be found [here]({{base_path}}/manage-apis/design/api-security/oauth2/oauth2-scopes/fine-grained-access-control-with-oauth-scopes/). 
+The second step is to add the scope that was defined in the scope attribute of the ‘Revoke One Time Token’ policy. Further information on adding scope to JWTs can be found [here]({{base_path}}/api-security/runtime/authorization/oauth2-scopes/fine-grained-access-control-with-oauth-scopes/). 
