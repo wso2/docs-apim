@@ -854,30 +854,6 @@ extra:
             url: Get started|Quick Start Guide
           - title: About This Release
             url: Get started|About this Release
-    design_and_manage_apis_cards:
-    - section:
-      - title: API Design
-        description: The complete toolkit for API Creators. Design, document, mock, and apply policies for your REST, GraphQL, and AsyncAPI specifications.
-    discover_apis_cards:
-    - section:
-      - title: API Developer Portal
-        description: The hub for Application Developers. Discover a catalog of available APIs, subscribe to your applications, and manage your API keys and credentials. 
-    run_apis_cards:
-    - section:
-      - title: API Gateway
-        description: Secure, manage, and scale your API traffic. Learn to deploy the runtime, enforce security policies, and manage deployments.
-        cta_items:
-          - cta_text: Universay Gateway Overview
-            url: api-gateway/overview-of-the-api-gateway/
-          - cta_text: Federated Gateways Overview
-            url: api-gateway/federated-gateways/overview/
-    - section:
-      - title: AI Gateway
-        description: A specialized gateway to secure, monitor, and manage access to LLMs. Get started with MCP server and AI-specific policies.
-        cta_items:
-          - cta_text: AI Gateway Overview
-            url: ai-gateway/ai-gateway-overview/
-          
     expanded_navs:
     - title: Get Started
       options:
