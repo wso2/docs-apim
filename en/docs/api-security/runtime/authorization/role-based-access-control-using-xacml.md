@@ -24,7 +24,7 @@ Let’s take the following requirement in exposing an API via the API manager.
 
 Based on the requirement, a single API is exposed to add or retrieve order information. Each member type (webuser or admin) is identified from the resource path. The operation (GET or POST) that needs to be performed is distinguished by the HTTP verb. Follow the steps below to implement this kind of role-based access control.
 
-1.  Let’s start by creating the required users. First, you need to link both the API Manager and the Identity Server to the same user store in order to share users, roles and other related information. This can be done by linking the API manager with the LDAP user store within WSO2 Identity Server. For more information, see [Configuring an external LDAP or Active Directory Userstore]({{base_path}}/administer/product-administration/managing-users-and-roles/managing-user-stores/configure-primary-user-store/configuring-a-read-write-ldap-user-store/) . For this you can create a read write LDAP user store.
+1.  Let's start by creating the required users. First, you need to link both the API Manager and the Identity Server to the same user store in order to share users, roles and other related information. This can be done by linking the API manager with the LDAP user store within WSO2 Identity Server. For more information, see [Configuring an external LDAP or Active Directory Userstore]({{base_path}}/administer/managing-users-and-roles/managing-user-stores/configure-primary-user-store/configuring-a-read-write-ldap-user-store/) . For this you can create a read write LDAP user store.
 
     !!! note
         By default, in API Manager JDBCUserStore is enabled. When you are moving to the ReadWriteLDAPUserStore, make sure you have commented the configuration of JDBCUserStore and keep only one user store configuration `<API-M_HOME>/repository/conf/user-mgt.xml` in both nodes.
@@ -140,9 +140,9 @@ Based on the requirement, a single API is exposed to add or retrieve order info
 
         remoteServicePassword - Password used to connect to the service
 
-14. Log in to the API Publisher and [create an API]({{base_path}}/manage-apis/design/create-api/create-rest-api/create-a-rest-api/). In this sample default PizzaShack API is used.
-15. [Create a new API policy]({{base_path}}/manage-apis/design/api-policies/create-policy/) and upload the `EntitlementMediator.j2` created previously. Set **Request** under the **Applicable flows** 
-16. Attach the new policy to all the resources as mentioned in [attach policy]({{base_path}}/manage-apis/design/api-policies/attach-policy/)
+14. Log in to the API Publisher and [create an API]({{base_path}}/api-design-manage/design/create-api/create-rest-api/create-a-rest-api/). In this sample default PizzaShack API is used.
+15. [Create a new API policy]({{base_path}}/api-design-manage/design/api-policies/create-policy/) and upload the `EntitlementMediator.j2` created previously. Set **Request** under the **Applicable flows** 
+16. Attach the new policy to all the resources as mentioned in [attach policy]({{base_path}}/api-design-manage/design/api-policies/attach-policy/)
 17. Save, deploy, publish and test the API to make sure that the requests specified in the 2 rules defined in step 8 are accessible according to the user role specified. For example, the POST operation is only available to users with the role admin. If an anonymous user tries to access the POST operation, it should fail. Users with webuser role will only be able to access GET resource.
 
     !!! note

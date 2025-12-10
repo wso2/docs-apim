@@ -74,7 +74,7 @@ APIs in WSO2 API Manager can be secured using Certificate Bound Access Tokens, a
 
      `https://<hostname>:9443/publisher`
 
-2. [Create an API]({{base_path}}/manage-apis/design/create-api/create-rest-api/create-a-rest-api).     
+2. [Create an API]({{base_path}}/api-design-manage/design/create-api/create-rest-api/create-a-rest-api).     
     
 ### Invoke an API secured with Certificate Bound Access Token using Postman
 

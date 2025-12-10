@@ -23,7 +23,7 @@ Follow the steps given below to configure the Global Key Manager
 
     [![Add Global Key Manager]({{base_path}}/assets/img/administer/global-keymanager/add-global-key-manager.png)]({{base_path}}/assets/img/administer/global-keymanager/add-global-key-manager.png)
 
-6. Add the Global Key Manager configurations. Refer to the [configurations]({{base_path}}/administer/key-managers/overview/#configuring-key-managers-with-wso2-api-m) of the key manager that needs to be added as the global key manager
+6. Add the Global Key Manager configurations. Refer to the [configurations]({{base_path}}/api-security/key-management/third-party-key-managers/overview/#configuring-key-managers-with-wso2-api-m) of the key manager that needs to be added as the global key manager
 
     [![Add Global Key Manager Configurations]({{base_path}}/assets/img/administer/global-keymanager/add-global-key-manager-configurations.png)]({{base_path}}/assets/img/administer/global-keymanager/add-global-key-manager-configurations.png)
 
@@ -66,7 +66,7 @@ Let's look at a scenario where a single access token generated for an applicatio
 
 5. Sign in to the WSO2 API Publisher (`https://<hostname>:9443/publisher`) using the super tenant’s admin credentials
 
-6. [Create an API]({{base_path}}/manage-apis/design/create-api/create-rest-api/create-a-rest-api/) (Eg: SampleAPI)
+6. [Create an API]({{base_path}}/api-design-manage/design/create-api/create-rest-api/create-a-rest-api/) (Eg: SampleAPI)
 
     [![Sample API Creation]({{base_path}}/assets/img/administer/global-keymanager/sample-api-creation.png)]({{base_path}}/assets/img/administer/global-keymanager/sample-api-creation.png)
 
@@ -77,13 +77,13 @@ Let's look at a scenario where a single access token generated for an applicatio
 
     [![Relationship between the API's visibility and subscription availability]({{base_path}}/assets/img/learn/api-subscription-availability.png)]({{base_path}}/assets/img/learn/api-subscription-availability.png)
 
-8. [Deploy the API]({{base_path}}/manage-apis/deploy-and-publish/deploy-on-gateway/deploy-api/deploy-an-api/)
+8. [Deploy the API]({{base_path}}/api-design-manage/deploy-and-publish/deploy-on-gateway/deploy-api/deploy-an-api/)
 
 9. Sign in to the WSO2 API Publisher (`https://<hostname>:9443/publisher`) using the new tenant’s (abc.com) admin credentials and repeat Steps 5 - 7
 
 10. Sign in to the super tenant's Developer Portal using the super tenant’s admin credentials (`https://<hostname>:9443/devportal`)
 
-11. [Create an application]({{base_path}}/consume/manage-application/create-application/) (Ex: SampleApp)
+11. [Create an application]({{base_path}}/api-developer-portal/manage-application/create-application/) (Ex: SampleApp)
 
     [![Sample App Creation]({{base_path}}/assets/img/administer/global-keymanager/sample-app-creation.png)]({{base_path}}/assets/img/administer/global-keymanager/sample-app-creation.png)
 
@@ -95,11 +95,11 @@ Let's look at a scenario where a single access token generated for an applicatio
 
 14. Click **GENERATE ACCESS TOKEN** to generate an application access token. Make sure to copy the generated JWT access token that appears so that you can use it in the future.
 
-15. Go to the Developer Portal landing page, select the SampleAPI and [Subscribe]({{base_path}}/consume/manage-subscription/subscribe-to-an-api/#subscribe-to-an-existing-application) to the SampleApp
+15. Go to the Developer Portal landing page, select the SampleAPI and [Subscribe]({{base_path}}/api-developer-portal/manage-subscription/subscribe-to-an-api/#subscribe-to-an-existing-application) to the SampleApp
 
     [![Subscribe SampleAPI to SampleApp]({{base_path}}/assets/img/administer/global-keymanager/subscribe-sample-api-to-sample-app.png)]({{base_path}}/assets/img/administer/global-keymanager/subscribe-sample-api-to-sample-app.png)
 
-16. [Try Out the API]({{base_path}}/consume/invoke-apis/invoke-apis-using-tools/invoke-an-api-using-the-integrated-api-console/) with the access token generated using the Global Key Manager
+16. [Try Out the API]({{base_path}}/api-developer-portal/invoke-apis/invoke-apis-using-tools/invoke-an-api-using-the-integrated-api-console/) with the access token generated using the Global Key Manager
 
     A Successful response indicates that an API of the super tenant can be invoked using an access token generated for an application using the Global Key Manager.
 

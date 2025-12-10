@@ -484,4 +484,4 @@ When registering a third-party Identity Provider as a Key Manager in the Admin P
     !!! tip
         If you want to generate the tokens with scopes, make sure that those scopes are defined in the Authorization Server.
 
-6. You can now use the generated token to [invoke an API]({{base_path}}/consume/invoke-apis/invoke-apis-using-tools/invoke-apis-using-tools/invoke-an-api-using-the-integrated-api-console).
+6. You can now use the generated token to [invoke an API]({{base_path}}/api-developer-portal/invoke-apis/invoke-apis-using-tools/invoke-an-api-using-the-integrated-api-console).

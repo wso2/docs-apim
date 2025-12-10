@@ -114,7 +114,7 @@ Now you have a registered identity provider and as well as a service provider wi
 
 1. Obtain a JWT from the service provider.
 
-     Use the following sample cURL command to obtain a JWT from the service provider inside WSO2 IS that we configured in [Step 1](#step-1-obtain-a-jwt-from-an-external-identity-provider). Note that, you can use any `grant_type` when sending the request. For more information, see [OAuth2 Grant Types]({{base_path}}/manage-apis/design/api-security/oauth2/grant-types/overview/).
+     Use the following sample cURL command to obtain a JWT from the service provider inside WSO2 IS that we configured in [Step 1](#step-1-obtain-a-jwt-from-an-external-identity-provider). Note that, you can use any `grant_type` when sending the request. For more information, see [OAuth2 Grant Types]({{base_path}}/api-security/key-management/authentication/grant-types/overview/).
 
     === "Format"
         ``` java
