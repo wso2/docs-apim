@@ -10,7 +10,7 @@ Designing APIs is a crucial part of the API development lifecycle. With API Mana
 Follow the steps below to get started with the API Design Assistant:
 
 !!! tip
-    If you've previously registered your environment for the [API Chat]({{base_path}}/consume/invoke-apis/invoke-apis-using-tools/test-apis-with-apichat) or [Marketplace Assistant]({{base_path}}/consume/discover-apis/marketplace-assistant), you can skip Step 1 and 2 by utilizing the same credentials for the API Design Assistant. Otherwise, complete Step 1 to register your on-premise environment.
+    If you've previously registered your environment for the [API Chat]({{base_path}}/api-developer-portal/invoke-apis/invoke-apis-using-tools/test-apis-with-apichat) or [Marketplace Assistant]({{base_path}}/api-developer-portal/discover-apis/marketplace-assistant), you can skip Step 1 and 2 by utilizing the same credentials for the API Design Assistant. Otherwise, complete Step 1 to register your on-premise environment.
 
 ## Step 1 - Sign in to AI Subscription Portal
 

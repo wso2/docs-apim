@@ -36,12 +36,12 @@ Follow the instructions below to enable CORS response headers globally. Once thi
 ## Enabling CORS Per API
 
 !!! note
-    You need to enable CORS globally before you enable CORS Per API. Therefore, if you have not enabled CORS globally, follow the instructions in [Enabling CORS Globally]({{base_path}}/manage-apis/design/advanced-topics/enabling-cors-for-apis/#enabling-cors-globally) before carrying out the following instructions.
+    You need to enable CORS globally before you enable CORS Per API. Therefore, if you have not enabled CORS globally, follow the instructions in [Enabling CORS Globally]({{base_path}}/api-design-manage/design/advanced-topics/enabling-cors-for-apis/#enabling-cors-globally) before carrying out the following instructions.
 
 !!! note
     When CORS is enabled globally, it applies to all APIs served by the API Gateway. You can override this global configuration for a specific API by following the instructions below. However, disabling CORS for an individual API does not turn off the global CORS configuration.
 
-1.  Sign in to API Publisher and [create a new API]({{base_path}}/manage-apis/design/create-api/create-rest-api/create-a-rest-api).
+1.  Sign in to API Publisher and [create a new API]({{base_path}}/api-design-manage/design/create-api/create-rest-api/create-a-rest-api).
 
 2.  Go to **API Configurations** from the left menu and click **Runtime**.
 

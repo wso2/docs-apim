@@ -27,7 +27,7 @@ After the custom properties have been added, you can [search for APIs using cust
       
       Example: `https://localhost:9443/publisher`
 
-2.  [Create a new API]({{base_path}}/manage-apis/design/create-api/create-rest-api/create-a-rest-api/) or edit an existing API.
+2.  [Create a new API]({{base_path}}/api-design-manage/design/create-api/create-rest-api/create-a-rest-api/) or edit an existing API.
 
 3.  Click **Properties** and click **Add New Property**.
 

@@ -25,12 +25,12 @@ An Endpoint is a specific destination for a message such as an address, WSDL, a 
 <td>The endpoints where the incoming requests are directed to in a round-robin manner. They automatically handle fail-over as well.</td>
 </tr>
 <tr><td>Dynamic Endpoint</td>
-<td>Using a dynamic endpoint, the requests can be dynamically routed to an address based on a specific condition (e.g., request parameters, payload etc.). When using this endpoint type, a mediation sequence should be applied to the message <b>IN Flow</b> of the API. For more information, see <a href="{{base_path}}/manage-apis/design/api-policies/regular-gateway-policies/adding-dynamic-endpoints/">Adding Dynamic Endpoints</a>.</td>
+<td>Using a dynamic endpoint, the requests can be dynamically routed to an address based on a specific condition (e.g., request parameters, payload etc.). When using this endpoint type, a mediation sequence should be applied to the message <b>IN Flow</b> of the API. For more information, see <a href="{{base_path}}/api-design-manage/design/api-policies/regular-gateway-policies/adding-dynamic-endpoints/">Adding Dynamic Endpoints</a>.</td>
 </tr>
 <tr><td>Mock Implementation</td>
 <td>
 <ul>
-<li><a href="{{base_path}}/manage-apis/design/prototype-api/create-mocked-js-api/">Mock implementation with API Gateway</a> - The Mock Implementation uses the built-in JavaScript engine of Synapse to mock the responses and can be used per HTTP resource of the API.</br>
+<li><a href="{{base_path}}/api-design-manage/design/prototype-api/create-mocked-js-api/">Mock implementation with API Gateway</a> - The Mock Implementation uses the built-in JavaScript engine of Synapse to mock the responses and can be used per HTTP resource of the API.</br>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>The <b>Mock Implementation</b> will be only available for APIs that are in the <b>CREATED</b> or <b>PRE-RELEASED</b> state.</p>

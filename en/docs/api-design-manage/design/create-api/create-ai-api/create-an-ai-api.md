@@ -109,16 +109,16 @@ Follow the instructions below to create an AI API using the basic flow:
 
     [![API Key Configuration]({{base_path}}/assets/img/learn/ai-gateway/ai-api-configure-backend-security.png){: style="width:90%"}]({{base_path}}/assets/img/learn/ai-gateway/ai-api-configure-backend-security.png)
 
-Now, you have successfully created an AI API. Next, [deploy the API]({{base_path}}/manage-apis/deploy-and-publish/deploy-on-gateway/deploy-api/deploy-an-api/), [test the API]({{base_path}}/manage-apis/design/create-api/create-rest-api/test-a-rest-api/), and finally [publish the API]({{base_path}}/manage-apis/deploy-and-publish/publish-on-dev-portal/publish-an-api).
+Now, you have successfully created an AI API. Next, [deploy the API]({{base_path}}/api-design-manage/deploy-and-publish/deploy-on-gateway/deploy-api/deploy-an-api/), [test the API]({{base_path}}/api-design-manage/design/create-api/create-rest-api/test-a-rest-api/), and finally [publish the API]({{base_path}}/api-design-manage/deploy-and-publish/publish-on-dev-portal/publish-an-api).
 
 ## See Also
 
 Learn more on the concepts that you need to know when creating a REST API:
 
--   [API Security]({{base_path}}/manage-apis/design/api-security/api-authentication/secure-apis-using-oauth2-tokens/)
+-   [API Security]({{base_path}}/api-security/runtime/secure-apis-using-oauth2-tokens/)
 -   [Rate Limiting for AI APIs]({{base_path}}/ai-gateway/rate-limiting/)
 -   [Multi-Model Routing]({{base_path}}/ai-gateway/multi-model-routing/overview/)
--   [Life Cycle Management]({{base_path}}/manage-apis/design/lifecycle-management/api-lifecycle/)
--   [API Visibility]({{base_path}}/manage-apis/design/advanced-topics/control-api-visibility-and-subscription-availability-in-developer-portal/)
--   [API Documentation]({{base_path}}/manage-apis/design/api-documentation/add-api-documentation/)
--   [Custom Properties]({{base_path}}/manage-apis/design/create-api/adding-custom-properties-to-apis/)
+-   [Life Cycle Management]({{base_path}}/api-design-manage/design/lifecycle-management/api-lifecycle/)
+-   [API Visibility]({{base_path}}/api-design-manage/design/advanced-topics/control-api-visibility-and-subscription-availability-in-developer-portal/)
+-   [API Documentation]({{base_path}}/api-design-manage/design/api-documentation/add-api-documentation/)
+-   [Custom Properties]({{base_path}}/api-design-manage/design/create-api/adding-custom-properties-to-apis/)

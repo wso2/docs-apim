@@ -55,7 +55,7 @@ Follow the instructions provided below to create a gateway policy:
         [![Save individual policy data]({{base_path}}/assets/img/deploy/gateway/global-polices-add-header-policy.png){: style="width:90%"}]({{base_path}}/assets/img/deploy/gateway/global-polices-add-header-policy.png)
 
         !!!note
-            All the policies listed for addition as global policies are [common policies]({{base_path}}/manage-apis/design/api-policies/create-policy/).
+            All the policies listed for addition as global policies are [common policies]({{base_path}}/api-design-manage/design/api-policies/create-policy/).
 
     5. After saving the dropped policy, you should now be able to view the associated **Add Header** policy indicated by the initials **AH**.
 
@@ -95,4 +95,4 @@ To undeploy a global policy from any gateway environment, simply click on the cl
 
 You can engage policies with APIs and their resources:
 
-[Attaching API Policies]({{base_path}}/manage-apis/design/api-policies/attach-policy/)
+[Attaching API Policies]({{base_path}}/api-design-manage/design/api-policies/attach-policy/)
