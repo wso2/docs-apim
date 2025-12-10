@@ -385,6 +385,7 @@ nav:
                 - Overview: api-security/runtime/authorization/api-authorization.md
                 - Role-based Access Control Using XACML: api-security/runtime/authorization/role-based-access-control-using-xacml.md
                 - Fine Grained Access Control with OAuth Scopes: api-security/runtime/authorization/oauth2-scopes/fine-grained-access-control-with-oauth-scopes.md
+                - Application Scopes: api-security/runtime/authorization/oauth2-scopes/application-scopes.md
                 - Scope Whitelisting: api-security/runtime/authorization/oauth2-scopes/scope-whitelisting.md
             - API Request Response Schema Validation:
                 - JSON Schema Validator: api-security/runtime/api-request-response-schema-validation/json-schema-validator.md
@@ -429,7 +430,6 @@ nav:
                 - Configure a Custom Key Manager: api-security/key-management/third-party-key-managers/configure-custom-connector.md
                 - Configure the Global Key Manager: api-security/key-management/third-party-key-managers/configure-global-key-manager.md
                 - Configure the Azure AD as a Key Manager: api-security/key-management/third-party-key-managers/configure-azure-ad-key-manager.md
-                - Application Scopes: api-security/key-management/third-party-key-managers/application-scopes.md
 
     - API Gateway:
         - Universal Gateway:

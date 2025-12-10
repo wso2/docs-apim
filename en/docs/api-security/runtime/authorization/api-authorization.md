@@ -5,3 +5,5 @@ Nowadays, most of the enterprise applications are built with a collection of RES
 - [Fine Grained Access Control Using Scopes]({{base_path}}/api-security/runtime/authorization/oauth2-scopes/fine-grained-access-control-with-oauth-scopes/)
 
 - [Fine Grained Access Control Using XACML]({{base_path}}/api-security/runtime/authorization/role-based-access-control-using-xacml/)
+
+- [Fine Grained Access Control Using Application Scopes]({{base_path}}/api-security/runtime/authorization/oauth2-scopes/application-scopes/)

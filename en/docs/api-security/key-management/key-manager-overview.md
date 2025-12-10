@@ -163,7 +163,7 @@ For deployments with millions of users and high token generation rates, consider
 - Need to reduce database load and improve TPS (Transactions Per Second)
 
 ### Choose Grant Types Based on Application Architecture
-Map [OAuth2 grant types]({{base_path}}/api-security/keymanagement/authentication/grant-types/overview/) to your application types: use client credentials for service-to-service, authorization code for web applications, and password grant only for highly trusted internal applications. Avoid the implicit grant type in production environments.
+Map [OAuth2 grant types]({{base_path}}/api-security/key-management/authentication/grant-types/overview/) to your application types: use client credentials for service-to-service, authorization code for web applications, and password grant only for highly trusted internal applications. Avoid the implicit grant type in production environments.
 
 ### Implement Comprehensive Scope Management
 Use [OAuth2 scopes]({{base_path}}/api-security/runtime/authorization/oauth2-scopes/fine-grained-access-control-with-oauth-scopes/) to implement fine-grained access control from the beginning. Design your scope hierarchy to match your API resource structure and business permissions. Implement scope whitelisting to prevent privilege escalation.

@@ -79,7 +79,7 @@ For more information on WSO2 API Manager, see the [overview]({{base_path}}/get-s
 
     Application scopes provide fine-grained control over permissions at the application level, enhancing security and flexibility. These scopes are configured as allowed scopes for specific applications and can only be selected from the subscribed scopes (scopes available from all subscribed APIs).
 
-     **[Learn more]({{base_path}}/api-security/key-management/third-party-key-managers/application-scopes/)** 
+     **[Learn more]({{base_path}}/api-security/runtime/authorization/oauth2-scopes/application-scopes/)** 
 
 ## Improvements
 
