@@ -284,7 +284,6 @@
   color: var(--md-accent-fg-color);
 }
 
-/* Typography for Section Headers */
 .components-section-header {
   margin-bottom: 1rem;
   margin-top: 2rem;
@@ -298,11 +297,9 @@
 
 .components-section-header p {
   color: #555;
-  font-style: italic;
   margin: 0;
 }
 
-/* Grid Layouts */
 .components-grid-split {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -321,7 +318,7 @@
   gap: 2rem;
 }
 
-/* Responsive on mobile screens; stack columns on small screens */
+/* Stack columns on small screens */
 @media (max-width: 768px) {
   .components-grid-split, .components-grid-2, .components-grid-3 {
     grid-template-columns: 1fr;
@@ -338,7 +335,7 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  min-height: 220px; /* Ensures consistent height */
+  min-height: 220px;
 }
 
 .components-card h4 {
@@ -352,18 +349,42 @@
   line-height: 1.5;
   color: #000;
   margin-bottom: 1.5rem;
-  flex-grow: 1; /* Pushes the 'More' link to the bottom */
+  flex-grow: 1;
 }
 
-.components-card-link {
-  font-weight: 500;
-  color: #666;
-  text-decoration: none;
+
+/* Container for the links in the components cards. 
+   Uses negative margins to counteract the .components-card padding
+   so the links span the full width of the card.
+*/
+.components-card-footer {
+  margin-top: auto; 
+  margin-left: -1.5rem;
+  margin-right: -1.5rem;
+  margin-bottom: -1.5rem;
+  display: flex;
+  flex-direction: column;
+  border-top: 1px solid var(--md-default-fg-color--lightest);
+}
+
+.components-resource-link {
   display: flex;
   justify-content: space-between;
-  width: 80px;
+  align-items: center;
+  padding: 0.8rem 1.5rem;
+  text-decoration: none;
+  border-bottom: 1px solid var(--md-default-fg-color--lightest);
 }
 
-.components-card-link:hover {
-  color: #4bbfa0;
+/* Remove border from last item so it doesn't double up with card border */
+.components-resource-link:last-child {
+  border-bottom: none;
+  /* Rounds the corners of the last link to match the card */
+  border-bottom-left-radius: 12px;
+  border-bottom-right-radius: 12px;
+}
+
+.api-resource-link:hover span {
+  transform: translateX(3px);
+  transition: transform 0.2s;
 }

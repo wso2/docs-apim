@@ -25,7 +25,6 @@
 {% endmacro %}
 
 {% extends "base.html" %}
-{% import "partials/cta.html" as cta %}
 
 {% block styles %}
 {{ super() }}
@@ -170,11 +169,16 @@
               <div>
                 <h4>API Design</h4>
                 <div class="components-card-content">
-                  The complete toolkit for API Creators. Design, document, mock, and apply policies for your REST,
-                  GraphQL, and AsyncAPI specifications.
+                  <p>The complete toolkit for API Creators. Design, document, mock, and apply policies for your REST,
+                    GraphQL, and AsyncAPI specifications.</p>
                 </div>
               </div>
-              <a href="#" class="components-card-link">More <span>-></span></a>
+              <div class="components-card-footer">
+
+                <a href="{{base_path}}/api-design-manage/design/design-api-overview/" class="components-resource-link">
+                  Design APIs Overview <span>&rarr;</span>
+                </a>
+              </div>
             </div>
           </div>
 
@@ -191,7 +195,12 @@
                   and manage your API keys and credentials.
                 </div>
               </div>
-              <a href="#" class="components-card-link">More <span>-></span></a>
+              <div class="components-card-footer">
+
+                <a href="{{base_path}}/api-developer-portal/consume-api-overview/" class="components-resource-link">
+                  Consume APIs Overview <span>&rarr;</span>
+                </a>
+              </div>
             </div>
           </div>
         </div>
@@ -210,7 +219,17 @@
                 manage deployments.
               </div>
             </div>
-            <a href="#" class="components-card-link">More <span>-></span></a>
+            <div class="components-card-footer">
+
+              <a href="{{base_path}}/api-gateway/overview-of-the-api-gateway/" class="components-resource-link">
+                Universay Gateway Overview <span>&rarr;</span>
+              </a>
+
+              <a href="{{base_path}}/api-gateway/federated-gateways/overview/" class="components-resource-link">
+                Federated Gateways Overview <span>&rarr;</span>
+              </a>
+
+            </div>
           </div>
 
           <div class="components-card">
@@ -221,7 +240,13 @@
                 AI-specific policies.
               </div>
             </div>
-            <a href="#" class="components-card-link">More <span>-></span></a>
+            <div class="components-card-footer">
+
+              <a href="{{base_path}}/ai-gateway/ai-gateway-overview//" class="components-resource-link">
+                AI Gateway Overview <span>&rarr;</span>
+              </a>
+
+            </div>
           </div>
         </div>
 
@@ -233,23 +258,38 @@
         <div class="components-grid-3">
           <div class="components-card">
             <div>
+              <h4>API Analytics & Monetization</h4>
+              <div class="components-card-content">
+                Track usage, monitor performance, and configure billing. Gain insights and govern your API products.
+              </div>
+            </div>
+            <div class="components-card-footer">
+
+              <a href="{{base_path}}/monitoring/api-analytics/analytics-overview/" class="components-resource-link">
+                API Analytics Overview <span>&rarr;</span>
+              </a>
+
+              <a href="{{base_path}}/monitoring/api-monetization/monetizing-an-api/" class="components-resource-link">
+                API Monetization How-to Guide <span>&rarr;</span>
+              </a>
+
+            </div>
+          </div>
+          <div class="components-card">
+            <div>
               <h4>Key Manager</h4>
               <div class="components-card-content">
                 Your central security component. Manage OAuth2 clients, issue tokens, and configure external identity
                 providers.
               </div>
             </div>
-            <a href="#" class="components-card-link">More <span>-></span></a>
-          </div>
+            <div class="components-card-footer">
 
-          <div class="components-card">
-            <div>
-              <h4>API Analytics & Monetization</h4>
-              <div class="components-card-content">
-                Track usage, monitor performance, and configure billing. Gain insights and govern your API products.
-              </div>
+              <a href="{{base_path}}/key-manager/key-manager-overview/" class="components-resource-link">
+                Key Manager Overview <span>&rarr;</span>
+              </a>
+
             </div>
-            <a href="#" class="components-card-link">More <span>-></span></a>
           </div>
 
           <div class="components-card">
@@ -260,7 +300,14 @@
                 standards.
               </div>
             </div>
-            <a href="#" class="components-card-link">More <span>-></span></a>
+            <div class="components-card-footer">
+
+              <a href="{{base_path}}/install-and-setup/setup/api-controller/getting-started-with-wso2-api-controller/"
+                class="components-resource-link">
+                API Controller Quickstart <span>&rarr;</span>
+              </a>
+
+            </div>
           </div>
         </div>
 
@@ -278,7 +325,16 @@
                 Gateways and Key Managers.
               </div>
             </div>
-            <a href="#" class="components-card-link">More <span>-></span></a>
+            <div class="components-card-footer">
+
+              <a href="{{base_path}}/administer/admin-overview/" class="components-resource-link">
+                Administration Overview <span>&rarr;</span>
+              </a>
+              <a href="{{base_path}}/administer/governance/overview/" class="components-resource-link">
+                Governance Overview <span>&rarr;</span>
+              </a>
+
+            </div>
           </div>
         </div>
 
