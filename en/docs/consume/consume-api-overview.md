@@ -36,7 +36,7 @@ Developers need to select a business plan for each API subscription. The busines
 
 ### Test APIs
 
-Before using an API for development, the API consumer may want to test it’s capabilities. The following options are available in the Developer Portal for testing:
+Before using an API for development, the API consumer may want to test its capabilities. The following options are available in the Developer Portal for testing:
 
 -   <a href="{{base_path}}/consume/invoke-apis/invoke-apis-using-tools/invoke-an-api-using-the-integrated-api-console">Test APIs using the Integrated API Console</a>
     -   <a href="{{base_path}}/consume/invoke-apis/invoke-apis-using-tools/include-additional-headers-in-the-api-console">Include Additional Headers in the API Console</a>
