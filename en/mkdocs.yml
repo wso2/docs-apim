@@ -864,7 +864,7 @@ plugins:
               'learn/design-api/create-api/expose-a-soap-service-as-a-rest-api.md': 'tutorials/expose-a-soap-service-as-a-rest-api.md'
               'learn/design-api/create-api/test-a-rest-api.md': 'manage-apis/design/create-api/create-rest-api/test-a-rest-api.md'
               'learn/design-api/publish-api/publish-an-api.md': 'manage-apis/deploy-and-publish/publish-on-dev-portal/publish-an-api.md'
-              # Existing redirects to 4.4.0
+              # Remaining redirects to 4.4.0
               'learn/consume-api/customizations/customizing-the-developer-portal/customize-api-listing/api-category-based-grouping.md': 'https://apim.docs.wso2.com/en/4.4.0/reference/customize-product/customizations/customizing-the-developer-portal/customize-api-listing/api-category-based-grouping/'
               'learn/consume-api/customizations/customizing-the-developer-portal/customize-api-listing/change-default-view.md': 'https://apim.docs.wso2.com/en/4.4.0/reference/customize-product/customizations/customizing-the-developer-portal/customize-api-listing/change-default-view/'
               'learn/consume-api/customizations/customizing-the-developer-portal/enabling-or-disabling-api-detail-tabs.md': 'https://apim.docs.wso2.com/en/4.4.0/reference/customize-product/customizations/customizing-the-developer-portal/enabling-or-disabling-api-detail-tabs/'
