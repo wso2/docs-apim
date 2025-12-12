@@ -54,11 +54,11 @@ type = "moesif"
 
 [apim.analytics.properties]
 moesifKey = "YOUR_MOESIF_API_KEY_HERE"
-moesif_base_url = "https://api.moesif.net"
+moesif_base_url = "https://api.moesif.com"
 send_headers = false
 ```
 
-Replace `YOUR_MOESIF_API_KEY_HERE` with the actual API key you copied from Step 1.4.
+Replace `YOUR_MOESIF_API_KEY_HERE` with the actual API key you copied from step 4 above.
 
 ### Configuration Parameters
 
