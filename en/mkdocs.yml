@@ -777,6 +777,7 @@ nav:
         - API Analytics:
             - Getting Started Guide: api-analytics/getting-started-guide.md
             - Role-based Access Control : api-analytics/role-based-access-control.md
+            - Moesif Analytics: api-analytics/moesif-analytics/moesif-integration-guide.md
             - On-prem Analytics:
                 - ELK-Based Analytics Installation Guide: api-analytics/on-prem/elk-installation-guide.md
             - Configurations:
