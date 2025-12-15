@@ -47,7 +47,7 @@ Before publishing, ensure the following requirements are met:
 
 ### Step 2: Select the API or AI API or API Product or MCP Server to Publish
 
-1. Click on an API or API Product or MCP Server that is in the **CREATED** state
+1. Click on an API or AI API or API Product or MCP Server that is in the **CREATED** state
 
    <img src="{{base_path}}/assets/img/learn/select-created-api.png" alt="Select API" title="Select API" width="35%" />
 
