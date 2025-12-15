@@ -445,8 +445,7 @@ nav:
                 - Universal Gateways with Dedicated Backends: api-gateway/api-gateways-with-dedicated-backends.md
                 - Mutual SSL Between Universal Gateway and Backend: api-gateway/mutual-ssl-between-api-gateway-and-backend.md
                 - Storing Custom Synapse Artifacts in the Gateway: api-gateway/custom-synapse-artifacts.md
-            - Universal Gateway Policies:
-                - Gateway Policies: api-gateway/gateway-policies.md
+            - Gateway Policies:
                 - Adding Dynamic Endpoints: api-gateway/policies/adding-dynamic-endpoints.md
                 - Adding a Class Mediator: api-gateway/policies/adding-a-class-mediator.md
                 - Adding a Non-Blocking Send Operation: api-gateway/policies/adding-a-non-blocking-send-operation.md
@@ -458,6 +457,7 @@ nav:
                 - Removing Specific Request Headers from Response: api-gateway/policies/removing-specific-request-headers-from-response.md
                 - Revoke One Time Tokens Policy: api-gateway/policies/revoke-one-time-tokens-policy.md
                 - Transforming API Message Payload: api-gateway/policies/transforming-api-message-payload.md
+                - Global Gateway Policies: api-gateway/gateway-policies.md
             - Threat Protectors:
                 - Gateway Threat Protectors: api-gateway/threat-protectors/gateway-threat-protectors-for-api-manager.md
                 - Regular Expression Threat Protection: api-gateway/threat-protectors/regular-expression-threat-protection-for-api-gateway.md
@@ -842,7 +842,7 @@ extra:
       - AI Gateway
       - API Analytics & Monetization
       - Key Manager
-      - Administer
+      - Administration
       - APIOps
       - Reference
     home_page_cards:
@@ -890,7 +890,7 @@ extra:
     - title: API Security
       options:
         - verticle-line-only
-    - title: Administer
+    - title: Administration
       options:
         - verticle-line-only
     - title: APIOps
@@ -927,7 +927,7 @@ extra:
       API Security:
         icon: octicons/shield-check-16
         level: 1
-      Administer:
+      Administration:
         icon: octicons/person-16
         level: 1
       APIOps:
