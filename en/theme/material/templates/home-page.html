@@ -141,7 +141,7 @@
 
             <a href="{{base_path}}/en/4.6.0/api-gateway/overview-of-the-api-gateway/" target="_blank" rel="noopener"
               class="components-resource-link">
-              Universay Gateway Overview <span>&rarr;</span>
+              Universal Gateway Overview <span>&rarr;</span>
             </a>
 
             <a href="{{base_path}}/en/4.6.0/api-gateway/federated-gateways/overview/" target="_blank" rel="noopener"
@@ -183,6 +183,33 @@
         <div class="components-card">
           <div>
             <div class="md-column-grid-item-header-icon icon-color-4">
+              {{ home_card_icon("octicons/shield-check-16") }}
+            </div>
+            <h3>API Security</h3>
+            <div class="components-card-content">
+              Secure APIs with design-time audits and runtime enforcement. Manage authentication, authorization, and
+              tokens using the Key Manager.
+            </div>
+          </div>
+          <div class="components-card-footer">
+            <a href="{{base_path}}/en/4.6.0/api-security/runtime/api-authentication/api-authentication-overview/"
+              target="_blank" rel="noopener" class="components-resource-link">
+              Authentication Overview <span>&rarr;</span>
+            </a>
+            <a href="{{base_path}}/en/4.6.0/api-security/runtime/authorization/api-authorization//" target="_blank"
+              rel="noopener" class="components-resource-link">
+              Authorization Overview <span>&rarr;</span>
+            </a>
+            <a href="{{base_path}}/en/4.6.0/key-manager/key-manager-overview/" target="_blank" rel="noopener"
+              class="components-resource-link">
+              Key Manager Overview <span>&rarr;</span>
+            </a>
+
+          </div>
+        </div>
+        <div class="components-card">
+          <div>
+            <div class="md-column-grid-item-header-icon icon-color-4">
               {{ home_card_icon("octicons/graph-16") }}
             </div>
             <h3>API Analytics & Monetization</h3>
@@ -204,40 +231,23 @@
 
           </div>
         </div>
-        <div class="components-card">
-          <div>
-            <div class="md-column-grid-item-header-icon icon-color-4">
-              {{ home_card_icon("octicons/shield-check-16") }}
-            </div>
-            <h3>Key Manager</h3>
-            <div class="components-card-content">
-              Your central security component. Manage OAuth2 clients, issue tokens, and configure external identity
-              providers.
-            </div>
-          </div>
-          <div class="components-card-footer">
-
-            <a href="{{base_path}}/en/4.6.0/key-manager/key-manager-overview/" target="_blank" rel="noopener"
-              class="components-resource-link">
-              Key Manager Overview <span>&rarr;</span>
-            </a>
-
-          </div>
-        </div>
 
         <div class="components-card">
           <div>
             <div class="md-column-grid-item-header-icon icon-color-4">
               {{ home_card_icon("octicons/terminal-16") }}
             </div>
-            <h3>API Controller (CLI)</h3>
+            <h3>APIOps</h3>
             <div class="components-card-content">
               Automate your API lifecycle and governance. Use the command-line tool to script operations and enforce
               standards.
             </div>
           </div>
           <div class="components-card-footer">
-
+            <a href="{{base_path}}/en/4.6.0/apiops/cli/ci-cd-with-wso2-api-management/" target="_blank" rel="noopener"
+              class="components-resource-link">
+              CI/CD for APIs Overview <span>&rarr;</span>
+            </a>
             <a href="{{base_path}}/en/4.6.0/install-and-setup/setup/api-controller/getting-started-with-wso2-api-controller/"
               target="_blank" rel="noopener" class="components-resource-link">
               API Controller Quickstart <span>&rarr;</span>
@@ -245,6 +255,8 @@
 
           </div>
         </div>
+
+
       </div>
 
       <div class="components-section-header">
@@ -259,7 +271,7 @@
               {{ home_card_icon("octicons/person-16") }}
             </div>
 
-            <h3>Admin Portal</h3>
+            <h3>Administration & Governance</h3>
             <div class="components-card-content">
               Configure the platform: manage users, tenants, and system-wide policies like rate limiting. Register
               Gateways and Key Managers.
