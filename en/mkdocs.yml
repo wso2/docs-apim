@@ -317,6 +317,7 @@ nav:
                 - Import APIs From AWS API-Gateway to WSO2 API-M: api-design-manage/deploy-and-publish/publish-on-dev-portal/publish-aws-apis-in-the-dev-portal.md
 
     - API Developer Portal:
+        - Publish an API to Developer Portal: api-developer-portal/publish-an-api-to-dev-portal.md
         - Consume APIs Overview: api-developer-portal/consume-api-overview.md
         - Discover APIs:
             - Search: api-developer-portal/discover-apis/search.md
@@ -434,7 +435,7 @@ nav:
     - API Gateway:
         - Universal Gateway:
             - Overview of the WSO2 Universal Gateway: api-gateway/overview-of-the-api-gateway.md
-            - Gateway Policies: api-gateway/gateway-policies.md
+            - Deploy an API to Gateway: api-gateway/deploy-api-to-gateway.md
             - Response Caching: api-gateway/response-caching.md
             - Pass End User Attributes to the Backend: api-gateway/passing-enduser-attributes-to-the-backend-via-api-gateway.md
             - Gateway Environments: api-gateway/maintaining-separate-production-and-sandbox-gateways.md
@@ -445,6 +446,7 @@ nav:
                 - Mutual SSL Between Universal Gateway and Backend: api-gateway/mutual-ssl-between-api-gateway-and-backend.md
                 - Storing Custom Synapse Artifacts in the Gateway: api-gateway/custom-synapse-artifacts.md
             - Universal Gateway Policies:
+                - Gateway Policies: api-gateway/gateway-policies.md
                 - Adding Dynamic Endpoints: api-gateway/policies/adding-dynamic-endpoints.md
                 - Adding a Class Mediator: api-gateway/policies/adding-a-class-mediator.md
                 - Adding a Non-Blocking Send Operation: api-gateway/policies/adding-a-non-blocking-send-operation.md
@@ -572,7 +574,7 @@ nav:
             - Metrics:
                 - JMX-Based Monitoring: monitoring/observability/metrics/jmx-based-monitoring.md
 
-    - Administer:
+    - Administration:
         - Overview: administer/admin-overview.md
         - Manage Users and Roles:
             - Introduction to User Management: administer/managing-users-and-roles/introduction-to-user-management.md
