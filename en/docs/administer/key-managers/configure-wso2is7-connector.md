@@ -156,6 +156,31 @@ When enabled, the following naming conventions are followed when creating/access
 
 ## UserInfo Endpoint
 
+> **Note:** If you use the `/keymanager-operations/user-info` endpoint as the user-info endpoint,
+> you do **not** need to add the following access control in WSO2 IS:
+>
+> ```toml
+> [[resource.access_control]]
+> context="(.*)/scim2/Me"
+> secure=true
+> http_method="GET"
+> cross_tenant=true
+> permissions=[]
+> scopes=[]
+> ```
+>
+> However, if any other access controls are applied in IS, you **must** add the following access control in the deployment.toml:
+>
+> ```toml
+> [[resource.access_control]]
+> context = "(.*)/keymanager-operations/user-info/claims/generate"
+> secure = true
+> http_method = "POST"
+> permissions = "/permission/admin/manage/identity/usermgt/list"
+> scopes = "internal_user_mgt_list"
+> ```
+
+
 The **UserInfo Endpoint** allows clients to verify the identity of the end-user based on the authentication performed by an authorization server, as well as to obtain basic profile information about the end-user. One of the following can be used as the **UserInfo Endpoint**:
 
 - `https://localhost:9444/scim2/Me`
