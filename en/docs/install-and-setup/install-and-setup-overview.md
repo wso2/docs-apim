@@ -88,7 +88,7 @@ To set up the API Manager component, see the following topics.
     <th>
         <a>Setting up Proxy Server and the Load Balancer
     <td>
-        A load balancer or reverse proxy is required to map external traffic with ports and URLs that the APi Manager component uses internally. This section covers the following topics relating to the proxy server and the load balancer.
+        A load balancer or reverse proxy is required to map external traffic with ports and URLs that the API Manager component uses internally. This section covers the following topics relating to the proxy server and the load balancer.
         <ul>
             <li>
                 <a href="{{base_path}}/install-and-setup/setup/setting-up-proxy-server-and-the-load-balancer/configuring-the-proxy-server-and-the-load-balancer">Configuring the Proxy Server and the Load Balancer</a>
