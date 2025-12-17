@@ -16,8 +16,8 @@ apictl import api --file <path-to-API-archive> --environment <environment> --dry
 
 The results will be displayed in the console as shown in the example below:
 
-<a href="../../assets/img/governance/api_gov_apictl_result.png">
-  <img src="../../assets/img/governance/api_gov_apictl_result.png" alt="APIM Governance Validation Result Example" width="90%" />
+<a href="{{base_path}}/assets/img/governance/api_gov_apictl_result.png">
+  <img src="{{base_path}}/assets/img/governance/api_gov_apictl_result.png" alt="APIM Governance Validation Result Example" width="90%" />
 </a>
 
 !!! note "Applicable Governance Policies"
