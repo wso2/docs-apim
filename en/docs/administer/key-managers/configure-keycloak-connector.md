@@ -138,8 +138,8 @@ Follow the instructions given below to configure Keycloak as a third-party Key M
           <tr class="even">
             <td>Issuer</td>
             <td>The issuer that consumes or validates the access tokens
-            </br> e.g., https://localhost:8443/auth/realms/master</br>
-               http://localhost:8080/auth/realm</td>
+            </br> e.g., https://localhost:8443/realms/master</br>
+               http://localhost:8080/realm</td>
           <td>Mandatory</td>
           </tr>
           <tr class="odd">
@@ -150,7 +150,7 @@ Follow the instructions given below to configure Keycloak as a third-party Key M
           <tr class="even">
             <td>Client Registration Endpoint </td>
             <td>The endpoint to verify the identity and obtain profile information of the end-user based on the authentication performed by an authorization server.</br>
-            e.g., https://localhost:8443/auth/realms/master/clients-registrations/openid-connect
+            e.g., https://localhost:8443/realms/master/clients-registrations/openid-connect
             </td>
             <td>Mandatory</td>
           </tr>
@@ -158,8 +158,8 @@ Follow the instructions given below to configure Keycloak as a third-party Key M
             <td>Introspection Endpoint</td>
             <td>The endpoint that allows authorized protected resources to query the authorization server to determine the set of metadata for a given token that was presented to them by an OAuth client.
             </br> e.g., 
-            http://localhost:8080/auth/realms/master/protocol/openid-connect/token/introspect </br>
-               https://localhost:8443/auth/realms/master/protocol/openid-connect/token/introspect
+            http://localhost:8080/realms/master/protocol/openid-connect/token/introspect </br>
+               https://localhost:8443/realms/master/protocol/openid-connect/token/introspect
             </td>
             <td>Mandatory</td>
           </tr>
@@ -168,8 +168,8 @@ Follow the instructions given below to configure Keycloak as a third-party Key M
             <td>The endpoint that issues the access tokens.
             </br>
             e.g.,
-            http://localhost:8080/auth/realms/master/protocol/openid-connect/token</br>
-            https://localhost:8443/auth/realms/master/protocol/openid-connect/token
+            http://localhost:8080/realms/master/protocol/openid-connect/token</br>
+            https://localhost:8443/realms/master/protocol/openid-connect/token
             </td>
             <td>Mandatory</td>
           </tr>
@@ -280,7 +280,7 @@ Follow the instructions given below to configure Keycloak as a third-party Key M
             If this option is used to validate the tokens it is mandatory to add a Token Handling Option.
                 For the Okta it should be <b>JWT</b> and it is required to specify a claim mapping as a unique identifier.
             </br>e.g.,; Claim Key : iss
-            </br>Claim Value : https://localhost:8443/auth/realms/master </td>
+            </br>Claim Value : https://localhost:8443/realms/master </td>
             <td>Optional</td>
           </tr>
           <tr class="even">
