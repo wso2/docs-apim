@@ -140,7 +140,7 @@ To set up the API Manager component, see the following topics.
                         <a href="{{base_path}}/install-and-setup/setup/security/configuring-keystores/keystore-basics/renewing-a-ca-signed-certificate-in-a-keystore">Renewing a CA Signed Certificate</a>
                     </li>
                     <li>
-                        <a href="{{base_path}}/install-and-setup/setup/security/configuring-keystores/keystore-basics/about-asymetric-cryptography">About Asymetric Cryptography</a>
+                        <a href="{{base_path}}/install-and-setup/setup/security/configuring-keystores/keystore-basics/about-asymetric-cryptography">About Asymmetric Cryptography</a>
                     </li>
             <li>
                 <a href="{{base_path}}/install-and-setup/setup/security/enabling-hostname-verification">Enabling HostName Verification</a>
@@ -213,7 +213,7 @@ To set up the API Manager component, see the following topics.
         <a>Advanced Configurations</a>
     </th>
     <td>
-        Covers some advance configurations including how to change the transport used by the API Manager component from the default PassThrough transport to a different transport, how to configure caching, and how to change the user interfaces of the API Manager component.
+        Covers some advanced configurations including how to change the transport used by the API Manager component from the default PassThrough transport to a different transport, how to configure caching, and how to change the user interfaces of the API Manager component.
         <li>
             <a href="{{base_path}}/install-and-setup/setup/advance-configurations/changing-the-default-transport">Changing the Default Transport</a>
         </li>
@@ -237,7 +237,7 @@ To deploy the API Manager runtime, see the topics given below.
             <a href="{{base_path}}/install-and-setup/setup/deployment-overview">Deployment Patterns</a>
         </th>
         <td>
-            This explains all the deployment patterns you can follow when you deploy WSO2 API manager. These patterns involve deploying the API Manager component together with Micro Integrator and Streaming Integrator components in clustered setups.
+            This explains all the deployment patterns you can follow when you deploy WSO2 API Manager. These patterns involve deploying the API Manager component together with Micro Integrator and Streaming Integrator components in clustered setups.
         </td>
     </tr>
     <tr>
@@ -387,7 +387,7 @@ To upgrade to the current API Manager component from a previous version refer [U
             <a href="{{base_path}}/install-and-setup/setup/reference/default-product-ports">Default Product Ports</a>
         </th>
         <td>
-            Explains the defauly ports used by the API Manager component.
+            Explains the default ports used by the API Manager component.
         </td>
     </tr>
     <tr>
