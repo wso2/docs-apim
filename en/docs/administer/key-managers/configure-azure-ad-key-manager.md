@@ -151,7 +151,7 @@ Start the API Manager server and log-in to the Admin portal to configure Azure A
       </tr>
       <tr class="even">
         <td>Scope Management Endpoint </td>
-        <td>The endpoint is used to manage the scopes.</td>
+        <td>The endpoint is used to manage the scopes. <br/><b>Example:</b><br/> https://&lt;host&gt;:9443/oauth2/scope</td>
         <td>Mandatory</td>
       </tr>
     </tbody>
@@ -212,7 +212,7 @@ Start the API Manager server and log-in to the Admin portal to configure Azure A
       "description": "Access failure for API: /exampleapi/1.0.0, version: 1.0.0 status: (900901) - Invalid Credentials. Make sure you have provided the correct security credentials."
     }
     ```
-    Please verify that the `iss` (issuer) claim in the token matches the issuer configured in the Key Manager Endpoints section. If there is a difference, update the issuer in the Key Manager Endpoints section to align with the `iss` value present in the token.
+    Please verify that the `iss` (issuer) claim in the token matches the issuer configured in the Key Manager Endpoints section. To obtain the `iss` value from the token, decode the JWT token (you can use tools like [jwt.io](https://jwt.io) or similar JWT decoder) and check the `iss` claim in the payload. If there is a difference, update the issuer in the Key Manager Endpoints section to align with the `iss` value present in the token.
 
 ### Post checks
   
