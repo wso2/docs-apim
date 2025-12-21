@@ -6,7 +6,7 @@ In this step-by-step guide, you’ll learn how to create, publish, and invoke an
 
 ### Before you begin...
 
-Choose a deployment option to start **the WSO2 API Manager All-in-One package**. The All-in-One package contains all core components in a single JVM for simplified deployment.
+Choose a deployment option to start the WSO2 API Manager all-in-one package. The All-in-One package contains all core components in a single JVM for simplified deployment.
 
 === "Run on VM"
 
@@ -119,7 +119,7 @@ Follow the instructions below to create, deploy and publish an API via the Publi
 
     [![Create an API]({{base_path}}/assets/img/get_started/api-create.png){: style="width:100%"}]({{base_path}}/assets/img/get_started/api-create.png)
 
-    This will publish your first API on the Developer Portal as well as deploy it on the gateway. You now have an OAuth 2.0 secured REST API that is ready to be consumed.
+    This publishes your first API to the Developer Portal and deploys it on the gateway. You now have an OAuth 2.0 secured REST API that is ready to be consumed.
 
 <a name="subscribe"></a>
 
@@ -141,7 +141,7 @@ Follow the instructions below to subscribe to the API via the Developer Portal o
 
      [![API try out]({{base_path}}/assets/img/get_started/try-out.png)]({{base_path}}/assets/img/get_started/try-out.png)
 
-     And with that, we have subscribed to the API using the `DefaultApplication`.
+   You have now subscribed to the API using the "DefaultApplication".
 
 <a name="invoke"></a>
 
@@ -173,4 +173,4 @@ Follow the instructions below to invoke the created API.
 
      [![Successful response]({{base_path}}/assets/img/get_started/try-it-success.png)]({{base_path}}/assets/img/get_started/try-it-success.png)
 
-__Congratulations!__ With that, you've created, deployed, and published your first API. Next, you subscribed to it and put it to the test. Your journey with WSO2 API Manager has officially begun!
+Congratulations! You have created, deployed, published, and tested your first API. Your journey with WSO2 API Manager begins here!
