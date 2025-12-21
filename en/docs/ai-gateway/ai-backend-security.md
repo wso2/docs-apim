@@ -1,15 +1,15 @@
 # AI Backend Security
 
-Let's configure backend security for your AI APIs in order to ensure secure communication with AI service providers. Note that you do not have to worry about this step if the AI Service Provider you have used is unsecured.
+Configure backend security for your AI APIs to ensure secure communication with AI service providers. You can skip this step if the AI Service Provider you use does not require authentication.
 
 ### Step 1: Get API Key from AI Service Provider
 
-The first step is to obtain an **API Key** from the AI Service Provider you selected while creating the AI API. This key is required to authenticate requests and securely connect to the AI service.
+First, get an API Key from the AI Service Provider you selected while creating the AI API. This key is required to authenticate requests and securely connect to the service.
 
 You can do so for OpenAI by following the steps mentioned below:
 
-1. Login to OpenAI and go to <a href='https://platform.openai.com/api-keys'>OpenAI Dashboard.</a>
-2. Navigate to **API keys** section from the left menu. Then, click on **Create new secret key**. Provide a name for the key and click on **Create secret key**.
+1. Login in to OpenAI Dashboard <a href='https://platform.openai.com/api-keys'></a>
+2. Navigate to the API Keys section from the left menu. Click Create new secret key, provide a name, and click Create secret key.
 
     [![Get OpenAI API Key]({{base_path}}/assets/img/learn/ai-gateway/openai-api-key-generation.png){: style="width:90%"}]({{base_path}}/assets/img/learn/ai-gateway/openai-api-key-generation.png)
 
@@ -29,6 +29,6 @@ You can do so for OpenAI by following the steps mentioned below:
         - **MistralAI**: `Authorization` header
         - **OpenAI**: `Authorization` header
 
-        Note that we prepend "Bearer " to the header value that you provide when it comes to MistralAI and OpenAI since they are expecting an Authorization header.
+  For MistralAI and OpenAI, "Bearer " is automatically prepended to the value you provide, as these providers expect an Authorization header.
 
     [![API Key Configuration]({{base_path}}/assets/img/learn/ai-gateway/ai-api-configure-backend-security.png){: style="width:90%"}]({{base_path}}/assets/img/learn/ai-gateway/ai-api-configure-backend-security.png)
