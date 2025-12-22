@@ -18,10 +18,6 @@ The gateway operates in two complementary modes:
 - **LLM Gateway**: Direct AI model interactions and multi-provider management
 - **MCP Gateway**: Transform existing APIs into AI-discoverable tools for agent workflows
 
-## Architecture
-
-The AI Gateway operates as a production-grade control plane within WSO2 API Manager, designed for enterprise-scale AI workloads with comprehensive visibility and control over every AI interaction.
-
 ## LLM Gateway
 
 The **LLM Gateway** specializes in managing Large Language Model interactions for traditional AI API patterns. It provides direct integration with major AI service providers, enabling organizations to build conversational AI applications, content generation systems, and AI-powered services.
