@@ -28,7 +28,6 @@ dev_addr: localhost:8000
 
 # Copyright
 copyright: WSO2 API Manager - Documentation
-#dumycomment
 # Configuration
 theme:
     name: material
