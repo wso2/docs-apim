@@ -77,7 +77,6 @@ nav:
           - Deployment Options:
               - Deployment Platforms: get-started/deployment-platforms.md
               - Deployment Patterns: get-started/deployment-patterns.md 
-              - Choosing Your Deployment Strategy: get-started/choosing-your-deployment-strategy.md
           - About this Release: get-started/about-this-release.md
 
     - Install & Setup:
