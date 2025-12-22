@@ -15501,3 +15501,60 @@ use_username_as_sub_claim = true
     </section>
 </div>
 
+
+
+## Dependency Configurations
+
+
+<div class="mb-config-catalog">
+    <section>
+        <div class="mb-config-options">
+            <div class="superfences-tabs">
+            
+            <input name="103" type="checkbox" id="_tab_103">
+                <label class="tab-selector" for="_tab_103"><i class="icon fa fa-code"></i></label>
+                <div class="superfences-content">
+                    <div class="mb-config-example">
+<pre><code class="toml">[dependency_properties]
+'snakeyaml.max_file_size_limit' = 10
+</code></pre>
+                    </div>
+                </div>
+                <div class="doc-wrapper">
+                    <div class="mb-config">
+                        <div class="config-wrap">
+                            <code>[dependency_properties]</code>
+                            
+                            <p>
+                                This includes configurations for dependency related properties.
+                            </p>
+                        </div>
+                        <div class="params-wrap">
+                            <div class="param">
+                                <div class="param-name">
+                                  <span class="param-name-wrap"> <code>snakeyaml.max_file_size_limit</code> </span>
+                                </div>
+                                <div class="param-info">
+                                    <div>
+                                        <p>
+                                            <span class="param-type string"> integer </span>
+                                            
+                                        </p>
+                                        <div class="param-default">
+                                            <span class="param-default-value">Default: <code></code></span>
+                                        </div>
+                                        
+                                    </div>
+                                    <div class="param-description">
+                                        <p>This sets the maximum file size (in MB) for YAML files processed by SnakeYAML during API definition import/export operations. Overrides the default codepoint limit of 3,145,728 characters (~3MB) to support larger YAML OpenAPI files. The system calculates the actual codepoint limit using the formula: configured_value × 4 × 1024 × 1024 (e.g., 10 MB = 41,943,040 codepoints). Increasing this value may expose the system to DoS attacks via large malicious files - configure based on actual requirements and security policies. Note that this configuration is only available from update level 93 onwards.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+
