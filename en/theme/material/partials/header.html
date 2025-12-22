@@ -76,6 +76,63 @@
   {% include ".icons/material/magnify.svg" %}
 </label>
 {% include "partials/search.html" %}
+<!-- Header chat button (show on non-home pages only) -->
+<button id="site-chat-toggle-header" class="md-header__button md-icon md-header-chat-button" aria-label="Open chat" title="Open chat">
+  <img src="{{ 'images/DocAi.svg' | url }}" alt="Chat" />
+</button>
+<style>
+  /* Header chat button: position next to search, circular */
+  .md-header-chat-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    
+    
+    border-radius: 50%;
+    
+    
+    
+    box-shadow: var(--md-shadow-z1);
+    border: none;
+    cursor: pointer;
+    position: relative;
+    z-index: 10070; /* ensure above header overlays */
+    pointer-events: auto !important;
+    margin-left: 0.5rem; /* space between search and button */
+  }
+  /* Nudge the header search container so button visually aligns */
+  .md-header [for=__search] { margin-right: 0.2rem; }
+  .md-header-chat-button img { height: 18px; width: 18px; }
+  @media (max-width: 48em) {
+    .md-header-chat-button { height: 32px; width: 32px; min-width: 32px; }
+    .md-header-chat-button img { height: 16px; width: 16px; }
+  }
+</style>
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    var headerBtn = document.getElementById('site-chat-toggle-header');
+    if (!headerBtn) return;
+    headerBtn.addEventListener('click', function(e) {
+      e.preventDefault();
+      e.stopPropagation();
+      try {
+        if (window.openSiteChat && typeof window.openSiteChat === 'function') {
+          window.openSiteChat();
+          return;
+        }
+      } catch (err) {
+        console.error('header openSiteChat() error', err);
+      }
+      var globalToggle = document.getElementById('site-chat-toggle');
+      if (globalToggle) {
+        try { globalToggle.click(); return; } catch (err) { console.error('header fallback toggle click failed', err); }
+      }
+      window.__openSiteChatRequested = (window.__openSiteChatRequested || 0) + 1;
+      console.log('Header: queued openSiteChat request, count=', window.__openSiteChatRequested);
+    });
+    
+  });
+</script>
 {% endif %}
     {% if not config.theme.palette is mapping %}
       <form class="md-header__option" data-md-component="palette">

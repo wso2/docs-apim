@@ -1,0 +1,318 @@
+.msg {
+  display: flex;
+  align-items: flex-end;
+  margin-bottom: 12px;
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes messageSlide {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.msg .msg-content {
+  padding: 14px 18px;
+  border-radius: 20px;
+  max-width: 100%;
+  font-size: 15px;
+  line-height: 1.5;
+  word-wrap: break-word;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  position: relative;
+}
+
+.msg.user { 
+  justify-content: flex-end; 
+}
+
+.msg.user .msg-content { 
+  /* background: linear-gradient(135deg, #667eea, #764ba2); */
+  background: #f47b20;
+  color: white;
+  border-bottom-right-radius: 8px;
+}
+
+.msg.bot { 
+  justify-content: flex-start; 
+}
+
+.msg.bot .msg-content { 
+  background: white;
+  color: #334155;
+  border: 1px solid rgba(102, 126, 234, 0.1);
+  border-bottom-left-radius: 8px;
+}
+
+/* Dark mode bot message */
+[data-md-color-scheme="slate"] .msg.bot .msg-content {
+  background: #2a2a2e;
+  color: #d9d9de;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Enhanced styling for markdown content in bot messages */
+.msg.bot .msg-content h1,
+.msg.bot .msg-content h2,
+.msg.bot .msg-content h3,
+.msg.bot .msg-content h4,
+.msg.bot .msg-content h5,
+.msg.bot .msg-content h6 {
+  margin-top: 1em;
+  margin-bottom: 0.5em;
+  font-weight: 600;
+}
+
+.msg.bot .msg-content h1:first-child,
+.msg.bot .msg-content h2:first-child,
+.msg.bot .msg-content h3:first-child {
+  margin-top: 0;
+}
+
+.msg.bot .msg-content p:last-child {
+  margin-bottom: 0;
+}
+
+.msg.bot .msg-content ul,
+.msg.bot .msg-content ol {
+  margin-left: 0;
+  padding-left: 1.5em;
+}
+
+.msg.bot .msg-content li {
+  margin-bottom: 0.2em;
+}
+
+.msg.bot .msg-content pre {
+  font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+  font-size: 0.9em;
+}
+
+.msg.bot .msg-content code {
+  font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+}
+
+.msg.bot .msg-content blockquote {
+  border-radius: 4px;
+  padding: 0.8em 1em;
+}
+
+/* Dark mode code blocks and blockquotes */
+[data-md-color-scheme="slate"] .msg.bot .msg-content code {
+  background: #1a1a1d;
+  color: #d9d9de;
+}
+
+[data-md-color-scheme="slate"] .msg.bot .msg-content pre {
+  background: #1a1a1d;
+  border: 1px solid #3a3a3f;
+}
+
+[data-md-color-scheme="slate"] .msg.bot .msg-content blockquote {
+  background: #2a2a2e;
+  border-left: 3px solid #f47b20;
+}
+
+.msg.bot .msg-content a:hover {
+  text-decoration: underline;
+}
+
+/* Ensure proper spacing between markdown elements */
+.msg.bot .msg-content > *:first-child {
+  margin-top: 0;
+}
+
+.msg.bot .msg-content > *:last-child {
+  margin-bottom: 0;
+}
+
+.msg.bot .msg-content h4{
+  color: #f47b20 !important; /* change to the colour you want */
+}
+.msg.bot .msg-content h3{
+  color: #613412 !important; /* change to the colour you want */
+}
+
+/* Dark mode headings */
+[data-md-color-scheme="slate"] .msg.bot .msg-content h3 {
+  color: #f79c58 !important;
+}
+
+[data-md-color-scheme="slate"] .msg.bot .msg-content h4 {
+  color: #f79c58 !important;
+}
+.msg.bot .msg-content .a{
+  color: #f47b20; /* change to the colour you want */
+}
+.msg.bot .msg-content a {
+  color: #2844de !important;           
+  text-decoration: underline !important;
+}
+.msg.bot .msg-content a:visited {
+  color: #7a8cff !important; 
+}
+
+/* Dark mode links */
+[data-md-color-scheme="slate"] .msg.bot .msg-content a {
+  color: #6b9dff !important;
+}
+
+[data-md-color-scheme="slate"] .msg.bot .msg-content a:visited {
+  color: #9fb3ff !important;
+}
+
+.feedback-section {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  margin-top: 8px;
+}
+
+.feedback-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #6c757d; /* Default icon color */
+  transition: color 0.2s ease-in-out, transform 0.2s ease-in-out;
+}
+
+.feedback-btn:hover {
+  color: #343a40; /* Darker color on hover */
+  transform: scale(1.1);
+}
+
+/* Dark mode feedback buttons */
+[data-md-color-scheme="slate"] .feedback-btn {
+  color: #999;
+}
+
+[data-md-color-scheme="slate"] .feedback-btn:hover {
+  color: #ccc;
+}
+
+.feedback-btn.selected {
+  color: #f47b20; /* Orange color when selected */
+}
+
+.feedback-btn svg {
+  font-size: 18px; /* Adjust icon size */
+}
+/* Feedback comment box styles */
+.feedback-comment-box {
+  margin-top: 12px;
+  padding: 12px;
+  background: #f8f9fa;
+  border-radius: 8px;
+  border: 1px solid #e9ecef;
+  animation: slideDown 0.3s ease-in-out;
+}
+
+/* Dark mode feedback comment box */
+[data-md-color-scheme="slate"] .feedback-comment-box {
+  background: #2a2a2e;
+  border: 1px solid #3a3a3f;
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.feedback-comment-title {
+  margin: 0 0 8px 0;
+  font-size: 13px;
+  color: #6c757d;
+  font-weight: 500;
+}
+
+/* Dark mode feedback title */
+[data-md-color-scheme="slate"] .feedback-comment-title {
+  color: #aaa;
+}
+
+.feedback-comment-input {
+  width: 100%;
+  padding: 8px 12px;
+  border: 1px solid #dee2e6;
+  border-radius: 6px;
+  font-size: 14px;
+  font-family: inherit;
+  resize: vertical;
+  min-height: 60px;
+  box-sizing: border-box;
+  transition: border-color 0.2s ease-in-out;
+}
+
+.feedback-comment-input:focus {
+  outline: none;
+  border-color: #f47b20;
+  box-shadow: 0 0 0 2px rgba(244, 123, 32, 0.1);
+}
+
+.feedback-comment-input::placeholder {
+  color: #adb5bd;
+}
+
+/* Dark mode feedback input */
+[data-md-color-scheme="slate"] .feedback-comment-input {
+  background: #1a1a1d;
+  color: #d9d9de;
+  border: 1px solid #4a4a4f;
+}
+
+[data-md-color-scheme="slate"] .feedback-comment-input::placeholder {
+  color: #666;
+}
+
+.feedback-submit-btn {
+  margin-top: 8px;
+  padding: 6px 16px;
+  background: #f47b20;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.2s ease-in-out, opacity 0.2s ease-in-out;
+}
+
+.feedback-submit-btn:hover:not(:disabled) {
+  background: #d66a1a;
+}
+
+.feedback-submit-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.feedback-btn:disabled {
+  cursor: not-allowed;
+  opacity: 0.6;
+}

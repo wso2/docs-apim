@@ -26,7 +26,7 @@
 @import url('partials/_header.css');
 
 :root {
-    --md-main-content-max-width: 1400px;
+    --md-main-content-max-width: 500px;
     --md-border-radius: 8px;
     --md-border-radius-2x: 12px;
     --md-default-box-shadow:  0 10px 15px -3px rgba(0,0,0,.1),0 4px 6px -4px rgba(0,0,0,.1);
@@ -870,7 +870,7 @@
     [dir=rtl] .md-sidebar--primary:not([hidden])~.md-content > .md-content__inner {
         margin: 0 auto 3rem;
         padding: .5rem 2rem;
-        max-width: 900px;
+        max-width: 750px;
     }
 
     [data-md-toggle=search]:checked~.md-header .md-tabs,

@@ -99,3 +99,1092 @@
   </div>
   {% include "partials/copyright.html" %}
 </footer>
+
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<style>
+  /* Make the 'open split view' button slightly smaller without affecting other buttons */
+  #open-split-view {
+    padding: 6px;
+    height: 32px;
+    width: 32px;
+    min-width: 32px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+  #open-split-view .material-icons {
+    font-size: 18px;
+    line-height: 1;
+  }
+  /* Make the 'close split view' button match the open button sizing */
+  #close-split-view {
+    padding: 6px;
+    height: 32px;
+    width: 32px;
+    min-width: 32px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+  #close-split-view .material-icons {
+    font-size: 16px;
+    line-height: 1;
+  }
+  /* Add a subtle box shadow to the chat panel so it visually floats above the page. */
+  .site-chat {
+    border-radius: 12px;
+    overflow: hidden; /* ensure iframe respects rounding */
+    box-shadow: 0 8px 20px rgba(16,24,40,0.08);
+    transition: box-shadow 0.18s ease, transform 0.12s ease;
+  }
+  .site-chat__body iframe {
+    display: block;
+    border: none;
+    width: 100%;
+    height: 100%;
+  }
+  /* Dark mode: use the chat UI's darker shadow for stronger contrast */
+  body[data-md-color-scheme="slate"] .site-chat {
+    box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+  }
+</style>
+<div id="site-chat" class="site-chat" aria-hidden="true">
+  <div class="site-chat__header">
+   <div style="display: flex; align-items: center;">
+      <img src="{{ 'images/DocAi.svg' | url }}" alt="DocAI icon" style="width: 24px; margin-right: 8px;" />
+      <strong style="font-size: 1.5em;">APIM DocAi</strong>
+    </div>
+    <div class="site-chat__actions">
+      <button id="clear-chat-history" class="site-chat__close tooltip" data-tooltip="New Chat" aria-label="Clear chat history">
+        <span class="material-icons">add</span>
+      </button>
+      <button id="site-chat-sessions" class="site-chat__close tooltip" data-tooltip="Saved Sessions" aria-label="Saved chat sessions" title="Saved chat sessions">
+        <span class="material-icons">history</span>
+      </button>
+      <button id="open-split-view" class="site-chat__close hide-on-mobile tooltip" data-tooltip="Expand" aria-label="Open in split view">
+        <span class="material-icons">open_in_new</span>
+      </button>
+      <button id="close-chat" class="site-chat__close tooltip" data-tooltip="Close" aria-label="Close chat">
+        <span class="material-icons">close</span>
+      </button>
+    </div>
+  </div>
+  <div class="site-chat__body">
+    <iframe 
+      src="{{ 'assets/chatbot/index.html' | url }}" 
+      width="100%" 
+      height="100%" 
+      frameborder="0" 
+      title="Chat"
+      allow="clipboard-write; clipboard-read"
+      sandbox="allow-scripts allow-same-origin allow-forms allow-popups allow-modals">
+    </iframe>
+  </div>
+</div>
+
+<button id="site-chat-toggle" class="site-chat-toggle" aria-label="Open chat">
+  <!-- chat SVG icon (speech bubble) -->
+  <img src="{{ 'images/DocAi.svg' | url }}" alt="">
+</button>
+
+<!-- Split View Container -->
+<div id="split-view-container" class="split-view-container">
+  <div class="split-view-left">
+    <iframe id="split-page-iframe" class="split-view-content" style="height: 100%;" title="Documentation Page"></iframe>
+  </div>
+  <div id="split-view-panel" class="split-view-panel resizable" style="width: 25%;">
+    <div id="resize-handle" class="split-view-resize-handle"></div>
+    <div class="split-view-header">
+      <div style="display: flex; align-items: center;">
+        <img src="{{ 'images/DocAi.svg' | url }}" alt="DocAI icon" style="width: 24px; margin-right: 8px;" />
+        <strong style="font-size: 1.5em;">APIM DocAi</strong>
+      </div>
+      <div class="site-chat__actions">
+        <button id="clear-chat-history-split" class="site-chat__close tooltip" data-tooltip="New Chat" aria-label="Clear chat history">
+          <span class="material-icons">add</span>
+        </button>
+        <button id="site-chat-sessions-split" class="site-chat__close tooltip" data-tooltip="Saved Sessions" aria-label="Saved chat sessions" title="Saved chat sessions">
+          <span class="material-icons">history</span>
+        </button>
+        <button id="close-split-view" class="split-view-close tooltip" data-tooltip="Close" aria-label="Close split view">
+          <span class="material-icons">close</span>
+        </button>
+      </div>
+    </div>
+    <div class="split-view-content-wrapper"></div>
+  </div>
+</div></div>
+
+<script>
+  // Sync theme with chatbot iframe
+  (function() {
+    const chatbotIframe = document.querySelector('.site-chat__body iframe');
+    const splitViewWrapper = document.querySelector('.split-view-content-wrapper');
+    const chatPanel = document.getElementById('site-chat');
+    
+    function sendThemeToIframe(iframe) {
+      if (!iframe || !iframe.contentWindow) return;
+      
+      const isDark = document.body.getAttribute('data-md-color-scheme') === 'slate';
+      iframe.contentWindow.postMessage({
+        type: 'theme-change',
+        isDark: isDark
+      }, '*');
+    }
+
+    function sendThemeToAllIframes() {
+      // Send to main chatbot iframe
+      if (chatbotIframe) {
+        sendThemeToIframe(chatbotIframe);
+      }
+      
+      // Send to split view chatbot iframe if it exists
+      if (splitViewWrapper) {
+        const splitIframe = splitViewWrapper.querySelector('iframe');
+        if (splitIframe) {
+          sendThemeToIframe(splitIframe);
+        }
+      }
+    }
+
+    // Send theme on load
+    if (chatbotIframe) {
+      chatbotIframe.addEventListener('load', function() {
+        setTimeout(() => sendThemeToIframe(chatbotIframe), 100);
+      });
+    }
+
+    // Listen for theme changes
+    const observer = new MutationObserver(function(mutations) {
+      mutations.forEach(function(mutation) {
+        if (mutation.type === 'attributes' && mutation.attributeName === 'data-md-color-scheme') {
+          // Preserve chat state during theme change
+          const wasChatOpen = chatPanel && chatPanel.classList.contains('open');
+          
+          // Send theme to iframes
+          sendThemeToAllIframes();
+          
+          // Restore chat state after theme change
+          if (wasChatOpen && chatPanel && !chatPanel.classList.contains('open')) {
+            setTimeout(() => {
+              chatPanel.classList.add('open');
+              chatPanel.setAttribute('aria-hidden', 'false');
+            }, 50);
+          }
+        }
+      });
+    });
+
+    observer.observe(document.body, {
+      attributes: true,
+      attributeFilter: ['data-md-color-scheme']
+    });
+
+    // Listen for theme requests from iframe
+    window.addEventListener('message', function(event) {
+      if (event.data && event.data.type === 'theme-request') {
+        sendThemeToAllIframes();
+      }
+    });
+
+    // Send initial theme after a short delay to ensure iframe is ready
+    setTimeout(sendThemeToAllIframes, 500);
+  })();
+</script>
+
+<script>
+  // Attach click handlers for chat sessions buttons added to the chat header
+  (function() {
+    function bind(id) {
+      const el = document.getElementById(id);
+      if (!el) return;
+      el.addEventListener('click', function(e) {
+        e.preventDefault();
+        e.stopPropagation();
+        try {
+          if (window.showChatSessions && typeof window.showChatSessions === 'function') {
+            window.showChatSessions();
+            return;
+          }
+        } catch (err) { console.error('showChatSessions error', err); }
+        // fallback: open chat toggle
+        const toggle = document.getElementById('site-chat-toggle');
+        if (toggle) try { toggle.click(); } catch (e) { /* ignore */ }
+      });
+    }
+
+    bind('site-chat-sessions');
+    bind('site-chat-sessions-split');
+  })();
+</script>
+
+<script>
+  // Chat sessions persistence and restore (parent page)
+  (function() {
+    const CHAT_STORAGE_KEY = 'docai_chat_sessions';
+  const SNAPSHOT_INTERVAL_MS = 30 * 1000; // ask iframe every 30s for a snapshot
+    const iframe = document.querySelector('.site-chat__body iframe');
+  // Short window to ignore duplicate rapid saves (some paths may trigger both
+  // a direct localStorage read and a postMessage response). Window is ms.
+  const RECENT_SAVE_WINDOW_MS = 1500;
+  const recentSaved = new Map(); // contentKey -> timestamp
+
+    // Normalize message arrays to the shape expected by the React app
+    // React expects messages as [{ id, from: 'user'|'bot', text }, ...]
+    function normalizeMessages(raw) {
+      try {
+        if (!Array.isArray(raw)) return null;
+        return raw.map((m, idx) => {
+          const fromRaw = (m && (m.from || m.role || m.sender || m.senderType)) || '';
+          let from = String(fromRaw).toLowerCase();
+          if (from === 'assistant' || from === 'ai' || from === 'bot') from = 'bot';
+          else if (from === 'user' || from === 'human') from = 'user';
+          else from = from || (m && m.type === 'user' ? 'user' : 'bot');
+          const text = (m && (m.text || m.message || m.content)) || '';
+          return {
+            id: m && (m.id || m.messageId) ? (m.id || m.messageId) : (Date.now() + idx),
+            from: from,
+            text: String(text)
+          };
+        });
+      } catch (e) { return null; }
+    }
+
+    // Deep-clone a state object so saved sessions don't hold references that
+    // may later be mutated. Uses JSON round-trip which is fine for the saved
+    // chat state shape (simple data structures).
+    function cloneState(obj) {
+      try {
+        if (!obj || typeof obj !== 'object') return obj;
+        return JSON.parse(JSON.stringify(obj));
+      } catch (e) { return obj; }
+    }
+
+    function loadSessions() {
+      try { return JSON.parse(localStorage.getItem(CHAT_STORAGE_KEY) || '[]'); }
+      catch (e) { console.error('Failed to parse chat sessions', e); return []; }
+    }
+
+    function saveSessions(sessions) { localStorage.setItem(CHAT_STORAGE_KEY, JSON.stringify(sessions || [])); }
+
+    // Derive a friendly label from the first user message in a stored state object
+    function deriveLabelFromState(state) {
+      try {
+        if (!state) return null;
+        const raw = state.chatHistory || state.CHAT_HISTORY || state.messages || state.state || state;
+        const msgs = raw ? (typeof raw === 'string' ? JSON.parse(raw) : raw) : null;
+        if (Array.isArray(msgs) && msgs.length > 0) {
+          const firstUser = msgs.find(m => m && (m.from === 'user' || m.role === 'user' || m.sender === 'user')) || msgs[0];
+          if (firstUser) {
+            const text = (firstUser.text || firstUser.message || firstUser.content || '').trim();
+            if (text) return text.slice(0, 120) + (text.length > 120 ? '…' : '');
+          }
+        }
+      } catch (e) { /* ignore parsing errors */ }
+      return null;
+    }
+
+    function addOrUpdateSession(payload) {
+      const sessions = loadSessions();
+      const now = Date.now();
+  // Use provided id when available, but if it already exists create a unique id
+  let idCandidate = payload.id || ('s_' + now);
+  let id = idCandidate;
+      // If a session with the same id already exists, do not save again
+  // Compute a friendly label: prefer provided label, else derive from first user message in state
+  let label = payload.label || null;
+  if (!label) label = deriveLabelFromState(payload.state || payload) || null;
+      try {
+        if (!label && payload && payload.state) {
+          const s = payload.state;
+          const raw = s.chatHistory || s.CHAT_HISTORY || s.messages || s.state || null;
+          const msgs = raw ? (typeof raw === 'string' ? JSON.parse(raw) : raw) : null;
+          if (Array.isArray(msgs) && msgs.length > 0) {
+            const firstUser = msgs.find(m => m && (m.from === 'user' || m.role === 'user')) || msgs[0];
+            if (firstUser && (firstUser.text || firstUser.message || firstUser.content)) {
+              const text = firstUser.text || firstUser.message || firstUser.content;
+              label = text.slice(0, 120) + (text.length > 120 ? '…' : '');
+            }
+          }
+        }
+      } catch (e) { /* ignore parsing errors */ }
+      // Build a content fingerprint from messages when possible to prevent duplicate saves
+      let contentKey = null;
+      try {
+        const rawState = payload.state || payload;
+        // clone it so saved session holds an immutable copy
+        const stateCopy = cloneState(rawState);
+        const raw = (stateCopy && (stateCopy.chatHistory || stateCopy.CHAT_HISTORY || stateCopy.messages || stateCopy.state)) || null;
+        const msgs = raw ? (typeof raw === 'string' ? JSON.parse(raw) : raw) : null;
+        if (Array.isArray(msgs) && msgs.length > 0) {
+          // Normalize messages into a stable sequence of {from, text} to ignore timestamps/ids
+          const seq = msgs.map(m => ({ f: (m.from || m.role || m.sender || 'unknown'), t: ((m.text || m.message || m.content) || '').trim() }));
+          contentKey = JSON.stringify(seq);
+        } else {
+          contentKey = JSON.stringify(stateCopy);
+        }
+      } catch (e) { contentKey = null; }
+
+      // Deduplicate: if another saved session has the same contentKey, update it
+      try {
+        // Ignore very recent saves of identical content (debounce duplicates)
+        if (contentKey) {
+          const last = recentSaved.get(contentKey);
+          if (last && (now - last) < RECENT_SAVE_WINDOW_MS) {
+            // too soon after a similar save; skip to avoid duplicates
+            return;
+          }
+        }
+        if (contentKey) {
+          const dupIndex = sessions.findIndex(s => s && s.contentKey === contentKey);
+          if (dupIndex !== -1) {
+            const existing = sessions.splice(dupIndex, 1)[0];
+            // refresh state and timestamps but keep id so user can reference it
+            existing.state = cloneState(payload.state || payload);
+            existing.savedAt = now;
+            existing.contentKey = contentKey;
+            existing.label = String(label || deriveLabelFromState(existing.state) || ('Saved ' + new Date(now).toLocaleString()));
+            // move to front
+            sessions.unshift(existing);
+            // enforce cap
+            while (sessions.length > 25) sessions.pop();
+            saveSessions(sessions);
+            try { recentSaved.set(contentKey, now); } catch (e) { }
+            return;
+          }
+        }
+      } catch (e) { /* ignore dedupe errors */ }
+
+      // If a session with the same id exists, create a new unique id so we keep
+      // the older saved session instead of replacing it.
+      let existingIndex = sessions.findIndex(s => s && s.id === id);
+      if (existingIndex !== -1) {
+        id = idCandidate + '_' + now;
+        existingIndex = -1; // treat as new
+      }
+      const entry = {
+        id: id,
+        savedAt: now,
+        // temporarily set label; we'll finalize from the cloned state below
+        label: null,
+        state: cloneState(payload.state || payload),
+        contentKey: contentKey
+      };
+      // Ensure label is derived from the cloned state so it's immutable
+      entry.label = String(label || deriveLabelFromState(entry.state) || ('Saved ' + new Date(now).toLocaleString()));
+      if (existingIndex !== -1) {
+        // Replace existing entry, move it to the front
+        sessions.splice(existingIndex, 1);
+      }
+  // Keep last 25 sessions (drop oldest when exceeded)
+            sessions.unshift(entry);
+            while (sessions.length > 25) sessions.pop();
+            saveSessions(sessions);
+            try { if (contentKey) recentSaved.set(contentKey, now); } catch (e) { }
+    }
+
+    // Message listener to receive snapshots or saves from iframe
+    window.addEventListener('message', function(e) {
+      if (!e.data || !e.data.type) return;
+      try {
+        // Support multiple message types used by different builds
+    if (e.data.type === 'chat-snapshot') {
+              // Remove the parent sessions key from the snapshot to avoid overwriting it later
+              try { delete e.data.state[CHAT_STORAGE_KEY]; } catch (e) { }
+              const derived = deriveLabelFromState(e.data.state) || e.data.label || null;
+        console.debug('Parent received chat-snapshot', { id: e.data.id, label: derived, statePreview: (e.data.state && e.data.state.chatHistory ? e.data.state.chatHistory.slice(0,2) : null) });
+              addOrUpdateSession({ id: e.data.id, label: derived, state: e.data.state });
+      console.log('Saved chat snapshot from iframe', e.data.id || '(auto)', 'sessionsCount=', loadSessions().length);
+          return;
+        }
+
+        // Some builds post 'save-conversation' with a different shape
+        if (e.data.type === 'save-conversation') {
+          const id = e.data.id || ('s_' + (Date.now()));
+          const state = { messages: e.data.messages || e.data.state || [] };
+              // Remove the parent sessions key from the state to avoid overwriting it later
+              try { delete state[CHAT_STORAGE_KEY]; } catch (e) { }
+          const derived = deriveLabelFromState(state) || e.data.title || e.data.label || ('Saved ' + new Date((e.data.timestamp || Date.now())).toLocaleString());
+          console.debug('Parent received save-conversation', { id, derived, messagesPreview: (state && state.messages ? state.messages.slice(0,2) : null) });
+          addOrUpdateSession({ id, label: derived, state });
+          console.log('Saved conversation from iframe (save-conversation)', id, 'sessionsCount=', loadSessions().length);
+          return;
+        }
+      } catch (err) {
+        console.error('Error handling iframe message for chat sessions', err);
+      }
+    });
+
+    // Request snapshot from iframe
+    function requestSnapshot() {
+      if (!iframe || !iframe.contentWindow) return;
+      // Ask iframe to post a snapshot. If iframe is same-origin it may respond or we can read its localStorage as a fallback
+      try {
+        iframe.contentWindow.postMessage({ type: 'request-chat-snapshot' }, '*');
+      } catch (e) {
+        console.error('postMessage to chatbot iframe failed', e);
+      }
+
+      // Fallback: if same-origin, attempt to read iframe's localStorage directly and save it
+      try {
+        const childWindow = iframe.contentWindow;
+        // try accessing childWindow.localStorage — may throw if cross-origin
+        if (childWindow && childWindow.localStorage) {
+          const snapshot = {};
+          for (let i = 0; i < childWindow.localStorage.length; i++) {
+            const k = childWindow.localStorage.key(i);
+            snapshot[k] = childWindow.localStorage.getItem(k);
+          }
+          // Only save if there's data
+          if (Object.keys(snapshot).length > 0) {
+            // Remove the parent sessions key from the snapshot to avoid overwriting it later
+            try { delete snapshot[CHAT_STORAGE_KEY]; } catch (e) { }
+            // Derive label from the state when possible
+            const derived = deriveLabelFromState(snapshot) || ('Saved ' + new Date().toLocaleString());
+            addOrUpdateSession({ label: derived, state: snapshot });
+          }
+        }
+      } catch (err) {
+        // cross-origin or not accessible — ignore
+      }
+    }
+
+  // Previously we periodically requested snapshots (every 30s).
+  // Change: do NOT auto-save repeatedly. Only save the current chat when
+  // the New Chat button is clicked in the iframe (the iframe posts a
+  // 'chat-snapshot' or 'save-conversation' message) or when parent explicitly
+  // requests a snapshot via UI. So do not set up a periodic timer here.
+
+    // Expose a UI to show and restore sessions
+    window.showChatSessions = function() {
+      const sessions = loadSessions();
+      // Migrate / fix labels for existing saved sessions:
+      // ensure each saved session has an immutable label derived from its stored state.
+      try {
+        let mutated = false;
+        sessions.forEach(s => {
+          try {
+            if (!s) return;
+            // derive label from saved state (prefer derived over possibly mutated label)
+            const derived = deriveLabelFromState(s.state) || s.label || null;
+            if (derived && s.label !== derived) {
+              s.label = derived;
+              mutated = true;
+            }
+          } catch (e) { /* ignore per-entry errors */ }
+        });
+        if (mutated) saveSessions(sessions); // persist migration so next time labels are correct
+      } catch (e) { /* ignore migration errors */ }
+      // Create modal
+      let modal = document.getElementById('docai-sessions-modal');
+      if (modal) modal.parentNode.removeChild(modal);
+
+      modal = document.createElement('div');
+      modal.id = 'docai-sessions-modal';
+  // Read current theme once for initial rendering
+  const isDarkTheme = document.body && document.body.getAttribute && document.body.getAttribute('data-md-color-scheme') === 'slate';
+  modal.style.position = 'fixed';
+  modal.style.zIndex = 20000;
+  // If there are few sessions, position the modal under the header (the "hat")
+  if (sessions && sessions.length < 4) {
+    try {
+      // Prefer the chat panel header if present so modal opens under the chat UI
+      const chatHeader = document.querySelector('#site-chat .site-chat__header');
+      const pageHeader = document.getElementById('page-header') || document.querySelector('header[data-md-component=header]') || document.querySelector('header');
+      const headerEl = (chatHeader && chatHeader.getBoundingClientRect) ? chatHeader : pageHeader;
+      if (headerEl && headerEl.getBoundingClientRect) {
+        const hr = headerEl.getBoundingClientRect();
+        // If chatHeader was used, place just below its bottom; otherwise use page header bottom
+        const top = Math.max(8, hr.bottom + 8);
+        const left = hr.left + (hr.width / 2);
+        modal.style.left = left + 'px';
+        modal.style.top = top + 'px';
+        modal.style.transform = 'translate(-50%,0)';
+      } else {
+        modal.style.left = '50%';
+        modal.style.top = '50%';
+        modal.style.transform = 'translate(-50%,-50%)';
+      }
+    } catch (e) {
+      modal.style.left = '50%';
+      modal.style.top = '50%';
+      modal.style.transform = 'translate(-50%,-50%)';
+    }
+  } else {
+    modal.style.left = '50%';
+    modal.style.top = '50%';
+    modal.style.transform = 'translate(-50%,-50%)';
+  }
+  modal.style.zIndex = 20000;
+  // Adapt modal colors to current theme (data-md-color-scheme='slate' -> dark)
+      // Prefer to size the modal slightly less than the chat panel width when available
+      try {
+        const chatPanel = document.getElementById('site-chat');
+        if (chatPanel && chatPanel.getBoundingClientRect) {
+          const cw = chatPanel.getBoundingClientRect().width || 520;
+          const computed = Math.max(320, Math.min(cw - 24, 680)); // bounds: min 320, max 680
+          modal.style.width = computed + 'px';
+        } else {
+          modal.style.width = '520px';
+        }
+      } catch (e) { modal.style.width = '520px'; }
+      modal.style.maxHeight = '70vh';
+      modal.style.overflow = 'auto';
+      modal.style.borderRadius = '8px';
+      modal.style.padding = '12px';
+
+      // Apply or re-apply theme styles for modal contents
+      function applyModalTheme() {
+  const isDarkTheme = document.body && document.body.getAttribute && document.body.getAttribute('data-md-color-scheme') === 'slate';
+  // Use same dark palette as the chat UI (chat-card/messages in the build CSS)
+  // chat-card dark bg: #232327f2, messages dark bg: #1a1a1d80, border: #ffffff1a
+  modal.style.background = isDarkTheme ? '#232327f2' : 'white';
+  modal.style.border = isDarkTheme ? '1px solid #ffffff1a' : '1px solid #ddd';
+  modal.style.boxShadow = isDarkTheme ? '0 20px 40px #0006' : '0 10px 30px rgba(0,0,0,0.2)';
+  modal.style.color = isDarkTheme ? '#e6eef8' : '#111';
+        // header / close button
+        const closeBtn = modal.querySelector('.docai-modal-close');
+        if (closeBtn) closeBtn.style.color = isDarkTheme ? '#c7d7ee' : '#333';
+        // rows
+        modal.querySelectorAll('.docai-session-row').forEach(row => {
+          row.style.borderBottom = isDarkTheme ? '1px solid rgba(255,255,255,0.03)' : '1px solid #eee';
+        });
+        // titles / meta
+        modal.querySelectorAll('.docai-session-title').forEach(el => { el.style.color = isDarkTheme ? '#e6eef8' : '#111'; });
+        modal.querySelectorAll('.docai-session-meta').forEach(el => { el.style.color = isDarkTheme ? '#9aa6b8' : '#666'; });
+        // action buttons
+        modal.querySelectorAll('.docai-restore-btn').forEach(b => {
+          b.style.border = '1px solid ' + (isDarkTheme ? 'rgba(158,220,255,0.18)' : '#ddd');
+          b.style.color = isDarkTheme ? '#9edcff' : '#0366d6';
+        });
+        modal.querySelectorAll('.docai-delete-btn').forEach(b => {
+          b.style.border = '1px solid ' + (isDarkTheme ? 'rgba(255,80,80,0.12)' : '#f1d0d0');
+          b.style.color = isDarkTheme ? '#ff9b9b' : '#c00';
+        });
+      }
+
+      const header = document.createElement('div');
+  header.style.display = 'flex';
+  header.style.justifyContent = 'space-between';
+  header.style.alignItems = 'center';
+  header.innerHTML = '<strong>Saved Chat Sessions</strong>';
+      const closeBtn = document.createElement('button');
+      closeBtn.textContent = '✕';
+      closeBtn.className = 'docai-modal-close';
+      closeBtn.style.border = 'none';
+      closeBtn.style.background = 'transparent';
+      closeBtn.style.cursor = 'pointer';
+      closeBtn.addEventListener('click', () => {
+        try { if (themeObserver) themeObserver.disconnect(); } catch (e) {}
+        modal.remove();
+      });
+      header.appendChild(closeBtn);
+      modal.appendChild(header);
+      // Observe theme changes so modal updates live while open
+      let themeObserver = null;
+      try {
+        applyModalTheme();
+        themeObserver = new MutationObserver(() => applyModalTheme());
+        themeObserver.observe(document.body, { attributes: true, attributeFilter: ['data-md-color-scheme'] });
+      } catch (e) { /* ignore observer errors */ }
+
+      if (!sessions || sessions.length === 0) {
+        const p = document.createElement('p');
+        p.textContent = 'No saved sessions';
+        modal.appendChild(p);
+      } else {
+  // Show up to the most recent 25 saved sessions (no deduplication)
+  const uniqueSessions = sessions.slice(0, 25);
+
+  uniqueSessions.forEach(s => {
+          const row = document.createElement('div');
+          row.className = 'docai-session-row';
+          row.style.display = 'flex';
+          row.style.justifyContent = 'space-between';
+          row.style.alignItems = 'center';
+          row.style.padding = '8px 6px';
+          row.style.borderBottom = isDarkTheme ? '1px solid rgba(255,255,255,0.03)' : '1px solid #eee';
+
+          const info = document.createElement('div');
+          info.style.flex = '1';
+          info.style.paddingRight = '8px';
+          const title = document.createElement('div');
+          title.className = 'docai-session-title';
+          title.textContent = s.label;
+          title.style.color = isDarkTheme ? '#e6eef8' : '#111';
+          const meta = document.createElement('div');
+          meta.className = 'docai-session-meta';
+          meta.style.fontSize = '12px';
+          meta.style.color = isDarkTheme ? '#9aa6b8' : '#666';
+          meta.textContent = new Date(s.savedAt).toLocaleString();
+          info.appendChild(title);
+          info.appendChild(meta);
+
+          const actions = document.createElement('div');
+          actions.style.display = 'flex';
+          actions.style.gap = '8px';
+
+          const restoreBtn = document.createElement('button');
+          restoreBtn.className = 'docai-restore-btn';
+          restoreBtn.textContent = 'Restore';
+          restoreBtn.style.background = 'transparent';
+          restoreBtn.style.padding = '6px 8px';
+          restoreBtn.style.borderRadius = '6px';
+          restoreBtn.style.cursor = 'pointer';
+          restoreBtn.style.border = '1px solid ' + (isDarkTheme ? 'rgba(158,220,255,0.18)' : '#ddd');
+          restoreBtn.style.color = isDarkTheme ? '#9edcff' : '#0366d6';
+          restoreBtn.addEventListener('click', async () => {
+            // Prepare a restore payload that includes the id and an explicit messages array when possible
+            const payload = { type: 'restore-chat-state', state: s.state, id: s.id };
+            try {
+              // Try to extract messages from known shapes
+              let raw = null;
+              if (s.state) raw = s.state.chatHistory || s.state.CHAT_HISTORY || s.state.messages || s.state.state || null;
+              let msgs = null;
+              if (raw) {
+                try { msgs = typeof raw === 'string' ? JSON.parse(raw) : raw; } catch (e) { msgs = raw; }
+              }
+              if (Array.isArray(msgs)) payload.messages = msgs;
+            } catch (e) { /* ignore */ }
+
+            console.debug('Restore clicked, session id=', s.id, 'state=', s.state);
+            // First try same-origin direct write into iframe localStorage/sessionStorage so the React app picks it up
+            let restored = false;
+            try {
+                if (iframe && iframe.contentWindow && iframe.contentWindow.localStorage) {
+                try {
+                  // Always attempt to normalize message arrays into the shape React expects
+                  let writeMsgs = null;
+                  if (Array.isArray(payload.messages)) writeMsgs = normalizeMessages(payload.messages) || payload.messages;
+                  else if (s.state && (s.state.chatHistory || s.state.CHAT_HISTORY || s.state.messages)) {
+                    const raw = s.state.chatHistory || s.state.CHAT_HISTORY || s.state.messages;
+                    const parsed = typeof raw === 'string' ? JSON.parse(raw) : raw;
+                    if (Array.isArray(parsed)) writeMsgs = normalizeMessages(parsed) || parsed;
+                  }
+                  if (Array.isArray(writeMsgs)) {
+                    console.debug('Writing chatHistory to iframe localStorage for session', s.id, writeMsgs);
+                    iframe.contentWindow.localStorage.setItem('chatHistory', JSON.stringify(writeMsgs));
+                  }
+                  else {
+                    console.debug('No message array available to write for session', s.id, 'writeMsgs=', writeMsgs, 'payload.messages=', payload.messages);
+                  }
+                  // copy other keys except the parent's sessions key
+                  try {
+                    const st = s.state || {};
+                    Object.keys(st).forEach(k => {
+                      if (!k) return;
+                      if (k === CHAT_STORAGE_KEY) return;
+                      if (k === 'chatHistory' || k === 'CHAT_HISTORY' || k === 'messages') return;
+                      try {
+                        const v = typeof st[k] === 'string' ? st[k] : JSON.stringify(st[k]);
+                        iframe.contentWindow.localStorage.setItem(k, v);
+                      } catch (e) { /* ignore per-key write errors */ }
+                    });
+                  } catch (e) { /* ignore */ }
+                  // set conversation id in child's sessionStorage
+                  try {
+                    const convId = s.id || ('conv-' + Date.now() + '-' + Math.floor(Math.random()*100000));
+                    iframe.contentWindow.sessionStorage.setItem('siteChat_currentConversationId', convId);
+                  } catch (e) { /* ignore */ }
+
+                  // reload child so React picks up restored state
+                  try { iframe.contentWindow.location.reload(); } catch (e) { }
+                  restored = true;
+                } catch (err) {
+                  // if any write throws, we'll fallback to postMessage
+                  restored = false;
+                }
+              }
+            } catch (err) {
+              // cross-origin or not accessible
+              restored = false;
+            }
+
+        if (!restored) {
+              // Fallback: post restore message to iframe. Do NOT remove or clear the saved session here — preserve it.
+              try {
+                if (iframe && iframe.contentWindow) {
+          console.debug('Posting restore payload to iframe (fallback) for session', s.id, payload);
+          iframe.contentWindow.postMessage(payload, '*');
+                }
+              } catch (err) { console.error('Error posting restore to iframe', err); }
+            }
+
+            console.debug('Restored saved session (preserved):', s.id || s.label, 'restoredViaDirectWrite=', restored);
+            // Keep the sessions modal open so users can restore multiple sessions without reopening it.
+            // Optionally open the chat panel but do not close the modal.
+            try {
+              const toggle = document.getElementById('site-chat-toggle');
+              if (toggle) toggle.click();
+            } catch (err) { }
+          });
+
+          const deleteBtn = document.createElement('button');
+          deleteBtn.className = 'docai-delete-btn';
+          deleteBtn.textContent = 'Delete';
+          deleteBtn.style.background = 'transparent';
+          deleteBtn.style.padding = '6px 8px';
+          deleteBtn.style.borderRadius = '6px';
+          deleteBtn.style.cursor = 'pointer';
+          deleteBtn.style.border = '1px solid ' + (isDarkTheme ? 'rgba(255,80,80,0.12)' : '#f1d0d0');
+          deleteBtn.style.color = isDarkTheme ? '#ff9b9b' : '#c00';
+          deleteBtn.addEventListener('click', (ev) => {
+            // Prevent the click from bubbling up and accidentally toggling/closing
+            // the chat panel. Make deletion explicit and keep the chat open.
+            try { ev.preventDefault(); } catch (e) { }
+            try { ev.stopPropagation(); } catch (e) { }
+            const all = loadSessions().filter(x => x.id !== s.id);
+            saveSessions(all);
+            row.remove();
+            // Ensure chat panel remains open after deleting a session
+            try {
+              const chatPanel = document.getElementById('site-chat');
+              if (chatPanel && !chatPanel.classList.contains('open')) {
+                chatPanel.classList.add('open');
+                chatPanel.setAttribute('aria-hidden', 'false');
+              }
+            } catch (e) { }
+          });
+
+          actions.appendChild(restoreBtn);
+          actions.appendChild(deleteBtn);
+
+          row.appendChild(info);
+          row.appendChild(actions);
+          modal.appendChild(row);
+        });
+      }
+
+      document.body.appendChild(modal);
+    };
+
+    // Optional: expose a way to clear sessions
+    window.clearChatSessions = function() { localStorage.removeItem(CHAT_STORAGE_KEY); };
+
+    // Expose a compact public API so other page scripts can reuse the same
+    // helpers (avoid duplicate buggy implementations and reference errors).
+    try {
+      window.docai = window.docai || {};
+      window.docai.normalizeMessages = normalizeMessages;
+      window.docai.cloneState = cloneState;
+      window.docai.loadSessions = loadSessions;
+      window.docai.saveSessions = saveSessions;
+      window.docai.addOrUpdateSession = addOrUpdateSession;
+      window.docai.deriveLabelFromState = deriveLabelFromState;
+    } catch (e) { /* ignore */ }
+
+  })();
+</script>
+
+<script>
+  // Bind the "New Chat" buttons to snapshot the current chat session before clearing
+  (function() {
+    const iframe = document.querySelector('.site-chat__body iframe');
+    const CHAT_STORAGE_KEY = 'docai_chat_sessions';
+
+    function loadSessions() {
+      try { return JSON.parse(localStorage.getItem(CHAT_STORAGE_KEY) || '[]'); }
+      catch (e) { return []; }
+    }
+    function saveSessions(sessions) { localStorage.setItem(CHAT_STORAGE_KEY, JSON.stringify(sessions || [])); }
+    // Delegate to the shared implementation exposed earlier so we only have one
+    // consistent addOrUpdateSession implementation across the page.
+    function addOrUpdateSession(payload) {
+      try {
+        if (window.docai && typeof window.docai.addOrUpdateSession === 'function') {
+          return window.docai.addOrUpdateSession(payload);
+        }
+      } catch (e) { /* ignore */ }
+      // Fallback local implementation (very small) if the shared API isn't available
+      try {
+        const sessions = loadSessions();
+        const now = Date.now();
+        const id = payload.id || ('s_' + now);
+        const entry = { id, savedAt: now, label: payload.label || ('Saved ' + new Date(now).toLocaleString()), state: cloneState(payload.state || payload) };
+        sessions.unshift(entry);
+        while (sessions.length > 25) sessions.pop();
+        saveSessions(sessions);
+      } catch (e) { /* ignore */ }
+    }
+
+    async function snapshotChildStorage() {
+      // Try direct access to iframe localStorage (same-origin)
+      try {
+        if (iframe && iframe.contentWindow && iframe.contentWindow.localStorage) {
+          const snapshot = {};
+          for (let i = 0; i < iframe.contentWindow.localStorage.length; i++) {
+            const k = iframe.contentWindow.localStorage.key(i);
+            snapshot[k] = iframe.contentWindow.localStorage.getItem(k);
+          }
+          if (Object.keys(snapshot).length > 0) {
+            const derived = deriveLabelFromState(snapshot) || ('Saved ' + new Date().toLocaleString());
+            addOrUpdateSession({ label: derived, state: snapshot });
+            return true;
+          }
+        }
+      } catch (err) {
+        // cross-origin or not accessible
+      }
+
+      // Fallback: ask iframe to post a snapshot (best-effort)
+      return new Promise((resolve) => {
+        let responded = false;
+        function onMessage(e) {
+          if (e.data && e.data.type === 'chat-snapshot') {
+            try { addOrUpdateSession({ id: e.data.id, label: e.data.label, state: e.data.state }); }
+            catch (err) { /* ignore */ }
+            responded = true;
+            window.removeEventListener('message', onMessage);
+            resolve(true);
+          }
+        }
+        window.addEventListener('message', onMessage);
+        try {
+          if (iframe && iframe.contentWindow) iframe.contentWindow.postMessage({ type: 'request-chat-snapshot' }, '*');
+        } catch (err) { /* ignore */ }
+        // Timeout: proceed after short wait
+        setTimeout(() => {
+          if (!responded) {
+            window.removeEventListener('message', onMessage);
+            resolve(false);
+          }
+        }, 600);
+      });
+    }
+
+    async function handleNewChatClick(e) {
+      e.preventDefault();
+      e.stopPropagation();
+      try {
+        // Try to trigger the iframe's own new-chat handler (same-origin) so it posts its snapshot
+        try {
+          if (iframe && iframe.contentWindow && iframe.contentWindow.document) {
+            const innerNewBtn = iframe.contentWindow.document.querySelector('.new-chat-button');
+            if (innerNewBtn && typeof innerNewBtn.click === 'function') {
+              innerNewBtn.click();
+            }
+          }
+        } catch (err) {
+          // ignore cross-origin or missing element
+        }
+
+        // If the iframe didn't post a snapshot, fallback to reading its storage or asking for snapshot
+        await snapshotChildStorage();
+      } catch (err) { /* ignore */ }
+
+      // Trigger the iframe's hash-based clear handler used by the React app
+      try {
+        if (iframe && iframe.contentWindow) {
+          iframe.contentWindow.location.hash = '#clearHistory_' + Date.now();
+        }
+      } catch (err) {
+        // If cross-origin, try posting a message (best-effort)
+        try { iframe.contentWindow.postMessage({ type: 'clear-chat' }, '*'); } catch (e) { /* ignore */ }
+      }
+
+      // Also clear parent-side stored quick state if any
+      try { localStorage.removeItem('chatHistory'); } catch (e) { }
+    }
+
+    function bindClear(id) {
+      const el = document.getElementById(id);
+      if (!el) return;
+      el.addEventListener('click', handleNewChatClick);
+    }
+
+    bindClear('clear-chat-history');
+    bindClear('clear-chat-history-split');
+
+    // Robust binding for history buttons: call showChatSessions safely and
+    // provide a minimal fallback modal if an error occurs so the UI always
+    // opens something when the user clicks history.
+    function safeOpenSessionsModal(e) {
+      try {
+        if (e && e.preventDefault) e.preventDefault();
+        if (e && e.stopPropagation) e.stopPropagation();
+      } catch (err) { }
+      try {
+        if (window.showChatSessions && typeof window.showChatSessions === 'function') {
+          window.showChatSessions();
+          return;
+        }
+      } catch (err) {
+        console.error('showChatSessions failed', err);
+      }
+
+      // Fallback: create a minimal modal to show saved sessions or an error
+      try {
+        let modal = document.getElementById('docai-sessions-modal');
+        if (modal) modal.parentNode.removeChild(modal);
+        modal = document.createElement('div');
+        modal.id = 'docai-sessions-modal';
+        modal.style.position = 'fixed';
+        modal.style.zIndex = 20000;
+        // Fallback: if there are only a few saved sessions, show under header
+        try {
+          const sessionsFallback = (function(){ try { return JSON.parse(localStorage.getItem('docai_chat_sessions')||'[]'); } catch(e){ return []; } })();
+          if (sessionsFallback && sessionsFallback.length < 4) {
+            const chatHeader = document.querySelector('#site-chat .site-chat__header');
+            const pageHeader = document.getElementById('page-header') || document.querySelector('header[data-md-component=header]') || document.querySelector('header');
+            const headerEl = (chatHeader && chatHeader.getBoundingClientRect) ? chatHeader : pageHeader;
+            if (headerEl && headerEl.getBoundingClientRect) {
+              const hr = headerEl.getBoundingClientRect();
+              modal.style.left = (hr.left + (hr.width/2)) + 'px';
+              modal.style.top = (Math.max(8, hr.bottom + 8)) + 'px';
+              modal.style.transform = 'translate(-50%,0)';
+            } else {
+              modal.style.left = '50%'; modal.style.top = '50%'; modal.style.transform = 'translate(-50%,-50%)';
+            }
+          } else {
+            modal.style.left = '50%'; modal.style.top = '50%'; modal.style.transform = 'translate(-50%,-50%)';
+          }
+        } catch (e) {
+          modal.style.left = '50%'; modal.style.top = '50%'; modal.style.transform = 'translate(-50%,-50%)';
+        }
+        const isDark = document.body && document.body.getAttribute && document.body.getAttribute('data-md-color-scheme') === 'slate';
+  // Match chat UI dark colors for fallback modal as well
+  modal.style.background = isDark ? '#232327f2' : 'white';
+  modal.style.border = isDark ? '1px solid #ffffff1a' : '1px solid #ddd';
+        modal.style.padding = '16px';
+        modal.style.borderRadius = '8px';
+        try {
+          const chatPanel = document.getElementById('site-chat');
+          if (chatPanel && chatPanel.getBoundingClientRect) {
+            const cw = chatPanel.getBoundingClientRect().width || 520;
+            const computed = Math.max(320, Math.min(cw - 24, 680));
+            modal.style.minWidth = computed + 'px';
+          } else {
+            modal.style.minWidth = '320px';
+          }
+        } catch (e) { modal.style.minWidth = '320px'; }
+        const h = document.createElement('div');
+        h.innerHTML = '<strong>Saved Chat Sessions</strong>';
+        const p = document.createElement('p');
+        const sessions = (function(){ try { return JSON.parse(localStorage.getItem('docai_chat_sessions')||'[]'); } catch(e){ return []; } })();
+        if (!sessions || sessions.length === 0) p.textContent = 'No saved sessions';
+        else p.textContent = sessions.length + ' saved session(s)';
+        const close = document.createElement('button');
+        close.textContent = 'Close';
+        close.style.marginTop = '12px';
+        close.addEventListener('click', () => modal.remove());
+        modal.appendChild(h); modal.appendChild(p); modal.appendChild(close);
+        document.body.appendChild(modal);
+      } catch (e) { console.error('fallback modal failed', e); }
+    }
+
+    const histBtn = document.getElementById('site-chat-sessions');
+    if (histBtn) histBtn.removeEventListener('click', safeOpenSessionsModal); histBtn && histBtn.addEventListener('click', safeOpenSessionsModal);
+    const histBtnSplit = document.getElementById('site-chat-sessions-split');
+    if (histBtnSplit) histBtnSplit.removeEventListener('click', safeOpenSessionsModal); histBtnSplit && histBtnSplit.addEventListener('click', safeOpenSessionsModal);
+
+    // Ensure sessions modal closes when the chat panel closes.
+    try {
+      const chatPanel = document.getElementById('site-chat');
+      const closeChatBtn = document.getElementById('close-chat');
+      const toggleBtn = document.getElementById('site-chat-toggle');
+      function closeSessionsModal() {
+        try {
+          const modal = document.getElementById('docai-sessions-modal');
+          if (modal) modal.remove();
+        } catch (e) { }
+      }
+      if (closeChatBtn) closeChatBtn.addEventListener('click', closeSessionsModal);
+      // If the toggle is used to close, also close sessions modal
+      if (toggleBtn) toggleBtn.addEventListener('click', function() {
+        try {
+          // if the panel is open, clicking toggle will close it — close modal as well
+          const panel = document.getElementById('site-chat');
+          if (panel && panel.classList.contains('open')) {
+            // allow the toggle action to proceed first, then close modal
+            setTimeout(closeSessionsModal, 50);
+          }
+        } catch (e) { }
+      });
+      // Observe class changes on chatPanel to detect programmatic closes
+      if (chatPanel && window.MutationObserver) {
+        const panelObserver = new MutationObserver((mutations) => {
+          mutations.forEach(m => {
+            if (m.type === 'attributes' && m.attributeName === 'class') {
+              const panel = document.getElementById('site-chat');
+              if (panel && !panel.classList.contains('open')) {
+                closeSessionsModal();
+              }
+            }
+          });
+        });
+        panelObserver.observe(chatPanel, { attributes: true, attributeFilter: ['class'] });
+      }
+    } catch (e) { /* ignore */ }
+
+    // Enhance restore: if same-origin, write directly into child localStorage then reload iframe so React app picks it up
+    (function enhanceRestore() {
+      // intercept showChatSessions to wrap restore buttons after they are created
+      const orig = window.showChatSessions;
+      if (!orig) return;
+      window.showChatSessions = function() {
+        orig();
+        const modal = document.getElementById('docai-sessions-modal');
+        if (!modal) return;
+        // find restore buttons and attach enhanced behavior
+        const buttons = modal.querySelectorAll('button');
+        buttons.forEach(btn => {
+          if (btn.textContent && btn.textContent.trim() === 'Restore') {
+            btn.addEventListener('click', function(ev) {
+              // find the session row's state stored in actions by walking DOM
+              const row = ev.currentTarget.closest('div');
+              if (!row) return;
+              // attempt to find the index by matching title text
+              const titleEl = row.querySelector('div > div');
+              const title = titleEl ? titleEl.textContent : null;
+              const sessions = loadSessions();
+              const s = sessions.find(x => x.label === title) || sessions[0];
+              try {
+                if (iframe && iframe.contentWindow && iframe.contentWindow.localStorage) {
+                  // write snapshot keys into child's localStorage
+                  const state = s.state || {};
+                  if (typeof state === 'object') {
+                    // Prefer to write chatHistory explicitly so React picks up messages
+                      try {
+                        let raw = state.chatHistory || state.CHAT_HISTORY || state.messages || state.state || null;
+                        let msgs = null;
+                        if (raw) {
+                          try { msgs = typeof raw === 'string' ? JSON.parse(raw) : raw; } catch (e) { msgs = raw; }
+                        }
+                        if (Array.isArray(msgs)) {
+                          try {
+                            const norm = normalizeMessages(msgs) || msgs;
+                            console.debug('Enhanced restore writing chatHistory to iframe localStorage for session', s.id, norm);
+                            iframe.contentWindow.localStorage.setItem('chatHistory', JSON.stringify(norm));
+                          } catch (err) { /* ignore */ }
+                        }
+                      // write other keys except the parent's sessions key
+                      Object.keys(state).forEach(k => {
+                        try {
+                          if (k === CHAT_STORAGE_KEY) return;
+                          // skip chatHistory since we already wrote it
+                          if (k === 'chatHistory' || k === 'CHAT_HISTORY' || k === 'messages') return;
+                          iframe.contentWindow.localStorage.setItem(k, typeof state[k] === 'string' ? state[k] : JSON.stringify(state[k]));
+                        } catch (err) { }
+                      });
+                      // set a conversation id in child sessionStorage so save-conversation logic can use it
+                      try {
+                        const convId = s.id || sessionStorage.getItem('siteChat_currentConversationId') || ('conv-' + Date.now() + '-' + Math.floor(Math.random()*100000));
+                        iframe.contentWindow.sessionStorage.setItem('siteChat_currentConversationId', convId);
+                      } catch (err) { }
+                    } catch (err) { /* ignore */ }
+                    // reload child so it picks up the restored localStorage
+                    try { iframe.contentWindow.location.reload(); } catch (err) { }
+                    return;
+                  }
+                }
+              } catch (err) { /* ignore cross-origin */ }
+              // fallback: postMessage and open chat (existing behavior)
+              try { iframe.contentWindow.postMessage({ type: 'restore-chat-state', state: s.state }, '*'); } catch (err) { }
+            }, { once: true });
+          }
+        });
+      };
+    })();
+
+  })();
+</script>

@@ -1,0 +1,360 @@
+/* Chat Feature Styles */
+
+/* Tooltip styles */
+.tooltip {
+  position: relative;
+}
+
+.tooltip::before {
+  content: attr(data-tooltip);
+  position: absolute;
+  bottom: 120%;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(0, 0, 0, 0.8);
+  color: white;
+  padding: 6px 8px;
+  border-radius: 4px;
+  font-size: 12px;
+  white-space: nowrap;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s, visibility 0.3s;
+  z-index: 10000;
+  pointer-events: none;
+}
+
+.tooltip::after {
+  content: '';
+  position: absolute;
+  bottom: 112%;
+  left: 50%;
+  transform: translateX(-50%);
+  border: 4px solid transparent;
+  border-top-color: rgba(0, 0, 0, 0.8);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s, visibility 0.3s;
+  z-index: 10000;
+  pointer-events: none;
+}
+
+.tooltip:hover::before,
+.tooltip:hover::after {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* Chat button */
+.site-chat-toggle {
+  position: fixed !important;
+  right: 1rem !important;
+  bottom: 1rem !important;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: #f37c20;
+  color: #fff;
+  border: none;
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 10060 !important; /* above chat panel and MkDocs overlays */
+  transition: opacity 0.2s ease, visibility 0.2s ease, transform 0.2s ease;
+}
+.site-chat-toggle:focus { outline: 2px solid #f79c58; }
+
+/* Chat panel */
+.site-chat {
+  position: fixed !important;
+  right: 1rem !important;
+  bottom: 4rem !important; /* above the button */
+  width: 400px;
+  height: 650px;
+  max-width: calc(100% - 2rem);
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(15,15,15,0.15);
+  overflow: hidden;
+  transform-origin: bottom right;
+  transform: scale(0.95);
+  opacity: 0;
+  pointer-events: none;
+  transition: transform 0.18s ease, opacity 0.18s ease, visibility 0.18s ease;
+  z-index: 10050 !important; /* ensure above footer and other UI */
+  font-family: inherit;
+  display: flex !important;
+  flex-direction: column;
+  visibility: hidden;
+}
+
+.site-chat.open {
+  transform: scale(1) !important;
+  opacity: 1 !important;
+  pointer-events: auto !important;
+  visibility: visible !important;
+  display: flex !important;
+}
+
+.site-chat__header {
+  padding: 10px 12px;
+  background: #f37c20;
+  color: #fff;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  position: relative;
+  z-index: 2;
+}
+.site-chat__close { 
+  background: transparent; 
+  border: none; 
+  color: #fff; 
+  font-size: 20px; 
+  cursor: pointer; 
+  padding: 4px; 
+  display: flex; 
+  align-items: center; 
+  position: relative;
+  pointer-events: auto !important;
+  z-index: 3;
+}
+.site-chat__close:hover {
+  opacity: 0.8;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 4px;
+}
+.site-chat__close:active {
+  transform: scale(0.95);
+}
+.site-chat__close .material-icons {
+  pointer-events: none; /* Let clicks pass through to button */
+}
+.site-chat__actions { 
+  display: flex; 
+  gap: 4px; 
+  align-items: center;
+  pointer-events: auto !important;
+  z-index: 3;
+  position: relative;
+}
+.site-chat__link { display:inline-block; margin-top:8px; color:#0b74de; text-decoration:underline; }
+
+/* Specific tooltip positioning for header buttons */
+.site-chat__header .tooltip::before {
+  bottom: -40px;
+  background: rgba(0, 0, 0, 0.9);
+}
+
+/* .site-chat__header .tooltip::after {
+  bottom: -32px;
+  border-top-color: transparent;
+  border-bottom-color: rgba(0, 0, 0, 0.9);
+  transform: translateX(-50%) rotate(180deg);
+} */
+
+/* Split view header buttons tooltip positioning */
+.split-view-header .tooltip::before {
+  bottom: -40px;
+  background: rgba(0, 0, 0, 0.9);
+}
+
+/* .split-view-header .tooltip::after {
+  bottom: -32px;
+  border-top-color: transparent;
+  border-bottom-color: rgba(0, 0, 0, 0.9);
+  transform: translateX(-50%) rotate(180deg);
+} */
+
+/* small-screen tweaks */
+@media (max-width: 420px) {
+  .site-chat { width: 92vw; height: 60vh; right: 4%; bottom: 6.2rem; }
+  .site-chat-toggle { right: 1.2rem; bottom: 1.2rem; }
+}
+
+/* Split view styles */
+.split-view-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #fff;
+  z-index: 10000;
+  display: none;
+  flex-direction: row;
+  overflow: hidden !important;
+}
+
+.split-view-container.active {
+  display: flex;
+}
+
+.split-view-left {
+  flex: 1;
+  height: 100%;
+  overflow: hidden;
+  border-right: 2px solid #e0e0e0;
+}
+.split-view-panel {
+  height: 100%;
+  position: relative;
+  border-left: 2px solid #e0e0e0;
+}
+.split-view-panel.resizable {
+  min-width: 400px;
+  max-width: calc(100% - 200px);
+}
+.split-view-content {
+  width: 100%;
+  height: 100%;
+  border: none;
+  pointer-events: auto;
+}
+
+.split-view-content-wrapper {
+  flex: 1;
+  height: calc(100% - 50px);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.split-view-content-wrapper iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+  flex: 1;
+}
+
+.site-chat__body {
+  padding: 0;
+  font-size: 0.95rem;
+  color: #222;
+  flex: 1;
+  overflow: hidden;
+  position: relative;
+  z-index: 1;
+}
+
+.site-chat__body iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+  display: block;
+  pointer-events: auto !important;
+  position: relative;
+  z-index: 1;
+}
+
+.split-view-container.resizing .split-view-content-wrapper,
+.split-view-container.resizing .split-page-iframe-wrapper {
+  pointer-events: none;
+  user-select: none;
+}
+
+/* .split-view-container.resizing .split-view-content {
+  pointer-events: none; 
+} */
+
+.split-view-container.resizing iframe {
+  pointer-events: none ; 
+  user-select: none ;
+}
+
+.split-view-header {
+  height: 50px;
+  background: #f37c20;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 16px;
+}
+.split-view-close {
+  background: transparent;
+  border: none;
+  color: #fff;
+  font-size: 20px;
+  cursor: pointer;
+  padding: 4px;
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+.split-view-resize-handle {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 8px;
+  height: 100%;
+  cursor: ew-resize;
+  background: transparent;
+  z-index: 10;
+  transition: background 0.2s ease;
+}
+.split-view-resize-handle:hover,
+.split-view-resize-handle.active {
+  background: rgba(243, 124, 32, 0.3);
+}
+@media (max-width: 768px) {
+  .hide-on-mobile {
+    display: none;
+  }
+  .split-view-container {
+    flex-direction: column;
+  }
+  .split-view-left {
+    border-right: none;
+    border-bottom: 2px solid #e0e0e0;
+  }
+  .split-view-panel {
+    border-left: none;
+    border-top: 2px solid #e0e0e0;
+    min-height: 200px;
+    max-height: calc(100% - 200px);
+  }
+  .split-view-resize-handle {
+    width: 100%;
+    height: 8px;
+    top: 0;
+    left: 0;
+    cursor: ns-resize;
+  }
+}
+
+/* Clean state-based visibility */
+body.split-view-is-active .site-chat-toggle {
+  display: none !important;
+}
+
+body.in-iframe .site-chat-toggle {
+  display: none !important;
+}
+
+/* Hide all scrollbars when split view is active */
+html.split-view-is-active,
+body.split-view-is-active {
+  overflow: hidden !important;
+  height: 100%;
+  width: 100%;
+}
+
+html.split-view-is-active .md-container,
+body.split-view-is-active .md-container {
+  overflow: hidden !important;
+}
+
+/* Force chat visibility - override any conflicting theme styles */
+.site-chat.open,
+.site-chat-toggle {
+  display: flex !important;
+}
+
+/* Ensure chat elements are not affected by MkDocs footer or container overflow */
+.md-footer,
+.md-container,
+.md-main {
+  overflow: visible !important;
+}

@@ -117,6 +117,7 @@
 /* Buttons */
 .md-header__button {
   margin-right: var(--md-header-links-vertical-spacing);
+  padding: 0;
 }
 
 /* Logo */

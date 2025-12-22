@@ -31,6 +31,94 @@
   <link rel="stylesheet" href="{{ 'assets/css/home.css' | url }}">
 {% endblock %}
 
+{% block extra_scripts %}
+  {{ super() }}
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      console.log('Home page extra_scripts DOMContentLoaded - home chat initializer running');
+      const homeBtn = document.getElementById('site-chat-toggle-home');
+      const globalToggle = document.getElementById('site-chat-toggle');
+      if (homeBtn) {
+        // Attach a non-inline listener as a robust fallback (build steps may strip inline onclick)
+        homeBtn.addEventListener('click', function(e) {
+          e.preventDefault();
+          console.log('Home chat button (fallback listener) clicked - attempting to open chat');
+
+          if (window.openSiteChat && typeof window.openSiteChat === 'function') {
+            try { window.openSiteChat(); return; } catch (err) { console.error('fallback window.openSiteChat() failed', err); }
+          }
+
+          if (globalToggle) {
+            try { globalToggle.click(); return; } catch (err) { console.error('fallback clicking global toggle failed', err); }
+          }
+
+          // Queue if chat script not available yet
+          window.__openSiteChatRequested = (window.__openSiteChatRequested || 0) + 1;
+          console.log('Fallback: queued openSiteChat request, count=', window.__openSiteChatRequested);
+        });
+
+        homeBtn.addEventListener('click', function(e) {
+          e.preventDefault();
+          console.log('Home chat button clicked - attempting to open chat');
+
+          // 1) Try the exposed API if available
+          if (window.openSiteChat && typeof window.openSiteChat === 'function') {
+            console.log('Calling window.openSiteChat()');
+            try {
+              window.openSiteChat();
+              return;
+            } catch (err) {
+              console.error('window.openSiteChat() failed', err);
+            }
+          }
+
+          // 2) Try to click the global toggle if present
+          if (globalToggle) {
+            console.log('Global toggle exists - triggering click on #site-chat-toggle');
+            try {
+              globalToggle.click();
+              return;
+            } catch (err) {
+              console.error('Clicking global toggle failed', err);
+            }
+          }
+
+          // 3) Final fallback: directly open the chat panel by toggling class on #site-chat
+          const chatPanel = document.getElementById('site-chat');
+          if (chatPanel) {
+            console.log('Directly toggling #site-chat panel.open class as fallback');
+            try {
+              // Ensure closed then open to trigger CSS transitions similar to openChat()
+              chatPanel.classList.remove('open');
+              void chatPanel.offsetWidth;
+              chatPanel.classList.add('open');
+              chatPanel.setAttribute('aria-hidden', 'false');
+            } catch (err) {
+              console.error('Direct DOM fallback to open chat failed', err);
+            }
+            return;
+          }
+
+          // 4) If nothing worked, schedule retries for the API for a short period
+          console.log('No immediate method succeeded; will retry calling window.openSiteChat for a short period');
+          const tryOpenRetry = (attemptsLeft) => {
+            if (window.openSiteChat && typeof window.openSiteChat === 'function') {
+              console.log('Retry: calling window.openSiteChat()');
+              try { window.openSiteChat(); return; } catch (err) { console.error(err); }
+            }
+            if (attemptsLeft <= 0) {
+              console.warn('Retries exhausted; chat did not open');
+              return;
+            }
+            setTimeout(() => tryOpenRetry(attemptsLeft - 1), 200);
+          };
+          tryOpenRetry(6);
+        });
+      }
+    });
+  </script>
+{% endblock %}
+
 {% block container %}
   <div class="md-content">
     <article class="md-content__inner md-typeset">
@@ -39,14 +127,24 @@
         <span class="md-home-gradient"></span>
         <h1 class="md-home-search-input-label">How can we help?</h1>
 
-        {% include "partials/search.html" %}
+        <div class="md-home-search-row">
+          <div class="md-search-with-chat">
+            {% include "partials/search.html" %}
+
+            <!-- Inline chat button placed inside the search input area for home page -->
+            <button id="site-chat-toggle-home" class="md-home-chat-button md-home-chat-button--inside-search" aria-label="Open chat" title="Open chat"
+              onclick="(function(ev){ ev && ev.preventDefault(); try{ if (window.openSiteChat && typeof window.openSiteChat === 'function') { window.openSiteChat(); } else { window.__openSiteChatRequested = (window.__openSiteChatRequested || 0) + 1; console.log('Queued openSiteChat request, count=', window.__openSiteChatRequested); } } catch(e){ console.error('home chat onclick error', e); } })(event)">
+              <img src="{{ 'images/DocAi.svg' | url }}" alt="Chat" />
+            </button>
+          </div>
+        </div>
 
         <p class="md-home-search-input-description">
           Welcome to {{ config.extra.product_name }} documentation! Within these pages, 
           you will learn how to build a seamless login experience for your applications using 
           {{ config.extra.product_name }}.
         </p>
-      <div class="description-section" style="display: flex; flex-direction: row; align-items: flex-start; margin-top: 30px;">
+  <div class="description-section" style="display: flex; flex-direction: row; align-items: center; margin-top: 30px;">
         <div class="leftContent" style="width: 45%;">
           <p>
             WSO2 API Manager is a complete platform for building, integrating, and exposing your digital services as managed APIs in the cloud, on-premise, and hybrid architectures to drive your digital transformation strategy. 
@@ -56,7 +154,7 @@
             managers to create API products from one or more APIs.
           </p>
         </div>
-        <div class="md-main md-content" style="float:right; width: 55%; align:right; flex-shrink: 0; min-width: 30%; max-height: 100%; max-width:40%; margin-left:5px; margin-top:50px; margin-right:90px">
+  <div class="md-main md-content" style="float:right; width: 55%; flex-shrink: 0; min-width: 30%; max-height: 100%; max-width:40%; margin-left:5px; margin-top:0; margin-right:90px; align-self: center;">
           <iframe width="800" height="250" src="https://www.youtube.com/embed/nr1cFyxVdDw" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
         </div>
       </div>

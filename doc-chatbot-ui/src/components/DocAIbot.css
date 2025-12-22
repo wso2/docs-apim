@@ -1,0 +1,22 @@
+.doc-ai-bot-logo-container {
+  text-align: center;
+  padding: 0rem 0;
+}
+
+.doc-ai-bot-logo {
+  width: 50%;
+  max-width: 150px;
+  height: auto;
+}
+
+.disclaimer {
+  font-size: 0.5rem;
+  color: #666;
+  text-align: center;
+  /* padding: 1px 0; */
+}
+
+/* Dark mode disclaimer */
+[data-md-color-scheme="slate"] .disclaimer {
+  color: #aaa;
+}
