@@ -35,14 +35,3 @@ en/site
 # prefers Python virtual environment for development
 venv/
 env/
-**/__pycache__/
-
-
-# Created by venv; see https://docs.python.org/3/library/venv.html
-# Ignore Python virtual environment files
-# bin/
-# lib/
-# pyvenv.cfg
-# .venv/
-# venv/
-# **/__pycache__/

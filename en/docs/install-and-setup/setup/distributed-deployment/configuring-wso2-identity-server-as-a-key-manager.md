@@ -3,7 +3,7 @@
 Follow the instructions below to configure WSO2 Identity Server (WSO2 IS) as the Resident Key Manager of the WSO2 API Manager (WSO2 API-M) deployment globally.
 
 !!! warning
-    WSO2 Identity Server 7.x **cannot** be set up as a Resident Key Manager. It can only be set up as a [Third-party Key Manager]({{base_path}}/install-and-setup/setup/distributed-deployment/configure-a-third-party-key-manager). See [Configure WSO2 IS 7.x as a Key Manager]({{base_path}}/api-security/key-management/configuration/configure-wso2is7-connector) for instructions on configuring WSO2 Identity Server 7.x as a Third-party Key Manager.
+    WSO2 Identity Server 7.x **cannot** be set up as a Resident Key Manager. It can only be set up as a [Third-party Key Manager]({{base_path}}/install-and-setup/setup/distributed-deployment/configure-a-third-party-key-manager). See [Configure WSO2 IS 7.x as a Key Manager]({{base_path}}/administer/key-managers/configure-wso2is7-connector) for instructions on configuring WSO2 Identity Server 7.x as a Third-party Key Manager.
 
 - [Step 1 - Download and install WSO2 IS](#step-1-download-and-install-wso2-is)
 - [Step 2 - Optionally, configure port offset for WSO2 IS](#step-2-optionally-configure-port-offset-for-wso2-is)

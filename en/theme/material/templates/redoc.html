@@ -1,12 +1,12 @@
 <!--
- * Copyright (c) 2023, WSO2 LLC. (https://www.wso2.com).
+ * Copyright (c) 2019, WSO2 Inc. (http://www.wso2.org) All Rights Reserved.
  *
- * WSO2 LLC. licenses this file to you under the Apache License,
+ * WSO2 Inc. licenses this file to you under the Apache License,
  * Version 2.0 (the "License"); you may not use this file except
  * in compliance with the License.
  * You may obtain a copy of the License at
  *
- *     http://www.apache.org/licenses/LICENSE-2.0
+ * http://www.apache.org/licenses/LICENSE-2.0
  *
  * Unless required by applicable law or agreed to in writing,
  * software distributed under the License is distributed on an
@@ -20,10 +20,94 @@
 
 {% block styles %}
   {{ super() }}
-  <link rel="stylesheet" href="{{ 'assets/css/redoc.css' | url }}">
+  <link rel="stylesheet" href="{{ '../assets/fontawesome/css/all.min.css' | url }}">
+  <style>
+    .md-content {
+      margin-left: 0 !important;
+      margin-right: 0 !important;
+    }
+
+    .md-main__inner {
+      margin: 0;
+      max-width: 100%;
+    }
+    .md-content {
+      z-index: 1;
+    }
+    .md-header {
+      z-index: 3;
+    }
+    .md-tabs{
+      z-index: 2 !important;
+    }
+    .md-header {
+      transition: background-color .25s,color .25s, box-shadow .25s;
+      box-shadow: 0 0 0.2rem rgba(0, 0, 0, .1), 0 0.2rem 0.4rem rgba(0, 0, 0, .2);
+    }
+
+    .redoc-wrap h5 {
+      margin: 0px;
+    }
+
+    .redoc-wrap h2 {
+      margin: 0px;
+    }
+
+    .redoc-wrap h1 {
+      margin: 0px;
+    }
+
+    pre {
+     background-color: transparent;
+     color: white;
+    }
+
+    .md-typeset pre {
+      background-color: transparent;
+      color: white;
+      white-space: initial;
+    }
+
+     .menu-content{
+      top: 5.9rem !important;
+    }
+
+     .md-nav{
+       display:none;
+    }
+
+    [dir=ltr] .md-typeset ol, [dir=ltr] .md-typeset ul {
+    margin-left: 0;
+    }
+
+    [dir=ltr] .md-typeset ol li, [dir=ltr] .md-typeset ul li {
+        margin-left: 0;
+    }
+
+     @media only screen and (max-width: 76.1875em){
+        .md-nav--primary, .md-nav--primary .md-nav {
+           display: block !important;
+      }
+
+  </style>
 {% endblock %}
 
-{% block container %}
+
+{% block content %}
   {{ page.content }}
-  <script src="{{ 'assets/js/redoc.standalone.js' | url }}"></script>
+  {% block source %}
+    {% if page and page.meta and page.meta.source %}
+      <h2 id="__source">{{ lang.t("meta.source") }}</h2>
+      {% set repo = config.repo_url %}
+      {% if repo | last == "/" %}
+        {% set repo = repo[:-1] %}
+      {% endif %}
+      {% set path = page.meta.path | default([""]) %}
+      {% set file = page.meta.source %}
+      <a href="{{ [repo, path, file] | join('/') }}" title="{{ file }}" 
+         class="md-source-file">
+        {{ file }}
+      </a>
+    {% endif %}
+  {% endblock %}
 {% endblock %}

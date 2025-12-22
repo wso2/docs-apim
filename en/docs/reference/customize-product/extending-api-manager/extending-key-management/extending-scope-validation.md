@@ -1,6 +1,6 @@
 # Extending Scope Validation
 
-OAuth scopes, allow you to have fine grained access control to API resources based on the user roles. It allows you to define scopes per API and associate defined scopes with API resources. OAuth 2.0 bearer tokens are obtained for a set of requested scopes and the token obtained is not allowed to access any API resources beyond the associated scopes. For more information, see [Fine Grained Access Control with OAuth Scopes]({{base_path}}/api-security/runtime/authorization/oauth2-scopes/fine-grained-access-control-with-oauth-scopes/#fine-grained-access-control-with-oauth-scopes).
+OAuth scopes, allow you to have fine grained access control to API resources based on the user roles. It allows you to define scopes per API and associate defined scopes with API resources. OAuth 2.0 bearer tokens are obtained for a set of requested scopes and the token obtained is not allowed to access any API resources beyond the associated scopes. For more information, see [Fine Grained Access Control with OAuth Scopes]({{base_path}}/manage-apis/design/api-security/oauth2/oauth2-scopes/fine-grained-access-control-with-oauth-scopes/#fine-grained-access-control-with-oauth-scopes).
 
 API Manager uses scopes as a way of defining permissions for a resource. If a resource is assigned a scope, then the token accessing the resource should be generated with that scope. By associating a scope with a role, you can control which users are permitted to have tokens under certain scopes. In this instance, associating a role to a scope seems legitimate.
 

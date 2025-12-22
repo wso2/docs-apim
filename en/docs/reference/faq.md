@@ -432,7 +432,7 @@ The Gateway Failures UI error occurs when the `service_url`, `username`, `passwo
 
 ### How can I capture the state of a system?
 
-At the time of an error, you can use a tool called Carbon Dump (`carbondump.sh`) to collect all the necessary data (i.e., heap and thread dumps) from a running WSO2 API Manager instance in order to carryout a head dump and thread stack analysis. For more information on using this tool, see [Capturing the state of the system]({{base_path}}/reference/troubleshooting/admin-troubleshooting-in-production-environments/#capturing-the-state-of-the-system) in the Administration guide.
+At the time of an error, you can use a tool called Carbon Dump (`carbondump.sh`) to collect all the necessary data (i.e., heap and thread dumps) from a running WSO2 API Manager instance in order to carryout a head dump and thread stack analysis. For more information on using this tool, see [Capturing the state of the system]({{base_path}}/troubleshooting/admin-troubleshooting-in-production-environments/#capturing-the-state-of-the-system) in the Administration guide.
 
 ### How can I clean up the REG\_LOG table?
 

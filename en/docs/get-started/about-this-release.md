@@ -23,13 +23,13 @@ For more information on WSO2 API Manager, see the [overview]({{base_path}}/get-s
     - **Managing remote MCP Servers:** Import an external MCP Server and proxy via WSO2 API Manager.
     - **QoS for MCP Servers:** Apply rate limiting, authentication, and other policies.
 
-    **[Learn more]({{base_path}}/ai-gateway/mcp-gateway/overview/)**
+    **[Learn more]({{base_path}}/mcp-gateway/overview/)**
 
 ??? note "MCP Hub"
 
     The control plane can now function as a MCP Hub, enabling centralized discovery and reuse of MCP Servers across teams and environments.
 
-    **[Learn more]({{base_path}}/ai-gateway/mcp-gateway/invoke-a-mcp-server-using-playground/)**
+    **[Learn more]({{base_path}}/mcp-gateway/invoke-a-mcp-server-using-playground/)**
 
 ??? note "Multi-Model AI Service Provider Support"
 
@@ -79,7 +79,7 @@ For more information on WSO2 API Manager, see the [overview]({{base_path}}/get-s
 
     Application scopes provide fine-grained control over permissions at the application level, enhancing security and flexibility. These scopes are configured as allowed scopes for specific applications and can only be selected from the subscribed scopes (scopes available from all subscribed APIs).
 
-     **[Learn more]({{base_path}}/api-security/runtime/authorization/oauth2-scopes/application-scopes/)** 
+     **[Learn more]({{base_path}}/administer/key-managers/application-scopes/)** 
 
 ## Improvements
 
