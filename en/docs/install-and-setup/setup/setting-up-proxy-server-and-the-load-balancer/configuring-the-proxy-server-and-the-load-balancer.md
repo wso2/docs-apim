@@ -471,4 +471,4 @@ The following instructions are optional if you do not have a custom URL configur
         New configurations do not have auto as a config value for the `customUrl.enable` property as it was in the 2.x versions.
 
     !!! Note
-        For more information on troubleshooting 'Registered callback does not match with the provided URL' error, see **[Troubleshooting 'Registered callback does not match with the provided URL' error]({{base_path}}/reference/troubleshooting/troubleshooting-invalid-callback-error)**
+        For more information on troubleshooting 'Registered callback does not match with the provided URL' error, see **[Troubleshooting 'Registered callback does not match with the provided URL' error]({{base_path}}/troubleshooting/troubleshooting-invalid-callback-error)**

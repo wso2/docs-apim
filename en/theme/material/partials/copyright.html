@@ -1,32 +1,24 @@
-<!--
- * Copyright (c) 2023, WSO2 LLC. (https://www.wso2.com).
- *
- * WSO2 LLC. licenses this file to you under the Apache License,
- * Version 2.0 (the "License"); you may not use this file except
- * in compliance with the License.
- * You may obtain a copy of the License at
- *
- *     http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing,
- * software distributed under the License is distributed on an
- * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
- * KIND, either express or implied. See the License for the
- * specific language governing permissions and limitations
- * under the License.
--->
-
-<div class="md-copyright md-typeset">
-  <div class="md-copyright__content">
-    <div class="md-copyright__highlight">
-      {% if build_date_utc.year == 2024 %}
-      &copy; {{ build_date_utc.year }} <a href="https://wso2.com/">WSO2</a> LLC.
-      {% else %}
-      &copy; 2024-{{ build_date_utc.year }} <a href="https://wso2.com/">WSO2</a> LLC.
-      {% endif %}
-      &nbsp;|&nbsp;
-      Content licensed under <a href="https://creativecommons.org/licenses/by/4.0" target="_blank">CC By 4.0</a>. |
-      Sample code licensed under <a href="http://www.apache.org/licenses/" target="_blank">Apache 2.0</a>.
+<div class="md-copyright">
+    <div class="footer-copyright-left">
+        {% if config.copyright %}
+        <div class="md-copyright__highlight">
+            {{ config.copyright }}
+        </div>
+        {% endif %}
+        {% if not config.extra.generator == false %}
+        Made with
+        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+            Material for MkDocs
+        </a>
+        {% endif %}
     </div>
-  </div>
+    <div class="footer-copyright-right">
+        <div class="footer-copyright-top">
+            Copyright &copy; <a href="https://wso2.com/">WSO2</a> LLC 2024
+        </div>
+        <div class="footer-copyright-bottom">
+            Content licensed under <a href="https://creativecommons.org/licenses/by/4.0">CC By 4.0.</a> | Sample code
+            licensed under <a href="http://www.apache.org/licenses/">Apache 2.0</a>.
+        </div>
+    </div>
 </div>

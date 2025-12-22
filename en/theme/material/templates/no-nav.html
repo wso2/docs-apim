@@ -1,0 +1,61 @@
+<!--
+ * Copyright (c) 2019, WSO2 Inc. (http://www.wso2.org) All Rights Reserved.
+ *
+ * WSO2 Inc. licenses this file to you under the Apache License,
+ * Version 2.0 (the "License"); you may not use this file except
+ * in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing,
+ * software distributed under the License is distributed on an
+ * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+ * KIND, either express or implied. See the License for the
+ * specific language governing permissions and limitations
+ * under the License.
+-->
+
+{% extends "base.html" %}
+
+{% block styles %}
+  {{ super() }}
+  <style>
+    .md-content {
+      margin-left: 0;
+      margin-right: 0;
+    }
+    
+    [data-md-component=tabs],
+    .md-footer-nav__inner,
+    .md-header__version-select {
+      display: none;
+    }
+
+    .md-header {
+      transition: background-color .25s,color .25s, box-shadow .25s;
+      box-shadow: 0 0 0.2rem rgba(0, 0, 0, .1), 0 0.2rem 0.4rem rgba(0, 0, 0, .2);
+    }
+  </style>
+{% endblock %}
+
+{% block site_nav %}<!-- Removed Nav -->{% endblock %}
+
+{% block content %}
+  {{ page.content }}
+  {% block source %}
+    {% if page and page.meta and page.meta.source %}
+      <h2 id="__source">{{ lang.t("meta.source") }}</h2>
+      {% set repo = config.repo_url %}
+      {% if repo | last == "/" %}
+        {% set repo = repo[:-1] %}
+      {% endif %}
+      {% set path = page.meta.path | default([""]) %}
+      {% set file = page.meta.source %}
+      <a href="{{ [repo, path, file] | join('/') }}" title="{{ file }}" 
+         class="md-source-file">
+        {{ file }}
+      </a>
+    {% endif %}
+  {% endblock %}
+{% endblock %}

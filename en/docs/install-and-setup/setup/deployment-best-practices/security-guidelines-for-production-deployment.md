@@ -88,7 +88,7 @@ versions: TLS 1, TLS 1.1, and TLS 1.2. This can be done by replacing the <code>s
  following links for instructions:</p>
 <ul>
   <li><a href="{{base_path}}/install-and-setup/setup/security/configuring-transport-level-security/">Configuring Transport Level Security</a></li>
-  <li><a href="{{base_path}}/reference/supported-cipher-suites/">Supported Cipher Suites</a></li>
+  <li><a href="{{base_path}}/install-and-setup/setup/reference/supported-cipher-suites/">Supported Cipher Suites</a></li>
 </ul>    
 <div style="background-color:#ffffff; padding: 10px;">
 <strong>Note :</strong>
