@@ -442,7 +442,8 @@ This section provides a list of security guidelines for configuring the network
 <tr class="odd">
 <td><p>Check open ports and services</p></td>
 <td><p>Periodically check for open ports using port scanning tools and make sure that only the necessary ports are open to both internal and external networks. Be sure that only the ports relevant to your WSO2 products are open for communication. If there are other ports started, be sure to monitor them.</p>
-<p>For the full list of ports in all WSO2 products, see <a href="{{base_path}}/install-and-setup/setup/reference/default-product-ports/">Default Product Ports</a>.</p></td>
+<p>For the full list of ports in all WSO2 products, see <a href="{{base_path}}/install-and-setup/setup/reference/default-product-ports/">Default Product Ports</a>.</p>
+<p><strong>Note:</strong> Some ports may be dynamically allocated during server operations. When monitoring open ports, verify that any dynamic ports are expected and properly secured according to your deployment requirements. Dynamic port allocation can occur due to specific runtime configurations, JMX monitoring, clustering, and other operational requirements.</p></td>
 </tr>
 <tr class="even">
 <td><p>Configure device-level security</p></td>
