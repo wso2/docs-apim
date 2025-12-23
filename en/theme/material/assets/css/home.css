@@ -212,9 +212,10 @@
 .md-home-chat-button--inside-search {
     position: absolute;
     /* place the button above the right corner of the search input */
-    right: -28.3rem;
-    top: -2.2rem;
+    right: -25rem;
+    top: -2.7rem;
     transform: none;
+    padding: 2px;
     
     
     
@@ -240,8 +241,8 @@
     }
     /* move the button slightly inward on small screens so it doesn't overflow */
     .md-home-chat-button--inside-search {
-        right: -91%;
-        top: -40px;
+        right: -73%;
+        top: -50px;
     }
 }
 
@@ -263,6 +264,40 @@
 .md-home-chat-button img {
     height: 1.2rem;
     width: 1.2rem;
+}
+
+/* Apply header-style Ask AI button visuals to home Ask AI button
+   Uses theme-aware CSS variables (defined in header template) with fallbacks */
+#site-chat-toggle-home.md-home-chat-button,
+.md-home-chat-button--inside-search#site-chat-toggle-home,
+.md-home-chat-button#site-chat-toggle-home {
+    /* use header-defined variables when available; provide sensible fallbacks */
+    box-shadow: var(--docai-header-btn-shadow, 0 8px 20px rgba(16,24,40,0.06));
+    background: var(--docai-header-btn-bg, var(--md-default-bg-color));
+    color: var(--docai-header-btn-color, var(--md-default-fg-color));
+    padding: 8px 12px;
+    min-height: 44px;
+    border-radius: 0.9rem; /* soft rounded corners */
+    border: 1px solid rgba(0,0,0,0.04);
+    cursor: pointer;
+    transition: box-shadow 140ms ease, transform 120ms ease, background 120ms ease;
+    will-change: box-shadow, transform, background;
+    align-items: center;
+}
+
+#site-chat-toggle-home.md-home-chat-button:hover,
+.md-home-chat-button--inside-search#site-chat-toggle-home:hover,
+.md-home-chat-button#site-chat-toggle-home:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 34px rgba(16,24,40,0.12);
+    background: var(--docai-header-btn-bg, var(--md-default-bg-color));
+}
+
+/* Icon sizing for home Ask AI button to match header */
+#site-chat-toggle-home img,
+#site-chat-toggle-home .md-home-chat-button img {
+    height: 1.4rem;
+    width: 1.4rem;
 }
 
 .md-search__icon[for=__search] svg:first-child {

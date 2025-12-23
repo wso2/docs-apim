@@ -134,7 +134,8 @@
             <!-- Inline chat button placed inside the search input area for home page -->
             <button id="site-chat-toggle-home" class="md-home-chat-button md-home-chat-button--inside-search" aria-label="Open chat" title="Open chat"
               onclick="(function(ev){ ev && ev.preventDefault(); try{ if (window.openSiteChat && typeof window.openSiteChat === 'function') { window.openSiteChat(); } else { window.__openSiteChatRequested = (window.__openSiteChatRequested || 0) + 1; console.log('Queued openSiteChat request, count=', window.__openSiteChatRequested); } } catch(e){ console.error('home chat onclick error', e); } })(event)">
-              <img src="{{ 'images/DocAi.svg' | url }}" alt="Chat" />
+              <img src="{{ 'images/GenAI (1).svg' | url }}" alt="DocAI" style="width:20px; height:20px; vertical-align:middle;" />
+              <span class="md-home-chat-text" style="display:inline-block; margin-left:1px; vertical-align:middle; font-weight:600; font-size:14px;">Ask AI</span>
             </button>
           </div>
         </div>
