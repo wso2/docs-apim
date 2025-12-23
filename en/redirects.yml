@@ -696,13 +696,6 @@
 'observe/api-manager/traces/monitoring-with-opentelemetry.md': '{{SITE_URL}}/monitoring/observability/traces/monitoring-with-opentelemetry/'
 'observe/api-manager/metrics/jmx-based-monitoring.md': '{{SITE_URL}}/monitoring/observability/metrics/jmx-based-monitoring/'
 
-# --- Install and Setup (Unchanged top-level) ---
-'install-and-setup/install-and-setup-overview.md': '{{SITE_URL}}/install-and-setup/install-and-setup-overview/'
-'install-and-setup/install/installation-prerequisites.md': '{{SITE_URL}}/install-and-setup/install/installation-prerequisites/'
-'install-and-setup/install/installing-the-product/installing-api-m-runtime.md': '{{SITE_URL}}/install-and-setup/install/installing-the-product/installing-api-m-runtime/'
-'install-and-setup/install/installing-the-product/running-the-api-m.md': '{{SITE_URL}}/install-and-setup/install/installing-the-product/running-the-api-m/'
-'install-and-setup/setup/setting-up-databases/overview.md': '{{SITE_URL}}/install-and-setup/setup/setting-up-databases/overview/'
-
 'design/api-definitions/create-a-rest-api-from-an-openapi-definition.md': '{{SITE_URL}}/manage-apis/design/create-api/create-rest-api/create-a-rest-api-from-an-openapi-definition/'
 'design/create-api/create-rest-api/create-a-rest-api-from-an-openapi-definition.md': '{{SITE_URL}}/manage-apis/design/create-api/create-rest-api/create-a-rest-api-from-an-openapi-definition/'
 'design/create-api/create-rest-api/create-a-rest-api.md': '{{SITE_URL}}/manage-apis/design/create-api/create-rest-api/create-a-rest-api/'
