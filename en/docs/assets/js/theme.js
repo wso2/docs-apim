@@ -1,12 +1,12 @@
-/*!
- * Copyright (c) 2019, WSO2 Inc. (http://www.wso2.org) All Rights Reserved.
+/**
+ * Copyright (c) 2023-2025, WSO2 LLC. (https://www.wso2.com).
  *
- * WSO2 Inc. licenses this file to you under the Apache License,
+ * WSO2 LLC. licenses this file to you under the Apache License,
  * Version 2.0 (the "License"); you may not use this file except
  * in compliance with the License.
  * You may obtain a copy of the License at
  *
- * http://www.apache.org/licenses/LICENSE-2.0
+ *     http://www.apache.org/licenses/LICENSE-2.0
  *
  * Unless required by applicable law or agreed to in writing,
  * software distributed under the License is distributed on an
@@ -16,99 +16,160 @@
  * under the License.
  */
 
-/*
-* Handle opening external links in a new tab
-*/
+// Initialize version dropdown
+function initVersionDropdown() {
+  const dropdown = document.querySelector('.md-header__version-select-dropdown');
+  
+  if (dropdown) {
+    // Add a click event listener to the dropdown link
+    const dropdownLink = dropdown.querySelector('.dropdown-link');
 
-(function() {
-    var links = document.links;
-    for (var i = 0, linksLength = links.length; i < linksLength; i++) {
-        if (links[i].hostname != window.location.hostname) {
-            links[i].target = "_blank";
-            links[i].setAttribute("rel", "noopener noreferrer");
-            links[i].className += " externalLink";
-        } else {
-            links[i].className += " localLink";
-        }
+    if (dropdownLink) {
+      // Remove any existing event listeners by cloning
+      const newDropdownLink = dropdownLink.cloneNode(true);
+      dropdownLink.parentNode.replaceChild(newDropdownLink, dropdownLink);
+      
+      newDropdownLink.addEventListener('click', function(event) {
+        event.preventDefault();
+        event.stopPropagation();
+        dropdown.classList.toggle('open');
+      });
     }
-    var jsonTreeInputs = document.getElementsByClassName('jsonTreeInput');
-    if(jsonTreeInputs && jsonTreeInputs.length > 0){
-        for( var i=0; i < jsonTreeInputs.length; i++){
-            try {
-                var jsonTreeInput = jsonTreeInputs[i];
-                var jsonTreeOutput = jsonTreeInput.previousElementSibling;
-                var level = jsonTreeInput.getAttribute('data-level');
-                var levelInteger = level ? parseInt(level) : 1;
-                var formatter = new JSONFormatter(JSON.parse(jsonTreeInput.innerHTML), levelInteger, { hoverPreviewEnabled: false });
-                jsonTreeOutput.innerHTML = '';
-                jsonTreeOutput.appendChild(formatter.render());
-                jsonTreeInput.style.display = 'none';
-            } catch (e) {
-                console.error(e);
-            } 
-        }
-        
-    }
-    
-})();
 
-/*
- * Initialize custom dropdown component
- */
-var dropdowns = document.getElementsByClassName('md-tabs__dropdown-link');
-var dropdownItems = document.getElementsByClassName('mb-tabs__dropdown-item');
-
-function indexInParent(node) {
-    var children = node.parentNode.childNodes;
-    var num = 0;
-    for (var i=0; i < children.length; i++) {
-         if (children[i]==node) return num;
-         if (children[i].nodeType==1) num++;
-    }
-    return -1;
+    // Add a click event listener to close dropdown when clicking outside
+    document.addEventListener('click', function(event) {
+      if (!dropdown.contains(event.target)) {
+        dropdown.classList.remove('open');
+      }
+    });
+  }
 }
 
-for (var i = 0; i < dropdowns.length; i++) {
-    var el = dropdowns[i];
-    var openClass = 'open';
+// Run after DOM is ready - single initialization only
+let versionDropdownInitialized = false;
+document.addEventListener('DOMContentLoaded', function() {
+  if (!versionDropdownInitialized) {
+    initVersionDropdown();
+    versionDropdownInitialized = true;
+  }
+});
 
-    el.onclick = function () {
-        if (this.parentElement.classList) {
-            this.parentElement.classList.toggle(openClass);
-        } else {
-            var classes = this.parentElement.className.split(' ');
-            var existingIndex = classes.indexOf(openClass);
+// Wrap tabbed content and nav items in DOMContentLoaded
+document.addEventListener('DOMContentLoaded', function() {
+  // Add a class to content tabs that has multiple child elements rather than a code block
+  document.querySelectorAll('.tabbed-content').forEach(tabbedContent => {
+    const tabbedBlocks = Array.from(tabbedContent.querySelectorAll('.tabbed-block'));
+    
+    // Check if each .tabbed-block has more than 1 child or if its immediate child is not .highlight
+    const shouldAddClass = tabbedBlocks.some(tabbedBlock => 
+      tabbedBlock.children.length > 1 || !tabbedBlock.firstElementChild.classList.contains('highlight')
+    );
 
-            if (existingIndex >= 0)
-                classes.splice(existingIndex, 1);
-            else
-                classes.push(openClass);
+    if (shouldAddClass) {
+      tabbedContent.classList.add('tab_with_no_code');
+    }
+  });
 
-            this.parentElement.className = classes.join(' ');
-        }
-    };
-};
+  // Toggle active state of nested nav items
+  const activeNavItems = document.querySelectorAll('.md-nav__list > .md-nav__item.md-nav__item--active.md-nav__item--nested');
+  
+  if (activeNavItems) {
+    activeNavItems.forEach((item) => {
+      const checkbox = item.querySelector('input[type="checkbox"].md-nav__toggle.md-toggle');
+      
+      if (checkbox) {
+        checkbox.checked = true;
+      }
+    });
+  }
+});
+
+/*
+ * Handle opening external links in a new tab
+ * and initialize JSON tree formatter
+ */
+document.addEventListener('DOMContentLoaded', function() {
+  // Open external links in new tab
+  var links = document.links;
+  for (var i = 0, linksLength = links.length; i < linksLength; i++) {
+    if (links[i].hostname != window.location.hostname) {
+      links[i].target = "_blank";
+      links[i].setAttribute("rel", "noopener noreferrer");
+      links[i].className += " externalLink";
+    } else {
+      links[i].className += " localLink";
+    }
+  }
+  
+  // Initialize JSON tree formatter
+  var jsonTreeInputs = document.getElementsByClassName('jsonTreeInput');
+  if (jsonTreeInputs && jsonTreeInputs.length > 0) {
+    for (var i = 0; i < jsonTreeInputs.length; i++) {
+      try {
+        var jsonTreeInput = jsonTreeInputs[i];
+        var jsonTreeOutput = jsonTreeInput.previousElementSibling;
+        var level = jsonTreeInput.getAttribute('data-level');
+        var levelInteger = level ? parseInt(level) : 1;
+        var formatter = new JSONFormatter(JSON.parse(jsonTreeInput.innerHTML), levelInteger, { hoverPreviewEnabled: false });
+        jsonTreeOutput.innerHTML = '';
+        jsonTreeOutput.appendChild(formatter.render());
+        jsonTreeInput.style.display = 'none';
+      } catch (e) {
+        console.error(e);
+      }
+    }
+  }
+});
+
+// Set last vsited valid page in session storage
+window.addEventListener("DOMContentLoaded", function () {
+  fetch(window.location.href, {
+    method: "GET",
+    headers: {
+      "Content-Type": "application/json",
+    },
+  }).then((response) => {
+    if (response.status !== 404) {
+      sessionStorage.setItem("lastValidPage", window.location.href);
+    }
+  });
+});
 
 /* 
  * Reading versions
  */
-var pageHeader = document.getElementById('page-header');
-var docSetLang = pageHeader.getAttribute('data-lang');
+let versionsLoaded = false;
+window.addEventListener('DOMContentLoaded', function() {
+  if (versionsLoaded) return;
+  versionsLoaded = true;
+  
+  var pageHeader = document.getElementById('page-header');
+  var docSetLang = pageHeader.getAttribute('data-lang') == null ? 'en' : pageHeader.getAttribute('data-lang');
 
-(window.location.pathname.split('/')[1] !== docSetLang) ? 
-    docSetLang = '' :
-    docSetLang = docSetLang + '/';
+  (window.location.pathname.split('/')[1] !== docSetLang) ? 
+      docSetLang = '' :
+      docSetLang = docSetLang + '/';
 
-var docSetUrl = window.location.origin + '/' + docSetLang;
-var request = new XMLHttpRequest();
+  var docSetUrl = window.location.origin + '/' + docSetLang;
+  
+  // Try to load from local first, fallback to remote
+  var versionsUrl = docSetUrl + 'versions/assets/versions.json';
+  
+  var request = new XMLHttpRequest();
 
-request.open('GET', docSetUrl +
-             'versions/assets/versions.json', true);
+  request.open('GET', versionsUrl, true);
+  
+  // Add error handler
+  request.onerror = function() {
+    console.error("Failed to load versions.json. CORS or network error.");
+    // For development, you can add mock data here
+    console.log("You can create a local versions.json file at: /en/versions/assets/versions.json");
+  };
 
-request.onload = function() {
-  if (request.status >= 200 && request.status < 400) {
+  request.onload = function() {
+    if (request.status >= 200 && request.status < 400) {
 
-      var data = JSON.parse(request.responseText);
+        var data = JSON.parse(request.responseText);
       var dropdown =  document.getElementById('version-select-dropdown');
       var checkVersionsPage = document.getElementById('current-version-stable');
       
@@ -131,8 +192,6 @@ request.onload = function() {
                   else {
                       url = docSetUrl + url;
                   }
-
-                  liElem.className = 'md-tabs__item mb-tabs__dropdown';
                   liElem.innerHTML =  '<a href="' + url + '" target="' + 
                       target + '">' + key + '</a>';
 
@@ -193,115 +252,8 @@ request.onload = function() {
   } else {
       console.error("We reached our target server, but it returned an error");
   }
-};
+  };
 
-request.onerror = function() {
-    console.error("There was a connection error of some sort");
-};
-
-request.send();
-
-/* 
- * Initialize highlightjs 
- */
-hljs.initHighlightingOnLoad();
-
-/*
- * Handle TOC toggle
- */
-var tocBtn = document.querySelector('.md-sidebar.md-sidebar--secondary #tocToggleBtn');
-var tocClass = document.getElementsByTagName('main')[0];
-
-if (tocBtn) {
-    tocBtn.onclick = function () {
-        event.preventDefault();
-        tocClass.classList.toggle('hide-toc');
-        if (tocBtn.innerHTML === "keyboard_arrow_right") {
-            tocBtn.innerHTML = "keyboard_arrow_left";
-        } else {
-            tocBtn.innerHTML = "keyboard_arrow_right";
-        }
-    };
-}
-
-
-function scrollerPosition(mutation) {
-    var blurList = document.querySelectorAll(".md-sidebar__inner > .md-nav--secondary > ul li > .md-nav__link[data-md-state='blur']");
-
-    listElems.forEach(function(el) {
-        if (el.classList) {
-            el.classList.remove('active');
-        }
-    });
-
-    if (blurList.length > 0) {
-        if (mutation.target.getAttribute('data-md-state') === 'blur') {
-            if (mutation.target.parentNode.querySelector('ul li')) {
-                mutation.target.parentNode.querySelector('ul li').classList.add('active');
-            } else {
-                setActive(mutation.target.parentNode);
-            }
-        } else {
-            mutation.target.parentNode.classList.add('active');
-        }
-    } else {
-        if (listElems.length > 0) {
-            listElems[0].classList.add('active');
-        }
-    }
-}
-
-function setActive(parentNode, i) {
-    i = i || 0;
-    if (i === 5) {
-        return;
-    }
-    if (parentNode.nextElementSibling) {
-        parentNode.nextElementSibling.classList.add('active');
-        return;
-    }
-    setActive(parentNode.parentNode.parentNode.parentNode, ++i);
-}
-
-document.addEventListener("DOMContentLoaded", function() {
-    document.addEventListener("click", function(event) {
-        let link = event.target.closest("a");
-        if (link && link.href) {
-        if (typeof gtag === 'function') {
-            gtag('event', 'link_click', {
-            'event_category': 'engagement',
-            'event_label': link.textContent.trim(),
-            'link_url': link.href,
-            'current_page': document.location.href
-            });
-        }
-        }
-    });
+  request.send();
 });
 
-document.addEventListener("DOMContentLoaded", function () {
-    var searchInput = document.querySelector("input.md-search__input");
-    let timeout = null;
-
-    if (searchInput) {
-        searchInput.addEventListener("input", function (event) {
-            clearTimeout(timeout);
-            timeout = setTimeout(function () {
-                let searchTerm = event.target.value.trim();
-                gtag("event", "search", {
-                    search_term: searchTerm
-                });
-            }, 500);
-        });
-    }
-});
-
-/*
- * Fixes the issue related to clicking on anchors and landing somewhere below it
- */
-
-window.addEventListener("hashchange", function () {
-
-    window.scrollTo(window.scrollX, window.scrollY - 90, 'smooth');
-
-});
