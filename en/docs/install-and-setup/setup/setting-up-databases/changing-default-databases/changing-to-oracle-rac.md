@@ -57,8 +57,8 @@ Copy the Oracle JDBC libraries (for example, the `<ORACLE_HOME>/jdbc/lib/ojdbc14
     SQL> @<API-M_HOME>/dbscripts/apimgt/oracle_rac.sql
     ```
 
-!!! note
-    As the `WSO2_MB_STORE` DB is not shared and does not contain data that needs to be migrated, it is recommended to use the default H2 for `WSO2_MB_STORE_DB` even in production.
+!!! warning
+    Due to a known limitation in H2 databases that can cause frequent database crashes in production environments, it is recommended to configure an external database for `WSO2_MB_STORE_DB` instead of using the default H2 database. For more information on this H2 limitation, see [H2 Database Issue #4052](https://github.com/h2database/h2database/issues/4052).
     
 !!! warning "Troubleshooting"
     If you encounter the following error while using the default H2 database as the MB store database, follow the instructions in this section. Note that this error will only occur if the MB store database is corrupted.
