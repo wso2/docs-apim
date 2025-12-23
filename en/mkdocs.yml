@@ -816,10 +816,12 @@ plugins:
     # Extra
 extra_css:
     - assets/lib/highlightjs/default.min.css
+    - assets/css/chat.css
     - assets/css/orange-palette.css
     - assets/css/theme.css
     - assets/lib/json-formatter/json-formatter.css
 extra_javascript:
+    - assets/js/chat.js
     - assets/lib/json-formatter/json-formatter.umd.js
     - assets/lib/highlightjs/highlight.min.js
     - assets/js/theme.js

@@ -42,7 +42,7 @@
 }
 
 .md-home-search-input-label {
-    margin-bottom: 0.5em;
+    margin-bottom: 0.2em;
 }
 
 .md-home-search-input-description {
@@ -52,7 +52,14 @@
 }
 
 .md-home-sections {
-    max-width: var(--md-main-content-max-width);
+    margin-bottom: 5rem !important;
+
+}
+
+/* Reduce spacing between the two paragraphs on the home description section */
+.description-section .leftContent p {
+    margin-top: 0.01em;
+    margin-bottom: 0.01em;
 }
 
 .md-column-grid {
@@ -60,13 +67,14 @@
     display: flex;
     align-items: start;
     justify-content: space-between;
+    flex-wrap: wrap; /* allow cards to wrap to a second row */
 }
 
 .md-grid-column {
-    width: 32%;
+    width: 31%; /* roughly 3 columns per row */
     display: inline-block;
     vertical-align: top;
-    margin: 20px;
+    margin: 12px 0; /* slimmer margins to fit three columns */
 }
 
 .md-grid-column:last-child {
@@ -164,6 +172,15 @@
     max-width: 100%;
 }
 
+/* Keep the search input from shrinking when the search toggle is activated or when the input is focused */
+[data-md-toggle=search]:checked~.md-container .md-home-search-container .md-search__inner,
+.md-home-search-container .md-search__inner:focus-within,
+.md-home-search-container .md-search__input:focus {
+    width: 600px !important;
+    max-width: 100% !important;
+    flex: 0 0 auto !important;
+}
+
 [dir=ltr] .md-search__input {
     padding-left: 2.8rem;
     height: 100%;
@@ -175,6 +192,113 @@
 
 .md-search__form {
     height: 2.8rem;
+}
+
+/* Prevent the search form from visually collapsing when activated */
+.md-home-search-container .md-search__form {
+    min-width: 360px;
+}
+
+.md-home-search-row {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+}
+
+.md-search-with-chat {
+    position: relative;
+    display: inline-block;
+}
+
+.md-home-chat-button--inside-search {
+    position: absolute;
+    /* place the button above the right corner of the search input */
+    right: -25rem;
+    top: -2.7rem;
+    transform: none;
+    padding: 2px;
+    
+    
+    
+    border-radius: 50%;
+    box-shadow: var(--md-shadow-z1);
+    z-index: 20;
+}
+
+/* When search grows on focus or on wide screens ensure button stays aligned */
+.md-search__inner:focus-within + .md-home-chat-button--inside-search,
+.md-search-with-chat .md-home-chat-button--inside-search {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+@media screen and (max-width: 48em) {
+    .md-search-with-chat {
+        width: 100%;
+    }
+    .md-search-with-chat .md-search__inner {
+        width: 100%;
+    }
+    /* move the button slightly inward on small screens so it doesn't overflow */
+    .md-home-chat-button--inside-search {
+        right: -73%;
+        top: -50px;
+    }
+}
+
+.md-home-chat-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 3;
+    border-radius: 0.35rem;
+    
+    box-shadow: var(--md-shadow-z1);
+    border: none;
+    cursor: pointer;
+    
+    position: relative; /* ensure z-index takes effect */
+    pointer-events: auto !important; /* ensure clickable */
+}
+
+.md-home-chat-button img {
+    height: 1.2rem;
+    width: 1.2rem;
+}
+
+/* Apply header-style Ask AI button visuals to home Ask AI button
+   Uses theme-aware CSS variables (defined in header template) with fallbacks */
+#site-chat-toggle-home.md-home-chat-button,
+.md-home-chat-button--inside-search#site-chat-toggle-home,
+.md-home-chat-button#site-chat-toggle-home {
+    /* use header-defined variables when available; provide sensible fallbacks */
+    box-shadow: var(--docai-header-btn-shadow, 0 8px 20px rgba(16,24,40,0.06));
+    background: var(--docai-header-btn-bg, var(--md-default-bg-color));
+    color: var(--docai-header-btn-color, var(--md-default-fg-color));
+    padding: 8px 12px;
+    min-height: 44px;
+    border-radius: 0.9rem; /* soft rounded corners */
+    border: 1px solid rgba(0,0,0,0.04);
+    cursor: pointer;
+    transition: box-shadow 140ms ease, transform 120ms ease, background 120ms ease;
+    will-change: box-shadow, transform, background;
+    align-items: center;
+}
+
+#site-chat-toggle-home.md-home-chat-button:hover,
+.md-home-chat-button--inside-search#site-chat-toggle-home:hover,
+.md-home-chat-button#site-chat-toggle-home:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 34px rgba(16,24,40,0.12);
+    background: var(--docai-header-btn-bg, var(--md-default-bg-color));
+}
+
+/* Icon sizing for home Ask AI button to match header */
+#site-chat-toggle-home img,
+#site-chat-toggle-home .md-home-chat-button img {
+    height: 1.4rem;
+    width: 1.4rem;
 }
 
 .md-search__icon[for=__search] svg:first-child {
