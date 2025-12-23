@@ -36,21 +36,19 @@ def load_nav_behaviors():
 
 def parse_json(file_path):
     features_to_remove = {"feature": {}, "page": []}
-    if not os.path.exists(file_path):
-        # If features.json is not present, return default empty structure.
-        return features_to_remove
-
     with open(file_path, 'r') as json_file:
-        parse_data = json.load(json_file)
-        for feature, details in parse_data.items():
-            enabled = details.get('enabled', True)
-            page = details.get('page', [])
+         parse_data = json.load(json_file)
+         for feature, details in parse_data.items():
+            enabled = details['enabled']
+            page = details['page']
             features_to_remove['feature'][feature] = enabled
-
+            
             if not enabled:
                 features_to_remove['page'].extend(page)
-
+    json_file.close()
     return features_to_remove
+
+    files_to_remove = parse_json(os.path.join(os.getcwd(),'features.json'))
 
 def on_files(files, config):
     if os.getenv("ENABLE_HOOKS") == "true":

@@ -220,15 +220,21 @@
 }
 .split-view-panel.resizable {
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 66464215f (Add ui changes)
   /* Allow the panel to be fluid while keeping sensible constraints */
   min-width: 260px; /* allow smaller panels on small laptops/tablets */
   max-width: 100%; /* default to half the screen for balanced layout */
   width: 25%; /* default starting width (can be overridden by inline style or JS) */
   box-sizing: border-box;
+<<<<<<< HEAD
 =======
   min-width: 400px;
   max-width: calc(100% - 200px);
 >>>>>>> 66ef09746 (Add chatbot)
+=======
+>>>>>>> 66464215f (Add ui changes)
 }
 .split-view-content {
   width: 100%;
@@ -337,6 +343,7 @@
     border-left: none;
     border-top: 2px solid #e0e0e0;
 <<<<<<< HEAD
+<<<<<<< HEAD
     min-height: 180px;
     max-height: calc(60% - 48px);
     width: 100% !important;
@@ -344,6 +351,11 @@
     min-height: 200px;
     max-height: calc(100% - 200px);
 >>>>>>> 66ef09746 (Add chatbot)
+=======
+    min-height: 180px;
+    max-height: calc(60% - 48px);
+    width: 100% !important;
+>>>>>>> 66464215f (Add ui changes)
   }
   .split-view-resize-handle {
     width: 100%;
@@ -354,7 +366,6 @@
   }
 }
 
-<<<<<<< HEAD
 /* Extra small screens: make split view full-screen stacked and ensure controls are reachable */
 @media (max-width: 480px) {
   .split-view-header {
@@ -379,8 +390,6 @@
   }
 }
 
-=======
->>>>>>> 66ef09746 (Add chatbot)
 /* Clean state-based visibility */
 body.split-view-is-active .site-chat-toggle {
   display: none !important;
