@@ -370,6 +370,7 @@
 'design/prototype-api/deploy-and-test-mock-apis.md': '{{SITE_URL}}/design/prototype-api/create-a-prototype-api/'
 'design/prototype-api/create-a-prototype-api.md': '{{SITE_URL}}/design/prototype-api/overview/'
 'deploy-and-publish/deploy-on-gateway/api-gateway/message-tracing.md': '{{SITE_URL}}/get-started/about-this-release/#removed-features-and-functionalities'
+'deploy-and-publish/deploy-on-gateway/api-gateway/passing-enduser-attributes-to-the-backend-via-api-gateway.md': '{{SITE_URL}}/api-gateway/passing-enduser-attributes-to-the-backend-via-api-gateway'
 'develop/customizations/customizing-the-developer-portal/customize-api-listing/categorizing-and-grouping-apis/api-category-based-grouping.md': '{{SITE_URL}}/reference/customize-product/customizations/customizing-the-developer-portal/customize-api-listing/api-category-based-grouping/'
 'administer/logging-and-monitoring/logging/configuring-logging.md': '{{SITE_URL}}/observe/api-manager/configuring-logging/'
 'mcp/overview.md': '{{SITE_URL}}/ai-gateway/mcp-gateway/overview/'
@@ -604,6 +605,7 @@
 'install-and-setup/setup/reference/common-runtime-and-configuration-artifacts.md': '{{SITE_URL}}/reference/common-runtime-and-configuration-artifacts/'
 'install-and-setup/setup/reference/default-product-ports.md': '{{SITE_URL}}/reference/default-product-ports/'
 'install-and-setup/setup/reference/product-compatibility.md': '{{SITE_URL}}/reference/product-compatibility/'
+'install-and-setup/ProductCompatibility.md': '{{SITE_URL}}/reference/product-compatibility/'
 'install-and-setup/setup/deployment-best-practices/performance-tests-results.md': '{{SITE_URL}}/reference/performance-tests-results/'
 'install-and-setup/setup/deployment-best-practices/performance-test-results-token-persistence.md': '{{SITE_URL}}/reference/performance-test-results-token-persistence/'
 'administer/governance/api-governance-api-creator-capabilities.md': '{{SITE_URL}}/api-design-manage/governance/api-governance-api-creator-capabilities/'
@@ -685,6 +687,7 @@
 'api-analytics/choreo-analytics/configure-alerts.md': '{{SITE_URL}}/monitoring/api-analytics/choreo-analytics/configure-alerts/'
 'api-analytics/on-prem/elk-installation-guide.md': '{{SITE_URL}}/monitoring/api-analytics/on-prem/elk-installation-guide/'
 'api-analytics/on-prem/datadog-installation-guide.md': '{{SITE_URL}}/monitoring/api-analytics/on-prem/datadog-installation-guide/'
+'monitoring/moesif-analytics/moesif-integration-guide.md': '{{SITE_URL}}/monitoring/api-analytics/moesif-analytics/moesif-integration-guide/'
 
 # --- Observe (Moved to monitoring/observability) ---
 'observe/observe-overview.md': '{{SITE_URL}}/monitoring/observability/observability-overview/'

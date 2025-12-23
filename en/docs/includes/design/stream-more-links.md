@@ -1,10 +1,10 @@
 - Learn more on the concepts that you need to know when creating a Streaming API:
 
     - [Endpoints](../../../../design/endpoints/endpoint-types/)
-    - [API Security](../../../../design/api-security/api-authentication/secure-apis-using-oauth2-tokens)
-    - [Rate Limiting](../../../../design/rate-limiting/rate-limiting-for-streaming-apis/)
+    - [API Security](../../../../../api-security/runtime/api-authentication/secure-apis-using-oauth2-tokens)
+    - [Rate Limiting](../../../../design/rate-limiting/set-streaming-api-limits/)
     - [Life Cycle Management](../../../../design/lifecycle-management/api-lifecycle/)
-    - [API Monetization](../../../../design/api-monetization/monetizing-an-api/)
+    - [API Monetization](../../../../../monitoring/api-monetization/monetizing-an-api)
     - [API Visibility](../../../../design/advanced-topics/control-api-visibility-and-subscription-availability-in-developer-portal/)
     - [API Documentation](../../../../design/api-documentation/add-api-documentation/)
     - [Custom Properties](../../../../design/create-api/adding-custom-properties-to-apis/)
