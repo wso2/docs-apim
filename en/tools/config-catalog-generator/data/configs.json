@@ -1660,6 +1660,27 @@
             "exampleFile": "apim.devportal.toml"
         },
         {
+            "title": "API-M Publisher Portal configurations",
+            "options": [
+                {
+                    "name": "apim.publisher",
+                    "required": false,
+                    "description": "Configures the API Publisher Portal",
+                    "params": [
+                        {
+                            "name": "use_legacy_async_parser",
+                            "type": "boolean",
+                            "required": false,
+                            "default": "false",
+                            "possible": "true,false",
+                            "description": "Enable the Legacy Async API Parser."
+                        }
+                    ]
+                }
+            ],
+            "exampleFile": "apim.publisher.toml"
+        },
+        {
             "title": "API-M CORS configurations",
             "options": [
                 {
