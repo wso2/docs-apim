@@ -1,7 +1,7 @@
 # Create a New API Version
 
 You need to create a new **API version** when you want to change a published API's behavior,
-authentication mechanism, resources, [throttling tiers]({{base_path}}/api-design-manage/design/rate-limiting/introducing-throttling-use-cases/), target audiences, etc. WSO2 does not recommend to modify a published API that has subscribers plugged into it.
+authentication mechanism, resources, [throttling tiers]({{base_path}}/manage-apis/design/rate-limiting/introducing-throttling-use-cases/), target audiences, etc. WSO2 does not recommend to modify a published API that has subscribers plugged into it.
 
 After creating a new version, you typically deploy it as a prototype for early promotion.
 A prototype can be used for testing, without a subscription, along with the published versions of the API. After a period of time of using the new version of the API in parallel with the older versions, you can publish the prototyped API and deprecate the older versions.

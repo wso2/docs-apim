@@ -32,7 +32,7 @@ Given below is how visibility levels work for users in different roles:
 4.  Save the API.
 
 ### Control API visibility using the REST API
-You can use the [existing REST API]({{base_path}}/reference/product-apis/restful-apis/) to control the visibility of the API. Add the following element to the request body, including the relevant visibility,
+You can use the [existing REST API]({{base_path}}/develop/product-apis/restful-apis/) to control the visibility of the API. Add the following element to the request body, including the relevant visibility,
 
 `"visibility" : "PUBLIC"        `
 
@@ -110,7 +110,7 @@ The diagram below depicts the relationship between the API's visibility and subs
 
 ### Control subscription availability using the REST API
 
-You can use the [existing REST API]({{base_path}}/reference/product-apis/restful-apis/) to control the subscription availability of the API. Add the following element to the request body including the relevant subscription availability.
+You can use the [existing REST API]({{base_path}}/develop/product-apis/restful-apis/) to control the subscription availability of the API. Add the following element to the request body including the relevant subscription availability.
 
 `"subscriptionAvailability" : "ALL_TENANTS"        `
 

@@ -46,7 +46,7 @@ In addition to using the built-in Key Manager as the IDP, WSO2 API Control Plane
 
 - For information on the architecture, see [API Analytics Architecture]({{base_path}}/monitoring/api-analytics/analytics-overview/#architecture/)
 
-- For information on working with Analytics, see the [API Analytics Getting Started Guide]({{base_path}}/monitoring//moesif-analytics/moesif-integration-guide/).
+- For information on working with Analytics, see the [API Analytics Getting Started Guide]({{base_path}}/monitoring/moesif-analytics/moesif-integration-guide/).
 
 ## Data Plane
 
