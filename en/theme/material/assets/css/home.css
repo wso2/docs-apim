@@ -42,7 +42,7 @@
 }
 
 .md-home-search-input-label {
-    margin-bottom: 0.2em;
+    margin-bottom: 0.5em;
 }
 
 .md-home-search-input-description {
@@ -52,13 +52,7 @@
 }
 
 .md-home-sections {
-    margin-bottom: 5rem !important;
-}
-
-/* Reduce spacing between the two paragraphs on the home description section */
-.description-section .leftContent p {
-    margin-top: 0.01em;
-    margin-bottom: 0.01em;
+    max-width: var(--md-main-content-max-width);
 }
 
 .md-column-grid {
