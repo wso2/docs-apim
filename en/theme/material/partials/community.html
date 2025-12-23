@@ -1,0 +1,37 @@
+<!--
+ * Copyright (c) 2023, WSO2 LLC. (https://www.wso2.com).
+ *
+ * WSO2 LLC. licenses this file to you under the Apache License,
+ * Version 2.0 (the "License"); you may not use this file except
+ * in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing,
+ * software distributed under the License is distributed on an
+ * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+ * KIND, either express or implied. See the License for the
+ * specific language governing permissions and limitations
+ * under the License.
+-->
+
+<div class="md-header__extra">
+  <div class="md-header__links">
+    <div class="md-header__link">
+      <button class="md-typeset md-button md-button--link md-button--small md-button--flex md-button--discord"
+              onclick="javascript:window.open('https://discord.com/invite/wso2', '_blank', 'noopener')">
+        <div class="md-icon">
+          {% set icon = "fontawesome/brands/discord" %}
+          {% include ".icons/" ~ icon ~ ".svg" %}
+        </div>
+        <label class="md-header__link__label">Get Help</label>
+      </button>
+      <button class="md-header__button md-icon md-icon--hover md-button--asgardeo-mini"
+              onclick="javascript:window.open('https://discord.com/invite/wso2', '_blank', 'noopener')">
+        {% set icon = "fontawesome/brands/discord" %}
+        {% include ".icons/" ~ icon ~ ".svg" %}
+      </button>
+    </div>
+  </div>
+</div>
