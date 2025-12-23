@@ -569,9 +569,11 @@ document.addEventListener('DOMContentLoaded', function() {
 
       function showPopupIfAllowed() {
         try {
-          // Don't show if chat panel is open
+          // Don't show if chat panel is open or split view is active
           const chatPanelEl = document.getElementById('site-chat');
           if (chatPanelEl && chatPanelEl.classList.contains('open')) return;
+          const splitActive = document.documentElement.classList.contains('split-view-is-active') || document.body.classList.contains('split-view-is-active');
+          if (splitActive) return; // suppress promotional popup while in split view
           if (popupEl) return; // already visible
           popupEl = createPopup();
           if (!popupEl) return;
