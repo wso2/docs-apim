@@ -39,8 +39,8 @@ To add labels to an API follow these steps:
 4. Click on **Basic Info** to access the API’s design configurations.  
 5. Click the **+** icon to attach the relevant labels to the API from the list of available labels.
 
-<a href="../../assets/img/governance/label_attach.png">
-  <img src="../../assets/img/governance/label_attach.png" alt="APIM Governance API Label Attach"/>
+<a href="{{base_path}}/assets/img/governance/label_attach.png">
+  <img src="{{base_path}}/assets/img/governance/label_attach.png" alt="APIM Governance API Label Attach"/>
 </a>
 
 ## API Compliance Dashboard
@@ -50,8 +50,8 @@ The **API Compliance Dashboard** provides a comprehensive view of the compliance
 1. Log in to the **API Manager Publisher Portal**.  
 2. Select an API and navigate to the **Compliance** section from the left panel.
 
-<a href="../../assets/img/governance/api_compliance.png">
-  <img src="../../assets/img/governance/api_compliance.png" alt="APIM Governance API Compliance"/>
+<a href="{{base_path}}/assets/img/governance/api_compliance.png">
+  <img src="{{base_path}}/assets/img/governance/api_compliance.png" alt="APIM Governance API Compliance"/>
 </a>
 
 
@@ -83,6 +83,6 @@ during the API Publish and Deploy stages. When a blocking policy is violated, th
 and the API creator is notified of the violation. A view similar to following will be displayed in the Publisher Portal
 when an API operation is blocked:
 
-<a href="../../assets/img/governance/api_blocking.png">
-  <img src="../../assets/img/governance/api_blocking.png" alt="APIM Blocked API Action"/>
+<a href="{{base_path}}/assets/img/governance/api_blocking.png">
+  <img src="{{base_path}}/assets/img/governance/api_blocking.png" alt="APIM Blocked API Action"/>
 </a>

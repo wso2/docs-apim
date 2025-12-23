@@ -18,17 +18,15 @@
 site_name: WSO2 API Manager Documentation
 site_description: Documentation for WSO2 API Manager
 site_author: WSO2
-site_url: https://apim-docs-stg.wso2.com/en/4.6.0/
+site_url: https://apim.docs.wso2.com/en/4.6.0/
 
 # Repository
 repo_name: wso2/docs-apim
 repo_url: https://github.com/wso2/docs-apim
-edit_uri: https://github.com/wso2/docs-apim/edit/revamp-4.6.0/en/docs/
+edit_uri: https://github.com/wso2/docs-apim/edit/4.6.0/en/docs/
 dev_addr: localhost:8000
-
 # Copyright
 copyright: WSO2 API Manager - Documentation
-
 # Configuration
 theme:
     name: material
@@ -72,12 +70,11 @@ nav:
     - Get Started:
           - Introduction: get-started/overview.md
           - Key Concepts: get-started/key-concepts.md
+          - Quick Start Guide: get-started/api-manager-quick-start-guide.md         
           - Architecture: get-started/apim-architecture.md
-          - Quick Start Guide: get-started/api-manager-quick-start-guide.md
           - Deployment Options:
               - Deployment Platforms: get-started/deployment-platforms.md
               - Deployment Patterns: get-started/deployment-patterns.md 
-              - Choosing Your Deployment Strategy: get-started/choosing-your-deployment-strategy.md
           - About this Release: get-started/about-this-release.md
 
     - Install & Setup:
@@ -317,6 +314,7 @@ nav:
                 - Import APIs From AWS API-Gateway to WSO2 API-M: api-design-manage/deploy-and-publish/publish-on-dev-portal/publish-aws-apis-in-the-dev-portal.md
 
     - API Developer Portal:
+        - Publish an API to Developer Portal: api-developer-portal/publish-an-api-to-dev-portal.md
         - Consume APIs Overview: api-developer-portal/consume-api-overview.md
         - Discover APIs:
             - Search: api-developer-portal/discover-apis/search.md
@@ -434,7 +432,7 @@ nav:
     - API Gateway:
         - Universal Gateway:
             - Overview of the WSO2 Universal Gateway: api-gateway/overview-of-the-api-gateway.md
-            - Gateway Policies: api-gateway/gateway-policies.md
+            - Deploy an API to Gateway: api-gateway/deploy-api-to-gateway.md
             - Response Caching: api-gateway/response-caching.md
             - Pass End User Attributes to the Backend: api-gateway/passing-enduser-attributes-to-the-backend-via-api-gateway.md
             - Gateway Environments: api-gateway/maintaining-separate-production-and-sandbox-gateways.md
@@ -444,7 +442,7 @@ nav:
                 - Universal Gateways with Dedicated Backends: api-gateway/api-gateways-with-dedicated-backends.md
                 - Mutual SSL Between Universal Gateway and Backend: api-gateway/mutual-ssl-between-api-gateway-and-backend.md
                 - Storing Custom Synapse Artifacts in the Gateway: api-gateway/custom-synapse-artifacts.md
-            - Universal Gateway Policies:
+            - Gateway Policies:
                 - Adding Dynamic Endpoints: api-gateway/policies/adding-dynamic-endpoints.md
                 - Adding a Class Mediator: api-gateway/policies/adding-a-class-mediator.md
                 - Adding a Non-Blocking Send Operation: api-gateway/policies/adding-a-non-blocking-send-operation.md
@@ -456,6 +454,7 @@ nav:
                 - Removing Specific Request Headers from Response: api-gateway/policies/removing-specific-request-headers-from-response.md
                 - Revoke One Time Tokens Policy: api-gateway/policies/revoke-one-time-tokens-policy.md
                 - Transforming API Message Payload: api-gateway/policies/transforming-api-message-payload.md
+                - Global Gateway Policies: api-gateway/gateway-policies.md
             - Threat Protectors:
                 - Gateway Threat Protectors: api-gateway/threat-protectors/gateway-threat-protectors-for-api-manager.md
                 - Regular Expression Threat Protection: api-gateway/threat-protectors/regular-expression-threat-protection-for-api-gateway.md
@@ -572,7 +571,7 @@ nav:
             - Metrics:
                 - JMX-Based Monitoring: monitoring/observability/metrics/jmx-based-monitoring.md
 
-    - Administer:
+    - Administration:
         - Overview: administer/admin-overview.md
         - Manage Users and Roles:
             - Introduction to User Management: administer/managing-users-and-roles/introduction-to-user-management.md
@@ -842,7 +841,7 @@ extra:
       - AI Gateway
       - API Analytics & Monetization
       - Key Manager
-      - Administer
+      - Administration
       - APIOps
       - Reference
     home_page_cards:
@@ -859,98 +858,6 @@ extra:
             url: Get started|Quick Start Guide
           - title: About This Release
             url: Get started|About this Release
-    - section:
-      - title: Deployment Options
-        icon: octicons/server-16
-        icon_color: icon-color-4
-        list_items:
-          - title: Deploy on VM
-            url: Install and Setup|Install|Run API-M
-          - title: Deploy on Kubernetes
-            url: Install and Setup|Install|Deploy on Kubernetes
-          - title: SaaS
-            url: https://wso2.com/bijira/docs/
-    - section:
-      - title: Setup
-        icon: octicons/gear-16
-        icon_color: icon-color-3
-        list_items:
-          - title: Install
-            url: Install and Setup|Install|Install API-M
-          - title: Deploy
-            url: Install and Setup|Setup|Overview
-          - title: Upgrade WSO2 API Manager
-            url: Install and Setup|Upgrade
-    - section:
-      - title: Developer Resources
-        icon: octicons/code-16
-        icon_color: icon-color-3
-        list_items:
-          - title: Product Rest APIs
-            url: Reference|Product REST APIs|Overview
-          - title: Tooling
-            url: Reference|API Controller (APICTL)
-          - title: SDKs
-            url: Consume APIs|Generating SDKs|Generate SDK in Developer Portal
-          - title: Configuration Catalog
-            url: Reference|Product|API-M Config Catalog
-    - section:
-      - title: Guides
-        icon: octicons/book-16
-        icon_color: icon-color-3
-        list_items:
-          - title: Designing APIs
-            url: Manage APIs|Design APIs Overview
-          - title: Create an API Product
-            url: Manage APIs|Design APIs|Create an API Product
-          - title: Authentication
-            url: Manage APIs|Design APIs|API Security|Authentication|Overview
-          - title: Authorization
-            url: Reference|Product|API-M Config Catalog
-    control_plain_cards:
-    - section:
-      - title: WSO2 API Control Plane
-        icon: octicons/gear-16
-        icon_color: icon-color-1
-        description: A Unified control plane which centrally manages and governs APIs across multiple Gateways
-        list_items:
-          - title: WSO2 API Control Plane Overview
-            url: Get Started|Architecture
-    data_plane_cards:
-    - section:
-      - title: WSO2 Universal Gateway
-        icon: octicons/tools-16
-        icon_color: icon-color-1
-        description: Secure and proxy API traffic with enterprise-grade features
-        list_items:
-          - title: WSO2 Universal Gateway Overview
-            url: API Gateway|Regular Gateway|Overview of the WSO2 Universal Gateway
-    - section:
-      - title: WSO2 Kubernetes Gateway
-        icon: octicons/link-external-16
-        icon_color: icon-color-1
-        description: Designed to build, deploy, and manage APIs in a cloud environment
-        list_items:
-          - title: WSO2 Kubernetes Gateway Overview
-            url: Install and Setup|Setup|Set up API Manager|Set up Kubernetes Gateway with APIM
-    - section:
-      - title: WSO2 Immutable Gateway
-        icon: octicons/mortar-board-16
-        icon_color: icon-color-1
-        description: An API Gateway for micro services, which is cloud-native, decentralized and developer centric
-        list_items:
-          - title: WSO2 Immutable Gateway Overview
-            url: get-started/apim-architecture/#immutable-gateway
-    - section:
-      - title: Federated Gateways
-        icon: octicons/mortar-board-16
-        icon_color: icon-color-1
-        description: Manage APIs spanning multiple cloud platforms, on-premises systems, or regions
-        list_items:
-          - title: AWS API Gateway
-            url: manage-apis/deploy-and-publish/federated-gateways/aws/deploy-on-aws-api-gateway/
-          - title: Solace Broker
-            url: tutorials/integrating-with-solace/
     expanded_navs:
     - title: Get Started
       options:
@@ -982,7 +889,7 @@ extra:
     - title: API Security
       options:
         - verticle-line-only
-    - title: Administer
+    - title: Administration
       options:
         - verticle-line-only
     - title: APIOps
@@ -1019,7 +926,7 @@ extra:
       API Security:
         icon: octicons/shield-check-16
         level: 1
-      Administer:
+      Administration:
         icon: octicons/person-16
         level: 1
       APIOps:
@@ -1049,7 +956,7 @@ extra:
             git_tag: v1.2.0.1
     site_version: 4.6.0
     #base_path: http://localhost:8000/en/4.6.0
-    base_path: https://apim-docs-stg.wso2.com/en/4.6.0
+    base_path: https://apim.docs.wso2.com/en/4.6.0
     envoy_path: https://www.envoyproxy.io/docs/envoy/v1.24.1
     redoc_theme: '{
         "colors": {

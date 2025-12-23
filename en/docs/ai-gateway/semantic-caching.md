@@ -52,15 +52,28 @@ Choose one of the following embedding providers and add the configuration to you
     ```
 
 ### 2. Vector Database Configuration
-Currently, only Zilliz is supported as the vector database provider. Configure Zilliz in your `deployment.toml` file as shown below:
 
-```toml
-[apim.ai.vector_db_provider]
-type = "zilliz"
-[apim.ai.vector_db_provider.properties]
-uri = "your-zilliz-instance-uri"
-token = "your-zilliz-token"
-```
+The Semantic Cache supports Zilliz and Milvus as vector database providers (**Support for additional vector database providers will be added soon**). Configure the desired provider in your `<APIM_HOME>/repository/conf/deployment.toml` file:
+
+=== "Zilliz"
+
+    ```toml
+    [apim.ai.vector_db_provider]
+    type = "zilliz"
+    [apim.ai.vector_db_provider.properties]
+    uri = "your-zilliz-instance-uri"
+    token = "your-zilliz-token"
+    ```
+
+=== "Milvus"
+
+    ```toml
+    [apim.ai.vector_db_provider]
+    type = "zilliz"
+    [apim.ai.vector_db_provider.properties]
+    uri = "http://localhost:19530"
+    token = "root:Milvus"
+    ```
 
 You can optionally specify a `ttl` property to control the time-to-live for cached entries. If not set, the default TTL is 3600 seconds.
 

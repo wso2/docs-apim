@@ -6,6 +6,8 @@ API consumers discover and access APIs from the **Developer Portal** of your WSO
 
 <img src="{{base_path}}/assets/img/get_started/architecture/developer-portal-overview.png" alt="developer portal of wso2 api manager">
 
+See [Publish an API to Developer Portal]({{base_path}}/api-developer-portal/publish-an-api-to-dev-portal/) to learn how to publish APIs to the Developer Portal.
+
 ## API Consumer Tasks
 
 The process of consuming an API from WSO2 API Manager involves the following steps:
