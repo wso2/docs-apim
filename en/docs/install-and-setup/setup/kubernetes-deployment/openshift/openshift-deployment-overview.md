@@ -59,6 +59,13 @@ Also
     ```dockerfile
     FROM wso2/wso2am:4.5.0
 
+    ARG USER=wso2carbon
+    ARG USER_HOME=/home/${USER}
+    ARG WSO2_SERVER_NAME=wso2am
+    ARG WSO2_SERVER_VERSION=4.5.0
+    ARG WSO2_SERVER=${WSO2_SERVER_NAME}-${WSO2_SERVER_VERSION}
+    ARG WSO2_SERVER_HOME=${USER_HOME}/${WSO2_SERVER}
+
     # Change directory permissions for OpenShift compatibility
     USER root
     RUN chgrp -R 0 ${USER_HOME} && chmod -R g=u ${USER_HOME} \
@@ -117,6 +124,14 @@ oc whoami
 oc project
 ```
 
+!!! warning "Important"
+    Always create a dedicated project for your deployments instead of using the ```default``` to ensure proper resource isolation and security policy enforcement. Using a separate project allows you to manage access control and quotas independently from cluster infrastructure services.
+
+    - **To create a new project**:
+      ```bash
+      oc new-project <PROJECT-NAME>
+      ```
+
 ### Step 3 - Create Secrets and Clone Helm Charts
 
 1. **Create Keystore Secret**:
@@ -132,6 +147,9 @@ oc project
 
    !!! tip
        You can find the default keystore and truststore files in the `repository/resources/security/` directory of any WSO2 API-M distribution.
+
+    !!! info "Note"
+        Make sure to create the secret within the same namespace used for installing the API Manager.
 
 2. **Clone WSO2 Helm Charts Repository**:
 
