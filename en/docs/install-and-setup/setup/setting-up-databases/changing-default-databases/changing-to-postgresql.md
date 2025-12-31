@@ -71,6 +71,14 @@ Follow the  instructions below to set up the PostgreSQL database and users.
 !!! warning
     Due to a known limitation in H2 databases that can cause frequent database crashes in production environments, it is recommended to configure an external database for `WSO2_MB_STORE_DB` instead of using the default H2 database. For more information on this H2 limitation, see [H2 Database Issue #4052](https://github.com/h2database/h2database/issues/4052).
     
+    To create tables in the MB store database (`WSO2_MB_STORE_DB`), execute the relevant script as shown below:
+    
+    For example, take `mb_store_db` as the database
+
+    ```sh
+    $ psql -U <USER_NAME> -d mb_store_db -f <API-M_HOME>/dbscripts/mb-store/postgresql-mb.sql -W
+    ```
+    
 !!! warning "Troubleshooting"
     If you encounter the following error while using the default H2 database as the MB store database, follow the instructions in this section. Note that this error will only occur if the MB store database is corrupted.
 

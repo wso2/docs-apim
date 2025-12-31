@@ -62,6 +62,14 @@ Follow the instructions below to set up an Oracle database.
 !!! warning
     Due to a known limitation in H2 databases that can cause frequent database crashes in production environments, it is recommended to configure an external database for `WSO2_MB_STORE_DB` instead of using the default H2 database. For more information on this H2 limitation, see [H2 Database Issue #4052](https://github.com/h2database/h2database/issues/4052).
     
+    To create tables in the MB store database (`WSO2_MB_STORE_DB`), login to the database via client and execute the relevant SQL file:
+     
+    For example, let's consider `mb_store_db` as the database.
+
+    ```sh
+    SQL> @<API-M_HOME>/dbscripts/mb-store/oracle-mb.sql
+    ```
+    
 !!! warning "Troubleshooting"
     If you encounter the following error while using the default H2 database as the MB store database, follow the instructions in this section. Note that this error will only occur if the MB store database is corrupted.
 
