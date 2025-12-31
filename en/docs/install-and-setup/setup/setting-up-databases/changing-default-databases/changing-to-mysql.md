@@ -142,6 +142,12 @@ Follow the  instructions below to set up a MySQL database:
     $ mysql -u apimadmin -p -Dapim_db < '<API-M_HOME>/dbscripts/apimgt/mysql.sql';
     ```
 
+3. Execute the relevant script to create tables in the MB store database (`WSO2_MB_STORE_DB`).
+
+    ```sh
+    $ mysql -u mbstoreuser -p -Dmb_store_db < '<API-M_HOME>/dbscripts/mb-store/mysql-mb.sql';
+    ```
+
 !!! warning
     Due to a known limitation in H2 databases that can cause frequent database crashes in production environments, it is recommended to configure an external database for `WSO2_MB_STORE_DB` instead of using the default H2 database. For more information on this H2 limitation, see [H2 Database Issue #4052](https://github.com/h2database/h2database/issues/4052).
     
