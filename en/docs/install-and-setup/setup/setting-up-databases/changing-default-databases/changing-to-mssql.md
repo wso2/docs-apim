@@ -75,8 +75,14 @@ $ pip install mssql-cli
     $ mssql-cli -U sharedadmin -P sharedadmin -d apim_db -i <API-M_HOME>/dbscripts/apimgt/mssql.sql;
     ```
 
-!!! note
-    As the `WSO2_MB_STORE` DB is not shared and does not contain data that needs to be migrated, it is recommended to use the default H2 for `WSO2_MB_STORE_DB` even in production.
+!!! warning
+    Due to a known limitation in H2 databases that can cause frequent database crashes in production environments, it is recommended to configure an external database for `WSO2_MB_STORE_DB` instead of using the default H2 database. For more information on this H2 limitation, see [H2 Database Issue #4052](https://github.com/h2database/h2database/issues/4052).
+    
+    To create tables in the MB store database (`WSO2_MB_STORE_DB`), execute the relevant script as shown below:
+
+    ```sh
+    $ mssql-cli -U mbstoreuser -P mbstoreuser -d mb_store_db -i <API-M_HOME>/dbscripts/mb-store/mssql-mb.sql;
+    ```
     
 !!! warning "Troubleshooting"
     If you encounter the following error while using the default H2 database as the MB store database, follow the instructions in this section. Note that this error will only occur if the MB store database is corrupted.
