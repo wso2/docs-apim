@@ -153,7 +153,7 @@ window.addEventListener('DOMContentLoaded', function() {
   var docSetUrl = window.location.origin + '/' + docSetLang;
   
   // Try to load from local first, fallback to remote
-  var versionsUrl = docSetUrl + '4.6.0/versions/assets/versions.json';
+  var versionsUrl = docSetUrl + 'versions/assets/versions.json';
   
   var request = new XMLHttpRequest();
 
