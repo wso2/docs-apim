@@ -816,7 +816,6 @@ plugins:
     # Extra
 extra_css:
     - assets/lib/highlightjs/default.min.css
-    - assets/css/orange-palette.css
     - assets/css/theme.css
     - assets/lib/json-formatter/json-formatter.css
 extra_javascript:
