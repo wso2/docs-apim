@@ -212,20 +212,23 @@
 }
 
 .md-search-with-chat {
-    position: relative;
-    display: inline-block;
+    /* use flex so the search input and chat button sit side-by-side */
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    width: 100%;
 }
 
 .md-home-chat-button--inside-search {
-    position: absolute;
-    /* place the button above the right corner of the search input */
-    right: -25rem;
-    top: -2.7rem;
+    /* place the button inline to the right of the search input */
+    position: static;
+    margin-left: 0.6rem;
     transform: none;
     padding: 2px;
     border-radius: 50%;
     box-shadow: var(--md-shadow-z1);
-    z-index: 20;
+    z-index: 3;
+    background: var(--docai-header-btn-bg, var(--md-default-bg-color));
 }
 
 /* When search grows on focus or on wide screens ensure button stays aligned */
@@ -239,14 +242,15 @@
 @media screen and (max-width: 48em) {
     .md-search-with-chat {
         width: 100%;
+        flex-direction: row;
     }
     .md-search-with-chat .md-search__inner {
         width: 100%;
     }
-    /* move the button slightly inward on small screens so it doesn't overflow */
+    /* on small screens keep the button visible and inline */
     .md-home-chat-button--inside-search {
-        right: -73%;
-        top: -50px;
+        margin-left: 0.5rem;
+        padding: 8px 12px;
     }
 }
 
