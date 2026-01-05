@@ -46,11 +46,11 @@ function initVersionDropdown() {
 }
 
 // Run after DOM is ready - single initialization only
-let versionDropdownInitialized = false;
+if (typeof window.versionDropdownInitialized === 'undefined') window.versionDropdownInitialized = false;
 document.addEventListener('DOMContentLoaded', function() {
-  if (!versionDropdownInitialized) {
+  if (!window.versionDropdownInitialized) {
     initVersionDropdown();
-    versionDropdownInitialized = true;
+    window.versionDropdownInitialized = true;
   }
 });
 
@@ -138,10 +138,10 @@ window.addEventListener("DOMContentLoaded", function () {
 /* 
  * Reading versions
  */
-let versionsLoaded = false;
+if (typeof window.versionsLoaded === 'undefined') window.versionsLoaded = false;
 window.addEventListener('DOMContentLoaded', function() {
-  if (versionsLoaded) return;
-  versionsLoaded = true;
+  if (window.versionsLoaded) return;
+  window.versionsLoaded = true;
   
   var pageHeader = document.getElementById('page-header');
   var docSetLang = pageHeader.getAttribute('data-lang') == null ? 'en' : pageHeader.getAttribute('data-lang');
@@ -153,7 +153,7 @@ window.addEventListener('DOMContentLoaded', function() {
   var docSetUrl = window.location.origin + '/' + docSetLang;
   
   // Try to load from local first, fallback to remote
-  var versionsUrl = docSetUrl + 'versions/assets/versions.json';
+  var versionsUrl = docSetUrl + '4.6.0/versions/assets/versions.json';
   
   var request = new XMLHttpRequest();
 
