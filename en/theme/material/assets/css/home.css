@@ -610,3 +610,51 @@
     border-left-width: 4px;
   }
 }
+
+/* Dark-mode overrides for the home Ask AI button. Use high-specificity selectors and
+   !important to override inline styles that may be present in the template. Targets
+   both the Material 'slate' color scheme and a generic 'dark' identifier. */
+[data-md-color-scheme=slate] #site-chat-toggle-home,
+[data-md-color-scheme=slate] .md-home-chat-button#site-chat-toggle-home,
+[data-md-color-scheme=slate] .md-home-chat-button--inside-search#site-chat-toggle-home,
+[data-md-color-scheme=dark] #site-chat-toggle-home,
+[data-md-color-scheme=dark] .md-home-chat-button#site-chat-toggle-home,
+[data-md-color-scheme=dark] .md-home-chat-button--inside-search#site-chat-toggle-home {
+    background: var(--docai-header-btn-bg-dark, #191818) !important;
+    color: var(--docai-header-btn-color-dark, #ffffff) !important;
+    /* border: 1px solid rgba(255,255,255,0.06) !important; */
+    box-shadow: var(--docai-header-btn-shadow-dark, 1px 2px 6px #111010) !important;
+}
+
+[data-md-color-scheme=slate] #site-chat-toggle-home:hover,
+[data-md-color-scheme=slate] .md-home-chat-button#site-chat-toggle-home:hover,
+[data-md-color-scheme=dark] #site-chat-toggle-home:hover,
+[data-md-color-scheme=dark] .md-home-chat-button#site-chat-toggle-home:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 34px rgba(2, 6, 23, 0.45) !important;
+    background: rgba(255,255,255,0.02) !important;
+}
+
+/* Icon swap: show the light icon by default, and the dark icon when the page
+   is in the slate/dark color-scheme. These rules use display to override
+   inline presence consistently. */
+.genai-icon {
+    display: inline-block !important;
+    width: 18px !important;
+    height: 18px !important;
+    vertical-align: middle !important;
+}
+
+.genai-icon--dark {
+    display: none !important;
+}
+
+[data-md-color-scheme=slate] .genai-icon--dark,
+[data-md-color-scheme=dark] .genai-icon--dark {
+    display: inline-block !important;
+}
+
+[data-md-color-scheme=slate] .genai-icon--light,
+[data-md-color-scheme=dark] .genai-icon--light {
+    display: none !important;
+}

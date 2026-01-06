@@ -17,380 +17,473 @@
 -->
 
 {% macro home_card_icon(icon) %}
-  {% if icon.endswith(".svg") or icon.endswith(".png") %}
-    {% include icon %}
-  {% else %}
-    {% include ".icons/" ~ icon ~ ".svg" %}
-  {% endif %}
+{% if icon.endswith(".svg") or icon.endswith(".png") %}
+{% include icon %}
+{% else %}
+{% include ".icons/" ~ icon ~ ".svg" %}
+{% endif %}
 {% endmacro %}
 
 {% extends "base.html" %}
 
 {% block styles %}
-  {{ super() }}
-  <link rel="stylesheet" href="{{ 'assets/css/home.css' | url }}">
+{{ super() }}
+<link rel="stylesheet" href="{{ 'assets/css/home.css' | url }}">
 {% endblock %}
 
 {% block extra_scripts %}
-  {{ super() }}
-  <script>
-    document.addEventListener('DOMContentLoaded', function() {
-      console.log('Home page extra_scripts DOMContentLoaded - home chat initializer running');
-      const homeBtn = document.getElementById('site-chat-toggle-home');
-      const globalToggle = document.getElementById('site-chat-toggle');
-      if (homeBtn) {
-        // Attach a non-inline listener as a robust fallback (build steps may strip inline onclick)
-        homeBtn.addEventListener('click', function(e) {
-          e.preventDefault();
-          console.log('Home chat button (fallback listener) clicked - attempting to open chat');
+{{ super() }}
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    console.log('Home page extra_scripts DOMContentLoaded - home chat initializer running');
+    const homeBtn = document.getElementById('site-chat-toggle-home');
+    const globalToggle = document.getElementById('site-chat-toggle');
+    if (homeBtn) {
+      // Attach a non-inline listener as a robust fallback (build steps may strip inline onclick)
+      homeBtn.addEventListener('click', function (e) {
+        e.preventDefault();
+        console.log('Home chat button (fallback listener) clicked - attempting to open chat');
 
+        if (window.openSiteChat && typeof window.openSiteChat === 'function') {
+          try { window.openSiteChat(); return; } catch (err) { console.error('fallback window.openSiteChat() failed', err); }
+        }
+
+        if (globalToggle) {
+          try { globalToggle.click(); return; } catch (err) { console.error('fallback clicking global toggle failed', err); }
+        }
+
+        // Queue if chat script not available yet
+        window.__openSiteChatRequested = (window.__openSiteChatRequested || 0) + 1;
+        console.log('Fallback: queued openSiteChat request, count=', window.__openSiteChatRequested);
+      });
+
+      homeBtn.addEventListener('click', function (e) {
+        e.preventDefault();
+        console.log('Home chat button clicked - attempting to open chat');
+
+        // 1) Try the exposed API if available
+        if (window.openSiteChat && typeof window.openSiteChat === 'function') {
+          console.log('Calling window.openSiteChat()');
+          try {
+            window.openSiteChat();
+            return;
+          } catch (err) {
+            console.error('window.openSiteChat() failed', err);
+          }
+        }
+
+        // 2) Try to click the global toggle if present
+        if (globalToggle) {
+          console.log('Global toggle exists - triggering click on #site-chat-toggle');
+          try {
+            globalToggle.click();
+            return;
+          } catch (err) {
+            console.error('Clicking global toggle failed', err);
+          }
+        }
+
+        // 3) Final fallback: directly open the chat panel by toggling class on #site-chat
+        const chatPanel = document.getElementById('site-chat');
+        if (chatPanel) {
+          console.log('Directly toggling #site-chat panel.open class as fallback');
+          try {
+            // Ensure closed then open to trigger CSS transitions similar to openChat()
+            chatPanel.classList.remove('open');
+            void chatPanel.offsetWidth;
+            chatPanel.classList.add('open');
+            chatPanel.setAttribute('aria-hidden', 'false');
+          } catch (err) {
+            console.error('Direct DOM fallback to open chat failed', err);
+          }
+          return;
+        }
+
+        // 4) If nothing worked, schedule retries for the API for a short period
+        console.log('No immediate method succeeded; will retry calling window.openSiteChat for a short period');
+        const tryOpenRetry = (attemptsLeft) => {
           if (window.openSiteChat && typeof window.openSiteChat === 'function') {
-            try { window.openSiteChat(); return; } catch (err) { console.error('fallback window.openSiteChat() failed', err); }
+            console.log('Retry: calling window.openSiteChat()');
+            try { window.openSiteChat(); return; } catch (err) { console.error(err); }
           }
-
-          if (globalToggle) {
-            try { globalToggle.click(); return; } catch (err) { console.error('fallback clicking global toggle failed', err); }
-          }
-
-          // Queue if chat script not available yet
-          window.__openSiteChatRequested = (window.__openSiteChatRequested || 0) + 1;
-          console.log('Fallback: queued openSiteChat request, count=', window.__openSiteChatRequested);
-        });
-
-        homeBtn.addEventListener('click', function(e) {
-          e.preventDefault();
-          console.log('Home chat button clicked - attempting to open chat');
-
-          // 1) Try the exposed API if available
-          if (window.openSiteChat && typeof window.openSiteChat === 'function') {
-            console.log('Calling window.openSiteChat()');
-            try {
-              window.openSiteChat();
-              return;
-            } catch (err) {
-              console.error('window.openSiteChat() failed', err);
-            }
-          }
-
-          // 2) Try to click the global toggle if present
-          if (globalToggle) {
-            console.log('Global toggle exists - triggering click on #site-chat-toggle');
-            try {
-              globalToggle.click();
-              return;
-            } catch (err) {
-              console.error('Clicking global toggle failed', err);
-            }
-          }
-
-          // 3) Final fallback: directly open the chat panel by toggling class on #site-chat
-          const chatPanel = document.getElementById('site-chat');
-          if (chatPanel) {
-            console.log('Directly toggling #site-chat panel.open class as fallback');
-            try {
-              // Ensure closed then open to trigger CSS transitions similar to openChat()
-              chatPanel.classList.remove('open');
-              void chatPanel.offsetWidth;
-              chatPanel.classList.add('open');
-              chatPanel.setAttribute('aria-hidden', 'false');
-            } catch (err) {
-              console.error('Direct DOM fallback to open chat failed', err);
-            }
+          if (attemptsLeft <= 0) {
+            console.warn('Retries exhausted; chat did not open');
             return;
           }
-
-          // 4) If nothing worked, schedule retries for the API for a short period
-          console.log('No immediate method succeeded; will retry calling window.openSiteChat for a short period');
-          const tryOpenRetry = (attemptsLeft) => {
-            if (window.openSiteChat && typeof window.openSiteChat === 'function') {
-              console.log('Retry: calling window.openSiteChat()');
-              try { window.openSiteChat(); return; } catch (err) { console.error(err); }
-            }
-            if (attemptsLeft <= 0) {
-              console.warn('Retries exhausted; chat did not open');
-              return;
-            }
-            setTimeout(() => tryOpenRetry(attemptsLeft - 1), 200);
-          };
-          tryOpenRetry(6);
-        });
-      }
-    });
-  </script>
+          setTimeout(() => tryOpenRetry(attemptsLeft - 1), 200);
+        };
+        tryOpenRetry(6);
+      });
+    }
+  });
+</script>
 {% endblock %}
 {% block container %}
-  <div class="md-content">
-    <article class="md-content__inner md-typeset">
+<div class="md-content">
+  <article class="md-content__inner md-typeset">
 
-      <div class="md-home-search-container">
-        <h1 class="md-home-search-input-label">WSO2 API Manager Documentation</h1>
+    <div class="md-home-search-container">
+      <h1 class="md-home-search-input-label">WSO2 API Manager Documentation</h1>
 
-        <div class="md-home-search-row">
-          <div class="md-search-with-chat">
-            {% include "partials/search.html" %}
+      <!-- <div class="md-home-search-row">
+        <div class="md-search-with-chat">
+          {% include "partials/search.html" %}
 
-            <!-- Inline chat button placed inside the search input area for home page -->
-            <button id="site-chat-toggle-home" class="md-home-chat-button md-home-chat-button--inside-search" aria-label="Open chat" title="Open chat"
-              onclick="(function(ev){ ev && ev.preventDefault(); try{ if (window.openSiteChat && typeof window.openSiteChat === 'function') { window.openSiteChat(); } else { window.__openSiteChatRequested = (window.__openSiteChatRequested || 0) + 1; console.log('Queued openSiteChat request, count=', window.__openSiteChatRequested); } } catch(e){ console.error('home chat onclick error', e); } })(event)">
-              <img src="{{ 'images/GenAI (1).svg' | url }}" alt="DocAI" style="width:20px; height:20px; vertical-align:middle;" />
-              <span class="md-home-chat-text" style="display:inline-block; margin-left:1px; vertical-align:middle; font-weight:600; font-size:14px;">Ask AI</span>
-            </button>
-          </div>
+
+          Inline chat button placed inside the search input area for home page
+          <button id="site-chat-toggle-home" class="md-home-chat-button md-home-chat-button--inside-search"
+            aria-label="Open chat" title="Open chat"
+            onclick="(function(ev){ ev && ev.preventDefault(); try{ if (window.openSiteChat && typeof window.openSiteChat === 'function') { window.openSiteChat(); } else { window.__openSiteChatRequested = (window.__openSiteChatRequested || 0) + 1; console.log('Queued openSiteChat request, count=', window.__openSiteChatRequested); } } catch(e){ console.error('home chat onclick error', e); } })(event)">
+            <img src="{{ 'images/GenAI (1).svg' | url }}" alt="DocAI"
+              style="width:20px; height:20px; vertical-align:middle;" />
+            <span class="md-home-chat-text"
+              style="display:inline-block; margin-left:1px; vertical-align:middle; font-weight:600; font-size:14px;">Ask
+              AI</span>
+          </button>
         </div>
+      </div> -->
 
-        
-  <div class="description-section" style="display: flex; flex-direction: row; align-items: center; margin-top: -15px;">
+      <div class="md-home-search-row">
+  <div class="md-search-with-chat" style="position: relative; max-width: 600px;">
+
+    <!-- MkDocs Material search -->
+    {% include "partials/search.html" %}
+
+    <!-- Ask AI button inside search bar -->
+    <button
+      id="site-chat-toggle-home"
+      aria-label="Open chat"
+      title="Open chat"
+      onclick="(function(ev){
+        ev && ev.preventDefault();
+        try {
+          if (window.openSiteChat && typeof window.openSiteChat === 'function') {
+            window.openSiteChat();
+          } else {
+            window.__openSiteChatRequested =
+              (window.__openSiteChatRequested || 0) + 1;
+          }
+        } catch(e) {
+          console.error('home chat onclick error', e);
+        }
+      })(event)"
+      style="
+        position: absolute;
+        top: 50%;
+        right: 12px;
+        transform: translateY(-50%);
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        height: 36px;
+        padding: 0 12px;
+        border-radius: 18px;
+        border: none;
+        cursor: pointer;
+        background: #ffffff;
+        color: #111111;
+        font-size: 14px;
+        font-weight: 600;
+        box-shadow: 1px 2px 6px #ffdcc2;
+        z-index: 3;
+      "
+    >
+      <img
+        src="{{ 'images/GenAI APIMdoc (Dark).png' | url }}"
+        alt="DocAI"
+        class="genai-icon genai-icon--light"
+        style="
+          width: 18px;
+          height: 18px;
+          display: inline-block;
+          box-shadow: 2px;
+        "
+      />
+      <!-- Dark-mode icon: place a dark SVG variant in images/GenAI-dark.svg or adjust path as needed -->
+      <img
+        src="{{ 'images/GenAI APIMdoc (Light).png' | url }}"
+        alt="DocAI (dark)"
+        class="genai-icon genai-icon--dark"
+        style="
+          width: 18px;
+          height: 18px;
+          display: inline-block;
+          box-shadow: 2px;
+        "
+      />
+      <span style="line-height: 1;">Ask AI</span>
+    </button>
+
+    <!-- Inline style to add right padding to search input -->
+    <style>
+      .md-search-with-chat input {
+        padding-right: 120px !important;
+      }
+    </style>
+
+  </div>
+</div>
+
+
+      <div class="description-section"
+        style="display: flex; flex-direction: row; align-items: center; margin-top: -15px;">
         <div class="leftContent">
           <p>
-            WSO2 API Manager is a complete platform for building, integrating, and exposing your digital services as managed APIs in the cloud, on-premise, and hybrid architectures to drive your digital transformation strategy. 
+            WSO2 API Manager is a complete platform for building, integrating, and exposing your digital services as
+            managed APIs in the cloud, on-premise, and hybrid architectures to drive your digital transformation
+            strategy.
           </p>
         </div>
       </div>
-<a href="{{base_path}}/en/4.6.0/get-started/api-manager-quick-start-guide/" target="_blank" rel="noopener"
-      class="quickstart-cta">
+      <a href="{{base_path}}/en/4.6.0/get-started/api-manager-quick-start-guide/" target="_blank" rel="noopener"
+        class="quickstart-cta">
 
-      <div class="cta-icon">
-        {{ home_card_icon("octicons/rocket-16") }}
-      </div>
+        <div class="cta-icon">
+          {{ home_card_icon("octicons/rocket-16") }}
+        </div>
 
-      <div class="cta-content">
-        <span class="cta-title">New to API Manager?</span>
-        <span class="cta-desc">Take our 15-minute quick start guide to design, deploy, and consume your first
-          API.</span>
-      </div>
-    </a>
+        <div class="cta-content">
+          <span class="cta-title">New to API Manager?</span>
+          <span class="cta-desc">Take our 15-minute quick start guide to design, deploy, and consume your first
+            API.</span>
+        </div>
+      </a>
 
-    <div class="components-hub-container">
+      <div class="components-hub-container">
 
-      <div class="components-grid-split">
+        <div class="components-grid-split">
 
-        <div>
-          <div class="components-section-header">
-            <h2>Design & Manage APIs</h2>
-            <p>Build, iterate, and apply policies to your APIs and API products.</p>
+          <div>
+            <div class="components-section-header">
+              <h2>Design & Manage APIs</h2>
+              <p>Build, iterate, and apply policies to your APIs and API products.</p>
+            </div>
+            <div class="components-card">
+              <div>
+                <div class="md-column-grid-item-header-icon icon-color-4">
+                  {{ home_card_icon("octicons/pencil-16") }}
+                </div>
+                <h3>API Design</h3>
+                <div class="components-card-content">
+                  Toolkit to design, document, and mock REST, GraphQL, and AsyncAPI specifications. Create AI APIs and
+                  use the AI-powered Design Assistant to generate APIs from natural language.
+                </div>
+              </div>
+              <div class="components-card-footer">
+
+                <a href="{{base_path}}/en/4.6.0/api-design-manage/design/design-api-overview/" target="_blank"
+                  rel="noopener" class="components-resource-link">
+                  Design APIs Overview <span>&rarr;</span>
+                </a>
+              </div>
+            </div>
           </div>
-              <div class="components-card">
+
+          <div>
+            <div class="components-section-header">
+              <h2>Discover APIs</h2>
+              <p>Explore and subscribe to APIs and MCP Servers.</p>
+            </div>
+            <div class="components-card">
+              <div>
+                <div class="md-column-grid-item-header-icon icon-color-4">
+                  {{ home_card_icon("octicons/browser-16") }}
+                </div>
+                <h3>API Developer Portal</h3>
+                <div class="components-card-content">
+                  The hub for Application Developers. Discover a catalog of available APIs and MCP Servers, subscribe
+                  your applications,
+                  and manage your API keys and credentials.
+                </div>
+              </div>
+              <div class="components-card-footer">
+
+                <a href="{{base_path}}/en/4.6.0/api-developer-portal/consume-api-overview/" target="_blank"
+                  rel="noopener" class="components-resource-link">
+                  Consume APIs Overview <span>&rarr;</span>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="components-section-header">
+          <h2>Run APIs</h2>
+          <p>Deploy and manage the runtime environment for your API traffic.</p>
+        </div>
+
+        <div class="components-grid-2">
+          <div class="components-card">
             <div>
               <div class="md-column-grid-item-header-icon icon-color-4">
-                {{ home_card_icon("octicons/pencil-16") }}
+                {{ home_card_icon("octicons/server-16") }}
               </div>
-              <h3>API Design</h3>
+              <h3>API Gateway</h3>
               <div class="components-card-content">
-                Toolkit to design, document, and mock REST, GraphQL, and AsyncAPI specifications. Create AI APIs and use the AI-powered Design Assistant to generate APIs from natural language.
+                Secure, manage, and scale your API traffic. Learn to deploy the runtime, enforce security policies, and
+                manage deployments.
               </div>
             </div>
             <div class="components-card-footer">
 
-              <a href="{{base_path}}/en/4.6.0/api-design-manage/design/design-api-overview/" target="_blank"
-                rel="noopener" class="components-resource-link">
-                Design APIs Overview <span>&rarr;</span>
+              <a href="{{base_path}}/en/4.6.0/api-gateway/overview-of-the-api-gateway/" target="_blank" rel="noopener"
+                class="components-resource-link">
+                Universal Gateway Overview <span>&rarr;</span>
               </a>
+
+              <a href="{{base_path}}/en/4.6.0/api-gateway/federated-gateways/overview/" target="_blank" rel="noopener"
+                class="components-resource-link">
+                Federated Gateways Overview <span>&rarr;</span>
+              </a>
+
+            </div>
+          </div>
+
+          <div class="components-card">
+            <div>
+              <div class="md-column-grid-item-header-icon icon-color-4">
+                {{ home_card_icon("octicons/hubot-16") }}
+              </div>
+              <h3>AI Gateway</h3>
+              <div class="components-card-content">
+                Enterprise-grade gateway for AI workloads. Secure, monitor, and control access to LLMs and AI services
+                with cost controls, multi-provider routing, observability, and policy enforcement. Transform APIs into
+                AI-callable tools and manage AI interactions with centralized governance.
+              </div>
+            </div>
+            <div class="components-card-footer">
+
+              <a href="{{base_path}}/en/4.6.0/ai-gateway/ai-gateway-overview/" target="_blank" rel="noopener"
+                class="components-resource-link">
+                AI Gateway Overview <span>&rarr;</span>
+              </a>
+
             </div>
           </div>
         </div>
 
-        <div>
-          <div class="components-section-header">
-            <h2>Discover APIs</h2>
-            <p>Explore and subscribe to APIs and MCP Servers.</p>
+        <div class="components-section-header">
+          <h2>Govern APIs</h2>
+          <p>Oversee and control the security, usage, and automation of your API ecosystem.</p>
+        </div>
+
+        <div class="components-grid-3">
+          <div class="components-card">
+            <div>
+              <div class="md-column-grid-item-header-icon icon-color-4">
+                {{ home_card_icon("octicons/shield-check-16") }}
+              </div>
+              <h3>API Security</h3>
+              <div class="components-card-content">
+                Secure APIs with design-time audits and runtime enforcement. Manage authentication, authorization, and
+                tokens using the Key Manager.
+              </div>
+            </div>
+            <div class="components-card-footer">
+              <a href="{{base_path}}/en/4.6.0/api-security/runtime/api-authentication/api-authentication-overview/"
+                target="_blank" rel="noopener" class="components-resource-link">
+                Authentication Overview <span>&rarr;</span>
+              </a>
+              <a href="{{base_path}}/en/4.6.0/api-security/runtime/authorization/api-authorization/" target="_blank"
+                rel="noopener" class="components-resource-link">
+                Authorization Overview <span>&rarr;</span>
+              </a>
+              <a href="{{base_path}}/en/4.6.0/api-security/key-management/key-manager-overview/" target="_blank"
+                rel="noopener" class="components-resource-link">
+                Key Manager Overview <span>&rarr;</span>
+              </a>
+
+            </div>
           </div>
           <div class="components-card">
             <div>
               <div class="md-column-grid-item-header-icon icon-color-4">
-                {{ home_card_icon("octicons/browser-16") }}
+                {{ home_card_icon("octicons/graph-16") }}
               </div>
-              <h3>API Developer Portal</h3>
+              <h3>API Analytics & Monetization</h3>
               <div class="components-card-content">
-                The hub for Application Developers. Discover a catalog of available APIs and MCP Servers, subscribe your applications,
-                and manage your API keys and credentials.
+                Track usage, monitor performance, and configure billing. Gain insights and govern your API products.
               </div>
             </div>
             <div class="components-card-footer">
 
-              <a href="{{base_path}}/en/4.6.0/api-developer-portal/consume-api-overview/" target="_blank" rel="noopener"
+              <a href="{{base_path}}/en/4.6.0/monitoring/api-analytics/analytics-overview/" target="_blank"
+                rel="noopener" class="components-resource-link">
+                Analytics Overview <span>&rarr;</span>
+              </a>
+
+              <a href="{{base_path}}/en/4.6.0/monitoring/api-monetization/monetizing-an-api/" target="_blank"
+                rel="noopener" class="components-resource-link">
+                Monetization How-to Guide <span>&rarr;</span>
+              </a>
+
+            </div>
+          </div>
+
+          <div class="components-card">
+            <div>
+              <div class="md-column-grid-item-header-icon icon-color-4">
+                {{ home_card_icon("octicons/workflow-16") }}
+              </div>
+              <h3>APIOps</h3>
+              <div class="components-card-content">
+                Automate your API lifecycle and governance. Use the command-line tool to script operations and enforce
+                standards.
+              </div>
+            </div>
+            <div class="components-card-footer">
+              <a href="{{base_path}}/en/4.6.0/apiops/cli/ci-cd-with-wso2-api-management/" target="_blank" rel="noopener"
                 class="components-resource-link">
-                Consume APIs Overview <span>&rarr;</span>
+                CI/CD for APIs Overview <span>&rarr;</span>
+              </a>
+              <a href="{{base_path}}/en/4.6.0/install-and-setup/setup/api-controller/getting-started-with-wso2-api-controller/"
+                target="_blank" rel="noopener" class="components-resource-link">
+                API Controller Quickstart <span>&rarr;</span>
               </a>
             </div>
           </div>
         </div>
+
+        <div class="components-section-header">
+          <h2>Administration</h2>
+
+          <p>Configure and manage the core system, tenants, and other entities.</p>
+        </div>
+
+        <div style="max-width: 50%;">
+          <div class="components-card">
+            <div>
+              <div class="md-column-grid-item-header-icon icon-color-4">
+                {{ home_card_icon("octicons/person-16") }}
+              </div>
+
+              <h3>Administration & Governance</h3>
+              <div class="components-card-content">
+                Configure the platform: manage users, tenants, and system-wide policies like rate limiting. Register
+                Gateways and Key Managers.
+
+              </div>
+            </div>
+            <div class="components-card-footer">
+
+              <a href="{{base_path}}/en/4.6.0/administer/admin-overview/" target="_blank" rel="noopener"
+                class="components-resource-link">
+                Administration Overview <span>&rarr;</span>
+              </a>
+              <a href="{{base_path}}/en/4.6.0/administer/governance/overview/" target="_blank" rel="noopener"
+                class="components-resource-link">
+                Governance Overview <span>&rarr;</span>
+              </a>
+
+            </div>
+          </div>
+        </div>
+
       </div>
 
-      <div class="components-section-header">
-        <h2>Run APIs</h2>
-        <p>Deploy and manage the runtime environment for your API traffic.</p>
-      </div>
-
-      <div class="components-grid-2">
-        <div class="components-card">
-          <div>
-            <div class="md-column-grid-item-header-icon icon-color-4">
-              {{ home_card_icon("octicons/server-16") }}
-            </div>
-            <h3>API Gateway</h3>
-            <div class="components-card-content">
-              Secure, manage, and scale your API traffic. Learn to deploy the runtime, enforce security policies, and
-              manage deployments.
-            </div>
-          </div>
-          <div class="components-card-footer">
-
-            <a href="{{base_path}}/en/4.6.0/api-gateway/overview-of-the-api-gateway/" target="_blank" rel="noopener"
-              class="components-resource-link">
-              Universal Gateway Overview <span>&rarr;</span>
-            </a>
-
-            <a href="{{base_path}}/en/4.6.0/api-gateway/federated-gateways/overview/" target="_blank" rel="noopener"
-              class="components-resource-link">
-              Federated Gateways Overview <span>&rarr;</span>
-            </a>
-
-          </div>
-        </div>
-
-        <div class="components-card">
-          <div>
-            <div class="md-column-grid-item-header-icon icon-color-4">
-              {{ home_card_icon("octicons/hubot-16") }}
-            </div>
-            <h3>AI Gateway</h3>
-            <div class="components-card-content">
-              Enterprise-grade gateway for AI workloads. Secure, monitor, and control access to LLMs and AI services with cost controls, multi-provider routing, observability, and policy enforcement. Transform APIs into AI-callable tools and manage AI interactions with centralized governance.
-            </div>
-          </div>
-          <div class="components-card-footer">
-
-            <a href="{{base_path}}/en/4.6.0/ai-gateway/ai-gateway-overview/" target="_blank" rel="noopener"
-              class="components-resource-link">
-              AI Gateway Overview <span>&rarr;</span>
-            </a>
-
-          </div>
-        </div>
-      </div>
-
-      <div class="components-section-header">
-        <h2>Govern APIs</h2>
-        <p>Oversee and control the security, usage, and automation of your API ecosystem.</p>
-      </div>
-
-      <div class="components-grid-3">
-        <div class="components-card">
-          <div>
-            <div class="md-column-grid-item-header-icon icon-color-4">
-              {{ home_card_icon("octicons/shield-check-16") }}
-            </div>
-            <h3>API Security</h3>
-            <div class="components-card-content">
-              Secure APIs with design-time audits and runtime enforcement. Manage authentication, authorization, and
-              tokens using the Key Manager.
-            </div>
-          </div>
-          <div class="components-card-footer">
-            <a href="{{base_path}}/en/4.6.0/api-security/runtime/api-authentication/api-authentication-overview/"
-              target="_blank" rel="noopener" class="components-resource-link">
-              Authentication Overview <span>&rarr;</span>
-            </a>
-            <a href="{{base_path}}/en/4.6.0/api-security/runtime/authorization/api-authorization/" target="_blank"
-              rel="noopener" class="components-resource-link">
-              Authorization Overview <span>&rarr;</span>
-            </a>
-            <a href="{{base_path}}/en/4.6.0/api-security/key-management/key-manager-overview/" target="_blank" rel="noopener"
-              class="components-resource-link">
-              Key Manager Overview <span>&rarr;</span>
-            </a>
-
-          </div>
-        </div>
-        <div class="components-card">
-          <div>
-            <div class="md-column-grid-item-header-icon icon-color-4">
-              {{ home_card_icon("octicons/graph-16") }}
-            </div>
-            <h3>API Analytics & Monetization</h3>
-            <div class="components-card-content">
-              Track usage, monitor performance, and configure billing. Gain insights and govern your API products.
-            </div>
-          </div>
-          <div class="components-card-footer">
-
-            <a href="{{base_path}}/en/4.6.0/monitoring/api-analytics/analytics-overview/" target="_blank" rel="noopener"
-              class="components-resource-link">
-              Analytics Overview <span>&rarr;</span>
-            </a>
-
-            <a href="{{base_path}}/en/4.6.0/monitoring/api-monetization/monetizing-an-api/" target="_blank"
-              rel="noopener" class="components-resource-link">
-              Monetization How-to Guide <span>&rarr;</span>
-            </a>
-
-          </div>
-        </div>
-
-        <div class="components-card">
-          <div>
-            <div class="md-column-grid-item-header-icon icon-color-4">
-              {{ home_card_icon("octicons/workflow-16") }}
-            </div>
-            <h3>APIOps</h3>
-            <div class="components-card-content">
-              Automate your API lifecycle and governance. Use the command-line tool to script operations and enforce
-              standards.
-            </div>
-          </div>
-          <div class="components-card-footer">
-            <a href="{{base_path}}/en/4.6.0/apiops/cli/ci-cd-with-wso2-api-management/" target="_blank" rel="noopener"
-              class="components-resource-link">
-              CI/CD for APIs Overview <span>&rarr;</span>
-            </a>
-            <a href="{{base_path}}/en/4.6.0/install-and-setup/setup/api-controller/getting-started-with-wso2-api-controller/"
-              target="_blank" rel="noopener" class="components-resource-link">
-              API Controller Quickstart <span>&rarr;</span>
-            </a>
-            </div>
-        </div>
-        </div>
-
-      <div class="components-section-header">
-        <h2>Administration</h2>
-
-        <p>Configure and manage the core system, tenants, and other entities.</p>
-      </div>
-
-      <div style="max-width: 50%;">
-        <div class="components-card">
-          <div>
-            <div class="md-column-grid-item-header-icon icon-color-4">
-              {{ home_card_icon("octicons/person-16") }}
-            </div>
-
-            <h3>Administration & Governance</h3>
-            <div class="components-card-content">
-              Configure the platform: manage users, tenants, and system-wide policies like rate limiting. Register
-              Gateways and Key Managers.
-
-         </div>
-          </div>
-          <div class="components-card-footer">
-
-            <a href="{{base_path}}/en/4.6.0/administer/admin-overview/" target="_blank" rel="noopener"
-              class="components-resource-link">
-              Administration Overview <span>&rarr;</span>
-            </a>
-            <a href="{{base_path}}/en/4.6.0/administer/governance/overview/" target="_blank" rel="noopener"
-              class="components-resource-link">
-              Governance Overview <span>&rarr;</span>
-            </a>
-
-          </div>
-        </div>
-      </div>
 
     </div>
 
-
-</div>     
-    
-    </article>
-  </div>
+  </article>
+</div>
 {% endblock %}
