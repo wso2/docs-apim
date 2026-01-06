@@ -151,7 +151,7 @@
 <div id="site-chat" class="site-chat" aria-hidden="true">
   <div class="site-chat__header">
    <div style="display: flex; align-items: center;">
-      <img src="{{ 'images/GenAI (1).svg' | url }}" alt="DocAI icon" style="width: 24px; margin-right: 8px;" />
+      <img src="{{ 'images/DocAi.svg' | url }}" alt="DocAI icon" style="width: 24px; margin-right: 8px;" />
       <strong style="font-size: 1.5em;">APIM DocAi</strong>
     </div>
     <div class="site-chat__actions">
@@ -709,13 +709,18 @@
       closeBtn.style.border = 'none';
       closeBtn.style.background = 'transparent';
       closeBtn.style.cursor = 'pointer';
+<<<<<<< HEAD
       closeBtn.addEventListener('click', (e) => {
         try { e.preventDefault(); e.stopPropagation(); } catch (err) {}
+=======
+      closeBtn.addEventListener('click', () => {
+>>>>>>> 66ef09746 (Add chatbot)
         try { if (themeObserver) themeObserver.disconnect(); } catch (e) {}
         modal.remove();
       });
       header.appendChild(closeBtn);
       modal.appendChild(header);
+<<<<<<< HEAD
       // Prevent clicks inside the modal from bubbling up to the document
       // which would otherwise trigger the global click handler that closes
       // the chat panel when clicking outside it.
@@ -723,6 +728,8 @@
         modal.addEventListener('click', function(ev) { ev.stopPropagation(); });
         modal.addEventListener('mousedown', function(ev) { ev.stopPropagation(); });
       } catch (e) { /* non-fatal */ }
+=======
+>>>>>>> 66ef09746 (Add chatbot)
       // Observe theme changes so modal updates live while open
       let themeObserver = null;
       try {
@@ -1106,12 +1113,19 @@
         const sessions = (function(){ try { return JSON.parse(localStorage.getItem('docai_chat_sessions')||'[]'); } catch(e){ return []; } })();
         if (!sessions || sessions.length === 0) p.textContent = 'No saved sessions';
         else p.textContent = sessions.length + ' saved session(s)';
+<<<<<<< HEAD
   const close = document.createElement('button');
   close.textContent = 'Close';
   close.style.marginTop = '12px';
   close.addEventListener('click', (ev) => { try { ev.preventDefault(); ev.stopPropagation(); } catch (e) {} modal.remove(); });
   // Prevent clicks inside the fallback modal from bubbling up to global handlers
   try { modal.addEventListener('click', function(ev){ ev.stopPropagation(); }); modal.addEventListener('mousedown', function(ev){ ev.stopPropagation(); }); } catch (e) { }
+=======
+        const close = document.createElement('button');
+        close.textContent = 'Close';
+        close.style.marginTop = '12px';
+        close.addEventListener('click', () => modal.remove());
+>>>>>>> 66ef09746 (Add chatbot)
         modal.appendChild(h); modal.appendChild(p); modal.appendChild(close);
         document.body.appendChild(modal);
       } catch (e) { console.error('fallback modal failed', e); }

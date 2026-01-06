@@ -99,17 +99,29 @@
     display: inline-flex;
     align-items: center;
     justify-content: center;
+<<<<<<< HEAD
     padding: 8px 12px;
     min-height: 44px;
     border-radius: 0.35rem; /* soft rounded corners */
     background: var(--docai-header-btn-bg);
     color: var(--docai-header-btn-color);
     border: 1px solid rgba(0,0,0,0.04);
+=======
+    
+    
+    border-radius: 50%;
+    
+    
+    
+    box-shadow: var(--md-shadow-z1);
+    border: none;
+>>>>>>> 66ef09746 (Add chatbot)
     cursor: pointer;
     position: relative;
     z-index: 10070; /* ensure above header overlays */
     pointer-events: auto !important;
     margin-left: 0.5rem; /* space between search and button */
+<<<<<<< HEAD
     box-shadow: var(--docai-header-btn-shadow);
     transition: box-shadow 140ms ease, transform 120ms ease, background 120ms ease;
   }
@@ -128,6 +140,15 @@
     .md-header-chat-button { height: auto; min-width: 40px; padding: 6px 8px; }
     .md-header-chat-button img { height: 16px; width: 16px; }
     .md-header-chat-text { font-size: 13px; }
+=======
+  }
+  /* Nudge the header search container so button visually aligns */
+  .md-header [for=__search] { margin-right: 0.2rem; }
+  .md-header-chat-button img { height: 18px; width: 18px; }
+  @media (max-width: 48em) {
+    .md-header-chat-button { height: 32px; width: 32px; min-width: 32px; }
+    .md-header-chat-button img { height: 16px; width: 16px; }
+>>>>>>> 66ef09746 (Add chatbot)
   }
 </style>
 <script>
