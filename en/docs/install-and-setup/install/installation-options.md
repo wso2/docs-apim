@@ -2,9 +2,10 @@
 
 API Manager provides a wide range of installation options for deployments.
 
-1. [Kubernetes(Helm)](#1-kubernetes-helm)
-2. [Docker/Docker Compose](#2-dockerdocker-compose)
-3. [Puppet](#3-puppet)
+- [Installation Options](#installation-options)
+  - [1. Kubernetes (Helm)](#1-kubernetes-helm)
+  - [2. Docker/Docker Compose](#2-dockerdocker-compose)
+  - [3. Puppet](#3-puppet)
 
 ## 1. Kubernetes (Helm)
 
