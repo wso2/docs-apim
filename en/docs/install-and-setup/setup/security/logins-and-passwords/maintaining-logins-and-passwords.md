@@ -31,13 +31,17 @@ Follow the instructions below to change the default admin password:
         Add the following configuration.
 
     Therefore, if you have special characters, add the following configurations.
-    If you have special characters, be mindful to wrap values with CDATA tag in super_admin configurations and to encode values in the `apim.throttling.jms` configurations.  
+    If you have special characters, be mindful to wrap values with CDATA tag in super_admin configurations and to encode values in the `apim.throttling.jms` and `apim.event_hub` configurations.  
     ``` toml
     [super_admin]
     username = "your-name"
     password = "<![CDATA[your-password]]>" 
     
     [apim.throttling.jms]
+    username = "your-name"
+    password = "your-encoded-password"
+
+    [apim.event_hub]
     username = "your-name"
     password = "your-encoded-password"        
     ```
@@ -49,6 +53,10 @@ Follow the instructions below to change the default admin password:
         password = "<![CDATA[~^&*#`43d:3;]]>"
         
         [apim.throttling.jms]
+        username = "foo_admin"
+        password = "~%5E%26*%23%6043d%3A3%3B"
+
+        [apim.event_hub]
         username = "foo_admin"
         password = "~%5E%26*%23%6043d%3A3%3B"
         ```
