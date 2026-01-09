@@ -5250,6 +5250,54 @@
                             "default": "org.wso2.carbon.identity.oauth2.grant.kerberos.KerberosGrantValidator",
                             "possible": "",
                             "description": "Kerberos grant validator implementation class."
+                        },
+                        {
+                            "name": "token_exchange.enable",
+                            "type": "boolean",
+                            "required": false,
+                            "default": "true",
+                            "possible": "true,false",
+                            "description": "Enable Token Exchange grant."
+                        },
+                        {
+                            "name": "token_exchange.grant_handler",
+                            "type": "string",
+                            "required": false,
+                            "default": "org.wso2.carbon.identity.oauth2.grant.token.exchange.TokenExchangeGrantHandler",
+                            "possible": "",
+                            "description": "Token Exchange grant implementation class."
+                        },
+                        {
+                            "name": "token_exchange.grant_validator",
+                            "type": "string",
+                            "required": false,
+                            "default": "org.wso2.carbon.identity.oauth2.grant.token.exchange.TokenExchangeGrantValidator",
+                            "possible": "",
+                            "description": "Token Exchange grant validator implementation class."
+                        },
+                        {
+                            "name": "token_exchange.allow_refresh_tokens",
+                            "type": "boolean",
+                            "required": false,
+                            "default": "true",
+                            "possible": "true,false",
+                            "description": "Enable to allow refresh tokens for token exchange grant."
+                        },
+                        {
+                            "name": "token_exchange.iat_validity_period",
+                            "type": "string",
+                            "required": false,
+                            "default": "1h",
+                            "possible": "",
+                            "description": "The validity period for the issued at (iat) claim in token exchange. Accepts time formats like '1h', '30m', '3600s'."
+                        },
+                        {
+                            "name": "token_exchange.enable_multi_value_claim_handling",
+                            "type": "boolean",
+                            "required": false,
+                            "default": "false",
+                            "possible": "true,false",
+                            "description": "Enable multi-value claim handling for token exchange grant."
                         }                                                                                                                                                                                           
                                                                                                                                                                                                                                                    
                     ]
