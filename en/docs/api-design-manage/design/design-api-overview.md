@@ -1,10 +1,10 @@
 # Designing an API
 
-Designing an API spans through a few phases of an API Lifecycle. A correct tool can help design an API seamlessly and efficiently. WSO2 API Manager supports the designing of an API via the API Publisher Portal. 
+Designing an API spans across several phases of the API lifecycle. Using the right tools can help design an API seamlessly and efficiently. WSO2 API Manager supports the designing of an API via the API Publisher Portal. 
   
 <img src="{{base_path}}/assets/img/learn/design-api/design-api-lifecycle.png" height="400" />
 
-The following are the various aspects associated with the designing phase of the API lifecycle.
+The following are the various aspects associated with the design phase of the API lifecycle.
 
 ## Create an API
 
@@ -23,7 +23,7 @@ Additionally, you can also convert existing SOAP services or backends to REST AP
 
 **Create an API based on a Service**
 
-You can create services and publish it to WSO2 API Manager, such as you can create an integration service using WSO2 Integration Studio or a streaming integration service using the Streaming Integration Tooling. Refer to the [documentation on Creating an API Using a Service]({{base_path}}/api-design-manage/design/create-api/create-an-api-using-a-service).
+You can create services and publish them to WSO2 API Manager. For example, you can create an integration service using WSO2 Integration Studio or a streaming integration service using the Streaming Integration Tooling. Refer to the [documentation on Creating an API Using a Service]({{base_path}}/api-design-manage/design/create-api/create-an-api-using-a-service).
 
 **Create a GraphQL API**
 
