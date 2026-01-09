@@ -13,7 +13,7 @@ Choose a deployment option to start the WSO2 API Manager All-In-One package. The
 
     Here's how you can download and run WSO2 API Manager All-In-One package locally on a VM:
 
-    1. Install [Java SE Development Kit (JDK)](https://adoptium.net/temurin/releases/?arch=any&version=21) version **21** and set the `JAVA_HOME` environment variable.
+    1. Install [Eclipse Temurin JDK](https://adoptium.net/temurin/releases/?arch=any&version=21) version **21** and set the `JAVA_HOME` environment variable.
     
         !!! tip
             For more information on setting the `JAVA_HOME` environment variable for different operating systems, see [Setup and Install]({{base_path}}/install-and-setup/install/installing-the-product/installing-api-m-runtime/#setting-up-java_home)
