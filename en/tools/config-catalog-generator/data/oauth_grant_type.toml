@@ -32,3 +32,11 @@ grant_validator = "org.wso2.carbon.identity.oauth2.grant.jwt.JWTGrantValidator"
 enable = true
 grant_handler = "org.wso2.carbon.identity.oauth2.grant.kerberos.KerberosGrant"
 grant_validator = "org.wso2.carbon.identity.oauth2.grant.kerberos.KerberosGrantValidator"
+
+[oauth.grant_type.token_exchange]
+enable = true
+grant_handler = "org.wso2.carbon.identity.oauth2.grant.token.exchange.TokenExchangeGrantHandler"
+grant_validator = "org.wso2.carbon.identity.oauth2.grant.token.exchange.TokenExchangeGrantValidator"
+allow_refresh_tokens = true
+iat_validity_period = "1h"
+enable_multi_value_claim_handling = false
