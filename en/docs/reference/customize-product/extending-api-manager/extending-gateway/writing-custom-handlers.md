@@ -159,15 +159,15 @@ public class CustomAPIAuthenticationHandler extends AbstractHandler {
 
     public boolean authenticate(MessageContext synCtx) throws APISecurityException {
         Map headers = getTransportHeaders(synCtx);
-        String authHeader = getAuthorizationHeader(headers);
-        if (authHeader.startsWith("userName")) {
+        String userName = getUserNameHeader(headers);
+        if (userName != null && !userName.isEmpty()) {
             return true;
         }
         return false;
     }
 
-    private String getAuthorizationHeader(Map headers) {
-        return (String) headers.get("Authorization");
+    private String getUserNameHeader(Map headers) {
+        return (String) headers.get("X-User-Name");
     }
 
     private Map getTransportHeaders(MessageContext messageContext) {
@@ -176,6 +176,17 @@ public class CustomAPIAuthenticationHandler extends AbstractHandler {
     }
 }
 ```
+
+!!! note
+    This example demonstrates custom handler mechanics only and uses a custom header (`X-User-Name`) for request validation. It is not a replacement for OAuth2/JWT-based authentication, which is the recommended approach for production APIs. The example avoids using the `Authorization` header to prevent confusion with standard authentication schemes such as Bearer, Basic, or other OAuth2 patterns.
+
+You can test the custom handler with the following sample curl command:
+
+```bash
+curl -X GET http://localhost:8280/sample/1.0.0/test \
+  -H "X-User-Name: janaka"
+```
+
 Make sure to update the pom file for the above project you created (or downloaded) with below dependency.
 
 ```
