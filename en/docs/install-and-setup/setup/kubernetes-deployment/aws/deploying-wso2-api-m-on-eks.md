@@ -255,7 +255,6 @@ Create a Kubernetes secret to store the keystore and truststore files:
 kubectl create secret generic apim-keystore-secret \
   --from-file=wso2carbon.jks \
   --from-file=client-truststore.jks \
-  --from-file=wso2internal.jks \
   -n <namespace>
 ```
 
@@ -296,15 +295,7 @@ wso2:
       security:
         jksSecretName: "apim-keystore-secret"
         keystores:
-          primary:
-            enabled: true
-            password: "wso2carbon"
-            keyPassword: "wso2carbon"
           tls:
-            enabled: true
-            password: "wso2carbon"
-            keyPassword: "wso2carbon"
-          internal:
             enabled: true
             password: "wso2carbon"
             keyPassword: "wso2carbon"
