@@ -44,7 +44,7 @@ Many enterprises need to implement API management solutions that provide mechani
 
 **Rate Limiting**
 
-Rate Limiting allows you to limit the number of successful hits to an API during a given period. Refer to [documentation on Rate Limiting]({{base_path}}/api-design-manage/design/rate-limiting/introducing-throttling-use-cases/) for more information.
+Rate Limiting allows you to limit the number of successful hits to an API during a given period. Refer to [documentation on Rate Limiting]({{base_path}}/api-design-manage/design/rate-limiting/set-api-level-throttling/) for more information.
 
 **Authentication**
 
