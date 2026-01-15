@@ -7,7 +7,23 @@ By default, the APIs created in the API Publisher Portal are visible to anyone (
 Visibility settings prevent certain user roles from viewing and modifying APIs created by another user role. API visibility can be one of the following options:
 
 - **Public:** The API is visible to all users who are registered and anonymous (who use APIs without signing in to the Developer Portal, for example testing and demonstration), and can be advertised in multiple Developer Portals (central and non-WSO2 stores).
-- **Restricted by roles:** The API is visible to it's tenant domain and only to the user roles that you specify. You should provide the roles separated by commas in the UI or as a cURL parameter when creating or editing the API. 
+- **Restricted by roles:** The API is visible to it's tenant domain and only to the user roles that you specify. 
+
+    To restrict by roles:
+    
+    1. Select "Restrict by role(s)" from the Developer Portal Visibility dropdown.
+    2. Click inside the "Roles" text field. You will see the instruction "Enter roles and press Enter" appear in gray text.
+    3. Enter the role name in the format: `<domain>/<rolename>`
+        - The domain and role name must exactly match entries in your Primary or Secondary Userstores.
+        - You must have privileged access to view the available roles in your userstores.
+        - Example: `Internal/creator` or `PRIMARY/subscriber`
+    4. Press Enter after typing each role name.
+    5. Visual feedback:
+        - **Gray background**: The role name is valid and accepted.
+        - **Red text**: The role name is invalid (incorrect format or role doesn't exist).
+    6. You can add multiple roles by repeating steps 3-4.
+    
+    Note: You should provide the roles separated by commas when using the REST API or cURL parameter. 
 - **Visible to my domain:** The API is visible to all users who are registered to the API's tenant domain. This option is available only in a multi-tenanted environment. It's not applicable when there is only one active tenant (super tenant) in the system.
 
 Given below is how visibility levels work for users in different roles:
