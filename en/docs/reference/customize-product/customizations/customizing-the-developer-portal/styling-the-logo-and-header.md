@@ -11,22 +11,22 @@ The following is the default look and the configuration. The default header of t
 1. Open the `<API-M_HOME>/repository/deployment/server/webapps/devportal/site/public/theme/userTheme.json` file in a text editor and set the attributes accordingly as shown below which customizes the logo and the header of the developer portal.
 
     ```js
-{
-    "custom": {
-        "appBar": {
-            "logo": "/site/public/images/logo.svg",
-            "logoHeight": 19,
-            "logoWidth": 208,
-            "background": "#0fa2db",
-            "backgroundImage": "/site/public/images/appbarBack.png",
-            "searchInputBackground": "#fff",
-            "searchInputActiveBackground": "#fff",
-            "activeBackground": "#1c6584",
-            "showSearch": true,
-            "drawerWidth": 200
+    {
+        "custom": {
+            "appBar": {
+                "logo": "/site/public/images/logo.svg",
+                "logoHeight": 19,
+                "logoWidth": 208,
+                "background": "#0fa2db",
+                "backgroundImage": "/site/public/images/appbarBack.png",
+                "searchInputBackground": "#fff",
+                "searchInputActiveBackground": "#fff",
+                "activeBackground": "#1c6584",
+                "showSearch": true,
+                "drawerWidth": 200
+            }
         }
     }
-}
     ```
 
     | Option | type | Description |
