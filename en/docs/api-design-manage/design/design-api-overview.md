@@ -1,6 +1,6 @@
 # Designing an API
 
-Designing an API spans across several phases of the API lifecycle. Using the right tools can help design an API seamlessly and efficiently. WSO2 API Manager supports the designing of an API via the API Publisher Portal. 
+Designing an API spans several phases of the API lifecycle. Using the right tools can help design an API seamlessly and efficiently. WSO2 API Manager supports the designing of an API via the API Publisher Portal. 
   
 <img src="{{base_path}}/assets/img/learn/design-api/design-api-lifecycle.png" height="400" />
 
@@ -17,7 +17,7 @@ There are multiple options available to API designers to create an API in WSO2 A
 You have two options to create a REST API via the API Publisher in WSO2 API Manager.
 
 - [Create a REST API through the API Publisher]({{base_path}}/api-design-manage/design/create-api/create-rest-api/create-a-rest-api) - You can directly create your API in the API Publisher by linking your existing backend API implementation.
-- [Create a REST API from an Open API Definition]({{base_path}}/api-design-manage/design/create-api/create-rest-api/create-a-rest-api-from-an-openapi-definition) - An OpenAPI definition is a format that describes REST APIs. You can create a REST API based on this definition.
+- [Create a REST API from an OpenAPI Definition]({{base_path}}/api-design-manage/design/create-api/create-rest-api/create-a-rest-api-from-an-openapi-definition) - An OpenAPI definition is a format that describes REST APIs. You can create a REST API based on this definition.
 
 Additionally, you can also convert existing SOAP services or backends to REST APIs. Refer to [Expose a SOAP Service as a REST API]({{base_path}}/api-design-manage/design/create-api/create-rest-api/expose-a-soap-service-as-a-rest-api) or [Generate REST API from SOAP Backend]({{base_path}}/api-design-manage/design/create-api/create-rest-api/generate-rest-api-from-soap-backend) for more information.
 
