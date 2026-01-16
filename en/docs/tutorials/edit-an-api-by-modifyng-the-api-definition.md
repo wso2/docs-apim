@@ -181,6 +181,9 @@ In this tutorial, let's see how you can add interactive documentation to an API 
         The summary and description of the GET method that you added is visible when you expand the GET method in the API Publisher.
         ![]({{base_path}}/assets/img/learn/tutorials/pizza-shack-api-get-summary-and-description-updated.png)
 
+        !!! important
+            Starting from WSO2 API Manager 4.x, the platform ensures that the info.version and info.title fields in the OpenAPI (Swagger) specification are automatically aligned with the version and title of the API that is published on the API Manager. This approach ensures that the version and title in the Swagger definition accurately correspond to the actual API deployed in the API Gateway.
+
 8.  Change the title of the API.
 
     1.  Click **Edit Source**, and add the following code in the Swagger UI.
