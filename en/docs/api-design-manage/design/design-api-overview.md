@@ -48,11 +48,11 @@ Rate Limiting allows you to limit the number of successful hits to an API during
 
 **Authentication**
 
-API authentication is a way of protecting API access from unidentified or anonymous access. It ensures that the API is secured and accessible only by the consumers who proves their identity and whose identities are found within the API Management Platform. Please refer to [an overview of Authentication]({{base_path}}/api-security/runtime/api-authentication/api-authentication-overview) for more information.
+API authentication is a way of protecting API access from unidentified or anonymous access. It ensures that the API is secured and accessible only by the consumers who prove their identity and whose identities are found within the API Management Platform. Please refer to [an overview of Authentication]({{base_path}}/api-security/runtime/api-authentication/api-authentication-overview) for more information.
 
 **Authorization**
 
-Due to the expanding consumer base, the application developers have to focus on limiting the API access in order to make sure that only the authorized parties have access to respective resources/services. Please refer to [an overview of Authorization in API Manager]({{base_path}}/api-security/runtime/authorization/api-authorization) for more information.
+Due to the expanding consumer base, the application developers have to focus on limiting the API access in order to make sure that only the authorized parties have access to the respective resources/services. Please refer to [an overview of Authorization in API Manager]({{base_path}}/api-security/runtime/authorization/api-authorization) for more information.
 
 **Threat Protection**
 
@@ -62,10 +62,10 @@ There are various threat protectors like Gateway Threat Protectors, Regular Expr
 
 API documentation helps API subscribers to understand the functionality of the API and API publishers to market their APIs better and sustain competition. Using the API Publisher, you can add different types of documentation from various sources. Refer to [documentation on documenting APIs]({{base_path}}/api-design-manage/design/api-documentation/add-api-documentation) for more information.
 
-### Test APIs
+## Test APIs
 
 You can test APIs directly in the API Publisher itself. Refer to [documentation on testing REST APIs]({{base_path}}/api-design-manage/design/create-api/create-rest-api/test-a-rest-api) for more information.
 
-### API Revisions
+## API Revisions
 
 API Revisions can be used when an API Publisher needs to keep track of different deployments of the API. Refer to [documentation on API Revisions]({{base_path}}/api-design-manage/design/create-api/create-api-revisions) for more information.
