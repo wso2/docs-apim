@@ -23,6 +23,8 @@ In addition to the streaming APIs supported in API Manager (WebSocket, SSE, and 
     The APIs created using the ‘Other’ option cannot be converted to a regular API. It can be only used as a third-party API.
         [![Create AsyncAPIs using the Other option]({{base_path}}/assets/img/develop/async-api.png)]({{base_path}}/assets/img/develop/async-api.png)
 
+For more information on creating streaming APIs from AsyncAPI definitions, see [Create a Streaming API from an AsyncAPI Definition]({{base_path}}/manage-apis/design/create-api/create-streaming-api/create-a-streaming-api-from-an-asyncapi-definition/).
+
 
 Listed below are the fields available when adding third-party API details to the API Manager.
 
