@@ -45,6 +45,10 @@ the attached OpenAPI definition (a.k.a Swagger definition) files]({{base_path}}/
       </p></li>
 
       <li><p>
+      If you update the resources of an API that is part of an API Product, the API Product does not automatically reflect these changes. To apply the resource-level changes, navigate to <b>Manage Resources</b> in the API Product's edit view and click <b>Save</b> or <b>Save and Deploy</b>. Simply redeploying the API Product without this action will not refresh inherited policies or resource configurations.
+      </p></li>
+
+      <li><p>
       If you have not already signed in to the Publisher Portal as a user who has <code>Internal/publisher</code> permissions (e.g., <code>admin</code>), you need to sign out and sign in with this permission in order to be able to carry out the following instructions. </p></li>
      
       </ul>
