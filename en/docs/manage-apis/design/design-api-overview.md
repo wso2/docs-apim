@@ -1,8 +1,8 @@
 # Designing an API
 
 Designing an API spans through a few phases of an API Lifecycle. A correct tool can help design an API seamlessly and efficiently. WSO2 API Manager supports the designing of an API via the API Publisher Portal. 
-  
-<img src="{{base_path}}/assets/img/learn/design-api/design-api-lifecycle.png" height="400" />
+
+<img src="https://i.imgur.com/GzSKczw.png" height="400" />
 
 The following are the various aspects associated with the designing phase of the API lifecycle.
 
