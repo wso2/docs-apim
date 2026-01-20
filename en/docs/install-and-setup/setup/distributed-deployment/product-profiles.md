@@ -57,10 +57,24 @@ You can start an API Manager profile in the following methods, based on your req
 ### Method 1- Optimizing before starting the server
 
 !!! note
-    Make sure to update the API-M pack to the latest using the "WSO2 in-place updates tool" before running the profile
-    optimization. If you update the server after running the profile optimization, you may need to follow [Method 2](#method-2-optimizing-while-starting-the-server), as
-    the updates would have fetched irrelevant files for this profile
+    Make sure to update the API-M pack to the latest using the "WSO2 in-place updates tool" before running the profile optimization.
 
+!!! warning "Re-optimization required after applying updates"
+
+    If you apply WSO2 Updates (including WSO2 Updates 2.0/U2 updates) to an API Manager pack **after** running profile optimization, you **must** re-run the profile optimization script for the relevant profile.
+
+    This is because updates apply fixes across all profiles and may introduce files that are not relevant to your active profile. Failure to re-optimize after applying updates can cause server startup issues or unexpected behavior.
+
+    To re-optimize after applying updates:
+
+    1. Apply the WSO2 Updates to your API Manager pack.
+    2. Re-run the profile optimization script:
+        ```bash
+        sh <API-M_HOME>/bin/profileSetup.sh -Dprofile=<preferred-profile>
+        ```
+    3. Start the server with the specified profile.
+
+    Alternatively, you can follow [Method 2](#method-2-optimizing-while-starting-the-server) to optimize while starting the server.
 
 Create an optimized distribution for a particular API-M profile.
 
