@@ -28,7 +28,7 @@ Choose a deployment option to start the WSO2 API Manager All-In-One package. The
     
     5. To start WSO2 API Manager, execute the relevant command:
 
-        === "On MacOS/Linux"
+        === "On macOS/Linux"
             ```bash
             sh api-manager.sh
             ```
@@ -77,7 +77,7 @@ Follow the instructions below to create, deploy and publish an API via the Publi
     | `Charset`               | UTF-8                 |
     | `HTTP Response Body`    | `{"hello": "world"}`  |
 
-    Finally click **Generate My HTTP Response** to save and generate the mock service url.
+    Finally, click **Generate My HTTP Response** to save and generate the mock service URL.
 
     
 4. Select **REST API** from the home screen and then click **Start From Scratch**.
