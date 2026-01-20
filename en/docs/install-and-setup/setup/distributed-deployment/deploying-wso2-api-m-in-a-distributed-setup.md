@@ -7,6 +7,9 @@ Given below are the API-M nodes you can have in a distributed deployment by defa
 !!! Tip
     To enable high availability, you need a minimum of two nodes running each component distribution.
 
+!!! Note
+    To use the PizzaShack sample API in a distributed deployment, you need to host the sample PizzaShack backend (`pizzashack.war`) on a separate application server or container, as the backend is not included in the API-M component distributions by default. Ensure the backend URL is accessible to the Gateway.
+
 <table>
     <tr>
         <th>
