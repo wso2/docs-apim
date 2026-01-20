@@ -11,6 +11,7 @@ Tenant sharing can be configured in either direction: from API Manager to Identi
 By default, authentication between WSO2 API Manager and WSO2 Identity Server 7.x is performed via Mutual SSL. Therefore, it is necessary to configure a certificate that is trusted by both components during deployment.
 
 **1\.  Exchange and import certificates**
+
    *   Import the public certificate of WSO2 IS 7.x into the truststore of WSO2 API Manager.
 
    *   Import the public certificate of WSO2 API Manager into the truststore of WSO2 IS 7.x.
@@ -18,7 +19,6 @@ By default, authentication between WSO2 API Manager and WSO2 Identity Server 7.x
    *   For detailed instructions, refer to the [Importing certificates to the truststore]({{base_path}}/install-and-setup/setup/security/configuring-keystores/keystore-basics/creating-new-keystores/#step-3-importing-certificates-to-the-truststore) guide.
 
 **2\. Enable client certificate-based authentication** 
-
 
 Add the following configuration to the `<Product-Home>/repository/conf/deployment.toml` of WSO2 IS 7.x to globally enable client certificate-based authentication.
 
@@ -49,7 +49,6 @@ allowed_username = ["*"]
     `allowed_username` : Which user this certificate is mapped to. You need to add a username which is available in IS. Wildcard (*) is allowed.
 
     You could use `openssl x509 -noout -in <cert_file> -issuer -fingerprint -sha256` to get certificate information
-
 
 ## Tenant Synchronization from WSO2 IS 7.x to WSO2 API Manager
 
