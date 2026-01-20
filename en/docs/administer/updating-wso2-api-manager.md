@@ -15,6 +15,27 @@ You should manually merge the updated configuration files or use a tool like Pup
 
 For more information, see [Using WSO2 Updates 2.0](https://updates.docs.wso2.com/en/latest/updates/update-tool/)
 
+!!! warning "Re-optimization requirement for distributed deployments"
+
+    **Important for profiled deployments (Control Plane, Gateway, Traffic Manager, Key Manager)**
+
+    When you apply WSO2 Updates 2.0 (U2) to a distributed API Manager deployment that uses product profiles, you **must** re-run the profile optimization after applying the updates. This is because U2 updates apply fixes and updates across all profiles, which can introduce files that are not relevant to the active profile.
+
+    Failure to re-optimize profiles after applying updates may cause server startup issues or unexpected behavior.
+
+    To re-optimize a profile after applying updates, run the profile optimization script again:
+
+    ```bash
+    sh <API-M_HOME>/bin/profileSetup.sh -Dprofile=<preferred-profile>
+    ```
+
+    For example, for a Key Manager profile:
+    ```bash
+    sh <API-M_HOME>/bin/profileSetup.sh -Dprofile=api-key-manager
+    ```
+
+    For more information on profile optimization, see [Running the API-M Profiles]({{base_path}}/install-and-setup/setup/distributed-deployment/product-profiles/)
+
 !!! warning
 
     **Persisting Index data**
