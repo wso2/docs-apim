@@ -79,7 +79,7 @@ cd <APIM-HOME>/bin
 ./api-manager.sh start
 ```
 
-## Security: Masking Sensitive Information
+## Privacy: Masking Sensitive Information
 
 > **Warning:** Ensure that you **do not** expose your Moesif API Key in public repositories or logs, as it can lead to unauthorized access to your analytics data.
 
