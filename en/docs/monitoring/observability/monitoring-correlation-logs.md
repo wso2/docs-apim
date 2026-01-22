@@ -682,7 +682,15 @@ curl -k "Authorization :Bearer <access-token>" -H "activityid:<example-correlati
 2.  Isolate the logs that are correlated.<br/>
     Replace `<correlation_ID>` with the `<example-correlation-ID>` given above.
 
-    `cat correlation.log | grep "<correlation_ID>"`
+    === "Linux/macOS"
+        ```bash
+        cat correlation.log | grep "<correlation_ID>"
+        ```
+
+    === "Windows"
+        ```powershell
+        type correlation.log | findstr "<correlation_ID>"
+        ```
 
 ### Reading and analyzing the Correlation logs
 
@@ -790,28 +798,55 @@ Follow the following steps to pinpoint the bottleneck,
 
 You can list the times consumed by the code level, using the following command. This will help you to pinpoint method level latencies.
 
-``` java
-cat correlation.log | grep “|METHOD|” | cut -d “|” -f4 | sort -n
-```
+=== "Linux/macOS"
+    ```bash
+    cat correlation.log | grep "|METHOD|" | cut -d "|" -f4 | sort -n
+    ```
 
-This will give the time consumed by each method in ascending order. If a method with a high time consumption is identified, then take the 5 most time consuming service and database calls, with the same correlation ID of the method logs, and find out the unusually time consuming call.
+=== "Windows"
+    ```powershell
+    Get-Content correlation.log | Select-String -Pattern "|METHOD|" | ForEach-Object { ($_ -split '\|')[3] } | Sort-Object {[double]$_}
+    ```
 
-``` java
-cat correlation.log | grep “correlationID” | grep “|HTTP” | cut -d “|” -f4 | sort -n
-cat correlation.log | grep “correlationID” | grep “|jdbc|” | cut -d “|” -f4 | sort -n
-cat correlation.log | grep “correlationID” | grep “|ldap|” | cut -d “|” -f4 | sort -n
-```
+This will give the time consumed by each method in ascending order. If a method with high latency is identified, then take the 5 most time-consuming service and database calls, with the same correlation ID of the method logs, and find out the unusually time-consuming call.
+
+=== "Linux/macOS"
+    ```bash
+    cat correlation.log | grep "<correlation_ID>" | grep "|HTTP" | cut -d "|" -f4 | sort -n
+    cat correlation.log | grep "<correlation_ID>" | grep "|jdbc|" | cut -d "|" -f4 | sort -n
+    cat correlation.log | grep "<correlation_ID>" | grep "|ldap|" | cut -d "|" -f4 | sort -n
+    ```
+
+=== "Windows"
+    ```powershell
+    Get-Content correlation.log | Select-String -Pattern "<correlation_ID>" | Select-String -Pattern "|HTTP" | ForEach-Object { ($_ -split '\|')[3] } | Sort-Object {[double]$_}
+    Get-Content correlation.log | Select-String -Pattern "<correlation_ID>" | Select-String -Pattern "|jdbc|" | ForEach-Object { ($_ -split '\|')[3] } | Sort-Object {[double]$_}
+    Get-Content correlation.log | Select-String -Pattern "<correlation_ID>" | Select-String -Pattern "|ldap|" | ForEach-Object { ($_ -split '\|')[3] } | Sort-Object {[double]$_}
+    ```
 
 !!! note
-    If a method with a high time consumption cannot be identified, but still a high latency is observed, the following command can be executed to find the highest time recorded.
+    If a method with high latency cannot be identified, but latency is still observed, the following command can be executed to find the highest duration value recorded.
 
-    ``` java
-    cat correlation.log | cut -d “|” -f4 | sort -n
+=== "Linux/macOS"
+    ```bash
+    cat correlation.log | cut -d "|" -f4 | sort -n
     ```
-    Then the entry that bears the highest duration can be found by searching the file for this time.
 
-    ``` java
+=== "Windows"
+    ```powershell
+    Get-Content correlation.log | ForEach-Object { ($_ -split '\|')[3] } | Sort-Object {[double]$_}
+    ```
+
+Then the entry that bears the highest duration can be found by searching the file for this time.
+
+=== "Linux/macOS"
+    ```bash
     cat correlation.log | grep "<highest_time>"
+    ```
+
+=== "Windows"
+    ```powershell
+    type correlation.log | findstr "<highest_time>"
     ```
 
 !!! tip
