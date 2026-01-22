@@ -942,7 +942,7 @@ claims_extractor_impl = "org.wso2.carbon.apimgt.impl.token.DefaultClaimsRetrieve
                                 </div>
                             </div><div class="param">
                                 <div class="param-name">
-                                  <span class="param-name-wrap"> <code>enable_claim_retrieval</code> </span>
+                                  <span class="param-name-wrap"> <code>gateway_generator.enable_claim_retrieval</code> </span>
                                 </div>
                                 <div class="param-info">
                                     <div>
