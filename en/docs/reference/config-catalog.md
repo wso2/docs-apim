@@ -6023,16 +6023,17 @@ enable_authentication = true</code></pre>
                 <div class="superfences-content">
                     <div class="mb-config-example">
 <pre><code class="toml">[tenant_mgt]
-enable_email_domain = true</code></pre>
+enable_email_domain = true
+disable_email_domain_validation = true</code></pre>
                     </div>
                 </div>
                 <div class="doc-wrapper">
                     <div class="mb-config">
                         <div class="config-wrap">
                             <code>[tenant_mgt]</code>
-                            
+
                             <p>
-                                
+
                             </p>
                         </div>
                         <div class="params-wrap">
@@ -6044,15 +6045,34 @@ enable_email_domain = true</code></pre>
                                     <div>
                                         <p>
                                             <span class="param-type string"> string </span>
-                                            
+
                                         </p>
                                         <div class="param-default">
                                             <span class="param-default-value">Default: <code>FALSE</code></span>
                                         </div>
-                                        
+
                                     </div>
                                     <div class="param-description">
                                         <p>Enable email login for tenant users.</p>
+                                    </div>
+                                </div>
+                            </div><div class="param">
+                                <div class="param-name">
+                                  <span class="param-name-wrap"> <code>disable_email_domain_validation</code> </span>
+                                </div>
+                                <div class="param-info">
+                                    <div>
+                                        <p>
+                                            <span class="param-type string"> string </span>
+
+                                        </p>
+                                        <div class="param-default">
+                                            <span class="param-default-value">Default: <code>FALSE</code></span>
+                                        </div>
+
+                                    </div>
+                                    <div class="param-description">
+                                        <p>Disable email domain validation when email authentication is enabled. Set this to <code>true</code> to allow both username and email-username to work together.</p>
                                     </div>
                                 </div>
                             </div>
