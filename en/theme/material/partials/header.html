@@ -78,14 +78,20 @@
 {% include "partials/search.html" %}
 <!-- Header chat button (show on non-home pages only) -->
 <button id="site-chat-toggle-header" class="md-header__button md-icon md-header-chat-button" aria-label="Open chat" title="Open chat">
-  <img src="{{ 'images/GenAI (1).svg' | url }}" alt="DocAI" style="height:20px; width:20px; vertical-align:middle;" />
+  <picture class="docai-icon-wrap" style="display:inline-block; vertical-align:middle;">
+    <!-- light icon for default (light) theme -->
+    <img class="docai-icon docai-icon--light" src="{{ 'images/GenAI APIMdoc (Dark).png' | url }}" alt="DocAI" style="height:20px; width:20px;" />
+    <!-- dark icon for slate/dark theme -->
+    <img class="docai-icon docai-icon--dark" src="{{ 'images/GenAI APIMdoc (Light).png' | url }}" alt="DocAI" style="height:20px; width:20px;" />
+  </picture>
   <span class="md-header-chat-text" style="margin-left:1px; vertical-align:middle; font-weight:400; font-size:14px;">Ask AI</span>
 </button>
 <style>
   /* Theme-aware variables for the header Ask AI button to work in light & dark modes */
   :root {
-    --docai-header-btn-bg: rgba(250,250,250,0.72); /* very light ash for light mode */
-    --docai-header-btn-shadow: 0 8px 20px rgba(16,24,40,0.06);
+  --docai-header-btn-bg: rgba(250,250,250,0.72); /* very light ash for light mode */
+  /* stronger, subtle shadow for light mode to improve contrast */
+  --docai-header-btn-shadow: 0 10px 30px rgba(16,24,40,0.09);
     --docai-header-btn-color: var(--md-default-fg-color);
   }
   body[data-md-color-scheme="slate"] {
@@ -93,6 +99,11 @@
     --docai-header-btn-shadow: 0 8px 28px rgba(0,0,0,0.6);
     --docai-header-btn-color: var(--md-default-fg-color);
   }
+
+  /* DocAI icon theme switch: show light icon by default, dark icon in slate/dark theme */
+  .docai-icon--dark { display: none; }
+  body[data-md-color-scheme="slate"] .docai-icon--light { display: none; }
+  body[data-md-color-scheme="slate"] .docai-icon--dark { display: inline-block; }
 
   /* Header chat button: align style with the home Ask AI button but with subtle ash bg and shadow */
   .md-header-chat-button {
