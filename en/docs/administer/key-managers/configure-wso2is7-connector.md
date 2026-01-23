@@ -10,11 +10,10 @@ WSO2 API Manager supports multiple Key Managers. As a result, WSO2 API Manager i
 
 ## Limitations of using WSO2 IS 7.x as a Key Manager
 
-Data models of WSO2 API Manager 4.4.0 and WSO2 Identity Server 7.x are different. Therefore, when using WSO2 API Manager 4.4.0 with WSO2 Identity Server 7.x as the key manager,
+Data models of WSO2 API Manager 4.5.0 and WSO2 Identity Server 7.x are different. Therefore, when using WSO2 API Manager 4.5.0 with WSO2 Identity Server 7.x as the key manager,
 
-- **Tenancy** is **not** supported.
-- WSO2 IS 7.x **cannot** be set up as a [**Resident Key Manager**]({{base_path}}/install-and-setup/setup/distributed-deployment/configuring-wso2-identity-server-as-a-key-manager). It can only be set up as a [**Third-party Key Manager**]({{base_path}}/install-and-setup/setup/distributed-deployment/configure-a-third-party-key-manager).
-
+- **Tenant sharing has to be configured.** Please refer [**Tenant sharing between WSO2 API Manager and WSO2 IS 7.x**]({{base_path}}/administer/multitenancy/tenant-sharing-with-wso2is7/)
+- To configure WSO2 IS 7.x as default key manager please refer [**Configuring WSO2 IS 7.x as the default key manager**]({{base_path}}/administer/multitenancy/tenant-sharing-with-wso2is7/#configuring-wso2-is-7x-as-the-default-key-manager).
 
 Follow the steps given below to configure WSO2 IS 7.x as a Key Manager component.
 
@@ -117,19 +116,21 @@ Follow the steps given below to configure WSO2 IS 7.x as a Key Manager component
 
     | Configuration                                           | Value                                                               |
     |---------------------------------------------------------|---------------------------------------------------------------------|
-    | Username                                                | `admin`                                                             |
-    | Password                                                | `admin`                                                             |
+    | Authentication Type                                     | API Manager supports either Basic Authentication (username, password) or Mutual SSL (using server wide certificate or tenant wide certificate).|
+    | Identity Username (for Mutual SSL only)  | You must provide the tenant-qualified username of a user in WSO2 IS 7.x, belonging to the same tenant domain, who has the required permissions to invoke the DCR, Introspection, API Resource Management, and Roles APIs. The WSO2 IS 7.x uses this user to perform authorization when processing related requests. | 
+    | Certificate Type (for Mutual SSL only)                  |  - Server-wide: Uses an existing certificate trusted by both API Manager and WSO2 IS 7.x truststores. <br> - Tenant-wide: Allows uploading a new certificate that is already trusted by WSO2 IS 7.x. |
+    | Username (for Basic Auth only)                          | `admin`                                                             |
+    | Password (for Basic Auth only)                                               | `admin`                                                             |
     | WSO2 Identity Server 7 API Resource Management Endpoint | `https://localhost:9444/api/server/v1/api-resources`                |
     | WSO2 Identity Server 7 Roles Endpoint                   | `https://localhost:9444/scim2/v2/Roles`                             |
     | Create roles in WSO2 Identity Server 7                  | Enable this if you need to create roles in WSO2 Identity Server 7.  |
 
+[![select mutual-tls as authentication type]({{base_path}}/assets/img/administer/wso2-is-7-select-mutualtls-auth-type.png)]({{base_path}}/assets/img/administer/wso2-is-7-select-mutualtls-auth-type.png)
+
 !!! Note
-    **Create roles in WSO2 Identity Server 7** option is supported only from WSO2 API Manager 4.4.0.5 update level onwards.
+    When configuring a key manager manually, keep in mind to provide tenant qualified URLs
 
 ## Role Creation in WSO2 Identity Server 7.x
-
-!!! Note
-    Enabling role creation according to this convention is supported from WSO2 API Manager 4.4.0.5 and WSO2 Identity Server 7.0.0.81 update levels onwards.
 
 By default, roles are **not** created in WSO2 Identity Server 7.x, and it is assumed that the roles will be manually created by the user in WSO2 Identity Server 7.x. 
 
