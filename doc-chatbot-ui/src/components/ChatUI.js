@@ -174,7 +174,7 @@ export default function ChatUI() {
         headers['Authorization'] = `Bearer ${token}`;
       }
       
-      const response = await fetch('https://cors-anywhere.herokuapp.com/https://e95488c8-8511-4882-967f-ec3ae2a0f86f-dev.e1-us-east-azure.choreoapis.dev/docs-assistant-us/docs-assistant/v1/chat', {
+      const response = await fetch('https://e95488c8-8511-4882-967f-ec3ae2a0f86f-prod.e1-us-east-azure.choreoapis.dev/docs-assistant-us/docs-assistant/v1.0/chat', {
         method: 'POST',
         headers,
         body: JSON.stringify({
