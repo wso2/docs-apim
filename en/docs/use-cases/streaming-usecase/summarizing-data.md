@@ -78,7 +78,7 @@ Observe the following in the above Siddhi application:
     Also when using persisted aggregation with Oracle, add below configuration in the datasource configuration,
 
     ```
-    connectionInitSql: alter session set NLS_DATE_FORMAT='YYYY-MM-DD HH24:MI:SS'
+    connectionInitSql: alter session set NLS_DATE_FORMAT='RRRR/fmMM/fmDD'
        
     eg:
        
@@ -96,7 +96,7 @@ Observe the following in the above Siddhi application:
              maxPoolSize: 50
              idleTimeout: 60000
              connectionTestQuery: SELECT 1 FROM DUAL
-             connectionInitSql: alter session set NLS_DATE_FORMAT='YYYY-MM-DD HH24:MI:SS'
+             connectionInitSql: alter session set NLS_DATE_FORMAT='RRRR/fmMM/fmDD'
              validationTimeout: 30000
              isAutoCommit: false
                
