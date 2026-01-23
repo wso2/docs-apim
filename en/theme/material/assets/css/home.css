@@ -52,20 +52,13 @@
 }
 
 .md-home-sections {
-    margin-bottom: 5rem !important;
-
+    max-width: var(--md-main-content-max-width);
 }
 
 /* Reduce spacing between the two paragraphs on the home description section */
 .description-section .leftContent p {
     margin-top: 0.01em;
-    margin-bottom: 0.01em;
-}
-
-/* Reduce spacing between the two paragraphs on the home description section */
-.description-section .leftContent p {
-    margin-top: 0.01em;
-    margin-bottom: 0.01em;
+    margin-bottom: 0.1em;
 }
 
 .md-column-grid {
@@ -209,6 +202,7 @@
     display: flex;
     align-items: center;
     gap: 0.6rem;
+    margin-bottom: 30px;
 }
 
 .md-search-with-chat {
