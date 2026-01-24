@@ -167,7 +167,7 @@ export default function ChatUI() {
         'Accept': 'application/json',
         'Content-Type': 'application/json',
         'product': 'apim',
-        'branch': '4_5_0'
+        'branch': '4_6_0'
       };
       
       if (token) {
