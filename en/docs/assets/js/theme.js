@@ -46,11 +46,11 @@ function initVersionDropdown() {
 }
 
 // Run after DOM is ready - single initialization only
-if (typeof window.versionDropdownInitialized === 'undefined') window.versionDropdownInitialized = false;
+let versionDropdownInitialized = false;
 document.addEventListener('DOMContentLoaded', function() {
-  if (!window.versionDropdownInitialized) {
+  if (!versionDropdownInitialized) {
     initVersionDropdown();
-    window.versionDropdownInitialized = true;
+    versionDropdownInitialized = true;
   }
 });
 
@@ -138,10 +138,10 @@ window.addEventListener("DOMContentLoaded", function () {
 /* 
  * Reading versions
  */
-if (typeof window.versionsLoaded === 'undefined') window.versionsLoaded = false;
+let versionsLoaded = false;
 window.addEventListener('DOMContentLoaded', function() {
-  if (window.versionsLoaded) return;
-  window.versionsLoaded = true;
+  if (versionsLoaded) return;
+  versionsLoaded = true;
   
   var pageHeader = document.getElementById('page-header');
   var docSetLang = pageHeader.getAttribute('data-lang') == null ? 'en' : pageHeader.getAttribute('data-lang');

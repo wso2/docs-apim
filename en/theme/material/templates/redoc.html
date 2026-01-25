@@ -25,10 +25,11 @@
 
 {% block container %}
   {{ page.content }}
-  {# Only include the bundled ReDoc script if the page didn't already add one. #}
+  <!-- {# Only include the bundled ReDoc script if the page didn't already add one. #}
   {% if 'redoc' not in page.content %}
     <script src="{{ 'assets/js/redoc.standalone.js' | url }}"></script>
   {% else %}
     {# page provided its own ReDoc script/init; avoid double-including #}
   {% endif %}
-{% endblock %}
+{% endblock %} -->
+  <script src="{{ 'assets/js/redoc.standalone.js' | url }}"></script>
