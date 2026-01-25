@@ -89,9 +89,9 @@
 <style>
   /* Theme-aware variables for the header Ask AI button to work in light & dark modes */
   :root {
-  --docai-header-btn-bg: rgba(250,250,250,0.72); /* very light ash for light mode */
-  /* stronger, subtle shadow for light mode to improve contrast */
-  --docai-header-btn-shadow: 0 10px 30px rgba(16,24,40,0.09);
+  --docai-header-btn-bg: rgba(250,250,250,0.1); /* slightly denser bg */
+    /* visible whole-around shadow: outer glow + soft drop shadow */
+    --docai-header-btn-shadow: 0 14px 36px rgba(16,24,40,0.1), 0 0 0 6px rgba(16,24,40,0.005);
     --docai-header-btn-color: var(--md-default-fg-color);
   }
   body[data-md-color-scheme="slate"] {
@@ -123,8 +123,8 @@
     z-index: 10070; /* ensure above header overlays */
     pointer-events: auto !important;
     margin-left: 0.5rem; /* space between search and button */
-    box-shadow: var(--docai-header-btn-shadow);
-    transition: box-shadow 140ms ease, transform 120ms ease, background 120ms ease;
+  box-shadow: var(--docai-header-btn-shadow);
+  transition: box-shadow 160ms cubic-bezier(.2,.9,.2,1), transform 120ms ease, background 120ms ease;
   }
 
   /* Nudge the header search container so button visually aligns */
@@ -134,7 +134,13 @@
 
   .md-header-chat-button:hover {
     transform: translateY(-2px);
-    box-shadow: 0 12px 34px rgba(16,24,40,0.12);
+    box-shadow: 0 20px 48px rgba(16,24,40,0.15);
+  }
+
+  .md-header-chat-button:focus {
+    outline: none;
+    box-shadow: 0 22px 56px rgba(16,24,40,0.18);
+    transform: translateY(-2px);
   }
 
   @media (max-width: 48em) {
