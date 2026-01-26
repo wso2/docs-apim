@@ -16399,7 +16399,7 @@ same_site_cookies = "lax"
                                         </div>
                                     </div>
                                     <div class="param-description">
-                                        <p>This configuration should be used only if it is required to change the SameSite attribute of all the cookies to the configured value. Note that this configuration is available starting from update wso2am-4.5.0.46 and wso2am-acp-4.5.0.47.</p>
+                                        <p>This configuration should be used only if it is required to change the SameSite attribute of all the cookies to the configured value. Note that this configuration is available in wso2am-4.5.0 starting from update level 46 and wso2am-acp-4.5.0 starting from update level 47.</p>
                                     </div>
                                 </div>
                             </div>
