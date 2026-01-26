@@ -14707,3 +14707,62 @@ queue_capacity = 50</code></pre>
     </section>
 </div>
 
+
+
+## SameSite attribute of cookies configurations
+
+
+<div class="mb-config-catalog">
+    <section>
+        <div class="mb-config-options">
+            <div class="superfences-tabs">
+            
+            <input name="101" type="checkbox" id="_tab_101">
+                <label class="tab-selector" for="_tab_101"><i class="icon fa fa-code"></i></label>
+                <div class="superfences-content">
+                    <div class="mb-config-example">
+<pre><code class="toml">[web_app.cookie_processor]
+same_site_cookies = "lax"
+</code></pre>
+                    </div>
+                </div>
+                <div class="doc-wrapper">
+                    <div class="mb-config">
+                        <div class="config-wrap">
+                            <code>[web_app.cookie_processor]</code>
+                            
+                            <p>
+                                This can be configured to update SameSite attribute of the cookies.
+                            </p>
+                        </div>
+                        <div class="params-wrap">
+                            <div class="param">
+                                <div class="param-name">
+                                  <span class="param-name-wrap"> <code>same_site_cookies</code> </span>
+                                </div>
+                                <div class="param-info">
+                                    <div>
+                                        <p>
+                                            <span class="param-type string"> string </span>
+                                            
+                                        </p>
+                                        <div class="param-default">
+                                            <span class="param-default-value">Default: <code></code></span>
+                                        </div>
+                                        <div class="param-possible">
+                                            <span class="param-possible-values">Possible Values: <code>strict, lax, none</code></span>
+                                        </div>
+                                    </div>
+                                    <div class="param-description">
+                                        <p>This configuration should be used only if it is required to change the SameSite attribute of all the cookies to the configured value. Note that this configuration is only available from update level 383 onwards.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+
