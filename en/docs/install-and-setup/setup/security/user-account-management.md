@@ -1,7 +1,7 @@
 # User Account Management
 
 !!! note "User Management Recommendation"
-    WSO2 API Manager provides basic user account management capabilities. For advanced user management features such as user provisioning, and centralized identity management, it is recommended to use **WSO2 Identity Server (IS)** as the key manager. See [Configuring WSO2 Identity Server as a Key Manager](https://apim.docs.wso2.com/en/latest/install-and-setup/setup/distributed-deployment/configuring-wso2-identity-server-as-a-key-manager/) for more information.
+    WSO2 API Manager provides basic user account management capabilities. For advanced user management features, it is recommended to use **WSO2 Identity Server (IS)** as the key manager. See [Configuring WSO2 Identity Server as a Key Manager]({{base_path}}/install-and-setup/setup/distributed-deployment/configuring-wso2-identity-server-as-a-key-manager/) for more information.
 
 The following sections explain how to manage Developer Portal, Publisher, and the Admin Portal related user accounts.
 
