@@ -1,0 +1,2 @@
+[web_app.cookie_processor]
+same_site_cookies = "lax"
