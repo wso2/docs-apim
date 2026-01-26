@@ -14722,7 +14722,8 @@ queue_capacity = 50</code></pre>
                 <div class="superfences-content">
                     <div class="mb-config-example">
 <pre><code class="toml">[web_app.cookie_processor]
-same_site_cookies = "lax"</code></pre>
+same_site_cookies = "lax"
+</code></pre>
                     </div>
                 </div>
                 <div class="doc-wrapper">
