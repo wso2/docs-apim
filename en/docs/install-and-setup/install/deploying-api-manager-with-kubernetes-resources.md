@@ -13,8 +13,14 @@ Follow the instructions below to use Kubernetes (K8s) and Helm resources for con
     
     - An already setup [Kubernetes cluster](https://kubernetes.io/docs/setup/#learning-environment).<br><br>
     
-    - Install [NGINX Ingress Controller](https://kubernetes.github.io/ingress-nginx/deploy/) **OR** [Traefik](https://doc.traefik.io/traefik/getting-started/kubernetes/#install-traefik) for Kubernetes Gateway API support. Please note that Helm resources for WSO2 product
-      deployment patterns are compatible with NGINX Ingress Controller Git release [`nginx-0.22.0`](https://github.com/kubernetes/ingress-nginx/releases/tag/nginx-0.22.0).
+    - Install either one of the following:
+    
+        - [NGINX Ingress Controller](https://kubernetes.github.io/ingress-nginx/deploy/). Please note that Helm resources for WSO2 product deployment patterns are compatible with NGINX Ingress Controller Git release [`nginx-0.22.0`](https://github.com/kubernetes/ingress-nginx/releases/tag/nginx-0.22.0).
+        
+        - [Traefik](https://doc.traefik.io/traefik/getting-started/kubernetes/#install-traefik) for Kubernetes Gateway API support. When installing Traefik, ensure that you enable the Kubernetes Gateway. This can be done by adding an argument to the Traefik helm installation command as follows:
+            ```yaml
+            helm install traefik traefik/traefik --set providers.kubernetesGateway.enabled=true -n traefik
+            ```
 
 1.  Checkout the Helm Resources for WSO2 API Manager Git repository using `git clone` :
 
@@ -77,7 +83,7 @@ Follow the instructions below to use Kubernetes (K8s) and Helm resources for con
     
     !!! note
         - Ensure that Gateway API CRDs are installed in your cluster and you have a compatible Gateway implementation configured. Refer to the [Kubernetes Gateway API documentation](https://gateway-api.sigs.k8s.io/) for more details.
-        - When using Traefik Gateway API the `kubernetes.gatewayAPI.defaultTlsCreation` and `kubernetes.gatewayAPI.defaultConfigMapCreation` parameters are set to `true` by default, which will create default TLS secrets and ConfigMaps. For production deployments, it is recommended to create your own custom TLS secret and ConfigMap and reference them in the configuration.
+        - When using Traefik Gateway API Controller, the `kubernetes.gatewayAPI.defaultTlsCreation` and `kubernetes.gatewayAPI.defaultConfigMapCreation` parameters are set to `true` by default, which will create default TLS secrets and ConfigMaps. For production deployments, it is recommended to create your own custom TLS secret and ConfigMap and reference them in the configuration.
 
 3. Deploy WSO2 API Manager
 
