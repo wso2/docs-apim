@@ -128,10 +128,16 @@ Follow the steps given below to configure WSO2 IS as a Key Manager component
         WSO2 Identity Server exposes an OpenID Connect Discovery endpoint that can auto-populate most Key Manager endpoint fields. Enter the well-known URL and click **Import** to retrieve the configuration automatically.
 
         **Well-known URL format for WSO2 IS 6.x:**
+
         ```
         https://<IS_HOST>:<IS_PORT>/oauth2/token/.well-known/openid-configuration
         ```
-        Example: `https://localhost:9444/oauth2/token/.well-known/openid-configuration`
+
+        **Example:**
+
+        ```
+        https://localhost:9444/oauth2/token/.well-known/openid-configuration
+        ```
 
     !!! warning "Manual overrides required after import"
         When using the well-known URL to import configuration, the following fields are populated with standard OIDC discovery values that **must be manually changed** for WSO2 IS Key Manager connector compatibility:
