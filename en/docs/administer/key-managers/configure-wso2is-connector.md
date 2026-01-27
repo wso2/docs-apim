@@ -137,7 +137,7 @@ Follow the steps given below to configure WSO2 IS as a Key Manager component
         When using the well-known URL to import configuration, the following fields are populated with standard OIDC discovery values that **must be manually changed** for WSO2 IS Key Manager connector compatibility:
 
         - **Client Registration Endpoint**: Change to `https://<IS_HOST>:<IS_PORT>/keymanager-operations/dcr/register`
-        - **UserInfo Endpoint**: Change to `https://<IS_HOST>:<IS_PORT>/keymanager-operations/user-info/claims/generate`
+        - **Userinfo Endpoint**: Change to `https://<IS_HOST>:<IS_PORT>/keymanager-operations/user-info/claims/generate`
 
      The following table provides definitions for each configuration.
 
