@@ -76,7 +76,8 @@ Follow the instructions below to use Kubernetes (K8s) and Helm resources for con
         ```
     
     !!! note
-        Ensure that Gateway API CRDs are installed in your cluster and you have a compatible Gateway implementation configured. Refer to the [Kubernetes Gateway API documentation](https://gateway-api.sigs.k8s.io/) for more details.
+        - Ensure that Gateway API CRDs are installed in your cluster and you have a compatible Gateway implementation configured. Refer to the [Kubernetes Gateway API documentation](https://gateway-api.sigs.k8s.io/) for more details.
+        - When using Traefik Gateway API the `kubernetes.gatewayAPI.defaultTlsCreation` and `kubernetes.gatewayAPI.defaultConfigMapCreation` parameters are set to `true` by default, which will create default TLS secrets and ConfigMaps. For production deployments, it is recommended to create your own custom TLS secret and ConfigMap and reference them in the configuration.
 
 3. Deploy WSO2 API Manager
 
