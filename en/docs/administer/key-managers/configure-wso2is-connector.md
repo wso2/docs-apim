@@ -124,6 +124,21 @@ Follow the steps given below to configure WSO2 IS as a Key Manager component
 
 5. Add the Key Manager configurations.
 
+    !!! tip "Using the Well-known URL for auto-configuration"
+        WSO2 Identity Server exposes an OpenID Connect Discovery endpoint that can auto-populate most Key Manager endpoint fields. Enter the well-known URL and click **Import** to retrieve the configuration automatically.
+
+        **Well-known URL format for WSO2 IS 6.x:**
+        ```
+        https://<IS_HOST>:<IS_PORT>/oauth2/token/.well-known/openid-configuration
+        ```
+        Example: `https://localhost:9444/oauth2/token/.well-known/openid-configuration`
+
+    !!! warning "Manual overrides required after import"
+        When using the well-known URL to import configuration, the following fields are populated with standard OIDC discovery values that **must be manually changed** for WSO2 IS Key Manager connector compatibility:
+
+        - **Client Registration Endpoint**: Change to `https://<IS_HOST>:<IS_PORT>/keymanager-operations/dcr/register`
+        - **UserInfo Endpoint**: Change to `https://<IS_HOST>:<IS_PORT>/keymanager-operations/user-info/claims/generate`
+
      The following table provides definitions for each configuration.
 
       <table>
@@ -158,70 +173,64 @@ Follow the steps given below to configure WSO2 IS as a Key Manager component
       </tr>
       <tr class="odd">
       <td>Well-known-url</td>
-      <td>The well-known URL of the authorization server (Key Manager).</td>
-      <td>Optional</td>
+      <td>The OpenID Connect Discovery endpoint of the authorization server. When provided and imported using the <b>Import</b> button, this auto-populates most endpoint fields below.</br>
+        e.g., <code>https://localhost:9444/oauth2/token/.well-known/openid-configuration</code></td>
+      <td>Optional, but recommended to simplify configuration</td>
       </tr>
       <tr class="even">
       <td>Issuer</td>
-      <td>The issuer that consumes or validates access tokens </br>e.g., <code>https://localhost:9444/services</code></td>
-      <td>Optional</td>
+      <td>The issuer identifier that appears in access tokens issued by this Key Manager. This value must match the <code>issuer</code> claim returned by the well-known endpoint.</br>
+        e.g., <code>https://localhost:9444/oauth2/token</code></td>
+      <td>Auto-populated via discovery; manual entry required otherwise</td>
       </tr>
       <tr class="odd">
       <td colspan="3"><b>Key Manager Endpoints</b></td>
       </tr>
       <tr class="even">
       <td>Client Registration Endpoint </td>
-      <td><p>The endpoint that verifies the identity and obtain profile information of the end-user based on the authentication performed by an authorization server.</br>
-        e.g., <code>https://localhost:9444/keymanager-operations/dcr/register</code></p></br>
-          <p>If you have set the following as a well known endpoint, you need to set the Client Registration Endpoint as https://localhost:9444/keymanager-operations/dcr/register</p>
-          <ol>
-               <li><code>https://localhost:9444/oauth2/oidcdiscovery/.well-known/openid-configuration</code></li>
-               <li><code>https://localhost:9444/oauth2/token/.well-known/openid-configuration</code></li>
-          </ol></p>
+      <td>The endpoint used to dynamically register OAuth 2.0 client applications (Dynamic Client Registration).</br>
+        e.g., <code>https://localhost:9444/keymanager-operations/dcr/register</code></br></br>
+        <b>Note:</b> When importing via the well-known URL, this field is populated with the standard OIDC DCR endpoint. You must manually change it to the <code>keymanager-operations</code> path shown above for WSO2 IS connector compatibility.
       </td>
-      <td>Optional if the well-known URI is provided.</td>
+      <td>Auto-populated via discovery, but <b>requires manual override</b></td>
       </tr>
       <tr class="odd">
       <td>Introspection Endpoint</td>
-      <td><p>The endpoint that allows authorized protected resources to query the authorization server to determine the set of metadata for a given token that was presented to them by an OAuth Client.</br>
-        e.g., <code>https://localhost:9444/oauth2/introspect</code></p></td>
-      <td>Optional if the well-known URI is provided.</td>
+      <td>The endpoint that allows authorized protected resources to query the authorization server to determine the set of metadata for a given token that was presented to them by an OAuth client.</br>
+        e.g., <code>https://localhost:9444/oauth2/introspect</code></td>
+      <td>Auto-populated via discovery; manual entry required otherwise</td>
       </tr>
       <tr class="even">
       <td>Token Endpoint</td>
       <td>The endpoint that issues the access tokens.</br>
         e.g., <code>https://localhost:9444/oauth2/token</code></td>
-      <td>Optional</td>
+      <td>Auto-populated via discovery; manual entry required otherwise</td>
       </tr>
       <tr class="odd">
       <td>Revoke Endpoint</td>
       <td>The endpoint that revokes the access tokens.</br>
         e.g., <code>https://localhost:9444/oauth2/revoke</code></td>
-      <td>Optional</td>
+      <td>Auto-populated via discovery; manual entry required otherwise</td>
       </tr>
       <tr class="even">
       <td>Userinfo Endpoint</td>
-      <td><p>The endpoint that allows clients to verify the identity of the end-user based on the authentication performed by an authorization server, as well as to obtain basic profile information about the end-user.</br>
-            e.g., <code>https://localhost:9444/keymanager-operations/user-info/claims/generate</code></p>
-          <p>If you have set the following as a well known endpoint, you need to set the Userinfo Endpoint as https://localhost:9444/oauth2/userinfo?schema=openid</p>
-          <ol>
-               <li><code>https://localhost:9444/oauth2/oidcdiscovery/.well-known/openid-configuration</code></li>
-               <li><code>https://localhost:9444/oauth2/token/.well-known/openid-configuration</code></li>
-          </ol></p>      
+      <td>The endpoint that allows clients to verify the identity of the end-user based on the authentication performed by an authorization server, as well as to obtain basic profile information about the end-user.</br>
+        e.g., <code>https://localhost:9444/keymanager-operations/user-info/claims/generate</code></br></br>
+        <b>Note:</b> When importing via the well-known URL, this field is populated with the standard OIDC userinfo endpoint. You must manually change it to the <code>keymanager-operations</code> path shown above for WSO2 IS connector compatibility.
       </td>
-      <td>Optional</td>
+      <td>Auto-populated via discovery, but <b>requires manual override</b></td>
       </tr>
       <tr class="odd">
       <td>Authorize Endpoint</td>
-      <td>The endpoint used to obtain an authorization grant from the resource owner via the user-agent redirection.</br>
-      e.g., <code>https://localhost:9444/oauth2/authorize</code></td>
-      <td>Optional</td>
+      <td>The endpoint used to obtain an authorization grant from the resource owner via user-agent redirection.</br>
+        e.g., <code>https://localhost:9444/oauth2/authorize</code></td>
+      <td>Auto-populated via discovery; manual entry required otherwise</td>
       </tr>
       <tr class="even">
       <td>Scope Management Endpoint </td>
       <td>The endpoint used to manage the scopes.</br>
-      e.g., <code>https://wso2is.com:9444/api/identity/oauth2/v1.0/scopes</code></td>
-      <td>Mandatory</td>
+        e.g., <code>https://localhost:9444/api/identity/oauth2/v1.0/scopes</code></td>
+      <td>Mandatory (not auto-populated via discovery)</td>
       </tr>
       <tr class="odd">
       <td  colspan="3"><b>Connector Configurations</b></td>
