@@ -18,7 +18,7 @@ The process of consuming an API from WSO2 API Manager involves the following ste
 
 When APIs are created and published through the **Publisher**, they become available through the **Developer Portal**. Developers can use the search option to find APIs of interest.
 
--   <a href="{{base_path}}/consume/discover-apis/search">Searching for APIs</a>
+- [Searching for APIs]({{base_path}}/consume/discover-apis/search)
 
 ### Subscribe to APIs
 
@@ -38,13 +38,13 @@ Developers need to select a business plan for each API subscription. The busines
 
 ### Test APIs
 
-Before using an API for development, the API consumer may want to test it’s capabilities. The following options are available in the Developer Portal for testing:
+Before using an API for development, the API consumer may want to test its capabilities. The following options are available in the Developer Portal for testing:
 
--   <a href="{{base_path}}/consume/invoke-apis/invoke-apis-using-tools/invoke-an-api-using-the-integrated-api-console">Test APIs using the Integrated API Console</a>
-    -   <a href="{{base_path}}/consume/invoke-apis/invoke-apis-using-tools/include-additional-headers-in-the-api-console">Include Additional Headers in the API Console</a>
--   <a href="{{base_path}}/consume/invoke-apis/invoke-apis-using-tools/invoke-an-graphql-api-using-the-integrated-graphql-console">Test GraphQL APIs Using the Integrated GraphQL Console</a>
--   <a href="{{base_path}}/consume/invoke-apis/invoke-apis-using-tools/invoke-an-api-using-a-soap-client">Test an API Using a SOAP Client</a>
- -   <a href="{{base_path}}/consume/invoke-apis/invoke-apis-using-tools/try-out-using-postman">Test a REST API Using Postman</a>
+- [Test APIs using the Integrated API Console]({{base_path}}/consume/invoke-apis/invoke-apis-using-tools/invoke-an-api-using-the-integrated-api-console)
+    - [Include Additional Headers in the API Console]({{base_path}}/consume/invoke-apis/invoke-apis-using-tools/include-additional-headers-in-the-api-console)
+- [Test GraphQL APIs Using the Integrated GraphQL Console]({{base_path}}/consume/invoke-apis/invoke-apis-using-tools/invoke-an-graphql-api-using-the-integrated-graphql-console)
+- [Test an API Using a SOAP Client]({{base_path}}/consume/invoke-apis/invoke-apis-using-tools/invoke-an-api-using-a-soap-client)
+- [Test a REST API Using Postman]({{base_path}}/consume/invoke-apis/invoke-apis-using-tools/try-out-using-postman)
 
 ## Rate and Support APIs
 
