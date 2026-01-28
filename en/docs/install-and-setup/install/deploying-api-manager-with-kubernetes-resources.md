@@ -123,7 +123,7 @@ Follow the instructions below to use Kubernetes (K8s) and Helm resources for con
         Example:
         ```
         NAME                                    TYPE           CLUSTER-IP     EXTERNAL-IP     PORT(S)          AGE
-        apim-wso2am-all-in-one-gateway-nginx   LoadBalancer   10.43.58.161   192.168.64.2   8443:31089 TCP     7m39s
+        apim-wso2am-all-in-one-gateway-nginx   LoadBalancer   10.43.58.161   192.168.64.2   443:31089 TCP     7m39s
         ```
 
     2.  Add the above hosts as entries in `/etc/hosts` file as follows:
