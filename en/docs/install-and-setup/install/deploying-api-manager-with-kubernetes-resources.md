@@ -17,9 +17,9 @@ Follow the instructions below to use Kubernetes (K8s) and Helm resources for con
     
         - [NGINX Ingress Controller](https://kubernetes.github.io/ingress-nginx/deploy/). Please note that Helm resources for WSO2 product deployment patterns are compatible with NGINX Ingress Controller Git release [`nginx-0.22.0`](https://github.com/kubernetes/ingress-nginx/releases/tag/nginx-0.22.0).
         
-        - [Traefik](https://doc.traefik.io/traefik/getting-started/kubernetes/#install-traefik) for Kubernetes Gateway API support. When installing Traefik, ensure that you enable the Kubernetes Gateway. This can be done by adding an argument to the Traefik helm installation command as follows:
-            ```yaml
-            helm install traefik traefik/traefik --set providers.kubernetesGateway.enabled=true -n traefik
+        - [NGINX Gateway Fabric](https://docs.nginx.com/nginx-gateway-fabric/install/helm/) for Kubernetes Gateway API support. NGINX Gateway Fabric can be installed using the following command:
+            ```
+            helm install ngf oci://ghcr.io/nginx/charts/nginx-gateway-fabric --create-namespace -n nginx-gateway
             ```
 
 1.  Checkout the Helm Resources for WSO2 API Manager Git repository using `git clone` :
@@ -83,7 +83,7 @@ Follow the instructions below to use Kubernetes (K8s) and Helm resources for con
     
     !!! note
         - Ensure that Gateway API CRDs are installed in your cluster and you have a compatible Gateway implementation configured. Refer to the [Kubernetes Gateway API documentation](https://gateway-api.sigs.k8s.io/) for more details.
-        - When using Traefik Gateway API Controller, the `kubernetes.gatewayAPI.defaultTlsCreation` and `kubernetes.gatewayAPI.defaultConfigMapCreation` parameters are set to `true` by default, which will create default TLS secrets and ConfigMaps. For production deployments, it is recommended to create your own custom TLS secret and ConfigMap and reference them in the configuration.
+        - When using NGINX Gateway Fabric, the `kubernetes.gatewayAPI.defaultTlsCreation` and `kubernetes.gatewayAPI.defaultConfigMapCreation` parameters are set to `true` by default, which will create default TLS secrets and ConfigMaps. For production deployments, it is recommended to create your own custom TLS secret and ConfigMap and reference them in the configuration.
 
 3. Deploy WSO2 API Manager
 
@@ -112,18 +112,18 @@ Follow the instructions below to use Kubernetes (K8s) and Helm resources for con
         <RELEASE_NAME>-am-all-in-one-am-websub-ingress      nginx   websub.wso2.com         <EXTERNAL-IP>        80, 443   8s
         ```
         
-        **If using Traefik Gateway API:**
+        **If using NGINX Gateway Fabric:**
         
-        Get the external IP from the Traefik service:
+        Get the external IP from the NGINX Gateway Fabric service:
         
         ```
-        kubectl get svc -n traefik
+        kubectl get svc -n <NAMESPACE>
         ```
         
         Example:
         ```
-        NAME      TYPE           CLUSTER-IP     EXTERNAL-IP     PORT(S)                      AGE
-        traefik   LoadBalancer   10.43.x.x      <EXTERNAL-IP>   80:32080/TCP,443:32443/TCP   5m
+        NAME                                    TYPE           CLUSTER-IP     EXTERNAL-IP     PORT(S)          AGE
+        apim-wso2am-all-in-one-gateway-nginx   LoadBalancer   10.43.58.161   192.168.64.2   8443:31089 TCP     7m39s
         ```
 
     2.  Add the above hosts as entries in `/etc/hosts` file as follows:
