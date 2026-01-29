@@ -156,8 +156,13 @@ When enabled, the following naming conventions are followed when creating/access
 
 ## UserInfo Endpoint
 
-> **Note:** If you use the `/keymanager-operations/user-info` endpoint as the user-info endpoint,
-> you do **not** need to add the following access control in WSO2 IS:
+!!! Note
+If you are using the `/keymanager-operations/user-info` endpoint as the UserInfo endpoint,
+you can remove the following access control configuration from the
+`<IS7_HOME>/repository/conf/deployment.toml` file if it already exists.
+
+This configuration applies to WSO2 Identity Server (IS) and **not** API Manager (APIM).
+
 >
 > ```toml
 > [[resource.access_control]]
