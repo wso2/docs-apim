@@ -6512,7 +6512,52 @@
             }
         ],
         "exampleFile": "synapse_artifact_generator_pool.toml"
-        }                                                                       
+        },
+        {
+        "title": "API-M AWS Lambda Configurations",
+        "options": [
+          {
+            "name": "apim.aws_lambda.http_client",
+            "required": false,
+            "description": " Configurations to tune the underlying HTTP connection pool settings used by each AWS Lambda client instance, to improve performance under high load.",
+            "params": [
+              {
+                "name": "max_connections",
+                "type": "integer",
+                "required": false,
+                "default": "100",
+                "possible": "",
+                "description": "The maximum number of concurrent HTTP connections allowed per AWS Lambda client instance. Increase this value if you expect high concurrent throughput to Lambda functions."
+              },
+              {
+                "name": "connection_timeout",
+                "type": "integer",
+                "required": false,
+                "default": "2",
+                "possible": "",
+                "description": "The maximum time (in seconds) to wait when establishing a new TCP connection to AWS."
+              },
+              {
+                "name": "socket_timeout",
+                "type": "integer",
+                "required": false,
+                "default": "30",
+                "possible": "",
+                "description": "The maximum time (in seconds) to wait for data to be transferred after a connection is established."
+              },
+              {
+                "name": "connection_acquisition_timeout",
+                "type": "integer",
+                "required": false,
+                "default": "30",
+                "possible": "",
+                "description": "The maximum time (in seconds) to wait for a connection to become available from the pool if max_connections has been reached."
+              }
+            ]
+          }
+        ],
+        "exampleFile": "apim.aws_lambda.http_client.toml"
+        }
     ]
 }
 
