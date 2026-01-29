@@ -70,10 +70,10 @@
 }
 
 .md-grid-column {
-    width: 31%; /* roughly 3 columns per row */
+    width: 32%; 
     display: inline-block;
     vertical-align: top;
-    margin: 12px 0; /* slimmer margins to fit three columns */
+    margin: 20px; 
 }
 
 .md-grid-column:last-child {
