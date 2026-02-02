@@ -79,7 +79,13 @@ Observe the following in the above Siddhi application:
 
     ```
     connectionInitSql: alter session set NLS_DATE_FORMAT='YYYY-MM-DD HH24:MI:SS'
-       
+
+    ```
+    !!! note
+    If you encounter the error `ORA-01830: date format picture ends before converting entire input string`, use the following configuration instead:
+    `connectionInitSql: alter session set NLS_DATE_FORMAT='RRRR/fmMM/fmDD'`
+
+    ```
     eg:
        
      - name: APIM_ANALYTICS_DB
@@ -99,6 +105,7 @@ Observe the following in the above Siddhi application:
              connectionInitSql: alter session set NLS_DATE_FORMAT='YYYY-MM-DD HH24:MI:SS'
              validationTimeout: 30000
              isAutoCommit: false
+    ```
                
     ```
     For an example please refer to the following query which will be executed on the database to update the table for below sample Aggregation ,
