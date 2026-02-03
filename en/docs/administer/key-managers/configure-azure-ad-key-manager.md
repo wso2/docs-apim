@@ -193,11 +193,41 @@ Start the API Manager server and log-in to the Admin portal to configure Azure A
       </tr>
     </tbody>
   </table>
+
+!!! note "Handling Azure Application Synchronization Delays"
+    This capability is supported only from the U2 level 96 onwards
+    </br></br>Due to eventual consistency in Azure, there can be delays when creating Applications and Service Principals.
+    To mitigate issues caused by these synchronization delays, polling is performed for all Azure creation-related interactions.
+    The polling behavior can be configured using the Initial Delay and Maximum Waiting Time parameters, which are available in the Connector Configuration section. 
+    These fields are described in the table below.
+    </br></br>Backoff strategy: The delay between polling attempts is doubled after each retry, up to the given maximum delay.
+    <table>
+      <thead>
+        <tr>
+          <th>Configuration</th>
+          <th>Instruction</th>
+          <th>Default Value</th>
+        </tr>
+        </thead>
+        <tr>
+          <td>Initial Delay (in ms) for Application Polling</td>
+          <td>Provide an initial time to wait before starting polling for Azure Application creation</td>
+          <td>500 ms</td>
+        </tr>
+        <tr>
+          <td>Maximum Waiting Time (in ms) for Application Polling</td>
+          <td>Provide the maximum time to wait for Azure Application creation</td>
+          <td>5000 ms</td>
+        </tr>
+      <tbody>
+      </tbody>
+    </table>
+
   7. Set the **Permissions**:
     - **Key Manager Permission**: Permission type for role-based Key Manager restriction.  
       e.g., `PUBLIC`, `ALLOW`, `DENY` (Optional)
  8. Click on `Add`.
-   
+
 ### Step 2 - Create an Application & Generate Keys
 
    1. Click on `Add New Application`.
