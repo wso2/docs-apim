@@ -82,7 +82,6 @@ export default function ChatUI() {
     if (listRef.current) {
       const { scrollTop, scrollHeight, clientHeight } = listRef.current;
       const isAtBottom = scrollHeight - scrollTop <= clientHeight + 1; // +1 for tolerance
-      const isAtTop = scrollTop <= 1; // Near the top
       
       if (isAtBottom) {
         setShowScrollButton(false);
