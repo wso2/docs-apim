@@ -59,6 +59,7 @@
 }
 
 .md-footer .md-footer__content .md-footer__meta-sections .md-footer__meta-section--discord .discord-icon {
+  overflow: visible; /* allow fixed children like chat to show */
   height: var(--md-footer-section-icon-size);
   width: var(--md-footer-section-icon-size);
   fill: var(--colors-discord-blurple);

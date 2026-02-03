@@ -76,6 +76,122 @@
   {% include ".icons/material/magnify.svg" %}
 </label>
 {% include "partials/search.html" %}
+<!-- Header chat button (show on non-home pages only) -->
+<button id="site-chat-toggle-header" class="md-header__button md-icon md-header-chat-button" aria-label="Open chat" title="Open chat">
+  <picture class="docai-icon-wrap" style="display:inline-block; vertical-align:middle;">
+    <!-- light icon for default (light) theme -->
+    <img class="docai-icon docai-icon--light" src="{{ 'images/GenAI APIMdoc (Dark).png' | url }}" alt="DocAI" style="height:20px; width:20px;" />
+    <!-- dark icon for slate/dark theme -->
+    <img class="docai-icon docai-icon--dark" src="{{ 'images/GenAI APIMdoc (Light).png' | url }}" alt="DocAI" style="height:20px; width:20px;" />
+  </picture>
+  <span class="md-header-chat-text" style="margin-left:1px; vertical-align:middle; font-weight:400; font-size:14px;">Ask AI</span>
+</button>
+<style>
+  /* Theme-aware variables for the header Ask AI button to work in light & dark modes */
+  :root {
+  --docai-header-btn-bg: rgba(250,250,250,0.1); /* slightly denser bg */
+    /* visible whole-around shadow: outer glow + soft drop shadow */
+    --docai-header-btn-shadow: 0 14px 36px rgba(16,24,40,0.1), 0 0 0 6px rgba(16,24,40,0.005);
+    --docai-header-btn-color: var(--md-default-fg-color);
+  }
+  body[data-md-color-scheme="slate"] {
+    --docai-header-btn-bg: rgba(36,36,36,0.56); /* muted dark ash for dark mode */
+    --docai-header-btn-shadow: 0 8px 28px rgba(0,0,0,0.6);
+    --docai-header-btn-color: var(--md-default-fg-color);
+  }
+
+  /* DocAI icon theme switch: show light icon by default, dark icon in slate/dark theme */
+  .docai-icon--dark { display: none; }
+  body[data-md-color-scheme="slate"] .docai-icon--light { display: none; }
+  body[data-md-color-scheme="slate"] .docai-icon--dark { display: inline-block; }
+
+  /* Header chat button: align style with the home Ask AI button but with subtle ash bg and shadow */
+  .md-header-chat-button {
+    display: inline-flex;
+    align-items: center;
+    padding: 8px 12px;
+    min-height: 44px;
+    border-radius: 0.35rem; /* soft rounded corners */
+    background: var(--docai-header-btn-bg);
+    color: var(--docai-header-btn-color);
+    border: 1px solid rgba(0,0,0,0.04);
+    border-radius: 10%;
+    box-shadow: var(--md-shadow-z1);
+    border: none;
+    cursor: pointer;
+    position: relative;
+    z-index: 10070; /* ensure above header overlays */
+    pointer-events: auto !important;
+    margin-left: 0.5rem; /* space between search and button */
+  box-shadow: var(--docai-header-btn-shadow);
+  transition: box-shadow 160ms cubic-bezier(.2,.9,.2,1), transform 120ms ease, background 120ms ease;
+  }
+
+  /* Nudge the header search container so button visually aligns */
+  .md-header [for=__search] { margin-right: 0.2rem; }
+  .md-header-chat-button img { height: 1.4rem; width: 1.4rem; }
+  .md-header-chat-text { display: inline-block; }
+
+  .md-header-chat-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 20px 48px rgba(16,24,40,0.15);
+  }
+
+  .md-header-chat-button:focus {
+    outline: none;
+    box-shadow: 0 22px 56px rgba(16,24,40,0.18);
+    transform: translateY(-2px);
+  }
+
+  @media (max-width: 48em) {
+    .md-header-chat-button { height: auto; min-width: 40px; padding: 6px 8px; }
+    .md-header-chat-button img { height: 16px; width: 16px; }
+    .md-header-chat-text { font-size: 13px; }
+    box-shadow: var(--docai-header-btn-shadow);
+    transition: box-shadow 140ms ease, transform 120ms ease, background 120ms ease;
+  }
+
+  /* Nudge the header search container so button visually aligns */
+  .md-header [for=__search] { margin-right: 0.2rem; }
+  .md-header-chat-button img { height: 1.4rem; width: 1.4rem; }
+  .md-header-chat-text { display: inline-block; }
+
+  .md-header-chat-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 34px rgba(16,24,40,0.12);
+  }
+
+  @media (max-width: 48em) {
+    .md-header-chat-button { height: auto; min-width: 40px; padding: 6px 8px; }
+    .md-header-chat-button img { height: 16px; width: 16px; }
+    .md-header-chat-text { font-size: 13px; }
+  }
+</style>
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    var headerBtn = document.getElementById('site-chat-toggle-header');
+    if (!headerBtn) return;
+    headerBtn.addEventListener('click', function(e) {
+      e.preventDefault();
+      e.stopPropagation();
+      try {
+        if (window.openSiteChat && typeof window.openSiteChat === 'function') {
+          window.openSiteChat();
+          return;
+        }
+      } catch (err) {
+        console.error('header openSiteChat() error', err);
+      }
+      var globalToggle = document.getElementById('site-chat-toggle');
+      if (globalToggle) {
+        try { globalToggle.click(); return; } catch (err) { console.error('header fallback toggle click failed', err); }
+      }
+      window.__openSiteChatRequested = (window.__openSiteChatRequested || 0) + 1;
+      console.log('Header: queued openSiteChat request, count=', window.__openSiteChatRequested);
+    });
+    
+  });
+</script>
 {% endif %}
     {% if not config.theme.palette is mapping %}
       <form class="md-header__option" data-md-component="palette">
