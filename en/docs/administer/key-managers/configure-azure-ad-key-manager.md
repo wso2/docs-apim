@@ -191,8 +191,27 @@ Start the API Manager server and log-in to the Admin portal to configure Azure A
         <td>Paste the client secret value that is generated</td>
         <td>Mandatory</td>
       </tr>
+      <tr>
+        <td>Initial Delay (in ms) for Application Polling</td>
+        <td>Provide an initial time to wait before starting polling for Azure Application creation. Default value is 500 ms</td>
+        <td>Optional</td>
+      </tr>
+      <tr>
+        <td>Maximum Waiting Time (in ms) for Application Polling</td>
+        <td>Provide the maximum time to wait for Azure Application creation. Default value is 5000 ms</td>
+        <td>Optional</td>
+      </tr>
     </tbody>
   </table>
+
+!!! note "Handling Azure Application Synchronization Delays"
+    Due to eventual consistency in Azure, there can be delays when creating Applications and Service Principals.
+    To mitigate issues caused by these synchronization delays, polling is performed for all Azure creation-related interactions.
+    The polling behavior is configurable via the Initial Delay and Maximum Waiting Time values in the `Connector Configuration` section.
+    You may adjust these values based on your deployment needs and expected Azure response times.
+    </br>Backoff strategy: The delay between polling attempts is doubled after each retry, up to the given maximum delay.
+
+
   7. Set the **Permissions**:
     - **Key Manager Permission**: Permission type for role-based Key Manager restriction.  
       e.g., `PUBLIC`, `ALLOW`, `DENY` (Optional)
