@@ -1,6 +1,11 @@
 # Error Handling
 
-When errors/exceptions occur in the system, the API Manager throws XML-based error responses to the client by default. To change the format of these error responses, you change the relevant XML file in the `<API-M_HOME>/repository/deployment/server/synapse-configs/default/sequences` directory. The directory includes multiple XML files, named after the type of errors that occur. You must select the correct file.
+When errors/exceptions occur in the system, the API Manager throws XML-based error responses to the client by default.
+
+!!! note
+    The default error response format is version-dependent. Older versions (such as 4.0.0) return XML-based error responses by default, while newer versions (4.1.0 and later) return JSON-based error responses by default.
+
+To change the format of these error responses, you change the relevant XML file in the `<API-M_HOME>/repository/deployment/server/synapse-configs/default/sequences` directory. The directory includes multiple XML files, named after the type of errors that occur. You must select the correct file.
 
 For example, to change the message type of authorization errors, open the `<API-M_HOME>/repository/deployment/server/synapse-configs/default/sequences/_auth_failure_handler_.xml` file and change `application/xml` to something like **`application/json`**.
 
