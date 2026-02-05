@@ -44,6 +44,12 @@ Follow the instructions below to create a Streaming API using an AsyncAPI defini
      <html><div class="admonition note">
       <p class="admonition-title">Note</p>
       <p>The AsynAPI definition of the Streaming API will contain the basic API definition, and <b>will not specify the protocol</b>, such as WebSocket, WebSub, WebHook, SSE, that the API has to use. You need to provide the Streaming API information here.</p>
+        <p>In previous versions of WSO2 API Manager, AsyncAPI definition validation was not very strict. In the latest versions, validation has been improved to align more closely with the AsyncAPI specification. Therefore, you must provide a valid AsyncAPI definition when creating streaming APIs.</p>
+        <p>If you must continue using an older or partially compatible AsyncAPI definition, you can enable the 
+    legacy parser to relax validation. However, this is <b>not recommended</b>, and you should update your AsyncAPI 
+    definition to meet the latest standards whenever possible.</p>
+        <pre class="java" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence" style="brush: java; gutter: false; theme: Confluence"><code>[apim.publisher]
+    use_legacy_async_parser = true</code></pre>
       </div>
      </html>
 
