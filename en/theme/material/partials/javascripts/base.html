@@ -35,7 +35,31 @@
 
 <!-- Start of Reo Javascript -->
 <script type="text/javascript">
-  !function(){var e,t,n;e="8995a8d9dc109cb",t=function(){Reo.init({clientID:"8995a8d9dc109cb"})},(n=document.createElement("script")).src="https://static.reo.dev/"+e+"/reo.js",n.defer=!0,n.onload=t,document.head.appendChild(n)}();
+  if (window.location.hostname.endsWith('wso2.com')) {
+    (function () {
+      var clientId = "{{ config.extra.reo_client_id | d('8995a8d9dc109cb') }}";
+      var script = document.createElement("script");
+      script.src = "https://static.reo.dev/" + clientId + "/reo.js";
+      script.defer = true;
+      script.onload = function () {
+        try {
+          if (typeof Reo !== "undefined" && Reo && typeof Reo.init === "function") {
+            Reo.init({ clientID: clientId });
+          } else {
+            console.error("Reo script loaded but Reo.init is not available");
+          }
+        } catch (err) {
+          console.error("Error during Reo initialization", err);
+        }
+      };
+      script.onerror = function (err) {
+        console.error("Failed to load Reo script from https://static.reo.dev/", err);
+      };
+      document.head.appendChild(script);
+    })();
+    } else {
+      console.warn("Reo not loaded: not on an allowed domain");
+  }
 </script>
 <!-- End of Reo Javascript -->
 
