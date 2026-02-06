@@ -49,11 +49,25 @@ Let's configure the API-M nodes in the deployment.
         ``` bash
         sh <KM_HOME>/bin/profileSetup.sh -Dprofile=key-manager
         ```
-    
+
     === "Windows"
         ``` bash
         <KM_HOME>/bin/profileSetup.bat -Dprofile=key-manager
-        ```   
+        ```
+
+    !!! warning "Re-optimization required after applying updates"
+
+        If you apply WSO2 Updates (including WSO2 Updates 2.0/U2 updates) to an API Manager pack **after** running profile optimization, you **must** re-run the profile optimization script for the relevant profile.
+
+        This is because updates apply fixes across all profiles and may introduce files that are not relevant to your active profile. Failure to re-optimize after applying updates can cause server startup issues or unexpected behavior.
+
+        To re-optimize after applying updates, run the profile optimization script again:
+
+        ```bash
+        sh <KM_HOME>/bin/profileSetup.sh -Dprofile=key-manager
+        ```
+
+        For more information on updating WSO2 API Manager, see [Updating WSO2 API Manager]({{base_path}}/install-and-setup/setup/updating-wso2-api-manager/).
 
 ##### Configuration
 
