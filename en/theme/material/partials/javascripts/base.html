@@ -33,36 +33,6 @@
 </script>
 <!-- End Google Tag Manager -->
 
-<!-- Start of Reo Javascript -->
-<script type="text/javascript">
-  if (window.location.hostname.endsWith('wso2.com')) {
-    (function () {
-      var clientId = "{{ config.extra.reo_client_id | d('8995a8d9dc109cb') }}";
-      var script = document.createElement("script");
-      script.src = "https://static.reo.dev/" + clientId + "/reo.js";
-      script.defer = true;
-      script.onload = function () {
-        try {
-          if (typeof Reo !== "undefined" && Reo && typeof Reo.init === "function") {
-            Reo.init({ clientID: clientId });
-          } else {
-            console.error("Reo script loaded but Reo.init is not available");
-          }
-        } catch (err) {
-          console.error("Error during Reo initialization", err);
-        }
-      };
-      script.onerror = function (err) {
-        console.error("Failed to load Reo script from https://static.reo.dev/", err);
-      };
-      document.head.appendChild(script);
-    })();
-    } else {
-      console.warn("Reo not loaded: not on an allowed domain");
-  }
-</script>
-<!-- End of Reo Javascript -->
-
 {% for path in config.extra_javascript %}
 <script src="{{ path | url }}"></script>
 {% endfor %}
