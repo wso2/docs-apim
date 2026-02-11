@@ -40,3 +40,23 @@ For more information, see [Using WSO2 Update Manager](https://docs.wso2.com/disp
         
     
     For more information on run time and configuration artifact directories of API Manager refer [Common Runtime and Configuration Artifacts]({{base_path}}/administer/product-configurations/common-runtime-and-configuration-artifacts/) .
+
+!!! warning "Re-optimization requirement for profiled deployments"
+
+    **Re-run profile optimization after applying updates**
+
+    If you are using a distributed API Manager deployment with product profiles (Control Plane, Gateway, Traffic Manager, or Key Manager), you must re-run the profile optimization after applying updates using WUM or WSO2 In-Place Updates. Updates apply fixes and changes across all profiles, so re-optimization ensures your profiled distribution remains correctly configured.
+
+    To re-optimize a profile, run the profile setup script with the appropriate profile flag:
+
+    === "Linux/Solaris/MacOS"
+        ``` bash
+        sh <PRODUCT_HOME>/bin/profileSetup.sh -Dprofile=<profile-name>
+        ```
+
+    === "Windows"
+        ``` bash
+        <PRODUCT_HOME>/bin/profileSetup.bat -Dprofile=<profile-name>
+        ```
+
+    Replace `<profile-name>` with the appropriate profile: `control-plane`, `gateway-worker`, `traffic-manager`, or `key-manager`.
