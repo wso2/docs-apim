@@ -63,9 +63,7 @@ Before you begin, ensure you have the following prerequisites in place:
 
   For a production-grade deployment of the desired WSO2 product version, it is highly recommended to use the relevant Docker image that includes WSO2 Updates, available at the [WSO2 Private Docker Registry](https://docker.wso2.com/). To use these images, you need an active [WSO2 Subscription](https://wso2.com/subscription).
 
-- WSO2 API Manager 4.5.0 provides three Docker images:
-  - All-in-one - [wso2am](https://hub.docker.com/r/wso2/wso2am)
-  - Universal Gateway (GW) - [wso2am-universal-gw](https://hub.docker.com/r/wso2/wso2am-universal-gw)
+- For this pattern, you must use the All-in-one - [wso2am](https://hub.docker.com/r/wso2/wso2am) image.
 
 - Since the products need to connect to databases at runtime, you must include the relevant JDBC drivers in the distribution. This can be done during the Docker image build stage. For example, you can add the MySQL driver as follows:
   ```dockerfile
@@ -107,11 +105,6 @@ Before you begin, ensure you have the following prerequisites in place:
   ```sql
   CREATE DATABASE apim_db CHARACTER SET latin1;
   CREATE DATABASE shared_db CHARACTER SET latin1;
-
-  GRANT ALL ON apim_db.* TO 'apimadmin'@'%';
-
-  CREATE USER 'sharedadmin'@'%' IDENTIFIED BY 'sharedadmin';
-  GRANT ALL ON shared_db.* TO 'sharedadmin'@'%';
   ```
   ```bash
   mysql -h <DB_HOST> -P 3306 -u sharedadmin -p -Dshared_db < './dbscripts/mysql.sql'

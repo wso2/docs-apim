@@ -6,7 +6,7 @@ WSO2 API Manager (WSO2 API-M) allows API Publishers to manage, govern, and monet
 
 WSO2 API Manager provides an extendable interface that allows API Management solution developers to provide custom implementations with any third-party billing engine for the purpose of monetizing APIs based on paid business plans.
 
-WSO2 API Manager uses <a href="https://stripe.com">Stripe</a> as its sample implementation billing engine to handle the payments for API monetization. However, you can use any custom implementation with WSO2 API Manager's API Monetization capabilities based on your requirement.
+WSO2 API Manager uses <a href="https://stripe.com">Stripe</a> as its sample implementation billing engine to handle the payments for API monetization. However, you can use any custom implementation with WSO2 API Manager's API Monetization capabilities based on your requirements.
 
 ## Monetize an API
 
@@ -80,7 +80,7 @@ Let's use the [wso2-am-stripe-plugin](https://github.com/wso2-extensions/wso2-am
 
          [![Work in developer mode]({{base_path}}/assets/img/learn/developer-mode.png)]({{base_path}}/assets/img/learn/developer-mode.png)
      
-    5. Once you follow either of the options in the previous step, the onboarding process will be completed. After few seconds, API Publisher account will be listed under Connected accounts in Tenant Admin account. The connected account ID (Connect ID) for the API Publisher's account will appear when clicking on the connected account. Copy the **Connect ID** value as it is required when enabling monetization for an API from the APIM Publisher portal.
+    5. Once you follow either of the options in the previous step, the onboarding process will be completed. After a few seconds, API Publisher account will be listed under Connected accounts in Tenant Admin account. The connected account ID (Connect ID) for the API Publisher's account will appear when clicking on the connected account. Copy the **Connect ID** value as it is required when enabling monetization for an API from the APIM Publisher portal.
 
 #### (B) - Configure WSO2 API Manager
 
@@ -511,7 +511,7 @@ Let's use the [wso2-am-stripe-plugin](https://github.com/wso2-extensions/wso2-am
         description = "connected account of the publisher"
         ```
            
-      The name property has to be identical to `ConnectedAccountKey`, which is defined in the [wso2-am-stripe-plugin](https://github.com/wso2-extensions/wso2-am-stripe-plugin/blob/master/src/main/java/org.wso2.apim.monetization/impl/StripeMonetizationImpl.java). However, you can add perferred values for the other properties.
+      The name property has to be identical to `ConnectedAccountKey`, which is defined in the [wso2-am-stripe-plugin](https://github.com/wso2-extensions/wso2-am-stripe-plugin/blob/master/src/main/java/org.wso2.apim.monetization/impl/StripeMonetizationImpl.java). However, you can add preferred values for the other properties.
  
     After saving these configurations, these additional properties appear in the **Monetization** page under the **Monetization properties** section in the API Publisher Portal.
 
@@ -703,7 +703,7 @@ Specific Stripe billing plans correspond to specific WSO2 API Manager business p
 <html>
     <div class="admonition note">
         <p class="admonition-title">Note</p>
-        <p>The customers are created in Stripe with sample payment(card) details. The real card details should be updated in order to process real payments. Once the real card details are updated for the relevant customer created for a particular subscriber in the platform account, it will be copied when shared customers are created in the connected accounts for the same subscriber there after. So its important that you collect and edit the correct payment details in both platform and connected account for a subscriber when he subscribes for the first time.</p>
+        <p>The customers are created in Stripe with sample payment(card) details. The real card details should be updated in order to process real payments. Once the real card details are updated for the relevant customer created for a particular subscriber in the platform account, it will be copied when shared customers are created in the connected accounts for the same subscriber thereafter. So its important that you collect and edit the correct payment details in both platform and connected account for a subscriber when he subscribes for the first time.</p>
         <p>Please refer the [document](https://stripe.com/docs/payments/cards/collecting) to find out how to collect the card details safely in Stripe.</p>
     </div> 
 </html>

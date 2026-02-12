@@ -71,6 +71,14 @@ the attached OpenAPI definition (a.k.a Swagger definition) files]({{base_path}}/
      </tr>
      <tr>
      <td>
+     Display Name
+     </td>
+     <td>
+     Customer Leasing
+     </td>
+     </tr>
+     <tr>
+     <td>
      Context
      </td>
      <td>

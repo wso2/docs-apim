@@ -8,9 +8,9 @@ The following are some of the main capabilities of the product.
 
 <div style="width: 100%; overflow: hidden;">
 
-<div class="leftContentOverview" style="width:75% !important;">A well-designed API can make your APIs easy to use. WSO2 API Manager’s API Publisher guides you through API creation to API Publishing, while adhering to the respective API’s specification. 
-    <ul>
-        <li><a href="{{base_path}}/manage-apis/design/design-api-overview/">Design API Overview</li>
+<div class="leftContentOverview" style="width:75% !important;">A well-designed API can make your APIs easy to use. WSO2 API Manager’s API Publisher guides you through API creation to API publishing, while adhering to the respective API’s specification.
+ <ul>
+        <li><a href="{{base_path}}/manage-apis/design/design-api-overview/">Design API Overview</a></li>
     </ul>
   </div>
   
@@ -27,7 +27,7 @@ The following are some of the main capabilities of the product.
 
 <div class="leftContentOverview" style="width:75% !important;">Making your APIs easy to find will help you grow your customer base. You can use the WSO2 API Manager's API Publisher to create categories or use tags to categorize the APIs. The API Developer Portal includes a full-text search engine that helps your customers find APIs easily.
     <ul>
-        <li><a href="{{base_path}}/consume/discover-apis/search/">Search</li>
+        <li><a href="{{base_path}}/consume/discover-apis/search/">Search</a></li>
     </ul>
   </div>
   
@@ -44,7 +44,7 @@ The following are some of the main capabilities of the product.
 
 <div class="leftContentOverview" style="width:75% !important;">A well-documented, easy-to-use API can help developers be more productive in building applications.  
     <ul>
-        <li><a href="{{base_path}}/manage-apis/design/api-documentation/add-api-documentation/">API documentation</li>
+        <li><a href="{{base_path}}/manage-apis/design/api-documentation/add-api-documentation/">API documentation</a></li>
     </ul>
   </div>
   
@@ -61,7 +61,7 @@ The following are some of the main capabilities of the product.
 
 <div class="leftContentOverview" style="width:75% !important;">You can secure your APIs fully by using visibility control, threat protection, API payload validation, adhering to well-defined protocols, applying rate limiting policies, and verifying APIs against specifications in addition to API authentication and authorization.
     <ul>
-        <li><a href="{{base_path}}/manage-apis/design/api-security/api-authentication/api-authentication-overview/">API security</li>
+        <li><a href="{{base_path}}/manage-apis/design/api-security/api-authentication/api-authentication-overview/">API security</a></li>
     </ul>
   </div>
   
@@ -78,7 +78,7 @@ The following are some of the main capabilities of the product.
 
 <div class="leftContentOverview" style="width:75% !important;">Balancing the load of your system is critical to avoid system outages. WSO2 API Manager provides the capability to add rate limiting policies to your APIs. Furthermore, you can use these policies to monetize your APIs and bring revenue to your organization.  
     <ul>
-        <li><a href="{{base_path}}/manage-apis/design/rate-limiting/introducing-throttling-use-cases/">Rate limiting usecases</li>
+        <li><a href="{{base_path}}/manage-apis/design/rate-limiting/introducing-throttling-use-cases/">Rate limiting usecases</a></li>
     </ul>
   </div>
   
@@ -95,8 +95,8 @@ The following are some of the main capabilities of the product.
 
 <div class="leftContentOverview" style="width:75% !important;">WSO2 API Manager's API Analytics Dashboard provides insights into your APIs. These insights can help you to understand your customers and make important strategic business decisions.
     <ul>
-        <li><a href="{{base_path}}/observe/observe-overview/">Observability</li>
-        <li><a href="{{base_path}}/monitoring/api-analytics/choreo-analytics/getting-started-guide">API Manager Analytics</li>
+        <li><a href="{{base_path}}/observe/observe-overview/">Observability</a></li>
+        <li><a href="{{base_path}}/monitoring/api-analytics/choreo-analytics/getting-started-guide">API Manager Analytics</a></li>
     </ul>
   </div>
   
