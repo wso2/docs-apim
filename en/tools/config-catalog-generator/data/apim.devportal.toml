@@ -9,3 +9,4 @@ display_deprecated_apis = false
 enable_comments = true
 enable_ratings = true
 enable_forum = true
+mode = "HYBRID"

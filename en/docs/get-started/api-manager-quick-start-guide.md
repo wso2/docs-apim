@@ -18,7 +18,7 @@ Choose a deployment option to start WSO2 API Manager All-in-one package. The All
             For more information on setting the `JAVA_HOME` environment variable for different operating systems, see [Setup and Install]({{base_path}}/install-and-setup/install/installing-the-product/installing-api-m-runtime/#setting-up-java_home)
     
     2. Download WSO2 API-Manager All-in-one package.
-    - [Open Source Distribution](https://github.com/wso2/product-apim/releases/tag/v4.4.0)
+    - [Open Source Distribution](https://github.com/wso2/product-apim/releases/tag/v4.6.0)
     - [WSO2 Official Distribution](https://wso2.com/api-manager/#)
 
     3. Extract the downloaded zip file.
@@ -39,7 +39,7 @@ Choose a deployment option to start WSO2 API Manager All-in-one package. The All
 
 === "Run on Kubernetes"
 
-    To use Kubernetes (K8s) and Helm resources for container-based deployments of WSO2 API Manager (API-M), follow the steps in [Deploying API-M on Kubernetes using Helm Resources.]({{base_path}}/install-and-setup/install/deploying-api-manager-with-kubernetes-or-openshift-resources/)
+    To use Kubernetes (K8s) and Helm resources for container-based deployments of WSO2 API Manager (API-M), follow the steps in [Deploying API-M on Kubernetes using Helm Resources.]({{base_path}}/install-and-setup/setup/kubernetes-deployment/kubernetes/am-pattern-0-all-in-one/#step-1-set-up-basic-configurations)
 
 ### What you'll build
 
@@ -93,6 +93,14 @@ Follow the instructions below to create, deploy and publish an API via the Publi
      </th>
      <td>
      HelloWorld
+     </td>
+     </tr>
+     <tr>
+     <th>
+     Display Name
+     </th>
+     <td>
+     Hello World
      </td>
      </tr>
      <tr> 

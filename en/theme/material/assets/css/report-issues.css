@@ -1,0 +1,94 @@
+/*
+ * Copyright (c) 2025, WSO2 LLC. (https://www.wso2.com).
+ *
+ * WSO2 LLC. licenses this file to you under the Apache License,
+ * Version 2.0 (the "License"); you may not use this file except
+ * in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing,
+ * software distributed under the License is distributed on an
+ * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+ * KIND, either express or implied. See the License for the
+ * specific language governing permissions and limitations
+ * under the License.
+ */
+
+/* Report Issues Button Styles */
+
+.report-issues-fixed {
+  position: fixed;
+  top: 50%;
+  right: 0;
+  transform: translateY(-50%);
+  z-index: 1000;
+  cursor: pointer;
+}
+
+/* Light mode */
+.md-button--report-issues {
+  writing-mode: vertical-rl;
+  text-orientation: mixed;
+  border-radius: 8px 0 0 8px;
+  min-height: 120px;
+  width: 30px;
+  padding: 10px 2px;
+  background: var(--md-default-fg-color);
+  color: var(--md-default-bg-color);
+  border: 1px solid var(--md-default-fg-color);
+  box-shadow: 0 2px 8px var(--md-shadow-z1);
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.md-button--report-issues:hover {
+  background: color-mix(in srgb, var(--md-default-fg-color) 95%, white);
+  border-color: color-mix(in srgb, var(--md-default-fg-color) 95%, white);
+  color: var(--md-default-bg-color);
+  box-shadow: 0 4px 12px var(--md-shadow-z2);
+}
+
+.md-button--report-issues .md-header__link__label {
+  font-size: 12px;
+  font-weight: 500;
+  white-space: nowrap;
+  cursor: pointer;
+}
+
+/* Mobile responsive */
+@media screen and (max-width: 768px) {
+  .report-issues-fixed {
+    right: 10px;
+    top: auto;
+    bottom: 20px;
+  }
+  
+  .md-button--report-issues {
+    writing-mode: horizontal-tb;
+    text-orientation: unset;
+    padding: 8px 12px;
+    border-radius: 8px;
+    min-height: auto;
+    width: auto;
+  }
+}
+
+/* Dark mode */
+[data-md-color-scheme="slate"] .md-button--report-issues {
+  background: var(--md-default-fg-color);
+  color: var(--md-default-bg-color);
+  border-color: var(--md-default-fg-color);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+}
+
+[data-md-color-scheme="slate"] .md-button--report-issues:hover {
+  background: color-mix(in srgb, var(--md-default-fg-color) 95%, black);
+  color: var(--md-default-bg-color);
+  border-color: color-mix(in srgb, var(--md-default-fg-color) 95%, black);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+}

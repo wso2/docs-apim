@@ -1,0 +1,4 @@
+[apim.gateway_notification.registration]
+max_retry_count = 5
+retry_duration = "10s"
+retry_progression_factor = 2

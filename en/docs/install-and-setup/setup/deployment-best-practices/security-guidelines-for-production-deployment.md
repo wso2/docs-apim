@@ -84,13 +84,11 @@ See <a href="{{base_path}}/administer/managing-users-and-roles/managing-user-sto
 <td>
   <p>To have strong transport-level security, disable SSL protocol versions and enable only TLS protocol 
 versions: TLS 1, TLS 1.1, and TLS 1.2. This can be done by replacing the <code>sslProtocol = "TLS"</code> property with 
-<code>sslEnabledProtocols="TLSv1,TLSv1.1,TLSv1.2"</code> under <code>[transport.https.sslHostConfig
-.properties]</code> in the <code>deployment.toml</code> file. In addition, configure strong ciphers for 
-<code>ThriftAuthenticationService</code>, Tomcat transport, and PassThrough transport in the <code>deployment.toml</code> file. See the
+<code>protocols="+TLSv1, +TLSv1.1, +TLSv1.2, +TLSv1.3"</code> under <code>[transport.https.sslHostConfig.properties]</code> in the <code>deployment.toml</code> file. You can configure multiple TLS versions or a single TLS version according to your preference. To achieve high security, use the latest TLS version by removing <code>+TLSv1</code>, <code>+TLSv1.1</code>, and <code>+TLSv1.2</code> from the protocols <code>property</code> of the configuration. In addition, configure strong ciphers for <code>ThriftAuthenticationService</code>, Tomcat transport, and PassThrough transport in the <code>deployment.toml</code> file. See the
  following links for instructions:</p>
 <ul>
   <li><a href="{{base_path}}/install-and-setup/setup/security/configuring-transport-level-security/">Configuring Transport Level Security</a></li>
-  <li><a href="{{base_path}}/install-and-setup/setup/reference/supported-cipher-suites/">Supported Cipher Suites</a></li>
+  <li><a href="{{base_path}}/reference/supported-cipher-suites/">Supported Cipher Suites</a></li>
 </ul>    
 <div style="background-color:#ffffff; padding: 10px;">
 <strong>Note :</strong>
@@ -131,6 +129,9 @@ Transport Level Security</a>.</p>
 <td><p>Enabling HTTP Strict Transport Security Headers (HSTS)</p></td>
 <td><p>Be sure that HTTP Strict Transport Security (HSTS) is enabled for all the applications deployed in your server. This includes the management console, and any other web applications and/or Jaggery applications.</p>
 <p>Note that (for WSO2 products based on Carbon 4.4.11 or later versions, which implies API-M 2.1.0 and newer) HSTS is disabled for the applications with which the product is shipped by default. This is because HSTS validation can interrupt the development processes by validating signatures of self-signed certificates.</p>
+
+<p>To enable HSTS please follow the instructions <a href="{{base_path}}/install-and-setup/setup/deployment-best-practices/security-guidelines-for-production-deployment/#enable-http-strict-transport-security-hsts-headers">Enable HTTP Strict Transport Security (HSTS) Headers</a>.</p>
+
 </tr>
 <tr class="even">
 <td><p>Preventing browser caching</p></td>
@@ -271,6 +272,75 @@ been removed from Hotspot JVM.</p>
 <pre class="java" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence" style="brush: java; gutter: false; theme: Confluence"><code>[system.parameter]
 tryItFunctionalityDisabled = true
 </code></pre>
+</td>
+</tr>
+<tr class="odd" id="restrict-access-java">
+<td><p>Restrict Access to Java classes and Java Methods/Native Objects in Scripts</p>
+<td>
+<p>JS scripts can be used inside script mediators (eg: in Mock Endpoints) to access Java classes, methods and native objects. By default, all the classes are visible to these scripts. However, it is recommended to restrict access to these.
+<br/>
+<br/>
+<b>Limiting Access to Java Classes</b>
+<br/>
+Access to Java Classes can be restricted by providing the following configurations in <code>deployment.toml</code>.
+
+<pre class="java" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence" style="brush: java; gutter: false; theme: Confluence">
+<code>
+[synapse_properties]
+'limit_java_class_access_in_scripts.enable'=true
+'limit_java_class_access_in_scripts.list_type' = "ALLOW_LIST" # or BLOCK_LIST
+'limit_java_class_access_in_scripts.class_prefixes' = "java.util"
+</code>
+</pre>
+Only the Java classes having names starting with any of the values given under <code>limit_java_class_access_in_scripts.class_prefixes</code> will be allowed, when <code>limit_java_class_access_in_scripts.list_type</code> is <code>ALLOW_LIST</code> (all other classes will not be allowed).  
+Likewise, when <code>limit_java_class_access_in_scripts.list_type</code> is <code>BLOCK_LIST</code>, classes with matching names will be selectively blocked.
+
+<br/>
+<br/>
+The following configuration is applied by default. If you have any script mediator related use cases with classes included in the prefixes list, 
+modify it according to your requirements.
+
+<pre class="java" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence" style="brush: java; gutter: false; theme: Confluence">
+<code>
+[synapse_properties]
+'limit_java_class_access_in_scripts.enable'=true
+'limit_java_class_access_in_scripts.list_type' = "BLOCK_LIST"
+'limit_java_class_access_in_scripts.class_prefixes' = "java.lang,java.io,java.nio,java.net"
+</code>
+</pre>
+
+<b>Limiting Access to Java Methods/Native Objects</b>
+<br/>
+Access to Java Methods/Native Objects can be restricted by providing the following configurations in <code>deployment.toml</code>.
+
+<pre class="java" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence" style="brush: java; gutter: false; theme: Confluence">
+<code>
+[synapse_properties]
+'limit_java_native_object_access_in_scripts.enable'=true
+'limit_java_native_object_access_in_scripts.list_type' = "BLOCK_LIST" # Or "ALLOW_LIST"
+'limit_java_native_object_access_in_scripts.object_names' = "getClassLoader"
+</code>
+</pre>
+Java methods/native objects having names equal to any of the values given under <code>limit_java_native_object_access_in_scripts.object_names</code>, will be selectively blocked when <code>limit_java_native_object_access_in_scripts.list_type</code> is <code>BLOCK_LIST</code> (all other classes will be allowed).  
+Likewise, when <code>limit_java_native_object_access_in_scripts.list_type</code> is <code>ALLOW_LIST</code>, classes with matching names will be selectively allowed.
+<br></br>
+<b>Note: This feature is enabled by default in APIM 4.6.0. </b>
+</td>
+</tr>
+<tr class="even" id="case-sensitive-user-store">
+<td><p>Configuring Case-Sensitive User Stores</p></td>
+<td>
+<p>
+If you are using a <b>case-sensitive</b> user store, it is important to configure the Developer Portal to handle usernames in a case-sensitive manner.  
+This ensures consistent username handling across components and prevents potential cross-user data sharing.
+Add the following configuration to the <code>deployment.toml</code> file:
+</p>
+<pre class="java" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence" style="brush: java; gutter: false; theme: Confluence">
+<code>
+[apim.devportal]
+login_username_case_insensitive = false
+</code>
+</pre>
 </td>
 </tr>
 </tbody>
@@ -462,5 +532,40 @@ Follow the steps below to change the default credentials.
     
 3.  Once these changes are configured, restart the server.
     
-    - Linux/Unix : sh wso2server.sh
-    - Windows : wso2server.bat
+    - Linux/Unix : sh api-manager.sh
+    - Windows : api-manager.bat
+
+
+### Enable HTTP Strict Transport Security (HSTS) Headers
+
+To enable HSTS for all the Tomcat deployed webapps including Management console, Publisher, Developer and Admin portals, please add the below config to the `deployment.toml` file.
+
+```
+[[tomcat.filter]]
+name = "httpHeaderSecurity"
+class = "org.apache.catalina.filters.HttpHeaderSecurityFilter"
+async_supported = true
+
+[tomcat.filter.init_params]
+hstsEnabled = true
+hstsMaxAgeSeconds = 31536000
+hstsIncludeSubDomains = true
+
+[[tomcat.filter_mapping]]
+name = "httpHeaderSecurity"
+url_pattern = "/*"
+dispatchers = "REQUEST"
+```
+
+To enable HSTS only to selected web applications, check whether the HttpHeaderSecurityFilter stored in the `<APIM_HOME>/repository/deployment/server/webapps/` directory is available in the `web.xml` file of that particular web application. If the filter is available, enable HSTS as shown below.
+
+```
+<filter>
+    <filter-name>HttpHeaderSecurityFilter</filter-name>        
+    <filter-class>org.apache.catalina.filters.HttpHeaderSecurityFilter</filter-class>
+</filter>
+<filter-mapping>     
+    <filter-name>HttpHeaderSecurityFilter</filter-name>     
+    <url-pattern>*</url-pattern>
+</filter-mapping>
+```

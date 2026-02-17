@@ -1,0 +1,3290 @@
+{
+	"info": {
+		"_postman_id": "74ec5f10-a649-4b4c-b13c-1f7878ddd9b8",
+		"name": "WSO2 API Manager 4.6.0 - Admin REST API",
+		"description": "This document specifies a **RESTful API** for WSO2 **API Manager - Admin REST API** .\nIt is written with [swagger 2.0](http://swagger.io/).\n",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "40371634"
+	},
+	"item": [
+		{
+			"name": "Authentication",
+			"item": [
+				{
+					"name": "Register DCR App",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"var response = JSON.parse(responseBody);",
+									"var clientId = response.clientId;",
+									"var clientSecret = response.clientSecret;",
+									"pm.collectionVariables.set(\"dcrClientId\", clientId);",
+									"pm.collectionVariables.set(\"dcrClientSecret\", clientSecret);",
+									"",
+									"var base64EncodedCredentials = btoa(clientId + \":\" + clientSecret);",
+									"pm.collectionVariables.set(\"base64EncodedDCRCredentials\", base64EncodedCredentials);"
+								]
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": {
+								"username": "admin",
+								"password": "admin",
+								"showPassword": false
+							}
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": " {\n  \"callbackUrl\":\"www.google.lk\",\n  \"clientName\":\"rest_api_admin\",\n  \"owner\":\"admin\",\n  \"grantType\":\"client_credentials password refresh_token\",\n  \"saasApp\":true\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{dcrEndpoint}}"
+					},
+					"response": []
+				},
+				{
+					"name": "Generate Access Token",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"var response = JSON.parse(responseBody);",
+									"pm.collectionVariables.set(\"access-token\", response.access_token);"
+								]
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"var url = pm.collectionVariables.get(\"basepath\").concat(\"/settings\");",
+									"",
+									"var getRequest = {",
+									" url: url,",
+									" method: 'GET',",
+									"};",
+									" ",
+									"pm.sendRequest(getRequest, (error, response) => {",
+									" if (error == null) {",
+									"     if (response == null) {",
+									"       //use existing scopes list",
+									"     } else {",
+									"         var scopeslist = response.json().scopes;",
+									"         var scopeString = scopeslist.toString();",
+									"         var scopeArr = scopeString.split(\",\");",
+									"         var scopes = scopeArr.join(\" \");",
+									"         pm.collectionVariables.set(\"restAPIScopes\", scopes);",
+									"     }",
+									" }",
+									"});",
+									""
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Basic {{base64EncodedDCRCredentials}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "grant_type",
+									"value": "password",
+									"type": "text"
+								},
+								{
+									"key": "username",
+									"value": "{{username}}",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "{{password}}",
+									"type": "text"
+								},
+								{
+									"key": "scope",
+									"value": "{{restAPIScopes}}",
+									"type": "text"
+								}
+							]
+						},
+						"url": "{{tokenEndpoint}}"
+					},
+					"response": []
+				}
+			],
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "Application Policies",
+			"item": [
+				{
+					"name": "Get Application Throttling Policies",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{access-token}}"
+							}
+						},
+						"method": "GET",
+						"header": [],
+						"url": "{{basepath}}/throttling/policies/application"
+					},
+					"response": []
+				},
+				{
+					"name": "Add an Application Throttling Policy",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"var response = JSON.parse(responseBody);",
+									"pm.collectionVariables.set(\"applicationPolicyId\", response.policyId);"
+								]
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{access-token}}"
+							}
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"policyName\": \"30PerMin\",\n  \"displayName\": \"30PerMin\",\n  \"description\": \"Allows 30 request per minute\",\n  \"isDeployed\": false,\n  \"defaultLimit\": {\n    \"type\": \"REQUESTCOUNTLIMIT\",\n    \"requestCount\": {\n      \"timeUnit\": \"min\",\n      \"unitTime\": 10,\n      \"requestCount\": 30\n    }\n  }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{basepath}}/throttling/policies/application"
+					},
+					"response": []
+				},
+				{
+					"name": "Get an Application Throttling Policy",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{access-token}}"
+							}
+						},
+						"method": "GET",
+						"header": [],
+						"url": "{{basepath}}/throttling/policies/application/{{applicationPolicyId}}"
+					},
+					"response": []
+				},
+				{
+					"name": "Update an Application Throttling policy",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{access-token}}"
+							}
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"policyName\": \"30PerMin\",\n  \"displayName\": \"30PerMin\",\n  \"description\": \"Allows 30 request per minute - Modified description\",\n  \"isDeployed\": false,\n  \"defaultLimit\": {\n    \"type\": \"REQUESTCOUNTLIMIT\",\n    \"requestCount\": {\n      \"timeUnit\": \"min\",\n      \"unitTime\": 10,\n      \"requestCount\": 30\n    }\n  }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{basepath}}/throttling/policies/application/{{applicationPolicyId}}"
+					},
+					"response": []
+				},
+				{
+					"name": "Delete an Application Throttling policy",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{access-token}}"
+							}
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": "{{basepath}}/throttling/policies/application/{{applicationPolicyId}}"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Mediation Policies",
+			"item": [
+				{
+					"name": "Get all Global Mediation Policies",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{access-token}}"
+							}
+						},
+						"method": "GET",
+						"header": [],
+						"url": "{{basepath}}/policies/mediation"
+					},
+					"response": []
+				},
+				{
+					"name": "Add a Global Mediation Policy",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"var response = JSON.parse(responseBody);",
+									"pm.collectionVariables.set(\"globalMediationPolicyId\", response.id);"
+								]
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{access-token}}"
+							}
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"name\": \"custom_log_in_message.xml\",\n  \"type\": \"IN\",\n  \"config\": \"<sequence xmlns=\\\"http://ws.apache.org/ns/synapse\\\" name=\\\"custom_log_in_message\\\"> <log level=\\\"full\\\"> <property name=\\\"IN_MESSAGE\\\" value=\\\"IN_MESSAGE_21133232\\\"/> </log> </sequence>\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{basepath}}/policies/mediation"
+					},
+					"response": []
+				},
+				{
+					"name": "Get a Global Mediation Policy",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{access-token}}"
+							}
+						},
+						"method": "GET",
+						"header": [],
+						"url": "{{basepath}}/policies/mediation/{{globalMediationPolicyId}}"
+					},
+					"response": []
+				},
+				{
+					"name": "Update a Global Mediation Policy",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{access-token}}"
+							}
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"name\": \"custom_log_in_message.xml\",\n  \"type\": \"IN\",\n  \"config\": \"<sequence xmlns=\\\"http://ws.apache.org/ns/synapse\\\" name=\\\"custom_log_in_message\\\"> <log level=\\\"full\\\"> <property name=\\\"IN_MESSAGE\\\" value=\\\"IN_MESSAGE_21133232\\\"/> </log> </sequence>\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{basepath}}/policies/mediation/{{globalMediationPolicyId}}"
+					},
+					"response": []
+				},
+				{
+					"name": "Delete a Global Mediation Policy",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{access-token}}"
+							}
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": "{{basepath}}/policies/mediation/{{globalMediationPolicyId}}"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Subscription Policies",
+			"item": [
+				{
+					"name": "Get all Subscription Throttling Policies",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{access-token}}"
+							}
+						},
+						"method": "GET",
+						"header": [],
+						"url": "{{basepath}}/throttling/policies/subscription"
+					},
+					"response": []
+				},
+				{
+					"name": "Add a Subscription Throttling Policy",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"var response = JSON.parse(responseBody);",
+									"pm.collectionVariables.set(\"subscriptionPolicyId\", response.policyId);"
+								]
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{access-token}}"
+							}
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"policyName\": \"30PerMin\",\n  \"description\": \"test policy\",\n  \"defaultLimit\": {\n    \"type\": \"REQUESTCOUNTLIMIT\",\n    \"requestCount\": {\n      \"requestCount\": \"30\",\n      \"timeUnit\": \"min\",\n      \"unitTime\": \"1\"\n    }\n  },\n  \"subscriberCount\": 0,\n  \"rateLimitCount\": \"30\",\n  \"rateLimitTimeUnit\": \"sec\",\n  \"billingPlan\": \"FREE\",\n  \"stopOnQuotaReach\": true,\n  \"customAttributes\": [],\n  \"graphQLMaxComplexity\": 0,\n  \"graphQLMaxDepth\": 0,\n  \"monetization\": {\n    \"monetizationPlan\": \"FIXEDRATE\",\n    \"properties\": {\n      \"fixedPrice\": \"\",\n      \"pricePerRequest\": \"\",\n      \"currencyType\": \"\",\n      \"billingCycle\": \"week\"\n    }\n  },\n  \"permissions\": null\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{basepath}}/throttling/policies/subscription"
+					},
+					"response": []
+				},
+				{
+					"name": "Get a Subscription Policy",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{access-token}}"
+							}
+						},
+						"method": "GET",
+						"header": [],
+						"url": "{{basepath}}/throttling/policies/subscription/{{subscriptionPolicyId}}"
+					},
+					"response": []
+				},
+				{
+					"name": "Update a Subscription Policy",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{access-token}}"
+							}
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"policyName\": \"30PerMin\",\n  \"description\": \"test policy\",\n  \"defaultLimit\": {\n    \"type\": \"REQUESTCOUNTLIMIT\",\n    \"requestCount\": {\n      \"requestCount\": \"30\",\n      \"timeUnit\": \"min\",\n      \"unitTime\": \"1\"\n    }\n  },\n  \"subscriberCount\": 0,\n  \"rateLimitCount\": \"30\",\n  \"rateLimitTimeUnit\": \"sec\",\n  \"billingPlan\": \"FREE\",\n  \"stopOnQuotaReach\": true,\n  \"customAttributes\": [],\n  \"graphQLMaxComplexity\": 0,\n  \"graphQLMaxDepth\": 0,\n  \"monetization\": {\n    \"monetizationPlan\": \"FIXEDRATE\",\n    \"properties\": {\n      \"fixedPrice\": \"\",\n      \"pricePerRequest\": \"\",\n      \"currencyType\": \"\",\n      \"billingCycle\": \"week\"\n    }\n  },\n  \"permissions\": null\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{basepath}}/throttling/policies/subscription/{{subscriptionPolicyId}}"
+					},
+					"response": []
+				},
+				{
+					"name": "Delete a Subscription Policy",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{access-token}}"
+							}
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": "{{basepath}}/throttling/policies/subscription/{{subscriptionPolicyId}}"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Custom Rules",
+			"item": [
+				{
+					"name": "Get all Custom Rules",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{access-token}}"
+							}
+						},
+						"method": "GET",
+						"header": [],
+						"url": "{{basepath}}/throttling/policies/custom"
+					},
+					"response": []
+				},
+				{
+					"name": "Add a Custom Rule",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"var response = JSON.parse(responseBody);",
+									"pm.collectionVariables.set(\"customRuleId\", response.policyId);"
+								]
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{access-token}}"
+							}
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"policyName\": \"custom\",\n  \"description\": \"Allow 10 requests per minute for admin user\",\n  \"siddhiQuery\": \"FROM RequestStream\\nSELECT userId, ( userId == 'admin@carbon.super' ) AS isEligible , str:concat('admin@carbon.super','') as throttleKey\\nINSERT INTO EligibilityStream; \\n\\nFROM EligibilityStream[isEligible==true]#throttler:timeBatch(1 min) \\nSELECT throttleKey, (count(userId) >= 10) as isThrottled, expiryTimeStamp group by throttleKey \\nINSERT ALL EVENTS into ResultStream;\",\n  \"keyTemplate\": \"$userId\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{basepath}}/throttling/policies/custom"
+					},
+					"response": []
+				},
+				{
+					"name": "Get a Custom Rule",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{access-token}}"
+							}
+						},
+						"method": "GET",
+						"header": [],
+						"url": "{{basepath}}/throttling/policies/custom/{{customRuleId}}"
+					},
+					"response": []
+				},
+				{
+					"name": "Update a Custom Rule",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{access-token}}"
+							}
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"policyName\": \"custom\",\n  \"description\": \"Allow 10 requests per minute for admin user\",\n  \"siddhiQuery\": \"FROM RequestStream\\nSELECT userId, ( userId == 'admin@carbon.super' ) AS isEligible , str:concat('admin@carbon.super','') as throttleKey\\nINSERT INTO EligibilityStream; \\n\\nFROM EligibilityStream[isEligible==true]#throttler:timeBatch(1 min) \\nSELECT throttleKey, (count(userId) >= 10) as isThrottled, expiryTimeStamp group by throttleKey \\nINSERT ALL EVENTS into ResultStream;\",\n  \"keyTemplate\": \"$userId\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{basepath}}/throttling/policies/custom/{{customRuleId}}"
+					},
+					"response": []
+				},
+				{
+					"name": "Delete a Custom Rule",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{access-token}}"
+							}
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": "{{basepath}}/throttling/policies/custom/{{customRuleId}}"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Advanced Policies",
+			"item": [
+				{
+					"name": "Get all Advanced Throttling Policies",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{access-token}}"
+							}
+						},
+						"method": "GET",
+						"header": [],
+						"url": "{{basepath}}/throttling/policies/advanced"
+					},
+					"response": []
+				},
+				{
+					"name": "Add an Advanced Throttling Policy",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"var response = JSON.parse(responseBody);",
+									"pm.collectionVariables.set(\"advancedPolicyId\", response.policyId);"
+								]
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{access-token}}"
+							}
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"policyName\": \"AdvancedPolicy\",\n\t\"displayName\": \"AdvancedPolicy\",\n\t\"description\": \"Allows 30 request per minute\",\n\t\"isDeployed\": false,\n\t\"defaultLimit\": {\n\t\t\"type\": \"REQUESTCOUNTLIMIT\",\n\t\t\"requestCount\": {\n\t\t\t\"timeUnit\": \"min\",\n\t\t\t\"unitTime\": 10,\n\t\t\t\"requestCount\": 30\n\t\t},\n\t\t\"bandwidth\": {\n\t\t\t\"timeUnit\": \"min\",\n\t\t\t\"unitTime\": 10,\n\t\t\t\"dataAmount\": 1000,\n\t\t\t\"dataUnit\": \"KB\"\n\t\t}\n\t},\n\t\"conditionalGroups\": [{\n\t\t\"description\": \"string\",\n\t\t\"conditions\": [{\n\t\t\t\t\"type\": \"HEADERCONDITION\",\n\t\t\t\t\"invertCondition\": false,\n\t\t\t\t\"headerCondition\": {\n\t\t\t\t\t\"headerName\": \"Host\",\n\t\t\t\t\t\"headerValue\": \"10.100.7.77\"\n\t\t\t\t}\n\t\t\t},\n\t\t\t{\n\t\t\t\t\"type\": \"IPCONDITION\",\n\t\t\t\t\"invertCondition\": false,\n\t\t\t\t\"ipCondition\": {\n\t\t\t\t\t\"ipConditionType\": \"IPSPECIFIC\",\n\t\t\t\t\t\"specificIP\": \"10.100.1.22\",\n\t\t\t\t\t\"startingIP\": null,\n\t\t\t\t\t\"endingIP\": null\n\t\t\t\t}\n\t\t\t},\n\t\t\t{\n\t\t\t\t\"type\": \"QUERYPARAMETERCONDITION\",\n\t\t\t\t\"invertCondition\": false,\n\t\t\t\t\"queryParameterCondition\": {\n\t\t\t\t\t\"parameterName\": \"name\",\n\t\t\t\t\t\"parameterValue\": \"admin\"\n\t\t\t\t}\n\t\t\t},\n\t\t\t{\n\t\t\t\t\"type\": \"JWTCLAIMSCONDITION\",\n\t\t\t\t\"invertCondition\": true,\n\t\t\t\t\"jwtClaimsCondition\": {\n\t\t\t\t\t\"claimUrl\": \"claimUrl0\",\n\t\t\t\t\t\"attribute\": \"claimAttr0\"\n\t\t\t\t}\n\t\t\t}\n\t\t],\n\t\t\"limit\": {\n\t\t\t\"type\": \"REQUESTCOUNTLIMIT\",\n\t\t\t\"requestCount\": {\n\t\t\t\t\"timeUnit\": \"min\",\n\t\t\t\t\"unitTime\": 10,\n\t\t\t\t\"requestCount\": 30\n\t\t\t},\n\t\t\t\"bandwidth\": {\n\t\t\t\t\"timeUnit\": \"min\",\n\t\t\t\t\"unitTime\": 10,\n\t\t\t\t\"dataAmount\": 1000,\n\t\t\t\t\"dataUnit\": \"KB\"\n\t\t\t}\n\t\t}\n\t}]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{basepath}}/throttling/policies/advanced"
+					},
+					"response": []
+				},
+				{
+					"name": "Get an Advanced Throttling Policy",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{access-token}}"
+							}
+						},
+						"method": "GET",
+						"header": [],
+						"url": "{{basepath}}/throttling/policies/advanced/{{advancedPolicyId}}"
+					},
+					"response": []
+				},
+				{
+					"name": "Update an Advanced Throttling Policy",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{access-token}}"
+							}
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"policyName\": \"AdvancedPolicy\",\n\t\"displayName\": \"AdvancedPolicy\",\n\t\"description\": \"Allows 30 request per minute\",\n\t\"isDeployed\": false,\n\t\"defaultLimit\": {\n\t\t\"type\": \"REQUESTCOUNTLIMIT\",\n\t\t\"requestCount\": {\n\t\t\t\"timeUnit\": \"min\",\n\t\t\t\"unitTime\": 10,\n\t\t\t\"requestCount\": 30\n\t\t},\n\t\t\"bandwidth\": {\n\t\t\t\"timeUnit\": \"min\",\n\t\t\t\"unitTime\": 10,\n\t\t\t\"dataAmount\": 1000,\n\t\t\t\"dataUnit\": \"KB\"\n\t\t}\n\t},\n\t\"conditionalGroups\": [{\n\t\t\"description\": \"string\",\n\t\t\"conditions\": [{\n\t\t\t\t\"type\": \"HEADERCONDITION\",\n\t\t\t\t\"invertCondition\": false,\n\t\t\t\t\"headerCondition\": {\n\t\t\t\t\t\"headerName\": \"Host\",\n\t\t\t\t\t\"headerValue\": \"10.100.7.77\"\n\t\t\t\t}\n\t\t\t},\n\t\t\t{\n\t\t\t\t\"type\": \"IPCONDITION\",\n\t\t\t\t\"invertCondition\": false,\n\t\t\t\t\"ipCondition\": {\n\t\t\t\t\t\"ipConditionType\": \"IPSPECIFIC\",\n\t\t\t\t\t\"specificIP\": \"10.100.1.22\",\n\t\t\t\t\t\"startingIP\": null,\n\t\t\t\t\t\"endingIP\": null\n\t\t\t\t}\n\t\t\t},\n\t\t\t{\n\t\t\t\t\"type\": \"QUERYPARAMETERCONDITION\",\n\t\t\t\t\"invertCondition\": false,\n\t\t\t\t\"queryParameterCondition\": {\n\t\t\t\t\t\"parameterName\": \"name\",\n\t\t\t\t\t\"parameterValue\": \"admin\"\n\t\t\t\t}\n\t\t\t},\n\t\t\t{\n\t\t\t\t\"type\": \"JWTCLAIMSCONDITION\",\n\t\t\t\t\"invertCondition\": true,\n\t\t\t\t\"jwtClaimsCondition\": {\n\t\t\t\t\t\"claimUrl\": \"claimUrl0\",\n\t\t\t\t\t\"attribute\": \"claimAttr0\"\n\t\t\t\t}\n\t\t\t}\n\t\t],\n\t\t\"limit\": {\n\t\t\t\"type\": \"REQUESTCOUNTLIMIT\",\n\t\t\t\"requestCount\": {\n\t\t\t\t\"timeUnit\": \"min\",\n\t\t\t\t\"unitTime\": 10,\n\t\t\t\t\"requestCount\": 30\n\t\t\t},\n\t\t\t\"bandwidth\": {\n\t\t\t\t\"timeUnit\": \"min\",\n\t\t\t\t\"unitTime\": 10,\n\t\t\t\t\"dataAmount\": 1000,\n\t\t\t\t\"dataUnit\": \"KB\"\n\t\t\t}\n\t\t}\n\t}]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{basepath}}/throttling/policies/advanced/{{advancedPolicyId}}"
+					},
+					"response": []
+				},
+				{
+					"name": "Delete an Advanced Throttling Policy",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{access-token}}"
+							}
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": "{{basepath}}/throttling/policies/advanced/{{advancedPolicyId}}"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Deny Policies",
+			"item": [
+				{
+					"name": "Get all Blocking Condtions",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{access-token}}"
+							}
+						},
+						"method": "GET",
+						"header": [],
+						"url": "{{basepath}}/throttling/deny-policies"
+					},
+					"response": []
+				},
+				{
+					"name": "Add a Blocking Condition",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"var response = JSON.parse(responseBody);",
+									"pm.collectionVariables.set(\"denyConditionId\", response.conditionId);"
+								]
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{access-token}}"
+							}
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"conditionType\": \"IP\",\n  \"conditionValue\": { \"fixedIp\": \"192.168.1.1\", \"invert\":false },\n  \"conditionStatus\": true\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{basepath}}/throttling/deny-policies"
+					},
+					"response": []
+				},
+				{
+					"name": "Get a Blocking Condition",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{access-token}}"
+							}
+						},
+						"method": "GET",
+						"header": [],
+						"url": "{{basepath}}/throttling/deny-policy/{{denyConditionId}}"
+					},
+					"response": []
+				},
+				{
+					"name": "Update a Blocking Condition",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{access-token}}"
+							}
+						},
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"conditionId\": \"7ad6a9c5-6d68-44d1-aa1e-9d50a4813cd3\",\n  \"conditionStatus\": true\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{basepath}}/throttling/deny-policy/{{denyConditionId}}"
+					},
+					"response": []
+				},
+				{
+					"name": "Delete a Blocking Condition",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{access-token}}"
+							}
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": "{{basepath}}/throttling/deny-policy/{{denyConditionId}}"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Applications",
+			"item": [
+				{
+					"name": "Retrieve/Search Applications",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"var response = JSON.parse(responseBody);",
+									"if (response.count > 0) {",
+									"    for (var i = 0; i < response.list.length; i++) {",
+									"        if (response.list[i].name == \"CalculatorApp\") {",
+									"            pm.collectionVariables.set(\"applicationId\", response.list[i].applicationId);",
+									"        }",
+									"    }",
+									"}"
+								]
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{access-token}}"
+							}
+						},
+						"method": "GET",
+						"header": [],
+						"url": "{{basepath}}/applications"
+					},
+					"response": []
+				},
+				{
+					"name": "Change Application Owner",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{access-token}}"
+							}
+						},
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{basepath}}/applications/{{applicationId}}/change-owner?owner={{appOwner}}",
+							"host": [
+								"{{basepath}}"
+							],
+							"path": [
+								"applications",
+								"{{applicationId}}",
+								"change-owner"
+							],
+							"query": [
+								{
+									"key": "owner",
+									"value": "{{appOwner}}"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete an Application",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{access-token}}"
+							}
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": "{{basepath}}/applications/{{applicationId}}"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Bot Detection Data",
+			"item": [
+				{
+					"name": "Get all Bot Detected Data",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{access-token}}"
+							}
+						},
+						"method": "GET",
+						"header": [],
+						"url": "{{basepath}}/bot-detection-data"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Monetization (Collection)",
+			"item": [
+				{
+					"name": "Publish Usage Records",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{access-token}}"
+							}
+						},
+						"method": "POST",
+						"header": [],
+						"url": "{{basepath}}/monetization/publish-usage"
+					},
+					"response": []
+				},
+				{
+					"name": "Get the Status of Monetization Usage Publisher",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{access-token}}"
+							}
+						},
+						"method": "GET",
+						"header": [],
+						"url": "{{basepath}}/monetization/publish-usage/status"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Workflows",
+			"item": [
+				{
+					"name": "Retrieve All Pending Workflow Processes",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{access-token}}"
+							}
+						},
+						"method": "GET",
+						"header": [],
+						"url": "{{basepath}}/workflows"
+					},
+					"response": []
+				},
+				{
+					"name": "Get Pending Workflow Details by External Workflow Reference",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{access-token}}"
+							}
+						},
+						"method": "GET",
+						"header": [],
+						"url": "{{basepath}}/workflows/{{externalWorkflowRef}}"
+					},
+					"response": []
+				},
+				{
+					"name": "Update Workflow Status",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{access-token}}"
+							}
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"status\": \"APPROVED\",\n  \"attributes\": {},\n  \"description\": \"Approve workflow request.\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{basepath}}/workflows/update-workflow-status?workflowReferenceId={{externalWorkflowRef}}",
+							"host": [
+								"{{basepath}}"
+							],
+							"path": [
+								"workflows",
+								"update-workflow-status"
+							],
+							"query": [
+								{
+									"key": "workflowReferenceId",
+									"value": "{{externalWorkflowRef}}"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Tenants",
+			"item": [
+				{
+					"name": "Get Tenant Id of User",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"var response = JSON.parse(responseBody);",
+									"pm.collectionVariables.set(\"tenantDomain\", response.tenantDomain);"
+								]
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{access-token}}"
+							}
+						},
+						"method": "GET",
+						"header": [],
+						"url": "{{basepath}}/tenant-info/{{username}}"
+					},
+					"response": []
+				},
+				{
+					"name": "Get Custom URL Info of a Tenant Domain",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{access-token}}"
+							}
+						},
+						"method": "GET",
+						"header": [],
+						"url": "{{basepath}}/custom-urls/{{tenantDomain}}"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "API Category (Collection)",
+			"item": [
+				{
+					"name": "Get all API Categories",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{access-token}}"
+							}
+						},
+						"method": "GET",
+						"header": [],
+						"url": "{{basepath}}/api-categories"
+					},
+					"response": []
+				},
+				{
+					"name": "Add API Category",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"var response = JSON.parse(responseBody);",
+									"pm.collectionVariables.set(\"apiCategoryId\", response.id);"
+								]
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{access-token}}"
+							}
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"name\": \"Finance\",\n  \"description\": \"Finance related APIs\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{basepath}}/api-categories"
+					},
+					"response": []
+				},
+				{
+					"name": "Update an API Category",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{access-token}}"
+							}
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"name\": \"Finance\",\n  \"description\": \"Finance related APIs\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{basepath}}/api-categories/{{apiCategoryId}}"
+					},
+					"response": []
+				},
+				{
+					"name": "Delete an API Category",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{access-token}}"
+							}
+						},
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"name\": \"Finance\",\n  \"description\": \"Finance related APIs\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{basepath}}/api-categories/{{apiCategoryId}}"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Settings",
+			"item": [
+				{
+					"name": "Retreive Admin Settings",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "{{basepath}}/settings"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Alerts",
+			"item": [
+				{
+					"name": "Get all Admin Alert Types",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{access-token}}"
+							}
+						},
+						"method": "GET",
+						"header": [],
+						"url": "{{basepath}}/alert-types"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Alert Subscriptions",
+			"item": [
+				{
+					"name": "Get Subscribed Alert Types",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{access-token}}"
+							}
+						},
+						"method": "GET",
+						"header": [],
+						"url": "{{basepath}}/alert-subscriptions"
+					},
+					"response": []
+				},
+				{
+					"name": "Subscribe to an Admin Alert",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{access-token}}"
+							}
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"alerts\": [\n    {\n      \"id\": 1,\n      \"name\": \"AbnormalResponseTime\"\n    }\n  ],\n  \"emailList\": [\n    \"admin@wso2.com\"\n  ]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{basepath}}/alert-subscriptions"
+					},
+					"response": []
+				},
+				{
+					"name": "Unsubscribe User from all Admin Alerts",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{access-token}}"
+							}
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": "{{basepath}}/alert-subscriptions"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "System Scopes",
+			"item": [
+				{
+					"name": "Retrieve Scopes for a Particular User",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{access-token}}"
+							}
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{basepath}}/system-scopes/{{scopeName}}?username={{username}}",
+							"host": [
+								"{{basepath}}"
+							],
+							"path": [
+								"system-scopes",
+								"{{scopeName}}"
+							],
+							"query": [
+								{
+									"key": "username",
+									"value": "{{username}}"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Role Scope Mappings",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{access-token}}"
+							}
+						},
+						"method": "GET",
+						"header": [],
+						"url": "{{basepath}}/system-scopes"
+					},
+					"response": []
+				},
+				{
+					"name": "Update Roles For Scope",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{access-token}}"
+							}
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"list\": [\n    {\n      \"tag\": \"publisher\",\n      \"name\": \"apim:api_publish\",\n      \"description\": \"Publish API\",\n      \"roles\": [\n        \"admin\",\n        \"Internal/publisher\"\n      ]\n    }\n  ]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{basepath}}/system-scopes"
+					},
+					"response": []
+				},
+				{
+					"name": "Retrieve Role Alias Mappings",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{access-token}}"
+							}
+						},
+						"method": "GET",
+						"header": [],
+						"url": "{{basepath}}/system-scopes/role-aliases"
+					},
+					"response": []
+				},
+				{
+					"name": "Add a New Role Alias",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{access-token}}"
+							}
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"list\": [\n    {\n      \"role\": \"Internal/subscriber\",\n      \"aliases\": [\n        \"subscriber\",\n        \"Internal/subscriber\"\n      ]\n    }\n  ]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{basepath}}/system-scopes/role-aliases"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Tenant Theme",
+			"item": [
+				{
+					"name": "Export a DevPortal Tenant Theme",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{access-token}}"
+							}
+						},
+						"method": "GET",
+						"header": [],
+						"url": "{{basepath}}/tenant-theme"
+					},
+					"response": []
+				},
+				{
+					"name": "Import a DevPortal Tenant Theme",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{access-token}}"
+							}
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "file",
+									"type": "file",
+									"src": "/home/sachini/sample-theme.zip"
+								}
+							]
+						},
+						"url": "{{basepath}}/tenant-theme"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Key Manager (Collection)",
+			"item": [
+				{
+					"name": "Get all Key managers",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{access-token}}"
+							}
+						},
+						"method": "GET",
+						"header": [],
+						"url": "{{basepath}}/key-managers"
+					},
+					"response": []
+				},
+				{
+					"name": "Retrieve Well-known information from Key Manager Well-known Endpoint",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{access-token}}"
+							}
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "type",
+									"value": "WSO2-IS",
+									"type": "text"
+								}
+							]
+						},
+						"url": "{{basepath}}/key-managers/discover"
+					},
+					"response": []
+				},
+				{
+					"name": "Add a new API Key Manager",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"var response = JSON.parse(responseBody);",
+									"pm.collectionVariables.set(\"keyManagerId\", response.id);"
+								]
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{access-token}}"
+							}
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"name\": \"WSO2 Identity Server\",\n  \"displayName\": \"WSO2 Identity Server\",\n  \"type\": \"WSO2-IS\",\n  \"description\": \"This is a key manager for Developers\",\n  \"wellKnownEndpoint\": \"\",\n  \"introspectionEndpoint\": \"https://localhost:9444/oauth2/introspect\",\n  \"clientRegistrationEndpoint\": \"https://localhost:9444/keymanager-operations/dcr/register\",\n  \"tokenEndpoint\": \"https://localhost:9444/oauth2/token\",\n  \"revokeEndpoint\": \"https://localhost:9444/oauth2/revoke\",\n  \"userInfoEndpoint\": \"https://localhost:9444/oauth2/userinfo?schema=openid\",\n  \"authorizeEndpoint\": \"https://localhost:9444/oauth2/authorize\",\n  \"certificates\": {\n    \"type\": \"JWKS\",\n    \"value\": \"string\"\n  },\n  \"issuer\": \"https://localhost:9444/services\",\n  \"scopeManagementEndpoint\": \"https://wso2is.com:9444/api/identity/oauth2/v1.0/scopes\",\n  \"availableGrantTypes\": [\n    \"client_credentials\"\n  ],\n  \"enableTokenGeneration\": true,\n  \"enableTokenEncryption\": false,\n  \"enableTokenHashing\": false,\n  \"enableMapOAuthConsumerApps\": false,\n  \"enableOAuthAppCreation\": false,\n  \"enableSelfValidationJWT\": true,\n  \"claimMapping\": [\n    {\n      \"remoteClaim\": \"http://idp.org/username\",\n      \"localClaim\": \"http://wso2.org/username\"\n    }\n  ],\n  \"consumerKeyClaim\": \"azp\",\n  \"scopesClaim\": \"scp\",\n  \"tokenValidation\": [\n    {\n      \"id\": 0,\n      \"enable\": false,\n      \"type\": \"REFERENCE\",\n      \"value\": {}\n    }\n  ],\n  \"enabled\": true,\n  \"additionalProperties\": {\n    \"self_validate_jwt\": true,\n    \"Username\": \"admin\",\n    \"Password\": \"admin\"\n  }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{basepath}}/key-managers"
+					},
+					"response": []
+				},
+				{
+					"name": "Update a Key Manager",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{access-token}}"
+							}
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"name\": \"WSO2 Identity Server\",\n  \"displayName\": \"WSO2 Identity Server\",\n  \"type\": \"WSO2-IS\",\n  \"description\": \"This is a key manager for Developers\",\n  \"wellKnownEndpoint\": \"\",\n  \"introspectionEndpoint\": \"https://localhost:9444/oauth2/introspect\",\n  \"clientRegistrationEndpoint\": \"https://localhost:9444/keymanager-operations/dcr/register\",\n  \"tokenEndpoint\": \"https://localhost:9444/oauth2/token\",\n  \"revokeEndpoint\": \"https://localhost:9444/oauth2/revoke\",\n  \"userInfoEndpoint\": \"https://localhost:9444/oauth2/userinfo?schema=openid\",\n  \"authorizeEndpoint\": \"https://localhost:9444/oauth2/authorize\",\n  \"certificates\": {\n    \"type\": \"JWKS\",\n    \"value\": \"string\"\n  },\n  \"issuer\": \"https://localhost:9444/services\",\n  \"scopeManagementEndpoint\": \"https://wso2is.com:9444/api/identity/oauth2/v1.0/scopes\",\n  \"availableGrantTypes\": [\n    \"client_credentials\"\n  ],\n  \"enableTokenGeneration\": true,\n  \"enableTokenEncryption\": false,\n  \"enableTokenHashing\": false,\n  \"enableMapOAuthConsumerApps\": false,\n  \"enableOAuthAppCreation\": false,\n  \"enableSelfValidationJWT\": true,\n  \"claimMapping\": [\n    {\n      \"remoteClaim\": \"http://idp.org/username\",\n      \"localClaim\": \"http://wso2.org/username\"\n    }\n  ],\n  \"consumerKeyClaim\": \"azp\",\n  \"scopesClaim\": \"scp\",\n  \"tokenValidation\": [\n    {\n      \"id\": 0,\n      \"enable\": false,\n      \"type\": \"REFERENCE\",\n      \"value\": {}\n    }\n  ],\n  \"enabled\": true,\n  \"additionalProperties\": {\n    \"self_validate_jwt\": true,\n    \"Username\": \"admin\",\n    \"Password\": \"admin\"\n  }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{basepath}}/key-managers/{{keyManagerId}}"
+					},
+					"response": []
+				},
+				{
+					"name": "Get a Key Manager Configuration",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{access-token}}"
+							}
+						},
+						"method": "GET",
+						"header": [],
+						"url": "{{basepath}}/key-managers/{{keyManagerId}}"
+					},
+					"response": []
+				},
+				{
+					"name": "Delete a Key Manager",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{access-token}}"
+							}
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": "{{basepath}}/key-managers/{{keyManagerId}}"
+					},
+					"response": []
+				},
+				{
+					"name": "Retrieve Key Manager Usages (APIs)",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{access-token}}"
+							}
+						},
+						"method": "GET",
+						"header": [],
+						"url": "{{basepath}}/key-managers/{{keyManagerId}}/api-usages"
+					},
+					"response": []
+				},
+				{
+					"name": "Retrieve Key Manager Usages (Applications)",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{access-token}}"
+							}
+						},
+						"method": "GET",
+						"header": [],
+						"url": "{{basepath}}/key-managers/{{keyManagerId}}/app-usages"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Bot Detection Alert Subscriptions",
+			"item": [
+				{
+					"name": "Get Subscriptions for Bot Detection",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{access-token}}"
+							}
+						},
+						"method": "GET",
+						"header": [],
+						"url": "{{basepath}}/alert-subscriptions/bot-detection"
+					},
+					"response": []
+				},
+				{
+					"name": "Subscribe for Bot Detection Alerts",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"var response = JSON.parse(responseBody);",
+									"pm.collectionVariables.set(\"botDetectionUUID\", response.uuid);"
+								]
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{access-token}}"
+							}
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"uuid\": \"urn:uuid:1ed6d2de-29df-4fed-a96a-46d2329dce65\",\n  \"email\": \"abc@gmail.com\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{basepath}}/alert-subscriptions/bot-detection"
+					},
+					"response": []
+				},
+				{
+					"name": "Delete a Bot Detection Alert Subscription",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{access-token}}"
+							}
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": "{{basepath}}/alert-subscriptions/bot-detection/{{botDetectionUUID}}"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Environments",
+			"item": [
+				{
+					"name": "Get all Environments",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{access-token}}"
+							}
+						},
+						"method": "GET",
+						"header": [],
+						"url": "{{basepath}}/environments"
+					},
+					"response": []
+				},
+				{
+					"name": "Add Environment",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"var response = JSON.parse(responseBody);",
+									"pm.collectionVariables.set(\"environmentId\", response.id);"
+								]
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{access-token}}"
+							}
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"name\": \"us-region\",\n  \"displayName\": \"US Region\",\n  \"description\": \"Gateway environment in US Region\",\n  \"vhosts\": [\n    {\n      \"host\": \"mg.wso2.com\",\n      \"httpContext\": \"\",\n      \"httpPort\": 8280,\n      \"httpsPort\": 8243,\n      \"wsPort\": 9099,\n      \"wssPort\": 8099\n    }\n  ],\n  \"provider\": \"wso2\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{basepath}}/environments"
+					},
+					"response": []
+				},
+				{
+					"name": "Update Environment",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{access-token}}"
+							}
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"name\": \"us-region\",\n  \"displayName\": \"US Region\",\n  \"description\": \"Gateway environment in US Region\",\n  \"vhosts\": [\n    {\n      \"host\": \"mg.wso2.com\",\n      \"httpContext\": \"pets\",\n      \"httpPort\": 8280,\n      \"httpsPort\": 8243,\n      \"wsPort\": 9099,\n      \"wssPort\": 8099\n    }\n  ],\n  \"provider\": \"wso2\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{basepath}}/environments/{{environmentId}}"
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Environment",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{access-token}}"
+							}
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": "{{basepath}}/environments/{{environmentId}}"
+					},
+					"response": []
+				},
+				{
+					"name": "Get a Gateway Environment Configuration",
+					"request": {
+						"auth": {
+							"type": "oauth2",
+							"oauth2": {
+								"scope": "openid apim:policies_import_export apim:admin apim:tier_view apim:tier_manage apim:admin_tier_view apim:admin_tier_manage apim:bl_view apim:bl_manage apim:mediation_policy_view apim:mediation_policy_create apim:app_owner_change apim:app_import_export apim:api_import_export apim:api_product_import_export apim:environment_manage apim:environment_read apim:monetization_usage_publish apim:api_workflow_approve apim:bot_data apim:tenantInfo apim:tenant_theme_manage apim:admin_operations apim:api_category apim:admin_settings apim:admin_alert_manage apim:api_workflow_view apim:scope_manage apim:role_manage apim:admin_application_view apim:keymanagers_manage apim:api_provider_change apim:llm_provider_manage apim:gov_policy_read apim:gov_policy_manage apim:gov_result_read apim:gov_rule_read apim:gov_rule_manage apim:organization_manage apim:organization_read",
+								"accessTokenUrl": "https://localhost:9443/oauth2/token",
+								"grant_type": "password_credentials"
+							}
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"url": "{{basepath}}/environments/{{environmentId}}",
+						"description": "Retrieve a single Gateway Environment Configuration. We should provide the Id of the Environment as a path parameter.\n"
+					},
+					"response": []
+				},
+				{
+					"name": "Get Gateway Instances in a Gateway Environment",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{access-token}}"
+							}
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{basepath}}/environments/:environmentId/gateways",
+							"host": [
+								"{{basepath}}"
+							],
+							"path": [
+								"environments",
+								":environmentId",
+								"gateways"
+							],
+							"variable": [
+								{
+									"key": "environmentId",
+									"value": "{{environmentId}}",
+									"description": "Environment UUID (or Environment name defined in config), in case the ID contains special characters it should\nbe base64 encoded\n"
+								}
+							]
+						},
+						"description": "Retrieve list of gateway Instances in the gateway environment.\n"
+					},
+					"response": [
+						{
+							"name": "OK.\nList of gateway Instances in the gateway environment returned\n",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json"
+									},
+									{
+										"key": "Authorization",
+										"value": "<token>",
+										"description": "Added as a part of security scheme: oauth2"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/environments/:environmentId/gateways",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"environments",
+										":environmentId",
+										"gateways"
+									],
+									"variable": [
+										{
+											"key": "environmentId"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Content-Type",
+									"value": "string",
+									"description": {
+										"content": "The content type of the body.\n",
+										"type": "text/plain"
+									}
+								}
+							],
+							"cookie": [],
+							"body": "{\n  \"count\": 1,\n  \"list\": [\n    {\n      \"gatewayId\": \"Env1_1372344\",\n      \"lastActive\": \"2025-06-26T06:47:50Z\",\n      \"status\": \"ACTIVE\"\n    },\n    {\n      \"gatewayId\": \"Env1_1372344\",\n      \"lastActive\": \"2025-06-26T06:47:50Z\",\n      \"status\": \"ACTIVE\"\n    }\n  ]\n}"
+						},
+						{
+							"name": "Bad Request. Invalid request or validation error.",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json"
+									},
+									{
+										"key": "Authorization",
+										"value": "<token>",
+										"description": "Added as a part of security scheme: oauth2"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/environments/:environmentId/gateways",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"environments",
+										":environmentId",
+										"gateways"
+									],
+									"variable": [
+										{
+											"key": "environmentId"
+										}
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n  \"code\": 400,\n  \"message\": \"Bad Request\",\n  \"description\": \"Invalid request or validation error\",\n  \"moreInfo\": \"\",\n  \"error\": []\n}"
+						},
+						{
+							"name": "Not Found. The specified resource does not exist.",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json"
+									},
+									{
+										"key": "Authorization",
+										"value": "<token>",
+										"description": "Added as a part of security scheme: oauth2"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/environments/:environmentId/gateways",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"environments",
+										":environmentId",
+										"gateways"
+									],
+									"variable": [
+										{
+											"key": "environmentId"
+										}
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n  \"code\": 404,\n  \"message\": \"Not Found\",\n  \"description\": \"The specified resource does not exist\",\n  \"moreInfo\": \"\",\n  \"error\": []\n}"
+						},
+						{
+							"name": "Not Acceptable. The requested media type is not supported.",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json"
+									},
+									{
+										"key": "Authorization",
+										"value": "<token>",
+										"description": "Added as a part of security scheme: oauth2"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/environments/:environmentId/gateways",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"environments",
+										":environmentId",
+										"gateways"
+									],
+									"variable": [
+										{
+											"key": "environmentId"
+										}
+									]
+								}
+							},
+							"status": "Not Acceptable",
+							"code": 406,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n  \"code\": 406,\n  \"message\": \"Not Acceptable\",\n  \"description\": \"The requested media type is not supported\",\n  \"moreInfo\": \"\",\n  \"error\": []\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Roles",
+			"item": [
+				{
+					"name": "Check Role Existence",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{access-token}}"
+							}
+						},
+						"method": "HEAD",
+						"header": [],
+						"url": "{{basepath}}/roles/{{roleId}}"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Global Key Manager (Collection)",
+			"item": [
+				{
+					"name": "Get all Global Key Managers",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{access-token}}"
+							}
+						},
+						"method": "GET",
+						"header": [],
+						"url": "{{basepath}}/global-key-managers"
+					},
+					"response": []
+				},
+				{
+					"name": "Add a new Global Key Manager",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var response = JSON.parse(responseBody);",
+									"pm.collectionVariables.set(\"globalKeyManagerId\", response.id);"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{access-token}}"
+							}
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"id\": \"81878053-4df6-4cce-8b4b-e57f4cab9473\",\n    \"name\": \"WSO2IS\",\n    \"displayName\": \"WSO2IS\",\n    \"type\": \"WSO2-IS\",\n    \"description\": \"WSO2 IS as Global KM\",\n    \"wellKnownEndpoint\": null,\n    \"introspectionEndpoint\": \"https://localhost:9444/oauth2/introspect\",\n    \"clientRegistrationEndpoint\": \"https://localhost:9444/client-registration/v0.17/register\",\n    \"tokenEndpoint\": \"https://localhost:9444/oauth2/token\",\n    \"displayTokenEndpoint\": \"https://localhost:9444/oauth2/token\",\n    \"revokeEndpoint\": \"https://localhost:9444/oauth2/revoke\",\n    \"displayRevokeEndpoint\": \"https://localhost:9444/oauth2/revoke\",\n    \"userInfoEndpoint\": \"https://localhost:9444/oauth2/userinfo\",\n    \"authorizeEndpoint\": \"https://localhost:9444/oauth2/userinfo\",\n    \"endpoints\": [],\n    \"certificates\": {\n        \"type\": \"PEM\",\n        \"value\": \"\"\n    },\n    \"issuer\": \"https://localhost:9444/oauth2/token\",\n    \"alias\": \"\",\n    \"scopeManagementEndpoint\": \"https://localhost:9444/oauth2/scope\",\n    \"availableGrantTypes\": [\n        \"client_credentials\",\n        \"password\"\n    ],\n    \"enableTokenGeneration\": true,\n    \"enableTokenEncryption\": false,\n    \"enableTokenHashing\": false,\n    \"enableMapOAuthConsumerApps\": true,\n    \"enableOAuthAppCreation\": true,\n    \"enableSelfValidationJWT\": true,\n    \"claimMapping\": [],\n    \"consumerKeyClaim\": \"azp\",\n    \"scopesClaim\": \"scope\",\n    \"tokenValidation\": [],\n    \"enabled\": true,\n    \"global\": true,\n    \"additionalProperties\": {\n        \"self_validate_jwt\": true,\n        \"Username\": \"admin\",\n        \"Password\": \"admin\"\n    },\n    \"permissions\": {\n        \"permissionType\": \"PUBLIC\",\n        \"roles\": []\n    },\n    \"tokenType\": \"DIRECT\"\n}"
+						},
+						"url": "{{basepath}}/global-key-managers"
+					},
+					"response": []
+				},
+				{
+					"name": "Get Global Key Manager Configuration",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{access-token}}"
+							}
+						},
+						"method": "GET",
+						"header": [],
+						"url": "{{basepath}}/global-key-managers/{{globalKeyManagerId}}"
+					},
+					"response": []
+				},
+				{
+					"name": "Update a Global Key Manager",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{access-token}}"
+							}
+						},
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"id\": \"81878053-4df6-4cce-8b4b-e57f4cab9473\",\n    \"name\": \"WSO2IS\",\n    \"displayName\": \"WSO2IS\",\n    \"type\": \"WSO2-IS\",\n    \"description\": \"WSO2 IS as Global KM\",\n    \"wellKnownEndpoint\": null,\n    \"introspectionEndpoint\": \"https://localhost:9444/oauth2/introspect\",\n    \"clientRegistrationEndpoint\": \"https://localhost:9444/client-registration/v0.17/register\",\n    \"tokenEndpoint\": \"https://localhost:9444/oauth2/token\",\n    \"displayTokenEndpoint\": \"https://localhost:9444/oauth2/token\",\n    \"revokeEndpoint\": \"https://localhost:9444/oauth2/revoke\",\n    \"displayRevokeEndpoint\": \"https://localhost:9444/oauth2/revoke\",\n    \"userInfoEndpoint\": \"https://localhost:9444/oauth2/userinfo\",\n    \"authorizeEndpoint\": \"https://localhost:9444/oauth2/userinfo\",\n    \"endpoints\": [],\n    \"certificates\": {\n        \"type\": \"PEM\",\n        \"value\": \"\"\n    },\n    \"issuer\": \"https://localhost:9444/oauth2/token\",\n    \"alias\": \"\",\n    \"scopeManagementEndpoint\": \"https://localhost:9444/oauth2/scope\",\n    \"availableGrantTypes\": [\n        \"client_credentials\",\n        \"password\"\n    ],\n    \"enableTokenGeneration\": true,\n    \"enableTokenEncryption\": false,\n    \"enableTokenHashing\": false,\n    \"enableMapOAuthConsumerApps\": true,\n    \"enableOAuthAppCreation\": true,\n    \"enableSelfValidationJWT\": true,\n    \"claimMapping\": [],\n    \"consumerKeyClaim\": \"azp\",\n    \"scopesClaim\": \"scope\",\n    \"tokenValidation\": [],\n    \"enabled\": true,\n    \"global\": true,\n    \"additionalProperties\": {\n        \"self_validate_jwt\": true,\n        \"Username\": \"admin\",\n        \"Password\": \"admin\"\n    },\n    \"permissions\": {\n        \"permissionType\": \"PUBLIC\",\n        \"roles\": []\n    },\n    \"tokenType\": \"DIRECT\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{basepath}}/global-key-managers/{{globalKeyManagerId}}"
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Global Key Manager",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{access-token}}"
+							}
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": "{{basepath}}/global-key-managers/{{globalKeyManagerId}}"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "APIs",
+			"item": [
+				{
+					"name": "Retrieve/Search APIs",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{access-token}}"
+							}
+						},
+						"method": "GET",
+						"header": [],
+						"url": "{{basepath}}/apis"
+					},
+					"response": []
+				},
+				{
+					"name": "Change API Provider",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{access-token}}"
+							}
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{basepath}}/apis/{{apiId}}/change-provider?provider=user1",
+							"host": [
+								"{{basepath}}"
+							],
+							"path": [
+								"apis",
+								"{{apiId}}",
+								"change-provider"
+							],
+							"query": [
+								{
+									"key": "provider",
+									"value": "user1"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "LLM-Providers",
+			"item": [
+				{
+					"name": "Delete a LLM Provider",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{access-token}}"
+							}
+						},
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"url": "{{basepath}}/llm-providers/{{llmProviderId}}",
+						"description": "Delete a LLM Provider by llmProviderId\n"
+					},
+					"response": []
+				},
+				{
+					"name": "Get LLM Provider",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{access-token}}"
+							}
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"url": "{{basepath}}/llm-providers/{{llmProviderId}}",
+						"description": "Get a LLM Provider\n"
+					},
+					"response": []
+				},
+				{
+					"name": "Get All LLM Providers",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{access-token}}"
+							}
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"url": "{{basepath}}/llm-providers",
+						"description": "Get all LLM providers\n"
+					},
+					"response": []
+				},
+				{
+					"name": "Add a LLM provider",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{access-token}}"
+							}
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "multipart/form-data"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "<string>",
+									"type": "text"
+								},
+								{
+									"key": "apiVersion",
+									"value": "<string>",
+									"type": "text"
+								},
+								{
+									"key": "description",
+									"value": "<string>",
+									"type": "text"
+								},
+								{
+									"key": "configurations",
+									"value": "<string>",
+									"description": "LLM Provider configurations",
+									"type": "text"
+								},
+								{
+									"key": "apiDefinition",
+									"description": "OpenAPI specification",
+									"type": "file",
+									"src": []
+								}
+							]
+						},
+						"url": "{{basepath}}/llm-providers",
+						"description": "Add a new LLM provider\n"
+					},
+					"response": []
+				},
+				{
+					"name": "Update an LLM provider",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{access-token}}"
+							}
+						},
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "multipart/form-data"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "<string>",
+									"type": "text"
+								},
+								{
+									"key": "apiVersion",
+									"value": "<string>",
+									"type": "text"
+								},
+								{
+									"key": "description",
+									"value": "<string>",
+									"type": "text"
+								},
+								{
+									"key": "configurations",
+									"value": "<string>",
+									"description": "LLM Provider configurations",
+									"type": "text"
+								},
+								{
+									"key": "apiDefinition",
+									"description": "OpenAPI specification",
+									"type": "file",
+									"src": []
+								}
+							]
+						},
+						"url": "{{basepath}}/llm-providers/{{llmProviderId}}",
+						"description": "Update a LLM provider by LLMProviderId\n"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Transaction Count",
+			"item": [
+				{
+					"name": "Get Transaction Count",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{access-token}}"
+							}
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{basepath}}/transaction-count?startTime=<string>&endTime=<string>",
+							"host": [
+								"{{basepath}}"
+							],
+							"path": [
+								"transaction-count"
+							],
+							"query": [
+								{
+									"key": "startTime",
+									"value": "<string>",
+									"description": "(Required) Start time for the transaction count retrieval"
+								},
+								{
+									"key": "endTime",
+									"value": "<string>",
+									"description": "(Required) End time for the transaction count retrieval"
+								}
+							]
+						},
+						"description": "This endpoint retrieves the transaction count based on various filter parameters."
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Organizations",
+			"item": [
+				{
+					"name": "Delete an Organization",
+					"request": {
+						"auth": {
+							"type": "oauth2",
+							"oauth2": {
+								"scope": "openid apim:policies_import_export apim:admin apim:tier_view apim:tier_manage apim:admin_tier_view apim:admin_tier_manage apim:bl_view apim:bl_manage apim:mediation_policy_view apim:mediation_policy_create apim:app_owner_change apim:app_import_export apim:api_import_export apim:api_product_import_export apim:environment_manage apim:environment_read apim:monetization_usage_publish apim:api_workflow_approve apim:bot_data apim:tenantInfo apim:tenant_theme_manage apim:admin_operations apim:api_category apim:admin_settings apim:admin_alert_manage apim:api_workflow_view apim:scope_manage apim:role_manage apim:admin_application_view apim:keymanagers_manage apim:api_provider_change apim:llm_provider_manage apim:gov_policy_read apim:gov_policy_manage apim:gov_result_read apim:gov_rule_read apim:gov_rule_manage apim:organization_manage apim:organization_read",
+								"accessTokenUrl": "https://localhost:9443/oauth2/token",
+								"grant_type": "password_credentials"
+							}
+						},
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"url": "{{basepath}}/organizations/{{organizationId}}",
+						"description": "Delete an organization by organization Id\n"
+					},
+					"response": []
+				},
+				{
+					"name": "Update an Organization",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{access-token}}"
+							}
+						},
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"externalOrganizationId\": \"ece92bdc-e1e6-325c-b6f4-656208a041e9\",\n  \"displayName\": \"My Organization\",\n  \"description\": \"My Organization Description\"\n}",
+							"options": {
+								"raw": {
+									"headerFamily": "json",
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{basepath}}/organizations/{{organizationId}}",
+						"description": "Update an organization by organization Id\n"
+					},
+					"response": []
+				},
+				{
+					"name": "Get an Organization",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{access-token}}"
+							}
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"url": "{{basepath}}/organizations/{{organizationId}}",
+						"description": "Get an organization by organization Id\n"
+					},
+					"response": []
+				},
+				{
+					"name": "Get all registered Organizations",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{access-token}}"
+							}
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"url": "{{basepath}}/organizations",
+						"description": "Get all Registered Organizations\n"
+					},
+					"response": []
+				},
+				{
+					"name": "Add an Organizations",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"let response = pm.response.json();",
+									"pm.collectionVariables.set(\"organizationId\", response.organizationId);"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{access-token}}"
+							}
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"externalOrganizationId\": \"5555554242423235423\",\n    \"displayName\": \"OrgTest01\",\n    \"description\": \"OrgTest01\"\n}",
+							"options": {
+								"raw": {
+									"headerFamily": "json",
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{basepath}}/organizations",
+						"description": "Add a new organization\n"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Labels",
+			"item": [
+				{
+					"name": "Delete a Label",
+					"request": {
+						"auth": {
+							"type": "oauth2",
+							"oauth2": {
+								"scope": "openid apim:policies_import_export apim:admin apim:tier_view apim:tier_manage apim:admin_tier_view apim:admin_tier_manage apim:bl_view apim:bl_manage apim:mediation_policy_view apim:mediation_policy_create apim:app_owner_change apim:app_import_export apim:api_import_export apim:api_product_import_export apim:environment_manage apim:environment_read apim:monetization_usage_publish apim:api_workflow_approve apim:bot_data apim:tenantInfo apim:tenant_theme_manage apim:admin_operations apim:api_category apim:admin_settings apim:admin_alert_manage apim:api_workflow_view apim:scope_manage apim:role_manage apim:admin_application_view apim:keymanagers_manage apim:api_provider_change apim:llm_provider_manage apim:gov_policy_read apim:gov_policy_manage apim:gov_result_read apim:gov_rule_read apim:gov_rule_manage apim:organization_manage apim:organization_read",
+								"accessTokenUrl": "https://localhost:9443/oauth2/token",
+								"grant_type": "password_credentials"
+							}
+						},
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"url": "{{basepath}}/labels/{{labelId}}",
+						"description": "Delete a Label by label id\n"
+					},
+					"response": []
+				},
+				{
+					"name": "Update a Label",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{access-token}}"
+							}
+						},
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"name\": \"Health\",\n  \"description\": \"Health related APIs\"\n}",
+							"options": {
+								"raw": {
+									"headerFamily": "json",
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{basepath}}/labels/{{labelId}}",
+						"description": "Update a Label by label id\n"
+					},
+					"response": []
+				},
+				{
+					"name": "Get a Label Usage",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{access-token}}"
+							}
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"url": "{{basepath}}/labels/{{labelId}}/usage",
+						"description": "Retrieve a single Label Usage. We should provide the Id of the Label as a path parameter.\n"
+					},
+					"response": []
+				},
+				{
+					"name": "Get all Labels",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{access-token}}"
+							}
+						},
+						"method": "GET",
+						"header": [],
+						"url": "{{basepath}}/labels",
+						"description": "Get all Labels\n"
+					},
+					"response": []
+				},
+				{
+					"name": "Add a new Label",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"let response = pm.response.json();",
+									"pm.environment.set(\"labelId\", response.id);",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{access-token}}"
+							}
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"New 5\",\n    \"description\": \"check\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{basepath}}/labels",
+						"description": "Add a new Label\n"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Ai Service Providers",
+			"item": [
+				{
+					"name": "Get all AI Service providers",
+					"request": {
+						"auth": {
+							"type": "oauth2",
+							"oauth2": {
+								"scope": "openid apim:policies_import_export apim:admin apim:tier_view apim:tier_manage apim:admin_tier_view apim:admin_tier_manage apim:bl_view apim:bl_manage apim:mediation_policy_view apim:mediation_policy_create apim:app_owner_change apim:app_import_export apim:api_import_export apim:api_product_import_export apim:environment_manage apim:environment_read apim:monetization_usage_publish apim:api_workflow_approve apim:bot_data apim:tenantInfo apim:tenant_theme_manage apim:admin_operations apim:api_category apim:admin_settings apim:admin_alert_manage apim:api_workflow_view apim:scope_manage apim:role_manage apim:admin_application_view apim:keymanagers_manage apim:api_provider_change apim:llm_provider_manage apim:gov_policy_read apim:gov_policy_manage apim:gov_result_read apim:gov_rule_read apim:gov_rule_manage apim:organization_manage apim:organization_read",
+								"accessTokenUrl": "https://localhost:9443/oauth2/token",
+								"grant_type": "password_credentials"
+							}
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"url": "{{basepath}}/ai-service-providers",
+						"description": "Get all AI Service providers\n"
+					},
+					"response": []
+				},
+				{
+					"name": "Add a AI Service provider",
+					"request": {
+						"auth": {
+							"type": "oauth2",
+							"oauth2": {
+								"scope": "openid apim:policies_import_export apim:admin apim:tier_view apim:tier_manage apim:admin_tier_view apim:admin_tier_manage apim:bl_view apim:bl_manage apim:mediation_policy_view apim:mediation_policy_create apim:app_owner_change apim:app_import_export apim:api_import_export apim:api_product_import_export apim:environment_manage apim:environment_read apim:monetization_usage_publish apim:api_workflow_approve apim:bot_data apim:tenantInfo apim:tenant_theme_manage apim:admin_operations apim:api_category apim:admin_settings apim:admin_alert_manage apim:api_workflow_view apim:scope_manage apim:role_manage apim:admin_application_view apim:keymanagers_manage apim:api_provider_change apim:llm_provider_manage apim:gov_policy_read apim:gov_policy_manage apim:gov_result_read apim:gov_rule_read apim:gov_rule_manage apim:organization_manage apim:organization_read",
+								"accessTokenUrl": "https://localhost:9443/oauth2/token",
+								"grant_type": "password_credentials"
+							}
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "multipart/form-data"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "OpenAI",
+									"type": "text"
+								},
+								{
+									"key": "apiVersion",
+									"value": "1.0.0",
+									"type": "text"
+								},
+								{
+									"key": "configurations",
+									"value": "string",
+									"description": "LLM Provider configurations",
+									"type": "text"
+								},
+								{
+									"key": "apiDefinition",
+									"description": "OpenAPI specification",
+									"type": "file",
+									"src": []
+								},
+								{
+									"key": "description",
+									"value": "OpenAI LLM",
+									"type": "text"
+								},
+								{
+									"key": "multipleModelProviderSupport",
+									"value": "false",
+									"description": "Indicates whether the AI Service Provider supports multiple model providers.\nIf true, the AI Service Provider can support multiple model providers.\nIf false, the AI Service Provider supports only one model provider.\n",
+									"type": "text"
+								},
+								{
+									"key": "modelProviders",
+									"value": "string",
+									"type": "text"
+								}
+							]
+						},
+						"url": "{{basepath}}/ai-service-providers",
+						"description": "Add a new AI Service provider\n"
+					},
+					"response": []
+				},
+				{
+					"name": "Update an AI Service provider",
+					"request": {
+						"auth": {
+							"type": "oauth2",
+							"oauth2": {
+								"scope": "openid apim:policies_import_export apim:admin apim:tier_view apim:tier_manage apim:admin_tier_view apim:admin_tier_manage apim:bl_view apim:bl_manage apim:mediation_policy_view apim:mediation_policy_create apim:app_owner_change apim:app_import_export apim:api_import_export apim:api_product_import_export apim:environment_manage apim:environment_read apim:monetization_usage_publish apim:api_workflow_approve apim:bot_data apim:tenantInfo apim:tenant_theme_manage apim:admin_operations apim:api_category apim:admin_settings apim:admin_alert_manage apim:api_workflow_view apim:scope_manage apim:role_manage apim:admin_application_view apim:keymanagers_manage apim:api_provider_change apim:llm_provider_manage apim:gov_policy_read apim:gov_policy_manage apim:gov_result_read apim:gov_rule_read apim:gov_rule_manage apim:organization_manage apim:organization_read",
+								"accessTokenUrl": "https://localhost:9443/oauth2/token",
+								"grant_type": "password_credentials"
+							}
+						},
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "multipart/form-data"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "OpenAI",
+									"type": "text"
+								},
+								{
+									"key": "apiVersion",
+									"value": "1.0.0",
+									"type": "text"
+								},
+								{
+									"key": "configurations",
+									"value": "string",
+									"description": "LLM Provider configurations",
+									"type": "text"
+								},
+								{
+									"key": "apiDefinition",
+									"description": "OpenAPI specification",
+									"type": "file",
+									"src": []
+								},
+								{
+									"key": "description",
+									"value": "OpenAI LLM",
+									"type": "text"
+								},
+								{
+									"key": "multipleModelProviderSupport",
+									"value": "false",
+									"description": "Indicates whether the AI Service Provider supports multiple model providers.\nIf true, the AI Service Provider can support multiple model providers.\nIf false, the AI Service Provider supports only one model provider.\n",
+									"type": "text"
+								},
+								{
+									"key": "modelProviders",
+									"value": "string",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{basepath}}/ai-service-providers/:aiServiceProviderId",
+							"host": [
+								"{{basepath}}"
+							],
+							"path": [
+								"ai-service-providers",
+								":aiServiceProviderId"
+							],
+							"variable": [
+								{
+									"key": "aiServiceProviderId",
+									"value": "string",
+									"description": "AI Service Provider UUID\n"
+								}
+							]
+						},
+						"description": "Update a AI Service provider by AIServiceProviderId\n"
+					},
+					"response": []
+				},
+				{
+					"name": "Delete a AI Service Provider",
+					"request": {
+						"auth": {
+							"type": "oauth2",
+							"oauth2": {
+								"scope": "openid apim:policies_import_export apim:admin apim:tier_view apim:tier_manage apim:admin_tier_view apim:admin_tier_manage apim:bl_view apim:bl_manage apim:mediation_policy_view apim:mediation_policy_create apim:app_owner_change apim:app_import_export apim:api_import_export apim:api_product_import_export apim:environment_manage apim:environment_read apim:monetization_usage_publish apim:api_workflow_approve apim:bot_data apim:tenantInfo apim:tenant_theme_manage apim:admin_operations apim:api_category apim:admin_settings apim:admin_alert_manage apim:api_workflow_view apim:scope_manage apim:role_manage apim:admin_application_view apim:keymanagers_manage apim:api_provider_change apim:llm_provider_manage apim:gov_policy_read apim:gov_policy_manage apim:gov_result_read apim:gov_rule_read apim:gov_rule_manage apim:organization_manage apim:organization_read",
+								"accessTokenUrl": "https://localhost:9443/oauth2/token",
+								"grant_type": "password_credentials"
+							}
+						},
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{basepath}}/ai-service-providers/:aiServiceProviderId",
+							"host": [
+								"{{basepath}}"
+							],
+							"path": [
+								"ai-service-providers",
+								":aiServiceProviderId"
+							],
+							"variable": [
+								{
+									"key": "aiServiceProviderId",
+									"value": "string",
+									"description": "AI Service Provider UUID\n"
+								}
+							]
+						},
+						"description": "Delete a AI Service Provider by aiServiceProviderId\n"
+					},
+					"response": []
+				},
+				{
+					"name": "Get AI Service Provider",
+					"request": {
+						"auth": {
+							"type": "oauth2",
+							"oauth2": {
+								"scope": "openid apim:policies_import_export apim:admin apim:tier_view apim:tier_manage apim:admin_tier_view apim:admin_tier_manage apim:bl_view apim:bl_manage apim:mediation_policy_view apim:mediation_policy_create apim:app_owner_change apim:app_import_export apim:api_import_export apim:api_product_import_export apim:environment_manage apim:environment_read apim:monetization_usage_publish apim:api_workflow_approve apim:bot_data apim:tenantInfo apim:tenant_theme_manage apim:admin_operations apim:api_category apim:admin_settings apim:admin_alert_manage apim:api_workflow_view apim:scope_manage apim:role_manage apim:admin_application_view apim:keymanagers_manage apim:api_provider_change apim:llm_provider_manage apim:gov_policy_read apim:gov_policy_manage apim:gov_result_read apim:gov_rule_read apim:gov_rule_manage apim:organization_manage apim:organization_read",
+								"accessTokenUrl": "https://localhost:9443/oauth2/token",
+								"grant_type": "password_credentials"
+							}
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{basepath}}/ai-service-providers/:aiServiceProviderId",
+							"host": [
+								"{{basepath}}"
+							],
+							"path": [
+								"ai-service-providers",
+								":aiServiceProviderId"
+							],
+							"variable": [
+								{
+									"key": "aiServiceProviderId",
+									"value": "string",
+									"description": "AI Service Provider UUID\n"
+								}
+							]
+						},
+						"description": "Get a AI Service Provider\n"
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"requests": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"requests": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "access-token",
+			"value": "f95675ee-1bdf-334b-ad9c-0fc876a5882b"
+		},
+		{
+			"key": "base64(username:password)",
+			"value": "YWRtaW46YWRtaW4="
+		},
+		{
+			"key": "basepath",
+			"value": "https://localhost:9443/api/am/admin/v4"
+		},
+		{
+			"key": "applicationPolicyId",
+			"value": "d3298b69-b622-4577-9f4a-e885f908f170"
+		},
+		{
+			"key": "globalMediationPolicyId",
+			"value": "16656e98-dae5-4fbf-87de-e4dd29ce1afa"
+		},
+		{
+			"key": "subscriptionPolicyId",
+			"value": "788b09c2-a51f-4665-bd71-98d9eef8e7c8"
+		},
+		{
+			"key": "customRuleId",
+			"value": "38101d9f-4146-4d30-a389-159bacd6911c"
+		},
+		{
+			"key": "advancedPolicyId",
+			"value": "7ad6a9c5-6d68-44d1-aa1e-9d50a4813cd3"
+		},
+		{
+			"key": "denyConditionId",
+			"value": "7ad6a9c5-6d68-44d1-aa1e-9d50a4813cd3"
+		},
+		{
+			"key": "applicationId",
+			"value": "0a043c2b-ee75-4ef3-9e1c-fc2610ccfa8b"
+		},
+		{
+			"key": "appOwner",
+			"value": "user1"
+		},
+		{
+			"key": "exportAppName",
+			"value": "DefaultApplication"
+		},
+		{
+			"key": "exportAppOwner",
+			"value": "admin"
+		},
+		{
+			"key": "withKeys",
+			"value": "true"
+		},
+		{
+			"key": "preserveOwner",
+			"value": "true"
+		},
+		{
+			"key": "skipSubscriptions",
+			"value": "false"
+		},
+		{
+			"key": "importAppOwner",
+			"value": "admin"
+		},
+		{
+			"key": "skipApplicationKeys",
+			"value": "false"
+		},
+		{
+			"key": "update",
+			"value": "true"
+		},
+		{
+			"key": "exportApiName",
+			"value": "PizzaShackAPI"
+		},
+		{
+			"key": "exportApiVersion",
+			"value": "1.0.0"
+		},
+		{
+			"key": "exportApiProvider",
+			"value": "admin"
+		},
+		{
+			"key": "exportApiFormat",
+			"value": "YAML"
+		},
+		{
+			"key": "preserveExportApiStatus",
+			"value": "true"
+		},
+		{
+			"key": "preserveAPIProvider",
+			"value": "true"
+		},
+		{
+			"key": "overwrite",
+			"value": "true"
+		},
+		{
+			"key": "exportApiProductName",
+			"value": "PizzaShackAPIProduct"
+		},
+		{
+			"key": "exportApiProductVersion",
+			"value": "1.0.0"
+		},
+		{
+			"key": "exportApiProductProvider",
+			"value": "admin"
+		},
+		{
+			"key": "exportApiProductFormat",
+			"value": "YAML"
+		},
+		{
+			"key": "preserveExportApiProductStatus",
+			"value": "true"
+		},
+		{
+			"key": "preserveAPIProductProvider",
+			"value": "true"
+		},
+		{
+			"key": "overwriteAPIProduct",
+			"value": "false"
+		},
+		{
+			"key": "overwriteAPIs",
+			"value": "false"
+		},
+		{
+			"key": "importAPIs",
+			"value": "false"
+		},
+		{
+			"key": "labelId",
+			"value": "de781385-06af-4803-8ef9-3c4e92f937a0"
+		},
+		{
+			"key": "externalWorkflowRef",
+			"value": "208f3935-ddb8-416e-9d24-81b590b9c9e5"
+		},
+		{
+			"key": "username",
+			"value": "admin"
+		},
+		{
+			"key": "tenantDomain",
+			"value": "wso2.com"
+		},
+		{
+			"key": "apiCategoryId",
+			"value": "5b159170-c5ff-4d3c-8d12-a9f163aa5364"
+		},
+		{
+			"key": "scopeName",
+			"value": "YXBpbTpzdWJzY3JpYmU"
+		},
+		{
+			"key": "base64(admin@test.com:admin)",
+			"value": "YWRtaW5AdGVzdC5jb206YWRtaW4="
+		},
+		{
+			"key": "keyManagerId",
+			"value": "4a6c9371-233b-4e5b-8e2b-f17275507d0c"
+		},
+		{
+			"key": "botDetectionUUID",
+			"value": "4a6c9371-233b-4e5b-8e2b-f17275507d0c"
+		},
+		{
+			"key": "base64EncodedDCRCredentials",
+			"value": ""
+		},
+		{
+			"key": "dcrClientId",
+			"value": ""
+		},
+		{
+			"key": "dcrClientSecret",
+			"value": ""
+		},
+		{
+			"key": "tokenEndpoint",
+			"value": "https://localhost:9443/oauth2/token"
+		},
+		{
+			"key": "password",
+			"value": "admin"
+		},
+		{
+			"key": "restAPIScopes",
+			"value": "apim:admin apim:admin_alert_manage apim:admin_application_view apim:admin_operations apim:admin_settings apim:admin_tier_manage apim:admin_tier_view apim:api_category apim:api_import_export apim:api_product_import_export apim:api_provider_change apim:api_workflow_approve apim:api_workflow_view apim:app_import_export apim:app_owner_change apim:bl_manage apim:bl_view apim:bot_data apim:environment_manage apim:environment_read apim:gov_policy_manage apim:gov_policy_read apim:gov_result_read apim:gov_rule_manage apim:gov_rule_read apim:keymanagers_manage apim:llm_provider_manage apim:mediation_policy_create apim:mediation_policy_view apim:monetization_usage_publish apim:organization_manage apim:organization_read apim:policies_import_export apim:role_manage apim:scope_manage apim:tenantInfo apim:tenant_theme_manage apim:tier_manage apim:tier_view openid"
+		},
+		{
+			"key": "dcrEndpoint",
+			"value": "https://localhost:9443/client-registration/v0.17/register"
+		},
+		{
+			"key": "environmentId",
+			"value": "cc601ec9-72e7-4f77-97b8-6b9a50e520b7"
+		},
+		{
+			"key": "roleId",
+			"value": "SW50ZXJuYWwvcHVibGlzaGVy"
+		},
+		{
+			"key": "globalKeyManagerId",
+			"value": "4a6c9371-233b-4e5b-8e2b-f17275507d0c"
+		},
+		{
+			"key": "apiId",
+			"value": "de781385-06af-4803-8ef9-3c4e92f937a0"
+		},
+		{
+			"key": "llmProviderId",
+			"value": "4343432323"
+		},
+		{
+			"key": "organizationId",
+			"value": "2e78b31d-4ca7-409b-80b8-fd31c351263a"
+		},
+		{
+			"key": "labelId",
+			"value": "a12feab3-26d3-412c-9c2e-11b63ee500cd"
+		}
+	]
+}

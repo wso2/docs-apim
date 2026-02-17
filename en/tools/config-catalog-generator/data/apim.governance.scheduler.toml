@@ -1,0 +1,5 @@
+[apim.governance.scheduler]
+thread_pool_size = 20
+queue_size = 20
+task_check_interval_minutes = 2
+task_cleanup_interval_minutes = 30

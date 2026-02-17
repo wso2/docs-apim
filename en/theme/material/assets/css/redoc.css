@@ -1,0 +1,198 @@
+/**
+ * Copyright (c) 2023, WSO2 LLC. (https://www.wso2.com).
+ *
+ * WSO2 LLC. licenses this file to you under the Apache License,
+ * Version 2.0 (the "License"); you may not use this file except
+ * in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing,
+ * software distributed under the License is distributed on an
+ * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+ * KIND, either express or implied. See the License for the
+ * specific language governing permissions and limitations
+ * under the License.
+ */
+
+.md-main__inner.md-grid > p {
+    margin: 0 auto;
+}
+
+.md-main__inner.md-grid {
+    width: 100%;
+    display: block;
+}
+
+.md-content__inner {
+    margin: 0;
+    padding-top: 0;
+}
+
+.md-main__inner {
+    margin-top: 0;
+}
+
+[dir=ltr] .md-typeset ol li,
+[dir=ltr] .md-typeset ul li,
+[dir=ltr] .md-typeset ol,
+[dir=ltr] .md-typeset ul
+[dir=ltr] .md-typeset ul li ol,
+[dir=ltr] .md-typeset ul li ul {
+    margin-left: 0;
+}
+
+.md-sidebar--secondary {
+    display: none !important;
+}
+
+.menu-content {
+    padding: 1.6rem 0.8rem 0;
+    top: 48px !important;
+    height: calc(100vh - 48px) !important;
+    background-color: var(--md-default-bg-color) !important;
+}
+
+.menu-content ul[role=menu] li > label,
+.menu-content div[role=search] > [data-role="search:results"] {
+    color: var(--md-default-fg-color) !important;
+    background-color: var(--md-default-bg-color) !important;
+}
+
+.menu-content div[role=search] > [data-role="search:results"] {
+    padding: 10px 20px;
+}
+
+.menu-content ul[role=menu] li:hover > label,
+.menu-content ul[role=menu] li > label.active {
+    color: var(--md-primary-fg-color) !important;
+}
+
+.menu-content ul[role=menu] li > label > svg polygon,
+.menu-content div[role=search] svg > path {
+    fill: var(--md-default-fg-color) !important;
+}
+
+.menu-content ul[role=menu] li > label.hover > svg polygon,
+.menu-content ul[role=menu] li > label.active > svg polygon {
+    fill: var(--md-primary-fg-color) !important;
+}
+
+.menu-content div[role=search] > svg {
+    left: 1.7rem;
+    height: 3em;
+}
+
+.menu-content div[role=search] > input {
+    padding: 15px 10px 15px 20px;
+    font-weight: normal;
+    color: var(--md-default-fg-color) !important;
+}
+
+.menu-content div[role=search] > i {
+    color: var(--md-default-fg-color) !important;
+    line-height: 3em;
+}
+
+.api-content p,
+.api-content h1,
+.api-content h2,
+.api-content h3,
+.api-content h4,
+.api-content h5 {
+    color: var(--md-default-fg-color) !important;
+}
+
+.api-content i,
+.api-content h5 > span,
+.api-content table ul li,
+.api-content table caption,
+.api-content div > ul,
+.api-content table ul li::marker {
+    color: var(--md-default-fg-color) !important;
+}
+
+.api-content h5~svg > polygon {
+    fill: var(--md-default-fg-color--light) !important;
+}
+
+.api-content .property-name {
+    color: var(--md-default-fg-color) !important;
+}
+
+.api-content table tr td:last-child > div span {
+    color: var(--md-default-fg-color--light) !important;
+}
+
+.api-content > div > div > div:last-child,
+.api-content~div  {
+    background: var(--md-redoc-example-bg-color) !important;
+}
+
+.api-content > div > div > div:first-child  {
+    background: var(--md-default-bg-color) !important;
+    padding: 0px 25px;
+}
+
+.api-content > div > div > div:last-child h3 {
+    color: #fff !important;
+}
+
+.api-content td div[class="sc-ikkxIA daqcVd"] {
+    background-color: var(--md-default-bg-color) !important;
+    color: var(--md-default-fg-color--light) !important;
+}
+
+[data-md-color-scheme=slate] .api-content code {
+    color: var(--md-code-fg-color) !important;
+    background-color: var(--md-code-bg-color) !important;
+}
+
+/* Media query breakpoints
+
+    $base_px: 16px;
+
+    $break-devices:
+        mobile:
+            portrait:  220px - 479px
+            landscape: 480px - 719px
+        tablet:
+            portrait:  720px - 959px
+            landscape: 960px - 1219px
+        screen:
+            small:     1220px - 1599px
+            medium:    1600px - 1999px
+            large:     2000px
+
+    https://github.com/squidfunk/mkdocs-material/blob/master/src/templates/assets/stylesheets/_config.scss        
+
+    https://www.w3schools.com/tags/ref_pxtoemconversion.asp
+
+*/
+
+@media screen and (min-width: 76.25em) {
+    .menu-content {
+        top: 52px !important;
+        height: calc(100vh - 52px) !important;
+    }
+
+    .md-sidebar {
+        display: none !important;
+    }
+
+    .api-content > div > div > div:first-child  {
+        padding: 0px 50px;
+    }
+}
+
+@media screen and (min-width: 100em) {
+    .menu-content {
+        top: 57.2px !important;
+        height: calc(100vh - 57.2px) !important;
+    }
+
+    .api-content > div > div > div:first-child  {
+        padding: 0px 80px;
+    }
+}

@@ -57,7 +57,7 @@ By default, the WSDLs of admin services are hidden from consumers. Follow the in
      ```
 
     !!! tip
-        In WSO2 API Manager, the port used is 8243 (assuming that the port offset is 0). However, you should be accessing the Admin Services via the management console port, which is 9443 when there is no port offset.
+        In WSO2 API Manager, you should be accessing the Admin Services via the management console port, which is 9443 when there is no port offset.
 
      The admin service's URL appears as follows in the previous list that you discovered:
 

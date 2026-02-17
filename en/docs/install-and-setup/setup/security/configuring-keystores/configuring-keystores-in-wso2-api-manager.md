@@ -75,7 +75,7 @@ The elements in the above configuration are described below:
 | **key_password**  | Private key password                                             |
 
 !!! Important
-    Your private key password (**key_password**) and keystore password (**password**) should be the same. This is due to a limitation of some of the internal 3rd party components used by WSO2 API Manager.
+    Your private key password (**key_password**) and keystore password (**password**) must be the same. This is due to a limitation of some of the internal 3rd party components used by WSO2 API Manager.
 
 By default, the primary keystore configured as above is used for internal data encryption (encrypting data in internal data stores and configuration files) as well as for signing messages that are communicated with external parties. In other words, if we define the primary keystore only, it will be used as both Secondary Keystore (TLS) and Internal Keystore. However, it is sometimes a common requirement to have separate keystores for SSL/TSL connections, communicating messages with external parties (such as JWT, SAML, OIDC id\_token signing) and for encrypting information in internal data stores. This is because, for signing messages and external communications, the keystore certificates need to be frequently renewed. However, for encrypting information in internal data stores, the keystore certificates should not be changed frequently because the data that is already encrypted will become unusable every time the certificate changes.
 
@@ -182,9 +182,3 @@ Follow the recommendations given below when you set up your keystores.
     ```
 
 -   If you already have the required keystores for your product, you can generate CA-signed certificates and import them into the keystores. It is not recommended to create new keystores for the purpose of replacing the certificates in the keystore. See [Adding CA-signed certificates to keystores](../keystore-basics/creating-new-keystores/#adding-ca-signed-certificates-to-keystores) for instructions.
-
--   If you encounter the following error after changing the default keystore, log in to the carbon console and navigate to `/_system/config/repository/esb/inbound` registry location and remove the `inbound-endpoints` resource. Once it is removed, restart the server. 
-    ```
-    FATAL - ServiceBusInitializer Couldn't initialize the ESB...
-    java.lang.IllegalArgumentException: KeyStore File repository/resources/security/xxxx.jks not found
-    ```

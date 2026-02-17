@@ -1,0 +1,300 @@
+<!--
+ * Copyright (c) 2023-2024, WSO2 LLC. (https://www.wso2.com).
+ *
+ * WSO2 LLC. licenses this file to you under the Apache License,
+ * Version 2.0 (the "License"); you may not use this file except
+ * in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing,
+ * software distributed under the License is distributed on an
+ * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+ * KIND, either express or implied. See the License for the
+ * specific language governing permissions and limitations
+ * under the License.
+-->
+
+{% macro home_card_icon(icon) %}
+{% if icon.endswith(".svg") or icon.endswith(".png") %}
+{% include icon %}
+{% else %}
+{% include ".icons/" ~ icon ~ ".svg" %}
+{% endif %}
+{% endmacro %}
+
+{% extends "base.html" %}
+
+{% block styles %}
+{{ super() }}
+<link rel="stylesheet" href="{{ 'assets/css/home.css' | url }}">
+{% endblock %}
+
+{% block container %}
+<div class="md-content">
+  <article class="md-content__inner md-typeset">
+    <div class="md-home-search-container">
+      <h1 class="md-home-search-input-label">WSO2 API Manager Documentation</h1>
+      {% include "partials/search.html" %}
+
+    </div>
+    <div class="description-section"
+      style="display: flex; flex-direction: row; align-items: flex-start; margin-top: 30px;">
+      <p>
+        WSO2 API Manager is a complete platform for building, integrating, and exposing your digital services as
+        managed APIs in the cloud, on-premise, and hybrid architectures to drive your digital transformation strategy.
+      </p>
+    </div>
+
+    {{ page.content }}
+
+    <a href="{{base_path}}/en/4.6.0/get-started/api-manager-quick-start-guide/" target="_blank" rel="noopener"
+      class="quickstart-cta">
+
+      <div class="cta-icon">
+        {{ home_card_icon("octicons/rocket-16") }}
+      </div>
+
+      <div class="cta-content">
+        <span class="cta-title">New to API Manager?</span>
+        <span class="cta-desc">Take our 15-minute quick start guide to design, deploy, and consume your first
+          API.</span>
+      </div>
+    </a>
+
+    <div class="components-hub-container">
+
+      <div class="components-grid-split">
+
+        <div>
+          <div class="components-section-header">
+            <h2>Design & Manage APIs</h2>
+            <p>Build, iterate, and apply policies to your APIs and API products.</p>
+          </div>
+          <div class="components-card">
+            <div>
+              <div class="md-column-grid-item-header-icon icon-color-4">
+                {{ home_card_icon("octicons/pencil-16") }}
+              </div>
+              <h3>API Design</h3>
+              <div class="components-card-content">
+                Toolkit to design, document, and mock REST, GraphQL, and AsyncAPI specifications. Create AI APIs and use the AI-powered Design Assistant to generate APIs from natural language.
+              </div>
+            </div>
+            <div class="components-card-footer">
+
+              <a href="{{base_path}}/en/4.6.0/api-design-manage/design/design-api-overview/" target="_blank"
+                rel="noopener" class="components-resource-link">
+                Design APIs Overview <span>&rarr;</span>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div>
+          <div class="components-section-header">
+            <h2>Discover APIs</h2>
+            <p>Explore and subscribe to APIs and MCP Servers.</p>
+          </div>
+          <div class="components-card">
+            <div>
+              <div class="md-column-grid-item-header-icon icon-color-4">
+                {{ home_card_icon("octicons/browser-16") }}
+              </div>
+              <h3>API Developer Portal</h3>
+              <div class="components-card-content">
+                The hub for Application Developers. Discover a catalog of available APIs and MCP Servers, subscribe your applications,
+                and manage your API keys and credentials.
+              </div>
+            </div>
+            <div class="components-card-footer">
+
+              <a href="{{base_path}}/en/4.6.0/api-developer-portal/consume-api-overview/" target="_blank" rel="noopener"
+                class="components-resource-link">
+                Consume APIs Overview <span>&rarr;</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="components-section-header">
+        <h2>Run APIs</h2>
+        <p>Deploy and manage the runtime environment for your API traffic.</p>
+      </div>
+
+      <div class="components-grid-2">
+        <div class="components-card">
+          <div>
+            <div class="md-column-grid-item-header-icon icon-color-4">
+              {{ home_card_icon("octicons/server-16") }}
+            </div>
+            <h3>API Gateway</h3>
+            <div class="components-card-content">
+              Secure, manage, and scale your API traffic. Learn to deploy the runtime, enforce security policies, and
+              manage deployments.
+            </div>
+          </div>
+          <div class="components-card-footer">
+
+            <a href="{{base_path}}/en/4.6.0/api-gateway/overview-of-the-api-gateway/" target="_blank" rel="noopener"
+              class="components-resource-link">
+              Universal Gateway Overview <span>&rarr;</span>
+            </a>
+
+            <a href="{{base_path}}/en/4.6.0/api-gateway/federated-gateways/overview/" target="_blank" rel="noopener"
+              class="components-resource-link">
+              Federated Gateways Overview <span>&rarr;</span>
+            </a>
+
+          </div>
+        </div>
+
+        <div class="components-card">
+          <div>
+            <div class="md-column-grid-item-header-icon icon-color-4">
+              {{ home_card_icon("octicons/hubot-16") }}
+            </div>
+            <h3>AI Gateway</h3>
+            <div class="components-card-content">
+              Enterprise-grade gateway for AI workloads. Secure, monitor, and control access to LLMs and AI services with cost controls, multi-provider routing, observability, and policy enforcement. Transform APIs into AI-callable tools and manage AI interactions with centralized governance.
+            </div>
+          </div>
+          <div class="components-card-footer">
+
+            <a href="{{base_path}}/en/4.6.0/ai-gateway/ai-gateway-overview/" target="_blank" rel="noopener"
+              class="components-resource-link">
+              AI Gateway Overview <span>&rarr;</span>
+            </a>
+
+          </div>
+        </div>
+      </div>
+
+      <div class="components-section-header">
+        <h2>Govern APIs</h2>
+        <p>Oversee and control the security, usage, and automation of your API ecosystem.</p>
+      </div>
+
+      <div class="components-grid-3">
+        <div class="components-card">
+          <div>
+            <div class="md-column-grid-item-header-icon icon-color-4">
+              {{ home_card_icon("octicons/shield-check-16") }}
+            </div>
+            <h3>API Security</h3>
+            <div class="components-card-content">
+              Secure APIs with design-time audits and runtime enforcement. Manage authentication, authorization, and
+              tokens using the Key Manager.
+            </div>
+          </div>
+          <div class="components-card-footer">
+            <a href="{{base_path}}/en/4.6.0/api-security/runtime/api-authentication/api-authentication-overview/"
+              target="_blank" rel="noopener" class="components-resource-link">
+              Authentication Overview <span>&rarr;</span>
+            </a>
+            <a href="{{base_path}}/en/4.6.0/api-security/runtime/authorization/api-authorization/" target="_blank"
+              rel="noopener" class="components-resource-link">
+              Authorization Overview <span>&rarr;</span>
+            </a>
+            <a href="{{base_path}}/en/4.6.0/api-security/key-management/key-manager-overview/" target="_blank" rel="noopener"
+              class="components-resource-link">
+              Key Manager Overview <span>&rarr;</span>
+            </a>
+
+          </div>
+        </div>
+        <div class="components-card">
+          <div>
+            <div class="md-column-grid-item-header-icon icon-color-4">
+              {{ home_card_icon("octicons/graph-16") }}
+            </div>
+            <h3>API Analytics & Monetization</h3>
+            <div class="components-card-content">
+              Track usage, monitor performance, and configure billing. Gain insights and govern your API products.
+            </div>
+          </div>
+          <div class="components-card-footer">
+
+            <a href="{{base_path}}/en/4.6.0/monitoring/api-analytics/analytics-overview/" target="_blank" rel="noopener"
+              class="components-resource-link">
+              Analytics Overview <span>&rarr;</span>
+            </a>
+
+            <a href="{{base_path}}/en/4.6.0/monitoring/api-monetization/monetizing-an-api/" target="_blank"
+              rel="noopener" class="components-resource-link">
+              Monetization How-to Guide <span>&rarr;</span>
+            </a>
+
+          </div>
+        </div>
+
+        <div class="components-card">
+          <div>
+            <div class="md-column-grid-item-header-icon icon-color-4">
+              {{ home_card_icon("octicons/workflow-16") }}
+            </div>
+            <h3>APIOps</h3>
+            <div class="components-card-content">
+              Automate your API lifecycle and governance. Use the command-line tool to script operations and enforce
+              standards.
+            </div>
+          </div>
+          <div class="components-card-footer">
+            <a href="{{base_path}}/en/4.6.0/apiops/cli/ci-cd-with-wso2-api-management/" target="_blank" rel="noopener"
+              class="components-resource-link">
+              CI/CD for APIs Overview <span>&rarr;</span>
+            </a>
+            <a href="{{base_path}}/en/4.6.0/install-and-setup/setup/api-controller/getting-started-with-wso2-api-controller/"
+              target="_blank" rel="noopener" class="components-resource-link">
+              API Controller Quickstart <span>&rarr;</span>
+            </a>
+
+          </div>
+        </div>
+
+
+      </div>
+
+      <div class="components-section-header">
+        <h2>Administration</h2>
+        <p>Configure and manage the core system, tenants, and other entities.</p>
+      </div>
+
+      <div style="max-width: 50%;">
+        <div class="components-card">
+          <div>
+            <div class="md-column-grid-item-header-icon icon-color-4">
+              {{ home_card_icon("octicons/person-16") }}
+            </div>
+
+            <h3>Administration & Governance</h3>
+            <div class="components-card-content">
+              Configure the platform: manage users, tenants, and system-wide policies like rate limiting. Register
+              Gateways and Key Managers.
+            </div>
+          </div>
+          <div class="components-card-footer">
+
+            <a href="{{base_path}}/en/4.6.0/administer/admin-overview/" target="_blank" rel="noopener"
+              class="components-resource-link">
+              Administration Overview <span>&rarr;</span>
+            </a>
+            <a href="{{base_path}}/en/4.6.0/administer/governance/overview/" target="_blank" rel="noopener"
+              class="components-resource-link">
+              Governance Overview <span>&rarr;</span>
+            </a>
+
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+
+</div>
+
+</article>
+</div>
+{% endblock %}

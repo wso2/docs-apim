@@ -173,7 +173,7 @@ You can enable centralized authentication using a WSO2 Identity Server based [se
 
 ### How can I manage the API permissions/visibility?
 
-To set visibility of the API only to selected user roles in the server, see [API Visibility]({{base_path}}/design/advanced-topics/control-api-visibility-and-subscription-availability-in-developer-portal/).
+To set visibility of the API only to selected user roles in the server, see [API Visibility]({{base_path}}/manage-apis/design/advanced-topics/control-api-visibility-and-subscription-availability-in-developer-portal/).
 
 ### How can I add security policies (UT, XACML, etc.) for the services?
 
@@ -251,6 +251,22 @@ password = "<![CDATA[your-password]]>"
 ### How can I protect my product server from security attacks caused by weak ciphers?
 
 You can protect your server from attacks such as the Logjam attack (Man-in-the-Middle attack) by disabling weak ciphers. For more details, see [Disable weak ciphers]({{base}}/install-and-setup/setup/security/configuring-transport-level-security/#disabling-weak-ciphers) in the WSO2 Admin Guide.
+
+### How can I distinguish between expired and invalid tokens in an authentication failure scenario?
+
+By default, API-M suppresses authentication failure details for security. If you need to see why a token was rejected, start API-M with the following JVM flag to add token status details **to the message context**, which you can then read in `_auth_failure_handler_.xml`:
+
+```bash
+./wso2server.sh -DincludeTokenInfoInMsgCtx=true
+```
+
+The table below lists the properties that become available and what each one represents.
+
+| Property                      | Purpose                                                                  |
+| ----------------------------- | ------------------------------------------------------------------------ |
+| `ACCESS_TOKEN`                | Raw access token extracted from the request.                             |
+| `ACCESS_TOKEN_INVALID_REASON` | Validation result: `"Access token expired"` or `"Access token invalid"`. |
+
 
 ## Troubleshooting
 
@@ -416,7 +432,7 @@ The Gateway Failures UI error occurs when the `service_url`, `username`, `passwo
 
 ### How can I capture the state of a system?
 
-At the time of an error, you can use a tool called Carbon Dump (`carbondump.sh`) to collect all the necessary data (i.e., heap and thread dumps) from a running WSO2 API Manager instance in order to carryout a head dump and thread stack analysis. For more information on using this tool, see [Capturing the state of the system]({{base_path}}/troubleshooting/admin-troubleshooting-in-production-environments/#capturing-the-state-of-the-system) in the Administration guide.
+At the time of an error, you can use a tool called Carbon Dump (`carbondump.sh`) to collect all the necessary data (i.e., heap and thread dumps) from a running WSO2 API Manager instance in order to carryout a head dump and thread stack analysis. For more information on using this tool, see [Capturing the state of the system]({{base_path}}/reference/troubleshooting/admin-troubleshooting-in-production-environments/#capturing-the-state-of-the-system) in the Administration guide.
 
 ### How can I clean up the REG\_LOG table?
 

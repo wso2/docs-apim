@@ -18,8 +18,6 @@
 
 3.  Click on the API to edit its configurations.
 
-     [![Edit the API](../../../../assets/img/includes/deploy/select-api.png)](../../../../assets/img/includes/deploy/select-api.png)
-
 4.  Click **Deployments**.
 
 5.  Select the newly created Gateway environment, Virtual Host (foods.com), and a Revision.

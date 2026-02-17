@@ -9,6 +9,6 @@
 
 4. Select **API Key**. Note that `APIKey` is used as the default header. This value can be changed using the `APIKey Header` field.
 
-     [![Configure API key authentication](../../../../assets/img/learn/api-key-option.png)]({{base_path}}/assets/img/learn/api-key-option.png)
+     [![Configure API key authentication](../../../../assets/img/learn/api-key-option.png)](../../../../assets/img/learn/api-key-option.png)
      
 5. Click **Save and Deploy** to save the changes made within the **Runtime Configurations** page. Upon redirection to the **Deployments** page, select the relevant Gateway and click on **Deploy**.

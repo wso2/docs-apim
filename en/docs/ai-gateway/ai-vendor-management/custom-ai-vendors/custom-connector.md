@@ -1,16 +1,16 @@
 # Custom Connector
 
-When onboarding a custom AI vendor to API Manager, you have the option to either use the built-in <a href='https://github.com/wso2/carbon-apimgt/blob/master/components/apimgt/org.wso2.carbon.apimgt.api/src/main/java/org/wso2/carbon/apimgt/api/DefaultLLMProviderService.java'>`default`</a> connector or write your own custom connector.
+When onboarding a custom AI service provider to API Manager, you have the option to either use the built-in <a href='https://github.com/wso2/carbon-apimgt/blob/master/components/apimgt/org.wso2.carbon.apimgt.api/src/main/java/org/wso2/carbon/apimgt/api/DefaultLLMProviderService.java'>`default`</a> connector or write your own custom connector.
 
-This guide provides step-by-step instructions for creating and deploying a custom AI vendor connector in WSO2 API Manager.
+This guide provides step-by-step instructions for creating and deploying a custom AI service provider connector in WSO2 API Manager.
 
-## Step 1 - AI Vendor Connector Bundle Creation
+## Step 1 - AI Service Provider Connector Bundle Creation
 
 1. Set up a Maven project.
 
     You can download a sample Maven project from [here]({{base_path}}/assets/attachments/administer/llm.provider.connector.zip).
 
-    When manually creating a maven project, you will need to define a class that implements the `LLMProviderService` interface that is responsible of handling request/response payloads specific to AI vendors.
+    When manually creating a maven project, you will need to define a class that implements the `LLMProviderService` interface that is responsible of handling request/response payloads specific to AI service providers.
 
 2. Implement `LLMProviderService`.
 
@@ -42,7 +42,7 @@ This guide provides step-by-step instructions for creating and deploying a custo
         </tr>
         <tr class="odd">
         <td><strong>getType</strong></td>
-        <td><p>This method retrieves the connector type for the custom Large Language Model (LLM) provider. It returns a string that corresponds to the connector type configured in the admin portal under the "Connector Type for AI Vendor" section. The string returned by this method ensures that the correct custom LLM provider is used during interactions between the system and the AI vendor.</p></td>
+        <td><p>This method retrieves the connector type for the custom Large Language Model (LLM) provider. It returns a string that corresponds to the connector type configured in the admin portal under the "Connector Type for AI Service Provider" section. The string returned by this method ensures that the correct custom LLM provider is used during interactions between the system and the AI service provider.</p></td>
         </tr>
         <tr class="even">
         <td><strong>registerLLMProvider</strong></td>
@@ -58,7 +58,7 @@ This guide provides step-by-step instructions for creating and deploying a custo
 
     `mvn clean install`
 
-    This will create a custom AI vendor connector JAR.
+    This will create a custom AI service provider connector JAR.
 
 ## Step 2 - Deploy the bundle in the WSO2 API-M Server
 

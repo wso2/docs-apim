@@ -82,7 +82,7 @@ The instructions below explain how plain text passwords in configuration files c
 
     You will be prompted to enter the internal key store password for the server. 
 
-5.  When prompted, enter the primary key password, which is by default `wso2carbon` and proceed. 
+5.  When prompted, if you have not configured a separate [internal keystore]({{base_path}}/install-and-setup/setup/security/configuring-keystores/configuring-keystores-in-wso2-api-manager/#configuring-the-internal-keystore), enter the primary key password, which is by default `wso2carbon` and proceed. 
 
      If the encryption is successful, you will see the following log.
 
@@ -108,7 +108,7 @@ The instructions below explain how plain text passwords in configuration files c
 
 ## Encrypting secured endpoint passwords
 
-When exposing an API backend, which is secured with [Digest]({{base_path}}/design/endpoints/endpoint-security/digest-auth) or [Basic]({{base_path}}/design/endpoints/endpoint-security/basic-auth) Authentication, the backend user credentials have to be provided under endpoint configuration. These credentials are encoded in base64 and stored in the API configuration as Basic Authorization header (`Authorization: Basic base64Encode(<username>:password)`). By default, the Authorization header value is stored in plain text.
+When exposing an API backend, which is secured with [Digest]({{base_path}}/manage-apis/design/endpoints/endpoint-security/digest-auth) or [Basic]({{base_path}}/manage-apis/design/endpoints/endpoint-security/basic-auth) Authentication, the backend user credentials have to be provided under endpoint configuration. These credentials are encoded in base64 and stored in the API configuration as Basic Authorization header (`Authorization: Basic base64Encode(<username>:password)`). By default, the Authorization header value is stored in plain text.
 
 Follow the instructions below to secure the endpoint's password that is given in plain-text in the UI.
 
@@ -131,7 +131,7 @@ Follow the instructions below to secure the endpoint's password that is given in
 
      You will be prompted to enter the internal key store password for the server. 
 
-4.  When prompted, enter the primary key password, which is by default `wso2carbon`. 
+4.  When prompted, if you have not configured a separate [internal keystore]({{base_path}}/install-and-setup/setup/security/configuring-keystores/configuring-keystores-in-wso2-api-manager/#configuring-the-internal-keystore), enter the primary key password, which is by default `wso2carbon`. 
 
      If the encryption is successful, you will see the following log.
 
@@ -192,7 +192,7 @@ Follow the instructions below to change any password that you have already encry
 -   [Start server as a background job](#start-server-as-a-background-job)
 
 !!! Note
-    If you have secured the plain text passwords in configuration files using Secure Vault, the keystore password and private key password of the product's [primary keystore]({{base_path}}/install-and-setup/setup/security/configuring-keystores/configuring-keystores-in-wso2-api-manager) will serve as the root passwords for Secure Vault. This is because the keystore passwords are needed to initialize the values encrypted by the **Secret Manager** in the **Secret Repository**. Therefore, the **Secret Callback 
+    If you have secured the plain text passwords in configuration files using Secure Vault, the keystore password and private key password of the product's [primary keystore]({{base_path}}/install-and-setup/setup/security/configuring-keystores/configuring-keystores-in-wso2-api-manager) will serve as the root passwords for Secure Vault, if you have not configured a separate [internal keystore]({{base_path}}/install-and-setup/setup/security/configuring-keystores/configuring-keystores-in-wso2-api-manager/#configuring-the-internal-keystore). This is because the keystore passwords are needed to initialize the values encrypted by the **Secret Manager** in the **Secret Repository**. Therefore, the **Secret Callback 
     handler** is used to resolve these passwords. The default secret CallbackHandler provides the two options given below. For more information on secure vault concepts, see [Secure Vault concepts]({{base_path}}/administer/product-security/logins-and-passwords/carbon-secure-vault-implementation/#elements-of-the-secure-vault-implementation).
 
 
@@ -202,10 +202,13 @@ Follow the instructions below to change any password that you have already encry
 
     * On Linux: `./api-manager.sh`
     * On Windows: `./api-manager.bat`
-    
+
     When you run the startup script, the following message will be prompted before starting the server: `[Enter KeyStore and Private Key Password:]`.
 
-2.  When prompted, you as the administrator who is starting the server must provide the private key password and the keystore password using the command-line to proceed. 
+    !!! note "YAJSW wrapper behavior on Windows"
+        When starting WSO2 API Manager via the YAJSW wrapper on Windows (for example, through `runConsole.bat` or `api-manager.bat start`), no interactive console is available for password input. Therefore, the keystore password prompt (`[Enter KeyStore and Private Key Password:]`) will not appear. In such cases, you must provide the keystore password through a password file (`password-tmp.txt` or `password-persist.txt`) placed under the `<APIM_HOME>` directory. For more information, see [Start server as a background job](#start-server-as-a-background-job).
+
+2.  When prompted, you as the administrator who is starting the server must provide the private key password and the keystore password using the command-line to proceed.
 
      Note that passwords are hidden from the terminal and log files.
 
@@ -216,6 +219,9 @@ Follow the instructions below to change any password that you have already encry
 ### Start server as a background job
 
 If you start the WSO2 API Manager as a background job, you will not be able to provide password values on the command line. Therefore, you must start the server in `daemon` mode as explained below.
+
+!!! note "Required for YAJSW wrapper on Windows"
+    This method is mandatory when starting WSO2 API Manager via the YAJSW wrapper on Windows (for example, using `runConsole.bat` or the Windows service), as the wrapper does not provide an interactive console for password input.
 
 1.  Create a new file in the `<APIM_HOME>` directory. The file should be named according to your OS as explained below.
 

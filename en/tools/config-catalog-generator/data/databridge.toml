@@ -1,0 +1,26 @@
+[transport.receiver]
+enable = true
+tcpPort = 9611
+sslPort = 9711
+sslEnabledProtocols = "TLSv1,TLSv1.1,TLSv1.2"
+ciphers = "TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256,TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256"
+sslReceiverThreadPoolSize = 100
+tcpReceiverThreadPoolSize = 100
+
+[transport.binary.agent]
+queue_size = 32768
+batch_size = 200
+core_pool_size = 1
+socket_timeout_ms = 30000
+max_pool_size = 1
+keep_alive_time_in_pool = 20
+reconnection_interval = 30
+max_transport_pool_size = 250
+max_idle_connections = 250
+eviction_time_period = 5500
+min_idle_time_in_pool = 5000
+secure_max_transport_pool_size = 250
+secure_max_idle_connections = 250
+secure_eviction_time_period = 5500
+secure_min_idle_time_in_pool = 5000
+max_reconnection_interval = 3600

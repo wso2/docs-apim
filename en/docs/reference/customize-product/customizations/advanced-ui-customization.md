@@ -9,7 +9,7 @@ Follow the instructions below to add advanced UI customizations to the Developer
 ### Publisher and Developer Portal advanced UI customizations 
 
 !!! note "Prerequisites"
-    - **NodeJS** - This is a platform required for ReactJS development. The compatible version is 16.x.
+    - **NodeJS** - This is a platform required for ReactJS development. The compatible version is 22.x.
     - **NPM**
 
 1. Navigate to the `<API-M_HOME>/repository/deployment/server` directory. Make a copy of `webapps` directory into a different location. Let's refer this as the `<CUSTOMIZATION_PATH>`. Navigate to `<CUSTOMIZATION_PATH>/webapps` directory in a terminal and run the following command.

@@ -1,12 +1,12 @@
 # RESTful APIs
 
-The following topics list the APIs exposed from the API Publisher, Developer Portal, Admin Portal, Gateway, Service Catalog and Devops which you can use to create and manage APIs. You can consume APIs directly through their UIs or, an external REST client like cURL.
+The following topics list the APIs exposed from the API Publisher, Developer Portal, Admin Portal, Gateway, Service Catalog, Devops and Governance which you can use to create and manage APIs. You can consume APIs directly through their UIs or, an external REST client like cURL.
 
 <br>
 <table>
   <tr>
     <td nowrap="true"><a href="{{base_path}}/reference/product-apis/publisher-apis/publisher-v4/publisher-v4/">WSO2 Publisher API v4</a></td>
-    <td rowspan="3" class="md-typeset__td"><b>WSO2 recommends that you use the latest REST APIs</b> as it is up to date and has support for the latest WSO2 API Manager 4.4.0 features.
+    <td rowspan="3" class="md-typeset__td"><b>WSO2 recommends that you use the latest REST APIs</b> as it is up to date and has support for the latest WSO2 API Manager features.
     </td>
   </tr>
   <tr>
@@ -25,6 +25,10 @@ The following topics list the APIs exposed from the API Publisher, Developer Por
   <tr>
     <td nowrap="true"><a href="{{base_path}}/reference/product-apis/devops-apis/devops-v0/devops-v0/">WSO2 Devops API v0</a></td>
   </tr>
+  <tr>
+    <td nowrap="true"><a href="{{base_path}}/reference/product-apis/governance-apis/governance-v1/governance-v1/">WSO2 Governance API v1</a></td>
+    </td>
+  </tr>
 </table>
 
 ## Quick Start
@@ -35,7 +39,7 @@ Following Postman collection provides quick start guide for WSO2 API Manager RES
  * Create, subscribe and invoke a sample API Product 
 
 <a href="../../../assets/attachments/reference/quick-start-postman-collection.json"
-download="WSO2 API Manager 4.4.0 Quick Start.postman_collection.json"
+download="WSO2 API Manager 4.6.0 Quick Start.postman_collection.json"
 style="display: inline-block; padding: 10px 15px; color: white; background-color: #ef5b25; text-align: center; text-decoration: none; border-radius: 5px;font-weight: bold;">
 Download Postman Collection
 </a>

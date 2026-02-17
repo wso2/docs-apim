@@ -1,7 +1,7 @@
 
 # Integrate with HashiCorp Vault
 
-Using [HashiCorp Vault extension](https://github.com/wso2-extensions/carbon-securevault-hashicorp/tree/master), you can set up HashiCorp Vault to store passwords that are mapped to aliases instead of the actual passwords. When setting up Hashicrop Vault with APIM you can use either of the following authentication methords, based on your requirment.
+Using [HashiCorp Vault extension](https://github.com/wso2-extensions/carbon-securevault-hashicorp/tree/master), you can set up HashiCorp Vault to store passwords that are mapped to aliases instead of the actual passwords. When setting up HashiCorp Vault with APIM you can use either of the following authentication methods, based on your requirement.
    
 1. Using Root Token authentication
 2. Using App-Role authentication
@@ -30,13 +30,13 @@ This method uses a static root token to authenticate with HashiCorp Vault, provi
 1. Clone [HashiCorp Vault extension](https://github.com/wso2-extensions/carbon-securevault-hashicorp/tree/master) repo.
 
 2. Build the HashiCorp Vault Integration OSGI bundle using `mvn clean install` command and copy
-   the `target/org.wso2.carbon.securevault.hashicorp-1.0.jar` file to the `<API-M_HOME>/repository/components/dropin/`
+   the `target/org.wso2.carbon.securevault.hashicorp-1.0.jar` file to the `<API-M_HOME>/repository/components/dropins/`
    directory.
 
 3. Add **HashiCorp Vault Java Driver** (e.g., `vault-java-driver-5.1.0.jar`) to the
    `<API-M_HOME>/repository/components/lib/` directory.
 
-4. Create the `/repository/conf/security/secret-conf.properties` file and set the following configurations.
+4. Create the `<API-M_HOME>/repository/conf/security/secret-conf.properties` file and set the following configurations.
 
     ```properties
     keystore.identity.location=repository/resources/security/wso2carbon.jks
@@ -50,7 +50,7 @@ This method uses a static root token to authenticate with HashiCorp Vault, provi
     secVault.enabled=true
     secretRepositories=vault
     secretRepositories.vault.provider=org.wso2.carbon.securevault.hashicorp.repository.HashiCorpSecretRepositoryProvider
-    secretRepositories.vault.properties.address=https://127.0.0.1:8200
+    secretRepositories.vault.properties.address=http://127.0.0.1:8200
     secretRepositories.vault.properties.namespace=ns1
     secretRepositories.vault.properties.enginePath=wso2apim
     secretRepositories.vault.properties.engineVersion=2
@@ -66,7 +66,7 @@ This method uses a static root token to authenticate with HashiCorp Vault, provi
     logger.org-wso2-carbon-securevault-hashicorp.name=org.wso2.carbon.securevault.hashicorp
     logger.org-wso2-carbon-securevault-hashicorp.level=INFO
     logger.org-wso2-carbon-securevault-hashicorp.additivity=false
-    logger.org-wso2-carbon-securevault-hashicorp.appenderRefCARBON_CONSOLE.ref = CARBON_CONSOLE
+    logger.org-wso2-carbon-securevault-hashicorp.appenderRef.CARBON_CONSOLE.ref = CARBON_CONSOLE
     ```
 
 6. Then append `org-wso2-carbon-securevault-hashicorp` to the `loggers` list in the same file as follows.
@@ -122,6 +122,9 @@ This method uses a static root token to authenticate with HashiCorp Vault, provi
 2. Start the WSO2 API Manager Server and enter the keystore password at startup when prompted:
 
     ><pre>[Enter KeyStore and Private Key Password :] wso2carbon</pre>
+
+    !!! note "YAJSW wrapper behavior on Windows"
+        When starting WSO2 API Manager via the YAJSW wrapper on Windows (for example, through `runConsole.bat` or `api-manager.bat start`), no interactive console is available for password input. Therefore, the keystore password prompt (`[Enter KeyStore and Private Key Password :]`) will not appear. In such cases, you must provide the keystore password through a password file (`password-tmp.txt` or `password-persist.txt`) placed under the `<APIM_HOME>` directory, following the same method described in [Start server as a background job]({{base_path}}/install-and-setup/setup/security/logins-and-passwords/working-with-encrypted-passwords/#start-server-as-a-background-job).
 
 
 ## Setting up using App-Role authentication
@@ -190,7 +193,7 @@ This method uses dynamic authentication based on role IDs and secret IDs, allowi
 3. Add **HashiCorp Vault Java Driver** (e.g., `vault-java-driver-5.1.0.jar`) to the
    `<API-M_HOME>/repository/components/lib/` directory.
 
-4. Create the `/repository/conf/security/secret-conf.properties` file and set the following configurations.
+4. Create the `<API-M_HOME>/repository/conf/security/secret-conf.properties` file and set the following configurations.
 
     ```properties
     keystore.identity.location=repository/resources/security/wso2carbon.jks
@@ -204,7 +207,7 @@ This method uses dynamic authentication based on role IDs and secret IDs, allowi
     secVault.enabled=true
     secretRepositories=vault
     secretRepositories.vault.provider=org.wso2.carbon.securevault.hashicorp.repository.HashiCorpSecretRepositoryProvider
-    secretRepositories.vault.properties.address=https://127.0.0.1:8200
+    secretRepositories.vault.properties.address=http://127.0.0.1:8200
     secretRepositories.vault.properties.namespace=ns1
     secretRepositories.vault.properties.enginePath=wso2apim
     secretRepositories.vault.properties.engineVersion=2
@@ -279,6 +282,9 @@ This method uses dynamic authentication based on role IDs and secret IDs, allowi
 2. Start the WSO2 API Manager Server and enter the keystore password at startup when prompted.
 
     ><pre>[Enter KeyStore and Private Key Password :] wso2carbon  </pre>
+
+    !!! note "YAJSW wrapper behavior on Windows"
+        When starting WSO2 API Manager via the YAJSW wrapper on Windows (for example, through `runConsole.bat` or `api-manager.bat start`), no interactive console is available for password input. Therefore, the keystore password prompt (`[Enter KeyStore and Private Key Password :]`) will not appear. In such cases, you must provide the keystore password through a password file (`password-tmp.txt` or `password-persist.txt`) placed under the `<APIM_HOME>` directory, following the same method described in [Start server as a background job]({{base_path}}/install-and-setup/setup/security/logins-and-passwords/working-with-encrypted-passwords/#start-server-as-a-background-job).
     
     
 

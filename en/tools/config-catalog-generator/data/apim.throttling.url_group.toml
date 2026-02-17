@@ -24,3 +24,6 @@ FAILOVER CONFIGS
 traffic_manager_urls = ["tcp://localhost:9611","tcp://localhost:9611"]
 traffic_manager_auth_urls = ["ssl://localhost:9711","ssl://localhost:9711"]
 type = "failover"
+
+[apim.throttling.policy_deploy.tenant_loading]
+tenants = "*"

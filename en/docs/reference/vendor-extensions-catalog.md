@@ -1,6 +1,6 @@
 # Vendor Specific Extensions
  
-WSO2 API Manager utilizes the vendor extensions support in [Open API specification](#https://swagger.io/docs/specification/openapi-extensions/), to store operations such as throttling, against each API.
+WSO2 API Manager utilizes the vendor extensions support in [Open API specification](https://swagger.io/docs/specification/openapi-extensions/), to store operations such as throttling, against each API.
 As per the current implementation, following extensions are supported by API Manager:
 
   - [x-auth-type](#x-auth-type)
@@ -35,7 +35,7 @@ x-auth-type could be any of the following values:
 !!! danger "Deprecated feature"
     The Application and Application User separation used in API-M 2.x is deprecated from API-M 3.x and later. Security for the resources is `enabled` or `disabled`(Application and Application User in API definition is treated as security enabled).
 
-    Therefore, it is recommended to use scopes to restrict the API resource invocation. For instructions on how to do this, see [Fine Grained Access Control with OAuth Scopes]({{base_path}}/learn/api-security/oauth2/oauth2-scopes/fine-grained-access-control-with-oauth-scopes/#fine-grained-access-control-with-oauth-scopes)
+    Therefore, it is recommended to use scopes to restrict the API resource invocation. For instructions on how to do this, see [Fine Grained Access Control with OAuth Scopes]({{base_path}}/api-security/runtime/authorization/oauth2-scopes/fine-grained-access-control-with-oauth-scopes/#fine-grained-access-control-with-oauth-scopes)
 
 The following example applies Application User authentication type to the given API resource:
        ```

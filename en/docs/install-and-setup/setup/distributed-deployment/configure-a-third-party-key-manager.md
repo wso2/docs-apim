@@ -7,4 +7,4 @@ Therefore when required to validate a token, the Universal Gateway uses the in-m
 
 The Key Manager decouples the OAuth client and access token management from the rest of its operations so that you can plug in a third-party OAuth provider for managing OAuth clients and access tokens. When working with an external Key Manager, you need to configure the authorization server configurations in the WSO2 API Manager Admin Portal by adding a new Key Manager.
 
-- [Integration with a third-party OAuth Authorization Server]({{base_path}}/administer/key-managers/overview/)
+- [Integration with a third-party OAuth Authorization Server]({{base_path}}/api-security/key-management/third-party-key-managers/overview/)

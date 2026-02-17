@@ -1,0 +1,78 @@
+/**
+ * Copyright (c) 2024-2025, WSO2 LLC. (https://www.wso2.com).
+ *
+ * WSO2 LLC. licenses this file to you under the Apache License,
+ * Version 2.0 (the "License"); you may not use this file except
+ * in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing,
+ * software distributed under the License is distributed on an
+ * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+ * KIND, either express or implied. See the License for the
+ * specific language governing permissions and limitations
+ * under the License.
+ */
+
+ .md-page-not-found-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 60px 120px;
+}
+
+.md-flex-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 60px;
+    margin: auto;
+    display: flex;
+    align-items: center;
+}
+
+.md-page-not-found-text-container {
+    text-align: left;
+    width: 700px;
+}
+
+.md-sidebar--primary {
+    display: none !important;
+}
+
+.md-sidebar--secondary {
+    display: none !important;
+}
+
+[dir=ltr] .md-sidebar--secondary:not([hidden])~.md-content > .md-content__inner,
+[dir=rtl] .md-sidebar--primary:not([hidden])~.md-content > .md-content__inner {
+    max-width: 1200px !important;
+}
+
+@media only screen and (max-width: 479px) {
+    .md-page-not-found-container {
+        margin: 0;
+    }
+    .md-page-not-found-img-container {
+        display: none;
+    }
+}
+
+@media only screen and (min-width: 480px) {
+    .md-page-not-found-container {
+        margin: 60px 120px;
+    }
+    .md-flex-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+        gap: 60px;
+        margin: auto;
+        display: flex;
+        align-items: center;
+    }
+    .md-page-not-found-text-container {
+        text-align: left;
+        width: 700px;
+    }
+}

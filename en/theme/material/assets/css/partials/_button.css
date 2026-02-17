@@ -1,0 +1,90 @@
+/**
+ * Copyright (c) 2024, WSO2 LLC. (https://www.wso2.com).
+ *
+ * WSO2 LLC. licenses this file to you under the Apache License,
+ * Version 2.0 (the "License"); you may not use this file except
+ * in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing,
+ * software distributed under the License is distributed on an
+ * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+ * KIND, either express or implied. See the License for the
+ * specific language governing permissions and limitations
+ * under the License.
+ */
+
+:root,
+[data-md-color-scheme=default] {
+  --md-button-asgardeo-mini-icon-path-primary-fill-color: var(--md-primary-fg-color);
+}
+
+.md-button {
+  border-radius: var(--md-border-radius);
+  color: var(--md-typeset-color);
+  cursor: pointer;
+  display: inline-block;
+  font-weight: 500;
+  transition: color 125ms,background-color 125ms,border-color 125ms;
+}
+
+.md-button:hover {
+  opacity: 0.9;
+}
+
+.md-button.md-button--primary {
+  background: linear-gradient(77.74deg, var(--md-primary-fg-shade-color) 11.16%, var(--md-primary-fg-color) 99.55%) !important;
+  color: var(--colors-white);
+}
+
+.md-button.md-button--primary.md-button--asgardeo {
+  border-radius: 38px;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+.md-button.md-button--link {
+  background-color: transparent;
+  border-color: transparent;
+}
+
+.md-button.md-button--small {
+  padding: 6px 12px;
+}
+
+.md-button.md-button--flex {
+  display: flex;
+  flex-direction: row;
+  align-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+/* Asgardeo Button */
+
+.md-button--asgardeo-mini {
+  svg .primary {
+    fill: var(--md-button-asgardeo-mini-icon-path-primary-fill-color);
+  }
+}
+
+/* Discord button */
+
+.md-button.md-button--discord:hover {
+  color: var(--colors-discord-blurple);
+}
+
+.md-button.md-button--discord:hover svg {
+  fill: var(--colors-discord-blurple);
+}
+
+.md-button.md-button--discord:hover label {
+  cursor: pointer;
+}
+
+.md-button.md-button--asgardeo svg, .md-button.md-button--discord svg {
+  height: var(--md-header-link-icon-size);
+  width: var(--md-header-link-icon-size);
+}

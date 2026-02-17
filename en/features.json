@@ -1,0 +1,18 @@
+{
+     "default_roles": {
+        "enabled": true,
+        "page": [
+        ]
+    },
+
+    "multi_valued_attributes": {
+        "enabled": true,
+        "page": [
+        ]
+    },
+
+    "password_expiry_time": {
+        "enabled": true,
+        "page": []
+    }
+}
