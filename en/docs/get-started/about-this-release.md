@@ -2,7 +2,7 @@
 
 WSO2 API Manager is a complete platform for building, integrating, and exposing your digital services as managed APIs in the cloud, on-premise, and hybrid architectures to drive your digital transformation strategy. It comes with a cloud-native, standards-based messaging engine, and an integration framework for integrating APIs, services, data, SaaS, proprietary, and legacy systems and it can also serve streaming-based integrations. The product comes with command-line and developer tools that enable easy design, development, and testing.
 
-**WSO2 API Manager 4.4.0** is the latest **WSO2 API Manager release** and is the successor of **WSO2 API Manager 4.3.0**.
+**WSO2 API Manager 4.4.0** is the latest **WSO2 API Manager release** and is the successor to **WSO2 API Manager 4.3.0**.
 
 For more information on WSO2 API Manager, see the [overview]({{base_path}}/getting-started/overview/).
 
@@ -10,7 +10,7 @@ For more information on WSO2 API Manager, see the [overview]({{base_path}}/getti
 
 <a href="https://wso2.com/api-manager/#"><img src="{{base_path}}/assets/img/get_started/download-apim.png" title="Download WSO2 API Manager" width="25%" alt="Download WSO2 API Manager"/></a>
 
-## New features
+## New Features
 
 ??? note "Egress API Management Capability with support for LLM/AI"
 
@@ -42,11 +42,11 @@ For more information on WSO2 API Manager, see the [overview]({{base_path}}/getti
 
 ??? note "Enhanced Security with Client-Side mTLS Authentication"
 
-    This feature boosts security with customized mTLS settings tailored to different environments, ensuring stronger protection. It also supports compliance by allowing environment-specific security configurations to meet various regulatory requirements. API consumers benefit from the flexibility to use different MTLS settings for production and sandbox environments without causing conflicts
+    This feature boosts security with customized mTLS settings tailored to different environments, ensuring stronger protection. It also supports compliance by allowing environment-specific security configurations to meet various regulatory requirements. API consumers benefit from the flexibility to use different mTLS settings for production and sandbox environments without causing conflicts.
 
 ??? note "Business Plan Updates for Existing Subscriptions"
 
-    This approach offers flexibility to the users by allowing changes to business plans through API calls without requiring customers to unsubscribe and resubscribe.
+    This feature offers flexibility to users by allowing changes to business plans through API calls without requiring customers to unsubscribe and resubscribe.
 
 ??? note "Application Level Throttle Policy Reset Support"
 
