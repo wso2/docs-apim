@@ -101,7 +101,7 @@ Follow the instructions given below to configure the Gateway node so that it can
         
         # Traffic Manager configurations
         [apim.throttling]
-        throttle_decision_endpoints = ["tcp://all-in-one-1-host:5672", "tcp://Tall-in-one-2-host:5672"]
+        throttle_decision_endpoints = ["tcp://all-in-one-1-host:5672", "tcp://all-in-one-2-host:5672"]  # 🔥 FIXED: Changed from "Tall-in-one-2-host" to "all-in-one-2-host"
 
         [[apim.throttling.url_group]]
         traffic_manager_urls = ["tcp://all-in-one-1-host:9611"]
@@ -746,30 +746,29 @@ Once you have successfully configured all the API-M nodes in the deployment, you
     Open a terminal, navigate to the `<UNIVERSAL-GW_HOME>/bin` folder, and execute the following command:
 
     === "Linux/Mac OS"
-    ``` java
-    cd <UNIVERSAL-GW_HOME>/bin/
-    sh gateway.sh
-    ```
+        ```bash
+        cd <UNIVERSAL-GW_HOME>/bin/
+        sh gateway.sh
+        ```
 
     === "Windows"
-    ``` java
-    cd <UNIVERSAL-GW_HOME>\bin\
-    gateway.bat --run
-    ```
+        ```bash
+        cd <UNIVERSAL-GW_HOME>\bin\
+        gateway.bat --run
+        ```
 
 -   Start the All-in-One nodes
 
     Open a terminal, navigate to the `<APIM_HOME>/bin` folder, and execute the following command:
 
     === "Linux/Mac OS"
-    ``` java
-    cd <APIM_HOME>/bin/
-    sh api-manager.sh
-    ```
+        ```bash
+        cd <APIM_HOME>/bin/
+        sh api-manager.sh
+        ```
 
     === "Windows"
-    ``` java
-    cd <APIM_HOME>\bin\
-    api-manager.bat --run
-    ```
-    
+        ```bash
+        cd <APIM_HOME>\bin\
+        api-manager.bat --run
+        ```
