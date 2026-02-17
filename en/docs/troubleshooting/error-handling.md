@@ -1,6 +1,11 @@
 # Error Handling
 
 When errors/exceptions occur in the system, the API Manager throws JSON-based error responses to the client by default. 
+> **Note**
+> The default error response format in WSO2 API Manager depends on the product version.
+> Older versions (such as 4.0.0) return XML-based error responses by default,
+> while newer versions return JSON-based error responses.
+
 
 To change the format of these error responses, you change the relevant XML file in the `<API-M_HOME>/repository/deployment/server/synapse-configs/default/sequences` directory. The directory includes multiple XML files, named after the type of errors that occur. You must select the correct file.
 
