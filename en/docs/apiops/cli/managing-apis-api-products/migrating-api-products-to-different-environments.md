@@ -48,7 +48,7 @@
             -    Optional :   
                 `--rev` : Revision Number of the API Product. If not provided, working copy of the API Product will be exported.     
                 `--provider` or `-r` : Provider of the API Product.    
-                `--preserve-status` : Preserve API Product status when exporting. Otherwise, the API Product will be exported in the CREATED status The default value is true. (Please note that this flag is only applicable to the API Products. The status of dependant APIs will not get affected).    
+                `--preserve-status` : Preserve API Product status when exporting. Otherwise, the API Product will be exported in the CREATED status The default value is true. (Please note that this flag is only applicable to the API Products. The status of dependent APIs will not get affected).    
                 `--latest` : Export the latest revision of the API Product.  
                 `--format` : File format of exported archive (JSON or YAML). The default value is YAML. 
             

@@ -213,5 +213,5 @@ For more information view manually instrumented [Jaeger tracer](https://github.c
 
 3. Add any external JAR files to the `<API-M_HOME>/repository/components/lib` directory if required.
 
-4. Start the server. 
+4. Start the server.
 

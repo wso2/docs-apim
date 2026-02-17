@@ -33,6 +33,8 @@ The following list of tutorials guide you to use the API-first approach when cre
     </tr>
 </table>
 
+### Integration & Advanced Setup Tutorials
+
 The following list of tutorials guide you to do integrations and advanced API Manager setups.
 
 <table>

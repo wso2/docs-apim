@@ -1,6 +1,6 @@
 # Install and Setup Overview
 
-The installation and the setup of API Manager involve installing the product, deploying it in the method that is best suited for your requirements, and setting it up to run in the production environment. If you already have an older version of WSO2 API Manager or one of its components, you can follow the upgrading instructions in this guide.
+The installation and the setup of API Manager involve installing the product, deploying it using the method that is best suited for your requirements, and setting it up to run in the production environment. If you already have an older version of WSO2 API Manager or one of its components, you can follow the upgrade instructions in this guide.
 
 This section provides installation and setup instructions for the following three components of WSO2 API Manager that you need to operate as three separate runtimes.
 

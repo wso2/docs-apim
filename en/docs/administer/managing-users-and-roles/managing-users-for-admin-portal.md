@@ -40,15 +40,15 @@ Now a new user role `adminPortalManager` has been created without any associated
 
      `https://<API-M_host>:<API-M_port>/admin`
 
-2. Navigate to **Settings** > **Role Permissions** in the Admin Portal. 
+2. Navigate to **Settings** > **Scope Assignments** in the Admin Portal. 
 
-3. Click **Add role permission**.
+3. Click **Add scope mappings**.
 
-    [![Add Role Permission]({{base_path}}/assets/img/administer/add-role-permission.png)]({{base_path}}/assets/img/administer/add-role-permission.png) 
+    [![Add Role Permission]({{base_path}}/assets/img/administer/add-role-permissions.png)]({{base_path}}/assets/img/administer/add-role-permissions.png) 
 
 4. Enter the  role name that you created in <a href="#step1">step 1</a>. Then click **Next** to proceed.
 
-    [![Add Role Mapping]({{base_path}}/assets/img/administer/add-new-role-mapping.png)]({{base_path}}/assets/img/administer/add-new-role-mapping.png)
+    [![Add Role Mapping]({{base_path}}/assets/img/administer/add-new-scope-mapping.png)]({{base_path}}/assets/img/administer/add-new-scope-mapping.png)
 
 5. In **Select permissions** select **Custom Permissions** and  navigate to  **Permissions** --> **admin**. 
 Assign the scopes according to the role of the user.

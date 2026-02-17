@@ -321,7 +321,7 @@ http_endpoint = "http://default.gw.wso2.com:9090"
 https_endpoint = "https://default.gw.wso2.com:9095"
 ``` 
 
-Find the latest `deployment.toml` of the ACP with the above configurations in [final-acp-ceployment.toml](https://github.com/wso2/samples-apim/blob/master/single-cp-multi-gw-tutorial/apim-configs/final-acp-deployment.toml).
+Find the latest `deployment.toml` of the ACP with the above configurations in [final-acp-deployment.toml](https://github.com/wso2/samples-apim/blob/master/single-cp-multi-gw-tutorial/apim-configs/final-acp-deployment.toml).
 
 Alternatively, you have the option to add the Kubernetes gateway related configurations via the Admin portal as explained below **instead of modifying the `deployment.toml` file of the ACP**.
 
