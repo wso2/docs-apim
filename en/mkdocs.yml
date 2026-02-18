@@ -512,6 +512,7 @@ nav:
             - Overview: administer/key-managers/overview.md
             - Configure WSO2 IS as a Key Manager: administer/key-managers/configure-wso2is-connector.md
             - Configure WSO2 IS 7.x as a Key Manager: administer/key-managers/configure-wso2is7-connector.md
+            - Configure Asgardeo as a Key Manager: administer/key-managers/configure-asgardeo-connector.md
             - Configure Keycloak as a Key Manager: administer/key-managers/configure-keycloak-connector.md
             - Configure Okta as a Key Manager: administer/key-managers/configure-okta-connector.md
             - Configure Auth0 as a Key Manager: administer/key-managers/configure-auth0-connector.md
@@ -1180,7 +1181,7 @@ extra:
             version: 1.2.0-1
             git_tag: v1.2.0.1
     site_version: 4.6.0
-    # base_path: http://localhost:8000/en/latest
-    base_path: https://apim.docs.wso2.com/en/latest
+    base_path: http://localhost:8000/en/latest
+    #base_path: https://apim.docs.wso2.com/en/latest
     envoy_path: https://www.envoyproxy.io/docs/envoy/v1.24.1
     

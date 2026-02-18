@@ -1,0 +1,203 @@
+# Configure Asgardeo as a Key Manager
+
+It is possible to integrate the WSO2 API Manager with an external Identity and Access Management server (IAM) using Asgardeo by WSO2 to manage the OAuth clients and tokens that are required by WSO2 API Manager. WSO2 API Manager has inbuilt support to consume APIs exposed by Asgardeo OAuth.
+
+Follow the instructions below to configure Asgardeo as a third-party Key Manager
+
+## Step 1 - Configure Asgardeo
+
+1. Log into the [Asgardeo Console](https://console.asgardeo.io) and create or select the **organization** you want to use with WSO2 API Manager.
+
+2. Create an OAuth Application that will act as the management client for WSO2 API Manager. 
+
+    1. Navigate to **Applications** → **`+ New Application`**
+
+        [![asgardeo new application]({{base_path}}/assets/img/administer/asgardeo-newapplication.png)]({{base_path}}/assets/img/administer/asgardeo-newapplication.png)
+
+    2. Create a **Standard-Based Application** with the following Name and Protocol.
+
+        | Name               | Protocol                   |
+        |--------------------|----------------------------|
+        | APIM-Management-App | OAuth 2.0 + OpenID Connect |
+
+        [![asgardeo select application]({{base_path}}/assets/img/administer/asgardeo-select-application.png)]({{base_path}}/assets/img/administer/asgardeo-select-application.png)
+
+        [![asgardeo application details]({{base_path}}/assets/img/administer/asgardeo-application-details.png)]({{base_path}}/assets/img/administer/asgardeo-application-details.png)
+
+    3. In the page that follows, make note of the **Client ID** and **Client secret** found under **Protocol**.
+
+        [![asgardeo note client id secret]({{base_path}}/assets/img/administer/asgardeo-protocol-id-secret.png)]({{base_path}}/assets/img/administer/asgardeo-protocol-id-secret.png) 
+
+3. Authorize the Management OAuth Application to use the required Management APIs.
+
+    1. Navigate to  **API Authorization** → **`+ Authorize API resource`** in the created application.
+
+        [![asgardeo application api authorization]({{base_path}}/assets/img/administer/asgardeo-application-api-authorization.png)]({{base_path}}/assets/img/administer/asgardeo-application-api-authorization.png)
+
+    2. In the popped up window, select the Management API **`OAuth DCR API`** as the **API Resource**, **`Select All`** for **Authorized Scopes**, and click on **Finish**.  
+
+        [![asgardeo authorize dcr api]({{base_path}}/assets/img/administer/asgardeo-authorize-dcr-api.png)]({{base_path}}/assets/img/administer/asgardeo-authorize-dcr-api.png)
+
+        !!! note
+            If you don't see the required API Resource, wait a minute or two for the API Resources list to finish loading. Reload the page if the issue doesn't resolve.   
+
+        !!! note
+            Ensure you have authorized the **Management API** version of the API Resource. It is a common mistake to authorize the **Organization API** version instead.  
+
+    3. Repeat the previous step for the following Management APIs:  
+        - **Application Management API**
+        - **API Resource Management API** 
+        - **SCIM2 Roles V1/V2 API**
+
+## Step 2 - Configure WSO2 API Manager
+
+1. Start **WSO2 API Manager** and log in to the **Admin Portal**.  
+    `https://<APIM_HOST>/admin`
+
+2. Add Asgardeo as a Key Manager
+    1. Navigate to **Key Managers** → **`Add Key Manager`**.
+
+        [![asgardeo new key manager]({{base_path}}/assets/img/administer/asgardeo-new-key-manager.png)]({{base_path}}/assets/img/administer/asgardeo-new-key-manager.png)
+
+    2. Under **General Details** and **Key Manager Type**, provide the following:
+        - **Name**: A unique name for the Key Manager (e.g., AsgardeoKM)
+        - **Display Name**: A user-friendly name (e.g., Asgardeo)
+        - **Key Manager Type**: Asgardeo
+
+        [![asgardeo general details]({{base_path}}/assets/img/administer/asgardeo-general-details.png)]({{base_path}}/assets/img/administer/asgardeo-general-details.png)
+
+    3. Under **Key Manager Endpoints**,
+        - Provide the **Well-Known URL**:  
+            `https://api.asgardeo.io/t/{ORGANIZATION-NAME}/oauth2/token/.well-known/openid-configuration`
+        - Click on the **Import** button to populate the endpoint fields automatically
+        - Manually provide **Scope Management Endpoint**: none
+
+        [![asgardeo endpoint details]({{base_path}}/assets/img/administer/asgardeo-endpoint-details.png)]({{base_path}}/assets/img/administer/asgardeo-endpoint-details.png)
+
+    4. Under **Grant Types**, review the auto-populated list and remove any grant types you do not wish to support.
+
+    5. Under **Certificates**, ensure **JWKS** is selected and `https://api.asgardeo.io/t/{ORGANIZATION-NAME}/oauth2/jwks` has been set as the **URL**
+
+    6. Under **Connector Configurations**, provide the following:
+
+        | Configuration                               | Value                                                                 |
+        |---------------------------------------------|-----------------------------------------------------------------------|
+        | Organization                                | Your chosen organization name                                         |
+        | Client ID                                   | Previously noted Client ID                                            |
+        | Client Secret                               | Previously noted Client secret                                        |
+        | Asgardeo Application Management Endpoint    | `https://api.asgardeo.io/t/{ORGANIZATION-NAME}/api/server/v1/applications` |
+        | Asgardeo API Resource Management Endpoint   | `https://api.asgardeo.io/t/{ORGANIZATION-NAME}/api/server/v1/api-resources` |
+        | Asgardeo Roles Endpoint                     | `https://api.asgardeo.io/t/{ORGANIZATION-NAME}/scim2/v2/Roles`        |
+
+
+    7. Asgardeo issues Opaque tokens by default. Under **Advanced Configurations**, set the **Token Validation Method** to **Use introspect** in order to validate these tokens. 
+    
+        !!! Tip 
+            This default behavior can be modified. Refer to the section below to configure Asgardeo to issue JWT tokens instead.
+
+    8. Click **Add** to save the Key Manager.
+
+## Role Creation in Asgardeo
+
+!!! Note
+    Enabling role creation according to this convention is supported from WSO2 API Manager 4.4.0.5 update levels onwards.
+
+By default, roles are **not** created in Asgardeo, and it is assumed that the roles will be manually created by the user in Asgardeo. 
+
+You can enable automatic role creation in Asgardeo by enabling the **Create roles in Asgardeo** option in the **Connector Configurations** section. 
+
+When enabled, the following naming conventions are followed when creating/accessing roles in WSO2 IS 7.x, corresponding to the types of WSO2 API Manager roles.
+
+| Type of role in WSO2 API Manager             | Naming convention in Asgardeo                              |
+|----------------------------------------------|------------------------------------------------------------|
+| _PRIMARY_ roles (eg: `manager`)              | `apim_primary_<roleName>` (eg: `apim_primary_manager`) |
+| _Internal_ roles (eg: `Internal/publisher`)  | `<roleName>` (eg: `publisher`)                             |
+
+!!! Note
+    **_Application_ roles** are not used.
+
+## Requesting JWT Tokens from Asgardeo
+
+By default, Asgardeo issues **Opaque tokens** unless configured otherwise.  
+  
+You can configure Asgardeo to issue **JWT tokens** instead by enabling the **Prefer JWT Token Issuance** option in the **Connector Configurations** section.  
+  
+If you prefer the default Opaque tokens and do **not** enable the **Prefer JWT Token Issuance** option, ensure that **Token Validation Method** is set to **Use introspect** in the **Advanced Configurations** section.  
+
+[![asgardeo use introspect]({{base_path}}/assets/img/administer/asgardeo-use-introspect.png)]({{base_path}}/assets/img/administer/asgardeo-use-introspect.png)
+  
+If **Prefer JWT Token Issuance** is enabled, configure the **Token Validation Method** according to your validation strategy.
+
+!!! Tip
+    When JWT tokens are issued, it is typical to use **Self Validate JWT**, which enables local validation of the issued tokens. 
+
+## Requesting and Using Scopes with Asgardeo
+
+This section explains how **OAuth scopes** are created, authorized, and finally requested when using **Asgardeo as the Key Manager** in WSO2 API Manager.
+
+The process involves **three roles**:  
+
+- API Publisher (creates scopes)
+- Asgardeo Administrator (authorizes scopes)
+- Application Developer (requests tokens with scopes)
+
+### Step 1: Create and Assign Scopes in the Publisher Portal
+The scopes required in the API must be mirrored in Asgardeo. The following steps must be completed by the **API Publisher**.
+
+1. Log in to the **Publisher Portal**: `https://<APIM_HOST>/publisher`
+
+2. Open the API that requires scope-based access control.
+
+3. Create a new **Scope** (or skip this step and select an existing one)
+
+4. Assign the scope to the required API resource:
+- Navigate to the **Resources** section of the API
+- Add the scope to the required resource.
+- Save the API
+
+Saving the API triggers WSO2 API Manager to propagate the scope to Asgardeo.  
+
+!!! Note
+    The **Resources** section of an **API** is equivalent to the **Tools** section of an **MCP Server**. The steps to create and assign scopes to a tool of an MCP Server are similar to the steps mentioned above.
+
+!!! warning
+    Ensure that no scope name begins with the word `internal`. For example, `internal_order_management` is not permitted. Asgardeo does not allow user defined scope names with this prefix.
+
+#### What Happens Internally
+
+- WSO2 API Manager creates or updates the scope in **Asgardeo**
+- The scope is added under a **global API resource** in Asgardeo
+- At this stage, the scope **exists** in Asgardeo but is **not yet usable** by applications
+
+
+### Step 2: Authorize Scopes in Asgardeo
+
+Scopes must be explicitly authorized by an Asgardeo Admin for the OAuth application that will request them. The following steps must be completed by an **Asgardeo Administrator**.
+
+1.  Log in to the **[Asgardeo Console](https://console.asgardeo.io)** as an admin.
+
+2.  Navigate to **Applications** and open the OAuth application that will request scopes.
+
+3.  Navigate to the **API Authorization** tab and locate the **global API resource** named `APIM_GLOBAL_SCOPES`.  
+    This resource is automatically authorized when the application is created via the **Developer Portal**. It is the scopes inside this API that need explicit authorization.
+
+4.  Under the authorized API resource, select (allow) the specific scopes that the application should be permitted to request
+
+5.  Save the changes.
+
+Only scopes **explicitly allowed** here can be requested in access token requests.
+
+---
+
+### Step 3: Request Access Tokens with Scopes
+
+Once scopes are authorized, the application developer can request access tokens. These steps can be completed by the **Application Developer**
+
+1. Use the OAuth application credentials to request a token. This can be done from WSO2 API Manager itself or using a cURL command as shown in WSO2 API Manager.
+2. Include the required scopes in the request. 
+
+If the scope is authorized, Asgardeo issues an access token containing the requested scope
+
+
+
+
