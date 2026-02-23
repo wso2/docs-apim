@@ -163,13 +163,6 @@ Saving the API triggers WSO2 API Manager to propagate the scope to Asgardeo.
 !!! warning
     Ensure that no scope name begins with the word `internal`. For example, `internal_order_management` is not permitted. Asgardeo does not allow user-defined scope names with this prefix.
 
-#### What Happens Internally
-
-- WSO2 API Manager creates or updates the scope in **Asgardeo**
-- The scope is added under a **global API resource** in Asgardeo
-- At this stage, the scope **exists** in Asgardeo but is **not yet usable** by applications
-
-
 ### Step 2: Authorize Scopes in Asgardeo
 
 Scopes must be explicitly authorized by an Asgardeo Admin for the OAuth application that will request them. The following steps must be completed by an **Asgardeo Administrator**.
