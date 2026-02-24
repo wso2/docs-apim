@@ -67,7 +67,7 @@ Follow the instructions below to create, deploy and publish an API via the Publi
 
    [![Publisher portal home page]({{base_path}}/assets/img/get_started/api-publisher-home.png)]({{base_path}}/assets/img/get_started/api-publisher-home.png)
 
-3. Next, let's create a mock REST service by navigating to [Mocky.io](https://designer.mocky.io/design). You can provide the following configuration in order to create a mock service.
+3. Next, let's create a mock REST service by navigating to [Mocky.io](https://designer.mocky.io/design). You can provide the following configuration to create a mock service.
 
    | Field                   | Value                |
    | ----------------------- | -------------------- |
@@ -120,7 +120,6 @@ Follow the instructions below to create, deploy and publish an API via the Publi
  </td>
  </tr>
  </table>
-
 
 6. Click **Create & Publish**.
 
@@ -180,4 +179,4 @@ Follow the instructions below to invoke the created API.
 
     [![Successful response]({{base_path}}/assets/img/get_started/try-it-success.png)]({{base_path}}/assets/img/get_started/try-it-success.png)
 
-**Congratulations!** With that, you've created, deployed, and published your first API. Next, you subscribed to it and put it to the test. Your journey with WSO2 API Manager has officially begun!
+**Congratulations!** With that, you've created, deployed, and published your first API. Next, you subscribed to it and put it to the test. Your journey with WSO2 API Manager has officially begun.
