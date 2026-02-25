@@ -167,7 +167,7 @@ Follow the instructions below to invoke the created API.
 
     [![Test API]({{base_path}}/assets/img/get_started/test-api.png)]({{base_path}}/assets/img/get_started/test-api.png)
 
-2.  Click on the `GET` resource of the API to expand the resource and Click **Try It Out**.
+2.  Click on the `GET` resource of the API to expand the resource and click **Try It Out**.
 
     [![GET resource]({{base_path}}/assets/img/get_started/expanded-get-resource.png)]({{base_path}}/assets/img/get_started/expanded-get-resource.png)
 
