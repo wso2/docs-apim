@@ -90,12 +90,7 @@ Follow the instructions below to configure Asgardeo as a third-party Key Manager
         | Asgardeo Roles Endpoint                     | `https://api.asgardeo.io/t/{ORGANIZATION-NAME}/scim2/v2/Roles`        |
 
 
-    7. Asgardeo issues Opaque tokens by default. Under **Advanced Configurations**, set the **Token Validation Method** to **Use introspect** to validate these tokens. 
-    
-        !!! Tip 
-            This default behavior can be modified. Refer to the section below to configure Asgardeo to issue JWT tokens instead.
-
-    8. Click **Add** to save the Key Manager.
+    7. Click **Add** to save the Key Manager.
 
 ## Role Creation in Asgardeo
 
@@ -115,21 +110,7 @@ When enabled, the following naming conventions are followed when creating/access
 
 !!! Note
     **_Application_ roles** are not used.
-
-## Requesting JWT Tokens from Asgardeo
-
-By default, Asgardeo issues **Opaque tokens** unless configured otherwise.  
-  
-You can configure Asgardeo to issue **JWT tokens** instead by enabling the **Prefer JWT Token Issuance** option in the **Connector Configurations** section.  
-  
-If you prefer the default Opaque tokens and do **not** enable the **Prefer JWT Token Issuance** option, ensure that **Token Validation Method** is set to **Use introspect** in the **Advanced Configurations** section.  
-
-[![asgardeo use introspect]({{base_path}}/assets/img/administer/asgardeo-use-introspect.png)]({{base_path}}/assets/img/administer/asgardeo-use-introspect.png)
-  
-If **Prefer JWT Token Issuance** is enabled, configure the **Token Validation Method** according to your validation strategy.
-
-!!! Tip
-    When JWT tokens are issued, it is typical to use **Self Validate JWT**, which enables local validation of the issued tokens. 
+ 
 
 ## Requesting and Using Scopes with Asgardeo
 
@@ -171,10 +152,9 @@ Scopes must be explicitly authorized by an Asgardeo Admin for the OAuth applicat
 
 2.  Navigate to **Applications** and open the OAuth application that will request scopes.
 
-3.  Navigate to the **API Authorization** tab and locate the **global API resource** named `APIM_GLOBAL_SCOPES`.  
-    This resource is automatically authorized when the application is created via the **Developer Portal**. It is the scopes inside this API that need explicit authorization.
+3.  Navigate to the **API Authorization** tab, click on **`+ Add API Resource`** and authorize the **global API resource** named `APIM_GLOBAL_SCOPES`.
 
-4.  Under the authorized API resource, select (allow) the specific scopes that the application should be permitted to request
+4.  Select (allow) the specific scopes that the application should be permitted to request
 
 5.  Save the changes.
 
