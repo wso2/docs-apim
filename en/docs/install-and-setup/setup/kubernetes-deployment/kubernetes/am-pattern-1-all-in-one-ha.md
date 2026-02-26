@@ -124,14 +124,27 @@ If you want to quickly try out WSO2 API Manager on Kubernetes with minimal confi
 
     **Note:** This deployment requires separate databases. Follow the steps in [Step 2 - Build Docker Images](#step-2---build-docker-images) to build the Docker images with JDBC drivers, and [Step 3 - Configure Database](#step-3---configure-database) to set up the database.
 
-Deploy API Manager with minimal configuration using the following commands:
+
+### Download and Edit the Values Files
+
+Before deploying, download the default values files for each instance:
+
+```bash
+# Download values files
+curl -o default_values_1.yaml https://raw.githubusercontent.com/wso2/helm-apim/4.6.x/docs/am-pattern-1-all-in-one-HA/default_values_1.yaml
+curl -o default_values_2.yaml https://raw.githubusercontent.com/wso2/helm-apim/4.6.x/docs/am-pattern-1-all-in-one-HA/default_values_2.yaml
+```
+
+Edit `default_values_1.yaml` and `default_values_2.yaml` as needed for your environment (e.g., database connection, secrets, etc.).
+
+### Deploy API Manager Instances
 
 ```bash
 # Deploy first instance
-helm install apim-1 wso2/wso2am-all-in-one --version 4.6.0-1 -f https://raw.githubusercontent.com/wso2/helm-apim/4.6.x/docs/am-pattern-1-all-in-one-HA/default_values_1.yaml
+helm install apim-1 wso2/wso2am-all-in-one --version 4.6.0-1 -f default_values_1.yaml
 
 # Deploy second instance (for high availability)
-helm install apim-2 wso2/wso2am-all-in-one --version 4.6.0-1 -f https://raw.githubusercontent.com/wso2/helm-apim/4.6.x/docs/am-pattern-1-all-in-one-HA/default_values_2.yaml
+helm install apim-2 wso2/wso2am-all-in-one --version 4.6.0-1 -f default_values_2.yaml
 ```
 
 !!! important

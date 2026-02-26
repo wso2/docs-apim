@@ -180,17 +180,31 @@ Before deploying, create a Kubernetes secret with the keystore and truststore:
 kubectl create secret generic apim-keystore-secret --from-file=wso2carbon.jks --from-file=client-truststore.jks
 ```
 
-Deploy API Manager with minimal configuration using the following commands:
+
+### Download and Edit the Values Files
+
+Before deploying, download the default values files for each component:
+
+```bash
+# Download values files
+curl -o default_acp_values.yaml https://raw.githubusercontent.com/wso2/helm-apim/4.6.x/docs/am-pattern-3-ACP_TM_GW/default_acp_values.yaml
+curl -o default_tm_values.yaml https://raw.githubusercontent.com/wso2/helm-apim/4.6.x/docs/am-pattern-3-ACP_TM_GW/default_tm_values.yaml
+curl -o default_gw_values.yaml https://raw.githubusercontent.com/wso2/helm-apim/4.6.x/docs/am-pattern-3-ACP_TM_GW/default_gw_values.yaml
+```
+
+Edit `default_acp_values.yaml`, `default_tm_values.yaml`, and `default_gw_values.yaml` as needed for your environment (e.g., database connection, secrets, etc.).
+
+### Deploy API Manager Components
 
 ```bash
 # Deploy API Control Plane
-helm install apim-acp wso2/wso2am-acp --version 4.6.0-1 -f https://raw.githubusercontent.com/wso2/helm-apim/4.6.x/docs/am-pattern-3-ACP_TM_GW/default_acp_values.yaml
+helm install apim-acp wso2/wso2am-acp --version 4.6.0-1 -f default_acp_values.yaml
 
 # Deploy Traffic Manager
-helm install apim-tm wso2/wso2am-tm --version 4.6.0-1 -f https://raw.githubusercontent.com/wso2/helm-apim/4.6.x/docs/am-pattern-3-ACP_TM_GW/default_tm_values.yaml
+helm install apim-tm wso2/wso2am-tm --version 4.6.0-1 -f default_tm_values.yaml
 
 # Deploy Universal Gateway
-helm install apim-gw wso2/wso2am-universal-gw --version 4.6.0-1 -f https://raw.githubusercontent.com/wso2/helm-apim/4.6.x/docs/am-pattern-3-ACP_TM_GW/default_gw_values.yaml
+helm install apim-gw wso2/wso2am-universal-gw --version 4.6.0-1 -f default_gw_values.yaml
 ```
 
 !!! important

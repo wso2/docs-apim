@@ -150,10 +150,18 @@ helm install is wso2/identity-server --version next \
 -f default_values.yaml
 ```
 
+
+- Download the APIM values.yaml
+```bash
+curl -o apim_default_values.yaml https://raw.githubusercontent.com/wso2/helm-apim/4.6.x/docs/am-pattern-0-all-in-one/default_values.yaml
+```
+
+- Update the `apim_default_values.yaml` file as needed for your environment (e.g., keystore/truststore, database, etc.).
+
 - Deploy API Manager with minimal configuration using the following command:
 
 ```bash
-helm install apim wso2/wso2am-all-in-one --version 4.6.0-1 -f https://raw.githubusercontent.com/wso2/helm-apim/4.6.x/docs/am-pattern-0-all-in-one/default_values.yaml
+helm install apim wso2/wso2am-all-in-one --version 4.6.0-1 -f apim_default_values.yaml
 ```
 
 Once the service is up and running, make sure you have the NGINX Ingress Controller deployed by following the steps outlined in the [Add Ingress Controller](#11-add-ingress-controller) section.

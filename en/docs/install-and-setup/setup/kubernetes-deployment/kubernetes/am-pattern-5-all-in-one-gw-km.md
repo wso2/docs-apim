@@ -181,27 +181,36 @@ If you want to quickly try out WSO2 API Manager on Kubernetes with minimal confi
    kubectl create secret generic apim-keystore-secret --from-file=wso2carbon.jks --from-file=client-truststore.jks
    ```
 
-2. **Deploy Components Using Default Values**:
 
-!!! warning "Important"
-    Naming conventions are crucial. If you modify the component names, ensure consistency throughout your configuration files.
+2. **Download and Edit the Values Files**:
+
+   Before deploying, download the default values files for each component:
+
+   ```bash
+   # Download values files
+   curl -o default_values.yaml https://raw.githubusercontent.com/wso2/helm-apim/4.6.x/docs/am-pattern-5-all-in-one_GW_KM/default_values.yaml
+   curl -o default_km_values.yaml https://raw.githubusercontent.com/wso2/helm-apim/4.6.x/docs/am-pattern-5-all-in-one_GW_KM/default_km_values.yaml
+   curl -o default_gw_values.yaml https://raw.githubusercontent.com/wso2/helm-apim/4.6.x/docs/am-pattern-5-all-in-one_GW_KM/default_gw_values.yaml
+   ```
+
+   Edit `default_values.yaml`, `default_km_values.yaml`, and `default_gw_values.yaml` as needed for your environment (e.g., database connection, secrets, etc.).
+
+   !!! warning "Important"
+       Naming conventions are crucial. If you modify the component names, ensure consistency throughout your configuration files.
 
    **Deploy Control Plane (All-in-One)**:
    ```bash
-   helm install apim wso2/wso2am-all-in-one --version 4.6.0-1 \
-     -f https://raw.githubusercontent.com/wso2/helm-apim/4.6.x/docs/am-pattern-5-all-in-one_GW_KM/default_values.yaml
+   helm install apim wso2/wso2am-all-in-one --version 4.6.0-1 -f default_values.yaml
    ```
 
    **Deploy Key Manager**:
    ```bash
-   helm install km wso2/wso2am-acp --version 4.6.0-1 \
-     -f https://raw.githubusercontent.com/wso2/helm-apim/4.6.x/docs/am-pattern-5-all-in-one_GW_KM/default_km_values.yaml
+   helm install km wso2/wso2am-acp --version 4.6.0-1 -f default_km_values.yaml
    ```
 
    **Deploy Universal Gateway**:
    ```bash
-   helm install gw wso2/wso2am-universal-gw --version 4.6.0-1 \
-     -f https://raw.githubusercontent.com/wso2/helm-apim/4.6.x/docs/am-pattern-5-all-in-one_GW_KM/default_gw_values.yaml
+   helm install gw wso2/wso2am-universal-gw --version 4.6.0-1 -f default_gw_values.yaml
    ```
 
 3. **Set Up Ingress**:
