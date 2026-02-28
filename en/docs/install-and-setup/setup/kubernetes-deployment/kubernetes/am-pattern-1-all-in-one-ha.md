@@ -131,20 +131,16 @@ Before deploying, download the default values files for each instance:
 
 ```bash
 # Download values files
-curl -o default_values_1.yaml https://raw.githubusercontent.com/wso2/helm-apim/4.6.x/docs/am-pattern-1-all-in-one-HA/default_values_1.yaml
-curl -o default_values_2.yaml https://raw.githubusercontent.com/wso2/helm-apim/4.6.x/docs/am-pattern-1-all-in-one-HA/default_values_2.yaml
+curl -o default_values.yaml https://raw.githubusercontent.com/wso2/helm-apim/4.6.x/docs/am-pattern-1-all-in-one-HA/default_values.yaml
 ```
 
-Edit `default_values_1.yaml` and `default_values_2.yaml` as needed for your environment (e.g., database connection, secrets, etc.).
+Edit `default_values.yaml` as needed for your environment (e.g., database connection, secrets, etc.).
 
 ### Deploy API Manager Instances
 
 ```bash
-# Deploy first instance
-helm install apim-1 wso2/wso2am-all-in-one --version 4.6.0-1 -f default_values_1.yaml
-
-# Deploy second instance (for high availability)
-helm install apim-2 wso2/wso2am-all-in-one --version 4.6.0-1 -f default_values_2.yaml
+# Deploy API-M instance
+helm install apim-1 wso2/wso2am-all-in-one --version 4.6.0-1 -f default_values.yaml
 ```
 
 !!! important
