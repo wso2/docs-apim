@@ -426,9 +426,10 @@ nav:
                 - Configure Auth0 as a Key Manager: api-security/key-management/third-party-key-managers/configure-auth0-connector.md
                 - Configure PingFederate as A Key Manager: api-security/key-management/third-party-key-managers/configure-pingfederate-connector.md
                 - Configure ForgeRock as a Key Manager: api-security/key-management/third-party-key-managers/configure-forgerock-connector.md
+                - Configure the Azure AD as a Key Manager: api-security/key-management/third-party-key-managers/configure-azure-ad-key-manager.md
+                - Configure a Custom Key Manager for Out-of-Band Provisioning: api-security/key-management/third-party-key-managers/configure-custom-km-out-of-band.md
                 - Configure a Custom Key Manager: api-security/key-management/third-party-key-managers/configure-custom-connector.md
                 - Configure the Global Key Manager: api-security/key-management/third-party-key-managers/configure-global-key-manager.md
-                - Configure the Azure AD as a Key Manager: api-security/key-management/third-party-key-managers/configure-azure-ad-key-manager.md
 
     - API Gateway:
         - Universal Gateway:

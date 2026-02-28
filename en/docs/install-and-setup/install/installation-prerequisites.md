@@ -10,7 +10,7 @@ Listed below are the OS and database requirements.
 <table>
 <tr>
 <td>
-<p>Operating systems\
+<p>Operating systems/
 Databases</p>
 </td>
 <td>
@@ -18,7 +18,7 @@ Databases</p>
 <li>
 <p>Install a JDK version that is <a href="{{base_path}}/install-and-setup/setup/reference/product-compatibility/#tested-operating-systems-and-jdks">compatible with this product version</a>.</p>
 </li>
-<li><p>All WSO2 Carbon-based products are generally compatible with most common DBMSs. The embedded H2 database is suitable for development, testing, and some production environments. For most enterprise production environments. However, WSO2 recommends that you use an industry-standard RDBMS such as Oracle, PostgreSQL, MySQL, MS SQL, etc. For more information, see <a href="{{base_path}}/install-and-setup/setup/setting-up-databases/overview/">Working with Databases</a>. Additionally, WSO2 does not recommend the H2 database as a user store.</p>
+<li><p>All WSO2 Carbon-based products are generally compatible with most common DBMSs. The embedded H2 database is suitable for development, testing, and some production environments. However, for most enterprise production environments, WSO2 recommends that you use an industry-standard RDBMS such as Oracle, PostgreSQL, MySQL, MS SQL, etc. For more information, see <a href="{{base_path}}/install-and-setup/setup/setting-up-databases/overview/">Working with Databases</a>. Additionally, WSO2 does not recommend the H2 database as a user store.</p>
 </li>
 <li><p>
 It is <b>not recommended to use Apache DS</b> in a production environment due to scalability issues. Instead, use an LDAP like OpenLDAP for user management.</p></li>
@@ -50,7 +50,7 @@ Check the following system requirements for the API-M.
 <ul><li>3 GHz Dual-core Xeon/Opteron (or latest)</li>
 <li>4 GB RAM (2 GB for JVM and 2 GB for the operating system)</li>
 <li>10 GB free disk space</li>
-<li>  ~ Recommended minimum - 2 Cores. For high concurrences and better performances - 4 Cores.
+<li>  ~ Recommended minimum - 2 Cores. For high concurrency and better performance - 4 Cores.
 
 Disk space is based on the expected storage requirements that are calculated by considering the file uploads and the backup policies. For example, if three WSO2 product instances are running in a single machine, it requires a 4 GHz CPU, 8 GB RAM (2 GB for the operating system and 6 GB (2 GB for each WSO2 product instance)) and 30 GB of free space.</li></ul>
 </td>
@@ -201,7 +201,7 @@ The products have been tested and confirmed to work on the following ARM-based p
 </tr>
 <tr>
 <td>
-<p><b>MacOS</b></p>
+<p><b>macOS</b></p>
 </td>
 <td>
   <p>M1, M2, M3, M4</p>

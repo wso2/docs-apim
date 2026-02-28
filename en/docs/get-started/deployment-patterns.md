@@ -41,10 +41,112 @@ This pattern involves running two or more identical All-in-One nodes in an activ
 Distributed patterns separate WSO2 API Manager into distinct component distributions that can be deployed as independent, scalable layers. This is the recommended approach for most production environments as it provides superior scalability, resilience, and security.
 
 The main component distributions are:
-*   **WSO2 API Control Plane (ACP)**: Includes the Key Manager, Publisher Portal, and Developer Portal for API creation, management, and governance.
-*   **WSO2 Universal Gateway**: The proxy that handles API traffic, enforces security policies, and gathers statistics.
-*   **WSO2 Traffic Manager**: Manages rate limiting and traffic policies for the gateways.
 
+*   **WSO2 API Control Plane (ACP)**: Includes the Key Manager, Publisher Portal, and Developer Portal for API creation, management, and governance.
+*   **WSO2 Universal Gateway**: The proxy that handles API traffic, enforces security policies, and gathers statistics. Only starts the components related to the API Gateway.
+*   **WSO2 Traffic Manager**: Manages rate limiting and traffic policies for the gateways. Only starts the Traffic Manager component. 
+
+
+### Databases used by API-M Component Distributions
+
+When you run the different distributions of API-M, databases are used as shown below.
+
+<table>
+<thead>
+<tr class="header">
+<th><br />
+</th>
+<th><p><strong>API Manager<br />
+database</strong></p>
+<p><code>              apimgtdb             </code></p>
+<p><code>              WSO2_AM_DB             </code></p></th>
+<th><p><strong>Shared Database</strong></p>
+<p><code>                                            shareddb                           </code></p>
+<p><code>              WSO2_SHARED_DB             </code></p></th>
+
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><p><strong>WSO2 API Control Plane</strong></p></td>
+<td><p>Used</p></td>
+<td><p>Used</p></td>
+</tr>
+<tr class="even">
+<td><p><strong>WSO2 Universal Gateway</strong></p></td>
+<td><p>Not used</p></td>
+<td><p>Used (in multi-tenancy mode/ in multiple gateway mode when Google Analytics is used)</p></td>
+
+</tr>
+<tr class="odd">
+<td><strong>WSO2 Traffic Manager</strong></td>
+<td>Used</td>
+<td>Used</td>
+</tr>
+</tbody>
+</table>
+
+!!! Warning "WSO2 Universal Gateway - `shared_db` configuration"
+    Note that the registry data source **should not** be completely removed from the gateway node, although the `shared_db` is not required for certain use cases. During server initialization, the user core and registry modules rely on the registry and user store pointing to the default H2 shared db or the H2-based carbon DB. Therefore, ensure that at least the registry and user store configurations are appropriately set.
+
+### API-M Components
+
+Listed below are the five main components in the API-M server. When you run the recommended API-M component distributions, the components (from the below list) that are required for operating the functionalities related to each distribution are used.
+
+<table>
+    <tr>
+        <th>
+            Component
+        </th>
+        <th>
+            Description
+        </th>
+    </tr>
+    <tr>
+        <td>
+            Gateway
+        </td>
+        <td>
+            Responsible for securing, protecting, managing, and scaling API calls.
+        </td>
+    </tr>
+    <tr>
+        <td>
+            Key Manager
+        </td>
+        <td>
+            Responsible for all security and key-related operations.
+        </td>
+    </tr>
+    <tr>
+        <td>
+            Traffic Manager
+        </td>
+        <td>
+            Responsible for making rate limiting decisions.
+        </td>
+    </tr>
+    <tr>
+        <td>
+            Publisher Portal
+        </td>
+        <td>
+            Enables API providers to easily publish their APIs, share documentation, provision API keys, and gather feedback on API features, quality, and usage.
+        </td>
+    </tr>
+    <tr>
+        <td>
+            Developer Portal
+        </td>
+        <td>
+            Enables consumers to self-register, discover API functionality, subscribe to APIs, evaluate them, and interact with API publishers.
+        </td>
+    </tr>
+</table>
+
+In a typical distributed deployment, you only have the WSO2 API Control Plane, WSO2 Universal Gateway and WSO2 Traffic Manager distributions running as separate nodes. However, you have the option of separating the Key Manager from the WSO2 API Control Plane. With this, there are few patterns under which we can configure a distributed deployment for API-M. They are as follows.
+
+---
 ### Pattern 2: Simple Scalable Deployment
 This pattern separates the API Gateway from an All-in-One node that serves as the Control Plane.
 
@@ -95,6 +197,16 @@ This is a variation of Pattern 2 where the Gateway and Key Manager are separated
 <a href="{{base_path}}/assets/img/setup-and-install/deployment-cp-gw-km.png"><img src="{{base_path}}/assets/img/setup-and-install/deployment-cp-gw-km.png" alt="Pattern 5: Simple Scalable with KM" width="80%"></a>
 
 > **View the Configuration Guides for Pattern 5:** [Deploy on Kubernetes]({{base_path}}/install-and-setup/setup/kubernetes-deployment/kubernetes/am-pattern-5-all-in-one-gw-km/)
+
+---
+
+### Pattern 6: API-M Deployment with IS as Key Manager
+
+*   **Description**: Deployment with WSO2 Identity Server (IS) as the Key Manager
+*   **Use Case**: Using WSO2 Identity Server as third-party Key Manager for API Manager
+*   **Components**: All-in-one, WSO2 Identity Server
+
+> **View the Configuration Guides for Pattern 6:** [Deploy on VMs]({{base_path}}/api-security/key-management/third-party-key-managers/configure-wso2is7-connector) or [Deploy on Kubernetes]({{base_path}}/install-and-setup/setup/kubernetes-deployment/kubernetes/am-pattern-6-all-in-one-is-as-km)
 
 ---
 

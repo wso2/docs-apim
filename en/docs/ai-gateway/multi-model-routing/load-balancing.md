@@ -105,7 +105,7 @@ You can enforce weighted round robin based load balancing for your AI API by att
 !!! note "AWS Bedrock Configuration"
     When configuring a multi model provider service for weighted round robin routing, you must select both the **Provider** (model family) and the **Model** for each model entry. The **Provider** dropdown will show the model families you have configured in the Admin Portal (such as Meta, Anthropic, DeepSeek, etc.). After selecting a provider, the **Model** dropdown will list the specific models available under that provider.
 
-    [![Multi model provider service Weighted Round Robin Policy Configuration]({{base_path}}/assets/img/learn/ai-gateway/aws-bedrock-weighted-round-robin-policy-configuration.png){: style="width:40%"}]({{base_path}}/assets/img/learn/ai-gateway/aws-bedrock-round-weighted-robin-policy-configuration.png)
+    [![Multi model provider service Weighted Round Robin Policy Configuration]({{base_path}}/assets/img/learn/ai-gateway/aws-bedrock-weighted-round-robin-policy-configuration.png){: style="width:40%"}]({{base_path}}/assets/img/learn/ai-gateway/aws-bedrock-weighted-round-robin-policy-configuration.png)
 
 6. Finally, scroll to the bottom of the page and click on **Save and deploy**.
 

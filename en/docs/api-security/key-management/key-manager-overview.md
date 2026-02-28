@@ -172,5 +172,5 @@ Use [OAuth2 scopes]({{base_path}}/api-security/runtime/authorization/oauth2-scop
 
 Choose your path based on your authentication requirements:
 
-- **[OAuth2 Grant Types Overview]({{base_path}}/api-security/runtime/oauth2/grant-types/overview/)** - For understanding authentication flows and choosing appropriate grant types
+- **[OAuth2 Grant Types Overview]({{base_path}}/api-security/key-management/authentication/grant-types/overview/)** - For understanding authentication flows and choosing appropriate grant types
 - **[Configure Third-Party Key Managers]({{base_path}}/api-security/key-management/third-party-key-managers/overview/)** - For integrating with existing enterprise identity providers

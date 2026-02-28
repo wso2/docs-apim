@@ -1,10 +1,10 @@
 # Designing an API
 
-Designing an API spans through a few phases of an API Lifecycle. A correct tool can help design an API seamlessly and efficiently. WSO2 API Manager supports the designing of an API via the API Publisher Portal. 
+Designing an API spans several phases of the API lifecycle. Using the right tools can help design an API seamlessly and efficiently. WSO2 API Manager supports the designing of an API via the API Publisher Portal. 
   
 <img src="{{base_path}}/assets/img/learn/design-api/design-api-lifecycle.png" height="400" />
 
-The following are the various aspects associated with the designing phase of the API lifecycle.
+The following are the various aspects associated with the design phase of the API lifecycle.
 
 ## Create an API
 
@@ -17,13 +17,13 @@ There are multiple options available to API designers to create an API in WSO2 A
 You have two options to create a REST API via the API Publisher in WSO2 API Manager.
 
 - [Create a REST API through the API Publisher]({{base_path}}/api-design-manage/design/create-api/create-rest-api/create-a-rest-api) - You can directly create your API in the API Publisher by linking your existing backend API implementation.
-- [Create a REST API from an Open API Definition]({{base_path}}/api-design-manage/design/create-api/create-rest-api/create-a-rest-api-from-an-openapi-definition) - An OpenAPI definition is a format that describes REST APIs. You can create a REST API based on this definition.
+- [Create a REST API from an OpenAPI Definition]({{base_path}}/api-design-manage/design/create-api/create-rest-api/create-a-rest-api-from-an-openapi-definition) - An OpenAPI definition is a format that describes REST APIs. You can create a REST API based on this definition.
 
 Additionally, you can also convert existing SOAP services or backends to REST APIs. Refer to [Expose a SOAP Service as a REST API]({{base_path}}/api-design-manage/design/create-api/create-rest-api/expose-a-soap-service-as-a-rest-api) or [Generate REST API from SOAP Backend]({{base_path}}/api-design-manage/design/create-api/create-rest-api/generate-rest-api-from-soap-backend) for more information.
 
 **Create an API based on a Service**
 
-You can create services and publish it to WSO2 API Manager, such as you can create an integration service using WSO2 Integration Studio or a streaming integration service using the Streaming Integration Tooling. Refer to the [documentation on Creating an API Using a Service]({{base_path}}/api-design-manage/design/create-api/create-an-api-using-a-service).
+You can create services and publish them to WSO2 API Manager. For example, you can create an integration service using WSO2 Integration Studio or a streaming integration service using the Streaming Integration Tooling. Refer to the [documentation on Creating an API Using a Service]({{base_path}}/api-design-manage/design/create-api/create-an-api-using-a-service).
 
 **Create a GraphQL API**
 
@@ -44,15 +44,15 @@ Many enterprises need to implement API management solutions that provide mechani
 
 **Rate Limiting**
 
-Rate Limiting allows you to limit the number of successful hits to an API during a given period. Refer to [documentation on Rate Limiting]({{base_path}}/api-design-manage/design/rate-limiting/introducing-throttling-use-cases/) for more information.
+Rate Limiting allows you to limit the number of successful hits to an API during a given period. Refer to [documentation on Rate Limiting]({{base_path}}/api-design-manage/design/rate-limiting/set-api-level-throttling/) for more information.
 
 **Authentication**
 
-API authentication is a way of protecting API access from unidentified or anonymous access. It ensures that the API is secured and accessible only by the consumers who proves their identity and whose identities are found within the API Management Platform. Please refer to [an overview of Authentication]({{base_path}}/api-security/runtime/api-authentication/api-authentication-overview) for more information.
+API authentication is a way of protecting API access from unidentified or anonymous access. It ensures that the API is secured and accessible only by the consumers who prove their identity and whose identities are found within the API Management Platform. Please refer to [an overview of Authentication]({{base_path}}/api-security/runtime/api-authentication/api-authentication-overview) for more information.
 
 **Authorization**
 
-Due to the expanding consumer base, the application developers have to focus on limiting the API access in order to make sure that only the authorized parties have access to respective resources/services. Please refer to [an overview of Authorization in API Manager]({{base_path}}/api-security/runtime/authorization/api-authorization) for more information.
+Due to the expanding consumer base, the application developers have to focus on limiting the API access in order to make sure that only the authorized parties have access to the respective resources/services. Please refer to [an overview of Authorization in API Manager]({{base_path}}/api-security/runtime/authorization/api-authorization) for more information.
 
 **Threat Protection**
 
@@ -62,10 +62,10 @@ There are various threat protectors like Gateway Threat Protectors, Regular Expr
 
 API documentation helps API subscribers to understand the functionality of the API and API publishers to market their APIs better and sustain competition. Using the API Publisher, you can add different types of documentation from various sources. Refer to [documentation on documenting APIs]({{base_path}}/api-design-manage/design/api-documentation/add-api-documentation) for more information.
 
-### Test APIs
+## Test APIs
 
 You can test APIs directly in the API Publisher itself. Refer to [documentation on testing REST APIs]({{base_path}}/api-design-manage/design/create-api/create-rest-api/test-a-rest-api) for more information.
 
-### API Revisions
+## API Revisions
 
 API Revisions can be used when an API Publisher needs to keep track of different deployments of the API. Refer to [documentation on API Revisions]({{base_path}}/api-design-manage/design/create-api/create-api-revisions) for more information.

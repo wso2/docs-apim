@@ -78,11 +78,13 @@ Follow the steps given below to configure WSO2 IS 7.x as a Key Manager component
 * Start WSO2 API Manager.
 
       `<APIM_HOME>` refers to the root folder of the extracted WSO2 APIM.
+
 * Sign in to the Admin Portal. 
  
       `https://<hostname>:9443/admin`
 
       `https://localhost:9443/admin`
+
 * Click **Key Managers**.
 * Click **Add Key Manager** to add the configuration related to a new Key Manager.
 * Enter a **Name** and **Display Name**, and select **WSO2 Identity Server 7** as the **Key Manager Type**.

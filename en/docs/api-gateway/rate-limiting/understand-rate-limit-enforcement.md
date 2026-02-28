@@ -165,7 +165,7 @@ GraphQL and Streaming APIs have specialized enforcement mechanisms due to their 
 
 - **GraphQL APIs**: GraphQL APIs use complexity-based and depth-based limiting in addition to request-based rate limiting and burst control. The maximum values for complexity and depth can be enforced through the subscription policy. See [GraphQL Query Complexity Limit]({{base_path}}/api-design-manage/design/rate-limiting/graphql-api/query-complexity-analysis/) and [GraphQL Query Depth Limit]({{base_path}}/api-design-manage/design/rate-limiting/graphql-api/query-depth-analysis/) for details.
 
-- **Streaming APIs**: Business plans for Streaming APIs count events/frames rather than HTTP requests, and limit number of active long-lived connections. See [Streaming API Enforcement]({{base_path}}/api-design-manage/design/rate-limiting/rate-limiting-for-streaming-apis/) for details.
+- **Streaming APIs**: Business plans for Streaming APIs count events/frames rather than HTTP requests, and limit number of active long-lived connections. See [Streaming API Enforcement]({{base_path}}/api-design-manage/design/rate-limiting/set-streaming-api-limits/) for details.
 
 ## Monitoring and Troubleshooting
 

@@ -415,7 +415,7 @@ In contrast to the information provided by the Synapse global handler level, the
         The following are the two possible call types:
         <ul>
         <li><strong>HTTP</strong> - This call type identifies logs that correspond to either back-end latency or round-trip latency states. Thereby, in the case of an individual request, one log will be recorded to identify back-end latency, and another log for the round-trip latency. These logs are categorized using the HTTP call type because these logs relate to HTTP calls between WSO2 API-M and external clients.</li>
-        <li><strong>HTTP State Transition</strong> - This call type idenfities logs that correspond to the state transition in the HTTP transport related to a particular message.</li>
+        <li><strong>HTTP State Transition</strong> - This call type identifies logs that correspond to the state transition in the HTTP transport related to a particular message.</li>
         </ul>
     </td>
     </tr>
