@@ -14,13 +14,13 @@ This is the standard distributed deployment for API Manager. The default configu
   - [Prerequisites](#prerequisites)
     - [Step 1 - Set Up Basic Configurations](#step-1-set-up-basic-configurations)
     - [Step 2 - Build Docker Images](#step-2-build-docker-images)
-  - [Step 3 - Configure Database](#step-3-configure-database)
+    - [Step 3 - Configure Database](#step-3-configure-database)
   - [Minimal Configuration](#minimal-configuration)
     - [Download and Edit the Values Files](#download-and-edit-the-values-files)
     - [Deploy API Manager Components](#deploy-api-manager-components)
   - [Configuration](#configuration)
     - [1. General Configuration of Helm Charts](#1-general-configuration-of-helm-charts)
-        - [i Add Ingress Controller](#i-add-ingress-controller)
+        - [i. Add Ingress Controller](#i-add-ingress-controller)
         - [ii. Mount Keystore and Truststore](#ii-mount-keystore-and-truststore)
         - [iii. Encrypting Secrets](#iii-encrypting-secrets)
         - [iv. Configure Docker Image and Databases](#iv-configure-docker-image-and-databases)
@@ -190,7 +190,7 @@ helm install apim-gw wso2/wso2am-universal-gw --version 4.6.0-1 -f default_gw_va
 !!! important
     Naming conventions are important. If you want to change them, ensure consistency throughout your configuration.
 
-Once the services are up and running, make sure you have the NGINX Ingress Controller deployed by following the steps outlined in the [Add Ingress Controller](#i-add-ingress-controller) section.
+Once the services are up and running, make sure you have the NGINX Ingress Controller deployed by following the steps outlined in the [i. Add Ingress Controller](#i-add-ingress-controller) section.
 
 ## Configuration
 
@@ -199,6 +199,7 @@ Once the services are up and running, make sure you have the NGINX Ingress Contr
 The Helm charts for the API Manager deployment are available in the [WSO2 Helm Chart Repository](https://github.com/wso2/helm-apim/tree/4.6.x). You can either use the charts from the repository or clone the repository and use the charts from the local copy.
 - The Helm naming convention for APIM follows a simple pattern. The following format is used for naming the resources:
 ```<RELEASE_NAME>-<CHART_NAME>-<RESOURCE_NAME>```
+
 
 #### i. Add Ingress Controller
 
