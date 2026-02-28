@@ -140,7 +140,7 @@ Edit `default_values.yaml` as needed for your environment (e.g., database connec
 
 ```bash
 # Deploy API-M instance
-helm install apim-1 wso2/wso2am-all-in-one --version 4.6.0-1 -f default_values.yaml
+helm install apim wso2/wso2am-all-in-one --version 4.6.0-1 -f default_values.yaml
 ```
 
 !!! important
