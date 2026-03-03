@@ -227,14 +227,14 @@ Following is a sample of gateway wire log for an API request.
 ###Enable Gateway wire logs
 
 1. Open `APIM_HOME>/repository/conf/log4j2.properties` file.
-2. You will be able to find `synapse-wire` logger which is already defined in default `log4j2.properties` file.
+2. To enable Gateway Wire Logs, locate the pre-defined `synapse-wire` logger in the default `log4j2.properties` file and uncomment the following lines:
 
     ``` 
     logger.synapse-wire.name = org.apache.synapse.transport.http.wire
     logger.synapse-wire.level = DEBUG
     ```
 
-    The `synapse-headers` logger can be used to log request and response headers only.
+    To log only request and response headers, uncomment the `synapse-headers` logger in the default `log4j2.properties` file:
     
     ``` 
     logger.synapse-headers.name = org.apache.synapse.transport.http.headers
