@@ -45,7 +45,6 @@ Follow the instructions below to configure Asgardeo as a third-party Key Manager
             Ensure you have authorized the **Management API** version of the API Resource. It is a common mistake to authorize the **Organization API** version instead.  
 
     3. Repeat the previous step for the following Management APIs:  
-        - **Application Management API**
         - **API Resource Management API** 
         - **SCIM2 Roles V1/V2 API**
 
@@ -85,7 +84,6 @@ Follow the instructions below to configure Asgardeo as a third-party Key Manager
         | Organization                                | Your chosen organization name                                         |
         | Client ID                                   | Previously noted Client ID                                            |
         | Client Secret                               | Previously noted Client secret                                        |
-        | Asgardeo Application Management Endpoint    | `https://api.asgardeo.io/t/{ORGANIZATION-NAME}/api/server/v1/applications` |
         | Asgardeo API Resource Management Endpoint   | `https://api.asgardeo.io/t/{ORGANIZATION-NAME}/api/server/v1/api-resources` |
         | Asgardeo Roles Endpoint                     | `https://api.asgardeo.io/t/{ORGANIZATION-NAME}/scim2/v2/Roles`        |
 
@@ -93,9 +91,6 @@ Follow the instructions below to configure Asgardeo as a third-party Key Manager
     7. Click **Add** to save the Key Manager.
 
 ## Role Creation in Asgardeo
-
-!!! Note
-    Enabling role creation according to this convention is supported from WSO2 API Manager 4.4.0.5 update levels onwards.
 
 By default, roles are **not** created in Asgardeo, and it is assumed that the roles will be manually created by the user in Asgardeo. 
 
