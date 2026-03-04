@@ -14,7 +14,7 @@ Follow the instructions below to configure Asgardeo as a third-party Key Manager
 
         [![asgardeo new application]({{base_path}}/assets/img/administer/asgardeo-newapplication.png)]({{base_path}}/assets/img/administer/asgardeo-newapplication.png)
 
-    2. Create a **Standard-Based Application** with the following Name and Protocol.
+    2. **Create** a **Standard-Based Application** with the following Name and Protocol.
 
         | Name               | Protocol                   |
         |--------------------|----------------------------|
@@ -47,6 +47,25 @@ Follow the instructions below to configure Asgardeo as a third-party Key Manager
     3. Repeat the previous step for the following Management APIs:  
         - **API Resource Management API** 
         - **SCIM2 Roles V1/V2 API**
+
+4. Create an API Resource to globally contain scopes defined in WSO2 API Manager.
+    1. Navigate to **Resources** → **API Resources** → **`+ New API Resource`**
+
+        [![asgardeo new api resource]({{base_path}}/assets/img/administer/asgardeo-new-api-resource.png)]({{base_path}}/assets/img/administer/asgardeo-new-api-resource.png)
+
+    2. Enter a unique **Identifier** and **Display Name** (Example shown below). Click on **Next**.
+
+        | Identifier                    | Display Name               |
+        |-------------------------------|----------------------------|
+        | /api/server/v1/scope-resource | APIM_GLOBAL_SCOPES         |
+
+        [![asgardeo create api resource]({{base_path}}/assets/img/administer/asgardeo-create-api-resource.png)]({{base_path}}/assets/img/administer/asgardeo-create-api-resource.png)
+    
+    3. In the following **Scopes** page, click on **Next**. No scopes additions are required. 
+
+    4. In the following **Authorization** page, click on **Create** ensuring that **Requires authorization** is enabled. 
+
+        [![asgardeo authorize api resource]({{base_path}}/assets/img/administer/asgardeo-authorize-api-resource.png)]({{base_path}}/assets/img/administer/asgardeo-authorize-api-resource.png)
 
 ## Step 2 - Configure WSO2 API Manager
 
@@ -82,8 +101,9 @@ Follow the instructions below to configure Asgardeo as a third-party Key Manager
         | Configuration                               | Value                                                                 |
         |---------------------------------------------|-----------------------------------------------------------------------|
         | Organization                                | Your chosen organization name                                         |
-        | Client ID                                   | Previously noted Client ID                                            |
-        | Client Secret                               | Previously noted Client secret                                        |
+        | Client ID                                   | Noted Client ID in Step 1 - 2c                                        |
+        | Client Secret                               | Noted Client secret in Step 1 - 2c                                    |
+        | Global Scopes API Resource Name             | Display Name of Global Scopes API Resource in Step 1 - 4b             |
         | Asgardeo API Resource Management Endpoint   | `https://api.asgardeo.io/t/{ORGANIZATION-NAME}/api/server/v1/api-resources` |
         | Asgardeo Roles Endpoint                     | `https://api.asgardeo.io/t/{ORGANIZATION-NAME}/scim2/v2/Roles`        |
 
