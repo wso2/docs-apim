@@ -1,6 +1,6 @@
 # Deployment Patterns
 
-A deployment pattern refers to the architecture you use to run WSO2 API Manager's components. The pattern you choose determines how the system handles load, scales, and ensures high availability. These patterns are independent of the underlying platform; you can use any of them on both Virtual Machines and Kubernetes.
+A deployment pattern refers to the architecture used to run WSO2 API Manager components. The pattern you choose determines how the system handles load, scales, and ensures high availability. These patterns are independent of the underlying platform; you can use any of them on both Virtual Machines and Kubernetes.
 
 The patterns can be grouped into three main categories: **All-in-One**, **Distributed**, and **Multi-Datacenter**.
 
@@ -43,13 +43,13 @@ Distributed patterns separate WSO2 API Manager into distinct component distribut
 The main component distributions are:
 
 *   **WSO2 API Control Plane (ACP)**: Includes the Key Manager, Publisher Portal, and Developer Portal for API creation, management, and governance.
-*   **WSO2 Universal Gateway**: The proxy that handles API traffic, enforces security policies, and gathers statistics. Only starts the components related to the API Gateway.
+*   **WSO2 Universal Gateway**: The proxy that handles API traffic, enforces security policies, and gathers statistics. Starts only the components related to the API Gateway.
 *   **WSO2 Traffic Manager**: Manages rate limiting and traffic policies for the gateways. Only starts the Traffic Manager component. 
 
 
 ### Databases used by API-M Component Distributions
 
-When you run the different distributions of API-M, databases are used as shown below.
+When you run the different API-M distributions, the databases used are shown below.
 
 <table>
 <thead>
@@ -91,7 +91,7 @@ database</strong></p>
 
 ### API-M Components
 
-Listed below are the five main components in the API-M server. When you run the recommended API-M component distributions, the components (from the below list) that are required for operating the functionalities related to each distribution are used.
+Listed below are the five main components of the API-M server. When you run the recommended API-M component distributions, the components (from the below list) that are required for operating the functionalities related to each distribution are used.
 
 <table>
     <tr>
@@ -144,7 +144,7 @@ Listed below are the five main components in the API-M server. When you run the 
     </tr>
 </table>
 
-In a typical distributed deployment, you only have the WSO2 API Control Plane, WSO2 Universal Gateway and WSO2 Traffic Manager distributions running as separate nodes. However, you have the option of separating the Key Manager from the WSO2 API Control Plane. With this, there are few patterns under which we can configure a distributed deployment for API-M. They are as follows.
+In a typical distributed deployment, you only have the WSO2 API Control Plane, WSO2 Universal Gateway, and WSO2 Traffic Manager distributions running as separate nodes. However, you have the option of separating the Key Manager from the WSO2 API Control Plane. In this case, there are a few patterns under which you can configure a distributed deployment for API-M. They are as follows.
 
 ---
 ### Pattern 2: Simple Scalable Deployment
@@ -203,7 +203,7 @@ This is a variation of Pattern 2 where the Gateway and Key Manager are separated
 ### Pattern 6: API-M Deployment with IS as Key Manager
 
 *   **Description**: Deployment with WSO2 Identity Server (IS) as the Key Manager
-*   **Use Case**: Using WSO2 Identity Server as third-party Key Manager for API Manager
+*   **Use Case**: Using WSO2 Identity Server as a third-party Key Manager for API Manager
 *   **Components**: All-in-one, WSO2 Identity Server
 
 > **View the Configuration Guides for Pattern 6:** [Deploy on VMs]({{base_path}}/api-security/key-management/third-party-key-managers/configure-wso2is7-connector) or [Deploy on Kubernetes]({{base_path}}/install-and-setup/setup/kubernetes-deployment/kubernetes/am-pattern-6-all-in-one-is-as-km)
