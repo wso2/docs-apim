@@ -6989,7 +6989,7 @@ components:
           example: false
         solaceOrganization:
           type: string
-          example: SolaceWso2
+          example: SolaceWSO2
         solaceDeployedEnvironments:
           type: array
           items:
