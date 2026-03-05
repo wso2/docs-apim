@@ -219,7 +219,7 @@ nav:
           - Create and Publish an AWS Lambda API: tutorials/create-and-publish-awslambda-api.md
           - Create and Publish an API with Sequence as a Backend: tutorials/create-and-publish-a-sequencebackend-api.md
           - Expose a SOAP Service as a REST API: tutorials/expose-a-soap-service-as-a-rest-api.md
-          - Edit an API by Modifying the API Definition: tutorials/edit-an-api-by-modifyng-the-api-definition.md
+          - Edit an API by Modifying the API Definition: tutorials/edit-an-api-by-modifying-the-api-definition.md
           - Enforce Rate Limiting and Resource Access Policies: tutorials/enforce-throttling-and-resource-access-policies.md
     - API Design & Manage:
         - Design APIs:
@@ -440,7 +440,7 @@ nav:
             - Gateway Environments: api-gateway/maintaining-separate-production-and-sandbox-gateways.md
             - Scale the Gateway: api-gateway/scaling-the-gateway.md
             - Advanced Topics:
-                - Universal Gateway with Dedicated Tenants: api-gateway/maintain-seperate-gateways-per-tenants.md
+                - Universal Gateway with Dedicated Tenants: api-gateway/maintain-separate-gateways-per-tenants.md
                 - Universal Gateways with Dedicated Backends: api-gateway/api-gateways-with-dedicated-backends.md
                 - Mutual SSL Between Universal Gateway and Backend: api-gateway/mutual-ssl-between-api-gateway-and-backend.md
                 - Storing Custom Synapse Artifacts in the Gateway: api-gateway/custom-synapse-artifacts.md
