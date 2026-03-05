@@ -36,246 +36,204 @@ Follow these steps to integrate the Semantic Tool Filtering policy into your AI 
 
 ## Example Policy Configuration
 
-??? example "Click to expand configuration steps"
-		Policy YAML (Gemini provider example):
+??? example "Policy YAML (Gemini provider example)"
+    Note: An embedding provider must be configured. Add one of the following to `$APIM_HOME/repository/conf/deployment.toml`:
 
-		```yaml
-		apiVersion: gateway.api-platform.wso2.com/v1alpha1
-		kind: LlmProvider
-		metadata:
-			name: tool-filtered-agent
-		spec:
-			displayName: Gemini tool filtered agent
-			version: v1.0
-			template: "gemini"
-			upstream:
-				url: "https://generativelanguage.googleapis.com/v1beta/models"
-				auth:
-					type: api-key
-					header: x-goog-api-key
-					value: "<api-key>"
-			accessControl:
-				mode: deny_all
-				exceptions:
+    Generic template:
+    ```toml
+    [apim.ai.embedding_provider]
+    type = "openai | mistral | azure-openai"
+    [apim.ai.embedding_provider.properties]
+    embedding_endpoint = "<embedding-endpoint>"
+    apikey = "<api-key>"
+    embedding_model = "<embedding-model>"
+    ```
+
+    MistralAI example:
+    ```toml
+	[apim.ai.embedding_provider]
+	type = "mistral"
+	[apim.ai.embedding_provider.properties]
+	apikey = "<api-key>"
+	embedding_endpoint = "https://api.mistral.ai/v1/embeddings"
+	embedding_model = "mistral-embed"
+    ```
+	Policy YAML (Gemini provider example):
+
+	```yaml
+	apiVersion: gateway.api-platform.wso2.com/v1alpha1
+	kind: LlmProvider
+	metadata:
+		name: tool-filtered-agent
+	spec:
+		displayName: Gemini tool filtered agent
+		version: v1.0
+		template: "gemini"
+		upstream:
+			url: "https://generativelanguage.googleapis.com/v1beta/models"
+			auth:
+				type: api-key
+				header: x-goog-api-key
+				value: "<api-key>"
+		accessControl:
+			mode: deny_all
+			exceptions:
+				- path: /gemini-3-flash-preview:generateContent
+					methods: [POST]
+		policies:
+			- name: semantic-tool-filtering
+				version: v0.1.0
+				paths:
 					- path: /gemini-3-flash-preview:generateContent
 						methods: [POST]
-			policies:
-				- name: semantic-tool-filtering
-					version: v0.1.0
-					paths:
-						- path: /gemini-3-flash-preview:generateContent
-							methods: [POST]
-							params:
-								selectionMode: "By Rank"
-								Limit: 2
-								queryJSONPath: "$.contents[0].parts[0].text"
-								toolsJSONPath: "$.tools[0].function_declarations"
-								userQueryIsJson: true
-								toolsIsJson: true
-		```
+						params:
+							selectionMode: "By Rank"
+							Limit: 2
+							queryJSONPath: "$.contents[0].parts[0].text"
+							toolsJSONPath: "$.tools[0].function_declarations"
+							userQueryIsJson: true
+							toolsIsJson: true
+	```
+	JSON formatted Tool List Policy Configuration
+	
+	```yaml
+	policies:
+		- name: semantic-tool-filtering
+			version: v0.1.0
+			paths:
+				- path: /gemini-3-flash-preview:generateContent
+					methods: [POST]
+					params:
+						selectionMode: "By Rank"
+						Limit: 2
+						queryJSONPath: "$.contents[0].parts[0].text"
+						toolsJSONPath: "$.tools[0].function_declarations"
+						userQueryIsJson: true
+						toolsIsJson: true
+	```
+	Text-Based Tool List policy Configuration
 
-## Request Body Example (Tools as JSON List)
+	```yaml
+	policies:
+		- name: semantic-tool-filtering
+			version: v0.1.0
+			paths:
+				- path: /gemini-3-flash-preview:generateContent
+					methods: [POST]
+					params:
+						selectionMode: "By Threshold"
+						Threshold: 0.9
+						queryJSONPath: "$.contents[0].parts[0].text"
+						toolsJSONPath: "$.contents[0].parts[0].text"
+						userQueryIsJson: false
+						toolsIsJson: false
+	```
 
-```json
-{
-	"contents": [
-		{
-			"role": "user",
-			"parts": [
-				{
-					"text": "I'm planning a corporate retreat in Denver for next weekend. Can you find the weather forecast, book a conference room for 15 people, find a highly-rated catering service that offers vegan options, and then email the itinerary to my assistant at sarah@company.com?"
-				}
-			]
-		}
-	],
-	"tools": [
-		{
-			"function_declarations": [
-				{
-					"name": "get_weather",
-					"description": "Get current weather and 7-day forecast for a location.",
-					"parameters": {
-						"type": "OBJECT",
-						"properties": {
-							"location": { "type": "string", "description": "The city and state, e.g. Denver, CO" }
-						},
-						"required": ["location"]
+
+??? example "Request Body Example (Tools as JSON List)"
+
+	```json
+	{
+		"contents": [
+			{
+				"role": "user",
+				"parts": [
+					{
+						"text": "I'm planning a corporate retreat in Denver for next weekend. Can you find the weather forecast, book a conference room for 15 people, find a highly-rated catering service that offers vegan options, and then email the itinerary to my assistant at sarah@company.com?"
 					}
-				},
-				{
-					"name": "book_venue",
-					"description": "Reserve a conference room or meeting space.",
-					"parameters": {
-						"type": "OBJECT",
-						"properties": {
-							"location": { "type": "string" },
-							"capacity": { "type": "integer", "description": "Number of people" },
-							"date": { "type": "string", "description": "ISO date format" }
-						},
-						"required": ["location", "capacity", "date"]
+				]
+			}
+		],
+		"tools": [
+			{
+				"function_declarations": [
+					{
+						"name": "get_weather",
+						"description": "Get current weather and 7-day forecast for a location.",
+						"parameters": {
+							"type": "OBJECT",
+							"properties": {
+								"location": { "type": "string", "description": "The city and state, e.g. Denver, CO" }
+							},
+							"required": ["location"]
+						}
+					},
+					{
+						"name": "book_venue",
+						"description": "Reserve a conference room or meeting space.",
+						"parameters": {
+							"type": "OBJECT",
+							"properties": {
+								"location": { "type": "string" },
+								"capacity": { "type": "integer", "description": "Number of people" },
+								"date": { "type": "string", "description": "ISO date format" }
+							},
+							"required": ["location", "capacity", "date"]
+						}
+					},
+					{
+						"name": "find_restaurants",
+						"description": "Locate dining options based on cuisine and dietary needs.",
+						"parameters": {
+							"type": "OBJECT",
+							"properties": {
+								"location": { "type": "string" },
+								"dietary_options": { "type": "array", "items": { "type": "string" }, "description": "e.g. ['vegan', 'gluten-free']" }
+							},
+							"required": ["location"]
+						}
+					},
+					{
+						"name": "calendar_add",
+						"description": "Create a new event on the user's primary calendar.",
+						"parameters": {
+							"type": "OBJECT",
+							"properties": {
+								"summary": { "type": "string" },
+								"start_time": { "type": "string" },
+								"end_time": { "type": "string" }
+							},
+							"required": ["summary", "start_time"]
+						}
+					},
+					{
+						"name": "send_email",
+						"description": "Send an email to a specific recipient.",
+						"parameters": {
+							"type": "OBJECT",
+							"properties": {
+								"recipient": { "type": "string", "description": "Email address" },
+								"subject": { "type": "string" },
+								"body": { "type": "string" }
+							},
+							"required": ["recipient", "body"]
+						}
 					}
-				},
-				{
-					"name": "find_restaurants",
-					"description": "Locate dining options based on cuisine and dietary needs.",
-					"parameters": {
-						"type": "OBJECT",
-						"properties": {
-							"location": { "type": "string" },
-							"dietary_options": { "type": "array", "items": { "type": "string" }, "description": "e.g. ['vegan', 'gluten-free']" }
-						},
-						"required": ["location"]
-					}
-				},
-				{
-					"name": "calendar_add",
-					"description": "Create a new event on the user's primary calendar.",
-					"parameters": {
-						"type": "OBJECT",
-						"properties": {
-							"summary": { "type": "string" },
-							"start_time": { "type": "string" },
-							"end_time": { "type": "string" }
-						},
-						"required": ["summary", "start_time"]
-					}
-				},
-				{
-					"name": "send_email",
-					"description": "Send an email to a specific recipient.",
-					"parameters": {
-						"type": "OBJECT",
-						"properties": {
-							"recipient": { "type": "string", "description": "Email address" },
-							"subject": { "type": "string" },
-							"body": { "type": "string" }
-						},
-						"required": ["recipient", "body"]
-					}
-				}
-			]
-		}
-	]
-}
-```
-
-## Example: Gemini API with JSON Tool List
-
-**Policy Configuration:**
-
-```yaml
-policies:
-	- name: semantic-tool-filtering
-		version: v0.1.0
-		paths:
-			- path: /gemini-3-flash-preview:generateContent
-				methods: [POST]
-				params:
-					selectionMode: "By Rank"
-					Limit: 2
-					queryJSONPath: "$.contents[0].parts[0].text"
-					toolsJSONPath: "$.tools[0].function_declarations"
-					userQueryIsJson: true
-					toolsIsJson: true
-```
-
-**Request Body Example:**
-
-```json
-{
-	"contents": [
-		{
-			"role": "user",
-			"parts": [
-				{
-					"text": "I'm planning a corporate retreat in Denver for next weekend. Can you find the weather forecast, book a conference room for 15 people, find a highly-rated catering service that offers vegan options, and then email the itinerary to my assistant at sarah@company.com?"
-				}
-			]
-		}
-	],
-	"tools": [
-		{
-			"function_declarations": [
-				{ "name": "get_weather", "description": "Get current weather and 7-day forecast for a location." },
-				{ "name": "book_venue", "description": "Reserve a conference room or meeting space." },
-				{ "name": "find_restaurants", "description": "Locate dining options based on cuisine and dietary needs." },
-				{ "name": "calendar_add", "description": "Create a new event on the user's primary calendar." },
-				{ "name": "send_email", "description": "Send an email to a specific recipient." }
-			]
-		}
-	]
-}
-```
-
-*After filtering, only the top 2 most relevant tools (e.g., `get_weather`, `book_venue`) are included in the forwarded request.*
-
-## Example: Text-Based Tool List
-
-**Policy Configuration:**
-
-```yaml
-policies:
-	- name: semantic-tool-filtering
-		version: v0.1.0
-		paths:
-			- path: /gemini-3-flash-preview:generateContent
-				methods: [POST]
-				params:
-					selectionMode: "By Threshold"
-					Threshold: 0.9
-					queryJSONPath: "$.contents[0].parts[0].text"
-					toolsJSONPath: "$.contents[0].parts[0].text"
-					userQueryIsJson: false
-					toolsIsJson: false
-```
-
-**Request Body Example (shortened):**
-
-```json
-{
-	"contents": [
-		{
-			"parts": [
-				{
-					"text": "## Role: Executive Logistics Orchestrator ... <toolname>get_weather</toolname> (<tooldescription>Get current weather and 7-day forecast for a location</tooldescription>) ... <userq>I'm planning a corporate retreat in Denver for next weekend. ...</userq>"
-				}
-			]
-		}
-	]
-}
-```
-
-*Tools and query are extracted from tagged text. Only tools with similarity above 0.9 are included.*
-
-## Error Response
-
-If no tools meet the selection criteria, or extraction fails, the policy returns an HTTP 422 error:
-
-```json
-{
-	"type": "SEMANTIC_TOOL_FILTERING",
-	"message": {
-		"action": "GUARDRAIL_INTERVENED",
-		"interveningGuardrail": "semantic-tool-filtering",
-		"actionReason": "No tools matched the selection criteria.",
-		"direction": "REQUEST"
+				]
+			}
+		]
 	}
-}
-```
+	```
 
-Extraction or embedding errors are reported in `actionReason`:
-
-```json
-{
-	"type": "SEMANTIC_TOOL_FILTERING",
-	"message": {
-		"action": "GUARDRAIL_INTERVENED",
-		"interveningGuardrail": "semantic-tool-filtering",
-		"actionReason": "Error extracting tools from JSONPath",
-		"direction": "REQUEST"
+	*After filtering, only the top 2 most relevant tools (e.g., `get_weather`, `book_venue`) are included in the forwarded request.*
+??? example "Request Body Example (Text-Based Tool List)"
+	Note: After extraction, any inline tags used to mark tools or user queries (for example, `<toolname>`, `<tooldescription>`, and `<userq>`) are removed from the text before forwarding.
+	```json
+	{
+		"contents": [
+			{
+				"parts": [
+					{
+						"text": "## Role: Executive Logistics Orchestrator ... <toolname>get_weather</toolname> (<tooldescription>Get current weather and 7-day forecast for a location</tooldescription>) ... <userq>I'm planning a corporate retreat in Denver for next weekend. ...</userq>"
+					}
+				]
+			}
+		]
 	}
-}
-```
+	```
+
+	*Tools and query are extracted from tagged text. Only tools with similarity above 0.9 are included.*
+
 
 ### Parameters
 
