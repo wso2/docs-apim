@@ -16,8 +16,11 @@ In the API Manager, access logs of applications get recorded or written into the
 
     ```toml
     [http_access_log]
-    enabled = true
+    useLogger = true
     ```
+
+    !!! Note
+        The `enabled = true` configuration is not required as it is enabled by default.
 
  3. Open <APIM_HOME>/repository/conf/log4j2.properties file:
  
