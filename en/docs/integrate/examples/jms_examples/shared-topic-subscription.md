@@ -7,6 +7,9 @@ With the shared subscription feature in JMS 2.0, you can overcome this restrict
 
 The Micro Integrator can be configured as a shared topic listener that can connect to a shared topic subscription as a message consumer (subscriber) to share workload between other consumers of the subscription.
 
+!!!Note
+    Support for shared topic subscriptions depends on the capabilities of the underlying message broker implementation. Some brokers implement topic subscriptions with different delivery semantics (for example, treating subscriptions as queues with competing consumers). Therefore, it is recommended to check the broker documentation to confirm whether shared subscriptions are supported and how they behave.
+
 To demonstrate the sample scenario, let's configure the JMS inbound endpoint in WSO2 Micro Integrator as a shared topic listener using HornetQ as the message broker.
 
 ## Synapse configurations
