@@ -14,7 +14,7 @@ We cater to your multi-model routing requirements via **AI Policies**. Listed be
 - Model Failover Policy
 
 !!! tip
-     You can only attach one of these AI Policies to your AI API based on your routing requirements, unless you are using the Failover policy. You can attach multiple Failover policies by configuring different primary models.
+You can only attach one of these AI Policies to your AI API based on your routing requirements, unless you are using the Failover policy. You can attach multiple Failover policies by configuring different primary models.
 
 ### Prerequisites
 
@@ -27,10 +27,10 @@ Detailed below is how to complete these two prerequisites:
 
 #### Configuring Model List
 
-Make sure to add the model list you desire to utilize prior to moving into the AI policy configuraiton section.
+Make sure to add the model list you desire to utilize prior to moving into the AI policy configuration section.
 
 !!! tip
-     Note that the models that are listed under the corresponding AI Service Provider gets listed down as available models at the time of policy configuration. 
+Note that the models that are listed under the corresponding AI Service Provider gets listed down as available models at the time of policy configuration.
 
 1. Login to the Admin Portal (`https://<hostname>:9443/admin`).
 2. Navigate to **AI Service Providers** section from the left menu.
@@ -47,30 +47,30 @@ If you require multiple endpoints and multiple AI Service Provider API Keys to m
 3. Click on **Add New Endpoint**.
 4. Fill out the endpoint related details.
 
-    <table>
-        <tr>
-            <th>Field</td>
-            <th>Sample Value</td>
-        </tr>
-        <tr>
-            <td>Endpoint Type</td>
-            <td>Production</td>
-        </tr>
-        <tr>
-            <td>Endpoint Name</td>
-            <td>Prod</th>
-        </tr>
-        <tr>
-            <td>Endpoint URL</td>
-            <td>https://api.openai.com/v1</td>
-        </tr>
-        <tr>
-            <td>API Key</td>
-            <td>Add the API Key obtained from the AI Service Provider</td>
-        </tr>
-    </table>
+   <table>
+       <tr>
+           <th>Field</td>
+           <th>Sample Value</td>
+       </tr>
+       <tr>
+           <td>Endpoint Type</td>
+           <td>Production</td>
+       </tr>
+       <tr>
+           <td>Endpoint Name</td>
+           <td>Prod</th>
+       </tr>
+       <tr>
+           <td>Endpoint URL</td>
+           <td>https://api.openai.com/v1</td>
+       </tr>
+       <tr>
+           <td>API Key</td>
+           <td>Add the API Key obtained from the AI Service Provider</td>
+       </tr>
+   </table>
 
-    [![Multiple Endpoint Add]({{base_path}}/assets/img/learn/ai-gateway/endpoint-add.png){: style="width:90%"}]({{base_path}}/assets/img/learn/ai-gateway/endpoint-add.png)
+   [![Multiple Endpoint Add]({{base_path}}/assets/img/learn/ai-gateway/endpoint-add.png){: style="width:90%"}]({{base_path}}/assets/img/learn/ai-gateway/endpoint-add.png)
 
 5. Click on **Create**.
 6. Repeat steps 3 to 5 if you wish to add more production/sandbox endpoints.

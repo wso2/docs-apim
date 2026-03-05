@@ -79,7 +79,7 @@ For more information on WSO2 API Manager, see the [overview]({{base_path}}/get-s
 
     Application scopes provide fine-grained control over permissions at the application level, enhancing security and flexibility. These scopes are configured as allowed scopes for specific applications and can only be selected from the subscribed scopes (scopes available from all subscribed APIs).
 
-     **[Learn more]({{base_path}}/api-security/runtime/authorization/oauth2-scopes/application-scopes/)** 
+     **[Learn more]({{base_path}}/api-security/runtime/authorization/oauth2-scopes/application-scopes/)**
 
 ## Improvements
 
@@ -120,7 +120,7 @@ For more information on WSO2 API Manager, see the [overview]({{base_path}}/get-s
     - Gateways now operate independently without shared database access, synchronizing only tenant-specific data with the control plane.
     - This architecture enhances horizontal scalability, fault isolation, and resilience, enabling seamless scaling across distributed and high-traffic deployments.
 
-     **[Learn more]({{base_path}}/manage-apis/deploy-and-publish/deploy-on-gateway/api-gateway/maintain-seperate-gateways-per-tenants/)**
+     **[Learn more]({{base_path}}/manage-apis/deploy-and-publish/deploy-on-gateway/api-gateway/maintain-separate-gateways-per-tenants/)**
 
 ??? note "API Analytics with OpenSearch"
 
@@ -137,53 +137,42 @@ For more information on WSO2 API Manager, see the [overview]({{base_path}}/get-s
 Before upgrading to WSO2 API Manager 4.6.0, review the following architectural considerations that may affect your deployment setup:
 
 - **Support for Choreo Analytics has been deprecated:**
-Choreo Analytics has been deprecated in favor of Moesif-powered WSO2 Analytics, which offers enhanced insights and observability.
+  Choreo Analytics has been deprecated in favor of Moesif-powered WSO2 Analytics, which offers enhanced insights and observability.
 
 - **Removing database dependency of multi-tenant API gateways:**
-With the removal of database dependency in the Universal Gateway and Traffic Manager, users no longer need to share databases with the control plane to support multi-tenancy.
-This change improves scalability and simplifies deployment across distributed environments.
+  With the removal of database dependency in the Universal Gateway and Traffic Manager, users no longer need to share databases with the control plane to support multi-tenancy.
+  This change improves scalability and simplifies deployment across distributed environments.
 
 - **Disabled Admin Services:**
-[Admin Services]({{base_path}}/reference/wso2-admin-services/) are SOAP-based web services that are used for internal management. We have disabled the below listed services from APIM 4.6.0 onwards:
+  [Admin Services]({{base_path}}/reference/wso2-admin-services/) are SOAP-based web services that are used for internal management. We have disabled the below listed services from APIM 4.6.0 onwards:
 
-    ??? note "List of denied admin services"
-        - ClassMediatorAdmin
-        - CommandMediatorAdmin
-        - ConfigServiceAdmin
-        - CustomMeteringService
-        - DeploymentSynchronizerAdmin
-        - EndpointTemplateAdminService
-        - ESBNTaskAdmin
-        - MediationLibraryAdminService
-        - MediationLibraryUploader
-        - MediationSecurityAdminService
-        - MetricsDataService
-        - ModuleAdminService
-        - RemoteTaskAdmin
-        - StatisticsAdmin
-        - SynapseApplicationAdmin
-        - SynapseArtifactUploaderAdmin
-        - TemplateAdminService
-        - ThemeMgtService
-        - TierCacheService
-        - WebappAdmin
+      ??? note "List of denied admin services"
+          - ClassMediatorAdmin
+          - CommandMediatorAdmin
+          - ConfigServiceAdmin
+          - CustomMeteringService
+          - DeploymentSynchronizerAdmin
+          - EndpointTemplateAdminService
+          - ESBNTaskAdmin
+          - MediationLibraryAdminService
+          - MediationLibraryUploader
+          - MediationSecurityAdminService
+          - MetricsDataService
+          - ModuleAdminService
+          - RemoteTaskAdmin
+          - StatisticsAdmin
+          - SynapseApplicationAdmin
+          - SynapseArtifactUploaderAdmin
+          - TemplateAdminService
+          - ThemeMgtService
+          - TierCacheService
+          - WebappAdmin
 
 ## Deprecations
 
 [Admin Services]({{base_path}}/reference/wso2-admin-services/) are SOAP-based web services that are used for internal management. Note that we have deprecated the below listed services from APIM 4.6.0 onwards:
 
-??? note "Deprecated admin services"
-    - APIGatewayAdmin
-    - APIKeyMgtRemoteUserStoreMgtService
-    - APILocalEntryAdmin
-    - CustomMeteringService
-    - EmailVerificationService
-    - LoginStatisticsAdmin
-    - LogViewer
-    - PackageInfoService
-    - QpidAdminService
-    - RegistryCacheInvalidationService
-    - TierCacheService
+??? note "Deprecated admin services" - APIGatewayAdmin - APIKeyMgtRemoteUserStoreMgtService - APILocalEntryAdmin - CustomMeteringService - EmailVerificationService - LoginStatisticsAdmin - LogViewer - PackageInfoService - QpidAdminService - RegistryCacheInvalidationService - TierCacheService
 
 ## Fixed issues
 

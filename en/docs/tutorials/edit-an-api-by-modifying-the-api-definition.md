@@ -172,7 +172,7 @@ In this tutorial, let's see how you can add interactive documentation to an API 
                description: "Get details of an order by order Id"
                ```
 
-               ![]({{base_path}}/assets/img/learn/tutorials/pizzashack-api-get-summary-and-descrption.png)
+               ![]({{base_path}}/assets/img/learn/tutorials/pizzashack-api-get-summary-and-description.png)
 
            2.  Click **Apply Changes**.
                   The summary and description of the GET method that you added is visible when you expand the GET method in the API Publisher.
