@@ -93,7 +93,7 @@ You need to mount the following folders of the two nodes to the shared file syst
 2.  `<API-M_HOME>/repository/tenants` - If tenancy is used and any secondary userstores are configured for the tenants.
 
 !!! note
-    Mounting `<API-M_HOME>/repository/deployment/server` is only required if you need to persist custom artifacts such as custom sequences, webapps, or execution plans. If you need to add custom artifacts such as webapps, you can package them into the Docker image itself.
+    Mounting `<API-M_HOME>/repository/deployment/server` is only necessary if you need to persist custom artifacts such as custom sequences, webapps, or execution plans etc. Alternatively, these custom artifacts can be packaged directly into the Docker image instead of mounting the directory externally.
 
 ??? note "NFS configuration"
     For more information on setting up NFS on Ubuntu, see [Network File System (NFS)](https://ubuntu.com/server/docs/service-nfs).
