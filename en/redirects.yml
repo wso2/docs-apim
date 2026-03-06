@@ -250,7 +250,6 @@
 'administer/product-security/logins-and-passwords/carbon-secure-vault-implementation.md': '{{SITE_URL}}/install-and-setup/setup/security/logins-and-passwords/carbon-secure-vault-implementation/'
 'administer/product-security/logins-and-passwords/set-passwords-using-vars-and-sys-props.md': '{{SITE_URL}}/install-and-setup/setup/security/logins-and-passwords/set-passwords-using-vars-and-sys-props/'
 'administer/product-security/enabling-hostname-verification.md': '{{SITE_URL}}/install-and-setup/setup/security/enabling-hostname-verification/'
-'administer/product-security/enabling-java-security-manager.md': '{{SITE_URL}}/install-and-setup/setup/security/enabling-java-security-manager/'
 'administer/product-security/general-data-protection-regulation-gdpr-for-wso2-api-manager.md': '{{SITE_URL}}/install-and-setup/setup/security/general-data-protection-regulation-gdpr-for-wso2-api-manager/'
 'administer/product-security/configuring-transport-level-security.md': '{{SITE_URL}}/install-and-setup/setup/security/configuring-transport-level-security/'
 'administer/product-security/mutual-ssl-between-api-gateway-and-backend.md': '{{SITE_URL}}/deploy-and-publish/deploy-on-gateway/api-gateway/mutual-ssl-between-api-gateway-and-backend/'
