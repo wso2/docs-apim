@@ -124,7 +124,6 @@ nav:
                             - Renew a CA Signed Certificate: install-and-setup/setup/security/configuring-keystores/keystore-basics/renewing-a-ca-signed-certificate-in-a-keystore.md
                             - About Asymetric Cryptography: install-and-setup/setup/security/configuring-keystores/keystore-basics/about-asymetric-cryptography.md
                     - Enable HostName Verification: install-and-setup/setup/security/enabling-hostname-verification.md
-                    - Enable Java Security Manager: install-and-setup/setup/security/enabling-java-security-manager.md
                     - General Data Protection Regulation (GDPR) for WSO2 API Manager: install-and-setup/setup/security/general-data-protection-regulation-gdpr-for-wso2-api-manager.md
                     - Configure Transport Level Security: install-and-setup/setup/security/configuring-transport-level-security.md
                     - User Account Management: install-and-setup/setup/security/user-account-management.md
