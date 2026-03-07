@@ -85,7 +85,7 @@ Open the `wso2am-4.x.x/repository/conf` directory. To enable logging for a repor
 !!! note
     The following are the details that are available on analytics log events: 
 
-    `apim_event_response` -  This event will be triggered for each successful API invocation. When a API associated backend returns an error    response still it will be logged through this event.
+    `apim_event_response` -  This event will be triggered for each successful API invocation. When an API associated backend returns an error    response still it will be logged through this event.
 
     ```
     apim_event_response:

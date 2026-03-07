@@ -35,7 +35,7 @@ Subscription Validation is a mandatory step in the API key validation process. W
 
 ## Lightweight API Key Generation
 
-WSO2 API Manager supports Lightweight API Key Generation, which allows to generate API keys having limited claims. WSO2 API Manager by default generates Lightweight API Keys.
+WSO2 API Manager supports Lightweight API Key Generation, which allows you to generate API keys having limited claims. WSO2 API Manager by default generates Lightweight API Keys.
 
 Follow the instructions below to disable Lightweight API Key Generation in WSO2 API Manager.
 

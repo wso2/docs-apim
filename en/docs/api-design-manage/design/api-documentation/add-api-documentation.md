@@ -52,7 +52,7 @@ Follow the instructions below to add documentation to an API:
         !!! note
             You can edit the content later by clicking **Edit Content**. It will open up the embedded editor to proceed.
 
-        [![Edit content in a API document]({{base_path}}/assets/img/learn/add-docs-edit-content.png)]({{base_path}}/assets/img/learn/add-docs-edit-content.png)
+        [![Edit content in an API document]({{base_path}}/assets/img/learn/add-docs-edit-content.png)]({{base_path}}/assets/img/learn/add-docs-edit-content.png)
 
     5.  Edit the document content in-line using the embedded editor and click **Update Content**.
     
@@ -150,7 +150,7 @@ Follow the instructions below to add documentation to an API:
         | Source  | You can provide any of the allowed file formats. Use the sample PDF [here]({{base_path}}/assets/attachments/learn/api-docs-sample.pdf). |
 
 !!! Note
-    The API Manager allows to configure the types of files that can be uploaded as documentation using below configuration. By default, the allowed file types include pdf, txt, doc, docx, xls, xlsx, odt, ods, json, yaml, and md.
+    The API Manager allows you to configure the types of files that can be uploaded as documentation using below configuration. By default, the allowed file types include pdf, txt, doc, docx, xls, xlsx, odt, ods, json, yaml, and md.
 
     ```
     [apim.publisher]
