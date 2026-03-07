@@ -1,3 +1,0 @@
-[[custom_message_formatters]]
-content_type = "application/json/badgerfish"
-class = "org.apache.axis2.json.JSONBadgerfishMessageFormatter"

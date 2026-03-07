@@ -1,3 +1,0 @@
-[oauth.token_cleanup]
-enable = true
-retain_access_tokens_for_auditing = true

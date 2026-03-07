@@ -1,3 +1,0 @@
-[apim.cache.jwt_claim]
-enable = true
-expiry_time = "15m"

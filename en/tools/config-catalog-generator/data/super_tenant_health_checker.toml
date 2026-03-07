@@ -1,3 +1,0 @@
-[carbon_health_check.health_checker.super_tenant_health_checker]
-enable = true
-order = "98"

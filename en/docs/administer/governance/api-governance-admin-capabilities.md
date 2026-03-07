@@ -26,7 +26,7 @@ To create a new ruleset, click on the **Create Ruleset**. When creating a new ru
 | Documentation Link | A link to the documentation of the ruleset.                                                                                                                                                                                       | No | - |
 | Ruleset Type | The type of the ruleset.                                                                                                                                                                                                          | Yes | API Definition, API Metadata, Documentation |
 | Artifact Type | The type of the API.                                                                                                                                                                                                              | Yes | REST API, Async API |
-| Ruleset Content | Refer [Writing Your Own Ruleset](#writing-your-own-ruleset) section. Define the ruleset content using the **Spectral-like format**. You can either write the rules manually or upload a pre-written ruleset YAML or JSON file. | Yes | - |
+| Ruleset Content | Refer to the ["Writing Your Own Ruleset"](#writing-your-own-ruleset) section. Define the ruleset content using the **Spectral-like format**. You can either write the rules manually or upload a pre-written ruleset YAML or JSON file. | Yes | - |
 
 
 After providing the required information, click on the **Create** button to create the ruleset.
@@ -45,7 +45,7 @@ Please refer to the [WSO2 Rule Validator Documentation]({{base_path}}/governance
 
 ### Default Rulesets
 
-WSO2 API Manager comes with a set of default rulesets that cover common governance aspects such as security, compliance, and performance. These rulesets can be used as-is or customized to meet specific organizational requirements. These include,
+WSO2 API Manager comes with a set of default rulesets that cover common governance aspects such as security, compliance, and performance. These rulesets can be used as-is or customized to meet specific organizational requirements. These include:
 
 
 1. **[WSO2 API Management Guidelines]({{base_path}}/reference/governance/wso2-api-management-guidelines)** - An API Metadata ruleset that applies to REST APIs and covers general API management guidelines.
@@ -80,10 +80,10 @@ To create a new policy, click the **Create Policy** button and provide the follo
 | Description | A brief description of the policy.             | No | -                                                                                                                                                              |
 | Attachment  | The way the policy is attached to the APIs.    | Yes | All APIs (REST and ASYNC) <br/> APIs with specific labels<br/> None                                                                                            |
 | Enforcement | The detail of the policy enforcement criteria. | Yes | **When to Enforce** <br/> API Create, API Update, API Deploy, API Publish <br/> **Actions to Take** (based on severity of rule violations) <br/> Notify, Block |
-| Rulesets    | The list rulesets included in the policy.      | Yes | -                                                                                                                                                              |
+| Rulesets    | The list of rulesets included in the policy.      | Yes | -                                                                                                                                                              |
 
 
-After providing the required information, click on the **Create** button to create the policy.
+After providing the required information, click the **Create** button to create the policy.
 
 <a href="{{base_path}}/assets/img/governance/policy_create.png">
   <img src="{{base_path}}/assets/img/governance/policy_create.png" alt="APIM Governance Policy Create" width="60%" />
@@ -141,7 +141,7 @@ By clicking on each API listed in [API Compliance Details](###api-compliance-det
 ## Configuration Options
 
 The background compliance evaluation tasks are conducted by a scheduler which by default runs every 2 minutes and consists of a thread pool of 20 threads and a queue size of 20. These values can be updated by updating the following configuration in the `deployment.toml` file located in the `<APIM_HOME>/repository/conf` directory.
-For more information refer the [configuration catalog]({{base_path}}/reference/config-catalog/#apim-governance-configurations).
+For more information refer to the [configuration catalog]({{base_path}}/reference/config-catalog/#apim-governance-configurations).
 
 ```toml
 [apim.governance.scheduler]

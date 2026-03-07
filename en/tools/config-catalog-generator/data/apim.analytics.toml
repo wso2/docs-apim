@@ -1,9 +1,0 @@
-[apim.analytics]
-enable = true
-type = "moesif"
-
-[apim.analytics.properties]
-moesifKey = "estY2FtcGxlLW1vZXNpZi1rZXk="
-moesif_base_url = "https://api.moesif.net"
-send_headers = false
-build_response_message = false

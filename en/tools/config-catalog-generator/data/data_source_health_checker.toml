@@ -1,3 +1,0 @@
-[carbon_health_check.health_checker.data_source_health_checker]
-enable = true
-order = "97"
