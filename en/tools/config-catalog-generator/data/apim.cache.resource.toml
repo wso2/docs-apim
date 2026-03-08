@@ -1,3 +1,0 @@
-[apim.cache.resource]
-enable = true
-expiry_time = "900s"

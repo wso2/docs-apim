@@ -1,3 +1,0 @@
-[multi_tenancy.billing.package.custom]
-name = "Professional"
-subscription_charge = "500"

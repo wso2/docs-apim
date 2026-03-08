@@ -1,3 +1,0 @@
-[apim.cache.gateway_token]
-enable = true
-expiry_time = "900s"

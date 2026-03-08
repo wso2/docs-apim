@@ -1,3 +1,0 @@
-[apim.sync_runtime_artifacts]
-enable = "true"
-tenants = "*"

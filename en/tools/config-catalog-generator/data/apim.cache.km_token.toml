@@ -1,3 +1,0 @@
-[apim.cache.km_token]
-enable = false
-expiry_time = "15m"

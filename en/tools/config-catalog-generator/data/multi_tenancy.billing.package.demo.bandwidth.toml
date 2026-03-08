@@ -1,3 +1,0 @@
-[multi_tenancy.billing.package.demo.bandwidth]
-limit= "50"
-overuse_charge= "0"

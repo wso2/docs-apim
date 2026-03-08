@@ -1,2 +1,0 @@
-[oauth.token_generation]
-retry_count_on_persistence_failures = 5
