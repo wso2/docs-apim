@@ -8,7 +8,7 @@ When an Application Developer registers an Application in the Developer Portal, 
     `Authorization: Bearer NtBQkXoKElu0H1a1fQ0DWfo6IX4a`
 
 !!! note
-     By default, an application supports a single consumer secret. You can enable support for multiple consumer secrets to allow seamless secret rotation. See [Enable Multiple Consumer Secrets](#enable-multiple-consumer-secrets) for more details.
+     By default, an application supports a single consumer secret. Support for multiple consumer secrets can be enabled to allow seamless secret rotation. This support is available from WSO2 API Manager 4.3.0.99 update level onwards. For more details, see [Enable Multiple Consumer Secrets](#enable-multiple-consumer-secrets).
  
 ## Generating application keys
 
@@ -65,6 +65,9 @@ The following are the associated options when enabling PKCE.
       [![Enabling plain text support for PKCE]({{base_path}}/assets/img/learn/key-generation-with-pkce-bypass-secret.png)]({{base_path}}/assets/img/learn/key-generation-with-pkce-bypass-secret.png)
 
 ## Enable Multiple Consumer Secrets
+
+!!! note
+     Support for multiple consumer secrets for applications is available from WSO2 API Manager 4.3.0.99 update level onwards
 
 By default, each application in WSO2 API Manager is associated with a single consumer secret. However, you can enable support for multiple consumer secrets per application.
 
