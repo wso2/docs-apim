@@ -301,15 +301,6 @@ Likewise, when <code>limit_java_class_access_in_scripts.list_type</code> is <cod
 <br/>
 <br/>
 
-The following sample configuration can be applied to block java method access through the script mediator. If you have any use cases related to script mediators, modify and apply this accordingly.
-<pre class="java" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence" style="brush: java; gutter: false; theme: Confluence">
-<code>
-[synapse_properties]
-'limit_java_class_access_in_scripts.enable'=true
-'limit_java_class_access_in_scripts.list_type' = "BLOCK_LIST"
-'limit_java_class_access_in_scripts.class_prefixes' = "java.util,java.lang,java.io,java.nio,java.net"
-</code>
-</pre>
 
 <b>Limiting Access to Java Methods/Native Objects</b>
 <br/>
@@ -326,6 +317,21 @@ Access to Java Methods/Native Objects can be restricted by providing the followi
 Java methods/native objects having names equal to any of the values given under <code>limit_java_native_object_access_in_scripts.object_names</code>, will be selectively blocked when <code>limit_java_native_object_access_in_scripts.list_type</code> is <code>BLOCK_LIST</code> (all other classes will be allowed).  
 Likewise, when <code>limit_java_native_object_access_in_scripts.list_type</code> is <code>ALLOW_LIST</code>, classes with matching names will be selectively allowed.
 <br></br>
+
+<b>Recommended Approach for Restricting Access</b>
+<br/>
+
+It is recommended to use an Allow List approach for both class and method access restrictions, as it provides a more secure method of permitting only the required classes and methods to be used in the script, while blocking all others by default. The following <code>ALLOW_LIST</code> configuration is the recommended baseline to enable the API mocking feature. If you have any script mediator-related use cases with classes included in the prefixes list, adjust it according to your requirements.
+
+<pre class="java" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence" style="brush: java; gutter: false; theme: Confluence">
+<code>
+[synapse_properties]
+'limit_java_class_access_in_scripts.enable' = true
+'limit_java_class_access_in_scripts.list_type' = "ALLOW_LIST"
+'limit_java_class_access_in_scripts.class_prefixes' = "org.apache.synapse.mediators.bsf.CommonScriptMessageContext,java.lang.String"
+</code>
+</pre>
+
 </td>
 </tr>
 </tbody>
