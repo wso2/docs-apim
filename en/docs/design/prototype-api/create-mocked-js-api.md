@@ -291,6 +291,17 @@ ERROR - ScriptMediator {api:Mock:v1.0.0} The script engine returned an error exe
 com.sun.phobos.script.util.ExtendedScriptException: org.mozilla.javascript.EcmaError: TypeError: Cannot find function getClassLoader in object class javax.script.SimpleScriptContext. (<Unknown Source>#21) in <Unknown Source> at line number 21
 ```
 
+### Recommended Approach for Restricting Access
+
+It is recommended to use an Allow List approach for both class and method access restrictions, as it provides a more secure method of permitting only the required classes and methods to be used in the script, while blocking all others by default. The following `ALLOW_LIST` configuration is the recommended baseline to enable the API mocking feature. If you have any script mediator-related use cases with classes included in the prefixes list, adjust it according to your requirements.
+
+```toml
+[synapse_properties]
+'limit_java_class_access_in_scripts.enable' = true
+'limit_java_class_access_in_scripts.list_type' = "ALLOW_LIST"
+'limit_java_class_access_in_scripts.class_prefixes' = "org.apache.synapse.mediators.bsf.CommonScriptMessageContext,java.lang.String"
+```
+
 ## See Also
 
 Learn more on the concepts that you need to know when creating a Prototype API:
