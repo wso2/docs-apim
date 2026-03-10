@@ -1,6 +1,6 @@
 # Admin-Defined Constraints for Key Manager Application Configurations
 
-Admin-defined constraints allow administrators to set limits on application configuration fields (such as token expiry times) at the key manager level. These limits are enforced in the Developer Portal. If a developer enters a value that violates a constraint, an inline error is shown and prevent creation or updating of keys for the application.
+Admin-defined constraints allow administrators to set limits on application configuration fields (such as token expiry times) at the key manager level. These limits are enforced when generating or updating keys. If a developer provides a value that violates a constraint via the Developer Portal or REST API, the action is rejected and an error is returned.
 
 ---
 
@@ -47,11 +47,13 @@ applicationConfigurationsList.add(
 );
 ```
 
-The field will then appear under **Application Configuration Constraints** for that key manager in the Admin Portal.
+Once the API Manager is restarted with the above connector, you can see the fields appear under **Application Configuration Constraints** for that key manager in the Admin Portal.
 
 ---
 
 ## Configuring Constraints in the Admin Portal
+
+Once the constraints are defined in the key manager connector, administrators can configure and enable them through the Admin Portal UI.
 
 ### Step 1 – Open the Key Manager
 
@@ -76,7 +78,7 @@ The field will then appear under **Application Configuration Constraints** for t
 !!! note
     Constrainable fields depend on the key manager type. Third-party connectors may expose application configurations with their own constraint definitions (as defined in [Defining Constraints in the Key Manager Connector](#defining-constraints-in-the-key-manager-connector)).
 
-The following constraints are available for the **WSO2 IS** and **Resident Key Manager**:
+The following constraints are available by default for the **WSO2 IS** and **Resident Key Manager**:
 
 | Constraint Label | Field Name | Type |
 |---|---|---|
@@ -148,6 +150,8 @@ When sending the request payload, include the constraints within the `additional
 
 ## Developer Portal Behavior
 
+### UI Behavior
+
 When a developer opens an application's **Production Keys** or **Sandbox Keys** tab:
 
 - The field tooltip shows the allowed limit as a hint.
@@ -157,3 +161,7 @@ When a developer opens an application's **Production Keys** or **Sandbox Keys** 
 For `ENUM`-constrained fields, the dropdown only shows the values in the `allowed` list.
 
 [![Constraint validation error in DevPortal]({{base_path}}/assets/img/administer/km-constraint-error-devportal.png)]({{base_path}}/assets/img/administer/km-constraint-error-devportal.png)
+
+### REST API Behavior
+
+If a developer provides a value that violates a constraint via the Developer Portal REST API (e.g., when generating keys using `POST https://<hostname>:9443/api/am/devportal/v3/applications/{application-id}/generate-keys`), the request is rejected and an error response is returned detailing the constraint violation.
