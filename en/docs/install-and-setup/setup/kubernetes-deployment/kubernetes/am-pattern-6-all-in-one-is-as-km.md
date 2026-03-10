@@ -15,11 +15,11 @@ This deployment consists of a single API-M node with a single API-M runtime with
   - [Further IS Customizations](#further-is-customizations)
   - [Configuration](#configuration)
     - [1. General Configuration of Helm Charts](#1-general-configuration-of-helm-charts)
-        - [1.1 Add Ingress Controller](#11-add-ingress-controller)
-        - [1.2 Mount Keystore and Truststore](#12-mount-keystore-and-truststore)
-        - [1.3 Encrypting Secrets](#13-encrypting-secrets)
-        - [1.4 Configure Docker Image and Databases](#14-configure-docker-image-and-databases)
-        - [1.5 Configure SSL in Service Exposure](#15-configure-ssl-in-service-exposure)
+        - [i. Add Ingress Controller](#i-add-ingress-controller)
+        - [ii. Mount Keystore and Truststore](#ii-mount-keystore-and-truststore)
+        - [iii. Encrypting Secrets](#iii-encrypting-secrets)
+        - [iv. Configure Docker Image and Databases](#iv-configure-docker-image-and-databases)
+        - [v. Configure SSL in Service Exposure](#v-configure-ssl-in-service-exposure)
     - [2. Add WSO2 Identity Server as Key Manager](#2-add-wso2-identity-server-as-key-manager)
     - [3. Add a DNS Record Mapping the Hostnames and the External IP](#3-add-a-dns-record-mapping-the-hostnames-and-the-external-ip)
     - [4. Access Management Consoles](#4-access-management-consoles)
@@ -131,7 +131,7 @@ If you want to quickly try out WSO2 API Manager with WSO2 Identity Server 7.x as
 
     You need to import the public certificate of the WSO2 Identity Server 7.x to the truststore of the WSO2 API Manager, and vice-versa. For information on importing the certificates, see the Importing certificates to the truststore guide.
 
-    Follow the steps in the [1.2 Mount Keystore and Truststore](#12-mount-keystore-and-truststore) section to create a Kubernetes secret containing the keystore and truststore files. Here you will need two keystores: one for the API Manager and one for the Identity Server. The truststore should contain the public certificate of the Identity Server.
+    Follow the steps in the [ii. Mount Keystore and Truststore](#ii-mount-keystore-and-truststore) section to create a Kubernetes secret containing the keystore and truststore files. Here you will need two keystores: one for the API Manager and one for the Identity Server. The truststore should contain the public certificate of the Identity Server.
 
     - To add external keystores and truststores to IS, you can enable `externalJKS` and define the `secretName`
     - To add external keystores and truststores to API Manager, you can specify `jksSecretName`
@@ -150,13 +150,21 @@ helm install is wso2/identity-server --version next \
 -f default_values.yaml
 ```
 
+
+- Download the APIM values.yaml
+```bash
+curl -o apim_default_values.yaml https://raw.githubusercontent.com/wso2/helm-apim/4.6.x/docs/am-pattern-0-all-in-one/default_values.yaml
+```
+
+- Update the `apim_default_values.yaml` file as needed for your environment (e.g., keystore/truststore, database, etc.).
+
 - Deploy API Manager with minimal configuration using the following command:
 
 ```bash
-helm install apim wso2/wso2am-all-in-one --version 4.6.0-1 -f https://raw.githubusercontent.com/wso2/helm-apim/4.6.x/docs/am-pattern-0-all-in-one/default_values.yaml
+helm install apim wso2/wso2am-all-in-one --version 4.6.0-1 -f apim_default_values.yaml
 ```
 
-Once the service is up and running, make sure you have the NGINX Ingress Controller deployed by following the steps outlined in the [Add Ingress Controller](#11-add-ingress-controller) section.
+Once the service is up and running, make sure you have the NGINX Ingress Controller deployed by following the steps outlined in the [Add Ingress Controller](#i-add-ingress-controller) section.
 
 For this pattern, you will need to deploy both API Manager and Identity Server in your Kubernetes cluster. Configure the values files for both API Manager and Identity Server with the necessary settings and deploy them using Helm.
 
@@ -184,7 +192,7 @@ The Helm charts for the API Manager deployment are available in the [WSO2 Helm C
     <RELEASE_NAME>-<CHART_NAME>-<RESOURCE_NAME>
     ```
 
-#### 1.1 Add Ingress Controller
+### i. Add Ingress Controller
 
 The recommendation is to use [**NGINX Ingress Controller**](https://kubernetes.github.io/ingress-nginx/deploy/) suitable for your cloud environment or local deployment. Some sample annotations that could be used with the ingress resources are as follows.
 
@@ -212,7 +220,7 @@ The recommendation is to use [**NGINX Ingress Controller**](https://kubernetes.g
     kubectl create secret tls my-tls-secret --key <private key filename> --cert <certificate filename>
     ```
 
-#### 1.2 Mount Keystore and Truststore
+### ii. Mount Keystore and Truststore
 
 - If you are not including the keystore and truststore into the docker image, you can mount them using a Kubernetes secret. Following steps shows how to mount the keystore and truststore using a Kubernetes secret.
 - Create a Kubernetes secret with the keystore and truststore files. The secret should contain the primary keystore file, secondary keystore file, internal keystore file, and the truststore file. Note that the secret should be created in the same namespace in which you will be setting up the deployment.
@@ -228,7 +236,7 @@ In addition to the primary, internal keystores and truststore files, you can als
 > For advanced details with regards to managing custom Java keystores and truststores in a container based WSO2 product deployment
   please refer to the [official WSO2 container guide](https://github.com/wso2/container-guide/blob/master/deploy/Managing_Keystores_And_Truststores.md).
 
-#### 1.3 Encrypting Secrets
+### iii. Encrypting Secrets
 
 - If you need to use cipher tool to encrypt the passwords in the secret, first you need to encrypt the passwords using the cipher tool. The cipher tool can be found in the bin directory of the product pack. The following command can be used to encrypt the password.
   ```
@@ -248,7 +256,7 @@ In addition to the primary, internal keystores and truststore files, you can als
 
 
 
-#### 1.4 Configure Docker Image and Databases
+### iv. Configure Docker Image and Databases
 
   - Add the following configurations to reflect the docker image created previously in the helm chart.
     
@@ -294,7 +302,7 @@ In addition to the primary, internal keystores and truststore files, you can als
       adminPassword: ""
     ```
   
-#### 1.5 Configure SSL in Service Exposure
+### v. Configure SSL in Service Exposure
 
 !!! info "SSL Configuration Best Practices"
     For WSO2 recommended best practices in configuring SSL when exposing internal services to outside of the Kubernetes cluster, refer to the [official WSO2 container guide](https://github.com/wso2/container-guide/blob/master/route/Routing.md#configuring-ssl).
