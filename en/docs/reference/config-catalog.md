@@ -2,7 +2,7 @@
 
 The new configuration model based on the toml format is introduced from API Manager 3.0.0 onwards. In older versions of the product, users had to modify different configuration files depending on the components related to the specific feature they were configuring. With this update, all configuration files have been merged to make configurations easier. Therefore, the `<API-M_HOME>/repository/conf/deployment.toml` file is the single source used to configure and tune the various features in API Manager.
 
-This document describes all the configuration parameters that are used in WSO2 API Manager. 
+This document describes all the configuration parameters that are used in WSO2 API Manager.
 
 ## Instructions for use
 
@@ -12,7 +12,7 @@ This document describes all the configuration parameters that are used in WSO2 A
 # This is an example .toml file.
 
 [server]
-pattern="value"                         
+pattern="value"
 enable_port_forward=true
 
 [key_mgr_node]
@@ -26,12 +26,7 @@ pool_options.maxActiv=5
 
 ```
 
-
-
-
-
 ## Server
-
 
 <div class="mb-config-catalog">
     <section>
@@ -100,41 +95,41 @@ disable_restart_from_ui = false</code></pre>
                                         
                                     </div>
                                     <div class="param-description">
-                                        <p>Port offset allows you to run multiple WSO2 products, multiple instances of a WSO2 product, or multiple WSO2 product clusters on the same server or virtual machine (VM). 
+                                        <p>Port offset allows you to run multiple WSO2 products, multiple instances of a WSO2 product, or multiple WSO2 product clusters on the same server or virtual machine (VM).
 
- Port offset defines the number by which all ports defined in the runtime such as the HTTP/S ports will be offset. For example, if the default HTTP port is 9443 and the port offset is 1, the effective HTTP port will be 9444. Therefore, for each additional WSO2 product instance, set the port offset to a unique value so that they can all run on the same server without any port conflicts.</p>
-                                    </div>
-                                </div>
-                            </div><div class="param">
-                                <div class="param-name">
-                                  <span class="param-name-wrap"> <code>server_role</code> </span>
-                                </div>
-                                <div class="param-info">
-                                    <div>
-                                        <p>
-                                            <span class="param-type string"> string </span>
-                                            <span class="badge-required">Required</span>
-                                        </p>
-                                        <div class="param-default">
-                                            <span class="param-default-value">Default: <code>default</code></span>
-                                        </div>
-                                        <div class="param-possible">
-                                            <span class="param-possible-values">Possible Values: <code>default,api-devportal,api-key-manager,api-publisher,gateway-worker,traffic-manager</code></span>
-                                        </div>
-                                    </div>
-                                    <div class="param-description">
-                                        <p>The profile name of the API Manager instance.</p>
-                                    </div>
-                                </div>
-                            </div><div class="param">
-                                <div class="param-name">
-                                  <span class="param-name-wrap"> <code>enableMTOM</code> </span>
-                                </div>
-                                <div class="param-info">
-                                    <div>
-                                        <p>
-                                            <span class="param-type string"> boolean </span>
-                                            
+Port offset defines the number by which all ports defined in the runtime such as the HTTP/S ports will be offset. For example, if the default HTTP port is 9443 and the port offset is 1, the effective HTTP port will be 9444. Therefore, for each additional WSO2 product instance, set the port offset to a unique value so that they can all run on the same server without any port conflicts.</p>
+</div>
+</div>
+</div><div class="param">
+<div class="param-name">
+<span class="param-name-wrap"> <code>server_role</code> </span>
+</div>
+<div class="param-info">
+<div>
+<p>
+<span class="param-type string"> string </span>
+<span class="badge-required">Required</span>
+</p>
+<div class="param-default">
+<span class="param-default-value">Default: <code>default</code></span>
+</div>
+<div class="param-possible">
+<span class="param-possible-values">Possible Values: <code>default,api-devportal,api-key-manager,api-publisher,gateway-worker,traffic-manager</code></span>
+</div>
+</div>
+<div class="param-description">
+<p>The profile name of the API Manager instance.</p>
+</div>
+</div>
+</div><div class="param">
+<div class="param-name">
+<span class="param-name-wrap"> <code>enableMTOM</code> </span>
+</div>
+<div class="param-info">
+<div>
+<p>
+<span class="param-type string"> boolean </span>
+
                                         </p>
                                         <div class="param-default">
                                             <span class="param-default-value">Default: <code>false</code></span>
@@ -155,7 +150,7 @@ disable_restart_from_ui = false</code></pre>
                                     <div>
                                         <p>
                                             <span class="param-type string"> boolean </span>
-                                            
+
                                         </p>
                                         <div class="param-default">
                                             <span class="param-default-value">Default: <code>false</code></span>
@@ -176,7 +171,7 @@ disable_restart_from_ui = false</code></pre>
                                     <div>
                                         <p>
                                             <span class="param-type string"> boolean </span>
-                                            
+
                                         </p>
                                         <div class="param-default">
                                             <span class="param-default-value">Default: <code>false</code></span>
@@ -197,7 +192,7 @@ disable_restart_from_ui = false</code></pre>
                                     <div>
                                         <p>
                                             <span class="param-type string"> boolean </span>
-                                            
+
                                         </p>
                                         <div class="param-default">
                                             <span class="param-default-value">Default: <code>false</code></span>
@@ -217,12 +212,10 @@ disable_restart_from_ui = false</code></pre>
             </div>
         </div>
     </section>
+
 </div>
 
-
-
 ## Super admin configurations
-
 
 <div class="mb-config-catalog">
     <section>
@@ -316,10 +309,7 @@ create_admin_account = true
     </section>
 </div>
 
-
-
 ## Enabling the H2 database console
-
 
 <div class="mb-config-catalog">
     <section>
@@ -374,10 +364,7 @@ enable_h2_console = true</code></pre>
     </section>
 </div>
 
-
-
 ## Database configurations
-
 
 <div class="mb-config-catalog">
     <section>
@@ -482,23 +469,23 @@ password = "wso2carbon"</code></pre>
                                     <div class="param-description">
                                         <p>The connection URL is required when you use the h2 db.
 
- You have to add the URL to use the JDBC properties listed below. Otherwise it is optional.</p>
-                                    </div>
-                                </div>
-                            </div><div class="param">
-                                <div class="param-name">
-                                  <span class="param-name-wrap"> <code>username</code> </span>
-                                </div>
-                                <div class="param-info">
-                                    <div>
-                                        <p>
-                                            <span class="param-type string"> string </span>
-                                            <span class="badge-required">Required</span>
-                                        </p>
-                                        <div class="param-default">
-                                            <span class="param-default-value">Default: <code>wso2carbon</code></span>
-                                        </div>
-                                        
+You have to add the URL to use the JDBC properties listed below. Otherwise it is optional.</p>
+</div>
+</div>
+</div><div class="param">
+<div class="param-name">
+<span class="param-name-wrap"> <code>username</code> </span>
+</div>
+<div class="param-info">
+<div>
+<p>
+<span class="param-type string"> string </span>
+<span class="badge-required">Required</span>
+</p>
+<div class="param-default">
+<span class="param-default-value">Default: <code>wso2carbon</code></span>
+</div>
+
                                     </div>
                                     <div class="param-description">
                                         <p>The username used to create a connection to the database.</p>
@@ -517,7 +504,7 @@ password = "wso2carbon"</code></pre>
                                         <div class="param-default">
                                             <span class="param-default-value">Default: <code>wso2carbon</code></span>
                                         </div>
-                                        
+
                                     </div>
                                     <div class="param-description">
                                         <p>The password used to create a connection to the database.</p>
@@ -536,7 +523,7 @@ password = "wso2carbon"</code></pre>
                                         <div class="param-default">
                                             <span class="param-default-value">Default: <code>SELECT 1</code></span>
                                         </div>
-                                        
+
                                     </div>
                                     <div class="param-description">
                                         <p> The value changes according to the Database query</p>
@@ -550,12 +537,12 @@ password = "wso2carbon"</code></pre>
                                     <div>
                                         <p>
                                             <span class="param-type string"> string </span>
-                                            
+
                                         </p>
                                         <div class="param-default">
                                             <span class="param-default-value">Default: <code>50</code></span>
                                         </div>
-                                        
+
                                     </div>
                                     <div class="param-description">
                                         <p>The maximum number of active connections that can be allocated from the connection pool at the same time. Change according to the preferred database.</p>
@@ -569,12 +556,12 @@ password = "wso2carbon"</code></pre>
                                     <div>
                                         <p>
                                             <span class="param-type string"> string </span>
-                                            
+
                                         </p>
                                         <div class="param-default">
                                             <span class="param-default-value">Default: <code>60000</code></span>
                                         </div>
-                                        
+
                                     </div>
                                     <div class="param-description">
                                         <p>The maximum time that requests are expected to wait in the queue for a connection to be released. This property comes into effect when the maximum number of active connections allowed in the connection pool (see maxActive property) is used up.</p>
@@ -588,12 +575,12 @@ password = "wso2carbon"</code></pre>
                                     <div>
                                         <p>
                                             <span class="param-type string"> string </span>
-                                            
+
                                         </p>
                                         <div class="param-default">
                                             <span class="param-default-value">Default: <code>TRUE</code></span>
                                         </div>
-                                        
+
                                     </div>
                                     <div class="param-description">
                                         <p>The indication of whether connection objects will be validated before they are borrowed from the pool. If the object validation fails, the connection is dropped from the pool, and there will be an attempt to borrow another connection.</p>
@@ -607,12 +594,12 @@ password = "wso2carbon"</code></pre>
                                     <div>
                                         <p>
                                             <span class="param-type string"> string </span>
-                                            
+
                                         </p>
                                         <div class="param-default">
                                             <span class="param-default-value">Default: <code>30000</code></span>
                                         </div>
-                                        
+
                                     </div>
                                     <div class="param-description">
                                         <p>This parameter controls how frequently a given validation query is executed (time in milliseconds). That is, if a connection is due for validation, but has been validated previously within this interval, it will not be validated again.</p>
@@ -626,12 +613,12 @@ password = "wso2carbon"</code></pre>
                                     <div>
                                         <p>
                                             <span class="param-type string"> string </span>
-                                            
+
                                         </p>
                                         <div class="param-default">
                                             <span class="param-default-value">Default: <code>TRUE</code></span>
                                         </div>
-                                        
+
                                     </div>
                                     <div class="param-description">
                                         <p>When auto committing is enabled, each SQL statement will be committed to the database as an individual transaction, as opposed to committing multiple statements as a single transaction.</p>
@@ -644,12 +631,10 @@ password = "wso2carbon"</code></pre>
             </div>
         </div>
     </section>
+
 </div>
 
-
-
 ## Shared database configurations
-
 
 <div class="mb-config-catalog">
     <section>
@@ -764,10 +749,7 @@ password = "wso2carbon"</code></pre>
     </section>
 </div>
 
-
-
 ## JWT Configurations
-
 
 <div class="mb-config-catalog">
     <section>
@@ -1092,9 +1074,6 @@ claims_extractor_impl = "org.wso2.carbon.apimgt.impl.token.DefaultClaimsRetrieve
     </section>
 </div>
 
-
-
-
 <div class="mb-config-catalog">
     <section>
         <div class="mb-config-options">
@@ -1146,9 +1125,6 @@ name = "https://test.apim.integration"</code></pre>
     </section>
 </div>
 
-
-
-
 <div class="mb-config-catalog">
     <section>
         <div class="mb-config-options">
@@ -1199,9 +1175,6 @@ url = "https://localhost:8743/jwks/1.0"</code></pre>
         </div>
     </section>
 </div>
-
-
-
 
 <div class="mb-config-catalog">
     <section>
@@ -1274,10 +1247,7 @@ local_claim = "http://wso2.org/claims/givenname"</code></pre>
     </section>
 </div>
 
-
-
 ## API-M gateway type configurations
-
 
 <div class="mb-config-catalog">
     <section>
@@ -1292,32 +1262,32 @@ local_claim = "http://wso2.org/claims/givenname"</code></pre>
 gateway_type = "Regular,APK,AWS"
 
 </code></pre>
-                    </div>
-                </div>
-                <div class="doc-wrapper">
-                    <div class="mb-config">
-                        <div class="config-wrap">
-                            <code>[apim]</code>
-                            <span class="badge-required">Required</span>
-                            <p>
-                                Configuring the gateway types used by API Manager.
-                            </p>
-                        </div>
-                        <div class="params-wrap">
-                            <div class="param">
-                                <div class="param-name">
-                                  <span class="param-name-wrap"> <code>gateway_type</code> </span>
-                                </div>
-                                <div class="param-info">
-                                    <div>
-                                        <p>
-                                            <span class="param-type string"> string </span>
-                                            <span class="badge-required">Required</span>
-                                        </p>
-                                        <div class="param-default">
-                                            <span class="param-default-value">Default: <code>Regular,APK,AWS</code></span>
-                                        </div>
-                                        
+</div>
+</div>
+<div class="doc-wrapper">
+<div class="mb-config">
+<div class="config-wrap">
+<code>[apim]</code>
+<span class="badge-required">Required</span>
+<p>
+Configuring the gateway types used by API Manager.
+</p>
+</div>
+<div class="params-wrap">
+<div class="param">
+<div class="param-name">
+<span class="param-name-wrap"> <code>gateway_type</code> </span>
+</div>
+<div class="param-info">
+<div>
+<p>
+<span class="param-type string"> string </span>
+<span class="badge-required">Required</span>
+</p>
+<div class="param-default">
+<span class="param-default-value">Default: <code>Regular,APK,AWS</code></span>
+</div>
+
                                     </div>
                                     <div class="param-description">
                                         <p>Users can configure supported gateway types through the configuration. These pre-configured options will be available under gateway environment types when creating new gateway environments via the Admin Portal.</p>
@@ -1330,12 +1300,10 @@ gateway_type = "Regular,APK,AWS"
             </div>
         </div>
     </section>
+
 </div>
 
-
-
 ## API-M gateway environment configurations
-
 
 <div class="mb-config-catalog">
     <section>
@@ -1590,9 +1558,6 @@ https_endpoint = "https://localhost:${https.nio.port}"</code></pre>
     </section>
 </div>
 
-
-
-
 <div class="mb-config-catalog">
     <section>
         <div class="mb-config-options">
@@ -1652,7 +1617,7 @@ tenants = "*"</code></pre>
                                         
                                     </div>
                                     <div class="param-description">
-                                        <p>Comma seperated list of tenants to be loaded on the gateway. Use * to load all tenants</p>
+                                        <p>Comma separated list of tenants to be loaded on the gateway. Use * to load all tenants</p>
                                     </div>
                                 </div>
                             </div>
@@ -1663,9 +1628,6 @@ tenants = "*"</code></pre>
         </div>
     </section>
 </div>
-
-
-
 
 <div class="mb-config-catalog">
     <section>
@@ -1781,10 +1743,7 @@ retry_progression_factor = 2.0
     </section>
 </div>
 
-
-
 ## Virtual host of API-M gateway environment configurations
-
 
 <div class="mb-config-catalog">
     <section>
@@ -1912,10 +1871,7 @@ https_endpoint = "https://localhost:${https.nio.port}"</code></pre>
     </section>
 </div>
 
-
-
 ## Gateway token cache
-
 
 <div class="mb-config-catalog">
     <section>
@@ -1989,10 +1945,7 @@ expiry_time = "900s"
     </section>
 </div>
 
-
-
 ## Cache resource
-
 
 <div class="mb-config-catalog">
     <section>
@@ -2046,10 +1999,7 @@ expiry_time = "900s"</code></pre>
     </section>
 </div>
 
-
-
 ## Keymanager token cache
-
 
 <div class="mb-config-catalog">
     <section>
@@ -2122,10 +2072,7 @@ expiry_time = "15m"</code></pre>
     </section>
 </div>
 
-
-
 ## Cache recent APIs
-
 
 <div class="mb-config-catalog">
     <section>
@@ -2178,10 +2125,7 @@ enable = false</code></pre>
     </section>
 </div>
 
-
-
 ## Cache scopes
-
 
 <div class="mb-config-catalog">
     <section>
@@ -2234,10 +2178,7 @@ enable = true</code></pre>
     </section>
 </div>
 
-
-
 ## Cache publisher roles
-
 
 <div class="mb-config-catalog">
     <section>
@@ -2290,10 +2231,7 @@ enable = true</code></pre>
     </section>
 </div>
 
-
-
 ## Cache JWT claims
-
 
 <div class="mb-config-catalog">
     <section>
@@ -2366,10 +2304,7 @@ expiry_time = "15m"</code></pre>
     </section>
 </div>
 
-
-
 ## Cache tags
-
 
 <div class="mb-config-catalog">
     <section>
@@ -2423,10 +2358,7 @@ expiry_time = "2m"
     </section>
 </div>
 
-
-
 ## API Manager Analytics Configuration
-
 
 <div class="mb-config-catalog">
     <section>
@@ -2446,83 +2378,83 @@ moesifKey = "estY2FtcGxlLW1vZXNpZi1rZXk="
 moesif_base_url = "https://api.moesif.net"
 send_headers = false
 build_response_message = false</code></pre>
-                    </div>
-                </div>
-                <div class="doc-wrapper">
-                    <div class="mb-config">
-                        <div class="config-wrap">
-                            <code>[apim.analytics]</code>
-                            <span class="badge-required">Required</span>
-                            <p>
-                                Top-level Analytics configuration.
-                            </p>
-                        </div>
-                        <div class="params-wrap">
-                            <div class="param">
-                                <div class="param-name">
-                                  <span class="param-name-wrap"> <code>enable</code> </span>
-                                </div>
-                                <div class="param-info">
-                                    <div>
-                                        <p>
-                                            <span class="param-type string"> boolean </span>
-                                            <span class="badge-required">Required</span>
-                                        </p>
-                                        <div class="param-default">
-                                            <span class="param-default-value">Default: <code>false</code></span>
-                                        </div>
-                                        <div class="param-possible">
-                                            <span class="param-possible-values">Possible Values: <code>TRUE | FALSE</code></span>
-                                        </div>
-                                    </div>
-                                    <div class="param-description">
-                                        <p>Enable or disable Analytics in API Manager.</p>
-                                    </div>
-                                </div>
-                            </div><div class="param">
-                                <div class="param-name">
-                                  <span class="param-name-wrap"> <code>type</code> </span>
-                                </div>
-                                <div class="param-info">
-                                    <div>
-                                        <p>
-                                            <span class="param-type string"> string </span>
-                                            <span class="badge-required">Required</span>
-                                        </p>
-                                        <div class="param-default">
-                                            <span class="param-default-value">Default: <code>moesif</code></span>
-                                        </div>
-                                        <div class="param-possible">
-                                            <span class="param-possible-values">Possible Values: <code>moesif, log</code></span>
-                                        </div>
-                                    </div>
-                                    <div class="param-description">
-                                        <p>Analytics provider type. For API-M 4.6.0+, use &#39;moesif&#39; or &#39;log&#39;.</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div><div class="config-wrap">
-                            <code>[apim.analytics.properties]</code>
-                            <span class="badge-required">Required</span>
-                            <p>
-                                Provider-specific properties for the selected analytics type.
-                            </p>
-                        </div>
-                        <div class="params-wrap">
-                            <div class="param">
-                                <div class="param-name">
-                                  <span class="param-name-wrap"> <code>moesifKey</code> </span>
-                                </div>
-                                <div class="param-info">
-                                    <div>
-                                        <p>
-                                            <span class="param-type string"> string </span>
-                                            <span class="badge-required">Required</span>
-                                        </p>
-                                        <div class="param-default">
-                                            <span class="param-default-value">Default: <code></code></span>
-                                        </div>
-                                        
+</div>
+</div>
+<div class="doc-wrapper">
+<div class="mb-config">
+<div class="config-wrap">
+<code>[apim.analytics]</code>
+<span class="badge-required">Required</span>
+<p>
+Top-level Analytics configuration.
+</p>
+</div>
+<div class="params-wrap">
+<div class="param">
+<div class="param-name">
+<span class="param-name-wrap"> <code>enable</code> </span>
+</div>
+<div class="param-info">
+<div>
+<p>
+<span class="param-type string"> boolean </span>
+<span class="badge-required">Required</span>
+</p>
+<div class="param-default">
+<span class="param-default-value">Default: <code>false</code></span>
+</div>
+<div class="param-possible">
+<span class="param-possible-values">Possible Values: <code>TRUE | FALSE</code></span>
+</div>
+</div>
+<div class="param-description">
+<p>Enable or disable Analytics in API Manager.</p>
+</div>
+</div>
+</div><div class="param">
+<div class="param-name">
+<span class="param-name-wrap"> <code>type</code> </span>
+</div>
+<div class="param-info">
+<div>
+<p>
+<span class="param-type string"> string </span>
+<span class="badge-required">Required</span>
+</p>
+<div class="param-default">
+<span class="param-default-value">Default: <code>moesif</code></span>
+</div>
+<div class="param-possible">
+<span class="param-possible-values">Possible Values: <code>moesif, log</code></span>
+</div>
+</div>
+<div class="param-description">
+<p>Analytics provider type. For API-M 4.6.0+, use &#39;moesif&#39; or &#39;log&#39;.</p>
+</div>
+</div>
+</div>
+</div><div class="config-wrap">
+<code>[apim.analytics.properties]</code>
+<span class="badge-required">Required</span>
+<p>
+Provider-specific properties for the selected analytics type.
+</p>
+</div>
+<div class="params-wrap">
+<div class="param">
+<div class="param-name">
+<span class="param-name-wrap"> <code>moesifKey</code> </span>
+</div>
+<div class="param-info">
+<div>
+<p>
+<span class="param-type string"> string </span>
+<span class="badge-required">Required</span>
+</p>
+<div class="param-default">
+<span class="param-default-value">Default: <code></code></span>
+</div>
+
                                     </div>
                                     <div class="param-description">
                                         <p>Moesif API key used to authenticate ingestion. (Only when type is &#39;moesif&#39;)</p>
@@ -2536,12 +2468,12 @@ build_response_message = false</code></pre>
                                     <div>
                                         <p>
                                             <span class="param-type string"> string </span>
-                                            
+
                                         </p>
                                         <div class="param-default">
                                             <span class="param-default-value">Default: <code>https://api.moesif.net</code></span>
                                         </div>
-                                        
+
                                     </div>
                                     <div class="param-description">
                                         <p>Base URL of the Moesif ingestion endpoint. (Only when type is &#39;moesif&#39;)</p>
@@ -2555,7 +2487,7 @@ build_response_message = false</code></pre>
                                     <div>
                                         <p>
                                             <span class="param-type string"> boolean </span>
-                                            
+
                                         </p>
                                         <div class="param-default">
                                             <span class="param-default-value">Default: <code>false</code></span>
@@ -2576,7 +2508,7 @@ build_response_message = false</code></pre>
                                     <div>
                                         <p>
                                             <span class="param-type string"> boolean </span>
-                                            
+
                                         </p>
                                         <div class="param-default">
                                             <span class="param-default-value">Default: <code>false</code></span>
@@ -2596,12 +2528,10 @@ build_response_message = false</code></pre>
             </div>
         </div>
     </section>
+
 </div>
 
-
-
 ## API-M Analytics - URL group configurations
-
 
 <div class="mb-config-catalog">
     <section>
@@ -2623,15 +2553,15 @@ type = "loadbalance"
 analytics_url =["tcp://analytics1:7612","tcp://analytics2:7612"]
 analytics_auth_url =["ssl://analytics1:7712","ssl://analytics2:7712"]
 type = "failover"</code></pre>
-                    </div>
-                </div>
-                <div class="doc-wrapper">
-                    <div class="mb-config">
-                        <div class="config-wrap">
-                            <code>[apim.analytics.url_group]</code>
-                            <span class="badge-required">Required</span>
-                            <p>
-                                
+</div>
+</div>
+<div class="doc-wrapper">
+<div class="mb-config">
+<div class="config-wrap">
+<code>[apim.analytics.url_group]</code>
+<span class="badge-required">Required</span>
+<p>
+
                             </p>
                         </div>
                         <div class="params-wrap">
@@ -2643,12 +2573,12 @@ type = "failover"</code></pre>
                                     <div>
                                         <p>
                                             <span class="param-type string"> string </span>
-                                            
+
                                         </p>
                                         <div class="param-default">
                                             <span class="param-default-value">Default: <code></code></span>
                                         </div>
-                                        
+
                                     </div>
                                     <div class="param-description">
                                         <p>Define each analytics node that the API Manager will connect to, as an array. If there are mutiple node, you need to define this configuration for each node.</p>
@@ -2667,7 +2597,7 @@ type = "failover"</code></pre>
                                         <div class="param-default">
                                             <span class="param-default-value">Default: <code>tcp://localhost:7612</code></span>
                                         </div>
-                                        
+
                                     </div>
                                     <div class="param-description">
                                         <p>The list of server URLs e.g.,: analytics_url = [&quot;tcp: //localhost:7611, tcp://localhost:7611&quot;]&quot;</p>
@@ -2686,7 +2616,7 @@ type = "failover"</code></pre>
                                         <div class="param-default">
                                             <span class="param-default-value">Default: <code>ssl://localhost:7712</code></span>
                                         </div>
-                                        
+
                                     </div>
                                     <div class="param-description">
                                         <p>The list of auth server URLs e.g.,: analytics_auth_url = [&quot;ssl: //localhost:7711,ssl://localhost:7711&quot;]</p>
@@ -2700,7 +2630,7 @@ type = "failover"</code></pre>
                                     <div>
                                         <p>
                                             <span class="param-type string"> string </span>
-                                            
+
                                         </p>
                                         <div class="param-default">
                                             <span class="param-default-value">Default: <code>no default value</code></span>
@@ -2720,12 +2650,10 @@ type = "failover"</code></pre>
             </div>
         </div>
     </section>
+
 </div>
 
-
-
 ## API-M Key Manager related configurations
-
 
 <div class="mb-config-catalog">
     <section>
@@ -2990,10 +2918,7 @@ enable_application_scopes_for_resident_km = false</code></pre>
     </section>
 </div>
 
-
-
 ## API-M AI configurations
-
 
 <div class="mb-config-catalog">
     <section>
@@ -3013,53 +2938,53 @@ default_request_timeout = 30
 [apim.ai.failover_configurations]
 failover_endpoints_limit = 10
 default_request_timeout = 30</code></pre>
-                    </div>
-                </div>
-                <div class="doc-wrapper">
-                    <div class="mb-config">
-                        <div class="config-wrap">
-                            <code>[apim.ai]</code>
-                            <span class="badge-required">Required</span>
-                            <p>
-                                Collection of AI feature related configs
-                            </p>
-                        </div>
-                        <div class="params-wrap">
-                            <div class="param">
-                                <div class="param-name">
-                                  <span class="param-name-wrap"> <code>enable</code> </span>
-                                </div>
-                                <div class="param-info">
-                                    <div>
-                                        <p>
-                                            <span class="param-type string"> boolean </span>
-                                            <span class="badge-required">Required</span>
-                                        </p>
-                                        <div class="param-default">
-                                            <span class="param-default-value">Default: <code>true</code></span>
-                                        </div>
-                                        <div class="param-possible">
-                                            <span class="param-possible-values">Possible Values: <code>true,false</code></span>
-                                        </div>
-                                    </div>
-                                    <div class="param-description">
-                                        <p>Enable the AI features.</p>
-                                    </div>
-                                </div>
-                            </div><div class="param">
-                                <div class="param-name">
-                                  <span class="param-name-wrap"> <code>token</code> </span>
-                                </div>
-                                <div class="param-info">
-                                    <div>
-                                        <p>
-                                            <span class="param-type string"> string </span>
-                                            <span class="badge-required">Required</span>
-                                        </p>
-                                        <div class="param-default">
-                                            <span class="param-default-value">Default: <code></code></span>
-                                        </div>
-                                        
+</div>
+</div>
+<div class="doc-wrapper">
+<div class="mb-config">
+<div class="config-wrap">
+<code>[apim.ai]</code>
+<span class="badge-required">Required</span>
+<p>
+Collection of AI feature related configs
+</p>
+</div>
+<div class="params-wrap">
+<div class="param">
+<div class="param-name">
+<span class="param-name-wrap"> <code>enable</code> </span>
+</div>
+<div class="param-info">
+<div>
+<p>
+<span class="param-type string"> boolean </span>
+<span class="badge-required">Required</span>
+</p>
+<div class="param-default">
+<span class="param-default-value">Default: <code>true</code></span>
+</div>
+<div class="param-possible">
+<span class="param-possible-values">Possible Values: <code>true,false</code></span>
+</div>
+</div>
+<div class="param-description">
+<p>Enable the AI features.</p>
+</div>
+</div>
+</div><div class="param">
+<div class="param-name">
+<span class="param-name-wrap"> <code>token</code> </span>
+</div>
+<div class="param-info">
+<div>
+<p>
+<span class="param-type string"> string </span>
+<span class="badge-required">Required</span>
+</p>
+<div class="param-default">
+<span class="param-default-value">Default: <code></code></span>
+</div>
+
                                     </div>
                                     <div class="param-description">
                                         <p>The access token to authenticate AI feature related requests</p>
@@ -3073,12 +2998,12 @@ default_request_timeout = 30</code></pre>
                                     <div>
                                         <p>
                                             <span class="param-type string"> string </span>
-                                            
+
                                         </p>
                                         <div class="param-default">
                                             <span class="param-default-value">Default: <code></code></span>
                                         </div>
-                                        
+
                                     </div>
                                     <div class="param-description">
                                         <p>The endpoint that exposes the AI capabilities for API Manager</p>
@@ -3092,12 +3017,12 @@ default_request_timeout = 30</code></pre>
                                     <div>
                                         <p>
                                             <span class="param-type string"> integer </span>
-                                            
+
                                         </p>
                                         <div class="param-default">
                                             <span class="param-default-value">Default: <code>30</code></span>
                                         </div>
-                                        
+
                                     </div>
                                     <div class="param-description">
                                         <p>The default timeout (in seconds) for AI API requests</p>
@@ -3106,7 +3031,7 @@ default_request_timeout = 30</code></pre>
                             </div>
                         </div><div class="config-wrap">
                             <code>[apim.ai.failover_configurations]</code>
-                            
+
                             <p>
                                 Configurations for AI feature failover handling
                             </p>
@@ -3120,12 +3045,12 @@ default_request_timeout = 30</code></pre>
                                     <div>
                                         <p>
                                             <span class="param-type string"> integer </span>
-                                            
+
                                         </p>
                                         <div class="param-default">
                                             <span class="param-default-value">Default: <code>10</code></span>
                                         </div>
-                                        
+
                                     </div>
                                     <div class="param-description">
                                         <p>Maximum number of failover endpoints</p>
@@ -3139,12 +3064,12 @@ default_request_timeout = 30</code></pre>
                                     <div>
                                         <p>
                                             <span class="param-type string"> integer </span>
-                                            
+
                                         </p>
                                         <div class="param-default">
                                             <span class="param-default-value">Default: <code>30</code></span>
                                         </div>
-                                        
+
                                     </div>
                                     <div class="param-description">
                                         <p>The default timeout (in seconds) for failover requests</p>
@@ -3157,12 +3082,10 @@ default_request_timeout = 30</code></pre>
             </div>
         </div>
     </section>
+
 </div>
 
-
-
 ## MCP Configurations
-
 
 <div class="mb-config-catalog">
     <section>
@@ -3218,10 +3141,7 @@ enable = true
     </section>
 </div>
 
-
-
 ## API-M OAuth configurations
-
 
 <div class="mb-config-catalog">
     <section>
@@ -3327,25 +3247,25 @@ enable_token_hashing = false</code></pre>
                                         
                                     </div>
                                     <div class="param-description">
-                                        <p>If set to TRUE, the token stored in the database will be encrypted/decrypted when reading and storing. 
+                                        <p>If set to TRUE, the token stored in the database will be encrypted/decrypted when reading and storing.
 
- RSA/ECB/OAEPwithSHA1andMGF1PaddingIf FALSE - Setting Up OAuth Token Encryption | Extension Points for OAuth - IS Docs</p>
-                                    </div>
-                                </div>
-                            </div><div class="param">
-                                <div class="param-name">
-                                  <span class="param-name-wrap"> <code>enable_token_hashing</code> </span>
-                                </div>
-                                <div class="param-info">
-                                    <div>
-                                        <p>
-                                            <span class="param-type string"> string </span>
-                                            
+RSA/ECB/OAEPwithSHA1andMGF1PaddingIf FALSE - Setting Up OAuth Token Encryption | Extension Points for OAuth - IS Docs</p>
+</div>
+</div>
+</div><div class="param">
+<div class="param-name">
+<span class="param-name-wrap"> <code>enable_token_hashing</code> </span>
+</div>
+<div class="param-info">
+<div>
+<p>
+<span class="param-type string"> string </span>
+
                                         </p>
                                         <div class="param-default">
                                             <span class="param-default-value">Default: <code>FALSE</code></span>
                                         </div>
-                                        
+
                                     </div>
                                     <div class="param-description">
                                         <p>Similar to prev. Get desc from  IS docs</p>
@@ -3359,12 +3279,12 @@ enable_token_hashing = false</code></pre>
                                     <div>
                                         <p>
                                             <span class="param-type string"> string </span>
-                                            
+
                                         </p>
                                         <div class="param-default">
                                             <span class="param-default-value">Default: <code>[&quot;^device_.*,openid&quot;]</code></span>
                                         </div>
-                                        
+
                                     </div>
                                     <div class="param-description">
                                         <p>List of allowlisted scopes. Take desc from Key Concepts page.</p>
@@ -3377,12 +3297,10 @@ enable_token_hashing = false</code></pre>
             </div>
         </div>
     </section>
+
 </div>
 
-
-
 ## API-M gateway notification configurations
-
 
 <div class="mb-config-catalog">
     <section>
@@ -3457,10 +3375,7 @@ gateway_id = "gateway_00"</code></pre>
     </section>
 </div>
 
-
-
 ## API-M gateway notification heartbeat configurations
-
 
 <div class="mb-config-catalog">
     <section>
@@ -3513,10 +3428,7 @@ notify_interval = "1m"</code></pre>
     </section>
 </div>
 
-
-
 ## API-M deployment acknowledgment configurations
-
 
 <div class="mb-config-catalog">
     <section>
@@ -3729,10 +3641,7 @@ batch_processor_queue_size = 50</code></pre>
     </section>
 </div>
 
-
-
 ## API-M gateway notification registration configurations
-
 
 <div class="mb-config-catalog">
     <section>
@@ -3825,10 +3734,7 @@ retry_progression_factor = 2</code></pre>
     </section>
 </div>
 
-
-
 ## API-M gateway notification cleanup configurations
-
 
 <div class="mb-config-catalog">
     <section>
@@ -3902,10 +3808,7 @@ data_retention_period = "30d"
     </section>
 </div>
 
-
-
 ## API-M Mutual SSL Configuration
-
 
 <div class="mb-config-catalog">
     <section>
@@ -4025,10 +3928,7 @@ enable_certificate_chain_validation = false
     </section>
 </div>
 
-
-
 ## API Definitions Security Audit Configurations
-
 
 <div class="mb-config-catalog">
     <section>
@@ -4144,10 +4044,7 @@ base_url="https://platform.42crunch.com/api/v1/apis"
     </section>
 </div>
 
-
-
 ## API-M Developer Portal configurations
-
 
 <div class="mb-config-catalog">
     <section>
@@ -4424,10 +4321,7 @@ mode = "HYBRID"
     </section>
 </div>
 
-
-
 ## API-M CORS configurations
-
 
 <div class="mb-config-catalog">
     <section>
@@ -4549,22 +4443,20 @@ allow_credentials = false</code></pre>
                                     <div class="param-description">
                                         <p>Specifying this header to true means that the server allows cookies (or other user credentials) to be included on cross-origin requests.
 
- It is false by default and if you set it to true then make sure that the Access-Control-Allow-Origin header does not contain the wildcard (*)</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+It is false by default and if you set it to true then make sure that the Access-Control-Allow-Origin header does not contain the wildcard (\*)</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+
 </div>
 
-
-
 ## API-M Throttling configurations
-
 
 <div class="mb-config-catalog">
     <section>
@@ -5006,10 +4898,7 @@ skip_redeploying_policies = ["carbon.super_app_unitApp","carbon.super_app_20PerM
     </section>
 </div>
 
-
-
 ## API-M Throttling URL group configs
-
 
 <div class="mb-config-catalog">
     <section>
@@ -5048,16 +4937,16 @@ traffic_manager_auth_urls = ["ssl://localhost:9711","ssl://localhost:9711"]
 type = "failover"
 
 [apim.throttling.policy_deploy.tenant_loading]
-tenants = "*"</code></pre>
-                    </div>
-                </div>
-                <div class="doc-wrapper">
-                    <div class="mb-config">
-                        <div class="config-wrap">
-                            <code>[apim.throttling.url_group]</code>
-                            <span class="badge-required">Required</span>
-                            <p>
-                                
+tenants = "\*"</code></pre>
+</div>
+</div>
+<div class="doc-wrapper">
+<div class="mb-config">
+<div class="config-wrap">
+<code>[apim.throttling.url_group]</code>
+<span class="badge-required">Required</span>
+<p>
+
                             </p>
                         </div>
                         <div class="params-wrap">
@@ -5069,12 +4958,12 @@ tenants = "*"</code></pre>
                                     <div>
                                         <p>
                                             <span class="param-type string"> string </span>
-                                            
+
                                         </p>
                                         <div class="param-default">
                                             <span class="param-default-value">Default: <code>super username</code></span>
                                         </div>
-                                        
+
                                     </div>
                                     <div class="param-description">
                                         <p>Credentials of the Traffic Manager user.</p>
@@ -5088,12 +4977,12 @@ tenants = "*"</code></pre>
                                     <div>
                                         <p>
                                             <span class="param-type string"> string </span>
-                                            
+
                                         </p>
                                         <div class="param-default">
                                             <span class="param-default-value">Default: <code>super user password</code></span>
                                         </div>
-                                        
+
                                     </div>
                                     <div class="param-description">
                                         <p>Credentials of the Traffic Manager user.</p>
@@ -5107,12 +4996,12 @@ tenants = "*"</code></pre>
                                     <div>
                                         <p>
                                             <span class="param-type string"> string </span>
-                                            
+
                                         </p>
                                         <div class="param-default">
                                             <span class="param-default-value">Default: <code>super username</code></span>
                                         </div>
-                                        
+
                                     </div>
                                     <div class="param-description">
                                         <p>If the username of the receiver is different, use the username of the receiver configured on the Traffic Manager.</p>
@@ -5126,12 +5015,12 @@ tenants = "*"</code></pre>
                                     <div>
                                         <p>
                                             <span class="param-type string"> string </span>
-                                            
+
                                         </p>
                                         <div class="param-default">
                                             <span class="param-default-value">Default: <code>super user password</code></span>
                                         </div>
-                                        
+
                                     </div>
                                     <div class="param-description">
                                         <p>If the credentials of the receiver is different, use the password of the receiver configured on the Traffic Manager.</p>
@@ -5145,12 +5034,12 @@ tenants = "*"</code></pre>
                                     <div>
                                         <p>
                                             <span class="param-type string"> string </span>
-                                            
+
                                         </p>
                                         <div class="param-default">
                                             <span class="param-default-value">Default: <code>super username</code></span>
                                         </div>
-                                        
+
                                     </div>
                                     <div class="param-description">
                                         <p>If the credentials of the user is different, use the credentials of the user configured for deploying policies.</p>
@@ -5164,12 +5053,12 @@ tenants = "*"</code></pre>
                                     <div>
                                         <p>
                                             <span class="param-type string"> string </span>
-                                            
+
                                         </p>
                                         <div class="param-default">
                                             <span class="param-default-value">Default: <code>super user password</code></span>
                                         </div>
-                                        
+
                                     </div>
                                     <div class="param-description">
                                         <p>If the credentials of the user is different, use the credentials of the user configured for deploying policies.</p>
@@ -5183,12 +5072,12 @@ tenants = "*"</code></pre>
                                     <div>
                                         <p>
                                             <span class="param-type string"> string </span>
-                                            
+
                                         </p>
                                         <div class="param-default">
                                             <span class="param-default-value">Default: <code>*</code></span>
                                         </div>
-                                        
+
                                     </div>
                                     <div class="param-description">
                                         <p>Define the tenants to load policies at startup. Use * to load all the tenants.</p>
@@ -5202,12 +5091,12 @@ tenants = "*"</code></pre>
                                     <div>
                                         <p>
                                             <span class="param-type string"> string </span>
-                                            
+
                                         </p>
                                         <div class="param-default">
                                             <span class="param-default-value">Default: <code>super username</code></span>
                                         </div>
-                                        
+
                                     </div>
                                     <div class="param-description">
                                         <p>If the credentials of the user is different, use the credentials of the user configured for the JMS connection.</p>
@@ -5221,12 +5110,12 @@ tenants = "*"</code></pre>
                                     <div>
                                         <p>
                                             <span class="param-type string"> string </span>
-                                            
+
                                         </p>
                                         <div class="param-default">
                                             <span class="param-default-value">Default: <code>super user password</code></span>
                                         </div>
-                                        
+
                                     </div>
                                     <div class="param-description">
                                         <p>If the credentials of the user is different, use the credentials of the user configured for the JMS connection.</p>
@@ -5240,12 +5129,12 @@ tenants = "*"</code></pre>
                                     <div>
                                         <p>
                                             <span class="param-type string"> string </span>
-                                            
+
                                         </p>
                                         <div class="param-default">
                                             <span class="param-default-value">Default: <code>1000</code></span>
                                         </div>
-                                        
+
                                     </div>
                                     <div class="param-description">
                                         <p>Ideal values for the maximum no. of connections to the data publisher pool.</p>
@@ -5259,12 +5148,12 @@ tenants = "*"</code></pre>
                                     <div>
                                         <p>
                                             <span class="param-type string"> string </span>
-                                            
+
                                         </p>
                                         <div class="param-default">
                                             <span class="param-default-value">Default: <code>200</code></span>
                                         </div>
-                                        
+
                                     </div>
                                     <div class="param-description">
                                         <p>Ideal values for the minimum no. of connections to the data publisher pool.</p>
@@ -5278,12 +5167,12 @@ tenants = "*"</code></pre>
                                     <div>
                                         <p>
                                             <span class="param-type string"> string </span>
-                                            
+
                                         </p>
                                         <div class="param-default">
                                             <span class="param-default-value">Default: <code>200</code></span>
                                         </div>
-                                        
+
                                     </div>
                                     <div class="param-description">
                                         <p>The size of the thread pool in the API Publisher.</p>
@@ -5297,12 +5186,12 @@ tenants = "*"</code></pre>
                                     <div>
                                         <p>
                                             <span class="param-type string"> string </span>
-                                            
+
                                         </p>
                                         <div class="param-default">
                                             <span class="param-default-value">Default: <code>1000</code></span>
                                         </div>
-                                        
+
                                     </div>
                                     <div class="param-description">
                                         <p>The maximum size of the thread pool in the API Publisher.</p>
@@ -5316,12 +5205,12 @@ tenants = "*"</code></pre>
                                     <div>
                                         <p>
                                             <span class="param-type string"> string </span>
-                                            
+
                                         </p>
                                         <div class="param-default">
                                             <span class="param-default-value">Default: <code>200s</code></span>
                                         </div>
-                                        
+
                                     </div>
                                     <div class="param-description">
                                         <p>The timeframe after which the publisher thread pool is terminated.</p>
@@ -5340,7 +5229,7 @@ tenants = "*"</code></pre>
                                         <div class="param-default">
                                             <span class="param-default-value">Default: <code>https://localhost:${mgt.transport.https.port}${carbon.context}services/</code></span>
                                         </div>
-                                        
+
                                     </div>
                                     <div class="param-description">
                                         <p>Service URL of the Traffic Manager.</p>
@@ -5354,12 +5243,12 @@ tenants = "*"</code></pre>
                                     <div>
                                         <p>
                                             <span class="param-type string"> string </span>
-                                            
+
                                         </p>
                                         <div class="param-default">
                                             <span class="param-default-value">Default: <code>not defined</code></span>
                                         </div>
-                                        
+
                                     </div>
                                     <div class="param-description">
                                         <p>Define the delay time to get the blacklist conditions from the Keymanager.</p>
@@ -5373,12 +5262,12 @@ tenants = "*"</code></pre>
                                     <div>
                                         <p>
                                             <span class="param-type string"> string </span>
-                                            
+
                                         </p>
                                         <div class="param-default">
                                             <span class="param-default-value">Default: <code>throttleData</code></span>
                                         </div>
-                                        
+
                                     </div>
                                     <div class="param-description">
                                         <p>JMS topic name</p>
@@ -5392,12 +5281,12 @@ tenants = "*"</code></pre>
                                     <div>
                                         <p>
                                             <span class="param-type string"> string </span>
-                                            
+
                                         </p>
                                         <div class="param-default">
                                             <span class="param-default-value">Default: <code>not define</code></span>
                                         </div>
-                                        
+
                                     </div>
                                     <div class="param-description">
                                         <p>Connection delay to read the Traffic Manager at startup.</p>
@@ -5411,7 +5300,7 @@ tenants = "*"</code></pre>
                                     <div>
                                         <p>
                                             <span class="param-type string"> string </span>
-                                            
+
                                         </p>
                                         <div class="param-default">
                                             <span class="param-default-value">Default: <code>TopicConnectionFactory</code></span>
@@ -5432,12 +5321,12 @@ tenants = "*"</code></pre>
                                     <div>
                                         <p>
                                             <span class="param-type string"> string </span>
-                                            
+
                                         </p>
                                         <div class="param-default">
                                             <span class="param-default-value">Default: <code>topic</code></span>
                                         </div>
-                                        
+
                                     </div>
                                     <div class="param-description">
                                         <p></p>
@@ -5451,12 +5340,12 @@ tenants = "*"</code></pre>
                                     <div>
                                         <p>
                                             <span class="param-type string"> string </span>
-                                            
+
                                         </p>
                                         <div class="param-default">
                                             <span class="param-default-value">Default: <code>andes</code></span>
                                         </div>
-                                        
+
                                     </div>
                                     <div class="param-description">
                                         <p>Define the JMS type e.g.,: andes</p>
@@ -5470,12 +5359,12 @@ tenants = "*"</code></pre>
                                     <div>
                                         <p>
                                             <span class="param-type string"> string </span>
-                                            
+
                                         </p>
                                         <div class="param-default">
                                             <span class="param-default-value">Default: <code></code></span>
                                         </div>
-                                        
+
                                     </div>
                                     <div class="param-description">
                                         <p>Define JMS factory initials. If decision_connection_type is andes, this is &quot;org.wso2.andes.jndi.PropertiesFileInitialContextFactory&quot;</p>
@@ -5494,7 +5383,7 @@ tenants = "*"</code></pre>
                                         <div class="param-default">
                                             <span class="param-default-value">Default: <code></code></span>
                                         </div>
-                                        
+
                                     </div>
                                     <div class="param-description">
                                         <p>Define array of JMS connection as an array.</p>
@@ -5507,12 +5396,10 @@ tenants = "*"</code></pre>
             </div>
         </div>
     </section>
+
 </div>
 
-
-
 ## API-M Throttling URL group
-
 
 <div class="mb-config-catalog">
     <section>
@@ -5551,16 +5438,16 @@ traffic_manager_auth_urls = ["ssl://localhost:9711","ssl://localhost:9711"]
 type = "failover"
 
 [apim.throttling.policy_deploy.tenant_loading]
-tenants = "*"</code></pre>
-                    </div>
-                </div>
-                <div class="doc-wrapper">
-                    <div class="mb-config">
-                        <div class="config-wrap">
-                            <code>[apim.throttling.url_group]</code>
-                            <span class="badge-required">Required</span>
-                            <p>
-                                
+tenants = "\*"</code></pre>
+</div>
+</div>
+<div class="doc-wrapper">
+<div class="mb-config">
+<div class="config-wrap">
+<code>[apim.throttling.url_group]</code>
+<span class="badge-required">Required</span>
+<p>
+
                             </p>
                         </div>
                         <div class="params-wrap">
@@ -5614,7 +5501,7 @@ tenants = "*"</code></pre>
                                     <div>
                                         <p>
                                             <span class="param-type string"> string </span>
-                                            
+
                                         </p>
                                         <div class="param-default">
                                             <span class="param-default-value">Default: <code>failover</code></span>
@@ -5634,12 +5521,10 @@ tenants = "*"</code></pre>
             </div>
         </div>
     </section>
+
 </div>
 
-
-
 ## API-M Workflow configurations
-
 
 <div class="mb-config-catalog">
     <section>
@@ -5833,10 +5718,7 @@ client_registration_password = "$ref{super_admin.password}"</code></pre>
     </section>
 </div>
 
-
-
 ## API-M SDK configurations
-
 
 <div class="mb-config-catalog">
     <section>
@@ -5972,10 +5854,7 @@ supported_languages = ["android", "java", "csharp", "dart", "groovy", "javascrip
     </section>
 </div>
 
-
-
 ## API-M Open tracer configurations
-
 
 <div class="mb-config-catalog">
     <section>
@@ -6109,10 +5988,7 @@ log_tracer.enable = true
     </section>
 </div>
 
-
-
 ## API-M token revocation
-
 
 <div class="mb-config-catalog">
     <section>
@@ -6160,25 +6036,25 @@ persistent_notifier.password = "root"</code></pre>
                                         
                                     </div>
                                     <div class="param-description">
-                                        <p>This config is required only during a custom implementation. 
+                                        <p>This config is required only during a custom implementation.
 
 If a token is revoked, the notification will be sent to the JMS topic. Write a custom implementation to change this behaviour.</p>
-                                    </div>
-                                </div>
-                            </div><div class="param">
-                                <div class="param-name">
-                                  <span class="param-name-wrap"> <code>realtime_notifier.ttl</code> </span>
-                                </div>
-                                <div class="param-info">
-                                    <div>
-                                        <p>
-                                            <span class="param-type string"> string </span>
-                                            
+</div>
+</div>
+</div><div class="param">
+<div class="param-name">
+<span class="param-name-wrap"> <code>realtime_notifier.ttl</code> </span>
+</div>
+<div class="param-info">
+<div>
+<p>
+<span class="param-type string"> string </span>
+
                                         </p>
                                         <div class="param-default">
                                             <span class="param-default-value">Default: <code>5000</code></span>
                                         </div>
-                                        
+
                                     </div>
                                     <div class="param-description">
                                         <p></p>
@@ -6192,12 +6068,12 @@ If a token is revoked, the notification will be sent to the JMS topic. Write a c
                                     <div>
                                         <p>
                                             <span class="param-type string"> string </span>
-                                            
+
                                         </p>
                                         <div class="param-default">
                                             <span class="param-default-value">Default: <code>https://localhost:2379/v2/keys/jti/</code></span>
                                         </div>
-                                        
+
                                     </div>
                                     <div class="param-description">
                                         <p>etcd hostname</p>
@@ -6211,12 +6087,12 @@ If a token is revoked, the notification will be sent to the JMS topic. Write a c
                                     <div>
                                         <p>
                                             <span class="param-type string"> string </span>
-                                            
+
                                         </p>
                                         <div class="param-default">
                                             <span class="param-default-value">Default: <code>5000</code></span>
                                         </div>
-                                        
+
                                     </div>
                                     <div class="param-description">
                                         <p></p>
@@ -6230,12 +6106,12 @@ If a token is revoked, the notification will be sent to the JMS topic. Write a c
                                     <div>
                                         <p>
                                             <span class="param-type string"> string </span>
-                                            
+
                                         </p>
                                         <div class="param-default">
                                             <span class="param-default-value">Default: <code>root</code></span>
                                         </div>
-                                        
+
                                     </div>
                                     <div class="param-description">
                                         <p></p>
@@ -6249,12 +6125,12 @@ If a token is revoked, the notification will be sent to the JMS topic. Write a c
                                     <div>
                                         <p>
                                             <span class="param-type string"> string </span>
-                                            
+
                                         </p>
                                         <div class="param-default">
                                             <span class="param-default-value">Default: <code>root</code></span>
                                         </div>
-                                        
+
                                     </div>
                                     <div class="param-description">
                                         <p></p>
@@ -6267,12 +6143,10 @@ If a token is revoked, the notification will be sent to the JMS topic. Write a c
             </div>
         </div>
     </section>
+
 </div>
 
-
-
 ## API-M Event Hub configurations
-
 
 <div class="mb-config-catalog">
     <section>
@@ -6447,10 +6321,7 @@ event_duplicate_url = ["tcp://control-plane-2-host:5672"]
     </section>
 </div>
 
-
-
 ## API-M Event Hub Publish URL group configurations
-
 
 <div class="mb-config-catalog">
     <section>
@@ -6469,13 +6340,13 @@ auth_urls = ["ssl://control-plane-1-host:9711"]
 urls = ["tcp://control-plane-2-host:9611"]
 auth_urls = ["ssl://control-plane-2-host:9711"]
 </code></pre>
-                    </div>
-                </div>
-                <div class="doc-wrapper">
-                    <div class="mb-config">
-                        <div class="config-wrap">
-                            <code>[apim.event_hub.publish.url_group]</code>
-                            
+</div>
+</div>
+<div class="doc-wrapper">
+<div class="mb-config">
+<div class="config-wrap">
+<code>[apim.event_hub.publish.url_group]</code>
+
                             <p>
                                 Configures event hub publish URL groups
                             </p>
@@ -6494,7 +6365,7 @@ auth_urls = ["ssl://control-plane-2-host:9711"]
                                         <div class="param-default">
                                             <span class="param-default-value">Default: <code></code></span>
                                         </div>
-                                        
+
                                     </div>
                                     <div class="param-description">
                                         <p>Array of URLs used to publish event streams to the control plane in a HA setup (If multiple URLs are added, other URLs will be taken as failover endpoints).</p>
@@ -6513,7 +6384,7 @@ auth_urls = ["ssl://control-plane-2-host:9711"]
                                         <div class="param-default">
                                             <span class="param-default-value">Default: <code></code></span>
                                         </div>
-                                        
+
                                     </div>
                                     <div class="param-description">
                                         <p>Array of URLs used to create a secure connection for binary data streaming to the control plane in a HA setup (If multiple URLs are added, other URLs will be taken as failover endpoints).</p>
@@ -6526,12 +6397,10 @@ auth_urls = ["ssl://control-plane-2-host:9711"]
             </div>
         </div>
     </section>
+
 </div>
 
-
-
 ## Enable Notifications
-
 
 <div class="mb-config-catalog">
     <section>
@@ -6723,10 +6592,7 @@ enable_authentication = true</code></pre>
     </section>
 </div>
 
-
-
 ## Tenant Management
-
 
 <div class="mb-config-catalog">
     <section>
@@ -6779,10 +6645,7 @@ enable_email_domain = true</code></pre>
     </section>
 </div>
 
-
-
 ## Enable Password Recovery
-
 
 <div class="mb-config-catalog">
     <section>
@@ -6975,10 +6838,7 @@ enable_authentication = true</code></pre>
     </section>
 </div>
 
-
-
 ## Multi-tenancy Configurations
-
 
 <div class="mb-config-catalog">
     <section>
@@ -7231,9 +7091,6 @@ sso_loading_message = "Loading..."</code></pre>
     </section>
 </div>
 
-
-
-
 <div class="mb-config-catalog">
     <section>
         <div class="mb-config-options">
@@ -7365,9 +7222,6 @@ environment = "live"</code></pre>
     </section>
 </div>
 
-
-
-
 <div class="mb-config-catalog">
     <section>
         <div class="mb-config-options">
@@ -7458,9 +7312,6 @@ admin_password = "admin"</code></pre>
         </div>
     </section>
 </div>
-
-
-
 
 <div class="mb-config-catalog">
     <section>
@@ -7553,10 +7404,7 @@ execution_interval_in_ms = "-1"</code></pre>
     </section>
 </div>
 
-
-
 ## Multi-tenancy throttling manager configurations
-
 
 <div class="mb-config-catalog">
     <section>
@@ -7611,9 +7459,6 @@ data_providers = [
         </div>
     </section>
 </div>
-
-
-
 
 <div class="mb-config-catalog">
     <section>
@@ -7686,10 +7531,7 @@ delay = "60"</code></pre>
     </section>
 </div>
 
-
-
 ## Multi-tenancy cloud services configurations
-
 
 <div class="mb-config-catalog">
     <section>
@@ -7842,10 +7684,7 @@ description = "API Manager in the cloud"</code></pre>
     </section>
 </div>
 
-
-
 ## Multi-tenancy monetization configurations
-
 
 <div class="mb-config-catalog">
     <section>
@@ -7918,9 +7757,6 @@ subscription_charge = 0</code></pre>
     </section>
 </div>
 
-
-
-
 <div class="mb-config-catalog">
     <section>
         <div class="mb-config-options">
@@ -7991,9 +7827,6 @@ charge= "0"</code></pre>
         </div>
     </section>
 </div>
-
-
-
 
 <div class="mb-config-catalog">
     <section>
@@ -8066,9 +7899,6 @@ overuse_charge= "0"</code></pre>
     </section>
 </div>
 
-
-
-
 <div class="mb-config-catalog">
     <section>
         <div class="mb-config-options">
@@ -8139,9 +7969,6 @@ overuse_charge= "0"</code></pre>
         </div>
     </section>
 </div>
-
-
-
 
 <div class="mb-config-catalog">
     <section>
@@ -8214,9 +8041,6 @@ subscription_charge = "100"</code></pre>
     </section>
 </div>
 
-
-
-
 <div class="mb-config-catalog">
     <section>
         <div class="mb-config-options">
@@ -8287,9 +8111,6 @@ charge= "0"</code></pre>
         </div>
     </section>
 </div>
-
-
-
 
 <div class="mb-config-catalog">
     <section>
@@ -8362,9 +8183,6 @@ overuse_charge= "0"</code></pre>
     </section>
 </div>
 
-
-
-
 <div class="mb-config-catalog">
     <section>
         <div class="mb-config-options">
@@ -8435,9 +8253,6 @@ overuse_charge= "0"</code></pre>
         </div>
     </section>
 </div>
-
-
-
 
 <div class="mb-config-catalog">
     <section>
@@ -8510,9 +8325,6 @@ subscription_charge = "500"</code></pre>
     </section>
 </div>
 
-
-
-
 <div class="mb-config-catalog">
     <section>
         <div class="mb-config-options">
@@ -8583,9 +8395,6 @@ charge= "0"</code></pre>
         </div>
     </section>
 </div>
-
-
-
 
 <div class="mb-config-catalog">
     <section>
@@ -8658,9 +8467,6 @@ overuse_charge = "0.03"</code></pre>
     </section>
 </div>
 
-
-
-
 <div class="mb-config-catalog">
     <section>
         <div class="mb-config-options">
@@ -8732,10 +8538,7 @@ overuse_charge= "0"</code></pre>
     </section>
 </div>
 
-
-
 ## Registry indexing configurations
-
 
 <div class="mb-config-catalog">
     <section>
@@ -8890,10 +8693,7 @@ re_indexing = 1</code></pre>
     </section>
 </div>
 
-
-
 ## HTTP Servlet Transport
-
 
 <div class="mb-config-catalog">
     <section>
@@ -9300,10 +9100,7 @@ URIEncoding = "UTF-8"</code></pre>
     </section>
 </div>
 
-
-
 ## HTTPS Servlet Transport
-
 
 <div class="mb-config-catalog">
     <section>
@@ -9798,10 +9595,7 @@ SSLEnabled = "true"</code></pre>
     </section>
 </div>
 
-
-
 ## HTTP/S Pass-through Transport (non-blocking mode)
-
 
 <div class="mb-config-catalog">
     <section>
@@ -9877,13 +9671,13 @@ max_open_connections = -1
 force_xml_validation = false
 force_json_validation = false
 </code></pre>
-                    </div>
-                </div>
-                <div class="doc-wrapper">
-                    <div class="mb-config">
-                        <div class="config-wrap">
-                            <code>[transport.passthru_http]</code>
-                            
+</div>
+</div>
+<div class="doc-wrapper">
+<div class="mb-config">
+<div class="config-wrap">
+<code>[transport.passthru_http]</code>
+
                             <p>
                                 This configuration header is required for configuring the parameters that are used for tuning the default HTTP passthrough transport of the API Manager in non-blocking mode.
                             </p>
@@ -9897,7 +9691,7 @@ force_json_validation = false
                                     <div>
                                         <p>
                                             <span class="param-type string"> boolean </span>
-                                            
+
                                         </p>
                                         <div class="param-default">
                                             <span class="param-default-value">Default: <code>true</code></span>
@@ -9918,7 +9712,7 @@ force_json_validation = false
                                     <div>
                                         <p>
                                             <span class="param-type string"> integer </span>
-                                            
+
                                         </p>
                                         <div class="param-default">
                                             <span class="param-default-value">Default: <code>8280</code></span>
@@ -9939,7 +9733,7 @@ force_json_validation = false
                                     <div>
                                         <p>
                                             <span class="param-type string"> string </span>
-                                            
+
                                         </p>
                                         <div class="param-default">
                                             <span class="param-default-value">Default: <code>true</code></span>
@@ -9960,7 +9754,7 @@ force_json_validation = false
                                     <div>
                                         <p>
                                             <span class="param-type string"> string </span>
-                                            
+
                                         </p>
                                         <div class="param-default">
                                             <span class="param-default-value">Default: <code>org.wso2.carbon.mediation.transport.handlers.PassThroughNHttpGetProcessor</code></span>
@@ -10002,7 +9796,7 @@ force_json_validation = false
                                     <div>
                                         <p>
                                             <span class="param-type string"> boolean </span>
-                                            
+
                                         </p>
                                         <div class="param-default">
                                             <span class="param-default-value">Default: <code>true</code></span>
@@ -10044,7 +9838,7 @@ force_json_validation = false
                                     <div>
                                         <p>
                                             <span class="param-type string"> string </span>
-                                            
+
                                         </p>
                                         <div class="param-default">
                                             <span class="param-default-value">Default: <code>-</code></span>
@@ -10065,7 +9859,7 @@ force_json_validation = false
                                     <div>
                                         <p>
                                             <span class="param-type string"> integer </span>
-                                            
+
                                         </p>
                                         <div class="param-default">
                                             <span class="param-default-value">Default: <code>-</code></span>
@@ -10123,7 +9917,7 @@ force_json_validation = false
                             </div>
                         </div><div class="config-wrap">
                             <code>[transport.passthru_https]</code>
-                            
+
                             <p>
                                 This configuration header is required for configuring the parameters that are used for tuning the default HTTPS passthrough transport of the API Manager in non-blocking mode.
                             </p>
@@ -10137,7 +9931,7 @@ force_json_validation = false
                                     <div>
                                         <p>
                                             <span class="param-type string"> boolean </span>
-                                            
+
                                         </p>
                                         <div class="param-default">
                                             <span class="param-default-value">Default: <code>true</code></span>
@@ -10179,7 +9973,7 @@ force_json_validation = false
                                     <div>
                                         <p>
                                             <span class="param-type string"> string </span>
-                                            
+
                                         </p>
                                         <div class="param-default">
                                             <span class="param-default-value">Default: <code>org.wso2.carbon.mediation.transport.handlers.PassThroughNHttpGetProcessor</code></span>
@@ -10368,7 +10162,7 @@ force_json_validation = false
                                     <div>
                                         <p>
                                             <span class="param-type string"> string </span>
-                                            
+
                                         </p>
                                         <div class="param-default">
                                             <span class="param-default-value">Default: <code>-</code></span>
@@ -10389,7 +10183,7 @@ force_json_validation = false
                                     <div>
                                         <p>
                                             <span class="param-type string"> integer </span>
-                                            
+
                                         </p>
                                         <div class="param-default">
                                             <span class="param-default-value">Default: <code>-</code></span>
@@ -10594,7 +10388,7 @@ force_json_validation = false
                             </div>
                         </div><div class="config-wrap">
                             <code>[passthru_http]</code>
-                            
+
                             <p>
                                 This configuration header is required for configuring the parameters that are used for tuning the default HTTP passthrough transport of the API Manager in non-blocking mode.
                             </p>
@@ -10797,7 +10591,7 @@ force_json_validation = false
                                     <div>
                                         <p>
                                             <span class="param-type string"> integer </span>
-                                            
+
                                         </p>
                                         <div class="param-default">
                                             <span class="param-default-value">Default: <code>-1</code></span>
@@ -10818,7 +10612,7 @@ force_json_validation = false
                                     <div>
                                         <p>
                                             <span class="param-type string"> boolean </span>
-                                            
+
                                         </p>
                                         <div class="param-default">
                                             <span class="param-default-value">Default: <code>false</code></span>
@@ -10839,7 +10633,7 @@ force_json_validation = false
                                     <div>
                                         <p>
                                             <span class="param-type string"> boolean </span>
-                                            
+
                                         </p>
                                         <div class="param-default">
                                             <span class="param-default-value">Default: <code>false</code></span>
@@ -10859,12 +10653,10 @@ force_json_validation = false
             </div>
         </div>
     </section>
+
 </div>
 
-
-
 ## HTTP/S Pass-through Transport (blocking mode)
-
 
 <div class="mb-config-catalog">
     <section>
@@ -10895,13 +10687,13 @@ sender.parameters.'http.proxyHost' = "$env{OUT_PROXY_HOST}"
 sender.parameters.'http.proxyPort' = "$env{OUT_PROXY_PORT}"
 sender.parameters.'http.nonProxyHosts' = "$env{OUT_PROXY_NON_HOSTS}"
 </code></pre>
-                    </div>
-                </div>
-                <div class="doc-wrapper">
-                    <div class="mb-config">
-                        <div class="config-wrap">
-                            <code>[transport.blocking_http]</code>
-                            
+</div>
+</div>
+<div class="doc-wrapper">
+<div class="mb-config">
+<div class="config-wrap">
+<code>[transport.blocking_http]</code>
+
                             <p>
                                 This configuration header is required for configuring the parameters that are used for configuring the default HTTP passthrough transport in blocking mode
                             </p>
@@ -11020,7 +10812,7 @@ sender.parameters.'http.nonProxyHosts' = "$env{OUT_PROXY_NON_HOSTS}"
                                     <div>
                                         <p>
                                             <span class="param-type string"> string </span>
-                                            
+
                                         </p>
                                         <div class="param-default">
                                             <span class="param-default-value">Default: <code>-</code></span>
@@ -11041,7 +10833,7 @@ sender.parameters.'http.nonProxyHosts' = "$env{OUT_PROXY_NON_HOSTS}"
                                     <div>
                                         <p>
                                             <span class="param-type string"> integer </span>
-                                            
+
                                         </p>
                                         <div class="param-default">
                                             <span class="param-default-value">Default: <code>-</code></span>
@@ -11062,7 +10854,7 @@ sender.parameters.'http.nonProxyHosts' = "$env{OUT_PROXY_NON_HOSTS}"
                                     <div>
                                         <p>
                                             <span class="param-type string"> string </span>
-                                            
+
                                         </p>
                                         <div class="param-default">
                                             <span class="param-default-value">Default: <code>-</code></span>
@@ -11078,7 +10870,7 @@ sender.parameters.'http.nonProxyHosts' = "$env{OUT_PROXY_NON_HOSTS}"
                             </div>
                         </div><div class="config-wrap">
                             <code>[transport.blocking_https]</code>
-                            
+
                             <p>
                                 This configuration header is required for configuring the parameters that are used for configuring the default HTTPS passthrough transport in blocking mode
                             </p>
@@ -11197,7 +10989,7 @@ sender.parameters.'http.nonProxyHosts' = "$env{OUT_PROXY_NON_HOSTS}"
                                     <div>
                                         <p>
                                             <span class="param-type string"> string </span>
-                                            
+
                                         </p>
                                         <div class="param-default">
                                             <span class="param-default-value">Default: <code>-</code></span>
@@ -11218,7 +11010,7 @@ sender.parameters.'http.nonProxyHosts' = "$env{OUT_PROXY_NON_HOSTS}"
                                     <div>
                                         <p>
                                             <span class="param-type string"> integer </span>
-                                            
+
                                         </p>
                                         <div class="param-default">
                                             <span class="param-default-value">Default: <code>-</code></span>
@@ -11239,7 +11031,7 @@ sender.parameters.'http.nonProxyHosts' = "$env{OUT_PROXY_NON_HOSTS}"
                                     <div>
                                         <p>
                                             <span class="param-type string"> string </span>
-                                            
+
                                         </p>
                                         <div class="param-default">
                                             <span class="param-default-value">Default: <code>-</code></span>
@@ -11259,12 +11051,10 @@ sender.parameters.'http.nonProxyHosts' = "$env{OUT_PROXY_NON_HOSTS}"
             </div>
         </div>
     </section>
+
 </div>
 
-
-
 ## HTTP proxy profile
-
 
 <div class="mb-config-catalog">
     <section>
@@ -11293,13 +11083,13 @@ proxy_port = "8080"
 proxy_username = "ProxyUser"
 proxy_password = "password"
 bypass_hosts = ["localhost"]</code></pre>
-                    </div>
-                </div>
-                <div class="doc-wrapper">
-                    <div class="mb-config">
-                        <div class="config-wrap">
-                            <code>[[transport.passthru_http.sender.parameters]]</code>
-                            
+</div>
+</div>
+<div class="doc-wrapper">
+<div class="mb-config">
+<div class="config-wrap">
+<code>[[transport.passthru_http.sender.parameters]]</code>
+
                             <p>
                                 This configuration header is required for configuring HTTP proxy profiles when you need multiple proxy servers to route messages to different endpoints.
                             </p>
@@ -11438,12 +11228,10 @@ bypass_hosts = ["localhost"]</code></pre>
             </div>
         </div>
     </section>
+
 </div>
 
-
-
 ## HTTP secured proxy profile
-
 
 <div class="mb-config-catalog">
     <section>
@@ -11473,13 +11261,13 @@ proxy_username = "ProxyUser"
 proxy_password = "password"
 bypass_hosts = ["localhost"]
 </code></pre>
-                    </div>
-                </div>
-                <div class="doc-wrapper">
-                    <div class="mb-config">
-                        <div class="config-wrap">
-                            <code>[[transport.passthru_https.sender.parameters]]</code>
-                            
+</div>
+</div>
+<div class="doc-wrapper">
+<div class="mb-config">
+<div class="config-wrap">
+<code>[[transport.passthru_https.sender.parameters]]</code>
+
                             <p>
                                 This configuration header is required for configuring HTTP proxy profiles when you need multiple proxy servers to route messages to different endpoints.
                             </p>
@@ -11618,12 +11406,10 @@ bypass_hosts = ["localhost"]
             </div>
         </div>
     </section>
+
 </div>
 
-
-
 ## Websocket Transport
-
 
 <div class="mb-config-catalog">
     <section>
@@ -11766,10 +11552,7 @@ sender.parameter.customParameter = ""</code></pre>
     </section>
 </div>
 
-
-
 ## Secure Websocket Transport
-
 
 <div class="mb-config-catalog">
     <section>
@@ -11956,10 +11739,7 @@ sender.trust_store.password = "$ref{truststore.password}"</code></pre>
     </section>
 </div>
 
-
-
 ## Message Builders (non-blocking mode)
-
 
 <div class="mb-config-catalog">
     <section>
@@ -12190,10 +11970,7 @@ application_binary = "org.apache.axis2.format.BinaryBuilder"</code></pre>
     </section>
 </div>
 
-
-
 ## Message Builders (blocking mode)
-
 
 <div class="mb-config-catalog">
     <section>
@@ -12235,10 +12012,7 @@ application_binary = "org.apache.axis2.format.BinaryBuilder"</code></pre>
     </section>
 </div>
 
-
-
 ## Message Formatters (non-blocking mode)
-
 
 <div class="mb-config-catalog">
     <section>
@@ -12513,10 +12287,7 @@ application_binary =  "org.apache.axis2.format.BinaryFormatter"</code></pre>
     </section>
 </div>
 
-
-
 ## Message Formatters (blocking mode)
-
 
 <div class="mb-config-catalog">
     <section>
@@ -12560,10 +12331,7 @@ application_binary =  "org.apache.axis2.format.BinaryFormatter"</code></pre>
     </section>
 </div>
 
-
-
 ## Custom Message Builders (non-blocking mode)
-
 
 <div class="mb-config-catalog">
     <section>
@@ -12640,10 +12408,7 @@ class = "org.apache.axis2.json.JSONBadgerfishOMBuilder"</code></pre>
     </section>
 </div>
 
-
-
 ## Custom Message Builders (blocking mode)
-
 
 <div class="mb-config-catalog">
     <section>
@@ -12678,10 +12443,7 @@ class = "org.apache.axis2.json.JSONBadgerfishOMBuilder"</code></pre>
     </section>
 </div>
 
-
-
 ## Custom Message Formatters (non-blocking mode)
-
 
 <div class="mb-config-catalog">
     <section>
@@ -12758,10 +12520,7 @@ class = "org.apache.axis2.json.JSONBadgerfishMessageFormatter"</code></pre>
     </section>
 </div>
 
-
-
 ## Custom Message Formatters (blocking mode)
-
 
 <div class="mb-config-catalog">
     <section>
@@ -12796,10 +12555,7 @@ class = "org.apache.axis2.json.JSONBadgerfishMessageFormatter"</code></pre>
     </section>
 </div>
 
-
-
 ## Message Mediation
-
 
 <div class="mb-config-catalog">
     <section>
@@ -12825,7 +12581,7 @@ synapse.event_debugger_port=9006
 
 synapse.script_mediator_pool_size=15
 synapse.enable_xml_nil=false
-synapse.disable_auto_primitive_regex = "^-?(0|[1-9][0-9]*)(\\.[0-9]+)?([eE][+-]?[0-9]+)?$"
+synapse.disable_auto_primitive_regex = "^-?(0|[1-9][0-9]\*)(\\.[0-9]+)?([eE][+-]?[0-9]+)?$"
 synapse.disable_custom_replace_regex = "@@@"
 synapse.enable_namespace_declaration = false
 synapse.build_valid_nc_name = false
@@ -12840,13 +12596,13 @@ stat.tracer.collect_payloads=false
 stat.tracer.collect_mediation_properties=false
 inbound.core_threads = 20
 inbound.max_threads = 100</code></pre>
-                    </div>
-                </div>
-                <div class="doc-wrapper">
-                    <div class="mb-config">
-                        <div class="config-wrap">
-                            <code>[mediation]</code>
-                            
+</div>
+</div>
+<div class="doc-wrapper">
+<div class="mb-config">
+<div class="config-wrap">
+<code>[mediation]</code>
+
                             <p>
                                 This configuration header groups the parameters used for tuning the mediation process (Synapse engine) of the API Manager. These parameters are mainly used when mediators such as Iterate and Clone (which uses the internal thread pools) are used.
                             </p>
@@ -12860,7 +12616,7 @@ inbound.max_threads = 100</code></pre>
                                     <div>
                                         <p>
                                             <span class="param-type string"> integer </span>
-                                            
+
                                         </p>
                                         <div class="param-default">
                                             <span class="param-default-value">Default: <code>20</code></span>
@@ -12881,7 +12637,7 @@ inbound.max_threads = 100</code></pre>
                                     <div>
                                         <p>
                                             <span class="param-type string"> integer </span>
-                                            
+
                                         </p>
                                         <div class="param-default">
                                             <span class="param-default-value">Default: <code>100</code></span>
@@ -12902,7 +12658,7 @@ inbound.max_threads = 100</code></pre>
                                     <div>
                                         <p>
                                             <span class="param-type string"> integer </span>
-                                            
+
                                         </p>
                                         <div class="param-default">
                                             <span class="param-default-value">Default: <code>10</code></span>
@@ -12923,7 +12679,7 @@ inbound.max_threads = 100</code></pre>
                                     <div>
                                         <p>
                                             <span class="param-type string"> integer </span>
-                                            
+
                                         </p>
                                         <div class="param-default">
                                             <span class="param-default-value">Default: <code>120000</code></span>
@@ -12944,7 +12700,7 @@ inbound.max_threads = 100</code></pre>
                                     <div>
                                         <p>
                                             <span class="param-type string"> boolean </span>
-                                            
+
                                         </p>
                                         <div class="param-default">
                                             <span class="param-default-value">Default: <code>true</code></span>
@@ -12965,7 +12721,7 @@ inbound.max_threads = 100</code></pre>
                                     <div>
                                         <p>
                                             <span class="param-type string"> integer </span>
-                                            
+
                                         </p>
                                         <div class="param-default">
                                             <span class="param-default-value">Default: <code>3072</code></span>
@@ -12986,7 +12742,7 @@ inbound.max_threads = 100</code></pre>
                                     <div>
                                         <p>
                                             <span class="param-type string"> integer </span>
-                                            
+
                                         </p>
                                         <div class="param-default">
                                             <span class="param-default-value">Default: <code>15</code></span>
@@ -13007,7 +12763,7 @@ inbound.max_threads = 100</code></pre>
                                     <div>
                                         <p>
                                             <span class="param-type string"> boolean </span>
-                                            
+
                                         </p>
                                         <div class="param-default">
                                             <span class="param-default-value">Default: <code>false</code></span>
@@ -13028,7 +12784,7 @@ inbound.max_threads = 100</code></pre>
                                     <div>
                                         <p>
                                             <span class="param-type string"> boolean </span>
-                                            
+
                                         </p>
                                         <div class="param-default">
                                             <span class="param-default-value">Default: <code>false</code></span>
@@ -13049,7 +12805,7 @@ inbound.max_threads = 100</code></pre>
                                     <div>
                                         <p>
                                             <span class="param-type string"> boolean </span>
-                                            
+
                                         </p>
                                         <div class="param-default">
                                             <span class="param-default-value">Default: <code>false</code></span>
@@ -13070,7 +12826,7 @@ inbound.max_threads = 100</code></pre>
                                     <div>
                                         <p>
                                             <span class="param-type string"> boolean </span>
-                                            
+
                                         </p>
                                         <div class="param-default">
                                             <span class="param-default-value">Default: <code>true</code></span>
@@ -13091,7 +12847,7 @@ inbound.max_threads = 100</code></pre>
                                     <div>
                                         <p>
                                             <span class="param-type string"> boolean </span>
-                                            
+
                                         </p>
                                         <div class="param-default">
                                             <span class="param-default-value">Default: <code>false</code></span>
@@ -13112,7 +12868,7 @@ inbound.max_threads = 100</code></pre>
                                     <div>
                                         <p>
                                             <span class="param-type string"> boolean </span>
-                                            
+
                                         </p>
                                         <div class="param-default">
                                             <span class="param-default-value">Default: <code>false</code></span>
@@ -13132,12 +12888,10 @@ inbound.max_threads = 100</code></pre>
             </div>
         </div>
     </section>
+
 </div>
 
-
-
 ## Synapse Handlers
-
 
 <div class="mb-config-catalog">
     <section>
@@ -13216,10 +12970,7 @@ custom_logger.class= "com.wso2.apim.log.handler.SynapseLogHandler"
     </section>
 </div>
 
-
-
 ## Governance Configurations
-
 
 <div class="mb-config-catalog">
     <section>
@@ -13274,10 +13025,7 @@ life_cycle_checklist_items_enabled = true</code></pre>
     </section>
 </div>
 
-
-
 ## Qpid broker heartbeat configurations
-
 
 <div class="mb-config-catalog">
     <section>
@@ -13350,10 +13098,7 @@ timeout_factor = 3.0</code></pre>
     </section>
 </div>
 
-
-
 ## Health Check API configurations
-
 
 <div class="mb-config-catalog">
     <section>
@@ -13407,9 +13152,6 @@ enable = true</code></pre>
         </div>
     </section>
 </div>
-
-
-
 
 <div class="mb-config-catalog">
     <section>
@@ -13484,9 +13226,6 @@ order = "98"</code></pre>
     </section>
 </div>
 
-
-
-
 <div class="mb-config-catalog">
     <section>
         <div class="mb-config-options">
@@ -13537,9 +13276,6 @@ monitored.user.stores = "primary,sec"</code></pre>
         </div>
     </section>
 </div>
-
-
-
 
 <div class="mb-config-catalog">
     <section>
@@ -13614,9 +13350,6 @@ order = "97"</code></pre>
     </section>
 </div>
 
-
-
-
 <div class="mb-config-catalog">
     <section>
         <div class="mb-config-options">
@@ -13687,9 +13420,6 @@ monitored.datasources = "jdbc/WSO2AM_DB,jdbc/SHARED_DB,jdbc/WSO2CarbonDB"</code>
         </div>
     </section>
 </div>
-
-
-
 
 <div class="mb-config-catalog">
     <section>
@@ -13783,10 +13513,7 @@ first_property = "value"</code></pre>
     </section>
 </div>
 
-
-
 ## OAuth configurations
-
 
 <div class="mb-config-catalog">
     <section>
@@ -13808,13 +13535,13 @@ token_context_generator = "org.wso2.carbon.identity.oauth2.authcontext.JWTTokenG
 token_context_claim_retriever = "org.wso2.carbon.identity.oauth2.authcontext.DefaultClaimsRetriever"
 token_context_dialect_uri = "http://wso2.org/claims"
 </code></pre>
-                    </div>
-                </div>
-                <div class="doc-wrapper">
-                    <div class="mb-config">
-                        <div class="config-wrap">
-                            <code>[oauth]</code>
-                            
+</div>
+</div>
+<div class="doc-wrapper">
+<div class="mb-config">
+<div class="config-wrap">
+<code>[oauth]</code>
+
                             <p>
                                 This includes OAuth configurations in API-M.
                             </p>
@@ -13828,7 +13555,7 @@ token_context_dialect_uri = "http://wso2.org/claims"
                                     <div>
                                         <p>
                                             <span class="param-type string"> boolan </span>
-                                            
+
                                         </p>
                                         <div class="param-default">
                                             <span class="param-default-value">Default: <code>false</code></span>
@@ -13849,12 +13576,12 @@ token_context_dialect_uri = "http://wso2.org/claims"
                                     <div>
                                         <p>
                                             <span class="param-type string"> list of strings </span>
-                                            
+
                                         </p>
                                         <div class="param-default">
                                             <span class="param-default-value">Default: <code></code></span>
                                         </div>
-                                        
+
                                     </div>
                                     <div class="param-description">
                                         <p>Configuration to pass a list of scopes which are allowed without any validation.</p>
@@ -13868,12 +13595,12 @@ token_context_dialect_uri = "http://wso2.org/claims"
                                     <div>
                                         <p>
                                             <span class="param-type string"> integer </span>
-                                            
+
                                         </p>
                                         <div class="param-default">
                                             <span class="param-default-value">Default: <code>0</code></span>
                                         </div>
-                                        
+
                                     </div>
                                     <div class="param-description">
                                         <p>Time stamp skew in seconds.</p>
@@ -13887,12 +13614,12 @@ token_context_dialect_uri = "http://wso2.org/claims"
                                     <div>
                                         <p>
                                             <span class="param-type string"> string </span>
-                                            
+
                                         </p>
                                         <div class="param-default">
                                             <span class="param-default-value">Default: <code>org.wso2.carbon.identity.oauth2.token.OauthTokenIssuerImpl</code></span>
                                         </div>
-                                        
+
                                     </div>
                                     <div class="param-description">
                                         <p>Token Issuer class.</p>
@@ -13906,12 +13633,12 @@ token_context_dialect_uri = "http://wso2.org/claims"
                                     <div>
                                         <p>
                                             <span class="param-type string"> string </span>
-                                            
+
                                         </p>
                                         <div class="param-default">
                                             <span class="param-default-value">Default: <code>org.wso2.carbon.identity.oauth2.authcontext.JWTTokenGenerator</code></span>
                                         </div>
-                                        
+
                                     </div>
                                     <div class="param-description">
                                         <p>Token Issuer class for Authorization Context.</p>
@@ -13925,12 +13652,12 @@ token_context_dialect_uri = "http://wso2.org/claims"
                                     <div>
                                         <p>
                                             <span class="param-type string"> string </span>
-                                            
+
                                         </p>
                                         <div class="param-default">
                                             <span class="param-default-value">Default: <code>org.wso2.carbon.identity.oauth2.authcontext.DefaultClaimsRetriever</code></span>
                                         </div>
-                                        
+
                                     </div>
                                     <div class="param-description">
                                         <p>Claim Retriever Implementation class for Authorization Context.</p>
@@ -13944,12 +13671,12 @@ token_context_dialect_uri = "http://wso2.org/claims"
                                     <div>
                                         <p>
                                             <span class="param-type string"> string </span>
-                                            
+
                                         </p>
                                         <div class="param-default">
                                             <span class="param-default-value">Default: <code>http://wso2.org/claims</code></span>
                                         </div>
-                                        
+
                                     </div>
                                     <div class="param-description">
                                         <p>Consumer Dialect URI for Authorization Context.</p>
@@ -13962,10 +13689,8 @@ token_context_dialect_uri = "http://wso2.org/claims"
             </div>
         </div>
     </section>
+
 </div>
-
-
-
 
 <div class="mb-config-catalog">
     <section>
@@ -14059,9 +13784,6 @@ refresh_token_validity = "86400"
     </section>
 </div>
 
-
-
-
 <div class="mb-config-catalog">
     <section>
         <div class="mb-config-options">
@@ -14137,9 +13859,6 @@ retain_access_tokens_for_auditing = true</code></pre>
     </section>
 </div>
 
-
-
-
 <div class="mb-config-catalog">
     <section>
         <div class="mb-config-options">
@@ -14168,13 +13887,13 @@ redirect_error_page = true
 enable_oidc_dialect = true
 enable_unmapped_user_attributes = true
 </code></pre>
-                    </div>
-                </div>
-                <div class="doc-wrapper">
-                    <div class="mb-config">
-                        <div class="config-wrap">
-                            <code>[oauth.oidc]</code>
-                            
+</div>
+</div>
+<div class="doc-wrapper">
+<div class="mb-config">
+<div class="config-wrap">
+<code>[oauth.oidc]</code>
+
                             <p>
                                 This includes configurations related to OpenID Connect authorization server in API-M.
                             </p>
@@ -14188,12 +13907,12 @@ enable_unmapped_user_attributes = true
                                     <div>
                                         <p>
                                             <span class="param-type string"> string </span>
-                                            
+
                                         </p>
                                         <div class="param-default">
                                             <span class="param-default-value">Default: <code>org.wso2.carbon.identity.openidconnect.DefaultIDTokenBuilder</code></span>
                                         </div>
-                                        
+
                                     </div>
                                     <div class="param-description">
                                         <p>IDToken builder implementation class.</p>
@@ -14207,12 +13926,12 @@ enable_unmapped_user_attributes = true
                                     <div>
                                         <p>
                                             <span class="param-type string"> string </span>
-                                            
+
                                         </p>
                                         <div class="param-default">
                                             <span class="param-default-value">Default: <code>org.wso2.carbon.identity.openidconnect.SAMLAssertionClaimsCallback</code></span>
                                         </div>
-                                        
+
                                     </div>
                                     <div class="param-description">
                                         <p>This can be used to return extra custom claims with the IDToken . You can implement a claims call back handler to push the custom claims to the IDToken implmenting interface CustomClaimsCallbackHandler.</p>
@@ -14226,12 +13945,12 @@ enable_unmapped_user_attributes = true
                                     <div>
                                         <p>
                                             <span class="param-type string"> string </span>
-                                            
+
                                         </p>
                                         <div class="param-default">
                                             <span class="param-default-value">Default: <code>org.wso2.carbon.identity.oauth.endpoint.user.impl.UserInfoUserStoreClaimRetriever</code></span>
                                         </div>
-                                        
+
                                     </div>
                                     <div class="param-description">
                                         <p>Defines the class which builds the claims for the User Info Endpoint&#39;s response. This class needs to implement the interface UserInfoClaimRetriever.</p>
@@ -14245,12 +13964,12 @@ enable_unmapped_user_attributes = true
                                     <div>
                                         <p>
                                             <span class="param-type string"> string </span>
-                                            
+
                                         </p>
                                         <div class="param-default">
                                             <span class="param-default-value">Default: <code>json</code></span>
                                         </div>
-                                        
+
                                     </div>
                                     <div class="param-description">
                                         <p>The value that is set to get JWT response from user info endpoint.</p>
@@ -14264,12 +13983,12 @@ enable_unmapped_user_attributes = true
                                     <div>
                                         <p>
                                             <span class="param-type string"> integer </span>
-                                            
+
                                         </p>
                                         <div class="param-default">
                                             <span class="param-default-value">Default: <code>3600</code></span>
                                         </div>
-                                        
+
                                     </div>
                                     <div class="param-description">
                                         <p>The expiration value of the IDToken in seconds.</p>
@@ -14283,12 +14002,12 @@ enable_unmapped_user_attributes = true
                                     <div>
                                         <p>
                                             <span class="param-type string"> string </span>
-                                            
+
                                         </p>
                                         <div class="param-default">
                                             <span class="param-default-value">Default: <code>${carbon.protocol}://${carbon.host}:${carbon.management.port}/oauth2/token (OAuth2 Token Endpoint URL)</code></span>
                                         </div>
-                                        
+
                                     </div>
                                     <div class="param-description">
                                         <p>The value of issuer of the IDToken. This should be changed according to the deployment values.</p>
@@ -14302,7 +14021,7 @@ enable_unmapped_user_attributes = true
                                     <div>
                                         <p>
                                             <span class="param-type string"> boolean </span>
-                                            
+
                                         </p>
                                         <div class="param-default">
                                             <span class="param-default-value">Default: <code>true</code></span>
@@ -14323,7 +14042,7 @@ enable_unmapped_user_attributes = true
                                     <div>
                                         <p>
                                             <span class="param-type string"> boolean </span>
-                                            
+
                                         </p>
                                         <div class="param-default">
                                             <span class="param-default-value">Default: <code>false</code></span>
@@ -14344,7 +14063,7 @@ enable_unmapped_user_attributes = true
                                     <div>
                                         <p>
                                             <span class="param-type string"> boolean </span>
-                                            
+
                                         </p>
                                         <div class="param-default">
                                             <span class="param-default-value">Default: <code>false</code></span>
@@ -14364,10 +14083,8 @@ enable_unmapped_user_attributes = true
             </div>
         </div>
     </section>
+
 </div>
-
-
-
 
 <div class="mb-config-catalog">
     <section>
@@ -14413,13 +14130,13 @@ enable = true
 grant_handler = "org.wso2.carbon.identity.oauth2.grant.kerberos.KerberosGrant"
 grant_validator = "org.wso2.carbon.identity.oauth2.grant.kerberos.KerberosGrantValidator"
 </code></pre>
-                    </div>
-                </div>
-                <div class="doc-wrapper">
-                    <div class="mb-config">
-                        <div class="config-wrap">
-                            <code>[oauth.grant_type]</code>
-                            
+</div>
+</div>
+<div class="doc-wrapper">
+<div class="mb-config">
+<div class="config-wrap">
+<code>[oauth.grant_type]</code>
+
                             <p>
                                 This includes configurations for supported OAuth grant types in API-M.
                             </p>
@@ -14433,7 +14150,7 @@ grant_validator = "org.wso2.carbon.identity.oauth2.grant.kerberos.KerberosGrantV
                                     <div>
                                         <p>
                                             <span class="param-type string"> boolean </span>
-                                            
+
                                         </p>
                                         <div class="param-default">
                                             <span class="param-default-value">Default: <code>true</code></span>
@@ -14454,12 +14171,12 @@ grant_validator = "org.wso2.carbon.identity.oauth2.grant.kerberos.KerberosGrantV
                                     <div>
                                         <p>
                                             <span class="param-type string"> string </span>
-                                            
+
                                         </p>
                                         <div class="param-default">
                                             <span class="param-default-value">Default: <code>org.wso2.carbon.identity.oauth2.token.handlers.grant.AuthorizationCodeGrantHandler</code></span>
                                         </div>
-                                        
+
                                     </div>
                                     <div class="param-description">
                                         <p>Authorization Code grant implementation class.</p>
@@ -14473,7 +14190,7 @@ grant_validator = "org.wso2.carbon.identity.oauth2.grant.kerberos.KerberosGrantV
                                     <div>
                                         <p>
                                             <span class="param-type string"> boolean </span>
-                                            
+
                                         </p>
                                         <div class="param-default">
                                             <span class="param-default-value">Default: <code>true</code></span>
@@ -14494,12 +14211,12 @@ grant_validator = "org.wso2.carbon.identity.oauth2.grant.kerberos.KerberosGrantV
                                     <div>
                                         <p>
                                             <span class="param-type string"> string </span>
-                                            
+
                                         </p>
                                         <div class="param-default">
                                             <span class="param-default-value">Default: <code>org.wso2.carbon.identity.oauth2.token.handlers.grant.PasswordGrantHandler</code></span>
                                         </div>
-                                        
+
                                     </div>
                                     <div class="param-description">
                                         <p>Password grant implementation class.</p>
@@ -14513,7 +14230,7 @@ grant_validator = "org.wso2.carbon.identity.oauth2.grant.kerberos.KerberosGrantV
                                     <div>
                                         <p>
                                             <span class="param-type string"> boolean </span>
-                                            
+
                                         </p>
                                         <div class="param-default">
                                             <span class="param-default-value">Default: <code>true</code></span>
@@ -14534,12 +14251,12 @@ grant_validator = "org.wso2.carbon.identity.oauth2.grant.kerberos.KerberosGrantV
                                     <div>
                                         <p>
                                             <span class="param-type string"> string </span>
-                                            
+
                                         </p>
                                         <div class="param-default">
                                             <span class="param-default-value">Default: <code>org.wso2.carbon.identity.oauth2.token.handlers.grant.RefreshGrantHandler</code></span>
                                         </div>
-                                        
+
                                     </div>
                                     <div class="param-description">
                                         <p>Refresh Token grant implementation class.</p>
@@ -14553,7 +14270,7 @@ grant_validator = "org.wso2.carbon.identity.oauth2.grant.kerberos.KerberosGrantV
                                     <div>
                                         <p>
                                             <span class="param-type string"> boolean </span>
-                                            
+
                                         </p>
                                         <div class="param-default">
                                             <span class="param-default-value">Default: <code>true</code></span>
@@ -14574,12 +14291,12 @@ grant_validator = "org.wso2.carbon.identity.oauth2.grant.kerberos.KerberosGrantV
                                     <div>
                                         <p>
                                             <span class="param-type string"> string </span>
-                                            
+
                                         </p>
                                         <div class="param-default">
                                             <span class="param-default-value">Default: <code>org.wso2.carbon.identity.oauth2.token.handlers.grant.ClientCredentialsGrantHandler</code></span>
                                         </div>
-                                        
+
                                     </div>
                                     <div class="param-description">
                                         <p>Client Credentials grant implementation class.</p>
@@ -14593,7 +14310,7 @@ grant_validator = "org.wso2.carbon.identity.oauth2.grant.kerberos.KerberosGrantV
                                     <div>
                                         <p>
                                             <span class="param-type string"> boolean </span>
-                                            
+
                                         </p>
                                         <div class="param-default">
                                             <span class="param-default-value">Default: <code>false</code></span>
@@ -14614,7 +14331,7 @@ grant_validator = "org.wso2.carbon.identity.oauth2.grant.kerberos.KerberosGrantV
                                     <div>
                                         <p>
                                             <span class="param-type string"> boolean </span>
-                                            
+
                                         </p>
                                         <div class="param-default">
                                             <span class="param-default-value">Default: <code>false</code></span>
@@ -14635,7 +14352,7 @@ grant_validator = "org.wso2.carbon.identity.oauth2.grant.kerberos.KerberosGrantV
                                     <div>
                                         <p>
                                             <span class="param-type string"> boolean </span>
-                                            
+
                                         </p>
                                         <div class="param-default">
                                             <span class="param-default-value">Default: <code>true</code></span>
@@ -14656,12 +14373,12 @@ grant_validator = "org.wso2.carbon.identity.oauth2.grant.kerberos.KerberosGrantV
                                     <div>
                                         <p>
                                             <span class="param-type string"> string </span>
-                                            
+
                                         </p>
                                         <div class="param-default">
                                             <span class="param-default-value">Default: <code>org.wso2.carbon.identity.oauth2.token.handlers.grant.saml.SAML2BearerGrantHandler</code></span>
                                         </div>
-                                        
+
                                     </div>
                                     <div class="param-description">
                                         <p>SAML2 Bearer grant implementation class.</p>
@@ -14675,7 +14392,7 @@ grant_validator = "org.wso2.carbon.identity.oauth2.grant.kerberos.KerberosGrantV
                                     <div>
                                         <p>
                                             <span class="param-type string"> boolean </span>
-                                            
+
                                         </p>
                                         <div class="param-default">
                                             <span class="param-default-value">Default: <code>true</code></span>
@@ -14696,12 +14413,12 @@ grant_validator = "org.wso2.carbon.identity.oauth2.grant.kerberos.KerberosGrantV
                                     <div>
                                         <p>
                                             <span class="param-type string"> string </span>
-                                            
+
                                         </p>
                                         <div class="param-default">
                                             <span class="param-default-value">Default: <code>org.wso2.carbon.identity.oauth2.token.handlers.grant.iwa.ntlm.NTLMAuthenticationGrantHandlerWithHandshake</code></span>
                                         </div>
-                                        
+
                                     </div>
                                     <div class="param-description">
                                         <p>NTLM grant implementation class.</p>
@@ -14715,12 +14432,12 @@ grant_validator = "org.wso2.carbon.identity.oauth2.grant.kerberos.KerberosGrantV
                                     <div>
                                         <p>
                                             <span class="param-type string"> string </span>
-                                            
+
                                         </p>
                                         <div class="param-default">
                                             <span class="param-default-value">Default: <code>org.wso2.carbon.identity.oauth.common.NTLMAuthenticationValidator</code></span>
                                         </div>
-                                        
+
                                     </div>
                                     <div class="param-description">
                                         <p>NTLM grant validator implementation class.</p>
@@ -14734,7 +14451,7 @@ grant_validator = "org.wso2.carbon.identity.oauth2.grant.kerberos.KerberosGrantV
                                     <div>
                                         <p>
                                             <span class="param-type string"> boolean </span>
-                                            
+
                                         </p>
                                         <div class="param-default">
                                             <span class="param-default-value">Default: <code>true</code></span>
@@ -14755,12 +14472,12 @@ grant_validator = "org.wso2.carbon.identity.oauth2.grant.kerberos.KerberosGrantV
                                     <div>
                                         <p>
                                             <span class="param-type string"> string </span>
-                                            
+
                                         </p>
                                         <div class="param-default">
                                             <span class="param-default-value">Default: <code>org.wso2.carbon.identity.oauth2.grant.jwt.JWTBearerGrantHandler</code></span>
                                         </div>
-                                        
+
                                     </div>
                                     <div class="param-description">
                                         <p>JWT Bearer grant implementation class.</p>
@@ -14774,12 +14491,12 @@ grant_validator = "org.wso2.carbon.identity.oauth2.grant.kerberos.KerberosGrantV
                                     <div>
                                         <p>
                                             <span class="param-type string"> string </span>
-                                            
+
                                         </p>
                                         <div class="param-default">
                                             <span class="param-default-value">Default: <code>org.wso2.carbon.identity.oauth2.grant.jwt.JWTGrantValidator</code></span>
                                         </div>
-                                        
+
                                     </div>
                                     <div class="param-description">
                                         <p>JWT Bearer grant validator implementation class.</p>
@@ -14793,7 +14510,7 @@ grant_validator = "org.wso2.carbon.identity.oauth2.grant.kerberos.KerberosGrantV
                                     <div>
                                         <p>
                                             <span class="param-type string"> boolean </span>
-                                            
+
                                         </p>
                                         <div class="param-default">
                                             <span class="param-default-value">Default: <code>false</code></span>
@@ -14814,12 +14531,12 @@ grant_validator = "org.wso2.carbon.identity.oauth2.grant.kerberos.KerberosGrantV
                                     <div>
                                         <p>
                                             <span class="param-type string"> string </span>
-                                            
+
                                         </p>
                                         <div class="param-default">
                                             <span class="param-default-value">Default: <code>org.wso2.carbon.identity.oauth2.grant.kerberos.KerberosGrant</code></span>
                                         </div>
-                                        
+
                                     </div>
                                     <div class="param-description">
                                         <p>Kerberos grant implementation class.</p>
@@ -14833,12 +14550,12 @@ grant_validator = "org.wso2.carbon.identity.oauth2.grant.kerberos.KerberosGrantV
                                     <div>
                                         <p>
                                             <span class="param-type string"> string </span>
-                                            
+
                                         </p>
                                         <div class="param-default">
                                             <span class="param-default-value">Default: <code>org.wso2.carbon.identity.oauth2.grant.kerberos.KerberosGrantValidator</code></span>
                                         </div>
-                                        
+
                                     </div>
                                     <div class="param-description">
                                         <p>Kerberos grant validator implementation class.</p>
@@ -14851,12 +14568,10 @@ grant_validator = "org.wso2.carbon.identity.oauth2.grant.kerberos.KerberosGrantV
             </div>
         </div>
     </section>
+
 </div>
 
-
-
 ## Token persistence configurations
-
 
 <div class="mb-config-catalog">
     <section>
@@ -14909,9 +14624,6 @@ persistence_pool_size = 0</code></pre>
     </section>
 </div>
 
-
-
-
 <div class="mb-config-catalog">
     <section>
         <div class="mb-config-options">
@@ -14963,10 +14675,7 @@ retry_count_on_persistence_failures = 5</code></pre>
     </section>
 </div>
 
-
-
 ## User Store Properties
-
 
 <div class="mb-config-catalog">
     <section>
@@ -15792,10 +15501,7 @@ UserCoreCacheTimeOut = 5 </code></pre>
     </section>
 </div>
 
-
-
 ## Custom keystore configurations
-
 
 <div class="mb-config-catalog">
     <section>
@@ -15928,10 +15634,7 @@ key_password = "wso2carbon"</code></pre>
     </section>
 </div>
 
-
-
 ## HTTP Access Logs
-
 
 <div class="mb-config-catalog">
     <section>
@@ -15986,10 +15689,7 @@ enabled = true</code></pre>
     </section>
 </div>
 
-
-
 ## Registry Handler properties
-
 
 <div class="mb-config-catalog">
     <section>
@@ -16011,47 +15711,55 @@ disableSymlinkCreation = "true"
 myprop1= "true"
 
 ### parent property 1: schemaLocationConfiguration
+
 [[registry_handler.nested_property]]
 enable = true
 name = "schemaLocationConfiguration"
 type = "xml"
 
 # nested property 1
+
 [[registry_handler.nested_property.schemaLocationConfiguration]]
 tag = 'location'
 value = "/trunk/schemas/1"
 key = "mykey"
 
 # nested property 2
+
 [[registry_handler.nested_property.schemaLocationConfiguration]]
 tag = 'location'
 value = "/trunk/schemas/2"
 key = "mykey2"
 
 # nested property 3
+
 [[registry_handler.nested_property.schemaLocationConfiguration]]
 tag = 'newlocation'
 value = "/trunk/schemas/3"
 key = "mykey3"
 
 ## parent property 2: wsdlLocationConfiguration
+
 [[registry_handler.nested_property]]
 enable = true
 name = "wsdlLocationConfiguration"
 type = "xml"
 
 # nested property 1
+
 [[registry_handler.nested_property.wsdlLocationConfiguration]]
 tag = 'location'
 value = "/trunk/wsdls/"
 
 ## parent property 3: policyLocationConfiguration
+
 [[registry_handler.nested_property]]
 enable = true
 name = "policyLocationConfiguration"
 type = "xml"
 
 # nested property 1
+
 [[registry_handler.nested_property.policyLocationConfiguration]]
 tag = 'location'
 value = "/trunk/policies/"
@@ -16059,7 +15767,8 @@ value = "/trunk/policies/"
 [registry_handler.filter_properties]
 mediaType = "application/vnd.wso2-service+xml"
 
-##### Registry handler 2 #####
+##### Registry handler 2
+
 [[registry_handler]]
 class="org.wso2.carbon.registry.extensions.handlers.ZipWSDLMediaTypeHandle"
 filter_class="org.wso2.carbon.registry.core.jdbc.handlers.filters.MediaTypeMatcher2"
@@ -16072,12 +15781,14 @@ disableSymlinkCreation = true
 numberOfRetry = 3
 
 ## parent property 1: schemaLocationConfiguration
+
 [[registry_handler.nested_property]]
 enable = true
 name = "schemaLocationConfiguration"
 type = "xml"
 
 # nested property 1
+
 [[registry_handler.nested_property.schemaLocationConfiguration]]
 tag = 'location'
 value = "/trunk/schemas/1"
@@ -16086,48 +15797,48 @@ key = "mykey"
 [registry_handler.filter_properties]
 mediaType = "application/vnd.wso2-service+xml"
 
-
 #### Sample registry.xml entry generated will be as follows
+
 &lt;!--Config for custom registry handlers.--&gt;
 &lt;handler class=&quot;org.wso2.carbon.registry.extensions.handlers.WSDLMediaTypeHandler&quot;&gt;
-    &lt;property name=&quot;myprop1&quot;&gt;true&lt;/property&gt;
-    &lt;property name=&quot;disableSymlinkCreation&quot;&gt;true&lt;/property&gt;
-    &lt;property name=&quot;schemaLocationConfiguration&quot; type=&quot;xml&quot;&gt;
-            &lt;location key=&quot;mykey&quot;&gt;/trunk/schemas/1&lt;/location&gt;
-            &lt;location key=&quot;mykey2&quot;&gt;/trunk/schemas/2&lt;/location&gt;
-            &lt;newlocation key=&quot;mykey3&quot;&gt;/trunk/schemas/3&lt;/newlocation&gt;
-    &lt;/property&gt;
-    &lt;property name=&quot;wsdlLocationConfiguration&quot; type=&quot;xml&quot;&gt;
-            &lt;location&gt;/trunk/wsdls/&lt;/location&gt;
-    &lt;/property&gt;
-    &lt;property name=&quot;policyLocationConfiguration&quot; type=&quot;xml&quot;&gt;
-            &lt;location&gt;/trunk/policies/&lt;/location&gt;
-    &lt;/property&gt;
-    &lt;filter class=&quot;org.wso2.carbon.registry.core.jdbc.handlers.filters.MediaTypeMatcher&quot;&gt;
-        &lt;property name=&quot;mediaType&quot;&gt;application/vnd.wso2-service+xml&lt;/property&gt;
-    &lt;/filter&gt;
+&lt;property name=&quot;myprop1&quot;&gt;true&lt;/property&gt;
+&lt;property name=&quot;disableSymlinkCreation&quot;&gt;true&lt;/property&gt;
+&lt;property name=&quot;schemaLocationConfiguration&quot; type=&quot;xml&quot;&gt;
+&lt;location key=&quot;mykey&quot;&gt;/trunk/schemas/1&lt;/location&gt;
+&lt;location key=&quot;mykey2&quot;&gt;/trunk/schemas/2&lt;/location&gt;
+&lt;newlocation key=&quot;mykey3&quot;&gt;/trunk/schemas/3&lt;/newlocation&gt;
+&lt;/property&gt;
+&lt;property name=&quot;wsdlLocationConfiguration&quot; type=&quot;xml&quot;&gt;
+&lt;location&gt;/trunk/wsdls/&lt;/location&gt;
+&lt;/property&gt;
+&lt;property name=&quot;policyLocationConfiguration&quot; type=&quot;xml&quot;&gt;
+&lt;location&gt;/trunk/policies/&lt;/location&gt;
+&lt;/property&gt;
+&lt;filter class=&quot;org.wso2.carbon.registry.core.jdbc.handlers.filters.MediaTypeMatcher&quot;&gt;
+&lt;property name=&quot;mediaType&quot;&gt;application/vnd.wso2-service+xml&lt;/property&gt;
+&lt;/filter&gt;
 &lt;/handler&gt;
 &lt;handler class=&quot;org.wso2.carbon.registry.extensions.handlers.ZipWSDLMediaTypeHandle&quot;&gt;
-    &lt;property name=&quot;schemaMediaType&quot;&gt;application/xsd+xml&lt;/property&gt;
-    &lt;property name=&quot;threadPoolSize&quot;&gt;50&lt;/property&gt;
-    &lt;property name=&quot;numberOfRetry&quot;&gt;3&lt;/property&gt;
-    &lt;property name=&quot;wsdlMediaType&quot;&gt;application/wsdl+xml&lt;/property&gt;
-    &lt;property name=&quot;disableSymlinkCreation&quot;&gt;true&lt;/property&gt;
-    &lt;property name=&quot;schemaLocationConfiguration&quot; type=&quot;xml&quot;&gt;
-            &lt;location key=&quot;mykey&quot;&gt;/trunk/schemas/1&lt;/location&gt;
-    &lt;/property&gt;
-    &lt;filter class=&quot;org.wso2.carbon.registry.core.jdbc.handlers.filters.MediaTypeMatcher2&quot;&gt;
-        &lt;property name=&quot;mediaType&quot;&gt;application/vnd.wso2-service+xml&lt;/property&gt;
-    &lt;/filter&gt;
+&lt;property name=&quot;schemaMediaType&quot;&gt;application/xsd+xml&lt;/property&gt;
+&lt;property name=&quot;threadPoolSize&quot;&gt;50&lt;/property&gt;
+&lt;property name=&quot;numberOfRetry&quot;&gt;3&lt;/property&gt;
+&lt;property name=&quot;wsdlMediaType&quot;&gt;application/wsdl+xml&lt;/property&gt;
+&lt;property name=&quot;disableSymlinkCreation&quot;&gt;true&lt;/property&gt;
+&lt;property name=&quot;schemaLocationConfiguration&quot; type=&quot;xml&quot;&gt;
+&lt;location key=&quot;mykey&quot;&gt;/trunk/schemas/1&lt;/location&gt;
+&lt;/property&gt;
+&lt;filter class=&quot;org.wso2.carbon.registry.core.jdbc.handlers.filters.MediaTypeMatcher2&quot;&gt;
+&lt;property name=&quot;mediaType&quot;&gt;application/vnd.wso2-service+xml&lt;/property&gt;
+&lt;/filter&gt;
 &lt;/handler&gt;
 </code></pre>
-                    </div>
-                </div>
-                <div class="doc-wrapper">
-                    <div class="mb-config">
-                        <div class="config-wrap">
-                            <code>[[registry_handler]]</code>
-                            
+</div>
+</div>
+<div class="doc-wrapper">
+<div class="mb-config">
+<div class="config-wrap">
+<code>[[registry_handler]]</code>
+
                             <p>
                                 Registry Handler configurations.
                             </p>
@@ -16146,7 +15857,7 @@ mediaType = "application/vnd.wso2-service+xml"
                                         <div class="param-default">
                                             <span class="param-default-value">Default: <code></code></span>
                                         </div>
-                                        
+
                                     </div>
                                     <div class="param-description">
                                         <p>The class name of the Handler. Provided in the class attribute in the Handler.</p>
@@ -16165,7 +15876,7 @@ mediaType = "application/vnd.wso2-service+xml"
                                         <div class="param-default">
                                             <span class="param-default-value">Default: <code></code></span>
                                         </div>
-                                        
+
                                     </div>
                                     <div class="param-description">
                                         <p>The class name of the filter which is associated with the Handler (Ex: org.wso2.carbon.registry.core.jdbc.handlers.filters.MediaTypeMatcher, org.wso2.carbon.registry.core.jdbc.handlers.filters.URLMatcher).</p>
@@ -16174,16 +15885,16 @@ mediaType = "application/vnd.wso2-service+xml"
                             </div>
                         </div><div class="config-wrap">
                             <code>[registry_handler.properties]</code>
-                            
+
                             <p>
                                 Registry Handler custom properties which do not have nested elements. Properties are listed as key, value pairs. These custom properties will be used in Handler processing logic.
                             </p>
                         </div>
                         <div class="params-wrap">
-                            
+
                         </div><div class="config-wrap">
                             <code>[[registry_handler.nested_property]]</code>
-                            
+
                             <p>
                                 Registry Handler custom property which has nested elements under it.
                             </p>
@@ -16197,7 +15908,7 @@ mediaType = "application/vnd.wso2-service+xml"
                                     <div>
                                         <p>
                                             <span class="param-type string"> boolean </span>
-                                            
+
                                         </p>
                                         <div class="param-default">
                                             <span class="param-default-value">Default: <code>false</code></span>
@@ -16223,7 +15934,7 @@ mediaType = "application/vnd.wso2-service+xml"
                                         <div class="param-default">
                                             <span class="param-default-value">Default: <code></code></span>
                                         </div>
-                                        
+
                                     </div>
                                     <div class="param-description">
                                         <p>The name of the custom parent property.</p>
@@ -16237,7 +15948,7 @@ mediaType = "application/vnd.wso2-service+xml"
                                     <div>
                                         <p>
                                             <span class="param-type string"> string </span>
-                                            
+
                                         </p>
                                         <div class="param-default">
                                             <span class="param-default-value">Default: <code>xml</code></span>
@@ -16253,7 +15964,7 @@ mediaType = "application/vnd.wso2-service+xml"
                             </div>
                         </div><div class="config-wrap">
                             <code>[[registry_handler.nested_property.&lt;parent_property_name&gt;]]</code>
-                            
+
                             <p>
                                 Nested element which is under a custom Registry Handler property.
                             </p>
@@ -16272,7 +15983,7 @@ mediaType = "application/vnd.wso2-service+xml"
                                         <div class="param-default">
                                             <span class="param-default-value">Default: <code></code></span>
                                         </div>
-                                        
+
                                     </div>
                                     <div class="param-description">
                                         <p>XML element name of the nested property.</p>
@@ -16291,7 +16002,7 @@ mediaType = "application/vnd.wso2-service+xml"
                                         <div class="param-default">
                                             <span class="param-default-value">Default: <code></code></span>
                                         </div>
-                                        
+
                                     </div>
                                     <div class="param-description">
                                         <p>Value of the nested property element.</p>
@@ -16305,12 +16016,12 @@ mediaType = "application/vnd.wso2-service+xml"
                                     <div>
                                         <p>
                                             <span class="param-type string"> string </span>
-                                            
+
                                         </p>
                                         <div class="param-default">
                                             <span class="param-default-value">Default: <code></code></span>
                                         </div>
-                                        
+
                                     </div>
                                     <div class="param-description">
                                         <p>Value of the additional key attribute of the XML element generated for the nested property.</p>
@@ -16319,25 +16030,23 @@ mediaType = "application/vnd.wso2-service+xml"
                             </div>
                         </div><div class="config-wrap">
                             <code>[registry_handler.filter_properties]</code>
-                            
+
                             <p>
                                 Define registry handler filter element configurations.
                             </p>
                         </div>
                         <div class="params-wrap">
-                            
+
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
+
 </div>
 
-
-
 ## Transport Header Handler
-
 
 <div class="mb-config-catalog">
     <section>
@@ -16475,10 +16184,7 @@ excludeResponseHeaders = ""
     </section>
 </div>
 
-
-
 ## Global handler configurations
-
 
 <div class="mb-config-catalog">
     <section>
@@ -16552,10 +16258,7 @@ class="org.wso2.carbon.apimgt.gateway.handlers.custom.customer_handler"
     </section>
 </div>
 
-
-
 ## APIM Governance Configurations
-
 
 <div class="mb-config-catalog">
     <section>
@@ -16669,10 +16372,7 @@ task_cleanup_interval_minutes = 30
     </section>
 </div>
 
-
-
 ## OAuth token endpoint trust store configurations
-
 
 <div class="mb-config-catalog">
     <section>
@@ -16765,9 +16465,6 @@ password = "wso2carbon"</code></pre>
     </section>
 </div>
 
-
-
-
 <div class="mb-config-catalog">
     <section>
         <div class="mb-config-options">
@@ -16804,22 +16501,20 @@ secure_eviction_time_period = 5500
 secure_min_idle_time_in_pool = 5000
 max_reconnection_interval = 3600
 </code></pre>
-                    </div>
-                </div>
-                <div class="doc-wrapper">
-                    <div class="mb-config">
-                        
+</div>
+</div>
+<div class="doc-wrapper">
+<div class="mb-config">
+
                     </div>
                 </div>
             </div>
         </div>
     </section>
+
 </div>
 
-
-
 ## API-M Basic auth configurations
-
 
 <div class="mb-config-catalog">
     <section>
@@ -16933,10 +16628,7 @@ max_wait_millis = 30000
     </section>
 </div>
 
-
-
 ## Synapse Artifact Generator Pool Configurations
-
 
 <div class="mb-config-catalog">
     <section>
@@ -17048,4 +16740,3 @@ queue_capacity = 50</code></pre>
         </div>
     </section>
 </div>
-
