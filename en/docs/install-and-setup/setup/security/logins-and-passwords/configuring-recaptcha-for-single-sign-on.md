@@ -1,11 +1,11 @@
-# Configuring reCaptcha for Single Sign On
+# Configuring reCaptcha for Single Sign-On
 
 This section guides you through configuring reCaptcha for the Single Sign
 on(SSO) flow. You can mitigate or block brute force
 attacks, by configuring reCaptcha.
 
 !!! Info 
-    -   For more information on configuring single sign on, see [Configuring
+    -   For more information on configuring single sign-on, see [Configuring
     Single Sign-On With SAML2]({{base_path}}/reference/customize-product/extending-api-manager/saml2-sso/configuring-single-sign-on-with-saml2).
     -   For more information on brute force attacks, see [Mitigating Brute
     Force Attacks](https://is.docs.wso2.com/en/latest/administer/mitigating-brute-force-attacks/).
