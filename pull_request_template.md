@@ -1,97 +1,52 @@
 ## Purpose
-Improves the quality and professionalism of the WSO2 API Manager documentation by fixing multiple typographical, grammatical, capitalization, and formatting issues across navigation entries.
-
+> Describe the problems, issues, or needs driving this feature/fix and include links to related issues in the following format: Resolves issue1, issue2, etc.
 
 ## Goals
-Enhance the accuracy, consistency, and readability of the API Manager documentation by:
-
-- Fixing spelling and casing errors in navigation titles (correcting "Asymetric", proper capitalization of "API").
-- Fixing grammatical inconsistencies to ensure parallel structure in menu items (correcting mixed verb tenses).
-- Applying proper hyphenation and title-casing to compound security terms.
-- Resolving a formatting issue where a Markdown file prefix (admin_) appeared into the rendered UI text.
+> Describe the solutions that this feature/fix will introduce to resolve the problems described above
 
 ## Approach
-Updated navigation entries (mainly in `mkdocs.yml`) with the following corrections:
+> Describe how you are implementing the solutions. Include an animated GIF or screenshot if the change affects the UI (email documentation@wso2.com to review all UI text). Include a link to a Markdown file or Google doc if the feature write-up is too long to paste here.
 
-### 1. Spelling & Casing Corrections
-- **"About Asymetric Cryptography" → "About Asymmetric Cryptography"**  
-  *Security → Configure Keystores*
+## User stories
+> Summary of user stories addressed by this change>
 
-- **"Change the Provider of an Api" → "Change the Provider of an API"**  
-  *Manage Applications → Advanced Topics*
-
-- Standardized **"api" → "API"** (12 occurrences) to ensure consistent technical terminology across the documentation.
-
-- **"PingFederate as A Key Manager" → "PingFederate as a Key Manager"**  
-  *Third-Party Key Managers*
-
-
-### 2. Grammar & Phrasing Corrections
-- **"Enable or Disabling Self Signup" → "Enabling or Disabling Self Signup"**  
-  *Customizations → Customize the Developer Portal*
-
-- **"Configure Single Sign On with SAML2" → "Configure Single Sign-On with SAML2"**
-
-- **"Multi Factor Authentication" → "Multi-Factor Authentication"**
-
-- **"Role based access control" → "Role-Based Access Control"**
-
-- **"Fine Grained Access Control" → "Fine-Grained Access Control"**
-
-### 3. Formatting & UI Fix
-Removed an unintended file prefix that appeared in the UI:
-
-- **"admin_Directory Structure of WSO2 Products" → "Directory Structure of WSO2 Products"**  
-  *Compliance Guides → Guides*
-
-Renamed the file "about-asymetric-cryptography.md" into "about-asymmetric-cryptography.md"
-
-## User Stories
-As a documentation reader, I want clear, correctly formatted navigation titles so that the documentation appears professional and is easier to understand and navigate.
-
-## Release Note
-Improved documentation quality by correcting spelling, grammar, capitalization, and formatting issues in navigation titles.
+## Release note
+> Brief description of the new feature or bug fix as it will appear in the release notes
 
 ## Documentation
-N/A — This change improves existing documentation structure and wording without introducing new documentation content.
+> Link(s) to product documentation that addresses the changes of this PR. If no doc impact, enter “N/A” plus brief explanation of why there’s no doc impact
 
 ## Training
-N/A — No training content changes required.
+> Link to the PR for changes to the training content in https://github.com/wso2/WSO2-Training, if applicable
 
 ## Certification
-N/A — These documentation improvements do not impact certification exams.
+> Type “Sent” when you have provided new/updated certification questions, plus four answers for each question (correct answer highlighted in bold), based on this change. Certification questions/answers should be sent to certification@wso2.com and NOT pasted in this PR. If there is no impact on certification exams, type “N/A” and explain why.
 
 ## Marketing
-N/A — Internal documentation quality improvement only.
+> Link to drafts of marketing content that will describe and promote this feature, including product page changes, technical articles, blog posts, videos, etc., if applicable
 
-## Automation Tests
-- Unit Tests  
-  N/A
+## Automation tests
+ - Unit tests 
+   > Code coverage information
+ - Integration tests
+   > Details about the test cases and coverage
 
-- Integration Tests  
-  N/A
-
-## Security Checks
-- Followed secure coding standards: **N/A (documentation update)**
-- Ran FindSecurityBugs plugin: **N/A**
-- Confirmed that no credentials, tokens, or secrets are included: **Yes**
+## Security checks
+ - Followed secure coding standards in http://wso2.com/technical-reports/wso2-secure-engineering-guidelines? yes/no
+ - Ran FindSecurityBugs plugin and verified report? yes/no
+ - Confirmed that this PR doesn't commit any keys, passwords, tokens, usernames, or other secrets? yes/no
 
 ## Samples
-N/A — No code samples affected.
+> Provide high-level details about the samples related to this feature
 
 ## Related PRs
-N/A
+> List any other related PRs
 
-## Migrations
-N/A
+## Migrations (if applicable)
+> Describe migration steps and platforms on which migration has been tested
 
-## Test Environment
-Tested by verifying the rendered navigation structure locally.
-
+## Test environment
+> List all JDK versions, operating systems, databases, and browser/versions on which this feature/fix was tested
+ 
 ## Learning
-Reviewed documentation style conventions including:
-
-- Proper technical capitalization
-- Title casing for navigation items
-- Standard hyphenation for security terminology
-- Consistency with existing documentation patterns
+> Describe the research phase and any blog posts, patterns, libraries, or add-ons you used to solve the problem.
