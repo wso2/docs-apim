@@ -122,7 +122,7 @@ nav:
                         - Keystore Basics:
                             - Create a New Keystore: install-and-setup/setup/security/configuring-keystores/keystore-basics/creating-new-keystores.md
                             - Renew a CA Signed Certificate: install-and-setup/setup/security/configuring-keystores/keystore-basics/renewing-a-ca-signed-certificate-in-a-keystore.md
-                            - About Asymetric Cryptography: install-and-setup/setup/security/configuring-keystores/keystore-basics/about-asymetric-cryptography.md
+                            - About Asymmetric Cryptography: install-and-setup/setup/security/configuring-keystores/keystore-basics/about-asymmetric-cryptography.md
                     - Enable HostName Verification: install-and-setup/setup/security/enabling-hostname-verification.md
                     - Enable Java Security Manager: install-and-setup/setup/security/enabling-java-security-manager.md
                     - General Data Protection Regulation (GDPR) for WSO2 API Manager: install-and-setup/setup/security/general-data-protection-regulation-gdpr-for-wso2-api-manager.md
@@ -424,7 +424,7 @@ nav:
                 - Configure Keycloak as a Key Manager: api-security/key-management/third-party-key-managers/configure-keycloak-connector.md
                 - Configure Okta as a Key Manager: api-security/key-management/third-party-key-managers/configure-okta-connector.md
                 - Configure Auth0 as a Key Manager: api-security/key-management/third-party-key-managers/configure-auth0-connector.md
-                - Configure PingFederate as A Key Manager: api-security/key-management/third-party-key-managers/configure-pingfederate-connector.md
+                - Configure PingFederate as a Key Manager: api-security/key-management/third-party-key-managers/configure-pingfederate-connector.md
                 - Configure ForgeRock as a Key Manager: api-security/key-management/third-party-key-managers/configure-forgerock-connector.md
                 - Configure the Azure AD as a Key Manager: api-security/key-management/third-party-key-managers/configure-azure-ad-key-manager.md
                 - Configure a Custom Key Manager for Out-of-Band Provisioning: api-security/key-management/third-party-key-managers/configure-custom-km-out-of-band.md
@@ -598,7 +598,7 @@ nav:
               - Configure a Gateway: administer/multiple-gateways/configure-gateway.md
               - Configure Gateway Visibility: administer/multiple-gateways/configure-gateway-visibility.md
         - Advanced Configurations: administer/advanced-configurations.md
-        - Manage Role based access control for the Admin portal: administer/role-based-access-control.md
+        - Manage Role-Based Access Control for the Admin portal: administer/role-based-access-control.md
         - Rate Limiting:
             - Manage Subscription Policies: administer/rate-limiting/manage-subscription-policies.md
             - Manage AI Subscription Policies: administer/rate-limiting/manage-ai-subscription-policies.md
@@ -706,7 +706,7 @@ nav:
                     - Configure Single Sign On with SAML2: reference/customize-product/extending-api-manager/saml2-sso/configuring-single-sign-on-with-saml2.md
                     - Configure External IDP Through Identity Server for SSO: reference/customize-product/extending-api-manager/saml2-sso/configuring-external-idp-through-identity-server-for-sso.md
                     - Configure Identity Server as IDP for SSO: reference/customize-product/extending-api-manager/saml2-sso/configuring-identity-server-as-idp-for-sso.md
-                    - Multi Factor Authentication for Publisher and Developer Portals: reference/customize-product/extending-api-manager/saml2-sso/multi-factor-authentication-mfa-for-publisher-and-developer-portals.md
+                    - Multi-Factor Authentication for Publisher and Developer Portals: reference/customize-product/extending-api-manager/saml2-sso/multi-factor-authentication-mfa-for-publisher-and-developer-portals.md
             - Customizations:
                 - Customize the Developer Portal:
                     - Override the Developer Portal Theme: reference/customize-product/customizations/customizing-the-developer-portal/overriding-developer-portal-theme.md
@@ -722,7 +722,7 @@ nav:
                     - Enable or Disable Banner: reference/customize-product/customizations/customizing-the-developer-portal/enable-or-disable-banner.md
                     - Styling API Details Left Menu: reference/customize-product/customizations/customizing-the-developer-portal/styling-api-details-left-menu.md
                     - Styling the Logo and Header: reference/customize-product/customizations/customizing-the-developer-portal/styling-the-logo-and-header.md
-                    - Enable or Disabling Self Signup: reference/customize-product/customizations/customizing-the-developer-portal/enabling-or-disabling-self-signup.md
+                    - Enabling or Disabling Self Signup: reference/customize-product/customizations/customizing-the-developer-portal/enabling-or-disabling-self-signup.md
                     - Configure reCaptcha for Self-SignUp: reference/customize-product/customizations/customizing-the-developer-portal/configuring-recaptcha-for-self-signup.md
                 - Override the Publisher Portal Theme: reference/customize-product/customizations/overriding-the-publisher-portal-theme.md
                 - Log in to the Developer Portal Using Social Media: reference/customize-product/customizations/log-in-to-the-dev-portal-using-social-media.md

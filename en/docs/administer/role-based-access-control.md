@@ -1,4 +1,4 @@
-# **Role based access control for Admin Portal**
+# **Role-Based Access Control for Admin Portal**
 
 Super admin can restrict each section in the admin portal based on the scopes. Please follow the
 below scopes  chart to define scopes.
