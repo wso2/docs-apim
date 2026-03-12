@@ -18,7 +18,7 @@
 
 3. Map the external IDP roles to the roles configured in API Manager. For more information on mapping roles, see [Configuring Roles for an Identity Provider](https://is.docs.wso2.com/en/5.10.0/learn/configuring-roles-for-an-identity-provider/) .
     ![role-config]({{base_path}}/assets/img/learn/extensions/saml2-sso/role-config.png)
-4. Open the management console, and click **Edit** under **Service Providers.**
+4. Log in to the Console, and click **Edit** under **Service Providers.**
 
 5. Under **Local & Outbound Authentication Configuration** select **Federated Authentication** . Select the newly created external IDP.
     ![local-inbound-auth]({{base_path}}/assets/img/learn/extensions/saml2-sso/local-inbound-auth.png)
