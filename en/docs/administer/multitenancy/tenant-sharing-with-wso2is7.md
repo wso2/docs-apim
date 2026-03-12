@@ -123,8 +123,10 @@ For configuring WSO2 IS 7.x as the default key manager you have to add the follo
 
 ````toml
 [apim.tenant_sharing.properties]
-skip_create_resident_key_manager = true
 auto_configure_key_manager=true
+
+[apim.key_manager]
+skip_create_resident_key_manager=true
 ````
 By setting `skip_create_resident_key_manager` = `true`, the default Resident Key Manager will not be created for any tenant, including the super tenant.
 
@@ -159,8 +161,10 @@ Now the WSO2 IS 7.x as the  default key manager will be created with the name `R
     
     ````toml
     [apim.tenant_sharing.properties]
-    skip_create_resident_key_manager = true
     auto_configure_key_manager=true
+
+    [apim.key_manager]
+    skip_create_resident_key_manager=true
     ````
 
 [//]: # ( <image>)
