@@ -17,7 +17,7 @@ Ensure that you have taken into account the respective security hardening factor
 For more information, see [Production Deployment Guidelines](../../../../install-and-setup/deploying-wso2-api-manager/production-deployment-guidelines/#common-guidelines-and-checklist).
 
 !!! Note
-    The same encryption key should be used for all API Manager instances to decrypt the registry resources. For more information, see [Configuring Encryption Key](../../../../install-and-setup/setup/security/encryption/symmetric-encryption/#generate-a-secret-key).
+    Configure the same encryption key on all API Manager instances before starting any node for the first time so they can decrypt shared registry resources consistently. For more information, see [Configuring Encryption Key](../../../../install-and-setup/setup/security/encryption/symmetric-encryption/#generate-a-secret-key).
 
 ### Step 4 - Create and import SSL certificates
 

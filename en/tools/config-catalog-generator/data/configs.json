@@ -6483,8 +6483,8 @@
             "options": [
                 {
                     "name": "encryption",
-                    "required": true,
-                    "description": "This configuration is required to define the encryption settings.",
+                    "required": false,
+                    "description": "Defines symmetric encryption settings. Configure this explicitly before first startup in production or distributed deployments.",
                     "params": [
                         {
                             "name": "key",
@@ -6492,7 +6492,7 @@
                             "required": true,
                             "default": "",
                             "possible": "",
-                            "description": "The encryption key used in symmetric cryptography."
+                            "description": "The symmetric encryption key used for internal data protection. In distributed or cloud deployments, all API Manager instances must use the same key."
                         }
                     ]
                 }

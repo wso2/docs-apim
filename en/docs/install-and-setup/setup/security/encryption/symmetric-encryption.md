@@ -5,7 +5,7 @@ Symmetric encryption uses a single key to encrypt and decrypt information. WSO2 
 !!! note
     If required, you may switch to [asymmetric key encryption]({{base_path}}/install-and-setup/setup/security/encryption/asymmetric-encryption).
 
-### Why symmetric key encryption?
+## Why symmetric key encryption?
 
 From WSO2 API Manager version 4.7.0 onwards, symmetric key encryption is used as the default encryption mechanism due to the following reasons:
 
@@ -15,9 +15,9 @@ From WSO2 API Manager version 4.7.0 onwards, symmetric key encryption is used as
 
 - **Post-Quantum Security** - Quantum computers have the potential to break widely-used asymmetric encryption algorithms such as RSA and ECC by efficiently solving the underlying mathematical problems. Symmetric key encryption, on the other hand, is more resistant to quantum attacks. 
 
-### How is it used?
+## How is it used?
 
-WSO2 API Manager uses the `AES/GCM/NoPadding` algorithm for symmetric key encryption. GCM is a stream cipher and therefore, enables simultaneous encryption of multiple blocks, resulting in faster data encryption. WSO2 API Manager supports AES-256 key size.
+WSO2 API Manager uses the `AES/GCM/NoPadding` algorithm for symmetric key encryption. GCM is an authenticated encryption mode that supports parallelizable encryption/decryption, which can improve performance. WSO2 API Manager supports AES-256 key size.
 
 WSO2 API Manager uses symmetric key encryption to encrypt the following sensitive data and credentials.
 
@@ -37,7 +37,7 @@ WSO2 API Manager uses symmetric key encryption to encrypt the following sensitiv
 
 - **AI API Key secrets** - API keys and credentials for AI APIs configured in the Publisher Portal.
 
-### Generate a secret key
+## Generate a secret key
 
 For enhanced security, it is recommended to generate your own secret key for symmetric key encryption in WSO2 API Manager.
 
@@ -56,7 +56,7 @@ To do so,
 
     ```toml
     [encryption]
-    key = "748fe62b5b9f6560331d71f5d01017086506018bff7a0ca3347b7979d29b757f"
+    key = "<generated-64-char-hex-key>"
     ```  
 
 If a custom encryption key is not provided, it will auto-generate a random encryption key during server startup with the following warning message.
