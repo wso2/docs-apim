@@ -234,7 +234,7 @@ Start the API Manager server and log-in to the Admin portal to configure Azure A
 
   If you see this message in logs or while updating the application several times, The issue is with limitation with Azure AD `client_secret`. At a given application max number of client_secrets can have is 2. Delete old one from AzureAD console web client.
 
-# Adding Existing Key with APIM
+## Adding Existing Key with APIM
     
 !!! note
     Microsoft Entra ID does not allow retrieving a previously generated `client_secret`. Therefore, when an application is mapped using **Provide Existing OAuth Keys**, the Developer Portal cannot display the client secret afterward.
@@ -245,9 +245,9 @@ Microsoft Entra ID supports **two versions of JWT tokens**, namely **V1** and **
 
 To validate both token types in WSO2 API Manager, you must configure **two separate Key Managers**.
 
-## APIM Configuration
+### APIM Configuration
 
-### Configure a Key Manager for V1 Tokens
+#### Configure Key Manager for V1 Tokens
 
 Follow the same steps described earlier to configure a Key Manager. However, apply the following changes.
 
@@ -255,7 +255,7 @@ Follow the same steps described earlier to configure a Key Manager. However, app
     `https://sts.windows.net/{tenant-id}/` 
 2. In the **Claim URIs** section, configure the **Consumer Key Claim URI** as: `appid` for V1 tokens.
 
-### Configure Key Manager for V2 Tokens
+#### Configure Key Manager for V2 Tokens
 
 Follow the same Key Manager configuration steps but apply the following changes.
 
@@ -263,16 +263,23 @@ Follow the same Key Manager configuration steps but apply the following changes.
     `https://login.microsoftonline.com/{tenant-id}/v2.0`
 2. In the **Claim URIs** section, configure the **Consumer Key Claim URI** as: `azp` for V2 tokens.
 
-## Microsoft Entra ID Configuration
+### Microsoft Entra ID Configuration
 
-### Configure the application to generate V1 or V2 tokens
+#### Configure the application to generate V1 or V2 tokens
 
-The steps to create the application and generate client secrets remain the same as described in the previous section. However, if you need to generate **V2 tokens**, make sure the value of `requestedAccessTokenVersion` is set to `2` in the application manifest. If the value is `null` or `1`, the generated tokens will be of version 1.
+The steps to create the application and generate client secrets remain the same as described in the previous section. However, if you need to generate **V2 tokens**, make sure the value of `requestedAccessTokenVersion` is set to `2` in the application manifest. If the value is `null` or `1`, the generated tokens will be of version 1. To update the manifest, follow the steps below.
+
+1. Navigate to the Microsoft Entra Admin Center and select **App registrations** from the left-hand menu.
+2. Click on the application you want to configure.
+3. In the left-hand menu, select **Manifest**.
+4. In the manifest editor, locate the `requestedAccessTokenVersion` property and set its value.
+
+[![Azure AD Application Manifest Example]({{base_path}}/assets/img/administer/azuread-application-manifest.png){: style="width:90%"}]({{base_path}}/assets/img/administer/azuread-application-manifest.png)
 
 !!! note
     If you plan to use **Microsoft Entra External ID** as a third-party Key Manager, you can follow the same configuration steps described above. Ensure that the correct Application ID URI is configured because this value is used as the scope parameter when generating access tokens.
 
-## Map Application in Developer Portal
+### Map Application in Developer Portal
 
 When an application is created in the WSO2 Developer Portal, it must be mapped to an existing application created in Microsoft Entra ID.
 
