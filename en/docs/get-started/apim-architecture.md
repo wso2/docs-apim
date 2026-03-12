@@ -1,6 +1,6 @@
 # Architecture and Key Components
 
-The diagram below is a high-level snapshot of WSO2 API Manager and the various components that it can work together with. 
+The diagram below is a high-level snapshot of WSO2 API Manager and the various components that it can works with. 
 
 [![Basic Architecture]({{base_path}}/assets/img/get_started/architecture/apim-architecture-final.png)]({{base_path}}/assets/img/get_started/architecture/apim-architecture-final.png)
 
@@ -8,7 +8,7 @@ The diagram below is a high-level snapshot of WSO2 API Manager and the various c
 
 ## API Control Plane
 
-The API Control Plane is where API creation and API management takes place. It consists of portals (Publisher, Developer Portal and Service Catalog) for users to create and manage APIs, implement rate limiting policies, monitor, and monetize etc. The API Control Plane consists of a Key manager component for API security validation and API key generation. It also provides a set of APIs to interact with external tools like API Controller. The API Control Plane includes API Analytics dashboards, displaying various business insights.
+The API Control Plane is where API creation and API management takes place. It consists of portals (Publisher, Developer Portal and Service Catalog) for users to create and manage APIs, implement rate limiting policies, monitor, and monetize. The API Control Plane consists of a Key Manager component for API security validation and API key generation. It also provides a set of APIs to interact with external tools like API Controller. The API Control Plane includes API Analytics dashboards, displaying various business insights.
 
 #### API Publisher
 
@@ -36,11 +36,11 @@ These integration services can be created using WSO2 Integration Studio and a va
 
 The Key Manager is the identity provider for WSO2 API Control Plane and acts as the Secure Token Service (STS). WSO2 API Control Plane supports OAuth 2.0, Basic Auth, Mutual SSL as well as API-Key based authentication mechanisms. 
  
-In WSO2 API Control Plane, tokens are generated for an application. The Key manager provides a token API to generate access tokens. These tokens can be used by clients to invoke APIs exposed by WSO2 API Control Plane. The Key Manager also exposes a revoke token API that clients can use to revoke an access token. A client can generate an OAuth 2.0 access token by invoking the token API directly or via the Developer Portal UI. Alternatively, an API Key can be generated through the Developer Portal without calling the Key Manager. The API Key is a self-signed JWT token. When a client invokes an API with an OAuth 2.0 access token or an API Key, the Gateway validates the token by validating its signature and subscription.
+In WSO2 API Control Plane, tokens are generated for an application. The Key Manager provides a token API to generate access tokens. These tokens can be used by clients to invoke APIs exposed by WSO2 API Control Plane. The Key Manager also exposes a revoke token API that clients can use to revoke an access token. A client can generate an OAuth 2.0 access token by invoking the token API directly or via the Developer Portal UI. Alternatively, an API Key can be generated through the Developer Portal without calling the Key Manager. The API Key is a self-signed JWT token. When a client invokes an API with an OAuth 2.0 access token or an API Key, the Gateway validates the token by validating its signature and subscription.
  
 The Key Manager performs scope validation as well. It could also generate JWT tokens to pass end-user attributes to the backend, if configured. 
  
-In addition to using the built-in Key Manager as the IDP, WSO2 API Control Plane also supports integrating with third-party identity providers such as Okta, Auth0, KeyCloak, etc., for OAuth 2.0 based security for APIs.
+In addition to using the built-in Key Manager as the IDP, WSO2 API Control Plane also supports integrating with third-party identity providers such as Okta, Auth0, Keycloak, etc., for OAuth 2.0 based security for APIs.
 
 #### API Analytics
 
@@ -50,7 +50,7 @@ In addition to using the built-in Key Manager as the IDP, WSO2 API Control Plane
 
 ## Data Plane
 
-The Data Plane is where the created API is exposed to the public consumers and acts as the proxy for API calls. This also provides additional capabilities such as enforcing security, rate limiting etc. 
+The Data Plane is where the created API is exposed to the public consumers and acts as the proxy for API calls. This also provides additional capabilities such as enforcing security, rate limiting, etc. 
 
 #### Universal Gateway
 
@@ -64,15 +64,15 @@ Once the token is validated, the Universal Gateway acts upon the API request bef
 
 #### Kubernetes Gateway
 
-WSO2 Kubernetes Gateway is WSO2's cloud native API management platform. It is designed to help you build, deploy, and manage APIs in a cloud environment. This is built on top of a microservices architecture and uses containerization technologies to ensure scalability and flexibility. With features like automatic failover and load balancing, this platform is designed to be highly available and able to handle large numbers of API requests without performance degradation. There is added support for continuous delivery and deployment, so you can quickly and easily push updates to your API services. 
+WSO2 Kubernetes Gateway is WSO2's cloud-native API management platform. It is designed to help you build, deploy, and manage APIs in a cloud environment. This is built on top of a microservices architecture and uses containerization technologies to ensure scalability and flexibility. With features like automatic failover and load balancing, this platform is designed to be highly available and able to handle large numbers of API requests without performance degradation. There is added support for continuous delivery and deployment, so you can quickly and easily push updates to your API services. 
 
-Please refer the WSO2 Kubernetes Gateway [Quick Start Guide](https://apk.docs.wso2.com/en/1.3.0/get-started/quick-start-guide/) for trying out the product.
+Please refer to the WSO2 Kubernetes Gateway [Quick Start Guide](https://apk.docs.wso2.com/en/1.3.0/get-started/quick-start-guide/) for trying out the product.
 
 #### Immutable Gateway
 
 Being an API Gateway for micro services, which is cloud-native, decentralized and developer centric, the WSO2 Immutable Gateway is a lightweight message processor for APIs. The Immutable Gateway is used for message security, transport security, routing, and other common API Management related quality of services.
 
-Please refer the WSO2 Immutable Gateway [documentation](https://mg.docs.wso2.com/en/latest/) for more details.
+Please refer to the WSO2 Immutable Gateway [documentation](https://mg.docs.wso2.com/en/latest/) for more details.
  
 ## Traffic Manager
  

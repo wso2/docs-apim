@@ -76,7 +76,7 @@ Follow the instructions below to create, deploy and publish an API via the Publi
     | `Charset`               | UTF-8                 |
     | `HTTP Response Body`    | `{"hello": "world"}`  |
 
-    Finally click **Generate My HTTP Response** to save and generate the mock service url.
+    Finally, click **Generate My HTTP Response** to save and generate the mock service URL.
 
     
 4. Select **REST API** from the home screen and then click **Start From Scratch**.
@@ -86,42 +86,14 @@ Follow the instructions below to create, deploy and publish an API via the Publi
 
 5. Enter the API details.
 
-    <table>
-    <tr> 
-     <th>
-     Name
-     </th>
-     <td>
-     HelloWorld
-     </td>
-     </tr>
-     <tr>
-     <th>
-     Display Name
-     </th>
-     <td>
-     Hello World
-     </td>
-     </tr>
-     <tr> 
-     <th>Context
-     </th>
-     <td><code>/hello</code>
-     </td>
-     </tr>
-     <tr> 
-     <th>Version
-     </th>
-     <td>1.0.0
-     </td>
-     </tr>
-     <tr> 
-     <th>Endpoint
-     </th>
-     <td><code>https://run.mocky.io/v3/e42a76f0-95f3-4759-b658-dcc2b0c8bacd</code>
-     </td>
-     </tr>
-     </table>
+    | Field        | Value                                                                 |
+    | ------------ | --------------------------------------------------------------------- |
+    | Name         | HelloWorld                                                             |
+    | Display Name | Hello World                                                            |
+    | Context      | `/hello`                                                               |
+    | Version      | 1.0.0                                                                  |
+    | Endpoint     | `https://run.mocky.io/v3/e42a76f0-95f3-4759-b658-dcc2b0c8bacd`         |
+
      
 6. Click **Create & Publish**.
 
@@ -145,7 +117,7 @@ Follow the instructions below to subscribe to the API via the Developer Portal o
 
 2. Click **Sign-In** and enter **`admin/admin`** as your credentials to sign in to the Developer Portal.
 
-3. Once you click on the HelloWorld API, you will be redirected to  the API overview page. Then, go ahead and click on the **TRY OUT** button.
+3. Once you click on the HelloWorld API, you will be redirected to the API overview page. Then, go ahead and click on the **TRY OUT** button.
 
      [![API try out]({{base_path}}/assets/img/get_started/try-out.png)]({{base_path}}/assets/img/get_started/try-out.png)
 
