@@ -31,7 +31,28 @@ First, enable the application registration workflow.
     ...
     </WorkFlowExtensions>
     ```
-    The application key generation Approve Workflow Executor is now engaged.
+
+    If you want to display application attributes in the key generation workflow approval task list in the Admin Portal, configure the `applicationAttributesVisibility` property as follows.
+
+    ``` xml
+    <WorkFlowExtensions>
+    ...
+        <!--ProductionApplicationRegistration executor="org.wso2.carbon.apimgt.impl.workflow.ApplicationRegistrationSimpleWorkflowExecutor"/-->
+        <ProductionApplicationRegistration executor="org.wso2.carbon.apimgt.impl.workflow.ApplicationRegistrationApprovalWorkflowExecutor">
+            <Property name="applicationAttributesVisibility">true</Property>
+        </ProductionApplicationRegistration>
+    ...   
+        <!--SandboxApplicationRegistration executor="org.wso2.carbon.apimgt.impl.workflow.ApplicationRegistrationSimpleWorkflowExecutor"/-->
+        <SandboxApplicationRegistration executor="org.wso2.carbon.apimgt.impl.workflow.ApplicationRegistrationApprovalWorkflowExecutor">
+            <Property name="applicationAttributesVisibility">true</Property>
+        </SandboxApplicationRegistration>
+    ...
+    </WorkFlowExtensions>
+    ```
+    
+    By default, application attributes are not displayed in workflow approval tasks. Application attributes are displayed only when the `applicationAttributesVisibility` property is set to `true`. This property is applicable only to applications that contain application attributes.
+
+    Once the changes are done, click on `Save Content`. The application key generation Approve Workflow Executor is now engaged.
 
 4.  Sign in to the API Developer Portal (<https://localhost:9443/devportal>) as a Developer Portal user and open the application with which you subscribed to the API. Click **Applications** and click on an **ACTIVE** application.
 
