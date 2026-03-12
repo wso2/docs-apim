@@ -526,6 +526,7 @@ nav:
                 - URL Guardrail: ai-gateway/ai-guardrails/url-guardrail.md
                 - Word Count Guardrail: ai-gateway/ai-guardrails/word-count-guardrail.md
                 - Semantic Prompt Guardrail: ai-gateway/ai-guardrails/semantic-prompt-guardrail.md
+                - Semantic Tool Filtering Guardrail: ai-gateway/ai-guardrails/semantic-tool-filtering-guardrail.md
                 - PII Masking with Regex: ai-gateway/ai-guardrails/regex-pii-masking.md
                 - Azure Content Safety: ai-gateway/ai-guardrails/azure-content-safety.md
                 - AWS Bedrock Guardrail: ai-gateway/ai-guardrails/aws-bedrock-guardrail.md
