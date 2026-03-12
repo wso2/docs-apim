@@ -231,7 +231,7 @@ In addition to the primary, internal keystores and truststore files, you can als
 #### 1.3 Encrypting Secrets
 
 - If you need to use the cipher tool to encrypt the passwords in the secret, first you need to encrypt the passwords using the cipher tool. The cipher tool can be found in the `bin` directory of the product pack. The following command can be used to encrypt the password:
-  ```
+  ```bash
   sh cipher-tool.sh -Dconfigure -Dsymmetric -Dkey.based.encryption
   ```
 - Also, the apictl can be used to encrypt passwords as well. Reference can be found in the [documentation]({{base_path}}/install-and-setup/setup/api-controller/encrypting-secrets-with-ctl/).
