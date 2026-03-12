@@ -429,7 +429,7 @@ After editing the mandatory fields in the API Project, you can import the API to
             `--skip-deployments` : Skip the deployment environments specified in the project and only update the current API of the API.   
             `--preserve-provider` : Preserve the existing provider of API after importing. The default value is `true`.   
             `--update` : Update an existing API or create a new API in the importing environment.    
-            `--params` : Provide a API Manager environment params file. For more information, see [Configuring Environment Specific Parameters]({{base_path}}/install-and-setup/setup/api-controller/advanced-topics/configuring-environment-specific-parameters).    
+            `--params` : Provide an API Manager environment params file. For more information, see [Configuring Environment Specific Parameters]({{base_path}}/install-and-setup/setup/api-controller/advanced-topics/configuring-environment-specific-parameters).    
             `--skip-cleanup` : Leave all temporary files created in apictl during import process. The default value is `false`.    
     
     !!! note

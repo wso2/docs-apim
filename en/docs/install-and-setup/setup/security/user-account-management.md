@@ -20,7 +20,7 @@ Follow the steps below to enable the password recovery feature for the Developer
     [output_adapter.email]
     from_address = "wso2am@gmail.com"
     username = "wso2amtest"
-    password = "Wso2@am70"
+    password = "WSO2@am70"
     signature = "do not reply"
     hostname = "smtp.gmail.com"
     port = "587"
