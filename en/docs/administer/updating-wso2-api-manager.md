@@ -5,7 +5,7 @@ WSO2 introduces [WSO2 Updates](https://updates.docs.wso2.com/en/latest/) , which
 ##WSO2 Updates 2.0
 The WSO2 updates 2.0 tool allows you to update your currently used product by fetching updates from the server. While you should manually merge the updated configuration files or use a tool like Puppet, you can store backups with the custom configurations in your system, in case you have to restore later.
 
-For more information, see [Using WSO2 Updates 2.0](https://updates.docs.wso2.com/en/latest/updates/update-tool/)
+For more information, see [Using WSO2 Updates 2.0](https://updates.docs.wso2.com/en/latest/updates/set-up-update-tool/)
 
 !!! warning
 
