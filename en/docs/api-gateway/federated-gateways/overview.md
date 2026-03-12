@@ -16,9 +16,21 @@ This architectural pattern enables organizations to:
 - **Maintain Governance**: Enforce policies and lifecycle management centrally across all federated gateways.
 - **Enable Cloud Flexibility**: Deploy APIs across AWS, Azure, on-premises, or in hybrid/multi-cloud environments.
 
-## Supported Gateway Types
+## Supported Gateways
+WSO2 API Manager supports federation with multiple third-party API gateways, enabling centralized API governance and lifecycle management across heterogeneous gateway environments.
 
-WSO2 API Manager provides built-in support for deploying APIs to the following federated gateways:
+| Gateway | Discovery | Deployment | Environment |
+|---------|-----------|------------|-------------|
+| AWS API Gateway | [x] Supported | [x] Supported | AWS Cloud |
+| Azure API Gateway | [x] Supported | [x] Supported | Azure Cloud |
+| Kong Gateway | [x] Supported | [ ] Not Supported | Kubernetes, Standalone |
+| Envoy Gateway | [x] Supported | [ ] Not Supported | Kubernetes |
+
+**Legend:**
+- **Discovery**: Ability to automatically discover existing APIs deployed on the gateway and import them into WSO2 API Manager for governance and visibility
+- **Deployment**: Ability to deploy APIs designed in WSO2 API Manager to the federated gateway
+
+---
 
 ### AWS API Gateway
 Deploy and manage APIs on Amazon Web Services API Gateway. WSO2 API Manager comes prepackaged with an AWS gateway connector that enables seamless deployment and management of APIs on AWS infrastructure.
