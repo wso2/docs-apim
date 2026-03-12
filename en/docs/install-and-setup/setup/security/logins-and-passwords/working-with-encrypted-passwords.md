@@ -13,7 +13,7 @@ The instructions below explain how plain text passwords in configuration files c
 
 ## Encrypting passwords in product configurations 
 
-While you are able to encrypt passwords using symmetric or asymmetric encryption, it is recommended to use symmetric encryption due to its greater resilience towards emerging post-quantum threats. Asymmetric encryption methods like RSA are not recommended due to their vulnerability to quantum computing capabilities. If you are using asymmetric encryption for cipher tool, you should switch to [asymmetric key encryption]({{base_path}}/install-and-setup/setup/security/encryption/asymmetric-encryption) for the system too.
+While you are able to encrypt passwords using symmetric or asymmetric encryption, it is recommended to use symmetric encryption due to its greater resilience towards post-quantum threats. Asymmetric encryption methods like RSA are not recommended due to their vulnerability to quantum computing capabilities. If you are using asymmetric encryption for cipher tool, you should switch to [asymmetric key encryption]({{base_path}}/install-and-setup/setup/security/encryption/asymmetric-encryption) for the system too.
 
 1.  Open the `<APIM_HOME>/repository/conf/deployment.toml` file. 
 
