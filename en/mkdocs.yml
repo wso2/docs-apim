@@ -498,6 +498,8 @@ nav:
                 - Overview: ai-gateway/multi-model-routing/overview.md
                 - Load Balancing: ai-gateway/multi-model-routing/load-balancing.md
                 - Failover: ai-gateway/multi-model-routing/failover.md
+                - Intelligent Model Routing: ai-gateway/multi-model-routing/intelligent-model-routing.md
+                - Semantic Model Routing: ai-gateway/multi-model-routing/semantic-model-routing.md
             - AI Service Provider Management:
                 - Overview: ai-gateway/ai-vendor-management/overview.md
                 - Anthropic: ai-gateway/ai-vendor-management/anthropic.md
