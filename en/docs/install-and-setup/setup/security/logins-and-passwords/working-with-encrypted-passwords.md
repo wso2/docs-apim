@@ -1,6 +1,6 @@
 # Encrypting Passwords in Configuration Files
 
-All WSO2 products are shipped with a **Secure Vault** implementation that allows you to store encrypted passwords in configuration files. By default, the system user passwords, key store passwords, encryption key, etc. in configuration files are stored in plain text, but storing sensitive data such as passwords in plain text makes the data more susceptible to compromise.
+All WSO2 products are shipped with a **Secure Vault** implementation that allows you to store encrypted passwords in configuration files. By default, the system user passwords, keystore passwords, encryption key, etc. in configuration files are stored in plain text, but storing sensitive data such as passwords in plain text makes the data more susceptible to compromise.
 
 **Secure Vault** allows you to store encrypted passwords and map them with aliases, which are used in configuration files instead of the actual passwords. These encrypted passwords will be decrypted and resolved during runtime only.
 
@@ -13,14 +13,14 @@ The instructions below explain how plain text passwords in configuration files c
 
 ## Encrypting passwords in product configurations 
 
-While you are able to encrypt passwords using symmetric or asymmetric encryption, it is recommended to use symmetric encryption due to its greater resilience towards post-quantum threats. Asymmetric encryption methods like RSA are not recommended due to their vulnerability to quantum computing capabilities. If you are using asymmetric encryption for cipher tool, you should switch to [asymmetric key encryption]({{base_path}}/install-and-setup/setup/security/encryption/asymmetric-encryption) for the system too.
+While you are able to encrypt passwords using symmetric or asymmetric encryption, it is recommended to use symmetric encryption due to its greater resilience against post-quantum threats. Asymmetric encryption methods like RSA are not recommended due to their vulnerability to quantum computing capabilities. If you are using asymmetric encryption for the cipher tool, you should switch to [asymmetric key encryption]({{base_path}}/install-and-setup/setup/security/encryption/asymmetric-encryption) for the system too.
 
 1.  Open the `<APIM_HOME>/repository/conf/deployment.toml` file. 
 
 2.  Add the `[secrets]` configuration section at the **bottom** of the `deployment.toml` file and include the passwords that you need to protect. 
 
     !!! warning "Important"
-        The `[secrets]` configuration section should be added at the very end of the `deployment.toml` file or else this will cause errors in server startup.
+        The `[secrets]` configuration section should be added at the very end of the `deployment.toml` file or this will cause errors in server startup.
 
      Use the `<alias>="[<actual_password>]"` format, under `[secrets]`. Provide an alias for the password type followed by the actual password enclosed within square brackets `[]` as shown below. The most commonly used passwords in configuration files are listed in the example configuration.
 
@@ -41,7 +41,7 @@ While you are able to encrypt passwords using symmetric or asymmetric encryption
         encryption_key = "[748fe62b5b9f6560331d71f5d01017086506018bff7a0ca3347b7979d29b757f]"
         ```
     
-3.  Locate the configurations with the plain text passwords in the `<APIM_HOME>/repository/conf/deployment.toml` configuration file, and replace them with `$secret{<alias>}` in order to refer to the encrypted password instead of the plain text password. 
+3.  Locate the configurations with the plain text passwords in the `<APIM_HOME>/repository/conf/deployment.toml` configuration file, and replace them with `$secret{<alias>}` to refer to the encrypted password instead of the plain text password. 
 
      Note that the `alias` has to be the alias value that you configured in the above step as the mapping of the actual password. 
 
@@ -118,7 +118,7 @@ While you are able to encrypt passwords using symmetric or asymmetric encryption
 
         - **For Windows**: `ciphertool.bat -Dconfigure`
 
-        You will be prompted to enter the internal key store password for the server. When prompted, if you have not configured a separate [internal keystore]({{base_path}}/install-and-setup/setup/security/configuring-keystores/configuring-keystores-in-wso2-api-manager/#configuring-the-internal-keystore), enter the primary key password, which is by default `wso2carbon` and proceed. 
+        You will be prompted to enter the internal keystore password for the server. When prompted, if you have not configured a separate [internal keystore]({{base_path}}/install-and-setup/setup/security/configuring-keystores/configuring-keystores-in-wso2-api-manager/#configuring-the-internal-keystore), enter the primary key password, which is by default `wso2carbon` and proceed. 
 
         If the encryption is successful, you will see the following log.
 
@@ -128,9 +128,7 @@ While you are able to encrypt passwords using symmetric or asymmetric encryption
         Secret Configurations are written to the property file successfully
         ```
 
-5.  Open the `<APIM_HOME>/repository/conf/deployment.toml` file.
-    
-     You will see that the alias passwords are encrypted.
+5.  Open the `<APIM_HOME>/repository/conf/deployment.toml` file. You will see that the alias passwords are encrypted.
 
     ```toml
     [secrets]
@@ -145,13 +143,13 @@ While you are able to encrypt passwords using symmetric or asymmetric encryption
 
 ## Encrypting secured endpoint passwords
 
-When exposing an API backend, which is secured with [Digest]({{base_path}}/manage-apis/design/endpoints/endpoint-security/digest-auth) or [Basic]({{base_path}}/manage-apis/design/endpoints/endpoint-security/basic-auth) Authentication, the backend user credentials have to be provided under endpoint configuration. These credentials are encoded in base64 and stored in the API configuration as Basic Authorization header (`Authorization: Basic base64Encode(<username>:password)`). By default, the Authorization header value is stored in plain text.
+When exposing an API backend, which is secured with [Digest]({{base_path}}/manage-apis/design/endpoints/endpoint-security/digest-auth) or [Basic]({{base_path}}/manage-apis/design/endpoints/endpoint-security/basic-auth) Authentication, the backend user credentials have to be provided under endpoint configuration. These credentials are encoded in base64 and stored in the API configuration as a Basic Authorization header (`Authorization: Basic base64Encode(<username>:password)`). By default, the Authorization header value is stored in plain text.
 
-Follow the instructions below to secure the endpoint's password that is given in plain-text in the UI.
+Follow the instructions below to secure the endpoint's password that is given in plain text in the UI.
 
 1.  Shut down the server if it is already running.
 
-2.  Open the `<APIM_HOME>/repository/conf/deployment.toml` file and add the following configuration to enable secure vault in API Manager. 
+2.  Open the `<APIM_HOME>/repository/conf/deployment.toml` file and add the following configuration to enable Secure Vault in API Manager. 
 
     ```toml
     [apim]
@@ -168,7 +166,7 @@ Follow the instructions below to secure the endpoint's password that is given in
      * On Linux/Mac OS: `./api-manager.sh`
      * On Windows: `./api-manager.bat`
      
-After enabling the backend secure vault for backend credentials, the Basic Authentication header, which is written in the Universal Gateway configuration file, will be encrypted. If there were APIs that were already created and published before these instructions were performed, an update to the particular API would trigger the encryption process of the credentials.
+After enabling the backend Secure Vault for backend credentials, the Basic Authentication header, which is written in the Universal Gateway configuration file, will be encrypted. If there were APIs that were already created and published before these instructions were performed, an update to the particular API would trigger the encryption process of the credentials.
 
 ## Changing already encrypted passwords
 
@@ -221,18 +219,19 @@ Follow the instructions below to change any password that you have already encry
 
 You can rotate encryption keys by switching between symmetric and asymmetric encryption or by changing the encryption keys within the same encryption mode. Follow the steps below.
 
-1. Use the corresponding command:
+1. Generate the new key material:
 
     === "Symmetric encryption"
 
-        To generate an AES-256 symmetric encryption key.
+        Use the following command to generate an AES-256 symmetric encryption key:
         ```bash
         openssl rand -hex 32
         ```
+        You will be prompted to enter the old encryption key and a new encryption key. You can use the generated key above as the new encryption key.
     
     === "Asymmetric encryption"
 
-        To add the new key to an existing keystore with a new alias.
+        Use the following command to add a new key to an existing keystore with a new alias:
         ```bash
         keytool -genkeypair -alias new_alias -keyalg RSA -keystore wso2carbon.jks -storepass password -keypass password
         ```
@@ -263,11 +262,11 @@ You can rotate encryption keys by switching between symmetric and asymmetric enc
 
         - On Windows: `ciphertool.bat -Drotate -Dold.alias=wso2carbon`
 
-5. Go back to the `deployment.toml` file and see that the passwords are re-encrypted with the new encryption key.
+4. Go back to the `deployment.toml` file and see that the passwords are re-encrypted with the new encryption key.
 
 ## Resolving already encrypted passwords during server startup
 
-**Secure Vault** provides two options for resolving the encrypted passwords during server startup
+**Secure Vault** provides two options for resolving the encrypted passwords during server startup:
 
 -   [Enter password in command-line](#enter-password-in-command-line)
 -   [Start server as a background job](#start-server-as-a-background-job)
@@ -275,13 +274,11 @@ You can rotate encryption keys by switching between symmetric and asymmetric enc
 === "Symmetric encryption"
 
     !!! Note
-        If you have secured the plain text passwords in configuration files using Secure Vault with symmetric encryption, the symmetric encryption key will serve as the root key for Secure Vault. This key is needed to initialize the values encrypted by the **Secret Manager** in the **Secret Repository**. Therefore, the **Secret Callback handler** is used to resolve the encryption key. The default secret CallbackHandler provides the two options given below. For more information on secure vault concepts, see [Secure Vault concepts]({{base_path}}/administer/product-security/logins-and-passwords/carbon-secure-vault-implementation/#elements-of-the-secure-vault-implementation).
-
+            If you have secured the plain text passwords in configuration files using Secure Vault with symmetric encryption, the symmetric encryption key will serve as the root key for Secure Vault. This key is needed to initialize the values encrypted by the **Secret Manager** in the **Secret Repository**. Therefore, the **Secret Callback handler** is used to resolve the encryption key. The default Secret CallbackHandler provides the two options given below. For more information on secure vault concepts, see [Secure Vault concepts]({{base_path}}/administer/product-security/logins-and-passwords/carbon-secure-vault-implementation/#elements-of-the-secure-vault-implementation).
 === "Asymmetric encryption"
 
     !!! Note
-        If you have secured the plain text passwords in configuration files using Secure Vault, the keystore password and private key password of the product's [primary keystore]({{base_path}}/install-and-setup/setup/security/configuring-keystores/configuring-keystores-in-wso2-api-manager) will serve as the root passwords for Secure Vault, if you have not configured a separate [internal keystore]({{base_path}}/install-and-setup/setup/security/configuring-keystores/configuring-keystores-in-wso2-api-manager/#configuring-the-internal-keystore). This is because the keystore passwords are needed to initialize the values encrypted by the **Secret Manager** in the **Secret Repository**. Therefore, the **Secret Callback handler** is used to resolve these passwords. The default secret CallbackHandler provides the two options given below. For more information on secure vault concepts, see [Secure Vault concepts]({{base_path}}/administer/product-security/logins-and-passwords/carbon-secure-vault-implementation/#elements-of-the-secure-vault-implementation).
-
+            If you have secured the plain text passwords in configuration files using Secure Vault, the keystore password and private key password of the product's [primary keystore]({{base_path}}/install-and-setup/setup/security/configuring-keystores/configuring-keystores-in-wso2-api-manager) will serve as the root passwords for Secure Vault, if you have not configured a separate [internal keystore]({{base_path}}/install-and-setup/setup/security/configuring-keystores/configuring-keystores-in-wso2-api-manager/#configuring-the-internal-keystore). This is because the keystore passwords are needed to initialize the values encrypted by the **Secret Manager** in the **Secret Repository**. Therefore, the **Secret Callback handler** is used to resolve these passwords. The default Secret CallbackHandler provides the two options given below. For more information on secure vault concepts, see [Secure Vault concepts]({{base_path}}/administer/product-security/logins-and-passwords/carbon-secure-vault-implementation/#elements-of-the-secure-vault-implementation).
 
 ### Enter password in command-line
 
@@ -292,17 +289,17 @@ You can rotate encryption keys by switching between symmetric and asymmetric enc
         * On Linux: `./api-manager.sh`
         * On Windows: `./api-manager.bat`
 
-        When you run the startup script, the following message will be prompted before starting the server: `[Enter Symmetric Encryption Key:]`.
+        When you run the startup script, the following message will appear before starting the server: `[Enter Symmetric Encryption Key:]`.
 
         !!! note "YAJSW wrapper behavior on Windows"
             When starting WSO2 API Manager via the YAJSW wrapper on Windows (for example, through `runConsole.bat` or `api-manager.bat start`), no interactive console is available for key input. Therefore, the encryption key prompt (`[Enter Symmetric Encryption Key:]`) will not appear. In such cases, you must provide the encryption key through a key file (`encryption-key-tmp.txt` or `encryption-key-persist.txt`) placed under the `<APIM_HOME>` directory. For more information, see [Start server as a background job](#start-server-as-a-background-job).
 
-    2.  When prompted, you as the administrator who is starting the server must provide the symmetric encryption key using the command-line to proceed.
+    2.  When prompted, you as the administrator who is starting the server must provide the symmetric encryption key using the command line to proceed.
 
          Note that the encryption key is hidden from the terminal and log files.
 
         !!! Info
-            During the server startup, it tries to connect to the default user store. In order to connect to the default user store, the encrypted passwords should be decrypted. Therefore, the server admin will be prompted with the encryption key in order to proceed with the decryption.
+            During the server startup, it tries to connect to the default user store. To connect to the default user store, the encrypted passwords should be decrypted. Therefore, the server admin will be prompted for the encryption key to proceed with the decryption.
 
 === "Asymmetric encryption"
 
@@ -311,17 +308,17 @@ You can rotate encryption keys by switching between symmetric and asymmetric enc
         * On Linux: `./api-manager.sh`
         * On Windows: `./api-manager.bat`
 
-        When you run the startup script, the following message will be prompted before starting the server: `[Enter KeyStore and Private Key Password:]`.
+        When you run the startup script, the following message will appear before starting the server: `[Enter KeyStore and Private Key Password:]`.
 
         !!! note "YAJSW wrapper behavior on Windows"
             When starting WSO2 API Manager via the YAJSW wrapper on Windows (for example, through `runConsole.bat` or `api-manager.bat start`), no interactive console is available for password input. Therefore, the keystore password prompt (`[Enter KeyStore and Private Key Password:]`) will not appear. In such cases, you must provide the keystore password through a password file (`password-tmp.txt` or `password-persist.txt`) placed under the `<APIM_HOME>` directory. For more information, see [Start server as a background job](#start-server-as-a-background-job).
 
-    2.  When prompted, you as the administrator who is starting the server must provide the private key password and the keystore password using the command-line to proceed.
+    2.  When prompted, you as the administrator who is starting the server must provide the private key password and the keystore password using the command line to proceed.
 
          Note that passwords are hidden from the terminal and log files.
 
         !!! Info
-            During the server startup, it tries to connect to the default user store. In order to connect to the default user store, the encrypted passwords should be decrypted. Therefore, the server admin will be prompted with the key store password in order to proceed with the decryption.
+            During the server startup, it tries to connect to the default user store. To connect to the default user store, the encrypted passwords should be decrypted. Therefore, the server admin will be prompted for the keystore password to proceed with the decryption.
         
 
 ### Start server as a background job

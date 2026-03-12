@@ -59,6 +59,10 @@ To do so,
     key = "<generated-64-char-hex-key>"
     ```  
 
+!!! warning
+    **Distributed and Cloud Deployments**  
+    In a distributed or high-availability deployment, **all API Manager instances must use the exact same `[encryption]` key** in their `deployment.toml` files. Each instance encrypts and decrypts shared registry resources using this key, so a mismatch will cause decryption failures across the cluster. Configure the shared key on every node before the first startup.
+
 If a custom encryption key is not provided, it will auto-generate a random encryption key during server startup with the following warning message.
 
 !!! warning
@@ -71,6 +75,9 @@ If a custom encryption key is not provided, it will auto-generate a random encry
     ```
 
 It is recommended to change the encryption key before using WSO2 API Manager for the first time. If not, you need to run a key rotation tool to encrypt the secrets and credentials that were already encrypted using the generated random encryption key.
+
+!!! warning
+    Do **not** rely on the auto-generated key in multi-node or distributed setups. Each node will generate a different random key, making it impossible to decrypt data created by another node. Always provide a single shared key explicitly.
 
 !!! note "Important"
 

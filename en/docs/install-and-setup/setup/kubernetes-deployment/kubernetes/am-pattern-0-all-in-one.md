@@ -132,7 +132,7 @@ In addition to the primary, internal keystores and truststore files, you can als
 #### 1.3 Encrypting Secrets
 
 - If you need to use the cipher tool to encrypt the passwords in the secret, first you need to encrypt the passwords using the cipher tool. The cipher tool can be found in the `bin` directory of the product pack. The following command can be used to encrypt the password:
-  ```
+  ```bash
   sh cipher-tool.sh -Dconfigure -Dsymmetric -Dkey.based.encryption
   ```
 - Also, the apictl can be used to encrypt passwords as well. Reference can be found in the [documentation]({{base_path}}/install-and-setup/setup/api-controller/encrypting-secrets-with-ctl/).
@@ -148,8 +148,8 @@ In addition to the primary, internal keystores and truststore files, you can als
   > Please note that currently AWS, Azure, and GCP Secrets Managers are only supported for this.
 
 !!! warning
-    **Use the Same Encryption Key Across All Nodes**  
-    In this distributed pattern, all API-M instances (API Control Plane, Traffic Manager, Universal Gateway, and Key Manager) must use the same symmetric encryption key at runtime. If different keys are used across nodes, encrypted registry resources and secrets will be unreadable on nodes that do not hold the original key.
+    **Configure the Encryption Key Before First Startup**  
+    Generate and set your symmetric encryption key in `deployment.toml` before starting WSO2 API Manager for the first time. If you later scale this all-in-one setup to multiple nodes or migrate to a distributed pattern, all nodes must use the **same** encryption key — otherwise, encrypted registry resources and secrets encrypted on one node will be unreadable on others. Refer to [Configuring the Encryption Key]({{base_path}}/install-and-setup/setup/security/encryption/symmetric-encryption/) for details.
 
 #### 1.4 Configure Docker Image and Databases
 
