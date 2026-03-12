@@ -108,6 +108,9 @@ nav:
                     - Configure the Proxy Server and the Load Balancer: install-and-setup/setup/setting-up-proxy-server-and-the-load-balancer/configuring-the-proxy-server-and-the-load-balancer.md
                     - Add a custom Proxy Path: install-and-setup/setup/setting-up-proxy-server-and-the-load-balancer/adding-a-custom-proxy-path.md
                 - Security:
+                    - Encryption:
+                        - Symmetric Encryption: install-and-setup/setup/security/encryption/symmetric-encryption.md
+                        - Asymmetric Encryption: install-and-setup/setup/security/encryption/asymmetric-encryption.md                        
                     - Logins and Passwords:
                         - Maintain Logins and Passwords: install-and-setup/setup/security/logins-and-passwords/maintaining-logins-and-passwords.md
                         - Secure Passwords:
@@ -120,9 +123,9 @@ nav:
                     - Configure Keystores:
                         - Configure Keystores in API Manager: install-and-setup/setup/security/configuring-keystores/configuring-keystores-in-wso2-api-manager.md
                         - Keystore Basics:
+                            - About Keystores and Truststores: install-and-setup/setup/security/configuring-keystores/keystore-basics/about-keystores-and-truststores.md
                             - Create a New Keystore: install-and-setup/setup/security/configuring-keystores/keystore-basics/creating-new-keystores.md
                             - Renew a CA Signed Certificate: install-and-setup/setup/security/configuring-keystores/keystore-basics/renewing-a-ca-signed-certificate-in-a-keystore.md
-                            - About Asymetric Cryptography: install-and-setup/setup/security/configuring-keystores/keystore-basics/about-asymetric-cryptography.md
                     - Enable HostName Verification: install-and-setup/setup/security/enabling-hostname-verification.md
                     - Enable Java Security Manager: install-and-setup/setup/security/enabling-java-security-manager.md
                     - General Data Protection Regulation (GDPR) for WSO2 API Manager: install-and-setup/setup/security/general-data-protection-regulation-gdpr-for-wso2-api-manager.md

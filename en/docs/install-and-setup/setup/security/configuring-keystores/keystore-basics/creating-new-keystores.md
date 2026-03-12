@@ -1,6 +1,6 @@
 # Creating New Keystores
 
-WSO2 API Manager is shipped with a default keystore named **wso2carbon.jks** , which is stored in the `<API-M_HOME>/repository/resources/security` directory. This keystore comes with a private/public key pair that is used for all purposes, such as encrypting sensitive information, communicating over SSL. You can either use one new keystore for all purposes, or you can create multiple keystores for each purpose.
+WSO2 API Manager is shipped with a default keystore named **wso2carbon.jks** , which is stored in the `<API-M_HOME>/repository/resources/security` directory. This keystore comes with a private/public key pair that is used for some purposes, such as communicating over SSL. You can either use one new keystore for all purposes, or you can create multiple keystores for each purpose.
 
 Let's get started with creating new keystores.
 
@@ -42,7 +42,7 @@ Secure Sockets Layer (SSL) is a protocol that is used to secure communication be
 
     !!! Important
 
-        If you are creating a new keystore for data encryption, be sure to acquire a public key certificate that contains the **Data Encipherment** key usage as explained in [Recommendations for setting up keystores]({{base_path}}/install-and-setup/setup/security/configuring-keystores/configuring-keystores-in-wso2-api-manager/#recommendations-for-setting-up-keystores). Otherwise, the following error can occur when you attempt data encryption:
+        If you are creating a new keystore for data encryption using asymmetric encryption instead of symmetric encryption, be sure to acquire a public key certificate that contains the **Data Encipherment** key usage as explained in [Recommendations for setting up keystores]({{base_path}}/install-and-setup/setup/security/configuring-keystores/configuring-keystores-in-wso2-api-manager/#recommendations-for-setting-up-keystores). Otherwise, the following error can occur when you attempt data encryption in asymmetric cryptography:
 
         ``` java
             Exception in thread "main" org.wso2.ciphertool.CipherToolException: Error initializing Cipher 
@@ -196,7 +196,7 @@ Follow the steps given below to import the same CA-signed public key certificate
 
     Now, you have an SSL certificate stored in a Java keystore and a public key added to the `client-truststore.jks` file. Note that both these files should be in the `<API-M_HOME>/repository/resources/security/` directory. You can now replace the default wso2carbon.jks keystore in your product with the newly created keystore by updating the configuration. 
 
-For information on the concepts of keystores and about how keystores are used in WSO2 API Manager, see [About Asymmetric Cryptography]({{base_path}}/install-and-setup/setup/security/configuring-keystores/keystore-basics/about-asymetric-cryptography).
+For information on the concepts of keystores and about how keystores are used in WSO2 API Manager, see [About Keystores and Truststores]({{base_path}}/install-and-setup/setup/security/configuring-keystores/keystore-basics/about-keystores-and-truststores).
 
 ## What's next?
 
