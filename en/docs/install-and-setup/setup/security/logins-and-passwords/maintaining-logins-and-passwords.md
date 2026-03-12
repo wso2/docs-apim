@@ -85,10 +85,11 @@ Follow the instructions below to change the default admin password:
     ``` toml
     [tenant_mgt]
     enable_email_domain= true
-   
+    disable_email_domain_validation = true
+
     [apim.throttling]
     username = "$ref{super_admin.username}@carbon.super"
-   
+
     [apim.throttling.policy_deploy]
     username = "$ref{super_admin.username}@carbon.super"
 
@@ -127,6 +128,10 @@ Follow the instructions below to change the default admin password:
     <td>This property specifies whether the email authentication is activated or not.</td>
     </tr>
     <tr>
+    <td>`[tenant_mgt] disable_email_domain_validation`</td>
+    <td>This property disables the email domain validation when email authentication is enabled. Set this to `true` to allow both username and email-username to work together.</td>
+    </tr>
+    <tr>
     <td>`[apim.throttling] username`</td>
     <td>When the email login feature is enabled, the super tenant will be attached with the username. This property facilitates the latter mentioned requirement.</td>
     </tr>
@@ -160,6 +165,7 @@ Follow the instructions below to change the default admin password:
     ```
     [tenant_mgt]
     enable_email_domain= true
+    disable_email_domain_validation = true
 
     [super_admin]
     username = "admin@wso2.com"
@@ -176,8 +182,8 @@ Follow the instructions below to change the default admin password:
     type = "database_unique_id"
     username_java_regex = '^[a-zA-Z0-9.-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}'
     username_java_script_regex = '^[a-zA-Z0-9.-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$'
-    
-    [apim.devportal]  
+
+    [apim.devportal]
     enable_cross_tenant_subscriptions = true
     default_reserved_username = "default@wso2.com"
     ```   
