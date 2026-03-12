@@ -196,7 +196,7 @@ docker push <AWS_ACCOUNT_ID>.dkr.ecr.us-east-1.amazonaws.com/wso2am-mysql:4.6.0
 
 ## Step 4: Generate Keystore and Truststore
 
-WSO2 APIM uses Java keystores for internal communication and encryption. While self-signed certificates are sufficient for internal traffic, you should use publicly trusted certificates for external communication (configured via Ingress).
+WSO2 APIM uses Java keystores for internal communication. While self-signed certificates are sufficient for internal traffic, you should use publicly trusted certificates for external communication (configured via Ingress).
 
 ### Locate Default Keystores
 

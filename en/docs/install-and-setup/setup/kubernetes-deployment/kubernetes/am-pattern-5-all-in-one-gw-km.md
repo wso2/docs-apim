@@ -262,21 +262,25 @@ In addition to the primary, internal keystores and truststore files, you can als
 
 #### 1.3 Encrypting Secrets
 
-- If you need to use the cipher tool to encrypt the passwords in the secret, first you need to encrypt the passwords using the cipher tool. The cipher tool can be found in the bin directory of the product pack. The following command can be used to encrypt the password:
+- If you need to use the cipher tool to encrypt the passwords in the secret, first you need to encrypt the passwords using the cipher tool. The cipher tool can be found in the `bin` directory of the product pack. The following command can be used to encrypt the password:
+  ```bash
+  sh cipher-tool.sh -Dconfigure -Dsymmetric -Dkey.based.encryption
   ```
-  sh cipher-tool.sh -Dconfigure
-  ```
-- Also, the apictl can be used to encrypt passwords as well. Reference can be found in the [following](https://apim.docs.wso2.com/en/latest/install-and-setup/setup/api-controller/encrypting-secrets-with-ctl/).
-- Then the encrypted values should be filled in the relevant fields of values.yaml.
-- Since the internal keystore password is required to resolve the encrypted value at runtime, you need to store the value in the cloud provider's secret manager. You can use the cloud provider's secret store to store the password of the internal keystore. The following section can be used to add the cloud provider's credentials to fetch the internal keystore password. Configuration for AWS can be as below: 
+- Also, the apictl can be used to encrypt passwords as well. Reference can be found in the [documentation]({{base_path}}/install-and-setup/setup/api-controller/encrypting-secrets-with-ctl/).
+- Then, the encrypted values should be filled in the relevant fields of `values.yaml`.
+- Since the encryption key is required to resolve the encrypted value at runtime, you need to store the value in the cloud provider's secret manager. You can use the cloud provider's secret store to store the encryption key. The following section can be used to add the cloud provider's credentials to fetch the encryption key. Configuration for AWS can be as below:
   ```yaml
-  internalKeystorePassword:
+  encryptionKey:
     # -- AWS Secrets Manager secret name
     secretName: ""
     # -- AWS Secrets Manager secret key
     secretKey: ""
   ```
   > Please note that currently AWS, Azure, and GCP Secrets Managers are only supported for this.
+
+!!! warning
+    **Use the Same Encryption Key Across All Nodes**  
+    In this pattern, all API-M instances (All-in-One Control Plane, Key Manager, and Universal Gateway) must use the same symmetric encryption key at runtime. If different keys are used across nodes, encrypted registry resources and secrets will be unreadable on nodes that do not hold the original key.
 
 #### 1.4 Configure Docker Image and Databases
 
