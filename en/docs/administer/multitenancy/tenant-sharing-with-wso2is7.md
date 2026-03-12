@@ -136,7 +136,7 @@ By enabling `auto_configure_key_manager` = `true`, WSO2 IS 7.x will be automatic
 !!! important
     If you ever set `auto_configure_key_manager=true` you must set `skip_create_resident_key_manager = true` under `apim.key_manager` configuration, to avoid facing errors when it's trying to add another key manager on top of the resident key manager in API Manager.
 
-    Therefore, in this case complete confgiration to register WSO2 IS 7.x as the default key manager would be as follows:
+    Therefore, in this case sample configuration to register WSO2 IS 7.x as the default key manager would be as follows:
 
     ````toml
     [[apim.tenant_sharing]]
