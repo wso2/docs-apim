@@ -13,8 +13,14 @@ Follow the instructions below to use Kubernetes (K8s) and Helm resources for con
     
     - An already setup [Kubernetes cluster](https://kubernetes.io/docs/setup/#learning-environment).<br><br>
     
-    - Install [NGINX Ingress Controller](https://kubernetes.github.io/ingress-nginx/deploy/). Please note that Helm resources for WSO2 product
-      deployment patterns are compatible with NGINX Ingress Controller Git release [`nginx-0.22.0`](https://github.com/kubernetes/ingress-nginx/releases/tag/nginx-0.22.0).
+    - Install either one of the following:
+    
+        - [NGINX Ingress Controller](https://kubernetes.github.io/ingress-nginx/deploy/). Please note that Helm resources for WSO2 product deployment patterns are compatible with NGINX Ingress Controller Git release [`nginx-0.22.0`](https://github.com/kubernetes/ingress-nginx/releases/tag/nginx-0.22.0).
+        
+        - [NGINX Gateway Fabric](https://docs.nginx.com/nginx-gateway-fabric/install/helm/) for Kubernetes Gateway API support. NGINX Gateway Fabric can be installed using the following command:
+            ```
+            helm install ngf oci://ghcr.io/nginx/charts/nginx-gateway-fabric --create-namespace -n nginx-gateway
+            ```
 
 1.  Checkout the Helm Resources for WSO2 API Manager Git repository using `git clone` :
 
@@ -38,6 +44,47 @@ Follow the instructions below to use Kubernetes (K8s) and Helm resources for con
     | `wso2.deployment.image.repository`                                                | Repostiory of the APIM Docker image                                                           | ""                          |
     | `wso2.deployment.image.digest`                                                | Digest of the APIM Docker image                                                           | ""                          |
 
+    **Using Kubernetes Gateway API (Alternative to NGINX Ingress)**
+    
+    If you prefer to use Kubernetes Gateway API instead of NGINX Ingress Controller, configure the following in `<HELM_HOME>/all-in-one/values.yaml`:
+    
+    - Disable traditional Ingress resources:
+    
+        ```yaml
+        kubernetes:
+          ingress:
+            ratelimit:
+              enabled: false
+            management:
+              enabled: false
+            gateway:
+              enabled: false
+            websocket:
+              enabled: false
+            websub:
+              enabled: false
+        ```
+    
+    - Enable Gateway API resources:
+    
+        ```yaml
+        kubernetes:
+          gatewayAPI:
+            enabled: true
+            management:
+              enabled: true
+            gateway:
+              enabled: true
+            websocket:
+              enabled: true
+            websub:
+              enabled: true
+        ```
+    
+    !!! note
+        - Ensure that Gateway API CRDs are installed in your cluster and you have a compatible Gateway implementation configured. Refer to the [Kubernetes Gateway API documentation](https://gateway-api.sigs.k8s.io/) for more details.
+        - When using NGINX Gateway Fabric, the `kubernetes.gatewayAPI.defaultTlsCreation` and `kubernetes.gatewayAPI.defaultConfigMapCreation` parameters are set to `true` by default, which will create default TLS secrets and ConfigMaps. For production deployments, it is recommended to create your own custom TLS secret and ConfigMap and reference them in the configuration.
+
 3. Deploy WSO2 API Manager
 
     ```
@@ -46,17 +93,37 @@ Follow the instructions below to use Kubernetes (K8s) and Helm resources for con
 
 4.  Access Management Console.
 
-    1.  Obtain the external IP (`EXTERNAL-IP`) of the Ingress resources by listing down the Kubernetes Ingresses.
+    1.  Obtain the external IP (`EXTERNAL-IP`):
     
+        **If using NGINX Ingress Controller:**
+        
+        List down the Kubernetes Ingresses:
+        
         ```
         kubectl get ing -n <NAMESPACE>
         ```
+
         Example:
-        NAME                                      CLASS   HOSTS                     ADDRESS   PORTS     AGE
-        <RELEASE_NAME>-am-all-in-one-am-gateway-ingress     nginx   gw.wso2.com                    80, 443   8s
-        <RELEASE_NAME>-am-all-in-one-am-ingress             nginx   am.wso2.com                    80, 443   8s
-        <RELEASE_NAME>-am-all-in-one-am-websocket-ingress   nginx   websocket.wso2.com             80, 443   8s
-        <RELEASE_NAME>-am-all-in-one-am-websub-ingress      nginx   websub.wso2.com                80, 443   8s
+        ```
+        NAME                                                CLASS   HOSTS                   ADDRESS             PORTS     AGE
+        <RELEASE_NAME>-am-all-in-one-am-gateway-ingress     nginx   gw.wso2.com             <EXTERNAL-IP>        80, 443   8s
+        <RELEASE_NAME>-am-all-in-one-am-ingress             nginx   am.wso2.com             <EXTERNAL-IP>        80, 443   8s
+        <RELEASE_NAME>-am-all-in-one-am-websocket-ingress   nginx   websocket.wso2.com      <EXTERNAL-IP>        80, 443   8s
+        <RELEASE_NAME>-am-all-in-one-am-websub-ingress      nginx   websub.wso2.com         <EXTERNAL-IP>        80, 443   8s
+        ```
+        
+        **If using NGINX Gateway Fabric:**
+        
+        Get the external IP from the NGINX Gateway Fabric service:
+        
+        ```
+        kubectl get svc -n <NAMESPACE>
+        ```
+        
+        Example:
+        ```
+        NAME                                    TYPE           CLUSTER-IP     EXTERNAL-IP     PORT(S)          AGE
+        apim-wso2am-all-in-one-gateway-nginx   LoadBalancer   10.43.58.161   192.168.64.2   443:31089 TCP     7m39s
         ```
 
     2.  Add the above hosts as entries in `/etc/hosts` file as follows:
