@@ -80,6 +80,121 @@ Since the control planes are only connected through the JMS connections, the TCP
 
 Follow the steps below to configure the control plane node(s) in region 1 to communicate with the region 2 control plane. Similarly region 1 configurations should be added to the region 2 control plane.
 
+1. Add the following event publishers to the `<APIM-HOME>/repository/deployment/server/eventpublishers` directory of the control plane.
+
+   **notificationJMSPublisherRegion2.xml**
+
+  ``` 
+    <?xml version="1.0" encoding="UTF-8"?>
+    <eventPublisher name="notificationJMSPublisherRegion2" statistics="disable"
+    trace="disable"
+    xmlns="http://wso2.org/carbon/eventpublisher">
+    <from streamName="org.wso2.apimgt.notification.stream" version="1.0.0"/>
+    <mapping customMapping="disable" type="json"/>
+    <to eventAdapterType="jms">
+    <property name="java.naming.factory.initial">org.wso2.andes.jndi.PropertiesFileInitialContextFactory</property>
+    <property name="java.naming.provider.url">repository/conf/jndi-region2.properties</property>
+    <property name="transport.jms.DestinationType">topic</property>
+    <property name="transport.jms.Destination">notification</property>
+    <property name="transport.jms.ConcurrentPublishers">allow</property>
+    <property name="transport.jms.ConnectionFactoryJNDIName">TopicConnectionFactory</property>
+    </to>
+    </eventPublisher>
+  ```
+
+  **tokenRevocationJMSPublisherRegion2.xml**
+
+  ```
+      <?xml version="1.0" encoding="UTF-8"?>
+    <eventPublisher name="tokenRevocationJMSPublisherRegion2" statistics="disable"
+                    trace="disable"
+        xmlns="http://wso2.org/carbon/eventpublisher">
+        <from streamName="org.wso2.apimgt.token.revocation.stream" version="1.0.0"/>
+        <mapping customMapping="disable" type="json"/>
+        <to eventAdapterType="jms">
+            <property name="java.naming.factory.initial">org.wso2.andes.jndi.PropertiesFileInitialContextFactory</property>
+            <property name="java.naming.provider.url">repository/conf/jndi-region2.properties</property>
+            <property name="transport.jms.DestinationType">topic</property>
+            <property name="transport.jms.Destination">tokenRevocation</property>
+            <property name="transport.jms.ConcurrentPublishers">allow</property>
+            <property name="transport.jms.ConnectionFactoryJNDIName">TopicConnectionFactory</property>
+        </to>
+    </eventPublisher>
+  ```
+
+  **keymgtEventJMSEventPublisherRegion2.xml**
+
+  ```
+      <?xml version="1.0" encoding="UTF-8"?>
+    <eventPublisher name="keymgtEventJMSEventPublisherRegion2" statistics="disable"
+      trace="disable" xmlns="http://wso2.org/carbon/eventpublisher">
+      <from streamName="org.wso2.apimgt.keymgt.stream" version="1.0.0"/>
+      <mapping customMapping="disable" type="json"/>
+      <to eventAdapterType="jms">
+        <property name="java.naming.factory.initial">org.wso2.andes.jndi.PropertiesFileInitialContextFactory</property>
+        <property name="java.naming.provider.url">repository/conf/jndi-region2.properties</property>
+        <property name="transport.jms.DestinationType">topic</property>
+        <property name="transport.jms.Destination">keyManager</property>
+        <property name="transport.jms.ConcurrentPublishers">allow</property>
+        <property name="transport.jms.ConnectionFactoryJNDIName">TopicConnectionFactory</property>
+      </to>
+    </eventPublisher>
+  ```
+
+  **asyncWebhooksEventPublisherRegion2.xml** (This is optional only if you have webhook streaming APIs in your deployment)
+
+  ```
+        <?xml version="1.0" encoding="UTF-8"?>
+        <eventPublisher name="asyncWebhooksEventPublisher-1.0.0-Region2" statistics="disable" processing="disable"
+        trace="disable"
+        xmlns="http://wso2.org/carbon/eventpublisher">
+        <from streamName="org.wso2.apimgt.webhooks.request.stream" version="1.0.0"/>
+        <mapping customMapping="disable" type="json"/>
+        <to eventAdapterType="jms">
+        <property name="java.naming.factory.initial">org.wso2.andes.jndi.PropertiesFileInitialContextFactory</property>
+        <property name="java.naming.provider.url">repository/conf/jndi2-region2.properties</property>
+        <property name="transport.jms.DestinationType">topic</property>
+        <property name="transport.jms.Destination">asyncWebhooksData</property>
+        <property name="transport.jms.ConcurrentPublishers">allow</property>
+        <property name="transport.jms.ConnectionFactoryJNDIName">TopicConnectionFactory</property>
+        </to>
+        </eventPublisher>
+  ```
+
+  **blockingEventJMSPublisherRegion2.xml**
+
+  ```
+    <?xml version="1.0" encoding="UTF-8"?>
+    <eventPublisher name="blockingEventJMSPublisher" statistics="disable"
+      trace="disable" xmlns="http://wso2.org/carbon/eventpublisher">
+      <from streamName="org.wso2.blocking.request.stream" version="1.0.0"/>
+      <mapping customMapping="disable" type="json"/>
+      <to eventAdapterType="jms">
+        <property name="java.naming.factory.initial">org.wso2.andes.jndi.PropertiesFileInitialContextFactory</property>
+        <property name="java.naming.provider.url">repository/conf/jndi2-region2.properties</property>
+        <property name="transport.jms.DestinationType">topic</property>
+        <property name="transport.jms.Destination">throttleData</property>
+        <property name="transport.jms.ConcurrentPublishers">allow</property>
+        <property name="transport.jms.ConnectionFactoryJNDIName">TopicConnectionFactory</property>
+      </to>
+    </eventPublisher>
+  ```
+
+2. Add the following JNDI configuration file to `<APIM-HOME>/repository/conf directory`.
+
+  **jndi-region2.properties**
+
+  ```
+    connectionfactory.TopicConnectionFactory = amqp://admin:admin@clientid/carbon?brokerlist='tcp://<region2-cp-host>:5672'
+    
+    topic.tokenRevocation = tokenRevocation
+    topic.keyManager = keyManager
+    topic.notification = notification
+    topic.asyncWebhooksData = asyncWebhooksData
+    
+  ```
+Replace `<region2-cp-host>` with the host of the control plane of the region where this data is published. In pattern 1, all the event hubs publish data to all the eventhubs. Therefore, all the event hubs (control plane nodes) in all the regions should be configured to publish data to other regions.
+
 ## Optional Step
 If you have secondary user stores, make sure that the userstores directory is shared between the regions.
 
