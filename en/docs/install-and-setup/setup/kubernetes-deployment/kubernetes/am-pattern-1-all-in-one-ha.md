@@ -195,15 +195,15 @@ It is recommended to use the [**NGINX Ingress Controller**](https://kubernetes.g
 
 #### 1.3 Encrypting Secrets
 
-- If you need to use the cipher tool to encrypt the passwords in the secret, first encrypt the passwords using the cipher tool. The cipher tool can be found in the `bin` directory of the product pack. The following command can be used to encrypt the password:
+- If you need to use the cipher tool to encrypt the passwords in the secret, first you need to encrypt the passwords using the cipher tool. The cipher tool can be found in the `bin` directory of the product pack. The following command can be used to encrypt the password:
   ```
-  sh cipher-tool.sh -Dconfigure
+  sh cipher-tool.sh -Dconfigure -Dsymmetric -Dkey.based.encryption
   ```
-- The `apictl` can also be used to encrypt passwords. Reference can be found in the [documentation](https://apim.docs.wso2.com/en/latest/install-and-setup/setup/api-controller/encrypting-secrets-with-ctl/).
+- Also, the apictl can be used to encrypt passwords as well. Reference can be found in the [documentation]({{base_path}}/install-and-setup/setup/api-controller/encrypting-secrets-with-ctl/).
 - Then, the encrypted values should be filled in the relevant fields of `values.yaml`.
-- Since the internal keystore password is required to resolve the encrypted value at runtime, you need to store the value in the cloud provider's secret manager. You can use the cloud provider's secret store to store the password of the internal keystore. The following section can be used to add the cloud provider's credentials to fetch the internal keystore password. Configuration for AWS can be as below:
+- Since the encryption key is required to resolve the encrypted value at runtime, you need to store the value in the cloud provider's secret manager. You can use the cloud provider's secret store to store the encryption key. The following section can be used to add the cloud provider's credentials to fetch the encryption key. Configuration for AWS can be at as below:
   ```yaml
-  internalKeystorePassword:
+  encryptionKey:
     # -- AWS Secrets Manager secret name
     secretName: ""
     # -- AWS Secrets Manager secret key
