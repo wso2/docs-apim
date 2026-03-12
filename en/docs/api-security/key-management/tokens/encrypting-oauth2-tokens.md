@@ -5,7 +5,7 @@ WSO2 API Manager provides the capability to encrypt OAuth2 tokens (OAuth2 access
 !!! info
         **Symmetric Encryption** is a form of encryption where the same key is used to encrypt and decrypt the message along with a mathematical algorithm. As long as both sender and recipient know the secret key, they can encrypt and decrypt all messages that use this key.
 
-        For comprehensive information about encryption in WSO2 API Manager, including symmetric and asymmetric encryption options, see [Symmetric Encryption]({{base_path}}/install-and-setup/setup/security/encryption/symmetric-encryption) and [Working with Encrypted Passwords]({{base_path}}/install-and-setup/setup/security/logins-and-passwords/working-with-encrypted-passwords).
+        For comprehensive information about symmetric encryption in WSO2 API Manager, see [Symmetric Encryption]({{base_path}}/install-and-setup/setup/security/encryption/symmetric-encryption) and [Working with Encrypted Passwords]({{base_path}}/install-and-setup/setup/security/logins-and-passwords/working-with-encrypted-passwords).
 
 !!! warning
         It is recommended to switch this configuration on/off **before any keys have been generated in your system** . Once token encryption is switched on, the system encrypts all sensitive OAuth2.0 data such as Access Tokens, Consumer Secrets, etc. When reading that information, the system assumes that they are in the encrypted format and attempts to decrypt them. Therefore, switching this configuration off **after** any keys are created would break the system, unless the data is converted back into plain text.

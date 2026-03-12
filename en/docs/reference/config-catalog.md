@@ -17064,16 +17064,17 @@ queue_capacity = 50</code></pre>
                 <div class="superfences-content">
                     <div class="mb-config-example">
 <pre><code class="toml">[encryption]
-key = "d9b6d91f1c4f9976aa15108bb6833362e349174dcc26964b47692826fb03a956"</code></pre>
+key = "<generated-64-char-hex-key>"
+</code></pre>
                     </div>
                 </div>
                 <div class="doc-wrapper">
                     <div class="mb-config">
                         <div class="config-wrap">
                             <code>[encryption]</code>
-                            <span class="badge-required">Required</span>
+                            
                             <p>
-                                This configuration is required to define the encryption settings.
+                                Defines symmetric encryption settings. Configure this explicitly before first startup in production or distributed deployments.
                             </p>
                         </div>
                         <div class="params-wrap">
@@ -17093,7 +17094,7 @@ key = "d9b6d91f1c4f9976aa15108bb6833362e349174dcc26964b47692826fb03a956"</code><
                                         
                                     </div>
                                     <div class="param-description">
-                                        <p>The encryption key used in symmetric cryptography.</p>
+                                        <p>The symmetric encryption key used for internal data protection. In distributed or cloud deployments, all API Manager instances must use the same key.</p>
                                     </div>
                                 </div>
                             </div>

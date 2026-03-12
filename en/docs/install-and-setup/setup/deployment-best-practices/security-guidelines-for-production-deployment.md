@@ -343,7 +343,7 @@ login_username_case_insensitive = false
 </pre>
 </td>
 </tr>
-<tr class="odd" id="case-sensitive-user-store">
+<tr class="odd" id="encryption-key">
 <td><p>Add the symmetric encryption key</p></td>
 <td>
 <p>

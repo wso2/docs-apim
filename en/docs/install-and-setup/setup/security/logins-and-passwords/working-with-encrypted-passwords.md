@@ -247,9 +247,9 @@ You can rotate encryption keys by switching between symmetric and asymmetric enc
         key_password = "$secret{keystore_password}"
         ```
 
-3. Navigate to the `<APIM_HOME>/bin/` directory using the command prompt, where the cipher tool scripts reside.
+2. Navigate to the `<APIM_HOME>/bin/` directory using the command prompt, where the cipher tool scripts reside.
 
-4. Execute the cipher tool script to re-encrypt the passwords with the new key or secret. Use the `-Drotate` option.
+3. Execute the cipher tool script to re-encrypt the passwords with the new key or secret. Use the `-Drotate` option.
 
     === "Symmetric encryption"
 
