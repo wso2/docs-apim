@@ -343,6 +343,14 @@ login_username_case_insensitive = false
 </pre>
 </td>
 </tr>
+<tr class="odd" id="case-sensitive-user-store">
+<td><p>Add the symmetric encryption key</p></td>
+<td>
+<p>
+You should generate a symmetric encryption key for internal encryption and add it to the <code>deployment.toml</code> file. See <a href="{{base_path}}/install-and-setup/setup/security/encryption/symmetric-encryption/#generate-a-secret-key">Configuring Encryption Key</a> for instructions.
+</p>
+</td>
+</tr>
 </tbody>
 </table>
 

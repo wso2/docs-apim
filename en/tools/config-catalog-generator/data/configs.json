@@ -6477,6 +6477,27 @@
                 }
             ],
             "exampleFile": "synapse_artifact_generator_pool.toml"
+        },
+        {
+            "title": "Encryption Configurations",
+            "options": [
+                {
+                    "name": "encryption",
+                    "required": true,
+                    "description": "This configuration is required to define the encryption settings.",
+                    "params": [
+                        {
+                            "name": "key",
+                            "type": "string",
+                            "required": true,
+                            "default": "",
+                            "possible": "",
+                            "description": "The encryption key used in symmetric cryptography."
+                        }
+                    ]
+                }
+            ],
+            "exampleFile": "encryption.toml"
         }
     ]
 }
