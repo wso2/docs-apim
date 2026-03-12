@@ -268,6 +268,72 @@ Start the API Manager server and log-in to the Admin portal to configure Azure A
 
   If you see this message in logs or while updating the application several times, The issue is with limitation with Azure AD `client_secret`. At a given application max number of client_secrets can have is 2. Delete old one from AzureAD console web client.
 
-### Adding existing key with APIM
-    
-  With the limitation on getting generated `client_secrets` after its generated, it not support to add existing keys from APIM.
+## Adding Existing Key with APIM
+
+!!! note
+    Microsoft Entra ID does not allow retrieving a previously generated `client_secret`. Therefore, when an application is mapped using **Provide Existing OAuth Keys**, the Developer Portal cannot display the client secret afterward.
+
+If you want to use existing OAuth keys created in Microsoft Entra ID with WSO2 API Manager, follow the steps below.
+
+Microsoft Entra ID supports **two versions of JWT tokens**, namely **V1** and **V2**.
+
+To validate both token types in WSO2 API Manager, you must configure **two separate Key Managers**.
+
+### APIM Configuration
+
+#### Configure Key Manager for V1 Tokens
+
+Follow the same steps described earlier to configure a Key Manager. However, apply the following changes.
+
+1. In the **Key Manager Endpoints** section, update the **Issuer** value as follows:
+    `https://sts.windows.net/{tenant-id}/`
+2. In the **Claim URIs** section, configure the **Consumer Key Claim URI** as: `appid` for V1 tokens.
+
+#### Configure Key Manager for V2 Tokens
+
+Follow the same Key Manager configuration steps but apply the following changes.
+
+1. In the **Key Manager Endpoints** section, set the **Issuer** value as follows:
+    `https://login.microsoftonline.com/{tenant-id}/v2.0`
+2. In the **Claim URIs** section, configure the **Consumer Key Claim URI** as: `azp` for V2 tokens.
+
+### Microsoft Entra ID Configuration
+
+#### Configure the application to generate V1 or V2 tokens
+
+The steps to create the application and generate client secrets remain the same as described in the previous section. However, if you need to generate **V2 tokens**, make sure the value of `requestedAccessTokenVersion` is set to `2` in the application manifest. If the value is `null` or `1`, the generated tokens will be of version 1. To update the manifest, follow the steps below.
+
+1. Navigate to the Microsoft Entra Admin Center and select **App registrations** from the left-hand menu.
+2. Click on the application you want to configure.
+3. In the left-hand menu, select **Manifest**.
+4. In the manifest editor, locate the `requestedAccessTokenVersion` property and set its value.
+
+[![Azure AD Application Manifest Example]({{base_path}}/assets/img/administer/azuread-application-manifest.png){: style="width:90%"}]({{base_path}}/assets/img/administer/azuread-application-manifest.png)
+
+!!! note
+    If you plan to use **Microsoft Entra External ID** as a third-party Key Manager, you can follow the same configuration steps described above. Ensure that the correct Application ID URI is configured because this value is used as the scope parameter when generating access tokens.
+
+### Map Application in Developer Portal
+
+When an application is created in the WSO2 Developer Portal, it must be mapped to an existing application created in Microsoft Entra ID.
+
+1. Navigate to the **Production Keys** section of the application.
+2. Click **Provide Existing OAuth Keys**.
+3. Enter the following values:
+
+    - **Consumer Key** : Application (client) ID from Microsoft Entra ID
+    - **Consumer Secret** : Client secret generated in Microsoft Entra ID
+
+!!! note
+    When using Provide Existing OAuth Keys, the client secret cannot be retrieved from Microsoft Entra ID after it is created. Therefore, the Developer Portal cannot display the client secret once it has been added, and you have to use the below curl to generate the token by providing the client secret that you have generated in Microsoft Entra ID.
+
+    ```
+    curl --location 'https://login.microsoftonline.com/<tenant-id>/oauth2/v2.0/token' \
+    --header 'Content-Type: application/x-www-form-urlencoded' \
+    --data-urlencode 'client_id=<client-id>' \
+    --data-urlencode 'client_secret=<client-secret>' \
+    --data-urlencode 'grant_type=client_credentials' \
+    --data-urlencode 'scope=api://<application-id>/.default'
+    ```
+
+    Replace the placeholders with the appropriate values from your Microsoft Entra ID application.
