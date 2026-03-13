@@ -16,8 +16,7 @@ First, enable the approval workflow executor for application update.
 
     <a href="{{base_path}}/assets/img/learn/navigate-main-resources.png"><img src="{{base_path}}/assets/img/learn/navigate-main-resources.png" width="250" height="100"/></a>
 
-3.  Go to the /_system/governance/apimgt/applicationdata/workflow-extensions.xml resource, click on Edit as text to edit the file, disable the Simple Workflow Executor, and enable Approval Workflow Executor for application update. 
-
+3.  Go to the /_system/governance/apimgt/applicationdata/workflow-extensions.xml resource, click on Edit as text to edit the file, disable the Simple Workflow Executor, and enable Approval Workflow Executor for application update.
 
     ``` xml
     <WorkFlowExtensions>
@@ -26,9 +25,20 @@ First, enable the approval workflow executor for application update.
     </WorkFlowExtensions>
     ```
     
+    If you want to display application attributes in the application update workflow approval task list in the Admin Portal, configure the `applicationAttributesVisibility` property as follows.
+
+    ``` xml
+    <WorkFlowExtensions>
+        <!--ApplicationUpdate executor="org.wso2.carbon.apimgt.impl.workflow.ApplicationUpdateSimpleWorkflowExecutor"/-->
+        <ApplicationUpdate executor="org.wso2.carbon.apimgt.impl.workflow.ApplicationUpdateApprovalWorkflowExecutor">
+            <Property name="applicationAttributesVisibility">true</Property>
+        </ApplicationUpdate>
+    </WorkFlowExtensions>
+    ```
+
+    By default, application attributes are not displayed in workflow approval tasks. Application attributes are displayed only when the `applicationAttributesVisibility` property is set to `true`. This property is applicable only to applications that contain application attributes.
+
     Once the changes are done, click on `Save Content` .The application update Approval Workflow Executor is now engaged.
-
-
 
 4.  Update an application via the Developer Portal. 
 
