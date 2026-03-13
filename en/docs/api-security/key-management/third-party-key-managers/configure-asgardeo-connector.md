@@ -41,7 +41,7 @@ Follow the instructions given below to configure Asgardeo as a third-party Key M
         [![asgardeo authorize dcr api]({{base_path}}/assets/img/administer/asgardeo-authorize-dcr-api.png)]({{base_path}}/assets/img/administer/asgardeo-authorize-dcr-api.png)
 
         !!! note
-            If you don't see the required API Resource, wait a minute or two for the API Resources list to finish loading. Reload the page if the issue doesn't resolve.   
+            If the required API Resource doesn't appear, please allow a few moments for the API Resources list to finish loading. Reload the page if the issue persists.   
 
         !!! note
             Ensure you have authorized the **Management API** version of the API Resource. It is a common mistake to authorize the **Organization API** version instead.  
@@ -50,7 +50,7 @@ Follow the instructions given below to configure Asgardeo as a third-party Key M
         - **API Resource Management API** 
         - **SCIM2 Roles V1/V2 API**
 
-4. Create an API Resource to globally contain scopes defined in WSO2 API Manager.
+4. Create an API Resource that serves as a global container for the scopes defined in WSO2 API Manager.
     1. Navigate to **Resources** → **API Resources** → **`+ New API Resource`**
 
         [![asgardeo new api resource]({{base_path}}/assets/img/administer/asgardeo-new-api-resource.png)]({{base_path}}/assets/img/administer/asgardeo-new-api-resource.png)
@@ -63,9 +63,9 @@ Follow the instructions given below to configure Asgardeo as a third-party Key M
 
         [![asgardeo create api resource]({{base_path}}/assets/img/administer/asgardeo-create-api-resource.png)]({{base_path}}/assets/img/administer/asgardeo-create-api-resource.png)
     
-    3. In the following **Scopes** page, click on **Next**. No scopes additions are required. 
+    3. On the **Scopes** page that appears next, click **Next**. No scopes need to be added. 
 
-    4. In the following **Authorization** page, click on **Create** ensuring that **Requires authorization** is enabled. 
+    4. On the **Authorization** page that appears next, click on **Create** ensuring that **Requires authorization** is enabled. 
 
         [![asgardeo authorize api resource]({{base_path}}/assets/img/administer/asgardeo-authorize-api-resource.png)]({{base_path}}/assets/img/administer/asgardeo-authorize-api-resource.png)
 
