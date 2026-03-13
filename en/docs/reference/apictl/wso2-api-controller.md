@@ -1326,7 +1326,7 @@ Use this command to manage Micro Integrator artifacts. You can get, add, update,
 
 ### apictl secret
 
-Encrypt secrets to be used in the Micro Integrator.
+Encrypt secrets for use with WSO2 API Manager using symmetric or asymmetric encryption.
 
 -   Usage
 
@@ -1342,7 +1342,7 @@ Encrypt secrets to be used in the Micro Integrator.
                 <code>init</code>
             </th>
             <td>
-                Initializes the keystore used for encryption.
+                Initializes the keystore used for asymmetric encryption or the encryption key used for symmetric encryption. Use the optional `symmetric` argument to explicitly select symmetric mode.
             </td>
         </tr>
         <tr>
@@ -1350,7 +1350,7 @@ Encrypt secrets to be used in the Micro Integrator.
                 <code>create</code>
             </th>
             <td>
-                Encrypt the secrets.
+                Encrypts secrets using the initialized encryption key, or the initialized keystore. Use the optional `symmetric` argument to explicitly select symmetric mode.
             </td>
         </tr>
     </table>
