@@ -1,8 +1,10 @@
 # Configure Asgardeo as a Key Manager
 
-It is possible to integrate the WSO2 API Manager with an external Identity and Access Management server (IAM) using Asgardeo by WSO2 to manage the OAuth clients and tokens that are required by WSO2 API Manager. WSO2 API Manager has built-in support to consume APIs exposed by Asgardeo OAuth.
+WSO2 API Manager supports multiple Key Managers at the same time. As a result, WSO2 API Manager is prepacked with an inbuilt resident Key Manager, and with the use of connectors, it is capable of supporting any authorization server as a Key Manager.  
 
-Follow the instructions below to configure Asgardeo as a third-party Key Manager.
+WSO2 API Manager can connect Asgardeo by WSO2 out-of-the-box using the [WSO2 API-M Asgardeo Connector](https://github.com/wso2-extensions/apim-km-asgardeo).  
+
+Follow the instructions given below to configure Asgardeo as a third-party Key Manager:
 
 ## Step 1 - Configure Asgardeo
 
