@@ -13,29 +13,29 @@ Follow the instructions below to configure Auth0 as a third-party Key Manager:
      
      Get the URL for the tenant and then sign in to the dashboard.
 
-     [![auth0 dashboard]({{base_path}}/assets/img/administer/auth0-dashboard.png)]({{base_path}}/assets/img/administer/auth0-dashboard.png)
+     ![auth0 dashboard]({{base_path}}/assets/img/administer/auth0-dashboard.png)
 
 2. Create an application to use the management API.
 
-     [![auth0 management api]({{base_path}}/assets/img/administer/auth0-management-api.png)]({{base_path}}/assets/img/administer/auth0-management-api.png)
+     ![auth0 management api]({{base_path}}/assets/img/administer/auth0-management-api.png)
 
-     [![auth0 new application]({{base_path}}/assets/img/administer/auth0-new-application.png)]({{base_path}}/assets/img/administer/auth0-new-application.png)
+     ![auth0 new application]({{base_path}}/assets/img/administer/auth0-new-application.png)
 
 3. Allow that application to use the management API.
 
      Make sure that you have granted all the permissions to Create, Manage Apps, and Resource servers.
 
-     [![auth0 permission to use app]({{base_path}}/assets/img/administer/auth0-permission-to-use-app.png)]({{base_path}}/assets/img/administer/auth0-permission-to-use-app.png)
+     ![auth0 permission to use app]({{base_path}}/assets/img/administer/auth0-permission-to-use-app.png)
 
 4. Navigate to the **APIs** section and create a custom API.
 
-     [![auth0 create custom api]({{base_path}}/assets/img/administer/auth0-create-custom-api.png)]({{base_path}}/assets/img/administer/auth0-create-custom-api.png)
+     ![auth0 create custom api]({{base_path}}/assets/img/administer/auth0-create-custom-api.png)
 
      <a name="step1-4"></a>
 
 5. Navigate to the **Permissions** tab in the custom API and create a new scope named `default` for the API.
 
-     [![auth0 create scope]({{base_path}}/assets/img/administer/auth0-create-scope.png)]({{base_path}}/assets/img/administer/auth0-create-scope.png)
+     ![auth0 create scope]({{base_path}}/assets/img/administer/auth0-create-scope.png)
 
 ## Step 2 - Configure WSO2 API Manager
 
@@ -49,18 +49,18 @@ Follow the instructions below to configure Auth0 as a third-party Key Manager:
 
 3. Add a new Key Manager.
 
-     [![auth0 add app admin]({{base_path}}/assets/img/administer/auth0-add-app-admin.png)]({{base_path}}/assets/img/administer/auth0-add-app-admin.png)
+     ![auth0 add app admin]({{base_path}}/assets/img/administer/auth0-add-app-admin.png)
 
     1. Select the Key manager type as Auth0 and provide the relevant details in the fields accordingly.
 
-        [![auth0 km type]({{base_path}}/assets/img/administer/auth0-km-type.png)]({{base_path}}/assets/img/administer/auth0-km-type.png)
+        ![auth0 km type]({{base_path}}/assets/img/administer/auth0-km-type.png)
 
         !!! info
             A list of well know addresses can be found in the advance section of the Auth0 Application settings
 
             Example: ```https://my-tenant.us.auth0.com/.well-known/openid-configuration```
 
-         [![auth0 endpoints]({{base_path}}/assets/img/administer/auth0-endpoints.png)]({{base_path}}/assets/img/administer/auth0-endpoints.png)
+         ![auth0 endpoints]({{base_path}}/assets/img/administer/auth0-endpoints.png)
 
          - The introspection endpoint will not be populated as it is not exposed in Auth0. Therefore, set its value as <code>none</code>. 
          - Select the token validation method as <code>Self validate JWT</code> as shown below.
@@ -71,13 +71,13 @@ Follow the instructions below to configure Auth0 as a third-party Key Manager:
 
          For information on the format of the grant types, go to <a href="https://auth0.com/docs/applications/application-grant-types">Application Grant Types</a> in the official Auth0 documentation.
 
-         [![auth0 grant types]({{base_path}}/assets/img/administer/auth0-grant-types.png)]({{base_path}}/assets/img/administer/auth0-grant-types.png)
+         ![auth0 grant types]({{base_path}}/assets/img/administer/auth0-grant-types.png)
 
      3. Enter the client ID and client secret of the application that was created to invoke the Manage API.
 
          You can get to the audience value from Manage API. This is the Identifier value under **General Settings** for that API.
 
-         [![auth0 connector configs]({{base_path}}/assets/img/administer/auth0-connector-configs.png)]({{base_path}}/assets/img/administer/auth0-connector-configs.png)
+         ![auth0 connector configs]({{base_path}}/assets/img/administer/auth0-connector-configs.png)
 
      The following table provides definitions for each of the Key Manager configurations.
 
@@ -313,25 +313,25 @@ Follow the instructions below to configure Auth0 as a third-party Key Manager:
 
 3. Create a new application.
     
-     [![auth0 dev app create]({{base_path}}/assets/img/administer/auth0-dev-app-create.png)]({{base_path}}/assets/img/administer/auth0-dev-app-create.png)
+     ![auth0 dev app create]({{base_path}}/assets/img/administer/auth0-dev-app-create.png)
 
 2. Click either "production" or "sandbox", select `Auth0`, and fill in the relevant information.
     
-     [![auth0 app creation form]({{base_path}}/assets/img/administer/auth0-app-creation-form.png)]({{base_path}}/assets/img/administer/auth0-app-creation-form.png)
+     ![auth0 app creation form]({{base_path}}/assets/img/administer/auth0-app-creation-form.png)
     
     !!! note
         - Note that the API field named **audience** is mandatory to generate an access token for Auth0. Therefore, provide it when generating the application keys.
         - You can obtain the audience of the API by checking the API. This is the value from the Resource Server API.
     
-     [![auth0 resource api]({{base_path}}/assets/img/administer/auth0-resource-api.png)]({{base_path}}/assets/img/administer/auth0-resource-api.png)
+     ![auth0 resource api]({{base_path}}/assets/img/administer/auth0-resource-api.png)
 
      After the keys are generated, it will reflect in the UI.
     
-     [![auth0 created app]({{base_path}}/assets/img/administer/auth0-created-app.png)]({{base_path}}/assets/img/administer/auth0-created-app.png)
+     ![auth0 created app]({{base_path}}/assets/img/administer/auth0-created-app.png)
     
 3. Click **Generate Keys**.
     
-     [![auth0 success]({{base_path}}/assets/img/administer/auth0-success.png)]({{base_path}}/assets/img/administer/auth0-success.png)
+     ![auth0 success]({{base_path}}/assets/img/administer/auth0-success.png)
 
 !!! tip
      If you want to generate the tokens with scopes, those scopes should have been defined in Auth0 as mentioned in <a href="#step1-4">Step 1 - (4)</a>.

@@ -12,7 +12,7 @@ The tutorial demonstrates a simple WebSub/WebHook API that monitors your GitHub 
 
 2.  Click **CREATE API**, go to **Streaming API**, and Click **WebHook API**.
 
-    [![Design New Streaming API]({{base_path}}/assets/img/design/create-api/streaming-api/design-new-streaming-api.png)]({{base_path}}/assets/img/design/create-api/streaming-api/design-new-streaming-api.png)
+    ![Design New Streaming API]({{base_path}}/assets/img/design/create-api/streaming-api/design-new-streaming-api.png)
 
     <html><div class="admonition note">
       <p class="admonition-title">Note</p>
@@ -53,7 +53,7 @@ The tutorial demonstrates a simple WebSub/WebHook API that monitors your GitHub 
 
      The overview page of the created WebSub/WebHook API appears.
 
-     [![Overview of WebSub API]({{base_path}}/assets/img/tutorials/streaming-api/websub-api-overview.png)]({{base_path}}/assets/img/tutorials/streaming-api/websub-api-overview.png)
+     ![Overview of WebSub API]({{base_path}}/assets/img/tutorials/streaming-api/websub-api-overview.png)
 
 5. Add a topic to the WebSub/WebHook API.
 
@@ -61,13 +61,13 @@ The tutorial demonstrates a simple WebSub/WebHook API that monitors your GitHub 
 
      2. Click **Add Topic**, add a topic with the name **/issues**, click **Add**, and finally click **Save**.
 
-           [![Add Topics to WebSub API]({{base_path}}/assets/img/tutorials/streaming-api/websub-api-add-topic.png)]({{base_path}}/assets/img/tutorials/streaming-api/websub-api-add-topic.png)
+           ![Add Topics to WebSub API]({{base_path}}/assets/img/tutorials/streaming-api/websub-api-add-topic.png)
 
 6. Generate a secret.
      
       1. Expand the **Subscription Configuration** section in the **Topics** page.
 
-           [![WebSub API Runtime Configurations]({{base_path}}/assets/img/tutorials/streaming-api/enable-secret-generation.png)]({{base_path}}/assets/img/tutorials/streaming-api/enable-secret-generation.png)
+           ![WebSub API Runtime Configurations]({{base_path}}/assets/img/tutorials/streaming-api/enable-secret-generation.png)
 
       2. Click **Enable** to enable secret generation.
 
@@ -125,7 +125,7 @@ A public URL should be forwarded to `localhost:9021`, so that your local server 
 
 2. Click **WebHooks**, navigate to the WebHooks page, and click **Add WebHook**.
 
-      [![GitHub Webhooks Page]({{base_path}}/assets/img/tutorials/streaming-api/github-webhooks-page.png)]({{base_path}}/assets/img/tutorials/streaming-api/github-webhooks-page.png)
+      ![GitHub Webhooks Page]({{base_path}}/assets/img/tutorials/streaming-api/github-webhooks-page.png)
 
 3. Configure the WebHook.
 
@@ -176,7 +176,7 @@ A public URL should be forwarded to `localhost:9021`, so that your local server 
           </tbody>
           </table>
 
-          [![GitHub Select Event Type]({{base_path}}/assets/img/tutorials/streaming-api/github-webhooks-select-issues.png)]({{base_path}}/assets/img/tutorials/streaming-api/github-webhooks-select-issues.png)
+          ![GitHub Select Event Type]({{base_path}}/assets/img/tutorials/streaming-api/github-webhooks-select-issues.png)
 
      3. Click **Add WebHook**.
 
@@ -205,11 +205,11 @@ A public URL should be forwarded to `localhost:9021`, so that your local server 
 
       A unique URL will be created for you. 
 
-     [![Create Callback URL]({{base_path}}/assets/img/tutorials/streaming-api/websub-api-create-callback-url.png)]({{base_path}}/assets/img/tutorials/streaming-api/websub-api-create-callback-url.png)
+     ![Create Callback URL]({{base_path}}/assets/img/tutorials/streaming-api/websub-api-create-callback-url.png)
 
 3. Click **Copy to clipboard** which is next to **Your unique URL**.
 
-      [![Copy Callback URL]({{base_path}}/assets/img/tutorials/streaming-api/websub-api-copy-callback-url.png)]({{base_path}}/assets/img/tutorials/streaming-api/websub-api-copy-callback-url.png)
+      ![Copy Callback URL]({{base_path}}/assets/img/tutorials/streaming-api/websub-api-copy-callback-url.png)
 
 4. URL-encode the unique URL that you copied. 
 
@@ -238,11 +238,11 @@ A public URL should be forwarded to `localhost:9021`, so that your local server 
            </p>
            </div>
 
-           [![Key Generation Wizard]({{base_path}}/assets/img/tutorials/streaming-api/streaming-api-key-generation-wizard.png)]({{base_path}}/assets/img/tutorials/streaming-api/streaming-api-key-generation-wizard.png)
+           ![Key Generation Wizard]({{base_path}}/assets/img/tutorials/streaming-api/streaming-api-key-generation-wizard.png)
 
     2. Copy the authorization token that appears, and click **FINISH**.
 
-         [![Authorization Token]({{base_path}}/assets/img/tutorials/streaming-api/streaming-api-subscription-token.png)]({{base_path}}/assets/img/tutorials/streaming-api/streaming-api-subscription-token.png)
+         ![Authorization Token]({{base_path}}/assets/img/tutorials/streaming-api/streaming-api-subscription-token.png)
 
 4. Try out the operations.
 
@@ -262,7 +262,7 @@ A public URL should be forwarded to `localhost:9021`, so that your local server 
      
            5. Go back to the webpage at [https://webhook.site.org](https://webhook.site), where you created the callback URL. A new request which denotes the issue creation would have appeared.
 
-               [![Received Event]({{base_path}}/assets/img/tutorials/streaming-api/websub-api-received-event.png)]({{base_path}}/assets/img/tutorials/streaming-api/websub-api-received-event.png)
+               ![Received Event]({{base_path}}/assets/img/tutorials/streaming-api/websub-api-received-event.png)
      
      2. Unsubscribe from the **/issues** topic.
 

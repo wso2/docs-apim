@@ -29,7 +29,7 @@ Follow the instructions below to add a mock implementation to the API:
 
 2. Select **Mock Implementation** as the endpoint type and click **Add**.
 
-     [![Select Mock Implementation]({{base_path}}/assets/img/learn/prototype-api/create-api-prototype-mock-impl-swagger-petstore.png)]({{base_path}}/assets/img/learn/prototype-api/create-api-prototype-mock-impl-swagger-petstore.png)
+     ![Select Mock Implementation]({{base_path}}/assets/img/learn/prototype-api/create-api-prototype-mock-impl-swagger-petstore.png)
 
 3. View the inline script that has been generated.
    
@@ -37,7 +37,7 @@ Follow the instructions below to add a mock implementation to the API:
      
      Let's click on the `GET /pet/{petId}` method.
 
-     [![Generated inline script]({{base_path}}/assets/img/learn/create-api-prototype-generated-script.png)]({{base_path}}/assets/img/learn/create-api-prototype-generated-script.png)
+     ![Generated inline script]({{base_path}}/assets/img/learn/create-api-prototype-generated-script.png)
 
      The example response defined in the OpenAPI definition is set as the mock response payload. You can modify the generated inline scripts as required. 
 
@@ -72,7 +72,7 @@ Follow the instructions below to add a mock implementation to the API:
    
         The **RESET** button appears after a change is made to the script. When pressed, the script will revert to the originally generated script.
 
-     [![Modified inline script]({{base_path}}/assets/img/learn/create-api-prototype-generated-script-modified.png)]({{base_path}}/assets/img/learn/create-api-prototype-generated-script-modified.png)
+     ![Modified inline script]({{base_path}}/assets/img/learn/create-api-prototype-generated-script-modified.png)
    
     ??? note "Click here to view the modified inline Mock Implementation script."
         ```
@@ -158,7 +158,7 @@ Follow the instructions below to add a mock implementation to the API:
       
 5. Click **Save** to save the endpoint configurations in the API.
 
-     [![Save inline scripts]({{base_path}}/assets/img/learn/create-api-prototype-click-save.png)]({{base_path}}/assets/img/learn/create-api-prototype-click-save.png)
+     ![Save inline scripts]({{base_path}}/assets/img/learn/create-api-prototype-click-save.png)
 
 {!includes/design/invoke-prerelease-api.md!}
 
@@ -176,11 +176,11 @@ Follow the instructions below to add a mock implementation to the API:
     !!! note
         Skip this step if you have [disabled security for the API]({{base_path}}/manage-apis/design/api-security/api-authentication/disable-security/), and leave the **Access Token** field empty.
 
-     [![Try out prototype]({{base_path}}/assets/img/learn/prototype-api/create-prototype-api-dev-portal-tryout-petstore.png)]({{base_path}}/assets/img/learn/prototype-api/create-prototype-api-dev-portal-tryout-petstore.png)
+     ![Try out prototype]({{base_path}}/assets/img/learn/prototype-api/create-prototype-api-dev-portal-tryout-petstore.png)
 
 4. Expand any method and click **Try it out**.
 
-     [![Click Try it out]({{base_path}}/assets/img/learn/prototype-api/create-api-prototype-tryout-click.png)]({{base_path}}/assets/img/learn/prototype-api/create-api-prototype-tryout-click.png)
+     ![Click Try it out]({{base_path}}/assets/img/learn/prototype-api/create-api-prototype-tryout-click.png)
 
 5. Enter the value for the parameter and click **Execute** to invoke the API.
 
@@ -189,19 +189,19 @@ Follow the instructions below to add a mock implementation to the API:
 
     1. For `petId : " 0 " `
 
-         [![Tryout for petid0]({{base_path}}/assets/img/learn/prototype-api/create-api-prototype-tryout-execute-petid0.png)]({{base_path}}/assets/img/learn/prototype-api/create-api-prototype-tryout-execute-petid0.png)
+         ![Tryout for petid0]({{base_path}}/assets/img/learn/prototype-api/create-api-prototype-tryout-execute-petid0.png)
  
         The response payload that is defined in the generated script is returned.
    
-        [![Response for petid0]({{base_path}}/assets/img/learn/prototype-api/create-api-prototype-execute-response-petid0.png)]({{base_path}}/assets/img/learn/prototype-api/create-api-prototype-execute-response-petid0.png)
+        ![Response for petid0]({{base_path}}/assets/img/learn/prototype-api/create-api-prototype-execute-response-petid0.png)
 
     2. For `petId : " 1 " `
 
-        [![Tryout for petid1]({{base_path}}/assets/img/learn/prototype-api/create-api-prototype-tryout-execute-petid1.png)]({{base_path}}/assets/img/learn/prototype-api/create-api-prototype-tryout-execute-petid1.png)
+        ![Tryout for petid1]({{base_path}}/assets/img/learn/prototype-api/create-api-prototype-tryout-execute-petid1.png)
 
         The response payload defined in the manually modified script is returned.
 
-        [![Response for petid1]({{base_path}}/assets/img/learn/prototype-api/create-api-prototype-execute-response-petid1.png)]({{base_path}}/assets/img/learn/prototype-api/create-api-prototype-execute-response-petid1.png)
+        ![Response for petid1]({{base_path}}/assets/img/learn/prototype-api/create-api-prototype-execute-response-petid1.png)
 
 ## Additional Information
 

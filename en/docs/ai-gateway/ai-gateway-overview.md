@@ -22,7 +22,7 @@ The gateway operates in two complementary modes:
 
 The **LLM Gateway** specializes in managing Large Language Model interactions for traditional AI API patterns. It provides direct integration with major AI service providers, enabling organizations to build conversational AI applications, content generation systems, and AI-powered services.
 
-[![LLM Gateway]({{base_path}}/assets/img/learn/ai-gateway/ai-gateway.webp)]({{base_path}}/assets/img/learn/ai-gateway/ai-gateway.webp)
+![LLM Gateway]({{base_path}}/assets/img/learn/ai-gateway/ai-gateway.webp)
 
 ### Use LLM Gateway when you need
 - Direct AI model interactions (chat, completion, embeddings)
@@ -69,7 +69,7 @@ The MCP Gateway implements a three-tier architecture:
 
 This standardized approach enables structured AI workflows where AI agents can seamlessly call your business logic as tools.
 
-[![API Manager MCP Architecture]({{base_path}}/assets/img/mcp-gateway/mcp-architecture.png)]({{base_path}}/assets/img/mcp-gateway/mcp-architecture.png)
+![API Manager MCP Architecture]({{base_path}}/assets/img/mcp-gateway/mcp-architecture.png)
 
 ### Use MCP Gateway when you need
 - Transform existing APIs into AI-callable tools

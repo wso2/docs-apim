@@ -110,7 +110,7 @@ Let's deploy the `AsyncAPIDef` Siddhi application, which is the Streaming backen
 
 1. Click **Deploy**, and then click **Deploy to Server** in Streaming Integrator Tooling. 
 
-     [![Deploy To Server](https://apim.docs.wso2.com/en/4.3.0/assets/img/streaming/working-with-async-api/async-api-websocket-deploy-to-server.png)](https://apim.docs.wso2.com/en/4.3.0/assets/img/streaming/working-with-async-api/async-api-websocket-deploy-to-server.png)
+     ![Deploy To Server](https://apim.docs.wso2.com/en/4.3.0/assets/img/streaming/working-with-async-api/async-api-websocket-deploy-to-server.png)
 
      This opens the **Deploy Siddhi Apps to Server** dialog box. 
 
@@ -143,7 +143,7 @@ Follow the instructions below to view the service catalog entry in WSO2 API Mana
      
      For testing purposes, you can use `https://localhost:9448/publisher` and `admin` as the username and password.
 
-     [![Open Service Catalog](https://apim.docs.wso2.com/en/4.3.0/assets/img/integrate/tutorials/service-catalog/open-service-catalog.png)](https://apim.docs.wso2.com/en/4.3.0/assets/img/integrate/tutorials/service-catalog/open-service-catalog.png)
+     ![Open Service Catalog](https://apim.docs.wso2.com/en/4.3.0/assets/img/integrate/tutorials/service-catalog/open-service-catalog.png)
      
 2. Click the hamburger icon and then click **Services**.
 

@@ -20,11 +20,11 @@ Advanced rate limiting policies can be applied to both APIs and resources.
 2.  Click **Advanced Throttling** under the **Rate Limiting Policies** section to see the set of existing rate limiting tiers.
 3.  To add a new tier, click **Add New Policy**.
     
-    [![Add advanced policy page]({{base_path}}/assets/img/learn/add-advanced-throttling-tier.png)]({{base_path}}/assets/img/learn/add-advanced-throttling-tier.png)
+    ![Add advanced policy page]({{base_path}}/assets/img/learn/add-advanced-throttling-tier.png)
     
 4.  Fill in the required details and click **Add**.
     
-    [![Add advanced policy page]({{base_path}}/assets/img/learn/save-advanced-policy.png)]({{base_path}}/assets/img/learn/save-advanced-policy.png)
+    ![Add advanced policy page]({{base_path}}/assets/img/learn/save-advanced-policy.png)
 
     <div class="admonition info">
     <p class="admonition-title">Note</p>
@@ -34,7 +34,7 @@ Advanced rate limiting policies can be applied to both APIs and resources.
     </p>
     </div>
    
-    [![Add advanced policy page]({{base_path}}/assets/img/learn/add-request-bandwith-advanced-policy.png)]({{base_path}}/assets/img/learn/add-request-bandwith-advanced-policy.png)
+    ![Add advanced policy page]({{base_path}}/assets/img/learn/add-request-bandwith-advanced-policy.png)
 
 You have added a new advanced rate limiting policy. You can now apply it to an API or a resource.
 
@@ -66,7 +66,7 @@ You can add rate limiting limits with different parameters to the conditions by 
 
      You can add a description about the condition group by clicking **Description** under **Condition Group**.
     
-     [![Add advanced policy page]({{base_path}}/assets/img/learn/new-conditional-groups.png)]({{base_path}}/assets/img/learn/new-conditional-groups.png)
+     ![Add advanced policy page]({{base_path}}/assets/img/learn/new-conditional-groups.png)
 
      | Condition    | Description value |
      |---------------|-------------------|
@@ -122,7 +122,7 @@ You can add rate limiting limits with different parameters to the conditions by 
 
 8.  Once done, click **Add**.
 
-    [![Add advanced policy page]({{base_path}}/assets/img/learn/add-condition-group.png)]({{base_path}}/assets/img/learn/add-condition-group.png)
+    ![Add advanced policy page]({{base_path}}/assets/img/learn/add-condition-group.png)
 
 <div class="admonition info">
     <p class="admonition-title">Note</p>
@@ -143,11 +143,11 @@ When requests to an API should be permitted from only a set of known/trusted IPs
 2.  Under the **Rate Limiting Policies** tab, navigate to **Advanced Policies.**
 3.  Click **Add New Policy** to add a new Rate Limit tier.
 
-    [![Allowed IP add policy]({{base_path}}/assets/img/learn/add-advanced-throttling-tier.png)]({{base_path}}/assets/img/learn/add-advanced-throttling-tier.png)
+    ![Allowed IP add policy]({{base_path}}/assets/img/learn/add-advanced-throttling-tier.png)
 
 4.  Fill the details and click **Add Conditional Group**.
 
-    [![Allowed IP add conditional group]({{base_path}}/assets/img/learn/allowed-ip-add-conditional-group.png)]({{base_path}}/assets/img/learn/allowed-ip-add-conditional-group.png)
+    ![Allowed IP add conditional group]({{base_path}}/assets/img/learn/allowed-ip-add-conditional-group.png)
 
 5.  Open the Conditional Group added and fill the details.
 
@@ -160,9 +160,9 @@ When requests to an API should be permitted from only a set of known/trusted IPs
 
     Following is an example configuration.
 
-    [![New allow specific IP]({{base_path}}/assets/img/learn/new-allow-specific-ip.png)]({{base_path}}/assets/img/learn/new-allow-specific-ip.png)
+    ![New allow specific IP]({{base_path}}/assets/img/learn/new-allow-specific-ip.png)
     
-    [![Save allow specific IP]({{base_path}}/assets/img/learn/save-allow-specific-ip.png)]({{base_path}}/assets/img/learn/save-allow-specific-ip.png)
+    ![Save allow specific IP]({{base_path}}/assets/img/learn/save-allow-specific-ip.png)
       
      <div class="admonition info">
     <p class="admonition-title">Note</p>  
@@ -170,7 +170,7 @@ When requests to an API should be permitted from only a set of known/trusted IPs
     You can allow a range of IPs as well by selecting **IP Range** for the IP Condition Type in the Conditional Group and specifying the range as follows.</p>
     </div>
 
-    [![New allowed IP range]({{base_path}}/assets/img/learn/new-allowed-ip-range.png)]({{base_path}}/assets/img/learn/new-allowed-ip-range.png)
+    ![New allowed IP range]({{base_path}}/assets/img/learn/new-allowed-ip-range.png)
 
 6.  Click **Save**.
        

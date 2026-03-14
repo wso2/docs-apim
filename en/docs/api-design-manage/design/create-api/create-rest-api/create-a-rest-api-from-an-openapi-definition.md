@@ -18,7 +18,7 @@ Follow the instructions below to create a REST API using an OpenAPI definition f
 
 2. Click **Create API** and then click **Import OpenAPI**.
 
-    [![Create an API]({{base_path}}/assets/img/get_started/design-new-rest-api.png)]({{base_path}}/assets/img/get_started/design-new-rest-api.png)
+    ![Create an API]({{base_path}}/assets/img/get_started/design-new-rest-api.png)
 
 3. Select one of the following options:
 
@@ -94,7 +94,7 @@ Follow the instructions below to create a REST API using an OpenAPI definition f
 
      The Petstore API overview page appears.
 
-     [![Overview of created API]({{base_path}}/assets/img/learn/overviewpage-rest-api-creating-by-swagger-def.png)]({{base_path}}/assets/img/learn/overviewpage-rest-api-creating-by-swagger-def.png)
+     ![Overview of created API]({{base_path}}/assets/img/learn/overviewpage-rest-api-creating-by-swagger-def.png)
 
 ### Resources
    
@@ -102,7 +102,7 @@ Click **API Configurations** and then click **Resources** to navigate to the Res
 
 You will notice that all the API resources are created automatically when the OpenAPI URL is specified.
    
-[![]({{base_path}}/assets/img/learn/resource-of-pet-store-api.png)]({{base_path}}/assets/img/learn/resource-of-pet-store-api.png)
+![]({{base_path}}/assets/img/learn/resource-of-pet-store-api.png)
 
 ### API Definition
 
@@ -110,7 +110,7 @@ You will notice that all the API resources are created automatically when the Op
 
      This is required to invoke the API in the Developer Portal using the OpenAPI UI.
     
-     [![]({{base_path}}/assets/img/learn/edit-api-definition-pet-store.png)]({{base_path}}/assets/img/learn/edit-api-definition-pet-store.png)
+     ![]({{base_path}}/assets/img/learn/edit-api-definition-pet-store.png)
 
     ??? note "Importing an API definition"
          You can also import an API definition.
@@ -122,7 +122,7 @@ You will notice that all the API resources are created automatically when the Op
                 - OpenAPI Archive/File
 
             3. To try this out, select OpenAPI URL and enter `https://petstore3.swagger.io/api/v3/openapi.json` as the URL.
-        [![Import API Definition]({{base_path}}/assets/img/learn/import-api-definition.png)]({{base_path}}/assets/img/learn/import-api-definition.png)        
+        ![Import API Definition]({{base_path}}/assets/img/learn/import-api-definition.png)        
             
         **The Linter results can be viewed here.**
 
@@ -159,7 +159,7 @@ You will notice that all the API resources are created automatically when the Op
 
 4.  After removing the security tags, click **Update Content**.
      
-     [![Update OpenAPI definition]({{base_path}}/assets/img/learn/update-content-pet-store.png)]({{base_path}}/assets/img/learn/update-content-pet-store.png)
+     ![Update OpenAPI definition]({{base_path}}/assets/img/learn/update-content-pet-store.png)
 
 5. Click **Save** to save the changes.
    
@@ -187,7 +187,7 @@ You will notice that all the API resources are created automatically when the Op
     !!! note
         If you have already deployed your API, click on the dropdown option, and click **Save and deploy** so that your API will be redeployed, and your changes will appear in the API Gateway.
 
-     [![]({{base_path}}/assets/img/learn/add-endpoint-configuration-for-pet-store-api.png)]({{base_path}}/assets/img/learn/add-endpoint-configuration-for-pet-store-api.png)
+     ![]({{base_path}}/assets/img/learn/add-endpoint-configuration-for-pet-store-api.png)
 
 ### Runtime Configuration
 
@@ -235,7 +235,7 @@ The Transport Level Security defines the transport protocol on which the API is 
 
 3. Click **Save**
 
-    [![Business Plans page]({{base_path}}/assets/img/learn/add-bussiness-plans-for-pet-store-api.png)]({{base_path}}/assets/img/learn/add-bussiness-plans-for-pet-store-api.png)
+    ![Business Plans page]({{base_path}}/assets/img/learn/add-bussiness-plans-for-pet-store-api.png)
 
 
 Now, a REST API from an OpenAPI Definition has been created and configured successfully. 

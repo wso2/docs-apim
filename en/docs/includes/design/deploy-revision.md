@@ -13,7 +13,7 @@ Follow the instructions below to deploy a new revision for an API:
 
       The Deployments page appears as follows when you have at least one revision.
 
-      [![Deploy new revision option](../../../../assets/img/design/revision/deploy-new-revision.png)](../../../../assets/img/design/revision/deploy-new-revision.png)
+      ![Deploy new revision option](../../../../assets/img/design/revision/deploy-new-revision.png)
     !!! note
         The **Information icon** will appear only if you have added a product revision description. You can view the description when you hover over the information icon.
 
@@ -33,4 +33,4 @@ Follow the instructions below to deploy a new revision for an API:
 !!! note
     If your API is deployed successfully to the Gateways, the deployment status will be updated in the status column. You can view more information by hovering over the deployment status icon.
 
-    [![Deployment status acknowledgement](../../../../assets/img/design/revision/revision-deployment-acknowledgement.png)](../../../../assets/img/design/revision/revision-deployment-acknowledgement.png)
+    ![Deployment status acknowledgement](../../../../assets/img/design/revision/revision-deployment-acknowledgement.png)

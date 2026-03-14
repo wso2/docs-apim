@@ -20,7 +20,7 @@ The system includes the following default tiers:
 2.  Click **Subscription Policies** under the **Rate Limiting Policies** section. The existing set of rate limiting tiers are displayed.
 3.  To add a new tier, click **Add Policy**.
 
-    [![Add subscription policy page]({{base_path}}/assets/img/design/rate-limiting/add-subscription-policy.png)]({{base_path}}/assets/img/design/rate-limiting/add-subscription-policy.png)
+    ![Add subscription policy page]({{base_path}}/assets/img/design/rate-limiting/add-subscription-policy.png)
 
     <div class="admonition info">
     <p class="admonition-title">Note</p>
@@ -31,7 +31,7 @@ The system includes the following default tiers:
 
 4.  Fill in the details required by this form and click **Save** once you are done.
 
-     [![Add subscription policy page]({{base_path}}/assets/img/design/rate-limiting/save-new-subscription-policy.png)]({{base_path}}/assets/img/design/rate-limiting/save-new-subscription-policy.png)
+     ![Add subscription policy page]({{base_path}}/assets/img/design/rate-limiting/save-new-subscription-policy.png)
 
      **Request bandwidth based quota limits**
 

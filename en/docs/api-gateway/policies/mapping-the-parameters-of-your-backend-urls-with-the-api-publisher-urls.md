@@ -39,7 +39,7 @@ Let's do the following API resource to backend mapping in this tutorial as an ex
 
 4. Then **Save and deploy**. Final API will look as follows.
 
-    [![]({{base_path}}/assets/img/learn/api-gateway/message-mediation/test-api.png)]({{base_path}}/assets/img/learn/api-gateway/message-mediation/test-api.png)
+    ![]({{base_path}}/assets/img/learn/api-gateway/message-mediation/test-api.png)
 
 4.  Copy the the following to a text editor and save the file in XML format.  
     (e.g., `TestSequence.xml` ).
@@ -67,6 +67,6 @@ Let's do the following API resource to backend mapping in this tutorial as an ex
  
 9.  Click the **Try Out** tab of and try **/business/{id}/details**.
 
-    [![]({{base_path}}/assets/img/learn/api-gateway/message-mediation/test-api-try-out.png)]({{base_path}}/assets/img/learn/api-gateway/message-mediation/test-api-try-out.png)
+    ![]({{base_path}}/assets/img/learn/api-gateway/message-mediation/test-api-try-out.png)
 
 In this tutorial, you mapped the URL pattern of the APIs in the Publisher with the endpoint URL pattern of a sample backend.

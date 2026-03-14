@@ -12,15 +12,15 @@ After you created, published, and subscribed to the API, let's see how the API G
 
 1.  Sign in to the Developer portal and select the PizzaShack API.
     Go to the subscriptions tab and make sure we have subscribed to an application or if not subscribe.
-    [![Subscribed Applications]({{base_path}}/assets/img/learn/learn-throttling-isapplication-subscribed.png)]({{base_path}}/assets/img/learn/learn-throttling-isapplication-subscribed.png)
+    ![Subscribed Applications]({{base_path}}/assets/img/learn/learn-throttling-isapplication-subscribed.png)
 
 2.  Go to the Applications tab and go in to the Default Application, click the **Production Keys** tab and generate an access token. If you already have an access token for the application, you have to regenerate it after 1 hour. Copy the access token after it has been generated.
-    [![Generate-keys]({{base_path}}/assets/img/learn/learn-throttling-generate-keys.png)]({{base_path}}/assets/img/learn/learn-throttling-generate-keys.png)
+    ![Generate-keys]({{base_path}}/assets/img/learn/learn-throttling-generate-keys.png)
 
     Let's invoke this API.
 
 3.  Click on the API, then go to its **Try Out** tab. Enter the copied access token.
-    [![Tryout]({{base_path}}/assets/img/learn/learn-throttling-tryout.png)]({{base_path}}/assets/img/learn/learn-throttling-tryout.png)
+    ![Tryout]({{base_path}}/assets/img/learn/learn-throttling-tryout.png)
 
 4.  Expand the GET method and click Try it out. Provide the required parameters and click **Execute** to invoke the API. For example,
 
@@ -28,10 +28,10 @@ After you created, published, and subscribed to the API, let's see how the API G
     |-----------------|----------------------------|
     | **OrderID** | E.g., 7fd574cc-49e7-4491-973c-08214b2c64fc         |
 
-    [![Query]({{base_path}}/assets/img/learn/learn-throttling-enter-query.png)]({{base_path}}/assets/img/learn/learn-throttling-enter-query.png)
+    ![Query]({{base_path}}/assets/img/learn/learn-throttling-enter-query.png)
 
      Note the response that appears in the API Console. As we used a valid order id in this example, the response returns a correct order details.
-    [![Query response]({{base_path}}/assets/img/learn/learn-throttling-query-response.png)]({{base_path}}/assets/img/learn/learn-throttling-query-response.png)
+    ![Query response]({{base_path}}/assets/img/learn/learn-throttling-query-response.png)
     
     Note that you subscribed to the API on the Bronze rate limiting tier. The Bronze tier allows you to make a 1000 calls to the API per minute. If you exceed your quota, you get a rate limiting error as shown below.
-    [![Error response]({{base_path}}/assets/img/learn/learn-throttling-error-response.png)]({{base_path}}/assets/img/learn/learn-throttling-error-response.png)
+    ![Error response]({{base_path}}/assets/img/learn/learn-throttling-error-response.png)

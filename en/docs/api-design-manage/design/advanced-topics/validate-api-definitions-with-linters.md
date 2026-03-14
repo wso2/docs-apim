@@ -34,7 +34,7 @@ Here we introduce a new rule `wso2-email-rule` to check whether the email addres
 
 4. Add the new rule under “LinterCustomRules -> rules” as below.
 
-    [![Linter results]({{base_path}}/assets/img/design/create-api/linter-observe/linters1.png)]({{base_path}}/assets/img/design/create-api/linter-observe/linters1.png)
+    ![Linter results]({{base_path}}/assets/img/design/create-api/linter-observe/linters1.png)
 
 5. Click **Save** on the bottom of the page.
 
@@ -47,7 +47,7 @@ Now, the new rule is enforced and the API Publisher can observe the validation r
 
 When you are following the [API creation steps]({{base_path}}/api-design-manage/design/create-api/create-rest-api/create-a-rest-api-from-an-openapi-definition), the linter results will be shown as below.
 
-[![Linter results]({{base_path}}/assets/img/design/create-api/linter-observe/linters2.png)]({{base_path}}/assets/img/design/create-api/linter-observe/linters2.png)
+![Linter results]({{base_path}}/assets/img/design/create-api/linter-observe/linters2.png)
 
 !!! Note 
     Currently, the linter results feature is supported for URL and File-based API definition imports.
@@ -66,13 +66,13 @@ When you are following the [API creation steps]({{base_path}}/api-design-manage/
 
 6. The linter results will be shown as indicated below.
 
-    [![Linter results]({{base_path}}/assets/img/design/create-api/linter-observe/linters3.png)]({{base_path}}/assets/img/design/create-api/linter-observe/linters3.png)
+    ![Linter results]({{base_path}}/assets/img/design/create-api/linter-observe/linters3.png)
 
 7. If there are any errors present, they can be solved in the built-in editor by clicking on the **Edit and Import** button.
 
 8. Then click on **Import Content** in the editor to import the API definition.
 
-    [![Linter results]({{base_path}}/assets/img/design/create-api/linter-observe/linters4.png)]({{base_path}}/assets/img/design/create-api/linter-observe/linters4.png)
+    ![Linter results]({{base_path}}/assets/img/design/create-api/linter-observe/linters4.png)
 
 ### When editing an API
 
@@ -84,10 +84,10 @@ When you are following the [API creation steps]({{base_path}}/api-design-manage/
 
 4. Click on **Edit** from the toolbar.
 
-    [![Linter results]({{base_path}}/assets/img/design/create-api/linter-observe/linters5.png)]({{base_path}}/assets/img/design/create-api/linter-observe/linters5.png)
+    ![Linter results]({{base_path}}/assets/img/design/create-api/linter-observe/linters5.png)
 
 5. Switch to the **Linter view** by clicking on the **LINTER** button at the top.
 
 6. You will see the linter error corresponding to the new rule you enforced.
 
-    [![Linter results]({{base_path}}/assets/img/design/create-api/linter-observe/linters6.png)]({{base_path}}/assets/img/design/create-api/linter-observe/linters6.png) 
+    ![Linter results]({{base_path}}/assets/img/design/create-api/linter-observe/linters6.png) 

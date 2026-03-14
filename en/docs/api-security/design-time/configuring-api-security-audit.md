@@ -14,11 +14,11 @@ Follow the instructions below to obtain the API token and collection ID from 42C
 
 2. Click **Settings**.
 
-     [![API token settings menu]({{base_path}}/assets/img/learn/api-token-settings-menu.png)]({{base_path}}/assets/img/learn/api-token-settings-menu.png)
+     ![API token settings menu]({{base_path}}/assets/img/learn/api-token-settings-menu.png)
 
 3. Click **API Tokens** and click **Create new token**.
 
-     [![API token create button]({{base_path}}/assets/img/learn/api-token-create-button.png)]({{base_path}}/assets/img/learn/api-token-create-button.png)
+     ![API token create button]({{base_path}}/assets/img/learn/api-token-create-button.png)
 
 4. You might have to upgrade the account to access the **API token** type if it is not available.
 
@@ -26,24 +26,24 @@ Follow the instructions below to obtain the API token and collection ID from 42C
 
      When working with API Audit, you only need to select the **API Security Audit** permission.
 
-     [![API token dialog box]({{base_path}}/assets/img/learn/api-token-dialog-box.png)]({{base_path}}/assets/img/learn/api-token-dialog-box.png)
+     ![API token dialog box]({{base_path}}/assets/img/learn/api-token-dialog-box.png)
 
 6. Click **Generate Token**.
 
     !!! note 
         The generated API Token can be viewed only once. Make sure to copy it and save it in a safe place for future reference.
 
-     [![API token copy generated]({{base_path}}/assets/img/learn/api-token-copy-generated.png)]({{base_path}}/assets/img/learn/api-token-copy-generated.png)
+     ![API token copy generated]({{base_path}}/assets/img/learn/api-token-copy-generated.png)
 
 7. Click either **API Collections** in the left navigation bar or click **+ New Collection** at the bottom of the left navigation to create a collection.
 
      A Collection in this context is a folder hosted on 42Crunch containing all the APIs that are to be audited.
 
-     [![create new collection]({{base_path}}/assets/img/learn/collection-create-new.png)]({{base_path}}/assets/img/learn/collection-create-new.png)
+     ![create new collection]({{base_path}}/assets/img/learn/collection-create-new.png)
 
 8. Copy the Collection ID from the URL of the browser as highlighted below and save it in a safe place for reference.
 
-     [![copy collection id]({{base_path}}/assets/img/learn/collection-copy-id.png)]({{base_path}}/assets/img/learn/collection-copy-id.png)
+     ![copy collection id]({{base_path}}/assets/img/learn/collection-copy-id.png)
 
 ### Step 1.2 - Configure WSO2 API-M
 
@@ -107,7 +107,7 @@ You need to add the API Token and Collection ID properties inside the configurat
         }
         ```
 
-     [![advanced conf properties]({{base_path}}/assets/img/learn/advanced-config.png)]({{base_path}}/assets/img/learn/advanced-config.png)
+     ![advanced conf properties]({{base_path}}/assets/img/learn/advanced-config.png)
 
 4.  Restart the WSO2 API Manager server.
 
@@ -127,13 +127,13 @@ You need to add the API Token and Collection ID properties inside the configurat
 
      The **Audit API** button will only appear if API Auditing is enabled.
 
-     [![audit api button]({{base_path}}/assets/img/learn/audit-api-button.png)]({{base_path}}/assets/img/learn/audit-api-button.png)
+     ![audit api button]({{base_path}}/assets/img/learn/audit-api-button.png)
 
 4.  Click **Audit API**. 
 
      At the end of the audit, an audit report is displayed.
 
-     [![sample audit report]({{base_path}}/assets/img/learn/sample-audit-report.png)]({{base_path}}/assets/img/learn/sample-audit-report.png)
+     ![sample audit report]({{base_path}}/assets/img/learn/sample-audit-report.png)
 
      For more information on the details provided in the report, see [Audit report sections](#auditreports)
 

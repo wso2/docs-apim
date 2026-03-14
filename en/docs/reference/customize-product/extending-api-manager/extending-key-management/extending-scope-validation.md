@@ -26,7 +26,7 @@ Follow the instructions below to skip role validation for scopes:
     !!! tip
         You can also use the cURL request listed under the **Generate Access Tokens** section for steps 3 and 4 based on the grant type.
 
-    [![]({{base_path}}/assets/attachments/103334763/103334764.png)]({{base_path}}/assets/attachments/103334763/103334764.png)
+    ![]({{base_path}}/assets/attachments/103334763/103334764.png)
 
     <a name="step4"></a>
     

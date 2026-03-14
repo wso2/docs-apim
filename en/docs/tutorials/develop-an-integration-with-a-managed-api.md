@@ -31,7 +31,7 @@ Let’s create an API in WSO2 API Manager.
    
      You can use any option to create the REST API.
 	 
-	 [![API from scratch menu]({{base_path}}/assets/img/get_started/design-new-rest-api.png)]({{base_path}}/assets/img/get_started/design-new-rest-api.png)
+	 ![API from scratch menu]({{base_path}}/assets/img/get_started/design-new-rest-api.png)
 
 1. Enter the details of the API and click **Create** to create the REST API.
     
@@ -60,7 +60,7 @@ Let’s create an API in WSO2 API Manager.
 
 4.	Let’s add a new GET resource named `/queryDocter/{category}` to the REST API.
 
-	 [![Add GET resource]({{base_path}}/assets/img/tutorials/querydocter-resource.png)]({{base_path}}/assets/img/tutorials/querydocter-resource.png)
+	 ![Add GET resource]({{base_path}}/assets/img/tutorials/querydocter-resource.png)
 
 5.	You can manage the API the way you want and test out the resource by adding a [Mock Implementation]({{base_path}}/manage-apis/design/prototype-api/create-mocked-js-api).
 
@@ -133,7 +133,7 @@ Let’s start implementing the integration for the created `Healthcare` REST API
 
      2.	Select **Import API from API Manager**.
 	 
-	     [![New Synapse API options]({{base_path}}/assets/img/tutorials/new-synapse-api-options.png)]({{base_path}}/assets/img/tutorials/new-synapse-api-options.png)
+	     ![New Synapse API options]({{base_path}}/assets/img/tutorials/new-synapse-api-options.png)
 
      3.	Enter the credentials of the API Manager user and API Manager host URl. 
 	 
@@ -168,7 +168,7 @@ Let’s start implementing the integration for the created `Healthcare` REST API
 
 	4.	Click **List APIs**.
 
-	     [![Import API from API-M]({{base_path}}/assets/img/tutorials/import-api-from-apim.png)]({{base_path}}/assets/img/tutorials/import-api-from-apim.png)
+	     ![Import API from API-M]({{base_path}}/assets/img/tutorials/import-api-from-apim.png)
 
 	5.	Click **HealthcareAPI** and click **Finish**. 
 	
@@ -226,7 +226,7 @@ Let’s start implementing the integration for the created `Healthcare` REST API
       </tr>
     </table>
 
-	 [![Project explorer]({{base_path}}/assets/img/tutorials/project-explorer.png)]({{base_path}}/assets/img/tutorials/project-explorer.png)
+	 ![Project explorer]({{base_path}}/assets/img/tutorials/project-explorer.png)
 
 ## Step 3 - Configure service metadata
 
@@ -371,7 +371,7 @@ Now let’s add the developed backend service to the API.
 	 2. Add the production endpoint using service endpoints.
 	 3. Select the `HealthcareAPI` service endpoint from the dropdown.
 
-   [![Service endpoint dropdown]({{base_path}}/assets/img/tutorials/service-endpoint-dropdown.png)]({{base_path}}/assets/img/tutorials/service-endpoint-dropdown.png)
+   ![Service endpoint dropdown]({{base_path}}/assets/img/tutorials/service-endpoint-dropdown.png)
 
 5.	Click **Save**.
 

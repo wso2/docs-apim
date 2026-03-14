@@ -23,7 +23,7 @@ You can add a new tenant in the management console and then view it by following
 
 3.  After saving, the newly added tenant appears in the **Tenants List** page as shown below. Click **View Tenants** in the **Configure** tab of the management console to see information of all the tenants that currently exist in the system.  Enter the domain name in the **Enter the Tenant Domain** parameter and click **Find** to find the newly added tenant in the list.
 
-    [![]({{base_path}}/assets/img/administer/tenant-list.png)]({{base_path}}/assets/img/administer/tenant-list.png)
+    ![]({{base_path}}/assets/img/administer/tenant-list.png)
     
 ## Tenant Developer Portals
 
@@ -43,7 +43,7 @@ When you create multiple tenants in an API Manager deployment, the API developer
 
     -   Click the **Go To Public Developer Portal** option available in the Navigation bar, go to the `domain1.com` developer portal, log in to it and subscribe to its APIs.
   
-         [![]({{base_path}}/assets/img/administer/tenant-naviagtion-bar.png)]({{base_path}}/assets/img/administer/tenant-naviagtion-bar.png)
+         ![]({{base_path}}/assets/img/administer/tenant-naviagtion-bar.png)
 
     -   You can also browse the other tenant developer portals listed in the public developer portal. But, within other tenant developer portals, you can only subscribe to the APIs to which your tenant domain is permitted to subscribe to. At the time an API is created, the API creator can specify which tenants are allowed to subscribe to the API. For information, see [API Subscriptions]({{base_path}}/consume/manage-subscription/subscribe-to-an-api).
 

@@ -49,11 +49,11 @@ Here's a summary:
 
 4.  Next, find the **Custom Authorization Token** policy that you just created by following Step 3, from the `Request` tab of the policy list. Drag and drop this policy to the desired API operation(s) by following the instructions in [Attach Policies]({{base_path}}/api-design-manage/design/api-policies/attach-policy/).
 
-    [![Custom Authorization Token Policy]({{base_path}}/assets/img/design/api-policies/custom-authorization-token-policy.png)]({{base_path}}/assets/img/design/api-policies/custom-authorization-token-policy.png)
+    ![Custom Authorization Token Policy]({{base_path}}/assets/img/design/api-policies/custom-authorization-token-policy.png)
 
 5.  Finally, scroll down and click on the **Save** button in order to apply the attached policies to the API.
 
-    [![Disable Chunking]({{base_path}}/assets/img/design/api-policies/save-api-for-custom-authorization-token-policy.png)]({{base_path}}/assets/img/design/api-policies/save-api-for-custom-authorization-token-policy.png)
+    ![Disable Chunking]({{base_path}}/assets/img/design/api-policies/save-api-for-custom-authorization-token-policy.png)
       
 6.  Make sure to navigate to the **Deployments** tab and click on **Deploy New Revision** button. Also, if the API is not in `PUBLISHED` state, navigate to the **Lifecycle** tab and publish your API.
 
@@ -89,6 +89,6 @@ the **`Authorization`** header.
 24. Note the response that you get in the command line. According to the sample backend used in this tutorial, 
 you get the response as "Request Received."  
 
-    [![]({{base_path}}/assets/img/learn/api-gateway/message-mediation/custom-header-response.png)]({{base_path}}/assets/img/learn/api-gateway/message-mediation/custom-header-response.png)
+    ![]({{base_path}}/assets/img/learn/api-gateway/message-mediation/custom-header-response.png)
 
 In this tutorial, you passed a custom token that the backend expects along with the system-generated Authorization token, and invoked an API successfully by swapping the system's token with your custom token.

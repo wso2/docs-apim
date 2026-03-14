@@ -29,7 +29,7 @@ invoke it using the **wscat** WebSocket client.
       </div>
      </html>
     
-     [![Create WebSocket API menu]({{base_path}}/assets/img/learn/design-new-streaming-api.jpg)]({{base_path}}/assets/img/learn/design-new-streaming-api.jpg)
+     ![Create WebSocket API menu]({{base_path}}/assets/img/learn/design-new-streaming-api.jpg)
 
 3.  Enter the details of the new WebSocket API.
 
@@ -69,7 +69,7 @@ invoke it using the **wscat** WebSocket client.
     </tbody>
     </table>
     
-    [![Create a WebSocket API menu]({{base_path}}/assets/img/learn/create-web-socket-api.jpg)]({{base_path}}/assets/img/learn/create-web-socket-api.jpg)
+    ![Create a WebSocket API menu]({{base_path}}/assets/img/learn/create-web-socket-api.jpg)
 
     <html>
      <div class="admonition note">
@@ -82,7 +82,7 @@ invoke it using the **wscat** WebSocket client.
 
      The overview page of the created WebSocket API appears.
 
-     [![Overview of WebSocket API]({{base_path}}/assets/img/learn/overview-websocket-api.jpg)]({{base_path}}/assets/img/learn/overview-websocket-api.jpg)
+     ![Overview of WebSocket API]({{base_path}}/assets/img/learn/overview-websocket-api.jpg)
 
 5.  Optionally, enter the endpoint configurations.
 
@@ -96,7 +96,7 @@ invoke it using the **wscat** WebSocket client.
          - [Endpoint Suspension]({{base_path}}/manage-apis/design/endpoints/resiliency/endpoint-suspension)
          - [Prevent API Suspension]({{base_path}}/manage-apis/design/endpoints/resiliency/prevent-api-suspension)
 
-     [![View endpoint details]({{base_path}}/assets/img/learn/endpoint-view-of-websocket-api.jpg)]({{base_path}}/assets/img/learn/endpoint-view-of-websocket-api.jpg)
+     ![View endpoint details]({{base_path}}/assets/img/learn/endpoint-view-of-websocket-api.jpg)
 
 Now, you have created and configured the WebSocket API successfully.
 
@@ -129,11 +129,11 @@ Click **LIFECYCLE** to navigate to the API lifecycle and click **PUBLISH** to pu
          </p>
          </div>
 
-         [![Key generation wizard]({{base_path}}/assets/img/learn/websocket-api-credential-page.jpg)]({{base_path}}/assets/img/learn/websocket-api-credential-page.jpg)
+         ![Key generation wizard]({{base_path}}/assets/img/learn/websocket-api-credential-page.jpg)
 
     2. Copy the authorization token that appears.
 
-         [![Authorization token]({{base_path}}/assets/img/learn/websocket-api-key-generation-wizard.jpg)]({{base_path}}/assets/img/learn/websocket-api-key-generation-wizard.jpg)
+         ![Authorization token]({{base_path}}/assets/img/learn/websocket-api-key-generation-wizard.jpg)
 
 4. Try out the operations.
      

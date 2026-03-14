@@ -32,7 +32,7 @@ Follow the instructions below to create the API using the basic flow.
       </div>
     </html>
 
-    [![Design New Streaming API]({{base_path}}/assets/img/design/create-api/streaming-api/design-new-streaming-api.png)]({{base_path}}/assets/img/design/create-api/streaming-api/design-new-streaming-api.png)
+    ![Design New Streaming API]({{base_path}}/assets/img/design/create-api/streaming-api/design-new-streaming-api.png)
 
 3.  Enter API details.
 
@@ -105,7 +105,7 @@ Follow the instructions below to create the API using the basic flow.
 
      The overview page of the newly created API appears.
 
-    [![SSE API overview page]({{base_path}}/assets/img/design/create-api/streaming-api/sse-api-overview-page.png)]({{base_path}}/assets/img/design/create-api/streaming-api/sse-api-overview-page.png)
+    ![SSE API overview page]({{base_path}}/assets/img/design/create-api/streaming-api/sse-api-overview-page.png)
 
 
 ### Step 2 - Configure the Topics
@@ -142,7 +142,7 @@ The AsyncAPI definition of the streaming API, which you just created, appears.
 
     Transport Level Security defines the transport protocol on which the API is exposed.
 
-    [![SSE API Runtime Configurations Page]({{base_path}}/assets/img/design/create-api/streaming-api/sse-api-runtime-configurations-page.png)]({{base_path}}/assets/img/design/create-api/streaming-api/sse-api-runtime-configurations-page.png)
+    ![SSE API Runtime Configurations Page]({{base_path}}/assets/img/design/create-api/streaming-api/sse-api-runtime-configurations-page.png)
 
 2. If you wish to limit the API availability to only one transport (e.g., HTTPS), uncheck the appropriate checkbox under **Transport Level Security**.
 

@@ -18,7 +18,7 @@ Follow the instructions below to create a REST API using the basic flow:
 
 2. Select **REST API** from the home screen and then click **Start From Scratch**.
 
-    [![Select REST API]({{base_path}}/assets/img/get_started/design-new-rest-api.png)]({{base_path}}/assets/img/get_started/design-new-rest-api.png)
+    ![Select REST API]({{base_path}}/assets/img/get_started/design-new-rest-api.png)
 
 3.  Enter API details. 
     
@@ -35,7 +35,7 @@ Follow the instructions below to create a REST API using the basic flow:
 
     The overview page of the newly created API appears. 
     
-    [![API overview page]({{base_path}}/assets/img/learn/overviewpage-rest-api.png)]({{base_path}}/assets/img/learn/overviewpage-rest-api.png)
+    ![API overview page]({{base_path}}/assets/img/learn/overviewpage-rest-api.png)
 
 5. Go to **Develop**, **Portal Configurations**, and click **Basic Info**.
 
@@ -86,7 +86,7 @@ Follow the instructions below to create a REST API using the basic flow:
 
          Transport Level Security defines the transport protocol on which the API is exposed.  
 
-         [![Transport-level security]({{base_path}}/assets/img/learn/runtime-configs.png)]({{base_path}}/assets/img/learn/runtime-configs.png)
+         ![Transport-level security]({{base_path}}/assets/img/learn/runtime-configs.png)
 
     2. If you wish to limit the API availability to only one transport (e.g., HTTPS), deselect the **Transport Level Security** checkbox.
            
@@ -98,21 +98,21 @@ Follow the instructions below to create a REST API using the basic flow:
 
      1. Click **Resources**, which is under the **API Configurations** section.
         
-        [![Resources overview page]({{base_path}}/assets/img/learn/resources-overview-page.png)]({{base_path}}/assets/img/learn/resources-overview-page.png)
+        ![Resources overview page]({{base_path}}/assets/img/learn/resources-overview-page.png)
 
      2. Modify the resources as follows and click **Save** to update the resources.
 
           1. Click delete, as shown below, to remove all the existing resources.
 
-              [![Delete all existing resources]({{base_path}}/assets/img/learn/delete-all-existing-resources.png)]({{base_path}}/assets/img/learn/delete-all-existing-resources.png)
+              ![Delete all existing resources]({{base_path}}/assets/img/learn/delete-all-existing-resources.png)
 
           2. Select an appropriate **HTTP Verb** from the dropdown and click **(+)** to add a new resource.
          
-             [![Add new resource]({{base_path}}/assets/img/learn/add-new-resource.png)]({{base_path}}/assets/img/learn/add-new-resource.png)
+             ![Add new resource]({{base_path}}/assets/img/learn/add-new-resource.png)
       
              The newly added resource is displayed as follows.
          
-             [![Newly added resource]({{base_path}}/assets/img/learn/newly-added-resource.png)]({{base_path}}/assets/img/learn/newly-added-resource.png)
+             ![Newly added resource]({{base_path}}/assets/img/learn/newly-added-resource.png)
 
           3. Expand the created **GET** operation to add details for the **Summary and Description** and **Operation governance** sections.
              
@@ -121,11 +121,11 @@ Follow the instructions below to create a REST API using the basic flow:
                 - Turn the security setting **off** if you want to **make a certain operation of the API non-secured** and accessible without passing an access token.
                 - To make the **whole API non-secured** and fully accessible without an access token, turn  the security setting **off** in **all the operations** of the API.
              
-                [![Invoke API without Access Token]({{base_path}}/assets/img/learn/invoke-api-without-access-token.png)]({{base_path}}/assets/img/learn/invoke-api-without-access-token.png)
+                ![Invoke API without Access Token]({{base_path}}/assets/img/learn/invoke-api-without-access-token.png)
              
              3. Add resource parameters if required using the **Parameters** section.
 
-                [![Adding params to resources]({{base_path}}/assets/img/learn/adding-params-to-resources.png)]({{base_path}}/assets/img/learn/adding-params-to-resources.png)
+                ![Adding params to resources]({{base_path}}/assets/img/learn/adding-params-to-resources.png)
 
                 You can define the following parameter types based on the resource parameters that you add.
 
@@ -142,7 +142,7 @@ Follow the instructions below to create a REST API using the basic flow:
      
      The OpenAPI Specification (a.k.a Swagger definition) for the PizzaShack API appears.
 
-     [![REST API definition]({{base_path}}/assets/img/learn/api-definition-rest.png)]({{base_path}}/assets/img/learn/api-definition-rest.png)
+     ![REST API definition]({{base_path}}/assets/img/learn/api-definition-rest.png)
 
 ??? note "Observe Linter results"
     You can observe results for the Linter rules you create by doing the following.

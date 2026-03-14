@@ -101,7 +101,7 @@ The following documents describe some of the most commonly used customizations, 
 4.  Click **Tenant Theme** under **Settings** category and click **Browse File to Upload** to upload your ZIP file.
     Alternatively, you can drag and drop your ZIP file to upload.
 
-    [![Upload tenant theme]({{base_path}}/assets/img/learn/upload-tenant-theme.png)]({{base_path}}/assets/img/learn/upload-tenant-theme.png)
+    ![Upload tenant theme]({{base_path}}/assets/img/learn/upload-tenant-theme.png)
 
 5.  Access the API Developer Portal (`https://<server-host>:<server-port>/devportal`) using your tenant username and password.
 
@@ -530,7 +530,7 @@ The following is the Devportal app theme object merging with the React Material 
 "EnablePerTenantServiceProviderCreation" : "true" 
 ```
 
-[![Per Tenant SP Creation]({{base_path}}/assets/img/learn/per-tenant-sp-creation.png)]({{base_path}}/assets/img/learn/per-tenant-sp-creation.png)
+![Per Tenant SP Creation]({{base_path}}/assets/img/learn/per-tenant-sp-creation.png)
 
 3. `login` folder in the tenant theme contains the config files and resources to define login theme customizations.
 ```

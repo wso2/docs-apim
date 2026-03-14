@@ -16,7 +16,7 @@
 
 The lifecycle of an application could be defined as the stages of an application between the development and production environments. The feature facilitates to manage the application life cycle by allowing the user to migrate the applications within desired environments. The user should have admin permissions in order to use this.
 
-[![Managing Application Lifecycle]({{base_path}}/assets/img/learn/managing-application-lifecycle.png)]({{base_path}}/assets/img/learn/managing-application-lifecycle.png)
+![Managing Application Lifecycle]({{base_path}}/assets/img/learn/managing-application-lifecycle.png)
 
 
 ## Export an application
@@ -264,11 +264,11 @@ You can import an application to your environment as a zipped application. When 
 There are three options to import applications in a single-tenant environment.
 
 -   Application A in environment 1 is migrated to environment 2. Some APIs may not be available in environment 2 (API B in this case) and the relevant subscriptions are not added in such cases (skipped).
-    [![Importing Applications across Two Environments with the Same Owner]({{base_path}}/assets/img/learn/import-apps-tenanted-env1.png)]({{base_path}}/assets/img/learn/import-apps-tenanted-env1.png)
+    ![Importing Applications across Two Environments with the Same Owner]({{base_path}}/assets/img/learn/import-apps-tenanted-env1.png)
 -   A different owner can be specified while importing an application to environment 2,  without preserving the original user of environment 1.
-    [![Importing Applications across Two environments with Different Owners]({{base_path}}/assets/img/learn/import-apps-tenanted-env2.png)]({{base_path}}/assets/img/learn/import-apps-tenanted-env2.png)
+    ![Importing Applications across Two environments with Different Owners]({{base_path}}/assets/img/learn/import-apps-tenanted-env2.png)
 -   The original owner of the application can be preserved when the application is imported to environment 2 by adding the `--preserve-owner` flag.
-    [![Importing Applications across Two environments with Preserve Owner]({{base_path}}/assets/img/learn/import-apps-tenanted-env3.png)]({{base_path}}/assets/img/learn/import-apps-tenanted-env3.png)
+    ![Importing Applications across Two environments with Preserve Owner]({{base_path}}/assets/img/learn/import-apps-tenanted-env3.png)
 
 ### Import applications in a multi-tenant environment
 

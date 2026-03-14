@@ -139,7 +139,7 @@ When registering a third-party Identity Provider as a Key Manager in the Admin P
 
      1. Click **Key Managers** and then click **Add Key Manager**.
 
-          [![Add new Key Manager]({{base_path}}/assets/img/administer/add-key-manager.png)]({{base_path}}/assets/img/administer/add-key-manager.png)
+          ![Add new Key Manager]({{base_path}}/assets/img/administer/add-key-manager.png)
 
      2. Add the Key Manager configurations in the form that appears. The following tables provide definitions for each of the Key Manager configurations.
 

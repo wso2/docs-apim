@@ -20,33 +20,33 @@ Follow the instructions given below to configure Keycloak as a third-party Key M
     
 2. Click **Client Scopes** and create client scope named "default".
 
-     [![add default client scope]({{base_path}}/assets/img/administer/keycloak-add-client-scope-default.png)]({{base_path}}/assets/img/administer/keycloak-add-client-scope-default.png)
+     ![add default client scope]({{base_path}}/assets/img/administer/keycloak-add-client-scope-default.png)
 
 3. Click **Clients** and create a client with the Redirect URIs https://localhost:9443/.
 
-    [![Keycloak add client - step 1]({{base_path}}/assets/img/administer/keycloak-add-client-1.png)]({{base_path}}/assets/img/administer/keycloak-add-client-1.png)
+    ![Keycloak add client - step 1]({{base_path}}/assets/img/administer/keycloak-add-client-1.png)
 
-    [![Keycloak add client - step 2]({{base_path}}/assets/img/administer/keycloak-add-client-2.png)]({{base_path}}/assets/img/administer/keycloak-add-client-2.png)
+    ![Keycloak add client - step 2]({{base_path}}/assets/img/administer/keycloak-add-client-2.png)
 
-    [![Keycloak add client - step 3]({{base_path}}/assets/img/administer/keycloak-add-client-3.png)]({{base_path}}/assets/img/administer/keycloak-add-client-3.png)
+    ![Keycloak add client - step 3]({{base_path}}/assets/img/administer/keycloak-add-client-3.png)
 
 4. Optionally, define a longer value as the **Access Token Lifespan** in the client settings in the **Advanced** tab under **Advanced settings** section.
 
-     [![Set expiry time]({{base_path}}/assets/img/administer/keycloak-set-expiry-time.png)]({{base_path}}/assets/img/administer/keycloak-set-expiry-time.png)
+     ![Set expiry time]({{base_path}}/assets/img/administer/keycloak-set-expiry-time.png)
 
 5. Click **Client Scopes** and add the default scope created previously to the client as default scope.
 
-     [![Add scope to client scopes]({{base_path}}/assets/img/administer/keycloak-add-to-client-scopes.png)]({{base_path}}/assets/img/administer/keycloak-add-to-client-scopes.png)
+     ![Add scope to client scopes]({{base_path}}/assets/img/administer/keycloak-add-to-client-scopes.png)
 
 6. Click **Service Account Roles** and assign the `admin` role as an assigned role.
 
-     [![Assign service account roles]({{base_path}}/assets/img/administer/keycloak-serviceaccount-assign-admin.png)]({{base_path}}/assets/img/administer/keycloak-serviceaccount-assign-admin.png)
+     ![Assign service account roles]({{base_path}}/assets/img/administer/keycloak-serviceaccount-assign-admin.png)
 
     <a name="confidentialclient"></a>
 
 7. Copy the client credentials.
 
-     [![Keycloak client secret]({{base_path}}/assets/img/administer/keycloak-client-secret.png)]({{base_path}}/assets/img/administer/keycloak-client-secret.png)
+     ![Keycloak client secret]({{base_path}}/assets/img/administer/keycloak-client-secret.png)
 
 ## Step 2 - Configure WSO2 API Manager
 
@@ -69,11 +69,11 @@ Follow the instructions given below to configure Keycloak as a third-party Key M
 
     2. Click Key Manager and then click **Add Key Manager**.
         
-         [![Add new Key Manager]({{base_path}}/assets/img/administer/add-new-key-manager.png)]({{base_path}}/assets/img/administer/add-new-key-manager.png)
+         ![Add new Key Manager]({{base_path}}/assets/img/administer/add-new-key-manager.png)
 
     3. Add the following configuration to add a new Key Manager.
     
-         [![Add Keycloak configurations]({{base_path}}/assets/img/administer/keycloak-endpoints.png)]({{base_path}}/assets/img/administer/keycloak-endpoints.png)
+         ![Add Keycloak configurations]({{base_path}}/assets/img/administer/keycloak-endpoints.png)
          
         !!! tip
              * Configuring the well-known URL populates all the default configurations in the table once you click **Import**. 

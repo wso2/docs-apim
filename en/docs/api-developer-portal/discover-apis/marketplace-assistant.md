@@ -2,7 +2,7 @@
 
 The Marketplace Assistant is a powerful tool provided by API Manager, utilizing AI to chat with your APIs and offer recommendations, moving beyond traditional keyword searches. Using this you can access role-restricted APIs in addition to the public APIs defined according to the [developer portal visibility]({{base_path}}/manage-apis/design/advanced-topics/control-api-visibility-and-subscription-availability-in-developer-portal/#control-api-visibility-in-the-developer-portal).
 
-[![Marketplace Assistant Landing Page]({{base_path}}/assets/img/get_started/marketplace-assistant.png)]({{base_path}}/assets/img/get_started/marketplace-assistant.png)
+![Marketplace Assistant Landing Page]({{base_path}}/assets/img/get_started/marketplace-assistant.png)
 
 Follow the steps below to get started with the Marketplace Assistant:
 
@@ -18,7 +18,7 @@ Follow the steps below to get started with the Marketplace Assistant:
 
 2. Register for an Account.
 
-   [![AI Subscription Portal]({{base_path}}/assets/img/observe/ai-subscription-portal.png)]({{base_path}}/assets/img/observe/ai-subscription-portal.png)
+   ![AI Subscription Portal]({{base_path}}/assets/img/observe/ai-subscription-portal.png)
 
    - Click **Register**.
    - Enter a valid email address and click **Register**.
@@ -34,7 +34,7 @@ Follow the steps below to get started with the Marketplace Assistant:
 
 1. On the main landing page, click **New Subscription**.
 
-      [![AI Subscription Portal Initial Dashboard]({{base_path}}/assets/img/observe/ai-subscription-portal-2.png)]({{base_path}}/assets/img/observe/ai-subscription-portal-2.png)
+      ![AI Subscription Portal Initial Dashboard]({{base_path}}/assets/img/observe/ai-subscription-portal-2.png)
 
 2. Select **wso2am** as the product, enter an appropriate name, and create the subscription.
 
@@ -44,7 +44,7 @@ Follow the steps below to get started with the Marketplace Assistant:
     !!! warning
         Do not use the same key for different environments or products. Each key is used to differentiate environments when accessing AI services.
 
-    [![AI Subscription Portal Dashboard]({{base_path}}/assets/img/observe/ai-subscription-portal-3.png)]({{base_path}}/assets/img/observe/ai-subscription-portal-3.png)
+    ![AI Subscription Portal Dashboard]({{base_path}}/assets/img/observe/ai-subscription-portal-3.png)
 
     !!! warning
         Users can revoke and regenerate keys for any subscription, as well as delete subscriptions. Please perform these actions with caution, as they will immediately invalidate any existing keys in use.

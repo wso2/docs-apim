@@ -134,13 +134,13 @@ Follow the steps below to add a certificate to an endpoint:
 2. [Create a new API]({{base_path}}/api-design-manage/design/create-api/create-rest-api/create-a-rest-api/) or click on an existing API.
 
 3.  Click **Endpoints** and click **General Endpoint Configuration** to expand that section. 
-    [![Open General Endpoint Configuration]({{base_path}}/assets/img/learn/open-general-endpoint-configuration.png)]({{base_path}}/assets/img/learn/open-general-endpoint-configuration.png)
+    ![Open General Endpoint Configuration]({{base_path}}/assets/img/learn/open-general-endpoint-configuration.png)
 4.  Click **\+ Add Certificate** in the Certificates section.
-   [![Click on Add Certificate]({{base_path}}/assets/img/learn/click-add-certificate.png)]({{base_path}}/assets/img/learn/click-add-certificate.png)
+   ![Click on Add Certificate]({{base_path}}/assets/img/learn/click-add-certificate.png)
    
     The Upload Certificate dialog box appears.
 
-    [![Upload Certificate Dialog]({{base_path}}/assets/img/learn/upload-certificate-open.png)]({{base_path}}/assets/img/learn/upload-certificate-open.png)
+    ![Upload Certificate Dialog]({{base_path}}/assets/img/learn/upload-certificate-open.png)
 
     *  Enter the following information and click **Save**.
     
@@ -150,11 +150,11 @@ Follow the steps below to add a certificate to an endpoint:
         | Endpoint    | Select an endpoint from the dropdown list.                                                |
         | Certificate | Drag and drop the certificate file or click on the drop zone to select the certificate via the UI |
 
-        [![]({{base_path}}/assets/img/learn/certificate-inputs-provided.png)]({{base_path}}/assets/img/learn/certificate-inputs-provided.png)
+        ![]({{base_path}}/assets/img/learn/certificate-inputs-provided.png)
 
          The uploaded certificate will be displayed.
 
-         [![]({{base_path}}/assets/img/learn/certificate-added.png)]({{base_path}}/assets/img/learn/certificate-added.png)
+         ![]({{base_path}}/assets/img/learn/certificate-added.png)
 
 5.  If required, repeat step 3 onwards to add certificates to the other endpoints.
 
@@ -164,17 +164,17 @@ You can check the information of the certificate, (i.e., other APIs that may use
 
 Click on the info icon that corresponds to the respective certificate to view the certificate information.
 
-[![Certificate info click]({{base_path}}/assets/img/learn/certificate-info-click.jpg)]({{base_path}}/assets/img/learn/certificate-info-click.jpg)
+![Certificate info click]({{base_path}}/assets/img/learn/certificate-info-click.jpg)
 
 The selected certificate details appear.
 
-[![Certificate details]({{base_path}}/assets/img/learn/certificate-details.png)]({{base_path}}/assets/img/learn/certificate-details.png)
+![Certificate details]({{base_path}}/assets/img/learn/certificate-details.png)
 
 ## Deleting a certificate
 
 Click on the delete icon that corresponds to the respective certificate to delete a certificate.
 
-[![]({{base_path}}/assets/img/learn/certificate-delete-btn-select.jpg)]({{base_path}}/assets/img/learn/certificate-delete-btn-select.jpg)
+![]({{base_path}}/assets/img/learn/certificate-delete-btn-select.jpg)
 
 !!! info
     1. Deleting certificates may result in undesirable behavior. Please proceed with caution.

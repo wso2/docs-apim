@@ -8,7 +8,7 @@ When using WSO2 API Manager, you can configure load balancing endpoints via the 
 
 2. Expand **Load balance and Failover Configurations**.
 
-     [![load balance and fail over]({{base_path}}/assets/img/learn/load-balance-and-fail-over.png)]({{base_path}}/assets/img/learn/load-balance-and-fail-over.png)
+     ![load balance and fail over]({{base_path}}/assets/img/learn/load-balance-and-fail-over.png)
 
 3. Select **Load Balanced** as the endpoint type.
 

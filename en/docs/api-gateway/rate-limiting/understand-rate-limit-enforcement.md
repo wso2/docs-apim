@@ -122,7 +122,7 @@ If any limit in this hierarchy is exceeded, the Gateway immediately rejects the 
 
 The following diagram shows how throttle policies are applied at different levels:
 
-[![rate limiting levels]({{base_path}}/assets/img/learn/throttling-levels.png)]({{base_path}}/assets/img/learn/throttling-levels.png)
+![rate limiting levels]({{base_path}}/assets/img/learn/throttling-levels.png)
 
 ## Distributed Counter Behavior in Clusters
 

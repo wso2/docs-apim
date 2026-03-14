@@ -47,7 +47,7 @@ This setup enables:
 
 Consider a deployment scenario within a complex enterprise architecture where multiple API gateways are strategically positioned to manage diverse traffic flows and enforce specific security policies.
 
-[![Deployment diagram for a single control plane to multiple gateways]({{base_path}}/assets/img/tutorials/gateway/deployment-diagram-for-single-control-plane.png)]({{base_path}}/assets/img/tutorials/gateway/deployment-diagram-for-single-control-plane.png)
+![Deployment diagram for a single control plane to multiple gateways]({{base_path}}/assets/img/tutorials/gateway/deployment-diagram-for-single-control-plane.png)
 
 In this scenario, we have identified three distinct APIs: the HR System API, responsible for accessing and managing human resources data; the Product Catalog API, providing access to the organization's product information; and the Compliance Report API, which generates and disseminates necessary compliance documentation. Based on varying business needs, traffic patterns, and regional requirements, each of these APIs is deployed independently and redundantly across several geographically distributed API gateways.
 

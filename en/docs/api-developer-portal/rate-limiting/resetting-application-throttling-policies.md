@@ -27,7 +27,7 @@ Follow these steps to reset the quota for a specific user of your application:
 
 2. In the application overview page, locate the **Reset User Quota** section.
 
-    [![Application Overview]({{base_path}}/assets/img/learn/application-overview-reset.png)]({{base_path}}/assets/img/learn/application-overview-reset.png)
+    ![Application Overview]({{base_path}}/assets/img/learn/application-overview-reset.png)
 
 3. Fill in the **User** field with either the username or the UUID of the end-user whose quota needs to be reset, then click **Next**.
 

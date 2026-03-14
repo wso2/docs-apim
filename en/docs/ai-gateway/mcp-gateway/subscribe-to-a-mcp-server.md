@@ -10,7 +10,7 @@ If you already have an existing application, follow the instructions below to su
 
 1.  Sign in to the Developer Portal (`https://<hostname>:<port>/devportal`) and click on the MCP Server (e.g., `Petstore`) to go to the MCP Server overview.
 
-    [![MCP Server overview]({{base_path}}/assets/img/mcp-gateway/mcp-server-overview.png)]({{base_path}}/assets/img/mcp-gateway/mcp-server-overview.png)
+    ![MCP Server overview]({{base_path}}/assets/img/mcp-gateway/mcp-server-overview.png)
         
 2.  Click **SUBSCRIBE TO AN APPLICATION**.
 
@@ -18,11 +18,11 @@ If you already have an existing application, follow the instructions below to su
     
 3.  Select the application, the throttling policy, and click **Subscribe**.
 
-    [![Subscribe to new application]({{base_path}}/assets/img/learn/subscribe-to-app.png)]({{base_path}}/assets/img/learn/subscribe-to-app.png)
+    ![Subscribe to new application]({{base_path}}/assets/img/learn/subscribe-to-app.png)
     
     You can see the subscriptions list in the **Subscriptions** section.
      
-    [![Subscribe to new app]({{base_path}}/assets/img/learn/subscription-list.png)]({{base_path}}/assets/img/learn/subscription-list.png)
+    ![Subscribe to new app]({{base_path}}/assets/img/learn/subscription-list.png)
 
 
 If you do not have an existing application, you can create one and then subscribe to the MCP Server. For detailed steps, refer to [Subscribe to an API]({{base_path}}/consume/manage-subscription/subscribe-to-an-api/), as the process is similar.

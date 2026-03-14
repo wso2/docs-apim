@@ -37,25 +37,25 @@ The examples here use the `Petstore` MCP Server, which was created in [Create a 
 
 3. Click **Try Out** in MCP Server Overview tab and go to **Test** → **MCP Playground**
 
-    [![MCP Playground Menu]({{base_path}}/assets/img/mcp-gateway/mcp-playground-menu.png)]({{base_path}}/assets/img/mcp-gateway/mcp-playground-menu.png)
+    ![MCP Playground Menu]({{base_path}}/assets/img/mcp-gateway/mcp-playground-menu.png)
 
     The MCP Playground UI to test the Petstore MCP Server appears.
 
 4. Enter the copied access token in the **Token** field or click `Configuration` button on the MCP Playground and if a test key is not populated, click on **GET TEST KEY**.
 
-    [![MCP PLayground Configuration Button]({{base_path}}/assets/img/mcp-gateway/mcp-playground-config-btn.png)]({{base_path}}/assets/img/mcp-gateway/mcp-playground-config-btn.png)
+    ![MCP PLayground Configuration Button]({{base_path}}/assets/img/mcp-gateway/mcp-playground-config-btn.png)
 
-    [![Get Test Key for MCP Playground]({{base_path}}/assets/img/mcp-gateway/mcp-playground-get-test-key.png)]({{base_path}}/assets/img/mcp-gateway/mcp-playground-get-test-key.png)
+    ![Get Test Key for MCP Playground]({{base_path}}/assets/img/mcp-gateway/mcp-playground-get-test-key.png)
 
 5. Click on **Connect** to connect with your deployed MCP Server.
 
-    [![Connect to MCP Server in Playground]({{base_path}}/assets/img/mcp-gateway/mcp-playground-connect.png)]({{base_path}}/assets/img/mcp-gateway/mcp-playground-connect.png)
+    ![Connect to MCP Server in Playground]({{base_path}}/assets/img/mcp-gateway/mcp-playground-connect.png)
 
     Once connected, you can click **List Tools** button to see the available tools of the MCP Server. You can select and call individual tools by providing the parameters if necessary.
 
 6. Expand a method and enter the values to test. Click on the execute button to invoke the tool.
 
-    [![Execute tool in MCP Playground]({{base_path}}/assets/img/mcp-gateway/mcp-playground-devportal.png)]({{base_path}}/assets/img/mcp-gateway/mcp-playground-devportal.png)
+    ![Execute tool in MCP Playground]({{base_path}}/assets/img/mcp-gateway/mcp-playground-devportal.png)
 
 Note the successful response for the tool invocation.
 

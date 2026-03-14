@@ -2,7 +2,7 @@
 
 Designing APIs is a crucial part of the API development lifecycle. With API Manager, you can easily create APIs using natural language through the API Design Assistant. This AI-powered tool requires no prior coding or API knowledge, allowing you to design REST, GraphQL, and Async APIs effortlessly by transforming your requirements into API specifications.
 
-[![API Design Assistant Landing Page]({{base_path}}/assets/img/design/create-api-with-ai/api-design-assistant.png)]({{base_path}}/assets/img/design/create-api-with-ai/api-design-assistant.png)
+![API Design Assistant Landing Page]({{base_path}}/assets/img/design/create-api-with-ai/api-design-assistant.png)
 
 !!! info
     This feature is currently in the **experimental** stage and is exclusively for REST APIs, GraphQL APIs and Async (WebSub, WebSocket, SSE) APIs. If you require SOAP APIs or AI APIs, regrettably, this feature is not available for use at this moment.
@@ -21,7 +21,7 @@ Follow the steps below to get started with the API Design Assistant:
 
 2. Register for an Account.
 
-   [![AI Subscription Portal]({{base_path}}/assets/img/observe/ai-subscription-portal.png)]({{base_path}}/assets/img/observe/ai-subscription-portal.png)
+   ![AI Subscription Portal]({{base_path}}/assets/img/observe/ai-subscription-portal.png)
 
    - Click **Register**.
    - Enter a valid email address and click **Register**.
@@ -37,7 +37,7 @@ Follow the steps below to get started with the API Design Assistant:
 
 1. On the main landing page, click **New Subscription**.
 
-      [![AI Subscription Portal Initial Dashboard]({{base_path}}/assets/img/observe/ai-subscription-portal-2.png)]({{base_path}}/assets/img/observe/ai-subscription-portal-2.png)
+      ![AI Subscription Portal Initial Dashboard]({{base_path}}/assets/img/observe/ai-subscription-portal-2.png)
 
 2. Select **wso2am** as the product, enter an appropriate name, and create the subscription.
 
@@ -47,7 +47,7 @@ Follow the steps below to get started with the API Design Assistant:
     !!! warning
         Do not use the same key for different environments or products. Each key is used to differentiate environments when accessing AI services.
 
-    [![AI Subscription Portal Dashboard]({{base_path}}/assets/img/observe/ai-subscription-portal-3.png)]({{base_path}}/assets/img/observe/ai-subscription-portal-3.png)
+    ![AI Subscription Portal Dashboard]({{base_path}}/assets/img/observe/ai-subscription-portal-3.png)
 
     !!! warning
         Users can revoke and regenerate keys for any subscription, as well as delete subscriptions. Please perform these actions with caution, as they will immediately invalidate any existing keys in use.
@@ -74,11 +74,11 @@ Now that your environment is configured, you're ready to interact with the API D
 
 2.  On the landing page, click on the ‘Create API with AI’ Button at the bottom of the page 
 
-    [![Landing Page]({{base_path}}/assets/img/design/create-api-with-ai/landing-page.png)]({{base_path}}/assets/img/design/create-api-with-ai/landing-page.png)
+    ![Landing Page]({{base_path}}/assets/img/design/create-api-with-ai/landing-page.png)
     
     or if you have already created an API, click the ‘Create API with AI’ Button on the top left to navigate to API Design Assistant.
 
-    [![API Design Assistant Button]({{base_path}}/assets/img/design/create-api-with-ai/create-api-with-ai-button.png)]({{base_path}}/assets/img/design/create-api-with-ai/create-api-with-ai-button.png)
+    ![API Design Assistant Button]({{base_path}}/assets/img/design/create-api-with-ai/create-api-with-ai-button.png)
 
 3. Send a query to the Assistant to create a specific API of your choice, such as **"Create an API for a university."** Also it is possible to enter additional queries to modify the generated specification further. You can use queries such as the following:
     - Extend /GET students to also return the total number of students (only for REST APIs)
@@ -90,39 +90,39 @@ Now that your environment is configured, you're ready to interact with the API D
     !!! Note
         If the generated specification is not an OpenAPI spec, the Swagger UI will not be visible.
 
-    [![API Design Assistant View Swagger]({{base_path}}/assets/img/design/create-api-with-ai/view-swagger.png)]({{base_path}}/assets/img/design/create-api-with-ai/view-swagger.png)
+    ![API Design Assistant View Swagger]({{base_path}}/assets/img/design/create-api-with-ai/view-swagger.png)
 
 5. View the generated specification by toggling "View Source" located in the top-right corner.
 
     !!! Note
         For non-OpenAPI specifications, the generated spec will be displayed by default.
 
-    [![API Design Assistant View Source]({{base_path}}/assets/img/design/create-api-with-ai/view-source.png)]({{base_path}}/assets/img/design/create-api-with-ai/view-source.png)
+    ![API Design Assistant View Source]({{base_path}}/assets/img/design/create-api-with-ai/view-source.png)
 
 6. Change existing resources by typing ‘/’ in the input field and selecting the resource you want to modify from the dropdown menu. After generating the updated OpenAPI spec, users can navigate to the modified resource in the Swagger UI to view the changes.
 
     !!! Note
         For non-OpenAPI specs, typing ‘/’ will result in a “No resources” message in the dropdown menu.
 
-    [![API Design Assistant Add Resource Modification]({{base_path}}/assets/img/design/create-api-with-ai/resource-modification.png)]({{base_path}}/assets/img/design/create-api-with-ai/resource-modification.png)
+    ![API Design Assistant Add Resource Modification]({{base_path}}/assets/img/design/create-api-with-ai/resource-modification.png)
 
-    [![API Design Assistant Added Resource Modification]({{base_path}}/assets/img/design/create-api-with-ai/added-resource-modification.png)]({{base_path}}/assets/img/design/create-api-with-ai/added-resource-modification.png)
+    ![API Design Assistant Added Resource Modification]({{base_path}}/assets/img/design/create-api-with-ai/added-resource-modification.png)
 
 7. Improve your API’s structure and functionality by making modifications to endpoints, parameters and response formats.
 
-    [![API Design Assistant Add General Modification]({{base_path}}/assets/img/design/create-api-with-ai/general-modification.png)]({{base_path}}/assets/img/design/create-api-with-ai/general-modification.png)
+    ![API Design Assistant Add General Modification]({{base_path}}/assets/img/design/create-api-with-ai/general-modification.png)
 
 8. Ask questions to learn what your API does, how it works and the information it provides.
 
-    [![API Design Assistant Answer General Questions]({{base_path}}/assets/img/design/create-api-with-ai/answer-general-questions.png)]({{base_path}}/assets/img/design/create-api-with-ai/answer-general-questions.png)
+    ![API Design Assistant Answer General Questions]({{base_path}}/assets/img/design/create-api-with-ai/answer-general-questions.png)
 
 9. Click the 'Create API' button in the bottom right corner and confirm by selecting 'Yes' to launch the API Creation Wizard. Here, you can refine essential metadata details, including the API's name, version, and context. Once satisfied, click 'Create' to create the API in the Publisher Portal.
 
-    [![API Design Assistant Create API Wizard]({{base_path}}/assets/img/design/create-api-with-ai/create-api-wizard.png)]({{base_path}}/assets/img/design/create-api-with-ai/create-api-wizard.png)
+    ![API Design Assistant Create API Wizard]({{base_path}}/assets/img/design/create-api-with-ai/create-api-wizard.png)
 
 10. Explore the API’s details on its overview page.
 
-    [![API Design Assistant API Overview]({{base_path}}/assets/img/design/create-api-with-ai/api-overview.png)]({{base_path}}/assets/img/design/create-api-with-ai/api-overview.png)
+    ![API Design Assistant API Overview]({{base_path}}/assets/img/design/create-api-with-ai/api-overview.png)
 
 ## FAQ
 

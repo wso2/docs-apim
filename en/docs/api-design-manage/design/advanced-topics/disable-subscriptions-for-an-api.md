@@ -6,7 +6,7 @@ You can disable the subscription requirement for an API at any point after the c
 
 To disable subscription validation requirement, deselect all the Business Plans (subscription policies) under the Business Plan section of the API in the Publisher portal and save the API.
 
-[![Disable subscription validation]({{base_path}}/assets/img/design/advanced/disable-sub-validation.png)]({{base_path}}/assets/img/design/advanced/disable-sub-validation.png)
+![Disable subscription validation]({{base_path}}/assets/img/design/advanced/disable-sub-validation.png)
 
 !!! info
     Once the subscription validation has been disabled, you can invoke the API with any valid OAuth token. The OAuth token can be either associated with an application in the devportal or a token obtained directly from a key manager that has been registerd with APIM as a third party key manager.

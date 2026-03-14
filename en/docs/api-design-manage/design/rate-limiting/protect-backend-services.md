@@ -16,7 +16,7 @@ To set maximum backend throughput for your API:
 3. In the **Backend Throughput** section, select **Specify**.
 4. Set limits for **Production** and **Sandbox** endpoints separately, as they may have different capacities.
 
-[![Max Throughput]({{base_path}}/assets/img/learn/learn-throttling-maxtps.png)]({{base_path}}/assets/img/learn/learn-throttling-maxtps.png)
+![Max Throughput]({{base_path}}/assets/img/learn/learn-throttling-maxtps.png)
 
 5. Save the API.
 
@@ -43,7 +43,7 @@ To configure token-based backend throughput for AI APIs:
 3. In the **Backend Throughput** section, select **Specify**.
 4. Configure the token-based limits:
 
-[![Max Backend Throughput for AI APIs]({{base_path}}/assets/img/learn/learn-throttling-maxtps-tokens.png)]({{base_path}}/assets/img/learn/learn-throttling-maxtps-tokens.png)
+![Max Backend Throughput for AI APIs]({{base_path}}/assets/img/learn/learn-throttling-maxtps-tokens.png)
 
 5. Set limits for both **Production** and **Sandbox** environments separately.
 6. Save the API.

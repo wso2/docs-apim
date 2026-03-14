@@ -65,14 +65,14 @@ Each Gateway environment definition contains details related to a specific Gatew
 
 {!includes/deploy/assign-custom-hostname.md!}
 
-[![Deploy API with Virtual Host in the Publisher]({{base_path}}/assets/img/deploy/deploy-api-with-vhost.png)]({{base_path}}/assets/img/deploy/deploy-api-with-vhost.png)
+![Deploy API with Virtual Host in the Publisher]({{base_path}}/assets/img/deploy/deploy-api-with-vhost.png)
 
 
 ### Step 3 - View the custom hostnames
 
 {!includes/deploy/view-custom-hostname.md!}
 
-[![Virtual host in the Developer Portal]({{base_path}}/assets/img/deploy/virtual-host-in-devportal.png)]({{base_path}}/assets/img/deploy/virtual-host-in-devportal.png)
+![Virtual host in the Developer Portal]({{base_path}}/assets/img/deploy/virtual-host-in-devportal.png)
 
 
 ## Using a new Gateway environment to expose APIs via custom hostnames
@@ -101,7 +101,7 @@ Each Gateway environment definition contains details related to a specific Gatew
 
      1. Click **Gateways**, and then click **Add Gateway Environment**.
 
-         [![Menu to add Gateway environment]({{base_path}}/assets/img/deploy/add-gateway-environment-menu.png)]({{base_path}}/assets/img/deploy/add-gateway-environment-menu.png)
+         ![Menu to add Gateway environment]({{base_path}}/assets/img/deploy/add-gateway-environment-menu.png)
 
      2. Enter a name, display name, description, and a virtual host.
 
@@ -231,10 +231,10 @@ Extract WSO2 API Manager to a new directory. Let's refer to this directory as `A
 
 {!includes/deploy/assign-custom-hostname.md!}
 
-[![Deploy API with Virtual Host in the Publisher]({{base_path}}/assets/img/deploy/deploy-api-with-vhost.png)]({{base_path}}/assets/img/deploy/deploy-api-with-vhost.png)
+![Deploy API with Virtual Host in the Publisher]({{base_path}}/assets/img/deploy/deploy-api-with-vhost.png)
 
 ### Step 4 - View the custom hostnames
 
 {!includes/deploy/view-custom-hostname.md!}
 
-[![Virtual host in the Developer Portal]({{base_path}}/assets/img/deploy/virtual-host-in-devportal.png)]({{base_path}}/assets/img/deploy/virtual-host-in-devportal.png)
+![Virtual host in the Developer Portal]({{base_path}}/assets/img/deploy/virtual-host-in-devportal.png)

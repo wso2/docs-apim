@@ -40,7 +40,7 @@ Follow the instructions below if you need to **deploy an existing revision** on 
 3. Select the required revision from the **Deployed Revision** drop-down menu.
 4. Click **Deploy**.
 
-      [![Deploy an existing revision]({{base_path}}/assets/img/design/revision/deploy-existing-revision.png)]({{base_path}}/assets/img/design/revision/deploy-existing-revision.png)
+      ![Deploy an existing revision]({{base_path}}/assets/img/design/revision/deploy-existing-revision.png)
 
 ## Create a new revision
 
@@ -54,7 +54,7 @@ Follow the instructions below to create a new revision from your existing API:
 
 3. Click **+** in the revision timeline.
     
-      [![Create new revision]({{base_path}}/assets/img/design/revision/create-revision.png)]({{base_path}}/assets/img/design/revision/create-revision.png)
+      ![Create new revision]({{base_path}}/assets/img/design/revision/create-revision.png)
 
 4.  Optionally, provide a description for the revision.
 
@@ -76,7 +76,7 @@ Follow the instructions below if you need to undeploy a revision from a Gateway 
 2. Navigate to the **Deploy** section and click **Deployments**
 3. Click on the **Undeploy** button that appears against the respective Gateway Environment from which you want to undeploy the revision.
 
-      [![Undeploy a revision]({{base_path}}/assets/img/design/revision/undeploy-revision.png)]({{base_path}}/assets/img/design/revision/undeploy-revision.png)
+      ![Undeploy a revision]({{base_path}}/assets/img/design/revision/undeploy-revision.png)
 
 ## Delete a revision
 
@@ -86,7 +86,7 @@ If you need to delete a specific revision, click on the **Delete** button that c
     - If a revision is already deployed in a specific environment, you cannot delete it. 
     - You should first undeploy the revision from the Gateway Environment and then delete it.
 
-[![Delete a revision]({{base_path}}/assets/img/design/revision/delete-revision.png)]({{base_path}}/assets/img/design/revision/delete-revision.png)
+![Delete a revision]({{base_path}}/assets/img/design/revision/delete-revision.png)
 
 ## Restore a revision
 
@@ -97,5 +97,5 @@ API revisions can not be updated. Therefore, when you update an API via the Publ
 
 If you need to revert these changes and restore a specific revision, click on the **Restore** button in the revision timeline, as shown below. Thereby, this will restore that specific revision into the Current API, overriding the changes that are currently available in the Current API. As the restore option will only update the Current API in the Publisher and Developer Portal, it does not have any effect on the deployed revisions. 
 
-[![Restore a revision]({{base_path}}/assets/img/design/revision/restore-revision.png)]({{base_path}}/assets/img/design/revision/restore-revision.png)
+![Restore a revision]({{base_path}}/assets/img/design/revision/restore-revision.png)
 

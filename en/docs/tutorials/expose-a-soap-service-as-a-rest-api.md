@@ -9,7 +9,7 @@ This tutorial will explain the steps to design, publish and invoke a SOAP servic
 
 1.  Sign in to the API Publisher and click **CREATE API**.
     
-    [![Create SOAP API]({{base_path}}/assets/img/learn/create-soap-api.png)]({{base_path}}/assets/img/learn/create-soap-api.png)
+    ![Create SOAP API]({{base_path}}/assets/img/learn/create-soap-api.png)
 
 2.  Select **Pass Through** option and thereafter, select one of the following options:
 
@@ -41,7 +41,7 @@ This tutorial will explain the steps to design, publish and invoke a SOAP servic
     ![SOAP API overview]({{base_path}}/assets/img/learn/created-soap-api.jpg)
 
 5.  API definition of the Created schema has been displayed at **API Definition** tab.
-     [![SOAP API Definition]({{base_path}}/assets/img/learn/api-definition-of-soap-api-created-by-passthrough-mode.jpg)]({{base_path}}/assets/img/learn/api-definition-of-soap-api-created-by-passthrough-mode.jpg)
+     ![SOAP API Definition]({{base_path}}/assets/img/learn/api-definition-of-soap-api-created-by-passthrough-mode.jpg)
   
     <html><div class="admonition note"><p class="admonition-title">Note</p>
     <p>

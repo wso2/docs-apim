@@ -27,12 +27,12 @@ can be viewed via the terminal or the `wso2carbon` log file.
     | Dump Message Content              | Enable Message tracing for the Content of the Message as well.                       |
     | Enable Logging                    | Enable Logging in the available logging handler in order to log the tracing message. |
 
-    [![Message tracing]({{base_path}}/assets/img/learn/message-traceronly.png)]({{base_path}}/assets/img/learn/message-traceronly.png)
+    ![Message tracing]({{base_path}}/assets/img/learn/message-traceronly.png)
     
 5.  Add an event publisher to log the trace messages in the APIM the `wso2carbon` log file.
 
     1.  Go to **Main &gt; Event &gt; Publishers** and click **Add Event Publisher**.
-        [![Add event publisher option]({{base_path}}/assets/img/learn/add-event-publisher.png)]({{base_path}}/assets/img/learn/add-event-publisher.png)
+        ![Add event publisher option]({{base_path}}/assets/img/learn/add-event-publisher.png)
     2.  In Create a New Event Publisher page, add the following details and click **Add Event Publisher**.
 
         <table>
@@ -72,7 +72,7 @@ can be viewed via the terminal or the `wso2carbon` log file.
 
         Leave the **Unique Identifier** field blank.
         
-        [![Add a Event Publisher]({{base_path}}/assets/img/learn/message_tracer_logger_publisher.png)]({{base_path}}/assets/img/learn/message_tracer_logger_publisher.png)
+        ![Add a Event Publisher]({{base_path}}/assets/img/learn/message_tracer_logger_publisher.png)
 
 After enabling message tracing, dump message content, and logging, you will see a log message similar to the following 
 on the API Console/terminal for events such as API invocation etc.

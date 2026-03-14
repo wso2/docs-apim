@@ -31,11 +31,11 @@ After the custom properties have been added, you can [search for APIs using cust
 
 3.  Click **Properties** and click **Add New Property**.
 
-      [![Add new property menu]({{base_path}}/assets/img/learn/properties-add-property.png)]({{base_path}}/assets/img/learn/properties-add-property.png)
+      ![Add new property menu]({{base_path}}/assets/img/learn/properties-add-property.png)
 
 4. Enter a custom property name and value (e.g., property name: environment, property value: preprod), mark Developer Portal visibility as appropriate and click **Add** to add it.
 
-      [![Add new property]({{base_path}}/assets/img/learn/add-new-property.png)]({{base_path}}/assets/img/learn/add-new-property.png)
+      ![Add new property]({{base_path}}/assets/img/learn/add-new-property.png)
 
 5.  Click **Save** to save the API.
 
@@ -76,8 +76,8 @@ You can use the following format to search for an API using the custom propertie
 
 For example, if you want to search for the environment property with a specific value (e.g., preprod) and if the Developer Portal visibility is enabled for that property, you can search the API in the Publisher Portal, as shown below:
 
-[![Publisher search option]({{base_path}}/assets/img/learn/search-apis-with-custom-properties.png)]({{base_path}}/assets/img/learn/search-apis-with-custom-properties.png)
+![Publisher search option]({{base_path}}/assets/img/learn/search-apis-with-custom-properties.png)
 
 When you click on the name of the API in the above screen, the respective API Overview page appears. Click on the **Properties** tab to list the API properties that you added.
 
-[![API Properties]({{base_path}}/assets/img/learn/view-custom-api-properties.png)]({{base_path}}/assets/img/learn/view-custom-api-properties.png)
+![API Properties]({{base_path}}/assets/img/learn/view-custom-api-properties.png)

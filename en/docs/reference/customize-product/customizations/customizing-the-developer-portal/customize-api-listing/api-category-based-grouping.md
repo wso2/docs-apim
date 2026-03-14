@@ -24,7 +24,7 @@ You can add an API category using any of the following methods:
     
 3. Click **Add New Category**.
 
-    [![Add API category page]({{base_path}}/assets/img/develop/new_click_add_category.png)]({{base_path}}/assets/img/develop/new_click_add_category.png)
+    ![Add API category page]({{base_path}}/assets/img/develop/new_click_add_category.png)
 
 4. Enter a name and a description for the API category.
 
@@ -51,7 +51,7 @@ You can add an API category using any of the following methods:
 
 4. Select the API category.
 
-     [![Add API categories]({{base_path}}/assets/img/develop/attach_category.png)]({{base_path}}/assets/img/develop/attach_category.png)
+     ![Add API categories]({{base_path}}/assets/img/develop/attach_category.png)
 
 5. Click **Save**.
 
@@ -67,4 +67,4 @@ You can add an API category using any of the following methods:
 
      All APIs that belong to the selected category appear.
 
-     [![APIs categorised based on API category]({{base_path}}/assets/img/develop/devportal_listing.png)]({{base_path}}/assets/img/develop/devportal_listing.png)
+     ![APIs categorised based on API category]({{base_path}}/assets/img/develop/devportal_listing.png)

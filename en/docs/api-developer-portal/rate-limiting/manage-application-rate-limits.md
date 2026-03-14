@@ -73,7 +73,7 @@ When subscribing to an API, select the tier that matches your needs:
 4. Choose the appropriate subscription tier based on your expected usage
 5. Complete the subscription
 
-[![Subscribe application tier]({{base_path}}/assets/img/learn/subscribe-application-tier.png)]({{base_path}}/assets/img/learn/subscribe-application-tier.png)
+![Subscribe application tier]({{base_path}}/assets/img/learn/subscribe-application-tier.png)
 
 !!! tip
     Some APIs may offer custom subscription tiers with specialized configurations for different API types:

@@ -10,7 +10,7 @@ In this section let's see how to add an approval workflow to control the deploym
 
     2. Click **Registry** --> **Browse**.
 
-       [![Resources Browse Menu]({{base_path}}/assets/img/learn/navigate-main-resources.png)]({{base_path}}/assets/img/learn/navigate-main-resources.png)
+       ![Resources Browse Menu]({{base_path}}/assets/img/learn/navigate-main-resources.png)
 
     3. Go to the `/_system/governance/apimgt/applicationdata/workflow-extensions.xml` resource.
 
@@ -47,7 +47,7 @@ In this section let's see how to add an approval workflow to control the deploym
 
     4. Optionally, you can revoke the deployment revision change by clicking **Cancel**.
 
-       [![Delete pending task]({{base_path}}/assets/img/deploy/delete-revision-deployment-request.png)]({{base_path}}/assets/img/deploy/delete-revision-deployment-request.png)
+       ![Delete pending task]({{base_path}}/assets/img/deploy/delete-revision-deployment-request.png)
 
 3. Approve or reject the API revision deployment pending request.
 
@@ -61,7 +61,7 @@ In this section let's see how to add an approval workflow to control the deploym
 
     If the request is approved, the existing revision deployed on the gateway will be removed, and the new revision will take its place. If the request is rejected, the currently deployed revision will remain unchanged. 
 
-       [![API revision deployment pending list]({{base_path}}/assets/img/deploy/revision-deployment-pending-list.png)]({{base_path}}/assets/img/deploy/revision-deployment-pending-list.png)
+       ![API revision deployment pending list]({{base_path}}/assets/img/deploy/revision-deployment-pending-list.png)
 
 4. View the outcome of the updated API revision deployment request.
 
@@ -74,10 +74,10 @@ In this section let's see how to add an approval workflow to control the deploym
     If the request is approved, the new revision will be shown in the **Current Revision** column.
     If the request is rejected, the **Current Revision** column will remain unchanged.
 
-       [![API revision deployment updated list]({{base_path}}/assets/img/deploy/revision deployment-updated-status.png)]({{base_path}}/assets/img/deploy/revision deployment-updated-status.png)
+       ![API revision deployment updated list]({{base_path}}/assets/img/deploy/revision deployment-updated-status.png)
        
     !!! info
          You can send a new pending request even while a deployment to a specific gateway is in progress. The current revision will not be undeployed until the new request is approved. As
          mentioned earlier, you have the option to either cancel the second pending request or undeploy the current revision at your discretion.
 
-    [![API gateway with a deployed and a pending revision]({{base_path}}/assets/img/deploy/deployed-and-pending-revisions.png)]({{base_path}}/assets/img/deploy/deployed-and-pending-revisions.png)
+    ![API gateway with a deployed and a pending revision]({{base_path}}/assets/img/deploy/deployed-and-pending-revisions.png)

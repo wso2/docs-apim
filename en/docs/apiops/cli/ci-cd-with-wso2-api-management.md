@@ -5,7 +5,7 @@ APIs have become a norm for connecting apps, services, and data. An organization
 WSO2 API Manager (WSO2 API-M) addresses the issue of API automation by providing a platform-agnostic, developer-centric solution. **WSO2 API Controller (apictl)** tool plays a key role in the automation pipeline. It can seamlessly integrate 
 environment-related configurations and also create API Projects from OpenAPI specifications, opening a gate to fully automated API deployment with only a few steps. With the power of flexible tooling, WSO2 API-M is ready to address modern requirements for automating API deployments.
 
-[![]({{base_path}}/assets/img/learn/api-controller/ci-cd-pipeline-for-apis-with-wso2-apim.png)]({{base_path}}/assets/img/learn/api-controller/ci-cd-pipeline-for-apis-with-wso2-apim.png)
+![]({{base_path}}/assets/img/learn/api-controller/ci-cd-pipeline-for-apis-with-wso2-apim.png)
 
 Continuous integration and continuous deployment for APIs is an open-ended scenario; different organizations have 
 different ways of addressing the problem. The above diagram depicts a generic solution that involves a minimum number of parties in an organization for API automation. Although the diagram shows three parties, there could be more or less depending on the organization’s structure.

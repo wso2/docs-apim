@@ -30,11 +30,11 @@ In this example, it will be assumed that WSO2 IS and WSO2 API-M are up and runni
 
 3.  Enter the name of the service provider and click **Register**.
 
-     [![Add Service Provider]({{base_path}}/assets/img/learn/api-security/oauth2/provisioning-out-of-band-oauth-clients/create-external-sp.png)]({{base_path}}/assets/img/learn/api-security/oauth2/provisioning-out-of-band-oauth-clients/create-external-sp.png)
+     ![Add Service Provider]({{base_path}}/assets/img/learn/api-security/oauth2/provisioning-out-of-band-oauth-clients/create-external-sp.png)
              
 4.  Click **Inbound Authentication Configuration** --> **OAuth/OpenID Connect Configuration** --> **Configure** to add a new OAuth2 client.
 
-     [![Add Oauth app]({{base_path}}/assets/img/learn/api-security/oauth2/provisioning-out-of-band-oauth-clients/add-oauth-app.png)]({{base_path}}/assets/img/learn/api-security/oauth2/provisioning-out-of-band-oauth-clients/add-oauth-app.png)
+     ![Add Oauth app]({{base_path}}/assets/img/learn/api-security/oauth2/provisioning-out-of-band-oauth-clients/add-oauth-app.png)
 
      <a name="step5"></a>
 
@@ -47,7 +47,7 @@ In this example, it will be assumed that WSO2 IS and WSO2 API-M are up and runni
     
     Now you have successfully created an OAuth2 client and generated a consumer key and consumer secret for it. 
    
-    [![Oauth app credentials]({{base_path}}/assets/img/learn/api-security/oauth2/provisioning-out-of-band-oauth-clients/external-oauthapp-credentials.png)]({{base_path}}/assets/img/learn/api-security/oauth2/provisioning-out-of-band-oauth-clients/external-oauthapp-credentials.png)
+    ![Oauth app credentials]({{base_path}}/assets/img/learn/api-security/oauth2/provisioning-out-of-band-oauth-clients/external-oauthapp-credentials.png)
     
 ## Step 3 - Provision the out-of-band OAuth2 client
 
@@ -84,7 +84,7 @@ Follow the instructions below to provision the out-of-band OAuth2 client that yo
     
 6.  Click on the respective application to view the credential details.
     
-     [![App listing]({{base_path}}/assets/img/learn/application-listing.png)]({{base_path}}/assets/img/learn/application-listing.png)   
+     ![App listing]({{base_path}}/assets/img/learn/application-listing.png)   
     
 7.  Click **OAuth2 Tokens** under **Production Keys** tab and navigate to the respective key manager tab (here it is `IS`).
 
@@ -93,7 +93,7 @@ Follow the instructions below to provision the out-of-band OAuth2 client that yo
     !!! Note
         Out-of-band OAuth2 client can be provisioned either for production or sandbox environment. If you wish to generate keys for your sandbox, you can follow the same instructions in the **Sandbox Keys** tab.
 
-     [![Provide Keys]({{base_path}}/assets/img/learn/api-security/oauth2/provisioning-out-of-band-oauth-clients/provide-keys-section.png)]({{base_path}}/assets/img/learn/api-security/oauth2/provisioning-out-of-band-oauth-clients/provide-keys-section.png)
+     ![Provide Keys]({{base_path}}/assets/img/learn/api-security/oauth2/provisioning-out-of-band-oauth-clients/provide-keys-section.png)
 
 8.  Paste the consumer key and consumer secret pair, which you derived in [Step 2 - (5) Creating an external OAuth client](#step5).
 

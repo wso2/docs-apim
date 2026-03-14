@@ -20,7 +20,7 @@ Two key performance metrics were used to measure the performance of each test.
 
 ## Deployment used for the test
 
-[![API-M performance test all-in-one deployment]({{base_path}}/assets/img/setup-and-install/performance-test-results/apim_performance_test_all_in_one_deployment.png)]({{base_path}}/assets/img/setup-and-install/performance-test-results/apim_performance_test_all_in_one_deployment.png)
+![API-M performance test all-in-one deployment]({{base_path}}/assets/img/setup-and-install/performance-test-results/apim_performance_test_all_in_one_deployment.png)
 
 <table>
 <thead>
@@ -90,7 +90,7 @@ Considering the fact that an average WSO2 API Manager user uses ~1KiB messages, 
 
 The following graph depicts the throughput changes based on the number of concurrent users.
 
-[![lineplot throughput 2G 1KiB 0ms]({{base_path}}/assets/img/setup-and-install/performance-test-results/lineplot-throughput-2g-1kib-0ms.png)]({{base_path}}/assets/img/setup-and-install/performance-test-results/lineplot-throughput-2g-1kib-0ms.png)
+![lineplot throughput 2G 1KiB 0ms]({{base_path}}/assets/img/setup-and-install/performance-test-results/lineplot-throughput-2g-1kib-0ms.png)
 
 **Key observations:**
 
@@ -100,7 +100,7 @@ The following graph depicts the throughput changes based on the number of concur
 
 The following graph depicts the average response time changes based on the number of concurrent users.
 
-[![lineplot average response time 2G 1KiB 0ms]({{base_path}}/assets/img/setup-and-install/performance-test-results/lineplot-average-response-time-2g-1kib-0ms.png)]({{base_path}}/assets/img/setup-and-install/performance-test-results/lineplot-average-response-time-2g-1kib-0ms.png)
+![lineplot average response time 2G 1KiB 0ms]({{base_path}}/assets/img/setup-and-install/performance-test-results/lineplot-average-response-time-2g-1kib-0ms.png)
 
 **Key observations:**
 
@@ -115,7 +115,7 @@ For example, when there are 100 concurrent users, the 90th response time percent
 
 The figure below represents the percentile values for Echo API (PassThrough Scenario).
 
-[![Response time 0ms 1KiB]({{base_path}}/assets/img/setup-and-install/performance-test-results/response_time_summary_1KiB_0ms.png)]({{base_path}}/assets/img/setup-and-install/performance-test-results/response_time_summary_1KiB_0ms.png)
+![Response time 0ms 1KiB]({{base_path}}/assets/img/setup-and-install/performance-test-results/response_time_summary_1KiB_0ms.png)
 
 **Key observations:**
 
@@ -137,7 +137,7 @@ The GC Throughput was calculated for each test to check whether GC operations ar
 
 The following chart depicts the GC Throughput (%) based on the number of concurrent users for the PassThrough scenario (Echo API) for different payload sizes.
 
-[![Lineplot WSO2 Api Manager GC throughput 2G 50B 0ms]({{base_path}}/assets/img/setup-and-install/performance-test-results/gc_0ms.png)]({{base_path}}/assets/img/setup-and-install/performance-test-results/gc_0ms.png)
+![Lineplot WSO2 Api Manager GC throughput 2G 50B 0ms]({{base_path}}/assets/img/setup-and-install/performance-test-results/gc_0ms.png)
 
 ## Comparison of results
 
@@ -145,18 +145,18 @@ The following chart depicts the GC Throughput (%) based on the number of concurr
 
 #### Throughput (requests/sec) vs. Concurrent users
 
-[![Lineplot throughput concurrent users 2G]({{base_path}}/assets/img/setup-and-install/performance-test-results/lmplot-throughput-concurrent-users-2g.png)]({{base_path}}/assets/img/setup-and-install/performance-test-results/lmplot-throughput-concurrent-users-2g.png)
+![Lineplot throughput concurrent users 2G]({{base_path}}/assets/img/setup-and-install/performance-test-results/lmplot-throughput-concurrent-users-2g.png)
 
 #### Throughput (requests/sec) vs. Message size (Bytes)
 
-[![Lineplot throughput message size 2G]({{base_path}}/assets/img/setup-and-install/performance-test-results/lmplot-throughput-message-size-2g.png)]({{base_path}}/assets/img/setup-and-install/performance-test-results/lmplot-throughput-message-size-2g.png)
+![Lineplot throughput message size 2G]({{base_path}}/assets/img/setup-and-install/performance-test-results/lmplot-throughput-message-size-2g.png)
 
 ### Average response time comparison
 
 #### Average response time (ms) vs. Concurrent users
 
-[![Lineplot average response time concurrent users 2G]({{base_path}}/assets/img/setup-and-install/performance-test-results/lmplot-average-response-time-concurrent-users-2g.png)]({{base_path}}/assets/img/setup-and-install/performance-test-results/lmplot-average-response-time-concurrent-users-2g.png)
+![Lineplot average response time concurrent users 2G]({{base_path}}/assets/img/setup-and-install/performance-test-results/lmplot-average-response-time-concurrent-users-2g.png)
 
 #### Average response time (ms) vs. Message size (Bytes)
 
-[![Lineplot average response time message size 2G]({{base_path}}/assets/img/setup-and-install/performance-test-results/lmplot-average-response-time-message-size-2g.png)]({{base_path}}/assets/img/setup-and-install/performance-test-results/lmplot-average-response-time-message-size-2g.png)
+![Lineplot average response time message size 2G]({{base_path}}/assets/img/setup-and-install/performance-test-results/lmplot-average-response-time-message-size-2g.png)

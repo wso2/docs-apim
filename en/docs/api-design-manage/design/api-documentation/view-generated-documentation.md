@@ -15,8 +15,8 @@ This feature does not support other API types.
 
     1.  Click **Documents** and click **View Document** under Generated Document.
         
-         [![View generated document option]({{base_path}}/assets/img/learn/view-generated-document.png)]({{base_path}}/assets/img/learn/view-generated-document.png)
+         ![View generated document option]({{base_path}}/assets/img/learn/view-generated-document.png)
 
     2.  A document will be generated from the swagger document.
 
-         [![Generated document]({{base_path}}/assets/img/learn/generated-document.png)]({{base_path}}/assets/img/learn/generated-document.png)
+         ![Generated document]({{base_path}}/assets/img/learn/generated-document.png)

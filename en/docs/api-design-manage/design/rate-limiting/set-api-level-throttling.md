@@ -23,7 +23,7 @@ To apply a rate limit to your entire API:
 3. Under **Rate Limiting Level**, select **API Level**.
 4. Choose the desired rate limiting policy from the available options.
 
-[![API level advanced policy]({{base_path}}/assets/img/learn/api-level-advanced-policy.png)]({{base_path}}/assets/img/learn/api-level-advanced-policy.png)
+![API level advanced policy]({{base_path}}/assets/img/learn/api-level-advanced-policy.png)
 
 ## Applying Resource-Level Rate Limiting
 

@@ -29,7 +29,7 @@ Follow the steps below to publish an API using WSO2 API Manager.
         
 3.  Click **Lifecycle**.
 
-     [![Lifecycle tab]({{base_path}}/assets/img/learn/default-lifecycle.png)]({{base_path}}/assets/img/learn/default-lifecycle.png)
+     ![Lifecycle tab]({{base_path}}/assets/img/learn/default-lifecycle.png)
 
      The lifecycle state transition grid appears. Before publishing an API, the following requirements have to be satisfied.
 
@@ -38,16 +38,16 @@ Follow the steps below to publish an API using WSO2 API Manager.
     
     If any of the above requirements are not satisfied, it is indicated in the lifecycle page, and you need to navigate to relevant sections and provide the missing information such as endpoint URL and business plans.
   
-    [![Publish API requirements]({{base_path}}/assets/img/learn/publish-api-requirements.png)]({{base_path}}/assets/img/learn/publish-api-requirements.png)
+    ![Publish API requirements]({{base_path}}/assets/img/learn/publish-api-requirements.png)
 
     
 4.  If the latter mentioned requirements are satisfied, click **PUBLISH** to push the API.
 
-     [![Publish API]({{base_path}}/assets/img/learn/publish-api.png)]({{base_path}}/assets/img/learn/publish-api.png) 
+     ![Publish API]({{base_path}}/assets/img/learn/publish-api.png) 
         
      If the API is published successfully, the lifecycle state will shift to **PUBLISHED**. 
 
-     [![Published lifecycle state]({{base_path}}/assets/img/learn/api-state-change-to-publish.png)]({{base_path}}/assets/img/learn/api-state-change-to-publish.png) 
+     ![Published lifecycle state]({{base_path}}/assets/img/learn/api-state-change-to-publish.png) 
      
 5. Navigate to the Developer Portal (`https://<hostname>:9443/devportal`).
      

@@ -12,7 +12,7 @@ The topics below explain how to deploy a BPEL/HumanTask using WSO2 EI and how to
 
 In this guide, the API Manager and EI use the same user store by sharing the same user and permission store, and all the users present are visible to both EI and API Manager. This is depicted by the diagram below.
 
-[![]({{base_path}}/assets/attachments/103334719/103334720.png)]({{base_path}}/assets/attachments/103334719/103334720.png)
+![]({{base_path}}/assets/attachments/103334719/103334720.png)
 
 !!! warning
     **If you are using WSO2 BPS3.2.0**, please copy the `<APIM_HOME>/repository/components/patches/patch0009` folder to the `<BPS_HOME>/repository/components/patches` folder and restart the BPS server for the patch to be applied. This patch has a fix for a bug that causes the workflow configurations to fail in multi-tenant environments.
@@ -127,7 +127,7 @@ In this section, you create a BPEL that has service endpoints pointing to servic
 
 
 1.  Sign in to the API Manager's management console (`https://localhost:9443/carbon`) and create a tenant using the **Configure -&gt; Multitenancy** menu.
-    [![]({{base_path}}/assets/attachments/103334719/103334732.png)]({{base_path}}/assets/attachments/103334719/103334732.png)
+    ![]({{base_path}}/assets/attachments/103334719/103334732.png)
 
 2.  Create a copy of the BPEL located in the `<APIM_HOME>/business-processes/application-creation/BPEL` directory.
 
@@ -189,7 +189,7 @@ In this section, you create a BPEL that has service endpoints pointing to servic
         To avoid this issue open the `&lt;EI\_HOME&gt;/ repository/conf/tomcat/catalina-server.xml` file and change `compression="on"` to `compression="off"` in the Connector configuration and restart the EI.
 
 
-    [![]({{base_path}}/assets/attachments/103334719/103334729.png)]({{base_path}}/assets/attachments/103334719/103334729.png)
+    ![]({{base_path}}/assets/attachments/103334719/103334729.png)
 
 ### Step 4 - Create a tenant for authentication
 
@@ -205,13 +205,13 @@ In this section, you create a BPEL that has service endpoints pointing to servic
 
 4.  Click **Add** to finish adding the resource.
 
-     [![]({{base_path}}/assets/attachments/103334719/103334723.png)]({{base_path}}/assets/attachments/103334719/103334723.png)
+     ![]({{base_path}}/assets/attachments/103334719/103334723.png)
 
 ##### Step 2 - Create username and password registry properties and define credentials
 
 1.  Click on the registry resource you created (Task Coordination) found under the **Entries** section.
 
-    [![]({{base_path}}/assets/attachments/103334719/103334724.png)]({{base_path}}/assets/attachments/103334719/103334724.png)
+    ![]({{base_path}}/assets/attachments/103334719/103334724.png)
 
 2.  Add two new registry properties for the resource named "Username" and "Password", and define the tenant coordination user credentials. 
 
@@ -222,11 +222,11 @@ In this section, you create a BPEL that has service endpoints pointing to servic
     | **Name:** username          | **Name:** password          |
     | **Value:** (username value) | **Value:** (password value) |
 
-    [![]({{base_path}}/assets/attachments/103334719/103334725.png)]({{base_path}}/assets/attachments/103334719/103334725.png)
+    ![]({{base_path}}/assets/attachments/103334719/103334725.png)
 
 3.  Click **Add** to finish adding the property.
 
-     [![]({{base_path}}/assets/attachments/103334719/103334726.png)]({{base_path}}/assets/attachments/103334719/103334726.png)
+     ![]({{base_path}}/assets/attachments/103334719/103334726.png)
 
 ### Step 5 - Create a HumanTask
 
@@ -278,7 +278,7 @@ Similar to creating a BPEL, create a `HumanTask` that has service endpoints poin
 
      Example:
 
-     [![]({{base_path}}/assets/attachments/103334719/103334728.png)]({{base_path}}/assets/attachments/103334719/103334728.png)
+     ![]({{base_path}}/assets/attachments/103334719/103334728.png)
     
     !!! note
         Be sure to disable the `SimpleWorkflowExecutor` and enable the `ApplicationCreationWSWorkflowExecutor`.
@@ -294,4 +294,4 @@ You have now completed configuring the Application Creation workflow for a tenan
 
      You will see all approval tasks have been created for newly created applications.
 
-     [![Application creation pending request]({{base_path}}/assets/img/learn/application-creation-pending-request.png)]({{base_path}}/assets/img/learn/application-creation-pending-request.png)
+     ![Application creation pending request]({{base_path}}/assets/img/learn/application-creation-pending-request.png)
