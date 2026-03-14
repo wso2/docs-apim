@@ -1,6 +1,6 @@
 # WSO2 API Controller (APICTL)
 
-The **WSO2 API Controller (apictl)** is the command-line tool of WSO2 API Manager. This allows you to move APIs, API Products, and Applications across API-M environments and to perform CI/CD operations. It can also be used to perform these same tasks on a Kubernetes deployment. Furthermore, it can be used with the Micro Integrator (WSO2 MI) for monitoring integration artifacts and performing management/administrative tasks from the command line.
+The **WSO2 API Controller (apictl)** is the command-line tool of WSO2 API Manager. This allows you to move APIs, API Products, and Applications across API-M environments and to perform CI/CD operations. It can also be used to perform these same tasks on a Kubernetes deployment.
 
 ## Get Started
 
@@ -16,7 +16,7 @@ Follow the steps given below to get started:
 
 3. **Add environments**
 
-    Execute the following command to add API-M or Micro Integrator servers:
+    Execute the following command to add API-M environments:
 
     ```bash
     apictl add env <environment-name>
@@ -108,7 +108,7 @@ apictl init
 
 ### apictl add
 
-Add a new environment (API-M or MI) and its related endpoints to the configuration file of apictl. This will connect apictl with the added environments.
+Add a new API-M environment and its related endpoints to the configuration file of apictl. This will connect apictl with the added environment.
 
 -   Usage
 
@@ -191,14 +191,6 @@ Add a new environment (API-M or MI) and its related endpoints to the configurati
             </th>
             <td>
                 If the <code>--apim</code> flag is not used, use this flag to specify the API-M Token url.
-            </td>
-        </tr>
-        <tr>
-            <th>
-                <code>--mi</code>
-            </th>
-            <td>
-                Use this flag to add a Micro Integrator environment.
             </td>
         </tr>
         <tr>
@@ -1140,186 +1132,6 @@ Undeploy an API/API Product/MCP Server revision that is available in the specifi
             </th>
             <td>
                 The environment from which the API is being undeployed.
-            </td>
-        </tr>
-    </table>
-
-### apictl mi
-
-Use this command to manage Micro Integrator artifacts. You can get, add, update, delete, activate, and deactivate integration artifacts and logs.
-
--   Usage
-
-    ```bash
-    apictl mi [subcommand] [option] [argument] [global-flag]
-    ```
-
--   Subcommands
-
-    <table>
-        <tr>
-            <th>
-                <code>login</code>
-            </th>
-            <td>
-                Login to a Micro Integrator.
-            </td>
-        </tr>
-        <tr>
-            <th>
-                <code>logout</code>
-            </th>
-            <td>
-                Logout from a Micro Integrator.
-            </td>
-        </tr>
-        <tr>
-            <th>
-                <code>get</code>
-            </th>
-            <td>
-                 Get information about artifacts deployed in a Micro Integrator instance.
-            </td>
-        </tr>
-        <tr>
-            <th>
-                <code>add</code>
-            </th>
-            <td>
-                 Add new users or loggers to a Micro Integrator instance.
-            </td>
-        </tr>
-        <tr>
-            <th>
-                <code>delete</code>
-            </th>
-            <td>
-                Delete users from a Micro Integrator instance.
-            </td>
-        </tr>
-        <tr>
-            <th>
-                <code>update</code>
-            </th>
-            <td>
-                Update log level of Loggers in a Micro Integrator instance.
-            </td>
-        </tr>
-        <tr>
-            <th>
-                <code>activate</code>
-            </th>
-            <td>
-                Activate artifacts deployed in a Micro Integrator instance.
-            </td>
-        </tr>
-        <tr>
-            <th>
-                <code>deactivate</code>
-            </th>
-            <td>
-                Deactivate artifacts deployed in a Micro Integrator instance.
-            </td>
-        </tr>
-    </table>
-
--   Options
-
-    <table>
-        <tr>
-            <th>
-                <code>apis</code>
-            </th>
-            <td>
-                Get details of APIs deployed in the Micro Integrator.
-            </td>
-        </tr>
-        <tr>
-            <th>
-                <code>connectors</code>
-            </th>
-            <td>
-                Get details of integration connectors deployed in the Micro Integrator.
-            </td>
-        </tr>
-        <tr>
-            <th>
-                <code>data-services</code>
-            </th>
-            <td>
-                Get details of data services deployed in the Micro Integrator.
-            </td>
-        </tr>
-        <tr>
-            <th>
-                <code>mi get endpoints</code>
-            </th>
-            <td>
-                Get details of endpoints deployed in the Micro Integrator.
-            </td>
-        </tr>
-        <tr>
-            <th>
-                <code>inbound-endpoints</code>
-            </th>
-            <td>
-                Get details of inbound endpoints deployed in the Micro Integrator.
-            </td>
-        </tr>
-        <tr>
-            <th>
-                <code>local-entries</code>
-            </th>
-            <td>
-                Get details of local entries deployed in the Micro Integrator.
-            </td>
-        </tr>
-        <tr>
-            <th>
-                <code>message-processors</code>
-            </th>
-            <td>
-                Use this option with the <code>get</code> or <code>activate</code> subcommands to get details or to activate the status.
-            </td>
-        </tr>
-        <tr>
-            <th>
-                <code>message-stores</code>
-            </th>
-            <td>
-                Get details of message stores deployed in the Micro Integrator.
-            </td>
-        </tr>
-        <tr>
-            <th>
-                <code>proxy-services</code>
-            </th>
-            <td>
-                Get details of proxy services deployed in the Micro Integrator.
-            </td>
-        </tr>
-        <tr>
-            <th>
-                <code>tasks</code>
-            </th>
-            <td>
-                Get details of scheduled tasks deployed in the Micro Integrator.
-            </td>
-        </tr>
-        <tr>
-            <th>
-                <code>templates</code>
-            </th>
-            <td>
-                Get details of templates deployed in the Micro Integrator.
-            </td>
-        </tr>
-        <tr>
-            <th>
-                <code>log-levels</code>
-            </th>
-            <td>
-                Use this option with the <code>mi get</code>, <code>mi add</code>, or <code>mi update</code> commands to manage loggers in the Micro Integrator environment.
             </td>
         </tr>
     </table>
