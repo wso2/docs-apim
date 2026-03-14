@@ -4,7 +4,7 @@ When you run multiple runtimes on the same server or virtual machines (VMs), you
 
 For example, if the default HTTP port is 9763 and the offset is 1, the effective HTTP port changes to 9764. For each additional WSO2 product instance running on the same machine, you set the port offset to a unique value.
 
-There are two ways to set an offset to a port: Update the server configurations, or pass the port offset during server startup. See the instructions given below to port offset the three runtimes of WSO2 API Manager.
+There are two ways to set a port offset: update the server configuration or pass the port offset during server startup. See the instructions given below to port offset the three runtimes of WSO2 API Manager.
 
 ## Before you begin
 
@@ -69,7 +69,7 @@ The default port offset in the WSO2 API-M runtime is `0`. Use one of the followi
             api-manager.bat -DportOffset=3
             ```
 
-When you offset the server's port, it automatically changes all ports. 
+When you set a port offset for the server, all runtime ports are automatically updated.
 
 ## What's Next?
 
