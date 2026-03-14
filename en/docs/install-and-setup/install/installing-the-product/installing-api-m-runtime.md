@@ -34,6 +34,7 @@ You must set your `JAVA_HOME` environment variable to point to the directory whe
              
         On OS X:
         export JAVA_HOME=/System/Library/Java/JavaVirtualMachines/11.0.x.jdk/Contents/Home
+        export PATH=${JAVA_HOME}/bin:${PATH}
         ```
 
     3.  Save the file.
