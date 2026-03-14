@@ -60,7 +60,7 @@ Follow the instructions below to enable API Consumers to be able to share the AP
 
      The social media sharable links and the email composer link appear along with the iframe code embedding of the API.
 
-    [![Community link in Developer Portal]({{base_path}}/assets/img/design/community-features/devportal-default-community-links.png)]({{base_path}}/assets/img/design/community-features/devportal-default-community-links.png)
+    ![Community link in Developer Portal]({{base_path}}/assets/img/design/community-features/devportal-default-community-links.png)
     
 
 ## Add GitHub and Slack channel URLs to an API
@@ -79,11 +79,11 @@ Follow the instructions below to enable the API related GitHub and Slack channel
 
 3. Click **Basic info**.
 
-    [![Basic info link]({{base_path}}/assets/img/design/community-features/publisher-community-link-basic-info.png)]({{base_path}}/assets/img/design/community-features/publisher-community-link-basic-info.png)
+    ![Basic info link]({{base_path}}/assets/img/design/community-features/publisher-community-link-basic-info.png)
 
 4. Provide your GitHub and Slack channel URL in the respective input fields and click **Save**
 
-    [![GitHub and Slack channel URL]({{base_path}}/assets/img/design/community-features/publisher-slack-urls.png)]({{base_path}}/assets/img/design/community-features/publisher-slack-urls.png)
+    ![GitHub and Slack channel URL]({{base_path}}/assets/img/design/community-features/publisher-slack-urls.png)
 
 ### Step 2 - Verify the changes
 
@@ -97,6 +97,6 @@ Follow the instructions below to enable the API related GitHub and Slack channel
 
      The API's overview page appears with the GitHub and Slack channel URLs.
 
-     [![Developer Portal community links with Slack and Github]({{base_path}}/assets/img/design/community-features/devportal-community-links-with-slack-github.png)]({{base_path}}/assets/img/design/community-features/devportal-community-links-with-slack-github.png)
+     ![Developer Portal community links with Slack and Github]({{base_path}}/assets/img/design/community-features/devportal-community-links-with-slack-github.png)
 
      Now, API Consumers can use the GitHub and Slack channel community links to engage in community activities, explore the API source, and much more.

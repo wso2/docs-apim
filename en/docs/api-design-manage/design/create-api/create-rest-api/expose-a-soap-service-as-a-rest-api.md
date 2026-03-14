@@ -13,7 +13,7 @@ Follow the instructions below to create a SOAP service as a RESTful API using **
 
 2.  Click **CREATE API** and then click **Import WSDL** under **SOAP API**
 
-     [![Create SOAP API]({{base_path}}/assets/img/learn/create-soap-api.png)]({{base_path}}/assets/img/learn/create-soap-api.png)
+     ![Create SOAP API]({{base_path}}/assets/img/learn/create-soap-api.png)
 
 3.  Select the **Pass Through** option and thereafter, select one of the following options:
 
@@ -28,7 +28,7 @@ Follow the instructions below to create a SOAP service as a RESTful API using **
      </html>
 
      This example uses the WSDL [Phone Verify](http://ws.cdyne.com/phoneverify/phoneverify.asmx?wsdl) from CDYNE as the endpoint here, but you can use any SOAP backend of your choice.
-        [![Generate rest API from soap backend]({{base_path}}/assets/img/learn/generate-rest-api-from-soap-backend.jpg)]({{base_path}}/assets/img/learn/generate-rest-api-from-soap-backend.jpg)
+        ![Generate rest API from soap backend]({{base_path}}/assets/img/learn/generate-rest-api-from-soap-backend.jpg)
 
 4.  Click **NEXT** to proceed to the next phase, provide the information in the table below, and click **CREATE**.
 
@@ -39,15 +39,15 @@ Follow the instructions below to create a SOAP service as a RESTful API using **
     | Version | 1.0                |
     | Endpoint| http://ws.cdyne.com/phoneverify/phoneverify.asmx|
 
-    [![Create SOAP API form]({{base_path}}/assets/img/learn/create-soap-api-form.jpg)]({{base_path}}/assets/img/learn/create-soap-api-form.jpg)
+    ![Create SOAP API form]({{base_path}}/assets/img/learn/create-soap-api-form.jpg)
     
      The created API appears in the Publisher as follows.
 
-     [![Created SOAP API]({{base_path}}/assets/img/learn/created-soap-api.jpg)]({{base_path}}/assets/img/learn/created-soap-api.jpg)
+     ![Created SOAP API]({{base_path}}/assets/img/learn/created-soap-api.jpg)
      
 5. Click **API Definition** to view the API definition of the created schema.
 
-    [![API definition of SOAP API created by Pass-through mode]({{base_path}}/assets/img/learn/api-definition-of-soap-api-created-by-passthrough-mode.jpg)]({{base_path}}/assets/img/learn/api-definition-of-soap-api-created-by-passthrough-mode.jpg)
+    ![API definition of SOAP API created by Pass-through mode]({{base_path}}/assets/img/learn/api-definition-of-soap-api-created-by-passthrough-mode.jpg)
   
      <html><div class="admonition note"><p class="admonition-title">Note</p>
      <p>
@@ -55,7 +55,7 @@ Follow the instructions below to create a SOAP service as a RESTful API using **
      </p>
      </div></html>   
 
-     [![Add scope for Pass-Through SOAP API]({{base_path}}/assets/img/learn/add-scope-for-passthrough-soap-api.jpg)]({{base_path}}/assets/img/learn/add-scope-for-passthrough-soap-api.jpg)
+     ![Add scope for Pass-Through SOAP API]({{base_path}}/assets/img/learn/add-scope-for-passthrough-soap-api.jpg)
 
      <html><div class="admonition note">
      <p class="admonition-title">Note</p>

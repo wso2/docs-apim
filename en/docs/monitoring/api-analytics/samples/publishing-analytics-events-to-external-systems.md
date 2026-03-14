@@ -177,7 +177,7 @@ Filebeat comes with pre-built Kibana dashboards and UIs for visualizing log data
 
      Once you have followed and completed the above steps successfully, you will be able to visualize log data as follows.
 
-     [![Logs listed in kibana]({{base_path}}/assets/img/analytics/samples/logs-listed-in-kibana.png)]({{base_path}}/assets/img/analytics/samples/logs-listed-in-kibana.png)
+     ![Logs listed in kibana]({{base_path}}/assets/img/analytics/samples/logs-listed-in-kibana.png)
 
 #### Step 3.2.2 - Filter total analytics traffic
 
@@ -185,11 +185,11 @@ The total analytics traffic can be visualized by applying a filter as follows:
 
 Replace `<MetricReporterImplClass>` with the class name given to the `MetricReporter` implementation class that you have created with your sample.
 
-[![Total analytics traffic filter]({{base_path}}/assets/img/analytics/samples/total-analytics-traffic-filter.png)]({{base_path}}/assets/img/analytics/samples/total-analytics-traffic-filter.png)
+![Total analytics traffic filter]({{base_path}}/assets/img/analytics/samples/total-analytics-traffic-filter.png)
 
 After applying this filter you will be able to visualize analytics traffic as shown below.
 
-[![Filtered total analytics traffic]({{base_path}}/assets/img/analytics/samples/total-analytics-traffic.png)]({{base_path}}/assets/img/analytics/samples/total-analytics-traffic.png)
+![Filtered total analytics traffic]({{base_path}}/assets/img/analytics/samples/total-analytics-traffic.png)
 
 #### Step 3.2.3 - Optionally, filter analytics traffic for a specific API
 
@@ -197,8 +197,8 @@ The analytics traffic for a specific API can be visualized by applying a filter 
 
 Replace `<API_Name>` with the name of the API in which you want to visualize traffic.
 
-[![Analytics traffic for a specific API filter]({{base_path}}/assets/img/analytics/samples/analytics-traffic-for-a-specific-api-filter.png)]({{base_path}}/assets/img/analytics/samples/analytics-traffic-for-a-specific-api-filter.png)
+![Analytics traffic for a specific API filter]({{base_path}}/assets/img/analytics/samples/analytics-traffic-for-a-specific-api-filter.png)
 
 After applying this filter you will be able to visualize the analytics traffic for a specific API as shown below. In the logs you will notice that both the filters are applied.
 
-[![Filtered analytics traffic for a specific API]({{base_path}}/assets/img/analytics/samples/analytics-traffic-for-a-specific-api.png)]({{base_path}}/assets/img/analytics/samples/analytics-traffic-for-a-specific-api.png)
+![Filtered analytics traffic for a specific API]({{base_path}}/assets/img/analytics/samples/analytics-traffic-for-a-specific-api.png)

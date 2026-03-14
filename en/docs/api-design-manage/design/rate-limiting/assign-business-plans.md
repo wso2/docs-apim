@@ -27,7 +27,7 @@ To apply Subscription-level Rate Limiting tiers to an API:
 2. Select your API and navigate to **Portal Configurations** > **Subscriptions**.
 3. Select the desired tiers from the list.
 
-[![Available subscription tiers publisher]({{base_path}}/assets/img/learn/available-subscription-tiers-publisher.png)]({{base_path}}/assets/img/learn/available-subscription-tiers-publisher.png)
+![Available subscription tiers publisher]({{base_path}}/assets/img/learn/available-subscription-tiers-publisher.png)
 
 ### Default Tiers
 
@@ -42,7 +42,7 @@ The system includes the following default tiers:
 
 API Creators need to select a minimum of one business plan when creating an AI API through the API-M Publisher Portal. These business plans can be either a default business plan or a custom business plan created through the API-M Admin Portal. The business plans are used to enforce rate limiting by allowing you to limit the number of events via the AI API during a given period of time.
 
-[![AI API Business Plans]({{base_path}}/assets/img/design/rate-limiting/ai-api-business-plans.png)]({{base_path}}/assets/img/design/rate-limiting/ai-api-business-plans.png)
+![AI API Business Plans]({{base_path}}/assets/img/design/rate-limiting/ai-api-business-plans.png)
 
 
 ## Burst Control (Spike Arrest)

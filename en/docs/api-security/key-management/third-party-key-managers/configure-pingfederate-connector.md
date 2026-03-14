@@ -19,13 +19,13 @@ Follow the instructions given below to configure PingFederate as a third-party K
      <td> <b>ALLOWED GRANT TYPES</b> </td><td> Access Token Validation (Client is a Resource Server) </td></tr>
      </table>
 
-    [![PingFederate - add client]({{base_path}}/assets/img/administer/pingfederate-client-create-1.png)]({{base_path}}/assets/img/administer/pingfederate-client-create-1.png)
+    ![PingFederate - add client]({{base_path}}/assets/img/administer/pingfederate-client-create-1.png)
 
-    [![PingFederate - add client]({{base_path}}/assets/img/administer/pingfederate-client-create-2.png)]({{base_path}}/assets/img/administer/pingfederate-client-create-2.png)
+    ![PingFederate - add client]({{base_path}}/assets/img/administer/pingfederate-client-create-2.png)
 
 3. Generate and store the Client Secret.
 
-     [![PingFederate client secret]({{base_path}}/assets/img/administer/pingfederate-client-secret.png)]({{base_path}}/assets/img/administer/pingfederate-client-secret.png)
+     ![PingFederate client secret]({{base_path}}/assets/img/administer/pingfederate-client-secret.png)
 
 ## Step 2 - Configure PingFederate
 
@@ -33,11 +33,11 @@ Follow the instructions given below to configure PingFederate as a third-party K
 
     1. The default PingFederate keystore can found under the **Certificate & Key Management** section on the **SSL Server Certificates** page.
 
-         [![SSL Server Certificate]({{base_path}}/assets/img/administer/ping-federate-ssl-certificate.png)]({{base_path}}/assets/img/administer/ping-federate-ssl-certificate.png)
+         ![SSL Server Certificate]({{base_path}}/assets/img/administer/ping-federate-ssl-certificate.png)
 
     2. Export the certificate from SSL server certificates.
 
-         [![SSL Server Certificate Import]({{base_path}}/assets/img/administer/ping-federate-ssl-certificate-export.png)]({{base_path}}/assets/img/administer/ping-federate-ssl-certificate-export.png)
+         ![SSL Server Certificate Import]({{base_path}}/assets/img/administer/ping-federate-ssl-certificate-export.png)
 
     3. Import the certificate into the WSO2 API-M truststore.
 
@@ -59,11 +59,11 @@ Follow the instructions given below to configure PingFederate as a third-party K
 
     2. Click Key Manager and then click **Add Key Manager**.
 
-         [![Add new Key Manager]({{base_path}}/assets/img/administer/add-new-key-manager.png)]({{base_path}}/assets/img/administer/add-new-key-manager.png)
+         ![Add new Key Manager]({{base_path}}/assets/img/administer/add-new-key-manager.png)
 
     3. Add the following configuration to add a new Key Manager.
 
-         [![Add PingFederate configurations]({{base_path}}/assets/img/administer/pingfederate-endpoints.png)]({{base_path}}/assets/img/administer/pingfederate-endpoints.png)
+         ![Add PingFederate configurations]({{base_path}}/assets/img/administer/pingfederate-endpoints.png)
 
          The following table provides definitions for each of the configurations.
 

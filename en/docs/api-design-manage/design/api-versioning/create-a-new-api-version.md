@@ -22,11 +22,11 @@ Follow the instructions below to create a new version of an existing API:
                                         
 3.  Click **Create New Version**.
      
-     [![Create New Version button]({{base_path}}/assets/img/learn/create-new-version-button.png)]({{base_path}}/assets/img/learn/create-new-version-button.png)
+     ![Create New Version button]({{base_path}}/assets/img/learn/create-new-version-button.png)
 
 4.  Enter a version number and click **Create**. 
 
-     [![Create New API Version]({{base_path}}/assets/img/learn/create-new-api-version.png)]({{base_path}}/assets/img/learn/create-new-api-version.png)
+     ![Create New API Version]({{base_path}}/assets/img/learn/create-new-api-version.png)
 
      You are redirected to the API **Overview** page. 
 

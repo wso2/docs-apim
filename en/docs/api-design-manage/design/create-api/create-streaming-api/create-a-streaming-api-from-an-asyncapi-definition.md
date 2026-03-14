@@ -22,7 +22,7 @@ Follow the instructions below to create a Streaming API using an AsyncAPI defini
       </div>
     </html>
 
-    [![Design New Streaming API]({{base_path}}/assets/img/design/create-api/streaming-api/design-new-streaming-api.png)]({{base_path}}/assets/img/design/create-api/streaming-api/design-new-streaming-api.png)
+    ![Design New Streaming API]({{base_path}}/assets/img/design/create-api/streaming-api/design-new-streaming-api.png)
 
     The following two options to import the AsynAPI definition appears.
 
@@ -61,13 +61,13 @@ Follow the instructions below to create a Streaming API using an AsyncAPI defini
 
       Now, the **StreetlightsAPI API** overview page will appear.
 
-     [![AsyncAPI overview]({{base_path}}/assets/img/design/create-api/streaming-api/websocket-streaming-api-from-asyncapi-overview.png)]({{base_path}}/assets/img/design/create-api/streaming-api/websocket-streaming-api-from-asyncapi-overview.png)
+     ![AsyncAPI overview]({{base_path}}/assets/img/design/create-api/streaming-api/websocket-streaming-api-from-asyncapi-overview.png)
 
 ## Step 2 - Configure Topics
    
 Click **Topics** to navigate to the topics page.
 
-[![AsyncAPI topics]({{base_path}}/assets/img/design/create-api/streaming-api/websocket-streaming-api-from-asyncapi-topics.png)]({{base_path}}/assets/img/design/create-api/streaming-api/websocket-streaming-api-from-asyncapi-topics.png)
+![AsyncAPI topics]({{base_path}}/assets/img/design/create-api/streaming-api/websocket-streaming-api-from-asyncapi-topics.png)
 
 You will notice that the topics have been created automatically from the AsyncAPI definition specified in the provided URL.
 

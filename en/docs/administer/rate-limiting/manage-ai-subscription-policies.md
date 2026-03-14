@@ -20,11 +20,11 @@ AI API subscription policies can be created and customized based on the followin
 2.  Click **Subscription Policies** under the **Rate Limiting Policies** section. The existing set of rate limiting tiers are displayed.
 3.  To add a new tier, click **Add AI Policy**.
 
-    [![Add subscription policy page]({{base_path}}/assets/img/design/rate-limiting/add-ai-subscription-policy.png)]({{base_path}}/assets/img/design/rate-limiting/add-ai-subscription-policy.png)
+    ![Add subscription policy page]({{base_path}}/assets/img/design/rate-limiting/add-ai-subscription-policy.png)
 
 4.  Fill in the details required by this form and click **Save** once you are done.
 
-     [![Add subscription policy page]({{base_path}}/assets/img/design/rate-limiting/save-new-ai-subscription-policy.png)]({{base_path}}/assets/img/design/rate-limiting/save-new-ai-subscription-policy.png)
+     ![Add subscription policy page]({{base_path}}/assets/img/design/rate-limiting/save-new-ai-subscription-policy.png)
 
 
      Given below are the descriptions of the fields you find in the form:

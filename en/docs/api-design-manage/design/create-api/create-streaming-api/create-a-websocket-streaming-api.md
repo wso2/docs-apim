@@ -48,7 +48,7 @@ Follow the instructions below to create a WebSocket API using the basic flow:
       <p>The <b>Create</b> button will only appear for a user who has the <code>creator</code> role permission.</p>
      </div>
 
-    [![Design New Streaming API]({{base_path}}/assets/img/design/create-api/streaming-api/design-new-streaming-api.png)]({{base_path}}/assets/img/design/create-api/streaming-api/design-new-streaming-api.png)
+    ![Design New Streaming API]({{base_path}}/assets/img/design/create-api/streaming-api/design-new-streaming-api.png)
 
 3.  Enter the API details.
 
@@ -124,7 +124,7 @@ Follow the instructions below to create a WebSocket API using the basic flow:
 
      The overview page of the newly created API appears.
 
-     [![WebSocket API Overview Page]({{base_path}}/assets/img/design/create-api/streaming-api/websocket-streaming-api-overview-page.png)]({{base_path}}/assets/img/design/create-api/streaming-api/websocket-streaming-api-overview-page.png)
+     ![WebSocket API Overview Page]({{base_path}}/assets/img/design/create-api/streaming-api/websocket-streaming-api-overview-page.png)
 
 
 ### Step 2 - Configure the Topics

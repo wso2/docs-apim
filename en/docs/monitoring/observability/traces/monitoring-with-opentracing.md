@@ -38,7 +38,7 @@ For more information, see [OpenTracer Configurations]({{base_path}}/reference/co
 
      After you invoke the APIs you will see the tracing data in Jaeger as follow:
 
-    [![Distributed tracing jaeger]({{base_path}}/assets/img/administer/opentracing-jaeger.png)]({{base_path}}/assets/img/administer/opentracing-jaeger.png)
+    ![Distributed tracing jaeger]({{base_path}}/assets/img/administer/opentracing-jaeger.png)
 
 ## Enabling Zipkin Tracing
 
@@ -66,7 +66,7 @@ For more information, see [OpenTracer Configurations]({{base_path}}/reference/co
 
      After you invoke the APIs you will see the tracing data in Zipkin as follow:
 
-[![Distributed tracing zipkin]({{base_path}}/assets/img/administer/opentracing-zipkin.png)]({{base_path}}/assets/img/administer/opentracing-zipkin.png)
+![Distributed tracing zipkin]({{base_path}}/assets/img/administer/opentracing-zipkin.png)
 
 
 ## Enabling Log Tracing

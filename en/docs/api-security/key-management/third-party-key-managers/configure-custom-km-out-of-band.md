@@ -52,7 +52,7 @@ Follow the instructions below to register your external authorization server as 
 
 2. Click **Key Managers** and then click **Add Key Manager**.
 
-    [![Add Key Manager]({{base_path}}/assets/img/administer/add-key-manager.png)]({{base_path}}/assets/img/administer/add-key-manager.png)
+    ![Add Key Manager]({{base_path}}/assets/img/administer/add-key-manager.png)
 
 3. Configure the Key Manager with the following settings:
 
@@ -119,7 +119,7 @@ For Out-of-Band provisioning mode, configure the following settings:
 | OAuth App Creation | **Disabled** (Unchecked) | OAuth applications are created directly in the external authorization server. |
 | Out Of Band Provisioning | **Enabled** (Checked) | Allows providing existing OAuth credentials created outside of API Manager. |
 
-[![Out-of-Band Configuration]({{base_path}}/assets/img/administer/oob-km-advanced-config.png)]({{base_path}}/assets/img/administer/oob-km-advanced-config.png)
+![Out-of-Band Configuration]({{base_path}}/assets/img/administer/oob-km-advanced-config.png)
 
 !!! warning "Important"
     When **Token Generation** is disabled, the Developer Portal will display the Token Endpoint URL so that developers can generate tokens externally using their preferred method.
@@ -150,7 +150,7 @@ Since Out-of-Band mode does not support creating OAuth applications through the 
 
 3. Click **Provide Existing OAuth Keys**.
 
-    [![Provide Existing OAuth Keys]({{base_path}}/assets/img/administer/oob-provide-existing-keys.png)]({{base_path}}/assets/img/administer/oob-provide-existing-keys.png)
+    ![Provide Existing OAuth Keys]({{base_path}}/assets/img/administer/oob-provide-existing-keys.png)
 
 4. Enter the **Consumer Key** (Client ID) from your external authorization server.
 

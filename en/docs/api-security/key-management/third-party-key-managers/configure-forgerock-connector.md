@@ -24,11 +24,11 @@ Follow the instructions given below to configure the ForgeRock Authorization Ser
     !!! note
         The examples and configurations in this guide are based on the root realm named **Top level realm**, which exists by default.
    
-    [![ForgeRock realms]({{base_path}}/assets/img/administer/forgerock-realms.png)]({{base_path}}/assets/img/administer/forgerock-realms.png)
+    ![ForgeRock realms]({{base_path}}/assets/img/administer/forgerock-realms.png)
 
 3. Navigate to **Root Realm** -> **Services** and add Oauth2 provider as a new service as follows,
 
-    [![ForgeRock add OAuth Provider]({{base_path}}/assets/img/administer/forgerock-create-new-oauth-provider.png)]({{base_path}}/assets/img/administer/forgerock-create-new-oauth-provider.png)
+    ![ForgeRock add OAuth Provider]({{base_path}}/assets/img/administer/forgerock-create-new-oauth-provider.png)
 
 4. Update the created OAuth provider based on the following values.
 
@@ -66,7 +66,7 @@ Follow the instructions given below to configure the ForgeRock Authorization Ser
      </table>
   
    
-    [![ForgeRock create OAuth Provider]({{base_path}}/assets/img/administer/forgerock-create-oauth-provider.png)]({{base_path}}/assets/img/administer/forgerock-create-oauth-provider.png)
+    ![ForgeRock create OAuth Provider]({{base_path}}/assets/img/administer/forgerock-create-oauth-provider.png)
 
 5. Navigate to the **Advanced** tab and configure the scopes and the signing algorithm of the created OAuth 2.0 Provider using the following values.
 
@@ -92,7 +92,7 @@ Follow the instructions given below to configure the ForgeRock Authorization Ser
      </tr>
      </table>
    
-    [![ForgeRock provider advance config]({{base_path}}/assets/img/administer/forgerock-provider-advance-config.png)]({{base_path}}/assets/img/administer/forgerock-provider-advance-config.png)
+    ![ForgeRock provider advance config]({{base_path}}/assets/img/administer/forgerock-provider-advance-config.png)
 
 7. Navigate to the **Dynamic client registration** tab and configure it to allow dynamic client registration using the following values.
 
@@ -124,7 +124,7 @@ Follow the instructions given below to configure the ForgeRock Authorization Ser
      </table>
 
    
-    [![ForgeRock configure dcr]({{base_path}}/assets/img/administer/forgerock-configure-dcr.png)]({{base_path}}/assets/img/administer/forgerock-configure-dcr.png)
+    ![ForgeRock configure dcr]({{base_path}}/assets/img/administer/forgerock-configure-dcr.png)
    
 You can configure the other properties of the OAuth 2.0 provider based on your requirements.
 
@@ -156,7 +156,7 @@ Create a static OAuth client as follows so that you can use the OAuth client key
 
      </table>
    
-     [![ForgeRock add client]({{base_path}}/assets/img/administer/forgerock-add-client.png)]({{base_path}}/assets/img/administer/forgerock-add-client.png)
+     ![ForgeRock add client]({{base_path}}/assets/img/administer/forgerock-add-client.png)
 
 2. Navigate to the above created client under **Applications** -> **Client ID of the App (amAdmin)** -> **Core** -> **Access Token LifeTime**.
 
@@ -182,11 +182,11 @@ Follow the instructions given below to configure WSO2 API Manager to work with t
 
     2. Click Key Manager and then click **Add Key Manager**.
 
-         [![Add Key Manger]({{base_path}}/assets/img/administer/add-key-manager.png)]({{base_path}}/assets/img/administer/add-key-manager.png)
+         ![Add Key Manger]({{base_path}}/assets/img/administer/add-key-manager.png)
 
     3. Add the following configuration to add a new Key Manager.
 
-        [![Add ForgeRock configurations]({{base_path}}/assets/img/administer/forgerock-add-km.png)]({{base_path}}/assets/img/administer/forgerock-add-km.png)
+        ![Add ForgeRock configurations]({{base_path}}/assets/img/administer/forgerock-add-km.png)
 
          The following table provides definitions for each of the configurations.
 
@@ -441,6 +441,6 @@ Follow the instructions given below to configure WSO2 API Manager to work with t
 3. Create a new application or use the default application.
 4. Click **Production Keys**.
 
-     [![ForgeRock Developer Portal generate keys]({{base_path}}/assets/img/administer/forgerock-devportal-genkeys.png)]({{base_path}}/assets/img/administer/forgerock-devportal-genkeys.png)
+     ![ForgeRock Developer Portal generate keys]({{base_path}}/assets/img/administer/forgerock-devportal-genkeys.png)
 
 5. Click **Generate Keys**.

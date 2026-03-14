@@ -8,18 +8,18 @@ When using AWS Lambda, you can execute your code without having to manage or pro
 
 2. Click **CREATE API** and then click **Start From Scrach**.
 
-    [![Create a new REST API]({{base_path}}/assets/img/get_started/design-new-rest-api.png)]({{base_path}}/assets/img/get_started/design-new-rest-api.png)
+    ![Create a new REST API]({{base_path}}/assets/img/get_started/design-new-rest-api.png)
 
 3. Enter the API details without an endpoint URL and click **Create**.  
 
-    [![Create a test API]({{base_path}}/assets/img/learn/design-new-rest-api-details.png)]({{base_path}}/assets/img/learn/design-new-rest-api-details.png)
+    ![Create a test API]({{base_path}}/assets/img/learn/design-new-rest-api-details.png)
 
 ## Step 2 - Add AWS Lambda Endpoint
 
 1. Click **Endpoints** to navigate to Endpoints page.
 2. Navigate to the **AWS Lambda Endpoint** type and click **ADD**.
 
-    [![Select AWS Lambda endpoint]({{base_path}}/assets/img/learn/endpoint-select-awslambda-endpoint.png)]({{base_path}}/assets/img/learn/endpoint-select-awslambda-endpoint.png)
+    ![Select AWS Lambda endpoint]({{base_path}}/assets/img/learn/endpoint-select-awslambda-endpoint.png)
 
 3. Select the preferred **Access Method**
 
@@ -72,7 +72,7 @@ When using AWS Lambda, you can execute your code without having to manage or pro
 
 5. Click **Save**.
 
-    [![Save the AWS Lambda endpoint]({{base_path}}/assets/img/learn/endpoint-awslambda-save.png)]({{base_path}}/assets/img/learn/endpoint-awslambda-save.png)
+    ![Save the AWS Lambda endpoint]({{base_path}}/assets/img/learn/endpoint-awslambda-save.png)
 
     !!!note
          You will get an error message if you have not set the Access Method properly.
@@ -89,18 +89,18 @@ When using AWS Lambda, you can execute your code without having to manage or pro
 
     1. Click delete, as shown below, to remove all the existing resources.
 
-          [![Delete all existing resources]({{base_path}}/assets/img/learn/delete-all-existing-resources.png)]({{base_path}}/assets/img/learn/delete-all-existing-resources.png)
+          ![Delete all existing resources]({{base_path}}/assets/img/learn/delete-all-existing-resources.png)
 
     2. Add a new resource.
           1. Select a HTTP Verb.
           2. Enter a meaningful name for URI Pattern (You can add path parameter as well).
           3. Click **(+)** to add a new resource.
 
-          [![Add a new resource]({{base_path}}/assets/img/learn/resource-add-post-lambda.png)]({{base_path}}/assets/img/learn/resource-add-post-lambda.png)
+          ![Add a new resource]({{base_path}}/assets/img/learn/resource-add-post-lambda.png)
 
 3. Under AWS Lambda Settings, select or type Amazon Resource Name (ARN) for the resource.
 
-    [![Select or type ARN]({{base_path}}/assets/img/learn/resource-add-amazon-resource-name.png)]({{base_path}}/assets/img/learn/resource-add-amazon-resource-name.png)
+    ![Select or type ARN]({{base_path}}/assets/img/learn/resource-add-amazon-resource-name.png)
 
 4. Optionally, change the AWS SDK Client Execution Timeout by changing the **Set Timeout** option.
 
@@ -109,11 +109,11 @@ When using AWS Lambda, you can execute your code without having to manage or pro
      - Min Timeout - 1 second
      - Max Timeout - 15 minutes
 
-    [![Set Timeout]({{base_path}}/assets/img/learn/resource-set-amazon-resource-timeout.png)]({{base_path}}/assets/img/learn/resource-set-amazon-resource-timeout.png)
+    ![Set Timeout]({{base_path}}/assets/img/learn/resource-set-amazon-resource-timeout.png)
 
 5. Click **SAVE**.
 
-    [![Save resources]({{base_path}}/assets/img/learn/resource-save-lambda.png)]({{base_path}}/assets/img/learn/resource-save-lambda.png)
+    ![Save resources]({{base_path}}/assets/img/learn/resource-save-lambda.png)
 
 !!! note
     From version 4.1.0 onwards, WSO2 API Manager supports the [Lambda Proxy Integration](https://docs.aws.amazon.com/apigateway/latest/developerguide/set-up-lambda-proxy-integrations.html) concept by default. You can pass path parameters, query parameters, and headers along with the payload to the Lambda backend. These properties can be accessed via the `event` object parameter of the Lambda function. For example refer to following sample `event` object.

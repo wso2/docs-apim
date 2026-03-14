@@ -114,7 +114,7 @@ Follow the steps given below to configure WSO2 IS as a Key Manager component
 
 4. Click **Add Key Manager** to add the configuration related to a new Key Manager.
 
-      [![Add new Key Manager]({{base_path}}/assets/img/administer/add-key-manager.png)]({{base_path}}/assets/img/administer/add-key-manager.png)
+      ![Add new Key Manager]({{base_path}}/assets/img/administer/add-key-manager.png)
 
 5. Add the Key Manager configurations.
 

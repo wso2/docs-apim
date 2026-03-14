@@ -17,11 +17,11 @@ Now, you have created and configured the GraphQL API successfully.
 1. Navigate to **Deploy** and click **Deployments** to navigate to the Deploy the API page. 
 2. Click **Deploy** to deploy the API to the API Gateway, which is the default Gateway.
 
-       [![Deploy GraphQL API]({{base_path}}/assets/img/learn/deploy-graphql-api.png)]({{base_path}}/assets/img/learn/deploy-graphql-api.png)
+       ![Deploy GraphQL API]({{base_path}}/assets/img/learn/deploy-graphql-api.png)
 
        The Deployment page appears.
 
-       [![GraphQL API Deployment page]({{base_path}}/assets/img/learn/graphql-api-revision-1.png)]({{base_path}}/assets/img/learn/graphql-api-revision-1.png)
+       ![GraphQL API Deployment page]({{base_path}}/assets/img/learn/graphql-api-revision-1.png)
 
 ### Step 4 - Publish the GraphQL API
 
@@ -31,7 +31,7 @@ Now, you have created and configured the GraphQL API successfully.
        
 2. Click **Publish** to publish the API to the API Developer Portal.
 
-       [![Publish GraphQL API]({{base_path}}/assets/img/learn/publish-graphql-api.png)]({{base_path}}/assets/img/learn/publish-graphql-api.png)
+       ![Publish GraphQL API]({{base_path}}/assets/img/learn/publish-graphql-api.png)
 
 ### Step 5 - Invoke the GraphQL API
 
@@ -43,13 +43,13 @@ Now, you have created and configured the GraphQL API successfully.
 
        Let's use `admin` as the username and password to sign in.
 
-       [![Developer Portal]({{base_path}}/assets/img/learn/starwars-in-dev-portal.png)]({{base_path}}/assets/img/learn/starwars-in-dev-portal.png)
+       ![Developer Portal]({{base_path}}/assets/img/learn/starwars-in-dev-portal.png)
     
 2. Click on the GraphQL API.
    
       The API overview appears.
    
-      [![StarWarsAPI API overview]({{base_path}}/assets/img/tutorials/create-and-publish-a-graphql-api/api-overview.png)]({{base_path}}/assets/img/tutorials/create-and-publish-a-graphql-api/api-overview.png)
+      ![StarWarsAPI API overview]({{base_path}}/assets/img/tutorials/create-and-publish-a-graphql-api/api-overview.png)
       
 
       <div class="admonition info">
@@ -68,14 +68,14 @@ Now, you have created and configured the GraphQL API successfully.
 
     1. Click **TRY OUT**.
     
-         [![Try Out Wizard and Popup]({{base_path}}/assets/img/tutorials/create-and-publish-a-graphql-api/try-out-graphql-popup.png)]({{base_path}}/assets/img/tutorials/create-and-publish-a-graphql-api/try-out-graphql-popup.png)
+         ![Try Out Wizard and Popup]({{base_path}}/assets/img/tutorials/create-and-publish-a-graphql-api/try-out-graphql-popup.png)
          
          This will create a subscription for the application named `DefaultApplication` and generate a consumer key and consumer secret pair for `DefaultApplication`. Click **TRY OUT** on the pop-up window to navigate to the Try Out Console.
 
 4. Try out the operations.
        1. Click **GET TEST KEY**.
 
-         [![Get Test Key]({{base_path}}/assets/img/learn/get-test-key-starwars.png)]({{base_path}}/assets/img/learn/get-test-key-starwars.png)
+         ![Get Test Key]({{base_path}}/assets/img/learn/get-test-key-starwars.png)
     
 #### Step 5.1 - Optionally, try out a Query operation
 
@@ -104,11 +104,11 @@ Now, you have created and configured the GraphQL API successfully.
 
       ```
 
-      [![Execute GraphQL Query]({{base_path}}/assets/img/tutorials/create-and-publish-a-graphql-api/graphql-console-execute-query.png)]({{base_path}}/assets/img/tutorials/create-and-publish-a-graphql-api/graphql-console-execute-query.png)
+      ![Execute GraphQL Query]({{base_path}}/assets/img/tutorials/create-and-publish-a-graphql-api/graphql-console-execute-query.png)
 
  2. Click **Execute**.
 
-     [![Response of GraphQL Query]({{base_path}}/assets/img/learn/graphql-response-query.png)]({{base_path}}/assets/img/learn/graphql-response-query.png)
+     ![Response of GraphQL Query]({{base_path}}/assets/img/learn/graphql-response-query.png)
 
 <a name="5.2"></a>
 
@@ -145,7 +145,7 @@ Now, you have created and configured the GraphQL API successfully.
    
     If you inspect the network calls from your browser developer tools, you can see the messages passed between the GraphiQL client and the backend.
 
-    [![Response of GraphQL Subscription Init]({{base_path}}/assets/img/tutorials/create-and-publish-a-graphql-api/graphql-sub-init-response.png)]({{base_path}}/assets/img/tutorials/create-and-publish-a-graphql-api/graphql-sub-init-response.png)
+    ![Response of GraphQL Subscription Init]({{base_path}}/assets/img/tutorials/create-and-publish-a-graphql-api/graphql-sub-init-response.png)
    
     As you can see, a successful WebSocket connection is established between the client and backend via WSO2 API Gateway.
 
@@ -165,7 +165,7 @@ Now, you have created and configured the GraphQL API successfully.
    
     You can see that you have received the subscription event response that corresponds to the mutation operation you did in <a href="#5.2">Step 5.2 (4)</a>.
 
-    [![Response Event of GraphQL Subscription]({{base_path}}/assets/img/tutorials/create-and-publish-a-graphql-api/try-out-sub-event.png)]({{base_path}}/assets/img/tutorials/create-and-publish-a-graphql-api/try-out-sub-event.png)
+    ![Response Event of GraphQL Subscription]({{base_path}}/assets/img/tutorials/create-and-publish-a-graphql-api/try-out-sub-event.png)
 
 !!! info "Troubleshooting"
         If you **cannot invoke the API's WSS endpoint during handshake** (this causes the **SSLPeerUnverified exception**), it could be because the security certificate issued by the server is not trusted by your browser. 

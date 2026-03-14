@@ -49,7 +49,7 @@ Let's use the [wso2-am-stripe-plugin](https://github.com/wso2-extensions/wso2-am
 
      2. [Obtain the keys](https://stripe.com/docs/keys#api-keys).  
 
-        [![Obtain keys]({{base_path}}/assets/img/learn/monetization_obtain_keys.png)]({{base_path}}/assets/img/learn/monetization_obtain_keys.png)
+        ![Obtain keys]({{base_path}}/assets/img/learn/monetization_obtain_keys.png)
         
  2.  Create an account for the API Publisher.  
     
@@ -64,7 +64,7 @@ Let's use the [wso2-am-stripe-plugin](https://github.com/wso2-extensions/wso2-am
     1. Sign in to the Tenant Admin's Stripe account.
     2. Click **Connected accounts** > **Get Started** > **Build a platform or marketplace** > **Continue** to create a platform account.
 
-        [![Create a platform account]({{base_path}}/assets/img/learn/monetization_create_connected_account.png)]({{base_path}}/assets/img/learn/monetization_create_connected_account.png)
+        ![Create a platform account]({{base_path}}/assets/img/learn/monetization_create_connected_account.png)
 
     3. In the prompted screen click **+ Create** and select the Account type as Standard and select the Country. If you haven't enabled OAuth for standard accounts, the **Continue** button will be disabled. Click **enable OAuth for Standard Accounts** in the pop-up that appears on **Continue** button.
 
@@ -78,7 +78,7 @@ Let's use the [wso2-am-stripe-plugin](https://github.com/wso2-extensions/wso2-am
  
          The API Publisher has to access the given link and provide the details of the API Publisher account. Provide **Two-step authentication** details as well. Alternatively, you can use **skip this account form** to work in the developer mode.
 
-         [![Work in developer mode]({{base_path}}/assets/img/learn/developer-mode.png)]({{base_path}}/assets/img/learn/developer-mode.png)
+         ![Work in developer mode]({{base_path}}/assets/img/learn/developer-mode.png)
      
     5. Once you follow either of the options in the previous step, the onboarding process will be completed. After few seconds, API Publisher account will be listed under Connected accounts in Tenant Admin account. The connected account ID (Connect ID) for the API Publisher's account will appear when clicking on the connected account. Copy the **Connect ID** value as it is required when enabling monetization for an API from the APIM Publisher portal.
 

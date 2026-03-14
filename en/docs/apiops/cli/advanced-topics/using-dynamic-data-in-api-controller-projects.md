@@ -64,7 +64,7 @@ Follow the instructions below to add dynamic data to environment configurations 
 
 Once the project is successfully imported, sign-in to the WSO2 API Manager (WSO2 API-M) Publisher Portal and check the Endpoints section of the imported API. The URLs specified as environment variables will appear there.
 
-[![]({{base_path}}/assets/img/learn/api-controller/advanced-topics/dynamic-data-env-config-api-endpoints.png)]({{base_path}}/assets/img/learn/api-controller/advanced-topics/dynamic-data-env-config-api-endpoints.png) 
+![]({{base_path}}/assets/img/learn/api-controller/advanced-topics/dynamic-data-env-config-api-endpoints.png) 
 
 ## Add dynamic data to Operation Policies in an API project
 

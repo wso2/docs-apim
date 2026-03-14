@@ -81,15 +81,15 @@ You can customize the complexity value for each field in your GraphQL schema:
 2. Select your GraphQL API and navigate to **API Configurations** > **Runtime**.
 3. In the **Query Analysis** section, click **Edit** to view default field complexity values.
 
-[![See Existing field's Complexity Value]({{base_path}}/assets/img/learn/modify-graphql-complexity-values.png)]({{base_path}}/assets/img/learn/modify-graphql-complexity-values.png)
+![See Existing field's Complexity Value]({{base_path}}/assets/img/learn/modify-graphql-complexity-values.png)
 
 4. Update complexity values based on the actual cost of resolving each field.
 
-[![Update field's Complexity Value]({{base_path}}/assets/img/learn/set-graphql-complexity.png)]({{base_path}}/assets/img/learn/set-graphql-complexity.png)
+![Update field's Complexity Value]({{base_path}}/assets/img/learn/set-graphql-complexity.png)
 
 5. Click **Set**, then **Save** to update the API.
 
-[![Update API with field's Complexity Value]({{base_path}}/assets/img/learn/update-api-with-graphql-complexity.png)]({{base_path}}/assets/img/learn/update-api-with-graphql-complexity.png)
+![Update API with field's Complexity Value]({{base_path}}/assets/img/learn/update-api-with-graphql-complexity.png)
 
 !!! note
     Assign higher complexity values to fields that perform expensive operations like database joins, external API calls, or complex computations. Fields that simply return stored values can use lower complexity values.

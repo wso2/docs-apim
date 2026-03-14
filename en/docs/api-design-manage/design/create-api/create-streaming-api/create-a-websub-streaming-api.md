@@ -32,7 +32,7 @@ Follow the instructions below to create a WebHook API using the basic flow:
       </div>
     </html>
 
-    [![Design New Streaming API]({{base_path}}/assets/img/design/create-api/streaming-api/design-new-streaming-api.png)]({{base_path}}/assets/img/design/create-api/streaming-api/design-new-streaming-api.png)
+    ![Design New Streaming API]({{base_path}}/assets/img/design/create-api/streaming-api/design-new-streaming-api.png)
 
 3.  Enter the details of the new WebSub/Webhook API.
 
@@ -68,7 +68,7 @@ Follow the instructions below to create a WebHook API using the basic flow:
 
      The overview page of the created WebSub/WebHook API appears.
 
-     [![Overview of WebSub API]({{base_path}}/assets/img/tutorials/streaming-api/websub-api-overview.png)]({{base_path}}/assets/img/tutorials/streaming-api/websub-api-overview.png)
+     ![Overview of WebSub API]({{base_path}}/assets/img/tutorials/streaming-api/websub-api-overview.png)
 
 
 ### Step 2 - Configure the Topics
@@ -107,7 +107,7 @@ The AsyncAPI definition of the streaming API, which you just created, appears.
 
     The Transport Level Security defines the transport protocol on which the API is exposed.
 
-    [![WebSub API Runtime Configurations Page]({{base_path}}/assets/img/design/create-api/streaming-api/websub-api-runtime-configurations.png)]({{base_path}}/assets/img/design/create-api/streaming-api/websub-api-runtime-configurations.png)
+    ![WebSub API Runtime Configurations Page]({{base_path}}/assets/img/design/create-api/streaming-api/websub-api-runtime-configurations.png)
 
 2. If you wish to limit the API availability to only one transport (e.g., HTTPS), uncheck the appropriate checkbox under **Transport Level Security**.
 

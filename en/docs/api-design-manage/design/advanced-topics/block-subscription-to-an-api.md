@@ -46,7 +46,7 @@ Blocking can be done at two levels:
          </div>
          </html>
          
-         [![Block subscription for two APIs]({{base_path}}/assets/img/learn/two-apis-for-block-subscription.png)]({{base_path}}/assets/img/learn/two-apis-for-block-subscription.png)
+         ![Block subscription for two APIs]({{base_path}}/assets/img/learn/two-apis-for-block-subscription.png)
 
 2.  Subscribe to both the APIs.
      1.  Sign in to WSO2 API Developer Portal and click **APIs**.
@@ -57,11 +57,11 @@ Blocking can be done at two levels:
 
          You can use the default application or create your own.
 
-         [![Have the same application for two APIs]({{base_path}}/assets/img/learn/same-application-for-two-apis.png)]({{base_path}}/assets/img/learn/same-application-for-two-apis.png)
+         ![Have the same application for two APIs]({{base_path}}/assets/img/learn/same-application-for-two-apis.png)
          
          You can see the APIs that you have subscribed to and the **Status** as **unblocked**.
 
-         [![Same application subscribed for two APIs]({{base_path}}/assets/img/learn/same-application-subscribed-for-two-apis.png)]({{base_path}}/assets/img/learn/same-application-subscribed-for-two-apis.png)
+         ![Same application subscribed for two APIs]({{base_path}}/assets/img/learn/same-application-subscribed-for-two-apis.png)
         
      3.  Generate keys and obtain an access token for application.
        
@@ -74,7 +74,7 @@ Blocking can be done at two levels:
       </div>
       </html>
 
-     [![Response when you have the same application for two APIs]({{base_path}}/assets/img/learn/same-application-for-two-apis-response.png)]({{base_path}}/assets/img/learn/same-application-for-two-apis-response.png)
+     ![Response when you have the same application for two APIs]({{base_path}}/assets/img/learn/same-application-for-two-apis-response.png)
 
      The following is the [cURL](http://curl.haxx.se/download.html) command format for PhoneVerification API.
      
@@ -101,7 +101,7 @@ Blocking can be done at two levels:
 
      4. Click **Block All**.
 
-        [![Have the same application for two APIs and block all subscriptions]({{base_path}}/assets/img/learn/same-application-subscribed-for-two-apis-and-blocked.png)]({{base_path}}/assets/img/learn/same-application-subscribed-for-two-apis-and-blocked.png)
+        ![Have the same application for two APIs and block all subscriptions]({{base_path}}/assets/img/learn/same-application-subscribed-for-two-apis-and-blocked.png)
         
        <html>
        <div class="admonition tip"> 
@@ -143,11 +143,11 @@ Blocking can be done at two levels:
         }
         ```
 
-        [![Have the same application for two APIs and block response]({{base_path}}/assets/img/learn/same-application-subscribed-for-two-apis-and-blocked-response.png)]({{base_path}}/assets/img/learn/same-application-subscribed-for-two-apis-and-blocked-response.png)
+        ![Have the same application for two APIs and block response]({{base_path}}/assets/img/learn/same-application-subscribed-for-two-apis-and-blocked-response.png)
         
      If you click **Applications** in the Developer Portal, and select the application that you used to subscribe to the API, the details of the blocked subscription appears.
 
-     [![Same application subscribed for two APIs and combined subscription]({{base_path}}/assets/img/learn/same-application-subscribed-for-two-apis-and-combined-subscription.png)]({{base_path}}/assets/img/learn/same-application-subscribed-for-two-apis-and-combined-subscription.png)
+     ![Same application subscribed for two APIs and combined subscription]({{base_path}}/assets/img/learn/same-application-subscribed-for-two-apis-and-combined-subscription.png)
 
 6.  Unblock the API.
 

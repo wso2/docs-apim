@@ -2,7 +2,7 @@
 
 The diagram below is a high-level snapshot of WSO2 API Manager and the various components that it can work together with. 
 
-[![Basic Architecture]({{base_path}}/assets/img/get_started/architecture/apim-architecture-final.png)]({{base_path}}/assets/img/get_started/architecture/apim-architecture-final.png)
+![Basic Architecture]({{base_path}}/assets/img/get_started/architecture/apim-architecture-final.png)
 
 <!--The above diagram consists of an API management layer and an integration layer where the above components all fit into and mesh together to address the various use cases of the product. The API management layer contains several components, which you can use in your deployment according to your requirement. The integration layer includes either the Micro Integrator runtime (for services integration) and the Streaming Integrator runtime (for streaming requirements) or both runtimes. For details on deployment patterns, see [Deployment Overview]({{base_path}}/install-and-setup/setup/deployment-overview/). The pattern you use would depend on the workload of each component and the traffic that is expected for each of the components and runtimes.-->
 
@@ -12,19 +12,19 @@ The API Control Plane is where API creation and API management takes place. It c
 
 #### API Publisher
 
-[![API Publisher]({{base_path}}/assets/img/get_started/architecture/publisher-overview.png)]({{base_path}}/assets/img/get_started/architecture/publisher-overview.png)
+![API Publisher]({{base_path}}/assets/img/get_started/architecture/publisher-overview.png)
 
 WSO2 API Control Plane's API Publisher is a state-of-the-art GUI based tool for API development and management. The GUI is designed for API creators to develop, document, secure, test, and version APIs with ease. It’s also able to cater to more API management-related tasks such as publishing APIs, monetizing APIs, and applying rate limiting policies.
 
 #### API Developer Portal
 
-[![Developer Portal]({{base_path}}/assets/img/get_started/architecture/developer-portal-overview.png)]({{base_path}}/assets/img/get_started/architecture/developer-portal-overview.png)
+![Developer Portal]({{base_path}}/assets/img/get_started/architecture/developer-portal-overview.png)
 
 The Developer Portal is a state-of-the-art web interface that allows API publishers to host and advertise their APIs while allowing API consumers to self-register, discover, evaluate, subscribe to, and consume APIs securely and easily.
 
 #### Service Catalog
 
-[![Service Catalog]({{base_path}}/assets/img/get_started/architecture/service-catalog.png)]({{base_path}}/assets/img/get_started/architecture/service-catalog.png)
+![Service Catalog]({{base_path}}/assets/img/get_started/architecture/service-catalog.png)
 
 WSO2 API Control Plane includes a Service Catalog where developers can register their services in a RESTful manner. Service Catalog is one of the main attributes that enable the API-first Integration in WSO2 API Manager. Through the Service Catalog, integration services are made discoverable to the API Management layer so that API proxies can directly be created using them. 
 
@@ -32,7 +32,7 @@ These integration services can be created using WSO2 Integration Studio and a va
 
 #### Key Manager
  
-[![Key Manager]({{base_path}}/assets/img/get_started/architecture/key-manager-overview.png)]({{base_path}}/assets/img/get_started/architecture/key-manager-overview.png)
+![Key Manager]({{base_path}}/assets/img/get_started/architecture/key-manager-overview.png)
 
 The Key Manager is the identity provider for WSO2 API Control Plane and acts as the Secure Token Service (STS). WSO2 API Control Plane supports OAuth 2.0, Basic Auth, Mutual SSL as well as API-Key based authentication mechanisms. 
  
@@ -54,7 +54,7 @@ The Data Plane is where the created API is exposed to the public consumers and a
 
 #### Universal Gateway
 
-[![Universal Gateway]({{base_path}}/assets/img/learn/gateway-overview.png)]({{base_path}}/assets/img/learn/gateway-overview.png)
+![Universal Gateway]({{base_path}}/assets/img/learn/gateway-overview.png)
 
 WSO2 Universal Gateway acts as the entry point for an API request made to an API managed by WSO2 API Manager.
 
@@ -76,7 +76,7 @@ Please refer the WSO2 Immutable Gateway [documentation](https://mg.docs.wso2.com
  
 ## Traffic Manager
  
-[![Traffic Manager]({{base_path}}/assets/img/get_started/architecture/traffic-manager-overview.png)]({{base_path}}/assets/img/get_started/architecture/traffic-manager-overview.png)
+![Traffic Manager]({{base_path}}/assets/img/get_started/architecture/traffic-manager-overview.png)
  
 The Traffic Manager helps users to regulate API traffic, make APIs and applications available to consumers at different service levels, and secure APIs against security attacks. The Traffic Manager features a dynamic throttling engine to process throttling policies in real-time, including rate limiting of API requests. 
 

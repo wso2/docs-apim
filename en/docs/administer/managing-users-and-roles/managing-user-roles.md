@@ -16,7 +16,7 @@ Follow the instructions below to create the `creator`, `publisher`, and `subscri
 1.  Sign in to the management console (`https://<APIM_Host>:<APIM_Port>/carbon`) as the admin (default credentials are admin/admin).
 2.  Click **Main**, and then click **Add** under **Users and Roles**.
 
-     [![Add users and roles]({{base_path}}/assets/img/administer/add-users-and-roles.png)]({{base_path}}/assets/img/administer/add-users-and-roles.png)
+     ![Add users and roles]({{base_path}}/assets/img/administer/add-users-and-roles.png)
 
 3.  Click **Add New Role**.
 
@@ -51,19 +51,19 @@ You can use scope assignments to map the above created roles to the existing def
 1. Sign in to the Admin Portal (`https://<APIM_Host>:<APIM_Port>/admin`) if you have not done so already.
 
 2. Navigate to **Settings > Scope Assignments** in Admin Portal and click on **Add scope mappings**.
-    [![View Scope Assignments]({{base_path}}/assets/img/administer/view-scope-assignments.png)]({{base_path}}/assets/img/administer/view-scope-assignments.png)
+    ![View Scope Assignments]({{base_path}}/assets/img/administer/view-scope-assignments.png)
 
 3. Provide the name of the newly created role.
 
-    [![Add Role Name]({{base_path}}/assets/img/administer/add-new-role-name.png)]({{base_path}}/assets/img/administer/add-new-role-name.png)
+    ![Add Role Name]({{base_path}}/assets/img/administer/add-new-role-name.png)
 
 4. The newly created role can be mapped to an existing internal or admin role if required.
 
-    [![Map Role Name]({{base_path}}/assets/img/administer/map-existing-role.png)]({{base_path}}/assets/img/administer/map-existing-role.png)
+    ![Map Role Name]({{base_path}}/assets/img/administer/map-existing-role.png)
 
 5. Select the required existing scopes for the newly created role and save the changes.
 
-    [![Scope mapping]({{base_path}}/assets/img/administer/add-scope-to-role-mapping.png)]({{base_path}}/assets/img/administer/add-scope-to-role-mapping.png)
+    ![Scope mapping]({{base_path}}/assets/img/administer/add-scope-to-role-mapping.png)
     
 This will update all the scope mappings in the `tenant-conf.json` file with the `Internal/creator` role as an allowed role. As a result, the new creator role will also be allowed for all scopes that are allowed for the `Internal/creator` role.
 
@@ -128,19 +128,19 @@ This will update all the scope mappings in the `tenant-conf.json` file with the 
 
 2. In the **Main** menu, click **List** under **Users and Roles**.
 
-    [![List users and roles]({{base_path}}/assets/img/administer/list-users-and-roles.png)]({{base_path}}/assets/img/administer/list-users-and-roles.png)
+    ![List users and roles]({{base_path}}/assets/img/administer/list-users-and-roles.png)
 
 3. Click **Roles**.
 
-    [![List roles]({{base_path}}/assets/img/administer/list-roles.png)]({{base_path}}/assets/img/administer/list-roles.png)
+    ![List roles]({{base_path}}/assets/img/administer/list-roles.png)
 
 4. If you need to modify to a role, select the domain (user store) under **Search Roles** > **Select Domain** where the role resides.
 
-    [![Select User Store Domains]({{base_path}}/assets/img/administer/select-user-store-domains.png)]({{base_path}}/assets/img/administer/select-user-store-domains.png)
+    ![Select User Store Domains]({{base_path}}/assets/img/administer/select-user-store-domains.png)
 
     Then use the relevant links in the **Actions** column that corresponds to the role listing to perform the following:
 
-    [![Edit or Delete roles]({{base_path}}/assets/img/administer/edit-or-delete-roles.png)]({{base_path}}/assets/img/administer/edit-or-delete-roles.png)
+    ![Edit or Delete roles]({{base_path}}/assets/img/administer/edit-or-delete-roles.png)
 
     -   Rename the role
     -   Change the default permissions associated with this role

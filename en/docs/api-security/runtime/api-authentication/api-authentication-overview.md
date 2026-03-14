@@ -23,8 +23,8 @@ WSO2 API Manager allows you to enable multiple Key Managers for authentication.
 - The enabled Key Managers can be disabled for a given API via the Publisher by navigating to
 **Develop -> API Configurations -> Runtime -> Application Level Security -> Key Manager Configuration**
 
-    [![Disable Key Managers]({{base_path}}/assets/img/learn/multiple-km-publisher.png)]({{base_path}}/assets/img/learn/multiple-km-publisher.png)
+    ![Disable Key Managers]({{base_path}}/assets/img/learn/multiple-km-publisher.png)
 
 - Application users are able to generate keys for an application using a preferred Key Manager as shown below.
 
-    [![Disable Key Managers]({{base_path}}/assets/img/learn/multiple-km-devportal.png)]({{base_path}}/assets/img/learn/multiple-km-devportal.png)
+    ![Disable Key Managers]({{base_path}}/assets/img/learn/multiple-km-devportal.png)

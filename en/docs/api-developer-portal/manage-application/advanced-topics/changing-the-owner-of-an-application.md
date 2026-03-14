@@ -34,7 +34,7 @@ Follow the instructions below to change the ownership of an application:
         This shows you the list of applications together with the respective owners.
 
     3.  Search for the application that you want to share and click **Edit**.
-        [![Search for the application]({{base_path}}/assets/img/learn/changing-application-owner-search.png)]({{base_path}}/assets/img/learn/changing-application-owner-search.png)
+        ![Search for the application]({{base_path}}/assets/img/learn/changing-application-owner-search.png)
 
     4.  Update the **Owner** field with the new owner's username (Chris).
 
@@ -44,11 +44,11 @@ Follow the instructions below to change the ownership of an application:
 
          The application page shows the new ownership.
 
-        [![Application page with the new ownership]({{base_path}}/assets/img/learn/changing-application-owner.png)]({{base_path}}/assets/img/learn/changing-application-owner.png)   
+        ![Application page with the new ownership]({{base_path}}/assets/img/learn/changing-application-owner.png)   
         
         Now, when Kim signs in to the Developer Portal, the application named "testApplication" does not appear.
-        [![Kim Application List]({{base_path}}/assets/img/learn/application-kim.png)]({{base_path}}/assets/img/learn/application-chris.png)
+        ![Kim Application List]({{base_path}}/assets/img/learn/application-kim.png)
         And when Chris signs in to the Developer Portal the application named "testApplication" appears under the application list.
-        [![Chris Application List]({{base_path}}/assets/img/learn/application-chris.png)]({{base_path}}/assets/img/learn/application-chris.png)
+        ![Chris Application List]({{base_path}}/assets/img/learn/application-chris.png)
 
 

@@ -8,7 +8,7 @@ When you implement CI/CD for your APIs, there are two approaches you can use.
 
     Based on the API Project generation, a powerful pipeline for API automation can be developed using OpenAPI/Swagger. This allows rapid API development and increases developer productivity.
 
-    [![]({{base_path}}/assets/img/learn/api-controller/api-automation-with-openapi-swagger.png)]({{base_path}}/assets/img/learn/api-controller/api-automation-with-openapi-swagger.png)
+    ![]({{base_path}}/assets/img/learn/api-controller/api-automation-with-openapi-swagger.png)
 
 
     **To migrate APIs using the Developer First approach via CI/CD** carry out the steps <a href="#Step 1">1</a>, <a href="#Step 4">4</a>, <a href="#Step 5">5</a>, <a href="#Step 6">6</a> and <a href="#Step 7">7</a> in sequential order, which is listed under the Building blocks for creating a CI/CD pipeline section.
@@ -74,14 +74,14 @@ For this example, let us use the [Swagger Petstore - OpenAPI 3.0](https://petsto
   
   2. Click **Create API** and then click **Import Open API**. 
 
-    [![]({{base_path}}/assets/img/learn/api-controller/create-api.png)]({{base_path}}/assets/img/learn/api-controller/create-api.png)
+    ![]({{base_path}}/assets/img/learn/api-controller/create-api.png)
   
   3. Provide the **OpenAPI URL** (`https://petstore3.swagger.io/api/v3/openapi.json`) and proceed to the next step.
   
   4. Define the API name as `SwaggerPetstore` and Version as `1.0.0` and click on the **Create** button
   (For more information, see [Create a REST API from an Open API Definition]({{base_path}}/manage-apis/design/create-api/create-rest-api/create-a-rest-api-from-an-openapi-definition)).
 
-    [![]({{base_path}}/assets/img/learn/api-controller/create-api-last-step.png)]({{base_path}}/assets/img/learn/api-controller/create-api-last-step.png)
+    ![]({{base_path}}/assets/img/learn/api-controller/create-api-last-step.png)
 
   5. Go to the **API Configurations** > **Endpoints** and enter the backend URLs for the Production and Sandbox environments.
 
@@ -92,13 +92,13 @@ For this example, let us use the [Swagger Petstore - OpenAPI 3.0](https://petsto
       Sandbox: https://dev.sandbox.wso2.com
       ```
 
-     [![]({{base_path}}/assets/img/learn/api-controller/prod-dev-endpoints-petstore-api.png)]({{base_path}}/assets/img/learn/api-controller/endpoints-petstore-api.png)
+     ![]({{base_path}}/assets/img/learn/api-controller/prod-dev-endpoints-petstore-api.png)
 
   6. Go to the **Portal Configurations** > **Subscriptions**, select business plain and save the API. 
 
       For this example, let us select the plan **Gold**.
 
-      [![]({{base_path}}/assets/img/learn/api-controller/business-plan-gold-selected.png)]({{base_path}}/assets/img/learn/api-controller/business-plan-gold-selected.png)
+      ![]({{base_path}}/assets/img/learn/api-controller/business-plan-gold-selected.png)
 
   7. [Deploy]({{base_path}}/manage-apis/deploy-and-publish/deploy-on-gateway/deploy-api/deploy-an-api) and [Publish]({{base_path}}/manage-apis/deploy-and-publish/publish-on-dev-portal/publish-an-api) the API.
 

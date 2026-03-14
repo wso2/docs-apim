@@ -14,18 +14,18 @@ To deny a request:
 1.  Log in to the Admin Portal using the URL `https://localhost:9443/admin` and your admin credentials.
 2.  Click **Deny Policies** under the **Rate Limiting Policies** section and click **Add Policy**.
 
-    [![Add denied policy]({{base_path}}/assets/img/learn/add-denied-policy.png)]({{base_path}}/assets/img/learn/add-denied-policy.png)
+    ![Add denied policy]({{base_path}}/assets/img/learn/add-denied-policy.png)
 
 3. Select the item to deny, enter a value and click **Deny**.
 
-    [![Select denied condition]({{base_path}}/assets/img/learn/select-denied-condition.png)]({{base_path}}/assets/img/learn/select-denied-condition.png)
+    ![Select denied condition]({{base_path}}/assets/img/learn/select-denied-condition.png)
 
 <div class="admonition info">
     <p class="admonition-title">Note</p>
 <p>You can temporary switch on/off the denied condition by enabling/disabling the <b>Condition status</b> that is auto enabled when a denied condition is created. </p>
 </div>
 
-[![Denied condition status]({{base_path}}/assets/img/learn/denied-condition-status.png)]({{base_path}}/assets/img/learn/denied-condition-status.png)
+![Denied condition status]({{base_path}}/assets/img/learn/denied-condition-status.png)
 
 ## Example: Denying an API
 
@@ -35,7 +35,7 @@ Let's see how to deny requests to a specific API.
 2.  Click **Deny Policies** under the **Rate Limiting Policies** section and click **Add Policy**.
 3.  Select **API Context** and provide the Context of the API with version as the **Value.**
 
-    [![Select context deny]({{base_path}}/assets/img/learn/select-context-deny.png)]({{base_path}}/assets/img/learn/select-context-deny.png)
+    ![Select context deny]({{base_path}}/assets/img/learn/select-context-deny.png)
 
 4.  Click **Deny.**
 

@@ -28,4 +28,4 @@ When the read-only user (Chris) is logged in to the Publisher, Chris can view th
 
 Example: API detail view
 
-[![Read-only API details]({{base_path}}/assets/img/learn/api-security/read-only-api-details.png)]({{base_path}}/assets/img/learn/api-security/read-only-api-details.png)
+![Read-only API details]({{base_path}}/assets/img/learn/api-security/read-only-api-details.png)

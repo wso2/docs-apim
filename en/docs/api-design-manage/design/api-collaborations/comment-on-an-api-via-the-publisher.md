@@ -24,6 +24,6 @@ Follow the instructions below to comment and reply to an API:
 
      Click **REPLY**, type your reply, and click **COMMENT**.
 
-    [![Reply to a comment]({{base_path}}/assets/img/design/community-features/publisher-reply-to-comment.png)]({{base_path}}/assets/img/design/community-features/publisher-reply-to-comment.png)
+    ![Reply to a comment]({{base_path}}/assets/img/design/community-features/publisher-reply-to-comment.png)
 
      When you add a reply to a comment, it will appear in a nested format to the original or the root comment.

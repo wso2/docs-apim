@@ -27,7 +27,7 @@ Given below is how visibility levels work for users in different roles:
 2.  [Create a new API]({{base_path}}/api-design-manage/design/create-api/create-rest-api/create-a-rest-api/) or edit an existing API.
 3.  Go to **Portal Configurations** from the left menu and click **Basic Info**. Then under **Developer Portal Visibility** select the desired visibility option.
         
-     [![API visibility Developer Portal dropdown]({{base_path}}/assets/img/learn/api-visibility-devportal-dropdown.png)]({{base_path}}/assets/img/learn/api-visibility-devportal-dropdown.png)
+     ![API visibility Developer Portal dropdown]({{base_path}}/assets/img/learn/api-visibility-devportal-dropdown.png)
 
 4.  Save the API.
 
@@ -71,7 +71,7 @@ Subscription availability can be one of the following options:
 - **Available to Specific Tenants:** users of the organizations/tenant domains that you specify, as well as the current tenant domain, can subscribe to the API.
 
 The diagram below depicts the relationship between the API's visibility and subscription availability:
-[![]({{base_path}}/assets/img/learn/api-visibility-relationship.png)]({{base_path}}/assets/img/learn/api-visibility-relationship.png)
+![]({{base_path}}/assets/img/learn/api-visibility-relationship.png)
 
 !!! note
      The experience of cross tenant subscriptions is different to what it was in previous versions. For example, if a tenant named "A" visits the Developer Portal of a tenant named "B", the tenant "A" user will need to generate keys again with the key manager of tenant "B". Therefore, a given application created in the Developer Portal by tenant "A" can have different consumer keys for a given key manager type as they generate keys in different tenants.
@@ -104,7 +104,7 @@ The diagram below depicts the relationship between the API's visibility and subs
 
 3.  Go to **Portal Configurations** from the left menu and click **Subscriptions**, click the **Subscription Availability** dropdown, and select the desired subscription availability option.
      
-     [![Relationship between the API's visibility and subscription availability]({{base_path}}/assets/img/learn/api-subscription-availability.png)]({{base_path}}/assets/img/learn/api-subscription-availability.png)
+     ![Relationship between the API's visibility and subscription availability]({{base_path}}/assets/img/learn/api-subscription-availability.png)
 
 4.  Save the API.
 

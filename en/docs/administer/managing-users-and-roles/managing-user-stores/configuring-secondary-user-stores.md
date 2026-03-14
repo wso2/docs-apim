@@ -65,7 +65,7 @@ There are two approaches to configure a secondary user store. It can be configur
 
      The properties vary based on the user store manager class that you selected, and there may be additional properties under "Optional" or "Advanced" sections at the bottom of the screen. For information on the properties that are used when defining user stores, see [Properties of User Stores]({{base_path}}/administer/managing-users-and-roles/managing-user-stores/working-with-properties-of-user-stores/).
 
-    [![Secondary user store definition]({{base_path}}/assets/img/administer/secondary-user-store-definition.png)]({{base_path}}/assets/img/administer/secondary-user-store-definition.png)
+    ![Secondary user store definition]({{base_path}}/assets/img/administer/secondary-user-store-definition.png)
 
     !!! note
         Make sure that you do not enter `federated` as the domain name as the term is reserved for federated users.
@@ -77,7 +77,7 @@ There are two approaches to configure a secondary user store. It can be configur
 
      A message appears saying that the user stores are being added.
 
-     [![Secondary user store update msg]({{base_path}}/assets/img/administer/secondary-user-store-update-msg.png)]({{base_path}}/assets/img/administer/secondary-user-store-update-msg.png)
+     ![Secondary user store update msg]({{base_path}}/assets/img/administer/secondary-user-store-update-msg.png)
 
     !!! Note
         The above message does not imply that the user store is added successfully. It simply means that the server is attempting to add the new user store to the end of the available chain of stores.

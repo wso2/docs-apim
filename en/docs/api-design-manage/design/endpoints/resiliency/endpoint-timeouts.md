@@ -18,7 +18,7 @@ Configure the Advanced Endpoint Configurations as follows:
      
 4. Click on the cogwheel, which is inline with the endpoint that you need to configure, and update the endpoint related configurations as required. 
  
-     [![Advanced endpoint configuration menu]({{base_path}}/assets/img/learn/advance-ep-config-cogwheel.png)]({{base_path}}/assets/img/learn/advance-ep-config-cogwheel.png)
+     ![Advanced endpoint configuration menu]({{base_path}}/assets/img/learn/advance-ep-config-cogwheel.png)
 
      The Advanced Endpoint Configurations page appears.
 

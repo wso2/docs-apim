@@ -92,11 +92,11 @@ Upon successful initialization of the project, execute the following command to 
 
 After successfully importing the API, it will appear in the publisher as shown below.
 
-[![]({{base_path}}/assets/img/publish/aws-api-publisher.png)]({{base_path}}/assets/img/publish/aws-api-publisher.png)
+![]({{base_path}}/assets/img/publish/aws-api-publisher.png)
 
 To publish the API, go to `Lifecycle` under `Publish` and click on `Publish`.
 
-[![]({{base_path}}/assets/img/publish/publish-aws-api.png)]({{base_path}}/assets/img/publish/publish-aws-api.png)
+![]({{base_path}}/assets/img/publish/publish-aws-api.png)
 
 To learn more about importing an API project refer to [import-api-project]({{base_path}}/install-and-setup/setup/api-controller/managing-apis-api-products/importing-apis-via-dev-first-approach).
 

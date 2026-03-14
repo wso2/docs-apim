@@ -11,11 +11,11 @@ For testing purposes, you can eliminate the need of an access token by disabling
 
 1. Click **Resources** listed under **API Configurations** in the left menu to navigate to the Resources page in the Publisher.
 
-     [![Select resource page]({{base_path}}/assets/img/learn/prototype-api/create-prototype-api-resource-page.png)]({{base_path}}/assets/img/learn/prototype-api/create-prototype-api-resource-page.png)
+     ![Select resource page]({{base_path}}/assets/img/learn/prototype-api/create-prototype-api-resource-page.png)
 
 2. Expand any method and switch the security slidebar off to disable security for that specific resource.
 
-     [![Disable security for a Prototype API resource]({{base_path}}/assets/img/learn/prototype-api/create-prototype-api-resource-disable-sec.png)]({{base_path}}/assets/img/learn/prototype-api/create-prototype-api-resource-disable-sec.png)
+     ![Disable security for a Prototype API resource]({{base_path}}/assets/img/learn/prototype-api/create-prototype-api-resource-disable-sec.png)
 
 ## Disabling security for all API resources
 
@@ -23,4 +23,4 @@ For testing purposes, you can eliminate the need of an access token by disabling
 
 2. Click on the lock icon to disable security for all the resources that correspond to a specific API.
 
-     [![Disable security for all resources of a Prototype API]({{base_path}}/assets/img/learn/prototype-api/create-prototype-api-resource-disable-all-sec.png)]({{base_path}}/assets/img/learn/prototype-api/create-prototype-api-resource-disable-all-sec.png)
+     ![Disable security for all resources of a Prototype API]({{base_path}}/assets/img/learn/prototype-api/create-prototype-api-resource-disable-all-sec.png)

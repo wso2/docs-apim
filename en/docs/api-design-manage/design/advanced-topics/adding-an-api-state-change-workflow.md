@@ -10,7 +10,7 @@ This section let's see how to add a simple approval workflow to control the API 
 
      2. Click **Registry** --> **Browse**.
      
-         [![Resources Browse Menu]({{base_path}}/assets/img/learn/navigate-main-resources.png)]({{base_path}}/assets/img/learn/navigate-main-resources.png)
+         ![Resources Browse Menu]({{base_path}}/assets/img/learn/navigate-main-resources.png)
 
      3. Go to the `/_system/governance/apimgt/applicationdata/workflow-extensions.xml` resource.
      
@@ -54,7 +54,7 @@ This section let's see how to add a simple approval workflow to control the API 
 
      4. Optionally, you can revoke the state change by clicking **Delete Task**.
 
-         [![Delete pending task]({{base_path}}/assets/img/learn/delete-api-state-change-request.png)]({{base_path}}/assets/img/learn/delete-api-state-change-request.png)
+         ![Delete pending task]({{base_path}}/assets/img/learn/delete-api-state-change-request.png)
 
 3. Approve or reject the API state change pending request.
 
@@ -66,7 +66,7 @@ This section let's see how to add a simple approval workflow to control the API 
          
      3. Click on **Approve** or **Reject** to approve or reject the pending API state change request(s).
 
-         [![API state change pending list]({{base_path}}/assets/img/learn/api-state-change-pending-list.png)]({{base_path}}/assets/img/learn/api-state-change-pending-list.png)
+         ![API state change pending list]({{base_path}}/assets/img/learn/api-state-change-pending-list.png)
 
 4. View the outcome of the updated API state change request.
 
@@ -79,11 +79,11 @@ This section let's see how to add a simple approval workflow to control the API 
          - If the request was approved, it will update the API state to the new state.
          - If the request was rejected, the status will stay unchanged.
 
-         [![API state change updated list]({{base_path}}/assets/img/learn/api-state-change-updated-status.png)]({{base_path}}/assets/img/learn/api-state-change-updated-status.png)
+         ![API state change updated list]({{base_path}}/assets/img/learn/api-state-change-updated-status.png)
 
     !!! info
         Changes that correspond to the API state can be easily viewed through the **Lifecycle** page.
-        [![Lifecycle State]({{base_path}}/assets/img/learn/api-lifecycle-state.png)]({{base_path}}/assets/img/learn/api-lifecycle-state.png)
+        ![Lifecycle State]({{base_path}}/assets/img/learn/api-lifecycle-state.png)
 
 ## Advanced Configurations
 

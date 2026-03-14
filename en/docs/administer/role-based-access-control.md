@@ -23,11 +23,11 @@ below scopes  chart to define scopes.
 3. In the `Provide role name` text input give the role name which was previously created in step 1 and then click `next`.
 4. In the `Select Permissions` menu, select the `Custom scope assignments` option. And select the scopes that you want to assign for the newly created role. You can refer the following table when assigning the scopes. For example, If the admin wants the newly created user to access the key managers settings in the admin portal he can assign `apim:keymanagers_manage`, `apim:tenantInfo`, and `apim:admin_settings`.
    
-    [![Add admin Scope Mapping For Role Based Access Control]({{base_path}}/assets/img/administer/add-admin-scope-mapping-role-based-access.png)]({{base_path}}/assets/img/administer/add-admin-scope-mapping-role-based-access.png)
+    ![Add admin Scope Mapping For Role Based Access Control]({{base_path}}/assets/img/administer/add-admin-scope-mapping-role-based-access.png)
 
 5. Finally, login to the admin portal as the newly created user which was created in step 2. The user can only access the `Key Managers` settings page.
 
-    [![View Admin After Adding Role Based Access Control]({{base_path}}/assets/img/administer/view-admin-after-adding-role-based-access-control.png)]({{base_path}}/assets/img/administer/view-admin-after-adding-role-based-access-control.png)
+    ![View Admin After Adding Role Based Access Control]({{base_path}}/assets/img/administer/view-admin-after-adding-role-based-access-control.png)
 
 | **Admin portal Menu**  | **scopes**                                                                                                                                   |
 |------------------------|----------------------------------------------------------------------------------------------------------------------------------------------|

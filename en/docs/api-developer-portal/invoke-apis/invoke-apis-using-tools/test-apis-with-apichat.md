@@ -19,7 +19,7 @@ Follow the steps below to test your API with API Chat:
 
 2. Register for an Account.
 
-   [![AI Subscription Portal]({{base_path}}/assets/img/observe/ai-subscription-portal.png)]({{base_path}}/assets/img/observe/ai-subscription-portal.png)
+   ![AI Subscription Portal]({{base_path}}/assets/img/observe/ai-subscription-portal.png)
 
    - Click **Register**.
    - Enter a valid email address and click **Register**.
@@ -35,7 +35,7 @@ Follow the steps below to test your API with API Chat:
 
 1. On the main landing page, click **New Subscription**.
 
-      [![AI Subscription Portal Initial Dashboard]({{base_path}}/assets/img/observe/ai-subscription-portal-2.png)]({{base_path}}/assets/img/observe/ai-subscription-portal-2.png)
+      ![AI Subscription Portal Initial Dashboard]({{base_path}}/assets/img/observe/ai-subscription-portal-2.png)
 
 2. Select **wso2am** as the product, enter an appropriate name, and create the subscription.
 
@@ -45,7 +45,7 @@ Follow the steps below to test your API with API Chat:
     !!! warning
         Do not use the same key for different environments or products. Each key is used to differentiate environments when accessing AI services.
 
-    [![AI Subscription Portal Dashboard]({{base_path}}/assets/img/observe/ai-subscription-portal-3.png)]({{base_path}}/assets/img/observe/ai-subscription-portal-3.png)
+    ![AI Subscription Portal Dashboard]({{base_path}}/assets/img/observe/ai-subscription-portal-3.png)
 
     !!! warning
         Users can revoke and regenerate keys for any subscription, as well as delete subscriptions. Please perform these actions with caution, as they will immediately invalidate any existing keys in use.
@@ -72,21 +72,21 @@ Now we can begin testing APIs. Note that this guide covers the API Chat capabilt
 
 2.  Subscribe to the API (e.g., `PizzaShackAPI` 1.0.0) using an application and an available throttling policy.
 
-    [![Subscribe to an API]({{base_path}}/assets/img/learn/subscribe-to-api.png)]({{base_path}}/assets/img/learn/subscribe-to-api.png)
+    ![Subscribe to an API]({{base_path}}/assets/img/learn/subscribe-to-api.png)
 
 3. Next, generate either a production key or a sandbox key using one of the following actions. You have to scroll down and click **Generate Keys**.
 
-    [![Generate production keys]({{base_path}}/assets/img/learn/generate-application-keys.png)]({{base_path}}/assets/img/learn/generate-application-keys.png)
+    ![Generate production keys]({{base_path}}/assets/img/learn/generate-application-keys.png)
 
 4. Optionally, click on **Generate Access Token** and copy the generated token.
 
 5.  Now visit the **API Chat** tab under the **Try Out** section. Since the API Chat will test your API based on your natural language query, it needs access to the API. As per the warning shown below, we need to provide an API access token. Either click on the link given in the banner or click **CONFIGURE KEY** to generate one.
 
-    [![API Chat Landing Page]({{base_path}}/assets/img/get_started/api-chat.png)]({{base_path}}/assets/img/get_started/api-chat.png)
+    ![API Chat Landing Page]({{base_path}}/assets/img/get_started/api-chat.png)
 
 6.  Enter the copied access token in the **Authorization** field or click on **GET TEST KEY**.
 
-    [![Add Access Token]({{base_path}}/assets/img/get_started/api-chat-access-token.png)]({{base_path}}/assets/img/get_started/api-chat-access-token.png)
+    ![Add Access Token]({{base_path}}/assets/img/get_started/api-chat-access-token.png)
 
     !!! tip
 
@@ -104,7 +104,7 @@ Now we can begin testing APIs. Note that this guide covers the API Chat capabilt
    
     Let's provide our own query for this guide: _First get me the menu. Then, create a new Order with customerName 'John Smith', pizzaType 'Pepperoni', and quantity 2. Then update the same Order and change the pizzaType to 'Margherita'._
 
-    [![API Chat Query]({{base_path}}/assets/img/get_started/api-chat-query.png)]({{base_path}}/assets/img/get_started/api-chat-query.png)
+    ![API Chat Query]({{base_path}}/assets/img/get_started/api-chat-query.png)
 
 8. Let's analyse the result from API Chat. As shown below, 3 resources were invoked sequentially. Namely:
 
@@ -114,4 +114,4 @@ Now we can begin testing APIs. Note that this guide covers the API Chat capabilt
 
     PUT &rarr; Updating the order
 
-    [![API Chat Response]({{base_path}}/assets/img/get_started/api-chat-response.png)]({{base_path}}/assets/img/get_started/api-chat-response.png)
+    ![API Chat Response]({{base_path}}/assets/img/get_started/api-chat-response.png)

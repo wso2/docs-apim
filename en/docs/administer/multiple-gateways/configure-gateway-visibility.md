@@ -28,7 +28,7 @@ Similarly, when the permission type for the role-based restriction is set to **D
 
    1. Click **Gateways**, and then click **Add Gateway Environment**.
 
-      [![Menu to add Gateway environment]({{base_path}}/assets/img/deploy/add-gateway-environment-menu.png)]({{base_path}}/assets/img/deploy/add-gateway-environment-menu.png)
+      ![Menu to add Gateway environment]({{base_path}}/assets/img/deploy/add-gateway-environment-menu.png)
 
    2. Enter a name, display name, description, visibility and a virtual host as follows.
 
@@ -38,13 +38,13 @@ Similarly, when the permission type for the role-based restriction is set to **D
       |-------------|--------------|----------------|--------------|--------------|
       | us-region   | US Region    | Gateway environment deployed in the US region. | Public         | us.wso2.com    |
 
-      [![Menu to add Gateway environment visibility]({{base_path}}/assets/img/deploy/add-gateway-visibility-menu.png)]({{base_path}}/assets/img/deploy/add-gateway-visibility-menu.png)
+      ![Menu to add Gateway environment visibility]({{base_path}}/assets/img/deploy/add-gateway-visibility-menu.png)
 
 !!! note
     The visibility of a Gateway can be set by selecting the permission type. The list of allowed/denied roles should be provided for the ALLOW of DENY types.
     The default value is set to **Public** and it does not have any visibility restrictions.
 
-[![Gateway environment visibility roles]({{base_path}}/assets/img/deploy/add-gateway-visibility-roles.png)]({{base_path}}/assets/img/deploy/add-gateway-visibility-roles.png)
+![Gateway environment visibility roles]({{base_path}}/assets/img/deploy/add-gateway-visibility-roles.png)
    
 ## Option 2: Configure visibility for a Gateway environment using the configuration file
 
@@ -86,6 +86,6 @@ Follow the instructions below to use the `deployment.toml` file, which is the ce
 
 The added Gateway environments with visibility permissions are listed as below with the allowed/denied roles. Click on the permission type to view the allowed/denied roles.
 
-[![List Gateway environment visibility]({{base_path}}/assets/img/deploy/list-gateway-visibility.png)]({{base_path}}/assets/img/deploy/list-gateway-visibility.png)
+![List Gateway environment visibility]({{base_path}}/assets/img/deploy/list-gateway-visibility.png)
 
-[![List Gateway environment visibility roles]({{base_path}}/assets/img/deploy/list-gateway-visibility-roles.png)]({{base_path}}/assets/img/deploy/list-gateway-visibility-roles.png)
+![List Gateway environment visibility roles]({{base_path}}/assets/img/deploy/list-gateway-visibility-roles.png)

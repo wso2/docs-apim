@@ -28,19 +28,19 @@ First, enable the API subscription workflow for **Approval Workflow Executor.**
 
 3.  Go to the API Developer Portal credentials page and subscribe to an API. If the approval workflow is enabled then after subscribing you will see the subscription status as **ON_HOLD**.
 
-     [![Subscription Creation]({{base_path}}/assets/img/learn/subscription-creation-onhold.png)]({{base_path}}/assets/img/learn/subscription-creation-onhold.png)
+     ![Subscription Creation]({{base_path}}/assets/img/learn/subscription-creation-onhold.png)
 
 4.  Sign in to the Admin Portal ( `https://<Server Host>:9443/admin` ), list all the tasks for API subscription from **Tasks** --> **Subscription Creation** and click on  approve or reject to approve or reject workflow pending request.
 
-    [![Subscription Creation Tasks]({{base_path}}/assets/img/learn/subscription-creation-pending-list.png)]({{base_path}}/assets/img/learn/subscription-creation-pending-list.png)
+    ![Subscription Creation Tasks]({{base_path}}/assets/img/learn/subscription-creation-pending-list.png)
 
     After approving go back to the API Developer Portal credentials page, the application status will be **UNBLOCKED**.
      
-    [![Subscription Creation Unblocked]({{base_path}}/assets/img/learn/subscription-creation-unblocked.png)]({{base_path}}/assets/img/learn/subscription-creation-unblocked.png)
+    ![Subscription Creation Unblocked]({{base_path}}/assets/img/learn/subscription-creation-unblocked.png)
 
 5. The subscription creation approval capability is now added into API Publisher portal as well to enable the Publishers of the API to approve/reject the subscriptions without being depended on the Admin for the above task. In order to check the subcription requests from the publisher portal Goto **Tasks** --> **Subscription** --> **Creation**.
 
-    [![Subscription Creation Tasks in Publisher portal]({{base_path}}/assets/img/learn/subscription-creation-pending-list-in-publisher-portal.png)]({{base_path}}/assets/img/learn/subscription-creation-pending-list-in-publisher-portal.png)
+    ![Subscription Creation Tasks in Publisher portal]({{base_path}}/assets/img/learn/subscription-creation-pending-list-in-publisher-portal.png)
 
 6. Go back to the API Developer Portal and see that the user is now subscribed to the API.
 

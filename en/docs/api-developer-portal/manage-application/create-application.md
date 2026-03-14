@@ -18,7 +18,7 @@ WSO2 API Manager comes with a pre-created default application, which allows unli
 
 3.  Click **ADD NEW APPLICATION**.
 
-    [![Add new application option]({{base_path}}/assets/img/learn/add-new-application-option.png)]({{base_path}}/assets/img/learn/add-new-application-option.png)
+    ![Add new application option]({{base_path}}/assets/img/learn/add-new-application-option.png)
 
 4.  Enter the application details and click **SAVE** to create the application.
    
@@ -36,14 +36,14 @@ WSO2 API Manager comes with a pre-created default application, which allows unli
     !!! note
         From API-M 3.1.0 onwards the options to select key types and multiple key managers have been removed.
 
-       [![Create a new application]({{base_path}}/assets/img/learn/create-new-application.png)]({{base_path}}/assets/img/learn/create-new-application.png)
+       ![Create a new application]({{base_path}}/assets/img/learn/create-new-application.png)
       
        If the application creation is successful, you will be redirected to the application overview page.
 
-       [![Application overview]({{base_path}}/assets/img/learn/application-overview.png)]({{base_path}}/assets/img/learn/application-overview.png)
+       ![Application overview]({{base_path}}/assets/img/learn/application-overview.png)
     
 5.  Click **Applications** to navigate to Applications listing page.
     
     You will find the PizzaShack application listed with the other applications. The application can be edited or deleted by the application owner.
 
-    [![Application listing]({{base_path}}/assets/img/learn/application-listing.png)]({{base_path}}/assets/img/learn/application-listing.png)
+    ![Application listing]({{base_path}}/assets/img/learn/application-listing.png)

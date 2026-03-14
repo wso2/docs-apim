@@ -17,7 +17,7 @@ The APIs created in the API Publisher are visible to any user who signs in to th
 
 4. Select **Restricted by roles** as the value for **Publisher Access Control**.
 
-    [![Design configuration page]({{base_path}}/assets/img/learn/select-restricted-by-role.png)]({{base_path}}/assets/img/learn/select-restricted-by-role.png)
+    ![Design configuration page]({{base_path}}/assets/img/learn/select-restricted-by-role.png)
     
 3.  Add the roles that have permission to view or modify this API.
 
@@ -28,7 +28,7 @@ The APIs created in the API Publisher are visible to any user who signs in to th
 
 
 
-     [![Enter role to restrict]({{base_path}}/assets/img/learn/enter-role-to-restrict.png)]({{base_path}}/assets/img/learn/enter-role-to-restrict.png)
+     ![Enter role to restrict]({{base_path}}/assets/img/learn/enter-role-to-restrict.png)
 
 4.  Save the API.
 

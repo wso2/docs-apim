@@ -26,23 +26,23 @@ The following are the two methods available in the Developer Portal to subscribe
 
 3.  Enter the application details in the **Create application** process and click **Next** to continue.
 
-    [![Create application process in the wizard]({{base_path}}/assets/img/learn/key-gen-wizard-create-app.png)]({{base_path}}/assets/img/learn/key-gen-wizard-create-app.png)
+    ![Create application process in the wizard]({{base_path}}/assets/img/learn/key-gen-wizard-create-app.png)
 
 4.  Subscribe the API to the application that you created in the above step by selecting the preferred throttling policy. Thereafter, click **Next** to go to the next step.
      
-     [![Subscribe to new application process]({{base_path}}/assets/img/learn/key-gen-wizard-subscribe.png)]({{base_path}}/assets/img/learn/key-gen-wizard-subscribe.png)
+     ![Subscribe to new application process]({{base_path}}/assets/img/learn/key-gen-wizard-subscribe.png)
     
 5. [Generate application keys]({{base_path}}/consume/manage-application/generate-keys/generate-api-keys) (Production or sandbox) by clicking on the **Next** button. 
 
      The application keys are generated in this step.
 
-     [![Key generation]({{base_path}}/assets/img/learn/key-gen-wizard-generate-keys.png)]({{base_path}}/assets/img/learn/key-gen-wizard-generate-keys.png)
+     ![Key generation]({{base_path}}/assets/img/learn/key-gen-wizard-generate-keys.png)
     
     !!! note
         - By default, the __Client Credentials__ grant type is used to generate the access token in Developer Portal.
         - If you want to select different grant types for this application, you can select the required grant types from the application listing page as shown in the following image:
 
-        [![Edit grant types]({{base_path}}/assets/img/learn/edit-application-grant-types.png)]({{base_path}}/assets/img/learn/edit-application-grant-types.png)
+        ![Edit grant types]({{base_path}}/assets/img/learn/edit-application-grant-types.png)
         
     
 6.  Select the access token validity period and [scopes]({{base_path}}/api-security/runtime/authorization/oauth2-scopes/fine-grained-access-control-with-oauth-scopes/) to generate an access token to invoke the API, then click **Next** to continue.
@@ -51,7 +51,7 @@ The following are the two methods available in the Developer Portal to subscribe
 
 8. Click **Finish** to complete the wizard or click **Test** to navigate to the [API Console]({{base_path}}/consume/invoke-apis/invoke-apis-using-tools/invoke-an-api-using-the-integrated-api-console) so that you can invoke and try out the API.
 
-    [![Copy access token]({{base_path}}/assets/img/learn/key-gen-wizard-access.png)]({{base_path}}/assets/img/learn/key-gen-wizard-access.png)
+    ![Copy access token]({{base_path}}/assets/img/learn/key-gen-wizard-access.png)
     
 ## Subscribe to an existing application
 
@@ -59,7 +59,7 @@ If you already have an existing application, follow the instructions below to su
 
 1.  Sign in to the Developer Portal (`https://<hostname>:<port>/devportal`) and click on the API (e.g., `PizzaShackAPI`) to go to the API overview.
 
-     [![API overview]({{base_path}}/assets/img/get_started/architecture/developer-portal-overview.png)]({{base_path}}/assets/img/get_started/architecture/developer-portal-overview.png)
+     ![API overview]({{base_path}}/assets/img/get_started/architecture/developer-portal-overview.png)
         
 2.  Click **SUBSCRIBE TO AN APPLICATION**.
 
@@ -67,17 +67,17 @@ If you already have an existing application, follow the instructions below to su
     
 3.  Select the application, the throttling policy, and click **Subscribe**.
 
-     [![Subscribe to new application]({{base_path}}/assets/img/learn/subscribe-to-app.png)]({{base_path}}/assets/img/learn/subscribe-to-app.png)
+     ![Subscribe to new application]({{base_path}}/assets/img/learn/subscribe-to-app.png)
     
      You can see the subscriptions list in the **Subscriptions** section.
      
-     [![Subscribe to new app]({{base_path}}/assets/img/learn/subscription-list.png)]({{base_path}}/assets/img/learn/subscription-list.png)
+     ![Subscribe to new app]({{base_path}}/assets/img/learn/subscription-list.png)
 
 ## Update the subscription tier
 
 1.  Sign in to the WSO2 API Developer Portal (`https://<hostname>:<port>/devportal`). Click on **Applications** and select the relevant application. 
 
-    [![applications overview_tab]({{base_path}}/assets/img/learn/application-overview.png)]({{base_path}}/assets/img/learn/application-overview.png)
+    ![applications overview_tab]({{base_path}}/assets/img/learn/application-overview.png)
 
 2.  Click **Subscriptions** to list the subscriptions of the application.
 
@@ -99,13 +99,13 @@ Follow the instructions below to delete the API subscription:
 
 1.  Sign in to the WSO2 API Developer Portal (`https://<hostname>:<port>/devportal`) and click on the API (e.g., `PizzaShackAPI`) for which you need to delete the application subscription.
     
-    [![API Overview]({{base_path}}/assets/img/get_started/architecture/developer-portal-overview.png)]({{base_path}}/assets/img/get_started/architecture/developer-portal-overview.png)
+    ![API Overview]({{base_path}}/assets/img/get_started/architecture/developer-portal-overview.png)
     
 2.  Click **Subscriptions**.
 
-    [![API credentials]({{base_path}}/assets/img/learn/api-credentials.png)]({{base_path}}/assets/img/learn/api-credentials.png)
+    ![API credentials]({{base_path}}/assets/img/learn/api-credentials.png)
     
 3.  Select the subscription that you need to delete and click **UNSUBSCRIBE**.
 
-    [![]({{base_path}}/assets/img/learn/unsubscribe.png)]({{base_path}}/assets/img/learn/unsubscribe.png)
+    ![]({{base_path}}/assets/img/learn/unsubscribe.png)
     

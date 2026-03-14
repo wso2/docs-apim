@@ -18,7 +18,7 @@ For example, the following sample custom policy allows the admin user to send 5 
     
 3.  To add a new policy, click **Define Policy**.
 
-    [![Add Custom policy page]({{base_path}}/assets/img/learn/click_custom_policy.png)]({{base_path}}/assets/img/learn/click_custom_policy.png)
+    ![Add Custom policy page]({{base_path}}/assets/img/learn/click_custom_policy.png)
 
 4.  Fill in the required details and click **Save**.
     
@@ -64,6 +64,6 @@ For example, the following sample custom policy allows the admin user to send 5 
     INSERT ALL EVENTS into ResultStream;
     ```
 
-    [![Add Custom policy page]({{base_path}}/assets/img/learn/throttling-custom-policy.png)]({{base_path}}/assets/img/learn/throttling-custom-policy.png)
+    ![Add Custom policy page]({{base_path}}/assets/img/learn/throttling-custom-policy.png)
 
 As shown in the above Siddhi query, the throttle key must match the key template format. If there is a mismatch between the key template format and the throttle key, requests will not be throttled.

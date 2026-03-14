@@ -40,4 +40,4 @@ Follow the instructions below to use the Publisher test console to test an API:
 
     Note the successful response for the API invocation.
 
-    [![Publisher test console]({{base_path}}/assets/img/design/create-api/test-api/publisher-testconsole-swaggerui.png)]({{base_path}}/assets/img/design/create-api/test-api/publisher-testconsole-swaggerui.png)
+    ![Publisher test console]({{base_path}}/assets/img/design/create-api/test-api/publisher-testconsole-swaggerui.png)

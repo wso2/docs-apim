@@ -65,7 +65,7 @@ Follow the instructions below to create, deploy and publish an API via the Publi
      
 2. Sign in with **`admin/admin`** as the credentials.
                                                  
-     [![Publisher portal home page]({{base_path}}/assets/img/get_started/api-publisher-home.png)]({{base_path}}/assets/img/get_started/api-publisher-home.png)
+     ![Publisher portal home page]({{base_path}}/assets/img/get_started/api-publisher-home.png)
 
 3. Next, let's create a mock REST service by navigating to [Mocky.io](https://designer.mocky.io/design). You can provide the following configuration in order to create a mock service.
     
@@ -81,7 +81,7 @@ Follow the instructions below to create, deploy and publish an API via the Publi
     
 4. Select **REST API** from the home screen and then click **Start From Scratch**.
    
-    [![Design a new REST API]({{base_path}}/assets/img/get_started/design-new-rest-api.png)]({{base_path}}/assets/img/get_started/design-new-rest-api.png)
+    ![Design a new REST API]({{base_path}}/assets/img/get_started/design-new-rest-api.png)
 
 
 5. Enter the API details.
@@ -141,13 +141,13 @@ Follow the instructions below to subscribe to the API via the Developer Portal o
     
      The published `HelloWorld` API is listed in the Developer Portal as shown below.
 
-     [![Developer Portal home page]({{base_path}}/assets/img/get_started/dev-portal-landing-page.png)]({{base_path}}/assets/img/get_started/dev-portal-landing-page.png)
+     ![Developer Portal home page]({{base_path}}/assets/img/get_started/dev-portal-landing-page.png)
 
 2. Click **Sign-In** and enter **`admin/admin`** as your credentials to sign in to the Developer Portal.
 
 3. Once you click on the HelloWorld API, you will be redirected to  the API overview page. Then, go ahead and click on the **TRY OUT** button.
 
-     [![API try out]({{base_path}}/assets/img/get_started/try-out.png)]({{base_path}}/assets/img/get_started/try-out.png)
+     ![API try out]({{base_path}}/assets/img/get_started/try-out.png)
 
      And with that, we have subscribed to the API using the `DefaultApplication`.
 
@@ -167,18 +167,18 @@ Follow the instructions below to invoke the created API.
 
         When running in production, since a trusted certificate is used, you won't have to do this step.
 
-     [![Test API]({{base_path}}/assets/img/get_started/test-api.png)]({{base_path}}/assets/img/get_started/test-api.png)
+     ![Test API]({{base_path}}/assets/img/get_started/test-api.png)
 
 2. Click on the `GET` resource of the API to expand the resource and Click **Try It Out**.
    
-     [![GET resource]({{base_path}}/assets/img/get_started/expanded-get-resource.png)]({{base_path}}/assets/img/get_started/expanded-get-resource.png)
+     ![GET resource]({{base_path}}/assets/img/get_started/expanded-get-resource.png)
 
 3. Click **Execute**.
 
-     [![GET resource]({{base_path}}/assets/img/get_started/try-api.png)]({{base_path}}/assets/img/get_started/try-api.png)
+     ![GET resource]({{base_path}}/assets/img/get_started/try-api.png)
 
      You should see the `{"hello" : "world"}` response from the API. 
 
-     [![Successful response]({{base_path}}/assets/img/get_started/try-it-success.png)]({{base_path}}/assets/img/get_started/try-it-success.png)
+     ![Successful response]({{base_path}}/assets/img/get_started/try-it-success.png)
 
 __Congratulations!__ With that, you've created, deployed, and published your first API. Next, you subscribed to it and put it to the test. Your journey with WSO2 API Manager has officially begun!

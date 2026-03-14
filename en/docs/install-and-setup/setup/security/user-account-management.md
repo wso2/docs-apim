@@ -197,7 +197,7 @@ Follow the instructions below to disable anonymous access to the Developer Porta
 
 3. Add the field named `EnableAnonymous` with the value `false` as shown below.
 
-    [![Disabling Developer Portal Anonymous Mode]({{base_path}}/assets/img/administer/disable-developer-portal-anonymous-mode.png)]({{base_path}}/assets/img/administer/disable-developer-portal-anonymous-mode.png)
+    ![Disabling Developer Portal Anonymous Mode]({{base_path}}/assets/img/administer/disable-developer-portal-anonymous-mode.png)
 
     !!! note
         To disable anonymous access globally, add the following to the `<API-M_HOME>/repository/conf/deployment.toml` file.

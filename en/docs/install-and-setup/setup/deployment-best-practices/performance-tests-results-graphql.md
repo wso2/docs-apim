@@ -110,7 +110,7 @@ The complete results can be found [here](https://github.com/wso2/performance-api
 
 The following graph depicts the throughput changes based on the number of concurrent users for different GraphQL queries.
 
-[![lineplot throughput vs concurrent users]({{base_path}}/assets/img/setup-and-install/performance-test-results/graphql/thrpt_0ms.png)]({{base_path}}/assets/img/setup-and-install/performance-test-results/graphql/thrpt_0ms.png)
+![lineplot throughput vs concurrent users]({{base_path}}/assets/img/setup-and-install/performance-test-results/graphql/thrpt_0ms.png)
 
 **Key observations:**
 
@@ -121,7 +121,7 @@ The following graph depicts the throughput changes based on the number of concur
 
 The following graph depicts the average response time changes based on the number of concurrent users for different GraphQL queries.
 
-[![lineplot average response time 2G 1KiB 0ms]({{base_path}}/assets/img/setup-and-install/performance-test-results/graphql/avgt_0ms.png)]({{base_path}}/assets/img/setup-and-install/performance-test-results/graphql/avgt_0ms.png)
+![lineplot average response time 2G 1KiB 0ms]({{base_path}}/assets/img/setup-and-install/performance-test-results/graphql/avgt_0ms.png)
 
 **Key observations:**
 
@@ -136,7 +136,7 @@ For example, when there are 100 concurrent users, the 90th response time percent
 
 The figure below represents the percentile values for Query 1.
 
-[![Response time 0ms 1KiB]({{base_path}}/assets/img/setup-and-install/performance-test-results/graphql/response-time-summary-query1-0ms.png)]({{base_path}}/assets/img/setup-and-install/performance-test-results/graphql/response-time-summary-query1-0ms.png)
+![Response time 0ms 1KiB]({{base_path}}/assets/img/setup-and-install/performance-test-results/graphql/response-time-summary-query1-0ms.png)
 
 **Key observations:**
 
@@ -158,5 +158,5 @@ The GC Throughput was calculated for each test to check whether GC operations ar
 
 The following chart depicts the GC Throughput (%) based on the number of concurrent users for different GraphQL queries.
 
-[![Lineplot WSO2 Api Manager GC throughput 2G 50B 0ms]({{base_path}}/assets/img/setup-and-install/performance-test-results/graphql/gc_0ms.png)]({{base_path}}/assets/img/setup-and-install/performance-test-results/graphql/gc_0ms.png)
+![Lineplot WSO2 Api Manager GC throughput 2G 50B 0ms]({{base_path}}/assets/img/setup-and-install/performance-test-results/graphql/gc_0ms.png)
 

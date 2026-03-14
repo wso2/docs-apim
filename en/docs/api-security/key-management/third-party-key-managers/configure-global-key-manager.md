@@ -17,15 +17,15 @@ Follow the steps given below to configure the Global Key Manager
 
 4. Click the drop-down icon next to the **Add Key Manager** button and Click **Add Global Key Manager** from the drop-down
 
-    [![Add Global Key Manager dropdown]({{base_path}}/assets/img/administer/global-keymanager/add-global-key-manager-dropdown.png)]({{base_path}}/assets/img/administer/global-keymanager/add-global-key-manager-dropdown.png)
+    ![Add Global Key Manager dropdown]({{base_path}}/assets/img/administer/global-keymanager/add-global-key-manager-dropdown.png)
 
 5. Click **Add Global Key Manager** button
 
-    [![Add Global Key Manager]({{base_path}}/assets/img/administer/global-keymanager/add-global-key-manager.png)]({{base_path}}/assets/img/administer/global-keymanager/add-global-key-manager.png)
+    ![Add Global Key Manager]({{base_path}}/assets/img/administer/global-keymanager/add-global-key-manager.png)
 
 6. Add the Global Key Manager configurations. Refer to the [configurations]({{base_path}}/api-security/key-management/third-party-key-managers/overview/#configuring-key-managers-with-wso2-api-m) of the key manager that needs to be added as the global key manager
 
-    [![Add Global Key Manager Configurations]({{base_path}}/assets/img/administer/global-keymanager/add-global-key-manager-configurations.png)]({{base_path}}/assets/img/administer/global-keymanager/add-global-key-manager-configurations.png)
+    ![Add Global Key Manager Configurations]({{base_path}}/assets/img/administer/global-keymanager/add-global-key-manager-configurations.png)
 
 !!! Note
       Refer to the configurations of the key manager that needs to be added as the global key manager.
@@ -34,7 +34,7 @@ Follow the steps given below to configure the Global Key Manager
 
 8. The Global Key Manager will be indicated with a chip shown as **Global**
 
-    [![Global Key Manager Chip]({{base_path}}/assets/img/administer/global-keymanager/global-key-manager-chip.png)]({{base_path}}/assets/img/administer/global-keymanager/global-key-manager-chip.png)
+    ![Global Key Manager Chip]({{base_path}}/assets/img/administer/global-keymanager/global-key-manager-chip.png)
 
 !!! Note
       After adding the Global Key Manager, the drop-down icon next to the **Add Key Manager** button will be removed since only one Global Key Manager can be added.
@@ -68,14 +68,14 @@ Let's look at a scenario where a single access token generated for an applicatio
 
 6. [Create an API]({{base_path}}/api-design-manage/design/create-api/create-rest-api/create-a-rest-api/) (Eg: SampleAPI)
 
-    [![Sample API Creation]({{base_path}}/assets/img/administer/global-keymanager/sample-api-creation.png)]({{base_path}}/assets/img/administer/global-keymanager/sample-api-creation.png)
+    ![Sample API Creation]({{base_path}}/assets/img/administer/global-keymanager/sample-api-creation.png)
 
 7. Go to **Portal Configurations** from the left menu and click **Subscriptions**, click the **Subscription Availability** dropdown, and select the desired subscription availability option. For this scenario, select **Available to all the tenants** and Click Save.
 
     !!! Note
         The **Subscription Availability** option will only be displayed if there are tenants in your environment.
 
-    [![Relationship between the API's visibility and subscription availability]({{base_path}}/assets/img/learn/api-subscription-availability.png)]({{base_path}}/assets/img/learn/api-subscription-availability.png)
+    ![Relationship between the API's visibility and subscription availability]({{base_path}}/assets/img/learn/api-subscription-availability.png)
 
 8. [Deploy the API]({{base_path}}/api-design-manage/deploy-and-publish/deploy-on-gateway/deploy-api/deploy-an-api/)
 
@@ -85,11 +85,11 @@ Let's look at a scenario where a single access token generated for an applicatio
 
 11. [Create an application]({{base_path}}/api-developer-portal/manage-application/create-application/) (Ex: SampleApp)
 
-    [![Sample App Creation]({{base_path}}/assets/img/administer/global-keymanager/sample-app-creation.png)]({{base_path}}/assets/img/administer/global-keymanager/sample-app-creation.png)
+    ![Sample App Creation]({{base_path}}/assets/img/administer/global-keymanager/sample-app-creation.png)
 
 12. Click **Production Keys** and Select the Global Key Manager (IS-GKM) which was created from the list of key managers displayed.
 
-    [![Select Global Key Manager]({{base_path}}/assets/img/administer/global-keymanager/select-global-key-manager.png)]({{base_path}}/assets/img/administer/global-keymanager/select-global-key-manager.png)
+    ![Select Global Key Manager]({{base_path}}/assets/img/administer/global-keymanager/select-global-key-manager.png)
 
 13. Click **GENERATE KEYS**
 
@@ -97,7 +97,7 @@ Let's look at a scenario where a single access token generated for an applicatio
 
 15. Go to the Developer Portal landing page, select the SampleAPI and [Subscribe]({{base_path}}/api-developer-portal/manage-subscription/subscribe-to-an-api/#subscribe-to-an-existing-application) to the SampleApp
 
-    [![Subscribe SampleAPI to SampleApp]({{base_path}}/assets/img/administer/global-keymanager/subscribe-sample-api-to-sample-app.png)]({{base_path}}/assets/img/administer/global-keymanager/subscribe-sample-api-to-sample-app.png)
+    ![Subscribe SampleAPI to SampleApp]({{base_path}}/assets/img/administer/global-keymanager/subscribe-sample-api-to-sample-app.png)
 
 16. [Try Out the API]({{base_path}}/api-developer-portal/invoke-apis/invoke-apis-using-tools/invoke-an-api-using-the-integrated-api-console/) with the access token generated using the Global Key Manager
 
@@ -105,11 +105,11 @@ Let's look at a scenario where a single access token generated for an applicatio
 
 17. Click **SWITCH DEV PORTALS** which is at the top of the navigation bar
 
-    [![Switch Developer Portal]({{base_path}}/assets/img/administer/global-keymanager/switch-dev-portal.png)]({{base_path}}/assets/img/administer/global-keymanager/switch-dev-portal.png)
+    ![Switch Developer Portal]({{base_path}}/assets/img/administer/global-keymanager/switch-dev-portal.png)
 
 18. Select the tenant which was created in Step 8 from the list of tenants displayed
 
-    [![Tenant List]({{base_path}}/assets/img/administer/global-keymanager/tenant-list.png)]({{base_path}}/assets/img/administer/global-keymanager/tenant-list.png)
+    ![Tenant List]({{base_path}}/assets/img/administer/global-keymanager/tenant-list.png)
 
 19. Select the SampleAPI and Subscribe to the SampleApp similar to Step 15
 

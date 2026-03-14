@@ -14,7 +14,7 @@ Follow the instructions given below to configure Asgardeo as a third-party Key M
 
     1. Navigate to **Applications** → **`+ New Application`**
 
-        [![asgardeo new application]({{base_path}}/assets/img/administer/asgardeo-newapplication.png)]({{base_path}}/assets/img/administer/asgardeo-newapplication.png)
+        ![asgardeo new application]({{base_path}}/assets/img/administer/asgardeo-newapplication.png)
 
     2. **Create** a **Standard-Based Application** with the following Name and Protocol.
 
@@ -22,23 +22,23 @@ Follow the instructions given below to configure Asgardeo as a third-party Key M
         |--------------------|----------------------------|
         | APIM-Management-App | OAuth 2.0 + OpenID Connect |
 
-        [![asgardeo select application]({{base_path}}/assets/img/administer/asgardeo-select-application.png)]({{base_path}}/assets/img/administer/asgardeo-select-application.png)
+        ![asgardeo select application]({{base_path}}/assets/img/administer/asgardeo-select-application.png)
 
-        [![asgardeo application details]({{base_path}}/assets/img/administer/asgardeo-application-details.png)]({{base_path}}/assets/img/administer/asgardeo-application-details.png)
+        ![asgardeo application details]({{base_path}}/assets/img/administer/asgardeo-application-details.png)
 
     3. In the page that follows, make note of the **Client ID** and **Client secret** found under **Protocol**.
 
-        [![asgardeo note client id secret]({{base_path}}/assets/img/administer/asgardeo-protocol-id-secret.png)]({{base_path}}/assets/img/administer/asgardeo-protocol-id-secret.png) 
+        ![asgardeo note client id secret]({{base_path}}/assets/img/administer/asgardeo-protocol-id-secret.png) 
 
 3. Authorize the Management OAuth Application to use the required Management APIs.
 
     1. Navigate to  **API Authorization** → **`+ Authorize API resource`** in the created application.
 
-        [![asgardeo application api authorization]({{base_path}}/assets/img/administer/asgardeo-application-api-authorization.png)]({{base_path}}/assets/img/administer/asgardeo-application-api-authorization.png)
+        ![asgardeo application api authorization]({{base_path}}/assets/img/administer/asgardeo-application-api-authorization.png)
 
     2. In the popped-up window, select the Management API **`OAuth DCR API`** as the **API Resource**, **`Select All`** for **Authorized Scopes**, and click on **Finish**.  
 
-        [![asgardeo authorize dcr api]({{base_path}}/assets/img/administer/asgardeo-authorize-dcr-api.png)]({{base_path}}/assets/img/administer/asgardeo-authorize-dcr-api.png)
+        ![asgardeo authorize dcr api]({{base_path}}/assets/img/administer/asgardeo-authorize-dcr-api.png)
 
         !!! note
             If the required API Resource doesn't appear, please allow a few moments for the API Resources list to finish loading. Reload the page if the issue persists.   
@@ -53,7 +53,7 @@ Follow the instructions given below to configure Asgardeo as a third-party Key M
 4. Create an API Resource that serves as a global container for the scopes defined in WSO2 API Manager.
     1. Navigate to **Resources** → **API Resources** → **`+ New API Resource`**
 
-        [![asgardeo new api resource]({{base_path}}/assets/img/administer/asgardeo-new-api-resource.png)]({{base_path}}/assets/img/administer/asgardeo-new-api-resource.png)
+        ![asgardeo new api resource]({{base_path}}/assets/img/administer/asgardeo-new-api-resource.png)
 
     2. Enter a unique **Identifier** and **Display Name** (Example shown below). Click on **Next**.
 
@@ -61,13 +61,13 @@ Follow the instructions given below to configure Asgardeo as a third-party Key M
         |-------------------------------|----------------------------|
         | /api/server/v1/scope-resource | APIM_GLOBAL_SCOPES         |
 
-        [![asgardeo create api resource]({{base_path}}/assets/img/administer/asgardeo-create-api-resource.png)]({{base_path}}/assets/img/administer/asgardeo-create-api-resource.png)
+        ![asgardeo create api resource]({{base_path}}/assets/img/administer/asgardeo-create-api-resource.png)
     
     3. On the **Scopes** page that appears next, click **Next**. No scopes need to be added. 
 
     4. On the **Authorization** page that appears next, click on **Create** ensuring that **Requires authorization** is enabled. 
 
-        [![asgardeo authorize api resource]({{base_path}}/assets/img/administer/asgardeo-authorize-api-resource.png)]({{base_path}}/assets/img/administer/asgardeo-authorize-api-resource.png)
+        ![asgardeo authorize api resource]({{base_path}}/assets/img/administer/asgardeo-authorize-api-resource.png)
 
 ## Step 2 - Configure WSO2 API Manager
 
@@ -77,14 +77,14 @@ Follow the instructions given below to configure Asgardeo as a third-party Key M
 2. Add Asgardeo as a Key Manager
     1. Navigate to **Key Managers** → **`Add Key Manager`**.
 
-        [![asgardeo new key manager]({{base_path}}/assets/img/administer/asgardeo-new-key-manager.png)]({{base_path}}/assets/img/administer/asgardeo-new-key-manager.png)
+        ![asgardeo new key manager]({{base_path}}/assets/img/administer/asgardeo-new-key-manager.png)
 
     2. Under **General Details** and **Key Manager Type**, provide the following:
         - **Name**: A unique name for the Key Manager (e.g., AsgardeoKM)
         - **Display Name**: A user-friendly name (e.g., Asgardeo)
         - **Key Manager Type**: Asgardeo
 
-        [![asgardeo general details]({{base_path}}/assets/img/administer/asgardeo-general-details.png)]({{base_path}}/assets/img/administer/asgardeo-general-details.png)
+        ![asgardeo general details]({{base_path}}/assets/img/administer/asgardeo-general-details.png)
 
     3. Under **Key Manager Endpoints**,
         - Provide the **Well-Known URL**:  
@@ -92,7 +92,7 @@ Follow the instructions given below to configure Asgardeo as a third-party Key M
         - Click on the **Import** button to populate the endpoint fields automatically
         - Manually provide **Scope Management Endpoint**: none
 
-        [![asgardeo endpoint details]({{base_path}}/assets/img/administer/asgardeo-endpoint-details.png)]({{base_path}}/assets/img/administer/asgardeo-endpoint-details.png)
+        ![asgardeo endpoint details]({{base_path}}/assets/img/administer/asgardeo-endpoint-details.png)
 
     4. Under **Grant Types**, review the auto-populated list and remove any grant types you do not wish to support.
 

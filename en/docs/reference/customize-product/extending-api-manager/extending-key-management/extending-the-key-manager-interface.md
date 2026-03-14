@@ -4,7 +4,7 @@ In a typical WSO2 API Manager (WSO2 API-M) deployment, different components talk
 
 For instance, after creating an application in the Developer Portal, subscribers would click on the `Generate Keys` button to register an application. 
 
-[![Generate Keys]({{base_path}}/assets/img/learn/extensions/key-manager-interface/generate-keys-button.png)]({{base_path}}/assets/img/learn/extensions/key-manager-interface/generate-keys-button.png)
+![Generate Keys]({{base_path}}/assets/img/learn/extensions/key-manager-interface/generate-keys-button.png)
 
 -   At this point, the Developer Portal talks to the **KeyManager** interface to create an *OAuth client* and get the *Consumer Key/Secret* and the *Application Access token*.
 

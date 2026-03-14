@@ -19,7 +19,7 @@ The default rate limiting tiers are as follows:
 2.  Click **Application Policies** under the **Rate Limiting Policies** section to see the set of existing rate limiting tiers.
 3.  To add a new tier, click **Add Policy**.
 
-    [![Add application policy page]({{base_path}}/assets/img/learn/add-new-application-policy.png)]({{base_path}}/assets/img/learn/add-new-application-policy.png)
+    ![Add application policy page]({{base_path}}/assets/img/learn/add-new-application-policy.png)
 
 4.  Fill in the required details and click **Save**.
 

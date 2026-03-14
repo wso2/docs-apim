@@ -126,10 +126,10 @@ Follow the instructions below to configure Kerberos Grant using the Identity Se
             2.  Fill in the form that appears. For the **Allowed Grant
                 Types** you can disable the ones you do not require or wish
                 to block. Select the **kerberos** grant type as an allowed grant type.
-                [![Register new OAuth app]({{base_path}}/assets/img/learn/register-new-oauth-app.png)]({{base_path}}/assets/img/learn/register-new-oauth-app.png)
+                ![Register new OAuth app]({{base_path}}/assets/img/learn/register-new-oauth-app.png)
             3.  Click **Add**. The following information is added to your
                 service provider.
-                [![OAuth SP clientid clientsecret]({{base_path}}/assets/img/learn/oauth-sp-clientid-clientsecret.png)]({{base_path}}/assets/img/learn/oauth-sp-clientid-clientsecret.png)
+                ![OAuth SP clientid clientsecret]({{base_path}}/assets/img/learn/oauth-sp-clientid-clientsecret.png)
 
                 -   **OAuth Client Key** - This is the client key of the
                     service provider, which will be checked for
@@ -170,7 +170,7 @@ Follow the instructions below to configure Kerberos Grant using the Identity Se
 
         -   **Alias** : <https://192.168.53.12:9443/oauth/token>
 
-        [![add-new-idp]({{base_path}}/assets/img/learn/add-new-idp.png)]({{base_path}}/assets/img/learn/add-new-idp.png)
+        ![add-new-idp]({{base_path}}/assets/img/learn/add-new-idp.png)
 
     3.  Expand the **Federated Authenticators** tab, and then the **IWA
         Kerberos Configuration** tab. Enter the required details as
@@ -179,7 +179,7 @@ Follow the instructions below to configure Kerberos Grant using the Identity Se
             <HTTP/idp.example.com@EXAMPLE.COM>
         -   **Server Principal Password:** <password\>
 
-        [![Configure Kerberos]({{base_path}}/assets/img/learn/configure-kerberos.png)]({{base_path}}/assets/img/learn/configure-kerberos.png)
+        ![Configure Kerberos]({{base_path}}/assets/img/learn/configure-kerberos.png)
         
         <a name="step7"></a>
 

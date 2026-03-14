@@ -8,7 +8,7 @@ This tutorial will guide you to create a [SSE Streaming API]({{base_path}}/manag
 
 2.  Click **CREATE API**, go to **Streaming API**, and click **SSE API**.
 
-    [![Design New Streaming API]({{base_path}}/assets/img/design/create-api/streaming-api/design-new-streaming-api.png)]({{base_path}}/assets/img/design/create-api/streaming-api/design-new-streaming-api.png)
+    ![Design New Streaming API]({{base_path}}/assets/img/design/create-api/streaming-api/design-new-streaming-api.png)
 
     <html><div class="admonition note">
       <p class="admonition-title">Note</p>
@@ -53,7 +53,7 @@ This tutorial will guide you to create a [SSE Streaming API]({{base_path}}/manag
 
      The overview page of the created SSE API appears.
 
-     [![Overview of SSE API]({{base_path}}/assets/img/tutorials/streaming-api/sse-api-overview.png)]({{base_path}}/assets/img/tutorials/streaming-api/sse-api-overview.png)
+     ![Overview of SSE API]({{base_path}}/assets/img/tutorials/streaming-api/sse-api-overview.png)
 
 5. Attach business plans to the SSE API.
 
@@ -61,7 +61,7 @@ This tutorial will guide you to create a [SSE Streaming API]({{base_path}}/manag
 
       2. Select **AsyncGold** and click **Save**.
 
-           [![Subscriptions of SSE API]({{base_path}}/assets/img/tutorials/streaming-api/sse-api-subscriptions.png)]({{base_path}}/assets/img/tutorials/streaming-api/sse-api-subscriptions.png)
+           ![Subscriptions of SSE API]({{base_path}}/assets/img/tutorials/streaming-api/sse-api-subscriptions.png)
 
 Now, you have created and configured the SSE API successfully.
 
@@ -108,11 +108,11 @@ Now, you have created and configured the SSE API successfully.
            </p>
            </div>
 
-         [![Key Generation Wizard]({{base_path}}/assets/img/tutorials/streaming-api/streaming-api-key-generation-wizard.png)]({{base_path}}/assets/img/tutorials/streaming-api/streaming-api-key-generation-wizard.png)
+         ![Key Generation Wizard]({{base_path}}/assets/img/tutorials/streaming-api/streaming-api-key-generation-wizard.png)
 
     2. Copy the authorization token that appears, and click **FINISH**.
 
-         [![Authorization Token]({{base_path}}/assets/img/tutorials/streaming-api/streaming-api-subscription-token.png)]({{base_path}}/assets/img/tutorials/streaming-api/streaming-api-subscription-token.png)
+         ![Authorization Token]({{base_path}}/assets/img/tutorials/streaming-api/streaming-api-subscription-token.png)
 
 4. Try out the operations.
      

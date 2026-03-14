@@ -2,7 +2,7 @@
 
 WSO2 API Manager provides a unified platform for managing MCP Servers, enabling you to transform APIs into AI-ready tools and govern their lifecycle. With a centralized control plane, you can create, discover, and manage MCP Servers efficiently—streamlining workflows for both API developers and AI agent builders.
 
-  [![API Manager MCP Architecture]({{base_path}}/assets/img/mcp-gateway/mcp-architecture.png)]({{base_path}}/assets/img/mcp-gateway/mcp-architecture.png)
+  ![API Manager MCP Architecture]({{base_path}}/assets/img/mcp-gateway/mcp-architecture.png)
 
 
 !!! note

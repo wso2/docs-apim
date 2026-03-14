@@ -52,16 +52,16 @@ Share an application with multiple users who are in the same group or who are in
 
 2. Click **Create Account**.
       
-     [![Create Account in Developer Portal]({{base_path}}/assets/img/learn/application-sharing-signup.png)]({{base_path}}/assets/img/learn/application-sharing-signup.png)
+     ![Create Account in Developer Portal]({{base_path}}/assets/img/learn/application-sharing-signup.png)
 
 3.  Sign up to the API Developer Portal as two different users (e.g., user1, user2) belonging to the same organization.
     - Provide the username and proceed click **PROCEED TO SELF REGISTER** to Self Register.
     
-    [![Application Sharing Username]({{base_path}}/assets/img/learn/application-sharing-username.png)]({{base_path}}/assets/img/learn/application-sharing-username.png)
+    ![Application Sharing Username]({{base_path}}/assets/img/learn/application-sharing-username.png)
 
     - Provide the user details and click **REGISTER**.
      
-    [![Application Sharing Signup Form]({{base_path}}/assets/img/learn/application-sharing-signup-form.png)]({{base_path}}/assets/img/learn/application-sharing-signup-form.png)
+    ![Application Sharing Signup Form]({{base_path}}/assets/img/learn/application-sharing-signup-form.png)
         
 4.  Sign in as **user1** and add application **App\_A**.
 
@@ -70,7 +70,7 @@ Share an application with multiple users who are in the same group or who are in
     !!! note
         - You can enter one group ID or multiple group IDs based on the groups with which you wish to share the application.
 
-    [![Create an application]({{base_path}}/assets/img/learn/application-sharing.png)]({{base_path}}/assets/img/learn/application-sharing.png)
+    ![Create an application]({{base_path}}/assets/img/learn/application-sharing.png)
 
 ## Using application sharing
 
@@ -86,17 +86,17 @@ You can use application sharing as follows:
 
      You will see App_A that was added by **user1**.
     
-     [![Application list]({{base_path}}/assets/img/learn/application-sharing-sharedapp.png)]({{base_path}}/assets/img/learn/application-sharing-sharedapp.png)   
+     ![Application list]({{base_path}}/assets/img/learn/application-sharing-sharedapp.png)   
    
 4.  Subscribe to the default API using App\_A.
      
-     [![Subscribe to the default API]({{base_path}}/assets/img/learn/application-sharing-subscribe.png)]({{base_path}}/assets/img/learn/application-sharing-subscribe.png) 
+     ![Subscribe to the default API]({{base_path}}/assets/img/learn/application-sharing-subscribe.png) 
 
 5.  Sign in to the API Developer Portal as **user1.** 
 
      The subscriptions for App\_A by **user2** will be displayed.
     
-     [![Subscription list]({{base_path}}/assets/img/learn/application-shared-subscriptions.png)]({{base_path}}/assets/img/learn/application-shared-subscriptions.png) 
+     ![Subscription list]({{base_path}}/assets/img/learn/application-shared-subscriptions.png) 
 
 ## Extending the group ID extractor
 

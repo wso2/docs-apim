@@ -30,11 +30,11 @@ the attached OpenAPI definition (a.k.a Swagger definition) files]({{base_path}}/
 
       - Customer info API
    
-           [![Customer info API]({{base_path}}/assets/img/learn/design-api/create-api-product/customer-info-api.png)]({{base_path}}/assets/img/learn/design-api/create-api-product/customer-info-api.png)
+           ![Customer info API]({{base_path}}/assets/img/learn/design-api/create-api-product/customer-info-api.png)
 
       - Leasing API
    
-           [![Leasing API]({{base_path}}/assets/img/learn/design-api/create-api-product/leasing-api.png)]({{base_path}}/assets/img/learn/design-api/create-api-product/leasing-api.png)
+           ![Leasing API]({{base_path}}/assets/img/learn/design-api/create-api-product/leasing-api.png)
 
       <html>
       <div class="admonition note">
@@ -53,7 +53,7 @@ the attached OpenAPI definition (a.k.a Swagger definition) files]({{base_path}}/
 
 3. Click **API Products** on the left menu, and then click on **API Product**.
 
-    [![Create API Product Menu]({{base_path}}/assets/img/learn/design-api/create-api-product/create-api-product.png)]({{base_path}}/assets/img/learn/design-api/create-api-product/create-api-product.png)
+    ![Create API Product Menu]({{base_path}}/assets/img/learn/design-api/create-api-product/create-api-product.png)
 
     The **Create an API Product** page appears.
 
@@ -89,13 +89,13 @@ the attached OpenAPI definition (a.k.a Swagger definition) files]({{base_path}}/
      </table>
      </html>
 
-     [![Define an API product]({{base_path}}/assets/img/learn/design-api/create-api-product/define-api-product.png)]({{base_path}}/assets/img/learn/design-api/create-api-product/define-api-product.png)
+     ![Define an API product]({{base_path}}/assets/img/learn/design-api/create-api-product/define-api-product.png)
     
 5.  Click **NEXT**.
 
      The Add Resources page appears. 
 
-     [![Resources page appears]({{base_path}}/assets/img/learn/design-api/create-api-product/add-resources.png)]({{base_path}}/assets/img/learn/design-api/create-api-product/add-resources.png)
+     ![Resources page appears]({{base_path}}/assets/img/learn/design-api/create-api-product/add-resources.png)
     
      - The leftmost pane shows the available list of APIs. 
      - The central pane lists the available resources of a given API, which is selected in the left pane. 
@@ -107,14 +107,14 @@ the attached OpenAPI definition (a.k.a Swagger definition) files]({{base_path}}/
      2. Select the `GET /customers` and `GET /customers/{customerId}` resources in the central pane.
      3. Click **Add Selected** to add these resources to the right pane so that you can use them to create the API Product.
 
-     [![Add resources from the customer-info API]({{base_path}}/assets/img/learn/design-api/create-api-product/select-customer-info-resources.png)]({{base_path}}/assets/img/learn/design-api/create-api-product/select-customer-info-resources.png)
+     ![Add resources from the customer-info API]({{base_path}}/assets/img/learn/design-api/create-api-product/select-customer-info-resources.png)
 
 7. Add resources from the `leasing` API.
      1. Click on the `leasing` API in the left pane.
      2. Select the `GET /assets/{assetId}` and `POST /assets` resources in the central pane.
      3. Click **Add Selected** to add these resources to the right pane so that you can use them to create the API Product.
 
-     [![Add resources from the leasing API]({{base_path}}/assets/img/learn/design-api/create-api-product/select-leasing-resources.png)]({{base_path}}/assets/img/learn/design-api/create-api-product/select-leasing-resources.png)
+     ![Add resources from the leasing API]({{base_path}}/assets/img/learn/design-api/create-api-product/select-leasing-resources.png)
     
 8. Create the API Product.
     
@@ -122,7 +122,7 @@ the attached OpenAPI definition (a.k.a Swagger definition) files]({{base_path}}/
    
            The API Product will appear in the API Publisher, as shown below.
 
-           [![API Product in the API Publisher]({{base_path}}/assets/img/learn/design-api/create-api-product/api-product-publisher-details.png)]({{base_path}}/assets/img/learn/design-api/create-api-product/api-product-publisher-details.png)
+           ![API Product in the API Publisher]({{base_path}}/assets/img/learn/design-api/create-api-product/api-product-publisher-details.png)
 
      - If you want to create, deploy and publish the API Product, click **Create & Publish**. 
      
@@ -135,7 +135,7 @@ the attached OpenAPI definition (a.k.a Swagger definition) files]({{base_path}}/
            
            In this case, the API Product will also appear in the Developer Portal, as shown below. 
 
-           [![API Product in the Developer Portal]({{base_path}}/assets/img/learn/design-api/create-api-product/api-product-portal-listing.png)]({{base_path}}/assets/img/learn/design-api/create-api-product/api-product-portal-listing.png)
+           ![API Product in the Developer Portal]({{base_path}}/assets/img/learn/design-api/create-api-product/api-product-portal-listing.png)
 
 9.  [Deploy the API Product]({{base_path}}/api-design-manage/deploy-and-publish/deploy-on-gateway/deploy-api/deploy-an-api).
      
@@ -148,7 +148,7 @@ the attached OpenAPI definition (a.k.a Swagger definition) files]({{base_path}}/
 
 10.  Publish the API Product to make it available in the Developer Portal.
      
-     [![Publish API Product]({{base_path}}/assets/img/learn/design-api/create-api-product/publish-api-product.png)]({{base_path}}/assets/img/learn/design-api/create-api-product/publish-api-product.png)
+     ![Publish API Product]({{base_path}}/assets/img/learn/design-api/create-api-product/publish-api-product.png)
 
 11.  Sign in to the Developer Portal to subscribe and consume the API Product in the same way you would do for an API. 
      

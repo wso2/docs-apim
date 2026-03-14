@@ -8,7 +8,7 @@ Follow the instructions below to configure Okta as a third-party Key Manager:
 
 1. Navigate to the [Okta sign up page](https://developer.okta.com/signup/) and singup to **Workforce Identity Cloud**. We have created an account in **Developer Edition** for this.
 
-     [![Okta signup]({{base_path}}/assets/img/administer/okta-signup.png)]({{base_path}}/assets/img/administer/okta-signup.png)
+     ![Okta signup]({{base_path}}/assets/img/administer/okta-signup.png)
 
      Create an Okta account and get the Okta instance URL.
 
@@ -23,7 +23,7 @@ Follow the instructions below to configure Okta as a third-party Key Manager:
     
          Alternatively, you can use the default server.
        
-         [![Okta authorization server]({{base_path}}/assets/img/administer/okta-authorization-server.png)]({{base_path}}/assets/img/administer/okta-authorization-server.png)
+         ![Okta authorization server]({{base_path}}/assets/img/administer/okta-authorization-server.png)
 
          <a name="step12c"></a>
 
@@ -35,9 +35,9 @@ Follow the instructions below to configure Okta as a third-party Key Manager:
        
          3. Select **Default Scope**.
 
-             [![Okta default scope]({{base_path}}/assets/img/administer/okta-default-scope.png)]({{base_path}}/assets/img/administer/okta-default-scope.png)
+             ![Okta default scope]({{base_path}}/assets/img/administer/okta-default-scope.png)
 
-             [![Okta scope list]({{base_path}}/assets/img/administer/okta-scope-list.png)]({{base_path}}/assets/img/administer/okta-scope-list.png)
+             ![Okta scope list]({{base_path}}/assets/img/administer/okta-scope-list.png)
 
 3. Get the API key.
 
@@ -45,7 +45,7 @@ Follow the instructions below to configure Okta as a third-party Key Manager:
     2. Click **Create Token** and enter a name for the token.
     3. Copy the token value and keep it for future use.
 
-         [![Okta token]({{base_path}}/assets/img/administer/okta-token.png)]({{base_path}}/assets/img/administer/okta-token.png)
+         ![Okta token]({{base_path}}/assets/img/administer/okta-token.png)
 
 4. Create access policies.
 
@@ -56,7 +56,7 @@ Follow the instructions below to configure Okta as a third-party Key Manager:
     3. Click **Access Policies** and then click **Add New Access Policy**
     4. Enter the required information.
         
-        [![Okta access policy]({{base_path}}/assets/img/administer/okta-access-policy.png)]({{base_path}}/assets/img/administer/okta-access-policy.png)
+        ![Okta access policy]({{base_path}}/assets/img/administer/okta-access-policy.png)
 
     5. Click **Create Policy** to save the policy.
 
@@ -70,7 +70,7 @@ Follow the instructions below to configure Okta as a third-party Key Manager:
      2. Select the name of an authorization server, and select **Access Policies**.
      3. Select the name of an access policy, and click **Add Rule**.
 
-         [![Okta rule]({{base_path}}/assets/img/administer/okta-rule.png)]({{base_path}}/assets/img/administer/okta-rule.png)
+         ![Okta rule]({{base_path}}/assets/img/administer/okta-rule.png)
 
     4. Enter the requested information.
     5. Click **Create Rule** to save the rule.
@@ -82,7 +82,7 @@ Follow the instructions below to configure Okta as a third-party Key Manager:
     1. Click **Applications** and then click **create app integration**.
     2. Click **API Services** and then click **Next**.
 
-         [![okta add application introduction]({{base_path}}/assets/img/administer/okta-add-application-intro.png)]({{base_path}}/assets/img/administer/okta-add-application-intro.png)
+         ![okta add application introduction]({{base_path}}/assets/img/administer/okta-add-application-intro.png)
 
          <a name="section6"></a>
 
@@ -95,7 +95,7 @@ Follow the instructions below to configure Okta as a third-party Key Manager:
     2. Select the authorization server.
     3. Note down the settings related to the Authorization server.
 
-     [![Okta authorization server settings]({{base_path}}/assets/img/administer/okta-authorization-server-settings.png)]({{base_path}}/assets/img/administer/okta-authorization-server-settings.png)
+     ![Okta authorization server settings]({{base_path}}/assets/img/administer/okta-authorization-server-settings.png)
 
 
 ## Step 2 - Configure WSO2 API Manager
@@ -112,11 +112,11 @@ Follow the instructions below to configure Okta as a third-party Key Manager:
 
      1. Click **Key Managers** and then click **Add Key Manager**.
 
-         [![Add new Key Manager]({{base_path}}/assets/img/administer/add-key-manager.png)]({{base_path}}/assets/img/administer/add-key-manager.png)
+         ![Add new Key Manager]({{base_path}}/assets/img/administer/add-key-manager.png)
 
      2. Add the following Key Manager configurations.
 
-           [![Okta Configuration]({{base_path}}/assets/img/administer/okta-admin-configuration.png)]({{base_path}}/assets/img/administer/okta-admin-configuration.png)
+           ![Okta Configuration]({{base_path}}/assets/img/administer/okta-admin-configuration.png)
 
         !!! note "Auto-filling Key Manager configurations"
             The Key Manager configurations can be auto-filled by clicking the **Import** button after providing the well-known endpoint of Okta. The well-known-URL is the **Metadata URI**, under **Settings** section.
@@ -360,7 +360,7 @@ Follow the instructions below to configure Okta as a third-party Key Manager:
 3. Create a new application or use the default application.
 4. Click **Sandbox Keys**.
 
-     [![Okta Developer Portal generate keys]({{base_path}}/assets/img/administer/okta-devportal-generate-keys.png)]({{base_path}}/assets/img/administer/okta-devportal-generate-keys.png)
+     ![Okta Developer Portal generate keys]({{base_path}}/assets/img/administer/okta-devportal-generate-keys.png)
 
 5. Select the **Response Type**.
 

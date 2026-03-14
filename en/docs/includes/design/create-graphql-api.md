@@ -38,7 +38,7 @@ Let's use the Star Wars sample backend server as the backend for the GraphQL API
 
 2. Click **Create API**, go to **GraphQL** and then click **Create a GraphQL API**.
 
-     [![Create GraphQL Schema Option](/en/4.6.0/assets/img/learn/create-graphql-schema-option.png)](/en/4.6.0/assets/img/learn/create-graphql-schema-option.png)
+     ![Create GraphQL Schema Option](/en/4.6.0/assets/img/learn/create-graphql-schema-option.png)
 
 3. Import the schema by dragging and dropping the file or by uploading the file, and click **Next**.
 
@@ -136,7 +136,7 @@ Let's use the Star Wars sample backend server as the backend for the GraphQL API
 
     1. Click **Show More** under the **Operations** section in the **Overview** page to navigate to the operations page.
 
-         [![GraphQL API operations](/en/4.6.0/assets/img/learn/operations.png)](/en/4.6.0/assets/img/learn/operations.png)  
+         ![GraphQL API operations](/en/4.6.0/assets/img/learn/operations.png)  
      
     2. Update the operations as required.
          
@@ -148,7 +148,7 @@ Let's use the Star Wars sample backend server as the backend for the GraphQL API
 
             1. Click **Local Scopes**, and then click **Create Scopes**.
 
-                [![Add a scope page](/en/4.6.0/assets/img/learn/add-scope.png)](/en/4.6.0/assets/img/learn/add-scope.png)
+                ![Add a scope page](/en/4.6.0/assets/img/learn/add-scope.png)
 
             2. Enter the required details.
 
@@ -166,13 +166,13 @@ Let's use the Star Wars sample backend server as the backend for the GraphQL API
                    | `FilmSubscriber` | `FilmSubscriber` |
                    | `adminScope` | `admin` |
 
-                   [![Create a scope](/en/4.6.0/assets/img/learn/create-scope.png)](/en/4.6.0/assets/img/learn/create-scope.png)
+                   ![Create a scope](/en/4.6.0/assets/img/learn/create-scope.png)
 
             3. Press `Enter` to add each role. 
 
             4. Click **Save**.
 
-                 [![List of added scopes](/en/4.6.0/assets/img/learn/starwars-scope-list.png)](/en/4.6.0/assets/img/learn/starwars-scope-list.png)
+                 ![List of added scopes](/en/4.6.0/assets/img/learn/starwars-scope-list.png)
 
          2. **Define the operation level configurations**.
 
@@ -180,7 +180,7 @@ Let's use the Star Wars sample backend server as the backend for the GraphQL API
             
             2. Click **Operation Level** to apply Rate Limiting for operations.
 
-                [![Update GraphQL API operations](/en/4.6.0/assets/img/learn/update-operations.png)](/en/4.6.0/assets/img/learn/update-operations.png) 
+                ![Update GraphQL API operations](/en/4.6.0/assets/img/learn/update-operations.png) 
 
             3. Select a Rate Limiting Policy, scope, and enable or disable security for each of the operations. 
 
@@ -195,4 +195,4 @@ Let's use the Star Wars sample backend server as the backend for the GraphQL API
 
                  If you check the list of scopes, it should appear as follows:
 
-                 [![Scope list](/en/4.6.0/assets/img/learn/scope-list.png)](/en/4.6.0/assets/img/learn/scope-list.png)
+                 ![Scope list](/en/4.6.0/assets/img/learn/scope-list.png)

@@ -40,7 +40,7 @@ To apply rate limiting to your Streaming API:
 
 Applications subscribing to your API will be limited by the event count, duration, or subscription limits defined in their chosen tier.
 
-[![Streaming API Business Plans]({{base_path}}/assets/img/design/rate-limiting/stream-api-business-plans.png)]({{base_path}}/assets/img/design/rate-limiting/stream-api-business-plans.png)
+![Streaming API Business Plans]({{base_path}}/assets/img/design/rate-limiting/stream-api-business-plans.png)
 
 ## Default Streaming Tiers
 

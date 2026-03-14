@@ -219,7 +219,7 @@ Follow the instructions below to add a customized authorization header for an AP
 
 2.  When [creating]({{base_path}}/api-design-manage/design/create-api/create-rest-api/create-a-rest-api/) or updating an API, define the customized authorization header in the **Runtime** tab under **Develop -> API Configurations**.
 
-    [![Custom Auth Header]({{base_path}}/assets/img/learn/custom-auth-header-publisher.png)]({{base_path}}/assets/img/learn/custom-auth-header-publisher.png)
+    ![Custom Auth Header]({{base_path}}/assets/img/learn/custom-auth-header-publisher.png)
 
 3.  Save and Deploy the API.
 
@@ -265,4 +265,4 @@ Before you start, sign in to the API Publisher and deploy the sample API (`Pizza
 
 Note that the customized authorization header appears in the Developer Portal UI as well.
 
-[![Customized Auth Header]({{base_path}}/assets/img/learn/auth_header.png)]({{base_path}}/assets/img/learn/auth_header.png)
+![Customized Auth Header]({{base_path}}/assets/img/learn/auth_header.png)

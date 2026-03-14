@@ -25,13 +25,13 @@ Follow the instructions below to prevent or turn off API suspension:
 
 3. Click on the cogwheel, which is inline with the endpoint that you need to re-configure, and update the endpoint related configurations as required.
 
-     [![Link to advanced endpoint configurations]({{base_path}}/assets/img/learn/prevent-endpoint-suspension.png)]({{base_path}}/assets/img/learn/prevent-endpoint-suspension.png)
+     ![Link to advanced endpoint configurations]({{base_path}}/assets/img/learn/prevent-endpoint-suspension.png)
 
 4. Configure the **Endpoint Suspension State**. 
 
      Set the value for **Initial Duration** and **Max Duration** to zero to turn off suspension.
 
-    [![Set the Endpoint Suspension State]({{base_path}}/assets/img/learn/initial-duration-and-max-duration.png)]({{base_path}}/assets/img/learn/initial-duration-and-max-duration.png)
+    ![Set the Endpoint Suspension State]({{base_path}}/assets/img/learn/initial-duration-and-max-duration.png)
 
 5.  Click **Save** and re-publish the API.
 

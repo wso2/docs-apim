@@ -47,7 +47,7 @@ Follow the instructions below to enable CORS response headers globally. Once thi
 
 3.  Enable the switch under **CORS Configuration** to enable CORS for the API.
 
-     [![{base_path}}/assets/img/learn/enable-cors.png]({{base_path}}/assets/img/learn/enable-cors.png)]({{base_path}}/assets/img/learn/enable-cors.png)
+     ![{base_path}}/assets/img/learn/enable-cors.png]({{base_path}}/assets/img/learn/enable-cors.png)
 
      After you enable CORS, you will be able to see the CORS response header configuration section. 
 

@@ -192,7 +192,7 @@ Before you begin, make sure you do the following.
     
     2. Click **Add New Role**.
 
-         [![Add role for Okta in API-M]({{base_path}}/assets/img/learn/okta-apim-add-role.png)]({{base_path}}/assets/img/learn/okta-apim-add-role.png)
+         ![Add role for Okta in API-M]({{base_path}}/assets/img/learn/okta-apim-add-role.png)
    
     3.  Add a new role based on the following details and click **Finish**.
 
@@ -225,11 +225,11 @@ Before you begin, make sure you do the following.
 
     3. Click **Add Scope Mappings**.
      
-         [![Okta API-M role permission mapping]({{base_path}}/assets/img/learn/okta-apim-role-pemission-mapping-admin-ui.png)]({{base_path}}/assets/img/learn/okta-apim-role-pemission-mapping-admin-ui.png) 
+         ![Okta API-M role permission mapping]({{base_path}}/assets/img/learn/okta-apim-role-pemission-mapping-admin-ui.png) 
     
     4. Enter `okta_role` as the role name and click **Next**.
 
-         [![Edit Okta API-M role permission mapping]({{base_path}}/assets/img/learn/okta-apim-role-permission-mapping-admin-ui-edit1.png)]({{base_path}}/assets/img/learn/okta-apim-role-permission-mapping-admin-ui-edit1.png) 
+         ![Edit Okta API-M role permission mapping]({{base_path}}/assets/img/learn/okta-apim-role-permission-mapping-admin-ui-edit1.png) 
 
     5. Go to **Select permissions**, click  **Custom permissions**, and start assigning the permissions as shown below. 
     
@@ -435,7 +435,7 @@ Before you begin, make sure you do the following.
          </tr>
          </table>
 
-        [![Okta API-M role permission mapping]({{base_path}}/assets/img/learn/okta-apim-role-permission-mapping-admin-ui-edit2.png)]({{base_path}}/assets/img/learn/okta-apim-role-permission-mapping-admin-ui-edit2.png)
+        ![Okta API-M role permission mapping]({{base_path}}/assets/img/learn/okta-apim-role-permission-mapping-admin-ui-edit2.png)
 
     6. Click **Save** to save your changes.
 
@@ -449,11 +449,11 @@ Before you begin, make sure you do the following.
      
      3. Enter the Identity Provider's Name.  
 
-         [![Add an IDP for Okta SAML]({{base_path}}/assets/img/learn/okta-saml-add-idp.png)]({{base_path}}/assets/img/learn/okta-saml-add-idp.png) 
+         ![Add an IDP for Okta SAML]({{base_path}}/assets/img/learn/okta-saml-add-idp.png) 
 
      4. Expand **Federated Authenticators** -> **OAuth2/OpenID Connect Configuration** and add the following details.
         
-        [![API-M IDP OIDC details]({{base_path}}/assets/img/learn/okta-apim-idp-odic-details.png)]({{base_path}}/assets/img/learn/okta-apim-idp-odic-details.png)
+        ![API-M IDP OIDC details]({{base_path}}/assets/img/learn/okta-apim-idp-odic-details.png)
 
         <table>
         <colgroup>
@@ -517,7 +517,7 @@ Before you begin, make sure you do the following.
      
          Add the claim configurations as shown in the image below.
          
-         [![Okta API-M IDP claims details]({{base_path}}/assets/img/learn/okta-apim-idp-claims-details.png)]({{base_path}}/assets/img/learn/okta-apim-idp-claims-details.png) 
+         ![Okta API-M IDP claims details]({{base_path}}/assets/img/learn/okta-apim-idp-claims-details.png) 
 
      6. Expand **Role configuration** and add `okta_role` as shown below. 
      
@@ -550,11 +550,11 @@ Before you begin, make sure you do the following.
         !!! warning
             You need to have signed in to the Developer Portal and Publisher at least once for the two service providers to appear, as it is created during the first sign in.
 
-        [![Okta API-M role OIDC SP]({{base_path}}/assets/img/learn/okta-apim-role-oidc-sp.png)]({{base_path}}/assets/img/learn/okta-apim-role-oidc-sp.png)
+        ![Okta API-M role OIDC SP]({{base_path}}/assets/img/learn/okta-apim-role-oidc-sp.png)
 
     3. Expand **Local & Outbound Authentication Configuration** under **Federated Authentication** and select the identity provider you created.
 
-         [![Okta API-M role OIDC SP outbound]({{base_path}}/assets/img/learn/okta-apim-role-oidc-sp-outbound.png)]({{base_path}}/assets/img/learn/okta-apim-role-oidc-sp-outbound.png)
+         ![Okta API-M role OIDC SP outbound]({{base_path}}/assets/img/learn/okta-apim-role-oidc-sp-outbound.png)
     
     4. Repeat the latter mentioned two steps for `apim_devportal`.
 

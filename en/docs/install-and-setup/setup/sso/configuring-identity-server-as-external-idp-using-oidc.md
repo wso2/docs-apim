@@ -43,7 +43,7 @@ WSO2 API Manager uses the OIDC Single Sign-On feature by default. This document 
 
     1.  Expand the **Claim Configuration** section. Add the **http://wso2.org/claims/groups** as mandatory claim. In addition, add the **http://wso2.org/claims/username** claim as the **Subject Claim URI**.
 
-        [![]({{base_path}}/assets/img/setup-and-install/claim-configuration-in-service-provider.png)]({{base_path}}/assets/img/setup-and-install/claim-configuration-in-service-provider.png)
+        ![]({{base_path}}/assets/img/setup-and-install/claim-configuration-in-service-provider.png)
 
     2.  Expand the **Inbound Authentication Configuration** section and configure **OAuth/OpenID Connect Configuration** with callback URL - `https://{apim-ip}:9443/commonauth`
 
@@ -51,7 +51,7 @@ WSO2 API Manager uses the OIDC Single Sign-On feature by default. This document 
 
             To enable a tenant-specific SSO with IS 5.10.0 for Publisher and the Developer Portal, enable the **Use tenant domain in local subject identifier** option under the **Local & Outbound Authentication Configuration** section.
 
-            [![enable-tenant-domain-in-local-sub-identifier]({{base_path}}/assets/img/setup-and-install/local-outbound-config.png)]({{base_path}}/assets/img/setup-and-install/local-outbound-config.png)
+            ![enable-tenant-domain-in-local-sub-identifier]({{base_path}}/assets/img/setup-and-install/local-outbound-config.png)
 
         !!! Note "Options available for **Local & Outbound Authentication Configuration** "
             
@@ -72,7 +72,7 @@ WSO2 API Manager uses the OIDC Single Sign-On feature by default. This document 
 
         1.  Click the **SaaS Application** option that appears after registering the service provider.
 
-        [![saas-configuration-in-service-provider]({{base_path}}/assets/img/setup-and-install/saas.png)]({{base_path}}/assets/img/setup-and-install/saas.png) 
+        ![saas-configuration-in-service-provider]({{base_path}}/assets/img/setup-and-install/saas.png) 
 
         If you do not select the **SaaS Application** option, only users in the current tenant domain will be allowed to login to the portals. You will need to register separate service providers for portals from each tenant.
 
@@ -104,7 +104,7 @@ WSO2 API Manager uses the OIDC Single Sign-On feature by default. This document 
 1. Navigate to the **OIDC Scopes** section under **Main** → **Manage** and list the available scopes.
 
 2. Click **Add Claims** for `openid` scope, click **Add OIDC Claim**, select `groups` claim from the dropdown and click on **Add**.
-   [![Add groups claim to the OIDC scope]({{base_path}}/assets/img/setup-and-install/update-oidc-scope.png)]({{base_path}}/assets/img/setup-and-install/update-oidc-scope.png)
+   ![Add groups claim to the OIDC scope]({{base_path}}/assets/img/setup-and-install/update-oidc-scope.png)
 
 ## Configure the API Manager
 
@@ -160,11 +160,11 @@ WSO2 API Manager uses the OIDC Single Sign-On feature by default. This document 
 
         The following image shows the sample values for OAuth2/OpenIDConnect Configurations:
 
-        [![sp]({{base_path}}/assets/img/setup-and-install/identity-provider-configuration-for-sso.png)]({{base_path}}/assets/img/setup-and-install/identity-provider-configuration-for-sso.png)
+        ![sp]({{base_path}}/assets/img/setup-and-install/identity-provider-configuration-for-sso.png)
 
     2.  Enable Just-in-Time Provisioning to provision the users in API Manager:
 
-        [![]({{base_path}}/assets/img/setup-and-install/jit-provisioning-for-sso.png)]({{base_path}}/assets/img/setup-and-install/jit-provisioning-for-sso.png)
+        ![]({{base_path}}/assets/img/setup-and-install/jit-provisioning-for-sso.png)
 
     3.  Add the following role mapping under the **Role Configuration** section:
     
@@ -187,7 +187,7 @@ WSO2 API Manager uses the OIDC Single Sign-On feature by default. This document 
         </tbody>
         </table>
 
-        [![]({{base_path}}/assets/img/setup-and-install/role-mapping-for-sso.png)]({{base_path}}/assets/img/setup-and-install/role-mapping-for-sso.png)
+        ![]({{base_path}}/assets/img/setup-and-install/role-mapping-for-sso.png)
 
         !!! Tip
             Instead of using the default internal roles, you can also create new roles in API Manager and map it to the provisioned users. 
@@ -210,7 +210,7 @@ WSO2 API Manager uses the OIDC Single Sign-On feature by default. This document 
     
         Also select **groups** as the **Role Claim URI**.
 
-    [![Claim mapping for sso]({{base_path}}/assets/img/setup-and-install/claim-mapping-for-sso.png)]({{base_path}}/assets/img/setup-and-install/claim-mapping-for-sso.png)
+    ![Claim mapping for sso]({{base_path}}/assets/img/setup-and-install/claim-mapping-for-sso.png)
 
 ### Step - 2 Configure the Service Provider
 
@@ -221,7 +221,7 @@ WSO2 API Manager uses the OIDC Single Sign-On feature by default. This document 
 
 2.  Expand the **Local & Outbound Authentication Configuration** section and select **Federated Authentication** as Authentication Type and select the name of the Identity Provider you created in previous step and update.
 
-    [![]({{base_path}}/assets/img/setup-and-install/local-and-outbound-authentication-configuration-for-sso.png)]({{base_path}}/assets/img/setup-and-install/local-and-outbound-authentication-configuration-for-sso.png)
+    ![]({{base_path}}/assets/img/setup-and-install/local-and-outbound-authentication-configuration-for-sso.png)
 
 3.  Repeat the same step for `apim_devportal` Service Provider as well.
 

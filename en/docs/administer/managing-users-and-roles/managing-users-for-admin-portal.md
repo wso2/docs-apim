@@ -16,17 +16,17 @@ In the latter mentioned situations, you need to create a new role permission map
 
 2.  Click **Main**, and then click **Add** under **Users and Roles**.
 
-    [![Add users and roles]({{base_path}}/assets/img/administer/add-users-and-roles.png)]({{base_path}}/assets/img/administer/add-users-and-roles.png)
+    ![Add users and roles]({{base_path}}/assets/img/administer/add-users-and-roles.png)
 
 3.  Click **Add New Role**.
 
-    [![Add new role]({{base_path}}/assets/img/administer/add-new-role.png)]({{base_path}}/assets/img/administer/add-new-role.png)
+    ![Add new role]({{base_path}}/assets/img/administer/add-new-role.png)
 
 4. Enter the name of the user role which you are going to assign Admin Portal access (e.g., `adminPortalManager`) and click **Next**
 
  The permissions page opens.
 
-   [![Add admin portal role]({{base_path}}/assets/img/administer/add-admin-portal-role.png)]({{base_path}}/assets/img/administer/add-admin-portal-role.png)
+   ![Add admin portal role]({{base_path}}/assets/img/administer/add-admin-portal-role.png)
 
 5.  Click **Finish** without selecting any permissions.
 
@@ -44,11 +44,11 @@ Now a new user role `adminPortalManager` has been created without any associated
 
 3. Click **Add role permission**.
 
-    [![Add Role Permission]({{base_path}}/assets/img/administer/add-role-permission.png)]({{base_path}}/assets/img/administer/add-role-permission.png) 
+    ![Add Role Permission]({{base_path}}/assets/img/administer/add-role-permission.png) 
 
 4. Enter the  role name that you created in <a href="#step1">step 1</a>. Then click **Next** to proceed.
 
-    [![Add Role Mapping]({{base_path}}/assets/img/administer/add-new-role-mapping.png)]({{base_path}}/assets/img/administer/add-new-role-mapping.png)
+    ![Add Role Mapping]({{base_path}}/assets/img/administer/add-new-role-mapping.png)
 
 5. In **Select permissions** select **Custom Permissions** and  navigate to  **Permissions** --> **admin**. 
 Assign the scopes according to the role of the user.
@@ -60,7 +60,7 @@ Assign the scopes according to the role of the user.
         - `apim:admin_settings`
         - `apim:tenantInfo`
 
-    [![Minimum Version of Admin Portal]({{base_path}}/assets/img/administer/minimum-version-admin-portal.png)]({{base_path}}/assets/img/administer/minimum-version-admin-portal.png)
+    ![Minimum Version of Admin Portal]({{base_path}}/assets/img/administer/minimum-version-admin-portal.png)
 
     - To allow a user to perform all Admin Portal functions assign the `apim:admin` scope to the associated role.
 
@@ -70,17 +70,17 @@ Assign the scopes according to the role of the user.
 
 2.  Click **Main**, and then click **Add** under **Users and Roles**.
 
-    [![Add users and roles]({{base_path}}/assets/img/administer/add-users-and-roles.png)]({{base_path}}/assets/img/administer/add-users-and-roles.png)
+    ![Add users and roles]({{base_path}}/assets/img/administer/add-users-and-roles.png)
 
 3.  Click **Add New user**.
 
-    [![Add admin manager user]({{base_path}}/assets/img/administer/add-manager-user.png)]({{base_path}}/assets/img/administer/add-manager-user.png)
+    ![Add admin manager user]({{base_path}}/assets/img/administer/add-manager-user.png)
 
 4.  Provide the username and password and click **Next**.
 
 5.  Select `adminPortalManager` and assign it to the user. Click **Finish** to complete.
 
-    [![Assign admin portal user role]({{base_path}}/assets/img/administer/add-admin-manager-role-to-user.png)]({{base_path}}/assets/img/administer/add-admin-manager-role-to-user.png)
+    ![Assign admin portal user role]({{base_path}}/assets/img/administer/add-admin-manager-role-to-user.png)
 
 Now a user with custom permissions to access and manage Admin Portal has been created.
 

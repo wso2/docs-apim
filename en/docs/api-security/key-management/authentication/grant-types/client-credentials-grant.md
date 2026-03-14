@@ -30,7 +30,7 @@ Follow the instructions below to make sure that the Client Credentials grant typ
 4. Navigate to the **Grant Types** section, which is under the **Key Configurations** section.
 5. Select **Client Credentials**.
 
-     [![Client Credentials]({{base_path}}/assets/img/learn/client-credentials.png)]({{base_path}}/assets/img/learn/client-credentials.png)
+     ![Client Credentials]({{base_path}}/assets/img/learn/client-credentials.png)
 
 ### Step 3 - Get a valid consumer key and consumer secret pair
    

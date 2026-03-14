@@ -13,7 +13,7 @@ The following section explains as to how the APIs in WSO2 API Manager can be sec
 2.  Click **Develop -> API Configurations -> Runtime**.
 3.  Select **Mutual SSL**.
     
-     [![Enable mutual SSL]({{base_path}}/assets/img/learn/enable-mutual-ssl.png)]({{base_path}}/assets/img/learn/enable-mutual-ssl.png)
+     ![Enable mutual SSL]({{base_path}}/assets/img/learn/enable-mutual-ssl.png)
 
     !!! note
           HTTP transport will be disabled for an API if it has Mutual SSL enabled.
@@ -35,7 +35,7 @@ The following section explains as to how the APIs in WSO2 API Manager can be sec
 
 6. Provide an alias and public certificate. Select the tier that should be used to throttle out the calls using this particular client certificate and click **Upload**.
     
-     [![Upload Certificate]({{base_path}}/assets/img/learn/upload-certificate.png)]({{base_path}}/assets/img/learn/upload-certificate.png)
+     ![Upload Certificate]({{base_path}}/assets/img/learn/upload-certificate.png)
     
 6.  **Save and Deploy** the API.
 
@@ -52,11 +52,11 @@ Import the certificate and private key to Postman.
 
 1. Navigate to the certificates tab in Postman settings.
     
-     [![Add the certificate to Postman]({{base_path}}/assets/img/learn/add-certificate-to-postman.png)]({{base_path}}/assets/img/learn/add-certificate-to-postman.png)
+     ![Add the certificate to Postman]({{base_path}}/assets/img/learn/add-certificate-to-postman.png)
     
 2. Add the certificate and private key.
 
-     [![Provide certificate and private key]({{base_path}}/assets/img/learn/provide-crt-and-private-key.png)]({{base_path}}/assets/img/learn/provide-crt-and-private-key.png)
+     ![Provide certificate and private key]({{base_path}}/assets/img/learn/provide-crt-and-private-key.png)
     
 3.  Invoke the API from Postman.
 

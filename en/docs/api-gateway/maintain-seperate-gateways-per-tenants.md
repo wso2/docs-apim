@@ -18,12 +18,12 @@ This approach allows you to:
 
 In this deployment pattern, each tenant gets its own dedicated Universal Gateway instance. This provides the highest level of isolation but requires more infrastructure resources.
 
-[![Single Tenant Per Gateway]({{base_path}}/assets/img/deploy/single-gateway-per-tenant.png)]({{base_path}}/assets/img/deploy/single-gateway-per-tenant.png)
+![Single Tenant Per Gateway]({{base_path}}/assets/img/deploy/single-gateway-per-tenant.png)
 
 ### Multiple Tenants per Gateway
 This pattern allows multiple tenants to share gateway resources while maintaining logical separation through configuration and policies.
 
-[![Multiple Tenants Per Gateway]({{base_path}}/assets/img/deploy/multiple-tenant-per-gateway.png)]({{base_path}}/assets/img/deploy/multiple-tenant-per-gateway.png)
+![Multiple Tenants Per Gateway]({{base_path}}/assets/img/deploy/multiple-tenant-per-gateway.png)
 
 ## Configuration Approaches
 

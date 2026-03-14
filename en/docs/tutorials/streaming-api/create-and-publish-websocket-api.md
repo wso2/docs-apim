@@ -21,7 +21,7 @@ This will demonstrate a simple command line based chat room which has two channe
       </div>
      </html>
 
-    [![Design New Streaming API]({{base_path}}/assets/img/design/create-api/streaming-api/design-new-streaming-api.png)]({{base_path}}/assets/img/design/create-api/streaming-api/design-new-streaming-api.png)
+    ![Design New Streaming API]({{base_path}}/assets/img/design/create-api/streaming-api/design-new-streaming-api.png)
 
 3.  Enter the details of the new WebSocket API.
 
@@ -71,7 +71,7 @@ This will demonstrate a simple command line based chat room which has two channe
 
      The overview page of the created WebSocket API appears.
 
-     [![Overview of WebSocket API]({{base_path}}/assets/img/tutorials/streaming-api/websocket-api-overview.png)]({{base_path}}/assets/img/tutorials/streaming-api/websocket-api-overview.png)
+     ![Overview of WebSocket API]({{base_path}}/assets/img/tutorials/streaming-api/websocket-api-overview.png)
 
 5. Configure the runtime configurations.
     1. Click **Runtime** under the **API Configurations** section, select the required authentication type, and click **Save**.
@@ -103,7 +103,7 @@ This will demonstrate a simple command line based chat room which has two channe
 
           URL Mapping provided for a topic will be appended to the WebSocket endpoint URL, which was provided when creating the API, and the traffic via the topic will be sent to & received from the resulting URL.
 
-          [![Add URL Mappings to WebSocket API Topics]({{base_path}}/assets/img/tutorials/streaming-api/websocket-api-topic-url-mapping.png)]({{base_path}}/assets/img/tutorials/streaming-api/websocket-api-topic-url-mapping.png)
+          ![Add URL Mappings to WebSocket API Topics]({{base_path}}/assets/img/tutorials/streaming-api/websocket-api-topic-url-mapping.png)
 
 
 6. Attach business plans to your WebSocket API.
@@ -112,7 +112,7 @@ This will demonstrate a simple command line based chat room which has two channe
 
      2. Select **AsyncGold** and click on **Save**.
 
-           [![Subscriptions of WebSocket API]({{base_path}}/assets/img/tutorials/streaming-api/websocket-api-subscriptions.png)]({{base_path}}/assets/img/tutorials/streaming-api/websocket-api-subscriptions.png)
+           ![Subscriptions of WebSocket API]({{base_path}}/assets/img/tutorials/streaming-api/websocket-api-subscriptions.png)
 
 Now, you have created and configured the WebSocket API successfully.
 
@@ -163,11 +163,11 @@ Now, you have created and configured the WebSocket API successfully.
            </p>
            </div>
 
-         [![Key Generation Wizard]({{base_path}}/assets/img/tutorials/streaming-api/streaming-api-key-generation-wizard.png)]({{base_path}}/assets/img/tutorials/streaming-api/streaming-api-key-generation-wizard.png)
+         ![Key Generation Wizard]({{base_path}}/assets/img/tutorials/streaming-api/streaming-api-key-generation-wizard.png)
 
     2. Copy the authorization token that appears, and click **Finish**.
 
-         [![Authorization Token]({{base_path}}/assets/img/tutorials/streaming-api/streaming-api-subscription-token.png)]({{base_path}}/assets/img/tutorials/streaming-api/streaming-api-subscription-token.png)
+         ![Authorization Token]({{base_path}}/assets/img/tutorials/streaming-api/streaming-api-subscription-token.png)
 
 4. Try out the operations.
      

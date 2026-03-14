@@ -23,7 +23,7 @@ There are multiple ways to implement a federated API architecture. Open source A
 
 The AWS API Gateway is a fully managed service that enables developers to create, deploy, manage, and secure APIs at any scale. WSO2 API Manager is pre-packed with an in-built AWS gateway connector and with the use of the connector it is capable of deploying/undeploying APIs created with WSO2 API Manager to AWS API Gateway.
 
-[![Gateway Federation with AWS API Gateway]({{base_path}}/assets/img/tutorials/federated-gw/gw-federation-with-aws.png)]({{base_path}}/assets/img/tutorials/federated-gw/gw-federation-with-aws.png)
+![Gateway Federation with AWS API Gateway]({{base_path}}/assets/img/tutorials/federated-gw/gw-federation-with-aws.png)
 
 The diagram above illustrates a federated API management architecture where one or more WSO2 API Manager Control Planes can act as the centralized point for designing, publishing, and managing APIs. These APIs are then deployed to multiple federated gateways, including:
 
@@ -156,7 +156,7 @@ Main steps involved are:
 - **The Lambda validates the Token**: The Lambda function parses and validates the token (i.e. checks signature using IdP’s JWKS endpoint, expiry, scopes/aud claims, issuer/iss) and returns an IAM policy granting or denying access. 
 - **Access Granted or Denied**: API Gateway uses the returned IAM policy to decide whether to invoke the backend service.
 
-[![Flow Diagram for Invoking an API with a Token and Receiving the Response]({{base_path}}/assets/img/tutorials/federated-gw/apim-aws-token-flow.png)]({{base_path}}/assets/img/tutorials/federated-gw/apim-aws-token-flow.png)
+![Flow Diagram for Invoking an API with a Token and Receiving the Response]({{base_path}}/assets/img/tutorials/federated-gw/apim-aws-token-flow.png)
 
 ## Configure a Third Party Key Manager
 

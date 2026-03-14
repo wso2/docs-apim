@@ -23,11 +23,11 @@ The shared scope need to be created before API creation/update time. Follow belo
 
 2. Navigate to **Scopes** from the top menu and click on **Create a new scope** button.
 
-     [![Start Creating a Scope]({{base_path}}/assets/img/learn/api-security/oauth2/oauth2-scopes/create-shared-scope.png)]({{base_path}}/assets/img/learn/api-security/oauth2/oauth2-scopes/create-shared-scope.png)
+     ![Start Creating a Scope]({{base_path}}/assets/img/learn/api-security/oauth2/oauth2-scopes/create-shared-scope.png)
 
 3. In **Create New Scope** wizard, you will be prompted to enter a scope name, scope display name and optionally, scope description and allowed roles. Fill in required details of the scope and click **Save** button.
 
-     [![Create New Scope]({{base_path}}/assets/img/learn/api-security/oauth2/oauth2-scopes/create-op-shared-scope.png)]({{base_path}}/assets/img/learn/api-security/oauth2/oauth2-scopes/create-op-shared-scope.png)
+     ![Create New Scope]({{base_path}}/assets/img/learn/api-security/oauth2/oauth2-scopes/create-op-shared-scope.png)
 
     <table>
      <tbody>
@@ -98,7 +98,7 @@ A local scope can be created and applied to a resource at API creation time by f
 
 3. Navigate to **Local Scopes** section and click on **CREATE SCOPES** button.
 
-     [![Start Creating a Scope]({{base_path}}/assets/img/learn/api-security/oauth2/oauth2-scopes/api-scopes/start-creating-scope.png)]({{base_path}}/assets/img/learn/api-security/oauth2/oauth2-scopes/api-scopes/start-creating-scope.png)
+     ![Start Creating a Scope]({{base_path}}/assets/img/learn/api-security/oauth2/oauth2-scopes/api-scopes/start-creating-scope.png)
 
 4. In **Create New Scope** wizard, you will be prompted to enter a scope name and optionally, allowed roles and a description. Fill in required details of the scope and click **Save** button.
 
@@ -154,11 +154,11 @@ dropdown.
 
 From API-M Publisher Portal, you can attach multiple scopes to each API resource.
 
-[![Attaching Multiple Scopes per Resource]({{base_path}}/assets/img/learn/api-security/oauth2/oauth2-scopes/multiple-scopes-per-resource.png)]({{base_path}}/assets/img/learn/api-security/oauth2/oauth2-scopes/multiple-scopes-per-resource.png)
+![Attaching Multiple Scopes per Resource]({{base_path}}/assets/img/learn/api-security/oauth2/oauth2-scopes/multiple-scopes-per-resource.png)
 
 Once you attach multiple scopes per resource, the resource will look as follows.
 
-[![After Attaching Multiple Scopes per Resource]({{base_path}}/assets/img/learn/api-security/oauth2/oauth2-scopes/after-attaching-multiple-scopes.png)]({{base_path}}/assets/img/learn/api-security/oauth2/oauth2-scopes/after-attaching-multiple-scopes.png)
+![After Attaching Multiple Scopes per Resource]({{base_path}}/assets/img/learn/api-security/oauth2/oauth2-scopes/after-attaching-multiple-scopes.png)
 
 ## Defining OAuth Scopes in API Definition
 
@@ -168,7 +168,7 @@ and [Local Scopes]({{base_path}}/api-security/runtime/authorization/oauth2-scope
 <a href="{{base_path}}/assets/img/learn/api-security/oauth2/oauth2-scopes/resource-scope-api-definition.png" ><img src="{{base_path}}/assets/img/learn/api-security/oauth2/oauth2-scopes/resource-scope-api-definition.png" alt="Resource Scopes API Definition" 
      title="Resource Scopes API Definition" width="50%" /></a>
 
-[![Scopes Security Definition API Definition]({{base_path}}/assets/img/learn/api-security/oauth2/oauth2-scopes/scopes-api-definition.png)]({{base_path}}/assets/img/learn/api-security/oauth2/oauth2-scopes/scopes-api-definition.png)
+![Scopes Security Definition API Definition]({{base_path}}/assets/img/learn/api-security/oauth2/oauth2-scopes/scopes-api-definition.png)
 
 ## Disable role validation at scope creation 
    When creating scopes, it validates the added roles against the underline user store to check if they exist. However, we can override this behavior such that it does not validate the roles in the user store. For this purpose, set the Java system property `disableRoleValidationAtScopeCreation` to `true` at the server startup:
