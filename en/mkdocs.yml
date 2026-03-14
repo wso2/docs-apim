@@ -813,6 +813,7 @@ plugins:
         lang: ['en']
         prebuild_index: true
         ngram_length: 3
+    - glightbox
     - markdownextradata: {}
     - exclude:
           glob:
