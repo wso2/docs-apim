@@ -2,7 +2,7 @@
 
 ## API Governance with WSO2 APICTL
 
-WSO2 APICTL is a command-line tool that enables you to manage APIs and microservices within the WSO2 API Manager.  
+WSO2 APICTL is a command-line tool that enables you to manage APIs and microservices in WSO2 API Manager.  
 It provides a mechanism to automate governance validations as part of your CI/CD pipeline, 
 helping enforce API governance policies consistently.
 
