@@ -1,13 +1,13 @@
 # Governance Concepts
 
-The governance capabilities in WSO2 API Manager builds upon the following core concepts:
+The governance capabilities in WSO2 API Manager build upon the following core concepts:
 
 ## Artifact
 
-Entity that is subject to governance enforcement. In the context of API governance, the governance artifact is an API.
+An entity that is subject to governance enforcement. In the context of API governance, the governance artifact is an API.
 
 ## Ruleset
-A ruleset is a **collection of rules** that define governance policies to be enforced on [governance artifacts](#artifact). 
+A ruleset is a **collection of rules** that define governance policies to be enforced on [governance artifacts](#artifact).
 
 In the context of API governance, these rules cover various aspects of API management, including security, compliance, performance, and operational guidelines. Rulesets can be defined at the organization level and later applied through policies to ensure governance enforcement.
 
@@ -35,7 +35,7 @@ Each policy must have a **unique name** and may include a **description** to pro
 
 #### Policy Attachment
 
-Policies can be attached to one or more **[labels](#label)** to categorize them effectively. Labels serve as a link between policies and APIs when a policy is assigned to a label, it is automatically applied to all APIs associated with that label.
+Policies can be attached to one or more **[labels](#label)** to categorize them effectively. Labels serve as a link between policies and APIs. When a policy is assigned to a label, it is automatically applied to all APIs associated with that label.
 
 #### Policy Enforcement Criteria
 
@@ -59,7 +59,7 @@ Policies can be configured to take specific actions based on the severity of rul
 
 ## Label  
 
-A **label** is a tag that can be attached to a specific [governance artifact](#Artifact) to categorize them based on specific criteria. 
+A **label** is a tag that can be attached to a specific [governance artifact](#artifact) to categorize them based on specific criteria. 
 
 In the context of API governance, labels help group APIs according to their type, purpose, or any other classification relevant to the organization.  
 
