@@ -6,7 +6,7 @@ In this step-by-step guide, you’ll learn how to create, publish, and invoke an
 
 ### Before you begin...
 
-Choose a deployment option to start WSO2 API Manager All-in-one package. The All-in-one package contains all core components in a single JVM for simplified deployment.
+Choose a deployment option to start the WSO2 API Manager All-in-one package. The All-in-one package contains all core components in a single JVM for simplified deployment.
 
 === "Run on VM"
 
@@ -18,12 +18,12 @@ Choose a deployment option to start WSO2 API Manager All-in-one package. The All
             For more information on setting the `JAVA_HOME` environment variable for different operating systems, see [Setup and Install]({{base_path}}/install-and-setup/install/installing-the-product/installing-api-m-runtime/#setting-up-java_home)
     
     2. Download WSO2 API-Manager All-in-one package.
-    - [Open Source Distribution](https://github.com/wso2/product-apim/releases/tag/v4.6.0)
-    - [WSO2 Official Distribution](https://wso2.com/api-manager/#)
+        - [Open Source Distribution](https://github.com/wso2/product-apim/releases/tag/v4.6.0)
+        - [WSO2 Official Distribution](https://wso2.com/api-manager/#)
 
-    3. Extract the downloaded zip file.
+    3. Extract the downloaded ZIP file.
 
-    4. Navigate to the `<API-M_HOME>/bin` folder from your command line.
+    4. Navigate to the `<API-M_HOME>/bin` folder (The directory where you extracted the API Manager) using your command line.
     
     5. To start WSO2 API Manager, execute the relevant command:
 
@@ -57,7 +57,7 @@ Let's get started...
 
 ### Step 1: Create, Deploy and Publish an API
 
-Follow the instructions below to create, deploy and publish an API via the Publisher Portal of WSO2 API-M.
+Follow the instructions below to create, deploy and publish an API via the Publisher Portal of WSO2 API Manager.
 
 1. Navigate to the Publisher Portal.
    
@@ -76,7 +76,7 @@ Follow the instructions below to create, deploy and publish an API via the Publi
     | `Charset`               | UTF-8                 |
     | `HTTP Response Body`    | `{"hello": "world"}`  |
 
-    Finally click **Generate My HTTP Response** to save and generate the mock service url.
+    Finally, click **Generate My HTTP Response** to save and generate the mock service URL.Copy this URL as you will need it in step 5.
 
     
 4. Select **REST API** from the home screen and then click **Start From Scratch**.
@@ -87,53 +87,53 @@ Follow the instructions below to create, deploy and publish an API via the Publi
 5. Enter the API details.
 
     <table>
-    <tr> 
-     <th>
-     Name
-     </th>
-     <td>
-     HelloWorld
-     </td>
-     </tr>
-     <tr>
-     <th>
-     Display Name
-     </th>
-     <td>
-     Hello World
-     </td>
-     </tr>
-     <tr> 
-     <th>Context
-     </th>
-     <td><code>/hello</code>
-     </td>
-     </tr>
-     <tr> 
-     <th>Version
-     </th>
-     <td>1.0.0
-     </td>
-     </tr>
-     <tr> 
-     <th>Endpoint
-     </th>
-     <td><code>https://run.mocky.io/v3/e42a76f0-95f3-4759-b658-dcc2b0c8bacd</code>
-     </td>
-     </tr>
+        <tr> 
+            <th>
+                Name
+            </th>
+            <td>
+                HelloWorld
+            </td>
+        </tr>
+        <tr>
+            <th>
+                Display Name
+            </th>
+            <td>
+                Hello World
+            </td>
+        </tr>
+        <tr> 
+            <th>Context
+            </th>
+            <td><code>/hello</code>
+            </td>
+        </tr>
+        <tr> 
+            <th>Version
+            </th>
+            <td>1.0.0
+            </td>
+        </tr>
+        <tr> 
+            <th>Endpoint
+            </th>
+            <td><code>Paste the Mocky.io URL you copied in step 3</code>
+            </td>
+        </tr>
      </table>
      
 6. Click **Create & Publish**.
 
     [![Create an API]({{base_path}}/assets/img/get_started/api-create.png){: style="width:100%"}]({{base_path}}/assets/img/get_started/api-create.png)
 
-    This will publish your first API on the Developer Portal as well as deploy it on the gateway. You now have an OAuth 2.0 secured REST API that is ready to be consumed.
+    This will publish your first API on the Developer Portal as well as deploy it on the gateway. You now have an OAuth 2.0 secured "REST API" that is ready to be consumed.
 
 <a name="subscribe"></a>
 
 ### Step 2: Subscribe to the API
 
-Follow the instructions below to subscribe to the API via the Developer Portal of WSO2 API-M.
+Follow the instructions below to subscribe to the API via the Developer Portal of WSO2 API Manager.
 
 1. Navigate to the Developer Portal.
 
@@ -145,11 +145,11 @@ Follow the instructions below to subscribe to the API via the Developer Portal o
 
 2. Click **Sign-In** and enter **`admin/admin`** as your credentials to sign in to the Developer Portal.
 
-3. Once you click on the HelloWorld API, you will be redirected to  the API overview page. Then, go ahead and click on the **TRY OUT** button.
+3. Once you click on the HelloWorld API, you will be redirected to the API overview page. Then, go ahead and click on the **Try Out** button.
 
      [![API try out]({{base_path}}/assets/img/get_started/try-out.png)]({{base_path}}/assets/img/get_started/try-out.png)
 
-     And with that, we have subscribed to the API using the `DefaultApplication`.
+     And with that, we have subscribed to the API using the `DefaultApplication`. You are now ready to invoke the API in Step 3.
 
 <a name="invoke"></a>
 
@@ -157,7 +157,7 @@ Follow the instructions below to subscribe to the API via the Developer Portal o
 
 Follow the instructions below to invoke the created API.
 
-1. Click on **Try Out** &rarr; **API Console** from the left menu. Then, click on **GET TEST KEY** to generate an access token.
+1. You are now on the **API Console** page. Then, click on **GET TEST KEY** to generate an access token.
 
     !!! note
 
@@ -169,7 +169,7 @@ Follow the instructions below to invoke the created API.
 
      [![Test API]({{base_path}}/assets/img/get_started/test-api.png)]({{base_path}}/assets/img/get_started/test-api.png)
 
-2. Click on the `GET` resource of the API to expand the resource and Click **Try It Out**.
+2. Click on the "GET" resource of the API to expand it, and then click **Try It Out**.
    
      [![GET resource]({{base_path}}/assets/img/get_started/expanded-get-resource.png)]({{base_path}}/assets/img/get_started/expanded-get-resource.png)
 
