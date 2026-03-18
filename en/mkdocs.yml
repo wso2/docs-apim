@@ -336,6 +336,7 @@ nav:
             - Advanced Topics:
                 - Add Custom Attributes to Applications: api-developer-portal/manage-application/advanced-topics/add-custom-attributes-to-applications.md
                 - Change the Owner of an Application: api-developer-portal/manage-application/advanced-topics/changing-the-owner-of-an-application.md
+                - Upgrade the Token Type of an Application to JWT: api-developer-portal/manage-application/advanced-topics/upgrade-token-type-of-application-to-jwt.md
                 - Change the Provider of an Api: api-developer-portal/manage-application/advanced-topics/changing-the-provider-of-an-api.md
                 - Add an Application Creation Workflow: api-developer-portal/manage-application/advanced-topics/adding-an-application-creation-workflow.md
                 - Add an Application Update Workflow: api-developer-portal/manage-application/advanced-topics/adding-an-application-update-workflow.md
