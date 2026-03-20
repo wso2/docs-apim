@@ -29,15 +29,19 @@ Follow the instructions below to create a Streaming API using an AsyncAPI defini
     * **AsyncAPI URL** - If you select this option, you need to provide a URL.
     * **AsyncAPI File** - If you select this option, click **Browse File to Upload** and upload a file, which contains an AsyncAPI definition.
 
-3. Select the way in which you are going to import the AsynAPI definition, and click **Next**. 
-     
-      For this example, let's select **AsyncAPI URL**, provide the following URL, and click **Next**.
+3. Select the way in which you are going to import the AsyncAPI definition, and click **Next**.
 
-     ```sh
-     https://raw.githubusercontent.com/asyncapi/spec/v2.0.0/examples/2.0.0/streetlights.yml
-     ```
+     <html><div class="admonition note">
+      <p class="admonition-title">Note</p>
+      <p>AsyncAPI import now supports both AsyncAPI v2 and AsyncAPI v3 definitions.</p>
+      </div>
+     </html>
 
-     <a href="{{base_path}}/assets/img/design/create-api/streaming-api/websocket-streaming-api-from-asyncapi-url-import.png"><img src="{{base_path}}/assets/img/design/create-api/streaming-api/websocket-streaming-api-from-asyncapi-url-import.png" width="80%" alt ="Import Websocket Streaming API from AsyncAPI URL"></a>
+     For this example, let's select **AsyncAPI File**, upload the following file, and click **Next**.
+
+     [Download AsyncAPI file]({{base_path}}/assets/attachments/103332601/streetlights_v3-def.yml)
+
+     <a href="{{base_path}}/assets/attachments/103332601/asyncv3-file.png"><img src="{{base_path}}/assets/attachments/103332601/asyncv3-file.png" width="80%" alt="Import Websocket Streaming API from AsyncAPI File"></a>
 
 4.  Edit the Streaming API information and click **Create**.
 
@@ -67,7 +71,7 @@ Follow the instructions below to create a Streaming API using an AsyncAPI defini
    
 Click **Topics** to navigate to the topics page.
 
-[![AsyncAPI topics]({{base_path}}/assets/img/design/create-api/streaming-api/websocket-streaming-api-from-asyncapi-topics.png)]({{base_path}}/assets/img/design/create-api/streaming-api/websocket-streaming-api-from-asyncapi-topics.png)
+[![AsyncAPI topics]({{base_path}}/assets/attachments/103332601/asyncv3-topics-page.png)]({{base_path}}/assets/attachments/103332601/asyncv3-topics-page.png)
 
 You will notice that the topics have been created automatically from the AsyncAPI definition specified in the provided URL.
 
@@ -77,7 +81,7 @@ Click **AsyncAPI Definition** under **API Configurations**.
 
 The AsyncAPI definition of the streaming API, which you just created, appears.
     
-   <a href="{{base_path}}/assets/img/design/create-api/streaming-api/websocket-view-asyncapi.png"><img src="{{base_path}}/assets/img/design/create-api/streaming-api/websocket-view-asyncapi.png" alt="WebSocket API AsyncAPI Definition"></a>
+   <a href="{{base_path}}/assets/attachments/103332601/asyncv3-def-view.png"><img src="{{base_path}}/assets/attachments/103332601/asyncv3-def-view.png" alt="WebSocket API AsyncAPI Definition"></a>
 
 Now, you have successfully created a Streaming API from an Async API Definition. 
 
