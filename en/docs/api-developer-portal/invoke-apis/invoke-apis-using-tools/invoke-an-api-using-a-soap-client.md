@@ -27,10 +27,15 @@ Let's invoke the `PhoneVerification` API using a SOAP client.
     
     [![Create new SOAP UI Project]({{base_path}}/assets/attachments/103332601/soap-ui-new-project.png)]({{base_path}}/assets/attachments/103332601/soap-ui-new-project.png)
     
-8.  Give your API's WSDL and click **OK**.
-    In this case, the WSDL is as follows: <http://ws.cdyne.com/phoneverify/phoneverify.asmx?wsdl>
-    
-    [![SOAP UI New Project Window]({{base_path}}/assets/attachments/103332601/soap-ui-project-wizard.png)]({{base_path}}/assets/attachments/103332601/soap-ui-project-wizard.png)
+8.  Give your API's WSDL and click **OK**. You have two ways to provide the WSDL;
+
+    1. Directly enter the WSDL URL which is <http://ws.cdyne.com/phoneverify/phoneverify.asmx?wsdl>
+
+        [![SOAP UI New Project Window]({{base_path}}/assets/attachments/103332601/soap-ui-project-wizard.png)]({{base_path}}/assets/attachments/103332601/soap-ui-project-wizard.png)
+
+    2. If your SOAP API is created from a single WSDL and in published state, you can go to the Developer Portal, navigate to your API, and copy the WSDL URL from the Overview page.
+
+        [![SOAP API Overview]({{base_path}}/assets/attachments/103332601/wsdl-url.png)]({{base_path}}/assets/attachments/103332601/wsdl-url.png)
     
 9.  The WSDL defines two operations. Let's work with `CheckPhoneNumber`. Double click on `Request 1`. Then, click the **Header** tab and add an authorization header to your request by clicking on the add icon.
     
