@@ -7,7 +7,7 @@ the OAuth2 and Basic schemes at the same time.
 The subsequent sections explain how you can work with Basic Authentication on the WSO2 API Gateway.
 
 !!! note
-    Basic Authentication is only supported when using the **WSO2 resident Key Manager**. If a third-party Key Manager is configured, Basic Authentication will not function and only OAuth2-based authentication is supported for API invocations in that scenario.
+    Basic Authentication is only supported with the **WSO2 resident Key Manager**. When a third-party Key Manager is configured, use OAuth2-based authentication instead.
 
 ## Enabling Basic Authentication for an API
 Basic Authentication is an API level configuration. Please sign in to the API Publisher and click on the API that you need to configure the 
