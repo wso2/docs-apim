@@ -33,7 +33,7 @@ Let's invoke the `PhoneVerification` API using a SOAP client.
 
         [![SOAP UI New Project Window]({{base_path}}/assets/attachments/103332601/soap-ui-project-wizard.png)]({{base_path}}/assets/attachments/103332601/soap-ui-project-wizard.png)
 
-    2. If your SOAP API is created from a single WSDL and in published state, you can go to the Developer Portal, navigate to your API, and copy the WSDL URL from the Overview page.
+    2. If your SOAP API is created from a single WSDL and in published state, you can go to the Developer Portal, navigate to your API, and copy the WSDL URL from the Overview page. Please note that this generated WSDL URL will get expired in 15 minutes if the API has restricted visibility.
 
         [![SOAP API Overview]({{base_path}}/assets/attachments/103332601/wsdl-url.png)]({{base_path}}/assets/attachments/103332601/wsdl-url.png)
     

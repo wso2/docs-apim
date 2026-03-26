@@ -33,13 +33,13 @@ Follow the instructions below to create a Streaming API using an AsyncAPI defini
 
      <html><div class="admonition note">
       <p class="admonition-title">Note</p>
-      <p>AsyncAPI import now supports both AsyncAPI v2 and AsyncAPI v3 definitions.</p>
+      <p>AsyncAPI import now supports both AsyncAPI v2.x and AsyncAPI v3.0 definitions.</p>
       </div>
      </html>
 
      For this example, let's select **AsyncAPI File**, upload the following file, and click **Next**.
 
-     [Download AsyncAPI file]({{base_path}}/assets/attachments/103332601/streetlights_v3-def.yml)
+     [Download AsyncAPI V3 file]({{base_path}}/assets/attachments/103332601/streetlights_v3-def.yml)
 
      <a href="{{base_path}}/assets/attachments/103332601/asyncv3-file.png"><img src="{{base_path}}/assets/attachments/103332601/asyncv3-file.png" width="80%" alt="Import Websocket Streaming API from AsyncAPI File"></a>
 
@@ -71,9 +71,13 @@ Follow the instructions below to create a Streaming API using an AsyncAPI defini
    
 Click **Topics** to navigate to the topics page.
 
-[![AsyncAPI topics]({{base_path}}/assets/attachments/103332601/asyncv3-topics-page.png)]({{base_path}}/assets/attachments/103332601/asyncv3-topics-page.png)
+[![AsyncAPI topics]({{base_path}}/assets/img/design/create-api/streaming-api/asyncv3-topics.png)]({{base_path}}/assets/img/design/create-api/streaming-api/asyncv3-topics.png)
 
 You will notice that the topics have been created automatically from the AsyncAPI definition specified in the provided URL.
+
+[![AsyncAPI operations]({{base_path}}/assets/img/design/create-api/streaming-api/asyncv3-operations.png)]({{base_path}}/assets/img/design/create-api/streaming-api/asyncv3-operations.png)
+
+Expand each topic to view the operations which are automatically created for each channel, as defined in the specification.
 
 ## Step 3 - View the AsyncAPI Definition
 
@@ -83,7 +87,9 @@ The AsyncAPI definition of the streaming API, which you just created, appears.
     
    <a href="{{base_path}}/assets/attachments/103332601/asyncv3-def-view.png"><img src="{{base_path}}/assets/attachments/103332601/asyncv3-def-view.png" alt="WebSocket API AsyncAPI Definition"></a>
 
-Now, you have successfully created a Streaming API from an Async API Definition. 
+Now, you have successfully created a Streaming API from an Async API Definition.
+
+If you have created the streaming API using an AsyncAPI v2.x definition, see [AsyncAPI v2.x for APIM 4.6.0](https://apim.docs.wso2.com/en/latest/api-design-manage/design/create-api/create-streaming-api/create-a-streaming-api-from-an-asyncapi-definition/).
 
 Next, publish the API, for more information, see [Publish an API]({{base_path}}/deploy-and-publish/publish-on-dev-portal/publish-an-api).
 
