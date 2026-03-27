@@ -65,16 +65,13 @@ Follow the instructions below to configure tenant-specific custom attributes:
 
 ## Step 2 - Create an application with the custom attributes
 
-After configuring the custom attributes as shown in the previous step, you will be able to add these attributes to the applications you create via the Developer Portal.
+After configuring the custom attributes, you can now add them while creating applications in the Developer Portal.
 
-1. Sign in to the API Developer Portal. 
+1. Sign in to the **API Developer Portal**.
+2. Click **Add Application**.
+    ![Add Application Button]({{base_path}}/assets/img/learn/application-attributes-application-add.png)
 
-2. Click **Add Application**, to add a new application.
+3. Fill in the application details. You will now see the configured custom attributes as additional fields.
+    ![Custom Application Attributes]({{base_path}}/assets/img/learn/application-attributes.png)
 
-    [![Add application button]({{base_path}}/assets/img/learn/application-attributes-application-add.png)]({{base_path}}/assets/img/learn/application-attributes-application-add.png)
-    
-    You will see the configured custom attribute as shown below.
-
-    [![Custom application attributes]({{base_path}}/assets/img/learn/application-attributes.png)]({{base_path}}/assets/img/learn/application-attributes.png)
-
-3. Add the application details and click **SAVE**.
+4. Click **SAVE** to create the application.
