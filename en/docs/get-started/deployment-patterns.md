@@ -154,7 +154,7 @@ This pattern separates the API Gateway from an All-in-One node that serves as th
 *   **Use Case**: Environments where API traffic is the primary bottleneck and needs to be scaled independently of the management portals.
 *   **Benefits**: Better scalability for API traffic and improved security by isolating the Gateway.
     
-<a href="{{base_path}}/assets/img/setup-and-install/simple-distributed.png"><img src="{{base_path}}/assets/img/setup-and-install/simple-distributed.png" alt="Pattern 2: Simple Scalable" width="80%"></a>
+<img src="{{base_path}}/assets/img/setup-and-install/distributed-deployment-tm.png" alt="Pattern 2: Simple Scalable Deployment" width="80%">
 
 > **View the Configuration Guides for Pattern 2:** [Deploy on VMs]({{base_path}}/install-and-setup/setup/distributed-deployment/deploying-wso2-api-m-in-a-simple-scalable-setup/) or [Deploy on Kubernetes]({{base_path}}/install-and-setup/setup/kubernetes-deployment/kubernetes/am-pattern-2-all-in-one-gw/)
 
@@ -194,7 +194,7 @@ This is a variation of Pattern 2 where the Gateway and Key Manager are separated
 *   **Use Case**: Environments with a strong focus on both API traffic scaling and security, where the Key Manager handles a heavy load or requires special security treatment.
 *   **Benefits**: Balances scalability and security concerns.
   
-<a href="{{base_path}}/assets/img/setup-and-install/deployment-cp-gw-km.png"><img src="{{base_path}}/assets/img/setup-and-install/deployment-cp-gw-km.png" alt="Pattern 5: Simple Scalable with KM" width="80%"></a>
+<img src="{{base_path}}/assets/img/setup-and-install/distributed-deployment-tm.png" alt="Pattern 5: Simple Scalable with Key Manager Separation" width="80%">
 
 > **View the Configuration Guides for Pattern 5:** [Deploy on Kubernetes]({{base_path}}/install-and-setup/setup/kubernetes-deployment/kubernetes/am-pattern-5-all-in-one-gw-km/)
 
