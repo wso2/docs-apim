@@ -135,4 +135,5 @@ Follow the steps below to clone the API-M documentation GitHub repository and to
 
 ## License
 
-Licensed under the Apache License under the Apache License, Version 2.0 ([LICENSE](LICENSE)), You may not use this file except in compliance with the License.
+Licensed under the Apache License, Version 2.0 ([LICENSE](LICENSE)), You may not use this file except in compliance with the License.
+
