@@ -75,7 +75,7 @@ Follow the steps below to clone the API-M documentation GitHub repository and to
     $ git clone https://github.com/[git-username]/docs-apim.git
     ```
 
-3. Navigate to the folder containing the repo that you cloned in step 3.2 on a terminal window.
+3. Navigate to the folder containing the repo that you cloned in step 2 on a terminal window.
 
     For example:
 
@@ -125,7 +125,7 @@ Follow the steps below to clone the API-M documentation GitHub repository and to
   
 2. Open the following URL on a new browser window to view the API-M documentation site locally.
 
-    [http://localhost:8000/getting-started/overview/](http://localhost:8000/getting-started/overview/)
+    [http://localhost:8000/get-started/overview/](http://localhost:8000/get-started/overview/)
 
 > **NOTE:**
 >
@@ -135,4 +135,4 @@ Follow the steps below to clone the API-M documentation GitHub repository and to
 
 ## License
 
-Licenses this source under the Apache License, Version 2.0 ([LICENSE](LICENSE)), You may not use this file except in compliance with the License.
+Licensed under the Apache License under the Apache License, Version 2.0 ([LICENSE](LICENSE)), You may not use this file except in compliance with the License.
