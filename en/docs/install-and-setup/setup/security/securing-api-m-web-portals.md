@@ -44,6 +44,13 @@ You can restrict access to the management console of the API-M runtime by bindin
 
     This adds a `RemoteAddrValve` Tomcat valve in the `<API-M_HOME>/repository/conf/tomcat/carbon/META-INF/context.xml` file and it will only apply to the Carbon management console, and thereby all outside requests to the management console will be blocked.
 
+    <html>
+        <div class="admonition note">
+            <p class="admonition-title">Note</p>
+            <p>When you enable access control for the management console, only the IP addresses specified in the <code>allow</code> parameter will have access. All other IP addresses will be blocked. Make sure to include all IP addresses that require access to the management console in the whitelist.</p>
+        </div>
+    </html>
+
 -   To control access to all web applications deployed in your server, add the following configuration to the `<API-M_HOME>/repository/conf/deployment.toml` file:
 
     ```toml
@@ -53,6 +60,13 @@ You can restrict access to the management console of the API-M runtime by bindin
     ```
 
     This will add a `RemoteAddrValve` Tomcat valve in the `<API-M_HOME>/repository/conf/tomcat/context.xml` file and it will apply to each web application hosted on the Carbon server. Therefore, all outside requests to any web application will be blocked.
+
+    <html>
+        <div class="admonition note">
+            <p class="admonition-title">Note</p>
+            <p>When you enable access control for all web applications, only the IP addresses specified in the <code>allow</code> parameter will have access. All other IP addresses will be blocked. Make sure to include all IP addresses that require access to the web applications in the whitelist.</p>
+        </div>
+    </html>
 
 -   You can also restrict access to particular servlets in a web application by adding the following configuration to the `<API-M_HOME>/repository/conf/deployment.toml` file:
 
