@@ -1,11 +1,14 @@
 # Configuring Identity Server as External IDP using OIDC
 
-WSO2 API Manager uses the OIDC Single Sign-On feature by default. This document explains how to connect WSO2 Identity Server (or WSO2 Identity Server as a Keymanager) as a third party Identity provider to API-Manager.
+WSO2 API Manager uses the OIDC Single Sign-On feature by default. This document explains how to connect WSO2 Identity Server 7.x as a third party Identity provider to API-Manager.
 
-## prerequisites
+!!! info
+    This document provides instructions on configuring **WSO2 Identity Server 7.x** as an external IDP. If you are using an older version of WSO2 Identity Server, the configuration steps may differ as older versions use the Management Console instead of the Console application.
+
+## Prerequisites
 
 -   Download the API Manager distribution from [https://wso2.com/api-management/](https://wso2.com/api-management/).
--   Download the Identity Server distribution from [https://wso2.com/identity-and-access-management/](https://wso2.com/identity-and-access-management/).
+-   Download the WSO2 Identity Server 7.x distribution from [https://wso2.com/identity-and-access-management/](https://wso2.com/identity-and-access-management/).
 
     !!! Tip
         For **testing purposes** if you want to run both the WSO2 API Manager and WSO2 Identity Server on the same server, go to the `<IS_HOME>/repository/conf/deployment.toml` file and offset the port by 1 as by adding following configuration:
@@ -29,56 +32,48 @@ WSO2 API Manager uses the OIDC Single Sign-On feature by default. This document 
 
 ## Configure the Identity Server
 
-### Step - 1 Configure the Service Provider
+### Step 1 - Configure the application
 
-1.  Sign in to the Management Console of WSO2 IS by browsing the following URL:  
+1.  Sign in to the WSO2 IS Console by browsing the following URL:  
 
     ```
-    https://{is-ip}:9444/carbon
+    https://{is-ip}:9444/console
     ```
 
-2.  Navigate to the **Service Providers** section under Main → Identity and create new Service Provider.
+2.  Navigate to **Applications** and click **New Application**.
 
-3.  Edit the created Service Provider:
+3.  Select **Traditional Web Application** and complete the required information.
 
-    1.  Expand the **Claim Configuration** section. Add the **http://wso2.org/claims/groups** as mandatory claim. In addition, add the **http://wso2.org/claims/username** claim as the **Subject Claim URI**.
+4.  Set the **Authorized redirect URLs** to `https://{apim-ip}:9443/commonauth` (for example, `https://localhost:9443/commonauth`).
 
-        [![]({{base_path}}/assets/img/setup-and-install/claim-configuration-in-service-provider.png)]({{base_path}}/assets/img/setup-and-install/claim-configuration-in-service-provider.png)
+5.  Click **Register** to create the application.
 
-    2.  Expand the **Inbound Authentication Configuration** section and configure **OAuth/OpenID Connect Configuration** with callback URL - `https://{apim-ip}:9443/commonauth`
+6.  After the application is created, navigate to the **Protocol** tab and note down the **Client ID** and **Client Secret** for later use.
 
-        !!! Info "Enable a tenant-specific SSO for the Publisher and Developer Portal"
+7.  Navigate to the **User Attributes** tab:
 
-            To enable a tenant-specific SSO with IS 5.10.0 for Publisher and the Developer Portal, enable the **Use tenant domain in local subject identifier** option under the **Local & Outbound Authentication Configuration** section.
+    1.  Under the **Roles** section, click **Add** and select the **roles** attribute.
 
-            [![enable-tenant-domain-in-local-sub-identifier]({{base_path}}/assets/img/setup-and-install/local-outbound-config.png)]({{base_path}}/assets/img/setup-and-install/local-outbound-config.png)
+    2.  Under the **Subject** section, select **Assign alternate subject identifier** and choose **Username** from the dropdown.
 
-        !!! Note "Options available for **Local & Outbound Authentication Configuration** "
-            
-            -   **Assert identity using mapped local subject identifier** :
-                Select this to use the local subject identifier when asserting the identity.
-                Note that it is **mandatory** to enable the above option to authorize scopes for provisioned federated users. 
-            -   **Always send back the authenticated list of identity providers** : Select this to send back the list of  identity providers that the current user is authenticated by.
-            -   **Use tenant domain in local subject identifier** : Select this to append the tenant domain to the local subject identifier.
-            -   **Use user store domain in local subject identifier** : Select this to append the user store domain that the user resides to the local subject identifier.
-            -   **Use user store domain in roles** : This is selected by default, and appends the userstore domain name to user roles. If you do not want to append the userstore domain name to user roles, clear the check box.
+8.  If you want to enable sharing with organizations, navigate to the **Advanced** tab and select the **Allow sharing with organizations** option.
 
-                If a user role is not mapped to a service provider role, and you clear the **Use user store domain in roles** check box, the userstore domain name will be removed from the role claim value unless the userstore domain name is APPLICATION, INTERNAL, or WORKFLOW.
+    !!! Info "In multi-tenanted environments"
+        To allow users from all tenants to log in to the API Manager web applications in a multi-tenanted environment, you need to enable application sharing across organizations. This is similar to the SaaS Application option in older IS versions.
 
-    3. Update the Service Provider configurations.
+        If you do not enable organization sharing, only users in the current tenant domain will be allowed to log in to the portals. You will need to register separate applications for portals from each tenant.
 
-    !!! Info "In Multi-tenanted environments"
-        Carry out the instruction given below for all the tenants to be able to login to the API-M Web applications in a multi-tenanted environment.
+### Step 2 - Create users and roles
 
-        1.  Click the **SaaS Application** option that appears after registering the service provider.
+1. In the WSO2 IS Console, navigate to **User Management** > **Users** and create the required users. For example:
+   - `api_publisher`
+   - `api_user`
 
-        [![saas-configuration-in-service-provider]({{base_path}}/assets/img/setup-and-install/saas.png)]({{base_path}}/assets/img/setup-and-install/saas.png) 
+2. Navigate to **User Management** > **Roles** and create application roles. For example:
+   - `publisher_role`
+   - `user_role`
 
-        If you do not select the **SaaS Application** option, only users in the current tenant domain will be allowed to login to the portals. You will need to register separate service providers for portals from each tenant.
-
-### Step - 2 Create users and roles
-
-1. Create the required users and roles in Identity Server. Assume, following users are created in Identity Servers with the given roles.
+3. Assign the created roles to the respective users by selecting each role and navigating to the **Users** tab.
 
     <table>
         <thead>
@@ -99,16 +94,14 @@ WSO2 API Manager uses the OIDC Single Sign-On feature by default. This document 
         </tbody>
     </table>
 
-### Step 3 - Update the OpenID OIDC scope
+### Step 3 - Configure OIDC scopes
 
-1. Navigate to the **OIDC Scopes** section under **Main** → **Manage** and list the available scopes.
-
-2. Click **Add Claims** for `openid` scope, click **Add OIDC Claim**, select `groups` claim from the dropdown and click on **Add**.
-   [![Add groups claim to the OIDC scope]({{base_path}}/assets/img/setup-and-install/update-oidc-scope.png)]({{base_path}}/assets/img/setup-and-install/update-oidc-scope.png)
+!!! Note
+    In WSO2 Identity Server 7.x, the `roles` attribute is automatically included in the OIDC response when configured in the **User Attributes** tab of the application (as done in Step 1). Therefore, no additional OIDC scope configuration is required for the `roles` claim.
 
 ## Configure the API Manager
 
-### Step - 1 Configure the Identity Provider
+### Step 1 - Configure the Identity Provider
 
 1.  Sign in to the Management Console of API Manager by browsing the following URL: 
 
@@ -212,7 +205,7 @@ WSO2 API Manager uses the OIDC Single Sign-On feature by default. This document 
 
     [![Claim mapping for sso]({{base_path}}/assets/img/setup-and-install/claim-mapping-for-sso.png)]({{base_path}}/assets/img/setup-and-install/claim-mapping-for-sso.png)
 
-### Step - 2 Configure the Service Provider
+### Step 2 - Configure the Service Provider
 
 1.  Navigate to **Service Providers** section and list the Service Providers. There are two service providers created for Publisher portal and Developer portal named as `apim_publisher` and `apim_devportal`. Edit the `apim_publisher` service provider.
 
@@ -228,13 +221,15 @@ WSO2 API Manager uses the OIDC Single Sign-On feature by default. This document 
 Now you will be able to login to Publisher and Devportal using the users in WSO2 Identity Server.
 
 !!! Tip "Troubleshooting"
-    When using Identity Server as external IdP, following error can be observed in API Manager, when logging in to Portals.
+    When using WSO2 Identity Server 7.x as an external IdP, you might observe the following error in API Manager when logging in to the portals:
 
     ``` code
         invalid_request, The client MUST NOT use more than one authentication method in each
     ```
 
-    This is because the MutualTLS authenticator is enabled by default in the Identity Server, from version 5.8.0 onwards. Since the OIDC specification does not allow to use more than one authentication, the login fails with the above error. To resolve this issue, add following the configuration in the `deployment.toml` file in the `<IS-Home>/repository/conf` directory to disable the MutualTLS authenticator in the Identity Server.
+    This error occurs because the MutualTLS authenticator may be enabled by default in Identity Server 7.x. Since the OIDC specification does not allow using more than one authentication method, the login fails with this error. 
+    
+    To resolve this issue, add the following configuration to the `deployment.toml` file in the `<IS7_HOME>/repository/conf` directory to disable the MutualTLS authenticator:
 
     ``` toml
     [[event_listener]]
