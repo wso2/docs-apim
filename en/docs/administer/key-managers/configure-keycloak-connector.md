@@ -97,6 +97,14 @@ Follow the instructions given below to configure Keycloak as a third-party Key M
     
         [![Add Keycloak configurations]({{base_path}}/assets/img/administer/keycloak-endpoints.png)]({{base_path}}/assets/img/administer/keycloak-endpoints.png)
          
+        !!! warning "Important: Keycloak URL Format"
+            For Keycloak 17.0.0 and later versions, the `/auth` context path has been removed from the default configuration. Ensure you use the correct URL format:
+            
+            * **Correct format**: `http://localhost:8080/realms/master/.well-known/openid-configuration`
+            * **Old format (pre-17.0.0)**: `http://localhost:8080/auth/realms/master/.well-known/openid-configuration`
+            
+            If you are using Keycloak 17.0.0 or later, remove the `/auth` segment from all endpoint URLs shown in the screenshot above.
+         
         !!! tip
              * Configuring the well-known URL populates all the default configurations in the table once you click **Import**. 
              * It is mandatory to provide the **Client Id** and **Client Secret**.
@@ -132,7 +140,8 @@ Follow the instructions given below to configure Keycloak as a third-party Key M
           <tr class="odd">
             <td>Well-known-url</td>
             <td>The well-known URL of the authorization server (Key Manager). </br>
-            If the well-known URL is provided, other endpoints can be imported.</td>
+            If the well-known URL is provided, other endpoints can be imported.</br>
+            </br><b>Note:</b> For Keycloak 17.0.0+, use <code>http://localhost:8080/realms/master/.well-known/openid-configuration</code> (without <code>/auth</code>).</td>
             <td>Optional</td>
           </tr>
           <tr class="even">
