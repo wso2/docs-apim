@@ -26,57 +26,6 @@ enable = true
 type = "opensearch"
 ```
 
-#### Step 1.2 - Enabling Logs
-
-!!! note
-    Note that, the following configurations are added by default from the APIM 4.3.0 version onwards.
-
-Open the `wso2am-4.x.x/repository/conf` directory. To enable logging for a reporter, edit the `log4j2.properties` file following the instructions given below.
-
-
-1. Add  APIM_METRICS_APPENDER to the appenders  list:
-
-    ```properties
-    appenders = APIM_METRICS_APPENDER, .... (list of other available appenders)
-    ```
-
-2. Add the following configuration after the appenders:
-
-    ```properties
-    appender.APIM_METRICS_APPENDER.type = RollingFile
-    appender.APIM_METRICS_APPENDER.name = APIM_METRICS_APPENDER
-    appender.APIM_METRICS_APPENDER.fileName = ${sys:carbon.home}/repository/logs/apim_metrics.log
-    appender.APIM_METRICS_APPENDER.filePattern = ${sys:carbon.home}/repository/logs/apim_metrics-%d{MM-dd-yyyy}-%i.log
-    appender.APIM_METRICS_APPENDER.layout.type = PatternLayout
-    appender.APIM_METRICS_APPENDER.layout.pattern = %d{HH:mm:ss,SSS} [%X{ip}-%X{host}] [%t] %5p %c{1} %m%n
-    appender.APIM_METRICS_APPENDER.policies.type = Policies
-    appender.APIM_METRICS_APPENDER.policies.time.type = TimeBasedTriggeringPolicy
-    appender.APIM_METRICS_APPENDER.policies.time.interval = 1
-    appender.APIM_METRICS_APPENDER.policies.time.modulate = true
-    appender.APIM_METRICS_APPENDER.policies.size.type = SizeBasedTriggeringPolicy
-    appender.APIM_METRICS_APPENDER.policies.size.size=1000MB
-    appender.APIM_METRICS_APPENDER.strategy.type = DefaultRolloverStrategy
-    appender.APIM_METRICS_APPENDER.strategy.max = 10
-    ```
-
-3. Add a reporter to the loggers list:
-
-    ```properties
-    loggers = reporter, ...(list of other available loggers)
-    ```
-
-4. Add the following configurations after the loggers:
-
-    ```properties
-    logger.reporter.name = org.wso2.am.analytics.publisher.reporter.elk
-    logger.reporter.level = INFO
-    logger.reporter.additivity = false
-    logger.reporter.appenderRef.APIM_METRICS_APPENDER.ref = APIM_METRICS_APPENDER
-    ```
-
-!!! note
-    The `apim_metrics.log` file be rolled each day or when the log size reaches the limit of 1000 MB by default. Furthermore, only 10 revisions will be kept and older revisions will be deleted automatically. You can change these configurations by updating the configurations provided in step 2 given above in this. section.
-
 !!! note
     Following are the details that are available on analytics log events: 
 
