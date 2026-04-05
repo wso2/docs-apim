@@ -1,6 +1,6 @@
 # Configuring Keystores in WSO2 API Manager
 
-WSO2 products use asymmetric cryptography by default for the purposes of authentication and data encryption. In asymmetric cryptography, keystores (with key pairs and certificates) are created and stored for the product. Keystore is a repository where private keys and certificates can be stored. It is possible to have multiple keystores so that the keys used for different use cases are kept unique. For more information about keystores and its concepts, see [About Asymmetric Cryptography]({{base_path}}/install-and-setup/setup/security/configuring-keystores/keystore-basics/about-asymetric-cryptography) .
+In asymmetric cryptography, keystores (with key pairs and certificates) are created and stored for the product. Keystore is a repository where private keys and certificates can be stored. It is possible to have multiple keystores so that the keys used for different use cases are kept unique. For more information about keystores and its concepts, see [About Keystores and Truststores]({{base_path}}/install-and-setup/setup/security/configuring-keystores/keystore-basics/about-keystores-and-truststores).
 
 In WSO2 API Manager, there are three different keystores in use.
 
@@ -8,11 +8,11 @@ In WSO2 API Manager, there are three different keystores in use.
 2. Secondary Keystore (TLS Connections)
 3. Internal Keystore
 
-Primary Keystore is used for signing and encryption for the data which is externally exposed. Example use cases are signing SAML response, OAuth ID Token Signing and signing JWTs.
+Primary Keystore is used for signing the data which is externally exposed. Example use cases are signing SAML response, OAuth ID Token Signing and signing JWTs.
 
 Secondary Keystore is used for authenticating communication over SSL/TLS. This is used in various transports used by WSO2 API Manager including servlet transport (used for webapps), Synapse transport (used in gateway), thrift, binary and JMS.
 
-Internal Keystore is used for encrypting internal critical data including passwords and other confidential information in configuration files. 
+Internal Keystore is used for encrypting internal critical data including passwords and other confidential information in configuration files. Please note this is only supported in asymmetric cryptography.
 
 The `wso2carbon.jks` keystore file, which is shipped with all WSO2 products, is used as the default keystore for all functions. However, in a production environment, it is recommended to [create new keystores]({{base_path}}/install-and-setup/setup/security/configuring-keystores/keystore-basics/creating-new-keystores) with new keys and certificates. If you have created a new keystore and updated the `client-truststore.jks` file, you must update the `<API-M_HOME>/repository/conf/deployment.toml` file in order to make the keystore work.
 
@@ -77,7 +77,7 @@ The elements in the above configuration are described below:
 !!! Important
     Your private key password (**key_password**) and keystore password (**password**) must be the same. This is due to a limitation of some of the internal 3rd party components used by WSO2 API Manager.
 
-By default, the primary keystore configured as above is used for internal data encryption (encrypting data in internal data stores and configuration files) as well as for signing messages that are communicated with external parties. In other words, if we define the primary keystore only, it will be used as both Secondary Keystore (TLS) and Internal Keystore. However, it is sometimes a common requirement to have separate keystores for SSL/TSL connections, communicating messages with external parties (such as JWT, SAML, OIDC id\_token signing) and for encrypting information in internal data stores. This is because, for signing messages and external communications, the keystore certificates need to be frequently renewed. However, for encrypting information in internal data stores, the keystore certificates should not be changed frequently because the data that is already encrypted will become unusable every time the certificate changes.
+By default, the primary keystore configured as above is used for signing messages that are communicated with external parties. In other words, if we define the primary keystore only, it will be used as both Secondary Keystore (TLS) and Internal Keystore. However, it is sometimes a common requirement to have separate keystores for SSL/TSL connections, communicating messages with external parties (such as JWT, SAML, OIDC id\_token signing) and for encrypting information in internal data stores. This is because, for signing messages and external communications, the keystore certificates need to be frequently renewed. However, when using asymmetric cryptography, for encrypting information in internal data stores, the keystore certificates should not be changed frequently because the data that is already encrypted will become unusable every time the certificate changes.
 
 ## Configuring the Secondary Keystore for TLS connections
 
@@ -106,7 +106,7 @@ key_password =  "passwd12#"
 ```
 
 !!! warning
-    Using a totally new keystore for internal data encryption in an existing deployment will make already encrypted data unusable. In such cases, an appropriate data migration effort is needed.
+    In asymmetric cryptography, using a totally new keystore for internal data encryption in an existing deployment will make already encrypted data unusable. In such cases, an appropriate data migration effort is needed.
     Hence, if you have already been using the same keystore for both primary and internal keystores for sometime and later decided to use a separate internal keystore, use the current keystore for internal keystore and use the new keystore for primary keystore instead. This avoids unnecessary data migration.
 
 
@@ -154,7 +154,7 @@ api_key_alias = "<custom-alias>"
 
 Follow the recommendations given below when you set up your keystores. 
 
--   Maintain one primary keystore for encrypting sensitive internal data such as admin passwords and any other sensitive information found at both product-level and product feature-level configurations/configuration files. Note that the primary keystore will also be used for signing messages when the product communicates with external parties (such SAML, OIDC id_token signing).
+-   When using asymmetric cryptography, maintain one primary keystore for encrypting sensitive internal data such as admin passwords and any other sensitive information found at both product-level and product feature-level configurations/configuration files. Note that the primary keystore will also be used for signing messages when the product communicates with external parties (such SAML, OIDC id_token signing).
 
 -   Have separate keystores for encrypting sensitive internal data/information as a recommended practice.
 
@@ -168,7 +168,7 @@ Follow the recommendations given below when you set up your keystores.
 
 -   The internal keystore can be a self-signed one. There is no value added by using a CA-signed keystore for this purpose as it is not used for any external communication.
 
--   The primary keystore's public key certificate must have the Data Encipherment key usage to allow direct encipherment of raw data using its public key. This key usage is already included in the self-signed certificate that is included in the default wso2carbon.jks keystore. If the Data Encipherment key usage is not included in your public key certificate, the following error can occur when you attempt data encryption:
+-   If you choose to use asymmetric encryption for the internal keystore instead of symmetric encryption, the primary keystore's public key certificate must have the Data Encipherment key usage to allow direct encipherment of raw data using its public key. This key usage is already included in the self-signed certificate that is included in the default wso2carbon.jks keystore. If the Data Encipherment key usage is not included in your public key certificate, the following error can occur when you attempt data encryption in asymmetric cryptography:
 
     ``` java
         Exception in thread "main" org.wso2.ciphertool.CipherToolException: Error initializing Cipher at org.wso2.ciphertool.CipherTool.handleException(CipherTool.java:861) 

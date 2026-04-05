@@ -101,7 +101,7 @@ info:
     * Update the `basepath` parameter to match the hostname and port of the APIM instance.
      
      <a href="../../../../../assets/attachments/reference/admin-v4.4-postman-collection.json"
-     download="WSO2 API Manager 4.6.0 Admin REST API.postman_collection.json"
+     download="WSO2 API Manager 4.7.0 Admin REST API.postman_collection.json"
      style="display: inline-block; padding: 10px 15px; color: white; background-color: #ef5b25; text-align: center; text-decoration: none; border-radius: 5px;font-weight: bold;">
      Download Postman Collection
      </a>

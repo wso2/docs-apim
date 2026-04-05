@@ -1,26 +1,135 @@
 # Encrypting Secrets with apictl
 
-**WSO2 API Controller (apictl)** allows you to encrypt a plain-text secret. You can use this feature to export secrets as environment variables, system properties, Docker secrets, or Kubernetes secrets. For more information on using dynamic secrets refer [Dynamic secrets]({{base_path}}/install-and-setup/setup/mi-setup/security/encrypting_plain_text/#dynamic-secrets).
+**WSO2 API Controller (apictl)** allows you to encrypt plain-text secrets. You can use this feature to export secrets as environment variables, system properties, Docker secrets, or Kubernetes secrets.
 
+`apictl secret` supports two encryption modes:
 
-## Initialize apictl with a key store
+- **Symmetric encryption** using an AES-256 encryption key. You must initialize the key first with `apictl secret init symmetric`.
+- **Asymmetric encryption** using a keystore initialized with `apictl secret init`.
 
-!!! Note    
-    Secret encryption supports only JKS Key Stores.
+!!! note
+    Use the same encryption mode and algorithm that the target runtime uses to decrypt secrets.
 
-!!! Note    
-    Key Store used in this step needs to be the same Key Store which is used by the WSO2 API Manager (WSO2 API-M) or WSO2 Micro Integrator (WSO2 MI) to decrypt secrets.
+## Choose the encryption mode
 
-Run the following command to initialize the apictl with the Key Store used to encrypt the secrets. It will prompt you to input the following,
+<table>
+    <tr>
+        <th>Mode</th>
+        <th>When to use</th>
+        <th>Initialization</th>
+        <th>Supported cipher values</th>
+    </tr>
+    <tr>
+        <td>Symmetric</td>
+        <td>When the target runtime is configured to use AES-based secret encryption.</td>
+        <td>Requires <code>apictl secret init symmetric</code>.</td>
+        <td>Defaults to <code>AES/GCM/NoPadding</code>. <code>AES256</code> is also accepted as an alias.</td>
+    </tr>
+    <tr>
+        <td>Asymmetric</td>
+        <td>When the target runtime uses RSA and a keystore for secret encryption.</td>
+        <td>Requires <code>apictl secret init</code>.</td>
+        <td><code>RSA/ECB/OAEPWithSHA1AndMGF1Padding</code> or <code>RSA/ECB/PKCS1Padding</code></td>
+    </tr>
+</table>
+
+## Encrypt secrets with symmetric encryption
+
+Symmetric encryption uses an AES-256 encryption key that must be initialized before creating secrets.
+
+!!! note
+    Run `apictl secret init symmetric` before `apictl secret create symmetric`. apictl prompts for the symmetric key once, validates it, stores it in `encryption-key/encryption_key.yaml`, and uses `AES/GCM/NoPadding` as the default symmetric algorithm during secret creation. 
+
+!!! note
+    It is recommended to use a 64-character hexadecimal AES-256 key. For example:
+
+    ```bash
+    openssl rand -hex 32
+    ```
+
+Run the following commands for symmetric encryption:
+
+-   **Initialization**
+
+    ```bash
+    apictl secret init symmetric
+    ```
+
+-   **Create encrypted secrets**
+
+    ```bash
+    apictl secret create symmetric
+    ```
+
+    !!! info
+        **Flags:**
+
+        -   Optional :  
+            `--cipher` or `-c`        : Optional algorithm override for symmetric encryption. The default is `AES/GCM/NoPadding`. `AES256` is also accepted as an alias  
+            `--output` or `-o`        : Get the output in yaml (`k8`) or properties (`file`) format. By default the output is printed to the console  
+            `--from-file` or `-f`     : Path to the properties file which contains secrets to be encrypted
+
+    -   Encrypt a secret and get output on console
+
+        !!! example
+
+            ```bash
+            apictl secret create symmetric
+            Enter plain alias for secret: db_password
+            Enter plain text secret:
+            Repeat plain text secret:
+            ```
+
+    -   Encrypt secrets defined in a properties file
+
+        !!! example
+
+            ```bash
+            apictl secret create symmetric -f ./keys/secrets.properties
+            ```
+
+    -   Encrypt secrets defined in a properties file and get a `.properties` file
+
+        !!! example
+
+            ```bash
+            apictl secret create symmetric -o file -f ./keys/secrets.properties
+            ```
+
+    -   Encrypt secrets defined in a properties file and get a `.yaml` file
+
+        !!! example
+
+            ```bash
+            apictl secret create symmetric -o k8 -f ./keys/secrets.properties
+            ```
+
+-   **Response**
+
+    The encrypted value is printed to the console by default. If `-o file` or `-o k8` is used, apictl generates the output file in the `security` directory of the current working directory.
+
+## Encrypt secrets with asymmetric encryption
+
+Asymmetric encryption uses the public key from a keystore. The initialized keystore details are stored in `keystore/keystore_info.yaml`. Before creating secrets, initialize apictl with the keystore used by the target runtime.
+
+### Initialize apictl with a keystore
+
+!!! note
+    Secret encryption supports only JKS keystores for this flow.
+
+!!! note
+    The keystore used in this step must be the same keystore that the target runtime uses to decrypt secrets.
+
+Run the following command to initialize apictl with the keystore used to encrypt secrets. It prompts you to enter the following values:
 
 <table>
     <tr>
         <td>Key Store location</td>
-        <td>Path to the Key Store used by the WSO2 API-M or WSO2 MI to decrypt secrets</td>
+        <td>Path to the keystore used by the target runtime to decrypt secrets</td>
     </tr>
     <tr>
         <td>Key Store password</td>
-        <td>The password of the Key Store</td>
+        <td>The password of the keystore</td>
     </tr>
     <tr>
         <td>Key alias</td>
@@ -32,39 +141,34 @@ Run the following command to initialize the apictl with the Key Store used to en
     </tr>
 </table>
 
--   **Command** 
+-   **Command**
 
-    ```go
+    ```bash
     apictl secret init
     ```
 
     !!! example
-        ```go
+        ```bash
         apictl secret init
-        Enter Key Store location: /home/wso2mi-4.3.0/repository/resources/security/wso2carbon.jks
-        Enter Key Store password: 
+        Enter Key Store location: <APIM-HOME>/repository/resources/security/wso2carbon.jks
+        Enter Key Store password:
         Enter Key alias: wso2carbon
-        Enter Key password: 
+        Enter Key password:
         ```
 
 -   **Response**
 
-    ``` bash
-    Key Store initialization completed
+    ```bash
+    Key Store initialization completed.
     ```
 
-## Encrypt secrets
+### Create encrypted secrets with asymmetric encryption
 
-!!! Note    
-    Secret encryption supports only **RSA/ECB/OAEPWithSHA1AndMGF1Padding** (default) or **RSA/ECB/PKCS1Padding** as encryption algorithm.
-
-!!! Note    
-    Encrypting algorithm used in this step needs to be the same algorithm used by the WSO2 API-M or WSO2 MI to decrypt secrets.
-
-Run the following command to encrypt secrets with the apictl,
+Run the following command to encrypt secrets with the initialized keystore:
 
 -   **Command**
-    ``` bash
+
+    ```bash
     apictl secret create
     ```
 
@@ -72,54 +176,39 @@ Run the following command to encrypt secrets with the apictl,
         **Flags:**
 
         -   Optional :  
-            `--cipher` or `-c`        : Encryption algorithm (default is RSA/ECB/OAEPWithSHA1AndMGF1Padding)    
-            `--output` or `-o`        : Get the output in yaml (k8) or properties (file) format. By default the output is printed to the console    
+            `--cipher` or `-c`        : Encryption algorithm. Use `RSA/ECB/OAEPWithSHA1AndMGF1Padding` or `RSA/ECB/PKCS1Padding` for asymmetric encryption  
+            `--output` or `-o`        : Get the output in yaml (`k8`) or properties (`file`) format. By default the output is printed to the console  
             `--from-file` or `-f`     : Path to the properties file which contains secrets to be encrypted
 
-    
     -   Encrypt a secret and get output on console
 
         !!! example
 
-            ``` bash
+            ```bash
             apictl secret create
-            Enter plain alias for secret:db_password
+            Enter plain alias for secret: db_password
             Enter plain text secret:
             Repeat plain text secret:
             ```
 
     -   Response
 
-        ```go
-        db_password : eKALmLVA+HFVl7vqLUUhm6o0Vwsap+L6czwyEKWKomX+AcRmOCAHmiujPXPAZUboWJlZi4k0CwZYAvwD4BflbU8j5CCrtESzOlOrkJaJPormf/ViixRbftae2RqaDozPSEp9zSnfDKlKDXRq==
+        ```text
+        db_password : <encrypted-secret>
         ```
 
     -   Encrypt secrets defined in a properties file
 
         !!! example
 
-            ``` bash
+            ```bash
             apictl secret create -f ./keys/secrets.properties
             ```
 
-    -   Response
-
-        ```go
-        db_password : JVlyw8j9TQqoPFTQUnKxNoGJn9p4+gGCHkkyHt2jXGVZoe60xndi2GjBJ1roR6667dlynhABXbcv434DFjz3ZI0iRjg1QhJLoXNtttSFl7KtyNDk5VtRMPDqAckheJAJe02KjWgdZXszEzjtBd6o2mY1nipsWBat3cOq0kt==
-        admin_password : gPImOAX1zwHu3malMHm0+Zy5WEcfKpUSmxJ2ZXfI3bi1yIZbHjrHUxiY+MKurTWRN8GJ6+EVL==
-        ```
-
-    -   Encrypt secrets defined in a properties file and get a .yaml file
+    -   Encrypt secrets defined in a properties file and get a `.yaml` file
 
         !!! example
 
-            ``` bash
+            ```bash
             apictl secret create -o k8 -f ./keys/secrets.properties
             ```
-
-    -   Response
-
-        ```go
-        Kubernetes secret file created in apictl/security/wso2-secrets.yaml with default name and namespace
-        You can change the default values as required before applying.
-        ```

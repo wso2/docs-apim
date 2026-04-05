@@ -51,13 +51,13 @@ The official WSO2 Docker images run as a non-root user with a fixed UID. While t
 
 Also 
 
-1. Starting from v4.6.0, each component has a separate Docker image (All-in-one, Control-plane, Gateway, Traffic-manager).
+1. Starting from v4.7.0, each component has a separate Docker image (All-in-one, Control-plane, Gateway, Traffic-manager).
 2. These Docker images do not contain any database connectors; therefore, we need to build custom Docker images based on each Docker image in order to make the deployment work with a separate DB.
 3. Download a connector which is compatible with the DB version and copy the connector while building the image
 
 !!! example "Sample Dockerfile for All-in-One Image"
     ```dockerfile
-    FROM wso2/wso2am:4.6.0
+    FROM wso2/wso2am:4.7.0
 
     # Change directory permissions for OpenShift compatibility
     USER root
@@ -144,6 +144,8 @@ oc project
 
 In each `values.yaml` file for your deployment, make the following OpenShift-specific changes:
 
+Set the mandatory internal encryption key under `wso2.apim.configurations.encryption.key` before the first startup. If you are deploying more than one API-M node or component, use the same key value in every relevant values file. For more information, see [Configuring Encryption Key]({{base_path}}/install-and-setup/setup/security/encryption/symmetric-encryption/#generate-a-secret-key).
+
 !!! info "Security Context Configuration"
     The following settings need to be applied to make your deployment compatible with OpenShift's security model:
 
@@ -213,6 +215,8 @@ The All-in-One deployment is the simplest pattern to deploy WSO2 API Manager on 
    wso2:
      apim:
        configurations:
+         encryption:
+           key: "<generated-64-char-hex-key>"
          databases:
            apim_db:
              url: "jdbc:mysql://<DB_HOST>:3306/apim_db?useSSL=false"
@@ -245,6 +249,7 @@ The All-in-One deployment is the simplest pattern to deploy WSO2 API Manager on 
 !!! warning "Important"
     Replace the placeholders with your actual values:
     - `<DB_HOST>`: Your database host address
+    - `<generated-64-char-hex-key>`: The mandatory internal encryption key used by API Manager
     - `<YOUR_REGISTRY>`, `<YOUR_REPOSITORY>`, `<YOUR_TAG>`: Your OpenShift-compatible image details
     - `<REGISTRY_USERNAME>`, `<REGISTRY_PASSWORD>`: Your private registry credentials (if applicable)
 
@@ -260,7 +265,7 @@ The All-in-One deployment is the simplest pattern to deploy WSO2 API Manager on 
    helm install apim wso2/wso2am-all-in-one \
      --namespace wso2 \
      --create-namespace \
-     --version 4.6.0-1 \
+     --version 4.7.0-1 \
      -f openshift-values.yaml
    ```
 
@@ -270,7 +275,7 @@ The All-in-One deployment is the simplest pattern to deploy WSO2 API Manager on 
    helm install apim wso2/wso2am-all-in-one \
      --namespace wso2 \
      --create-namespace \
-     --version 4.6.0-1 \
+     --version 4.7.0-1 \
      --set wso2.subscription.username=<USERNAME> \
      --set wso2.subscription.password=<PASSWORD> \
      -f https://raw.githubusercontent.com/wso2/helm-apim/4.6.x/docs/am-pattern-0-all-in-one/default_openshift_values.yaml
@@ -328,7 +333,8 @@ For each component in your selected pattern:
     1. **Custom Docker Images**: Build OpenShift-compatible images for each component
     2. **Security Context**: Apply the same security context settings as described in [Step 4](#step-4---configure-openshift-specific-settings-in-valuesyaml)
     3. **Database Connections**: Configure the database connections for each component
-    4. **Service and Route Configuration**: Configure services and routes appropriate for OpenShift
+    4. **Encryption Key**: Set `wso2.apim.configurations.encryption.key` in each component values file and use the same value across all API-M nodes and components that share data. For more information, see [Configuring Encryption Key]({{base_path}}/install-and-setup/setup/security/encryption/symmetric-encryption/#generate-a-secret-key).
+    5. **Service and Route Configuration**: Configure services and routes appropriate for OpenShift
 
 **Example Component Configuration**:
 
@@ -345,6 +351,12 @@ kubernetes:
   configMaps:
     scripts:
       defaultMode: "0457"
+
+wso2:
+  apim:
+    configurations:
+      encryption:
+        key: "<generated-64-char-hex-key>"
 ```
 
 ### Step 3 - Deploy Components in Order
@@ -356,7 +368,7 @@ Deploy components in the correct order, typically:
    helm install apim wso2/wso2am-acp \
      --namespace wso2 \
      --create-namespace \
-     --version 4.6.0-1 \
+     --version 4.7.0-1 \
      -f control-plane-openshift-values.yaml
    ```
 
@@ -365,7 +377,7 @@ Deploy components in the correct order, typically:
    helm install tm wso2/wso2am-tm \
      --namespace wso2 \
      --create-namespace \
-     --version 4.6.0-1 \
+     --version 4.7.0-1 \
      -f tm-openshift-values.yaml
    ```
 
@@ -373,7 +385,7 @@ Deploy components in the correct order, typically:
    ```bash
    helm install km wso2/wso2am-km \
      --namespace wso2 \
-     --version 4.6.0-1 \
+     --version 4.7.0-1 \
      -f km-openshift-values.yaml
    ```
 
@@ -381,7 +393,7 @@ Deploy components in the correct order, typically:
    ```bash
    helm install gw wso2/wso2am-universal-gw \
      --namespace wso2 \
-     --version 4.6.0-1 \
+     --version 4.7.0-1 \
      -f gw-openshift-values.yaml
    ```
 

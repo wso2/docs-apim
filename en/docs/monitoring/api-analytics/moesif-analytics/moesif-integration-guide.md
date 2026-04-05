@@ -10,7 +10,7 @@ This guide outlines the steps required to integrate **Moesif Analytics** with **
 
 Before you begin, ensure you have:
 
-- WSO2 API Manager 4.6.0
+- WSO2 API Manager 4.7.0
 - Administrative access to WSO2 APIM configuration files
 - A valid email address for Moesif account creation
 - Estimated setup time: 5-10 minutes

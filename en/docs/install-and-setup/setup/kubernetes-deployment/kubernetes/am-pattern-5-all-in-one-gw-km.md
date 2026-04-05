@@ -28,9 +28,10 @@ This document provides step-by-step instructions to deploy WSO2 API Manager in a
     - [1. General Configuration of Helm Charts](#1-general-configuration-of-helm-charts)
         - [1.1 Add Ingress Controller](#11-add-ingress-controller)
         - [1.2 Mount Keystore and Truststore](#12-mount-keystore-and-truststore)
-        - [1.3 Encrypting Secrets](#13-encrypting-secrets)
-        - [1.4 Configure Docker Image and Databases](#14-configure-docker-image-and-databases)
-        - [1.5 Configure SSL in Service Exposure](#15-configure-ssl-in-service-exposure)
+        - [1.3 Configure Internal Encryption Key (Mandatory)](#13-configure-internal-encryption-key-mandatory)
+        - [1.4 Encrypting Secrets (Cipher Tool and Secure Vault)](#14-encrypting-secrets-cipher-tool-and-secure-vault)
+        - [1.5 Configure Docker Image and Databases](#15-configure-docker-image-and-databases)
+        - [1.6 Configure SSL in Service Exposure](#16-configure-ssl-in-service-exposure)
     - [2. All-in-One Configurations](#2-all-in-one-configurations)
         - [2.1 Configure Multiple Gateways](#21-configure-multiple-gateways)
         - [2.2 Configure User Store Properties](#22-configure-user-store-properties)
@@ -101,11 +102,11 @@ If you need to customize the Docker images (e.g., adding JDBC drivers, custom li
 
    **All-in-One** (Control Plane/Key Manager):
    ```dockerfile
-   FROM docker.wso2.com/wso2am:4.6.0.0
+   FROM docker.wso2.com/wso2am:4.7.0.0
 
    ARG USER_HOME=/home/${USER}
    ARG WSO2_SERVER_NAME=wso2am
-   ARG WSO2_SERVER_VERSION=4.6.0
+   ARG WSO2_SERVER_VERSION=4.7.0
    ARG WSO2_SERVER=${WSO2_SERVER_NAME}-${WSO2_SERVER_VERSION}
    ARG WSO2_SERVER_HOME=${USER_HOME}/${WSO2_SERVER}
 
@@ -115,18 +116,18 @@ If you need to customize the Docker images (e.g., adding JDBC drivers, custom li
 
    **Universal Gateway**:
    ```dockerfile
-   FROM docker.wso2.com/wso2am-universal-gw:4.6.0.0
+   FROM docker.wso2.com/wso2am-universal-gw:4.7.0.0
 
    ARG USER_HOME=/home/${USER}
    ARG WSO2_SERVER_NAME=wso2am-universal-gw
-   ARG WSO2_SERVER_VERSION=4.6.0
+   ARG WSO2_SERVER_VERSION=4.7.0
    ARG WSO2_SERVER=${WSO2_SERVER_NAME}-${WSO2_SERVER_VERSION}
    ARG WSO2_SERVER_HOME=${USER_HOME}/${WSO2_SERVER}
 
    # Copy JDBC MySQL driver
    ADD --chown=wso2carbon:wso2 https://repo1.maven.org/maven2/mysql/mysql-connector-java/8.0.28/mysql-connector-java-8.0.28.jar ${WSO2_SERVER_HOME}/repository/components/lib
    ```
-    ARG WSO2_SERVER_VERSION=4.6.0
+    ARG WSO2_SERVER_VERSION=4.7.0
     ARG WSO2_SERVER=${WSO2_SERVER_NAME}-${WSO2_SERVER_VERSION}
     ARG WSO2_SERVER_HOME=${USER_HOME}/${WSO2_SERVER}
 
@@ -149,8 +150,8 @@ If you need to customize the Docker images (e.g., adding JDBC drivers, custom li
 
 - An example for MySQL is provided below:
   ```sql
-  CREATE DATABASE apim_db CHARACTER SET latin1;
-  CREATE DATABASE shared_db CHARACTER SET latin1;
+  CREATE DATABASE apim_db CHARACTER SET latin1 COLLATE latin1_bin;
+  CREATE DATABASE shared_db CHARACTER SET latin1 COLLATE latin1_bin;
 
   GRANT ALL ON apim_db.* TO 'apimadmin'@'%';
 
@@ -183,24 +184,26 @@ If you want to quickly try out WSO2 API Manager on Kubernetes with minimal confi
 
 2. **Deploy Components Using Default Values**:
 
+  Before running the Helm install commands, set the same `wso2.apim.configurations.encryption.key` value in `default_values.yaml`, `default_km_values.yaml`, and `default_gw_values.yaml`.
+
 !!! warning "Important"
     Naming conventions are crucial. If you modify the component names, ensure consistency throughout your configuration files.
 
    **Deploy Control Plane (All-in-One)**:
    ```bash
-   helm install apim wso2/wso2am-all-in-one --version 4.6.0-1 \
+   helm install apim wso2/wso2am-all-in-one --version 4.7.0-1 \
      -f https://raw.githubusercontent.com/wso2/helm-apim/4.6.x/docs/am-pattern-5-all-in-one_GW_KM/default_values.yaml
    ```
 
    **Deploy Key Manager**:
    ```bash
-   helm install km wso2/wso2am-acp --version 4.6.0-1 \
+   helm install km wso2/wso2am-acp --version 4.7.0-1 \
      -f https://raw.githubusercontent.com/wso2/helm-apim/4.6.x/docs/am-pattern-5-all-in-one_GW_KM/default_km_values.yaml
    ```
 
    **Deploy Universal Gateway**:
    ```bash
-   helm install gw wso2/wso2am-universal-gw --version 4.6.0-1 \
+   helm install gw wso2/wso2am-universal-gw --version 4.7.0-1 \
      -f https://raw.githubusercontent.com/wso2/helm-apim/4.6.x/docs/am-pattern-5-all-in-one_GW_KM/default_gw_values.yaml
    ```
 
@@ -260,25 +263,63 @@ In addition to the primary, internal keystores and truststore files, you can als
 > For advanced details regarding managing custom Java keystores and truststores in a container-based WSO2 product deployment,
   please refer to the [official WSO2 container guide](https://github.com/wso2/container-guide/blob/master/deploy/Managing_Keystores_And_Truststores.md).
 
-#### 1.3 Encrypting Secrets
+#### 1.3 Configure Internal Encryption Key (Mandatory)
 
-- If you need to use the cipher tool to encrypt the passwords in the secret, first you need to encrypt the passwords using the cipher tool. The cipher tool can be found in the bin directory of the product pack. The following command can be used to encrypt the password:
+This section is for the internal encryption key (`wso2.apim.configurations.encryption.key`), which is mandatory and used by API Manager to encrypt and decrypt internal/shared data.
+
+1. Generate a unique 256-bit secret key. If you use OpenSSL, the command will be as follows:
+
+    ```bash
+    openssl rand -hex 32
+    ```
+
+2. Add the generated key to the following location in your `values.yaml`:
+
+    ```yaml
+    wso2:
+      apim:
+        configurations:
+          encryption:
+            key: "<generated-64-char-hex-key>"
+    ```
+
+3. If secrets are encrypted using cipher tool and secure vault according to section 1.4, encrypt the generated internal encryption key and set the encrypted value to `wso2.apim.configurations.encryption.key`.
+
+!!! warning
+    **Distributed and Cloud Deployments**
+
+    In a distributed or high-availability deployment, all API Manager instances must use the exact same internal encryption key (`wso2.apim.configurations.encryption.key`). Each instance encrypts and decrypts shared registry resources using this key, so a mismatch will cause decryption failures across the cluster. Configure the shared key on every node before the first startup.
+
+#### 1.4 Encrypting Secrets (Cipher Tool and Secure Vault)
+
+- If you need to use the cipher tool to encrypt the passwords in the secret, first you need to encrypt the passwords using the cipher tool. The cipher tool can be found in the `bin` directory of the product pack. The following command can be used to encrypt the password:
+  ```bash
+  sh ciphertool.sh -Dconfigure -Dsymmetric -Dkey.based.encryption
   ```
-  sh cipher-tool.sh -Dconfigure
-  ```
-- Also, the apictl can be used to encrypt passwords as well. Reference can be found in the [following](https://apim.docs.wso2.com/en/latest/install-and-setup/setup/api-controller/encrypting-secrets-with-ctl/).
-- Then the encrypted values should be filled in the relevant fields of values.yaml.
-- Since the internal keystore password is required to resolve the encrypted value at runtime, you need to store the value in the cloud provider's secret manager. You can use the cloud provider's secret store to store the password of the internal keystore. The following section can be used to add the cloud provider's credentials to fetch the internal keystore password. Configuration for AWS can be as below: 
+- Also, the apictl can be used to encrypt passwords as well. Reference can be found in the [documentation]({{base_path}}/install-and-setup/setup/api-controller/encrypting-secrets-with-ctl/).
+- Then, the encrypted values should be filled in the relevant fields of `values.yaml`.
+- Since the encryption key is required to resolve the encrypted value at runtime, you need to store the value in the cloud provider's secret manager. You can use the cloud provider's secret store to store the encryption key. The following section can be used to add the cloud provider's credentials to fetch the encryption key. Configuration for AWS can be as below:
   ```yaml
-  internalKeystorePassword:
-    # -- AWS Secrets Manager secret name
-    secretName: ""
-    # -- AWS Secrets Manager secret key
-    secretKey: ""
+  aws:
+    secretsManager:
+      secretIdentifiers:
+        secretEncryptionKey:
+          # -- AWS Secrets Manager secret name
+          secretName: ""
+          # -- AWS Secrets Manager secret key
+          secretKey: ""
   ```
   > Please note that currently AWS, Azure, and GCP Secrets Managers are only supported for this.
 
-#### 1.4 Configure Docker Image and Databases
+!!! warning
+    **Use the Same Secret Encryption Key Across All Nodes**
+
+    If secure vault is enabled, all API-M nodes must use the same `secretEncryptionKey` reference and underlying key material. A mismatch will cause secret resolution and decryption failures across nodes.
+
+!!! note
+    These are two different keys serving distinct purposes. The internal encryption key (`wso2.apim.configurations.encryption.key`) defined in section 1.3 is **mandatory** and is used by API Manager for internal encryption of data such as registry resources and shared configuration. The secret encryption key (`secretEncryptionKey` under AWS/Azure/GCP) is a separate key used **only** when secure vault is enabled, allowing the runtime to fetch and decrypt secrets stored in a cloud provider's secret manager (which may itself include an encrypted copy of the internal encryption key).
+
+#### 1.5 Configure Docker Image and Databases
 
   - Add the following configurations to reflect the Docker image created previously in the Helm chart.
     
@@ -327,7 +368,7 @@ In addition to the primary, internal keystores and truststore files, you can als
       adminPassword: ""
     ```
   
-#### 1.5 Configure SSL in Service Exposure
+#### 1.6 Configure SSL in Service Exposure
 
 * For WSO2 recommended best practices in configuring SSL when exposing the internal product services outside of the Kubernetes cluster,
   please refer to the [official WSO2 container guide](https://github.com/wso2/container-guide/blob/master/route/Routing.md#configuring-ssl).
@@ -616,4 +657,3 @@ After completing the deployment and DNS configuration, you can access the manage
 
 !!! tip "Default Credentials"
     The default username is `admin` with password `admin`. For production environments, change these credentials immediately after first login.
-

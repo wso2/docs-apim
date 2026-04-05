@@ -1,10 +1,6 @@
-# About Asymmetric Cryptography
+# About Keystores and Truststores
 
-All WSO2 products including WSO2 API Manager use asymmetric cryptography by default for the authentication and protection of data. In asymmetric cryptography, keystores (with private keys and public key certificates) and truststores (with only public key certificates) are created and stored for a product. It is possible to have multiple keystores so that the keys used for different use cases are kept unique. The following topics explain more details on keystores and truststores, and how they are used in WSO2 products.
-
-## Understanding keystores and truststores
-
-A keystore is a repository (protected by a password) that holds the keys and certificates of a trust chain. There may be multiple trust chains (i.e., multiple keys with corresponding certificates) in one keystore. You use these artifacts for security purposes such as protecting sensitive information and establishing trust between your server and outside parties that connect to the server. The usage of keys and certificates contained in a keystore are explained below.
+A keystore is a secure repository (protected by a password) that holds the keys and certificates of a trust chain. There may be multiple trust chains (i.e., multiple keys with corresponding certificates) in one keystore. You use these artifacts for security purposes such as protecting sensitive information and establishing trust between your server and outside parties that connect to the server. The usage of keys and certificates contained in a keystore are explained below.
 
 **Keys:** According to public-key cryptography, the concept of a key pair (public key and the corresponding private key) is used for protecting sensitive information and for authenticating the identity of external parties that communicate with your server. For example, the information that is encrypted in your server using the public key can only be decrypted using the corresponding private key. Therefore, if any party wants to decrypt this encrypted data, they should have the corresponding private key, which is usually kept as a secret (not publicly shared).
 
@@ -33,7 +29,7 @@ All WSO2 products including WSO2 API Manager are by default shipped with a keyst
 ## Usage of keystores
 
 - Authenticating the communication over Secure Sockets Layer (SSL)/Transport Layer Security (TLS) protocols.
-- Encrypting sensitive data such as plain-text passwords found in both product-level and product feature-level configurations/configuration files using secure vault.
+- Encrypting sensitive data such as plain-text passwords in asymmetric cryptography.
 - Ensuring the integrity of the messages communicated with external parties (such as JWT, SAML, OIDC id\_token signing)
 
 !!! note

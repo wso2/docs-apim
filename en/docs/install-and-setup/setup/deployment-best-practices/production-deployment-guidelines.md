@@ -129,5 +129,12 @@ Given below is a checklist that will guide you to set up your production environ
          <td>Data backup and archiving</td>
          <td>Implement a <a href="{{base_path}}/install-and-setup/setup/deployment-best-practices/backup-recovery">backup and recovery strategy</a> for your system.</td>
       </tr>
+      <tr class="odd">
+         <td>Encryption Key</td>
+         <td>
+            <p>Generate a symmetric encryption key and add it to the <code>deployment.toml</code> file. See <a href="{{base_path}}/install-and-setup/setup/security/encryption/symmetric-encryption/#generate-a-secret-key">Configuring Encryption Key</a> for instructions.</p>
+            <p><strong>Note:</strong> In distributed or high-availability deployments, <strong>all API-M instances must use the same symmetric encryption key</strong>. Ensure the identical key value is added to the <code>deployment.toml</code> of every node in the cluster to maintain the ability to decrypt registry resources across instances.</p>
+         </td>
+      </tr>
    </tbody>
 </table>

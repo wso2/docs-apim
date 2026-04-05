@@ -4169,6 +4169,7 @@ display_deprecated_apis = false
 enable_comments = true
 enable_ratings = true
 enable_forum = true
+enable_legacy_api_keys = true
 mode = "HYBRID"
 </code></pre>
                     </div>
@@ -4373,6 +4374,25 @@ mode = "HYBRID"
                                     </div>
                                     <div class="param-description">
                                         <p>^</p>
+                                    </div>
+                                </div>
+                            </div><div class="param">
+                                <div class="param-name">
+                                  <span class="param-name-wrap"> <code>enable_legacy_api_keys</code> </span>
+                                </div>
+                                <div class="param-info">
+                                    <div>
+                                        <p>
+                                            <span class="param-type string"> string </span>
+                                            
+                                        </p>
+                                        <div class="param-default">
+                                            <span class="param-default-value">Default: <code>FALSE</code></span>
+                                        </div>
+                                        
+                                    </div>
+                                    <div class="param-description">
+                                        <p>The config to enable application bound legacy API key option.</p>
                                     </div>
                                 </div>
                             </div><div class="param">
@@ -17038,6 +17058,179 @@ queue_capacity = 50</code></pre>
                                     </div>
                                     <div class="param-description">
                                         <p>The size of the queue used to hold tasks before they are executed. A bounded queue prevents the system from running out of memory under high load. When the queue is full and the max_pool_size is reached, the rejection policy (CallerRunsPolicy) is triggered, providing back-pressure. A smaller queue applies back-pressure sooner, prioritizing stability, while a larger queue can absorb larger bursts but increases memory usage.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+
+
+
+## Encryption Configurations
+
+
+<div class="mb-config-catalog">
+    <section>
+        <div class="mb-config-options">
+            <div class="superfences-tabs">
+            
+            <input name="115" type="checkbox" id="_tab_115">
+                <label class="tab-selector" for="_tab_115"><i class="icon fa fa-code"></i></label>
+                <div class="superfences-content">
+                    <div class="mb-config-example">
+<pre><code class="toml">[encryption]
+key = "<generated-64-char-hex-key>"
+</code></pre>
+                    </div>
+                </div>
+                <div class="doc-wrapper">
+                    <div class="mb-config">
+                        <div class="config-wrap">
+                            <code>[encryption]</code>
+                            
+                            <p>
+                                Defines symmetric encryption settings. Configure this explicitly before first startup in production or distributed deployments.
+                            </p>
+                        </div>
+                        <div class="params-wrap">
+                            <div class="param">
+                                <div class="param-name">
+                                  <span class="param-name-wrap"> <code>key</code> </span>
+                                </div>
+                                <div class="param-info">
+                                    <div>
+                                        <p>
+                                            <span class="param-type string"> string </span>
+                                            <span class="badge-required">Required</span>
+                                        </p>
+                                        <div class="param-default">
+                                            <span class="param-default-value">Default: <code></code></span>
+                                        </div>
+                                        
+                                    </div>
+                                    <div class="param-description">
+                                        <p>The symmetric encryption key used for internal data protection. In distributed or cloud deployments, all API Manager instances must use the same key.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+
+
+
+## SameSite attribute of cookies configurations
+
+
+<div class="mb-config-catalog">
+    <section>
+        <div class="mb-config-options">
+            <div class="superfences-tabs">
+            
+            <input name="116" type="checkbox" id="_tab_116">
+                <label class="tab-selector" for="_tab_116"><i class="icon fa fa-code"></i></label>
+                <div class="superfences-content">
+                    <div class="mb-config-example">
+<pre><code class="toml">[web_app.cookie_processor]
+same_site_cookies = "lax"
+</code></pre>
+                    </div>
+                </div>
+                <div class="doc-wrapper">
+                    <div class="mb-config">
+                        <div class="config-wrap">
+                            <code>[web_app.cookie_processor]</code>
+                            
+                            <p>
+                                This can be configured to update SameSite attribute of the cookies.
+                            </p>
+                        </div>
+                        <div class="params-wrap">
+                            <div class="param">
+                                <div class="param-name">
+                                  <span class="param-name-wrap"> <code>same_site_cookies</code> </span>
+                                </div>
+                                <div class="param-info">
+                                    <div>
+                                        <p>
+                                            <span class="param-type string"> string </span>
+                                            
+                                        </p>
+                                        <div class="param-default">
+                                            <span class="param-default-value">Default: <code></code></span>
+                                        </div>
+                                        <div class="param-possible">
+                                            <span class="param-possible-values">Possible Values: <code>strict, lax, none</code></span>
+                                        </div>
+                                    </div>
+                                    <div class="param-description">
+                                        <p>This configuration should be used only if it is required to override the SameSite attribute of all the cookies handled by the web app to the configured value. Allowed values: strict, lax, none. Note: when set to none, cookies must also be marked Secure, or modern browsers may reject them.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+
+
+
+## Dependency Configurations
+
+
+<div class="mb-config-catalog">
+    <section>
+        <div class="mb-config-options">
+            <div class="superfences-tabs">
+            
+            <input name="117" type="checkbox" id="_tab_117">
+                <label class="tab-selector" for="_tab_117"><i class="icon fa fa-code"></i></label>
+                <div class="superfences-content">
+                    <div class="mb-config-example">
+<pre><code class="toml">[dependency_properties]
+'snakeyaml.max_file_size_limit' = 10
+</code></pre>
+                    </div>
+                </div>
+                <div class="doc-wrapper">
+                    <div class="mb-config">
+                        <div class="config-wrap">
+                            <code>[dependency_properties]</code>
+                            
+                            <p>
+                                This includes configurations for dependency related properties.
+                            </p>
+                        </div>
+                        <div class="params-wrap">
+                            <div class="param">
+                                <div class="param-name">
+                                  <span class="param-name-wrap"> <code>snakeyaml.max_file_size_limit</code> </span>
+                                </div>
+                                <div class="param-info">
+                                    <div>
+                                        <p>
+                                            <span class="param-type string"> integer </span>
+                                            
+                                        </p>
+                                        <div class="param-default">
+                                            <span class="param-default-value">Default: <code></code></span>
+                                        </div>
+                                        
+                                    </div>
+                                    <div class="param-description">
+                                        <p>This sets the maximum file size (in MB) for YAML files processed by SnakeYAML during API definition import/export operations. Overrides the default codepoint limit of 3,145,728 characters (~3MB) to support larger YAML OpenAPI files. The system calculates the actual codepoint limit using the formula: configured_value × 4 × 1024 × 1024 (e.g., 10 MB = 41,943,040 codepoints). Increasing this value may expose the system to DoS attacks via large malicious files - configure based on actual requirements and security policies.</p>
                                     </div>
                                 </div>
                             </div>

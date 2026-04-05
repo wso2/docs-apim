@@ -11,15 +11,15 @@
         </tr>
         <tr>
             <td colspan="2">WSO2 API Control Plane</td>
-            <td>4.6.0</td>
+            <td>4.7.0</td>
         </tr>
         <tr>
             <td colspan="2">WSO2 Universal Gateway</td>
-            <td>4.6.0</td>
+            <td>4.7.0</td>
         </tr>
         <tr>
             <td colspan="2">WSO2 Traffic Manager</td>
-            <td>4.6.0</td>
+            <td>4.7.0</td>
         </tr>
         <tr>
             <td colspan="2">WSO2 Kubernetes Gateway</td>
