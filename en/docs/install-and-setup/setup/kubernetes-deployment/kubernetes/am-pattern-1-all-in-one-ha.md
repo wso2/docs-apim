@@ -26,9 +26,9 @@ This deployment consists of a highly available API-M cluster with multiple nodes
     - [2. All-in-One Configurations](#2-all-in-one-configurations)
         - [2.1 Configure Multiple Gateways](#21-configure-multiple-gateways)
         - [2.2 Configure User Store Properties](#22-configure-user-store-properties)
-        - [2.4 Configure JWKS URL](#24-configure-jwks-url)
-        - [2.5 Deploy All-in-One](#25-deploy-all-in-one)
-        - [2.6 Enable High Availability](#26-enable-high-availability)
+        - [2.3 Configure JWKS URL](#23-configure-jwks-url)
+        - [2.4 Deploy All-in-One](#24-deploy-all-in-one)
+        - [2.5 Enable High Availability](#25-enable-high-availability)
     - [3. Add a DNS Record Mapping the Hostnames and the External IP](#3-add-a-dns-record-mapping-the-hostnames-and-the-external-ip)
     - [4. Access Management Consoles](#4-access-management-consoles)
 
@@ -147,7 +147,6 @@ helm install apim-1 wso2/wso2am-all-in-one --version 4.6.0-1 -f default_values.y
 
 Once the service is up and running, make sure you have the NGINX Ingress Controller deployed by following the steps outlined in the [Add Ingress Controller](#11-add-ingress-controller) section.
 
-- Once the service is up and running, deploy the NGINX Ingress Controller by following the steps outlined in [1.1 Add Ingress Controller](#11-add-ingress-controller).
 
 ## Configuration
 
@@ -325,7 +324,7 @@ You can configure user store properties as described in this [documentation](htt
 !!! warning Important
     If you do not want to configure any of the above properties, you must remove the `properties` block from the YAML file.
 
-### 2.4 Configure JWKS URL
+### 2.3 Configure JWKS URL
 
 By default, for the super tenant, the Resident Key Manager's JWKS URL is set to `https://<HOSTNAME>:9443/oauth2/jwks`. If you are using a virtual host like `am.wso2.com` that is not globally routable, this URL will be incorrect. You can configure the correct JWKS URL for the super tenant using the Helm chart as shown below:
 
@@ -341,7 +340,7 @@ wso2:
     Use Key Manager's service name instead of `localhost` if you are using a different hostname for the Key Manager.
 
 
-### 2.5 Deploy All-in-One
+### 2.4 Deploy All-in-One
 
 Now deploy the Helm chart using the following command after creating a namespace for the deployment. Replace `<release-name>` and `<namespace>` with appropriate values. Replace `<helm-chart-path>` with the path to the Helm deployment.
   
@@ -350,7 +349,7 @@ Now deploy the Helm chart using the following command after creating a namespace
   helm install <release-name> <helm-chart-path> --version 4.6.0-1 --namespace <namespace> --dependency-update -f values.yaml --create-namespace
   ```
 
-### 2.6 Enable High Availability
+### 2.5 Enable High Availability
 To enable high availability, you can scale the deployment by increasing the number of replicas for the API Manager runtime. This can be done by modifying the `highAvailability` in the `values.yaml` file:
 
 ```yaml
