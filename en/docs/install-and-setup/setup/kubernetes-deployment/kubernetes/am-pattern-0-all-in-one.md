@@ -12,7 +12,7 @@ This deployment consists of a single API-M node with a single API-M runtime. You
 - [Pattern 0: API-M Deployment with All-in-One Setup](#pattern-0-api-m-deployment-with-all-in-one-setup)
   - [Contents](#contents)
   - [Prerequisites](#prerequisites)
-  - [Step 1 - Set Up Basic Configurations](#step-1---set-up-basic-configurations)
+    - [Step 1 - Set Up Basic Configurations](#step-1-set-up-basic-configurations)
   - [Minimal Configuration](#minimal-configuration)
   - [Configuration](#configuration)
     - [1. General Configuration of Helm Charts](#1-general-configuration-of-helm-charts)

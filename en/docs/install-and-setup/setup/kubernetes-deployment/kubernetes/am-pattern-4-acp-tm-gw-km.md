@@ -12,9 +12,9 @@ This is the fully distributed deployment for API Manager. The default configurat
 - [Pattern 4: API-M Deployment with Fully Distributed Setup](#pattern-4-api-m-deployment-with-fully-distributed-setup)
   - [Contents](#contents)
   - [Prerequisites](#prerequisites)
-    - [Step 1 - Set Up Basic Configurations](#step-1---set-up-basic-configurations)
-    - [Step 2 - Build Docker Images](#step-2---build-docker-images)
-    - [Step 3 - Configure Database](#step-3---configure-database)
+    - [Step 1 - Set Up Basic Configurations](#step-1-set-up-basic-configurations)
+    - [Step 2 - Build Docker Images](#step-2-build-docker-images)
+    - [Step 3 - Configure Database](#step-3-configure-database)
   - [Minimal Configuration](#minimal-configuration)
   - [Configuration](#configuration)
     - [1. General Configuration of Helm Charts](#1-general-configuration-of-helm-charts)
@@ -171,7 +171,7 @@ If you want to quickly try out WSO2 API Manager on Kubernetes with minimal confi
     - Default keystore and truststore
     - Basic settings for a fully distributed deployment
 
-    **Note:** This deployment requires separate databases. Follow the steps in [Step 2 - Build Docker Images](#step-2---build-docker-images) to build the Docker images with JDBC drivers, and [Step 3 - Configure Database](#step-3---configure-database) to set up the database.
+    **Note:** This deployment requires separate databases. Follow the steps in [Step 2 - Build Docker Images](#step-2-build-docker-images) to build the Docker images with JDBC drivers, and [Step 3 - Configure Database](#step-3-configure-database) to set up the database.
 
 Before deploying, create a Kubernetes secret with the keystore and truststore:
 
