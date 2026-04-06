@@ -55,7 +55,7 @@ Before you begin, ensure you have the following prerequisites in place:
 - Below is a sample Dockerfile to build a custom WSO2 IS image for use as a Key Manager:
 
   ```dockerfile
-  FROM registry.wso2.com/wso2-is/is:7.0.0.0
+  FROM registry.wso2.com/wso2-is/is:7.1.0.0
 
     ARG USER=wso2carbon
     ARG USER_HOME=/home/${USER}
