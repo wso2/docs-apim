@@ -14066,7 +14066,7 @@ components:
             - MOCKED_OAS
         subtypeConfiguration:
           $ref: '#/components/schemas/SubtypeConfiguration'
-          scopes:
+        scopes:
           type: array
           items:
             $ref: '#/components/schemas/APIScope'

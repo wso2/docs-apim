@@ -1,0 +1,5 @@
+[apim.aws_lambda.http_client]
+max_connections = 50
+connection_timeout = 10
+socket_timeout = 30
+connection_acquisition_timeout = 60

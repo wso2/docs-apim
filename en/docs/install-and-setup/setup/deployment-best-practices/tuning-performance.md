@@ -129,7 +129,7 @@ Some general API-M-level recommendations are listed below:
 <tr class="odd">
 <td>
 <ul>
-<li><code> -Xms2048m -Xmx2048m -XX:MaxPermSize=1024m </code></li>
+<li><code> -Xms2048m -Xmx2048m -XX:MaxMetaspaceSize=1024m </code></li>
 </ul>
 <p>Set the following in the <code>               &lt;API-M_HOME&gt;/repository/conf/deployment.toml              </code> file:</p>
 
