@@ -78,7 +78,7 @@ Before you begin, ensure you have met the following requirements:
 
 WSO2 provides Docker images in two ways:
 - **Public DockerHub**: [WSO2 DockerHub](https://hub.docker.com/u/wso2/) offers General Availability (GA) versions with no additional updates
-- **Private Docker Registry**: [WSO2 Private Docker Registry](https://docker.wso2.com/) provides production-grade images with WSO2 Updates (requires an active [WSO2 Subscription](https://wso2.com/subscription))
+- **Private Docker Registry**: [WSO2 Private Docker Registry](https://registry.wso2.com/) provides production-grade images with WSO2 Updates (requires an active [WSO2 Subscription](https://wso2.com/subscription))
 
 For this pattern, you will need:
 - All-in-One image - [wso2am](https://hub.docker.com/r/wso2/wso2am) (for Control Plane and Key Manager)
@@ -102,7 +102,7 @@ If you need to customize the Docker images (e.g., adding JDBC drivers, custom li
 
    **All-in-One** (Control Plane/Key Manager):
    ```dockerfile
-   FROM docker.wso2.com/wso2am:4.7.0.0
+   FROM registry.wso2.com/wso2-apim/am:4.7.0.0
 
    ARG USER_HOME=/home/${USER}
    ARG WSO2_SERVER_NAME=wso2am
@@ -116,7 +116,7 @@ If you need to customize the Docker images (e.g., adding JDBC drivers, custom li
 
    **Universal Gateway**:
    ```dockerfile
-   FROM docker.wso2.com/wso2am-universal-gw:4.7.0.0
+   FROM registry.wso2.com/wso2-apim/am-universal-gw:4.7.0.0
 
    ARG USER_HOME=/home/${USER}
    ARG WSO2_SERVER_NAME=wso2am-universal-gw

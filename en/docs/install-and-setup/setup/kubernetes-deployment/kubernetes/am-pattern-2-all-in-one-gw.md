@@ -68,7 +68,7 @@ Before you begin, ensure you have the following prerequisites in place:
   versions of WSO2 products with no [WSO2 Updates](https://wso2.com/updates).
 
   For a production-grade deployment of the desired WSO2 product version, it is highly recommended to use the relevant
-  Docker image which packages WSO2 Updates, available at [WSO2 Private Docker Registry](https://docker.wso2.com/). To use these images, you need an active [WSO2 Subscription](https://wso2.com/subscription).
+  Docker image which packages WSO2 Updates, available at [WSO2 Private Docker Registry](https://registry.wso2.com/). To use these images, you need an active [WSO2 Subscription](https://wso2.com/subscription).
 
 - WSO2 API Manager 4.7.0 provides three Docker images:
   - All-in-one - [wso2am](https://hub.docker.com/r/wso2/wso2am)
@@ -86,7 +86,7 @@ Before you begin, ensure you have the following prerequisites in place:
 
   - Dockerfile for All-in-one
     ```dockerfile
-    FROM docker.wso2.com/wso2am:4.7.0.0
+    FROM registry.wso2.com/wso2-apim/am:4.7.0.0
 
     ARG USER_HOME=/home/${USER}
     ARG WSO2_SERVER_NAME=wso2am
@@ -100,7 +100,7 @@ Before you begin, ensure you have the following prerequisites in place:
   
   - Dockerfile for Universal Gateway
     ```dockerfile
-    FROM docker.wso2.com/wso2am-universal-gw:4.7.0.0
+    FROM registry.wso2.com/wso2-apim/am-universal-gw:4.7.0.0
 
     ARG USER_HOME=/home/${USER}
     ARG WSO2_SERVER_NAME=wso2am-universal-gw
