@@ -16,6 +16,8 @@ This is the fully distributed deployment for API Manager. The default configurat
     - [Step 2 - Build Docker Images](#step-2-build-docker-images)
     - [Step 3 - Configure Database](#step-3-configure-database)
   - [Minimal Configuration](#minimal-configuration)
+    - [Download and Edit the Values Files](#download-and-edit-the-values-files)
+    - [Deploy API Manager Components](#deploy-api-manager-components)
   - [Configuration](#configuration)
     - [1. General Configuration of Helm Charts](#1-general-configuration-of-helm-charts)
           - [1.1 Add Ingress Controller](#11-add-ingress-controller)
@@ -180,23 +182,37 @@ Before deploying, create a Kubernetes secret with the keystore and truststore:
 kubectl create secret generic apim-keystore-secret --from-file=wso2carbon.jks --from-file=client-truststore.jks
 ```
 
-Deploy API Manager with minimal configuration using the following commands:
+### Download and Edit the Values Files
+
+Before deploying, download the default values files for each component:
+
+```bash
+# Download values files
+curl -o default_acp_values.yaml https://raw.githubusercontent.com/wso2/helm-apim/4.6.x/docs/am-pattern-4-ACP_TM_GW_KM/default_acp_values.yaml
+curl -o default_km_values.yaml https://raw.githubusercontent.com/wso2/helm-apim/4.6.x/docs/am-pattern-4-ACP_TM_GW_KM/default_km_values.yaml
+curl -o default_tm_values.yaml https://raw.githubusercontent.com/wso2/helm-apim/4.6.x/docs/am-pattern-4-ACP_TM_GW_KM/default_tm_values.yaml
+curl -o default_gw_values.yaml https://raw.githubusercontent.com/wso2/helm-apim/4.6.x/docs/am-pattern-4-ACP_TM_GW_KM/default_gw_values.yaml
+```
+
+Edit the values files as needed for your environment (e.g., database connection, secrets, etc.).
+
+### Deploy API Manager Components
 
 !!! important
     Naming conventions are important. If you want to change them, ensure consistency throughout your configuration.
 
 ```bash
 # 1. Deploy API Control Plane
-helm install apim-acp wso2/wso2am-acp --version 4.6.0-1 -f https://raw.githubusercontent.com/wso2/helm-apim/4.6.x/docs/am-pattern-4-ACP_TM_GW_KM/default_acp_values.yaml
+helm install apim-acp wso2/wso2am-acp --version 4.6.0-1 -f default_acp_values.yaml
 
 # 2. Deploy Key Manager
-helm install apim-km wso2/wso2am-km --version 4.6.0-1 -f https://raw.githubusercontent.com/wso2/helm-apim/4.6.x/docs/am-pattern-4-ACP_TM_GW_KM/default_km_values.yaml
+helm install apim-km wso2/wso2am-km --version 4.6.0-1 -f default_km_values.yaml
 
 # 3. Deploy Traffic Manager
-helm install apim-tm wso2/wso2am-tm --version 4.6.0-1 -f https://raw.githubusercontent.com/wso2/helm-apim/4.6.x/docs/am-pattern-4-ACP_TM_GW_KM/default_tm_values.yaml
+helm install apim-tm wso2/wso2am-tm --version 4.6.0-1 -f default_tm_values.yaml
 
 # 4. Deploy Universal Gateway
-helm install apim-gw wso2/wso2am-universal-gw --version 4.6.0-1 -f https://raw.githubusercontent.com/wso2/helm-apim/4.6.x/docs/am-pattern-4-ACP_TM_GW_KM/default_gw_values.yaml
+helm install apim-gw wso2/wso2am-universal-gw --version 4.6.0-1 -f default_gw_values.yaml
 ```
 
 Once the services are up and running, make sure you have the NGINX Ingress Controller deployed by following the steps outlined in the [Add Ingress Controller](#11-add-ingress-controller) section.
