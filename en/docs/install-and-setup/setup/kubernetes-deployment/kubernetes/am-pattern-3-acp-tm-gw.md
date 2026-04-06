@@ -30,8 +30,8 @@ For advanced details on the deployment pattern, please refer to the official
         - [2.1 Configure Multiple Gateways](#21-configure-multiple-gateways)
         - [2.2 Configure User Store Properties](#22-configure-user-store-properties)
         - [2.4 Configure JWKS URL](#24-configure-jwks-url)
-        - [2.5 Deploy Control Plane](#25-deploy-control-plane)
-    - [3. Traffic Manager Configurations](#3-traffic-manager-configurations)
+        - [2.3 Configure JWKS URL](#23-configure-jwks-url)
+        - [2.4 Deploy Control Plane](#24](#3-traffic-manager-configurations)
         - [3.1 Configure Key Manager and Eventhub](#31-configure-key-manager-and-eventhub)
         - [3.2 Deploy Traffic Manager](#32-deploy-traffic-manager)
     - [4. Universal Gateway Configuration](#4-universal-gateway-configuration)
@@ -394,7 +394,7 @@ You can configure user store properties as described in this [documentation](htt
 
 For a complete list of available user store properties and their descriptions, refer to the [documentation](https://apim.docs.wso2.com/en/latest/administer/managing-users-and-roles/managing-user-stores/working-with-properties-of-user-stores/).
 
-### 2.4 Configure JWKS URL
+### 2.3 Configure JWKS URL
 By default, for the super tenant, the Resident Key Manager's JWKS URL is set to `https://<HOSTNAME>:9443/oauth2/jwks`. If you are using a virtual host like `am.wso2.com` that is not globally routable, this URL will be incorrect. You can configure the correct JWKS URL for the super tenant using the Helm chart as shown below:
 
 ```yaml
@@ -404,7 +404,7 @@ wso2:
       oauth_config:
         oauth2JWKSUrl: "https://<CONTROL_PLANE_SERVICE_NAME>:9443/oauth2/jwks"
 ```
-### 2.5 Deploy Control Plane
+### 2.4 Deploy Control Plane
 
 After configuring all the necessary parameters, you can deploy the Control Plane using Helm:
 
