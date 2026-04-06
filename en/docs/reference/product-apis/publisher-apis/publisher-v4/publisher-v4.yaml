@@ -9247,6 +9247,9 @@ components:
         context:
           type: string
           example: pizzaproduct
+        version:
+          type: string
+          example: 1.0.0
         description:
           type: string
           description: A brief description about the API
@@ -9298,6 +9301,12 @@ components:
           minLength: 1
           type: string
           example: pizzaproduct
+        version:
+          maxLength: 30
+          minLength: 1
+          type: string
+          pattern: '^[^~!@#;:%^*()+={}|\\<>"'',&/$\[\]\s+\/]+$'
+          example: 1.0.0
         description:
           type: string
           description: A brief description about the API
