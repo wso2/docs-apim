@@ -76,7 +76,7 @@ Before you begin, ensure you have the following prerequisites in place:
   
   WSO2 product Docker images available at [DockerHub](https://hub.docker.com/u/wso2/) package General Availability (GA) versions of WSO2 products with no [WSO2 Updates](https://wso2.com/updates).
 
-  For a production-grade deployment of the desired WSO2 product version, it is highly recommended to use the relevant Docker image which packages WSO2 Updates, available at the [WSO2 Private Docker Registry](https://docker.wso2.com/). To use these images, you need an active [WSO2 Subscription](https://wso2.com/subscription).
+  For a production-grade deployment of the desired WSO2 product version, it is highly recommended to use the relevant Docker image which packages WSO2 Updates, available at the [WSO2 Private Docker Registry](https://registry.wso2.com/). To use these images, you need an active [WSO2 Subscription](https://wso2.com/subscription).
 
 - WSO2 API Manager 4.6.0 provides three Docker images:
   - API Control Plane (ACP) - [wso2am-acp](https://hub.docker.com/r/wso2/wso2am-acp)
@@ -94,7 +94,7 @@ Before you begin, ensure you have the following prerequisites in place:
 
   - Dockerfile for API Control Plane
     ```dockerfile
-    FROM docker.wso2.com/wso2am-acp:4.6.0.0
+    FROM registry.wso2.com/wso2-apim/am-acp:4.6.0.0
 
     ARG USER_HOME=/home/${USER}
     ARG WSO2_SERVER_NAME=wso2am-acp
@@ -108,7 +108,7 @@ Before you begin, ensure you have the following prerequisites in place:
   
   - Dockerfile for Traffic Manager
     ```dockerfile
-    FROM docker.wso2.com/wso2am-tm:4.6.0.0
+    FROM registry.wso2.com/wso2-apim/am-tm:4.6.0.0
 
     ARG USER_HOME=/home/${USER}
     ARG WSO2_SERVER_NAME=wso2am-tm
@@ -122,7 +122,7 @@ Before you begin, ensure you have the following prerequisites in place:
   
   - Dockerfile for Universal Gateway
     ```dockerfile
-    FROM docker.wso2.com/wso2am-universal-gw:4.6.0.0
+    FROM registry.wso2.com/wso2-apim/am-universal-gw:4.6.0.0
 
     ARG USER_HOME=/home/${USER}
     ARG WSO2_SERVER_NAME=wso2am-universal-gw
