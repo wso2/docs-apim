@@ -87,7 +87,7 @@ For this pattern, you will need:
 !!! note "Key Manager Image"
     There is no separate Docker image for the Key Manager component. The All-in-One image should be used for the Key Manager component.
 
-#### Building Custom Docker Images
+### Building Custom Docker Images
 
 If you need to customize the Docker images (e.g., adding JDBC drivers, custom libraries):
 
@@ -219,7 +219,7 @@ The Helm charts for the API Manager deployment are available in the [WSO2 Helm C
 - The Helm naming convention for APIM follows a simple pattern. The following format is used for naming the resources:
 ```<RELEASE_NAME>-<CHART_NAME>-<RESOURCE_NAME>```
 
-#### 1.1 Add Ingress Controller
+### 1.1 Add Ingress Controller
 
 The recommendation is to use the [**NGINX Ingress Controller**](https://kubernetes.github.io/ingress-nginx/deploy/) suitable for your cloud environment or local deployment. Some sample annotations that could be used with the ingress resources are as follows:
 
@@ -247,7 +247,7 @@ The recommendation is to use the [**NGINX Ingress Controller**](https://kubernet
     kubectl create secret tls my-tls-secret --key <private key filename> --cert <certificate filename>
     ```
 
-#### 1.2 Mount Keystore and Truststore
+### 1.2 Mount Keystore and Truststore
 
 - If you are not including the keystore and truststore in the Docker image, you can mount them using a Kubernetes secret. The following steps show how to mount the keystore and truststore using a Kubernetes secret.
 - Create a Kubernetes secret with the keystore and truststore files. The secret should contain the primary keystore file, secondary keystore file, internal keystore file, and the truststore file. Note that the secret should be created in the same namespace in which you will be setting up the deployment.
@@ -263,7 +263,7 @@ In addition to the primary, internal keystores and truststore files, you can als
 > For advanced details regarding managing custom Java keystores and truststores in a container-based WSO2 product deployment,
   please refer to the [official WSO2 container guide](https://github.com/wso2/container-guide/blob/master/deploy/Managing_Keystores_And_Truststores.md).
 
-#### 1.3 Configure Internal Encryption Key (Mandatory)
+### 1.3 Configure Internal Encryption Key (Mandatory)
 
 This section is for the internal encryption key (`wso2.apim.configurations.encryption.key`), which is mandatory and used by API Manager to encrypt and decrypt internal/shared data.
 
@@ -290,7 +290,7 @@ This section is for the internal encryption key (`wso2.apim.configurations.encry
 
     In a distributed or high-availability deployment, all API Manager instances must use the exact same internal encryption key (`wso2.apim.configurations.encryption.key`). Each instance encrypts and decrypts shared registry resources using this key, so a mismatch will cause decryption failures across the cluster. Configure the shared key on every node before the first startup.
 
-#### 1.4 Encrypting Secrets (Cipher Tool and Secure Vault)
+### 1.4 Encrypting Secrets (Cipher Tool and Secure Vault)
 
 - If you need to use the cipher tool to encrypt the passwords in the secret, first you need to encrypt the passwords using the cipher tool. The cipher tool can be found in the `bin` directory of the product pack. The following command can be used to encrypt the password:
   ```bash
@@ -319,7 +319,7 @@ This section is for the internal encryption key (`wso2.apim.configurations.encry
 !!! note
     These are two different keys serving distinct purposes. The internal encryption key (`wso2.apim.configurations.encryption.key`) defined in section 1.3 is **mandatory** and is used by API Manager for internal encryption of data such as registry resources and shared configuration. The secret encryption key (`secretEncryptionKey` under AWS/Azure/GCP) is a separate key used **only** when secure vault is enabled, allowing the runtime to fetch and decrypt secrets stored in a cloud provider's secret manager (which may itself include an encrypted copy of the internal encryption key).
 
-#### 1.5 Configure Docker Image and Databases
+### 1.5 Configure Docker Image and Databases
 
   - Add the following configurations to reflect the Docker image created previously in the Helm chart.
     
@@ -368,14 +368,14 @@ This section is for the internal encryption key (`wso2.apim.configurations.encry
       adminPassword: ""
     ```
   
-#### 1.6 Configure SSL in Service Exposure
+### 1.6 Configure SSL in Service Exposure
 
 * For WSO2 recommended best practices in configuring SSL when exposing the internal product services outside of the Kubernetes cluster,
   please refer to the [official WSO2 container guide](https://github.com/wso2/container-guide/blob/master/route/Routing.md#configuring-ssl).
 
 ### 2. All-in-one Configurations
 
-#### 2.1 Configure Multiple Gateways
+### 2.1 Configure Multiple Gateways
 
 If you need to distribute the Gateway load, you can configure multiple API Gateway environments in WSO2 API Manager to publish to a single Developer Portal. [See more...](https://apim.docs.wso2.com/en/latest/manage-apis/deploy-and-publish/deploy-on-gateway/deploy-api/deploy-through-multiple-api-gateways/)
 ```yaml
@@ -409,7 +409,7 @@ If you need to distribute the Gateway load, you can configure multiple API Gatew
           websubHostname: "websub.wso2.com"
 ```
 
-#### 2.2 Configure User Store Properties
+### 2.2 Configure User Store Properties
 
 You can configure user store properties to customize authentication and user management according to your requirements:
 
@@ -428,7 +428,7 @@ userStore:
 !!! warning "Important"
     If you don't need to configure any user store properties, you must remove the `properties` block from the YAML file to avoid configuration errors.
 
-#### 2.3 Configure JWKS URL
+### 2.3 Configure JWKS URL
 
 For the super tenant, the Resident Key Manager's default JWKS URL is `https://<HOSTNAME>:9443/oauth2/jwks`. When using virtual hosts like `am.wso2.com`, you need to configure the correct JWKS URL:
 
@@ -443,7 +443,7 @@ wso2:
 !!! tip
     Using a properly configured JWKS URL ensures that token validation works correctly between components.
 
-#### 2.4 Deploy All-in-One
+### 2.4 Deploy All-in-One
 
 Deploy the Control Plane (All-in-One) component with your custom configuration:
 
@@ -462,7 +462,7 @@ helm install <release-name> wso2/wso2am-all-in-one \
 
 ### 3. Key Manager Configuration
 
-#### 3.1 Configure Eventhub
+### 3.1 Configure Eventhub
 
 The Key Manager component needs to connect to the Control Plane's event hub for synchronizing data:
 
@@ -479,7 +479,7 @@ eventhub:
 !!! info "Event Hub"
     The Event Hub enables communication between API Manager components. Configure the service URLs to point to your Control Plane instances.
 
-#### 3.2 Deploy Key Manager
+### 3.2 Deploy Key Manager
 
 Deploy the Key Manager component with your custom configuration:
 
@@ -498,7 +498,7 @@ helm install <release-name> wso2/wso2am-acp \
 
 ### 4. Universal Gateway Configuration
 
-#### 4.1 Configure Key Manager, Eventhub, and Throttling
+### 4.1 Configure Key Manager, Eventhub, and Throttling
 
 The Universal Gateway needs to connect to several components to function properly:
 
@@ -584,7 +584,7 @@ km:
 
 Choose the configuration that matches your deployment pattern. For high availability, specify all Control Plane service URLs under `urls` for both `eventhub` and `throttling` sections.
 
-#### 4.2 Enable Replicas
+### 4.2 Enable Replicas
 
 To ensure high availability and scalability of the Universal Gateway, you can configure the number of replicas in the `wso2.deployment` section of your `values.yaml` file.
 
@@ -601,7 +601,7 @@ wso2:
     - `minReplicas`: The minimum number of pods that should always be running (e.g., 1).
     - `maxReplicas`: The maximum number of pods that can be scaled up to (e.g., 3).
 
-#### 4.3 Deploy Universal Gateway
+### 4.3 Deploy Universal Gateway
 
 Deploy the Universal Gateway component with your custom configuration:
 

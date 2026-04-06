@@ -187,7 +187,7 @@ The Helm charts for the API Manager deployment are available in the [WSO2 Helm C
     <RELEASE_NAME>-<CHART_NAME>-<RESOURCE_NAME>
     ```
 
-#### 1.1 Add Ingress Controller
+### 1.1 Add Ingress Controller
 
 The recommendation is to use [**NGINX Ingress Controller**](https://kubernetes.github.io/ingress-nginx/deploy/) suitable for your cloud environment or local deployment. Some sample annotations that could be used with the ingress resources are as follows.
 
@@ -215,7 +215,7 @@ The recommendation is to use [**NGINX Ingress Controller**](https://kubernetes.g
     kubectl create secret tls my-tls-secret --key <private key filename> --cert <certificate filename>
     ```
 
-#### 1.2 Mount Keystore and Truststore
+### 1.2 Mount Keystore and Truststore
 
 - If you are not including the keystore and truststore into the docker image, you can mount them using a Kubernetes secret. Following steps shows how to mount the keystore and truststore using a Kubernetes secret.
 - Create a Kubernetes secret with the keystore and truststore files. The secret should contain the primary keystore file, secondary keystore file, internal keystore file, and the truststore file. Note that the secret should be created in the same namespace in which you will be setting up the deployment.
@@ -231,7 +231,7 @@ In addition to the primary, internal keystores and truststore files, you can als
 > For advanced details with regards to managing custom Java keystores and truststores in a container based WSO2 product deployment
   please refer to the [official WSO2 container guide](https://github.com/wso2/container-guide/blob/master/deploy/Managing_Keystores_And_Truststores.md).
 
-#### 1.3 Configure Internal Encryption Key (Mandatory)
+### 1.3 Configure Internal Encryption Key (Mandatory)
 
 This section is for the internal encryption key (`wso2.apim.configurations.encryption.key`), which is mandatory and used by API Manager to encrypt and decrypt internal/shared data.
 
@@ -258,7 +258,7 @@ This section is for the internal encryption key (`wso2.apim.configurations.encry
 
     In a distributed or high-availability deployment, all API Manager instances must use the exact same internal encryption key (`wso2.apim.configurations.encryption.key`). Each instance encrypts and decrypts shared registry resources using this key, so a mismatch will cause decryption failures across the cluster. Configure the shared key on every node before the first startup.
 
-#### 1.4 Encrypting Secrets (Cipher Tool and Secure Vault)
+### 1.4 Encrypting Secrets (Cipher Tool and Secure Vault)
 
 - If you need to use the cipher tool to encrypt the passwords in the secret, first you need to encrypt the passwords using the cipher tool. The cipher tool can be found in the `bin` directory of the product pack. The following command can be used to encrypt the password:
   ```bash
@@ -287,7 +287,7 @@ This section is for the internal encryption key (`wso2.apim.configurations.encry
 !!! note
     These are two different keys serving distinct purposes. The internal encryption key (`wso2.apim.configurations.encryption.key`) defined in section 1.3 is **mandatory** and is used by API Manager for internal encryption of data such as registry resources and shared configuration. The secret encryption key (`secretEncryptionKey` under AWS/Azure/GCP) is a separate key used **only** when secure vault is enabled, allowing the runtime to fetch and decrypt secrets stored in a cloud provider's secret manager (which may itself include an encrypted copy of the internal encryption key).
 
-#### 1.5 Configure Docker Image and Databases
+### 1.5 Configure Docker Image and Databases
 
   - Add the following configurations to reflect the docker image created previously in the helm chart.
     
@@ -333,7 +333,7 @@ This section is for the internal encryption key (`wso2.apim.configurations.encry
       adminPassword: ""
     ```
   
-#### 1.6 Configure SSL in Service Exposure
+### 1.6 Configure SSL in Service Exposure
 
 !!! info "SSL Configuration Best Practices"
     For WSO2 recommended best practices in configuring SSL when exposing internal services to outside of the Kubernetes cluster, refer to the [official WSO2 container guide](https://github.com/wso2/container-guide/blob/master/route/Routing.md#configuring-ssl).
