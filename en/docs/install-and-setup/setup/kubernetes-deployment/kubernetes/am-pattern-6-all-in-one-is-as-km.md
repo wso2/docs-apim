@@ -50,12 +50,12 @@ Before you begin, ensure you have the following prerequisites in place:
 ### Build WSO2 Identity Server Docker Image
 
 - This deployment pattern uses WSO2 Identity Server 7.x as a third-party Key Manager.
-- Download the WSO2 Identity Server Docker image from [DockerHub](https://hub.docker.com/r/wso2/wso2is) or use the [WSO2 Private Docker Registry](https://docker.wso2.com/) if you have an active WSO2 subscription.
+- Download the WSO2 Identity Server Docker image from [DockerHub](https://hub.docker.com/r/wso2/wso2is) or use the [WSO2 Private Docker Registry](https://registry.wso2.com/) if you have an active WSO2 subscription.
 - Since WSO2 IS 7.x needs to be configured as a Key Manager for WSO2 API Manager, you need to create a custom Docker image with the necessary configurations and extensions.
 - Below is a sample Dockerfile to build a custom WSO2 IS image for use as a Key Manager:
 
-    ```dockerfile
-    FROM docker.wso2.com/wso2is:7.1.0.0
+  ```dockerfile
+  FROM registry.wso2.com/wso2-is/is:7.1.0.0
 
     ARG USER=wso2carbon
     ARG USER_HOME=/home/${USER}

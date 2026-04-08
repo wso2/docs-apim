@@ -61,7 +61,7 @@ Before you begin, ensure you have the following prerequisites in place:
   
   WSO2 product Docker images available at [DockerHub](https://hub.docker.com/u/wso2/) package General Availability (GA) versions of WSO2 products with no [WSO2 Updates](https://wso2.com/updates).
 
-  For a production-grade deployment of the desired WSO2 product version, it is highly recommended to use the relevant Docker image that includes WSO2 Updates, available at the [WSO2 Private Docker Registry](https://docker.wso2.com/). To use these images, you need an active [WSO2 Subscription](https://wso2.com/subscription).
+  For a production-grade deployment of the desired WSO2 product version, it is highly recommended to use the relevant Docker image that includes WSO2 Updates, available at the [WSO2 Private Docker Registry](https://registry.wso2.com/). To use these images, you need an active [WSO2 Subscription](https://wso2.com/subscription).
 
 - For this pattern, you must use the All-in-one - [wso2am](https://hub.docker.com/r/wso2/wso2am) image.
 
@@ -76,7 +76,7 @@ Before you begin, ensure you have the following prerequisites in place:
 
   - Dockerfile for All-in-One:
     ```dockerfile
-    FROM docker.wso2.com/wso2am:4.5.0.0
+    FROM registry.wso2.com/wso2-apim/am:4.5.0.0
 
     ARG USER=wso2carbon
     ARG USER_HOME=/home/${USER}
