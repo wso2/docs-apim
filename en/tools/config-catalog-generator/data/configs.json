@@ -68,7 +68,7 @@
                 }
             ],
             "exampleFile": "server.toml"
-        },    
+        },
         {
             "title": "Super admin configurations",
             "options": [
@@ -264,6 +264,67 @@
                 }
             ],
             "exampleFile": "database_shared_db.toml"
+        },
+        {
+            "title": "Proxy Configurations",
+            "options": [
+                {
+                    "name": "apim.proxy_config",
+                    "required": false,
+                    "description": "configuration used to enable or disable proxy configurations. Note that targetProxyHosts configuration is only available from U2 update level 195 onwards.",
+                    "params": [
+                        {
+                            "name": "enable",
+                            "type": "boolean",
+                            "required": true,
+                            "default": "",
+                            "possible": "",
+                            "description": "Enable or disable a defined proxy configuration."
+                        },
+                        {
+                            "name": "host",
+                            "type": "string",
+                            "required": true,
+                            "default": "",
+                            "possible": "",
+                            "description": "Fully qualified domain name of the proxy server."
+                        },
+                        {
+                            "name": "port",
+                            "type": "int",
+                            "required": true,
+                            "default": "",
+                            "possible": "",
+                            "description": "Port number of the proxy server."
+                        },
+                        {
+                            "name": "protocol",
+                            "type": "string",
+                            "required": false,
+                            "default": "",
+                            "possible": "",
+                            "description": "Protocol used by the proxy server (e.g., HTTP, HTTPS)."
+                        },
+                        {
+                            "name": "nonProxyHosts",
+                            "type": "string",
+                            "required": false,
+                            "default": "",
+                            "possible": "",
+                            "description": "List of hosts separated by '|' that should bypass the proxy server."
+                        },
+                        {
+                            "name": "targetProxyHosts",
+                            "type": "string",
+                            "required": false,
+                            "default": "",
+                            "possible": "",
+                            "description": "List of hosts separated by '|' that should use the proxy server."
+                        }
+                    ]
+                }
+            ],
+            "exampleFile": "proxy_config.toml"
         },
         {
             "title": "JWT Configurations",
