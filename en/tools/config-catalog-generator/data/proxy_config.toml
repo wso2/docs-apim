@@ -1,0 +1,6 @@
+[apim.proxy_config]
+enable = true
+host =  "hello.xyz.org" 
+port = "80"
+targetProxyHosts = "localhost|abc.com"
+protocol = "HTTP" 
