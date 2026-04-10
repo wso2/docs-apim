@@ -100,7 +100,7 @@ Sophisticated traffic management:
 
 Comprehensive insights and revenue generation with multiple analytics solutions:
 
-- **Moesif Analytics**: Advanced API analytics with user behavior tracking (New in 4.6.0)
+- **Moesif Analytics**: Advanced API analytics with user behavior tracking.
 - **Alternative Solutions**: ELK, Datadog, OpenSearch, and Choreo-based analytics
 - **Observability**: Correlation logs, HTTP access logs, audit logs, API logs, and WebSocket logs
 - **Tracing**: OpenTracing and OpenTelemetry integration

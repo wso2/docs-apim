@@ -46,28 +46,28 @@ To install and set up the API-M servers:
 
 You can create the required databases for the API-M deployment in a separate server and point to the databases from the respective nodes.
 
-For information, see [Installing and Configuring the Databases](../../../../install-and-setup/setup/setting-up-databases/overview/).
+For information, see [Installing and Configuring the Databases]({{base_path}}/install-and-setup/setup/setting-up-databases/overview/).
 
 ### Step 3 - Configure your deployment with production hardening
 
 Ensure that you have taken into account the respective security hardening factors (e.g., changing and encrypting the default passwords, configuring JVM security, etc.) before deploying WSO2 API-M.
 
-For more information, see [Production Deployment Guidelines](../../../../install-and-setup/deploying-wso2-api-manager/production-deployment-guidelines/#common-guidelines-and-checklist).
+For more information, see [Production Deployment Guidelines]({{base_path}}/install-and-setup/deploying-wso2-api-manager/production-deployment-guidelines/#common-guidelines-and-checklist).
+
+!!! Note
+    Configure the same encryption key on all API Manager instances before starting any node for the first time so they can decrypt shared registry resources consistently. For more information, see [Configuring Encryption Key]({{base_path}}/install-and-setup/setup/security/encryption/symmetric-encryption/#generate-a-secret-key).
 
 ### Step 4 - Create and import SSL certificates
 
 Create an SSL certificate for each of the WSO2 API-M nodes and import them to the keystore and the truststore. This ensures that hostname mismatch issues in the certificates will not occur.
 
-!!! Note
-The same primary keystore should be used for all API Manager instances to decrypt the registry resources. For more information, see [Configuring the Primary Keystore](../../../../install-and-setup/setup/security/configuring-keystores/configuring-keystores-in-wso2-api-manager/#configuring-the-primary-keystore).
-
-For more information, see [Creating SSL Certificates](../../../../install-and-setup/setup/security/configuring-keystores/keystore-basics/creating-new-keystores/).
+For more information, see [Creating SSL Certificates]({{base_path}}/install-and-setup/setup/security/configuring-keystores/keystore-basics/creating-new-keystores/).
 
 ### Step 5 - Configure API-M Analytics
 
 API Manager Analytics is delivered via the API Manager Analytics cloud solution. You need to configure the WSO2 Universal Gateway distribution to publish analytics data to the cloud.
 
-See the instructions on [configuring the Gateway](../../../../monitoring/api-analytics/moesif-analytics/moesif-integration-guide/) with the cloud-based analytics solution.
+See the instructions on [configuring the Gateway]({{base_path}}/monitoring/api-analytics/moesif-analytics/moesif-integration-guide/) with the cloud-based analytics solution.
 
 ### Step 6 - Configure and start the component nodes
 
@@ -200,11 +200,11 @@ Follow the instructions given below to configure the Gateway node so that it can
         ```
 
     !!! Info
-        To further optimize the gateway notification feature, you can use additional `gateway_notification` configurations. For more information, see [API-M Revision Deployment Monitoring](../../../../reference/config-catalog/#api-m-gateway-notification-configurations).
+        To further optimize the gateway notification feature, you can use additional `gateway_notification` configurations. For more information, see [API-M Revision Deployment Monitoring]({{base_path}}/reference/config-catalog/#api-m-gateway-notification-configurations).
 
-5. Enable JSON Web Token (JWT) if required. For instructions, see [Generating JSON Web Token](../../../../manage-apis/deploy-and-publish/deploy-on-gateway/api-gateway/passing-enduser-attributes-to-the-backend-via-api-gateway).
+5. Enable JSON Web Token (JWT) if required. For instructions, see [Generating JSON Web Token]({{base_path}}/manage-apis/deploy-and-publish/deploy-on-gateway/api-gateway/passing-enduser-attributes-to-the-backend-via-api-gateway).
 
-6. Add the public certificate of the private key (that is used for signing the tokens) to the truststore under the "gateway_certificate_alias" alias. For instructions, see [Create and import SSL certificates](../../../../install-and-setup/setup/security/configuring-keystores/keystore-basics/creating-new-keystores).
+6. Add the public certificate of the private key (that is used for signing the tokens) to the truststore under the "gateway_certificate_alias" alias. For instructions, see [Create and import SSL certificates]({{base_path}}/install-and-setup/setup/security/configuring-keystores/keystore-basics/creating-new-keystores).
 
     !!! Note
         This is not applicable if you use the default certificates, which are the certificates that are shipped with the product itself.
@@ -213,7 +213,7 @@ Follow the instructions given below to configure the Gateway node so that it can
 
     1. Create a copy of the WSO2 Universal Gateway node that you just configured. This is the second node of the Gateway cluster.
 
-    2. Configure a load balancer fronting the two Gateway nodes in your deployment. For instructions, see [Configuring the Proxy Server and the Load Balancer](../../../../install-and-setup/setup/setting-up-proxy-server-and-the-load-balancer/configuring-the-proxy-server-and-the-load-balancer).
+    2. Configure a load balancer fronting the two Gateway nodes in your deployment. For instructions, see [Configuring the Proxy Server and the Load Balancer]({{base_path}}/install-and-setup/setup/setting-up-proxy-server-and-the-load-balancer/configuring-the-proxy-server-and-the-load-balancer).
 
         !!! Note
             To keep custom runtime artifacts deployed in the Gateway, add the following configuration in the `<UNIVERSAL-GW_HOME>/repository/conf/deployment.toml` file of the Gateway nodes.
@@ -434,7 +434,7 @@ Follow the steps given below to configure the All-in-One nodes to communicate wi
         ```
 
     !!! Info
-        This configuration is used for deploying APIs to the Gateway and for connecting the Developer Portal component to the Gateway if the Gateway is shared across tenants. If the Gateway is not used in multiple tenants, you can create a [Gateway Environment using the Admin Portal](../../../../manage-apis/deploy-and-publish/deploy-on-gateway/deploy-api/exposing-apis-via-custom-hostnames/#using-a-new-gateway-environment-to-expose-apis-via-custom-hostnames).
+        This configuration is used for deploying APIs to the Gateway and for connecting the Developer Portal component to the Gateway if the Gateway is shared across tenants. If the Gateway is not used in multiple tenants, you can create a [Gateway Environment using the Admin Portal]({{base_path}}/manage-apis/deploy-and-publish/deploy-on-gateway/deploy-api/exposing-apis-via-custom-hostnames/#using-a-new-gateway-environment-to-expose-apis-via-custom-hostnames).
         Note that in the above configurations, the `service_url` points to the `9443` port of the Gateway node, while `http_endpoint` and `https_endpoint` points to the `http` and `https nio ports` (8280 and 8243).
    
     **Add Event Hub Configurations**
@@ -518,7 +518,7 @@ Follow the steps given below to configure the All-in-One nodes to communicate wi
         'header.X-WSO2-KEY-MANAGER' = "default"
         ```
 
-3. If required, encrypt the Auth Keys (access tokens, client secrets, and authorization codes), see [Encrypting OAuth Keys](../../../../manage-apis/design/api-security/oauth2/encrypting-oauth2-tokens).
+3. If required, encrypt the Auth Keys (access tokens, client secrets, and authorization codes), see [Encrypting OAuth Keys]({{base_path}}/manage-apis/design/api-security/oauth2/encrypting-oauth2-tokens).
 
 4. Optionally, add the following configuration to enable distributed cache invalidation within the All-in-One nodes.
 
@@ -533,7 +533,7 @@ Follow the steps given below to configure the All-in-One nodes to communicate wi
 
     1. Create a copy of the All-in-One node that you just configured. This is the second node of the All-in-One cluster.
 
-    2. Configure a load balancer fronting the two All-in-One nodes in your deployment. For instructions, see [Configuring the Proxy Server and the Load Balancer](../../../../install-and-setup/setup/setting-up-proxy-server-and-the-load-balancer/configuring-the-proxy-server-and-the-load-balancer).
+    2. Configure a load balancer fronting the two All-in-One nodes in your deployment. For instructions, see [Configuring the Proxy Server and the Load Balancer]({{base_path}}/install-and-setup/setup/setting-up-proxy-server-and-the-load-balancer/configuring-the-proxy-server-and-the-load-balancer).
 
 6. Configure Traffic Management capabilities on All-in-One node 
 

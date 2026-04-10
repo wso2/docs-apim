@@ -344,6 +344,11 @@ Follow the steps given below to configure WSO2 IS as a Key Manager component
       <td>Local and remote claim mapping.</td>
       <td>Optional</td>
       </tr>
+      <tr class="even">
+      <td>Application Configuration Constraints</td>
+      <td>The application configuration constraints.</td>
+      <td>Optional</td>
+      </tr>
       </tbody>
       </table>
 
