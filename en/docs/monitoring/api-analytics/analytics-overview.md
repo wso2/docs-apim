@@ -18,7 +18,7 @@ Analytics architecture consists of the following components
 
 ### Inbound Analytics
 
-As the above diagram shows, Inbound Analytics consists of analytics data that are collected between the user and API Proxy. This includes `apiContext`, `proxyResponseCode`, `proxyResponseCode`, `apiType` etc.
+As the above diagram shows, Inbound Analytics consists of analytics data that are collected between the user and API Proxy. This includes `apiContext`, `proxyResponseCode`, `apiType` etc.
 
 ### Outbound Analytics
 
