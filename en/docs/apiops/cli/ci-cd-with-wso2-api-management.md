@@ -7,7 +7,7 @@ environment-related configurations and also create API Projects from OpenAPI spe
 
 [![]({{base_path}}/assets/img/learn/api-controller/ci-cd-pipeline-for-apis-with-wso2-apim.png)]({{base_path}}/assets/img/learn/api-controller/ci-cd-pipeline-for-apis-with-wso2-apim.png)
 
-Continuous integration and continuous deployment for APIs is an open-ended scenario; different organizations have 
+Continuous integration and deployment (CI/CD) for APIs is a flexible model that varies across organizations; different organizations have 
 different ways of addressing the problem. The above diagram depicts a generic solution that involves a minimum number of parties in an organization for API automation. Although the diagram shows three parties, there could be more or less depending on the organization’s structure.
 
 -   API Developers: Develop APIs and related services
