@@ -6,7 +6,7 @@ reach the backend, rewrite the request path or even dynamically change the endpo
 
 Use the following Open API Definition to build your interceptor service with a programming language of your choice.
 
-- [Interceptor Open API Definition](https://raw.githubusercontent.com/wso2/product-microgateway/refs/heads/cc-main/resources/interceptor-service-open-api-v1.yaml)
+- [Interceptor Open API Definition]([https://raw.githubusercontent.com/wso2/product-microgateway/refs/heads/cc-main/resources/interceptor-service-open-api-v1.yaml](https://raw.githubusercontent.com/wso2/product-microgateway/refs/heads/cc-main/resources/interceptor-service-open-api-v1.yaml))
 
 Choreo Connect Router makes requests to your interceptor service in the following paths. You can define which handler
 (request/response) should be get called, which information should be included in the request body of the interceptor
