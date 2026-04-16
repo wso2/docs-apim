@@ -168,7 +168,7 @@ kubectl create namespace apim
 
 ```bash
 # Create secret with default WSO2 keystores and truststores
-kubectl create secret generic apim-keystore-secret --from-file=wso2carbon.jks --from-file=client-truststore.jks
+kubectl create secret generic apim-keystore-secret --from-file=wso2carbon.jks --from-file=client-truststore.jks -n apim
 ```
 
 - Install the Envoy Gateway as follows:
@@ -191,10 +191,10 @@ kubectl apply -f https://raw.githubusercontent.com/wso2/helm-apim/4.7.x/docs/ass
 
 ```bash
 # Deploy All-in-One
-helm install apim wso2/wso2am-all-in-one --version 4.7.0-1 -f https://raw.githubusercontent.com/wso2/helm-apim/4.6.x/docs/am-pattern-2-all-in-one_GW/default_values.yaml
+helm install apim wso2/wso2am-all-in-one --version 4.7.0-1 -f https://raw.githubusercontent.com/wso2/helm-apim/4.7.x/docs/am-pattern-2-all-in-one_GW/default_values.yaml -n apim
 
 # Deploy Universal Gateway
-helm install apim-gw wso2/wso2am-universal-gw --version 4.7.0-1 -f https://raw.githubusercontent.com/wso2/helm-apim/4.6.x/docs/am-pattern-2-all-in-one_GW/default_gw_values.yaml
+helm install apim-gw wso2/wso2am-universal-gw --version 4.7.0-1 -f https://raw.githubusercontent.com/wso2/helm-apim/4.7.x/docs/am-pattern-2-all-in-one_GW/default_gw_values.yaml -n apim
 ```
 
 !!! important
