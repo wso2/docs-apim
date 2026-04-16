@@ -173,7 +173,7 @@ kubectl apply -f https://raw.githubusercontent.com/wso2/helm-apim/4.7.x/docs/ass
 
 ```bash
 helm install is wso2/identity-server --version next \
--f default_values.yaml
+-f default_values.yaml -n apim
 ```
 
 - Before running the Helm install command for API Manager, set `wso2.apim.configurations.encryption.key` in the API Manager values file.
@@ -181,7 +181,7 @@ helm install is wso2/identity-server --version next \
 - Deploy API Manager with minimal configuration using the following command:
 
 ```bash
-helm install apim wso2/wso2am-all-in-one --version 4.7.0-1 -f https://raw.githubusercontent.com/wso2/helm-apim/4.6.x/docs/am-pattern-0-all-in-one/default_values.yaml
+helm install apim wso2/wso2am-all-in-one --version 4.7.0-1 -f https://raw.githubusercontent.com/wso2/helm-apim/4.7.x/docs/am-pattern-0-all-in-one/default_values.yaml -n apim
 ```
 
 The Helm chart uses Gateway API by default. If you prefer Ingress instead, follow the steps in [1.1 Add Gateway API controller or Ingress controller](#11-add-gateway-api-controller-or-ingress-controller) to configure and enable it.
@@ -204,7 +204,7 @@ Review these resources to tailor your deployment to your specific requirements a
 
 ### 1. General Configuration of Helm Charts
 
-The Helm charts for the API Manager deployment are available in the [WSO2 Helm Chart Repository](https://github.com/wso2/helm-apim/tree/4.6.x). You can either use the charts from the repository or clone the repository and use the charts from the local copy.
+The Helm charts for the API Manager deployment are available in the [WSO2 Helm Chart Repository](https://github.com/wso2/helm-apim/tree/4.7.x). You can either use the charts from the repository or clone the repository and use the charts from the local copy.
 
 !!! note "Resource Naming Convention"
     The helm naming convention for APIM follows a simple pattern:
@@ -523,6 +523,6 @@ hostnames and the external IP in the `/etc/hosts` file at the client-side.
 
 - Universal Gateway: `https://<kubernetes.gatewayAPI.gateway.hostname>`
 
-- Identity Server Management Console: `https://<kubernetes.ingress.is.hostname>/carbon`
+- Identity Server Management Console: `https://<kubernetes.gatewayAPI.is.hostname>/carbon`
 
 
