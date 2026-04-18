@@ -245,12 +245,12 @@
 'administer/product-security/configuring-keystores/keystore-basics/creating-new-keystores.md': '{{SITE_URL}}/install-and-setup/setup/security/configuring-keystores/keystore-basics/creating-new-keystores/'
 'administer/product-security/configuring-keystores/keystore-basics/renewing-a-ca-signed-certificate-in-a-keystore.md': '{{SITE_URL}}/install-and-setup/setup/security/configuring-keystores/keystore-basics/renewing-a-ca-signed-certificate-in-a-keystore/'
 'administer/product-security/configuring-keystores/keystore-basics/about-asymetric-cryptography.md': '{{SITE_URL}}/install-and-setup/setup/security/configuring-keystores/keystore-basics/about-asymetric-cryptography/'
+'install-and-setup/setup/security/configuring-keystores/keystore-basics/about-asymetric-cryptography.md': '{{SITE_URL}}/install-and-setup/setup/security/configuring-keystores/keystore-basics/about-keystores-and-truststores/'
 'administer/product-security/logins-and-passwords/maintaining-logins-and-passwords.md': '{{SITE_URL}}/install-and-setup/setup/security/logins-and-passwords/maintaining-logins-and-passwords/'
 'administer/product-security/logins-and-passwords/working-with-encrypted-passwords.md': '{{SITE_URL}}/install-and-setup/setup/security/logins-and-passwords/working-with-encrypted-passwords/'
 'administer/product-security/logins-and-passwords/carbon-secure-vault-implementation.md': '{{SITE_URL}}/install-and-setup/setup/security/logins-and-passwords/carbon-secure-vault-implementation/'
 'administer/product-security/logins-and-passwords/set-passwords-using-vars-and-sys-props.md': '{{SITE_URL}}/install-and-setup/setup/security/logins-and-passwords/set-passwords-using-vars-and-sys-props/'
 'administer/product-security/enabling-hostname-verification.md': '{{SITE_URL}}/install-and-setup/setup/security/enabling-hostname-verification/'
-'administer/product-security/enabling-java-security-manager.md': '{{SITE_URL}}/install-and-setup/setup/security/enabling-java-security-manager/'
 'administer/product-security/general-data-protection-regulation-gdpr-for-wso2-api-manager.md': '{{SITE_URL}}/install-and-setup/setup/security/general-data-protection-regulation-gdpr-for-wso2-api-manager/'
 'administer/product-security/configuring-transport-level-security.md': '{{SITE_URL}}/install-and-setup/setup/security/configuring-transport-level-security/'
 'administer/product-security/mutual-ssl-between-api-gateway-and-backend.md': '{{SITE_URL}}/deploy-and-publish/deploy-on-gateway/api-gateway/mutual-ssl-between-api-gateway-and-backend/'
@@ -650,7 +650,7 @@
 'design/create-api/create-streaming-api/streaming-api-overview.md': '{{SITE_URL}}/manage-apis/design/create-api/create-streaming-api/streaming-api-overview/'
 'design/create-api/create-streaming-api.md': '{{SITE_URL}}/manage-apis/design/create-api/create-streaming-api/test-a-websub-api/'
 'design/create-api/create-ai-api/create-an-ai-api.md': '{{SITE_URL}}/manage-apis/design/create-api/create-ai-api/create-an-ai-api/'
-'design/prototype-api/create-mocked-js-api.md': 'https://apim.docs.wso2.com/en/4.6.0/manage-apis/design/prototype-api/create-mocked-js-api/'
+'design/prototype-api/create-mocked-js-api.md': 'https://apim.docs.wso2.com/en/4.7.0/manage-apis/design/prototype-api/create-mocked-js-api/'
               
 # --- Endpoints & Security (Moved to manage-apis/design) ---
 'design/endpoints/endpoint-security/basic-auth.md': '{{SITE_URL}}/manage-apis/design/endpoints/endpoint-security/basic-auth/'
@@ -665,8 +665,8 @@
 'design/api-versioning/deprecate-the-old-version.md': '{{SITE_URL}}/manage-apis/design/api-versioning/deprecate-the-old-version/'
 'design/api-versioning/backward-compatibility.md': '{{SITE_URL}}/manage-apis/design/api-versioning/backward-compatibility/'
 'design/api-documentation/view-generated-documentation.md': '{{SITE_URL}}/manage-apis/design/api-documentation/view-generated-documentation/'
-'design/api-policies/attach-policy.md': 'https://apim.docs.wso2.com/en/4.6.0/manage-apis/design/api-policies/attach-policy/'
-'design/api-policies/create-policy.md': 'https://apim.docs.wso2.com/en/4.6.0/manage-apis/design/api-policies/create-policy/'
+'design/api-policies/attach-policy.md': 'https://apim.docs.wso2.com/en/4.7.0/manage-apis/design/api-policies/attach-policy/'
+'design/api-policies/create-policy.md': 'https://apim.docs.wso2.com/en/4.7.0/manage-apis/design/api-policies/create-policy/'
             
 # --- Deploy and Publish (Moved to manage-apis/deploy-and-publish) ---
 'deploy-and-publish/deploy-on-gateway/deploy-api/exposing-apis-via-custom-hostnames.md': '{{SITE_URL}}/manage-apis/deploy-and-publish/deploy-on-gateway/deploy-api/exposing-apis-via-custom-hostnames/'

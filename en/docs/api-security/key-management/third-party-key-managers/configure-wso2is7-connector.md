@@ -8,7 +8,7 @@ WSO2 API Manager supports multiple Key Managers. As a result, WSO2 API Manager i
 !!! Note
     **Role Based Authorization** based on the [WSO2 Identity Server 7 Role Based Authorization model](https://is.docs.wso2.com/en/7.0.0/guides/authorization/api-authorization/api-authorization/) is supported from WSO2 Identity Server 7.0.0.65 update level onwards.
 
-## Limitations of using WSO2 IS 7.x as a Key Manager
+## Things to Note When Using WSO2 IS 7.x as a Key Manager
 
 Data models of WSO2 API Manager {{site_version}} and WSO2 Identity Server 7.x are different. Therefore, when using WSO2 API Manager
 {{site_version}} with WSO2 Identity Server 7.x as the key manager,
@@ -63,7 +63,7 @@ Follow the steps given below to configure WSO2 IS 7.x as a Key Manager component
 
         You need to import the public certificate of the WSO2 Identity Server 7.x to the truststore of the WSO2 API Manager, and vice-versa. For information on importing the certificates, see the [Importing certificates to the truststore]({{base_path}}/install-and-setup/setup/security/configuring-keystores/keystore-basics/creating-new-keystores/#step-3-importing-certificates-to-the-truststore) guide.
 
-3. Download [notification.event.handlers-2.0.5.jar](https://maven.wso2.org/nexus/content/repositories/releases/org/wso2/km/ext/wso2is/wso2is.notification.event.handlers/2.0.5/wso2is.notification.event.handlers-2.0.5.jar) and add it to `<IS_HOME>/repository/components/dropins`
+3. Download [notification.event.handlers-2.1.3.jar](https://maven.wso2.org/nexus/content/repositories/releases/org/wso2/km/ext/wso2is/wso2is.notification.event.handlers/2.1.3/wso2is.notification.event.handlers-2.1.3.jar) and add it to `<IS_HOME>/repository/components/dropins`
 
 4. Start WSO2 Identity Server 7.x with a port offset.
    portOffset is required only if you are running both API-M and IS 7.x in the same JVM.

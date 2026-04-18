@@ -33,6 +33,19 @@ Follow the steps below to set up the Microsoft SQL database and users.
 
 1.  Open the Microsoft SQL Management Studio to create a database and user.
 1.  Click **New Database** from the **Database** menu and specify all the options to create a new database.
+
+    !!! important "Case-Sensitive Collation Requirement"
+        WSO2 API Manager **requires** a case-sensitive database collation for correct operation. When creating the database, ensure you select a **case-sensitive (CS) collation**. The default MSSQL collation (`SQL_Latin1_General_CP1_CI_AS`) is case insensitive and **must not** be used.
+
+        For fresh setups, set the collation to a case-sensitive one such as `Latin1_General_CS_AS`:
+
+        ```sql
+        CREATE DATABASE <DATABASE_NAME> COLLATE Latin1_General_CS_AS;
+        ```
+
+    !!! note
+        UTF-8 encoding is **not supported** for MSSQL databases used with WSO2 API Manager.
+
 1.  Click **New Login** from the **Logins** menu, and specify all the necessary options.
 
 ### Eliminate concurrency issues in tables

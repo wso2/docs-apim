@@ -59,7 +59,7 @@ Following are the minimum userstore properties that are required to configure th
 <br />
 If you are connecting over ldaps (secured LDAP).<br />
 you need to import the certificate of the userstore to <code><&ZeroWidthSpace;APIM_HOME>/repository/resources/security/client-truststore.jks</code>. For information on how to add certificates to the truststore and how keystores are configured and used in a system, see <br />
-<a href="{{base_path}}/install-and-setup/setup/security/configuring-keystores/keystore-basics/creating-new-keystores/">Using asymmetric encryption</a><br />
+<a href="{{base_path}}/install-and-setup/setup/security/configuring-keystores/keystore-basics/creating-new-keystores/">Creating new keystores</a><br />
 <br />
 If LDAP connection pooling is used, see enable connection pooling for LDAPS connections.</br>
 </p></td>
@@ -477,7 +477,7 @@ Following are some key points to consider :
             ConnectionURL="ldaps://10.100.1.100:636"
             ```
     
-           -   For Active Directory, you need to import the certificate of Active Directory to the `client-truststore.jks` of the WSO2 product. For information on how to add certificates to the truststore and how keystores are configured and used in a system, see [Using Asymmetric Encryption]({{base_path}}/install-and-setup/setup/security/configuring-keystores/keystore-basics/creating-new-keystores/) .
+           -   For Active Directory, you need to import the certificate of Active Directory to the `client-truststore.jks` of the WSO2 product. For information on how to add certificates to the truststore and how keystores are configured and used in a system, see [Creating New Keystores]({{base_path}}/install-and-setup/setup/security/configuring-keystores/keystore-basics/creating-new-keystores/) .
     
            -   You also need to [enable connection pooling](https://is.docs.wso2.com/en/5.10.0/setup/performance-tuning-recommendations/#pooling-ldaps-connections) for LDAPS connections at the time of starting your server, which will enhance server performance.
     
@@ -617,7 +617,7 @@ username = "admin"
 admin_role = "admin"
 create_admin_account = true
 ```
-For information about the system administrator user, see [Configuring the System Administrator]({{base_path}}/reference/config-catalog/#super-admin-configurations) , and for information on how keystores are used in WSO2 products, see [Using Asymmetric Encryption]({{base_path}}/install-and-setup/setup/security/configuring-keystores/keystore-basics/creating-new-keystores/) .
+For information about the system administrator user, see [Configuring the System Administrator]({{base_path}}/reference/config-catalog/#super-admin-configurations) , and for information on how keystores are used in WSO2 products, see [Creating New Keystores]({{base_path}}/install-and-setup/setup/security/configuring-keystores/keystore-basics/creating-new-keystores/) .
 
 ## Step 3: Starting the server
 

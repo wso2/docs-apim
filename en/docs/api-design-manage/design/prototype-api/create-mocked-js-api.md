@@ -32,9 +32,12 @@ Follow the instructions below to add a mock implementation to the API:
      [![Select Mock Implementation]({{base_path}}/assets/img/learn/prototype-api/create-api-prototype-mock-impl-swagger-petstore.png)]({{base_path}}/assets/img/learn/prototype-api/create-api-prototype-mock-impl-swagger-petstore.png)
 
 3. View the inline script that has been generated.
-   
-     Click and expand any of the methods that contain a sample/mock payload. 
-     
+
+    !!! important
+        Currently, generation of example payloads for mock implementations is supported only for Swagger 2.x and OpenAPI 3.0.x versions.
+
+     Click and expand any of the methods that contain a sample/mock payload.
+
      Let's click on the `GET /pet/{petId}` method.
 
      [![Generated inline script]({{base_path}}/assets/img/learn/create-api-prototype-generated-script.png)]({{base_path}}/assets/img/learn/create-api-prototype-generated-script.png)
@@ -293,6 +296,17 @@ var hashmapConstructors = c.getClassLoader().loadClass("java.util.HashMap").getD
 ```
 ERROR - ScriptMediator {api:Mock:v1.0.0} The script engine returned an error executing the inlined js script function mediate
 com.sun.phobos.script.util.ExtendedScriptException: org.mozilla.javascript.EcmaError: TypeError: Cannot find function getClassLoader in object class javax.script.SimpleScriptContext. (<Unknown Source>#21) in <Unknown Source> at line number 21
+```
+
+### Recommended Approach for Restricting Access
+
+It is recommended to use an Allow List approach for both class and method access restrictions, as it provides a more secure method of permitting only the required classes and methods to be used in the script, while blocking all others by default. The following `ALLOW_LIST` configuration is the recommended baseline to enable the API mocking feature. If you have any script mediator-related use cases with classes included in the prefixes list, adjust it according to your requirements.
+
+```toml
+[synapse_properties]
+'limit_java_class_access_in_scripts.enable' = true
+'limit_java_class_access_in_scripts.list_type' = "ALLOW_LIST"
+'limit_java_class_access_in_scripts.class_prefixes' = "org.apache.synapse.mediators.bsf.CommonScriptMessageContext,java.lang.String"
 ```
 
 ## See Also

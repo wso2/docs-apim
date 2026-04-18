@@ -120,8 +120,10 @@ For configuring WSO2 IS 7.x as the default key manager you have to add the follo
 
 ````toml
 [apim.tenant_sharing.properties]
-skip_create_resident_key_manager = true
 auto_configure_key_manager=true
+
+[apim.key_manager]
+skip_create_resident_key_manager=true
 ````
 By setting `skip_create_resident_key_manager` = `true`, the default Resident Key Manager will not be created for any tenant, including the super tenant.
 
@@ -131,6 +133,20 @@ By enabling `auto_configure_key_manager` = `true`, WSO2 IS 7.x will be automatic
 !!! important
     If you ever set `auto_configure_key_manager=true` you must set `skip_create_resident_key_manager = true` under `apim.key_manager` configuration, to avoid facing errors when it's trying to add another key manager on top of the resident key manager in API Manager.
 
+    Therefore, in this case sample configuration to register WSO2 IS 7.x as the default key manager would be as follows:
+
+    ````toml
+    [[apim.tenant_sharing]]
+    type = "WSO2-IS-7"
+
+    [apim.tenant_sharing.properties]
+    identity_server_base_url= "https://localhost:9444"
+    auto_configure_key_manager=true
+
+    [apim.key_manager]
+    skip_create_resident_key_manager = true
+    ````
+
 
 Now the WSO2 IS 7.x as the  default key manager will be created with the name `Resident Key Manager` and its type would be `WSO2-IS-7` .
 
@@ -139,11 +155,13 @@ Now the WSO2 IS 7.x as the  default key manager will be created with the name `R
 
     Enabling tenant sharing and auto configuring a key manager of the provided type, instead of the resident key manager which is created by default, are two **orthogonal features**.
     Which means users can disable tenant sharing and still use the following configuration to avoid creating default resident key manager and allow creating **WSO2 IS 7.x as a third party key manager** as the default key manager.
-    
+
     ````toml
     [apim.tenant_sharing.properties]
-    skip_create_resident_key_manager = true
     auto_configure_key_manager=true
+
+    [apim.key_manager]
+    skip_create_resident_key_manager=true
     ````
 
 [//]: # ( <image>)

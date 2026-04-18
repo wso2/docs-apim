@@ -28,7 +28,20 @@ First enable the approve workflow executor for application creation.
     </WorkFlowExtensions>
     ```
 
-    Once the changes are done, click on `Save Content` .The application creation Approve Workflow Executor is now engaged.
+    If you need to display application attributes in the application creation workflow approval task list in the Admin Portal (e.g., https://localhost:9443/admin), enable the `applicationAttributesVisibility` property as shown below.
+
+    ``` xml
+    <WorkFlowExtensions>
+        <!--ApplicationCreation executor="org.wso2.carbon.apimgt.impl.workflow.ApplicationCreationSimpleWorkflowExecutor"-->
+        <ApplicationCreation executor="org.wso2.carbon.apimgt.impl.workflow.ApplicationCreationApprovalWorkflowExecutor">
+            <Property name="applicationAttributesVisibility">true</Property>
+        </ApplicationCreation>
+    </WorkFlowExtensions>
+    ```
+
+    By default, application attributes are not displayed in workflow approval tasks. Application attributes are shown only if this property is set to `true`. This property is applicable only when the application contains application attributes. 
+
+    Once the changes are done, click on `Save Content`. The application creation approval workflow executor is now engaged.
 
 4.  Create an application via the Developer Portal.
     

@@ -42,7 +42,7 @@ Extract the WSO2 product to a preferred directory in your machine and set the en
 
     ``` java
     #! /bin/sh
-    export JAVA_HOME="/usr/lib/jvm/jdk1.8.0_xx"
+    export JAVA_HOME="/usr/lib/jvm/jdk-21"
     startcmd='<API-M_HOME>/bin/api-manager.sh start > /dev/null &'
     restartcmd='<API-M_HOME>/bin/api-manager.sh restart > /dev/null &'
     stopcmd='<API-M_HOME>/bin/api-manager.sh stop > /dev/null &'
