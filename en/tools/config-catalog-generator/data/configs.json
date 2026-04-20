@@ -224,6 +224,40 @@
             "exampleFile": "database_apim_db.toml"
         },
         {
+            "title": "URL based File Size Limit Configuration for APIs",
+            "options": [
+                {
+                    "name": "apim.publisher.import_definition_file_size_limit",
+                    "required": false,
+                    "description": "Configurations related to the file size limit for API creation & update via URL. Note that this configuration is available from U2 level 259",
+                    "params": [
+                        {
+                            "name": "oas",
+                            "type": "int",
+                            "required": false,
+                            "default": 10,
+                            "description": "File size limit in megabytes"
+                        },
+                        {
+                            "name": "wsdl",
+                            "type": "int",
+                            "required": false,
+                            "default": 10,
+                            "description": "File size limit in megabytes"
+                        },
+                        {
+                            "name": "async",
+                            "type": "int",
+                            "required": false,
+                            "default": 10,
+                            "description": "File size limit in megabytes"
+                        }
+                    ]
+                }
+            ],
+            "exampleFile": "file_size_limit.toml"
+        },
+        {
             "title": "Shared database configurations",
             "options": [
                 {
