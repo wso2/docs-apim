@@ -15,7 +15,8 @@ Follow the instructions below to use Kubernetes (K8s) and Helm resources for con
 
     - Configure one of the following for traffic routing:
         - **Recommended**: [Gateway API](https://gateway-api.sigs.k8s.io/) with a Gateway API implementation such as [Envoy Gateway](https://gateway.envoyproxy.io/docs/install/install-helm/). Steps to configure Gateway API with Envoy Gateway can be found [here](https://github.com/wso2/helm-apim/tree/4.3.x#configure-gateway-api-recommended).
-        - **Legacy**: [NGINX Ingress Controller](https://github.com/kubernetes/ingress-nginx/releases/tag/nginx-0.22.0) if your environment still depends on Ingress resources.
+        - **Legacy**: If your environment still depends on Ingress resources you should install the [NGINX Ingress Controller](https://kubernetes.github.io/ingress-nginx/deploy/). Please note that Helm resources for WSO2 product
+      deployment patterns are compatible with NGINX Ingress Controller Git release [`nginx-0.22.0`](https://github.com/kubernetes/ingress-nginx/releases/tag/nginx-0.22.0).
 
 1.  Checkout the Helm Resources for WSO2 API Manager Git repository using `git clone` :
 
