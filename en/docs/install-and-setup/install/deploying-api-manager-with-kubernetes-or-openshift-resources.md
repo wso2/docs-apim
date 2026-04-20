@@ -12,9 +12,10 @@ Follow the instructions below to use Kubernetes (K8s) and Helm resources for con
       provided in the following quick start guide.<br><br>
     
     - An already setup [Kubernetes cluster](https://kubernetes.io/docs/setup/#learning-environment).<br><br>
-    
-    - Install [NGINX Ingress Controller](https://kubernetes.github.io/ingress-nginx/deploy/). Please note that Helm resources for WSO2 product
-      deployment patterns are compatible with NGINX Ingress Controller Git release [`nginx-0.22.0`](https://github.com/kubernetes/ingress-nginx/releases/tag/nginx-0.22.0).
+
+    - Configure one of the following for traffic routing:
+        - **Recommended**: [Gateway API](https://gateway-api.sigs.k8s.io/) with a Gateway API implementation such as [Envoy Gateway](https://gateway.envoyproxy.io/docs/install/install-helm/). Steps to configure Gateway API with Envoy Gateway can be found [here](https://github.com/wso2/helm-apim/tree/4.3.x#configure-gateway-api-recommended).
+        - **Legacy**: [NGINX Ingress Controller](https://github.com/kubernetes/ingress-nginx/releases/tag/nginx-0.22.0) if your environment still depends on Ingress resources.
 
 1.  Checkout the Helm Resources for WSO2 API Manager Git repository using `git clone` :
 
@@ -46,17 +47,30 @@ Follow the instructions below to use Kubernetes (K8s) and Helm resources for con
 
 4.  Access Management Console.
 
-    1.  Obtain the external IP (`EXTERNAL-IP`) of the Ingress resources by listing down the Kubernetes Ingresses.
+    1.  Obtain the external IP (`EXTERNAL-IP`) depending on your traffic routing method.
+
+        If you are using Gateway API:
+
+        ```
+        kubectl get gateway -n <NAMESPACE>
+        ```
+
+        If you are using legacy Ingress:
     
         ```
         kubectl get ing -n <NAMESPACE>
         ```
         Example:
-        NAME                                      CLASS   HOSTS                     ADDRESS   PORTS     AGE
-        <RELEASE_NAME>-am-all-in-one-am-gateway-ingress     nginx   gw.wso2.com                    80, 443   8s
-        <RELEASE_NAME>-am-all-in-one-am-ingress             nginx   am.wso2.com                    80, 443   8s
-        <RELEASE_NAME>-am-all-in-one-am-websocket-ingress   nginx   websocket.wso2.com             80, 443   8s
-        <RELEASE_NAME>-am-all-in-one-am-websub-ingress      nginx   websub.wso2.com                80, 443   8s
+        ```
+        NAME                                                CLASS   HOSTS                ADDRESS   PORTS     AGE
+
+        <RELEASE_NAME>-am-all-in-one-am-gateway-ingress     nginx   gw.wso2.com          <ADDRESS> 80, 443   8s
+
+        <RELEASE_NAME>-am-all-in-one-am-ingress             nginx   am.wso2.com          <ADDRESS> 80, 443   8s
+
+        <RELEASE_NAME>-am-all-in-one-am-websocket-ingress   nginx   websocket.wso2.com   <ADDRESS> 80, 443   8s
+
+        <RELEASE_NAME>-am-all-in-one-am-websub-ingress      nginx   websub.wso2.com      <ADDRESS> 80, 443   8s
         ```
 
     2.  Add the above hosts as entries in `/etc/hosts` file as follows:
