@@ -12,7 +12,7 @@ Follow the steps below to enable the password recovery feature for the Developer
 
 2. Open the `<API-M_HOME>/repository/conf/deployment.toml` file.
 
-3. Add the following properties to configure the a e-mail server. 
+3. Add the following properties to configure the e-mail server. 
 
      For more information, see [Configuring the Email Sending Module](https://is.docs.wso2.com/en/5.10.0/setup/configuring-email-sending/).
 

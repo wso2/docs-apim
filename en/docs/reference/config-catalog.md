@@ -1652,7 +1652,7 @@ tenants = "*"</code></pre>
                                         
                                     </div>
                                     <div class="param-description">
-                                        <p>Comma seperated list of tenants to be loaded on the gateway. Use * to load all tenants</p>
+                                        <p>Comma separated list of tenants to be loaded on the gateway. Use * to load all tenants</p>
                                     </div>
                                 </div>
                             </div>

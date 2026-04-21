@@ -72,7 +72,7 @@ The following default users are created. For the ease of use, every tenant has 3
         </td>
         <td>
             <ul>
-                <li>devuser@qunatis.com</li>
+                <li>devuser@quantis.com</li>
                 <li>bob@quantis.com</li>
                 <li>sindy@quantis.com</li>
                 <li>logan@quantis.com</li>
