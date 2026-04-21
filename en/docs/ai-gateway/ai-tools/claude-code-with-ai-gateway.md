@@ -46,7 +46,7 @@ Before continuing with the setup, make sure you have the following:
 2. **Select the API.**  
     Select the Anthropic AI API you just published.
 
-3. **Subscribe to the API.**. 
+3. **Subscribe to the API.**   
     Subscribe to the API using an application of your choice.
 
 4. **Generate and Note the API Key.**  
@@ -103,7 +103,7 @@ export NODE_TLS_REJECT_UNAUTHORIZED=0
 
 ---
 
-## Run Claude Code
+## Step 4: Run Claude Code
 
 Start Claude Code:
 
@@ -115,7 +115,9 @@ Requests will now be routed through the WSO2 API Manager AI Gateway.
 
 ---
 
-## View API Analytics and Insights
+## Usecases
+
+### View API Analytics and Insights
 
 By routing Claude Code requests through the WSO2 API Manager AI Gateway, you automatically gain access to built-in analytics and reporting capabilities.
 
@@ -123,9 +125,11 @@ WSO2 provides integrated analytics, powered by Moesif, and also supports integra
 
 > *(Insert analytics dashboard screenshot here)*
 
+For more information on AI Guardrails, refer to the official [WSO2 API Manager Documentation](https://apim.docs.wso2.com/en/latest/monitoring/api-analytics/analytics-overview/)
+
 ---
 
-## Implement WSO2 AI Gateway Guardrails for Enhanced Control
+### Implement WSO2 AI Gateway Guardrails for Enhanced Control
 
 WSO2 API Manager AI Gateway guardrails enable granular control over the data exchanged between Claude Code and the Anthropic API.
 
@@ -139,5 +143,18 @@ For example, a **Regex Validation Guardrail** can be configured in the request f
 
 [![claude code guardrail example]({{base_path}}/assets/img/llm-gateway/claude-code-guardrail-intervened-example.png)]({{base_path}}/assets/img/llm-gateway/claude-code-guardrail-intervened-example.png)
 
-For more information on AI Guardrails, refer to:  
-https://apim.docs.wso2.com/en/latest/ai-gateway/ai-guardrails/overview/
+For more information on AI Guardrails, refer to the official [WSO2 API Manager Documentation](https://apim.docs.wso2.com/en/latest/ai-gateway/ai-guardrails/overview/)
+
+---
+
+### Rate limiting at AI Gateway
+
+WSO2 API Manager AI Gateway supports request-based and token-based rate limiting for AI APIs. This allows you to control Claude Code usage when requests are routed through the Gateway.
+
+For example, you can create an AI subscription policy with a limited request count or total token count, and apply it when subscribing to the Anthropic AI API. Once Claude Code invokes the API through that subscription, the Gateway enforces the selected quota automatically. If the configured limit is exceeded, subsequent requests are throttled until the quota resets.
+
+This helps protect the Anthropic backend, control token consumption, and avoid unexpected costs.
+
+[![claude code rate limit example]({{base_path}}/assets/img/llm-gateway/claude-code-rate-limit-example.png)]({{base_path}}/assets/img/llm-gateway/claude-code-rate-limit.png)
+
+For more information on Rate Limiting, refer to the official [WSO2 API Manager documentation](https://apim.docs.wso2.com/en/latest/ai-gateway/rate-limiting/)

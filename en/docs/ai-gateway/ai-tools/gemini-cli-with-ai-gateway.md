@@ -68,7 +68,7 @@ Before continuing with the setup, make sure you have the following:
 
 ## Step 4: Configure Gemini to Use the AI Gateway
 
-Unlike Claude Code, Gemini relies entirely on environment variables for configuration and does not use a settings file.
+Gemini relies entirely on environment variables for configuration.
 
 1. **Open a Terminal**.  
     Open a new terminal session.
@@ -97,8 +97,58 @@ export NODE_TLS_REJECT_UNAUTHORIZED=0
 
 ---
 
-### Run the Gemini CLI Client
+## Step 4: Run the Gemini CLI Client
 
-Execute the Gemini CLI.
+Execute the Gemini CLI.  
+
+```bash
+gemini
+```
 
 Requests will now be routed through the WSO2 API Manager AI Gateway.
+
+## Usecases
+
+### View API Analytics and Insights
+
+By routing Gemini CLI requests through the WSO2 API Manager AI Gateway, you automatically gain access to built-in analytics and reporting capabilities.
+
+WSO2 provides integrated analytics, powered by Moesif, and also supports integration with external tools such as the ELK stack (**Elasticsearch**, **Logstash**, **Kibana**) and Choreo Analytics.
+
+The example below shows how Moesif can be used to view analytics on the usage of Google Gemini API
+
+[![gemini cli analytics example]({{base_path}}/assets/img/llm-gateway/gemini-cli-analytics-example.png)]({{base_path}}/assets/img/llm-gateway/gemini-cli-analytics-example.png)
+
+For more information on Analytics, refer to the official [WSO2 API Manager Documentation](https://apim.docs.wso2.com/en/latest/monitoring/api-analytics/analytics-overview/)
+
+---
+
+### Implement WSO2 AI Gateway Guardrails for Enhanced Control
+
+WSO2 API Manager AI Gateway guardrails enable granular control over the data exchanged between Gemini CLI and the Google Gemini API.
+
+By applying guardrails, you can enforce security and compliance policies such as:
+
+- Input validation to ensure prompt integrity  
+- Output filtering to prevent leakage of sensitive data  
+- Rate limiting to control API usage and avoid cost overruns  
+
+For example, a **Regex Validation Guardrail** can be configured in the request flow to mitigate prompt injection attacks and prevent sensitive data extraction. If a user submits a malicious prompt, the guardrail evaluates the request against defined patterns and blocks it before it reaches the Google Gemini API.
+
+[![gemini cli guardrail example]({{base_path}}/assets/img/llm-gateway/gemini-cli-guardrail-intervened-example.png)]({{base_path}}/assets/img/llm-gateway/gemini-cli-guardrail-intervened-example.png)
+
+For more information on AI Guardrails, refer to the official [WSO2 API Manager Documentation](https://apim.docs.wso2.com/en/latest/ai-gateway/ai-guardrails/overview/)
+
+---
+
+### Rate limiting at AI Gateway
+
+WSO2 API Manager AI Gateway supports request-based and token-based rate limiting for AI APIs. This allows you to control Claude Code usage when requests are routed through the Gateway.
+
+For example, you can create an AI subscription policy with a limited request count or total token count, and apply it when subscribing to the Anthropic AI API. Once Claude Code invokes the API through that subscription, the Gateway enforces the selected quota automatically. If the configured limit is exceeded, subsequent requests are throttled until the quota resets.
+
+This helps protect the Anthropic backend, control token consumption, and avoid unexpected costs.
+
+[![claude code rate limit example]({{base_path}}/assets/img/llm-gateway/claude-code-rate-limit-example.png)]({{base_path}}/assets/img/llm-gateway/claude-code-rate-limit.png)
+
+For more information on Rate Limiting, refer to the official [WSO2 API Manager documentation](https://apim.docs.wso2.com/en/latest/ai-gateway/rate-limiting/)
