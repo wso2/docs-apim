@@ -6,13 +6,13 @@ In this step-by-step guide, you’ll learn how to create, publish, and invoke an
 
 ### Before you begin...
 
-Choose a deployment option to start the WSO2 API Manager All-in-one package. The All-in-one package contains all core components in a single JVM for simplified deployment.
+Choose a deployment option to start the WSO2 API Manager All-in-one package locally. The All-in-one package contains all core components in a single JVM for simplified deployment.
 
 === "Run on VM"
 
-    Here's how you can download and run WSO2 API Manager All-in-one package locally on a VM:
+    Here's how you can download and run the WSO2 API Manager All-in-one package locally on a VM:
 
-    1. Install [Java SE Development Kit (JDK)](https://adoptium.net/temurin/releases/?arch=any&version=21) version **21** and set the `JAVA_HOME` environment variable.
+    1. Install [Java SE Development Kit (JDK)](https://adoptium.net/temurin/releases/?arch=any&version=21) version **21** and set up the JAVA_HOME environment variable.
     
         !!! tip
             For more information on setting the `JAVA_HOME` environment variable for different operating systems, see [Setup and Install]({{base_path}}/install-and-setup/install/installing-the-product/installing-api-m-runtime/#setting-up-java_home)
@@ -57,7 +57,7 @@ Let's get started...
 
 ### Step 1: Create, Deploy and Publish an API
 
-Follow the instructions below to create, deploy and publish an API via the Publisher Portal of WSO2 API-M.
+Follow the instructions below to create, deploy and publish an API via the WSO2 API-M Publisher Portal.
 
 1. Navigate to the Publisher Portal.
    
