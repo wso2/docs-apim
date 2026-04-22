@@ -160,7 +160,7 @@ If your hostnames are backed by a real DNS service (e.g. Route 53, Cloud DNS), a
 
 ## Advanced Configuration
 
-The settings below are for production deployments or scenarios where you need to go beyond the defaults. All configurations in this section are made by editing your `values.yaml` file — the Helm chart's configuration file. Once all changes are in place, deploy using the command in [Section 6](#6-deploy-with-custom-values).
+The settings below are for production deployments or scenarios where you need to go beyond the defaults. All configurations in this section are made by editing your `values.yaml` file — the Helm chart's configuration file. Once all changes are in place, deploy using the command in [Section 6](#section-6).
 
 The Helm charts for WSO2 API Manager are available in the [WSO2 Helm Chart Repository](https://github.com/wso2/helm-apim/tree/4.6.x). You can use the charts directly from the repository or clone it and use a local copy.
 
@@ -172,7 +172,7 @@ The Helm charts for WSO2 API Manager are available in the [WSO2 Helm Chart Repos
 
 ### 1. Image and Registry
 
-#### 1.1 Configure Docker Image and Registry
+#### 1.1 Configure Docker Image and Registry { #section-1-1 }
 
 By default, the Helm chart pulls the official WSO2 Docker image. Configure this section if you need to use a custom image — for example, if you have built an image with additional JARs, configurations, or security patches — or if your image is hosted in a private registry that requires authentication.
 
@@ -198,7 +198,7 @@ wso2:
 The quick start uses an embedded H2 database which is not persistent and will lose data when the pod restarts. For any environment beyond local testing, configure an external database (MySQL, PostgreSQL, Oracle, or MSSQL) to ensure data persistence and reliability.
 
 !!! warning "JDBC Driver Required"
-    The default WSO2 Docker image does not include third-party JDBC drivers. Before configuring an external database, you must rebuild the Docker image with the appropriate JDBC driver for your database (e.g. `mysql-connector-java.jar` for MySQL, `postgresql.jar` for PostgreSQL). See section [1.1](#11-configure-docker-image-and-registry) for how to configure a custom image.
+    The default WSO2 Docker image does not include third-party JDBC drivers. Before configuring an external database, you must rebuild the Docker image with the appropriate JDBC driver for your database (e.g. `mysql-connector-java.jar` for MySQL, `postgresql.jar` for PostgreSQL). See [section 1.1](#section-1-1) for how to configure a custom image.
 
 ```yaml
 wso2:
@@ -229,7 +229,7 @@ wso2:
 
 #### 2.3 Update Keystore Passwords
 
-If you are mounting custom keystores (see section 3.1), update the passwords here to match. If left as defaults while using custom keystores, WSO2 API-M will fail to start due to password mismatch.
+If you are mounting custom keystores (see [section 3.1](#section-3-1)), update the passwords here to match. If left as defaults while using custom keystores, WSO2 API-M will fail to start due to password mismatch.
 
 ```yaml
 wso2:
@@ -259,7 +259,7 @@ All available configuration options for each Helm chart are documented in their 
 
 ### 3. Security
 
-#### 3.1 Mount Keystore and Truststore
+#### 3.1 Mount Keystore and Truststore { #section-3-1 }
 
 The default WSO2 keystores use a self-signed certificate which is fine for evaluation but not for production. Use this section to mount your own organisation-issued or CA-signed certificates so that clients can establish trusted SSL connections to your API Manager deployment. The secret must include the primary keystore, internal keystore, and truststore. You can also include keystores for HTTPS transport.
 
@@ -407,7 +407,7 @@ userStore:
 
 See [Working with user store properties](https://apim.docs.wso2.com/en/latest/administer/managing-users-and-roles/managing-user-stores/working-with-properties-of-user-stores/) for the full list of options.
 
-### 6. Deploy with Custom Values
+### 6. Deploy with Custom Values { #section-6 }
 
 Once your `values.yaml` is configured, deploy with:
 

@@ -298,7 +298,7 @@ Pattern 1 requires two databases: `apim_db` and `shared_db`. The database must b
 !!! note
     Scripts for other databases (PostgreSQL, Oracle, MSSQL) are in `wso2am-4.6.0/dbscripts`. For production, use separate database users with limited permissions instead of `root`.
 
-### Step 7 — Create the Keystore Secret
+### Step 7 — Create the Keystore Secret { #step-7 }
 
 The Helm chart mounts a Kubernetes secret named `apim-keystore-secret` as a volume into the pods. The pods will not start if this secret does not exist — you will see a `MountVolume.SetUp failed: secret "apim-keystore-secret" not found` error.
 
@@ -324,7 +324,7 @@ The Helm chart mounts a Kubernetes secret named `apim-keystore-secret` as a volu
 !!! note
     The commands above use the default WSO2 keystores which are suitable for evaluation. For production, replace the `.jks` files with your own organisation-issued or CA-signed certificates before creating the secret.
 
-### Step 8 — Deploy WSO2 API Manager
+### Step 8 — Deploy WSO2 API Manager { #step-8 }
 
 Pattern 1 uses a single Helm chart release with two pod replicas forming the active-active cluster. Before deploying, you must configure your custom image and database connection in a `values.yaml` file.
 
@@ -490,53 +490,23 @@ The Helm charts for WSO2 API Manager are available in the [WSO2 Helm Chart Repos
 
 ### 1. Image and Registry
 
-#### 1.1 Configure Docker Image and Registry
+#### 1.1 Private Registry Authentication
 
-Configure this section to point the Helm chart to the custom image you built in Step 5.
+The image registry and repository are configured in [Step 8](#step-8). If your registry is private and requires authentication, enable `imagePullSecrets`:
 
 ```yaml
 wso2:
   deployment:
     image:
-      registry: ""        # e.g. docker.io/myorg
-      repository: ""      # e.g. wso2am-mysql
-      digest: ""          # sha256:... from docker inspect
       imagePullSecrets:
-        enabled: false
+        enabled: true
         username: ""
         password: ""
 ```
 
-> Enable `imagePullSecrets` if your registry is private.
-
-!!! warning "Digest must not be empty"
-    The Helm chart always appends the digest to the image name. Leaving `digest` empty will cause an `InvalidImageName` error on pod startup. Always provide the `sha256:...` digest obtained from `docker inspect`.
-
 ### 2. Database and Credentials
 
-#### 2.1 Configure Databases
-
-Point the Helm chart to the external databases you created in Step 6.
-
-!!! warning "JDBC Driver Required"
-    The default WSO2 Docker image does not include third-party JDBC drivers. Ensure you have built a custom image with the appropriate driver (see Step 5) before configuring an external database.
-
-```yaml
-wso2:
-  apim:
-    configurations:
-      databases:
-        apim_db:
-          url: ""         # JDBC URL — use &amp; to separate parameters, not &
-          username: ""
-          password: ""
-        shared_db:
-          url: ""
-          username: ""
-          password: ""
-```
-
-#### 2.2 Configure Admin Credentials
+#### 2.1 Configure Admin Credentials
 
 The default admin credentials are `admin/admin`. Change these before deploying to any shared or production environment.
 
@@ -548,9 +518,9 @@ wso2:
       adminPassword: ""
 ```
 
-#### 2.3 Update Keystore Passwords
+#### 2.2 Update Keystore Passwords
 
-If you are mounting custom keystores (see section 3.1), update the passwords here to match.
+If you are mounting custom keystores (see [section 3.1](#section-3-1)), update the passwords here to match.
 
 ```yaml
 wso2:
@@ -571,16 +541,18 @@ wso2:
           password: ""
 ```
 
-#### 2.4 Component Configuration References
+#### 2.3 Component Configuration References
 
 - [All-in-One Helm chart](https://github.com/wso2/helm-apim/blob/main/all-in-one/README.md)
 - [Universal Gateway Helm chart](https://github.com/wso2/helm-apim/blob/main/distributed/gateway/README.md)
 
 ### 3. Security
 
-#### 3.1 Mount Keystore and Truststore
+#### 3.1 Mount Keystore and Truststore { #section-3-1 }
 
-The default WSO2 keystores use a self-signed certificate. Mount your own certificates for production.
+In [Step 7](#step-7) of the Quick Start, you created `apim-keystore-secret` using the default WSO2 keystores extracted from the Docker image. Those are self-signed certificates suitable for evaluation only.
+
+For production, replace the `.jks` files with your own organisation-issued or CA-signed certificates and recreate the secret:
 
 ```bash
 kubectl create secret generic apim-keystore-secret \
@@ -596,7 +568,7 @@ Keep the following in mind:
 - If you are using different keystore filenames or aliases, update the helm chart configurations accordingly.
 - You can also include keystores for HTTPS transport.
 
-Then reference the secret name in your `values.yaml`. For more details, see the [WSO2 container guide](https://github.com/wso2/container-guide/blob/master/deploy/Managing_Keystores_And_Truststores.md).
+For more details, see the [WSO2 container guide](https://github.com/wso2/container-guide/blob/master/deploy/Managing_Keystores_And_Truststores.md).
 
 #### 3.2 Encrypt Secrets
 
