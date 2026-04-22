@@ -16,7 +16,7 @@ This pattern deploys WSO2 API Manager as a highly available active-active cluste
 !!! warning "Complete these before running helm install"
     Pattern 1 requires three things that Pattern 0 does not:
 
-    1. **An external database** — H2 is not supported. Set up a database inside Kubernetes before deploying.
+    1. **An external database** — H2 is not supported. Set up an external database (inside Kubernetes or a managed service like RDS) before deploying.
     2. **A custom Docker image** — the default WSO2 image does not include JDBC drivers. Build and push a custom image before deploying.
     3. **Database schema initialised** — run the WSO2 schema scripts against both databases before the pods start.
 
@@ -26,225 +26,271 @@ This pattern deploys WSO2 API Manager as a highly available active-active cluste
 
 ### Step 1 — Install Required Tools
 
-Ensure the following tools are installed on your machine:
+1. Ensure the following tools are installed on your machine:
 
-| Tool | Purpose | Install Guide |
-| ---- | ------- | ------------- |
-| `kubectl` | Kubernetes CLI for managing cluster resources | [Install](https://kubernetes.io/docs/tasks/tools/) |
-| `helm` (v3) | Package manager for deploying WSO2 Helm charts | [Install](https://helm.sh/docs/intro/install/) |
-| `docker` | Required to build and push custom WSO2 images | [Install](https://docs.docker.com/get-docker/) |
+    | Tool | Purpose | Install Guide |
+    | ---- | ------- | ------------- |
+    | `kubectl` | Kubernetes CLI for managing cluster resources | [Install](https://kubernetes.io/docs/tasks/tools/) |
+    | `helm` (v3) | Package manager for deploying WSO2 Helm charts | [Install](https://helm.sh/docs/intro/install/) |
+    | `docker` | Required to build and push custom WSO2 images | [Install](https://docs.docker.com/get-docker/) |
 
-Verify all tools are installed and check their versions:
+2. Verify all tools are installed and check their versions:
 
-```bash
-kubectl version --client
-helm version
-docker info
-```
+    ```bash
+    kubectl version --client
+    helm version
+    docker info
+    ```
 
-!!! note "Version Compatibility"
-    Ensure your tool versions are within the supported ranges listed in the [Prerequisites](kubernetes-overview.md#prerequisites) page before proceeding.
+    !!! note "Version Compatibility"
+        Ensure your tool versions are within the supported ranges listed in the [Prerequisites](kubernetes-overview.md#prerequisites) page before proceeding.
 
 ### Step 2 — Verify Your Cluster is Running
 
-Before proceeding, ensure your Kubernetes cluster is up and running:
+1. Ensure your Kubernetes cluster is up and running:
 
-```bash
-kubectl cluster-info
-kubectl get nodes
-```
+    ```bash
+    kubectl cluster-info
+    kubectl get nodes
+    ```
 
-All nodes should show a `Ready` status. If you don't have a cluster set up yet, refer to [Setting Up a Local Kubernetes Cluster](kubernetes-overview.md#setting-up-a-local-kubernetes-cluster) in the overview.
+    All nodes should show a `Ready` status. If you don't have a cluster set up yet, refer to [Setting Up a Local Kubernetes Cluster](kubernetes-overview.md#setting-up-a-local-kubernetes-cluster) in the overview.
 
 ### Step 3 — Add the WSO2 Helm Repository
 
-```bash
-helm repo add wso2 https://helm.wso2.com && helm repo update
-```
+1. Add the WSO2 Helm repository and update it:
+
+    ```bash
+    helm repo add wso2 https://helm.wso2.com && helm repo update
+    ```
 
 ### Step 4 — Install the NGINX Ingress Controller
 
-```bash
-helm upgrade --install ingress-nginx ingress-nginx \
-  --repo https://kubernetes.github.io/ingress-nginx \
-  --namespace ingress-nginx --create-namespace
-```
+1. Install the NGINX ingress controller into your cluster:
 
-Verify the controller is running:
+    ```bash
+    helm upgrade --install ingress-nginx ingress-nginx \
+      --repo https://kubernetes.github.io/ingress-nginx \
+      --namespace ingress-nginx --create-namespace
+    ```
 
-```bash
-kubectl get pods -n ingress-nginx
-```
+2. Verify the controller is running:
 
-The NGINX pod should show `1/1 Running` before proceeding.
+    ```bash
+    kubectl get pods -n ingress-nginx
+    ```
+
+    The NGINX pod should show `1/1 Running` before proceeding.
 
 ### Step 5 — Build and Push a Custom Docker Image
 
 Pattern 1 requires an external database. The default WSO2 image does not include JDBC drivers, so you must build a custom image with the appropriate driver.
 
-Create a directory for the custom image and a Dockerfile:
+1. Create a directory for the custom image:
 
-```bash
-mkdir wso2am-custom && cd wso2am-custom
-```
+    ```bash
+    mkdir wso2am-custom && cd wso2am-custom
+    ```
 
-Create a file named `Dockerfile` with the following content. The example below adds the MySQL JDBC driver — adjust the URL for other databases:
+2. Create a file named `Dockerfile` with the following content. The example below adds the MySQL JDBC driver — adjust the URL for other databases:
 
-```dockerfile
-FROM wso2/wso2am:4.6.0
+    ```dockerfile
+    FROM wso2/wso2am:4.6.0
 
-ADD --chown=wso2carbon:wso2 \
-  https://repo1.maven.org/maven2/mysql/mysql-connector-java/8.0.28/mysql-connector-java-8.0.28.jar \
-  /home/wso2carbon/wso2am-4.6.0/repository/components/lib/
-```
+    ADD --chown=wso2carbon:wso2 \
+      https://repo1.maven.org/maven2/mysql/mysql-connector-java/8.0.28/mysql-connector-java-8.0.28.jar \
+      /home/wso2carbon/wso2am-4.6.0/repository/components/lib/
+    ```
 
-Build the image, replacing `<CONTAINER_REGISTRY>`, `<IMAGE_REPO>`, and `<TAG>` with your values:
+3. Build the image, replacing `<CONTAINER_REGISTRY>`, `<IMAGE_REPO>`, and `<TAG>` with your values:
 
-```bash
-docker build -t <CONTAINER_REGISTRY>/<IMAGE_REPO>:<TAG> .
-```
+    ```bash
+    docker build -t <CONTAINER_REGISTRY>/<IMAGE_REPO>:<TAG> .
+    ```
 
-!!! note "Image naming"
-    - **Docker Hub**: use your Docker Hub username as the registry — e.g. `myusername/wso2am-mysql:4.6.0`
-    - **AWS ECR**: `123456789.dkr.ecr.us-east-1.amazonaws.com/wso2am-mysql:4.6.0`
-    - **GCP Artifact Registry**: `us-docker.pkg.dev/myproject/myrepo/wso2am-mysql:4.6.0`
-    - **Azure ACR**: `myregistry.azurecr.io/wso2am-mysql:4.6.0`
+    !!! note "Image naming"
+        - **Docker Hub**: use your Docker Hub username as the registry — e.g. `myusername/wso2am-mysql:4.6.0`
+        - **AWS ECR**: `123456789.dkr.ecr.us-east-1.amazonaws.com/wso2am-mysql:4.6.0`
+        - **GCP Artifact Registry**: `us-docker.pkg.dev/myproject/myrepo/wso2am-mysql:4.6.0`
+        - **Azure ACR**: `myregistry.azurecr.io/wso2am-mysql:4.6.0`
 
-Push it to your container registry:
+4. Push the image to your container registry:
 
-```bash
-docker push <CONTAINER_REGISTRY>/<IMAGE_REPO>:<TAG>
-```
+    ```bash
+    docker push <CONTAINER_REGISTRY>/<IMAGE_REPO>:<TAG>
+    ```
 
-Get the image digest — you will need it when configuring `values.yaml`:
+5. Get the image digest — you will need it when configuring `values.yaml`:
 
-```bash
-docker inspect <CONTAINER_REGISTRY>/<IMAGE_REPO>:<TAG> \
-  --format='{% raw %}{{index .RepoDigests 0}}{% endraw %}'
-```
+    ```bash
+    docker inspect <CONTAINER_REGISTRY>/<IMAGE_REPO>:<TAG> \
+      --format='{% raw %}{{index .RepoDigests 0}}{% endraw %}'
+    ```
 
-The digest will look like `docker.io/<your-org>/<image>@sha256:abcdef...`.
+    The digest will look like `docker.io/<your-org>/<image>@sha256:abcdef...`.
 
 !!! note
     The sample above uses the public image from [DockerHub](https://hub.docker.com/r/wso2/wso2am) (`wso2/wso2am:4.6.0`), which is suitable for evaluation. For production, use the image from the [WSO2 Private Docker Registry](https://docker.wso2.com/) (`docker.wso2.com/wso2am:4.6.0.0`) which includes WSO2 Updates — this requires an active [WSO2 Subscription](https://wso2.com/subscription).
 
-!!! warning "Push before deploying"
-    The Kubernetes cluster cannot use images from your local Docker daemon directly. The image must be pushed to a registry so the cluster can pull it.
-
 ### Step 6 — Deploy the Database
 
-Pattern 1 requires two databases: `apim_db` and `shared_db`. The database must be reachable from inside the Kubernetes cluster. The recommended approach is to deploy MySQL as a pod inside the same namespace.
+Pattern 1 requires two databases: `apim_db` and `shared_db`. The database must be reachable from inside the Kubernetes cluster. Choose the approach that fits your setup:
 
 !!! note
     The example below uses MySQL, but WSO2 API Manager supports PostgreSQL, Oracle, and MSSQL. The schema scripts for all supported databases are bundled in the product pack.
 
-#### 6.1 — Deploy MySQL Inside Kubernetes
+=== "MySQL inside Kubernetes"
 
-Create the namespace and deploy MySQL:
+    #### 6.1 — Deploy MySQL
 
-```bash
-kubectl create namespace wso2
+    1. Create the namespace and deploy MySQL:
 
-kubectl apply -f - <<EOF
-apiVersion: apps/v1
-kind: Deployment
-metadata:
-  name: mysql
-  namespace: wso2
-spec:
-  selector:
-    matchLabels:
-      app: mysql
-  template:
-    metadata:
-      labels:
-        app: mysql
-    spec:
-      containers:
-      - name: mysql
-        image: mysql:8.0
-        env:
-        - name: MYSQL_ROOT_PASSWORD
-          value: "root"
-        ports:
-        - containerPort: 3306
----
-apiVersion: v1
-kind: Service
-metadata:
-  name: mysql
-  namespace: wso2
-spec:
-  selector:
-    app: mysql
-  ports:
-  - port: 3306
-    targetPort: 3306
-EOF
-```
+        ```bash
+        kubectl create namespace wso2
 
-Wait for MySQL to be ready:
+        kubectl apply -f - <<EOF
+        apiVersion: apps/v1
+        kind: Deployment
+        metadata:
+          name: mysql
+          namespace: wso2
+        spec:
+          selector:
+            matchLabels:
+              app: mysql
+          template:
+            metadata:
+              labels:
+                app: mysql
+            spec:
+              containers:
+              - name: mysql
+                image: mysql:8.0
+                env:
+                - name: MYSQL_ROOT_PASSWORD
+                  value: "root"
+                ports:
+                - containerPort: 3306
+        ---
+        apiVersion: v1
+        kind: Service
+        metadata:
+          name: mysql
+          namespace: wso2
+        spec:
+          selector:
+            app: mysql
+          ports:
+          - port: 3306
+            targetPort: 3306
+        EOF
+        ```
 
-```bash
-kubectl get pods -n wso2 -w
-```
+    2. Wait for MySQL to be ready:
 
-The MySQL pod should show `1/1 Running` before proceeding.
+        ```bash
+        kubectl get pods -n wso2 -w
+        ```
 
-#### 6.2 — Create the Databases
+        The MySQL pod should show `1/1 Running` before proceeding.
 
-Once MySQL is running, create both databases:
+    #### 6.2 — Create the Databases
 
-```bash
-kubectl exec -n wso2 \
-  $(kubectl get pod -n wso2 -l app=mysql -o jsonpath='{.items[0].metadata.name}') \
-  -- mysql -u root -proot -e "
-    CREATE DATABASE apim_db CHARACTER SET latin1;
-    CREATE DATABASE shared_db CHARACTER SET latin1;
-  "
-```
+    1. Once MySQL is running, create both databases:
 
-#### 6.3 — Download the Product Pack
+        ```bash
+        kubectl exec -n wso2 \
+          $(kubectl get pod -n wso2 -l app=mysql -o jsonpath='{.items[0].metadata.name}') \
+          -- mysql -u root -proot -e "
+            CREATE DATABASE apim_db CHARACTER SET latin1;
+            CREATE DATABASE shared_db CHARACTER SET latin1;
+          "
+        ```
 
-The database schema scripts are bundled in the WSO2 API Manager product pack. Download it from the WSO2 GitHub releases page:
+    #### 6.3 — Download the Product Pack
 
-```bash
-curl -L https://github.com/wso2/product-apim/releases/download/v4.6.0/wso2am-4.6.0.zip \
-  -o wso2am-4.6.0.zip
-unzip wso2am-4.6.0.zip
-```
+    1. Download the WSO2 API Manager product pack from the WSO2 GitHub releases page:
 
-This produces a folder called `wso2am-4.6.0` containing the `dbscripts` directory.
+        ```bash
+        curl -L https://github.com/wso2/product-apim/releases/download/v4.6.0/wso2am-4.6.0.zip \
+          -o wso2am-4.6.0.zip
+        unzip wso2am-4.6.0.zip
+        ```
 
-#### 6.4 — Run the Schema Scripts
+        This produces a folder called `wso2am-4.6.0` containing the `dbscripts` directory.
 
-Copy the scripts into the MySQL pod and run them:
+    #### 6.4 — Run the Schema Scripts
 
-```bash
-MYSQL_POD=$(kubectl get pod -n wso2 -l app=mysql -o jsonpath='{.items[0].metadata.name}')
+    1. Copy the scripts into the MySQL pod and run them:
 
-kubectl cp wso2am-4.6.0/dbscripts/mysql.sql wso2/$MYSQL_POD:/tmp/mysql.sql
-kubectl cp wso2am-4.6.0/dbscripts/apimgt/mysql.sql wso2/$MYSQL_POD:/tmp/apimgt_mysql.sql
+        ```bash
+        MYSQL_POD=$(kubectl get pod -n wso2 -l app=mysql -o jsonpath='{.items[0].metadata.name}')
 
-kubectl exec -n wso2 $MYSQL_POD -- \
-  bash -c "mysql -u root -proot shared_db < /tmp/mysql.sql"
+        kubectl cp wso2am-4.6.0/dbscripts/mysql.sql wso2/$MYSQL_POD:/tmp/mysql.sql
+        kubectl cp wso2am-4.6.0/dbscripts/apimgt/mysql.sql wso2/$MYSQL_POD:/tmp/apimgt_mysql.sql
 
-kubectl exec -n wso2 $MYSQL_POD -- \
-  bash -c "mysql -u root -proot apim_db < /tmp/apimgt_mysql.sql"
-```
+        kubectl exec -n wso2 $MYSQL_POD -- \
+          bash -c "mysql -u root -proot shared_db < /tmp/mysql.sql"
 
-Verify the tables were created:
+        kubectl exec -n wso2 $MYSQL_POD -- \
+          bash -c "mysql -u root -proot apim_db < /tmp/apimgt_mysql.sql"
+        ```
 
-```bash
-kubectl exec -n wso2 $MYSQL_POD -- \
-  mysql -u root -proot -e "SHOW TABLES;" shared_db
+    2. Verify the tables were created:
 
-kubectl exec -n wso2 $MYSQL_POD -- \
-  mysql -u root -proot -e "SHOW TABLES;" apim_db
-```
+        ```bash
+        kubectl exec -n wso2 $MYSQL_POD -- \
+          mysql -u root -proot -e "SHOW TABLES;" shared_db
 
-!!! note
-    You may see a warning about using a password on the command line — this is a security notice, not an error. The scripts have run successfully if no `ERROR` lines appear.
+        kubectl exec -n wso2 $MYSQL_POD -- \
+          mysql -u root -proot -e "SHOW TABLES;" apim_db
+        ```
+
+        !!! note
+            You may see a warning about using a password on the command line — this is a security notice, not an error. The scripts have run successfully if no `ERROR` lines appear.
+
+=== "Externally managed database"
+
+    #### 6.1 — Create the Databases
+
+    1. Connect to your managed database instance and create both databases:
+
+        ```bash
+        mysql -h <endpoint> -u <user> -p -e "
+          CREATE DATABASE apim_db CHARACTER SET latin1;
+          CREATE DATABASE shared_db CHARACTER SET latin1;
+        "
+        ```
+
+        Replace `<endpoint>` and `<user>` with your managed database host and credentials.
+
+    #### 6.2 — Download the Product Pack
+
+    1. Download the WSO2 API Manager product pack from the WSO2 GitHub releases page:
+
+        ```bash
+        curl -L https://github.com/wso2/product-apim/releases/download/v4.6.0/wso2am-4.6.0.zip \
+          -o wso2am-4.6.0.zip
+        unzip wso2am-4.6.0.zip
+        ```
+
+        This produces a folder called `wso2am-4.6.0` containing the `dbscripts` directory.
+
+    #### 6.3 — Run the Schema Scripts
+
+    1. Run the schema scripts directly against your managed database:
+
+        ```bash
+        mysql -h <endpoint> -u <user> -p shared_db < wso2am-4.6.0/dbscripts/mysql.sql
+        mysql -h <endpoint> -u <user> -p apim_db < wso2am-4.6.0/dbscripts/apimgt/mysql.sql
+        ```
+
+    2. Verify the tables were created:
+
+        ```bash
+        mysql -h <endpoint> -u <user> -p -e "SHOW TABLES;" shared_db
+        mysql -h <endpoint> -u <user> -p -e "SHOW TABLES;" apim_db
+        ```
 
 !!! note
     Scripts for other databases (PostgreSQL, Oracle, MSSQL) are in `wso2am-4.6.0/dbscripts`. For production, use separate database users with limited permissions instead of `root`.
@@ -256,21 +302,21 @@ The Helm chart mounts a Kubernetes secret named `apim-keystore-secret` as a volu
 !!! note "Why Pattern 1 requires this but Pattern 0 does not"
     In Pattern 0 (single node), the keystore secret is optional and the chart does not mount it, so pods start without it. In Pattern 1, `highAvailability: true` is set and the chart treats the keystore secret as a required volume — the assumption is that HA deployments are production-grade and should use explicit certificates rather than relying on defaults baked into the image.
 
-WSO2 API Manager ships with default keystores inside the Docker image. Extract them and create the secret:
+1. WSO2 API Manager ships with default keystores inside the Docker image. Extract them and create the secret:
 
-```bash
-mkdir -p keystores
+    ```bash
+    mkdir -p keystores
 
-docker run --rm -v "$(pwd)/keystores:/keystores" --entrypoint bash <CONTAINER_REGISTRY>/<IMAGE_REPO>:<TAG> -c "cp /home/wso2carbon/wso2am-4.6.0/repository/resources/security/wso2carbon.jks /home/wso2carbon/wso2am-4.6.0/repository/resources/security/client-truststore.jks /keystores/"
+    docker run --rm -v "$(pwd)/keystores:/keystores" --entrypoint bash <CONTAINER_REGISTRY>/<IMAGE_REPO>:<TAG> -c "cp /home/wso2carbon/wso2am-4.6.0/repository/resources/security/wso2carbon.jks /home/wso2carbon/wso2am-4.6.0/repository/resources/security/client-truststore.jks /keystores/"
 
-kubectl create secret generic apim-keystore-secret --from-file=wso2carbon.jks=keystores/wso2carbon.jks --from-file=client-truststore.jks=keystores/client-truststore.jks -n wso2
-```
+    kubectl create secret generic apim-keystore-secret --from-file=wso2carbon.jks=keystores/wso2carbon.jks --from-file=client-truststore.jks=keystores/client-truststore.jks -n wso2
+    ```
 
-Verify the secret was created:
+2. Verify the secret was created:
 
-```bash
-kubectl get secret apim-keystore-secret -n wso2
-```
+    ```bash
+    kubectl get secret apim-keystore-secret -n wso2
+    ```
 
 !!! note
     The commands above use the default WSO2 keystores which are suitable for evaluation. For production, replace the `.jks` files with your own organisation-issued or CA-signed certificates before creating the secret.
@@ -279,108 +325,130 @@ kubectl get secret apim-keystore-secret -n wso2
 
 Pattern 1 uses a single Helm chart release with two pod replicas forming the active-active cluster. Before deploying, you must configure your custom image and database connection in a `values.yaml` file.
 
-Download the default values file as a starting point:
+1. Download the default values file as a starting point:
 
-```bash
-curl -L https://raw.githubusercontent.com/wso2/helm-apim/4.6.x/docs/am-pattern-1-all-in-one-HA/default_values.yaml \
-  -o values.yaml
-```
+    ```bash
+    curl -L https://raw.githubusercontent.com/wso2/helm-apim/4.6.x/docs/am-pattern-1-all-in-one-HA/default_values.yaml \
+      -o values.yaml
+    ```
 
-Open `values.yaml` and update the two sections below before deploying.
+2. Open `values.yaml` and update the two sections below before deploying.
 
-**Custom image** — point to the image you built and pushed in Step 5. The `registry` and `repository` together form the full image name. For Docker Hub, `registry` is `docker.io` and `repository` is `<your-username>/<image-name>`.
+    **Custom image** — point to the image you built and pushed in Step 5. The `registry` and `repository` together form the full image name. For Docker Hub, `registry` is `docker.io` and `repository` is `<your-username>/<image-name>`.
 
-Set both `tag` (the tag you used in `docker build`) and `digest` (from `docker inspect` in Step 5):
+    Set both `tag` (the tag you used in `docker build`) and `digest` (from `docker inspect` in Step 5):
 
-```yaml
-wso2:
-  deployment:
-    image:
-      registry: "docker.io"                       # your container registry
-      repository: "<your-username>/wso2am-mysql"  # your Docker Hub username + image name
-      tag: "4.6.0"                                # tag used in docker build
-      digest: "sha256:abcdef..."                  # sha256 digest from docker inspect in Step 5
-```
+    ```yaml
+    wso2:
+      deployment:
+        image:
+          registry: "docker.io"                       # your container registry
+          repository: "<your-username>/wso2am-mysql"  # your Docker Hub username + image name
+          tag: "4.6.0"                                # tag used in docker build
+          digest: "sha256:abcdef..."                  # sha256 digest from docker inspect in Step 5
+    ```
 
-**Database connection** — point to the MySQL service deployed in Step 6. The hostname `mysql` is the Kubernetes service name created in Step 6.1, which the WSO2 pods use to reach the database:
+    **Database connection** — point to the database you set up in Step 6:
 
-```yaml
-  apim:
-    configurations:
-      databases:
-        apim_db:
-          url: "jdbc:mysql://mysql:3306/apim_db?useSSL=false&amp;allowPublicKeyRetrieval=true"
-          username: "root"
-          password: "root"
-        shared_db:
-          url: "jdbc:mysql://mysql:3306/shared_db?useSSL=false&amp;allowPublicKeyRetrieval=true"
-          username: "root"
-          password: "root"
-```
+    === "MySQL inside Kubernetes"
 
-!!! warning "Use `&amp;` not `&` in JDBC URLs"
-    The JDBC URL is written into an XML configuration file inside the container. The `&` character is not valid in XML — use `&amp;` to separate query parameters. Using `&` will cause the pod to fail with an XML parse error on startup.
+        The hostname `mysql` is the Kubernetes service name — pods resolve it via cluster DNS:
 
-Deploy with:
+        ```yaml
+          apim:
+            configurations:
+              databases:
+                apim_db:
+                  url: "jdbc:mysql://mysql:3306/apim_db?useSSL=false&amp;allowPublicKeyRetrieval=true"
+                  username: "root"
+                  password: "root"
+                shared_db:
+                  url: "jdbc:mysql://mysql:3306/shared_db?useSSL=false&amp;allowPublicKeyRetrieval=true"
+                  username: "root"
+                  password: "root"
+        ```
 
-```bash
-helm install apim-1 wso2/wso2am-all-in-one \
-  --version 4.6.0-1 \
-  --namespace wso2 \
-  -f values.yaml
-```
+    === "Externally managed database"
 
-Wait for both pods to be ready:
+        Replace the hostname with your managed database endpoint and update the credentials. Most managed database services (e.g. RDS, Cloud SQL) require SSL:
 
-```bash
-kubectl get pods -n wso2 -w
-```
+        ```yaml
+          apim:
+            configurations:
+              databases:
+                apim_db:
+                  url: "jdbc:mysql://<endpoint>:3306/apim_db?useSSL=true&amp;requireSSL=true"
+                  username: "<db-username>"
+                  password: "<db-password>"
+                shared_db:
+                  url: "jdbc:mysql://<endpoint>:3306/shared_db?useSSL=true&amp;requireSSL=true"
+                  username: "<db-username>"
+                  password: "<db-password>"
+        ```
 
-Both WSO2 pods should show `1/1 Running`. This typically takes 3–5 minutes on first startup. If a pod is restarting, check for errors:
 
-```bash
-kubectl logs -n wso2 <pod-name> --previous | grep -E "ERROR|FATAL"
-kubectl describe pod -n wso2 <pod-name>
-```
+3. Deploy with:
+
+    ```bash
+    helm install apim-1 wso2/wso2am-all-in-one \
+      --version 4.6.0-1 \
+      --namespace wso2 \
+      -f values.yaml
+    ```
+
+4. Wait for both pods to be ready:
+
+    ```bash
+    kubectl get pods -n wso2 -w
+    ```
+
+    Both WSO2 pods should show `1/1 Running`. This typically takes 3–5 minutes on first startup. If a pod is restarting, check for errors:
+
+    ```bash
+    kubectl logs -n wso2 <pod-name> --previous | grep -E "ERROR|FATAL"
+    kubectl describe pod -n wso2 <pod-name>
+    ```
 
 ### Step 9 — Configure Local DNS
 
 === "Minikube"
 
-    Minikube does not assign an external IP to ingress resources automatically. Run the following command in a **separate terminal** and keep it running:
+    1. Run the following command in a **separate terminal** and keep it running:
 
-    ```bash
-    minikube tunnel
-    ```
+        ```bash
+        minikube tunnel
+        ```
 
-    !!! note
-        `minikube tunnel` requires sudo privileges to expose ports 80 and 443. You will be prompted for your system password. Once entered, the tunnel will stay running silently — this is expected. **Do not close this terminal.** Open a new terminal for the next steps.
+        !!! note
+            `minikube tunnel` requires sudo privileges to expose ports 80 and 443. You will be prompted for your system password. Once entered, the tunnel will stay running silently — this is expected. **Do not close this terminal.** Open a new terminal for the next steps.
 
-    Then get the external IP assigned to the ingress:
+    2. Get the external IP assigned to the ingress:
 
-    ```bash
-    kubectl get ing -n wso2
-    ```
+        ```bash
+        kubectl get ing -n wso2
+        ```
 
-    The ADDRESS column should now show `127.0.0.1`. Add the following entry to your `/etc/hosts` file:
+        The ADDRESS column should now show `127.0.0.1`.
 
-    ```
-    127.0.0.1 am.wso2.com gw.wso2.com websocket.wso2.com websub.wso2.com
-    ```
+    3. Add the following entry to your `/etc/hosts` file:
+
+        ```
+        127.0.0.1 am.wso2.com gw.wso2.com websocket.wso2.com websub.wso2.com
+        ```
 
 === "Rancher Desktop"
 
-    Get the external IP assigned to the ingress:
+    1. Get the external IP assigned to the ingress:
 
-    ```bash
-    kubectl get ing -n wso2
-    ```
+        ```bash
+        kubectl get ing -n wso2
+        ```
 
-    Add the following entry to your `/etc/hosts` file, replacing `<EXTERNAL-IP>` with the value from the output above:
+    2. Add the following entry to your `/etc/hosts` file, replacing `<EXTERNAL-IP>` with the value from the output above:
 
-    ```
-    <EXTERNAL-IP> am.wso2.com gw.wso2.com websocket.wso2.com websub.wso2.com
-    ```
+        ```
+        <EXTERNAL-IP> am.wso2.com gw.wso2.com websocket.wso2.com websub.wso2.com
+        ```
 
 !!! note
     These are the default hostnames. If you customised `ingress.controlPlane.hostname`, `ingress.gateway.hostname`, `ingress.websocket.hostname`, or `ingress.websub.hostname` in your `values.yaml`, use those values here instead.
@@ -389,22 +457,22 @@ If your hostnames are backed by a real DNS service (e.g. Route 53, Cloud DNS), a
 
 ### Step 10 — Access the Portals
 
-Once DNS is configured, open the following URLs in your browser:
+1. Once DNS is configured, open the following URLs in your browser:
 
-| Portal | URL |
-| ------ | --- |
-| Publisher | `https://am.wso2.com/publisher` |
-| Developer Portal | `https://am.wso2.com/devportal` |
-| Carbon Console | `https://am.wso2.com/carbon` |
-| Gateway | `https://gw.wso2.com` |
+    | Portal | URL |
+    | ------ | --- |
+    | Publisher | `https://am.wso2.com/publisher` |
+    | Developer Portal | `https://am.wso2.com/devportal` |
+    | Carbon Console | `https://am.wso2.com/carbon` |
+    | Gateway | `https://gw.wso2.com` |
 
-!!! note
-    These URLs use the default hostnames. If you changed the hostnames in your `values.yaml`, substitute them accordingly.
+    !!! note
+        These URLs use the default hostnames. If you changed the hostnames in your `values.yaml`, substitute them accordingly.
 
-!!! note "Chrome may block access"
-    Chrome enforces HSTS for `*.wso2.com` domains and may refuse to open the portals with a security warning that cannot be bypassed. If this happens, use Firefox instead — click **Advanced → Accept the Risk and Continue** when prompted about the self-signed certificate.
+    !!! note "Chrome may block access"
+        Chrome enforces HSTS for `*.wso2.com` domains and may refuse to open the portals with a security warning that cannot be bypassed. If this happens, use Firefox instead — click **Advanced → Accept the Risk and Continue** when prompted about the self-signed certificate.
 
-Default credentials: **admin / admin**
+    Default credentials: **admin / admin**
 
 ---
 
