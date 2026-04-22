@@ -84,7 +84,13 @@ This pattern deploys WSO2 API Manager as a highly available active-active cluste
 
 ### Step 5 — Build and Push a Custom Docker Image
 
-Pattern 1 requires an external database. The default WSO2 image does not include JDBC drivers, so you must build a custom image with the appropriate driver.
+WSO2 API Manager needs to connect to an external database at runtime, but the default WSO2 Docker image does not include third-party JDBC drivers. You must build a custom image that adds the appropriate driver for your database.
+
+Any other customisations — additional JARs, patches, or environment-specific libraries — can also be baked into the image at this stage rather than mounted at deployment time.
+
+!!! note "Choosing a base image"
+    - **DockerHub** (`wso2/wso2am:4.6.0`) — packages the GA release. Suitable for evaluation and development.
+    - **WSO2 Private Registry** (`docker.wso2.com/wso2am:4.6.0.0`) — includes WSO2 Updates and is recommended for production. Requires an active [WSO2 Subscription](https://wso2.com/subscription).
 
 1. Create a directory for the custom image:
 
@@ -128,9 +134,6 @@ Pattern 1 requires an external database. The default WSO2 image does not include
     ```
 
     The digest will look like `docker.io/<your-org>/<image>@sha256:abcdef...`.
-
-!!! note
-    The sample above uses the public image from [DockerHub](https://hub.docker.com/r/wso2/wso2am) (`wso2/wso2am:4.6.0`), which is suitable for evaluation. For production, use the image from the [WSO2 Private Docker Registry](https://docker.wso2.com/) (`docker.wso2.com/wso2am:4.6.0.0`) which includes WSO2 Updates — this requires an active [WSO2 Subscription](https://wso2.com/subscription).
 
 ### Step 6 — Deploy the Database
 
@@ -465,9 +468,6 @@ If your hostnames are backed by a real DNS service (e.g. Route 53, Cloud DNS), a
     | Developer Portal | `https://am.wso2.com/devportal` |
     | Carbon Console | `https://am.wso2.com/carbon` |
     | Gateway | `https://gw.wso2.com` |
-
-    !!! note
-        These URLs use the default hostnames. If you changed the hostnames in your `values.yaml`, substitute them accordingly.
 
     !!! note "Chrome may block access"
         Chrome enforces HSTS for `*.wso2.com` domains and may refuse to open the portals with a security warning that cannot be bypassed. If this happens, use Firefox instead — click **Advanced → Accept the Risk and Continue** when prompted about the self-signed certificate.
