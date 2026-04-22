@@ -12,124 +12,128 @@ This section gets WSO2 API Manager running on Kubernetes with default settings. 
 
 ### Step 1 — Install Required Tools
 
-Ensure the following tools are installed on your machine:
+1. Ensure the following tools are installed on your machine:
 
-| Tool | Purpose | Install Guide |
-| ---- | ------- | ------------- |
-| `kubectl` | Kubernetes CLI for managing cluster resources | [Install](https://kubernetes.io/docs/tasks/tools/) |
-| `helm` (v3) | Package manager for deploying WSO2 Helm charts | [Install](https://helm.sh/docs/intro/install/) |
-| `docker` | Required to pull WSO2 container images | [Install](https://docs.docker.com/get-docker/) |
+    | Tool | Purpose | Install Guide |
+    | ---- | ------- | ------------- |
+    | `kubectl` | Kubernetes CLI for managing cluster resources | [Install](https://kubernetes.io/docs/tasks/tools/) |
+    | `helm` (v3) | Package manager for deploying WSO2 Helm charts | [Install](https://helm.sh/docs/intro/install/) |
+    | `docker` | Required to pull WSO2 container images | [Install](https://docs.docker.com/get-docker/) |
 
-Verify all tools are installed and check their versions:
+2. Verify all tools are installed and check their versions:
 
-```bash
-kubectl version --client
-helm version
-docker info
-```
+    ```bash
+    kubectl version --client
+    helm version
+    docker info
+    ```
 
-!!! note "Version Compatibility"
-    Ensure your tool versions are within the supported ranges listed in the [Prerequisites](kubernetes-overview.md#prerequisites) page before proceeding.
+    !!! note "Version Compatibility"
+        Ensure your tool versions are within the supported ranges listed in the [Prerequisites](kubernetes-overview.md#prerequisites) page before proceeding.
 
 ### Step 2 — Verify Your Cluster is Running
 
-Before proceeding, ensure your Kubernetes cluster is up and running:
+1. Ensure your Kubernetes cluster is up and running:
 
-```bash
-kubectl cluster-info
-kubectl get nodes
-```
+    ```bash
+    kubectl cluster-info
+    kubectl get nodes
+    ```
 
-All nodes should show a `Ready` status. If you don't have a cluster set up yet, refer to [Setting Up a Local Kubernetes Cluster](kubernetes-overview.md#setting-up-a-local-kubernetes-cluster) in the overview.
+    All nodes should show a `Ready` status. If you don't have a cluster set up yet, refer to [Setting Up a Local Kubernetes Cluster](kubernetes-overview.md#setting-up-a-local-kubernetes-cluster) in the overview.
 
 ### Step 3 — Add the WSO2 Helm Repository
 
-```bash
-helm repo add wso2 https://helm.wso2.com && helm repo update
-```
+1. Add the WSO2 Helm repository and update it:
+
+    ```bash
+    helm repo add wso2 https://helm.wso2.com && helm repo update
+    ```
 
 ### Step 4 — Install the NGINX Ingress Controller
 
-WSO2 API Manager uses NGINX as its ingress controller. Install it into your cluster:
+1. Install the NGINX ingress controller into your cluster:
 
-```bash
-helm upgrade --install ingress-nginx ingress-nginx \
-  --repo https://kubernetes.github.io/ingress-nginx \
-  --namespace ingress-nginx --create-namespace
-```
+    ```bash
+    helm upgrade --install ingress-nginx ingress-nginx \
+      --repo https://kubernetes.github.io/ingress-nginx \
+      --namespace ingress-nginx --create-namespace
+    ```
 
-Verify the controller is running:
+2. Verify the controller is running:
 
-```bash
-kubectl get pods -n ingress-nginx
-```
+    ```bash
+    kubectl get pods -n ingress-nginx
+    ```
 
-The NGINX pod should show `1/1 Running` before proceeding.
+    The NGINX pod should show `1/1 Running` before proceeding.
 
 ### Step 5 — Deploy WSO2 API Manager
 
-Deploy using the default values, which include an embedded H2 database and default keystores:
+1. Deploy using the default values, which include an embedded H2 database and default keystores:
 
-```bash
-helm install apim wso2/wso2am-all-in-one \
-  --version 4.6.0-1 \
-  --namespace wso2 --create-namespace \
-  -f https://raw.githubusercontent.com/wso2/helm-apim/4.6.x/docs/am-pattern-0-all-in-one/default_values.yaml
-```
+    ```bash
+    helm install apim wso2/wso2am-all-in-one \
+      --version 4.6.0-1 \
+      --namespace wso2 --create-namespace \
+      -f https://raw.githubusercontent.com/wso2/helm-apim/4.6.x/docs/am-pattern-0-all-in-one/default_values.yaml
+    ```
 
-Wait for the pod to be ready:
+2. Wait for the pod to be ready:
 
-```bash
-kubectl get pods -n wso2 -w
-```
+    ```bash
+    kubectl get pods -n wso2 -w
+    ```
 
-The API Manager pod should show `1/1 Running` before proceeding.
+    The API Manager pod should show `1/1 Running` before proceeding.
 
-!!! info "Default Configuration"
-    The default deployment uses:
+    !!! info "Default Configuration"
+        The default deployment uses:
 
-    - Embedded H2 database (not suitable for production)
-    - Default WSO2 keystores and truststores
-    - Hostname: `am.wso2.com`
+        - Embedded H2 database (not suitable for production)
+        - Default WSO2 keystores and truststores
+        - Hostname: `am.wso2.com`
 
 ### Step 6 — Configure Local DNS
 
 === "Minikube"
 
-    Minikube does not assign an external IP to ingress resources automatically. Run the following command in a **separate terminal** and keep it running:
+    1. Run the following command in a **separate terminal** and keep it running:
 
-    ```bash
-    minikube tunnel
-    ```
+        ```bash
+        minikube tunnel
+        ```
 
-    !!! note
-        `minikube tunnel` requires sudo privileges to expose ports 80 and 443. You will be prompted for your system password. Once entered, the tunnel will stay running silently — this is expected. **Do not close this terminal.** Open a new terminal for the next steps.
+        !!! note
+            `minikube tunnel` requires sudo privileges to expose ports 80 and 443. You will be prompted for your system password. Once entered, the tunnel will stay running silently — this is expected. **Do not close this terminal.** Open a new terminal for the next steps.
 
-    Then get the external IP assigned to the ingress:
+    2. Get the external IP assigned to the ingress:
 
-    ```bash
-    kubectl get ing -n wso2
-    ```
+        ```bash
+        kubectl get ing -n wso2
+        ```
 
-    The ADDRESS column should now show `127.0.0.1`. Add the following entry to your `/etc/hosts` file:
+        The ADDRESS column should now show `127.0.0.1`.
 
-    ```
-    127.0.0.1 am.wso2.com gw.wso2.com websocket.wso2.com websub.wso2.com
-    ```
+    3. Add the following entry to your `/etc/hosts` file:
+
+        ```
+        127.0.0.1 am.wso2.com gw.wso2.com websocket.wso2.com websub.wso2.com
+        ```
 
 === "Rancher Desktop"
 
-    Get the external IP assigned to the ingress:
+    1. Get the external IP assigned to the ingress:
 
-    ```bash
-    kubectl get ing -n wso2
-    ```
+        ```bash
+        kubectl get ing -n wso2
+        ```
 
-    Add the following entry to your `/etc/hosts` file, replacing `<EXTERNAL-IP>` with the value from the output above:
+    2. Add the following entry to your `/etc/hosts` file, replacing `<EXTERNAL-IP>` with the value from the output above:
 
-    ```
-    <EXTERNAL-IP> am.wso2.com gw.wso2.com websocket.wso2.com websub.wso2.com
-    ```
+        ```
+        <EXTERNAL-IP> am.wso2.com gw.wso2.com websocket.wso2.com websub.wso2.com
+        ```
 
 !!! note
     These are the default hostnames. If you customised `ingress.controlPlane.hostname`, `ingress.gateway.hostname`, `ingress.websocket.hostname`, or `ingress.websub.hostname` in your `values.yaml`, use those values here instead.
@@ -138,19 +142,19 @@ If your hostnames are backed by a real DNS service (e.g. Route 53, Cloud DNS), a
 
 ### Step 7 — Access the Portals
 
-Once DNS is configured, open the following URLs in your browser:
+1. Once DNS is configured, open the following URLs in your browser:
 
-| Portal | URL |
-| ------ | --- |
-| Publisher | `https://am.wso2.com/publisher` |
-| Developer Portal | `https://am.wso2.com/devportal` |
-| Carbon Console | `https://am.wso2.com/carbon` |
-| Gateway | `https://gw.wso2.com` |
+    | Portal | URL |
+    | ------ | --- |
+    | Publisher | `https://am.wso2.com/publisher` |
+    | Developer Portal | `https://am.wso2.com/devportal` |
+    | Carbon Console | `https://am.wso2.com/carbon` |
+    | Gateway | `https://gw.wso2.com` |
 
-!!! note
-    These URLs use the default hostnames. If you changed the hostnames in your `values.yaml`, substitute them accordingly.
+    !!! note
+        These URLs use the default hostnames. If you changed the hostnames in your `values.yaml`, substitute them accordingly.
 
-Default credentials: **admin / admin**
+    Default credentials: **admin / admin**
 
 ---
 
