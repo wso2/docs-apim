@@ -35,7 +35,7 @@ For more information on setting up WSO2 Identity Server 7.1.0, see [Setup WSO2 I
     ![Add new local claim]({{base_path}}/assets/img/design/b2b/claims.png) 
 
 
-3. Add `org_id` and `org_name` to the OIDC claims and map them to the local claims `http://wso2.org/claims/organizationId` and `http://wso2.org/claims/organization`. To do this, go to **Home > Identity > Claims > Add** and select `Add External Claim`.
+3. Add `org_id` and `org_name` to the OIDC claims and map them to the local claims `http://wso2.org/claims/organizationId` and `http://wso2.org/claims/organization` (this claim is pre-defined in API-M). To do this, go to **Home > Identity > Claims > Add** and select `Add External Claim`.
 
     ![Add new external claim]({{base_path}}/assets/img/design/b2b/add-claim-1.png) 
       
