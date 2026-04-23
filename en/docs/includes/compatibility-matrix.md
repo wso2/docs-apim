@@ -31,7 +31,7 @@
         </tr>
         <tr>
             <td colspan="2">WSO2 API Controller</td>
-            <td>4.6.0</td>
+            <td>4.7.0</td>
         </tr>
         <tr>
             <td colspan="2">WSO2 Identity Server</td>

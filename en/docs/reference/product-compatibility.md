@@ -34,10 +34,10 @@ The **WSO2 API-M** runtime is tested with the following databases:
 
 |**DBMS**     | **Versions**            |
 |--------------|-------------------------|
-|MySQL         | 5.7, 8, 8.4                  |
-|Oracle        | 19c, 23c |
-|Microsoft SQL Server| 2019, 2022        |
-|PostgreSQL            | 16.2, 17       |
+|MySQL         | 8.4                  |
+|Oracle        | 19c |
+|Microsoft SQL Server| 2022        |
+|PostgreSQL            | 18      |
 
 #### WSO2 Product Compatibility Matrix
 
@@ -59,21 +59,11 @@ The following is a list of other WSO2 products and components that have been tes
 </thead>
 <tbody>
 <tr class="even">
-<td>API-M 4.7.0 GA</td>
+<td>API-M 4.7.0</td>
 <td>
-GA or update for:
 <ul>
 <li>WSO2 IS-6.0.0/WSO2 IS-6.1.0</li>
-<li>WSO2 IS-7.0.0 (Tenancy is not compatible)</li>
-</ul>
-</td>
-</tr>
-<tr class="even">
-<td>API-M-4.7.0 update</td>
-<td>GA or update for:
-<ul>
-<li>WSO2 IS-6.0.0/WSO2 IS-6.1.0</li>
-<li>WSO2 IS-7.0.0 (tenancy is not compatible)</li>
+<li>WSO2 IS-7.x</li>
 <div class="admonition note">
       <p class="admonition-title">Note</p>
       <p>Role based authorization for WSO2 IS 7.x is supported from WSO2 IS 7.0.0.65 onwards</p>

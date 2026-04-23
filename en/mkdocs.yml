@@ -378,7 +378,9 @@ nav:
             - Authentication:
                 - Overview: api-security/runtime/api-authentication/api-authentication-overview.md
                 - Disable Security: api-security/runtime/api-authentication/disable-security.md
-                - Secure APIs Using API Keys: api-security/runtime/api-authentication/secure-apis-using-api-keys.md
+                - Secure APIs Using API Keys:
+                    - API Keys: api-security/runtime/api-authentication/secure-apis-using-api-keys.md
+                    - Legacy API Keys (DEPRECATED): api-security/runtime/api-authentication/secure-apis-using-legacy-api-keys.md
                 - Secure APIs Using Basic Authentication: api-security/runtime/api-authentication/secure-apis-using-basic-authentication.md
                 - Secure APIs Using Mutual SSL: api-security/runtime/api-authentication/secure-apis-using-mutual-ssl.md
                 - Secure APIs Using OAuth2 Tokens: api-security/runtime/api-authentication/secure-apis-using-oauth2-tokens.md

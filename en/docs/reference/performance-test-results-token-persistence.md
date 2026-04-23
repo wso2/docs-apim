@@ -45,7 +45,7 @@ A few key performace metrics were used to measure the performance of each grant 
 - Token type: JWT
 - Operating System: Ubuntu 22.04
 - MySQL version of the RDS: 8.0
-- Java version: Temurin JDK 17
+- Java version: Temurin JDK 21
 
 ## Results
 
@@ -56,24 +56,24 @@ The following table shows the throughput values of different grant types for eac
   <tr>
     <th>Grant Type</th>
     <th>With Persistence</th>
-    <th>Without Persistence</th>
+    <th>Without Persistence<br>(Default since API-M 4.7.0)</th>
   </tr>
 </thead>
 <tbody>
   <tr>
     <td>Client Credentials</td>
-    <td>764/s</td>
-    <td>973/s</td>
+    <td>789/s</td>
+    <td>988/s</td>
   </tr>
   <tr>
     <td>Password</td>
-    <td>434/s</td>
-    <td>368/s</td>
+    <td>453/s</td>
+    <td>357/s</td>
   </tr>
   <tr>
     <td>Refresh</td>
-    <td>333/s</td>
-    <td>415/s</td>
+    <td>229/s</td>
+    <td>430/s</td>
   </tr>
 </tbody>
 </table>
@@ -81,24 +81,10 @@ The following table shows the throughput values of different grant types for eac
 **Key Observations**
 
 - The throughput has seen an increase in both Client Credentials and Refresh grant types. With tokens no longer persisted in the database for the Client Credentials grant, performance can scale freely until it encounters a bottleneck with CPU usage on the API Manager instance. Similarly, for the Refresh Token grant, the benefits of removing token persistence outweigh the increase in CPU requirements on the APIM instance for token generation.
-- Under the test conditions, there's a decrease in TPS for the Password grant. This is due to the fact that the refresh token being generated as a JWT, unlike the default scenario (when token persistence is enabled) where it's an Opaque token. Generating and signing a JWT requires more computing power, resulting in the CPU of the API Manager instance becoming a bottleneck despite reduced load on the database. However, this issue can be addressed by vertically scaling the API Manager instance, thereby increasing available CPU resources.
+- Under the test conditions, there's a decrease in TPS for the Password grant. This is due to the refresh token being generated as a JWT by default (without persistence), whereas when token persistence is enabled, it's an Opaque token. Generating and signing a JWT requires more computing power, resulting in the CPU of the API Manager instance becoming a bottleneck despite reduced load on the database. However, this issue can be addressed by vertically scaling the API Manager instance, thereby increasing available CPU resources.
 
 !!! note
-The tests for Refresh grant were carried out by immediately regenerating a new access token using the refresh token, without waiting for the original token to expire.
-
-The following graphs show the CPU usage of API Manager instance over time for different grant types.
-
-**Client Credentials Grant**
-
-<img src="{{base_path}}/assets/img/setup-and-install/performance-test-results/token/cc_cpu.png" alt="CPU vs time for Client Credentials" width="750"/>
-
-**Password Grant**
-
-<img src="{{base_path}}/assets/img/setup-and-install/performance-test-results/token/pwd_cpu.png" alt="CPU vs time for Password" width="750"/>
-
-**Refresh Grant**
-
-<img src="{{base_path}}/assets/img/setup-and-install/performance-test-results/token/refresh_cpu.png" alt="CPU vs time for Refresh" width="750"/>
+    The tests for Refresh grant were carried out by immediately regenerating a new access token using the refresh token, without waiting for the original token to expire.
 
 The following graphs depict the variance of the CPU usage of the database over time for different grant types.
 
@@ -119,6 +105,27 @@ CPU Usage                  |  Total IOPS
 CPU Usage                  |  Total IOPS
 :-------------------------:|:----------------------:
 [![DB CPU vs time for Password]({{base_path}}/assets/img/setup-and-install/performance-test-results/token/refresh_db_cpu.png)]({{base_path}}/assets/img/setup-and-install/performance-test-results/token/refresh__db_cpu.png)  |  [![DB IOPS vs time for Password]({{base_path}}/assets/img/setup-and-install/performance-test-results/token/refresh_iops.png)]({{base_path}}/assets/img/setup-and-install/performance-test-results/token/refresh_iops.png)
+
+
+The above graphs were generated without any throughput limits in JMeter. As a result, the API Manager CPU was saturated and the maximum throughput was observed. The following graphs show the metrics from a similar test setup where the throughput was limited to **100 TPS**.
+
+**Client Credentials Grant - 100 TPS**
+
+APIM CPU Usage            |  DB CPU Usage           |  DB Total IOPS
+:-------------------------:|:------------------------:|:------------------------:
+[![APIM CPU vs time for Client Credentials at 100 TPS]({{base_path}}/assets/img/setup-and-install/performance-test-results/token/fixed_tps_metrics/cc_fixed_apim_cpu.png)]({{base_path}}/assets/img/setup-and-install/performance-test-results/token/fixed_tps_metrics/cc_fixed_apim_cpu.png)  |  [![DB CPU vs time for Client Credentials at 100 TPS]({{base_path}}/assets/img/setup-and-install/performance-test-results/token/fixed_tps_metrics/cc_fixed_db_cpu.png)]({{base_path}}/assets/img/setup-and-install/performance-test-results/token/fixed_tps_metrics/cc_fixed_db_cpu.png)  |  [![DB IOPS vs time for Client Credentials at 100 TPS]({{base_path}}/assets/img/setup-and-install/performance-test-results/token/fixed_tps_metrics/cc_fixed_db_iops.png)]({{base_path}}/assets/img/setup-and-install/performance-test-results/token/fixed_tps_metrics/cc_fixed_db_iops.png)
+
+**Password Grant - 100 TPS**
+
+APIM CPU Usage            |  DB CPU Usage           |  DB Total IOPS
+:-------------------------:|:------------------------:|:------------------------:
+[![APIM CPU vs time for Password at 100 TPS]({{base_path}}/assets/img/setup-and-install/performance-test-results/token/fixed_tps_metrics/pwd_fixed_apim_cpu.png)]({{base_path}}/assets/img/setup-and-install/performance-test-results/token/fixed_tps_metrics/pwd_fixed_apim_cpu.png)  |  [![DB CPU vs time for Password at 100 TPS]({{base_path}}/assets/img/setup-and-install/performance-test-results/token/fixed_tps_metrics/pwd_fixed_db_cpu.png)]({{base_path}}/assets/img/setup-and-install/performance-test-results/token/fixed_tps_metrics/pwd_fixed_db_cpu.png)  |  [![DB IOPS vs time for Password at 100 TPS]({{base_path}}/assets/img/setup-and-install/performance-test-results/token/fixed_tps_metrics/pwd_fixed_db_iops.png)]({{base_path}}/assets/img/setup-and-install/performance-test-results/token/fixed_tps_metrics/pwd_fixed_db_iops.png)
+
+**Refresh Grant - 100 TPS**
+
+APIM CPU Usage            |  DB CPU Usage           |  DB Total IOPS
+:-------------------------:|:------------------------:|:------------------------:
+[![APIM CPU vs time for Refresh at 100 TPS]({{base_path}}/assets/img/setup-and-install/performance-test-results/token/fixed_tps_metrics/refresh_fixed_apim_cpu.png)]({{base_path}}/assets/img/setup-and-install/performance-test-results/token/fixed_tps_metrics/refresh_fixed_apim_cpu.png)  |  [![DB CPU vs time for Refresh at 100 TPS]({{base_path}}/assets/img/setup-and-install/performance-test-results/token/fixed_tps_metrics/refresh_fixed_db_cpu.png)]({{base_path}}/assets/img/setup-and-install/performance-test-results/token/fixed_tps_metrics/refresh_fixed_db_cpu.png)  |  [![DB IOPS vs time for Refresh at 100 TPS]({{base_path}}/assets/img/setup-and-install/performance-test-results/token/fixed_tps_metrics/refresh_fixed_db_iops.png)]({{base_path}}/assets/img/setup-and-install/performance-test-results/token/fixed_tps_metrics/refresh_fixed_db_iops.png)
 
 !!! note
     The above data clearly shows a significant reduction in database load (CPU and IOPS) for each grant type when token persistence optimization is enabled. In summary, enabling token persistence optimization can enhance system performance, especially in scenarios where the database is a limiting factor.

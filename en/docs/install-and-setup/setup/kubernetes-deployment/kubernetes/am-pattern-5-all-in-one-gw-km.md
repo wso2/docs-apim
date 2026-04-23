@@ -453,7 +453,7 @@ kubectl create namespace <namespace>
 
 # Install using Helm
 helm install <release-name> wso2/wso2am-all-in-one \
-  --version 4.6.0-1 \
+  --version 4.7.0-1 \
   --namespace <namespace> \
   --dependency-update \
   -f values.yaml \
@@ -486,7 +486,7 @@ Deploy the Key Manager component with your custom configuration:
 ```bash
 # Install Key Manager component
 helm install <release-name> wso2/wso2am-acp \
-  --version 4.6.0-1 \
+  --version 4.7.0-1 \
   --namespace <namespace> \
   --dependency-update \
   -f km-values.yaml \
@@ -608,7 +608,7 @@ Deploy the Universal Gateway component with your custom configuration:
 ```bash
 # Install Gateway component
 helm install <release-name> wso2/wso2am-universal-gw \
-  --version 4.6.0-1 \
+  --version 4.7.0-1 \
   --namespace <namespace> \
   --dependency-update \
   -f gw-values.yaml \
