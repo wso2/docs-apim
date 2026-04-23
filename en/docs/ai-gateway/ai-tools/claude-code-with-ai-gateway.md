@@ -153,7 +153,7 @@ WSO2 API Manager AI Gateway supports request-based and token-based rate limiting
 
 For example, you can create an AI subscription policy with a limited request count or total token count, and apply it when subscribing to the Anthropic AI API. Once Claude Code invokes the API through that subscription, the Gateway enforces the selected quota automatically. If the configured limit is exceeded, subsequent requests are throttled until the quota resets.
 
-This helps protect the Anthropic backend, control token consumption, and avoid unexpected costs.
+This helps control token consumption and avoid unexpected costs.
 
 [![claude code rate limit example]({{base_path}}/assets/img/llm-gateway/claude-code-rate-limit-example.png)]({{base_path}}/assets/img/llm-gateway/claude-code-rate-limit.png)
 
