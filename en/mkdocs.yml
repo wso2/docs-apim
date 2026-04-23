@@ -164,6 +164,7 @@ nav:
             - Deploy on Kubernetes:
                 - API-M on K8s:
                     - Overview: install-and-setup/setup/kubernetes-deployment/kubernetes/kubernetes-overview.md
+                    - Quick Start: install-and-setup/setup/kubernetes-deployment/kubernetes/kubernetes-quick-start.md
                     - All-In-One Deployment:
                         - Single Node Deployment: install-and-setup/setup/kubernetes-deployment/kubernetes/am-pattern-0-all-in-one.md
                         - Active-Active Deployment: install-and-setup/setup/kubernetes-deployment/kubernetes/am-pattern-1-all-in-one-ha.md

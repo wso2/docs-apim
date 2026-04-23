@@ -2,18 +2,32 @@
 
 WSO2 API Manager (WSO2 API-M) can be deployed on Kubernetes using Helm charts, making it easy to manage, scale, and maintain in cloud-native environments. This guide provides an overview of the available deployment patterns and the prerequisites needed to get started.
 
+!!! tip "Just want to try it out?"
+    Follow the [Quick Start Guide](kubernetes-quick-start.md) to get WSO2 API Manager running on Kubernetes in minutes with zero configuration.
+
 ## Deployment Patterns
 
 WSO2 API-M offers several deployment patterns for Kubernetes to suit different use cases — from local evaluation to large-scale production environments. Use the decision guide below to pick the pattern that best fits your needs.
 
-| Use Case | Recommended Pattern |
-| -------- | ------------------- |
-| Local evaluation or testing | [Pattern 0: All-in-One Setup](am-pattern-0-all-in-one.md) |
-| Production with basic high availability | [Pattern 1: All-in-One HA Setup](am-pattern-1-all-in-one-ha.md) |
-| Independent gateway scaling | [Pattern 2: Simple Scalable Setup](am-pattern-2-all-in-one-gw.md) |
-| Production with dedicated rate limiting control | [Pattern 3: Distributed with Gateway and Traffic Manager Separated](am-pattern-3-acp-tm-gw.md) |
-| Fully distributed production setup | [Pattern 4: Fully Distributed Setup](am-pattern-4-acp-tm-gw-km.md) |
-| Production with dedicated Key Manager | [Pattern 5: Simple Scalable with Key Manager Separated](am-pattern-5-all-in-one-gw-km.md) |
+### All-in-One Deployments
+
+All components — Control Plane, Gateway, Traffic Manager, and Key Manager — run together in each node. Simpler to set up and operate.
+
+| Pattern | Use Case |
+| ------- | -------- |
+| [Pattern 0: Single Node](am-pattern-0-all-in-one.md) | Local evaluation or testing |
+| [Pattern 1: Active-Active HA](am-pattern-1-all-in-one-ha.md) | Production with basic high availability |
+
+### Distributed Deployments
+
+Components are separated into dedicated nodes for independent scaling and fault isolation. Suitable for large-scale production environments.
+
+| Pattern | Use Case |
+| ------- | -------- |
+| [Pattern 2: Simple Scalable](am-pattern-2-all-in-one-gw.md) | Production with independently scalable Gateway |
+| [Pattern 3: Distributed](am-pattern-3-acp-tm-gw.md) | Production with dedicated rate limiting control |
+| [Pattern 4: Fully Distributed](am-pattern-4-acp-tm-gw-km.md) | Fully distributed production setup |
+| [Pattern 5: Simple Scalable with Key Manager](am-pattern-5-all-in-one-gw-km.md) | Production with dedicated Key Manager |
 
 ## Prerequisites
 
