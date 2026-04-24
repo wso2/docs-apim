@@ -165,14 +165,15 @@ nav:
                 - API-M on K8s:
                     - Overview: install-and-setup/setup/kubernetes-deployment/kubernetes/kubernetes-overview.md
                     - Quick Start: install-and-setup/setup/kubernetes-deployment/kubernetes/kubernetes-quick-start.md
+                    - Setting Up a Local Cluster: install-and-setup/setup/kubernetes-deployment/kubernetes/kubernetes-local-cluster-setup.md
                     - All-In-One Deployment:
-                        - Single Node Deployment: install-and-setup/setup/kubernetes-deployment/kubernetes/am-pattern-0-all-in-one.md
-                        - Active-Active Deployment: install-and-setup/setup/kubernetes-deployment/kubernetes/am-pattern-1-all-in-one-ha.md
+                        - Pattern 0 - All-in-One Setup: install-and-setup/setup/kubernetes-deployment/kubernetes/am-pattern-0-all-in-one.md
+                        - Pattern 1 - All-in-One HA Setup: install-and-setup/setup/kubernetes-deployment/kubernetes/am-pattern-1-all-in-one-ha.md
                     - Distributed Deployment:
-                        - Simple Scalable Deployment: install-and-setup/setup/kubernetes-deployment/kubernetes/am-pattern-2-all-in-one-gw.md
-                        - Distributed Deployment (Recommended): install-and-setup/setup/kubernetes-deployment/kubernetes/am-pattern-3-acp-tm-gw.md
-                        - Distributed Deployment with Key Manager Separation: install-and-setup/setup/kubernetes-deployment/kubernetes/am-pattern-4-acp-tm-gw-km.md
-                        - Simple Scalable Deployment with Key Manager Separation: install-and-setup/setup/kubernetes-deployment/kubernetes/am-pattern-5-all-in-one-gw-km.md
+                        - Pattern 2 - Simple Scalable Setup: install-and-setup/setup/kubernetes-deployment/kubernetes/am-pattern-2-all-in-one-gw.md
+                        - Pattern 3 - Distributed Setup: install-and-setup/setup/kubernetes-deployment/kubernetes/am-pattern-3-acp-tm-gw.md
+                        - Pattern 4 - Fully Distributed Setup: install-and-setup/setup/kubernetes-deployment/kubernetes/am-pattern-4-acp-tm-gw-km.md
+                        - Pattern 5 - Simple Scalable with Key Manager: install-and-setup/setup/kubernetes-deployment/kubernetes/am-pattern-5-all-in-one-gw-km.md
                         - Configure IS as Key Manager: install-and-setup/setup/kubernetes-deployment/kubernetes/am-pattern-6-all-in-one-is-as-km.md
                 - API-M on Openshift: install-and-setup/setup/kubernetes-deployment/openshift/openshift-deployment-overview.md
                 - API-M on EKS: install-and-setup/setup/kubernetes-deployment/aws/deploying-wso2-api-m-on-eks.md
