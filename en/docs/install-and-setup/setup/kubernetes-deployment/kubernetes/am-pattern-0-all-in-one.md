@@ -18,14 +18,12 @@ This section gets WSO2 API Manager running on Kubernetes with default settings. 
     | ---- | ------- | ------------- |
     | `kubectl` | Kubernetes CLI for managing cluster resources | [Install](https://kubernetes.io/docs/tasks/tools/) |
     | `helm` (v3) | Package manager for deploying WSO2 Helm charts | [Install](https://helm.sh/docs/intro/install/) |
-    | `docker` | Required to pull WSO2 container images | [Install](https://docs.docker.com/get-docker/) |
 
 2. Verify all tools are installed and check their versions:
 
     ```bash
     kubectl version --client
     helm version
-    docker info
     ```
 
     !!! note "Version Compatibility"
@@ -40,7 +38,7 @@ This section gets WSO2 API Manager running on Kubernetes with default settings. 
     kubectl get nodes
     ```
 
-    All nodes should show a `Ready` status. If you don't have a cluster set up yet, refer to [Setting Up a Local Kubernetes Cluster](kubernetes-overview.md#setting-up-a-local-kubernetes-cluster) in the overview.
+    All nodes should show a `Ready` status. If you don't have a cluster set up yet, refer to [Setting Up a Local Kubernetes Cluster](kubernetes-local-cluster-setup.md).
 
 ### Step 3 — Add the WSO2 Helm Repository
 
@@ -54,11 +52,25 @@ This section gets WSO2 API Manager running on Kubernetes with default settings. 
 
 1. Install the NGINX ingress controller into your cluster:
 
-    ```bash
-    helm upgrade --install ingress-nginx ingress-nginx \
-      --repo https://kubernetes.github.io/ingress-nginx \
-      --namespace ingress-nginx --create-namespace
-    ```
+    === "Local cluster (Minikube / Rancher Desktop)"
+
+        ```bash
+        helm upgrade --install ingress-nginx ingress-nginx \
+          --repo https://kubernetes.github.io/ingress-nginx \
+          --namespace ingress-nginx --create-namespace
+        ```
+
+    === "Managed cluster (AKS / EKS / GKE)"
+
+        ```bash
+        helm upgrade --install ingress-nginx ingress-nginx \
+          --repo https://kubernetes.github.io/ingress-nginx \
+          --namespace ingress-nginx --create-namespace \
+          --set controller.service.externalTrafficPolicy=Local
+        ```
+
+        !!! note
+            `externalTrafficPolicy=Local` is required on managed Kubernetes services. Without it, the cloud load balancer health probes fail and traffic never reaches the ingress controller.
 
 2. Verify the controller is running:
 
@@ -135,10 +147,24 @@ This section gets WSO2 API Manager running on Kubernetes with default settings. 
         <EXTERNAL-IP> am.wso2.com gw.wso2.com websocket.wso2.com websub.wso2.com
         ```
 
+=== "Managed cluster (AKS / EKS / GKE)"
+
+    1. Get the external IP assigned to the ingress:
+
+        ```bash
+        kubectl get ing -n wso2
+        ```
+
+    2. For quick testing, add the `ADDRESS` value to your `/etc/hosts`:
+
+        ```
+        <EXTERNAL-IP> am.wso2.com gw.wso2.com websocket.wso2.com websub.wso2.com
+        ```
+
+        For a production setup, create a DNS record in your DNS provider (e.g. Route 53, Azure DNS, Cloud DNS) mapping the hostnames to the external IP instead of using `/etc/hosts`.
+
 !!! note
     These are the default hostnames. If you customised `ingress.controlPlane.hostname`, `ingress.gateway.hostname`, `ingress.websocket.hostname`, or `ingress.websub.hostname` in your `values.yaml`, use those values here instead.
-
-If your hostnames are backed by a real DNS service (e.g. Route 53, Cloud DNS), add a DNS record mapping the hostnames to the external IP in your DNS provider instead of editing `/etc/hosts`.
 
 ### Step 7 — Access the Portals
 
@@ -158,7 +184,7 @@ If your hostnames are backed by a real DNS service (e.g. Route 53, Cloud DNS), a
 
 ---
 
-## Advanced Configuration
+## Additional Configuration
 
 The settings below are for production deployments or scenarios where you need to go beyond the defaults. All configurations in this section are made by editing your `values.yaml` file — the Helm chart's configuration file. Once all changes are in place, deploy using the command in [Section 6](#section-6).
 
