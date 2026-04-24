@@ -54,7 +54,7 @@ This pattern deploys WSO2 API Manager as a highly available active-active cluste
     kubectl get nodes
     ```
 
-    All nodes should show a `Ready` status. If you don't have a cluster set up yet, refer to [Setting Up a Local Kubernetes Cluster](kubernetes-overview.md#setting-up-a-local-kubernetes-cluster) in the overview.
+    All nodes should show a `Ready` status. If you don't have a cluster set up yet, refer to [Setting Up a Local Kubernetes Cluster](kubernetes-local-cluster-setup.md).
 
 ### Step 3 — Add the WSO2 Helm Repository
 
@@ -68,11 +68,25 @@ This pattern deploys WSO2 API Manager as a highly available active-active cluste
 
 1. Install the NGINX ingress controller into your cluster:
 
-    ```bash
-    helm upgrade --install ingress-nginx ingress-nginx \
-      --repo https://kubernetes.github.io/ingress-nginx \
-      --namespace ingress-nginx --create-namespace
-    ```
+    === "Local cluster (Minikube / Rancher Desktop)"
+
+        ```bash
+        helm upgrade --install ingress-nginx ingress-nginx \
+          --repo https://kubernetes.github.io/ingress-nginx \
+          --namespace ingress-nginx --create-namespace
+        ```
+
+    === "Managed cluster (AKS / EKS / GKE)"
+
+        ```bash
+        helm upgrade --install ingress-nginx ingress-nginx \
+          --repo https://kubernetes.github.io/ingress-nginx \
+          --namespace ingress-nginx --create-namespace \
+          --set controller.service.externalTrafficPolicy=Local
+        ```
+
+        !!! note
+            `externalTrafficPolicy=Local` is required on managed Kubernetes services. Without it, the cloud load balancer health probes fail and traffic never reaches the ingress controller.
 
 2. Verify the controller is running:
 
@@ -111,8 +125,17 @@ Any other customisations — additional JARs, patches, or environment-specific l
 3. Build the image, replacing `<CONTAINER_REGISTRY>`, `<IMAGE_REPO>`, and `<TAG>` with your values:
 
     ```bash
-    docker build -t <CONTAINER_REGISTRY>/<IMAGE_REPO>:<TAG> .
+    docker buildx build --platform linux/amd64 -t <CONTAINER_REGISTRY>/<IMAGE_REPO>:<TAG> .
     ```
+
+    !!! note "Matching your cluster architecture"
+        The `--platform` flag ensures the image is built for the architecture your cluster nodes run on. Most managed clusters (AKS, EKS, GKE) and Linux servers use `linux/amd64`. If you are building on Apple Silicon (M1/M2/M3/M4) without this flag, the image will be built for `linux/arm64` and the pod will fail to start with `no match for platform in manifest`.
+
+        To check your cluster node architecture before building:
+
+        ```bash
+        kubectl get nodes -o jsonpath='{.items[*].status.nodeInfo.architecture}'
+        ```
 
     !!! note "Image naming"
         - **Docker Hub**: use your Docker Hub username as the registry — e.g. `myusername/wso2am-mysql:4.6.0`
@@ -347,7 +370,7 @@ Pattern 1 uses a single Helm chart release with two pod replicas forming the act
         image:
           registry: "docker.io"                       # your container registry
           repository: "<your-username>/wso2am-mysql"  # your Docker Hub username + image name
-          tag: "4.6.0"                                # tag used in docker build
+          tag: "<TAG>"                                 # tag used in docker build
           digest: "sha256:abcdef..."                  # sha256 digest from docker inspect in Step 5
     ```
 
@@ -453,10 +476,24 @@ Pattern 1 uses a single Helm chart release with two pod replicas forming the act
         <EXTERNAL-IP> am.wso2.com gw.wso2.com websocket.wso2.com websub.wso2.com
         ```
 
+=== "Managed cluster (AKS / EKS / GKE)"
+
+    1. Get the external IP assigned to the ingress:
+
+        ```bash
+        kubectl get ing -n wso2
+        ```
+
+    2. For quick testing, add the `ADDRESS` value to your `/etc/hosts`:
+
+        ```
+        <EXTERNAL-IP> am.wso2.com gw.wso2.com websocket.wso2.com websub.wso2.com
+        ```
+
+        For a production setup, create a DNS record in your DNS provider (e.g. Route 53, Azure DNS, Cloud DNS) mapping the hostnames to the external IP instead of using `/etc/hosts`.
+
 !!! note
     These are the default hostnames. If you customised `ingress.controlPlane.hostname`, `ingress.gateway.hostname`, `ingress.websocket.hostname`, or `ingress.websub.hostname` in your `values.yaml`, use those values here instead.
-
-If your hostnames are backed by a real DNS service (e.g. Route 53, Cloud DNS), add a DNS record mapping the hostnames to the external IP in your DNS provider instead of editing `/etc/hosts`.
 
 ### Step 10 — Access the Portals
 
@@ -476,7 +513,7 @@ If your hostnames are backed by a real DNS service (e.g. Route 53, Cloud DNS), a
 
 ---
 
-## Advanced Configuration
+## Additional Configuration
 
 All configurations in this section are made by editing your `values.yaml` file. Once all changes are in place, deploy using the command in [Section 6](#6-deploy-with-custom-values).
 
