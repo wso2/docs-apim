@@ -14,7 +14,7 @@ Ensure the following are installed:
 | ---- | ------------- |
 | `kubectl` | [Install](https://kubernetes.io/docs/tasks/tools/) |
 | `helm` (v3) | [Install](https://helm.sh/docs/intro/install/) |
-| A running Kubernetes cluster | [Set one up](kubernetes-overview.md#setting-up-a-local-kubernetes-cluster) |
+| A running Kubernetes cluster | [Set one up](kubernetes-local-cluster-setup.md) |
 
 Verify all tools are installed:
 
@@ -37,7 +37,7 @@ kubectl cluster-info
 kubectl get nodes
 ```
 
-All nodes should show a `Ready` status before proceeding. If you don't have a cluster yet, see [Setting Up a Local Kubernetes Cluster](kubernetes-overview.md#setting-up-a-local-kubernetes-cluster).
+All nodes should show a `Ready` status before proceeding. If you don't have a cluster yet, see [Setting Up a Local Kubernetes Cluster](kubernetes-local-cluster-setup.md).
 
 !!! note
     For local evaluation, Pattern 0 requires a minimum of **4 CPUs** and **7.5 GB memory**. If using Minikube, start it with:
@@ -55,11 +55,25 @@ helm repo add wso2 https://helm.wso2.com && helm repo update
 
 ## Step 2 — Install the NGINX Ingress Controller
 
-```bash
-helm upgrade --install ingress-nginx ingress-nginx \
-  --repo https://kubernetes.github.io/ingress-nginx \
-  --namespace ingress-nginx --create-namespace
-```
+=== "Local cluster (Minikube / Rancher Desktop)"
+
+    ```bash
+    helm upgrade --install ingress-nginx ingress-nginx \
+      --repo https://kubernetes.github.io/ingress-nginx \
+      --namespace ingress-nginx --create-namespace
+    ```
+
+=== "Managed cluster (AKS / EKS / GKE)"
+
+    ```bash
+    helm upgrade --install ingress-nginx ingress-nginx \
+      --repo https://kubernetes.github.io/ingress-nginx \
+      --namespace ingress-nginx --create-namespace \
+      --set controller.service.externalTrafficPolicy=Local
+    ```
+
+    !!! note
+        `externalTrafficPolicy=Local` is required on managed Kubernetes services. Without it, the cloud load balancer health probes fail and traffic never reaches the ingress controller.
 
 Wait until the NGINX pod is running:
 
@@ -84,7 +98,7 @@ kubectl get pods -n wso2 -w
 
 The pod should show `1/1 Running` before proceeding.
 
-## Step 4 — Configure Local DNS
+## Step 4 — Configure DNS
 
 === "Minikube"
 
@@ -113,6 +127,22 @@ The pod should show `1/1 Running` before proceeding.
     ```
     <EXTERNAL-IP> am.wso2.com gw.wso2.com websocket.wso2.com websub.wso2.com
     ```
+
+=== "Managed cluster (AKS / EKS / GKE)"
+
+    Get the external IP assigned to the ingress:
+
+    ```bash
+    kubectl get ing -n wso2
+    ```
+
+    For quick testing, add the `ADDRESS` value to your `/etc/hosts`:
+
+    ```
+    <EXTERNAL-IP> am.wso2.com gw.wso2.com websocket.wso2.com websub.wso2.com
+    ```
+
+    For a production setup, create a DNS record in your DNS provider (e.g. Route 53, Azure DNS, Cloud DNS) mapping the hostnames to the external IP instead of using `/etc/hosts`.
 
 ## Step 5 — Access the Portals
 
