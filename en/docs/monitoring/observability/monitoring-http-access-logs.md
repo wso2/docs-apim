@@ -164,7 +164,7 @@ Follow the steps given below to enable access logs for the PassThrough or NIO tr
     ```properties
     # Default access log pattern
     #access_log_pattern=%{X-Forwarded-For}i %h %l %u %t \”%r\” %s %b \”%{Referer}i\” \”%{User-Agent}i\”
-    # combinded log pattern
+    # combined log pattern
     #access_log_pattern=%h %l %u %t \”%r\” %s %b \”%{Referer}i\” \”%{User-Agent}i\”
     access_log_pattern=time=%t remoteHostname=%h localIP=%A requestMethod=%m requestURL=%U remoteIP=%a HTTPStatusCode=%s
     # common log pattern
