@@ -459,13 +459,11 @@ The Helm chart mounts a Kubernetes secret named `apim-keystore-secret` as a volu
           digest: "sha256:abcdef..."
     ```
 
-    **All-in-One connection** — the Gateway must connect back to the All-in-One for key management, event subscription, and throttling. Find the All-in-One service name:
+    **All-in-One connection** — the default values assume the All-in-One was deployed with release name `apim`. If you used a different release name, find the actual service names and update accordingly:
 
     ```bash
     kubectl get svc -n wso2
     ```
-
-    Then update the Gateway config with that service name:
 
     ```yaml
     km:
