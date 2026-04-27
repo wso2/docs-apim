@@ -140,7 +140,7 @@ Transport Level Security</a>.</p>
 </tr>
 <tr class="odd">
 <td><p>Configure Content Security Policy (CSP) headers</p></td>
-<td><p>WSO2 API Manager application code is developed adhering to security guidelines, and known vulnerabilities within the package have been identified and patched. In addition, Content Security Policy (CSP) can provide an extra layer of protection by restricting how the application is framed or embedded in the browser.</p>
+<td><p>WSO2 API Manager application code follows secure coding practices and receives regular security updates. Content Security Policy (CSP) provides an additional layer of protection by restricting how the application is framed or embedded in the browser.</p>
 <p>It is recommended to configure the following CSP header at the Load Balancer (LB) level to secure framing behavior and reduce clickjacking risk:</p>
 <pre><code>Content-Security-Policy: frame-src 'self'; frame-ancestors 'self';</code></pre>
 <p>The above policy ensures the following:</p>
