@@ -380,7 +380,23 @@ The Helm chart mounts a Kubernetes secret named `apim-keystore-secret` as a volu
       -o values-aio.yaml
     ```
 
-2. Open `values-aio.yaml` and update the two sections below before deploying.
+2. Open `values-aio.yaml` and update the sections below before deploying.
+
+    **Disable AIO ingresses for gateway traffic** — the dedicated Universal Gateway owns the gateway, websocket, and websub ingresses. Disable them on the AIO to prevent conflicts:
+
+    ```yaml
+    kubernetes:
+      ingress:
+        gateway:
+          enabled: false
+        websocket:
+          enabled: false
+        websub:
+          enabled: false
+    ```
+
+    !!! warning
+        On managed clusters (AKS, EKS, GKE), the NGINX admission webhook enforces that no two Ingress resources can claim the same hostname. If these are left enabled, the `helm install apim-gw` command will fail. The AIO `management` ingress (`am.wso2.com`) remains enabled — only the gateway-related ingresses are disabled here.
 
     **Custom image** — point to the All-in-One image you built in Step 5:
 
