@@ -2,8 +2,6 @@
 
 This pattern extends Pattern 2 by adding a dedicated Key Manager alongside the All-in-One and Universal Gateway. It is suitable for production environments where token issuance and validation need to be isolated from the Control Plane, without the overhead of a fully distributed setup.
 
-<a href="{{base_path}}/assets/img/setup-and-install/deployment-km.png"><img src="{{base_path}}/assets/img/setup-and-install/deployment-km.png" alt="simple scalable with key manager deployment" width="60%"></a>
-
 ## How Pattern 5 Differs from Earlier Patterns
 
 | | Pattern 2 | Pattern 4 | Pattern 5 |
