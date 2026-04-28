@@ -32,4 +32,4 @@ The APIM APK Agent is a component that connects the WSO2 API Control Plane with 
 
 ## Next Steps
 
-You can refer the [Quick Start Guide](https://apk.docs.wso2.com/en/latest/get-started/quick-start-guide-with-cp/) with regards to trying out API Control Plane with Kubernetes Gateway using APIM-APK Agent.
+You can refer to the [Quick Start Guide](https://apk.docs.wso2.com/en/latest/get-started/quick-start-guide-with-cp/) with regards to trying out API Control Plane with Kubernetes Gateway using APIM-APK Agent.
