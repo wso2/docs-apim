@@ -5,7 +5,7 @@ This is the fully distributed deployment for API Manager. The default configurat
 <a href="{{base_path}}/assets/img/setup-and-install/distributed-deployment-km.png"><img src="{{base_path}}/assets/img/setup-and-install/distributed-deployment-km.png" alt="fully distributed deployment" width="60%"></a>
 
 !!! info
-    For advanced details on the deployment pattern, please refer to the official [documentation](kubernetes-overview.md).
+    For advanced details on the deployment pattern, please refer to the official [documentation]({{base_path}}/install-and-setup/setup/deployment-overview/).
 
 ## Contents
 
@@ -98,6 +98,7 @@ Before you begin, ensure you have the following prerequisites in place:
     ```dockerfile
     FROM registry.wso2.com/wso2-apim/am-acp:4.5.0.0
 
+    ARG USER=wso2carbon
     ARG USER_HOME=/home/${USER}
     ARG WSO2_SERVER_NAME=wso2am-acp
     ARG WSO2_SERVER_VERSION=4.5.0
@@ -112,6 +113,7 @@ Before you begin, ensure you have the following prerequisites in place:
     ```dockerfile
     FROM registry.wso2.com/wso2-apim/am-tm:4.5.0.0
 
+    ARG USER=wso2carbon
     ARG USER_HOME=/home/${USER}
     ARG WSO2_SERVER_NAME=wso2am-tm
     ARG WSO2_SERVER_VERSION=4.5.0
@@ -126,6 +128,7 @@ Before you begin, ensure you have the following prerequisites in place:
     ```dockerfile
     FROM registry.wso2.com/wso2-apim/am-universal-gw:4.5.0.0
 
+    ARG USER=wso2carbon
     ARG USER_HOME=/home/${USER}
     ARG WSO2_SERVER_NAME=wso2am-universal-gw
     ARG WSO2_SERVER_VERSION=4.5.0
@@ -338,29 +341,114 @@ Some sample annotations that can be used with Ingress resources are as follows:
 
 ### 1.2 Mount Keystore and Truststore
 
-- If you are not including the keystore and truststore in the Docker image, you can mount them using a Kubernetes secret. The following steps show how to mount the keystore and truststore using a Kubernetes secret.
-- Create a Kubernetes secret with the keystore and truststore files. The secret should contain the primary keystore file, secondary keystore file, internal keystore file, and the truststore file. Note that the secret should be created in the same namespace in which you will be setting up the deployment.
-- Make sure to use the same secret name when creating the secret and when configuring the Helm chart.
-- If you are using a different keystore file name and alias, make sure to update the Helm chart configurations accordingly.
-- In addition to the primary, internal keystores and truststore files, you can also include the keystores for HTTPS transport as well.
-- Refer to the following sample command to create the secret and use it in the APIM:
-  
+If you are not including the keystore and truststore in the Docker image, you can mount them using a Kubernetes secret. The following steps show how to mount the keystore and truststore using a Kubernetes secret.
+
+- Create a keystore using the following command. Since WSO2 API Manager currently supports only JKS keystores, and newer Java versions default to generating PKCS keystores, we need to explicitly specify the store type as JKS.
   ```bash
-  kubectl create secret generic apim-keystore-secret --from-file=wso2carbon.jks --from-file=client-truststore.jks --from-file=wso2internal.jks -n <namespace>
+  keytool -genkey -alias wso2carbon -keyalg RSA -keysize 2048 -validity 3650 -keystore wso2carbon.jks -storetype JKS -dname "CN=*.wso2.com, OU=MS,O=WSO2,L=Colombo,ST=Colombo,C=LK" -ext san=dns:am.wso2.com,dns:gw.wso2.com,dns:localhost -storepass wso2carbon -keypass wso2carbon
+  ```
+
+- Upload the newly created keystore certificate to the trust store.
+  ```bash
+  keytool -export -keystore wso2carbon.jks -alias wso2carbon -storepass wso2carbon | keytool -import -alias wso2carbonssl -keystore client-truststore.jks -storepass wso2carbon -noprompt
+  ```
+  You can locate the existing trust store at `repository/resources/security/client-truststore.jks`
+
+- Create a Kubernetes secret with the keystore and truststore files. 
+    + The secret should contain the primary keystore file, secondary keystore file, internal keystore file, and the truststore file. Note that the secret should be created in the same namespace in which you will be setting up the deployment.
+
+    + Make sure to use the same secret name when creating the secret and when configuring the Helm chart.
+
+    + If you are using a different keystore file name and alias, make sure to update the Helm chart configurations accordingly. In addition to the primary, internal keystores and truststore files, you can also include the keystores for HTTPS transport as well.
+
+    + Refer to the following sample command to create the secret and use it in the APIM.
+    ```bash
+    kubectl create secret generic apim-keystore-secret --from-file=wso2carbon.jks --from-file=client-truststore.jks --from-file=wso2internal.jks -n <namespace>
+    ```
+
+- Update the values.yaml file.
+  ```yaml
+  security:
+      # -- Kubernetes secret containing the keystores and truststore
+      jksSecretName: "jks-secret"
   ```
 > By default, this deployment uses the default keystores and truststores provided by the relevant WSO2 product.
-> For advanced details with regards to managing custom Java keystores and truststores in a container-based WSO2 product deployment
+> For advanced details regarding managing custom Java keystores and truststores in a container-based WSO2 product deployment,
   please refer to the [official WSO2 container guide](https://github.com/wso2/container-guide/blob/master/deploy/Managing_Keystores_And_Truststores.md).
 
 ### 1.3 Encrypting Secrets
 
-- If you need to use cipher tool to encrypt the passwords in the secret, first you need to encrypt the passwords using the cipher tool. The cipher tool can be found in the bin directory of the product pack. The following command can be used to encrypt the password.
+The apictl can be used to encrypt passwords as in the below steps.
+For further guidance, refer [Encrypting Secrets with apictl]({{base_path}}/install-and-setup/setup/api-controller/encrypting-secrets-with-ctl)
+
+- Initialize the apictl using the trust store.
+  ```bash
+  apictl secret init
   ```
-  sh cipher-tool.sh -Dconfigure
+
+!!! example "Example"
+
+    ```
+    apictl secret init
+    Enter Key Store location: /home/wso2am-4.5.0/repository/resources/security/wso2carbon.jks
+    Enter Key Store password: 
+    Enter Key alias: wso2carbon
+    Enter Key password: 
+    ```
+
+    Response:
+
+    ```
+    Key Store initialization completed
+    ```
+
+- Encrypt the values listed below using the command,
+  ```bash
+    apictl secret create
   ```
-- Also the apictl can be used to encrypt passwords as well. Reference can be found in [following](https://apim.docs.wso2.com/en/latest/install-and-setup/setup/api-controller/encrypting-secrets-with-ctl/).
-- Then the encrypted values should be filled in the relevant fields of values.yaml.
-- Since internal keystore password is required to resolve the encrypted value at runtime, we need to store the value in the cloud provider's secret manager. You can use the cloud provider's secret store to store the password of the internal keystore. The following section can be used to add the cloud provider's credentials to fetch the internal keystore password. Configuration for AWS can be as below. 
+
+    - admin_password
+    - keystore_password
+    - keystore_key_password
+    - ssl_keystore_password
+    - ssl_key_password
+    - internal_keystore_password
+    - internal_keystore_key_password
+    - truststore_password
+    - apim_db_password
+    - shared_db_password
+
+!!! example "Example"
+
+    ```bash
+    apictl secret create
+    Enter plain alias for secret:db_password
+    Enter plain text secret:
+    Repeat plain text secret:
+    ```
+
+    Response:
+    ```
+    db_password : eKALmLVA+HFVl7vxxxxxxxxxxxxxxxxxxxxxxxxxxxjakhHN
+    ```
+
+- Replace all the above listed values with the encrypted values in the relevant fields of `values.yaml`.
+
+- Enable secure vault by adding the following configuration.
+  ```yaml
+  # -- Secure vault enabled
+  secureVaultEnabled: true
+  ```
+
+- If you have configured a cloud provider, enable it by adding the following configuration. 
+  ```yaml
+  aws:
+    # -- If AWS is used as the cloud provider
+    enabled: true
+
+  ```
+
+- Since the internal keystore password is required to resolve the encrypted value at runtime, you need to store the value in the cloud provider's secret manager. You can use the cloud provider's secret store to store the password of the internal keystore. The following section can be used to add the cloud provider's credentials to fetch the internal keystore password. Configuration for AWS can be as below: 
   ```yaml
   internalKeystorePassword:
     # -- AWS Secrets Manager secret name
@@ -483,6 +571,7 @@ You can configure user store properties as described in this [documentation](htt
 For a complete list of available user store properties and their descriptions, refer to the [documentation](https://apim.docs.wso2.com/en/latest/administer/managing-users-and-roles/managing-user-stores/working-with-properties-of-user-stores/).
 
 ### 2.3 Configure JWKS URL
+
 By default, for the super tenant, the Resident Key Manager's JWKS URL is set to `https://<HOSTNAME>:9443/oauth2/jwks`. If you are using a virtual host like `am.wso2.com` that is not globally routable, this URL will be incorrect. You can configure the correct JWKS URL for the super tenant using the Helm chart as shown below:
 
 ```yaml
@@ -492,6 +581,7 @@ wso2:
       oauth_config:
         oauth2JWKSUrl: "https://<CONTROL_PLANE_SERVICE_NAME>:9443/oauth2/jwks"
 ```
+
 ### 2.4 Deploy Control Plane
 
 After configuring all the necessary parameters, you can deploy the Control Plane using Helm:
@@ -561,6 +651,7 @@ helm install <release-name> <helm-chart-path> \
 ### 4. Universal Gateway Configuration
 
 ### 4.1 Configure Key Manager, Eventhub and Throttling
+
 - Configure Control Plane as the Key Manager
   ```yaml
     km:
