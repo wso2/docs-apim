@@ -212,6 +212,8 @@ The Helm charts for the API Manager deployment are available in the [WSO2 Helm C
 
 You can use either **[Envoy Gateway](https://gateway.envoyproxy.io/docs/install/install-helm/)** (Gateway API-based) or **[NGINX Ingress Controller](https://kubernetes.github.io/ingress-nginx/deploy/)** (Ingress-based) for routing traffic to API Manager. In 4.5.x, charts keep NGINX Ingress enabled by default for backward compatibility. If you want to use Gateway API instead, disable Ingress and enable Gateway API in your Helm values.
 
+> **Note:** It is recommended to use Gateway API with Envoy Gateway instead of NGINX Ingress Controller (Deprecated).
+
 #### TLS Certificate Configuration (Required for both options)
 
 Create a Kubernetes secret containing the TLS certificate and private key. This secret is used for TLS termination at the load balancer level.
