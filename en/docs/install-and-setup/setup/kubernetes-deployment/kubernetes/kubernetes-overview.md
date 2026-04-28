@@ -27,7 +27,8 @@ Components are separated into dedicated nodes for independent scaling and fault 
 | [Pattern 2 - Simple Scalable Setup](am-pattern-2-all-in-one-gw.md) | Production with independently scalable Gateway |
 | [Pattern 3 - Distributed Setup](am-pattern-3-acp-tm-gw.md) | Production with dedicated rate limiting control |
 | [Pattern 4 - Fully Distributed Setup](am-pattern-4-acp-tm-gw-km.md) | Fully distributed production setup |
-| [Pattern 5 - Simple Scalable with Key Manager](am-pattern-5-all-in-one-gw-km.md) | Production with dedicated Key Manager |
+| [Pattern 5 - Simple Scalable with Dedicated Key Manager](am-pattern-5-all-in-one-gw-km.md) | Production with a separately deployed Key Manager |
+| [Pattern 6 - All-in-One with WSO2 IS as Key Manager](am-pattern-6-all-in-one-is-as-km.md) | Production with WSO2 Identity Server as the Key Manager |
 
 ## Prerequisites
 
@@ -85,7 +86,8 @@ Don't have a cluster yet? See [Setting Up a Local Kubernetes Cluster](kubernetes
 | Pattern 2 (Simple Scalable) | 4 cores | 12 GB |
 | Pattern 3 (Distributed) | 6 cores | 12 GB |
 | Pattern 4 (Fully Distributed) | 8 cores | 16 GB |
-| Pattern 5 (Simple Scalable + KM) | 6 cores | 12 GB |
+| Pattern 5 (Simple Scalable + Dedicated KM) | 6 cores | 12 GB |
+| Pattern 6 (All-in-One + IS as KM) | 6 cores | 14 GB |
 
 !!! note
     These are minimum values based on default replica counts. If you scale up the number of replicas, additional resources will be required.
