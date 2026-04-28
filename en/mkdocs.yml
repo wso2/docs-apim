@@ -173,8 +173,8 @@ nav:
                         - Pattern 2 - Simple Scalable Setup: install-and-setup/setup/kubernetes-deployment/kubernetes/am-pattern-2-all-in-one-gw.md
                         - Pattern 3 - Distributed Setup: install-and-setup/setup/kubernetes-deployment/kubernetes/am-pattern-3-acp-tm-gw.md
                         - Pattern 4 - Fully Distributed Setup: install-and-setup/setup/kubernetes-deployment/kubernetes/am-pattern-4-acp-tm-gw-km.md
-                        - Pattern 5 - Simple Scalable with Key Manager: install-and-setup/setup/kubernetes-deployment/kubernetes/am-pattern-5-all-in-one-gw-km.md
-                        - Configure IS as Key Manager: install-and-setup/setup/kubernetes-deployment/kubernetes/am-pattern-6-all-in-one-is-as-km.md
+                        - Pattern 5 - Simple Scalable with Dedicated Key Manager: install-and-setup/setup/kubernetes-deployment/kubernetes/am-pattern-5-all-in-one-gw-km.md
+                        - Pattern 6 - All-in-One with IS as Key Manager: install-and-setup/setup/kubernetes-deployment/kubernetes/am-pattern-6-all-in-one-is-as-km.md
                 - API-M on Openshift: install-and-setup/setup/kubernetes-deployment/openshift/openshift-deployment-overview.md
                 - API-M on EKS: install-and-setup/setup/kubernetes-deployment/aws/deploying-wso2-api-m-on-eks.md
             - Deployment Best Practices:
