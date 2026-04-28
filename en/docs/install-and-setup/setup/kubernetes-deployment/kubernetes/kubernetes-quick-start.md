@@ -63,7 +63,7 @@ helm repo add wso2 https://helm.wso2.com && helm repo update
       --namespace ingress-nginx --create-namespace
     ```
 
-=== "Managed cluster (AKS / EKS / GKE)"
+=== "Managed cluster (AKS / GKE)"
 
     ```bash
     helm upgrade --install ingress-nginx ingress-nginx \
@@ -128,7 +128,7 @@ The pod should show `1/1 Running` before proceeding.
     <EXTERNAL-IP> am.wso2.com gw.wso2.com websocket.wso2.com websub.wso2.com
     ```
 
-=== "Managed cluster (AKS / EKS / GKE)"
+=== "Managed cluster (AKS / GKE)"
 
     Get the external IP assigned to the ingress:
 

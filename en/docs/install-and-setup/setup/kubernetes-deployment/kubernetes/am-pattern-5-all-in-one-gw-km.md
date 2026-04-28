@@ -78,7 +78,7 @@ This pattern extends Pattern 2 by adding a dedicated Key Manager alongside the A
           --namespace ingress-nginx --create-namespace
         ```
 
-    === "Managed cluster (AKS / EKS / GKE)"
+    === "Managed cluster (AKS / GKE)"
 
         ```bash
         helm upgrade --install ingress-nginx ingress-nginx \
@@ -151,7 +151,7 @@ Pattern 5 requires three custom Docker images — one for the All-in-One, one fo
     ```
 
     !!! note "Matching your cluster architecture"
-        The `--platform` flag ensures the image is built for the architecture your cluster nodes run on. Most managed clusters (AKS, EKS, GKE) and Linux servers use `linux/amd64`. If you are building on Apple Silicon (M1/M2/M3/M4) without this flag, the image will be built for `linux/arm64` and the pod will fail to start with `no match for platform in manifest`.
+        The `--platform` flag ensures the image is built for the architecture your cluster nodes run on. Most managed clusters (AKS, GKE) and Linux servers use `linux/amd64`. If you are building on Apple Silicon (M1/M2/M3/M4) without this flag, the image will be built for `linux/arm64` and the pod will fail to start with `no match for platform in manifest`.
 
         To check your cluster node architecture:
 
@@ -394,7 +394,7 @@ The Helm chart mounts a Kubernetes secret named `apim-keystore-secret` as a volu
     ```
 
     !!! warning
-        On managed clusters (AKS, EKS, GKE), the NGINX admission webhook enforces that no two Ingress resources can claim the same hostname. If these are left enabled, the `helm install apim-gw` command will fail. The AIO `management` ingress (`am.wso2.com`) remains enabled — only the gateway-related ingresses are disabled here.
+        On managed clusters (AKS, GKE), the NGINX admission webhook enforces that no two Ingress resources can claim the same hostname. If these are left enabled, the `helm install apim-gw` command will fail. The AIO `management` ingress (`am.wso2.com`) remains enabled — only the gateway-related ingresses are disabled here.
 
     **Custom image** — point to the All-in-One image you built in Step 5:
 
@@ -687,7 +687,7 @@ The Helm chart mounts a Kubernetes secret named `apim-keystore-secret` as a volu
         <EXTERNAL-IP> am.wso2.com gw.wso2.com websocket.wso2.com websub.wso2.com
         ```
 
-=== "Managed cluster (AKS / EKS / GKE)"
+=== "Managed cluster (AKS / GKE)"
 
     1. Get the external IP assigned to the ingress:
 
@@ -830,11 +830,11 @@ Store the internal keystore password in your cloud provider's secret manager and
 
 ```yaml
 internalKeystorePassword:
-  secretName: ""   # Secret name in AWS/Azure/GCP Secrets Manager
+  secretName: ""   # Secret name in Azure/GCP Secrets Manager
   secretKey: ""
 ```
 
-> Supported secret managers: AWS Secrets Manager, Azure Key Vault, GCP Secret Manager.
+> Supported secret managers: Azure Key Vault, GCP Secret Manager.
 
 Alternatively, use `apictl` to encrypt secrets — see the [apictl documentation](https://apim.docs.wso2.com/en/latest/install-and-setup/setup/api-controller/encrypting-secrets-with-ctl/).
 
