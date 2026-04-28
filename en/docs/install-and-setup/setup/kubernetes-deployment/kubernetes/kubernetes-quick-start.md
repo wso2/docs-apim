@@ -155,7 +155,7 @@ The pod should show `1/1 Running` before proceeding.
 Default credentials: **admin / admin**
 
 !!! note "Chrome may block access"
-    Chrome enforces HSTS for `*.wso2.com` domains. Use Firefox instead and click **Advanced → Accept the Risk and Continue** when prompted about the self-signed certificate.
+    Chrome enforces HSTS preloading for `*.wso2.com` domains, which removes the option to bypass the self-signed certificate warning entirely. Use Firefox or Safari instead, and click through the certificate warning when prompted.
 
 ---
 

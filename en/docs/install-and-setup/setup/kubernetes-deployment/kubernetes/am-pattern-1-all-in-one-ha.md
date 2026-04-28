@@ -507,7 +507,7 @@ Pattern 1 uses a single Helm chart release with two pod replicas forming the act
     | Gateway | `https://gw.wso2.com` |
 
     !!! note "Chrome may block access"
-        Chrome enforces HSTS for `*.wso2.com` domains and may refuse to open the portals with a security warning that cannot be bypassed. If this happens, use Firefox instead — click **Advanced → Accept the Risk and Continue** when prompted about the self-signed certificate.
+        Chrome enforces HSTS preloading for `*.wso2.com` domains, which removes the option to bypass the self-signed certificate warning entirely. Use Firefox or Safari instead, and click through the certificate warning when prompted.
 
     Default credentials: **admin / admin**
 
