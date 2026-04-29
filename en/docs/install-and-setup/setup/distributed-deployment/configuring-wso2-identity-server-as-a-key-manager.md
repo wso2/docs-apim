@@ -146,14 +146,14 @@ Follow the instructions below to set up and configure the databases for the WSO2
 
 ## Step 4 - Configure WSO2 IS with WSO2 API-M
 
-1. Download the [WSO2 IS Connector]({{base_path}}/assets/attachments/administer/wso2is-extensions-1.2.10.27.zip).
+1. Download the [WSO2 IS Connector]({{base_path}}/assets/attachments/administer/wso2is-extensions-1.2.10.34.zip).
 
-2. Extract the distribution and copy the following JAR files, which are in the `<wso2is-extensions-1.2.10.27>/dropins` directory, to the `<IS_HOME>/repository/components/dropins` directory.
+2. Extract the distribution and copy the following JAR files, which are in the `<wso2is-extensions-1.2.10.34>/dropins` directory, to the `<IS_HOME>/repository/components/dropins` directory.
 
-     - `wso2is.key.manager.core-1.2.10.25`
-     - `wso2is.notification.event.handlers-1.2.10.27`
+     - `wso2is.key.manager.core-1.2.10.34`
+     - `wso2is.notification.event.handlers-1.2.10.34`
 
-3. Add the `keymanager-operations.war`, which is in the `<wso2is-extensions-1.2.10.27>/webapps` directory, to the `<IS_HOME>/repository/deployment/server/webapps` directory.
+3. Add the `keymanager-operations.war`, which is in the `<wso2is-extensions-1.2.10.34>/webapps` directory, to the `<IS_HOME>/repository/deployment/server/webapps` directory.
 
 4.  Configure the Traffic Manager endpoints.
 
