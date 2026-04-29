@@ -1,6 +1,6 @@
 # RESTful APIs
 
-The following topics list the APIs exposed from the API Publisher, Developer Portal, Admin Portal, Gateway, Service Catalog, Devops and Governance which you can use to create and manage APIs. You can consume APIs directly through their UIs or, an external REST client like cURL.
+The following topics list the APIs exposed from the API Publisher, Developer Portal, Admin Portal, Gateway, Service Catalog and Devops which you can use to create and manage APIs. You can consume APIs directly through their UIs or, an external REST client like cURL.
 
 <br>
 <table>
@@ -24,10 +24,6 @@ The following topics list the APIs exposed from the API Publisher, Developer Por
   </tr>
   <tr>
     <td nowrap="true"><a href="{{base_path}}/reference/product-apis/devops-apis/devops-v0/devops-v0/">WSO2 Devops API v0</a></td>
-  </tr>
-  <tr>
-    <td nowrap="true"><a href="{{base_path}}/reference/product-apis/governance-apis/governance-v1/governance-v1/">WSO2 Governance API v1</a></td>
-    </td>
   </tr>
 </table>
 
