@@ -1,5 +1,7 @@
 # Pattern 5: Simple Scalable Setup with Key Manager
 
+<a href="{{base_path}}/assets/img/setup-and-install/am-pattern-5-deployment.png"><img src="{{base_path}}/assets/img/setup-and-install/am-pattern-5-deployment.png" alt="Pattern 5 deployment" width="80%"></a>
+
 This pattern extends Pattern 2 by adding a dedicated Key Manager alongside the All-in-One and Universal Gateway. It is suitable for production environments where token issuance and validation need to be isolated from the Control Plane, without the overhead of a fully distributed setup.
 
 ## How Pattern 5 Differs from Earlier Patterns
