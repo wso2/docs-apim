@@ -151,7 +151,7 @@
 <div id="site-chat" class="site-chat" aria-hidden="true">
   <div class="site-chat__header">
    <div style="display: flex; align-items: center;">
-      <img src="{{ 'images/GenAI (1).svg' | url }}" alt="DocAI icon" style="width: 24px; margin-right: 8px;" />
+      <img src="{{ 'images/doc-ai.svg' | url }}" alt="DocAI icon" style="width: 24px; margin-right: 8px;" />
       <strong style="font-size: 1.5em;">APIM DocAi</strong>
     </div>
     <div class="site-chat__actions">
@@ -184,7 +184,7 @@
 
 <button id="site-chat-toggle" class="site-chat-toggle" aria-label="Open chat">
   <!-- chat SVG icon (speech bubble) -->
-  <img src="{{ 'images/DocAi.svg' | url }}" alt="">
+  <img src="{{ 'images/doc-ai.svg' | url }}" alt="">
 </button>
 
 <!-- Split View Container -->
@@ -196,7 +196,7 @@
     <div id="resize-handle" class="split-view-resize-handle"></div>
     <div class="split-view-header">
       <div style="display: flex; align-items: center;">
-        <img src="{{ 'images/DocAi.svg' | url }}" alt="DocAI icon" style="width: 24px; margin-right: 8px;" />
+        <img src="{{ 'images/doc-ai.svg' | url }}" alt="DocAI icon" style="width: 24px; margin-right: 8px;" />
         <strong style="font-size: 1.5em;">APIM DocAi</strong>
       </div>
       <div class="site-chat__actions">
@@ -297,7 +297,7 @@
   (function preserveChatHeaderIcon() {
     function setHeaderIcon() {
       try {
-        const desired = '{{ "images/DocAi.svg" | url }}';
+        const desired = '{{ "images/doc-ai.svg" | url }}';
         // Target both embedded chat header and split view header icons
         const selectors = ['#site-chat .site-chat__header img', '#split-view-panel .site-chat__header img', '#split-view-panel img'];
         selectors.forEach(sel => {
@@ -363,6 +363,28 @@
   // a direct localStorage read and a postMessage response). Window is ms.
   const RECENT_SAVE_WINDOW_MS = 1500;
   const recentSaved = new Map(); // contentKey -> timestamp
+
+    // When the parent triggers a New Chat save, the iframe may also post a
+    // 'chat-snapshot' a moment later as part of its clear flow. Suppress that
+    // one extra snapshot to avoid saving duplicate sessions.
+    let suppressNextSnapshotUntil = 0;
+    function suppressNextSnapshot(ms) {
+      suppressNextSnapshotUntil = Date.now() + (ms || 1500);
+    }
+    function shouldSuppressSnapshot() {
+      return Date.now() < suppressNextSnapshotUntil;
+    }
+
+    function isEmptySnapshot(state) {
+      try {
+        const raw = state && (state.chatHistory || state.messages || state.CHAT_HISTORY);
+        if (!raw) return true;
+        const msgs = typeof raw === 'string' ? JSON.parse(raw) : raw;
+        return !Array.isArray(msgs) || msgs.length === 0;
+      } catch (e) {
+        return true;
+      }
+    }
 
     // Normalize message arrays to the shape expected by the React app
     // React expects messages as [{ id, from: 'user'|'bot', text }, ...]
@@ -524,6 +546,14 @@
       try {
         // Support multiple message types used by different builds
     if (e.data.type === 'chat-snapshot') {
+              if (shouldSuppressSnapshot()) {
+                // ignore the duplicate snapshot triggered by the iframe clear
+                return;
+              }
+
+              if (isEmptySnapshot(e.data.state)) {
+                return;
+              }
               // Remove the parent sessions key from the snapshot to avoid overwriting it later
               try { delete e.data.state[CHAT_STORAGE_KEY]; } catch (e) { }
               const derived = deriveLabelFromState(e.data.state) || e.data.label || null;
@@ -914,6 +944,7 @@
       window.docai.saveSessions = saveSessions;
       window.docai.addOrUpdateSession = addOrUpdateSession;
       window.docai.deriveLabelFromState = deriveLabelFromState;
+  window.docai.suppressNextSnapshot = suppressNextSnapshot;
     } catch (e) { /* ignore */ }
 
   })();
@@ -999,6 +1030,14 @@
       e.preventDefault();
       e.stopPropagation();
       try {
+        // We'll save once in the parent, then suppress the iframe's follow-up
+        // snapshot (it often posts one as part of its clear flow).
+        try {
+          if (window.docai && typeof window.docai.suppressNextSnapshot === 'function') {
+            window.docai.suppressNextSnapshot(1500);
+          }
+        } catch (e) { /* ignore */ }
+
         // Try to trigger the iframe's own new-chat handler (same-origin) so it posts its snapshot
         try {
           if (iframe && iframe.contentWindow && iframe.contentWindow.document) {
@@ -1012,7 +1051,11 @@
         }
 
         // If the iframe didn't post a snapshot, fallback to reading its storage or asking for snapshot
-        await snapshotChildStorage();
+        const saved = await snapshotChildStorage();
+        if (saved) {
+          // Suppress the iframe's subsequent 'chat-snapshot' caused by clearing.
+          try { suppressNextSnapshot(1500); } catch (e) { /* ignore */ }
+        }
       } catch (err) { /* ignore */ }
 
       // Trigger the iframe's hash-based clear handler used by the React app
