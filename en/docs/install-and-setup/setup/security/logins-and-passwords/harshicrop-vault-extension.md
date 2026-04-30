@@ -214,6 +214,7 @@ This method uses dynamic authentication based on role IDs and secret IDs, allowi
     secretRepositories.vault.properties.authType=APP_ROLE
     secretRepositories.vault.properties.roleId=<role id>
     ```
+
     !!! note
         In production, you should always use the vault address with TLS enabled.
 
@@ -266,16 +267,16 @@ This method uses dynamic authentication based on role IDs and secret IDs, allowi
         The file name should be `hashicorpSecretId-tmp.txt`.
         
         
-!!! note
-    When you add `tmp` to the file name, note that this will automatically get deleted from the file system after the server starts. Alternatively, if you want to retain the password file after the server starts, the file should be named as follows.
+    !!! note
+        When you add `tmp` to the file name, note that this will automatically get deleted from the file system after the server starts. Alternatively, if you want to retain the password file after the server starts, the file should be named as follows.
 
 
-    === "Linux"
-        The file name should be `hashicorpSecretId-persist`.
-        
-        
-    === "Windows"
-        The file name should be `hashicorpSecretId-persist.txt`.
+        === "Linux"
+            The file name should be `hashicorpSecretId-persist`.
+
+
+        === "Windows"
+            The file name should be `hashicorpSecretId-persist.txt`.
 
 
 
