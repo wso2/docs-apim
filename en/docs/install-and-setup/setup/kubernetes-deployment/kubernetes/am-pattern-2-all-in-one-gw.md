@@ -54,7 +54,7 @@ This pattern deploys a dedicated Universal Gateway alongside the All-in-One node
     kubectl get nodes
     ```
 
-    All nodes should show a `Ready` status. If you don't have a cluster set up yet, refer to [Setting Up a Local Kubernetes Cluster](kubernetes-local-cluster-setup.md).
+    All nodes should show a `Ready` status..
 
 ### Step 3 — Add the WSO2 Helm Repository
 

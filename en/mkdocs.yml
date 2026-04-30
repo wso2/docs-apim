@@ -165,7 +165,6 @@ nav:
                 - API-M on K8s:
                     - Overview: install-and-setup/setup/kubernetes-deployment/kubernetes/kubernetes-overview.md
                     - Quick Start: install-and-setup/setup/kubernetes-deployment/kubernetes/kubernetes-quick-start.md
-                    - Setting Up a Local Cluster: install-and-setup/setup/kubernetes-deployment/kubernetes/kubernetes-local-cluster-setup.md
                     - All-In-One Deployment:
                         - Pattern 0 - All-in-One Setup: install-and-setup/setup/kubernetes-deployment/kubernetes/am-pattern-0-all-in-one.md
                         - Pattern 1 - All-in-One HA Setup: install-and-setup/setup/kubernetes-deployment/kubernetes/am-pattern-1-all-in-one-ha.md

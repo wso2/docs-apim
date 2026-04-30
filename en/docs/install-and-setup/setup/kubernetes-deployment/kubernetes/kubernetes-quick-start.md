@@ -14,7 +14,7 @@ Ensure the following are installed:
 | ---- | ------------- |
 | `kubectl` | [Install](https://kubernetes.io/docs/tasks/tools/) |
 | `helm` (v3) | [Install](https://helm.sh/docs/intro/install/) |
-| A running Kubernetes cluster | [Set one up](kubernetes-local-cluster-setup.md) |
+| A running Kubernetes cluster | [Minikube](https://minikube.sigs.k8s.io/docs/start/) or [Rancher Desktop](https://rancherdesktop.io/) |
 
 Verify all tools are installed:
 
@@ -37,7 +37,7 @@ kubectl cluster-info
 kubectl get nodes
 ```
 
-All nodes should show a `Ready` status before proceeding. If you don't have a cluster yet, see [Setting Up a Local Kubernetes Cluster](kubernetes-local-cluster-setup.md).
+All nodes should show a `Ready` status before proceeding.
 
 !!! note
     For local evaluation, Pattern 0 requires a minimum of **4 CPUs** and **7.5 GB memory**. If using Minikube, start it with:

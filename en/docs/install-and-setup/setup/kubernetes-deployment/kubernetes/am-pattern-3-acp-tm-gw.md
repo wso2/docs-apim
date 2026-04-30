@@ -56,7 +56,7 @@ This pattern deploys dedicated nodes for the API Control Plane, Traffic Manager,
     kubectl get nodes
     ```
 
-    All nodes should show a `Ready` status. If you don't have a cluster set up yet, refer to [Setting Up a Local Kubernetes Cluster](kubernetes-local-cluster-setup.md).
+    All nodes should show a `Ready` status..
 
 ### Step 3 — Add the WSO2 Helm Repository
 

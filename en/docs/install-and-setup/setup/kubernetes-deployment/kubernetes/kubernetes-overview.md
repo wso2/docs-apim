@@ -49,7 +49,7 @@ kubectl cluster-info       # verify the cluster is reachable
 kubectl get nodes          # verify all nodes are in Ready status
 ```
 
-Don't have a cluster yet? See [Setting Up a Local Kubernetes Cluster](kubernetes-local-cluster-setup.md).
+Don't have a cluster yet? See [Minikube](https://minikube.sigs.k8s.io/docs/start/) or [Rancher Desktop](https://rancherdesktop.io/) for local options.
 
 ## Supported Versions
 
