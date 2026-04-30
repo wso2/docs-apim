@@ -79,15 +79,65 @@ Don't have a cluster yet? See [Setting Up a Local Kubernetes Cluster](kubernetes
 
 ## Resource Requirements { #resource-requirements }
 
-| Pattern | CPU (min) | Memory (min) |
-| ------- | --------- | ------------ |
-| Pattern 0 (All-in-One) | 4 cores | 7.5 GB |
-| Pattern 1 (All-in-One HA) | 4 cores | 8 GB |
-| Pattern 2 (Simple Scalable) | 4 cores | 12 GB |
-| Pattern 3 (Distributed) | 6 cores | 12 GB |
-| Pattern 4 (Fully Distributed) | 8 cores | 16 GB |
-| Pattern 5 (Simple Scalable + Dedicated KM) | 6 cores | 12 GB |
-| Pattern 6 (All-in-One + IS as KM) | 6 cores | 14 GB |
+The tables below show the minimum resources required per component for each pattern, based on the default replica counts in the Helm chart.
+
+=== "Pattern 0 — All-in-One"
+
+    | Component | Replicas | CPU (min) | Memory (min) |
+    | --------- | -------- | ----------- | -------------- |
+    | All-in-One | 1 | 2000m | 3 Gi |
+    | **Total** | | **2000m** | **3 Gi** |
+
+=== "Pattern 1 — All-in-One HA"
+
+    | Component | Replicas | CPU (min) | Memory (min) |
+    | --------- | -------- | ----------- | -------------- |
+    | All-in-One | 2 | 2000m each | 3 Gi each |
+    | **Total** | | **4000m** | **6 Gi** |
+
+=== "Pattern 2 — Simple Scalable"
+
+    | Component | Replicas | CPU (min) | Memory (min) |
+    | --------- | -------- | ----------- | -------------- |
+    | All-in-One (Control Plane) | 1 | 2000m | 3 Gi |
+    | Universal Gateway | 1 | 1000m | 2 Gi |
+    | **Total** | | **3000m** | **5 Gi** |
+
+=== "Pattern 3 — Distributed"
+
+    | Component | Replicas | CPU (min) | Memory (min) |
+    | --------- | -------- | ----------- | -------------- |
+    | API Control Plane | 1 | 2000m | 3 Gi |
+    | Traffic Manager | 1 | 1000m | 2 Gi |
+    | Universal Gateway | 1 | 1000m | 2 Gi |
+    | **Total** | | **4000m** | **7 Gi** |
+
+=== "Pattern 4 — Fully Distributed"
+
+    | Component | Replicas | CPU (min) | Memory (min) |
+    | --------- | -------- | ----------- | -------------- |
+    | API Control Plane | 1 | 2000m | 3 Gi |
+    | Traffic Manager | 1 | 1000m | 2 Gi |
+    | Universal Gateway | 1 | 1000m | 2 Gi |
+    | Key Manager | 1 | 1000m | 2 Gi |
+    | **Total** | | **5000m** | **9 Gi** |
+
+=== "Pattern 5 — Simple Scalable + Dedicated KM"
+
+    | Component | Replicas | CPU (min) | Memory (min) |
+    | --------- | -------- | ----------- | -------------- |
+    | All-in-One (Control Plane) | 1 | 2000m | 3 Gi |
+    | Universal Gateway | 1 | 1000m | 2 Gi |
+    | Key Manager | 1 | 1000m | 2 Gi |
+    | **Total** | | **4000m** | **7 Gi** |
+
+=== "Pattern 6 — All-in-One + IS as KM"
+
+    | Component | Replicas | CPU (min) | Memory (min) |
+    | --------- | -------- | ----------- | -------------- |
+    | All-in-One | 1 | 2000m | 3 Gi |
+    | WSO2 Identity Server | 1 | 2000m | 3 Gi |
+    | **Total** | | **4000m** | **6 Gi** |
 
 !!! note
-    These are minimum values based on default replica counts. If you scale up the number of replicas, additional resources will be required.
+    These are minimum values based on default replica counts. Actual consumption may be higher under load. If you scale up replica counts, multiply the per-component values by the number of replicas.
