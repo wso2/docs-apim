@@ -75,7 +75,7 @@ Don't have a cluster yet? See [Minikube](https://minikube.sigs.k8s.io/docs/start
 
 | Package Manager | Version         |
 | --------------- | --------------- |
-| Helm            | 3.10.0 - 3.20.2 |
+| Helm            | 3.10.0 or later |
 
 ## Resource Requirements { #resource-requirements }
 

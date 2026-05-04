@@ -27,7 +27,7 @@ Check that your versions fall within the supported ranges:
 
 | Tool | Supported Version |
 | ---- | ----------------- |
-| Helm | 3.10.0 - 3.20.2 |
+| Helm | 3.10.0 or later |
 | Kubernetes | 1.26.3 - 1.35.x |
 
 Verify your cluster is up and all nodes are ready:
