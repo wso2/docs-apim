@@ -701,23 +701,75 @@ For more details, see the [WSO2 container guide](https://github.com/wso2/contain
 
 #### 3.2 Encrypt Secrets
 
-By default, database passwords and other sensitive values are stored as plain text in `values.yaml`. This is acceptable for local testing but a security risk in production. Use the WSO2 cipher tool or `apictl` to encrypt these values before deploying.
+By default, database passwords and other sensitive values are stored as plain text in the values files. This is acceptable for local testing but a security risk in production. Use `apictl` to encrypt these values before deploying.
 
-```bash
-sh cipher-tool.sh -Dconfigure
-```
+1. Initialize `apictl` using the trust store:
 
-Store the internal keystore password in your cloud provider's secret manager and reference it:
+    ```bash
+    apictl secret init
+    ```
 
-```yaml
-internalKeystorePassword:
-  secretName: ""   # Secret name in Azure/GCP Secrets Manager
-  secretKey: ""
-```
+    Example:
 
-> Supported secret managers: Azure Key Vault, GCP Secret Manager.
+    ```
+    apictl secret init
+    Enter Key Store location: /home/wso2carbon/wso2am-4.6.0/repository/resources/security/wso2carbon.jks
+    Enter Key Store password: 
+    Enter Key alias: wso2carbon
+    Enter Key password: 
 
-Alternatively, use `apictl` to encrypt secrets — see the [apictl documentation](https://apim.docs.wso2.com/en/latest/install-and-setup/setup/api-controller/encrypting-secrets-with-ctl/).
+    Key Store initialization completed
+    ```
+
+2. Encrypt each of the following values using `apictl secret create`:
+
+    - `admin_password`
+    - `keystore_password`
+    - `keystore_key_password`
+    - `ssl_keystore_password`
+    - `ssl_key_password`
+    - `internal_keystore_password`
+    - `internal_keystore_key_password`
+    - `truststore_password`
+    - `apim_db_password`
+    - `shared_db_password`
+
+    Example:
+
+    ```
+    apictl secret create
+    Enter plain alias for secret: db_password
+    Enter plain text secret: 
+    Repeat plain text secret: 
+
+    db_password : eKALmLVA+HFVl7vxxxxxxxxxxxxxxxxxxxxxxxxxxxjakhHN
+    ```
+
+3. Replace the plain text values in your values files with the encrypted values.
+
+4. Enable secure vault:
+
+    ```yaml
+    # -- Secure vault enabled
+    secureVaultEnabled: true
+    ```
+
+5. If you are using a cloud provider secret manager, enable it and reference the internal keystore password:
+
+    ```yaml
+    aws:
+      # -- If AWS is used as the cloud provider
+      enabled: true
+
+    internalKeystorePassword:
+      # -- Secret name in the cloud provider's secret manager
+      secretName: ""
+      # -- Secret key in the cloud provider's secret manager
+      secretKey: ""
+    ```
+
+    !!! note
+        Currently, AWS, Azure, and GCP Secrets Managers are supported.
 
 #### 3.3 Configure SSL
 
