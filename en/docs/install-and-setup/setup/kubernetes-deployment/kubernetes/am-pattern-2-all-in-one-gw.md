@@ -120,6 +120,9 @@ Pattern 2 requires two custom Docker images — one for the All-in-One node and 
       /home/wso2carbon/wso2am-4.6.0/repository/components/lib/
     ```
 
+    !!! note "Optional"
+        The Universal Gateway does not make direct database connections. The JDBC driver is only needed if you have custom mediations or extensions that access a database directly. You can use the default `wso2/wso2am-universal-gw:4.6.0` image without rebuilding.
+
 3. Create a `Dockerfile.gw` for the Universal Gateway image:
 
     ```dockerfile
@@ -167,10 +170,19 @@ Pattern 2 requires two custom Docker images — one for the All-in-One node and 
 
 Pattern 2 requires two databases: `apim_db` and `shared_db`. The database must be reachable from inside the Kubernetes cluster. Choose the approach that fits your setup:
 
-!!! note
-    The example below uses MySQL, but WSO2 API Manager supports PostgreSQL, Oracle, and MSSQL. The schema scripts for all supported databases are bundled in the product pack.
+WSO2 API Manager supports MySQL, PostgreSQL, MSSQL, and Oracle. The schema scripts for all supported databases are bundled in the product pack under the `dbscripts/` directory. Use the table below to find the correct script paths and substitute them in the steps that follow.
 
-=== "MySQL inside Kubernetes"
+| Database   | `shared_db` script                    | `apim_db` script                            |
+| ---------- | ------------------------------------- | ------------------------------------------- |
+| MySQL      | `dbscripts/mysql.sql`                 | `dbscripts/apimgt/mysql.sql`                |
+| PostgreSQL | `dbscripts/postgresql.sql`            | `dbscripts/apimgt/postgresql.sql`           |
+| MSSQL      | `dbscripts/mssql.sql`                 | `dbscripts/apimgt/mssql.sql`                |
+| Oracle     | `dbscripts/oracle.sql`                | `dbscripts/apimgt/oracle.sql`               |
+
+=== "Database inside Kubernetes"
+
+    !!! note
+        The steps below use MySQL as an example. Substitute the image, client commands, and script paths for your database using the reference table above.
 
     #### 6.1 — Deploy MySQL
 
@@ -324,7 +336,7 @@ Pattern 2 requires two databases: `apim_db` and `shared_db`. The database must b
         ```
 
 !!! note
-    Scripts for other databases (PostgreSQL, Oracle, MSSQL) are in `wso2am-4.6.0/dbscripts`. For production, use separate database users with limited permissions instead of `root`.
+    For production, use separate database users with limited permissions instead of `root`.
 
 ### Step 7 — Create the Keystore Secret { #step-7 }
 
