@@ -868,6 +868,9 @@ wso2:
           password: ""
 ```
 
+!!! note
+    `keyPassword` must equal `password` for each keystore. WSO2 API Manager requires these to be identical due to a limitation in internal third-party components — setting them to different values will cause startup failures.
+
 #### 2.3 Component Configuration References
 
 All available configuration options for each Helm chart are documented in their respective component guides:
@@ -896,7 +899,7 @@ Keep the following in mind:
 - Use the **same secret name** in both the `kubectl` command above and in your values files.
 - If you are using different keystore filenames or aliases, update the helm chart configurations accordingly.
 
-For more details, see the [WSO2 container guide](https://github.com/wso2/container-guide/blob/master/deploy/Managing_Keystores_And_Truststores.md).
+For more details on configuring keystores, see [Configuring Keystores in WSO2 API Manager](https://apim.docs.wso2.com/en/latest/install-and-setup/setup/security/configuring-keystores/configuring-keystores-in-wso2-api-manager/).
 
 #### 3.2 Encrypt Secrets
 

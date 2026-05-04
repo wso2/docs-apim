@@ -303,7 +303,7 @@ Keep the following in mind:
 - Use the **same secret name** in both the `kubectl` command above and in your `values.yaml`.
 - If you are using different keystore filenames or aliases, update the helm chart configurations accordingly.
 
-Then reference the secret name in your `values.yaml`. For more details, see the [WSO2 container guide](https://github.com/wso2/container-guide/blob/master/deploy/Managing_Keystores_And_Truststores.md).
+Then reference the secret name in your `values.yaml`. For more details on configuring keystores, see [Configuring Keystores in WSO2 API Manager](https://apim.docs.wso2.com/en/latest/install-and-setup/setup/security/configuring-keystores/configuring-keystores-in-wso2-api-manager/).
 
 #### 3.2 Encrypt Secrets
 
