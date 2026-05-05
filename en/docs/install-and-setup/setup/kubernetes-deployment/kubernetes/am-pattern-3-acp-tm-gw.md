@@ -122,10 +122,7 @@ Pattern 3 requires three custom Docker images — one each for the API Control P
       /home/wso2carbon/wso2am-acp-4.6.0/repository/components/lib/
     ```
 
-    !!! note "Optional"
-        The Traffic Manager does not make direct database connections. The JDBC driver is only needed if you have custom throttling extensions that access a database directly. You can use the default `wso2/wso2am-tm:4.6.0` image without rebuilding.
-
-3. Create a `Dockerfile.tm` for the Traffic Manager image:
+3. **(Optional)** Create a `Dockerfile.tm` for the Traffic Manager image. The Traffic Manager does not make direct database connections, so no custom image is required unless you have custom throttling extensions that access a database directly. If you do not need this, skip to step 4 and use the default `wso2/wso2am-tm:4.6.0` image.
 
     ```dockerfile
     FROM wso2/wso2am-tm:4.6.0
@@ -135,10 +132,7 @@ Pattern 3 requires three custom Docker images — one each for the API Control P
       /home/wso2carbon/wso2am-tm-4.6.0/repository/components/lib/
     ```
 
-    !!! note "Optional"
-        The Universal Gateway does not make direct database connections. The JDBC driver is only needed if you have custom mediations or extensions that access a database directly. You can use the default `wso2/wso2am-universal-gw:4.6.0` image without rebuilding.
-
-4. Create a `Dockerfile.gw` for the Universal Gateway image:
+4. **(Optional)** Create a `Dockerfile.gw` for the Universal Gateway image. The Gateway does not make direct database connections, so no custom image is required unless you have custom mediations or extensions that access a database directly. If you do not need this, skip to step 5 and use the default `wso2/wso2am-universal-gw:4.6.0` image.
 
     ```dockerfile
     FROM wso2/wso2am-universal-gw:4.6.0
@@ -186,177 +180,23 @@ Pattern 3 requires three custom Docker images — one each for the API Control P
       --format='{% raw %}{{index .RepoDigests 0}}{% endraw %}'
     ```
 
-### Step 6 — Deploy the Database
+### Step 6 — Set Up the Database
 
-Pattern 3 requires two databases: `apim_db` and `shared_db`. The database must be reachable from inside the Kubernetes cluster. Choose the approach that fits your setup:
+Pattern 3 requires two databases: `apim_db` and `shared_db`. Both must be reachable from inside the Kubernetes cluster before the pods start.
 
-WSO2 API Manager supports MySQL, PostgreSQL, MSSQL, and Oracle. The schema scripts for all supported databases are bundled in the product pack under the `dbscripts/` directory. Use the table below to find the correct script paths and substitute them in the steps that follow.
+Follow the [Setting Up Databases]({{base_path}}/install-and-setup/setup/setting-up-databases/overview/) guide to:
 
-| Database   | `shared_db` script                    | `apim_db` script                            |
-| ---------- | ------------------------------------- | ------------------------------------------- |
-| MySQL      | `dbscripts/mysql.sql`                 | `dbscripts/apimgt/mysql.sql`                |
-| PostgreSQL | `dbscripts/postgresql.sql`            | `dbscripts/apimgt/postgresql.sql`           |
-| MSSQL      | `dbscripts/mssql.sql`                 | `dbscripts/apimgt/mssql.sql`                |
-| Oracle     | `dbscripts/oracle.sql`                | `dbscripts/apimgt/oracle.sql`               |
-
-=== "Database inside Kubernetes"
-
-    !!! note
-        The steps below use MySQL as an example. Substitute the image, client commands, and script paths for your database using the reference table above.
-
-    #### 6.1 — Deploy MySQL
-
-    1. Create the namespace and deploy MySQL:
-
-        ```bash
-        kubectl create namespace wso2
-
-        kubectl apply -f - <<EOF
-        apiVersion: apps/v1
-        kind: Deployment
-        metadata:
-          name: mysql
-          namespace: wso2
-        spec:
-          selector:
-            matchLabels:
-              app: mysql
-          template:
-            metadata:
-              labels:
-                app: mysql
-            spec:
-              containers:
-              - name: mysql
-                image: mysql:8.0
-                env:
-                - name: MYSQL_ROOT_PASSWORD
-                  value: "root"
-                ports:
-                - containerPort: 3306
-        ---
-        apiVersion: v1
-        kind: Service
-        metadata:
-          name: mysql
-          namespace: wso2
-        spec:
-          selector:
-            app: mysql
-          ports:
-          - port: 3306
-            targetPort: 3306
-        EOF
-        ```
-
-    2. Wait for MySQL to be ready:
-
-        ```bash
-        kubectl get pods -n wso2 -w
-        ```
-
-        The MySQL pod should show `1/1 Running` before proceeding.
-
-    #### 6.2 — Create the Databases
-
-    1. Once MySQL is running, create both databases:
-
-        ```bash
-        kubectl exec -n wso2 \
-          $(kubectl get pod -n wso2 -l app=mysql -o jsonpath='{.items[0].metadata.name}') \
-          -- mysql -u root -proot -e "
-            CREATE DATABASE apim_db CHARACTER SET latin1;
-            CREATE DATABASE shared_db CHARACTER SET latin1;
-          "
-        ```
-
-    #### 6.3 — Download the Product Pack
-
-    1. Download the WSO2 API Manager product pack from the WSO2 GitHub releases page:
-
-        ```bash
-        curl -L https://github.com/wso2/product-apim/releases/download/v4.6.0/wso2am-4.6.0.zip \
-          -o wso2am-4.6.0.zip
-        unzip wso2am-4.6.0.zip
-        ```
-
-        This produces a folder called `wso2am-4.6.0` containing the `dbscripts` directory.
-
-    #### 6.4 — Run the Schema Scripts
-
-    1. Copy the scripts into the MySQL pod and run them:
-
-        ```bash
-        MYSQL_POD=$(kubectl get pod -n wso2 -l app=mysql -o jsonpath='{.items[0].metadata.name}')
-
-        kubectl cp wso2am-4.6.0/dbscripts/mysql.sql wso2/$MYSQL_POD:/tmp/mysql.sql
-        kubectl cp wso2am-4.6.0/dbscripts/apimgt/mysql.sql wso2/$MYSQL_POD:/tmp/apimgt_mysql.sql
-
-        kubectl exec -n wso2 $MYSQL_POD -- \
-          bash -c "mysql -u root -proot shared_db < /tmp/mysql.sql"
-
-        kubectl exec -n wso2 $MYSQL_POD -- \
-          bash -c "mysql -u root -proot apim_db < /tmp/apimgt_mysql.sql"
-        ```
-
-    2. Verify the tables were created:
-
-        ```bash
-        kubectl exec -n wso2 $MYSQL_POD -- \
-          mysql -u root -proot -e "SHOW TABLES;" shared_db
-
-        kubectl exec -n wso2 $MYSQL_POD -- \
-          mysql -u root -proot -e "SHOW TABLES;" apim_db
-        ```
-
-        !!! note
-            You may see a warning about using a password on the command line — this is a security notice, not an error. The scripts have run successfully if no `ERROR` lines appear.
-
-=== "Externally managed database"
-
-    #### 6.1 — Create the Databases
-
-    1. Connect to your managed database instance and create both databases:
-
-        ```bash
-        mysql -h <endpoint> -u <user> -p -e "
-          CREATE DATABASE apim_db CHARACTER SET latin1;
-          CREATE DATABASE shared_db CHARACTER SET latin1;
-        "
-        ```
-
-        Replace `<endpoint>` and `<user>` with your managed database host and credentials.
-
-    #### 6.2 — Download the Product Pack
-
-    1. Download the WSO2 API Manager product pack from the WSO2 GitHub releases page:
-
-        ```bash
-        curl -L https://github.com/wso2/product-apim/releases/download/v4.6.0/wso2am-4.6.0.zip \
-          -o wso2am-4.6.0.zip
-        unzip wso2am-4.6.0.zip
-        ```
-
-        This produces a folder called `wso2am-4.6.0` containing the `dbscripts` directory.
-
-    #### 6.3 — Run the Schema Scripts
-
-    1. Run the schema scripts directly against your managed database:
-
-        ```bash
-        mysql -h <endpoint> -u <user> -p shared_db < wso2am-4.6.0/dbscripts/mysql.sql
-        mysql -h <endpoint> -u <user> -p apim_db < wso2am-4.6.0/dbscripts/apimgt/mysql.sql
-        ```
-
-    2. Verify the tables were created:
-
-        ```bash
-        mysql -h <endpoint> -u <user> -p -e "SHOW TABLES;" shared_db
-        mysql -h <endpoint> -u <user> -p -e "SHOW TABLES;" apim_db
-        ```
+1. Set up a database instance accessible from your cluster
+2. Obtain the schema scripts for your database type
+3. Run the scripts to initialise both databases
 
 !!! note
-    For production, use separate database users with limited permissions instead of `root`.
+    The JDBC driver for your database is already included in the custom Docker image you built in Step 5. You do not need to follow the JDBC driver steps in the VM-oriented sections of that guide.
+
+Once the scripts have been run, verify that both databases are set up correctly before proceeding:
+
+- Connect to your database instance and confirm that `apim_db` and `shared_db` both exist
+- Check that tables have been created in each database (the `shared_db` script creates `UM_*` and `REG_*` tables; the `apim_db` script creates `AM_*` tables)
 
 ### Step 7 — Create the Keystore Secret { #step-7 }
 
@@ -382,7 +222,7 @@ The Helm chart mounts a Kubernetes secret named `apim-keystore-secret` as a volu
     ```
 
 !!! note
-    The commands above use the default WSO2 keystores which are suitable for evaluation. For production, replace the `.jks` files with your own organisation-issued or CA-signed certificates before creating the secret.
+    The commands above use the default WSO2 keystores which are suitable for evaluation only. For production-level keystore setup, refer to [Configuring Keystores in WSO2 API Manager]({{base_path}}/install-and-setup/setup/security/configuring-keystores/configuring-keystores-in-wso2-api-manager/).
 
 ### Step 8 — Deploy the API Control Plane { #step-8 }
 
@@ -409,54 +249,21 @@ The Helm chart mounts a Kubernetes secret named `apim-keystore-secret` as a volu
 
     **Database connection** — point to the database you set up in Step 6:
 
-    === "MySQL inside Kubernetes"
-
-        ```yaml
-          apim:
-            configurations:
-              databases:
-                apim_db:
-                  url: "jdbc:mysql://mysql:3306/apim_db?useSSL=false&amp;allowPublicKeyRetrieval=true"
-                  username: "root"
-                  password: "root"
-                shared_db:
-                  url: "jdbc:mysql://mysql:3306/shared_db?useSSL=false&amp;allowPublicKeyRetrieval=true"
-                  username: "root"
-                  password: "root"
-        ```
-
-    === "Externally managed database"
-
-        ```yaml
-          apim:
-            configurations:
-              databases:
-                apim_db:
-                  url: "jdbc:mysql://<endpoint>:3306/apim_db?useSSL=true&amp;requireSSL=true"
-                  username: "<db-username>"
-                  password: "<db-password>"
-                shared_db:
-                  url: "jdbc:mysql://<endpoint>:3306/shared_db?useSSL=true&amp;requireSSL=true"
-                  username: "<db-username>"
-                  password: "<db-password>"
-        ```
-
-3. Deploy the API Control Plane:
-
-    ```bash
-    helm install apim-acp wso2/wso2am-acp \
-      --version 4.6.0-1 \
-      --namespace wso2 --create-namespace \
-      -f values-acp.yaml
+    ```yaml
+      apim:
+        configurations:
+          databases:
+            apim_db:
+              url: "<JDBC_URL_FOR_APIM_DB>"
+              username: "<DB_USERNAME>"
+              password: "<DB_PASSWORD>"
+            shared_db:
+              url: "<JDBC_URL_FOR_SHARED_DB>"
+              username: "<DB_USERNAME>"
+              password: "<DB_PASSWORD>"
     ```
 
-4. Wait for the ACP pods to be ready:
-
-    ```bash
-    kubectl get pods -n wso2 -w
-    ```
-
-    The ACP pods should show `1/1 Running` before deploying the Traffic Manager.
+    Replace `<JDBC_URL_FOR_APIM_DB>` and `<JDBC_URL_FOR_SHARED_DB>` with the JDBC connection URL for your database. For URL formats per database type, see [Setting Up Databases]({{base_path}}/install-and-setup/setup/setting-up-databases/overview/#changing-the-default-databases).
 
 ### Step 9 — Deploy the Traffic Manager { #step-9 }
 
@@ -497,59 +304,6 @@ The Helm chart mounts a Kubernetes secret named `apim-keystore-secret` as a volu
         - "<ACP_POD_1_SERVICE_NAME>"
         - "<ACP_POD_2_SERVICE_NAME>"
     ```
-
-    **Database connection** — the Traffic Manager needs access to both databases:
-
-    === "MySQL inside Kubernetes"
-
-        ```yaml
-        wso2:
-          apim:
-            configurations:
-              databases:
-                apim_db:
-                  url: "jdbc:mysql://mysql:3306/apim_db?useSSL=false&amp;allowPublicKeyRetrieval=true"
-                  username: "root"
-                  password: "root"
-                shared_db:
-                  url: "jdbc:mysql://mysql:3306/shared_db?useSSL=false&amp;allowPublicKeyRetrieval=true"
-                  username: "root"
-                  password: "root"
-        ```
-
-    === "Externally managed database"
-
-        ```yaml
-        wso2:
-          apim:
-            configurations:
-              databases:
-                apim_db:
-                  url: "jdbc:mysql://<endpoint>:3306/apim_db?useSSL=true&amp;requireSSL=true"
-                  username: "<db-username>"
-                  password: "<db-password>"
-                shared_db:
-                  url: "jdbc:mysql://<endpoint>:3306/shared_db?useSSL=true&amp;requireSSL=true"
-                  username: "<db-username>"
-                  password: "<db-password>"
-        ```
-
-3. Deploy the Traffic Manager:
-
-    ```bash
-    helm install apim-tm wso2/wso2am-tm \
-      --version 4.6.0-1 \
-      --namespace wso2 \
-      -f values-tm.yaml
-    ```
-
-4. Wait for the Traffic Manager pods to be ready:
-
-    ```bash
-    kubectl get pods -n wso2 -w
-    ```
-
-    The TM pods should show `1/1 Running` before deploying the Gateway.
 
 ### Step 10 — Deploy the Universal Gateway { #step-10 }
 
@@ -596,56 +350,6 @@ The Helm chart mounts a Kubernetes secret named `apim-keystore-secret` as a volu
       urls:
         - "<TM_POD_1_SERVICE_NAME>"
         - "<TM_POD_2_SERVICE_NAME>"
-    ```
-
-    **Database connection** — the Gateway needs access to `shared_db` for user store lookups:
-
-    === "MySQL inside Kubernetes"
-
-        ```yaml
-        wso2:
-          apim:
-            configurations:
-              databases:
-                shared_db:
-                  url: "jdbc:mysql://mysql:3306/shared_db?useSSL=false&amp;allowPublicKeyRetrieval=true"
-                  username: "root"
-                  password: "root"
-        ```
-
-    === "Externally managed database"
-
-        ```yaml
-        wso2:
-          apim:
-            configurations:
-              databases:
-                shared_db:
-                  url: "jdbc:mysql://<endpoint>:3306/shared_db?useSSL=true&amp;requireSSL=true"
-                  username: "<db-username>"
-                  password: "<db-password>"
-        ```
-
-3. Deploy the Universal Gateway:
-
-    ```bash
-    helm install apim-gw wso2/wso2am-universal-gw \
-      --version 4.6.0-1 \
-      --namespace wso2 \
-      -f values-gw.yaml
-    ```
-
-4. Wait for the Gateway pods to be ready:
-
-    ```bash
-    kubectl get pods -n wso2 -w
-    ```
-
-    The Gateway pods should show `1/1 Running`. If pods are `OOMKilled`, your cluster may not have enough resources — see the [Resource Requirements](kubernetes-overview.md#resource-requirements) section. If a pod is restarting for other reasons, check for errors:
-
-    ```bash
-    kubectl logs -n wso2 <pod-name> --previous | grep -E "ERROR|FATAL"
-    kubectl describe pod -n wso2 <pod-name>
     ```
 
 ### Step 11 — Configure DNS
@@ -808,7 +512,7 @@ All available configuration options for each Helm chart are documented in their 
 
 In [Step 7](#step-7), you created `apim-keystore-secret` using the default WSO2 keystores extracted from the Docker image. Those are self-signed certificates suitable for evaluation only.
 
-For production, replace the `.jks` files with your own organisation-issued or CA-signed certificates and recreate the secret:
+For production-level keystore setup, refer to [Configuring Keystores in WSO2 API Manager]({{base_path}}/install-and-setup/setup/security/configuring-keystores/configuring-keystores-in-wso2-api-manager/). Then recreate the secret with your own certificates:
 
 ```bash
 kubectl create secret generic apim-keystore-secret \
