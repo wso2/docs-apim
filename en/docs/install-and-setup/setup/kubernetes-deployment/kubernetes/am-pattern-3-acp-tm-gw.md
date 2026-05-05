@@ -6,20 +6,18 @@ This pattern deploys dedicated nodes for the API Control Plane, Traffic Manager,
 
 ## How Pattern 3 Differs from Earlier Patterns
 
-| | Pattern 0 | Pattern 1 | Pattern 2 | Pattern 3 |
-|---|---|---|---|---|
-| Nodes | 1 All-in-One | 2 All-in-One (active-active) | 1 All-in-One + dedicated Gateway | Dedicated ACP + dedicated TM + dedicated Gateway |
-| Control Plane | Embedded | Embedded | Embedded | Dedicated (ACP), independently scalable |
-| Traffic Manager | Embedded | Embedded | Embedded | Dedicated, independently scalable |
-| Gateway | Embedded | Embedded | Dedicated, independently scalable | Dedicated, independently scalable |
-| Database | Embedded H2 | External required | External required | External required |
-| Custom images | Not required | Required (1 image) | Required (2 images) | Required (3 images) |
-| High availability | No | Yes (All-in-One) | Gateway: Yes; All-in-One: Optional | Yes (all components) |
+| | Pattern 1 | Pattern 2 | Pattern 3 |
+|---|---|---|---|
+| Nodes | 2 All-in-One (active-active) | 1 All-in-One + dedicated Gateway | Dedicated ACP + dedicated TM + dedicated Gateway |
+| Control Plane | Embedded | Embedded | Dedicated (ACP), independently scalable |
+| Traffic Manager | Embedded | Embedded | Dedicated, independently scalable |
+| Custom images | Required (All-in-One); Gateway optional | Required (ACP); TM and Gateway optional | Required (ACP); TM and Gateway optional |
+| High availability | Yes (All-in-One) | Gateway: Yes; All-in-One: Optional | Yes (all components) |
 
 !!! warning "Pattern 3 requires the following before deploying:"
 
     1. **An external database** — H2 is not supported. Set up an external database before deploying.
-    2. **Three custom Docker images** — one each for the API Control Plane, Traffic Manager, and Universal Gateway. All must include the appropriate JDBC driver.
+    2. **One custom Docker image** — for the API Control Plane, with the JDBC driver for your database. Custom images for the Traffic Manager and Universal Gateway are optional.
     3. **Database schema initialised** — run the WSO2 schema scripts against both databases before the pods start.
 
 ---
@@ -100,7 +98,7 @@ This pattern deploys dedicated nodes for the API Control Plane, Traffic Manager,
 
 ### Step 5 — Build and Push Custom Docker Images
 
-Pattern 3 requires three custom Docker images — one each for the API Control Plane, Traffic Manager, and Universal Gateway. All three need the JDBC driver for your database.
+Pattern 3 requires a custom Docker image for the API Control Plane with the JDBC driver for your database. Custom images for the Traffic Manager and Universal Gateway are optional — see steps 3 and 4 below.
 
 !!! note "Choosing a base image"
     - **DockerHub** (`wso2/wso2am-acp:4.6.0`, `wso2/wso2am-tm:4.6.0`, `wso2/wso2am-universal-gw:4.6.0`) — packages the GA release. Suitable for evaluation and development.
@@ -276,34 +274,8 @@ The Helm chart mounts a Kubernetes secret named `apim-keystore-secret` as a volu
 
 2. Open `values-tm.yaml` and update the following sections.
 
-    **Custom image** — point to the Traffic Manager image you built in Step 5:
-
-    ```yaml
-    wso2:
-      deployment:
-        image:
-          registry: "docker.io"
-          repository: "<your-username>/wso2am-tm-mysql"
-          tag: "<TAG>"
-          digest: "sha256:abcdef..."
-    ```
-
-    **ACP connection** — the default values assume the ACP was deployed with release name `apim-acp`. If you used a different release name, find the actual service names and update accordingly:
-
-    ```bash
-    kubectl get svc -n wso2
-    ```
-
-    ```yaml
-    km:
-      serviceUrl: "<ACP_SERVICE_NAME>"
-
-    eventhub:
-      serviceUrl: "<ACP_SERVICE_NAME>"
-      urls:
-        - "<ACP_POD_1_SERVICE_NAME>"
-        - "<ACP_POD_2_SERVICE_NAME>"
-    ```
+    !!! note
+        The default values file pre-configures the service URLs assuming the ACP was deployed with release name `apim-acp`. If you used a different release name, run `kubectl get svc -n wso2` to find the correct service name and update `km.serviceUrl` and `eventhub.serviceUrl` in the values file.
 
 ### Step 10 — Deploy the Universal Gateway { #step-10 }
 
@@ -316,40 +288,8 @@ The Helm chart mounts a Kubernetes secret named `apim-keystore-secret` as a volu
 
 2. Open `values-gw.yaml` and update the following sections.
 
-    **Custom image** — point to the Universal Gateway image you built in Step 5:
-
-    ```yaml
-    wso2:
-      deployment:
-        image:
-          registry: "docker.io"
-          repository: "<your-username>/wso2am-gw-mysql"
-          tag: "<TAG>"
-          digest: "sha256:abcdef..."
-    ```
-
-    **ACP and TM connection** — the default values assume the ACP and TM were deployed with release names `apim-acp` and `apim-tm`. If you used different release names, find the actual service names and update accordingly:
-
-    ```bash
-    kubectl get svc -n wso2
-    ```
-
-    ```yaml
-    km:
-      serviceUrl: "<ACP_SERVICE_NAME>"
-
-    eventhub:
-      serviceUrl: "<ACP_SERVICE_NAME>"
-      urls:
-        - "<ACP_POD_1_SERVICE_NAME>"
-        - "<ACP_POD_2_SERVICE_NAME>"
-
-    throttling:
-      serviceUrl: "<TM_SERVICE_NAME>"
-      servicePort: 9443
-      urls:
-        - "<TM_POD_1_SERVICE_NAME>"
-        - "<TM_POD_2_SERVICE_NAME>"
+    !!! note
+        The default values file pre-configures the service URLs assuming the ACP and TM were deployed with release names `apim-acp` and `apim-tm`. If you used different release names, run `kubectl get svc -n wso2` to find the correct service names and update `km.serviceUrl`, `eventhub.serviceUrl`, and `throttling.serviceUrl` in the values file.
     ```
 
 ### Step 11 — Configure DNS

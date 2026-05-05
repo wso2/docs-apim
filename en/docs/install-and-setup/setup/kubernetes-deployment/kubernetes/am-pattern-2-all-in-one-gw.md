@@ -11,13 +11,13 @@ This pattern deploys a dedicated Universal Gateway alongside the All-in-One node
 | Nodes | 1 All-in-One | 2 All-in-One (active-active) | 1 All-in-One + dedicated Universal Gateway |
 | Gateway | Embedded | Embedded | Dedicated, independently scalable |
 | Database | Embedded H2 | External required | External required |
-| Custom image | Not required | Required | Required for both All-in-One and Gateway |
+| Custom image | Not required | Required | Required (All-in-One); Gateway optional |
 | High availability | No | Yes (All-in-One) | Gateway: Yes (multiple replicas); All-in-One: Optional |
 
 !!! warning "Pattern 2 requires the following before deploying:"
 
     1. **An external database** — H2 is not supported. Set up an external database before deploying.
-    2. **Two custom Docker images** — one for the All-in-One, one for the Universal Gateway. Both must include the appropriate JDBC driver.
+    2. **One custom Docker image** — for the All-in-One node, with the JDBC driver for your database. A custom Gateway image is optional.
     3. **Database schema initialised** — run the WSO2 schema scripts against both databases before the pods start.
 
 ---
@@ -98,7 +98,7 @@ This pattern deploys a dedicated Universal Gateway alongside the All-in-One node
 
 ### Step 5 — Build and Push Custom Docker Images
 
-Pattern 2 requires two custom Docker images — one for the All-in-One node and one for the Universal Gateway. Both need the JDBC driver for your database.
+Pattern 2 requires a custom Docker image for the All-in-One node with the JDBC driver for your database. A custom Gateway image is optional — see step 3 below.
 
 !!! note "Choosing a base image"
     - **DockerHub** (`wso2/wso2am:4.6.0`, `wso2/wso2am-universal-gw:4.6.0`) — packages the GA release. Suitable for evaluation and development.
@@ -258,18 +258,6 @@ The Helm chart mounts a Kubernetes secret named `apim-keystore-secret` as a volu
     ```
 
 2. Open `values-gw.yaml` and update the following sections.
-
-    **Custom image** — point to the Universal Gateway image you built in Step 5:
-
-    ```yaml
-    wso2:
-      deployment:
-        image:
-          registry: "docker.io"
-          repository: "<your-username>/wso2am-gw-mysql"
-          tag: "<TAG>"
-          digest: "sha256:abcdef..."
-    ```
 
     !!! note
         The default values file pre-configures the service URLs assuming the All-in-One was deployed with release name `apim`. If you used a different release name, run `kubectl get svc -n wso2` to find the correct service name and update `km.serviceUrl`, `eventhub.serviceUrl`, and `throttling.serviceUrl` in the values file.

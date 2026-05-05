@@ -8,11 +8,10 @@ This pattern extends Pattern 2 by adding a dedicated Key Manager alongside the A
 
 | | Pattern 2 | Pattern 4 | Pattern 5 |
 |---|---|---|---|
+| Key Manager | Embedded in All-in-One | Dedicated KM | Dedicated KM |
 | Control Plane | Embedded in All-in-One | Dedicated ACP | Embedded in All-in-One |
 | Traffic Manager | Embedded in All-in-One | Dedicated TM | Embedded in All-in-One |
-| Gateway | Dedicated, independently scalable | Dedicated, independently scalable | Dedicated, independently scalable |
-| Key Manager | Embedded in All-in-One | Dedicated KM | Dedicated KM |
-| Custom images | 2 images | 3 images | 3 images (KM reuses ACP image) |
+| Custom images | Required (All-in-One); Gateway optional | Required (ACP); TM and Gateway optional; KM reuses ACP image | Required (All-in-One); Gateway optional; KM reuses ACP image |
 | High availability | Gateway: Yes; All-in-One: Optional | Yes (all components) | Gateway: Yes; KM: Yes; All-in-One: Optional |
 
 !!! note
@@ -21,7 +20,7 @@ This pattern extends Pattern 2 by adding a dedicated Key Manager alongside the A
 !!! warning "Pattern 5 requires the following before deploying:"
 
     1. **An external database** — H2 is not supported. Set up an external database before deploying.
-    2. **Three custom Docker images** — one for the All-in-One, one for the ACP (shared with the Key Manager), and one for the Universal Gateway. All must include the appropriate JDBC driver.
+    2. **Two custom Docker images** — one for the All-in-One and one for the ACP (shared with the Key Manager), both with the JDBC driver for your database. A custom Gateway image is optional.
     3. **Database schema initialised** — run the WSO2 schema scripts against both databases before the pods start.
 
 ---
@@ -102,7 +101,7 @@ This pattern extends Pattern 2 by adding a dedicated Key Manager alongside the A
 
 ### Step 5 — Build and Push Custom Docker Images
 
-Pattern 5 requires three custom Docker images — one for the All-in-One, one for the ACP (shared with the Key Manager), and one for the Universal Gateway.
+Pattern 5 requires custom Docker images for the All-in-One node and the API Control Plane (shared with the Key Manager), both with the JDBC driver for your database. A custom Gateway image is optional — see step 4 below.
 
 !!! note "Choosing a base image"
     - **DockerHub** (`wso2/wso2am:4.6.0`, `wso2/wso2am-acp:4.6.0`, `wso2/wso2am-universal-gw:4.6.0`) — packages the GA release. Suitable for evaluation and development.
@@ -337,18 +336,6 @@ The Helm chart mounts a Kubernetes secret named `apim-keystore-secret` as a volu
     ```
 
 2. Open `values-gw.yaml` and update the following sections.
-
-    **Custom image** — point to the Universal Gateway image you built in Step 5:
-
-    ```yaml
-    wso2:
-      deployment:
-        image:
-          registry: "docker.io"
-          repository: "<your-username>/wso2am-gw-mysql"
-          tag: "<TAG>"
-          digest: "sha256:abcdef..."
-    ```
 
     !!! note
         The default values file pre-configures the service URLs assuming the KM and All-in-One were deployed with release names `apim-km` and `apim`. If you used different release names, run `kubectl get svc -n wso2` to find the correct service names and update `km.serviceUrl`, `eventhub.serviceUrl`, and `throttling.serviceUrl` in the values file.

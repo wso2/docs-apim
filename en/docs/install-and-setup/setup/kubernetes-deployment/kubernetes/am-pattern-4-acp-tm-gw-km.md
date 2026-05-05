@@ -12,7 +12,7 @@ This pattern adds a dedicated Key Manager to the Pattern 3 setup, separating tok
 | Traffic Manager | Embedded in All-in-One | Dedicated TM | Dedicated TM |
 | Gateway | Dedicated, independently scalable | Dedicated, independently scalable | Dedicated, independently scalable |
 | Key Manager | Embedded in All-in-One | Embedded in ACP | Dedicated KM |
-| Custom images | 2 images | 3 images | 3 images (KM reuses ACP image) |
+| Custom images | Required (All-in-One); Gateway optional | Required (ACP); TM and Gateway optional | Required (ACP); TM and Gateway optional; KM reuses ACP image |
 | High availability | Gateway: Yes; All-in-One: Optional | Yes (all components) | Yes (all components) |
 
 !!! note
@@ -21,7 +21,7 @@ This pattern adds a dedicated Key Manager to the Pattern 3 setup, separating tok
 !!! warning "Pattern 4 requires the following before deploying:"
 
     1. **An external database** — H2 is not supported. Set up an external database before deploying.
-    2. **Three custom Docker images** — one each for the API Control Plane, Traffic Manager, and Universal Gateway. The Key Manager reuses the ACP image.
+    2. **One custom Docker image** — for the API Control Plane, with the JDBC driver for your database. The Key Manager reuses this image. Custom images for the Traffic Manager and Universal Gateway are optional.
     3. **Database schema initialised** — run the WSO2 schema scripts against both databases before the pods start.
 
 ---
@@ -102,7 +102,7 @@ This pattern adds a dedicated Key Manager to the Pattern 3 setup, separating tok
 
 ### Step 5 — Build and Push Custom Docker Images
 
-Pattern 4 requires three custom Docker images — one each for the API Control Plane, Traffic Manager, and Universal Gateway. The Key Manager reuses the ACP image, so no additional build is needed for it.
+Pattern 4 requires a custom Docker image for the API Control Plane with the JDBC driver for your database. The Key Manager reuses the ACP image. Custom images for the Traffic Manager and Universal Gateway are optional — see steps 3 and 4 below.
 
 !!! note "Choosing a base image"
     - **DockerHub** (`wso2/wso2am-acp:4.6.0`, `wso2/wso2am-tm:4.6.0`, `wso2/wso2am-universal-gw:4.6.0`) — packages the GA release. Suitable for evaluation and development.
@@ -290,19 +290,8 @@ The Helm chart mounts a Kubernetes secret named `apim-keystore-secret` as a volu
           digest: "sha256:abcdef..."
     ```
 
-    **ACP connection** — the default values assume the ACP was deployed with release name `apim-acp`. If you used a different release name, find the actual service names and update accordingly:
-
-    ```bash
-    kubectl get svc -n wso2
-    ```
-
-    ```yaml
-    eventhub:
-      serviceUrl: "<ACP_SERVICE_NAME>"
-      urls:
-        - "<ACP_POD_1_SERVICE_NAME>"
-        - "<ACP_POD_2_SERVICE_NAME>"
-    ```
+    !!! note
+        The default values file pre-configures the service URLs assuming the ACP was deployed with release name `apim-acp`. If you used a different release name, run `kubectl get svc -n wso2` to find the correct service name and update `eventhub.serviceUrl` in the values file.
 
     **Database connection** — the Key Manager needs access to both databases:
 
@@ -333,34 +322,8 @@ The Helm chart mounts a Kubernetes secret named `apim-keystore-secret` as a volu
 
 2. Open `values-tm.yaml` and update the following sections.
 
-    **Custom image** — point to the Traffic Manager image you built in Step 5:
-
-    ```yaml
-    wso2:
-      deployment:
-        image:
-          registry: "docker.io"
-          repository: "<your-username>/wso2am-tm-mysql"
-          tag: "<TAG>"
-          digest: "sha256:abcdef..."
-    ```
-
-    **KM and ACP connection** — the default values assume the KM and ACP were deployed with release names `apim-km` and `apim-acp`. If you used different release names, find the actual service names and update accordingly:
-
-    ```bash
-    kubectl get svc -n wso2
-    ```
-
-    ```yaml
-    km:
-      serviceUrl: "<KM_SERVICE_NAME>"
-
-    eventhub:
-      serviceUrl: "<ACP_SERVICE_NAME>"
-      urls:
-        - "<ACP_POD_1_SERVICE_NAME>"
-        - "<ACP_POD_2_SERVICE_NAME>"
-    ```
+    !!! note
+        The default values file pre-configures the service URLs assuming the KM and ACP were deployed with release names `apim-km` and `apim-acp`. If you used different release names, run `kubectl get svc -n wso2` to find the correct service names and update `km.serviceUrl` and `eventhub.serviceUrl` in the values file.
 
 ### Step 11 — Deploy the Universal Gateway { #step-11 }
 
@@ -373,41 +336,8 @@ The Helm chart mounts a Kubernetes secret named `apim-keystore-secret` as a volu
 
 2. Open `values-gw.yaml` and update the following sections.
 
-    **Custom image** — point to the Universal Gateway image you built in Step 5:
-
-    ```yaml
-    wso2:
-      deployment:
-        image:
-          registry: "docker.io"
-          repository: "<your-username>/wso2am-gw-mysql"
-          tag: "<TAG>"
-          digest: "sha256:abcdef..."
-    ```
-
-    **KM, ACP, and TM connection** — the default values assume the KM, ACP, and TM were deployed with release names `apim-km`, `apim-acp`, and `apim-tm`. If you used different release names, find the actual service names and update accordingly:
-
-    ```bash
-    kubectl get svc -n wso2
-    ```
-
-    ```yaml
-    km:
-      serviceUrl: "<KM_SERVICE_NAME>"
-
-    eventhub:
-      serviceUrl: "<ACP_SERVICE_NAME>"
-      urls:
-        - "<ACP_POD_1_SERVICE_NAME>"
-        - "<ACP_POD_2_SERVICE_NAME>"
-
-    throttling:
-      serviceUrl: "<TM_SERVICE_NAME>"
-      servicePort: 9443
-      urls:
-        - "<TM_POD_1_SERVICE_NAME>"
-        - "<TM_POD_2_SERVICE_NAME>"
-    ```
+    !!! note
+        The default values file pre-configures the service URLs assuming the KM, ACP, and TM were deployed with release names `apim-km`, `apim-acp`, and `apim-tm`. If you used different release names, run `kubectl get svc -n wso2` to find the correct service names and update `km.serviceUrl`, `eventhub.serviceUrl`, and `throttling.serviceUrl` in the values file.
 
 ### Step 12 — Configure DNS
 
