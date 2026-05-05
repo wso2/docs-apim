@@ -54,7 +54,7 @@ This pattern deploys dedicated nodes for the API Control Plane, Traffic Manager,
     kubectl get nodes
     ```
 
-    All nodes should show a `Ready` status..
+    All nodes should show a `Ready` status.
 
 ### Step 3 — Add the WSO2 Helm Repository
 
@@ -262,6 +262,24 @@ The Helm chart mounts a Kubernetes secret named `apim-keystore-secret` as a volu
     ```
 
     Replace `<JDBC_URL_FOR_APIM_DB>` and `<JDBC_URL_FOR_SHARED_DB>` with the JDBC connection URL for your database. For URL formats per database type, see [Setting Up Databases]({{base_path}}/install-and-setup/setup/setting-up-databases/overview/#changing-the-default-databases).
+
+3. Deploy the API Control Plane:
+
+    ```bash
+    helm install apim-acp wso2/wso2am-acp \
+      --version 4.6.0-1 \
+      --namespace wso2 --create-namespace \
+      --dependency-update \
+      -f values-acp.yaml
+    ```
+
+4. Wait for the ACP pod to be ready:
+
+    ```bash
+    kubectl get pods -n wso2 -w
+    ```
+
+    The ACP pod should show `1/1 Running` before deploying the Traffic Manager.
 
 ### Step 9 — Deploy the Traffic Manager { #step-9 }
 
