@@ -25,3 +25,27 @@ See the instructions on using the [Docker Exporter]({{base_path}}/integrate/deve
 Use the <b>Kubernetes Exporter</b> module in WSO2 Integration Studio to deploy a Docker image of your Micro Integrator Solution in a Kubernetes environment. 
 
 See the instructions on using the [Kubernetes Exporter]({{base_path}}/integrate/develop/create-kubernetes-project).
+
+## Enable priority-based composite exporter deployment
+
+When multiple composite exporters are deployed, they are processed in alphabetical order by default. However, if some composite exporters depend on others, deployment may fail due to incorrect ordering. To enable priority-based deployment, add the following configuration to `<MI_HOME>/conf/deployment.toml`:
+
+```toml
+[server]
+enable_priority_deployment = true
+```
+
+With this configuration, composite exporters are divided into two categories:
+
+- **High-priority**: composite exporters containing a connector, registry resource, or class mediator.
+- **Low-priority**: all other composite exporters.
+
+High-priority composite exporters are deployed first (in alphabetical order), followed by low-priority ones (also in alphabetical order).
+
+If high-priority composite exporters depend on each other, deployment may still fail due to incorrect ordering. To mitigate this, configure a retry count using `priority_deployment_retry_count`. This value represents the number of additional deployment attempts made for high-priority composite exporters after the initial attempt. The default is `1`.
+
+```toml
+[server]
+enable_priority_deployment = true
+priority_deployment_retry_count = 2
+```
