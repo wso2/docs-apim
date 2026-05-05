@@ -57,19 +57,19 @@ Don't have a cluster yet? See [Minikube](https://minikube.sigs.k8s.io/docs/start
 
 | Platform | Cluster Version |
 | -------- | --------------- |
-| EKS      | 1.27 - 1.35     |
-| GKE      | 1.27 - 1.35     |
-| AKS      | 1.27 - 1.35     |
+| EKS      | 1.27 or later  |
+| GKE      | 1.27 or later  |
+| AKS      | 1.27 or later  |
 
 ### Kubernetes Distributions
 
 | Distribution | Cluster Version | Software Version |
 |-------------|-----------------|------------------|
-| Minikube             | 1.26.3 - 1.35.x | 1.30.1 - 1.35.0  |
-| Rancher Desktop      | 1.27.2 - 1.35.x | 1.9.1 - 1.20.0   |
-| Rancher Enterprise   | 1.32.3 (RKE2)   | 2.11.1           |
-| Kind                 | 1.26.3 - 1.35.x | 0.24.0           |
-| OpenShift            | 1.28 - 1.32     | 4.15 - 4.19      |
+| Minikube             | 1.26.3 or later | 1.30.1 or later |
+| Rancher Desktop      | 1.27.2 or later | 1.9.1 or later  |
+| Rancher Enterprise   | 1.32.3 (RKE2)    | 2.11.1 or later |
+| Kind                 | 1.26.3 or later | 0.24.0 or later |
+| OpenShift            | 1.28 or later   | 4.15 or later   |
 
 ### Helm
 
