@@ -1758,8 +1758,8 @@ https_endpoint = "https://localhost:${https.nio.port}"</code></pre>
                 <label class="tab-selector" for="_tab_14"><i class="icon fa fa-code"></i></label>
                 <div class="superfences-content">
                     <div class="mb-config-example">
-<pre><code class="toml">[apim.sync_runtime_artifacts]
-enable = "true"
+<pre><code class="toml">[apim.sync_runtime_artifacts.tenant_loading]
+enable = true
 tenants = "*"</code></pre>
                     </div>
                 </div>
@@ -1789,7 +1789,7 @@ tenants = "*"</code></pre>
                                         
                                     </div>
                                     <div class="param-description">
-                                        <p>Set TRUE to enable </p>
+                                        <p>Set to true to enable tenant loading on the gateway node.</p>
                                     </div>
                                 </div>
                             </div><div class="param">
@@ -1808,7 +1808,7 @@ tenants = "*"</code></pre>
                                         
                                     </div>
                                     <div class="param-description">
-                                        <p>Comma seperated list of tenants to be loaded on the gateway. Use * to load all tenants</p>
+                                        <p>Comma-separated list of tenants to be loaded on the gateway. Use * to load all tenants.</p>
                                     </div>
                                 </div>
                             </div>
