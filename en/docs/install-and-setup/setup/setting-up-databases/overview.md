@@ -22,9 +22,43 @@ See how these databases are used when you [run API-M in a distributed deployment
 
 The embedded H2 databases shipped with your product are suitable for development and testing environments. However, for **production environments,** it is recommended to use an industry-standard RDBMS such as Oracle, PostgreSQL, MySQL, MS SQL, etc.
 
-WSO2 products are shipped with scripts for creating the required tables in all the required databases: The scripts for creating tables for API-M, user management, and registry data are stored in the `<API-M_HOME>/dbscripts` directory.
+You simply have to set up new physical databases, point the product server to the new databases by updating the relevant configuration files, and create the required tables using the schema scripts. See the following topics for instructions:
 
-**Changing the default database:** You simply have to set up new physical databases, point the product server to the new databases by updating the relevant configuration files, and create the required tables using the scripts provided in the product pack. See the following topics for instructions:
+## Obtaining the Schema Scripts
+
+WSO2 API Manager ships schema scripts for all supported databases. Where you find them depends on your deployment type.
+
+=== "Kubernetes"
+
+    Download the scripts directly from GitHub — no need to download the full product pack.
+
+    The `shared_db` scripts are in the [carbon-kernel repository](https://github.com/wso2/carbon-kernel/tree/v4.11.18/distribution/kernel/carbon-home/dbscripts) and the `apim_db` scripts are in the [carbon-apimgt repository](https://github.com/wso2/carbon-apimgt/tree/v9.32.147/features/apimgt/org.wso2.carbon.apimgt.core.feature/src/main/resources/sql).
+
+    Use the table below to find the correct script for your database type and download it directly:
+
+    The following example downloads the MySQL scripts. Replace `mysql.sql` with the filename for your database from the table below.
+
+    ```bash
+    curl -o shared_db.sql https://raw.githubusercontent.com/wso2/carbon-kernel/v4.11.18/distribution/kernel/carbon-home/dbscripts/mysql.sql
+    curl -o apim_db.sql https://raw.githubusercontent.com/wso2/carbon-apimgt/v9.32.147/features/apimgt/org.wso2.carbon.apimgt.core.feature/src/main/resources/sql/mysql.sql
+    ```
+
+=== "VM"
+
+    The scripts are bundled in your product installation at `<API-M_HOME>/dbscripts/`.
+
+Use the table below to find the correct script filename for your database type:
+
+| Database   | `shared_db` script      | `apim_db` script        |
+| ---------- | ----------------------- | ----------------------- |
+| MySQL      | `mysql.sql`             | `mysql.sql`             |
+| PostgreSQL | `postgresql.sql`        | `postgresql.sql`        |
+| MSSQL      | `mssql.sql`             | `mssql.sql`             |
+| Oracle     | `oracle.sql`            | `oracle.sql`            |
+
+## Setting up the databases
+
+See the following topics for database-specific instructions:
 
 -   [Changing to MySQL]({{base_path}}/install-and-setup/setup/setting-up-databases/changing-default-databases/changing-to-mysql)
 -   [Changing to Oracle]({{base_path}}/install-and-setup/setup/setting-up-databases/changing-default-databases/changing-to-oracle)
