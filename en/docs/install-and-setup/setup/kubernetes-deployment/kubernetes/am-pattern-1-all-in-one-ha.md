@@ -174,7 +174,13 @@ Once the scripts have been run, verify that both databases are set up correctly 
 
 The Helm chart mounts a Kubernetes secret named `apim-keystore-secret` as a volume into the pods. The pods will not start if this secret does not exist — you will see a `MountVolume.SetUp failed: secret "apim-keystore-secret" not found` error.
 
-1. WSO2 API Manager ships with default keystores inside the Docker image. Extract them and create the secret:
+1. Create the `wso2` namespace:
+
+    ```bash
+    kubectl create namespace wso2
+    ```
+
+2. WSO2 API Manager ships with default keystores inside the Docker image. Extract them and create the secret:
 
     ```bash
     mkdir -p keystores
@@ -184,7 +190,7 @@ The Helm chart mounts a Kubernetes secret named `apim-keystore-secret` as a volu
     kubectl create secret generic apim-keystore-secret --from-file=wso2carbon.jks=keystores/wso2carbon.jks --from-file=client-truststore.jks=keystores/client-truststore.jks -n wso2
     ```
 
-2. Verify the secret was created:
+3. Verify the secret was created:
 
     ```bash
     kubectl get secret apim-keystore-secret -n wso2
