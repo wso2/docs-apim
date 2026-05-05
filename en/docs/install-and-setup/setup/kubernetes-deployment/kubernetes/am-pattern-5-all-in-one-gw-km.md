@@ -57,7 +57,7 @@ This pattern extends Pattern 2 by adding a dedicated Key Manager alongside the A
     kubectl get nodes
     ```
 
-    All nodes should show a `Ready` status..
+    All nodes should show a `Ready` status.
 
 ### Step 3 — Add the WSO2 Helm Repository
 
@@ -288,6 +288,24 @@ The Helm chart mounts a Kubernetes secret named `apim-keystore-secret` as a volu
 
     Replace `<JDBC_URL_FOR_APIM_DB>` and `<JDBC_URL_FOR_SHARED_DB>` with the JDBC connection URL for your database. For URL formats per database type, see [Setting Up Databases]({{base_path}}/install-and-setup/setup/setting-up-databases/overview/#changing-the-default-databases).
 
+3. Deploy the All-in-One:
+
+    ```bash
+    helm install apim wso2/wso2am-all-in-one \
+      --version 4.6.0-1 \
+      --namespace wso2 --create-namespace \
+      --dependency-update \
+      -f values-aio.yaml
+    ```
+
+4. Wait for the All-in-One pod to be ready:
+
+    ```bash
+    kubectl get pods -n wso2 -w
+    ```
+
+    The All-in-One pod should show `1/1 Running` before deploying the Key Manager.
+
 ### Step 9 — Deploy the Key Manager { #step-9 }
 
 1. Download the default values file for the Key Manager:
@@ -331,6 +349,24 @@ The Helm chart mounts a Kubernetes secret named `apim-keystore-secret` as a volu
     ```
 
     Replace `<JDBC_URL_FOR_APIM_DB>` and `<JDBC_URL_FOR_SHARED_DB>` with the JDBC connection URL for your database. For URL formats per database type, see [Setting Up Databases]({{base_path}}/install-and-setup/setup/setting-up-databases/overview/#changing-the-default-databases).
+
+3. Deploy the Key Manager:
+
+    ```bash
+    helm install apim-km wso2/wso2am-km \
+      --version 4.6.0-1 \
+      --namespace wso2 \
+      --dependency-update \
+      -f values-km.yaml
+    ```
+
+4. Wait for the Key Manager pod to be ready:
+
+    ```bash
+    kubectl get pods -n wso2 -w
+    ```
+
+    The Key Manager pod should show `1/1 Running` before deploying the Universal Gateway.
 
 ### Step 10 — Deploy the Universal Gateway { #step-10 }
 
