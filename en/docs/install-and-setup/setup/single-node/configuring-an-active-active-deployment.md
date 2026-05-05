@@ -1,4 +1,4 @@
-# All-in-One HA Setup
+# Pattern 1: All-in-One HA Setup
 
 This page walks you through how to manually configure WSO2 API Manager (WSO2 API-M) with two active nodes that each has all the components of the API-M together in one instance (all-in-one instance).
 
