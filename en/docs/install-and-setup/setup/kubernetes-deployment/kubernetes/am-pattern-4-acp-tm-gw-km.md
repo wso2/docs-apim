@@ -313,31 +313,41 @@ The Helm chart mounts a Kubernetes secret named `apim-keystore-secret` as a volu
 
 ### Step 10 — Deploy the Traffic Manager { #step-10 }
 
-1. Download the default values file for the Traffic Manager:
+Deploy the Traffic Manager using the default values:
 
+```bash
+helm install apim-tm wso2/wso2am-tm \
+  --version 4.6.0-1 \
+  --namespace wso2 \
+  --dependency-update \
+  -f https://raw.githubusercontent.com/wso2/helm-apim/4.6.x/docs/am-pattern-4-ACP_TM_GW_KM/default_tm_values.yaml
+```
+
+!!! note "To customise before deploying"
+    If you used different release names than `apim-km` and `apim-acp`, or want to make other changes, download the values file first, edit it, then replace the `-f <url>` above with `-f values-tm.yaml`:
     ```bash
     curl -L https://raw.githubusercontent.com/wso2/helm-apim/4.6.x/docs/am-pattern-4-ACP_TM_GW_KM/default_tm_values.yaml \
       -o values-tm.yaml
     ```
 
-2. Open `values-tm.yaml` and update the following sections.
-
-    !!! note
-        The default values file pre-configures the service URLs assuming the KM and ACP were deployed with release names `apim-km` and `apim-acp`. If you used different release names, run `kubectl get svc -n wso2` to find the correct service names and update `km.serviceUrl` and `eventhub.serviceUrl` in the values file.
-
 ### Step 11 — Deploy the Universal Gateway { #step-11 }
 
-1. Download the default values file for the Universal Gateway:
+Deploy the Universal Gateway using the default values:
 
+```bash
+helm install apim-gw wso2/wso2am-universal-gw \
+  --version 4.6.0-1 \
+  --namespace wso2 \
+  --dependency-update \
+  -f https://raw.githubusercontent.com/wso2/helm-apim/4.6.x/docs/am-pattern-4-ACP_TM_GW_KM/default_gw_values.yaml
+```
+
+!!! note "To customise before deploying"
+    If you used different release names than `apim-km`, `apim-acp`, and `apim-tm`, or want to make other changes, download the values file first, edit it, then replace the `-f <url>` above with `-f values-gw.yaml`:
     ```bash
     curl -L https://raw.githubusercontent.com/wso2/helm-apim/4.6.x/docs/am-pattern-4-ACP_TM_GW_KM/default_gw_values.yaml \
       -o values-gw.yaml
     ```
-
-2. Open `values-gw.yaml` and update the following sections.
-
-    !!! note
-        The default values file pre-configures the service URLs assuming the KM, ACP, and TM were deployed with release names `apim-km`, `apim-acp`, and `apim-tm`. If you used different release names, run `kubectl get svc -n wso2` to find the correct service names and update `km.serviceUrl`, `eventhub.serviceUrl`, and `throttling.serviceUrl` in the values file.
 
 ### Step 12 — Configure DNS
 
