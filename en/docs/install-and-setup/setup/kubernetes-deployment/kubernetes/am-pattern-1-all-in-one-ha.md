@@ -54,7 +54,7 @@ This pattern deploys WSO2 API Manager as a highly available active-active cluste
     kubectl get nodes
     ```
 
-    All nodes should show a `Ready` status..
+    All nodes should show a `Ready` status.
 
 ### Step 3 — Add the WSO2 Helm Repository
 
@@ -237,6 +237,24 @@ Pattern 1 uses a single Helm chart release with two pod replicas forming the act
     ```
 
     Replace `<JDBC_URL_FOR_APIM_DB>` and `<JDBC_URL_FOR_SHARED_DB>` with the JDBC connection URL for your database. For URL formats per database type, see [Setting Up Databases]({{base_path}}/install-and-setup/setup/setting-up-databases/overview/#changing-the-default-databases).
+
+3. Deploy WSO2 API Manager:
+
+    ```bash
+    helm install apim wso2/wso2am-all-in-one \
+      --version 4.6.0-1 \
+      --namespace wso2 --create-namespace \
+      --dependency-update \
+      -f values.yaml
+    ```
+
+4. Wait for both pods to be ready:
+
+    ```bash
+    kubectl get pods -n wso2 -w
+    ```
+
+    Both pods should show `1/1 Running` before proceeding.
 
 ### Step 9 — Configure Local DNS
 
