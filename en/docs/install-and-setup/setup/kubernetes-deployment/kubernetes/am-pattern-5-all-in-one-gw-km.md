@@ -533,7 +533,30 @@ wso2:
 !!! note
     `keyPassword` must equal `password` for each keystore. WSO2 API Manager requires these to be identical due to a limitation in internal third-party components — setting them to different values will cause startup failures.
 
-#### 2.3 Component Configuration References
+#### 2.3 Configure the Internal Encryption Key
+
+In a distributed deployment, all API Manager nodes must use the same internal encryption key to encrypt and decrypt shared data. Set this before the first startup — changing it afterwards will cause decryption failures for any data already encrypted.
+
+1. Generate a unique 256-bit key:
+
+    ```bash
+    openssl rand -hex 32
+    ```
+
+2. Add the key to all your values files:
+
+    ```yaml
+    wso2:
+      apim:
+        configurations:
+          encryption:
+            key: "<generated-64-char-hex-key>"
+    ```
+
+!!! warning
+    All nodes in the deployment must use the exact same key. A mismatch will cause decryption failures across the cluster.
+
+#### 2.4 Component Configuration References
 
 All available configuration options for each Helm chart are documented in their respective component guides:
 
