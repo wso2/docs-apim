@@ -120,25 +120,9 @@ Pattern 3 requires a custom Docker image for the API Control Plane with the JDBC
       /home/wso2carbon/wso2am-acp-4.6.0/repository/components/lib/
     ```
 
-3. **(Optional)** Create a `Dockerfile.tm` for the Traffic Manager image. The Traffic Manager does not make direct database connections, so no custom image is required unless you have custom throttling extensions that access a database directly. If you do not need this, skip to step 4 and use the default `wso2/wso2am-tm:4.6.0` image.
+3. **(Optional)** Build a custom Traffic Manager image if you have custom throttling extensions that require a JDBC driver. Otherwise, skip to step 4 and use the default `wso2/wso2am-tm:4.6.0` image.
 
-    ```dockerfile
-    FROM wso2/wso2am-tm:4.6.0
-
-    ADD --chown=wso2carbon:wso2 \
-      https://repo1.maven.org/maven2/mysql/mysql-connector-java/8.0.28/mysql-connector-java-8.0.28.jar \
-      /home/wso2carbon/wso2am-tm-4.6.0/repository/components/lib/
-    ```
-
-4. **(Optional)** Create a `Dockerfile.gw` for the Universal Gateway image. The Gateway does not make direct database connections, so no custom image is required unless you have custom mediations or extensions that access a database directly. If you do not need this, skip to step 5 and use the default `wso2/wso2am-universal-gw:4.6.0` image.
-
-    ```dockerfile
-    FROM wso2/wso2am-universal-gw:4.6.0
-
-    ADD --chown=wso2carbon:wso2 \
-      https://repo1.maven.org/maven2/mysql/mysql-connector-java/8.0.28/mysql-connector-java-8.0.28.jar \
-      /home/wso2carbon/wso2am-universal-gw-4.6.0/repository/components/lib/
-    ```
+4. **(Optional)** Build a custom Gateway image if you have custom mediations or extensions that require a JDBC driver. Otherwise, skip to step 5 and use the default `wso2/wso2am-universal-gw:4.6.0` image.
 
 5. Build all three images, replacing `<REGISTRY>` and `<TAG>` with your values:
 
