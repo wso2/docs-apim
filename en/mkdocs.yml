@@ -842,7 +842,7 @@ extra_css:
 extra_javascript:
     - assets/lib/json-formatter/json-formatter.umd.js
     - assets/lib/highlightjs/highlight.min.js
-    - assets/js/theme.js
+    - assets/js/theme.js?v=4.7.0
 extra:
     material:
       jinja2content: true
