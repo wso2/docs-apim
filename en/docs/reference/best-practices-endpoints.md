@@ -34,7 +34,7 @@
   <td><code>[transport.http] 
   socket_timeout = 180000                
   </code></td>
-  <td>The socket timeout of the <a href="{{base_path}}/install-and-setup/setup/mi-setup/transport_configurations/">Passthrough</a> http/https transport sender and listener. You can find the <a href="{{base_path}}/install-and-setup/setup/mi-setup/transport_configurations/">passthru-http.properties</a> file in the <code>&lt;EI_HOME&gt;/conf</code> directory.</td>
+  <td>The socket timeout of the Passthrough http/https transport sender and listener. You can find the passthru-http.properties file in the <code>&lt;EI_HOME&gt;/conf</code> directory.</td>
   <td><code>deployment.toml</code></td>
   <td>180000</td>
   <td>180000</td>
