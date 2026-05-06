@@ -16,7 +16,7 @@ This policy improves AI API safety by inspecting incoming prompts and AI-generat
 ## How to Use
 
 !!! important
-    ℹ️ You need an Azure Content Safety resource. Follow the official [prerequisites](https://learn.microsoft.com/azure/ai-services/content-safety/quickstart-text?tabs=visual-studio%2Cwindows&pivots=programming-language-rest#prerequisites) and configure the credentials in WSO2 API Manager as shown below.
+    ℹ️ You need an Azure Content Safety resource. Follow the official [prerequisites](https://learn.microsoft.com/azure/ai-services/content-safety/quickstart-text?tabs=visual-studio%2Cwindows&pivots=programming-language-rest#prerequisites) and configure the credentials in WSO2 API Manager as shown below. In a distributed API-M deployment, the following configuration should be applied to the WSO2 Universal Gateway component.
 
     Add the following to the `$APIM_HOME/repository/conf/deployment.toml` file to register Azure Content Safety as a guardrail provider:
 

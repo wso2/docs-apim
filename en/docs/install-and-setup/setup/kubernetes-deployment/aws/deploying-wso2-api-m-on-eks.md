@@ -155,7 +155,7 @@ The official WSO2 APIM Docker image does not include JDBC drivers. You need to b
 Create a `Dockerfile` with the following content:
 
 ```dockerfile
-FROM docker.wso2.com/wso2am:4.6.0.0
+FROM registry.wso2.com/wso2-apim/am:4.6.0.0
 
 ARG USER=wso2carbon
 ARG USER_HOME=/home/${USER}

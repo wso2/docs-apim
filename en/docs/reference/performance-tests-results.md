@@ -74,7 +74,7 @@ Two key performance metrics were used to measure the performance of each test.
 - Token type: JWT
 - The operating system is Ubuntu 22.04
 - MySQL version in RDS instance is 8.0
-- Java version is Termurin JDK 17
+- Java version is Temurin JDK 17
 
 ### Performance test scripts
 
@@ -115,7 +115,7 @@ For example, when there are 100 concurrent users, the 90th response time percent
 
 The figure below represents the percentile values for Echo API (PassThrough Scenario).
 
-[![Response time 0ms 1KiB]({{base_path}}/assets/img/setup-and-install/performance-test-results/response_time_summary_1KiB_0ms.png)]({{base_path}}/assets/img/setup-and-install/performance-test-results/response_time_summary_1KiB_0ms.png)
+[![Response time 0ms 1KiB]({{base_path}}/assets/img/setup-and-install/performance-test-results/response_time_summary_1kib_0ms.png)]({{base_path}}/assets/img/setup-and-install/performance-test-results/response_time_summary_1kib_0ms.png)
 
 **Key observations:**
 

@@ -60,3 +60,6 @@ Follow the instructions below to configure the Redis server with WSO2 API Manage
 For more information, see [Running the API Manager Runtime]({{base_path}}/install-and-setup/install/installing-the-product/running-the-api-m/).
 
 In this setup, every TM node maintains its local counter and an unsynced counter. Instead of sending every increment/decrement to the Redis/Valkey store immediately, changes are accumulated locally. A scheduled background task periodically synchronizes the local counter with the Valkey/Redis store counter to keep the distributed state consistent across nodes. The accuracy of the counter value in each node can be fine tuned by adjusting the configs `sync_interval` and `core_pool_size`.
+
+!!! note
+    If you are using custom rate limiting policies in this setup, please refer [Custom Rate Limiting with Distributed Throttling]({{base_path}}/api-gateway/rate-limiting/implement-custom-throttling/#custom-rate-limiting-with-distributed-throttling).

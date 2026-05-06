@@ -67,3 +67,27 @@ For example, the following sample custom policy allows the admin user to send 5 
     [![Add Custom policy page]({{base_path}}/assets/img/learn/throttling-custom-policy.png)]({{base_path}}/assets/img/learn/throttling-custom-policy.png)
 
 As shown in the above Siddhi query, the throttle key must match the key template format. If there is a mismatch between the key template format and the throttle key, requests will not be throttled.
+
+## Custom Rate Limiting with Distributed Throttling
+
+!!! important
+    If you are using distributed throttling in WSO2 API Manager, you must use `throttler:distributedCount` instead of the standard `count` function in your Siddhi queries. 
+
+For example, the above siddhi query should be written as follows if you are using distributed throttling.
+
+**Siddhi query for distributed throttling**
+
+```
+FROM RequestStream
+SELECT userId, ( userId == 'admin@carbon.super'  and apiContext == '/pizzashack/1.0.0' and apiVersion == '1.0.0') AS isEligible ,
+str:concat('admin@carbon.super',':','/pizzashack/1.0.0:1.0.0') as throttleKey
+INSERT INTO EligibilityStream;
+FROM EligibilityStream [isEligible==true] #throttler:timeBatch(1 min)
+SELECT throttleKey, (throttler:distributedCount(throttleKey) >= 5) as isThrottled, expiryTimeStamp group by throttleKey
+INSERT ALL EVENTS into ResultStream;
+```
+
+
+- Creating new policies: Ensure your new custom Siddhi queries are written using `throttler:distributedCount`.
+
+- Updating existing policies: If you are migrating to or currently using distributed throttling, you must update your existing custom policies to replace `count` with `throttler:distributedCount`.
