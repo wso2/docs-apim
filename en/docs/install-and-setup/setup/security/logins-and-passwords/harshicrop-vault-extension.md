@@ -217,7 +217,7 @@ Using [HashiCorp Vault extension](https://github.com/wso2-extensions/carbon-secu
     secretRepositories.vault.properties.authType=APP_ROLE
     secretRepositories.vault.properties.roleId=<role id>
     ```
-
+    
     !!! note
         In production, you should always use the vault address with TLS enabled.
 
