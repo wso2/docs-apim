@@ -214,7 +214,7 @@ This method uses dynamic authentication based on role IDs and secret IDs, allowi
     secretRepositories.vault.properties.authType=APP_ROLE
     secretRepositories.vault.properties.roleId=<role id>
     ```
-
+    
     !!! note
         In production, you should always use the vault address with TLS enabled.
 
