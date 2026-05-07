@@ -11,13 +11,13 @@ This pattern deploys dedicated nodes for the API Control Plane, Traffic Manager,
 | Nodes | 2 All-in-One (active-active) | 1 All-in-One + dedicated Gateway | Dedicated ACP + dedicated TM + dedicated Gateway |
 | Control Plane | Embedded | Embedded | Dedicated (ACP), independently scalable |
 | Traffic Manager | Embedded | Embedded | Dedicated, independently scalable |
-| Custom images | Required (All-in-One); Gateway optional | Required (ACP); TM and Gateway optional | Required (ACP); TM and Gateway optional |
+| Custom images | Required (All-in-One + Gateway) | Required (ACP + TM + Gateway) | Required (ACP + TM + Gateway) |
 | High availability | Yes (All-in-One) | Gateway: Yes; All-in-One: Optional | Yes (all components) |
 
 !!! warning "Pattern 3 requires the following before deploying:"
 
     1. **An external database** — H2 is not supported. Set up an external database before deploying.
-    2. **One custom Docker image** — for the API Control Plane, with the JDBC driver for your database. Custom images for the Traffic Manager and Universal Gateway are optional.
+    2. **Three custom Docker images** — for the API Control Plane, Traffic Manager, and Universal Gateway, all with the JDBC driver for your database.
     3. **Database schema initialised** — run the WSO2 schema scripts against both databases before the pods start.
 
 ---
@@ -124,7 +124,7 @@ WSO2 API Manager supports two routing controller options. NGINX Ingress is enabl
 
 ### Step 5 — Build and Push Custom Docker Images
 
-Pattern 3 requires a custom Docker image for the API Control Plane with the JDBC driver for your database. Custom images for the Traffic Manager and Universal Gateway are optional — see steps 3 and 4 below.
+Pattern 3 requires custom Docker images for the API Control Plane, Traffic Manager, and Universal Gateway, all with the JDBC driver for your database.
 
 !!! note "Choosing a base image"
     - **DockerHub** (`wso2/wso2am-acp:4.6.0`, `wso2/wso2am-tm:4.6.0`, `wso2/wso2am-universal-gw:4.6.0`) — packages the GA release. Suitable for evaluation and development.
@@ -146,9 +146,25 @@ Pattern 3 requires a custom Docker image for the API Control Plane with the JDBC
       /home/wso2carbon/wso2am-acp-4.6.0/repository/components/lib/
     ```
 
-3. **(Optional)** Build a custom Traffic Manager image if you have custom throttling extensions that require a JDBC driver. Otherwise, skip to step 4 and use the default `wso2/wso2am-tm:4.6.0` image.
+3. Create a `Dockerfile.tm` for the Traffic Manager image:
 
-4. **(Optional)** Build a custom Gateway image if you have custom mediations or extensions that require a JDBC driver. Otherwise, skip to step 5 and use the default `wso2/wso2am-universal-gw:4.6.0` image.
+    ```dockerfile
+    FROM wso2/wso2am-tm:4.6.0
+
+    ADD --chown=wso2carbon:wso2 \
+      https://repo1.maven.org/maven2/mysql/mysql-connector-java/8.0.28/mysql-connector-java-8.0.28.jar \
+      /home/wso2carbon/wso2am-tm-4.6.0/repository/components/lib/
+    ```
+
+4. Create a `Dockerfile.gw` for the Universal Gateway image:
+
+    ```dockerfile
+    FROM wso2/wso2am-universal-gw:4.6.0
+
+    ADD --chown=wso2carbon:wso2 \
+      https://repo1.maven.org/maven2/mysql/mysql-connector-java/8.0.28/mysql-connector-java-8.0.28.jar \
+      /home/wso2carbon/wso2am-universal-gw-4.6.0/repository/components/lib/
+    ```
 
 5. Build all three images, replacing `<REGISTRY>` and `<TAG>` with your values:
 

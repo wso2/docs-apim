@@ -11,7 +11,7 @@ This pattern extends Pattern 2 by adding a dedicated Key Manager alongside the A
 | Key Manager | Embedded in All-in-One | Dedicated KM | Dedicated KM |
 | Control Plane | Embedded in All-in-One | Dedicated ACP | Embedded in All-in-One |
 | Traffic Manager | Embedded in All-in-One | Dedicated TM | Embedded in All-in-One |
-| Custom images | Required (All-in-One); Gateway optional | Required (ACP); TM and Gateway optional; KM reuses ACP image | Required (All-in-One); Gateway optional; KM reuses ACP image |
+| Custom images | Required (All-in-One + Gateway) | Required (ACP + TM + Gateway); KM reuses ACP image | Required (All-in-One + Gateway); KM reuses ACP image |
 | High availability | Gateway: Yes; All-in-One: Optional | Yes (all components) | Gateway: Yes; KM: Yes; All-in-One: Optional |
 
 !!! note
@@ -20,7 +20,7 @@ This pattern extends Pattern 2 by adding a dedicated Key Manager alongside the A
 !!! warning "Pattern 5 requires the following before deploying:"
 
     1. **An external database** — H2 is not supported. Set up an external database before deploying.
-    2. **Two custom Docker images** — one for the All-in-One and one for the ACP (shared with the Key Manager), both with the JDBC driver for your database. A custom Gateway image is optional.
+    2. **Three custom Docker images** — for the All-in-One, the Universal Gateway, and the ACP (shared with the Key Manager), all with the JDBC driver for your database.
     3. **Database schema initialised** — run the WSO2 schema scripts against both databases before the pods start.
 
 ---
@@ -127,7 +127,7 @@ WSO2 API Manager supports two routing controller options. NGINX Ingress is enabl
 
 ### Step 5 — Build and Push Custom Docker Images
 
-Pattern 5 requires custom Docker images for the All-in-One node and the API Control Plane (shared with the Key Manager), both with the JDBC driver for your database. A custom Gateway image is optional — see step 4 below.
+Pattern 5 requires custom Docker images for the All-in-One node, the Universal Gateway, and the API Control Plane (shared with the Key Manager), all with the JDBC driver for your database.
 
 !!! note "Choosing a base image"
     - **DockerHub** (`wso2/wso2am:4.6.0`, `wso2/wso2am-acp:4.6.0`, `wso2/wso2am-universal-gw:4.6.0`) — packages the GA release. Suitable for evaluation and development.
@@ -159,7 +159,15 @@ Pattern 5 requires custom Docker images for the All-in-One node and the API Cont
       /home/wso2carbon/wso2am-acp-4.6.0/repository/components/lib/
     ```
 
-4. **(Optional)** Build a custom Gateway image if you have custom mediations or extensions that require a JDBC driver. Otherwise, skip to step 5 and use the default `wso2/wso2am-universal-gw:4.6.0` image.
+4. Create a `Dockerfile.gw` for the Universal Gateway image:
+
+    ```dockerfile
+    FROM wso2/wso2am-universal-gw:4.6.0
+
+    ADD --chown=wso2carbon:wso2 \
+      https://repo1.maven.org/maven2/mysql/mysql-connector-java/8.0.28/mysql-connector-java-8.0.28.jar \
+      /home/wso2carbon/wso2am-universal-gw-4.6.0/repository/components/lib/
+    ```
 
 5. Build all three images, replacing `<REGISTRY>` and `<TAG>` with your values:
 
