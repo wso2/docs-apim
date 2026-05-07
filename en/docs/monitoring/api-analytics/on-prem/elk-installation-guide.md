@@ -473,6 +473,19 @@ The API Analytics Dashboard provides business insights on APIs enabling users to
 
 <a href="{{base_path}}/assets/img/analytics/cloud/api-analytics-2.png"><img src="{{base_path}}/assets/img/analytics/cloud/api-analytics-2.png" width="70%" alt=""></a>
 
+##### MCP Analytics
+
+The MCP Analytics dashboard provides information related to MCP-based API requests that are processed through the API management deployment. You can use this dashboard to monitor MCP traffic, identify errors, and analyze performance characteristics.
+
+This dashboard includes visualizations that represent MCP request traffic, MCP error rates, Top tool calls, and latency statistics associated with MCP processing. Using this information, you can observe traffic trends, detect anomalies, and understand how MCP requests are handled within the system.
+
+Use this dashboard to gain insights into MCP usage patterns and to troubleshoot issues related to MCP interactions in your APIs.
+
+<a href="{{base_path}}/assets/img/analytics/cloud/mcp-analytics-1.png"><img src="{{base_path}}/assets/img/analytics/cloud/mcp-analytics-1.png" width="70%" alt=""></a>
+
+<a href="{{base_path}}/assets/img/analytics/cloud/mcp-analytics-2.png"><img src="{{base_path}}/assets/img/analytics/cloud/mcp-analytics-2.png" width="70%" alt=""></a>
+
+
 ##### User Analytics
 
 User Analytics dashboard provides insights of API Users, most API Users, No of success and fault requests by users for each API and application

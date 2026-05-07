@@ -1,11 +1,11 @@
-# Configure WSO2 IS as a Key Manager
+# Configure WSO2 IS 6.x as a Key Manager
 
 WSO2 API Manager supports multiple Key Managers. As a result, WSO2 API Manager is prepacked with an inbuilt resident Key Manager and it has the inbuilt capability of configuring WSO2 Identity Server (WSO2 IS) as a Key Manager.
 
-Follow the steps given below to configure WSO2 IS as a Key Manager component
+Follow the steps given below to configure WSO2 IS 6.x as a Key Manager component
 
 !!! info
-    This document provides instructions on configuring **WSO2 Identity Server versions before 7.x** as a Key Manager. If you are using **WSO2 Identity Server 7.x**, see [Configure WSO2 IS 7.x as a Key Manager]({{base_path}}/api-security/key-management/third-party-key-managers/configure-wso2is7-connector).
+    This document provides instructions on configuring **WSO2 Identity Server versions before 7.x** as a Key Manager. If you are using **WSO2 Identity Server 7.x**, see [Configure WSO2 IS Key Manager]({{base_path}}/api-security/key-management/third-party-key-managers/configure-wso2is7-connector).
 
 ## Step 1 - Configure WSO2 IS
 
@@ -86,12 +86,12 @@ Follow the steps given below to configure WSO2 IS as a Key Manager component
     custom_webapps = ["/keymanager-operations/"]
     ```
 
-3. Download the [WSO2 IS Connector]({{base_path}}/assets/attachments/administer/wso2is-extensions-1.7.11.zip).
+3. Download the [WSO2 IS Connector]({{base_path}}/assets/attachments/administer/wso2is-extensions-1.8.8.zip).
 
 4. Extract the distribution and copy the following JAR files to the `<IS_HOME>/repository/components/dropins` directory.
 
-     - `wso2is.key.manager.core-1.7.11.jar`
-     - `wso2is.notification.event.handlers-1.7.11.jar`
+     - `wso2is.key.manager.core-1.8.8.jar`
+     - `wso2is.notification.event.handlers-1.8.8.jar`
 
 5. Add `keymanager-operations.war` to the `<IS_HOME>/repository/deployment/server/webapps` directory.
 
@@ -342,6 +342,11 @@ Follow the steps given below to configure WSO2 IS as a Key Manager component
       <tr class="odd">
       <td><b>Claim Mappings</b></td>
       <td>Local and remote claim mapping.</td>
+      <td>Optional</td>
+      </tr>
+      <tr class="even">
+      <td>Application Configuration Constraints</td>
+      <td>The application configuration constraints.</td>
       <td>Optional</td>
       </tr>
       </tbody>

@@ -69,7 +69,20 @@ information on default databases and changing them into RDBMS databases, see [Wo
     driver="com.mysql.cj.jdbc.Driver"
     ```
 
-## Step 4 - Configure the Second WSO2 API-M Node
+## Step 4 - Configure the Internal Encryption Key
+
+Before starting either node for the first time, generate and configure the internal encryption key used by API Manager to encrypt and decrypt internal data.
+
+Add the following configuration to the `<API-M_HOME>/repository/conf/deployment.toml` file of both nodes:
+
+```toml
+[encryption]
+key = "<generated-64-char-hex-key>"
+```
+
+Both nodes must use the exact same key value. For more information on generating and configuring the key, see [Configuring Encryption Key]({{base_path}}/install-and-setup/setup/security/encryption/symmetric-encryption/#generate-a-secret-key).
+
+## Step 5 - Configure the Second WSO2 API-M Node
 
 Make a copy of the active instance configured above and use this copy as the second active instance.
 
@@ -78,7 +91,7 @@ Make a copy of the active instance configured above and use this copy as the sec
     in [step 1]({{base_path}}/install-and-setup/setup/security/configuring-keystores/keystore-basics/creating-new-keystores).
 
 
-## Step 5 - Configure the Artifact Synchronization 
+## Step 6 - Configure the Artifact Synchronization 
 
 To enable synchronization for runtime artifacts of the two all in one WSO2 API-M instances, it is recommended to have a
 shared file system. Configure a shared file system as the content synchronization mechanism. You can use a common shared file 
@@ -94,7 +107,7 @@ You need to mount the following folders of the two nodes to the shared file syst
     Note that these configurations may change depending on the OS.
 
     
-## Step 6 - Configure Publisher with the Gateway
+## Step 7 - Configure Publisher with the Gateway
 
 When **underlined file system is shared**, the artifacts are available to both Gateway nodes. Therefore, a single node 
 can publish the API artifacts to their own nodes. Therefore, you can point the `service_url` to `localhost` in the
@@ -107,7 +120,7 @@ service_url = "https://localhost:${mgt.transport.https.port}/services/"
 ...
 ```
 
-## Step 7 - Configure Gateway URLs to Expose APIs
+## Step 8 - Configure Gateway URLs to Expose APIs
 
 You need to configure the environment URLs which are used to expose the deployed APIs in the Gateways of both nodes. 
 Add the Gateway hostname when you configure environments in the `<API-M_HOME>/repository/conf/deployment.toml` file in both
@@ -124,7 +137,7 @@ In this case, let's use `gw.am.wso2.com` as the hostname.
     https_endpoint = "https://gw.am.wso2.com:${https.nio.port}"
     ```            
 
-## Step 8 - Configure Rate Limiting
+## Step 9 - Configure Rate Limiting
 
 1.  Configure the data publisher in the `apim.throttling.url_group` section which comes under the `apim.throttling.url_group` block in the `<API-M_HOME>/repository/conf/deployment.toml` file of both nodes.
     
@@ -208,7 +221,7 @@ In this case, let's use `gw.am.wso2.com` as the hostname.
 
 {!includes/design/redis-counter-note.md!}
 
-## Step 9 - Optionally, enable distributed cache invalidation
+## Step 10 - Optionally, enable distributed cache invalidation
 
 Add following configuration block in the `<API-M_HOME>/repository/conf/deployment.toml` file of both the nodes.
 
@@ -217,13 +230,13 @@ Add following configuration block in the `<API-M_HOME>/repository/conf/deploymen
 enabled = true
 ```
 
-## Step 10 - Configure API-M Analytics
+## Step 11 - Configure API-M Analytics
 
 API Manager Analytics is delivered via the API Manager Analytics cloud solution. You need to configure the API Manager Gateway to publish analytics data into the cloud.
 
 See the instructions on [configuring the API Gateway]({{base_path}}/monitoring/api-analytics/choreo-analytics/getting-started-guide/#step-3-configure-the-gateway) with the cloud-based analytics solution.
 
-## Step 11 - Configure Production Hardening
+## Step 12 - Configure Production Hardening
 
 In a **production setup**, ensure that you have taken into account the respective security hardening factors 
 (e.g., changing and encrypting the default passwords, configuring JVM security etc.) and other production deployment 
@@ -233,7 +246,7 @@ For more information on security hardening guidelines, see [Security Guidelines 
 
 For more information on other production deployment guidelines, see [Production Deployment Guidelines]({{base_path}}//install-and-setup/setup/deployment-best-practices/production-deployment-guidelines/#common-guidelines-and-checklist/).
 
-## Step 12 - Start the WSO2 API-M Servers
+## Step 13 - Start the WSO2 API-M Servers
 
 Start the WSO2 API-M servers using the standard start-up script. For more information, see [Starting the server]({{base_path}}/install-and-setup/install/installing-the-product/running-the-api-m/#starting-the-server).
 

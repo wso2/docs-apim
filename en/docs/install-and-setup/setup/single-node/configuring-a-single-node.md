@@ -61,7 +61,20 @@ WSO2 API-M is shipped with H2 databases by default. However, in a **production s
     driver="com.mysql.cj.jdbc.Driver"
     ```
 
-## Step 4 - Configure Gateway URLs to Expose APIs
+## Step 4 - Configure the Internal Encryption Key
+
+Before starting the server for the first time, generate and configure the internal encryption key used by API Manager to encrypt and decrypt internal data.
+
+Add the following configuration to the `<API-M_HOME>/repository/conf/deployment.toml` file:
+
+```toml
+[encryption]
+key = "<generated-64-char-hex-key>"
+```
+
+For more information on generating and configuring the key, see [Configuring Encryption Key]({{base_path}}/install-and-setup/setup/security/encryption/symmetric-encryption/#generate-a-secret-key).
+
+## Step 5 - Configure Gateway URLs to Expose APIs
 
 You need to configure the environment URLs which are used to expose the deployed APIs in the Gateway. Add the Gateway 
 hostname when you configure environments in the `<API-M_HOME>/repository/conf/deployment.toml` file. 
@@ -83,7 +96,7 @@ In this case, let's use `gw.am.wso2.com` as the hostname.
     http_endpoint = "http://gw.am.wso2.com:${http.nio.port}"
     https_endpoint = "https://gw.am.wso2.com:${https.nio.port}"
     ```    
-## Step 5 - Configure Dev Portal URL in Publisher
+## Step 6 - Configure Dev Portal URL in Publisher
 
 Update the DevPortal URL with your chosen hostname to expose the portals. This is for the redirection of 
 `View in Dev Portal` link in Publisher portal.  
@@ -94,13 +107,13 @@ In this case, let's use `api.am.wso2.com` as the hostname:
     url = "https://api.am.wso2.com/devportal"
     ```
 
-## Step 6 - Configure API-M Analytics
+## Step 7 - Configure API-M Analytics
 
 API Manager Analytics is delivered via the API Manager Analytics cloud solution. You need to configure the API Manager Gateway to publish analytics data into the cloud.
 
 See the instructions on [configuring the API Gateway]({{base_path}}/monitoring/api-analytics/choreo-analytics/getting-started-guide/#step-3-configure-the-gateway) with the cloud-based analytics solution.
 
-## Step 7 - Configure Production Hardening
+## Step 8 - Configure Production Hardening
 
 In a **production setup**, ensure that you have taken into account the respective security hardening factors 
 (e.g., changing and encrypting the default passwords, configuring JVM security etc.) and other production deployment 
@@ -110,7 +123,7 @@ For more information on security hardening guidelines, see [Security Guidelines 
 
 For more information on other production deployment guidelines, see [Production Deployment Guidelines]({{base_path}}/install-and-setup/deploying-wso2-api-manager/production-deployment-guidelines/#common-guidelines-and-checklist).
   
-## Step 8 - Start the WSO2 API-M server
+## Step 9 - Start the WSO2 API-M server
 
 If you want to deploy WSO2 API-M using a hybrid single node deployment, where WSO2 Identity Server is used as the Key Manager while the rest of the WSO2 API-M components are all in one node, configure and start the Key Manager (e.g., configure and start WSO2 Identity Server as the Key Manager) before starting the WSO2 API-M server.
 

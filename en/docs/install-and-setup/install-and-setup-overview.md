@@ -125,6 +125,15 @@ To set up the API Manager component, see the following topics.
                         <a href="{{base_path}}/install-and-setup/setup/security/logins-and-passwords/working-with-encrypted-passwords">Working with Encrypted Passwords</a>
                     </li>
             <li>
+                <a>Encryption</a>
+            </li>
+                <li>
+                    <a href="{{base_path}}/install-and-setup/setup/security/encryption/symmetric-encryption">Symmetric Encryption</a>
+                </li>
+                <li>
+                    <a href="{{base_path}}/install-and-setup/setup/security/encryption/asymmetric-encryption">Asymmetric Encryption</a>
+                </li>
+            <li>
                 <a>Configuring Keystores</a>
             </li>
                 <li>
@@ -134,19 +143,16 @@ To set up the API Manager component, see the following topics.
                     <a>Keystore Basics</a>
                 </li>
                     <li>
+                        <a href="{{base_path}}/install-and-setup/setup/security/configuring-keystores/keystore-basics/about-keystores-and-truststores">About Keystores and Truststores</a>
+                    </li>
+                    <li>
                         <a href="{{base_path}}/install-and-setup/setup/security/configuring-keystores/keystore-basics/creating-new-keystores">Creating a New Keystore</a>
                     </li>
                     <li>
                         <a href="{{base_path}}/install-and-setup/setup/security/configuring-keystores/keystore-basics/renewing-a-ca-signed-certificate-in-a-keystore">Renewing a CA Signed Certificate</a>
                     </li>
-                    <li>
-                        <a href="{{base_path}}/install-and-setup/setup/security/configuring-keystores/keystore-basics/about-asymetric-cryptography">About Asymmetric Cryptography</a>
-                    </li>
             <li>
                 <a href="{{base_path}}/install-and-setup/setup/security/enabling-hostname-verification">Enabling HostName Verification</a>
-            </li>
-            <li>
-                <a href="{{base_path}}/install-and-setup/setup/security/enabling-java-security-manager">Enabling Java Security Manager</a>
             </li>
             <li>
                 <a href="{{base_path}}/install-and-setup/setup/security/general-data-protection-regulation-gdpr-for-wso2-api-manager">General Data Protection Regulation (GDPR) for WSO2 API Manager</a>

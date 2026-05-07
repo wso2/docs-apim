@@ -6,7 +6,7 @@
 -  **User Store Health Checker** - This checker iterates through configured user stores of the super tenant domain and attempts to invoke the `isExistingUser` method to check whether a failure occurs.
 
 !!! note
-    The Health Check API only supports WSO2 API Manager that runs on Java 8 or a later version.
+    The Health Check API only supports WSO2 API Manager that runs on Java 21 or 25.
 
 ## Enabling Health Checkers
 

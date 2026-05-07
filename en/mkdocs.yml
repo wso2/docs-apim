@@ -18,12 +18,12 @@
 site_name: WSO2 API Manager Documentation
 site_description: Documentation for WSO2 API Manager
 site_author: WSO2
-site_url: https://apim.docs.wso2.com/en/4.6.0/
+site_url: https://apim.docs.wso2.com/en/4.7.0/
 
 # Repository
 repo_name: wso2/docs-apim
 repo_url: https://github.com/wso2/docs-apim
-edit_uri: https://github.com/wso2/docs-apim/edit/4.6.0/en/docs/
+edit_uri: https://github.com/wso2/docs-apim/edit/4.7.0/en/docs/
 dev_addr: localhost:8000
 # Copyright
 copyright: WSO2 API Manager - Documentation
@@ -108,6 +108,9 @@ nav:
                     - Configure the Proxy Server and the Load Balancer: install-and-setup/setup/setting-up-proxy-server-and-the-load-balancer/configuring-the-proxy-server-and-the-load-balancer.md
                     - Add a custom Proxy Path: install-and-setup/setup/setting-up-proxy-server-and-the-load-balancer/adding-a-custom-proxy-path.md
                 - Security:
+                    - Encryption:
+                        - Symmetric Encryption: install-and-setup/setup/security/encryption/symmetric-encryption.md
+                        - Asymmetric Encryption: install-and-setup/setup/security/encryption/asymmetric-encryption.md                        
                     - Logins and Passwords:
                         - Maintain Logins and Passwords: install-and-setup/setup/security/logins-and-passwords/maintaining-logins-and-passwords.md
                         - Secure Passwords:
@@ -120,11 +123,10 @@ nav:
                     - Configure Keystores:
                         - Configure Keystores in API Manager: install-and-setup/setup/security/configuring-keystores/configuring-keystores-in-wso2-api-manager.md
                         - Keystore Basics:
+                            - About Keystores and Truststores: install-and-setup/setup/security/configuring-keystores/keystore-basics/about-keystores-and-truststores.md
                             - Create a New Keystore: install-and-setup/setup/security/configuring-keystores/keystore-basics/creating-new-keystores.md
                             - Renew a CA Signed Certificate: install-and-setup/setup/security/configuring-keystores/keystore-basics/renewing-a-ca-signed-certificate-in-a-keystore.md
-                            - About Asymetric Cryptography: install-and-setup/setup/security/configuring-keystores/keystore-basics/about-asymetric-cryptography.md
                     - Enable HostName Verification: install-and-setup/setup/security/enabling-hostname-verification.md
-                    - Enable Java Security Manager: install-and-setup/setup/security/enabling-java-security-manager.md
                     - General Data Protection Regulation (GDPR) for WSO2 API Manager: install-and-setup/setup/security/general-data-protection-regulation-gdpr-for-wso2-api-manager.md
                     - Configure Transport Level Security: install-and-setup/setup/security/configuring-transport-level-security.md
                     - User Account Management: install-and-setup/setup/security/user-account-management.md
@@ -333,6 +335,7 @@ nav:
             - Advanced Topics:
                 - Add Custom Attributes to Applications: api-developer-portal/manage-application/advanced-topics/add-custom-attributes-to-applications.md
                 - Change the Owner of an Application: api-developer-portal/manage-application/advanced-topics/changing-the-owner-of-an-application.md
+                - Upgrade the Token Type of an Application to JWT: api-developer-portal/manage-application/advanced-topics/upgrade-token-type-of-application-to-jwt.md
                 - Change the Provider of an Api: api-developer-portal/manage-application/advanced-topics/changing-the-provider-of-an-api.md
                 - Add an Application Creation Workflow: api-developer-portal/manage-application/advanced-topics/adding-an-application-creation-workflow.md
                 - Add an Application Update Workflow: api-developer-portal/manage-application/advanced-topics/adding-an-application-update-workflow.md
@@ -351,6 +354,8 @@ nav:
             - SOAP Client: api-developer-portal/invoke-apis/invoke-apis-using-tools/invoke-an-api-using-a-soap-client.md
             - Postman: api-developer-portal/invoke-apis/invoke-apis-using-tools/try-out-using-postman.md
             - Test APIs with API Chat: api-developer-portal/invoke-apis/invoke-apis-using-tools/test-apis-with-apichat.md
+        - View API Documentation:
+            - View API Documents: api-developer-portal/view-api-documentation/view-api-documentation.md
         - Collaborations:
             - Interact with the Community: api-developer-portal/collaboration/interact-with-the-community.md
         - Generating SDKs:
@@ -375,7 +380,9 @@ nav:
             - Authentication:
                 - Overview: api-security/runtime/api-authentication/api-authentication-overview.md
                 - Disable Security: api-security/runtime/api-authentication/disable-security.md
-                - Secure APIs Using API Keys: api-security/runtime/api-authentication/secure-apis-using-api-keys.md
+                - Secure APIs Using API Keys:
+                    - API Keys: api-security/runtime/api-authentication/secure-apis-using-api-keys.md
+                    - Legacy API Keys (DEPRECATED): api-security/runtime/api-authentication/secure-apis-using-legacy-api-keys.md
                 - Secure APIs Using Basic Authentication: api-security/runtime/api-authentication/secure-apis-using-basic-authentication.md
                 - Secure APIs Using Mutual SSL: api-security/runtime/api-authentication/secure-apis-using-mutual-ssl.md
                 - Secure APIs Using OAuth2 Tokens: api-security/runtime/api-authentication/secure-apis-using-oauth2-tokens.md
@@ -419,18 +426,26 @@ nav:
                 - Obtain User Profile Information with OpenID Connect: api-security/key-management/identity/obtaining-user-profile-information-with-openid-connect.md
             - Third-Party Key Managers:
                 - Overview: api-security/key-management/third-party-key-managers/overview.md
-                - Configure WSO2 IS as a Key Manager: api-security/key-management/third-party-key-managers/configure-wso2is-connector.md
-                - Configure WSO2 IS 7.x as a Key Manager: api-security/key-management/third-party-key-managers/configure-wso2is7-connector.md
+                - Configure WSO2 IS Key Manager: api-security/key-management/third-party-key-managers/configure-wso2is7-connector.md
+                - Configure WSO2 IS 6.x as a Key Manager: api-security/key-management/third-party-key-managers/configure-wso2is-connector.md
+                - Configure Asgardeo as a Key Manager: api-security/key-management/third-party-key-managers/configure-asgardeo-connector.md
                 - Configure Keycloak as a Key Manager: api-security/key-management/third-party-key-managers/configure-keycloak-connector.md
                 - Configure Okta as a Key Manager: api-security/key-management/third-party-key-managers/configure-okta-connector.md
                 - Configure Auth0 as a Key Manager: api-security/key-management/third-party-key-managers/configure-auth0-connector.md
                 - Configure PingFederate as A Key Manager: api-security/key-management/third-party-key-managers/configure-pingfederate-connector.md
                 - Configure ForgeRock as a Key Manager: api-security/key-management/third-party-key-managers/configure-forgerock-connector.md
+                - Configure the Azure AD as a Key Manager: api-security/key-management/third-party-key-managers/configure-azure-ad-key-manager.md
+                - Configure a Custom Key Manager for Out-of-Band Provisioning: api-security/key-management/third-party-key-managers/configure-custom-km-out-of-band.md
                 - Configure a Custom Key Manager: api-security/key-management/third-party-key-managers/configure-custom-connector.md
                 - Configure the Global Key Manager: api-security/key-management/third-party-key-managers/configure-global-key-manager.md
-                - Configure the Azure AD as a Key Manager: api-security/key-management/third-party-key-managers/configure-azure-ad-key-manager.md
+                - Application Configuration Constraints: api-security/key-management/third-party-key-managers/configure-km-application-configuration-constraints.md
 
     - API Gateway:
+        - Overview: api-gateway/platform-gateway-capability.md
+        - API Platform Gateway:
+            - Getting Started: api-gateway/api-platform-gateway/getting-started.md
+            - Setting Up: api-gateway/api-platform-gateway/setting-up.md
+            - Adding and Managing Policies: api-gateway/api-platform-gateway/adding-and-managing-policies.md
         - Universal Gateway:
             - Overview of the WSO2 Universal Gateway: api-gateway/overview-of-the-api-gateway.md
             - Deploy an API to Gateway: api-gateway/deploy-api-to-gateway.md
@@ -496,6 +511,8 @@ nav:
                 - Overview: ai-gateway/multi-model-routing/overview.md
                 - Load Balancing: ai-gateway/multi-model-routing/load-balancing.md
                 - Failover: ai-gateway/multi-model-routing/failover.md
+                - Intelligent Model Routing: ai-gateway/multi-model-routing/intelligent-model-routing.md
+                - Semantic Model Routing: ai-gateway/multi-model-routing/semantic-model-routing.md
             - AI Service Provider Management:
                 - Overview: ai-gateway/ai-vendor-management/overview.md
                 - Anthropic: ai-gateway/ai-vendor-management/anthropic.md
@@ -522,6 +539,7 @@ nav:
                 - URL Guardrail: ai-gateway/ai-guardrails/url-guardrail.md
                 - Word Count Guardrail: ai-gateway/ai-guardrails/word-count-guardrail.md
                 - Semantic Prompt Guardrail: ai-gateway/ai-guardrails/semantic-prompt-guardrail.md
+                - Semantic Tool Filtering Guardrail: ai-gateway/ai-guardrails/semantic-tool-filtering-guardrail.md
                 - PII Masking with Regex: ai-gateway/ai-guardrails/regex-pii-masking.md
                 - Azure Content Safety: ai-gateway/ai-guardrails/azure-content-safety.md
                 - AWS Bedrock Guardrail: ai-gateway/ai-guardrails/aws-bedrock-guardrail.md
@@ -540,7 +558,9 @@ nav:
     - API Analytics & Monetization:
         - API Analytics:
             - Overview: monitoring/api-analytics/analytics-overview.md
-            - Moesif Analytics: monitoring/api-analytics/moesif-analytics/moesif-integration-guide.md
+            - Moesif Analytics:
+                - Integration Guide: monitoring/api-analytics/moesif-analytics/moesif-integration-guide.md
+                - Analytics Dashboards: monitoring/api-analytics/moesif-analytics/moesif-analytics-dashboards.md
             - Other Analytics Solutions:
                 - ELK Based Analytics Installation Guide: monitoring/api-analytics/on-prem/elk-installation-guide.md
                 - Datadog Analytics Installation Guide : monitoring/api-analytics/on-prem/datadog-installation-guide.md
@@ -822,7 +842,7 @@ extra_css:
 extra_javascript:
     - assets/lib/json-formatter/json-formatter.umd.js
     - assets/lib/highlightjs/highlight.min.js
-    - assets/js/theme.js
+    - assets/js/theme.js?v=4.7.0
 extra:
     material:
       jinja2content: true
@@ -952,9 +972,9 @@ extra:
         helm_chart:
             version: 1.2.0-1
             git_tag: v1.2.0.1
-    site_version: 4.6.0
-    #base_path: http://localhost:8000/en/4.6.0
-    base_path: https://apim.docs.wso2.com/en/4.6.0
+    site_version: 4.7.0
+    #base_path: http://localhost:8000/en/4.7.0
+    base_path: https://apim.docs.wso2.com/en/4.7.0
     envoy_path: https://www.envoyproxy.io/docs/envoy/v1.24.1
     redoc_theme: '{
         "colors": {

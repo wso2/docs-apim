@@ -24,26 +24,26 @@ helm upgrade --install ingress-nginx ingress-nginx \
   --namespace ingress-nginx --create-namespace
 ```
 
-## Step 3. Install APIM 4.6.0
+## Step 3. Install API Manager
 
-Run the following commands to install WSO2 API Manager 4.6.0 based on your system architecture:
+Run the following commands to install WSO2 API Manager 4.7.0 based on your system architecture:
 
 === "Linux/ARM"
 
     ```bash
     helm repo remove wso2helmapim
-    helm repo add wso2helmapim https://github.com/wso2/helm-apim/releases/download/acp-4.6.0-beta
+    helm repo add wso2helmapim https://github.com/wso2/helm-apim/releases/download/acp-4.7.0
     helm repo update
-    helm install apim wso2helmapim/wso2am-acp --version 4.6.0-4 -f https://raw.githubusercontent.com/wso2-extensions/apim-gw-connectors/refs/heads/main/samples/helm/APIM-4-6-0/apim-acp-linux-arm-values.yaml --debug --wait --timeout 10m0s
+    helm install apim wso2helmapim/wso2am-acp --version 4.7.0-1 -f https://raw.githubusercontent.com/wso2-extensions/apim-gw-connectors/refs/heads/main/samples/helm/APIM-4-6-0/apim-acp-linux-arm-values.yaml --debug --wait --timeout 10m0s
     ```
 
 === "Linux/AMD"
 
     ```bash
     helm repo remove wso2helmapim
-    helm repo add wso2helmapim https://github.com/wso2/helm-apim/releases/download/acp-4.6.0-beta
+    helm repo add wso2helmapim https://github.com/wso2/helm-apim/releases/download/acp-4.7.0
     helm repo update
-    helm install apim wso2helmapim/wso2am-acp --version 4.6.0-4 -f https://raw.githubusercontent.com/wso2-extensions/apim-gw-connectors/refs/heads/main/samples/helm/APIM-4-6-0/apim-acp-linux-amd-values.yaml --debug --wait --timeout 10m0s
+    helm install apim wso2helmapim/wso2am-acp --version 4.7.0-1 -f https://raw.githubusercontent.com/wso2-extensions/apim-gw-connectors/refs/heads/main/samples/helm/APIM-4-7-0/apim-acp-linux-amd-values.yaml --debug --wait --timeout 10m0s
     ```
 
 ## Step 4. Add EnvoyGateway as external gateway environment

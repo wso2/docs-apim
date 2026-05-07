@@ -48,7 +48,7 @@ latest product version to receive all the security issues resolved until that pa
 <li><p>Make sure that WSO2 default certificates do not exist in any of the keystores in your production environment. For example, be sure to delete the default public certificate in the default trust store that is shipped with the product.</p></li>
 </ul>
 <p>For more information on recommendations for using keystores in WSO2 
-products, see <a href="{{base_path}}/install-and-setup/setup/security/configuring-keystores/keystore-basics/about-asymetric-cryptography/">About Asymmetric Cryptography</a>.<br />
+products, see <a href="{{base_path}}/install-and-setup/setup/security/configuring-keystores/configuring-keystores-in-wso2-api-manager/#recommendations-for-setting-up-keystores">Recommendations for setting up keystores</a>.<br />
 For information on how to create and configure your own keys and keystores, see <a href="{{base_path}}/install-and-setup/setup/security/configuring-keystores/configuring-keystores-in-wso2-api-manager/">Creating New Keystores</a>.</p></td>
 </tr>
 <tr class="odd">
@@ -139,6 +139,18 @@ Transport Level Security</a>.</p>
 <p>Note that cache prevention headers are enabled for the applications with which the product is shipped by default. Therefore, you need to manually enable cache prevention headers only for all the new applications that you deploy in your server.</p>
 </tr>
 <tr class="odd">
+<td><p>Configure Content Security Policy (CSP) headers</p></td>
+<td><p>WSO2 API Manager application code follows secure coding practices and receives regular security updates. Content Security Policy (CSP) provides an additional layer of protection by restricting how the application is framed or embedded in the browser.</p>
+<p>It is recommended to configure the following CSP header at the Load Balancer (LB) level to secure framing behavior and reduce clickjacking risk:</p>
+<pre><code>Content-Security-Policy: frame-src 'self'; frame-ancestors 'self';</code></pre>
+<p>The above policy ensures the following:</p>
+<ul>
+<li><code>frame-src 'self'</code> - Restricts the sources from which content can be loaded into frames within the application to the same origin only.</li>
+<li><code>frame-ancestors 'self'</code> - Prevents the application from being embedded in frames by external origins, mitigating clickjacking attacks.</li>
+</ul>
+</td>
+</tr>
+<tr class="even">
 <td><p>Increase Ephemeral Diffie-Hellman Key size</p></td>
 <td><p>Before starting the server, open the product startup script (<code>api-manager.sh</code> in Linux and <code>api-manager.bat</code> in Windows) and enter the following with the other Java properties:</p>
 <div class="code panel pdl" style="border-width: 1px;">
@@ -147,7 +159,7 @@ Transport Level Security</a>.</p>
 </div>
 </div></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td><p>Disable client-initiated renegotiation</p>
 <p><br />
 </p></td>
@@ -158,7 +170,7 @@ Transport Level Security</a>.</p>
 </div>
 </div></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td><p>Enable HostName Verification</p>
 <p><br />
 </p></td>
@@ -177,7 +189,7 @@ sure that hostname verification is enabled in the product startup script (<code
 </div>
 <p>For instructions, see <a href="{{base_path}}/install-and-setup/setup/security/enabling-hostname-verification/">Enabling HostName Verification</a>.</p></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td><p>Increase JSESSIONID length</p></td>
 <td><div class="content-wrapper">
 <p>If required, increase the session ID length by changing the <code>sessionIDLength</code> attribute of the session manager in the <code>context.xml</code> file (stored in the <code>&lt;PRODUCT_HOME&gt;/repository/conf/tomcat/context.xml</code> directory) as shown below. The default value is 16 bytes.</p>
@@ -188,14 +200,14 @@ sure that hostname verification is enabled in the product startup script (<code
 </div>
 </div></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td><p>Change default admin credentials</p>
 <p><br />
 </p></td>
 <td><p>The Administrator account is configured by default. The default user name and password of the administrator account is &quot;admin&quot;. To change the administrator credentials, you need to first sign in to the management console of the API-M server as &quot;admin&quot;, and then use the <strong>Change Password</strong> option under <strong>Home-&gt;Configure-&gt;User Management-&gt;Users</strong> in the navigator.</p>
 <p>For more information on how to change the password of the administrator in the API-M server, see <a href="{{base_path}}/install-and-setup/setup/security/logins-and-passwords/maintaining-logins-and-passwords/#change-the-super-admin-credentials">Changing the super admin credentials</a>.</p></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td><p>Restrict access to the management console</p>
 <p><br />
 </p></td>
@@ -204,7 +216,7 @@ sure that hostname verification is enabled in the product startup script (<code
 instead of granting all permission to one administrator, you can distribute the responsibilities among administrators by assigning different permissions for conducting various tasks.</p>
 <p>For instructions, see <a href="{{base_path}}/administer/managing-users-and-roles/managing-user-roles/">Managing User Roles</a>.</p></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td><p>Enable log rotation and monitoring</p>
 <p><br />
 </p></td>
@@ -214,7 +226,7 @@ configured in the <code>&lt;PRODUCT_HOME&gt;/repository/conf/log4j2.properties<
 <p>You can also configure rollover based on log file size, and also it is possible to limit the number of backup 
 files. For details on how to configure log rotation and manage log growth details in the API-M runtime, see <a href="{{base_path}}/administer/logging-and-monitoring/logging/managing-log-growth/">Managing log growth</a>.</p></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td><p>Prevent log forging</p></td>
 <td><p>Log forging can be identified by appending a UUID to the log message. The conversion character '%u' can be 
 used in the pattern layout to log a UUID. For example, the log pattern can be set as following for <code>AUDIT</code> 
@@ -223,17 +235,17 @@ logs so that the UUID is printed at the beginning of each log record.</p>
 <p>For more information on configuring logging, see <a href="{{base_path}}/administer/logging-and-monitoring/logging/configuring-logging/">Setting up 
 logging in API Manage</a>.</p></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td><p>Set appropriate JVM parameters</p>
 <p><br />
 </p></td>
-<td><p>The recommended JDK version is JDK 8 or 11. For more information, see <a 
+<td><p>The recommended JDK version is JDK 21 or 25. For more information, see <a 
 href="{{base_path}}/install-and-setup/setup/reference/product-compatibility/#tested-operating-systems-and-jdks">Tested Operating Systems and JDKs</a>.</p>
 <p>You do not need to set the Heap and Permgen values for the JVM from JDK 1.8 onwards as the <code>MaxPermSize</code> value has 
 been removed from Hotspot JVM.</p>
 </td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td><p>Restrict outbound connections of Publisher node</p>
 <p><br />
 </p></td>
@@ -241,7 +253,7 @@ been removed from Hotspot JVM.</p>
     <p>See the <a href="{{base_path}}/install-and-setup/setup/deployment-overview">API-M deployment</a> documentation for details.</p>
 </td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td><p>Use a separate admin user account to login into the system</p>
 <p><br />
 </p></td>
@@ -249,7 +261,7 @@ been removed from Hotspot JVM.</p>
 <p>For more information regarding admin user accounts, see <a href="{{base_path}}/reference/config-catalog/#super-admin-configurations">super admin configurations</a>.</p>
 </td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td><p>Defining callback URL regular expression</p>
 <p><br />
 </p></td>
@@ -257,14 +269,14 @@ been removed from Hotspot JVM.</p>
 </td>
 </tr>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td><p>Configure client authentication</p>
 <p><br />
 </p></td>
 <td><p>Client authentication is used to identify the application or client making a request to the WSO2 API Manager  REST APIs. By default, web applications provided with WSO2 API Manager use a set of default credentials for authentication. However, it is recommended to change these default credentials to enhance security. For more details see, <a href="{{base_path}}/install-and-setup/setup/deployment-best-practices/security-guidelines-for-production-deployment/#configure-client-authentication">Configure client authentication</a></p>
 </td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td><p>Disable Try-It Tool</p>
 <p><br />
 </p></td>
@@ -274,7 +286,7 @@ tryItFunctionalityDisabled = true
 </code></pre>
 </td>
 </tr>
-<tr class="odd" id="restrict-access-java">
+<tr class="even" id="restrict-access-java">
 <td><p>Restrict Access to Java classes and Java Methods/Native Objects in Scripts</p>
 <td>
 <p>JS scripts can be used inside script mediators (eg: in Mock Endpoints) to access Java classes, methods and native objects. By default, all the classes are visible to these scripts. However, it is recommended to restrict access to these.
@@ -327,7 +339,7 @@ Likewise, when <code>limit_java_native_object_access_in_scripts.list_type</code>
 <b>Note: This feature is enabled by default in APIM 4.6.0. </b>
 </td>
 </tr>
-<tr class="even" id="case-sensitive-user-store">
+<tr class="odd" id="case-sensitive-user-store">
 <td><p>Configuring Case-Sensitive User Stores</p></td>
 <td>
 <p>
@@ -341,6 +353,48 @@ Add the following configuration to the <code>deployment.toml</code> file:
 login_username_case_insensitive = false
 </code>
 </pre>
+</td>
+</tr>
+<tr class="even" id="encryption-key">
+<td><p>Add the symmetric encryption key</p></td>
+<td>
+<p>
+You should generate a symmetric encryption key for internal encryption and add it to the <code>deployment.toml</code> file. See <a href="{{base_path}}/install-and-setup/setup/security/encryption/symmetric-encryption/#generate-a-secret-key">Configuring Encryption Key</a> for instructions.
+</p>
+</td>
+</tr>
+<tr class="odd" id="wsdl-url-generation">
+<td><p>Configure WSDL URL generation secret</p></td>
+<td>
+<p>
+If you are using the WSDL URL of a SOAP API generated using the Developer Portal, 
+configure a secret to secure the generated URLs. Add the following to 
+the <code>deployment.toml</code> file:
+</p>
+<pre class="java" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence" style="brush: java; gutter: false; theme: Confluence">
+<code>
+[apim.devportal]
+url_generation_secret = "your_secret"
+</code>
+</pre>
+<p>
+A randomly generated string of at least 32 characters is recommended. You can generate a strong secret using the following command:
+</p>
+<pre><code>openssl rand -base64 32</code></pre>
+<p>
+It is highly recommended to encrypt this secret using the secure vault. See <a href="{{base_path}}/install-and-setup/setup/security/logins-and-passwords/working-with-encrypted-passwords/">Encrypting Passwords in Configuration Files</a> for instructions.
+</p>
+</td>
+</tr>>
+<tr class="even">
+<td><p>Override codepoint limit of SnakeYAML Dependency</p>
+<p><br />
+</p></td>
+<td>The default codepoint limit of SnakeYAML Dependency is 3,145,728 (~3MB), which is set to avoid exposing the system to DoS attacks via large malicious files. By default, API-M uses this default limit. However, the <a href="{{base_path}}/reference/config-catalog/#dependency-configurations">dependency configuration</a> of SnakeYAML Dependency can be overridden using the following configuration:
+<pre class="java" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence" style="brush: java; gutter: false; theme: Confluence"><code>[dependency_properties]
+'snakeyaml.max_file_size_limit' = 10 # size in MB
+</code></pre>
+In a production environment, it is strongly recommended to set this value according to your file size requirements and security policies to mitigate potential security risks. You do not need to set this value by default; configure it only if you encounter a SnakeYAML codepoint limit issue.
 </td>
 </tr>
 </tbody>

@@ -6477,6 +6477,69 @@
                 }
             ],
             "exampleFile": "synapse_artifact_generator_pool.toml"
+        },
+        {
+            "title": "Encryption Configurations",
+            "options": [
+                {
+                    "name": "encryption",
+                    "required": false,
+                    "description": "Defines symmetric encryption settings. Configure this explicitly before first startup in production or distributed deployments.",
+                    "params": [
+                        {
+                            "name": "key",
+                            "type": "string",
+                            "required": true,
+                            "default": "",
+                            "possible": "",
+                            "description": "The symmetric encryption key used for internal data protection. In distributed or cloud deployments, all API Manager instances must use the same key."
+                        }
+                    ]
+                }
+            ],
+            "exampleFile": "encryption.toml"
+        },
+        {
+            "title": "SameSite attribute of cookies configurations",
+            "options": [
+                {
+                    "name": "web_app.cookie_processor",
+                    "required": false,
+                    "description": "This can be configured to update SameSite attribute of the cookies.",
+                    "params": [
+                        {
+                            "name": "same_site_cookies",
+                            "type": "string",
+                            "required": false,
+                            "default": "",
+                            "possible": "strict, lax, none",
+                            "description": "This configuration should be used only if it is required to override the SameSite attribute of all the cookies handled by the web app to the configured value. Allowed values: strict, lax, none. Note: when set to none, cookies must also be marked Secure, or modern browsers may reject them."
+                        }
+                    ]
+                }
+            ],
+            "exampleFile": "web_app.cookie_processor.toml"
+        },
+        {
+            "title": "Dependency Configurations",
+            "options": [
+                {
+                    "name": "dependency_properties",
+                    "required": false,
+                    "description": "This includes configurations for dependency related properties.",
+                    "params": [
+                        {
+                            "name": "snakeyaml.max_file_size_limit",
+                            "type": "integer",
+                            "required": false,
+                            "default": "",
+                            "possible": "",
+                            "description": "This sets the maximum file size (in MB) for YAML files processed by SnakeYAML during API definition import/export operations. Overrides the default codepoint limit of 3,145,728 characters (~3MB) to support larger YAML OpenAPI files. The system calculates the actual codepoint limit using the formula: configured_value × 4 × 1024 × 1024 (e.g., 10 MB = 41,943,040 codepoints). Increasing this value may expose the system to DoS attacks via large malicious files - configure based on actual requirements and security policies."
+                        }
+                    ]
+                }
+            ],
+            "exampleFile": "dependency_properties.toml"
         }
     ]
 }

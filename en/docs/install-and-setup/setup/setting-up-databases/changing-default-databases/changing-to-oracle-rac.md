@@ -14,7 +14,10 @@ Oracle Real Application Clusters (RAC) is an option that facilitates clustering 
 
 ### Setting up the database and users
 
-Follow the instructions below to set up an Oracle RAC database:
+Follow the instructions below to set up an Oracle RAC database:
+
+!!! important "Case Sensitivity"
+    Oracle databases use **case-sensitive comparison** by default. It is **required** to maintain your Oracle RAC database with case-sensitive comparison to preserve product behaviors.
 
 1.  As SYSDBA, create a database user and grant privileges to the user as shown below:
 
