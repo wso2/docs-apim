@@ -248,11 +248,13 @@ The Helm chart mounts a Kubernetes secret named `apim-keystore-secret` as a volu
     docker run --rm -v "$(pwd)/keystores:/keystores" --entrypoint bash <REGISTRY>/wso2am-mysql:<TAG> -c \
       "cp /home/wso2carbon/wso2am-4.7.0/repository/resources/security/wso2carbon.jks \
           /home/wso2carbon/wso2am-4.7.0/repository/resources/security/client-truststore.jks \
+          /home/wso2carbon/wso2am-4.7.0/repository/resources/security/wso2internal.jks \
           /keystores/"
 
     kubectl create secret generic apim-keystore-secret \
       --from-file=wso2carbon.jks=keystores/wso2carbon.jks \
       --from-file=client-truststore.jks=keystores/client-truststore.jks \
+      --from-file=wso2internal.jks=keystores/wso2internal.jks \
       -n apim
     ```
 
@@ -630,6 +632,7 @@ For production-level keystore setup, refer to [Configuring Keystores in WSO2 API
 kubectl create secret generic apim-keystore-secret \
   --from-file=wso2carbon.jks \
   --from-file=client-truststore.jks \
+  --from-file=wso2internal.jks \
   -n apim
 ```
 
@@ -657,6 +660,8 @@ For more details on configuring keystores, see [Configuring Keystores in WSO2 AP
           encryption:
             key: "<generated-64-char-hex-key>"
     ```
+
+    If you encrypt secrets using the cipher tool and secure vault (see [Section 3.3](#33-encrypt-secrets)), also encrypt the internal encryption key and set the encrypted value here instead of the plaintext key.
 
 #### 3.3 Encrypt Secrets
 
@@ -729,7 +734,6 @@ You can also use `apictl` to encrypt secrets. For further guidance, refer to [En
 
     ```yaml
     aws:
-      enabled: true
       secretsManager:
         secretIdentifiers:
           secretEncryptionKey:
@@ -813,6 +817,11 @@ kubernetes:
       enabled: true
       caCertificateConfigMap: "wso2-ca-cert"
       hostname: "<hostname used in the TLS certificate>"
+    backendTrafficPolicy:
+      enabled: true
+      cookie:
+        name: "WSO2_CP_STICKY_SESSION"
+        ttl: "0s"
 ```
 
 #### 4.2 Configure NGINX Ingress Controller

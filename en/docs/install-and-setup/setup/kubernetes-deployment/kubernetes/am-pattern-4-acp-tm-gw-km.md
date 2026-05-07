@@ -217,11 +217,12 @@ The Helm chart mounts a Kubernetes secret named `apim-keystore-secret` as a volu
     ```bash
     mkdir -p keystores
 
-    docker run --rm -v "$(pwd)/keystores:/keystores" --entrypoint bash <REGISTRY>/wso2am-acp-mysql:<TAG> -c "cp /home/wso2carbon/wso2am-acp-4.7.0/repository/resources/security/wso2carbon.jks /home/wso2carbon/wso2am-acp-4.7.0/repository/resources/security/client-truststore.jks /keystores/"
+    docker run --rm -v "$(pwd)/keystores:/keystores" --entrypoint bash <REGISTRY>/wso2am-acp-mysql:<TAG> -c "cp /home/wso2carbon/wso2am-acp-4.7.0/repository/resources/security/wso2carbon.jks /home/wso2carbon/wso2am-acp-4.7.0/repository/resources/security/client-truststore.jks /home/wso2carbon/wso2am-acp-4.7.0/repository/resources/security/wso2internal.jks /keystores/"
 
     kubectl create secret generic apim-keystore-secret \
       --from-file=wso2carbon.jks=keystores/wso2carbon.jks \
       --from-file=client-truststore.jks=keystores/client-truststore.jks \
+      --from-file=wso2internal.jks=keystores/wso2internal.jks \
       -n apim
     ```
 
@@ -599,6 +600,8 @@ In a distributed deployment, all API Manager nodes must use the same internal en
             key: "<generated-64-char-hex-key>"
     ```
 
+    If you encrypt secrets using the cipher tool and secure vault (see [Section 3.2](#32-encrypt-secrets)), also encrypt the internal encryption key and set the encrypted value here instead of the plaintext key.
+
 !!! warning
     All nodes in the deployment must use the exact same key. A mismatch will cause decryption failures across the cluster.
 
@@ -623,6 +626,7 @@ For production-level keystore setup, refer to [Configuring Keystores in WSO2 API
 kubectl create secret generic apim-keystore-secret \
   --from-file=wso2carbon.jks \
   --from-file=client-truststore.jks \
+  --from-file=wso2internal.jks \
   -n apim
 ```
 
@@ -705,7 +709,6 @@ You can also use `apictl` to encrypt secrets. For further guidance, refer to [En
 
     ```yaml
     aws:
-      enabled: true
       secretsManager:
         secretIdentifiers:
           secretEncryptionKey:
@@ -802,6 +805,11 @@ kubernetes:
       enabled: true
       caCertificateConfigMap: "wso2-ca-cert"
       hostname: "<hostname used in the TLS certificate>"
+    backendTrafficPolicy:
+      enabled: true
+      cookie:
+        name: "WSO2_CP_STICKY_SESSION"
+        ttl: "0s"
 ```
 
 #### 4.2 Configure NGINX Ingress Controller
