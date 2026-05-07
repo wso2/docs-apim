@@ -660,7 +660,19 @@ For more details on configuring keystores, see [Configuring Keystores in WSO2 AP
 
 #### 3.3 Encrypt Secrets
 
-By default, database passwords and other sensitive values are stored as plain text in the values files. This is acceptable for local testing but a security risk in production. Use `apictl` to encrypt these values before deploying.
+By default, database passwords and other sensitive values are stored as plain text in the values files. This is acceptable for local testing but a security risk in production.
+
+**Option 1: Cipher Tool**
+
+Use the cipher tool from the product pack to encrypt secrets:
+
+```bash
+sh ciphertool.sh -Dconfigure -Dsymmetric -Dkey.based.encryption
+```
+
+**Option 2: apictl**
+
+You can also use `apictl` to encrypt secrets. For further guidance, refer to [Encrypting Secrets with apictl](https://apim.docs.wso2.com/en/latest/install-and-setup/setup/api-controller/encrypting-secrets-with-ctl/).
 
 1. Initialize `apictl` using the trust store:
 
@@ -713,7 +725,7 @@ By default, database passwords and other sensitive values are stored as plain te
     secureVaultEnabled: true
     ```
 
-5. If you are using a cloud provider secret manager, enable it and reference the internal keystore password:
+5. If you are using a cloud provider secret manager, store the secret encryption key there and reference it so the runtime can fetch and use it to decrypt secrets:
 
     ```yaml
     aws:
@@ -885,5 +897,5 @@ helm install apim wso2/wso2am-all-in-one \
 
 !!! tip "Deployment Parameters"
     - Release names: `is`, `apim`
-    - `<namespace>` — Kubernetes namespace to deploy into (e.g. `wso2`)
+    - `<namespace>` — Kubernetes namespace to deploy into (e.g. `apim`)
     - Helm chart paths: `wso2/identity-server`, `wso2/wso2am-all-in-one` (or local clones)

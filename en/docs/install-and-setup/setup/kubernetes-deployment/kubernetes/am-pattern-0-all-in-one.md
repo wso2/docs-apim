@@ -368,7 +368,7 @@ kubectl create secret generic apim-keystore-secret \
 
 Keep the following in mind:
 
-- The secret must be created in the **same namespace** as the deployment (e.g. `wso2`).
+- The secret must be created in the **same namespace** as the deployment (e.g. `apim`).
 - Use the **same secret name** in both the `kubectl` command above and in your `values.yaml`.
 - If you are using different keystore filenames or aliases, update the helm chart configurations accordingly.
 
@@ -397,7 +397,19 @@ Then reference the secret name in your `values.yaml`. For more details on config
 
 #### 3.3 Encrypt Secrets
 
-By default, database passwords and other sensitive values are stored as plain text in `values.yaml`. This is acceptable for local testing but a security risk in production. Use `apictl` to encrypt these values before deploying. For further guidance, refer to [Encrypting Secrets with apictl](https://apim.docs.wso2.com/en/latest/install-and-setup/setup/api-controller/encrypting-secrets-with-ctl/).
+By default, database passwords and other sensitive values are stored as plain text in `values.yaml`. This is acceptable for local testing but a security risk in production.
+
+**Option 1: Cipher Tool**
+
+Use the cipher tool from the product pack to encrypt secrets:
+
+```bash
+sh ciphertool.sh -Dconfigure -Dsymmetric -Dkey.based.encryption
+```
+
+**Option 2: apictl**
+
+You can also use `apictl` to encrypt secrets. For further guidance, refer to [Encrypting Secrets with apictl](https://apim.docs.wso2.com/en/latest/install-and-setup/setup/api-controller/encrypting-secrets-with-ctl/).
 
 1. Initialize `apictl` using the trust store:
 
@@ -450,7 +462,7 @@ By default, database passwords and other sensitive values are stored as plain te
     secureVaultEnabled: true
     ```
 
-5. If you are using a cloud provider secret manager, enable it and reference the internal keystore password:
+5. If you are using a cloud provider secret manager, store the secret encryption key there and reference it so the runtime can fetch and use it to decrypt secrets:
 
     ```yaml
     aws:
@@ -658,5 +670,5 @@ helm install <release-name> <helm-chart-path> \
 
 !!! tip "Deployment Parameters"
     - `<release-name>` — Name for your Helm release (e.g. `apim`)
-    - `<namespace>` — Kubernetes namespace to deploy into (e.g. `wso2`)
+    - `<namespace>` — Kubernetes namespace to deploy into (e.g. `apim`)
     - `<helm-chart-path>` — Path to the Helm chart, either the repository chart (`wso2/wso2am-all-in-one`) or a local clone (e.g. `./all-in-one`)
