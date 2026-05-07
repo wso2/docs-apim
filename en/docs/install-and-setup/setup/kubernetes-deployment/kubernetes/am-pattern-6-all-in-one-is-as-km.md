@@ -69,37 +69,69 @@ This pattern deploys WSO2 API Manager as a single All-in-One node with WSO2 Iden
     helm repo add wso2 https://helm.wso2.com && helm repo update
     ```
 
-### Step 4 — Install the NGINX Ingress Controller
+### Step 4 — Install a Routing Controller
 
-1. Install the NGINX ingress controller into your cluster:
+WSO2 API Manager 4.7.0 uses Envoy Gateway by default for routing. NGINX Ingress Controller is still available as a legacy option.
 
-    === "Local cluster (Minikube / Rancher Desktop)"
+=== "Envoy Gateway (Default)"
 
-        ```bash
-        helm upgrade --install ingress-nginx ingress-nginx \
-          --repo https://kubernetes.github.io/ingress-nginx \
-          --namespace ingress-nginx --create-namespace
-        ```
-
-    === "Managed cluster (AKS / GKE)"
+    1. Install Envoy Gateway:
 
         ```bash
-        helm upgrade --install ingress-nginx ingress-nginx \
-          --repo https://kubernetes.github.io/ingress-nginx \
-          --namespace ingress-nginx --create-namespace \
-          --set controller.service.externalTrafficPolicy=Local
+        helm install envoy-gateway oci://docker.io/envoyproxy/gateway-helm \
+          --version v1.7.0 -n envoy-gateway-system \
+          --set config.envoyGateway.extensionApis.enableBackend=true \
+          --set envoyGateway.gateway.experimentalFeatures.enabled=true \
+          --create-namespace
         ```
 
-        !!! note
-            `externalTrafficPolicy=Local` is required on managed Kubernetes services. Without it, the cloud load balancer health probes fail and traffic never reaches the ingress controller.
+    2. Apply the sample Gateway manifest:
 
-2. Verify the controller is running:
+        ```bash
+        kubectl apply \
+          -f https://raw.githubusercontent.com/wso2/helm-apim/4.7.x/docs/assets/sample-gateway.yaml \
+          -n apim
+        ```
 
-    ```bash
-    kubectl get pods -n ingress-nginx
-    ```
+    3. Verify the gateway is ready:
 
-    The NGINX pod should show `1/1 Running` before proceeding.
+        ```bash
+        kubectl get gateway -n apim
+        ```
+
+    See [Section 4 — Routing Controller](#4-routing-controller) for full Envoy Gateway values configuration.
+
+=== "NGINX Ingress Controller (Legacy)"
+
+    1. Install the NGINX ingress controller into your cluster:
+
+        === "Local cluster (Minikube / Rancher Desktop)"
+
+            ```bash
+            helm upgrade --install ingress-nginx ingress-nginx \
+              --repo https://kubernetes.github.io/ingress-nginx \
+              --namespace ingress-nginx --create-namespace
+            ```
+
+        === "Managed cluster (AKS / GKE)"
+
+            ```bash
+            helm upgrade --install ingress-nginx ingress-nginx \
+              --repo https://kubernetes.github.io/ingress-nginx \
+              --namespace ingress-nginx --create-namespace \
+              --set controller.service.externalTrafficPolicy=Local
+            ```
+
+            !!! note
+                `externalTrafficPolicy=Local` is required on managed Kubernetes services. Without it, the cloud load balancer health probes fail and traffic never reaches the ingress controller.
+
+    2. Verify the controller is running:
+
+        ```bash
+        kubectl get pods -n ingress-nginx
+        ```
+
+        The NGINX pod should show `1/1 Running` before proceeding.
 
 ### Step 5 — Build and Push Custom Docker Images
 
@@ -108,8 +140,8 @@ Pattern 6 requires two custom Docker images — one for WSO2 API Manager and one
 #### 5.1 — Build the WSO2 API Manager Image
 
 !!! note "Choosing a base image"
-    - **DockerHub** (`wso2/wso2am:4.6.0`) — packages the GA release. Suitable for evaluation and development.
-    - **WSO2 Private Registry** (`docker.wso2.com/wso2am:4.6.0.0`) — includes WSO2 Updates and is recommended for production. Requires an active [WSO2 Subscription](https://wso2.com/subscription).
+    - **DockerHub** (`wso2/wso2am:4.7.0`) — packages the GA release. Suitable for evaluation and development.
+    - **WSO2 Private Registry** (`registry.wso2.com/wso2-apim/am:4.7.0.0`) — includes WSO2 Updates and is recommended for production. Requires an active [WSO2 Subscription](https://wso2.com/subscription).
 
 1. Create a directory for the custom images:
 
@@ -120,11 +152,11 @@ Pattern 6 requires two custom Docker images — one for WSO2 API Manager and one
 2. Create a `Dockerfile.apim` with the MySQL JDBC driver — adjust the URL for other databases:
 
     ```dockerfile
-    FROM wso2/wso2am:4.6.0
+    FROM wso2/wso2am:4.7.0
 
     ADD --chown=wso2carbon:wso2 \
       https://repo1.maven.org/maven2/mysql/mysql-connector-java/8.0.28/mysql-connector-java-8.0.28.jar \
-      /home/wso2carbon/wso2am-4.6.0/repository/components/lib/
+      /home/wso2carbon/wso2am-4.7.0/repository/components/lib/
     ```
 
 3. Build the APIM image, replacing `<REGISTRY>` and `<TAG>` with your values:
@@ -148,7 +180,7 @@ WSO2 IS 7.x needs a custom image that includes the APIM notification event handl
 
 !!! note "Choosing a base image"
     - **DockerHub** (`wso2/wso2is:7.2.0`) — packages the GA release. Suitable for evaluation and development.
-    - **WSO2 Private Registry** (`docker.wso2.com/wso2is:7.2.0.0`) — includes WSO2 Updates and is recommended for production. Requires an active [WSO2 Subscription](https://wso2.com/subscription).
+    - **WSO2 Private Registry** (`registry.wso2.com/wso2-is/is:7.2.0.0`) — includes WSO2 Updates and is recommended for production. Requires an active [WSO2 Subscription](https://wso2.com/subscription).
 
 1. Create a `Dockerfile.is`:
 
@@ -205,7 +237,7 @@ The Helm chart mounts a Kubernetes secret named `apim-keystore-secret` as a volu
 1. Create the `wso2` namespace:
 
     ```bash
-    kubectl create namespace wso2
+    kubectl create namespace apim
     ```
 
 2. Extract the default keystores from your APIM image and create the secret:
@@ -214,24 +246,24 @@ The Helm chart mounts a Kubernetes secret named `apim-keystore-secret` as a volu
     mkdir -p keystores
 
     docker run --rm -v "$(pwd)/keystores:/keystores" --entrypoint bash <REGISTRY>/wso2am-mysql:<TAG> -c \
-      "cp /home/wso2carbon/wso2am-4.6.0/repository/resources/security/wso2carbon.jks \
-          /home/wso2carbon/wso2am-4.6.0/repository/resources/security/client-truststore.jks \
+      "cp /home/wso2carbon/wso2am-4.7.0/repository/resources/security/wso2carbon.jks \
+          /home/wso2carbon/wso2am-4.7.0/repository/resources/security/client-truststore.jks \
           /keystores/"
 
     kubectl create secret generic apim-keystore-secret \
       --from-file=wso2carbon.jks=keystores/wso2carbon.jks \
       --from-file=client-truststore.jks=keystores/client-truststore.jks \
-      -n wso2
+      -n apim
     ```
 
 3. Verify the secret was created:
 
     ```bash
-    kubectl get secret apim-keystore-secret -n wso2
+    kubectl get secret apim-keystore-secret -n apim
     ```
 
 !!! note
-    The commands above use the default WSO2 keystores which are suitable for evaluation only. For production-level keystore setup, refer to [Configuring Keystores in WSO2 API Manager]({{base_path}}/install-and-setup/setup/security/configuring-keystores/configuring-keystores-in-wso2-api-manager/). You must also exchange the public certificates of APIM and IS and import them into each other's truststore — see [Importing certificates to the truststore](https://apim.docs.wso2.com/en/4.6.0/install-and-setup/setup/security/configuring-keystores/keystore-basics/creating-new-keystores/#step-3-importing-certificates-to-the-truststore).
+    The commands above use the default WSO2 keystores which are suitable for evaluation only. For production-level keystore setup, refer to [Configuring Keystores in WSO2 API Manager]({{base_path}}/install-and-setup/setup/security/configuring-keystores/configuring-keystores-in-wso2-api-manager/). You must also exchange the public certificates of APIM and IS and import them into each other's truststore — see [Importing certificates to the truststore](https://apim.docs.wso2.com/en/4.7.0/install-and-setup/setup/security/configuring-keystores/keystore-basics/creating-new-keystores/#step-3-importing-certificates-to-the-truststore).
 
 ### Step 8 — Deploy WSO2 Identity Server { #step-8 }
 
@@ -290,14 +322,14 @@ The Helm chart mounts a Kubernetes secret named `apim-keystore-secret` as a volu
 
     ```bash
     helm install is wso2/identity-server \
-      --namespace wso2 --create-namespace \
+      --namespace apim --create-namespace \
       -f values-is.yaml
     ```
 
 4. Wait for the IS pod to be ready:
 
     ```bash
-    kubectl get pods -n wso2 -w
+    kubectl get pods -n apim -w
     ```
 
     The IS pod should show `1/1 Running` before deploying APIM.
@@ -307,7 +339,7 @@ The Helm chart mounts a Kubernetes secret named `apim-keystore-secret` as a volu
 1. Download the default values file for the All-in-One:
 
     ```bash
-    curl -L https://raw.githubusercontent.com/wso2/helm-apim/4.6.x/docs/am-pattern-1-all-in-one-HA/default_values.yaml \
+    curl -L https://raw.githubusercontent.com/wso2/helm-apim/4.7.x/docs/am-pattern-1-all-in-one-HA/default_values.yaml \
       -o values-apim.yaml
     ```
 
@@ -347,8 +379,8 @@ The Helm chart mounts a Kubernetes secret named `apim-keystore-secret` as a volu
 
     ```bash
     helm install apim wso2/wso2am-all-in-one \
-      --version 4.6.0-1 \
-      --namespace wso2 \
+      --version 4.7.0-1 \
+      --namespace apim \
       --dependency-update \
       -f values-apim.yaml
     ```
@@ -393,6 +425,15 @@ Once both APIM and IS are running, register IS as a Key Manager through the APIM
 
 ### Step 11 — Configure DNS { #step-11 }
 
+!!! note "Envoy Gateway users"
+    If you installed Envoy Gateway (the default), get the external address from the Gateway resource:
+
+    ```bash
+    kubectl get gateway -n apim
+    ```
+
+    Then map the `kubernetes.gatewayAPI.*` hostnames from your `values.yaml` to the external address.
+
 === "Minikube"
 
     1. Run the following command in a **separate terminal** and keep it running:
@@ -404,11 +445,16 @@ Once both APIM and IS are running, register IS as a Key Manager through the APIM
         !!! note
             `minikube tunnel` requires sudo privileges to expose ports 80 and 443. You will be prompted for your system password. Once entered, the tunnel will stay running silently — this is expected. **Do not close this terminal.** Open a new terminal for the next steps.
 
-    2. Get the external IP assigned to the ingress:
+    2. Get the external IP:
 
-        ```bash
-        kubectl get ing -n wso2
-        ```
+        === "Envoy Gateway (Default)"
+            ```bash
+            kubectl get gateway -n apim
+            ```
+        === "NGINX Ingress Controller (Legacy)"
+            ```bash
+            kubectl get ing -n apim
+            ```
 
         The ADDRESS column should now show `127.0.0.1`.
 
@@ -420,11 +466,16 @@ Once both APIM and IS are running, register IS as a Key Manager through the APIM
 
 === "Rancher Desktop"
 
-    1. Get the external IP assigned to the ingress:
+    1. Get the external IP:
 
-        ```bash
-        kubectl get ing -n wso2
-        ```
+        === "Envoy Gateway (Default)"
+            ```bash
+            kubectl get gateway -n apim
+            ```
+        === "NGINX Ingress Controller (Legacy)"
+            ```bash
+            kubectl get ing -n apim
+            ```
 
     2. Add the following entry to your `/etc/hosts` file, replacing `<EXTERNAL-IP>` with the value from the output above:
 
@@ -434,11 +485,16 @@ Once both APIM and IS are running, register IS as a Key Manager through the APIM
 
 === "Managed cluster (AKS / GKE)"
 
-    1. Get the external IP assigned to the ingress:
+    1. Get the external IP:
 
-        ```bash
-        kubectl get ing -n wso2
-        ```
+        === "Envoy Gateway (Default)"
+            ```bash
+            kubectl get gateway -n apim
+            ```
+        === "NGINX Ingress Controller (Legacy)"
+            ```bash
+            kubectl get ing -n apim
+            ```
 
     2. For quick testing, add the `ADDRESS` value to your `/etc/hosts`:
 
@@ -449,19 +505,37 @@ Once both APIM and IS are running, register IS as a Key Manager through the APIM
         For a production setup, create DNS records in your DNS provider mapping these hostnames to the external IP.
 
 !!! note
-    `wso2is.km` is the default IS ingress hostname. If you changed it in `values-is.yaml`, use that hostname here instead.
+    These are the default hostnames. If you customised the hostnames in your `values.yaml`, use those values here instead:
+
+    - **Envoy Gateway**: `kubernetes.gatewayAPI.management.hostname`, `kubernetes.gatewayAPI.gateway.hostname`, etc.
+    - **NGINX**: `ingress.controlPlane.hostname`, `ingress.gateway.hostname`, etc.
+    - `wso2is.km` is the default IS hostname (configure in `values-is.yaml`).
 
 ### Step 12 — Access the Portals
 
 1. Once DNS is configured, open the following URLs in your browser:
 
-    | Portal | URL |
-    | ------ | --- |
-    | Publisher | `https://am.wso2.com/publisher` |
-    | Developer Portal | `https://am.wso2.com/devportal` |
-    | Admin Portal | `https://am.wso2.com/admin` |
-    | Carbon Console | `https://am.wso2.com/carbon` |
-    | IS Management Console | `https://wso2is.km/console` |
+    === "Envoy Gateway (Default)"
+
+        | Portal | URL |
+        | ------ | --- |
+        | Publisher | `https://<kubernetes.gatewayAPI.management.hostname>/publisher` |
+        | Developer Portal | `https://<kubernetes.gatewayAPI.management.hostname>/devportal` |
+        | Admin Portal | `https://<kubernetes.gatewayAPI.management.hostname>/admin` |
+        | Carbon Console | `https://<kubernetes.gatewayAPI.management.hostname>/carbon` |
+        | IS Management Console | `https://wso2is.km/console` |
+
+    === "NGINX Ingress Controller (Legacy)"
+
+        | Portal | URL |
+        | ------ | --- |
+        | Publisher | `https://<kubernetes.ingress.management.hostname>/publisher` |
+        | Developer Portal | `https://<kubernetes.ingress.management.hostname>/devportal` |
+        | Admin Portal | `https://<kubernetes.ingress.management.hostname>/admin` |
+        | Carbon Console | `https://<kubernetes.ingress.management.hostname>/carbon` |
+        | IS Management Console | `https://wso2is.km/console` |
+
+    Replace the hostname placeholders with the actual values from your `values.yaml`. With default values, the management hostname resolves to `am.wso2.com`.
 
     !!! note "Chrome may block access"
         Chrome enforces HSTS preloading for `*.wso2.com` domains, which removes the option to bypass the self-signed certificate warning entirely. Use Firefox or Safari instead, and click through the certificate warning when prompted.
@@ -476,7 +550,7 @@ Once both APIM and IS are running, register IS as a Key Manager through the APIM
 
 All configurations in this section are made by editing your `values-apim.yaml` or `values-is.yaml` files.
 
-The Helm charts for WSO2 API Manager are available in the [WSO2 Helm Chart Repository](https://github.com/wso2/helm-apim/tree/4.6.x). For WSO2 Identity Server, refer to the [WSO2 IS Kubernetes deployment documentation](https://is.docs.wso2.com/en/7.0.0/deploy/deploy-is-on-kubernetes/).
+The Helm charts for WSO2 API Manager are available in the [WSO2 Helm Chart Repository](https://github.com/wso2/helm-apim/tree/4.7.x). For WSO2 Identity Server, refer to the [WSO2 IS Kubernetes deployment documentation](https://is.docs.wso2.com/en/7.0.0/deploy/deploy-is-on-kubernetes/).
 
 !!! note "Resource Naming Convention"
     Kubernetes resources created by the Helm charts follow this naming pattern:
@@ -556,14 +630,35 @@ For production-level keystore setup, refer to [Configuring Keystores in WSO2 API
 kubectl create secret generic apim-keystore-secret \
   --from-file=wso2carbon.jks \
   --from-file=client-truststore.jks \
-  -n wso2
+  -n apim
 ```
 
-For mutual certificate trust between APIM and IS, import each product's public certificate into the other's truststore. Refer to the [Importing certificates to the truststore](https://apim.docs.wso2.com/en/4.6.0/install-and-setup/setup/security/configuring-keystores/keystore-basics/creating-new-keystores/#step-3-importing-certificates-to-the-truststore) guide.
+For mutual certificate trust between APIM and IS, import each product's public certificate into the other's truststore. Refer to the [Importing certificates to the truststore](https://apim.docs.wso2.com/en/4.7.0/install-and-setup/setup/security/configuring-keystores/keystore-basics/creating-new-keystores/#step-3-importing-certificates-to-the-truststore) guide.
 
 For more details on configuring keystores, see [Configuring Keystores in WSO2 API Manager](https://apim.docs.wso2.com/en/latest/install-and-setup/setup/security/configuring-keystores/configuring-keystores-in-wso2-api-manager/).
 
-#### 3.2 Encrypt Secrets
+#### 3.2 Configure the Internal Encryption Key
+
+!!! warning "Mandatory in 4.7.0"
+    The internal encryption key is **required** in WSO2 API Manager 4.7.0. You must set this before the first startup — changing it afterwards will cause decryption failures for any data already encrypted.
+
+1. Generate a unique 256-bit key:
+
+    ```bash
+    openssl rand -hex 32
+    ```
+
+2. Add the key to your `values-apim.yaml`:
+
+    ```yaml
+    wso2:
+      apim:
+        configurations:
+          encryption:
+            key: "<generated-64-char-hex-key>"
+    ```
+
+#### 3.3 Encrypt Secrets
 
 By default, database passwords and other sensitive values are stored as plain text in the values files. This is acceptable for local testing but a security risk in production. Use `apictl` to encrypt these values before deploying.
 
@@ -577,7 +672,7 @@ By default, database passwords and other sensitive values are stored as plain te
 
     ```
     apictl secret init
-    Enter Key Store location: /home/wso2carbon/wso2am-4.6.0/repository/resources/security/wso2carbon.jks
+    Enter Key Store location: /home/wso2carbon/wso2am-4.7.0/repository/resources/security/wso2carbon.jks
     Enter Key Store password: 
     Enter Key alias: wso2carbon
     Enter Key password: 
@@ -622,26 +717,99 @@ By default, database passwords and other sensitive values are stored as plain te
 
     ```yaml
     aws:
-      # -- If AWS is used as the cloud provider
       enabled: true
-
-    internalKeystorePassword:
-      # -- Secret name in the cloud provider's secret manager
-      secretName: ""
-      # -- Secret key in the cloud provider's secret manager
-      secretKey: ""
+      secretsManager:
+        secretIdentifiers:
+          secretEncryptionKey:
+            # -- Secret name in the cloud provider's secret manager
+            secretName: ""
+            # -- Secret key in the cloud provider's secret manager
+            secretKey: ""
     ```
 
     !!! note
         Currently, AWS, Azure, and GCP Secrets Managers are supported.
 
-#### 3.3 Configure SSL
+#### 3.4 Configure SSL
 
 For WSO2 recommended SSL best practices when exposing services outside the cluster, refer to the [WSO2 container guide](https://github.com/wso2/container-guide/blob/master/route/Routing.md#configuring-ssl).
 
-### 4. Ingress
+### 4. Routing Controller { #4-routing-controller }
 
-#### 4.1 Configure Ingress Annotations
+#### 4.1 Configure Envoy Gateway (Default in 4.7.x)
+
+Envoy Gateway is the default routing controller in WSO2 API Manager 4.7.0. It uses the Kubernetes Gateway API, which provides more flexibility than traditional Ingress resources.
+
+**Step 1: Create a TLS secret**
+
+```bash
+kubectl create secret tls apim-tls-secret \
+  --key <private-key-file> \
+  --cert <certificate-file> \
+  -n apim
+```
+
+**Step 2: Install Envoy Gateway** (if not already done in Step 4 of the Quick Start)
+
+```bash
+helm install envoy-gateway oci://docker.io/envoyproxy/gateway-helm \
+  --version v1.7.0 -n envoy-gateway-system \
+  --set config.envoyGateway.extensionApis.enableBackend=true \
+  --set envoyGateway.gateway.experimentalFeatures.enabled=true \
+  --create-namespace
+```
+
+**Step 3: Apply the Gateway manifest**
+
+```bash
+kubectl apply \
+  -f https://raw.githubusercontent.com/wso2/helm-apim/4.7.x/docs/assets/sample-gateway.yaml \
+  -n apim
+```
+
+**Step 4: (Optional) Create a CA ConfigMap for backend TLS**
+
+If you want Envoy Gateway to verify backend TLS certificates, create a ConfigMap with your CA certificate:
+
+```bash
+kubectl create configmap wso2-ca-cert \
+  --from-file=ca.crt=<path-to-ca-cert> \
+  -n apim
+```
+
+**Step 5: Configure Envoy Gateway in `values.yaml`**
+
+```yaml
+kubernetes:
+  gatewayAPI:
+    enabled: true
+    gatewayName: "wso2-apim-gateway"
+    defaultConfigMapCreation: false
+    management:
+      enabled: true
+      hostname: "am.wso2.com"
+    gateway:
+      enabled: true
+      hostname: "gw.wso2.com"
+    websocket:
+      enabled: true
+      hostname: "websocket.wso2.com"
+    websub:
+      enabled: true
+      hostname: "websub.wso2.com"
+    backendTLSPolicy:
+      enabled: true
+      caCertificateConfigMap: "wso2-ca-cert"
+      hostname: "<hostname used in the TLS certificate>"
+```
+
+#### 4.2 Configure NGINX Ingress Controller (Legacy)
+
+NGINX Ingress Controller is available as a legacy option in 4.7.x. Use this section if you are not using Envoy Gateway.
+
+**Configure ingress annotations**
+
+You may need to customise these if you want to enable sticky sessions, change the backend protocol, or apply rate limiting.
 
 ```yaml
 ingressClass: "nginx"
@@ -662,13 +830,13 @@ ingress:
 
 Refer to the [NGINX ingress annotations documentation](https://kubernetes.github.io/ingress-nginx/user-guide/nginx-configuration/annotations/) for the full list of supported options.
 
-#### 4.2 Configure TLS for Ingress
+**Configure TLS for Ingress**
 
 ```bash
 kubectl create secret tls my-tls-secret \
   --key <private-key-file> \
   --cert <certificate-file> \
-  -n wso2
+  -n apim
 ```
 
 Then set the secret name in your `values.yaml` under `ingress.tlsSecret`. Refer to the [Kubernetes ingress TLS documentation](https://kubernetes.io/docs/concepts/services-networking/ingress/#tls) for more details.
@@ -705,12 +873,12 @@ Once your values files are configured, deploy both components:
 
 ```bash
 helm install is wso2/identity-server \
-  --namespace wso2 --create-namespace \
+  --namespace apim --create-namespace \
   -f values-is.yaml
 
 helm install apim wso2/wso2am-all-in-one \
-  --version 4.6.0-1 \
-  --namespace wso2 \
+  --version 4.7.0-1 \
+  --namespace apim \
   --dependency-update \
   -f values-apim.yaml
 ```
