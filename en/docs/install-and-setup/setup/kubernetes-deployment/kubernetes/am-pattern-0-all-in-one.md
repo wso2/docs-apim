@@ -50,7 +50,7 @@ This section gets WSO2 API Manager running on Kubernetes with default settings. 
 
 ### Step 4 — Install a Routing Controller
 
-WSO2 API Manager 4.7.0 uses Envoy Gateway by default for routing. NGINX Ingress Controller is still available as a legacy option.
+WSO2 API Manager 4.7.0 uses Envoy Gateway by default for routing. NGINX Ingress Controller is also available.
 
 === "Envoy Gateway (Default)"
 
@@ -80,7 +80,7 @@ WSO2 API Manager 4.7.0 uses Envoy Gateway by default for routing. NGINX Ingress 
 
     See [Section 4 — Routing Controller](#4-routing-controller) for full Envoy Gateway values configuration.
 
-=== "NGINX Ingress Controller (Legacy)"
+=== "NGINX Ingress Controller"
 
     1. Install the NGINX ingress controller into your cluster:
 
@@ -166,7 +166,7 @@ WSO2 API Manager 4.7.0 uses Envoy Gateway by default for routing. NGINX Ingress 
             ```bash
             kubectl get gateway -n apim
             ```
-        === "NGINX Ingress Controller (Legacy)"
+        === "NGINX Ingress Controller"
             ```bash
             kubectl get ing -n apim
             ```
@@ -187,7 +187,7 @@ WSO2 API Manager 4.7.0 uses Envoy Gateway by default for routing. NGINX Ingress 
             ```bash
             kubectl get gateway -n apim
             ```
-        === "NGINX Ingress Controller (Legacy)"
+        === "NGINX Ingress Controller"
             ```bash
             kubectl get ing -n apim
             ```
@@ -206,7 +206,7 @@ WSO2 API Manager 4.7.0 uses Envoy Gateway by default for routing. NGINX Ingress 
             ```bash
             kubectl get gateway -n apim
             ```
-        === "NGINX Ingress Controller (Legacy)"
+        === "NGINX Ingress Controller"
             ```bash
             kubectl get ing -n apim
             ```
@@ -238,7 +238,7 @@ WSO2 API Manager 4.7.0 uses Envoy Gateway by default for routing. NGINX Ingress 
         | Carbon Console | `https://<kubernetes.gatewayAPI.management.hostname>/carbon` |
         | Gateway | `https://<kubernetes.gatewayAPI.gateway.hostname>` |
 
-    === "NGINX Ingress Controller (Legacy)"
+    === "NGINX Ingress Controller"
 
         | Portal | URL |
         | ------ | --- |
@@ -553,9 +553,9 @@ kubernetes:
       hostname: "<hostname used in the TLS certificate>"
 ```
 
-#### 4.2 Configure NGINX Ingress Controller (Legacy)
+#### 4.2 Configure NGINX Ingress Controller
 
-NGINX Ingress Controller is available as a legacy option in 4.7.x. Use this section if you are not using Envoy Gateway.
+Use this section if you are using NGINX Ingress Controller instead of Envoy Gateway.
 
 **Configure ingress annotations**
 

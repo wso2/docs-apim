@@ -53,55 +53,23 @@ All nodes should show a `Ready` status before proceeding.
 helm repo add wso2 https://helm.wso2.com && helm repo update
 ```
 
-## Step 2 — Install a Routing Controller
+## Step 2 — Install Envoy Gateway
 
-WSO2 API Manager 4.7.0 uses Envoy Gateway by default for routing. NGINX Ingress Controller is available as a legacy option.
+```bash
+helm install envoy-gateway oci://docker.io/envoyproxy/gateway-helm \
+  --version v1.7.0 -n envoy-gateway-system \
+  --set config.envoyGateway.extensionApis.enableBackend=true \
+  --set envoyGateway.gateway.experimentalFeatures.enabled=true \
+  --create-namespace
+```
 
-=== "Envoy Gateway (Default)"
+Apply the sample Gateway manifest:
 
-    ```bash
-    helm install envoy-gateway oci://docker.io/envoyproxy/gateway-helm \
-      --version v1.7.0 -n envoy-gateway-system \
-      --set config.envoyGateway.extensionApis.enableBackend=true \
-      --set envoyGateway.gateway.experimentalFeatures.enabled=true \
-      --create-namespace
-    ```
-
-    Apply the sample Gateway manifest:
-
-    ```bash
-    kubectl apply \
-      -f https://raw.githubusercontent.com/wso2/helm-apim/4.7.x/docs/assets/sample-gateway.yaml \
-      -n apim
-    ```
-
-=== "NGINX Ingress Controller (Legacy)"
-
-    === "Local cluster (Minikube / Rancher Desktop)"
-
-        ```bash
-        helm upgrade --install ingress-nginx ingress-nginx \
-          --repo https://kubernetes.github.io/ingress-nginx \
-          --namespace ingress-nginx --create-namespace
-        ```
-
-    === "Managed cluster (AKS / GKE)"
-
-        ```bash
-        helm upgrade --install ingress-nginx ingress-nginx \
-          --repo https://kubernetes.github.io/ingress-nginx \
-          --namespace ingress-nginx --create-namespace \
-          --set controller.service.externalTrafficPolicy=Local
-        ```
-
-        !!! note
-            `externalTrafficPolicy=Local` is required on managed Kubernetes services. Without it, the cloud load balancer health probes fail and traffic never reaches the ingress controller.
-
-    Wait until the NGINX pod is running:
-
-    ```bash
-    kubectl get pods -n ingress-nginx
-    ```
+```bash
+kubectl apply \
+  -f https://raw.githubusercontent.com/wso2/helm-apim/4.7.x/docs/assets/sample-gateway.yaml \
+  -n apim
+```
 
 ## Step 3 — Deploy WSO2 API Manager
 
@@ -130,16 +98,11 @@ The pod should show `1/1 Running` before proceeding.
     minikube tunnel
     ```
 
-    Get the external IP:
+    Get the external IP assigned to the gateway:
 
-    === "Envoy Gateway (Default)"
-        ```bash
-        kubectl get gateway -n apim
-        ```
-    === "NGINX Ingress Controller (Legacy)"
-        ```bash
-        kubectl get ing -n apim
-        ```
+    ```bash
+    kubectl get gateway -n apim
+    ```
 
     Then add to your `/etc/hosts`:
 
@@ -149,16 +112,11 @@ The pod should show `1/1 Running` before proceeding.
 
 === "Rancher Desktop"
 
-    Get the external IP:
+    Get the external IP assigned to the gateway:
 
-    === "Envoy Gateway (Default)"
-        ```bash
-        kubectl get gateway -n apim
-        ```
-    === "NGINX Ingress Controller (Legacy)"
-        ```bash
-        kubectl get ing -n apim
-        ```
+    ```bash
+    kubectl get gateway -n apim
+    ```
 
     Add to your `/etc/hosts`, replacing `<EXTERNAL-IP>`:
 
@@ -168,16 +126,11 @@ The pod should show `1/1 Running` before proceeding.
 
 === "Managed cluster (AKS / GKE)"
 
-    Get the external IP:
+    Get the external IP assigned to the gateway:
 
-    === "Envoy Gateway (Default)"
-        ```bash
-        kubectl get gateway -n apim
-        ```
-    === "NGINX Ingress Controller (Legacy)"
-        ```bash
-        kubectl get ing -n apim
-        ```
+    ```bash
+    kubectl get gateway -n apim
+    ```
 
     For quick testing, add the `ADDRESS` value to your `/etc/hosts`:
 
