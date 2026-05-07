@@ -64,9 +64,10 @@ WSO2 API Manager 4.7.0 uses Envoy Gateway by default for routing. NGINX Ingress 
           --create-namespace
         ```
 
-    2. Apply the sample Gateway manifest:
+    2. Create the `apim` namespace and apply the sample Gateway manifest:
 
         ```bash
+        kubectl create namespace apim
         kubectl apply \
           -f https://raw.githubusercontent.com/wso2/helm-apim/4.7.x/docs/assets/sample-gateway.yaml \
           -n apim

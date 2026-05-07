@@ -85,9 +85,10 @@ WSO2 API Manager 4.7.0 uses Envoy Gateway by default for routing. NGINX Ingress 
           --create-namespace
         ```
 
-    2. Apply the sample Gateway manifest:
+    2. Create the `apim` namespace and apply the sample Gateway manifest:
 
         ```bash
+        kubectl create namespace apim
         kubectl apply \
           -f https://raw.githubusercontent.com/wso2/helm-apim/4.7.x/docs/assets/sample-gateway.yaml \
           -n apim
@@ -137,7 +138,7 @@ WSO2 API Manager 4.7.0 uses Envoy Gateway by default for routing. NGINX Ingress 
 
 Pattern 6 requires two custom Docker images — one for WSO2 API Manager and one for WSO2 Identity Server.
 
-#### 5.1 — Build the WSO2 API Manager Image
+#### 5.1 — Create the WSO2 API Manager Dockerfile
 
 !!! note "Choosing a base image"
     - **DockerHub** (`wso2/wso2am:4.7.0`) — packages the GA release. Suitable for evaluation and development.
@@ -159,22 +160,7 @@ Pattern 6 requires two custom Docker images — one for WSO2 API Manager and one
       /home/wso2carbon/wso2am-4.7.0/repository/components/lib/
     ```
 
-3. Build the APIM image, replacing `<REGISTRY>` and `<TAG>` with your values:
-
-    ```bash
-    docker buildx build --platform linux/amd64 -f Dockerfile.apim -t <REGISTRY>/wso2am-mysql:<TAG> .
-    ```
-
-    !!! note "Matching your cluster architecture"
-        The `--platform` flag ensures the image is built for the architecture your cluster nodes run on. Most managed clusters (AKS, GKE) and Linux servers use `linux/amd64`. If you are building on Apple Silicon (M1/M2/M3/M4) without this flag, the pod will fail to start with `no match for platform in manifest`.
-
-        To check your cluster node architecture:
-
-        ```bash
-        kubectl get nodes -o jsonpath='{.items[*].status.nodeInfo.architecture}'
-        ```
-
-#### 5.2 — Build the WSO2 Identity Server Image
+#### 5.2 — Create the WSO2 Identity Server Dockerfile
 
 WSO2 IS 7.x needs a custom image that includes the APIM notification event handler JAR. This JAR enables IS to notify APIM when tokens are revoked.
 
@@ -192,7 +178,9 @@ WSO2 IS 7.x needs a custom image that includes the APIM notification event handl
       /home/wso2carbon/wso2is-7.2.0/repository/components/dropins/
     ```
 
-2. Build and push both images:
+#### 5.3 — Build and Push Both Images
+
+1. Build and push both images, replacing `<REGISTRY>` and `<TAG>` with your values:
 
     ```bash
     docker buildx build --platform linux/amd64 -f Dockerfile.apim -t <REGISTRY>/wso2am-mysql:<TAG> .
@@ -202,7 +190,16 @@ WSO2 IS 7.x needs a custom image that includes the APIM notification event handl
     docker push <REGISTRY>/wso2is-km:<TAG>
     ```
 
-3. Get the image digests — you will need them when configuring values files:
+    !!! note "Matching your cluster architecture"
+        The `--platform` flag ensures the image is built for the architecture your cluster nodes run on. Most managed clusters (AKS, GKE) and Linux servers use `linux/amd64`. If you are building on Apple Silicon (M1/M2/M3/M4) without this flag, the pod will fail to start with `no match for platform in manifest`.
+
+        To check your cluster node architecture:
+
+        ```bash
+        kubectl get nodes -o jsonpath='{.items[*].status.nodeInfo.architecture}'
+        ```
+
+2. Get the image digests — you will need them when configuring values files:
 
     ```bash
     docker inspect <REGISTRY>/wso2am-mysql:<TAG> \
