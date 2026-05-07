@@ -53,47 +53,69 @@ All nodes should show a `Ready` status before proceeding.
 helm repo add wso2 https://helm.wso2.com && helm repo update
 ```
 
-## Step 2 — Install the NGINX Ingress Controller
+## Step 2 — Install a Routing Controller
 
-=== "Local cluster (Minikube / Rancher Desktop)"
+WSO2 API Manager 4.7.0 uses Envoy Gateway by default for routing. NGINX Ingress Controller is available as a legacy option.
 
-    ```bash
-    helm upgrade --install ingress-nginx ingress-nginx \
-      --repo https://kubernetes.github.io/ingress-nginx \
-      --namespace ingress-nginx --create-namespace
-    ```
-
-=== "Managed cluster (AKS / GKE)"
+=== "Envoy Gateway (Default)"
 
     ```bash
-    helm upgrade --install ingress-nginx ingress-nginx \
-      --repo https://kubernetes.github.io/ingress-nginx \
-      --namespace ingress-nginx --create-namespace \
-      --set controller.service.externalTrafficPolicy=Local
+    helm install envoy-gateway oci://docker.io/envoyproxy/gateway-helm \
+      --version v1.7.0 -n envoy-gateway-system \
+      --set config.envoyGateway.extensionApis.enableBackend=true \
+      --set envoyGateway.gateway.experimentalFeatures.enabled=true \
+      --create-namespace
     ```
 
-    !!! note
-        `externalTrafficPolicy=Local` is required on managed Kubernetes services. Without it, the cloud load balancer health probes fail and traffic never reaches the ingress controller.
+    Apply the sample Gateway manifest:
 
-Wait until the NGINX pod is running:
+    ```bash
+    kubectl apply \
+      -f https://raw.githubusercontent.com/wso2/helm-apim/4.7.x/docs/assets/sample-gateway.yaml \
+      -n apim
+    ```
 
-```bash
-kubectl get pods -n ingress-nginx
-```
+=== "NGINX Ingress Controller (Legacy)"
+
+    === "Local cluster (Minikube / Rancher Desktop)"
+
+        ```bash
+        helm upgrade --install ingress-nginx ingress-nginx \
+          --repo https://kubernetes.github.io/ingress-nginx \
+          --namespace ingress-nginx --create-namespace
+        ```
+
+    === "Managed cluster (AKS / GKE)"
+
+        ```bash
+        helm upgrade --install ingress-nginx ingress-nginx \
+          --repo https://kubernetes.github.io/ingress-nginx \
+          --namespace ingress-nginx --create-namespace \
+          --set controller.service.externalTrafficPolicy=Local
+        ```
+
+        !!! note
+            `externalTrafficPolicy=Local` is required on managed Kubernetes services. Without it, the cloud load balancer health probes fail and traffic never reaches the ingress controller.
+
+    Wait until the NGINX pod is running:
+
+    ```bash
+    kubectl get pods -n ingress-nginx
+    ```
 
 ## Step 3 — Deploy WSO2 API Manager
 
 ```bash
 helm install apim wso2/wso2am-all-in-one \
-  --version 4.6.0-1 \
-  --namespace wso2 --create-namespace \
-  -f https://raw.githubusercontent.com/wso2/helm-apim/4.6.x/docs/am-pattern-0-all-in-one/default_values.yaml
+  --version 4.7.0-1 \
+  --namespace apim --create-namespace \
+  -f https://raw.githubusercontent.com/wso2/helm-apim/4.7.x/docs/am-pattern-0-all-in-one/default_values.yaml
 ```
 
 Wait for the pod to be ready:
 
 ```bash
-kubectl get pods -n wso2 -w
+kubectl get pods -n apim -w
 ```
 
 The pod should show `1/1 Running` before proceeding.
@@ -108,6 +130,17 @@ The pod should show `1/1 Running` before proceeding.
     minikube tunnel
     ```
 
+    Get the external IP:
+
+    === "Envoy Gateway (Default)"
+        ```bash
+        kubectl get gateway -n apim
+        ```
+    === "NGINX Ingress Controller (Legacy)"
+        ```bash
+        kubectl get ing -n apim
+        ```
+
     Then add to your `/etc/hosts`:
 
     ```
@@ -118,9 +151,14 @@ The pod should show `1/1 Running` before proceeding.
 
     Get the external IP:
 
-    ```bash
-    kubectl get ing -n wso2
-    ```
+    === "Envoy Gateway (Default)"
+        ```bash
+        kubectl get gateway -n apim
+        ```
+    === "NGINX Ingress Controller (Legacy)"
+        ```bash
+        kubectl get ing -n apim
+        ```
 
     Add to your `/etc/hosts`, replacing `<EXTERNAL-IP>`:
 
@@ -130,11 +168,16 @@ The pod should show `1/1 Running` before proceeding.
 
 === "Managed cluster (AKS / GKE)"
 
-    Get the external IP assigned to the ingress:
+    Get the external IP:
 
-    ```bash
-    kubectl get ing -n wso2
-    ```
+    === "Envoy Gateway (Default)"
+        ```bash
+        kubectl get gateway -n apim
+        ```
+    === "NGINX Ingress Controller (Legacy)"
+        ```bash
+        kubectl get ing -n apim
+        ```
 
     For quick testing, add the `ADDRESS` value to your `/etc/hosts`:
 
