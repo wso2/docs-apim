@@ -12,7 +12,7 @@ This pattern adds a dedicated Key Manager to the Pattern 3 setup, separating tok
 | Traffic Manager | Embedded in All-in-One | Dedicated TM | Dedicated TM |
 | Gateway | Dedicated, independently scalable | Dedicated, independently scalable | Dedicated, independently scalable |
 | Key Manager | Embedded in All-in-One | Embedded in ACP | Dedicated KM |
-| Custom images | Required (All-in-One); Gateway optional | Required (ACP); TM and Gateway optional | Required (ACP); TM and Gateway optional; KM reuses ACP image |
+| Custom images | Required (All-in-One) | Required (ACP) | Required (ACP); KM reuses ACP image |
 | High availability | Gateway: Yes; All-in-One: Optional | Yes (all components) | Yes (all components) |
 
 !!! note
@@ -21,7 +21,7 @@ This pattern adds a dedicated Key Manager to the Pattern 3 setup, separating tok
 !!! warning "Pattern 4 requires the following before deploying:"
 
     1. **An external database** — H2 is not supported. Set up an external database before deploying.
-    2. **One custom Docker image** — for the API Control Plane, with the JDBC driver for your database. The Key Manager reuses this image. Custom images for the Traffic Manager and Universal Gateway are optional.
+    2. **A custom Docker image** — for the API Control Plane, with the JDBC driver for your database. The Key Manager reuses this image.
     3. **Database schema initialised** — run the WSO2 schema scripts against both databases before the pods start.
 
 ---
@@ -134,7 +134,7 @@ WSO2 API Manager 4.7.0 uses Envoy Gateway by default for routing. NGINX Ingress 
 
 ### Step 5 — Build and Push Custom Docker Images
 
-Pattern 4 requires a custom Docker image for the API Control Plane with the JDBC driver for your database. The Key Manager reuses the ACP image. Custom images for the Traffic Manager and Universal Gateway are optional — see steps 3 and 4 below.
+Pattern 4 requires a custom Docker image for the API Control Plane with the JDBC driver for your database. The Key Manager reuses the ACP image.
 
 !!! note "Choosing a base image"
     - **DockerHub** (`wso2/wso2am-acp:4.7.0`, `wso2/wso2am-tm:4.7.0`, `wso2/wso2am-universal-gw:4.7.0`) — packages the GA release. Suitable for evaluation and development.
@@ -156,16 +156,10 @@ Pattern 4 requires a custom Docker image for the API Control Plane with the JDBC
       /home/wso2carbon/wso2am-acp-4.7.0/repository/components/lib/
     ```
 
-3. **(Optional)** Build a custom Traffic Manager image if you have custom throttling extensions that require a JDBC driver. Otherwise, skip to step 4 and use the default `wso2/wso2am-tm:4.7.0` image.
-
-4. **(Optional)** Build a custom Gateway image if you have custom mediations or extensions that require a JDBC driver. Otherwise, skip to step 5 and use the default `wso2/wso2am-universal-gw:4.7.0` image.
-
-5. Build all three images, replacing `<REGISTRY>` and `<TAG>` with your values:
+3. Build the ACP image, replacing `<REGISTRY>` and `<TAG>` with your values:
 
     ```bash
     docker buildx build --platform linux/amd64 -f Dockerfile.acp -t <REGISTRY>/wso2am-acp-mysql:<TAG> .
-    docker buildx build --platform linux/amd64 -f Dockerfile.tm -t <REGISTRY>/wso2am-tm-mysql:<TAG> .
-    docker buildx build --platform linux/amd64 -f Dockerfile.gw -t <REGISTRY>/wso2am-gw-mysql:<TAG> .
     ```
 
     !!! note "Matching your cluster architecture"
@@ -177,24 +171,16 @@ Pattern 4 requires a custom Docker image for the API Control Plane with the JDBC
         kubectl get nodes -o jsonpath='{.items[*].status.nodeInfo.architecture}'
         ```
 
-6. Push all three images to your container registry:
+4. Push the image to your container registry:
 
     ```bash
     docker push <REGISTRY>/wso2am-acp-mysql:<TAG>
-    docker push <REGISTRY>/wso2am-tm-mysql:<TAG>
-    docker push <REGISTRY>/wso2am-gw-mysql:<TAG>
     ```
 
-7. Get the image digests — you will need them when configuring your values files:
+5. Get the image digest — you will need it when configuring your values files:
 
     ```bash
     docker inspect <REGISTRY>/wso2am-acp-mysql:<TAG> \
-      --format='{% raw %}{{index .RepoDigests 0}}{% endraw %}'
-
-    docker inspect <REGISTRY>/wso2am-tm-mysql:<TAG> \
-      --format='{% raw %}{{index .RepoDigests 0}}{% endraw %}'
-
-    docker inspect <REGISTRY>/wso2am-gw-mysql:<TAG> \
       --format='{% raw %}{{index .RepoDigests 0}}{% endraw %}'
     ```
 

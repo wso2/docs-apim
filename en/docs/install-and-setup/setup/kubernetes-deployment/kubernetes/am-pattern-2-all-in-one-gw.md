@@ -11,13 +11,13 @@ This pattern deploys a dedicated Universal Gateway alongside the All-in-One node
 | Nodes | 1 All-in-One | 2 All-in-One (active-active) | 1 All-in-One + dedicated Universal Gateway |
 | Gateway | Embedded | Embedded | Dedicated, independently scalable |
 | Database | Embedded H2 | External required | External required |
-| Custom image | Not required | Required | Required (All-in-One); Gateway optional |
+| Custom image | Not required | Required | Required (All-in-One) |
 | High availability | No | Yes (All-in-One) | Gateway: Yes (multiple replicas); All-in-One: Optional |
 
 !!! warning "Pattern 2 requires the following before deploying:"
 
     1. **An external database** — H2 is not supported. Set up an external database before deploying.
-    2. **One custom Docker image** — for the All-in-One node, with the JDBC driver for your database. A custom Gateway image is optional.
+    2. **A custom Docker image** — for the All-in-One node, with the JDBC driver for your database.
     3. **Database schema initialised** — run the WSO2 schema scripts against both databases before the pods start.
 
 ---
@@ -130,19 +130,19 @@ WSO2 API Manager 4.7.0 uses Envoy Gateway by default for routing. NGINX Ingress 
 
 ### Step 5 — Build and Push Custom Docker Images
 
-Pattern 2 requires a custom Docker image for the All-in-One node with the JDBC driver for your database. A custom Gateway image is optional — see step 3 below.
+Pattern 2 requires a custom Docker image for the All-in-One node with the JDBC driver for your database.
 
 !!! note "Choosing a base image"
-    - **DockerHub** (`wso2/wso2am:4.7.0`, `wso2/wso2am-universal-gw:4.7.0`) — packages the GA release. Suitable for evaluation and development.
-    - **WSO2 Private Registry** (`registry.wso2.com/wso2-apim/am:4.7.0.0`, `registry.wso2.com/wso2-apim/am-universal-gw:4.7.0.0`) — includes WSO2 Updates and is recommended for production. Requires an active [WSO2 Subscription](https://wso2.com/subscription).
+    - **DockerHub** (`wso2/wso2am:4.7.0`) — packages the GA release. Suitable for evaluation and development.
+    - **WSO2 Private Registry** (`registry.wso2.com/wso2-apim/am:4.7.0.0`) — includes WSO2 Updates and is recommended for production. Requires an active [WSO2 Subscription](https://wso2.com/subscription).
 
-1. Create a directory for the custom images:
+1. Create a directory for the custom image:
 
     ```bash
     mkdir wso2am-custom && cd wso2am-custom
     ```
 
-2. Create a `Dockerfile.aio` for the All-in-One image. The example below adds the MySQL JDBC driver — adjust the URL for other databases:
+2. Create a `Dockerfile` with the following content. The example below adds the MySQL JDBC driver — adjust the URL for other databases:
 
     ```dockerfile
     FROM wso2/wso2am:4.7.0
@@ -152,13 +152,10 @@ Pattern 2 requires a custom Docker image for the All-in-One node with the JDBC d
       /home/wso2carbon/wso2am-4.7.0/repository/components/lib/
     ```
 
-3. **(Optional)** Build a custom Gateway image if you have custom mediations or extensions that require a JDBC driver. Otherwise, skip to step 4 and use the default `wso2/wso2am-universal-gw:4.7.0` image.
-
-4. Build both images, replacing `<REGISTRY>` and `<TAG>` with your values:
+3. Build the image, replacing `<REGISTRY>` and `<TAG>` with your values:
 
     ```bash
-    docker buildx build --platform linux/amd64 -f Dockerfile.aio -t <REGISTRY>/wso2am-mysql:<TAG> .
-    docker buildx build --platform linux/amd64 -f Dockerfile.gw -t <REGISTRY>/wso2am-gw-mysql:<TAG> .
+    docker buildx build --platform linux/amd64 -t <REGISTRY>/wso2am-mysql:<TAG> .
     ```
 
     !!! note "Matching your cluster architecture"
@@ -170,20 +167,16 @@ Pattern 2 requires a custom Docker image for the All-in-One node with the JDBC d
         kubectl get nodes -o jsonpath='{.items[*].status.nodeInfo.architecture}'
         ```
 
-5. Push both images to your container registry:
+4. Push the image to your container registry:
 
     ```bash
     docker push <REGISTRY>/wso2am-mysql:<TAG>
-    docker push <REGISTRY>/wso2am-gw-mysql:<TAG>
     ```
 
-6. Get the image digests — you will need them when configuring your values files:
+5. Get the image digest — you will need it when configuring your values files:
 
     ```bash
     docker inspect <REGISTRY>/wso2am-mysql:<TAG> \
-      --format='{% raw %}{{index .RepoDigests 0}}{% endraw %}'
-
-    docker inspect <REGISTRY>/wso2am-gw-mysql:<TAG> \
       --format='{% raw %}{{index .RepoDigests 0}}{% endraw %}'
     ```
 

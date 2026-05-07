@@ -1,8 +1,8 @@
 # Pattern 5: Simple Scalable Setup with Key Manager
 
-<a href="{{base_path}}/assets/img/setup-and-install/am-pattern-5-deployment.png"><img src="{{base_path}}/assets/img/setup-and-install/am-pattern-5-deployment.png" alt="Pattern 5 deployment" width="80%"></a>
-
 This pattern extends Pattern 2 by adding a dedicated Key Manager alongside the All-in-One and Universal Gateway. It is suitable for production environments where token issuance and validation need to be isolated from the Control Plane, without the overhead of a fully distributed setup.
+
+<a href="{{base_path}}/assets/img/setup-and-install/am-pattern-5-deployment.png"><img src="{{base_path}}/assets/img/setup-and-install/am-pattern-5-deployment.png" alt="Pattern 5 deployment" width="80%"></a>
 
 ## How Pattern 5 Differs from Earlier Patterns
 
@@ -11,7 +11,7 @@ This pattern extends Pattern 2 by adding a dedicated Key Manager alongside the A
 | Key Manager | Embedded in All-in-One | Dedicated KM | Dedicated KM |
 | Control Plane | Embedded in All-in-One | Dedicated ACP | Embedded in All-in-One |
 | Traffic Manager | Embedded in All-in-One | Dedicated TM | Embedded in All-in-One |
-| Custom images | Required (All-in-One); Gateway optional | Required (ACP); TM and Gateway optional; KM reuses ACP image | Required (All-in-One); Gateway optional; KM reuses ACP image |
+| Custom images | Required (All-in-One) | Required (ACP); KM reuses ACP image | Required (All-in-One); KM reuses ACP image |
 | High availability | Gateway: Yes; All-in-One: Optional | Yes (all components) | Gateway: Yes; KM: Yes; All-in-One: Optional |
 
 !!! note
@@ -20,7 +20,7 @@ This pattern extends Pattern 2 by adding a dedicated Key Manager alongside the A
 !!! warning "Pattern 5 requires the following before deploying:"
 
     1. **An external database** — H2 is not supported. Set up an external database before deploying.
-    2. **Two custom Docker images** — one for the All-in-One and one for the ACP (shared with the Key Manager), both with the JDBC driver for your database. A custom Gateway image is optional.
+    2. **Two custom Docker images** — one for the All-in-One and one for the ACP (shared with the Key Manager), both with the JDBC driver for your database.
     3. **Database schema initialised** — run the WSO2 schema scripts against both databases before the pods start.
 
 ---
@@ -133,7 +133,7 @@ WSO2 API Manager 4.7.0 uses Envoy Gateway by default for routing. NGINX Ingress 
 
 ### Step 5 — Build and Push Custom Docker Images
 
-Pattern 5 requires custom Docker images for the All-in-One node and the API Control Plane (shared with the Key Manager), both with the JDBC driver for your database. A custom Gateway image is optional — see step 4 below.
+Pattern 5 requires custom Docker images for the All-in-One node and the API Control Plane (shared with the Key Manager), both with the JDBC driver for your database.
 
 !!! note "Choosing a base image"
     - **DockerHub** (`wso2/wso2am:4.7.0`, `wso2/wso2am-acp:4.7.0`, `wso2/wso2am-universal-gw:4.7.0`) — packages the GA release. Suitable for evaluation and development.
@@ -165,14 +165,11 @@ Pattern 5 requires custom Docker images for the All-in-One node and the API Cont
       /home/wso2carbon/wso2am-acp-4.7.0/repository/components/lib/
     ```
 
-4. **(Optional)** Build a custom Gateway image if you have custom mediations or extensions that require a JDBC driver. Otherwise, skip to step 5 and use the default `wso2/wso2am-universal-gw:4.7.0` image.
-
-5. Build all three images, replacing `<REGISTRY>` and `<TAG>` with your values:
+4. Build the images, replacing `<REGISTRY>` and `<TAG>` with your values:
 
     ```bash
     docker buildx build --platform linux/amd64 -f Dockerfile.aio -t <REGISTRY>/wso2am-mysql:<TAG> .
     docker buildx build --platform linux/amd64 -f Dockerfile.acp -t <REGISTRY>/wso2am-acp-mysql:<TAG> .
-    docker buildx build --platform linux/amd64 -f Dockerfile.gw -t <REGISTRY>/wso2am-gw-mysql:<TAG> .
     ```
 
     !!! note "Matching your cluster architecture"
@@ -184,24 +181,20 @@ Pattern 5 requires custom Docker images for the All-in-One node and the API Cont
         kubectl get nodes -o jsonpath='{.items[*].status.nodeInfo.architecture}'
         ```
 
-6. Push all three images to your container registry:
+5. Push the images to your container registry:
 
     ```bash
     docker push <REGISTRY>/wso2am-mysql:<TAG>
     docker push <REGISTRY>/wso2am-acp-mysql:<TAG>
-    docker push <REGISTRY>/wso2am-gw-mysql:<TAG>
     ```
 
-7. Get the image digests — you will need them when configuring your values files:
+6. Get the image digests — you will need them when configuring your values files:
 
     ```bash
     docker inspect <REGISTRY>/wso2am-mysql:<TAG> \
       --format='{% raw %}{{index .RepoDigests 0}}{% endraw %}'
 
     docker inspect <REGISTRY>/wso2am-acp-mysql:<TAG> \
-      --format='{% raw %}{{index .RepoDigests 0}}{% endraw %}'
-
-    docker inspect <REGISTRY>/wso2am-gw-mysql:<TAG> \
       --format='{% raw %}{{index .RepoDigests 0}}{% endraw %}'
     ```
 
