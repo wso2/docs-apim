@@ -90,7 +90,16 @@ Before continuing with the setup, make sure you have the following:
 
         For more information, see [Claude Code's official documentiation](https://code.claude.com/docs/en/settings)
 
-### Apply Temporary SSL Fix (For Testing Only)
+### Configure SSL Certificate Trust
+
+If the WSO2 API Manager AI Gateway uses a valid CA-signed certificate, no additional certificate configuration is required.
+
+If the Gateway uses a self-signed certificate, Claude Code may fail to connect due to certificate verification errors. In such cases, add the Gateway certificate to the certificate trust store used by Claude Code before running the client.  
+
+For more information, visit the [Claude Code Official Documentation](https://code.claude.com/docs/en/troubleshoot-install#tls-or-ssl-connection-errors)
+
+!!! note
+    This is commonly required when testing with a locally running WSO2 API Manager Gateway.
 
 To bypass SSL certificate validation during testing, run:
 
@@ -123,9 +132,11 @@ By routing Claude Code requests through the WSO2 API Manager AI Gateway, you aut
 
 WSO2 provides integrated analytics, powered by Moesif, and also supports integration with external tools such as the ELK stack (**Elasticsearch**, **Logstash**, **Kibana**) and Choreo Analytics.
 
-> *(Insert analytics dashboard screenshot here)*
+For example, an admin could view the token usage by users and applications to identify overuse of the AI Agents.
 
-For more information on AI Guardrails, refer to the official [WSO2 API Manager Documentation](https://apim.docs.wso2.com/en/latest/monitoring/api-analytics/analytics-overview/)
+[![analytics token usage example]({{base_path}}/assets/img/llm-gateway/analytics-token-usage-example.png)]({{base_path}}/assets/img/llm-gateway/analytics-token-usage-example.png)
+
+For more information on Analytics, refer to the official [WSO2 API Manager Documentation](https://apim.docs.wso2.com/en/latest/monitoring/api-analytics/analytics-overview/)
 
 ---
 
@@ -139,9 +150,9 @@ By applying guardrails, you can enforce security and compliance policies such as
 - Output filtering to prevent leakage of sensitive data  
 - Rate limiting to control API usage and avoid cost overruns  
 
-For example, a **Regex Validation Guardrail** can be configured in the request flow to mitigate prompt injection attacks and prevent sensitive data extraction. If a user submits a malicious prompt, the guardrail evaluates the request against defined patterns and blocks it before it reaches the Anthropic API.
+For example, a **PII Masking Regex Guardrail** can be configured in the request flow to prevent Personally Identifiable Information (PII) from reaching Anthropic API. If a user submits a prompt containing PII, the guardrail evaluates the request against defined patterns and redacts them before they reach Anthropic API.
 
-[![claude code guardrail example]({{base_path}}/assets/img/llm-gateway/claude-code-guardrail-intervened-example.png)]({{base_path}}/assets/img/llm-gateway/claude-code-guardrail-intervened-example.png)
+[![claude code guardrail example]({{base_path}}/assets/img/llm-gateway/claude-code-guardrail-redacted-example.png)]({{base_path}}/assets/img/llm-gateway/claude-code-guardrail-redacted-example.png)
 
 For more information on AI Guardrails, refer to the official [WSO2 API Manager Documentation](https://apim.docs.wso2.com/en/latest/ai-gateway/ai-guardrails/overview/)
 
@@ -158,3 +169,20 @@ This helps control token consumption and avoid unexpected costs.
 [![claude code rate limit example]({{base_path}}/assets/img/llm-gateway/claude-code-rate-limit-example.png)]({{base_path}}/assets/img/llm-gateway/claude-code-rate-limit.png)
 
 For more information on Rate Limiting, refer to the official [WSO2 API Manager documentation](https://apim.docs.wso2.com/en/latest/ai-gateway/rate-limiting/)
+
+### Prompt Decorator
+
+WSO2 API Manager AI Gateway supports Prompt Decorators, which allow you to modify or enrich prompts before they are sent to the backend AI provider. This is useful for enforcing consistent instructions, adding system-level context, or guiding model behavior without requiring changes in the client application.
+
+As a simple example, you can configure a Prompt Decorator in the request flow to prepend a system instruction to all incoming prompts.
+
+The following screenshot shows Claude Code responding to a simple prompt with no Prompt Decorator.
+
+[![claude code prompt decorator example]({{base_path}}/assets/img/llm-gateway/claude-code-prompt-decorator-example.png)]({{base_path}}/assets/img/llm-gateway/claude-code-prompt-decorator-example.png)
+
+The following screenshot shows Claude Code responding to that same prompt with a Prompt Decorator configured to append the following decoration: "Be very concise. Use as little words as possible when answering."
+
+[![claude code prompt decorator example]({{base_path}}/assets/img/llm-gateway/claude-code-prompt-decorator-example-2.png)]({{base_path}}/assets/img/llm-gateway/claude-code-prompt-decorator-example-2.png)
+
+
+For more information on Prompt Management, refer to the official [WSO2 API Manager documentation](https://apim.docs.wso2.com/en/latest/ai-gateway/prompt-management/overview/)

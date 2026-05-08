@@ -8,7 +8,7 @@ This section provides step-by-step instructions for proxying Google Gemini API c
 
 ---
 
-## Step 0: Prerequisites
+## Prerequisites
 
 Before continuing with the setup, make sure you have the following: 
 
@@ -84,7 +84,16 @@ Gemini relies entirely on environment variables for configuration.
     !!! note
         These environment variables must be set in the same session where the Gemini CLI is executed. Alternatively, they can be configured as permanent environment variables.
 
-### Apply Temporary SSL Fix (For Testing Only)
+### Configure SSL Certificate Trust
+
+If the WSO2 API Manager AI Gateway uses a valid CA-signed certificate, no additional certificate configuration is required.
+
+If the Gateway uses a self-signed certificate, Gemini CLI may fail to connect due to certificate verification errors. In such cases, add the Gateway certificate to the certificate trust store used by Codex CLI before running the client.
+
+For more information, visit the [Official Gemini CLI Documentation](https://geminicli.com/docs/resources/troubleshooting/)
+
+!!! note
+    This is commonly required when testing with a locally running WSO2 API Manager Gateway.
 
 To bypass SSL certificate validation during testing, run:
 
@@ -115,9 +124,9 @@ By routing Gemini CLI requests through the WSO2 API Manager AI Gateway, you auto
 
 WSO2 provides integrated analytics, powered by Moesif, and also supports integration with external tools such as the ELK stack (**Elasticsearch**, **Logstash**, **Kibana**) and Choreo Analytics.
 
-The example below shows how Moesif can be used to view analytics on the usage of Google Gemini API
+For example, an admin could view the token usage by users and applications to identify overuse of the AI Agents.
 
-[![gemini cli analytics example]({{base_path}}/assets/img/llm-gateway/gemini-cli-analytics-example.png)]({{base_path}}/assets/img/llm-gateway/gemini-cli-analytics-example.png)
+[![analytics token usage example]({{base_path}}/assets/img/llm-gateway/analytics-token-usage-example.png)]({{base_path}}/assets/img/llm-gateway/analytics-token-usage-example.png)
 
 For more information on Analytics, refer to the official [WSO2 API Manager Documentation](https://apim.docs.wso2.com/en/latest/monitoring/api-analytics/analytics-overview/)
 
@@ -127,15 +136,11 @@ For more information on Analytics, refer to the official [WSO2 API Manager Docum
 
 WSO2 API Manager AI Gateway guardrails enable granular control over the data exchanged between Gemini CLI and the Google Gemini API.
 
-By applying guardrails, you can enforce security and compliance policies such as:
+By applying guardrails, you can enforce security and compliance policies.
 
-- Input validation to ensure prompt integrity  
-- Output filtering to prevent leakage of sensitive data  
-- Rate limiting to control API usage and avoid cost overruns  
+For example, a **PII Masking Regex Guardrail** can be configured in the request flow to prevent Personally Identifiable Information (PII) from reaching the Google Gemini API. If a user submits a prompt containing PII, the guardrail evaluates the request against defined patterns and redacts them before they reach the Google Gemini API.
 
-For example, a **Regex Validation Guardrail** can be configured in the request flow to mitigate prompt injection attacks and prevent sensitive data extraction. If a user submits a malicious prompt, the guardrail evaluates the request against defined patterns and blocks it before it reaches the Google Gemini API.
-
-[![gemini cli guardrail example]({{base_path}}/assets/img/llm-gateway/gemini-cli-guardrail-intervened-example.png)]({{base_path}}/assets/img/llm-gateway/gemini-cli-guardrail-intervened-example.png)
+[![gemini cli guardrail example]({{base_path}}/assets/img/llm-gateway/gemini-cli-guardrail-redacted-example.png)]({{base_path}}/assets/img/llm-gateway/gemini-cli-guardrail-redacted-example.png)
 
 For more information on AI Guardrails, refer to the official [WSO2 API Manager Documentation](https://apim.docs.wso2.com/en/latest/ai-gateway/ai-guardrails/overview/)
 
