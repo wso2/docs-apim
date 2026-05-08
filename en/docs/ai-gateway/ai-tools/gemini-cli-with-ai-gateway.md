@@ -66,7 +66,7 @@ Before continuing with the setup, make sure you have the following:
 
 ---
 
-## Step 4: Configure Gemini to Use the AI Gateway
+## Step 3: Configure Gemini CLI to Use the AI Gateway
 
 Gemini relies entirely on environment variables for configuration.
 
@@ -88,7 +88,7 @@ Gemini relies entirely on environment variables for configuration.
 
 If the WSO2 API Manager AI Gateway uses a valid CA-signed certificate, no additional certificate configuration is required.
 
-If the Gateway uses a self-signed certificate, Gemini CLI may fail to connect due to certificate verification errors. In such cases, add the Gateway certificate to the certificate trust store used by Codex CLI before running the client.
+If the Gateway uses a self-signed certificate, Gemini CLI may fail to connect due to certificate verification errors. In such cases, add the Gateway certificate to the certificate trust store used by Gemini CLI before running the client.
 
 For more information, visit the [Official Gemini CLI Documentation](https://geminicli.com/docs/resources/troubleshooting/)
 
@@ -100,9 +100,6 @@ To bypass SSL certificate validation during testing, run:
 ```bash
 export NODE_TLS_REJECT_UNAUTHORIZED=0
 ```
-
-!!! warning
-    This should only be used in development environments.
 
 ---
 
@@ -116,7 +113,7 @@ gemini
 
 Requests will now be routed through the WSO2 API Manager AI Gateway.
 
-## Usecase Examples
+## Use case Examples
 
 ### View API Analytics and Insights
 
@@ -150,7 +147,7 @@ For more information on AI Guardrails, refer to the official [WSO2 API Manager D
 
 WSO2 API Manager AI Gateway supports request-based and token-based rate limiting for AI APIs. This allows you to control Gemini CLI usage when requests are routed through the Gateway.
 
-For example, you can create an AI subscription policy with a limited request count or total token count, and apply it when subscribing to the Anthropic AI API. Once Gemini CLI invokes the API through that subscription, the Gateway enforces the selected quota automatically. If the configured limit is exceeded, subsequent requests are throttled until the quota resets.
+For example, you can create an AI subscription policy with a limited request count or total token count, and apply it when subscribing to the Gemini API. Once Gemini CLI invokes the API through that subscription, the Gateway enforces the selected quota automatically. If the configured limit is exceeded, subsequent requests are throttled until the quota resets.
 
 This helps control token consumption and avoid unexpected costs.
 

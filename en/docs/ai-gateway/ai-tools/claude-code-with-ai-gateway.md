@@ -6,7 +6,7 @@ By routing requests through the AI Gateway instead of invoking Anthropic directl
 
 This document provides step-by-step instructions for proxying Anthropic AI API calls through WSO2 API Manager.
 
-## Step 0: Prerequisites
+## Prerequisites
 
 Before continuing with the setup, make sure you have the following: 
 
@@ -71,7 +71,7 @@ Before continuing with the setup, make sure you have the following:
     !!! Note
         These environment variables apply only to the current terminal session.
 
-    !!! Note "Persistant Configuration"
+    !!! Note "Persistent Configuration"
         
         To make the configuration permanent, add the following to Claude Code’s `settings.json` file:
 
@@ -88,7 +88,7 @@ Before continuing with the setup, make sure you have the following:
         }
         ```
 
-        For more information, see [Claude Code's official documentiation](https://code.claude.com/docs/en/settings)
+        For more information, see [Claude Code's official documentation](https://code.claude.com/docs/en/settings)
 
 ### Configure SSL Certificate Trust
 
@@ -107,9 +107,6 @@ To bypass SSL certificate validation during testing, run:
 export NODE_TLS_REJECT_UNAUTHORIZED=0
 ```
 
-!!! warning
-    This should only be used in development environments.
-
 ---
 
 ## Step 4: Run Claude Code
@@ -124,7 +121,7 @@ Requests will now be routed through the WSO2 API Manager AI Gateway.
 
 ---
 
-## Usecases
+## Use case examples
 
 ### View API Analytics and Insights
 
