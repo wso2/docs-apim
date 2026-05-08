@@ -8,12 +8,12 @@ This section provides step-by-step instructions for proxying OpenAI Codex CLI re
 
 ---
 
-## Step 0: Prerequisites
+## Prerequisites
 
 Before continuing with the setup, make sure you have the following:
 
-- OpenAI Codex CLI installed
-- An OpenAI API key
+- [OpenAI Codex CLI](https://developers.openai.com/codex/cli) installed
+- An [OpenAI API key](https://platform.openai.com/api-keys)
 
 ---
 
@@ -86,7 +86,7 @@ Codex CLI can be configured to use a custom OpenAI-compatible provider by updati
     base_url = "<OPENAI AI API EXPOSED URL>"
     env_key = "OPENAI_AUTH_TOKEN"
     wire_api = "responses"
-    http_headers = { "ApiKey" = "OPENAI_AUTH_TOKEN" }
+    env_http_headers = { "ApiKey" = "OPENAI_AUTH_TOKEN" }
     ```
 
     For example:
@@ -100,7 +100,7 @@ Codex CLI can be configured to use a custom OpenAI-compatible provider by updati
     base_url = "https://localhost:8243/openaiapi/2.3.0"
     env_key = "OPENAI_AUTH_TOKEN"
     wire_api = "responses"
-    http_headers = { "ApiKey" = "OPENAI_AUTH_TOKEN" }
+    env_http_headers = { "ApiKey" = "OPENAI_AUTH_TOKEN" }
     ```
 
     The configuration above instructs Codex CLI to use the WSO2 API Manager AI Gateway endpoint and send the WSO2 API Manager API Key using the `ApiKey` header.
