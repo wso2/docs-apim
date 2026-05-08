@@ -18,12 +18,12 @@
 site_name: WSO2 API Manager Documentation
 site_description: Documentation for WSO2 API Manager
 site_author: WSO2
-site_url: https://apim.docs.wso2.com/en/4.6.0/
+site_url: https://apim.docs.wso2.com/en/4.7.0/
 
 # Repository
 repo_name: wso2/docs-apim
 repo_url: https://github.com/wso2/docs-apim
-edit_uri: https://github.com/wso2/docs-apim/edit/4.6.0/en/docs/
+edit_uri: https://github.com/wso2/docs-apim/edit/4.7.0/en/docs/
 dev_addr: localhost:8000
 # Copyright
 copyright: WSO2 API Manager - Documentation
@@ -378,7 +378,9 @@ nav:
             - Authentication:
                 - Overview: api-security/runtime/api-authentication/api-authentication-overview.md
                 - Disable Security: api-security/runtime/api-authentication/disable-security.md
-                - Secure APIs Using API Keys: api-security/runtime/api-authentication/secure-apis-using-api-keys.md
+                - Secure APIs Using API Keys:
+                    - API Keys: api-security/runtime/api-authentication/secure-apis-using-api-keys.md
+                    - Legacy API Keys (DEPRECATED): api-security/runtime/api-authentication/secure-apis-using-legacy-api-keys.md
                 - Secure APIs Using Basic Authentication: api-security/runtime/api-authentication/secure-apis-using-basic-authentication.md
                 - Secure APIs Using Mutual SSL: api-security/runtime/api-authentication/secure-apis-using-mutual-ssl.md
                 - Secure APIs Using OAuth2 Tokens: api-security/runtime/api-authentication/secure-apis-using-oauth2-tokens.md
@@ -422,8 +424,8 @@ nav:
                 - Obtain User Profile Information with OpenID Connect: api-security/key-management/identity/obtaining-user-profile-information-with-openid-connect.md
             - Third-Party Key Managers:
                 - Overview: api-security/key-management/third-party-key-managers/overview.md
-                - Configure WSO2 IS as a Key Manager: api-security/key-management/third-party-key-managers/configure-wso2is-connector.md
-                - Configure WSO2 IS 7.x as a Key Manager: api-security/key-management/third-party-key-managers/configure-wso2is7-connector.md
+                - Configure WSO2 IS Key Manager: api-security/key-management/third-party-key-managers/configure-wso2is7-connector.md
+                - Configure WSO2 IS 6.x as a Key Manager: api-security/key-management/third-party-key-managers/configure-wso2is-connector.md
                 - Configure Asgardeo as a Key Manager: api-security/key-management/third-party-key-managers/configure-asgardeo-connector.md
                 - Configure Keycloak as a Key Manager: api-security/key-management/third-party-key-managers/configure-keycloak-connector.md
                 - Configure Okta as a Key Manager: api-security/key-management/third-party-key-managers/configure-okta-connector.md

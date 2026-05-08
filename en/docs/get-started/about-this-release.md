@@ -154,6 +154,17 @@ For more information on WSO2 API Manager, see the [overview]({{base_path}}/get-s
 
 Before upgrading to WSO2 API Manager 4.7.0, review the following architectural and behavioral changes that may impact your deployment, integrations, and runtime behavior:
 
+### JDK 21 and 25 Are the Only Supported Versions
+
+WSO2 API Manager 4.7.0 requires **JDK 21 or JDK 25** to run. Older JDK versions are no longer supported.
+
+* JDK versions prior to 21 are **not supported** and will not work with this release.
+* Ensure your environment is running **JDK 21** or **JDK 25** before upgrading.
+
+**Impact:**
+
+* Deployments running on JDK 11 or JDK 17 must upgrade their JDK before migrating to API Manager 4.7.0.
+
 ### Control Plane Resource Access Restricted by Default
 
 Starting from 4.7.0, control plane resource access via the Tomcat valve follows a **default deny** model instead of the previous permissive behavior.

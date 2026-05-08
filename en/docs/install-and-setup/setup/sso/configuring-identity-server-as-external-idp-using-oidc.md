@@ -34,81 +34,88 @@ WSO2 API Manager uses the OIDC Single Sign-On feature by default. This document 
 1.  Sign in to the Management Console of WSO2 IS by browsing the following URL:  
 
     ```
-    https://{is-ip}:9444/carbon
+    https://{is-ip}:9444/console
     ```
 
-2.  Navigate to the **Service Providers** section under Main → Identity and create new Service Provider.
+2.  Create a Service Provider:
 
-3.  Edit the created Service Provider:
+    a.  Go to **Applications** → **New Application** and select **Traditional Web Application**.
 
-    1.  Expand the **Claim Configuration** section. Add the **http://wso2.org/claims/groups** as mandatory claim. In addition, add the **http://wso2.org/claims/username** claim as the **Subject Claim URI**.
+    b.  In the popup, provide the following details and click **Create**:
 
-        [![]({{base_path}}/assets/img/setup-and-install/claim-configuration-in-service-provider.png)]({{base_path}}/assets/img/setup-and-install/claim-configuration-in-service-provider.png)
+    <table>
+        <tbody>
+            <tr>
+                <td>Protocol</td>
+                <td>OpenID Connect</td>
+            </tr>
+            <tr>
+                <td>Authorized Redirect URL</td>
+                <td>https://localhost:9443/commonauth</td>
+            </tr>
+        </tbody>
+     </table>
 
-    2.  Expand the **Inbound Authentication Configuration** section and configure **OAuth/OpenID Connect Configuration** with callback URL - `https://{apim-ip}:9443/commonauth`
+    [![Create Traditional Web Application]({{base_path}}/assets/img/setup-and-install/create-traditional-web-app.png)]({{base_path}}/assets/img/setup-and-install/create-traditional-web-app.png)
 
-        !!! Info "Enable a tenant-specific SSO for the Publisher and Developer Portal"
+    c.  In the configuration page, select **User Attributes** and enable the **Groups** attribute.
 
-            To enable a tenant-specific SSO with IS 5.10.0 for Publisher and the Developer Portal, enable the **Use tenant domain in local subject identifier** option under the **Local & Outbound Authentication Configuration** section.
+    [![Select Groups user attribute]({{base_path}}/assets/img/setup-and-install/select-groups-attribute.png)]({{base_path}}/assets/img/setup-and-install/select-groups-attribute.png)
 
-            [![enable-tenant-domain-in-local-sub-identifier]({{base_path}}/assets/img/setup-and-install/local-outbound-config.png)]({{base_path}}/assets/img/setup-and-install/local-outbound-config.png)
+    d.  In the same tab, under the **Subject** section, select **Assign alternate subject identifier** and from the dropdown list select **Username**.
 
-        !!! Note "Options available for **Local & Outbound Authentication Configuration** "
-            
-            -   **Assert identity using mapped local subject identifier** :
-                Select this to use the local subject identifier when asserting the identity.
-                Note that it is **mandatory** to enable the above option to authorize scopes for provisioned federated users. 
-            -   **Always send back the authenticated list of identity providers** : Select this to send back the list of  identity providers that the current user is authenticated by.
-            -   **Use tenant domain in local subject identifier** : Select this to append the tenant domain to the local subject identifier.
-            -   **Use user store domain in local subject identifier** : Select this to append the user store domain that the user resides to the local subject identifier.
-            -   **Use user store domain in roles** : This is selected by default, and appends the userstore domain name to user roles. If you do not want to append the userstore domain name to user roles, clear the check box.
+    [![Assign alternate subject identifier]({{base_path}}/assets/img/setup-and-install/assign-alternate-subject-identifier.png)]({{base_path}}/assets/img/setup-and-install/assign-alternate-subject-identifier.png)
 
-                If a user role is not mapped to a service provider role, and you clear the **Use user store domain in roles** check box, the userstore domain name will be removed from the role claim value unless the userstore domain name is APPLICATION, INTERNAL, or WORKFLOW.
-
-    3. Update the Service Provider configurations.
-
-    !!! Info "In Multi-tenanted environments"
-        Carry out the instruction given below for all the tenants to be able to login to the API-M Web applications in a multi-tenanted environment.
-
-        1.  Click the **SaaS Application** option that appears after registering the service provider.
-
-        [![saas-configuration-in-service-provider]({{base_path}}/assets/img/setup-and-install/saas.png)]({{base_path}}/assets/img/setup-and-install/saas.png) 
-
-        If you do not select the **SaaS Application** option, only users in the current tenant domain will be allowed to login to the portals. You will need to register separate service providers for portals from each tenant.
+    e.  Under the **Protocol** tab, copy the **Client ID** and **Client Secret**.
 
 ### Step - 2 Create users and roles
 
-1. Create the required users and roles in Identity Server. Assume, following users are created in Identity Servers with the given roles.
+1. Create the required [users](https://is.docs.wso2.com/en/latest/guides/users/onboard-users/) and [groups](https://is.docs.wso2.com/en/latest/guides/users/manage-groups/) in Identity Server. Assume, following users are created in Identity Servers with the given groups.
 
     <table>
         <thead>
             <tr>
                 <th>User</th>
-                <th>Role</th>
+                <th>Groups</th>
             </tr>
         </thead>
         <tbody>
             <tr>
-                <td>api_publisher</td>
-                <td>publisher_role</td>
+                <td>Sam</td>
+                <td>publisher</td>
             </tr>
             <tr>
-                <td>api_user</td>
-                <td>user_role</td>
+                <td>Karen</td>
+                <td>devportal</td>
             </tr>
         </tbody>
     </table>
 
-### Step 3 - Update the OpenID OIDC scope
-
-1. Navigate to the **OIDC Scopes** section under **Main** → **Manage** and list the available scopes.
-
-2. Click **Add Claims** for `openid` scope, click **Add OIDC Claim**, select `groups` claim from the dropdown and click on **Add**.
-   [![Add groups claim to the OIDC scope]({{base_path}}/assets/img/setup-and-install/update-oidc-scope.png)]({{base_path}}/assets/img/setup-and-install/update-oidc-scope.png)
-
 ## Configure the API Manager
 
-### Step - 1 Configure the Identity Provider
+### Step - 1 Import the Identity Server Certificate to WSO2 API Manager
+
+Import the Keymanager certificate to the WSO2 API Manager `client-truststore.jks` using the following steps.
+
+1.  Export the WSO2 IS certificate.
+
+    === "On Mac/Linux"
+        ```bash
+        echo -n | openssl s_client -connect localhost:9444 -servername wso2is7 | openssl x509 > is7.cert
+        ```
+
+    === "On Windows"
+        ```bash
+        openssl s_client -connect localhost:9444 -servername wso2is7 < NUL | openssl x509 > is7.cert
+        ```
+
+2.  Import this certificate to the `client-truststore.jks` located in `<AM_HOME>/repository/resources/security/`.
+
+    ```bash
+    keytool -import -alias wso2is7cert -file is7.cert -keystore client-truststore.jks -storepass wso2carbon
+    ```
+
+### Step - 2 Configure the Identity Provider
 
 1.  Sign in to the Management Console of API Manager by browsing the following URL: 
 
@@ -155,6 +162,10 @@ WSO2 API Manager uses the OIDC Single Sign-On feature by default. This document 
                     <td>Logout Endpoint URL</td>
                     <td>https://is.wso2.com:9444/oidc/logout</td>
                 </tr>
+                <tr>
+                    <td>Scopes</td>
+                    <td>openid groups</td>
+                </tr>
             </tbody>
         </table>
 
@@ -177,11 +188,11 @@ WSO2 API Manager uses the OIDC Single Sign-On feature by default. This document 
         </thead>
         <tbody>
             <tr>
-                <td>user_role</td>
+                <td>devportal</td>
                 <td>Internal/Subscriber</td>
             </tr>
             <tr>
-                <td>publisher_role</td>
+                <td>publisher</td>
                 <td>Internal/publisher</td>
             </tr>
         </tbody>
@@ -212,7 +223,7 @@ WSO2 API Manager uses the OIDC Single Sign-On feature by default. This document 
 
     [![Claim mapping for sso]({{base_path}}/assets/img/setup-and-install/claim-mapping-for-sso.png)]({{base_path}}/assets/img/setup-and-install/claim-mapping-for-sso.png)
 
-### Step - 2 Configure the Service Provider
+### Step - 3 Configure the Service Provider
 
 1.  Navigate to **Service Providers** section and list the Service Providers. There are two service providers created for Publisher portal and Developer portal named as `apim_publisher` and `apim_devportal`. Edit the `apim_publisher` service provider.
 

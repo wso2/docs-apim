@@ -11,58 +11,73 @@ In this example, let's use WSO2 IS configured as a third-party Key Manager. An O
 
 ## Step 1 - Configure a third-party key manager
 
-Follow the steps in [Configure WSO2 IS as a Key Manager]({{base_path}}/api-security/key-management/third-party-key-managers/configure-wso2is-connector) to setup WSO2 IS as a third-party key manager.
+Follow the steps in [Configure WSO2 IS as a Key Manager]({{base_path}}/api-security/key-management/third-party-key-managers/configure-wso2is7-connector.md) to setup WSO2 IS as a third-party key manager
 
 !!! note
      You can use any Key Manager mentioned under [Third-Party Key Manager Integration]({{base_path}}/api-security/key-management/third-party-key-managers/overview/) and configure it as a third-party key manager.
+
+Under the **Advanced Configurations** section, enable **Out Of Band Provisioning**.
+
+[![Out Of Band Provisioning]({{base_path}}/assets/img/learn/api-security/oauth2/provisioning-out-of-band-oauth-clients/out-of-band-provisioning.png)]({{base_path}}/assets/img/learn/api-security/oauth2/provisioning-out-of-band-oauth-clients/out-of-band-provisioning.png)
+
+!!! Note
+          If **Out Of Band Provisioning** is not enabled in the third-party key manager configuration, you can set a global default by adding the following configuration to the `<API-M_HOME>/repository/conf/deployment.toml` file under the `[apim.devportal]` section. This global setting only takes effect when **Out Of Band Provisioning** is disabled in the third-party key manager configuration.
+
+          ``` toml
+          [apim.devportal]
+          enable_key_provisioning = true
+          ```
 
 In this example, it will be assumed that WSO2 IS and WSO2 API-M are up and running in `https://<Server Host>:9444` and `https://<Server Host>:9443` respectively.
 
 ## Step 2 - Create an external OAuth2 client
 
-1.  Sign in to the WSO2 IS Management Console (`https://<Server Host>:9444/carbon`) 
+1.  Sign in to the WSO2 IS Console (`https://<Server Host>:9444/console`).
 
-2. Click **Main** --> **Service Providers** --> **Add**.
+2.  Create a **Traditional Application**.
 
-     <a href="{{base_path}}/assets/img/learn/api-security/oauth2/provisioning-out-of-band-oauth-clients/add-service-provider-menu.png" >
-     <img src="{{base_path}}/assets/img/learn/api-security/oauth2/provisioning-out-of-band-oauth-clients/add-service-provider-menu.png" alt="Add Service Provider Menu" title="Add Service Provider Menu" width="30%" />
-     </a>
+     [![Create Traditional Application]({{base_path}}/assets/img/learn/api-security/oauth2/provisioning-out-of-band-oauth-clients/create-traditional-application.png)]({{base_path}}/assets/img/learn/api-security/oauth2/provisioning-out-of-band-oauth-clients/create-traditional-application.png)
 
-3.  Enter the name of the service provider and click **Register**.
+3.  In the service provider, go to the **Protocol** tab and select the desired grant types.
 
-     [![Add Service Provider]({{base_path}}/assets/img/learn/api-security/oauth2/provisioning-out-of-band-oauth-clients/create-external-sp.png)]({{base_path}}/assets/img/learn/api-security/oauth2/provisioning-out-of-band-oauth-clients/create-external-sp.png)
-             
-4.  Click **Inbound Authentication Configuration** --> **OAuth/OpenID Connect Configuration** --> **Configure** to add a new OAuth2 client.
+     [![Select Grant Types]({{base_path}}/assets/img/learn/api-security/oauth2/provisioning-out-of-band-oauth-clients/select-grant-types.png)]({{base_path}}/assets/img/learn/api-security/oauth2/provisioning-out-of-band-oauth-clients/select-grant-types.png)
 
-     [![Add Oauth app]({{base_path}}/assets/img/learn/api-security/oauth2/provisioning-out-of-band-oauth-clients/add-oauth-app.png)]({{base_path}}/assets/img/learn/api-security/oauth2/provisioning-out-of-band-oauth-clients/add-oauth-app.png)
+4.  In the same tab, set the **Token Type** as `JWT` and click **Update**.
 
-     <a name="step5"></a>
+     [![Set Token Type JWT]({{base_path}}/assets/img/learn/api-security/oauth2/provisioning-out-of-band-oauth-clients/set-token-type-jwt.png)]({{base_path}}/assets/img/learn/api-security/oauth2/provisioning-out-of-band-oauth-clients/set-token-type-jwt.png)
 
-5.  Provide a **Callback Url** and set the **Token Issuer** as `JWT`, then click **Add**.
-    
-     If you do not have a **Callback Url**, you can clear the **Code** and **Implicit** authorization grant types and add the OAuth2 client.
-    
-     <a href="{{base_path}}/assets/img/learn/api-security/oauth2/provisioning-out-of-band-oauth-clients/register-oauth-app.png" ><img src="{{base_path}}/assets/img/learn/api-security/oauth2/provisioning-out-of-band-oauth-clients/register-oauth-app.png" alt="Register OAuth app" 
-          title="Register Oauth app"/></a>  
-    
-    Now you have successfully created an OAuth2 client and generated a consumer key and consumer secret for it. 
-   
-    [![Oauth app credentials]({{base_path}}/assets/img/learn/api-security/oauth2/provisioning-out-of-band-oauth-clients/external-oauthapp-credentials.png)]({{base_path}}/assets/img/learn/api-security/oauth2/provisioning-out-of-band-oauth-clients/external-oauthapp-credentials.png)
-    
+5.  Copy the **Client ID** and **Client Secret**.
+
 ## Step 3 - Provision the out-of-band OAuth2 client
 
 Follow the instructions below to provision the out-of-band OAuth2 client that you created in the previous step in WSO2 API Manager.
 
-1.  Stop the WSO2 API Manager server if it is already running.
+1.  [Start the server]({{base_path}}/install-and-setup/install/installing-the-product/running-the-api-m/#starting-the-server).
 
-2.  Enable the option to provide out-of-band keys. 
+2.  Sign in to the Developer Portal.
 
-     Open `<API-M_HOME>/repository/conf/deployment.toml` file in a text editor and add the following configuration under the `apim.devportal` configuration.
+      `https://<Server Host>:9443/devportal`
 
-    ``` toml
-    [apim.devportal]
-    enable_key_provisioning = true
-    ```
+3.  Create an application. 
+     
+     For more information, see [Create Application]({{base_path}}/api-developer-portal/manage-application/create-application).
+    
+4.  Click on the respective application to view the credential details.
+    
+     [![App listing]({{base_path}}/assets/img/learn/application-listing.png)]({{base_path}}/assets/img/learn/application-listing.png)   
+    
+5.  Click **OAuth2 Tokens** under **Production Keys** tab and navigate to the respective key manager tab (here it is `IS`).
+
+      The **PROVIDE EXISTING OAUTH KEYS** button appears under the **Production OAuth2 Keys** section.
+
+    !!! Note
+        Out-of-band OAuth2 client can be provisioned either for production or sandbox environment. If you wish to generate keys for your sandbox, you can follow the same instructions in the **Sandbox Keys** tab.
+
+     [![Provide Keys]({{base_path}}/assets/img/learn/api-security/oauth2/provisioning-out-of-band-oauth-clients/provide-keys-section.png)]({{base_path}}/assets/img/learn/api-security/oauth2/provisioning-out-of-band-oauth-clients/provide-keys-section.png)
+
+6.  Paste the consumer key and consumer secret pair, which you derived in [Step 2 - (5) Creating an external OAuth client](#step5).
+
+     <a href="{{base_path}}/assets/img/learn/api-security/oauth2/provisioning-out-of-band-oauth-clients/update-keys.png" ><img src="{{base_path}}/assets/img/learn/api-security/oauth2/provisioning-out-of-band-oauth-clients/update-keys.png" alt="update-keys" title="update-keys" width="80%" /></a>
 
     !!! Note
         - The ability to provision Out-of-Band Auth client will only be available for the applications that you created **after** applying this configuration.
@@ -72,34 +87,7 @@ Follow the instructions below to provision the out-of-band OAuth2 client that yo
         enable_provisioned_app_validation = false
         ```
 
-3.  [Start the server]({{base_path}}/install-and-setup/install/installing-the-product/running-the-api-m/#starting-the-server).
-
-4.  Sign in to the Developer Portal.
-
-      `https://<Server Host>:9443/devportal`
-
-5.  Create an application. 
-     
-     For more information, see [Create Application]({{base_path}}/api-developer-portal/manage-application/create-application).
-    
-6.  Click on the respective application to view the credential details.
-    
-     [![App listing]({{base_path}}/assets/img/learn/application-listing.png)]({{base_path}}/assets/img/learn/application-listing.png)   
-    
-7.  Click **OAuth2 Tokens** under **Production Keys** tab and navigate to the respective key manager tab (here it is `IS`).
-
-      The **PROVIDE EXISTING OAUTH KEYS** button appears under the **Production OAuth2 Keys** section.
-
-    !!! Note
-        Out-of-band OAuth2 client can be provisioned either for production or sandbox environment. If you wish to generate keys for your sandbox, you can follow the same instructions in the **Sandbox Keys** tab.
-
-     [![Provide Keys]({{base_path}}/assets/img/learn/api-security/oauth2/provisioning-out-of-band-oauth-clients/provide-keys-section.png)]({{base_path}}/assets/img/learn/api-security/oauth2/provisioning-out-of-band-oauth-clients/provide-keys-section.png)
-
-8.  Paste the consumer key and consumer secret pair, which you derived in [Step 2 - (5) Creating an external OAuth client](#step5).
-
-     <a href="{{base_path}}/assets/img/learn/api-security/oauth2/provisioning-out-of-band-oauth-clients/update-keys.png" ><img src="{{base_path}}/assets/img/learn/api-security/oauth2/provisioning-out-of-band-oauth-clients/update-keys.png" alt="update-keys" title="update-keys" width="80%" /></a>
-
-9. Click **Provide**.
+7. Click **Provide**.
 
 Now you have successfully mapped an out-of-band OAuth client to an application. 
 
