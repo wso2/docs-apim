@@ -57,7 +57,7 @@ Let's get started...
 
 ### Step 1: Create, Deploy and Publish an API
 
-Follow the instructions below to create, deploy and publish an API via the Publisher Portal of WSO2 API-M.
+Follow the instructions below to create, deploy, and publish an API via the Publisher Portal of WSO2 API-M.
 
 1. Navigate to the Publisher Portal.
    
@@ -76,8 +76,7 @@ Follow the instructions below to create, deploy and publish an API via the Publi
     | `Charset`               | UTF-8                 |
     | `HTTP Response Body`    | `{"hello": "world"}`  |
 
-    Finally click **Generate My HTTP Response** to save and generate the mock service url.
-
+Finally, click **Generate My HTTP Response** to save and generate the mock service URL.
     
 4. Select **REST API** from the home screen and then click **Start From Scratch**.
    
@@ -149,7 +148,7 @@ Follow the instructions below to subscribe to the API via the Developer Portal o
 
      [![API try out]({{base_path}}/assets/img/get_started/try-out.png)]({{base_path}}/assets/img/get_started/try-out.png)
 
-     And with that, we have subscribed to the API using the `DefaultApplication`.
+     With that, you have successfully subscribed to the API using the `DefaultApplication`.
 
 <a name="invoke"></a>
 
@@ -169,7 +168,7 @@ Follow the instructions below to invoke the created API.
 
      [![Test API]({{base_path}}/assets/img/get_started/test-api.png)]({{base_path}}/assets/img/get_started/test-api.png)
 
-2. Click on the `GET` resource of the API to expand the resource and Click **Try It Out**.
+2. Click on the `GET` resource of the API to expand it, and then click **Try It Out**.
    
      [![GET resource]({{base_path}}/assets/img/get_started/expanded-get-resource.png)]({{base_path}}/assets/img/get_started/expanded-get-resource.png)
 
