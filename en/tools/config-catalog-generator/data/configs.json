@@ -3107,6 +3107,35 @@
             "exampleFile": "_message-formatters-custom-blocking.toml"
         },
         {
+            "title": "Message Formatter Options",
+            "options": [
+                {
+                    "name": "message_formatter.options",
+                    "required": false,
+                    "description": "",
+                    "params": [
+                        {
+                            "name": "disableSendingMultipartPartCharset",
+                            "type": "boolean",
+                            "required": false,
+                            "default": "false",
+                            "possible": "true false",
+                            "description": "Defines whether the charset parameter in the Content-Type header should be preserved in each part of multipart form data."
+                        },
+                        {
+                            "name": "preserveMultipartPartContentTransferEncoding",
+                            "type": "boolean",
+                            "required": false,
+                            "default": "false",
+                            "possible": "true false",
+                            "description": "Defines whether the Content-Transfer-Encoding header should be preserved in each part of multipart form data."
+                        }
+                    ]
+                }
+            ],
+            "exampleFile": "message_formatter.options.toml"
+        },
+        {
             "title": "Message Mediation",
             "options": [
                 {
@@ -4221,6 +4250,6 @@
                 }
             ],
             "exampleFile": "user_store.properties.toml"
-        }                                                                                           
+        }
     ]
 }
