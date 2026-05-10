@@ -26,7 +26,7 @@ This document provides step-by-step instructions to deploy WSO2 API Manager in a
   - [Minimal Configuration](#minimal-configuration)
   - [Advanced Configuration](#advanced-configuration)
     - [1. General Configuration of Helm Charts](#1-general-configuration-of-helm-charts)
-        - [1.1 Add Ingress Controller](#11-add-ingress-controller)
+        - [1.1 Add Gateway API controller or Ingress controller](#11-add-gateway-api-controller-or-ingress-controller)
         - [1.2 Mount Keystore and Truststore](#12-mount-keystore-and-truststore)
         - [1.3 Configure Internal Encryption Key (Mandatory)](#13-configure-internal-encryption-key-mandatory)
         - [1.4 Encrypting Secrets (Cipher Tool and Secure Vault)](#14-encrypting-secrets-cipher-tool-and-secure-vault)
@@ -58,7 +58,9 @@ Before you begin, ensure you have met the following requirements:
     - [Helm](https://helm.sh/docs/intro/install/) (version 3 or newer)
     - [Kubernetes client](https://kubernetes.io/docs/tasks/tools/install-kubectl/)
     - A running [Kubernetes cluster](https://kubernetes.io/docs/setup/) (version 1.16 or newer)
-    - [NGINX Ingress Controller](https://kubernetes.github.io/ingress-nginx/deploy/)
+    - A routing controller:
+        - **[Envoy Gateway](https://gateway.envoyproxy.io/docs/install/install-helm/)** (enabled by default) - **RECOMMENDED** (modern Gateway API-based routing)
+        - **[NGINX Ingress Controller](https://kubernetes.github.io/ingress-nginx/deploy/)** (disabled by default) - **DEPRECATED** (traditional Ingress-based routing)
     - Access to a container registry (Docker Hub or private registry)
     - Database server (MySQL, MSSQL, PostgreSQL, etc.) accessible from the Kubernetes cluster
 
@@ -175,77 +177,175 @@ If you want to quickly try out WSO2 API Manager on Kubernetes with minimal confi
     - Basic settings for a simple scalable deployment
     - Ready-to-use configuration for testing environments
 
-1. **Create Kubernetes Secret for Keystores**:
+Before running the Helm install commands, set the same `wso2.apim.configurations.encryption.key` value in `default_values.yaml`, `default_km_values.yaml`, and `default_gw_values.yaml`.
 
-   ```bash
-   # Create secret with default WSO2 keystores and truststores
-   kubectl create secret generic apim-keystore-secret --from-file=wso2carbon.jks --from-file=client-truststore.jks
-   ```
+- Create a namespace for the deployment
 
-2. **Deploy Components Using Default Values**:
+```bash
+kubectl create namespace apim
+```
 
-  Before running the Helm install commands, set the same `wso2.apim.configurations.encryption.key` value in `default_values.yaml`, `default_km_values.yaml`, and `default_gw_values.yaml`.
+- Create a Kubernetes secret for keystores:
+
+```bash
+# Create secret with default WSO2 keystores and truststores
+kubectl create secret generic apim-keystore-secret --from-file=wso2carbon.jks --from-file=client-truststore.jks -n apim
+```
+
+- Install the Envoy Gateway as follows:
+
+```bash
+helm install envoy-gateway oci://docker.io/envoyproxy/gateway-helm \
+  --version v1.7.0 -n envoy-gateway-system \
+  --set config.envoyGateway.extensionApis.enableBackend=true \
+  --set envoyGateway.gateway.experimentalFeatures.enabled=true \
+  --create-namespace
+```
+
+- Apply the sample Gateway manifest to create Gateway and GatewayClass resources.
+
+```bash
+kubectl apply -f https://raw.githubusercontent.com/wso2/helm-apim/4.7.x/docs/assets/sample-gateway.yaml -n apim
+```
+
+- Deploy components using the default values:
 
 !!! warning "Important"
     Naming conventions are crucial. If you modify the component names, ensure consistency throughout your configuration files.
 
-   **Deploy Control Plane (All-in-One)**:
-   ```bash
-   helm install apim wso2/wso2am-all-in-one --version 4.7.0-1 \
-     -f https://raw.githubusercontent.com/wso2/helm-apim/4.6.x/docs/am-pattern-5-all-in-one_GW_KM/default_values.yaml
-   ```
+**Deploy Control Plane (All-in-One)**:
+```bash
+helm install apim wso2/wso2am-all-in-one --version 4.7.0-1 \
+  -f https://raw.githubusercontent.com/wso2/helm-apim/4.7.x/docs/am-pattern-5-all-in-one_GW_KM/default_values.yaml -n apim
+```
 
-   **Deploy Key Manager**:
-   ```bash
-   helm install km wso2/wso2am-acp --version 4.7.0-1 \
-     -f https://raw.githubusercontent.com/wso2/helm-apim/4.6.x/docs/am-pattern-5-all-in-one_GW_KM/default_km_values.yaml
-   ```
+**Deploy Key Manager**:
+```bash
+helm install km wso2/wso2am-acp --version 4.7.0-1 \
+  -f https://raw.githubusercontent.com/wso2/helm-apim/4.7.x/docs/am-pattern-5-all-in-one_GW_KM/default_km_values.yaml -n apim
+```
 
-   **Deploy Universal Gateway**:
-   ```bash
-   helm install gw wso2/wso2am-universal-gw --version 4.7.0-1 \
-     -f https://raw.githubusercontent.com/wso2/helm-apim/4.6.x/docs/am-pattern-5-all-in-one_GW_KM/default_gw_values.yaml
-   ```
+**Deploy Universal Gateway**:
+```bash
+helm install gw wso2/wso2am-universal-gw --version 4.7.0-1 \
+  -f https://raw.githubusercontent.com/wso2/helm-apim/4.7.x/docs/am-pattern-5-all-in-one_GW_KM/default_gw_values.yaml -n apim
+```
 
-3. **Set Up Ingress**:
-   
-   Once the services are deployed, configure the NGINX Ingress Controller by following the steps in [1.1 Add Ingress Controller](#11-add-ingress-controller).
+- The Helm chart uses Gateway API by default. If you prefer Ingress instead, follow the steps in [1.1 Add Gateway API controller or Ingress controller](#11-add-gateway-api-controller-or-ingress-controller) to configure and enable it.
 
 ## Advanced Configuration
 
 ### 1. General Configuration of Helm Charts
 
-The Helm charts for the API Manager deployment are available in the [WSO2 Helm Chart Repository](https://github.com/wso2/helm-apim/tree/4.6.x). You can either use the charts from the repository or clone the repository and use the charts from the local copy.
+The Helm charts for the API Manager deployment are available in the [WSO2 Helm Chart Repository](https://github.com/wso2/helm-apim/tree/4.7.x). You can either use the charts from the repository or clone the repository and use the charts from the local copy.
 - The Helm naming convention for APIM follows a simple pattern. The following format is used for naming the resources:
 ```<RELEASE_NAME>-<CHART_NAME>-<RESOURCE_NAME>```
 
-### 1.1 Add Ingress Controller
+### 1.1 Add Gateway API controller or Ingress controller
 
-The recommendation is to use the [**NGINX Ingress Controller**](https://kubernetes.github.io/ingress-nginx/deploy/) suitable for your cloud environment or local deployment. Some sample annotations that could be used with the ingress resources are as follows:
+You can use either **[Envoy Gateway](https://gateway.envoyproxy.io/docs/install/install-helm/)** (Gateway API-based) or **[NGINX Ingress Controller](https://kubernetes.github.io/ingress-nginx/deploy/)** (Ingress-based) for routing traffic to API Manager. By default, charts are configured to use Envoy Gateway. If you want to use NGINX Ingress Controller instead, disable Gateway API and enable Ingress in your Helm values.
+> **Note:** It is recommended to use Gateway API with Envoy Gateway instead of NGINX Ingress Controller (Deprecated).
 
-  - The ingress class should be set to nginx in the ingress resource if you are using the NGINX Ingress Controller.
-  - The following are some of the recommended annotations to include in the Helm charts for ingresses. These may vary depending on the requirements. Please refer to the [documentation](https://kubernetes.github.io/ingress-nginx/user-guide/nginx-configuration/annotations/) for more information about the annotations.
-  
-    ```yaml
-    ingressClass: "nginx"
-    ingress:
-      tlsSecret: ""
-      ratelimit:
-        enabled: false
-        zoneName: ""
-        burstLimit: ""
-      controlPlane:
+#### TLS Certificate Configuration (Required for both options)
+
+Create a Kubernetes secret containing the TLS certificate and private key. This secret is used for TLS termination at the load balancer level.
+
+```bash
+kubectl create secret tls my-tls-secret --key <private key filename> --cert <certificate filename> -n <namespace>
+```
+
+If you use Gateway API, reference this secret in the TLS listeners of your Gateway manifest.
+If you use NGINX Ingress Controller, set `tlsSecret` to this secret name in Helm values.
+
+#### Option 1: Envoy Gateway (Gateway API-based approach) - RECOMMENDED
+
+It is recommended to use Gateway API with Envoy Gateway instead of NGINX Ingress Controller. Gateway API provides a more expressive, extensible, and role-oriented API for configuring traffic routing in Kubernetes.
+
+- Install Envoy Gateway.
+
+  ```bash
+  helm install envoy-gateway oci://docker.io/envoyproxy/gateway-helm \
+    --version v1.7.0 -n envoy-gateway-system \
+    --set config.envoyGateway.extensionApis.enableBackend=true \
+    --set envoyGateway.gateway.experimentalFeatures.enabled=true \
+    --create-namespace
+  ```
+
+- Create and apply Gateway and GatewayClass resources.
+
+  ```bash
+  kubectl apply -f <your-gateway-manifest> -n <namespace>
+  ```
+
+  Ensure that the hostnames and Gateway name in your created Gateway manifest match those configured in your Helm chart values. Additionally the TLS secret created above should be correctly referenced in the listeners of the Gateway resource for TLS termination.
+
+- Create a ConfigMap containing the CA certificate for backend TLS verification and reference it under `backendTLSPolicy.caCertificateConfigMap` in the Helm chart values. This is required if you have enabled backend TLS verification in the Gateway configuration.
+  > **Note:** A default ConfigMap with the name `wso2-ca-cert` is created when the `defaultConfigMapCreation` option is enabled in the values.yaml. This default ConfigMap uses the default certificates provided in the APIM truststore. However, for production deployments, it is recommended to create and manage the ConfigMap with the CA certificate yourself, and set `defaultConfigMapCreation` to false
+
+  ```bash
+  kubectl create configmap wso2-ca-cert --from-file=ca.crt=/path/to/your/certificate.pem -n <namespace>
+  ```
+
+- Configure the backend traffic policy in the Gateway configuration to enable session affinity if required. This can be done by setting the `backendTrafficPolicy` in the Helm chart values.
+
+- Update `values.yaml` to enable Gateway API and configure backend TLS policy.
+
+  ```yaml
+  kubernetes:
+    gatewayAPI:
+      enabled: true
+      gatewayName: "wso2-apim-gateway"
+      defaultConfigMapCreation: false
+      management:
+        enabled: true
         hostname: "am.wso2.com"
-        annotations:
-          nginx.ingress.kubernetes.io/backend-protocol: "HTTPS"
-          nginx.ingress.kubernetes.io/affinity: "cookie"
-          nginx.ingress.kubernetes.io/session-cookie-name: "route"
-          nginx.ingress.kubernetes.io/session-cookie-hash: "sha1"
-    ```
-  - You need to create a Kubernetes secret including the certificate and the private key and include the name of the secret in the Helm charts. This will be used for TLS termination at the load balancer level by the ingress controller. Please refer to the [documentation](https://kubernetes.io/docs/concepts/services-networking/ingress/#tls) for more information.
-    ```
-    kubectl create secret tls my-tls-secret --key <private key filename> --cert <certificate filename>
-    ```
+      gateway:
+        enabled: true
+        hostname: "gw.wso2.com"
+      websocket:
+        enabled: true
+        hostname: "websocket.wso2.com"
+      websub:
+        enabled: true
+        hostname: "websub.wso2.com"
+      backendTLSPolicy:
+        enabled: true
+        caCertificateConfigMap: "wso2-ca-cert"
+        hostname: "<hostname used in the TLS certificate>"
+      backendTrafficPolicy:
+          enabled: true
+          cookie:
+            name: "WSO2_CP_STICKY_SESSION"
+            ttl: "0s"
+  ```
+
+- If you require further routing customizations, use [Gateway API Extensions](https://gateway.envoyproxy.io/docs/api/extension_types/) provided by Envoy.
+
+#### Option 2: NGINX Ingress Controller (Ingress-based approach) - DEPRECATED
+
+You can install the NGINX Ingress Controller using the official [Helm chart](https://kubernetes.github.io/ingress-nginx/deploy/)
+
+Some sample annotations that can be used with Ingress resources are as follows:
+
+- The ingress class should be `nginx` if you are using NGINX Ingress Controller.
+- The following annotations can be included in Helm values for Ingress resources depending on requirements. Refer to [NGINX annotation documentation](https://kubernetes.github.io/ingress-nginx/user-guide/nginx-configuration/annotations/) for details.
+
+  ```yaml
+  ingressClass: "nginx"
+  ingress:
+    tlsSecret: ""
+    ratelimit:
+      enabled: false
+      zoneName: ""
+      burstLimit: ""
+    controlPlane:
+      hostname: "am.wso2.com"
+      annotations:
+        nginx.ingress.kubernetes.io/backend-protocol: "HTTPS"
+        nginx.ingress.kubernetes.io/affinity: "cookie"
+        nginx.ingress.kubernetes.io/session-cookie-name: "route"
+        nginx.ingress.kubernetes.io/session-cookie-hash: "sha1"
+  ```
 
 ### 1.2 Mount Keystore and Truststore
 
@@ -355,7 +455,7 @@ This section is for the internal encryption key (`wso2.apim.configurations.encry
               username: ""
               password: ""
     ```
-    - If you need to change the hostnames, update them under the Kubernetes ingress section.
+    - If you need to change the hostnames, update them under the Kubernetes Gateway API or ingress section.
     - Update the keystore passwords in the security section of the `values.yaml` file.
     - Review the descriptions of other configurations and modify them as needed to meet your requirements. A simple deployment can be achieved using the basic configurations provided in the `values.yaml` file. All configuration options for each Helm chart are documented in their respective component guides:
       - [All-in-one](https://github.com/wso2/helm-apim/blob/main/all-in-one/README.md)
@@ -622,7 +722,15 @@ helm install <release-name> wso2/wso2am-universal-gw \
 
 After deploying the components, you need to configure DNS records for accessing the services:
 
-1. **Get the External IP of Ingress Resources**:
+1. **Get the External IP**:
+
+  For Gateway API:
+
+  ```bash
+  kubectl get gateway -n <NAMESPACE>
+  ```
+
+  If you are using Ingress instead of Gateway API:
 
    ```bash
    kubectl get ing -n <NAMESPACE>
@@ -633,12 +741,12 @@ After deploying the components, you need to configure DNS records for accessing 
    !!! info "DNS Configuration"
        You have two options for configuring hostname resolution:
 
-   **Option 1**: If you have a DNS service, add proper DNS records:
-   - Add A records in your DNS service mapping the hostnames to the `EXTERNAL-IP`
+  **Option 1**: If you have a DNS service, add proper DNS records:
+  - Add A records in your DNS service mapping the hostnames to the `ADDRESS` or `EXTERNAL-IP`
 
    **Option 2**: For local testing, add entries in your hosts file:
    ```
-   <EXTERNAL-IP> <kubernetes.ingress.management.hostname> <kubernetes.ingress.gateway.hostname> <kubernetes.ingress.websub.hostname> <kubernetes.ingress.websocket.hostname>
+  <EXTERNAL-IP> <kubernetes.gatewayAPI.management.hostname> <kubernetes.gatewayAPI.gateway.hostname> <kubernetes.gatewayAPI.websub.hostname> <kubernetes.gatewayAPI.websocket.hostname>
    ```
 
    !!! tip
@@ -650,10 +758,10 @@ After completing the deployment and DNS configuration, you can access the manage
 
 | Console | URL | Description |
 |---------|-----|-------------|
-| API Publisher | `https://<kubernetes.ingress.management.hostname>/publisher` | Create and manage APIs |
-| Developer Portal | `https://<kubernetes.ingress.management.hostname>/devportal` | Discover and subscribe to APIs |
-| Carbon Console | `https://<kubernetes.ingress.management.hostname>/carbon` | Administrative tasks |
-| Universal Gateway | `https://<kubernetes.ingress.gateway.hostname>` | API Gateway endpoint |
+| API Publisher | `https://<kubernetes.gatewayAPI.management.hostname>/publisher` | Create and manage APIs |
+| Developer Portal | `https://<kubernetes.gatewayAPI.management.hostname>/devportal` | Discover and subscribe to APIs |
+| Carbon Console | `https://<kubernetes.gatewayAPI.management.hostname>/carbon` | Administrative tasks |
+| Universal Gateway | `https://<kubernetes.gatewayAPI.gateway.hostname>` | API Gateway endpoint |
 
 !!! tip "Default Credentials"
     The default username is `admin` with password `admin`. For production environments, change these credentials immediately after first login.
