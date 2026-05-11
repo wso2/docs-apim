@@ -32,8 +32,7 @@ Before continuing with the setup, make sure you have the following:
         - **Endpoint URL**: `https://api.anthropic.com`  
         - **API Key**: `<CLAUDE API KEY>`
 
-4. **Deploy and Publish**.  
-    Deploy and publish the Anthropic AI API.
+4. Deploy and publish the Anthropic AI API.
 
 ---
 
@@ -43,24 +42,19 @@ Before continuing with the setup, make sure you have the following:
     Navigate to the WSO2 API Manager Developer portal:  
     `https://<APIM-HOST>:<APIM-PORT>/devportal`
 
-2. **Select the API.**  
-    Select the Anthropic AI API you just published.
+2. Select the Anthropic AI API you just published.
 
-3. **Subscribe to the API.**   
-    Subscribe to the API using an application of your choice.
+3. Subscribe to the API using an application of your choice.
 
-4. **Generate and Note the API Key.**  
-    Generate an API Key for the application and make sure to save it for later use.
+4. Generate an API Key for the application and make sure to save it for later use.
 
 ---
 
 ## Step 3: Configure Claude Code to Use the AI Gateway
 
-1. **Open a Terminal.**  
-    Open a new terminal (preferably in your working directory).
+1. Open a new terminal (preferably in your working directory).
 
-2. **Set Environment Variables.**  
-    Run the following commands, replacing placeholders with your values:
+2. Run the following commands, replacing placeholders with your values:
 
     ```bash
     export ANTHROPIC_BASE_URL="<ANTHROPIC AI API EXPOSED URL>"
@@ -92,9 +86,12 @@ Before continuing with the setup, make sure you have the following:
 
 ### Configure SSL Certificate Trust
 
-If the WSO2 API Manager AI Gateway uses a valid CA-signed certificate, no additional certificate configuration is required.
+When using a local AI Gateway over HTTPS, Claude Code must be able to trust the certificate presented by the Gateway.
 
-If the Gateway uses a self-signed certificate, Claude Code may fail to connect due to certificate verification errors. In such cases, add the Gateway certificate to the certificate trust store used by Claude Code before running the client.  
+!!! note
+    If the AI Gateway uses a valid CA-signed certificate, no additional certificate configuration is required.
+
+If the Gateway uses a self-signed certificate, Claude Code may fail to connect due to certificate verification errors. In such cases, add the Gateway certificate to the certificate trust store used by Claude Code before running the client. 
 
 For more information, visit the [Claude Code Official Documentation](https://code.claude.com/docs/en/troubleshoot-install#tls-or-ssl-connection-errors)
 

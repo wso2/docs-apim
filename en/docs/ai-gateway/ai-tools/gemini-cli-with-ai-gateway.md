@@ -44,8 +44,7 @@ Before continuing with the setup, make sure you have the following:
         x-goog-api-key
         ```
 
-5. **Deploy and Publish**.  
-    Deploy and publish the Google AI API.
+5. Deploy and publish the Google AI API.
 
 ---
 
@@ -55,14 +54,11 @@ Before continuing with the setup, make sure you have the following:
     Navigate to the WSO2 API Manager Developer portal:  
     `https://<APIM-HOST>:<APIM-PORT>/devportal`
 
-2. **Select the API**.  
-    Select the Google AI API you just published.
+2. Select the Google AI API you just published.
 
-3. **Subscribe to the API**.  
-    Subscribe to the API using an application of your choice.
+3. Subscribe to the API using an application of your choice.
 
-4. **Generate and Note the API Key**.  
-    Generate an API Key for the application and make sure to save it for later use.
+4. Generate an API Key for the application and make sure to save it for later use.
 
 ---
 
@@ -70,8 +66,7 @@ Before continuing with the setup, make sure you have the following:
 
 Gemini relies entirely on environment variables for configuration.
 
-1. **Open a Terminal**.  
-    Open a new terminal session.
+1. Open a new terminal session.
 
 2. **Set Environment Variables**.  
     Run the following commands, replacing placeholders with your values:
@@ -86,7 +81,10 @@ Gemini relies entirely on environment variables for configuration.
 
 ### Configure SSL Certificate Trust
 
-If the WSO2 API Manager AI Gateway uses a valid CA-signed certificate, no additional certificate configuration is required.
+When using a local AI Gateway over HTTPS, Gemini CLI must be able to trust the certificate presented by the Gateway.
+
+!!! note
+    If the WSO2 API Manager AI Gateway uses a valid CA-signed certificate, no additional certificate configuration is required.
 
 If the Gateway uses a self-signed certificate, Gemini CLI may fail to connect due to certificate verification errors. In such cases, add the Gateway certificate to the certificate trust store used by Gemini CLI before running the client.
 
