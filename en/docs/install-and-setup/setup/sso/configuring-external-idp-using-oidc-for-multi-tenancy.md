@@ -1,6 +1,6 @@
 # Configure External IdP using OIDC for Multi-Tenancy
 
-WSO2 API Manager use OIDC SSO by default. Doc show how connect WSO2 Identity Server (or WSO2 IS as Key Manager) as third-party IdP to API Manager for multi-tenant flows.
+WSO2 API Manager uses OIDC SSO by default. This doc shows how to connect WSO2 Identity Server (or WSO2 IS as Key Manager) as a third-party IdP to API Manager for multi-tenant flows.
 
 !!! Note
     No multi-tenancy needed? Follow this doc: [Configure Identity Server as External IdP using OIDC](./configuring-identity-server-as-external-idp-using-oidc.md).
@@ -252,7 +252,7 @@ http_method = "all"
         </tbody>
         </table>
 
-        [![]({{base_path}}/assets/img/setup-and-install/role-mapping-for-sso.png)]({{base_path}}/assets/img/setup-and-install/role-mapping-for-sso.png)
+        [![Role mapping]({{base_path}}/assets/img/setup-and-install/role-mapping-for-sso.png)]({{base_path}}/assets/img/setup-and-install/role-mapping-for-sso.png)
 
         !!! Tip
             Instead of default internal roles, create new roles in API Manager and map to provisioned users.
@@ -297,7 +297,7 @@ http_method = "all"
 
     -   Enable **Just-in-Time Provisioning** to provision users in API Manager:
 
-        [![]({{base_path}}/assets/img/setup-and-install/jit-provisioning-for-sso.png)]({{base_path}}/assets/img/setup-and-install/jit-provisioning-for-sso.png)
+        [![Jit Provisioning]({{base_path}}/assets/img/setup-and-install/jit-provisioning-for-sso.png)]({{base_path}}/assets/img/setup-and-install/jit-provisioning-for-sso.png)
 
     -   Click **Register** to save.
 
