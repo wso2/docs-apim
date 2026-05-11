@@ -34,8 +34,7 @@ Before continuing with the setup, make sure you have the following:
         - **Endpoint URL**: `https://api.openai.com`
         - **API Key**: `<OPENAI API KEY>`
 
-4. **Deploy and Publish**.  
-    Deploy and publish the OpenAI AI API.
+4. Deploy and publish the OpenAI AI API.
 
 ---
 
@@ -45,14 +44,11 @@ Before continuing with the setup, make sure you have the following:
     Navigate to the WSO2 API Manager Developer Portal:  
     `https://<APIM-HOST>:<APIM-PORT>/devportal`
 
-2. **Select the API**.  
-    Select the OpenAI AI API you just published.
+2. Select the OpenAI AI API you just published.
 
-3. **Subscribe to the API**.  
-    Subscribe to the API using an application of your choice.
+3. Subscribe to the API using an application of your choice.
 
-4. **Generate and Note the API Key**.  
-    Generate an API Key for the application and make sure to save it for later use.
+4. Generate an API Key for the application and make sure to save it for later use.
 
 ---
 
@@ -60,8 +56,7 @@ Before continuing with the setup, make sure you have the following:
 
 Codex CLI can be configured to use a custom OpenAI-compatible provider by updating its `config.toml` file.
 
-1. **Open the Codex Configuration File**.  
-    Open the Codex CLI configuration file located at:
+1. **Open the Codex CLI configuration file** located at:
 
     ```bash
     ~/.codex/config.toml
@@ -109,8 +104,7 @@ Codex CLI can be configured to use a custom OpenAI-compatible provider by updati
 
 ## Step 4: Configure Environment Variables for Codex CLI
 
-1. **Open a Terminal**.  
-    Open a terminal session where you want to run Codex CLI.
+1. Open a terminal session where you want to run Codex CLI.
 
 2. **Set the API Key Environment Variable**.  
     Export the API Key generated from WSO2 API Manager:
@@ -126,7 +120,12 @@ Codex CLI can be configured to use a custom OpenAI-compatible provider by updati
 
 ## Step 5: Configure the Gateway Certificate for Codex CLI
 
-When using a local WSO2 API Manager Gateway over HTTPS, Codex CLI must be able to trust the certificate presented by the Gateway.
+When using a local AI Gateway over HTTPS, Codex CLI must be able to trust the certificate presented by the Gateway.
+
+!!! note
+    If the AI Gateway uses a valid CA-signed certificate, no additional certificate configuration is required.
+
+If the Gateway uses a self-signed certificate, Codex CLI may fail to connect due to certificate verification errors. In such cases, add the Gateway certificate to the certificate trust store used by Codex CLI before running the client.
 
 Use the following command to connect to the local Gateway, extract the certificate, and save it as `gateway_certificate.pem` in the current directory:
 
