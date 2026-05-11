@@ -120,7 +120,8 @@ WSO2 API Manager supports two routing controller options. NGINX Ingress is enabl
     2. Create and apply Gateway and GatewayClass resources:
 
         ```bash
-        kubectl apply -f https://raw.githubusercontent.com/wso2/helm-apim/4.6.x/docs/assets/sample-gateway.yaml -n wso2
+        kubectl create namespace apim
+        kubectl apply -f https://raw.githubusercontent.com/wso2/helm-apim/4.6.x/docs/assets/sample-gateway.yaml -n apim
         ```
 
         Ensure the hostnames and Gateway name in your manifest match the values configured in your Helm chart, and that the TLS secret is referenced in the Gateway listeners.
@@ -153,10 +154,11 @@ Pattern 6 requires two custom Docker images — one for WSO2 API Manager and one
       /home/wso2carbon/wso2am-4.6.0/repository/components/lib/
     ```
 
-3. Build the APIM image, replacing `<REGISTRY>` and `<TAG>` with your values:
+3. Build and push the APIM image, replacing `<REGISTRY>` and `<TAG>` with your values:
 
     ```bash
     docker buildx build --platform linux/amd64 -f Dockerfile.apim -t <REGISTRY>/wso2am-mysql:<TAG> .
+    docker push <REGISTRY>/wso2am-mysql:<TAG>
     ```
 
     !!! note "Matching your cluster architecture"
@@ -167,6 +169,13 @@ Pattern 6 requires two custom Docker images — one for WSO2 API Manager and one
         ```bash
         kubectl get nodes -o jsonpath='{.items[*].status.nodeInfo.architecture}'
         ```
+
+4. Get the APIM image digest — you will need it when configuring the values file:
+
+    ```bash
+    docker inspect <REGISTRY>/wso2am-mysql:<TAG> \
+      --format='{% raw %}{{index .RepoDigests 0}}{% endraw %}'
+    ```
 
 #### 5.2 — Build the WSO2 Identity Server Image
 
@@ -186,43 +195,40 @@ WSO2 IS 7.x needs a custom image that includes the APIM notification event handl
       /home/wso2carbon/wso2is-7.2.0/repository/components/dropins/
     ```
 
-2. Build and push both images:
+2. Build and push the IS image:
 
     ```bash
-    docker buildx build --platform linux/amd64 -f Dockerfile.apim -t <REGISTRY>/wso2am-mysql:<TAG> .
     docker buildx build --platform linux/amd64 -f Dockerfile.is -t <REGISTRY>/wso2is-km:<TAG> .
-
-    docker push <REGISTRY>/wso2am-mysql:<TAG>
     docker push <REGISTRY>/wso2is-km:<TAG>
     ```
 
-3. Get the image digests — you will need them when configuring values files:
+3. Get the IS image digest — you will need it when configuring the values file:
 
     ```bash
-    docker inspect <REGISTRY>/wso2am-mysql:<TAG> \
-      --format='{% raw %}{{index .RepoDigests 0}}{% endraw %}'
-
     docker inspect <REGISTRY>/wso2is-km:<TAG> \
       --format='{% raw %}{{index .RepoDigests 0}}{% endraw %}'
     ```
 
 ### Step 6 — Set Up the Database
 
-Pattern 6 requires two databases: `apim_db` and `shared_db`. Both must be reachable from inside the Kubernetes cluster before the pods start.
+Pattern 6 requires three databases: `apim_db`, `shared_db`, and `identity_db`. All three must be reachable from inside the Kubernetes cluster before the pods start.
+
+- `apim_db` and `shared_db` are used by WSO2 API Manager
+- `identity_db` is used by WSO2 Identity Server for OAuth tokens, authorization codes, and consent data
 
 Follow the [Setting Up Databases]({{base_path}}/install-and-setup/setup/setting-up-databases/overview/) guide to:
 
 1. Set up a database instance accessible from your cluster
 2. Obtain the schema scripts for your database type
-3. Run the scripts to initialise both databases
+3. Run the scripts to initialise all three databases
 
 !!! note
     The JDBC driver for your database is already included in the custom Docker image you built in Step 5. You do not need to follow the JDBC driver steps in the VM-oriented sections of that guide.
 
-Once the scripts have been run, verify that both databases are set up correctly before proceeding:
+Once the scripts have been run, verify that all three databases are set up correctly before proceeding:
 
-- Connect to your database instance and confirm that `apim_db` and `shared_db` both exist
-- Check that tables have been created in each database (the `shared_db` script creates `UM_*` and `REG_*` tables; the `apim_db` script creates `AM_*` tables)
+- Connect to your database instance and confirm that `apim_db`, `shared_db`, and `identity_db` all exist
+- Check that tables have been created in each database (the `shared_db` script creates `UM_*` and `REG_*` tables; the `apim_db` script creates `AM_*` tables; the `identity_db` script creates `IDN_*` tables)
 
 ### Step 7 — Create the Keystore Secret { #step-7 }
 
@@ -422,7 +428,7 @@ Once both APIM and IS are running, register IS as a Key Manager through the APIM
 !!! note "Gateway API users"
     If you are using Envoy Gateway, get the external address from the Gateway resource instead:
     ```bash
-    kubectl get gateway -n wso2
+    kubectl get gateway -n apim
     ```
     Then map the `kubernetes.gatewayAPI.*` hostnames from your values files to the external address in `/etc/hosts`.
 
@@ -714,7 +720,8 @@ helm install envoy-gateway oci://docker.io/envoyproxy/gateway-helm \
 **Apply Gateway and GatewayClass resources**
 
 ```bash
-kubectl apply -f https://raw.githubusercontent.com/wso2/helm-apim/4.6.x/docs/assets/sample-gateway.yaml -n wso2
+kubectl create namespace apim
+kubectl apply -f https://raw.githubusercontent.com/wso2/helm-apim/4.6.x/docs/assets/sample-gateway.yaml -n apim
 ```
 
 **Create a CA certificate ConfigMap for backend TLS verification**
