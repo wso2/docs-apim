@@ -1,26 +1,24 @@
-# Configuring external IDP using OIDC for Multi tenancy
+# Configure External IdP using OIDC for Multi-Tenancy
 
-WSO2 API Manager uses the OIDC Single Sign-On feature by default. This document explains how to connect WSO2 Identity Server (or WSO2 Identity Server as a Keymanager) as a third party Identity provider to API-Manager for multi tenant work flows.
+WSO2 API Manager use OIDC SSO by default. Doc show how connect WSO2 Identity Server (or WSO2 IS as Key Manager) as third-party IdP to API Manager for multi-tenant flows.
 
+!!! Note
+    No multi-tenancy needed? Follow this doc: [Configure Identity Server as External IdP using OIDC](./configuring-identity-server-as-external-idp-using-oidc.md).
 
-!!! Note 
-    If do not require multi tenancy, you can follow this document: [Configuring Identity Server as External IDP using OIDC](./configuring-identity-server-as-external-idp-using-oidc.md)
+## Prerequisites
 
-
-## prerequisites
-
--   Download the API Manager distribution from [https://wso2.com/api-management/](https://wso2.com/api-management/).
--   Download the Identity Server distribution from [https://wso2.com/identity-and-access-management/](https://wso2.com/identity-and-access-management/).
+-   Download API Manager from [https://wso2.com/api-management/](https://wso2.com/api-management/).
+-   Download Identity Server from [https://wso2.com/identity-and-access-management/](https://wso2.com/identity-and-access-management/).
 
     !!! Tip
-        For **testing purposes** if you want to run both the WSO2 API Manager and WSO2 Identity Server on the same server, go to the `<IS_HOME>/repository/conf/deployment.toml` file and offset the port by 1 as by adding following configuration:
+        For **testing**, run APIM + IS on same machine. Open `<IS_HOME>/repository/conf/deployment.toml`, offset port by 1:
 
         ``` toml
         [server]
         offset=1
         ```
 
--   Start the servers using the following commands:
+-   Start servers:
 
     === "On Windows"
         ```
@@ -32,38 +30,36 @@ WSO2 API Manager uses the OIDC Single Sign-On feature by default. This document 
         sh wso2server.sh
         ```
 
-## Configure the Identity Server
+## Configure Identity Server
 
-### Step - 1 Create new Organization
+### Step 1 - Create New Organization
 
-1.  Sign in to the Management Console of WSO2 IS by browsing the following URL:  
+1.  Sign in to WSO2 IS Management Console:
 
     ```
     https://{is-ip}:9444/console
     ```
 
-2. Click on Root Organization and Click Manage Root Organization
+2.  Click **Root Organization** → **Manage Root Organization**.
 
-    [![IS 7 dashboard]({{base_path}}/assets/img/setup-and-install/is-create-new-org.png)]({{base_path}}/assets/img/setup-and-install/is-create-new-org.png)
+    [![IS 7 dashboard]({{base_path}}/assets/img/setup-and-install/multi-tenant-sso/is-create-new-org.png)]({{base_path}}/assets/img/setup-and-install/multi-tenant-sso/is-create-new-org.png)
 
+3.  Click **New Root Organization**. Fill form to create new org.
 
-3. Then click New Root Organization button and fill this form to create new organization
+    [![IS 7 register new org]({{base_path}}/assets/img/setup-and-install/multi-tenant-sso/is-register-new-org.png)]({{base_path}}/assets/img/setup-and-install/multi-tenant-sso/is-register-new-org.png)
 
-    [![IS 7 register new org]({{base_path}}/assets/img/setup-and-install/is-register-new-org.png)]({{base_path}}/assets/img/setup-and-install/is-register-new-org.png)
-
-4. Log into the new organization. (https://localhost:9444/t/asd.com/console)
+4.  Log into new org: `https://localhost:9444/t/asd.com/console`.
 
     !!! Note
-        Here `asd.com` is the sample tenant domain name. replace it with proper tenant domain name
+        `asd.com` is sample tenant domain. Replace with real tenant domain.
 
+### Step 2 - Configure Service Provider
 
-### Step - 2 Configure the Service Provider
+1.  Create Service Provider:
 
-1. Create a Service Provider:
+    a.  Go to **Applications** → **New Application** → select **Traditional Web Application**.
 
-    a.  Go to **Applications** → **New Application** and select **Traditional Web Application**.
-
-    b.  In the popup, provide the following details and click **Create**:
+    b.  In popup, fill below and click **Create**:
 
     <table>
         <tbody>
@@ -78,24 +74,24 @@ WSO2 API Manager uses the OIDC Single Sign-On feature by default. This document 
         </tbody>
      </table>
 
-    [![Create Traditional Web Application]({{base_path}}/assets/img/setup-and-install/create-traditional-web-app-tenant.png)]({{base_path}}/assets/img/setup-and-install/create-traditional-web-app-tenant.png)
+    [![Create Traditional Web Application]({{base_path}}/assets/img/setup-and-install/multi-tenant-sso/create-traditional-web-app-tenant.png)]({{base_path}}/assets/img/setup-and-install/multi-tenant-sso/create-traditional-web-app-tenant.png)
 
-    c.  In the configuration page, select **User Attributes** and enable the **Groups** attribute.
+    c.  On config page, select **User Attributes**. Enable **Groups** attribute.
 
     [![Select Groups user attribute]({{base_path}}/assets/img/setup-and-install/select-groups-attribute.png)]({{base_path}}/assets/img/setup-and-install/select-groups-attribute.png)
 
-    d.  In the same tab, under the **Subject** section, select **Assign alternate subject identifier** and from the dropdown list select **Username**.
+    d.  Same tab, under **Subject**, select **Assign alternate subject identifier**. Pick **Username** from dropdown.
 
     [![Assign alternate subject identifier]({{base_path}}/assets/img/setup-and-install/assign-alternate-subject-identifier.png)]({{base_path}}/assets/img/setup-and-install/assign-alternate-subject-identifier.png)
 
-    e.  Under the **Protocol** tab, copy the **Client ID** and **Client Secret**.
+    e.  Under **Protocol** tab, copy **Client ID** + **Client Secret**.
 
     !!! Info
-        For each tenant you have to create new application
+        Create new application for each tenant.
 
-### Step - 3 Create users and roles
+### Step 3 - Create Users and Roles
 
-1. Create the required [users](https://is.docs.wso2.com/en/latest/guides/users/onboard-users/) and [groups](https://is.docs.wso2.com/en/latest/guides/users/manage-groups/) in Identity Server. Assume, following users are created in Identity Servers with the given groups.
+1.  Create required [users](https://is.docs.wso2.com/en/latest/guides/users/onboard-users/) and [groups](https://is.docs.wso2.com/en/latest/guides/users/manage-groups/) in IS. Assume below users created with given groups:
 
     <table>
         <thead>
@@ -116,18 +112,16 @@ WSO2 API Manager uses the OIDC Single Sign-On feature by default. This document 
         </tbody>
     </table>
 
-
-## Configure the API Manager
+## Configure API Manager
 
 !!! Note
-    You need to enable tenant synchronization to create IS tenants on the APIM side. Please follow this guide to [enable tenant synchronization](../../../administer/multitenancy/tenant-sharing-with-wso2is7.md). Since this topic is outside the scope of this discussion, I won’t go into further detail here.
+    Enable tenant synchronization to create IS tenants on APIM side. Follow [enable tenant synchronization](../../../administer/multitenancy/tenant-sharing-with-wso2is7.md). Outside scope of this doc.
 
+### Step 1 - Import IS Certificate to WSO2 API Manager
 
-### Step - 1 Import the Identity Server Certificate to WSO2 API Manager
+Import Key Manager certificate to APIM `client-truststore.jks`:
 
-Import the Keymanager certificate to the WSO2 API Manager `client-truststore.jks` using the following steps.
-
-1.  Export the WSO2 IS certificate.
+1.  Export WSO2 IS certificate:
 
     === "On Mac/Linux"
         ```bash
@@ -139,13 +133,13 @@ Import the Keymanager certificate to the WSO2 API Manager `client-truststore.jks
         openssl s_client -connect localhost:9444 -servername wso2is7 < NUL | openssl x509 > is7.cert
         ```
 
-2.  Import this certificate to the `client-truststore.jks` located in `<AM_HOME>/repository/resources/security/`.
+2.  Import cert to `client-truststore.jks` in `<AM_HOME>/repository/resources/security/`:
 
     ```bash
     keytool -import -alias wso2is7cert -file is7.cert -keystore client-truststore.jks -storepass wso2carbon
     ```
 
-### Step - 2 Additional `deployment.toml` changes
+### Step 2 - `deployment.toml` Changes
 
 ```toml
 [tenant_context]
@@ -170,55 +164,54 @@ secure = false
 http_method = "all"
 
 ```
-    <table>
-        <thead>
-            <tr>
-                <th>Config</th>
-                <th>Description</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td>tenant_context.enable_tenant_qualified_urls</td>
-                <td>Enable tenant qualified URLs.</td>
-            </tr>
-            <tr>
-                <td>tenant_context.enable_tenanted_sessions</td>
-                <td>Enable tenanted sessions</td>
-            </tr>
-            <tr>
-                <td>tenant_context.skip_tenant_validation_for_oauth_endpoints</td>
-                <td>Enable this if you are using resident key manager</td>
-            </tr>
-            <tr>
-                <td>tenant_context.session_manager</td>
-                <td>You can skip this if you are using external key manager</td>
-            </tr>
-            <tr>
-                <td>event.default_listener.jit_provisioning_handler.enable</td>
-                <td>To disable default JIT provisioning handler</td>
-            </tr>
-            <tr>
-                <td>event_listener</td>
-                <td>This adds custom JIT provisioning handler</td>
-            </tr>
-            <tr>
-                <td>resource.access_control</td>
-                <td>This whitelist the tenant selection page</td>
-            </tr>
-        </tbody>
-    </table>
+<table>
+    <thead>
+        <tr>
+            <th>Config</th>
+            <th>Description</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>tenant_context.enable_tenant_qualified_urls</td>
+            <td>Enable tenant-qualified URLs.</td>
+        </tr>
+        <tr>
+            <td>tenant_context.enable_tenanted_sessions</td>
+            <td>Enable tenanted sessions.</td>
+        </tr>
+        <tr>
+            <td>tenant_context.skip_tenant_validation_for_oauth_endpoints</td>
+            <td>Enable if using resident key manager.</td>
+        </tr>
+        <tr>
+            <td>tenant_context.session_manager</td>
+            <td>Skip if using external key manager.</td>
+        </tr>
+        <tr>
+            <td>event.default_listener.jit_provisioning_handler.enable</td>
+            <td>Disable default JIT provisioning handler.</td>
+        </tr>
+        <tr>
+            <td>event_listener</td>
+            <td>Add custom JIT provisioning handler.</td>
+        </tr>
+        <tr>
+            <td>resource.access_control</td>
+            <td>Whitelist tenant selection page.</td>
+        </tr>
+    </tbody>
+</table>
 
+### Step 3 - Configure Federated Authenticators
 
+1.  Configure Super Tenant IdP.
 
-### Step - 3 Configure Federated Authenticators
+    -   Purpose: capture tenant details, proxy tenant-specific users to right service providers in their tenants. Also handle `carbon.super` tenant users.
+    -   Log in to carbon portal (`https://{apim-ip}:9443/carbon`) as admin.
+    -   Left nav → **Identity Providers** → click **Add**.
+    -   Add below claim mapping under **Claim Configuration**:
 
-1. Configure Super Tenant IdP
-
-    -   Purpose: Capture tenant details and proxy tenant-specific users to the appropriate service providers within their respective tenants, while also handling users from the carbon.super tenant.
-    -   First log in to the carbon portal (https://{apim-ip}:9443/carbon) using the admin account.
-    -   Then, from the left navigation menu, go to the Identity Providers section and click the Add button.
-    -   Add the following claim mapping under the **Claim Configuration** section.
         <table>
         <thead>
             <tr>
@@ -233,14 +226,13 @@ http_method = "all"
             </tr>
         </tbody>
         </table>
-    
-        Also select **groups** as the **Role Claim URI**.
+
+        Select **groups** as **Role Claim URI**.
 
     [![Claim mapping for sso]({{base_path}}/assets/img/setup-and-install/claim-mapping-for-sso.png)]({{base_path}}/assets/img/setup-and-install/claim-mapping-for-sso.png)
 
+    -   Add below role mapping under **Role Configuration**:
 
-    -   Add the following role mapping under the **Role Configuration** section:
-    
         <table>
         <thead>
             <tr>
@@ -263,9 +255,9 @@ http_method = "all"
         [![]({{base_path}}/assets/img/setup-and-install/role-mapping-for-sso.png)]({{base_path}}/assets/img/setup-and-install/role-mapping-for-sso.png)
 
         !!! Tip
-            Instead of using the default internal roles, you can also create new roles in API Manager and map it to the provisioned users. 
+            Instead of default internal roles, create new roles in API Manager and map to provisioned users.
 
-    - Select **Multi Tenant Authenticator Configuration** under the **Federated Authenticators** section:
+    -   Select **Multi Tenant Authenticator Configuration** under **Federated Authenticators**:
 
         <table>
         <thead>
@@ -279,17 +271,17 @@ http_method = "all"
             <tr>
                 <td>Enable</td>
                 <td>true</td>
-                <td>Set true to enable the authenticator</td>
+                <td>Set true to enable authenticator.</td>
             </tr>
             <tr>
                 <td>Tenant Selection Page URL</td>
                 <td>`https://{apim-ip}:9443/select-tenant/`</td>
-                <td>You can customize this page as required, default page will be avaiable on the above location</td>
+                <td>Customize as needed. Default page lives at this URL.</td>
             </tr>
             <tr>
                 <td>Common Service Provider Name</td>
                 <td>`commonsp`</td>
-                <td>In each tenant (including super tenant), you have to create a service provider from this name</td>
+                <td>Create service provider with this name in each tenant (including super tenant).</td>
             </tr>
             <tr>
                 <td>Scopes</td>
@@ -299,79 +291,68 @@ http_method = "all"
         </tbody>
         </table>
 
-        Other fields are self explanatory. Refer the image below if you need more clarity.
+        Other fields self-explanatory. See image below if unclear.
 
-        [![Multi Tenant Authneticator Configs]({{base_path}}/assets/img/setup-and-install/multi-tenant-authenticator-configs.png)]({{base_path}}/assets/img/setup-and-install/multi-tenant-authenticator-configs.png)
-    
+        [![Multi Tenant Authenticator Configs]({{base_path}}/assets/img/setup-and-install/multi-tenant-sso/multi-tenant-authenticator-configs.png)]({{base_path}}/assets/img/setup-and-install/multi-tenant-sso/multi-tenant-authenticator-configs.png)
 
-    -   Enable Just-in-Time Provisioning to provision the users in API Manager:
+    -   Enable **Just-in-Time Provisioning** to provision users in API Manager:
 
         [![]({{base_path}}/assets/img/setup-and-install/jit-provisioning-for-sso.png)]({{base_path}}/assets/img/setup-and-install/jit-provisioning-for-sso.png)
 
-    - Finally click **Register** to save the changes
+    -   Click **Register** to save.
 
+### Step 4 - Configure Common Service Provider
 
-### Step - 4 Configure Common Service Provider
+-   Left nav → **Service Providers** → click **Add**.
+-   SP name must match **Common Service Provider Name** set in super tenant IdP.
 
--   From the left navigation menu, go to the Service Providers section and click the Add button.
--   The SP name should match the one you define in the super tenant IdP, under 'Common Service Provider Name'.
+    [![Multi Tenant Common SP]({{base_path}}/assets/img/setup-and-install/multi-tenant-sso/multi-tenant-common-sp.png)]({{base_path}}/assets/img/setup-and-install/multi-tenant-sso/multi-tenant-common-sp.png)
 
-    [![Multi Tenant Common SP]({{base_path}}/assets/img/setup-and-install/multi-tenant-common-sp.png)]({{base_path}}/assets/img/setup-and-install/multi-tenant-common-sp.png)
-
--   Next, you need to configure the claim settings to pass user details to the super tenant custom authenticator.
-    -   Expand the Claim Configuration and expand the Basic Claim Configuration section.
-    -   In the 'Requested Claims' section, click 'Add Claim URI' and add the following claims.
+-   Configure claim settings to pass user details to super tenant custom authenticator:
+    -   Expand **Claim Configuration** → **Basic Claim Configuration**.
+    -   In **Requested Claims**, click **Add Claim URI**. Add below:
         -   `http://wso2.org/claims/username`
         -   `http://wso2.org/claims/roles`
-    -   Then, select `http://wso2.org/claims/username` as the Subject Claim URI.
+    -   Select `http://wso2.org/claims/username` as **Subject Claim URI**.
 
-    [![Multi Tenant SP Claim Configs]({{base_path}}/assets/img/setup-and-install/multi-tenant-sp-claim-configs.png)]({{base_path}}/assets/img/setup-and-install/multi-tenant-sp-claim-configs.png)
+    [![Multi Tenant SP Claim Configs]({{base_path}}/assets/img/setup-and-install/multi-tenant-sso/multi-tenant-sp-claim-configs.png)]({{base_path}}/assets/img/setup-and-install/multi-tenant-sso/multi-tenant-sp-claim-configs.png)
 
+-   Expand **Inbound Authentication Configurations** → **OAuth/OpenID Connect Configuration** → click **Configure**. Set **Callback URL** to `https://localhost:9443/commonauth`. Click **Update**.
 
--   Next, expand the Inbound Authentication Configurations, and expand Oauth/OpenID connect configuration and click configure. Then set the Callback Url to `https://localhost:9443/commonauth` amd click update.
+    [![Multi Tenant SP OIDC Configs]({{base_path}}/assets/img/setup-and-install/multi-tenant-sso/multi-tenant-sp-oidc-config.png)]({{base_path}}/assets/img/setup-and-install/multi-tenant-sso/multi-tenant-sp-oidc-config.png)
 
-    [![Multi Tenant SP OIDC Configs]({{base_path}}/assets/img/setup-and-install/multi-tenant-sp-oidc-config.png)]({{base_path}}/assets/img/setup-and-install/multi-tenant-sp-oidc-config.png)
+-   Expand **Local & Outbound Authentication Configurations**. Select previously created IdP as **Federated Authenticator**. Check below configs:
 
--   Next, expand the Local & Outbound Authentication Configurations, Select the previously created IdP as the Federated Authenticator, and check the following configurations:
+    [![Multi Tenant SP Outbound Configs]({{base_path}}/assets/img/setup-and-install/multi-tenant-sso/multi-tenant-sp-outbound-configs.png)]({{base_path}}/assets/img/setup-and-install/multi-tenant-sso/multi-tenant-sp-outbound-configs.png)
 
-    [![Multi Tenant SP Outbound Configs]({{base_path}}/assets/img/setup-and-install/multi-tenant-sp-outbound-configs.png)]({{base_path}}/assets/img/setup-and-install/multi-tenant-sp-outbound-configs.png)
+### Step 5 - Configure Tenanted IdP
 
-
-### Step - 5 Configure Tenanted IdP
-
--   Log into carbon portal as an teanted admin
--   Follow the same steps in [step - 3](#step-3-configure-federated-authenticators), But this time instead of **Multi Tenant Authenticator Configuration** select **OAuth2/OpenID Connect Configuration**
+-   Log in to carbon portal as tenant admin.
+-   Repeat [Step 3](#step-3-configure-federated-authenticators). But this time pick **OAuth2/OpenID Connect Configuration** instead of **Multi Tenant Authenticator Configuration**.
 
     !!! Info
-        Here you need to connect to the IS tenanted Application you created in the [first section](#step-2-configure-the-service-provider)
+        Connect to IS tenanted application created in [first section](#step-2-configure-service-provider).
 
+### Step 6 - Configure Tenanted Common Service Provider
 
-### Step - 6 Configure Tenanted Common Service Provider
+-   Repeat [Step 4](#step-4-configure-common-service-provider).
 
--   Follow the same steps in [step - 4](#step-4-configure-common-service-provider)
+### Step 7 - Configure IdP for Portals
 
+-   In carbon portal, log in as super admin again.
+-   Click **List** under **Service Providers**.
+-   See `apim_devportal`, `apim_publisher`, `apim_admin_portal` service providers.
+-   Click **Edit** on one of them. Expand **Local & Outbound Authentication Configuration**.
+-   Select **Federated Authentication** under **Authentication Type**. Pick created IdP (`WSO2_IS7`).
+-   Tick **Assert identity using mapped local subject identifier**. Mandatory for role mapping to work.
 
-### Step - 7 Configure the IDP for the Portals
+    [![Multi Tenant Portal SPs Configs]({{base_path}}/assets/img/setup-and-install/multi-tenant-sso/multi-tenant-portal-sps.png)]({{base_path}}/assets/img/setup-and-install/multi-tenant-sso/multi-tenant-portal-sps.png)
 
--   Now, In carbon portal, again log as super admin.
--   Click on the List under the Service Providers section.
--   We can see the apim_devportal, apim_publisher and apim_admin_portal service providers as below.
--   Click on the Edit button of one of the service providers and then expand the Local & Outbound Authentication Configuration section.
--   Select Federated Authentication option under the Authentication Type section and select the created IDP (WSO2_IS7)
--   Put a tick to Assert identity using mapped local subject identifier option. Please note that this is a mandatory one to perform the role mapping properly.
+## Verify the Configuration
 
-    [![Multi Tenant Portal SPs Configs]({{base_path}}/assets/img/setup-and-install/multi-tenant-portal-sps.png)]({{base_path}}/assets/img/setup-and-install/multi-tenant-portal-sps.png)
+-   Go to publisher portal `https://{apim-ip}:9443/publisher`. Tenant selection page show up.
 
+    [![Tenant Selection Page]({{base_path}}/assets/img/setup-and-install/multi-tenant-sso/tenant-selection-page.png)]({{base_path}}/assets/img/setup-and-install/multi-tenant-sso/tenant-selection-page.png)
 
-## Verifying
-
-- Now you are good to go, go the publisher portal `https://{apim-ip}:9443/publisher` you will see a tenant selection page
-
-    [![Tenant Selection Page]({{base_path}}/assets/img/setup-and-install/tenant-selection-page.png)]({{base_path}}/assets/img/setup-and-install/tenant-selection-page.png)
-
-
-!!! Tips
-    This approach is not limited to WSO2 IS 7.x, you can connect any third party identity provider using this method
-
-
-
+!!! Tip
+    This approach is not limited to WSO2 IS 7.x. Connect any third-party IdP that speak OIDC with this method — Keycloak, Okta, Azure AD, ForgeRock, etc.
