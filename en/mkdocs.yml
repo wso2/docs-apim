@@ -546,6 +546,10 @@ nav:
                 - Guardrail Error Response: ai-gateway/ai-guardrails/guardrail-error-response.md
             - Semantic Caching: ai-gateway/semantic-caching.md
             - AI APIs via SDKs: ai-gateway/using-proxy-apis-in-sdks.md
+            - AI Tools:
+                - Claude Code configuration with AI Gateway: ai-gateway/ai-tools/claude-code-with-ai-gateway.md
+                - Google Gemini CLI configuration with AI Gateway: ai-gateway/ai-tools/gemini-cli-with-ai-gateway.md
+                - OpenAI Codex CLI configuration with AI Gateway: ai-gateway/ai-tools/codex-with-ai-gateway.md
         - MCP Gateway:
             - Getting Started: ai-gateway/mcp-gateway/overview.md
             - Create from an OpenAPI Definition: ai-gateway/mcp-gateway/create-from-openapi.md
