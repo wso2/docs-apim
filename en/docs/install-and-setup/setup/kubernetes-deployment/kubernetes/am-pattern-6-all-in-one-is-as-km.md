@@ -131,9 +131,9 @@ WSO2 IS 7.x needs a custom image that includes the APIM notification event handl
       --format='{% raw %}{{index .RepoDigests 0}}{% endraw %}'
     ```
 
-### Step 6 — Create the Keystore Secret { #step-6 }
+### Step 6 — Extract the APIM Keystores { #step-6 }
 
-The Helm chart mounts a Kubernetes secret named `apim-keystore-secret` as a volume into the APIM pods. The pods will not start if this secret does not exist.
+In Pattern 6, APIM must trust the IS self-signed certificate. This step extracts the default APIM keystores to your local machine so you can import the IS certificate into the truststore in [Step 8](#step-8). The Kubernetes secret is created at that point, after the IS certificate has been added.
 
 1. Create the `wso2` namespace:
 
@@ -141,7 +141,7 @@ The Helm chart mounts a Kubernetes secret named `apim-keystore-secret` as a volu
     kubectl create namespace wso2
     ```
 
-2. Extract the default keystores from your APIM image and create the secret:
+2. Extract the default keystores from the APIM image:
 
     ```bash
     mkdir -p keystores
@@ -150,17 +150,6 @@ The Helm chart mounts a Kubernetes secret named `apim-keystore-secret` as a volu
       "cp /home/wso2carbon/wso2am-4.6.0/repository/resources/security/wso2carbon.jks \
           /home/wso2carbon/wso2am-4.6.0/repository/resources/security/client-truststore.jks \
           /keystores/"
-
-    kubectl create secret generic apim-keystore-secret \
-      --from-file=wso2carbon.jks=keystores/wso2carbon.jks \
-      --from-file=client-truststore.jks=keystores/client-truststore.jks \
-      -n wso2
-    ```
-
-3. Verify the secret was created:
-
-    ```bash
-    kubectl get secret apim-keystore-secret -n wso2
     ```
 
 !!! note
@@ -234,63 +223,68 @@ The Helm chart mounts a Kubernetes secret named `apim-keystore-secret` as a volu
 
     The IS pod should show `1/1 Running` before deploying APIM.
 
-### Step 8 — Import IS Certificate into APIM Truststore { #step-8 }
+### Step 8 — Import IS Certificate and Create Keystore Secret { #step-8 }
 
-APIM must trust the IS self-signed certificate to communicate with IS during Key Manager registration. Import the IS public certificate into APIM's `client-truststore.jks` **before** deploying APIM, so that the updated truststore is packaged into the Kubernetes secret that APIM mounts at startup.
+APIM must trust the IS self-signed certificate to communicate with IS during Key Manager registration. This step imports the IS certificate into the APIM truststore and creates the `apim-keystore-secret` Kubernetes secret with the final truststore content.
 
-1. Identify the IS pod name:
+For background, refer to [Importing the Identity Server certificate to WSO2 API Manager]({{base_path}}/install-and-setup/setup/sso/configuring-identity-server-as-external-idp-using-oidc/#step-1-import-the-identity-server-certificate-to-wso2-api-manager).
 
-    ```bash
-    kubectl get pods -n wso2
-    ```
-
-    Note the pod name for the IS pod (it starts with `is-`, e.g. `is-wso2is-7.2.0-0`).
-
-2. Export the IS public certificate from the IS pod's keystore:
+1. Port-forward the IS service to your local machine and extract the IS public certificate:
 
     ```bash
-    IS_POD=<is-pod-name>
-
-    kubectl exec -n wso2 $IS_POD -- \
-      keytool -exportcert -rfc \
-      -alias wso2carbon \
-      -keystore /home/wso2carbon/wso2is-7.2.0/repository/resources/security/wso2carbon.jks \
-      -storepass wso2carbon \
-      -file /tmp/is-cert.pem
-
-    kubectl cp wso2/$IS_POD:/tmp/is-cert.pem is-cert.pem
+    kubectl port-forward -n wso2 svc/is-identity-server 9444:9443 &
+    openssl s_client -connect localhost:9444 -servername wso2is.com < /dev/null 2>/dev/null | openssl x509 > is-cert.pem
+    kill %1
     ```
 
-3. Import the IS certificate into the APIM truststore you extracted in [Step 6](#step-6):
+    Verify the certificate was captured:
 
     ```bash
-    keytool -import -trustcacerts \
-      -alias wso2is \
-      -file is-cert.pem \
-      -keystore keystores/client-truststore.jks \
-      -storepass wso2carbon \
-      -noprompt
+    cat is-cert.pem
     ```
 
-4. Update the `apim-keystore-secret` Kubernetes secret with the modified truststore:
+    The output should start with `-----BEGIN CERTIFICATE-----`.
+
+2. Import the IS certificate into the APIM truststore you extracted in [Step 6](#step-6):
+
+    ```bash
+    keytool -importcert -trustcacerts -alias wso2is -file is-cert.pem -keystore keystores/client-truststore.jks -storepass wso2carbon -noprompt
+    ```
+
+3. Create the `apim-keystore-secret` Kubernetes secret with the updated truststore:
 
     ```bash
     kubectl create secret generic apim-keystore-secret \
       --from-file=wso2carbon.jks=keystores/wso2carbon.jks \
       --from-file=client-truststore.jks=keystores/client-truststore.jks \
-      -n wso2 \
-      --dry-run=client -o yaml | kubectl apply -f -
+      -n wso2
     ```
+
+4. Create a `values-apim.yaml` file to configure APIM to mount the keystore secret:
+
+    ```yaml
+    wso2:
+      apim:
+        configurations:
+          security:
+            jksSecretName: "apim-keystore-secret"
+            truststore:
+              password: "wso2carbon"
+    ```
+
+    !!! note
+        Without setting `jksSecretName`, APIM uses its embedded default keystores and ignores the `apim-keystore-secret` entirely. This value tells the Helm chart to mount the secret into the APIM pod at startup.
 
 ### Step 9 — Deploy WSO2 API Manager { #step-9 }
 
-1. Deploy WSO2 API Manager:
+1. Deploy WSO2 API Manager using the default values file and the `values-apim.yaml` you created in [Step 8](#step-8):
 
     ```bash
     helm install apim wso2/wso2am-all-in-one \
       --version 4.6.0-1 \
       --namespace wso2 \
-      -f https://raw.githubusercontent.com/wso2/helm-apim/4.6.x/docs/am-pattern-0-all-in-one/default_values.yaml
+      -f https://raw.githubusercontent.com/wso2/helm-apim/4.6.x/docs/am-pattern-0-all-in-one/default_values.yaml \
+      -f values-apim.yaml
     ```
 
 2. Wait for the APIM pod to be ready:
@@ -498,7 +492,7 @@ wso2:
 
 #### 3.1 Mount Keystore and Truststore { #section-3-1 }
 
-In [Step 6](#step-6), you created `apim-keystore-secret` using the default WSO2 keystores. Those are self-signed certificates suitable for evaluation only.
+In [Step 8](#step-8), you created `apim-keystore-secret` containing the default APIM keystores with the IS certificate imported into the truststore. Those are self-signed certificates suitable for evaluation only.
 
 For production-level keystore setup, refer to [Configuring Keystores in WSO2 API Manager]({{base_path}}/install-and-setup/setup/security/configuring-keystores/configuring-keystores-in-wso2-api-manager/). Then recreate the secret with your own certificates:
 
