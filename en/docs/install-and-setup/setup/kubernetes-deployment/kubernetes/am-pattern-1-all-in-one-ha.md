@@ -397,7 +397,7 @@ This section is for the internal encryption key (`wso2.apim.configurations.encry
     - Update the keystore passwords in the security section of the `values.yaml` file.
     - Review the descriptions of other configurations and modify them as needed to meet your requirements. A simple deployment can be achieved using the basic configurations provided in the `values.yaml` file. All configuration options for each Helm chart are documented in their respective component guides:
       - [All-in-One](https://github.com/wso2/helm-apim/blob/main/all-in-one/README.md)
-      - [Universal Gateway](https://github.com/wso2/helm-apim/blob/main/distributed/gateway/README.md)
+      - [Classic Gateway](https://github.com/wso2/helm-apim/blob/main/distributed/gateway/README.md)
     - Update the admin credentials in the configuration directory:
     ```yaml
       # -- Super admin username
@@ -529,5 +529,5 @@ hostnames and the external IP in the `/etc/hosts` file on the client side.
 - API Manager Publisher: `https://<kubernetes.gatewayAPI.management.hostname>/publisher`
 - API Manager DevPortal: `https://<kubernetes.gatewayAPI.management.hostname>/devportal`
 - API Manager Carbon Console: `https://<kubernetes.gatewayAPI.management.hostname>/carbon`
-- Universal Gateway: `https://<kubernetes.gatewayAPI.gateway.hostname>`
+- Classic Gateway: `https://<kubernetes.gatewayAPI.gateway.hostname>`
 

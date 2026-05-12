@@ -52,7 +52,7 @@ In addition to using the built-in Key Manager as the IDP, WSO2 API Control Plane
 
 The Data Plane is where the created API is exposed to the public consumers and acts as the proxy for API calls. This also provides additional capabilities such as enforcing security, rate limiting etc. 
 
-#### Classic Gateway
+#### Classic Gateway (Universal)
 
 [![Classic Gateway]({{base_path}}/assets/img/learn/gateway-overview.png)]({{base_path}}/assets/img/learn/gateway-overview.png)
 

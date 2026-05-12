@@ -122,7 +122,7 @@ Some general API-M-level recommendations are listed below:
 </thead>
 <tbody>
 <tr class="odd">
-<td>Universal Gateway nodes</td>
+<td>Classic Gateway (Universal) nodes</td>
 <td><div class="content-wrapper">
 <p>Increase memory allocated by modifying the <code>/bin/api-manager.sh</code>  file with the following setting:</p>
 <table>

@@ -1,6 +1,6 @@
 # Pattern 2: API-M Deployment with Simple Scalable Setup
 
-This is the standard distributed deployment for API Manager. The default configuration consists of a single All-in-One and two Universal Gateways for better scalability and performance.
+This is the standard distributed deployment for API Manager. The default configuration consists of a single All-in-One and two Classic Gateways (Universal) for better scalability and performance.
 
 <a href="{{base_path}}/assets/img/setup-and-install/deployment-no-tm.png"><img src="{{base_path}}/assets/img/setup-and-install/deployment-no-tm.png" alt="simple scalable api-m deployment" width="60%"></a>
 
@@ -30,10 +30,10 @@ This is the standard distributed deployment for API Manager. The default configu
         - [2.4 Configure JWKS URL](#24-configure-jwks-url)
         - [2.5 Deploy All-in-One](#25-deploy-all-in-one)
         - [2.6 Enable High Availability](#26-enable-high-availability)
-    - [3. Universal Gateway Configuration](#3-universal-gateway-configuration)
+    - [3. Classic Gateway Configuration](#3-universal-gateway-configuration)
         - [3.1 Configure Key Manager, Eventhub and Throttling](#31-configure-key-manager-eventhub-and-throttling)
         - [3.2 Enable Replicas](#32-enable-replicas)
-        - [3.3 Deploy Universal Gateway](#33-deploy-universal-gateway)
+        - [3.3 Deploy Classic Gateway](#33-deploy-universal-gateway)
     - [4. Add a DNS Record Mapping the Hostnames and the External IP](#4-add-a-dns-record-mapping-the-hostnames-and-the-external-ip)
     - [5. Access Management Consoles](#5-access-management-consoles)
 
@@ -75,7 +75,7 @@ Before you begin, ensure you have the following prerequisites in place:
 
 - WSO2 API Manager 4.7.0 provides three Docker images:
   - All-in-one - [wso2am](https://hub.docker.com/r/wso2/wso2am)
-  - Universal Gateway (GW) - [wso2am-universal-gw](https://hub.docker.com/r/wso2/wso2am-universal-gw)
+  - Classic Gateway (Universal) - [wso2am-universal-gw](https://hub.docker.com/r/wso2/wso2am-universal-gw)
 
 - Since the products need to connect to databases at runtime, you need to include the relevant JDBC drivers in the distribution. This can be included in the Docker image building stage. For example, you can add the MySQL driver as follows:
   ```dockerfile
@@ -101,7 +101,7 @@ Before you begin, ensure you have the following prerequisites in place:
     ADD --chown=wso2carbon:wso2 https://repo1.maven.org/maven2/mysql/mysql-connector-java/8.0.28/mysql-connector-java-8.0.28.jar ${WSO2_SERVER_HOME}/repository/components/lib
     ```
   
-  - Dockerfile for Universal Gateway
+  - Dockerfile for Classic Gateway
     ```dockerfile
     FROM registry.wso2.com/wso2-apim/am-universal-gw:4.7.0.0
 
@@ -193,7 +193,7 @@ kubectl apply -f https://raw.githubusercontent.com/wso2/helm-apim/4.7.x/docs/ass
 # Deploy All-in-One
 helm install apim wso2/wso2am-all-in-one --version 4.7.0-1 -f https://raw.githubusercontent.com/wso2/helm-apim/4.7.x/docs/am-pattern-2-all-in-one_GW/default_values.yaml -n apim
 
-# Deploy Universal Gateway
+# Deploy Classic Gateway
 helm install apim-gw wso2/wso2am-universal-gw --version 4.7.0-1 -f https://raw.githubusercontent.com/wso2/helm-apim/4.7.x/docs/am-pattern-2-all-in-one_GW/default_gw_values.yaml -n apim
 ```
 
@@ -430,7 +430,7 @@ This section is for the internal encryption key (`wso2.apim.configurations.encry
     - Update the keystore passwords in the security section of the `values.yaml` file.
     - Review the descriptions of other configurations and modify them as needed to meet your requirements. A simple deployment can be achieved using the basic configurations provided in the `values.yaml` file. All configuration options for each Helm chart are documented in their respective component guides:
       - [All-in-one](https://github.com/wso2/helm-apim/blob/main/all-in-one/README.md)
-      - [Universal Gateway](https://github.com/wso2/helm-apim/blob/main/distributed/gateway/README.md)
+      - [Classic Gateway](https://github.com/wso2/helm-apim/blob/main/distributed/gateway/README.md)
     - Update the admin credentials in the configuration directory.
     ```yaml
       # -- Super admin username
@@ -543,11 +543,11 @@ wso2:
     highAvailability: true
 ```
 
-### 3. Universal Gateway Configuration
+### 3. Classic Gateway Configuration
 
 #### 3.1 Configure Key Manager, Eventhub and Throttling
 
-The following configurations are needed to connect the Universal Gateway to the All-in-One:
+The following configurations are needed to connect the Classic Gateway to the All-in-One:
 
 - Configure All-in-One as the Key Manager:
    ```yaml
@@ -628,7 +628,7 @@ The following configurations are needed to connect the Universal Gateway to the 
 
 #### 3.2 Enable Replicas
 
-To ensure high availability and scalability of the Universal Gateway, you can configure the number of replicas in the `wso2.deployment` section of your `values.yaml` file.
+To ensure high availability and scalability of the Classic Gateway, you can configure the number of replicas in the `wso2.deployment` section of your `values.yaml` file.
 
 ```yaml
 wso2:
@@ -643,12 +643,12 @@ wso2:
     - `minReplicas`: The minimum number of pods that should always be running (e.g., 1).
     - `maxReplicas`: The maximum number of pods that can be scaled up to (e.g., 3).
 
-#### 3.3 Deploy Universal Gateway
+#### 3.3 Deploy Classic Gateway
 
-After configuring all the necessary parameters, you can deploy the Universal Gateway using Helm:
+After configuring all the necessary parameters, you can deploy the Classic Gateway using Helm:
 
 ```bash
-# Deploy Universal Gateway using Helm
+# Deploy Classic Gateway using Helm
 helm install <release-name> <helm-chart-path> \
   --version 4.7.0-1 \
   --namespace <namespace> \
@@ -696,4 +696,4 @@ hostnames and the external IP in the `/etc/hosts` file on the client side:
 
 - API Manager Carbon Console: `https://<kubernetes.gatewayAPI.management.hostname>/carbon`
 
-- Universal Gateway: `https://<kubernetes.gatewayAPI.gateway.hostname>`
+- Classic Gateway: `https://<kubernetes.gatewayAPI.gateway.hostname>`

@@ -7,7 +7,7 @@ With this capability, you can seamlessly work with different gateway types witho
 Supported gateway types include:
 
 - **Platform Gateway** – A lightweight, WSO2 gateway distribution that connects a self-hosted runtime to the API Manager Control Plane for centrally managed hybrid deployments.
-- **Classic Gateway** – The traditional WSO2 API Manager gateway runtime with Synapse-based mediation and gateway capabilities.
+- **Classic Gateway (Universal)** – The traditional WSO2 API Manager gateway runtime with Synapse-based mediation and gateway capabilities.
 - **Third-Party Gateways** – Integration with supported external gateways, enabling centralized management of APIs deployed across heterogeneous environments.
 
 ---
@@ -18,7 +18,7 @@ WSO2 Gateways provide self-hosted runtimes that allow you to deploy APIs within 
 
 The **Platform Gateway** is designed for the WSO2 API Platform experience. It is a runtime that is registered from the Admin Portal, making it suitable for hybrid deployments where the runtime remains close to your services while management stays centralized.
 
-The **Classic Gateway** is the established API Manager gateway runtime. It is suitable when you need the traditional gateway behavior and Synapse-based mediation capabilities documented under Classic Gateway.
+The **Classic Gateway (Universal)** is the established API Manager gateway runtime. It is suitable when you need the traditional gateway behavior and Synapse-based mediation capabilities documented under Classic Gateway.
 
 This model is ideal for organizations that require:
 
