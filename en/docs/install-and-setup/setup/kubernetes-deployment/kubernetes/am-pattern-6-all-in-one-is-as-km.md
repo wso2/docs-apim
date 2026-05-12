@@ -346,6 +346,7 @@ Once both APIM and IS are running, register IS as a Key Manager through the APIM
     | Password (connector config) | admin |
     | WSO2 IS 7 API Resource Management Endpoint | `https://wso2is.km:9443/api/server/v1/api-resources` |
     | WSO2 IS 7 Roles Endpoint | `https://wso2is.km:9443/scim2/v2/Roles` |
+    | Create roles in WSO2 Identity Server 7 | Enable if needed |
 
 4. Click **Add** to save.
 
