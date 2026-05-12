@@ -237,62 +237,24 @@ The Helm chart mounts a Kubernetes secret named `apim-keystore-secret` as a volu
 
 ### Step 8 — Deploy WSO2 API Manager { #step-8 }
 
-1. Download the default values file for the All-in-One:
-
-    ```bash
-    curl -L https://raw.githubusercontent.com/wso2/helm-apim/4.6.x/docs/am-pattern-1-all-in-one-HA/default_values.yaml \
-      -o values-apim.yaml
-    ```
-
-2. Deploy WSO2 API Manager:
+1. Deploy WSO2 API Manager:
 
     ```bash
     helm install apim wso2/wso2am-all-in-one \
       --version 4.6.0-1 \
       --namespace wso2 \
-      --dependency-update \
-      -f values-apim.yaml
+      -f https://raw.githubusercontent.com/wso2/helm-apim/4.6.x/docs/am-pattern-0-all-in-one/default_values.yaml
     ```
 
-### Step 9 — Register IS as Key Manager { #step-9 }
+2. Wait for the APIM pod to be ready:
 
-Once both APIM and IS are running, register IS as a Key Manager through the APIM Admin Portal.
+    ```bash
+    kubectl get pods -n wso2 -w
+    ```
 
-!!! note
-    This step requires the Admin Portal to be accessible. Complete [Step 10](#step-10) (DNS configuration) first, then come back to this step.
+    The APIM pod should show `1/1 Running` before proceeding.
 
-1. Open the Admin Portal at `https://am.wso2.com/admin` and log in with **admin / admin**.
-
-2. Navigate to **Key Managers** and click **Add Key Manager**.
-
-3. Configure the Key Manager with the following settings. Replace `wso2is.km` with the actual IS ingress hostname if you changed it in `values-is.yaml`:
-
-    | Field | Value |
-    |-------|-------|
-    | Name | WSO2IS7 |
-    | Display Name | WSO2 Identity Server 7 |
-    | Key Manager Type | WSO2 Identity Server 7 |
-    | Well-known URL | `https://wso2is.km:9443/oauth2/token/.well-known/openid-configuration` |
-    | Issuer | `https://wso2is.km:9443/oauth2/token` |
-    | Client Registration Endpoint | `https://wso2is.km:9443/api/identity/oauth2/dcr/v1.1/register` |
-    | Introspection Endpoint | `https://wso2is.km:9443/oauth2/introspect` |
-    | Token Endpoint | `https://wso2is.km:9443/oauth2/token` |
-    | Display Token Endpoint | `https://wso2is.km:9443/oauth2/token` |
-    | Revoke Endpoint | `https://wso2is.km:9443/oauth2/revoke` |
-    | Display Revoke Endpoint | `https://wso2is.km:9443/oauth2/revoke` |
-    | UserInfo Endpoint | `https://wso2is.km:9443/scim2/Me` |
-    | Authorize Endpoint | `https://wso2is.km:9443/oauth2/authorize` |
-    | Scope Management Endpoint | `https://wso2is.km:9443/api/identity/oauth2/v1.0/scopes` |
-    | Certificate Type | JWKS |
-    | JWKS URL | `https://wso2is.km:9443/oauth2/jwks` |
-    | Username (connector config) | admin |
-    | Password (connector config) | admin |
-    | WSO2 IS 7 API Resource Management Endpoint | `https://wso2is.km:9443/api/server/v1/api-resources` |
-    | WSO2 IS 7 Roles Endpoint | `https://wso2is.km:9443/scim2/v2/Roles` |
-
-4. Click **Add** to save.
-
-### Step 10 — Configure DNS { #step-10 }
+### Step 9 — Configure DNS { #step-9 }
 
 === "Minikube"
 
@@ -352,6 +314,41 @@ Once both APIM and IS are running, register IS as a Key Manager through the APIM
 !!! note
     `wso2is.km` is the default IS ingress hostname. If you changed it in `values-is.yaml`, use that hostname here instead.
 
+### Step 10 — Register IS as Key Manager { #step-10 }
+
+Once both APIM and IS are running, register IS as a Key Manager through the APIM Admin Portal.
+
+1. Open the Admin Portal at `https://am.wso2.com/admin` and log in with **admin / admin**.
+
+2. Navigate to **Key Managers** and click **Add Key Manager**.
+
+3. Configure the Key Manager with the following settings. Replace `wso2is.km` with the actual IS ingress hostname if you changed it in `values-is.yaml`:
+
+    | Field | Value |
+    |-------|-------|
+    | Name | WSO2IS7 |
+    | Display Name | WSO2 Identity Server 7 |
+    | Key Manager Type | WSO2 Identity Server 7 |
+    | Well-known URL | `https://wso2is.km:9443/oauth2/token/.well-known/openid-configuration` |
+    | Issuer | `https://wso2is.km:9443/oauth2/token` |
+    | Client Registration Endpoint | `https://wso2is.km:9443/api/identity/oauth2/dcr/v1.1/register` |
+    | Introspection Endpoint | `https://wso2is.km:9443/oauth2/introspect` |
+    | Token Endpoint | `https://wso2is.km:9443/oauth2/token` |
+    | Display Token Endpoint | `https://wso2is.km:9443/oauth2/token` |
+    | Revoke Endpoint | `https://wso2is.km:9443/oauth2/revoke` |
+    | Display Revoke Endpoint | `https://wso2is.km:9443/oauth2/revoke` |
+    | UserInfo Endpoint | `https://wso2is.km:9443/scim2/Me` |
+    | Authorize Endpoint | `https://wso2is.km:9443/oauth2/authorize` |
+    | Scope Management Endpoint | `https://wso2is.km:9443/api/identity/oauth2/v1.0/scopes` |
+    | Certificate Type | JWKS |
+    | JWKS URL | `https://wso2is.km:9443/oauth2/jwks` |
+    | Username (connector config) | admin |
+    | Password (connector config) | admin |
+    | WSO2 IS 7 API Resource Management Endpoint | `https://wso2is.km:9443/api/server/v1/api-resources` |
+    | WSO2 IS 7 Roles Endpoint | `https://wso2is.km:9443/scim2/v2/Roles` |
+
+4. Click **Add** to save.
+
 ### Step 11 — Access the Portals
 
 Once DNS is configured, open the following URLs in your browser.
@@ -369,7 +366,7 @@ Once DNS is configured, open the following URLs in your browser.
 
 Replace the hostname placeholders with the actual values from your values files. Default credentials: **admin / admin**
 
-Complete [Step 9](#step-9) — register IS as Key Manager in the Admin Portal — if you have not done so already.
+Complete [Step 10](#step-10) — register IS as Key Manager in the Admin Portal — if you have not done so already.
 
 ---
 
