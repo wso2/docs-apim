@@ -27,7 +27,7 @@ For more information, see [Creating SSL Certificates](../../../../install-and-se
 
 ### Step 5 - Configure API-M Analytics
 
-API Manager Analytics is delivered via the API Manager Analytics cloud solution. You need to configure the Universal Gateway to publish analytics data to the cloud.
+API Manager Analytics is delivered via the API Manager Analytics cloud solution. You need to configure the Classic Gateway to publish analytics data to the cloud.
 
 See the instructions on [configuring the Gateway](../../../../monitoring/api-analytics/moesif-analytics/moesif-integration-guide/) with the cloud-based analytics solution.
 

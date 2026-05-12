@@ -354,6 +354,8 @@ nav:
             - SOAP Client: api-developer-portal/invoke-apis/invoke-apis-using-tools/invoke-an-api-using-a-soap-client.md
             - Postman: api-developer-portal/invoke-apis/invoke-apis-using-tools/try-out-using-postman.md
             - Test APIs with API Chat: api-developer-portal/invoke-apis/invoke-apis-using-tools/test-apis-with-apichat.md
+        - View API Documentation:
+            - View API Documents: api-developer-portal/view-api-documentation/view-api-documentation.md
         - Collaborations:
             - Interact with the Community: api-developer-portal/collaboration/interact-with-the-community.md
         - Generating SDKs:
@@ -439,17 +441,22 @@ nav:
                 - Application Configuration Constraints: api-security/key-management/third-party-key-managers/configure-km-application-configuration-constraints.md
 
     - API Gateway:
-        - Universal Gateway:
-            - Overview of the WSO2 Universal Gateway: api-gateway/overview-of-the-api-gateway.md
+        - Overview: api-gateway/platform-gateway-capability.md
+        - Platform Gateway:
+            - Getting Started: api-gateway/platform-gateway/getting-started.md
+            - Setting Up: api-gateway/platform-gateway/setting-up.md
+            - Adding and Managing Policies: api-gateway/platform-gateway/adding-and-managing-policies.md
+        - Classic Gateway:
+            - Overview of the WSO2 Classic Gateway: api-gateway/overview-of-the-api-gateway.md
             - Deploy an API to Gateway: api-gateway/deploy-api-to-gateway.md
             - Response Caching: api-gateway/response-caching.md
             - Pass End User Attributes to the Backend: api-gateway/passing-enduser-attributes-to-the-backend-via-api-gateway.md
             - Gateway Environments: api-gateway/maintaining-separate-production-and-sandbox-gateways.md
             - Scale the Gateway: api-gateway/scaling-the-gateway.md
             - Advanced Topics:
-                - Universal Gateway with Dedicated Tenants: api-gateway/maintain-seperate-gateways-per-tenants.md
-                - Universal Gateways with Dedicated Backends: api-gateway/api-gateways-with-dedicated-backends.md
-                - Mutual SSL Between Universal Gateway and Backend: api-gateway/mutual-ssl-between-api-gateway-and-backend.md
+                - Classic Gateway with Dedicated Tenants: api-gateway/maintain-seperate-gateways-per-tenants.md
+                - Classic Gateways with Dedicated Backends: api-gateway/api-gateways-with-dedicated-backends.md
+                - Mutual SSL Between Classic Gateway and Backend: api-gateway/mutual-ssl-between-api-gateway-and-backend.md
                 - Storing Custom Synapse Artifacts in the Gateway: api-gateway/custom-synapse-artifacts.md
             - Gateway Policies:
                 - Adding Dynamic Endpoints: api-gateway/policies/adding-dynamic-endpoints.md
@@ -532,6 +539,7 @@ nav:
                 - URL Guardrail: ai-gateway/ai-guardrails/url-guardrail.md
                 - Word Count Guardrail: ai-gateway/ai-guardrails/word-count-guardrail.md
                 - Semantic Prompt Guardrail: ai-gateway/ai-guardrails/semantic-prompt-guardrail.md
+                - Semantic Tool Filtering Guardrail: ai-gateway/ai-guardrails/semantic-tool-filtering-guardrail.md
                 - PII Masking with Regex: ai-gateway/ai-guardrails/regex-pii-masking.md
                 - Azure Content Safety: ai-gateway/ai-guardrails/azure-content-safety.md
                 - AWS Bedrock Guardrail: ai-gateway/ai-guardrails/aws-bedrock-guardrail.md
@@ -838,7 +846,7 @@ extra_css:
 extra_javascript:
     - assets/lib/json-formatter/json-formatter.umd.js
     - assets/lib/highlightjs/highlight.min.js
-    - assets/js/theme.js
+    - assets/js/theme.js?v=4.7.0
 extra:
     material:
       jinja2content: true
