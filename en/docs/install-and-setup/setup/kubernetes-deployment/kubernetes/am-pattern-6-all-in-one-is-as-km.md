@@ -9,7 +9,7 @@ This pattern deploys WSO2 API Manager as a single All-in-One node with WSO2 Iden
 | Control Plane | Embedded in All-in-One | Embedded in All-in-One | Embedded in All-in-One |
 | Gateway | Embedded | Dedicated, independently scalable | Embedded |
 | Key Manager | Embedded in All-in-One | Dedicated KM (WSO2 APIM KM) | WSO2 Identity Server 7.x |
-| Custom images | Required (All-in-One) | Required (All-in-One); Gateway optional; KM reuses ACP image | Required (APIM + IS) |
+| Custom images | Required (All-in-One) | Required (All-in-One); Gateway optional; KM reuses ACP image | Required (IS only) |
 | High availability | Yes (2 pods) | Gateway: Yes; KM: Yes; AIO: Optional | Optional |
 
 !!! note
@@ -179,13 +179,12 @@ The Helm chart mounts a Kubernetes secret named `apim-keystore-secret` as a volu
     **Custom image** — point to the IS image you built in Step 5:
 
     ```yaml
-    wso2:
-      deployment:
-        image:
-          registry: "docker.io"
-          repository: "<your-username>/wso2is-km"
-          tag: "<TAG>"
-          digest: "sha256:abcdef..."
+    deployment:
+      image:
+        registry: "docker.io"
+        repository: "<your-username>/wso2is-km"
+        tag: "<TAG>"
+        digest: "sha256:abcdef..."
     ```
 
     **APIM notification configuration** — add the following block so IS can notify APIM when tokens are revoked. Replace `<APIM_SERVICE_NAME>` with the Kubernetes service name of the APIM pod (typically `apim-wso2am-all-in-one-service` if you use release name `apim`):
@@ -235,7 +234,55 @@ The Helm chart mounts a Kubernetes secret named `apim-keystore-secret` as a volu
 
     The IS pod should show `1/1 Running` before deploying APIM.
 
-### Step 8 — Deploy WSO2 API Manager { #step-8 }
+### Step 8 — Import IS Certificate into APIM Truststore { #step-8 }
+
+APIM must trust the IS self-signed certificate to communicate with IS during Key Manager registration. Import the IS public certificate into APIM's `client-truststore.jks` **before** deploying APIM, so that the updated truststore is packaged into the Kubernetes secret that APIM mounts at startup.
+
+1. Identify the IS pod name:
+
+    ```bash
+    kubectl get pods -n wso2
+    ```
+
+    Note the pod name for the IS pod (it starts with `is-`, e.g. `is-wso2is-7.2.0-0`).
+
+2. Export the IS public certificate from the IS pod's keystore:
+
+    ```bash
+    IS_POD=<is-pod-name>
+
+    kubectl exec -n wso2 $IS_POD -- \
+      keytool -exportcert -rfc \
+      -alias wso2carbon \
+      -keystore /home/wso2carbon/wso2is-7.2.0/repository/resources/security/wso2carbon.jks \
+      -storepass wso2carbon \
+      -file /tmp/is-cert.pem
+
+    kubectl cp wso2/$IS_POD:/tmp/is-cert.pem is-cert.pem
+    ```
+
+3. Import the IS certificate into the APIM truststore you extracted in [Step 6](#step-6):
+
+    ```bash
+    keytool -import -trustcacerts \
+      -alias wso2is \
+      -file is-cert.pem \
+      -keystore keystores/client-truststore.jks \
+      -storepass wso2carbon \
+      -noprompt
+    ```
+
+4. Update the `apim-keystore-secret` Kubernetes secret with the modified truststore:
+
+    ```bash
+    kubectl create secret generic apim-keystore-secret \
+      --from-file=wso2carbon.jks=keystores/wso2carbon.jks \
+      --from-file=client-truststore.jks=keystores/client-truststore.jks \
+      -n wso2 \
+      --dry-run=client -o yaml | kubectl apply -f -
+    ```
+
+### Step 9 — Deploy WSO2 API Manager { #step-9 }
 
 1. Deploy WSO2 API Manager:
 
@@ -254,7 +301,7 @@ The Helm chart mounts a Kubernetes secret named `apim-keystore-secret` as a volu
 
     The APIM pod should show `1/1 Running` before proceeding.
 
-### Step 9 — Configure DNS { #step-9 }
+### Step 10 — Configure DNS { #step-10 }
 
 === "Minikube"
 
@@ -278,7 +325,7 @@ The Helm chart mounts a Kubernetes secret named `apim-keystore-secret` as a volu
     3. Add the following entry to your `/etc/hosts` file:
 
         ```
-        127.0.0.1 am.wso2.com gw.wso2.com websocket.wso2.com websub.wso2.com wso2is.km
+        127.0.0.1 am.wso2.com gw.wso2.com websocket.wso2.com websub.wso2.com wso2is.com
         ```
 
 === "Rancher Desktop"
@@ -292,7 +339,7 @@ The Helm chart mounts a Kubernetes secret named `apim-keystore-secret` as a volu
     2. Add the following entry to your `/etc/hosts` file, replacing `<EXTERNAL-IP>` with the value from the output above:
 
         ```
-        <EXTERNAL-IP> am.wso2.com gw.wso2.com websocket.wso2.com websub.wso2.com wso2is.km
+        <EXTERNAL-IP> am.wso2.com gw.wso2.com websocket.wso2.com websub.wso2.com wso2is.com
         ```
 
 === "Managed cluster (AKS / GKE)"
@@ -306,15 +353,15 @@ The Helm chart mounts a Kubernetes secret named `apim-keystore-secret` as a volu
     2. For quick testing, add the `ADDRESS` value to your `/etc/hosts`:
 
         ```
-        <EXTERNAL-IP> am.wso2.com gw.wso2.com websocket.wso2.com websub.wso2.com wso2is.km
+        <EXTERNAL-IP> am.wso2.com gw.wso2.com websocket.wso2.com websub.wso2.com wso2is.com
         ```
 
         For a production setup, create DNS records in your DNS provider mapping these hostnames to the external IP.
 
 !!! note
-    `wso2is.km` is the default IS ingress hostname. If you changed it in `values-is.yaml`, use that hostname here instead.
+    `wso2is.com` is the default IS ingress hostname. If you changed it in `values-is.yaml`, use that hostname here instead.
 
-### Step 10 — Register IS as Key Manager { #step-10 }
+### Step 11 — Register IS as Key Manager { #step-11 }
 
 Once both APIM and IS are running, register IS as a Key Manager through the APIM Admin Portal.
 
@@ -322,52 +369,56 @@ Once both APIM and IS are running, register IS as a Key Manager through the APIM
 
 2. Navigate to **Key Managers** and click **Add Key Manager**.
 
-3. Configure the Key Manager with the following settings. Replace `wso2is.km` with the actual IS ingress hostname if you changed it in `values-is.yaml`:
+3. Configure the Key Manager with the following settings.
+
+    !!! important "Use the Kubernetes service name, not the ingress hostname"
+        APIM calls these endpoints from **inside the cluster**, so they must use the IS Kubernetes service name (`is-identity-server`) rather than the ingress hostname (`wso2is.com`). The ingress hostname is only resolvable on your local machine via `/etc/hosts` — it is not visible to pods inside the cluster.
+
+        If you deployed IS with release name `is`, the service name is `is-identity-server`. Adjust if you used a different release name.
 
     | Field | Value |
     |-------|-------|
     | Name | WSO2IS7 |
     | Display Name | WSO2 Identity Server 7 |
     | Key Manager Type | WSO2 Identity Server 7 |
-    | Well-known URL | `https://wso2is.km:9443/oauth2/token/.well-known/openid-configuration` |
-    | Issuer | `https://wso2is.km:9443/oauth2/token` |
-    | Client Registration Endpoint | `https://wso2is.km:9443/api/identity/oauth2/dcr/v1.1/register` |
-    | Introspection Endpoint | `https://wso2is.km:9443/oauth2/introspect` |
-    | Token Endpoint | `https://wso2is.km:9443/oauth2/token` |
-    | Display Token Endpoint | `https://wso2is.km:9443/oauth2/token` |
-    | Revoke Endpoint | `https://wso2is.km:9443/oauth2/revoke` |
-    | Display Revoke Endpoint | `https://wso2is.km:9443/oauth2/revoke` |
-    | UserInfo Endpoint | `https://wso2is.km:9443/scim2/Me` |
-    | Authorize Endpoint | `https://wso2is.km:9443/oauth2/authorize` |
-    | Scope Management Endpoint | `https://wso2is.km:9443/api/identity/oauth2/v1.0/scopes` |
+    | Well-known URL | `https://is-identity-server:9443/oauth2/token/.well-known/openid-configuration` |
+    | Issuer | `https://is-identity-server:9443/oauth2/token` |
+    | Client Registration Endpoint | `https://is-identity-server:9443/api/identity/oauth2/dcr/v1.1/register` |
+    | Introspection Endpoint | `https://is-identity-server:9443/oauth2/introspect` |
+    | Token Endpoint | `https://is-identity-server:9443/oauth2/token` |
+    | Display Token Endpoint | `https://wso2is.com:9443/oauth2/token` |
+    | Revoke Endpoint | `https://is-identity-server:9443/oauth2/revoke` |
+    | Display Revoke Endpoint | `https://wso2is.com:9443/oauth2/revoke` |
+    | UserInfo Endpoint | `https://is-identity-server:9443/scim2/Me` |
+    | Authorize Endpoint | `https://wso2is.com:9443/oauth2/authorize` |
+    | Scope Management Endpoint | `https://is-identity-server:9443/api/identity/oauth2/v1.0/scopes` |
     | Certificate Type | JWKS |
-    | JWKS URL | `https://wso2is.km:9443/oauth2/jwks` |
+    | JWKS URL | `https://is-identity-server:9443/oauth2/jwks` |
     | Username (connector config) | admin |
     | Password (connector config) | admin |
-    | WSO2 IS 7 API Resource Management Endpoint | `https://wso2is.km:9443/api/server/v1/api-resources` |
-    | WSO2 IS 7 Roles Endpoint | `https://wso2is.km:9443/scim2/v2/Roles` |
+    | WSO2 IS 7 API Resource Management Endpoint | `https://is-identity-server:9443/api/server/v1/api-resources` |
+    | WSO2 IS 7 Roles Endpoint | `https://is-identity-server:9443/scim2/v2/Roles` |
     | Create roles in WSO2 Identity Server 7 | Enable if needed |
 
 4. Click **Add** to save.
 
-### Step 11 — Access the Portals
+### Step 12 — Access the Portals
 
 Once DNS is configured, open the following URLs in your browser.
 
 | Portal | URL |
 | ------ | --- |
-| Publisher | `https://<kubernetes.ingress.management.hostname>/publisher` |
-| Developer Portal | `https://<kubernetes.ingress.management.hostname>/devportal` |
-| Admin Portal | `https://<kubernetes.ingress.management.hostname>/admin` |
-| Carbon Console | `https://<kubernetes.ingress.management.hostname>/carbon` |
-| IS Management Console | `https://wso2is.km/console` |
+| Publisher | `https://am.wso2.com/publisher` |
+| Developer Portal | `https://am.wso2.com/devportal` |
+| Admin Portal | `https://am.wso2.com/admin` |
+| Carbon Console | `https://am.wso2.com/carbon` |
+| IS Management Console | `https://wso2is.com/console` |
 
 !!! note "Chrome may block access"
     Chrome enforces HSTS preloading for `*.wso2.com` domains, which removes the option to bypass the self-signed certificate warning entirely. Use Firefox or Safari instead, and click through the certificate warning when prompted.
 
 Replace the hostname placeholders with the actual values from your values files. Default credentials: **admin / admin**
 
-Complete [Step 10](#step-10) — register IS as Key Manager in the Admin Portal — if you have not done so already.
 
 ---
 
@@ -612,7 +663,6 @@ helm install is wso2/identity-server \
 helm install apim wso2/wso2am-all-in-one \
   --version 4.6.0-1 \
   --namespace wso2 \
-  --dependency-update \
   -f values-apim.yaml
 ```
 
