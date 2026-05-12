@@ -229,13 +229,28 @@ APIM must trust the IS self-signed certificate to communicate with IS during Key
 
 For background, refer to [Importing the Identity Server certificate to WSO2 API Manager]({{base_path}}/install-and-setup/setup/sso/configuring-identity-server-as-external-idp-using-oidc/#step-1-import-the-identity-server-certificate-to-wso2-api-manager).
 
-1. Port-forward the IS service to your local machine and extract the IS public certificate:
+1. Port-forward the IS service to your local machine and extract the IS public certificate.
+
+    Start the port-forward in the background:
 
     ```bash
     kubectl port-forward -n wso2 svc/is-identity-server 9444:9443 &
+    ```
+
+    Wait until you see the `Forwarding from 127.0.0.1:9444 -> 9443` message before proceeding. Then extract the certificate:
+
+    ```bash
     openssl s_client -connect localhost:9444 -servername wso2is.com < /dev/null 2>/dev/null | openssl x509 > is-cert.pem
+    ```
+
+    Then stop the port-forward:
+
+    ```bash
     kill %1
     ```
+
+    !!! warning
+        Run these as **separate commands**, not in a single block. If you run the port-forward and `openssl` together, `openssl` starts before the port-forward is ready and the certificate extraction fails with `Could not find certificate from <stdin>`.
 
     Verify the certificate was captured:
 
