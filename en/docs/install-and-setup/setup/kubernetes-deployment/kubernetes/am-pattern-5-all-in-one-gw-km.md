@@ -1,13 +1,13 @@
 # Pattern 5: API-M Deployment with Simple Scalable Setup with Key Manager Separated
 
-This document provides step-by-step instructions to deploy WSO2 API Manager in a standard distributed setup on Kubernetes. This pattern consists of a single API Control Plane (All-in-One), two Key Manager instances, and two Universal Gateway instances. It provides an optimal balance between high availability and resource utilization.
+This document provides step-by-step instructions to deploy WSO2 API Manager in a standard distributed setup on Kubernetes. This pattern consists of a single API Control Plane (All-in-One), two Key Manager instances, and two Classic Gateway (Universal) instances. It provides an optimal balance between high availability and resource utilization.
 
 !!! info "About this Pattern"
     This deployment pattern consists of:
     
     - 1 Control Plane instance (All-in-One)
     - 2 Key Manager instances
-    - 2 Universal Gateway instances
+    - 2 Classic Gateway (Universal) instances
     - External databases for high availability
 
 <a href="{{base_path}}/assets/img/setup-and-install/deployment-km.png"><img src="{{base_path}}/assets/img/setup-and-install/deployment-km.png" alt="Simple Scalable Deployment" width="100%"></a>
@@ -40,10 +40,10 @@ This document provides step-by-step instructions to deploy WSO2 API Manager in a
     - [3. Key Manager Configuration](#3-key-manager-configuration)
         - [3.1 Configure Eventhub](#31-configure-eventhub)
         - [3.2 Deploy Key Manager](#32-deploy-key-manager)
-    - [4. Universal Gateway Configuration](#4-universal-gateway-configuration)
+    - [4. Classic Gateway Configuration](#4-universal-gateway-configuration)
         - [4.1 Configure Key Manager, Eventhub, and Throttling](#41-configure-key-manager-eventhub-and-throttling)
         - [4.2 Enable Replicas](#42-enable-replicas)
-        - [4.3 Deploy Universal Gateway](#43-deploy-universal-gateway)
+        - [4.3 Deploy Classic Gateway](#43-deploy-universal-gateway)
     - [5. Add DNS Records](#5-add-dns-records)
     - [6. Access Management Consoles](#6-access-management-consoles)
 
@@ -84,7 +84,7 @@ WSO2 provides Docker images in two ways:
 
 For this pattern, you will need:
 - All-in-One image - [wso2am](https://hub.docker.com/r/wso2/wso2am) (for Control Plane and Key Manager)
-- Universal Gateway image - [wso2am-universal-gw](https://hub.docker.com/r/wso2/wso2am-universal-gw)
+- Classic Gateway image - [wso2am-universal-gw](https://hub.docker.com/r/wso2/wso2am-universal-gw)
 
 !!! note "Key Manager Image"
     There is no separate Docker image for the Key Manager component. The All-in-One image should be used for the Key Manager component.
@@ -116,7 +116,7 @@ If you need to customize the Docker images (e.g., adding JDBC drivers, custom li
    ADD --chown=wso2carbon:wso2 https://repo1.maven.org/maven2/mysql/mysql-connector-java/8.0.28/mysql-connector-java-8.0.28.jar ${WSO2_SERVER_HOME}/repository/components/lib
    ```
 
-   **Universal Gateway**:
+   **Classic Gateway (Unviersal)**:
    ```dockerfile
    FROM registry.wso2.com/wso2-apim/am-universal-gw:4.7.0.0
 
@@ -225,7 +225,7 @@ helm install km wso2/wso2am-acp --version 4.7.0-1 \
   -f https://raw.githubusercontent.com/wso2/helm-apim/4.7.x/docs/am-pattern-5-all-in-one_GW_KM/default_km_values.yaml -n apim
 ```
 
-**Deploy Universal Gateway**:
+**Deploy Classic Gateway**:
 ```bash
 helm install gw wso2/wso2am-universal-gw --version 4.7.0-1 \
   -f https://raw.githubusercontent.com/wso2/helm-apim/4.7.x/docs/am-pattern-5-all-in-one_GW_KM/default_gw_values.yaml -n apim
@@ -459,7 +459,7 @@ This section is for the internal encryption key (`wso2.apim.configurations.encry
     - Update the keystore passwords in the security section of the `values.yaml` file.
     - Review the descriptions of other configurations and modify them as needed to meet your requirements. A simple deployment can be achieved using the basic configurations provided in the `values.yaml` file. All configuration options for each Helm chart are documented in their respective component guides:
       - [All-in-one](https://github.com/wso2/helm-apim/blob/main/all-in-one/README.md)
-      - [Universal Gateway](https://github.com/wso2/helm-apim/blob/main/distributed/gateway/README.md)
+      - [Classic Gateway](https://github.com/wso2/helm-apim/blob/main/distributed/gateway/README.md)
     - Update the admin credentials in the configuration directory.
     ```yaml
       # -- Super admin username
@@ -596,11 +596,11 @@ helm install <release-name> wso2/wso2am-acp \
 !!! tip
     Store your Key Manager configuration in a separate file (e.g., `km-values.yaml`) to keep your configurations organized.
 
-### 4. Universal Gateway Configuration
+### 4. Classic Gateway Configuration
 
 #### 4.1 Configure Key Manager, Eventhub, and Throttling
 
-The Universal Gateway needs to connect to several components to function properly:
+The Classic Gateway needs to connect to several components to function properly:
 
 !!! info "Gateway Configuration"
     Configure the Gateway to connect to the Control Plane and Key Manager components for proper operation.
@@ -686,7 +686,7 @@ Choose the configuration that matches your deployment pattern. For high availabi
 
 #### 4.2 Enable Replicas
 
-To ensure high availability and scalability of the Universal Gateway, you can configure the number of replicas in the `wso2.deployment` section of your `values.yaml` file.
+To ensure high availability and scalability of the Classic Gateway, you can configure the number of replicas in the `wso2.deployment` section of your `values.yaml` file.
 
 ```yaml
 wso2:
@@ -701,9 +701,9 @@ wso2:
     - `minReplicas`: The minimum number of pods that should always be running (e.g., 1).
     - `maxReplicas`: The maximum number of pods that can be scaled up to (e.g., 3).
 
-#### 4.3 Deploy Universal Gateway
+#### 4.3 Deploy Classic Gateway
 
-Deploy the Universal Gateway component with your custom configuration:
+Deploy the Classic Gateway component with your custom configuration:
 
 ```bash
 # Install Gateway component
@@ -761,7 +761,7 @@ After completing the deployment and DNS configuration, you can access the manage
 | API Publisher | `https://<kubernetes.gatewayAPI.management.hostname>/publisher` | Create and manage APIs |
 | Developer Portal | `https://<kubernetes.gatewayAPI.management.hostname>/devportal` | Discover and subscribe to APIs |
 | Carbon Console | `https://<kubernetes.gatewayAPI.management.hostname>/carbon` | Administrative tasks |
-| Universal Gateway | `https://<kubernetes.gatewayAPI.gateway.hostname>` | API Gateway endpoint |
+| Classic Gateway | `https://<kubernetes.gatewayAPI.gateway.hostname>` | API Gateway endpoint |
 
 !!! tip "Default Credentials"
     The default username is `admin` with password `admin`. For production environments, change these credentials immediately after first login.

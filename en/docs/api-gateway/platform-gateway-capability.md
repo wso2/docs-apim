@@ -6,8 +6,8 @@ With this capability, you can seamlessly work with different gateway types witho
 
 Supported gateway types include:
 
-- **API Platform Gateway** – A lightweight, WSO2 gateway distribution that connects a self-hosted runtime to the API Manager Control Plane for centrally managed hybrid deployments.
-- **WSO2 Universal Gateway** – The traditional WSO2 API Manager gateway runtime with Synapse-based mediation and gateway capabilities.
+- **Platform Gateway** – A lightweight, WSO2 gateway distribution that connects a self-hosted runtime to the API Manager Control Plane for centrally managed hybrid deployments.
+- **Classic Gateway (Universal)** – The traditional WSO2 API Manager gateway runtime with Synapse-based mediation and gateway capabilities.
 - **Third-Party Gateways** – Integration with supported external gateways, enabling centralized management of APIs deployed across heterogeneous environments.
 
 ---
@@ -16,9 +16,9 @@ Supported gateway types include:
 
 WSO2 Gateways provide self-hosted runtimes that allow you to deploy APIs within your own infrastructure while maintaining centralized control from the API Manager control plane.
 
-The **API Platform Gateway** is designed for the WSO2 API Platform experience. It is a runtime that is registered from the Admin Portal, making it suitable for hybrid deployments where the runtime remains close to your services while management stays centralized.
+The **Platform Gateway** is designed for the WSO2 API Platform experience. It is a runtime that is registered from the Admin Portal, making it suitable for hybrid deployments where the runtime remains close to your services while management stays centralized.
 
-The **WSO2 Universal Gateway** is the established API Manager gateway runtime. It is suitable when you need the traditional gateway behavior and Synapse-based mediation capabilities documented under Universal Gateway.
+The **Classic Gateway (Universal)** is the established API Manager gateway runtime. It is suitable when you need the traditional gateway behavior and Synapse-based mediation capabilities documented under Classic Gateway.
 
 This model is ideal for organizations that require:
 
@@ -31,8 +31,8 @@ With WSO2 Gateways, you get the best of both worlds: **centralized API managemen
 
 For more information, see:
 
-- [Getting Started with WSO2 API Platform Gateway]({{base_path}}/api-gateway/api-platform-gateway/getting-started/)
-- [Getting Started with WSO2 Universal Gateway]({{base_path}}/api-gateway/overview-of-the-api-gateway/)
+- [Getting Started with WSO2 Platform Gateway]({{base_path}}/api-gateway/platform-gateway/getting-started/)
+- [Getting Started with WSO2 Classic Gateway]({{base_path}}/api-gateway/overview-of-the-api-gateway/)
 
 ---
 

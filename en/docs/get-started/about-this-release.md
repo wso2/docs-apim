@@ -13,15 +13,15 @@ For more information on WSO2 API Manager, see the [overview]({{base_path}}/get-s
 ## New Features
 
 
-??? note "API Platform Gateway Integration"
+??? note "Platform Gateway Integration"
 
-    WSO2 API Manager introduces integration with the API Platform Gateway, enabling modern gateway capabilities while allowing APIM to act as the centralized control plane.
+    WSO2 API Manager introduces integration with the Platform Gateway, enabling modern gateway capabilities while allowing APIM to act as the centralized control plane.
 
     - **Envoy-based gateway support**: Leverage modern gateway features such as HTTP/2 and HTTP/3 in on-prem deployments.
     - **APIM as control plane**: Manage gateway registration, configuration, API deployments, and policies directly from API Manager.
     - **Unified gateway model**: Use a single gateway implementation across cloud and on-prem environments.
 
-    **[Learn more]({{base_path}}/api-gateway/api-platform-gateway/getting-started)**
+    **[Learn more]({{base_path}}/api-gateway/platform-gateway/getting-started)**
 
 ??? note "API-Bound API Keys with Enhanced Security and Access Control"
 
