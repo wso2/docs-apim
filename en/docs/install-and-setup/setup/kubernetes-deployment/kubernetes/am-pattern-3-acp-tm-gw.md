@@ -1,6 +1,6 @@
 # Pattern 3: Distributed API-M Deployment with Gateway and Traffic Manager Separated from the Control Plane
 
-This is the standard distributed deployment for API Manager. The default configuration consists of two API control planes, two Traffic Managers, and two Universal Gateways. This is a production-ready deployment pattern.
+This is the standard distributed deployment for API Manager. The default configuration consists of two API control planes, two Traffic Managers, and two Classic Gateways (Universal). This is a production-ready deployment pattern.
 
 <a href="{{base_path}}/assets/img/setup-and-install/distributed-deployment-tm.png"><img src="{{base_path}}/assets/img/setup-and-install/distributed-deployment-tm.png" alt="simple scalable api-m deployment" width="60%"></a>
 
@@ -33,10 +33,10 @@ For advanced details on the deployment pattern, please refer to the official
     - [3. Traffic Manager Configurations](#3-traffic-manager-configurations)
         - [3.1 Configure Key Manager and Eventhub](#31-configure-key-manager-and-eventhub)
         - [3.2 Deploy Traffic Manager](#32-deploy-traffic-manager)
-    - [4. Universal Gateway Configuration](#4-universal-gateway-configuration)
+    - [4. Classic Gateway Configuration](#4-universal-gateway-configuration)
         - [4.1 Configure Key Manager, Eventhub and Throttling](#41-configure-key-manager-eventhub-and-throttling)
         - [4.2 Enable Replicas](#42-enable-replicas)
-        - [4.3 Deploy Universal Gateway](#43-deploy-universal-gateway)
+        - [4.3 Deploy Classic Gateway](#43-deploy-universal-gateway)
     - [5. Add a DNS Record Mapping the Hostnames and the External IP](#5-add-a-dns-record-mapping-the-hostnames-and-the-external-ip)
     - [6. Access Management Consoles](#6-access-management-consoles)
 
@@ -82,9 +82,9 @@ Before you begin, ensure you have the following prerequisites in place:
   For a production-grade deployment of the desired WSO2 product version, it is highly recommended to use the relevant Docker image which packages WSO2 Updates, available at the [WSO2 Private Docker Registry](https://registry.wso2.com/). To use these images, you need an active [WSO2 Subscription](https://wso2.com/subscription).
 
 - WSO2 API Manager 4.7.0 provides three Docker images:
-  - API Control Plane (ACP) - [wso2am-acp](https://hub.docker.com/r/wso2/wso2am-acp)
-  - Traffic Manager (TM) - [wso2am-tm](https://hub.docker.com/r/wso2/wso2am-tm)
-  - Universal Gateway (GW) - [wso2am-universal-gw](https://hub.docker.com/r/wso2/wso2am-universal-gw)
+  - API Control Plane - [wso2am-acp](https://hub.docker.com/r/wso2/wso2am-acp)
+  - Traffic Manager - [wso2am-tm](https://hub.docker.com/r/wso2/wso2am-tm)
+  - Classic Gateway (Universal) - [wso2am-universal-gw](https://hub.docker.com/r/wso2/wso2am-universal-gw)
 
 - Since the products need to connect to databases at runtime, you need to include the relevant JDBC drivers in the distribution. This can be included in the Docker image building stage. For example, you can add the MySQL driver as follows:
   ```dockerfile
@@ -123,7 +123,7 @@ Before you begin, ensure you have the following prerequisites in place:
     ADD --chown=wso2carbon:wso2 https://repo1.maven.org/maven2/mysql/mysql-connector-java/8.0.28/mysql-connector-java-8.0.28.jar ${WSO2_SERVER_HOME}/repository/components/lib
     ```
   
-  - Dockerfile for Universal Gateway
+  - Dockerfile for Classic Gateway
     ```dockerfile
     FROM registry.wso2.com/wso2-apim/am-universal-gw:4.7.0.0
 
@@ -218,7 +218,7 @@ helm install apim-acp wso2/wso2am-acp --version 4.7.0-1 -f https://raw.githubuse
 # Deploy Traffic Manager
 helm install apim-tm wso2/wso2am-tm --version 4.7.0-1 -f https://raw.githubusercontent.com/wso2/helm-apim/4.7.x/docs/am-pattern-3-ACP_TM_GW/default_tm_values.yaml -n apim
 
-# Deploy Universal Gateway
+# Deploy Classic Gateway
 helm install apim-gw wso2/wso2am-universal-gw --version 4.7.0-1 -f https://raw.githubusercontent.com/wso2/helm-apim/4.7.x/docs/am-pattern-3-ACP_TM_GW/default_gw_values.yaml -n apim
 ```
 
@@ -454,7 +454,7 @@ This section is for the internal encryption key (`wso2.apim.configurations.encry
     - Review the descriptions of other configurations and modify them as needed to meet your requirements. A simple deployment can be achieved using the basic configurations provided in the `values.yaml` file. All configuration options for each Helm chart are documented in their respective component guides:
       - [API Control Plane](https://github.com/wso2/helm-apim/blob/main/distributed/control-plane/README.md)
       - [Traffic Manager](https://github.com/wso2/helm-apim/blob/main/distributed/traffic-manager/README.md)
-      - [Universal Gateway](https://github.com/wso2/helm-apim/blob/main/distributed/gateway/README.md)
+      - [Classic Gateway](https://github.com/wso2/helm-apim/blob/main/distributed/gateway/README.md)
     - Update the admin credentials in the configuration directory.
     ```yaml
       # -- Super admin username
@@ -597,7 +597,7 @@ helm install <release-name> <helm-chart-path> \
     - `<namespace>`: Specify the same Kubernetes namespace as the Control Plane
     - `<helm-chart-path>`: Path to the Traffic Manager Helm chart (e.g., `./distributed/traffic-manager` or use the repository URL)
 
-### 4. Universal Gateway Configuration
+### 4. Classic Gateway Configuration
 
 ### 4.1 Configure Key Manager, Eventhub and Throttling
 - Configure Control Plane as the Key Manager
@@ -639,7 +639,7 @@ helm install <release-name> <helm-chart-path> \
 
 ### 4.2 Enable Replicas
 
-To ensure high availability and scalability of the Universal Gateway, you can configure the number of replicas in the `wso2.deployment` section of your `values.yaml` file.
+To ensure high availability and scalability of the Classic Gateway, you can configure the number of replicas in the `wso2.deployment` section of your `values.yaml` file.
 
 ```yaml
 wso2:
@@ -654,12 +654,12 @@ wso2:
     - `minReplicas`: The minimum number of pods that should always be running (e.g., 1).
     - `maxReplicas`: The maximum number of pods that can be scaled up to (e.g., 3).
 
-### 4.3 Deploy Universal Gateway
+### 4.3 Deploy Classic Gateway
 
-After configuring all the necessary parameters, you can deploy the Universal Gateway using Helm:
+After configuring all the necessary parameters, you can deploy the Classic Gateway using Helm:
 
 ```bash
-# Deploy Universal Gateway using Helm
+# Deploy Classic Gateway using Helm
 helm install <release-name> <helm-chart-path> \
   --version 4.7.0-1 \
   --namespace <namespace> \
@@ -671,7 +671,7 @@ helm install <release-name> <helm-chart-path> \
 !!! tip "Deployment Parameters"
     - `<release-name>`: Choose a name for your release (e.g., `apim-gw`)
     - `<namespace>`: Specify the same Kubernetes namespace as the Control Plane and Traffic Manager
-    - `<helm-chart-path>`: Path to the Universal Gateway Helm chart (e.g., `./distributed/gateway` or use the repository URL)
+    - `<helm-chart-path>`: Path to the Classic Gateway Helm chart (e.g., `./distributed/gateway` or use the repository URL)
 ```
 
 ### 5. Add a DNS Record Mapping the Hostnames and the External IP
@@ -709,4 +709,4 @@ If the defined hostnames are not backed by a DNS service, for the purpose of eva
 
 - API Manager Carbon Console: `https://<kubernetes.gatewayAPI.management.hostname>/carbon`
 
-- Universal Gateway: `https://<kubernetes.gatewayAPI.gateway.hostname>`
+- Classic Gateway: `https://<kubernetes.gatewayAPI.gateway.hostname>`

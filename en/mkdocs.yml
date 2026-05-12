@@ -446,7 +446,7 @@ nav:
             - Getting Started: api-gateway/platform-gateway/getting-started.md
             - Setting Up: api-gateway/platform-gateway/setting-up.md
             - Adding and Managing Policies: api-gateway/platform-gateway/adding-and-managing-policies.md
-        - Classic Gateway:
+        - Classic Gateway (Universal):
             - Overview of the WSO2 Classic Gateway: api-gateway/overview-of-the-api-gateway.md
             - Deploy an API to Gateway: api-gateway/deploy-api-to-gateway.md
             - Response Caching: api-gateway/response-caching.md

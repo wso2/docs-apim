@@ -24,7 +24,7 @@ Before you begin, ensure that you have the following:
 
     ![Gateway List Empty](../../assets/img/api-gateway/platform-gateway/gateway-list-empty.png)
 
-4. Select **API Platform Gateway** from **Gateway Environment Type**.
+4. Select **Platform Gateway** from **Gateway Environment Type**.
 
     !!! info
         You can define multiple gateway package versions for Platform Gateway. In `<API-M_HOME>/repository/conf/deployment.toml`, add or update `[apim.platform_gateway]` and set `versions` to a list of version strings. Restart API Manager for the change to take effect. The configured values are listed in the **Gateway version** drop-down when you add or edit a platform gateway.
