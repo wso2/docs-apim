@@ -40,7 +40,7 @@ Enterprise-grade AI infrastructure management with dual gateway modes:
 
 Deploy APIs across multiple gateway types with centralized management:
 
-- **Universal Gateway**: Enterprise-grade API gateway with rate limiting, response caching, threat protection, policies, and scalability
+- **Classic Gateway**: Enterprise-grade API gateway with rate limiting, response caching, threat protection, policies, and scalability
 - **Kubernetes Gateway Integration**: API Manager as Control Plane for WSO2 Kubernetes Gateway deployments
 - **Federated Gateways**: Deploy and discover APIs on AWS API Gateway, Azure API Gateway, Kong Gateway, and Envoy Gateway
 - **Multiple Environments**: Production, sandbox, and custom gateway environments

@@ -22,9 +22,9 @@ Before you begin, ensure that you have the following:
 2. Go to the **Gateways** section from the left navigation panel.
 3. In the **WSO2 Gateways** section, click **Add WSO2 Gateways**.
 
-    ![Gateway List Empty](../../assets/img/api-gateway/api-platform-gateway/gateway-list-empty.png)
+    ![Gateway List Empty](../../assets/img/api-gateway/platform-gateway/gateway-list-empty.png)
 
-4. Select **Platform Gateway** from **Gateway Environment Type**.
+4. Select **API Platform Gateway** from **Gateway Environment Type**.
 
     !!! info
         You can define multiple gateway package versions for Platform Gateway. In `<API-M_HOME>/repository/conf/deployment.toml`, add or update `[apim.platform_gateway]` and set `versions` to a list of version strings. Restart API Manager for the change to take effect. The configured values are listed in the **Gateway version** drop-down when you add or edit a platform gateway.
@@ -42,7 +42,7 @@ Before you begin, ensure that you have the following:
     - **Visibility**: Dev Portal visibility based on roles.
     - **Gateway version**: Select a version from the list configured on the Control Plane (see the note above).
 
-    ![Gateway Add](../../assets/img/api-gateway/api-platform-gateway/gateway-add.png)
+    ![Gateway Add](../../assets/img/api-gateway/platform-gateway/gateway-add.png)
 
 6. Click **Add**.
 
@@ -53,7 +53,7 @@ Before you begin, ensure that you have the following:
     !!! note
         In Quick Start, copy the generated commands from the UI. For manual setup, use the detailed steps below.
 
-    ![Gateway View](../../assets/img/api-gateway/api-platform-gateway/gateway-view.png)
+    ![Gateway View](../../assets/img/api-gateway/platform-gateway/gateway-view.png)
 
 ### Step 1: Download the Gateway
 
@@ -100,7 +100,7 @@ curl http://<gateway-host>:<gateway-health-port>/health
 
 The gateway should appear as active in the Control Plane.
 
-![Gateway List Added](../../assets/img/api-gateway/api-platform-gateway/gateway-list-added.png)
+![Gateway List Added](../../assets/img/api-gateway/platform-gateway/gateway-list-added.png)
 
 ## Add an API and invoke it
 
@@ -126,7 +126,7 @@ https://raw.githubusercontent.com/wso2/bijira-samples/refs/heads/main/reading-li
 
 5. Select the gateway type as **API Platform Gateway**.
    
-    ![Select Gateway Type](../../assets/img/api-gateway/api-platform-gateway/select-gateway-type.png)
+    ![Select Gateway Type](../../assets/img/api-gateway/platform-gateway/select-gateway-type.png)
 
 6. Click **Create**.
 
@@ -138,11 +138,11 @@ To redeploy the API:
 
 1. Navigate to the **Deployments** page of the API.
    
-    ![API Deployments Page](../../assets/img/api-gateway/api-platform-gateway/api-deployments-page.png)
+    ![API Deployments Page](../../assets/img/api-gateway/platform-gateway/api-deployments-page.png)
 
 2. Click **Deploy**.
    
-    ![Deploy API](../../assets/img/api-gateway/api-platform-gateway/deploy-api.png)
+    ![Deploy API](../../assets/img/api-gateway/platform-gateway/deploy-api.png)
 
 ## Test the API
 
@@ -152,11 +152,11 @@ In the **Dev Portal**, open the API **Try out** (API Console) view. The **Securi
 
 If you use an [API Key Authentication](https://wso2.com/api-platform/policy-hub/policies/api-key-auth) policy, the **API key header name** is configured in the policy (it may be a custom header rather than a generic default). Configure it in the Publisher under **Develop** → **Policies** before you deploy.
 
-![API Key policy with a custom API key header name](../../assets/img/api-gateway/api-platform-gateway/api-key-policy-with-custom-header-name.png)
+![API Key policy with a custom API key header name](../../assets/img/api-gateway/platform-gateway/api-key-policy-with-custom-header-name.png)
 
 In **Try out**, choose **API Key**, enter your key, then execute the request or copy **Generate cURL**. The generated command uses the **same header name** as in the policy, so it stays aligned with the gateway.
 
-![Generated cURL from Try out including the API key header](../../assets/img/api-gateway/api-platform-gateway/generate-curl-with-apikey.png)
+![Generated cURL from Try out including the API key header](../../assets/img/api-gateway/platform-gateway/generate-curl-with-apikey.png)
 
 You can also invoke the API with cURL manually. Replace `<gateway-host>` and `<gateway-port>` with the host and port from the gateway **URL** you set in the Admin Portal. Use the header name from your policy (for example replace `X-API-Key` below if your policy defines a custom name).
 
@@ -201,10 +201,10 @@ curl -k -i "https://<gateway-host>:<gateway-port>/readinglistapi/1.0/books" \
 If authentication fails, confirm the policy is deployed, the header names match the policy and API configuration, and you have redeployed the API after policy changes.
 
 !!! info
-    - For policy configuration steps, see [Adding and Managing Policies]({{base_path}}/api-gateway/api-platform-gateway/adding-and-managing-policies/).
+    - For policy configuration steps, see [Adding and Managing Policies]({{base_path}}/api-gateway/platform-gateway/adding-and-managing-policies/).
     - Gateway policies for this deployment model are sourced from [Policy Hub](https://wso2.com/api-platform/policy-hub). Choose the policy that matches your security model (for example [API Key Authentication](https://wso2.com/api-platform/policy-hub/policies/api-key-auth) or other JWT, OAuth, or Basic policies listed there).
 
 ## Next steps
 
-- [Setting Up Platform Gateway]({{base_path}}/api-gateway/api-platform-gateway/setting-up/)
-- [Adding and Managing Policies]({{base_path}}/api-gateway/api-platform-gateway/adding-and-managing-policies/)
+- [Setting Up Platform Gateway]({{base_path}}/api-gateway/platform-gateway/setting-up/)
+- [Adding and Managing Policies]({{base_path}}/api-gateway/platform-gateway/adding-and-managing-policies/)

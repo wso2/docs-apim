@@ -3,7 +3,7 @@
 This guide provides detailed instructions for deploying Platform Gateway in production environments. Choose the infrastructure option that matches your environment.
 
 !!! tip "Quick Start"
-    If you are just getting started, see the [Getting Started]({{base_path}}/api-gateway/api-platform-gateway/getting-started/) guide for a quick setup.
+    If you are just getting started, see the [Getting Started]({{base_path}}/api-gateway/platform-gateway/getting-started/) guide for a quick setup.
 
 ## Setup Instructions
 
@@ -216,4 +216,4 @@ This guide provides detailed instructions for deploying Platform Gateway in prod
 
 ## What's Next?
 
-- [Adding and Managing Policies]({{base_path}}/api-gateway/api-platform-gateway/adding-and-managing-policies/)
+- [Adding and Managing Policies]({{base_path}}/api-gateway/platform-gateway/adding-and-managing-policies/)

@@ -18,18 +18,18 @@ To add policies to an API deployed to Platform Gateway:
 2. Open the API that is deployed (or will be deployed) to **Platform Gateway**.
 3. Go to **Develop** -> **Policies**.
 
-    ![API Policies Page](../../assets/img/api-gateway/api-platform-gateway/api-policies-page.png)
+    ![API Policies Page](../../assets/img/api-gateway/platform-gateway/api-policies-page.png)
 
 4. Drag and drop the required policy from the available policies list to the policy canvas.
 5. Configure the policy parameters.
 
     In the policy configuration, choose how the policy should behave in the **Request** flow or **Response** flow.
 
-    ![Configure Policy](../../assets/img/api-gateway/api-platform-gateway/policy-configure.png)
+    ![Configure Policy](../../assets/img/api-gateway/platform-gateway/policy-configure.png)
 
 6. Save the API and deploy the updated revision to Platform Gateway.
 
-    ![Deploy API with Policies](../../assets/img/api-gateway/api-platform-gateway/policy-deploy-api.png)
+    ![Deploy API with Policies](../../assets/img/api-gateway/platform-gateway/policy-deploy-api.png)
 
 ## Available policy types
 
@@ -37,4 +37,4 @@ See [Policy Hub](https://wso2.com/api-platform/policy-hub) for available policie
 
 ## What's next
 
-- Return to [Getting Started]({{base_path}}/api-gateway/api-platform-gateway/getting-started/) to test API invocation with and without API-key-based authentication.
+- Return to [Getting Started]({{base_path}}/api-gateway/platform-gateway/getting-started/) to test API invocation with and without API-key-based authentication.
