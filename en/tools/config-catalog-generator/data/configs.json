@@ -1642,6 +1642,14 @@
                             "description": "^"
                         },
                         {
+                            "name": "enable_legacy_api_keys",
+                            "type": "string",
+                            "required": false,
+                            "default": "FALSE",
+                            "possible": "",
+                            "description": "The config to enable application bound legacy API key option."
+                        },
+                        {
                             "name": "application_sharing_claim",
                             "type": "string",
                             "required": false,
