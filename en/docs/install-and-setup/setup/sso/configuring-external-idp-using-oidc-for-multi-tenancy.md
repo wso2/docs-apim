@@ -3,7 +3,7 @@
 WSO2 API Manager uses OIDC SSO by default. This doc shows how to connect WSO2 Identity Server (or WSO2 IS as Key Manager) as a third-party IdP to API Manager for multi-tenant flows.
 
 !!! Note
-    No multi-tenancy needed? Follow this doc: [Configure Identity Server as External IdP using OIDC](./configuring-identity-server-as-external-idp-using-oidc.md).
+    If you do not require multi-tenancy support, refer to [Configure Identity Server as External IdP using OIDC](./configuring-identity-server-as-external-idp-using-oidc.md).
 
 ## Prerequisites
 
@@ -209,7 +209,7 @@ http_method = "all"
 
     -   Purpose: capture tenant details, proxy tenant-specific users to right service providers in their tenants. Also handle `carbon.super` tenant users.
     -   Log in to carbon portal (`https://{apim-ip}:9443/carbon`) as admin.
-    -   Left nav → **Identity Providers** → click **Add**.
+    -   In the left navigation panel, expand **Identity Providers** and click **Add**.
     -   Add below claim mapping under **Claim Configuration**:
 
         <table>
@@ -252,12 +252,12 @@ http_method = "all"
         </tbody>
         </table>
 
-        [![Role mapping]({{base_path}}/assets/img/setup-and-install/role-mapping-for-sso.png)]({{base_path}}/assets/img/setup-and-install/role-mapping-for-sso.png)
+        [![Role mapping configuration for SSO]({{base_path}}/assets/img/setup-and-install/role-mapping-for-sso.png)]({{base_path}}/assets/img/setup-and-install/role-mapping-for-sso.png)
 
         !!! Tip
-            Instead of default internal roles, create new roles in API Manager and map to provisioned users.
+            Instead of using the default internal roles, you can also create new roles in API Manager and map them to the provisioned users.
 
-    -   Select **Multi Tenant Authenticator Configuration** under **Federated Authenticators**:
+    -   Select **Multi-Tenant Authenticator Configuration** under **Federated Authenticators**:
 
         <table>
         <thead>
@@ -297,13 +297,13 @@ http_method = "all"
 
     -   Enable **Just-in-Time Provisioning** to provision users in API Manager:
 
-        [![Jit Provisioning]({{base_path}}/assets/img/setup-and-install/jit-provisioning-for-sso.png)]({{base_path}}/assets/img/setup-and-install/jit-provisioning-for-sso.png)
+        [![JIT provisioning configuration for SSO]({{base_path}}/assets/img/setup-and-install/jit-provisioning-for-sso.png)]({{base_path}}/assets/img/setup-and-install/jit-provisioning-for-sso.png)
 
     -   Click **Register** to save.
 
 ### Step 4 - Configure Common Service Provider
 
--   Left nav → **Service Providers** → click **Add**.
+-   In the left navigation panel, expand **Service Providers** and click **Add**.
 -   SP name must match **Common Service Provider Name** set in super tenant IdP.
 
     [![Multi Tenant Common SP]({{base_path}}/assets/img/setup-and-install/multi-tenant-sso/multi-tenant-common-sp.png)]({{base_path}}/assets/img/setup-and-install/multi-tenant-sso/multi-tenant-common-sp.png)
@@ -328,10 +328,10 @@ http_method = "all"
 ### Step 5 - Configure Tenanted IdP
 
 -   Log in to carbon portal as tenant admin.
--   Repeat [Step 3](#step-3-configure-federated-authenticators). But this time pick **OAuth2/OpenID Connect Configuration** instead of **Multi Tenant Authenticator Configuration**.
+-   Repeat [Step 3](#step-3-configure-federated-authenticators). But this time pick **OAuth2/OpenID Connect Configuration** instead of **Multi-Tenant Authenticator Configuration**.
 
     !!! Info
-        Connect to IS tenanted application created in [first section](#step-2-configure-service-provider).
+        When configuring the federated authenticator for the tenant IdP, use the **Client ID** and **Client Secret** of the tenant-specific service provider you created in WSO2 IS in [Step 2 - Configure Service Provider](#step-2-configure-service-provider). This ensures that authentication requests from the tenant are routed to the corresponding tenant application in WSO2 IS.
 
 ### Step 6 - Configure Tenanted Common Service Provider
 
@@ -339,14 +339,19 @@ http_method = "all"
 
 ### Step 7 - Configure IdP for Portals
 
--   In carbon portal, log in as super admin again.
--   Click **List** under **Service Providers**.
--   See `apim_devportal`, `apim_publisher`, `apim_admin_portal` service providers.
--   Click **Edit** on one of them. Expand **Local & Outbound Authentication Configuration**.
--   Select **Federated Authentication** under **Authentication Type**. Pick created IdP (`WSO2_IS7`).
--   Tick **Assert identity using mapped local subject identifier**. Mandatory for role mapping to work.
+-   Log in to the carbon portal as the super admin.
+-   Navigate to the **Service Providers** section and click **List**. You will see three service providers created for the Developer Portal, Publisher, and Admin Portal named `apim_devportal`, `apim_publisher`, and `apim_admin_portal` respectively.
 
-    [![Multi Tenant Portal SPs Configs]({{base_path}}/assets/img/setup-and-install/multi-tenant-sso/multi-tenant-portal-sps.png)]({{base_path}}/assets/img/setup-and-install/multi-tenant-sso/multi-tenant-portal-sps.png)
+    !!! Attention
+        You will have to log into the Developer Portal, Publisher, and Admin Portal at least once for the service providers to appear, as they are created during first login.
+
+-   Click **Edit** on one of them and expand the **Local & Outbound Authentication Configuration** section.
+-   Select **Federated Authentication** as the **Authentication Type** and select the IdP you created (`WSO2_IS7`).
+-   Select **Assert identity using mapped local subject identifier**. This is mandatory for role mapping to work.
+
+    [![Portal service provider configuration for SSO]({{base_path}}/assets/img/setup-and-install/multi-tenant-sso/multi-tenant-portal-sps.png)]({{base_path}}/assets/img/setup-and-install/multi-tenant-sso/multi-tenant-portal-sps.png)
+
+-   Repeat the same steps for the remaining service providers.
 
 ## Verify the Configuration
 
