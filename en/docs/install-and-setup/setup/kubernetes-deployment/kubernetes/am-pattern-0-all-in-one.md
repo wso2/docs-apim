@@ -50,9 +50,9 @@ This section gets WSO2 API Manager running on Kubernetes with default settings. 
 
 ### Step 4 — Install a Routing Controller
 
-WSO2 API Manager 4.7.0 uses Envoy Gateway by default for routing. NGINX Ingress Controller is also available.
+WSO2 API Manager 4.7.0 uses Envoy Gateway by default for routing and it is the recommended option. NGINX Ingress Controller is also available for users who require it.
 
-=== "Envoy Gateway (Default)"
+=== "Envoy Gateway (Recommended)"
 
     1. Install Envoy Gateway:
 
@@ -86,7 +86,7 @@ WSO2 API Manager 4.7.0 uses Envoy Gateway by default for routing. NGINX Ingress 
 
     See [Section 4 — Routing Controller](#4-routing-controller) for full Envoy Gateway values configuration.
 
-=== "NGINX Ingress Controller"
+=== "NGINX Ingress Controller (Deprecated)"
 
     1. Install the NGINX ingress controller into your cluster:
 
@@ -172,11 +172,11 @@ WSO2 API Manager 4.7.0 uses Envoy Gateway by default for routing. NGINX Ingress 
 
     2. Get the external IP:
 
-        === "Envoy Gateway (Default)"
+        === "Envoy Gateway (Recommended)"
             ```bash
             kubectl get gateway -n apim
             ```
-        === "NGINX Ingress Controller"
+        === "NGINX Ingress Controller (Deprecated)"
             ```bash
             kubectl get ing -n apim
             ```
@@ -193,11 +193,11 @@ WSO2 API Manager 4.7.0 uses Envoy Gateway by default for routing. NGINX Ingress 
 
     1. Get the external IP:
 
-        === "Envoy Gateway (Default)"
+        === "Envoy Gateway (Recommended)"
             ```bash
             kubectl get gateway -n apim
             ```
-        === "NGINX Ingress Controller"
+        === "NGINX Ingress Controller (Deprecated)"
             ```bash
             kubectl get ing -n apim
             ```
@@ -212,11 +212,11 @@ WSO2 API Manager 4.7.0 uses Envoy Gateway by default for routing. NGINX Ingress 
 
     1. Get the external IP:
 
-        === "Envoy Gateway (Default)"
+        === "Envoy Gateway (Recommended)"
             ```bash
             kubectl get gateway -n apim
             ```
-        === "NGINX Ingress Controller"
+        === "NGINX Ingress Controller (Deprecated)"
             ```bash
             kubectl get ing -n apim
             ```
@@ -239,7 +239,7 @@ WSO2 API Manager 4.7.0 uses Envoy Gateway by default for routing. NGINX Ingress 
 
 1. Once DNS is configured, open the following URLs in your browser:
 
-    === "Envoy Gateway (Default)"
+    === "Envoy Gateway (Recommended)"
 
         | Portal | URL |
         | ------ | --- |
@@ -248,7 +248,7 @@ WSO2 API Manager 4.7.0 uses Envoy Gateway by default for routing. NGINX Ingress 
         | Carbon Console | `https://<kubernetes.gatewayAPI.management.hostname>/carbon` |
         | Gateway | `https://<kubernetes.gatewayAPI.gateway.hostname>` |
 
-    === "NGINX Ingress Controller"
+    === "NGINX Ingress Controller (Deprecated)"
 
         | Portal | URL |
         | ------ | --- |
