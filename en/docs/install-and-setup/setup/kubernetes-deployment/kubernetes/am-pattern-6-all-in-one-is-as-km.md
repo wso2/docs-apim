@@ -209,35 +209,11 @@ WSO2 IS 7.x needs a custom image that includes the APIM notification event handl
       --format='{% raw %}{{index .RepoDigests 0}}{% endraw %}'
     ```
 
-### Step 6 — Set Up the Database
+### Step 6 — Extract APIM Keystores { #step-6 }
 
-Pattern 6 requires two databases: `apim_db` and `shared_db`. Both must be reachable from inside the Kubernetes cluster before the pods start.
+WSO2 IS uses a self-signed certificate for its HTTPS endpoints. APIM calls IS over the Kubernetes service name `is-identity-server:9443`, so APIM must trust that certificate before it starts. Extract the default APIM keystores now so you can import the IS certificate into the truststore after IS is running in [Step 8](#step-8).
 
-Follow the [Setting Up Databases]({{base_path}}/install-and-setup/setup/setting-up-databases/overview/) guide to:
-
-1. Set up a database instance accessible from your cluster
-2. Obtain the schema scripts for your database type
-3. Run the scripts to initialise both databases
-
-!!! note
-    The JDBC driver for your database is already included in the custom Docker image you built in Step 5. You do not need to follow the JDBC driver steps in the VM-oriented sections of that guide.
-
-Once the scripts have been run, verify that both databases are set up correctly before proceeding:
-
-- Connect to your database instance and confirm that `apim_db` and `shared_db` both exist
-- Check that tables have been created in each database (the `shared_db` script creates `UM_*` and `REG_*` tables; the `apim_db` script creates `AM_*` tables)
-
-### Step 7 — Create the Keystore Secret { #step-7 }
-
-The Helm chart mounts a Kubernetes secret named `apim-keystore-secret` as a volume into the APIM pods. The pods will not start if this secret does not exist.
-
-1. Create the `wso2` namespace:
-
-    ```bash
-    kubectl create namespace apim
-    ```
-
-2. Extract the default keystores from your APIM image and create the secret:
+1. Extract the default keystores from your APIM image:
 
     ```bash
     mkdir -p keystores
@@ -245,26 +221,12 @@ The Helm chart mounts a Kubernetes secret named `apim-keystore-secret` as a volu
     docker run --rm -v "$(pwd)/keystores:/keystores" --entrypoint bash <REGISTRY>/wso2am-mysql:<TAG> -c \
       "cp /home/wso2carbon/wso2am-4.7.0/repository/resources/security/wso2carbon.jks \
           /home/wso2carbon/wso2am-4.7.0/repository/resources/security/client-truststore.jks \
-          /home/wso2carbon/wso2am-4.7.0/repository/resources/security/wso2internal.jks \
           /keystores/"
-
-    kubectl create secret generic apim-keystore-secret \
-      --from-file=wso2carbon.jks=keystores/wso2carbon.jks \
-      --from-file=client-truststore.jks=keystores/client-truststore.jks \
-      --from-file=wso2internal.jks=keystores/wso2internal.jks \
-      -n apim
     ```
 
-3. Verify the secret was created:
+    You will import the IS certificate into `client-truststore.jks` and create the Kubernetes secret in [Step 8](#step-8) after IS is deployed.
 
-    ```bash
-    kubectl get secret apim-keystore-secret -n apim
-    ```
-
-!!! note
-    The commands above use the default WSO2 keystores which are suitable for evaluation only. For production-level keystore setup, refer to [Configuring Keystores in WSO2 API Manager]({{base_path}}/install-and-setup/setup/security/configuring-keystores/configuring-keystores-in-wso2-api-manager/). You must also exchange the public certificates of APIM and IS and import them into each other's truststore — see [Importing certificates to the truststore](https://apim.docs.wso2.com/en/4.7.0/install-and-setup/setup/security/configuring-keystores/keystore-basics/creating-new-keystores/#step-3-importing-certificates-to-the-truststore).
-
-### Step 8 — Deploy WSO2 Identity Server { #step-8 }
+### Step 7 — Deploy WSO2 Identity Server { #step-7 }
 
 1. Download the default IS values file:
 
@@ -291,16 +253,13 @@ The Helm chart mounts a Kubernetes secret named `apim-keystore-secret` as a volu
     ```yaml
     deploymentToml:
       extraConfigs: |
-        [oauth]
-        authorize_all_scopes = true
+        oauth.authorize_all_scopes = true
 
         [[resource.access_control]]
         context="(.*)/scim2/Me"
         secure=true
         http_method="GET"
         cross_tenant=true
-        permissions=[]
-        scopes=[]
 
         [[event_listener]]
         id = "token_revocation"
@@ -314,8 +273,11 @@ The Helm chart mounts a Kubernetes secret named `apim-keystore-secret` as a volu
         'header.X-WSO2-KEY-MANAGER' = "WSO2-IS"
     ```
 
+    !!! warning "Use dotted key form for the oauth setting"
+        The IS Helm chart's base `deployment.toml` already defines `[oauth.token_cleanup]` and `[oauth.token_generation]`. Re-declaring `[oauth]` as a section header in `extraConfigs` causes a TOML parser crash (`StackOverflowError`) at startup. Use `oauth.authorize_all_scopes = true` (dotted key form) instead of a `[oauth]` section block.
+
     !!! note
-        The `notification_endpoint` must point to the APIM pod's internal Kubernetes service name, not the ingress hostname. The IS pod communicates directly with the APIM pod via cluster DNS.
+        The `notification_endpoint` must use the APIM pod's internal Kubernetes service name, not the ingress hostname — IS communicates with APIM from inside the cluster. With the default release name `apim`, the service name is `apim-wso2am-all-in-one-am-service`. Verify with `kubectl get svc -n apim` after deploying APIM.
 
 3. Deploy WSO2 Identity Server:
 
@@ -333,18 +295,65 @@ The Helm chart mounts a Kubernetes secret named `apim-keystore-secret` as a volu
 
     The IS pod should show `1/1 Running` before deploying APIM.
 
-### Step 9 — Deploy WSO2 API Manager { #step-9 }
+### Step 8 — Import IS Certificate and Create Keystore Secret { #step-8 }
 
-1. Download the default values file for the All-in-One:
+APIM calls IS over HTTPS using the Kubernetes service name `is-identity-server:9443`. Because IS uses a self-signed certificate, APIM fails with a `PKIX path building failed` error unless that certificate is imported into APIM's truststore before APIM starts.
+
+1. Port-forward the IS service to your local machine:
 
     ```bash
-    curl -L https://raw.githubusercontent.com/wso2/helm-apim/4.7.x/docs/am-pattern-1-all-in-one-HA/default_values.yaml \
-      -o values-apim.yaml
+    kubectl port-forward -n apim svc/is-identity-server 9444:9443 &
     ```
 
-2. Open `values-apim.yaml` and update the following sections before deploying.
+    Wait until you see `Forwarding from 127.0.0.1:9444 -> 9443` before running the next command.
 
-    **Custom image** — point to the APIM image you built in Step 5:
+2. Extract the IS certificate:
+
+    ```bash
+    openssl s_client -connect localhost:9444 -servername wso2is.km < /dev/null 2>/dev/null | openssl x509 > is-cert.pem
+    ```
+
+    Then stop the port-forward:
+
+    ```bash
+    kill %1
+    ```
+
+    !!! warning
+        Run the port-forward and `openssl` as **separate commands** — do not chain them together. If you run them in the same line, `openssl` starts before the tunnel is ready and the extraction fails with `Could not find certificate from <stdin>`.
+
+    Verify the certificate was captured — the output should start with `-----BEGIN CERTIFICATE-----`:
+
+    ```bash
+    cat is-cert.pem
+    ```
+
+3. Import the IS certificate into the APIM truststore you extracted in [Step 6](#step-6):
+
+    ```bash
+    keytool -importcert -trustcacerts -alias wso2is -file is-cert.pem \
+      -keystore keystores/client-truststore.jks -storepass wso2carbon -noprompt
+    ```
+
+4. Create the `apim-keystore-secret` Kubernetes secret with the updated truststore:
+
+    ```bash
+    kubectl create secret generic apim-keystore-secret \
+      --from-file=wso2carbon.jks=keystores/wso2carbon.jks \
+      --from-file=client-truststore.jks=keystores/client-truststore.jks \
+      -n apim
+    ```
+
+5. Generate the encryption key — you will need it in the next step:
+
+    ```bash
+    openssl rand -hex 32
+    ```
+
+    !!! warning "Encryption key is mandatory"
+        WSO2 API Manager 4.7.0 requires a 256-bit encryption key before first startup. Store this key securely — you will need the same key if you redeploy.
+
+6. Create `values-apim.yaml` with the following content, replacing all placeholder values:
 
     ```yaml
     wso2:
@@ -353,14 +362,11 @@ The Helm chart mounts a Kubernetes secret named `apim-keystore-secret` as a volu
           registry: "docker.io"
           repository: "<your-username>/wso2am-mysql"
           tag: "<TAG>"
-          digest: "sha256:abcdef..."
-    ```
-
-    **Database connection** — point to the database you set up in Step 6:
-
-    ```yaml
+          digest: "sha256:<digest>"
       apim:
         configurations:
+          encryption:
+            key: "<generated-64-char-hex-key>"
           databases:
             apim_db:
               url: "<JDBC_URL_FOR_APIM_DB>"
@@ -370,19 +376,39 @@ The Helm chart mounts a Kubernetes secret named `apim-keystore-secret` as a volu
               url: "<JDBC_URL_FOR_SHARED_DB>"
               username: "<DB_USERNAME>"
               password: "<DB_PASSWORD>"
+          security:
+            jksSecretName: "apim-keystore-secret"
+            truststore:
+              password: "wso2carbon"
     ```
 
-    Replace `<JDBC_URL_FOR_APIM_DB>` and `<JDBC_URL_FOR_SHARED_DB>` with the JDBC connection URL for your database. For URL formats per database type, see [Setting Up Databases]({{base_path}}/install-and-setup/setup/setting-up-databases/overview/#changing-the-default-databases).
+    Replace:
+    - Image fields with the values from Step 5 (`docker inspect` output)
+    - `<generated-64-char-hex-key>` with the `openssl rand -hex 32` output above
+    - JDBC URLs with your database connection strings — for URL formats per database type, see [Setting Up Databases]({{base_path}}/install-and-setup/setup/setting-up-databases/overview/#changing-the-default-databases)
 
-3. Deploy WSO2 API Manager:
+    !!! note
+        `jksSecretName` tells the Helm chart to mount the keystore secret into the APIM pod. Without this setting, APIM uses its embedded default keystores and ignores `apim-keystore-secret`.
+
+### Step 9 — Deploy WSO2 API Manager { #step-9 }
+
+1. Deploy WSO2 API Manager using the default values file and the `values-apim.yaml` you created in [Step 8](#step-8):
 
     ```bash
     helm install apim wso2/wso2am-all-in-one \
       --version 4.7.0-1 \
       --namespace apim \
-      --dependency-update \
+      -f https://raw.githubusercontent.com/wso2/helm-apim/4.7.x/docs/am-pattern-1-all-in-one-HA/default_values.yaml \
       -f values-apim.yaml
     ```
+
+2. Wait for the APIM pod to be ready:
+
+    ```bash
+    kubectl get pods -n apim -w
+    ```
+
+    The APIM pod should show `1/1 Running` before proceeding.
 
 ### Step 10 — Register IS as Key Manager { #step-10 }
 
@@ -395,30 +421,35 @@ Once both APIM and IS are running, register IS as a Key Manager through the APIM
 
 2. Navigate to **Key Managers** and click **Add Key Manager**.
 
-3. Configure the Key Manager with the following settings. Replace `wso2is.km` with the actual IS ingress hostname if you changed it in `values-is.yaml`:
+3. Configure the Key Manager with the following settings:
 
     | Field | Value |
     |-------|-------|
     | Name | WSO2IS7 |
     | Display Name | WSO2 Identity Server 7 |
     | Key Manager Type | WSO2 Identity Server 7 |
-    | Well-known URL | `https://wso2is.km:9443/oauth2/token/.well-known/openid-configuration` |
-    | Issuer | `https://wso2is.km:9443/oauth2/token` |
-    | Client Registration Endpoint | `https://wso2is.km:9443/api/identity/oauth2/dcr/v1.1/register` |
-    | Introspection Endpoint | `https://wso2is.km:9443/oauth2/introspect` |
-    | Token Endpoint | `https://wso2is.km:9443/oauth2/token` |
+    | Well-known URL | `https://is-identity-server:9443/oauth2/token/.well-known/openid-configuration` |
+    | Issuer | `https://is-identity-server:9443/oauth2/token` |
+    | Client Registration Endpoint | `https://is-identity-server:9443/api/identity/oauth2/dcr/v1.1/register` |
+    | Introspection Endpoint | `https://is-identity-server:9443/oauth2/introspect` |
+    | Token Endpoint | `https://is-identity-server:9443/oauth2/token` |
     | Display Token Endpoint | `https://wso2is.km:9443/oauth2/token` |
-    | Revoke Endpoint | `https://wso2is.km:9443/oauth2/revoke` |
+    | Revoke Endpoint | `https://is-identity-server:9443/oauth2/revoke` |
     | Display Revoke Endpoint | `https://wso2is.km:9443/oauth2/revoke` |
-    | UserInfo Endpoint | `https://wso2is.km:9443/scim2/Me` |
+    | UserInfo Endpoint | `https://is-identity-server:9443/scim2/Me` |
     | Authorize Endpoint | `https://wso2is.km:9443/oauth2/authorize` |
-    | Scope Management Endpoint | `https://wso2is.km:9443/api/identity/oauth2/v1.0/scopes` |
+    | Scope Management Endpoint | `https://is-identity-server:9443/api/identity/oauth2/v1.0/scopes` |
     | Certificate Type | JWKS |
-    | JWKS URL | `https://wso2is.km:9443/oauth2/jwks` |
+    | JWKS URL | `https://is-identity-server:9443/oauth2/jwks` |
     | Username (connector config) | admin |
     | Password (connector config) | admin |
-    | WSO2 IS 7 API Resource Management Endpoint | `https://wso2is.km:9443/api/server/v1/api-resources` |
-    | WSO2 IS 7 Roles Endpoint | `https://wso2is.km:9443/scim2/v2/Roles` |
+    | WSO2 IS 7 API Resource Management Endpoint | `https://is-identity-server:9443/api/server/v1/api-resources` |
+    | WSO2 IS 7 Roles Endpoint | `https://is-identity-server:9443/scim2/v2/Roles` |
+
+    !!! warning "Use the Kubernetes service name for operational endpoints"
+        Operational endpoints (`Well-known URL`, `Token Endpoint`, `Revoke Endpoint`, etc.) must use `is-identity-server:9443` — the Kubernetes cluster DNS name for the IS service. APIM calls these from inside the cluster and cannot resolve `/etc/hosts` entries that map `wso2is.km` to an external IP.
+
+        Display endpoints (`Display Token Endpoint`, `Display Revoke Endpoint`, `Authorize Endpoint`) use `wso2is.km:9443` because they are opened by end users in a browser, where the external hostname resolves correctly.
 
 4. Click **Add** to save.
 
@@ -621,7 +652,7 @@ wso2:
 
 #### 3.1 Mount Keystore and Truststore { #section-3-1 }
 
-In [Step 7](#step-7), you created `apim-keystore-secret` using the default WSO2 keystores. Those are self-signed certificates suitable for evaluation only.
+In [Step 8](#step-8), you created `apim-keystore-secret` using the default WSO2 keystores with the IS certificate imported. Those are self-signed certificates suitable for evaluation only.
 
 For production-level keystore setup, refer to [Configuring Keystores in WSO2 API Manager]({{base_path}}/install-and-setup/setup/security/configuring-keystores/configuring-keystores-in-wso2-api-manager/). Then recreate the secret with your own certificates:
 
@@ -629,7 +660,6 @@ For production-level keystore setup, refer to [Configuring Keystores in WSO2 API
 kubectl create secret generic apim-keystore-secret \
   --from-file=wso2carbon.jks \
   --from-file=client-truststore.jks \
-  --from-file=wso2internal.jks \
   -n apim
 ```
 
@@ -897,7 +927,7 @@ helm install is wso2/identity-server \
 helm install apim wso2/wso2am-all-in-one \
   --version 4.7.0-1 \
   --namespace apim \
-  --dependency-update \
+  -f https://raw.githubusercontent.com/wso2/helm-apim/4.7.x/docs/am-pattern-1-all-in-one-HA/default_values.yaml \
   -f values-apim.yaml
 ```
 

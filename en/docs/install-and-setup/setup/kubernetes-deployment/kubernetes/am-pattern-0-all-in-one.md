@@ -372,7 +372,6 @@ The default WSO2 keystores use a self-signed certificate which is fine for evalu
 kubectl create secret generic apim-keystore-secret \
   --from-file=wso2carbon.jks \
   --from-file=client-truststore.jks \
-  --from-file=wso2internal.jks \
   -n apim
 ```
 

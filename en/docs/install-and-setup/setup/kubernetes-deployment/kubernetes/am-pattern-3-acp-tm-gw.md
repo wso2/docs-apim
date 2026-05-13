@@ -214,12 +214,11 @@ The Helm chart mounts a Kubernetes secret named `apim-keystore-secret` as a volu
     ```bash
     mkdir -p keystores
 
-    docker run --rm -v "$(pwd)/keystores:/keystores" --entrypoint bash <REGISTRY>/wso2am-acp-mysql:<TAG> -c "cp /home/wso2carbon/wso2am-acp-4.7.0/repository/resources/security/wso2carbon.jks /home/wso2carbon/wso2am-acp-4.7.0/repository/resources/security/client-truststore.jks /home/wso2carbon/wso2am-acp-4.7.0/repository/resources/security/wso2internal.jks /keystores/"
+    docker run --rm -v "$(pwd)/keystores:/keystores" --entrypoint bash <REGISTRY>/wso2am-acp-mysql:<TAG> -c "cp /home/wso2carbon/wso2am-acp-4.7.0/repository/resources/security/wso2carbon.jks /home/wso2carbon/wso2am-acp-4.7.0/repository/resources/security/client-truststore.jks /keystores/"
 
     kubectl create secret generic apim-keystore-secret \
       --from-file=wso2carbon.jks=keystores/wso2carbon.jks \
       --from-file=client-truststore.jks=keystores/client-truststore.jks \
-      --from-file=wso2internal.jks=keystores/wso2internal.jks \
       -n apim
     ```
 
@@ -560,7 +559,6 @@ For production-level keystore setup, refer to [Configuring Keystores in WSO2 API
 kubectl create secret generic apim-keystore-secret \
   --from-file=wso2carbon.jks \
   --from-file=client-truststore.jks \
-  --from-file=wso2internal.jks \
   -n apim
 ```
 
