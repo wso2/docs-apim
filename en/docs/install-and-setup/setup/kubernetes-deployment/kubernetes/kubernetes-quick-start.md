@@ -63,13 +63,17 @@ helm install envoy-gateway oci://docker.io/envoyproxy/gateway-helm \
   --create-namespace
 ```
 
-Apply the sample Gateway manifest:
+Create the `apim` namespace and apply the sample Gateway manifest:
 
 ```bash
+kubectl create namespace apim
 kubectl apply \
   -f https://raw.githubusercontent.com/wso2/helm-apim/4.7.x/docs/assets/sample-gateway.yaml \
   -n apim
 ```
+
+!!! warning
+    The `apim` namespace must exist before applying the Gateway manifest. Run `kubectl create namespace apim` first — applying the manifest without the namespace will fail.
 
 ## Step 3 — Deploy WSO2 API Manager
 
@@ -77,8 +81,12 @@ kubectl apply \
 helm install apim wso2/wso2am-all-in-one \
   --version 4.7.0-1 \
   --namespace apim --create-namespace \
-  -f https://raw.githubusercontent.com/wso2/helm-apim/4.7.x/docs/am-pattern-0-all-in-one/default_values.yaml
+  -f https://raw.githubusercontent.com/wso2/helm-apim/4.7.x/docs/am-pattern-0-all-in-one/default_values.yaml \
+  --set wso2.apim.configurations.encryption.key=$(openssl rand -hex 32)
 ```
+
+!!! warning "Encryption key is mandatory"
+    WSO2 API Manager 4.7.0 requires a 256-bit encryption key before first startup. The command above generates one automatically. For production or shared environments, generate the key separately and store it securely — you will need the same key if you redeploy.
 
 Wait for the pod to be ready:
 
