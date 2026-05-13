@@ -11,7 +11,7 @@ This pattern extends Pattern 2 by adding a dedicated Key Manager alongside the A
 | Key Manager | Embedded in All-in-One | Dedicated KM | Dedicated KM |
 | Control Plane | Embedded in All-in-One | Dedicated ACP | Embedded in All-in-One |
 | Traffic Manager | Embedded in All-in-One | Dedicated TM | Embedded in All-in-One |
-| Custom images | Required (All-in-One) | Required (ACP); KM reuses ACP image | Required (All-in-One); KM reuses ACP image |
+| Custom images | Required (All-in-One) | Required (ACP); KM reuses ACP image | Required (All-in-One + ACP); KM uses ACP image |
 | High availability | Gateway: Yes; All-in-One: Optional | Yes (all components) | Gateway: Yes; KM: Yes; All-in-One: Optional |
 
 !!! note
