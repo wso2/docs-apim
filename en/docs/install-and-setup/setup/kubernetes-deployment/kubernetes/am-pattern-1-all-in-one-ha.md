@@ -208,19 +208,21 @@ Once the scripts have been run, verify that both databases are set up correctly 
 
 The Helm chart mounts a Kubernetes secret named `apim-keystore-secret` as a volume into the pods. The pods will not start if this secret does not exist — you will see a `MountVolume.SetUp failed: secret "apim-keystore-secret" not found` error.
 
-1. Create the `wso2` namespace:
-
-    ```bash
-    kubectl create namespace apim
-    ```
-
-2. WSO2 API Manager ships with default keystores inside the Docker image. Extract them and create the secret:
+1. WSO2 API Manager ships with default keystores inside the Docker image. Extract them:
 
     ```bash
     mkdir -p keystores
 
     docker run --rm -v "$(pwd)/keystores:/keystores" --entrypoint bash <CONTAINER_REGISTRY>/<IMAGE_REPO>:<TAG> -c "cp /home/wso2carbon/wso2am-4.7.0/repository/resources/security/wso2carbon.jks /home/wso2carbon/wso2am-4.7.0/repository/resources/security/client-truststore.jks /keystores/"
+    ```
 
+2. Create the Kubernetes secret:
+
+    ```bash
+    kubectl create secret generic apim-keystore-secret \
+      --from-file=keystores/wso2carbon.jks \
+      --from-file=keystores/client-truststore.jks \
+      -n apim
     ```
 
 3. Verify the secret was created:
@@ -254,7 +256,7 @@ Pattern 1 uses a single Helm chart release with two pod replicas forming the act
       deployment:
         image:
           registry: "docker.io"                       # your container registry
-          repository: "<your-username>/wso2am-mysql"  # your Docker Hub username + image name
+          repository: "<your-username>/wso2am"  # your Docker Hub username + image name
           tag: "<TAG>"                                 # tag used in docker build
           digest: "sha256:abcdef..."                  # sha256 digest from docker inspect in Step 5
     ```
@@ -284,8 +286,12 @@ Pattern 1 uses a single Helm chart release with two pod replicas forming the act
       --version 4.7.0-1 \
       --namespace apim --create-namespace \
       --dependency-update \
-      -f values.yaml
+      -f values.yaml \
+      --set wso2.apim.configurations.encryption.key=$(openssl rand -hex 32)
     ```
+
+    !!! warning "Encryption key is mandatory"
+        WSO2 API Manager 4.7.0 requires a 256-bit encryption key before first startup. In an HA deployment, **both nodes must use the same key** — generate it once, store it securely, and set it explicitly in your `values.yaml` under `wso2.apim.configurations.encryption.key` rather than relying on the auto-generated value above.
 
 4. Wait for both pods to be ready:
 

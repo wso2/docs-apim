@@ -313,8 +313,12 @@ The Helm chart mounts a Kubernetes secret named `apim-keystore-secret` as a volu
       --version 4.7.0-1 \
       --namespace apim --create-namespace \
       --dependency-update \
-      -f values-aio.yaml
+      -f values-aio.yaml \
+      --set wso2.apim.configurations.encryption.key=$(openssl rand -hex 32)
     ```
+
+    !!! warning "Encryption key is mandatory"
+        WSO2 API Manager 4.7.0 requires a 256-bit encryption key before first startup. The command above generates one automatically. For production or shared environments, generate the key separately, store it securely, and set it explicitly in your `values-aio.yaml` under `wso2.apim.configurations.encryption.key`.
 
 4. Wait for the All-in-One pod to be ready:
 
@@ -977,7 +981,8 @@ helm install apim wso2/wso2am-all-in-one \
   --version 4.7.0-1 \
   --namespace apim --create-namespace \
   --dependency-update \
-  -f values-aio.yaml
+  -f values-aio.yaml \
+  --set wso2.apim.configurations.encryption.key=$(openssl rand -hex 32)
 
 helm install apim-km wso2/wso2am-km \
   --version 4.7.0-1 \
