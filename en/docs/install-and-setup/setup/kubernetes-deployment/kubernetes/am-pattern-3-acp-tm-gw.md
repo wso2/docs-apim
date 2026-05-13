@@ -11,7 +11,7 @@ This pattern deploys dedicated nodes for the API Control Plane, Traffic Manager,
 | Nodes | 2 All-in-One (active-active) | 1 All-in-One + dedicated Gateway | Dedicated ACP + dedicated TM + dedicated Gateway |
 | Control Plane | Embedded | Embedded | Dedicated (ACP), independently scalable |
 | Traffic Manager | Embedded | Embedded | Dedicated, independently scalable |
-| Custom images | Required (All-in-One + Gateway) | Required (ACP + TM + Gateway) | Required (ACP + TM + Gateway) |
+| Custom images | Required (All-in-One) | Required (All-in-One + Gateway) | Required (ACP + TM + Gateway) |
 | High availability | Yes (All-in-One) | Gateway: Yes; All-in-One: Optional | Yes (all components) |
 
 !!! warning "Pattern 3 requires the following before deploying:"

@@ -9,7 +9,7 @@ This pattern deploys WSO2 API Manager as a single All-in-One node with WSO2 Iden
 | Control Plane | Embedded in All-in-One | Embedded in All-in-One | Embedded in All-in-One |
 | Gateway | Embedded | Dedicated, independently scalable | Embedded |
 | Key Manager | Embedded in All-in-One | Dedicated KM (WSO2 APIM KM) | WSO2 Identity Server 7.x |
-| Custom images | Required (All-in-One) | Required (All-in-One); Gateway optional; KM reuses ACP image | Required (IS only) |
+| Custom images | Required (All-in-One) | Required (All-in-One + Gateway + ACP); KM uses ACP image | Required (IS only) |
 | High availability | Yes (2 pods) | Gateway: Yes; KM: Yes; AIO: Optional | Optional |
 
 !!! note
