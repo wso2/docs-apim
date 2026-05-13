@@ -417,59 +417,7 @@ APIM calls IS over HTTPS using the Kubernetes service name `is-identity-server:9
 
     The APIM pod should show `1/1 Running` before proceeding.
 
-### Step 10 — Register IS as Key Manager { #step-10 }
-
-Once both APIM and IS are running, register IS as a Key Manager through the APIM Admin Portal.
-
-!!! note
-    This step requires the Admin Portal to be accessible. Complete [Step 11](#step-11) (DNS configuration) first, then come back to this step.
-
-1. Open the Admin Portal at `https://am.wso2.com/admin` and log in with **admin / admin**.
-
-2. Navigate to **Key Managers** and click **Add Key Manager**.
-
-3. Configure the Key Manager with the following settings:
-
-    | Field | Value |
-    |-------|-------|
-    | Name | WSO2IS7 |
-    | Display Name | WSO2 Identity Server 7 |
-    | Key Manager Type | WSO2 Identity Server 7 |
-    | Well-known URL | `https://is-identity-server:9443/oauth2/token/.well-known/openid-configuration` |
-    | Issuer | `https://is-identity-server:9443/oauth2/token` |
-    | Client Registration Endpoint | `https://is-identity-server:9443/api/identity/oauth2/dcr/v1.1/register` |
-    | Introspection Endpoint | `https://is-identity-server:9443/oauth2/introspect` |
-    | Token Endpoint | `https://is-identity-server:9443/oauth2/token` |
-    | Display Token Endpoint | `https://wso2is.km:9443/oauth2/token` |
-    | Revoke Endpoint | `https://is-identity-server:9443/oauth2/revoke` |
-    | Display Revoke Endpoint | `https://wso2is.km:9443/oauth2/revoke` |
-    | UserInfo Endpoint | `https://is-identity-server:9443/scim2/Me` |
-    | Authorize Endpoint | `https://wso2is.km:9443/oauth2/authorize` |
-    | Scope Management Endpoint | `https://is-identity-server:9443/api/identity/oauth2/v1.0/scopes` |
-    | Certificate Type | JWKS |
-    | JWKS URL | `https://is-identity-server:9443/oauth2/jwks` |
-    | Username (connector config) | admin |
-    | Password (connector config) | admin |
-    | WSO2 IS 7 API Resource Management Endpoint | `https://is-identity-server:9443/api/server/v1/api-resources` |
-    | WSO2 IS 7 Roles Endpoint | `https://is-identity-server:9443/scim2/v2/Roles` |
-
-    !!! warning "Use the Kubernetes service name for operational endpoints"
-        Operational endpoints (`Well-known URL`, `Token Endpoint`, `Revoke Endpoint`, etc.) must use `is-identity-server:9443` — the Kubernetes cluster DNS name for the IS service. APIM calls these from inside the cluster and cannot resolve `/etc/hosts` entries that map `wso2is.km` to an external IP.
-
-        Display endpoints (`Display Token Endpoint`, `Display Revoke Endpoint`, `Authorize Endpoint`) use `wso2is.km:9443` because they are opened by end users in a browser, where the external hostname resolves correctly.
-
-4. Click **Add** to save.
-
-### Step 11 — Configure DNS { #step-11 }
-
-!!! note "Envoy Gateway users"
-    If you installed Envoy Gateway (the default), get the external address from the Gateway resource:
-
-    ```bash
-    kubectl get gateway -n apim
-    ```
-
-    Then map the `kubernetes.gatewayAPI.*` hostnames from your `values.yaml` to the external address.
+### Step 10 — Configure DNS { #step-10 }
 
 === "Minikube"
 
@@ -548,6 +496,46 @@ Once both APIM and IS are running, register IS as a Key Manager through the APIM
     - **NGINX**: `ingress.controlPlane.hostname`, `ingress.gateway.hostname`, etc.
     - `wso2is.km` is the default IS hostname (configure in `values-is.yaml`).
 
+### Step 11 — Register IS as Key Manager { #step-11 }
+
+Once both APIM and IS are running and DNS is configured, register IS as a Key Manager through the APIM Admin Portal.
+
+1. Open the Admin Portal at `https://am.wso2.com/admin` and log in with **admin / admin**.
+
+2. Navigate to **Key Managers** and click **Add Key Manager**.
+
+3. Configure the Key Manager with the following settings:
+
+    | Field | Value |
+    |-------|-------|
+    | Name | WSO2IS7 |
+    | Display Name | WSO2 Identity Server 7 |
+    | Key Manager Type | WSO2 Identity Server 7 |
+    | Well-known URL | `https://is-identity-server:9443/oauth2/token/.well-known/openid-configuration` |
+    | Issuer | `https://is-identity-server:9443/oauth2/token` |
+    | Client Registration Endpoint | `https://is-identity-server:9443/api/identity/oauth2/dcr/v1.1/register` |
+    | Introspection Endpoint | `https://is-identity-server:9443/oauth2/introspect` |
+    | Token Endpoint | `https://is-identity-server:9443/oauth2/token` |
+    | Display Token Endpoint | `https://wso2is.km:9443/oauth2/token` |
+    | Revoke Endpoint | `https://is-identity-server:9443/oauth2/revoke` |
+    | Display Revoke Endpoint | `https://wso2is.km:9443/oauth2/revoke` |
+    | UserInfo Endpoint | `https://is-identity-server:9443/scim2/Me` |
+    | Authorize Endpoint | `https://wso2is.km:9443/oauth2/authorize` |
+    | Scope Management Endpoint | `https://is-identity-server:9443/api/identity/oauth2/v1.0/scopes` |
+    | Certificate Type | JWKS |
+    | JWKS URL | `https://is-identity-server:9443/oauth2/jwks` |
+    | Username (connector config) | admin |
+    | Password (connector config) | admin |
+    | WSO2 IS 7 API Resource Management Endpoint | `https://is-identity-server:9443/api/server/v1/api-resources` |
+    | WSO2 IS 7 Roles Endpoint | `https://is-identity-server:9443/scim2/v2/Roles` |
+
+    !!! warning "Use the Kubernetes service name for operational endpoints"
+        Operational endpoints (`Well-known URL`, `Token Endpoint`, `Revoke Endpoint`, etc.) must use `is-identity-server:9443` — the Kubernetes cluster DNS name for the IS service. APIM calls these from inside the cluster and cannot resolve `/etc/hosts` entries that map `wso2is.km` to an external IP.
+
+        Display endpoints (`Display Token Endpoint`, `Display Revoke Endpoint`, `Authorize Endpoint`) use `wso2is.km:9443` because they are opened by end users in a browser, where the external hostname resolves correctly.
+
+4. Click **Add** to save.
+
 ### Step 12 — Access the Portals
 
 1. Once DNS is configured, open the following URLs in your browser:
@@ -579,7 +567,7 @@ Once both APIM and IS are running, register IS as a Key Manager through the APIM
 
     Default credentials: **admin / admin**
 
-2. Complete [Step 10](#step-10) — register IS as Key Manager in the Admin Portal — if you have not done so already.
+2. Complete [Step 11](#step-11) — register IS as Key Manager in the Admin Portal — if you have not done so already.
 
 ---
 
