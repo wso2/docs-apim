@@ -207,7 +207,7 @@ Once the scripts have been run, verify that both databases are set up correctly 
 
 The Helm chart mounts a Kubernetes secret named `apim-keystore-secret` as a volume into the pods. The pods will not start if this secret does not exist.
 
-2. Extract the default keystores from your ACP image and create the secret:
+1. Extract the default keystores from your ACP image and create the secret:
 
     ```bash
     mkdir -p keystores
@@ -220,7 +220,7 @@ The Helm chart mounts a Kubernetes secret named `apim-keystore-secret` as a volu
       -n apim
     ```
 
-3. Verify the secret was created:
+2. Verify the secret was created:
 
     ```bash
     kubectl get secret apim-keystore-secret -n apim
