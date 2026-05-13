@@ -405,9 +405,13 @@ APIM calls IS over HTTPS using the Kubernetes service name `is-identity-server:9
     helm install apim wso2/wso2am-all-in-one \
       --version 4.7.0-1 \
       --namespace apim \
-      -f https://raw.githubusercontent.com/wso2/helm-apim/4.7.x/docs/am-pattern-0-all-in-one/default_values.yaml \
-      -f values-apim.yaml
+      -f https://raw.githubusercontent.com/Saadha123/helm-apim/5d860e684e31e53070217263918d0f80320ad55a/all-in-one/default_values.yaml \
+      -f values-apim.yaml \
+      --set wso2.apim.configurations.encryption.key=$(openssl rand -hex 32)
     ```
+
+    !!! warning "Encryption key is mandatory"
+        WSO2 API Manager 4.7.0 requires a 256-bit encryption key before first startup. The command above generates one automatically. For production or shared environments, generate the key separately, store it securely, and set it explicitly in your `values-apim.yaml` under `wso2.apim.configurations.encryption.key`.
 
 2. Wait for the APIM pod to be ready:
 
