@@ -221,12 +221,6 @@ Once the scripts have been run, verify that both databases are set up correctly 
 
 The Helm chart mounts a Kubernetes secret named `apim-keystore-secret` as a volume into the pods. The pods will not start if this secret does not exist.
 
-1. Create the `wso2` namespace:
-
-    ```bash
-    kubectl create namespace apim
-    ```
-
 2. Extract the default keystores from your All-in-One image and create the secret:
 
     ```bash
