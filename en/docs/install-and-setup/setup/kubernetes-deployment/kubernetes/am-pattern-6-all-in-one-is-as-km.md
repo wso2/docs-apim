@@ -367,15 +367,6 @@ APIM calls IS over HTTPS using the Kubernetes service name `is-identity-server:9
         configurations:
           encryption:
             key: "<generated-64-char-hex-key>"
-          databases:
-            apim_db:
-              url: "<JDBC_URL_FOR_APIM_DB>"
-              username: "<DB_USERNAME>"
-              password: "<DB_PASSWORD>"
-            shared_db:
-              url: "<JDBC_URL_FOR_SHARED_DB>"
-              username: "<DB_USERNAME>"
-              password: "<DB_PASSWORD>"
           security:
             jksSecretName: "apim-keystore-secret"
             truststore:
@@ -385,10 +376,26 @@ APIM calls IS over HTTPS using the Kubernetes service name `is-identity-server:9
     Replace:
     - Image fields with the values from Step 5 (`docker inspect` output)
     - `<generated-64-char-hex-key>` with the `openssl rand -hex 32` output above
-    - JDBC URLs with your database connection strings — for URL formats per database type, see [Setting Up Databases]({{base_path}}/install-and-setup/setup/setting-up-databases/overview/#changing-the-default-databases)
 
     !!! note
         `jksSecretName` tells the Helm chart to mount the keystore secret into the APIM pod. Without this setting, APIM uses its embedded default keystores and ignores `apim-keystore-secret`.
+
+    !!! note "Adding an external database"
+        The template above uses the embedded H2 database from the default values file, which is sufficient for evaluation. For production deployments, add a `databases` block to `values-apim.yaml`:
+
+        ```yaml
+              databases:
+                apim_db:
+                  url: "<JDBC_URL_FOR_APIM_DB>"
+                  username: "<DB_USERNAME>"
+                  password: "<DB_PASSWORD>"
+                shared_db:
+                  url: "<JDBC_URL_FOR_SHARED_DB>"
+                  username: "<DB_USERNAME>"
+                  password: "<DB_PASSWORD>"
+        ```
+
+        For JDBC URL formats per database type, see [Setting Up Databases]({{base_path}}/install-and-setup/setup/setting-up-databases/overview/#changing-the-default-databases).
 
 ### Step 9 — Deploy WSO2 API Manager { #step-9 }
 
