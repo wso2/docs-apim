@@ -1,9 +1,9 @@
 # Setting Up
 
-This guide provides detailed instructions for deploying API Platform Gateway in production environments. Choose the infrastructure option that matches your environment.
+This guide provides detailed instructions for deploying Platform Gateway in production environments. Choose the infrastructure option that matches your environment.
 
 !!! tip "Quick Start"
-    If you are just getting started, see the [Getting Started]({{base_path}}/api-gateway/api-platform-gateway/getting-started/) guide for a quick setup.
+    If you are just getting started, see the [Getting Started]({{base_path}}/api-gateway/platform-gateway/getting-started/) guide for a quick setup.
 
 ## Setup Instructions
 
@@ -102,7 +102,7 @@ This guide provides detailed instructions for deploying API Platform Gateway in 
 
     ### Step 2: Configure the Gateway
 
-    Run this command to create `wso2am-universal-gw-<gateway-version>/configs/keys.env` with the required environment variables:
+    Run this command to create `wso2am-classic-gw-<gateway-version>/configs/keys.env` with the required environment variables:
 
     ```bash
     cat > wso2apip-api-gateway-<gateway-version>/configs/keys.env << 'ENVFILE'
@@ -216,4 +216,4 @@ This guide provides detailed instructions for deploying API Platform Gateway in 
 
 ## What's Next?
 
-- [Adding and Managing Policies]({{base_path}}/api-gateway/api-platform-gateway/adding-and-managing-policies/)
+- [Adding and Managing Policies]({{base_path}}/api-gateway/platform-gateway/adding-and-managing-policies/)
