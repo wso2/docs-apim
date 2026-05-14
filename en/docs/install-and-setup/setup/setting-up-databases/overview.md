@@ -32,7 +32,7 @@ WSO2 API Manager ships schema scripts for all supported databases. Where you fin
 
     Download the scripts directly from GitHub — no need to download the full product pack.
 
-    The `shared_db` scripts are in the [carbon-kernel repository](https://github.com/wso2/carbon-kernel/tree/v4.11.18/distribution/kernel/carbon-home/dbscripts) and the `apim_db` scripts are in the [carbon-apimgt repository](https://github.com/wso2/carbon-apimgt/tree/v9.32.147/features/apimgt/org.wso2.carbon.apimgt.core.feature/src/main/resources/sql).
+    The `shared_db` scripts are in the [carbon-kernel repository](https://github.com/wso2/carbon-kernel/tree/v4.11.18/distribution/kernel/carbon-home/dbscripts) and the `apim_db` scripts are in the [carbon-apimgt repository](https://github.com/wso2/carbon-apimgt/tree/v9.33.122/features/apimgt/org.wso2.carbon.apimgt.core.feature/src/main/resources/sql).
 
     Use the table below to find the correct script for your database type and download it directly:
 
@@ -40,7 +40,7 @@ WSO2 API Manager ships schema scripts for all supported databases. Where you fin
 
     ```bash
     curl -o shared_db.sql https://raw.githubusercontent.com/wso2/carbon-kernel/v4.11.18/distribution/kernel/carbon-home/dbscripts/mysql.sql
-    curl -o apim_db.sql https://raw.githubusercontent.com/wso2/carbon-apimgt/v9.32.147/features/apimgt/org.wso2.carbon.apimgt.core.feature/src/main/resources/sql/mysql.sql
+    curl -o apim_db.sql https://raw.githubusercontent.com/wso2/carbon-apimgt/v9.33.122/features/apimgt/org.wso2.carbon.apimgt.core.feature/src/main/resources/sql/mysql.sql
     ```
 
 === "VM"
