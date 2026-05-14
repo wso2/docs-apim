@@ -68,7 +68,7 @@ Create the `apim` namespace and apply the sample Gateway manifest:
 ```bash
 kubectl create namespace apim
 kubectl apply \
-  -f https://raw.githubusercontent.com/wso2/helm-apim/4.7.x/docs/assets/sample-gateway.yaml \
+  -f https://raw.githubusercontent.com/wso2/helm-apim/4.7.x/resources/assets/sample-gateway.yaml \
   -n apim
 ```
 

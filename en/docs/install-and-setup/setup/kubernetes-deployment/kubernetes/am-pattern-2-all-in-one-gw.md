@@ -85,7 +85,7 @@ WSO2 API Manager 4.7.0 uses Envoy Gateway by default for routing and it is the r
         ```bash
         kubectl create namespace apim
         kubectl apply \
-          -f https://raw.githubusercontent.com/wso2/helm-apim/4.7.x/docs/assets/sample-gateway.yaml \
+          -f https://raw.githubusercontent.com/wso2/helm-apim/4.7.x/resources/assets/sample-gateway.yaml \
           -n apim
         ```
 
@@ -678,7 +678,7 @@ helm install envoy-gateway oci://docker.io/envoyproxy/gateway-helm \
 
 ```bash
 kubectl apply \
-  -f https://raw.githubusercontent.com/wso2/helm-apim/4.7.x/docs/assets/sample-gateway.yaml \
+  -f https://raw.githubusercontent.com/wso2/helm-apim/4.7.x/resources/assets/sample-gateway.yaml \
   -n apim
 ```
 
