@@ -1,4 +1,4 @@
-# Configuring a Single Node
+# Pattern 0: All-in-One Setup
 
 This page walks you through how to manually configure and deploy WSO2 API Manager in a single standalone instance, without using a distributed or HA deployment patterns. 
 
