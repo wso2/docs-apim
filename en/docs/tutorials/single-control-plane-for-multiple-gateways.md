@@ -19,7 +19,7 @@ In WSO2 API Manager, the API gateway is a critical component responsible for han
 
 Here are the three main API gateways in WSO2 API Manager:
 
-- **Universal Gateway**: This is the default, core API gateway that handles all incoming API traffic, processes requests according to policies defined in the control plane (like API security, throttling), and routes requests to backend services. The universal gateway is typically deployed as a standalone gateway in a single environment or as part of a larger distributed system in multiple regions or data centers.
+- **Classic Gateway (Universal)**: This is the default, core API gateway that handles all incoming API traffic, processes requests according to policies defined in the control plane (like API security, throttling), and routes requests to backend services. The Classic Gateway is typically deployed as a standalone gateway in a single environment or as part of a larger distributed system in multiple regions or data centers.
 - **Kubernetes Gateway**: The cloud native gateway deployment option is designed for Kubernetes environments. It integrates with cloud native platforms, such as Kubernetes clusters, and leverages containers to manage API gateway deployments.
 - **Immutable Gateway**: The WSO2 Microgateway is a lightweight, low-latency API gateway designed specifically for microservices-based architectures. It is designed to be used in environments where APIs are deployed in containerized or serverless setups. It is typically deployed as part of a microservices architecture where each service has its own gateway, running in isolated environments or as sidecars to microservices.
 
@@ -27,7 +27,7 @@ For details on selecting the appropriate self-managed WSO2 API Gateway, refer to
 
 ## WSO2’s Single Control Plane for Multiple Gateways
 
-A platform engineer must be able to manage APIs from a single WSO2 API Manager control plane. These APIs should be exposed through various gateway types (Universal, Kubernetes, and Immutable). This capability will enable support for diverse deployment targets, such as VMs, containers, and cloud native environments.
+A platform engineer must be able to manage APIs from a single WSO2 API Manager control plane. These APIs should be exposed through various gateway types (Classic, Kubernetes, and Immutable). This capability will enable support for diverse deployment targets, such as VMs, containers, and cloud native environments.
 
 This setup enables:
 
@@ -39,7 +39,7 @@ This setup enables:
 | Requirement                         | Description                                                                                                        |
 |-------------------------------------|--------------------------------------------------------------------------------------------------------------------|
 | Single Control Plane                | All APIs are managed via one publisher, developer portal, and key manager.                                         |
-| Multiple Gateway Types              | APIs can be deployed to Universal, Kubernetes-based, and Immutable gateways.                                       |
+| Multiple Gateway Types              | APIs can be deployed to Classic, Kubernetes-based, and Immutable gateways.                                       |
 | Environment-Specific API Deployment | Publishers can target APIs to specific environments. The gateway environments can be there per region, cloud, etc. |
 | Seamless Integration                | Gateways sync API runtime data from the control plane.                                                             |
 | Security                            | OAuth2/JWT validation works consistently across all gateways.                                                      |
@@ -57,7 +57,7 @@ This distributed deployment model ensures localized traffic management, enhanced
 
 | Gateway Type | Consuming Systems       | Example API           | API Name            |
 |--------------|-------------------------|-----------------------|---------------------|
-| Universal    | Legacy internal apps    | HR System API         | HRSystemAPI         |
+| Classic    | Legacy internal apps    | HR System API         | HRSystemAPI         |
 | Kubernetes   | Cloud-native services   | Product Catalog API   | ProductCatalogAPI   |
 | Immutable    | Offline or secure zones | Compliance Report API | ComplianceReportAPI |
 
@@ -110,11 +110,11 @@ First, deploy the backend service for the Product Catalog API following the step
 
     The backend servers will be running at [http://localhost:3500/reports](http://localhost:3500/reports), and [http://localhost:4000/employees](http://localhost:4000/employees).
 
-## Setting Up the API Control Plane and Universal Gateway
+## Setting Up the API Control Plane and Classic Gateway
 
-Download the WSO2 API Manager Enterprise Package from the [WSO2 API Manager downloads page](https://wso2.com/api-manager/) for API control plane, traffic manager, and universal gateway components.
+Download the WSO2 API Manager Enterprise Package from the [WSO2 API Manager downloads page](https://wso2.com/api-manager/) for API control plane, traffic manager, and Classic Gateway components.
 
-Set up API control plane (ACP), traffic manager (TM), and universal gateways servers locally by performing the relevant configuration changes in the `PRODUCT_HOME/repository/conf/deployment.toml` files.
+Set up API control plane (ACP), traffic manager (TM), and Classic Gateway servers locally by performing the relevant configuration changes in the `PRODUCT_HOME/repository/conf/deployment.toml` files.
 
 In this setup, a mysql server will be used when creating databases. Follow [Changing to MySQL](https://apim.docs.wso2.com/en/latest/install-and-setup/setup/setting-up-databases/changing-default-databases/changing-to-mysql/) to setup and configure **shared_db** and **apim_db** databases (**shared_db** is the database that stores registry and user management data and **apim_db** is the database that keeps API-M related data).
 
@@ -127,9 +127,9 @@ The port offset is added to the base port (9443) to calculate the final port use
 - Offset 2 - uses port 9445
 - Offset 3 - uses port 9446
 
-These offsets will be applied when configuring the ACP, traffic manager, and universal gateway to ensure each runs on a unique, non-conflicting port. So, ACP will be offset by 1, traffic manager will be offset by 2, and universal gateway will be offset by 3.
+These offsets will be applied when configuring the ACP, traffic manager, and classic gateway to ensure each runs on a unique, non-conflicting port. So, ACP will be offset by 1, traffic manager will be offset by 2, and classic gateway will be offset by 3.
 
-You can find the `deployment.toml` files at [ACP](https://github.com/wso2/samples-apim/blob/master/single-cp-multi-gw-tutorial/apim-configs/acp-deployment.toml), [TM](https://github.com/wso2/samples-apim/blob/master/single-cp-multi-gw-tutorial/apim-configs/tm-deployment.toml), and [Universal Gateway](https://github.com/wso2/samples-apim/blob/master/single-cp-multi-gw-tutorial/apim-configs/gw-deployment.toml) links.
+You can find the `deployment.toml` files at [ACP](https://github.com/wso2/samples-apim/blob/master/single-cp-multi-gw-tutorial/apim-configs/acp-deployment.toml), [TM](https://github.com/wso2/samples-apim/blob/master/single-cp-multi-gw-tutorial/apim-configs/tm-deployment.toml), and [Classic Gateway](https://github.com/wso2/samples-apim/blob/master/single-cp-multi-gw-tutorial/apim-configs/gw-deployment.toml) links.
 
 Once the configuration changes are done, start the servers as given below.
 
@@ -157,7 +157,7 @@ On Windows:
     traffic-manager.bat --run
     ```
 
-Finally, navigate to `<Home>/bin` in the Universal Gateway component and start the server as below.
+Finally, navigate to `<Home>/bin` in the Classic Gateway component and start the server as below.
 
 On MacOS/Linux:
     ```
@@ -191,7 +191,7 @@ Create and deploy the HR System API as shown below (follow the steps in [Create 
 
     ![]({{base_path}}/assets/img/tutorials/gateway/devportal-hr-api.png)
 
-    You have successfully published the HRSystemAPI to the Universal Gateway now.
+    You have successfully published the HRSystemAPI to the Classic Gateway now.
 
     ![]({{base_path}}/assets/img/tutorials/gateway/gateway-url-hr-api.png)
 
@@ -437,7 +437,7 @@ The same ComplianceReportAPI can be deployed in the Publisher portal as below, s
 
 The APIs deployed in different gateways can be managed through the central API control plane as below.
 
-The developer portal can be used for API discovery purposes for application developers. The portal is the market place where application developers can search and use APIs exposed in the Universal Gateway, Kubernetes Gateway, or microgateway. WSO2 API Manager's publisher portal centrally manages API details and tracks the lifecycle of APIs deployed on each gateway.
+The developer portal can be used for API discovery purposes for application developers. The portal is the market place where application developers can search and use APIs exposed in the Classic Gateway, Kubernetes Gateway, or microgateway. WSO2 API Manager's publisher portal centrally manages API details and tracks the lifecycle of APIs deployed on each gateway.
 
 All the deployed APIs can be seen in the developer portal as below.
 

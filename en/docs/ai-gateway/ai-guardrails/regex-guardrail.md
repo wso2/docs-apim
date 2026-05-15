@@ -1,6 +1,6 @@
 # Regex Guardrail
 
-The **Regex Guardrail** is a custom Synapse mediator for the **WSO2 API Manager Universal Gateway** that evaluates incoming AI API requests and GenAI responses JSON content against API creator defined **regular expression (regex) patterns**. It enables enforcement of security, compliance, prompt-safety, or data quality rules by targeting specific JSON fields via JSON Path.
+The **Regex Guardrail** is a custom Synapse mediator for the **WSO2 API Manager Classic Gateway** that evaluates incoming AI API requests and GenAI responses JSON content against API creator defined **regular expression (regex) patterns**. It enables enforcement of security, compliance, prompt-safety, or data quality rules by targeting specific JSON fields via JSON Path.
 
 ## Features
 
