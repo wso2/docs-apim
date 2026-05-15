@@ -102,7 +102,7 @@ This guide provides detailed instructions for deploying Platform Gateway in prod
 
     ### Step 2: Configure the Gateway
 
-    Run this command to create `wso2am-classic-gw-<gateway-version>/configs/keys.env` with the required environment variables:
+    Run this command to create `wso2apip-api-gateway-<gateway-version>/configs/keys.env` with the required environment variables:
 
     ```bash
     cat > wso2apip-api-gateway-<gateway-version>/configs/keys.env << 'ENVFILE'
