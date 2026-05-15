@@ -285,7 +285,7 @@ http_method = "all"
             </tr>
             <tr>
                 <td>Scopes</td>
-                <td>openid</td>
+                <td>openid groups</td>
                 <td></td>
             </tr>
         </tbody>
