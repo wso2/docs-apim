@@ -1,6 +1,6 @@
 # Pattern 5: Simple Scalable Setup with Key Manager
 
-This pattern extends Pattern 2 by adding a dedicated Key Manager alongside the All-in-One and Universal Gateway. It is suitable for production environments where token issuance and validation need to be isolated from the Control Plane, without the overhead of a fully distributed setup.
+This pattern extends Pattern 2 by adding a dedicated Key Manager alongside the All-in-One and Classic Gateway. It is suitable for production environments where token issuance and validation need to be isolated from the Control Plane, without the overhead of a fully distributed setup.
 
 <a href="{{base_path}}/assets/img/setup-and-install/am-pattern-5-deployment.png"><img src="{{base_path}}/assets/img/setup-and-install/am-pattern-5-deployment.png" alt="Pattern 5 deployment" width="80%"></a>
 
@@ -254,7 +254,7 @@ The Helm chart mounts a Kubernetes secret named `apim-keystore-secret` as a volu
 
 2. Open `values-aio.yaml` and update the sections below before deploying.
 
-    **Disable AIO ingresses for gateway traffic** — the dedicated Universal Gateway owns the gateway, websocket, and websub ingresses. Disable them on the AIO to prevent conflicts:
+    **Disable AIO ingresses for gateway traffic** — the dedicated Classic Gateway owns the gateway, websocket, and websub ingresses. Disable them on the AIO to prevent conflicts:
 
     ```yaml
     kubernetes:
@@ -382,11 +382,11 @@ The Helm chart mounts a Kubernetes secret named `apim-keystore-secret` as a volu
     kubectl get pods -n apim -w
     ```
 
-    The Key Manager pod should show `1/1 Running` before deploying the Universal Gateway.
+    The Key Manager pod should show `1/1 Running` before deploying the Classic Gateway.
 
-### Step 10 — Deploy the Universal Gateway { #step-10 }
+### Step 10 — Deploy the Classic Gateway { #step-10 }
 
-Deploy the Universal Gateway using the default values:
+Deploy the Classic Gateway using the default values:
 
 ```bash
 helm install apim-gw wso2/wso2am-universal-gw \
@@ -620,7 +620,7 @@ All available configuration options for each Helm chart are documented in their 
 
 - [All-in-One Helm chart](https://github.com/wso2/helm-apim/blob/main/all-in-one/README.md)
 - [Key Manager Helm chart](https://github.com/wso2/helm-apim/blob/main/distributed/key-manager/README.md)
-- [Universal Gateway Helm chart](https://github.com/wso2/helm-apim/blob/main/distributed/gateway/README.md)
+- [Classic Gateway Helm chart](https://github.com/wso2/helm-apim/blob/main/distributed/gateway/README.md)
 
 ### 3. Security
 

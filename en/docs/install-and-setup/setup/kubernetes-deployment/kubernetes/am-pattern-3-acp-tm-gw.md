@@ -1,6 +1,6 @@
 # Pattern 3: Distributed Setup
 
-This pattern deploys dedicated nodes for the API Control Plane, Traffic Manager, and Universal Gateway. Each component scales independently, making it suitable for production environments with high API traffic where fine-grained control over scaling and fault isolation is required.
+This pattern deploys dedicated nodes for the API Control Plane, Traffic Manager, and Classic Gateway. Each component scales independently, making it suitable for production environments with high API traffic where fine-grained control over scaling and fault isolation is required.
 
 <a href="{{base_path}}/assets/img/setup-and-install/distributed-deployment-tm.png"><img src="{{base_path}}/assets/img/setup-and-install/distributed-deployment-tm.png" alt="distributed api-m deployment" width="60%"></a>
 
@@ -307,9 +307,9 @@ helm install apim-tm wso2/wso2am-tm \
       -o values-tm.yaml
     ```
 
-### Step 10 — Deploy the Universal Gateway { #step-10 }
+### Step 10 — Deploy the Classic Gateway { #step-10 }
 
-Deploy the Universal Gateway using the default values:
+Deploy the Classic Gateway using the default values:
 
 ```bash
 helm install apim-gw wso2/wso2am-universal-gw \
@@ -543,7 +543,7 @@ All available configuration options for each Helm chart are documented in their 
 
 - [API Control Plane Helm chart](https://github.com/wso2/helm-apim/blob/main/distributed/control-plane/README.md)
 - [Traffic Manager Helm chart](https://github.com/wso2/helm-apim/blob/main/distributed/traffic-manager/README.md)
-- [Universal Gateway Helm chart](https://github.com/wso2/helm-apim/blob/main/distributed/gateway/README.md)
+- [Classic Gateway Helm chart](https://github.com/wso2/helm-apim/blob/main/distributed/gateway/README.md)
 
 ### 3. Security
 
@@ -835,7 +835,7 @@ The Gateway connects to the ACP for token validation and event subscriptions, an
 
 #### 5.2 Configure Gateway Replicas
 
-The Universal Gateway supports horizontal scaling. Configure the number of replicas in `values-gw.yaml`:
+The Classic Gateway supports horizontal scaling. Configure the number of replicas in `values-gw.yaml`:
 
 ```yaml
 wso2:
