@@ -116,7 +116,7 @@ If you need to customize the Docker images (e.g., adding JDBC drivers, custom li
    ADD --chown=wso2carbon:wso2 https://repo1.maven.org/maven2/mysql/mysql-connector-java/8.0.28/mysql-connector-java-8.0.28.jar ${WSO2_SERVER_HOME}/repository/components/lib
    ```
 
-   **Classic Gateway (Unviersal)**:
+   **Classic Gateway (Universal)**:
    ```dockerfile
    FROM registry.wso2.com/wso2-apim/am-universal-gw:4.7.0.0
 

@@ -127,7 +127,7 @@ The port offset is added to the base port (9443) to calculate the final port use
 - Offset 2 - uses port 9445
 - Offset 3 - uses port 9446
 
-These offsets will be applied when configuring the ACP, traffic manager, and Classic gateway to ensure each runs on a unique, non-conflicting port. So, ACP will be offset by 1, traffic manager will be offset by 2, and Classic gateway will be offset by 3.
+These offsets will be applied when configuring the ACP, traffic manager, and classic gateway to ensure each runs on a unique, non-conflicting port. So, ACP will be offset by 1, traffic manager will be offset by 2, and classic gateway will be offset by 3.
 
 You can find the `deployment.toml` files at [ACP](https://github.com/wso2/samples-apim/blob/master/single-cp-multi-gw-tutorial/apim-configs/acp-deployment.toml), [TM](https://github.com/wso2/samples-apim/blob/master/single-cp-multi-gw-tutorial/apim-configs/tm-deployment.toml), and [Classic Gateway](https://github.com/wso2/samples-apim/blob/master/single-cp-multi-gw-tutorial/apim-configs/gw-deployment.toml) links.
 
