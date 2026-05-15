@@ -14,7 +14,7 @@
             <td>4.7.0</td>
         </tr>
         <tr>
-            <td colspan="2">WSO2 Universal Gateway</td>
+            <td colspan="2">WSO2 Classic Gateway (Universal)</td>
             <td>4.7.0</td>
         </tr>
         <tr>

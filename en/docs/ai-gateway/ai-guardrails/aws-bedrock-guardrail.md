@@ -1,6 +1,6 @@
 # AWS Bedrock Guardrail
 
-The **AWS Bedrock Guardrail** is a custom Synapse mediator for **WSO2 API Manager Universal Gateway**, designed to enforce safeguards using the **AWS Bedrock Guardrails Service**.
+The **AWS Bedrock Guardrail** is a custom Synapse mediator for **WSO2 API Manager Classic Gateway**, designed to enforce safeguards using the **AWS Bedrock Guardrails Service**.
 
 This policy strengthens AI API safety by validating both incoming AI API requests and GenAI responses against the AWS Bedrock Guardrails Service and applies the corresponding actions: **Allow, Block, or Mask**.
 
