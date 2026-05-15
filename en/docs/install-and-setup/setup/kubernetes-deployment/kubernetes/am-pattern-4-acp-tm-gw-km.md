@@ -373,9 +373,9 @@ helm install apim-tm wso2/wso2am-tm \
       -o values-tm.yaml
     ```
 
-### Step 11 — Deploy the Universal Gateway { #step-11 }
+### Step 11 — Deploy the Classic Gateway { #step-11 }
 
-Deploy the Universal Gateway using the default values:
+Deploy the Classic Gateway using the default values:
 
 ```bash
 helm install apim-gw wso2/wso2am-universal-gw \
@@ -610,7 +610,7 @@ All available configuration options for each Helm chart are documented in their 
 - [API Control Plane Helm chart](https://github.com/wso2/helm-apim/blob/main/distributed/control-plane/README.md)
 - [Key Manager Helm chart](https://github.com/wso2/helm-apim/blob/main/distributed/key-manager/README.md)
 - [Traffic Manager Helm chart](https://github.com/wso2/helm-apim/blob/main/distributed/traffic-manager/README.md)
-- [Universal Gateway Helm chart](https://github.com/wso2/helm-apim/blob/main/distributed/gateway/README.md)
+- [Classic Gateway Helm chart](https://github.com/wso2/helm-apim/blob/main/distributed/gateway/README.md)
 
 ### 3. Security
 
