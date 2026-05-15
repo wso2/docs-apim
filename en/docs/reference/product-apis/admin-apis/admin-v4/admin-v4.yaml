@@ -525,6 +525,49 @@ paths:
           source: |
             curl -k -X POST -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" \
             -H "Content-Type: application/json" -d @data.json "https://127.0.0.1:9443/api/am/admin/v4/throttling/policies/subscription"
+        - lang: Curl (EVENTCOUNTLIMIT)
+          source: |
+            curl -k -X POST -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" \
+            -H "Content-Type: application/json" \
+            -d '{
+              "policyName": "AsyncGold",
+              "displayName": "AsyncGold",
+              "description": "Allows 50000 events per day",
+              "defaultLimit": {
+                "type": "EVENTCOUNTLIMIT",
+                "eventCount": {
+                  "timeUnit": "day",
+                  "unitTime": 1,
+                  "eventCount": 50000
+                }
+              },
+              "stopOnQuotaReach": true,
+              "billingPlan": "FREE"
+            }' \
+            "https://127.0.0.1:9443/api/am/admin/v4/throttling/policies/subscription"
+        - lang: Curl (AIAPIQUOTALIMIT)
+          source: |
+            curl -k -X POST -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" \
+            -H "Content-Type: application/json" \
+            -d '{
+              "policyName": "AIGold",
+              "displayName": "AIGold",
+              "description": "Allows 50000 total tokens and 500 requests per minute",
+              "defaultLimit": {
+                "type": "AIAPIQUOTALIMIT",
+                "aiApiQuota": {
+                  "timeUnit": "min",
+                  "unitTime": 1,
+                  "requestCount": 500,
+                  "totalTokenCount": 50000,
+                  "promptTokenCount": 0,
+                  "completionTokenCount": 0
+                }
+              },
+              "stopOnQuotaReach": true,
+              "billingPlan": "FREE"
+            }' \
+            "https://127.0.0.1:9443/api/am/admin/v4/throttling/policies/subscription"
 
   ######################################################
   # The "Individual Subscription Throttling Policy" resource API
