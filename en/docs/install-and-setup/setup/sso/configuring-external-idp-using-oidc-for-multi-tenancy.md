@@ -112,10 +112,13 @@ WSO2 API Manager uses OIDC SSO by default. This guide explains how to connect WS
         </tbody>
     </table>
 
+!!! Info
+    Repeat steps 1 to 3 for each remaining tenant. When creating the application for the super tenant, set the **Authorized Redirect URL** to `https://localhost:9443/commonauth`.
+
 ## Configure API Manager
 
 !!! Note
-    To create the IS tenants on the API Manager side, enable tenant synchronization by following the [enable tenant synchronization](../../../administer/multitenancy/tenant-sharing-with-wso2is7.md) guide. This is outside the scope of this document.
+    To create the IS tenants on the API Manager side, enable tenant synchronization by following the [enable tenant synchronization](../../../administer/multitenancy/tenant-sharing-with-wso2is7.md) guide. This is outside the scope of this document. For this guide, we have created the required tenants on the API Manager side with the same domain names.
 
 ### Step 1 - Import IS Certificate to WSO2 API Manager
 
@@ -335,6 +338,7 @@ http_method = "all"
 
 ### Step 6 - Configure Tenanted Common Service Provider
 
+-   Log in to the carbon portal as the tenant admin.
 -   Repeat [Step 4](#step-4-configure-common-service-provider).
 
 ### Step 7 - Configure IdP for Portals
