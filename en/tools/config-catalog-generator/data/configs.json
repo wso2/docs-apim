@@ -5925,6 +5925,35 @@
                 }
             ],
             "exampleFile": "service_provider.toml"
+        },
+        {
+            "title": "Synapse Properties",
+            "options": [
+                {
+                    "name": "synapse_properties",
+                    "required": false,
+                    "description": "This includes configurations for synapse runtime.",
+                    "params": [
+                        {
+                            "name": "'synapse.mediators.access.control.mode'",
+                            "type": "string",
+                            "required": false,
+                            "default": "NONE",
+                            "possible": "NONE, ALLOW_LIST, DENY_LIST",
+                            "description": "This property controls the access control mode for mediators in the Synapse runtime. It can be set to one of the following values: NONE (no access control), ALLOW_LIST (only mediators in the allow list are accessible), DENY_LIST (mediators in the deny list are not accessible). By default, the access control mode is set to NONE, which means that all mediators are accessible. You can change this mode based on your security requirements and specify the list of mediators for access control using the 'synapse.mediators.access.control.list' property."
+                        },
+                        {
+                            "name": "'synapse.mediators.access.control.list'",
+                            "type": "string",
+                            "required": false,
+                            "default": "",
+                            "possible": "comma-separated list of mediator local names",
+                            "description": "This property specifies the list of mediators for access control based on the mode defined in 'synapse.mediators.access.control.mode'. It should be a comma-separated list of mediator class names. For example, if 'synapse.mediators.access.control.mode' is set to ALLOW_LIST, only the mediators listed in this property will be accessible. If the mode is set to DENY_LIST, the mediators listed here will be blocked from access. If the mode is NONE, this property is ignored. Configure this list according to the mediators you want to allow or deny access to in your Synapse runtime environment."
+                        }
+                    ]
+                }
+            ],
+            "exampleFile": "synapse_properties.toml"
         }
     ]
 }
