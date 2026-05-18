@@ -332,7 +332,7 @@ It is recommended to use an Allow List approach for both class and method access
 <tr class="even">
 <td><p>Mediator Access Control</p></td>
 <td>
-<p>API/Operational Policies are designed to extend and customize API gateway behavior. They use synapse mediators to support use cases such as message transformation, routing control, backend interaction handling, and organization-specific policy enforcement. These capabilities allow users to adapt gateway behavior based on deployment requirements. For more information, see the [mediator catalog](https://mi.docs.wso2.com/en/latest/reference/mediators/about-mediators/).</p>
+<p>API/Operation Policies are designed to extend and customize API gateway behavior. They use synapse mediators to support use cases such as message transformation, routing control, backend interaction handling, and organization-specific policy enforcement. These capabilities allow users to adapt gateway behavior based on deployment requirements. For more information, see the [mediator catalog](https://mi.docs.wso2.com/en/latest/reference/mediators/about-mediators/).</p>
 
 <p>To provide better control over mediator usage, a mediator access control configuration has been introduced. This configuration allows administrators to allow or block mediators based on deployment requirements.</p>
 
