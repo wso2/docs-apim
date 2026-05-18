@@ -14766,3 +14766,83 @@ same_site_cookies = "lax"
     </section>
 </div>
 
+
+
+## Synapse Properties
+
+
+<div class="mb-config-catalog">
+    <section>
+        <div class="mb-config-options">
+            <div class="superfences-tabs">
+            
+            <input name="102" type="checkbox" id="_tab_102">
+                <label class="tab-selector" for="_tab_102"><i class="icon fa fa-code"></i></label>
+                <div class="superfences-content">
+                    <div class="mb-config-example">
+<pre><code class="toml">[synapse_properties]
+'synapse.mediators.access.control.mode' = "ALLOW_LIST"
+'synapse.mediators.access.control.list' = "aggregate,builder,cache,call,class,clone,drop,enrich,filter,foreach,header,in,iterate,log,loopback,makefault,opa,out,payloadfactory,property,propertygroup,respond,rewrite,scatter-gather,script,send,sequence,switch,throwerror,variable"
+</code></pre>
+                    </div>
+                </div>
+                <div class="doc-wrapper">
+                    <div class="mb-config">
+                        <div class="config-wrap">
+                            <code>[synapse_properties]</code>
+                            
+                            <p>
+                                This includes configurations for synapse runtime.
+                            </p>
+                        </div>
+                        <div class="params-wrap">
+                            <div class="param">
+                                <div class="param-name">
+                                  <span class="param-name-wrap"> <code>&#39;synapse.mediators.access.control.mode&#39;</code> </span>
+                                </div>
+                                <div class="param-info">
+                                    <div>
+                                        <p>
+                                            <span class="param-type string"> string </span>
+                                            
+                                        </p>
+                                        <div class="param-default">
+                                            <span class="param-default-value">Default: <code>NONE</code></span>
+                                        </div>
+                                        <div class="param-possible">
+                                            <span class="param-possible-values">Possible Values: <code>NONE, ALLOW_LIST, DENY_LIST</code></span>
+                                        </div>
+                                    </div>
+                                    <div class="param-description">
+                                        <p>This property controls the access control mode for mediators in the Synapse runtime. It can be set to one of the following values: NONE (no access control), ALLOW_LIST (only mediators in the allow list are accessible), DENY_LIST (mediators in the deny list are not accessible). By default, it is set to ALLOW_LIST, which means only mediators explicitly listed in the allow list will be accessible. Adjust this setting based on your security requirements and the mediators you need to use in your API configurations.</p>
+                                    </div>
+                                </div>
+                            </div><div class="param">
+                                <div class="param-name">
+                                  <span class="param-name-wrap"> <code>&#39;synapse.mediators.access.control.list&#39;</code> </span>
+                                </div>
+                                <div class="param-info">
+                                    <div>
+                                        <p>
+                                            <span class="param-type string"> string </span>
+                                            
+                                        </p>
+                                        <div class="param-default">
+                                            <span class="param-default-value">Default: <code></code></span>
+                                        </div>
+                                        <div class="param-possible">
+                                            <span class="param-possible-values">Possible Values: <code>comma-separated list of mediator local names</code></span>
+                                        </div>
+                                    </div>
+                                    <div class="param-description">
+                                        <p>This property specifies the list of mediators for access control based on the mode defined in &#39;synapse.mediators.access.control.mode&#39;. It should be a comma-separated list of mediator class names. For example, if &#39;synapse.mediators.access.control.mode&#39; is set to ALLOW_LIST, only the mediators listed in this property will be accessible. If the mode is set to DENY_LIST, the mediators listed here will be blocked from access. If the mode is NONE, this property is ignored. Configure this list according to the mediators you want to allow or deny access to in your Synapse runtime environment.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
