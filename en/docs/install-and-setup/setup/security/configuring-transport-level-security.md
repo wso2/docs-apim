@@ -45,8 +45,8 @@ To prevent these types of security attacks, it is encouraged to disable the weak
 
 !!! tip
 
-    - To use AES-256, the Java JCE Unlimited Strength Jurisdiction Policy files need to be installed. Download them from [http://www.oracle.com/technetwork/java/javase/downloads/index.html](http://www.oracle.com/technetwork/java/javase/downloads/index.html), if your Java installation does not have it installed.
-    -   From Java 7, you must set the `jdk.certpath.disabledAlgorithms` property in the `<JAVA_HOME>/jre/lib/security/java.security` file to `jdk.certpath.disabledAlgorithms=MD2, DSA, RSA keySize < 2048` . It rejects all algorithms that have key sizes less than 2048 for MD2, DSA and RSA.
+    - For JDK 8u161+ and all newer JDKs (including JDK 21), unlimited strength crypto is enabled by default, so no additional policy files are required.
+    - For JDK 9+ (including JDK 21), set the `jdk.certpath.disabledAlgorithms` property in the `<JAVA_HOME>/conf/security/java.security` file to `jdk.certpath.disabledAlgorithms=MD2, DSA, RSA keySize < 2048`. It rejects all algorithms that have key sizes less than 2048 for MD2, DSA and RSA.
 
 #### Configuring PassThrough transport-level ciphers and TLS versions
 

@@ -129,7 +129,7 @@ is <a href="{{base_path}}/assets/attachments/learn/api-authentication-handler.ja
 support any custom authentication mechanism by writing your own authentication handler class.
 
 Given below is an example implementation. Please find the complete project archive [here]({{base_path}}/assets/attachments/reference/org.wso2.carbon.test.authenticator.zip). 
-You can download, unzip and build the project using maven and Java 7 or 8.
+You can download, unzip and build the project using Maven and a supported JDK (for API-M 4.7, JDK 21).
 
 ``` java
 package org.wso2.carbon.test;
