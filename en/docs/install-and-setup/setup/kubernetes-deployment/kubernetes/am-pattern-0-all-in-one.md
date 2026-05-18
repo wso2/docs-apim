@@ -126,7 +126,7 @@ WSO2 API Manager 4.7.0 uses Envoy Gateway by default for routing and it is the r
     helm install apim wso2/wso2am-all-in-one \
       --version 4.7.0-1 \
       --namespace apim --create-namespace \
-      -f https://raw.githubusercontent.com/wso2/helm-apim/4.7.x/docs/am-pattern-0-all-in-one/default_values.yaml \
+      -f https://raw.githubusercontent.com/wso2/helm-apim/4.7.x/resources/am-pattern-0-all-in-one/default_values.yaml \
       --set wso2.apim.configurations.encryption.key=$(openssl rand -hex 32)
     ```
 
