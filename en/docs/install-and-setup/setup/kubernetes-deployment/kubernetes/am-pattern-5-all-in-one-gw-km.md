@@ -248,7 +248,7 @@ The Helm chart mounts a Kubernetes secret named `apim-keystore-secret` as a volu
 1. Download the default values file for the All-in-One:
 
     ```bash
-    curl -L https://raw.githubusercontent.com/wso2/helm-apim/4.7.x/docs/am-pattern-5-all-in-one_GW_KM/default_values.yaml \
+    curl -L https://raw.githubusercontent.com/wso2/helm-apim/4.7.x/resources/am-pattern-5-all-in-one_GW_KM/default_values.yaml \
       -o values-aio.yaml
     ```
 
@@ -327,7 +327,7 @@ The Helm chart mounts a Kubernetes secret named `apim-keystore-secret` as a volu
 1. Download the default values file for the Key Manager:
 
     ```bash
-    curl -L https://raw.githubusercontent.com/wso2/helm-apim/4.7.x/docs/am-pattern-5-all-in-one_GW_KM/default_km_values.yaml \
+    curl -L https://raw.githubusercontent.com/wso2/helm-apim/4.7.x/resources/am-pattern-5-all-in-one_GW_KM/default_km_values.yaml \
       -o values-km.yaml
     ```
 
@@ -393,13 +393,13 @@ helm install apim-gw wso2/wso2am-universal-gw \
   --version 4.7.0-1 \
   --namespace apim \
   --dependency-update \
-  -f https://raw.githubusercontent.com/wso2/helm-apim/4.7.x/docs/am-pattern-5-all-in-one_GW_KM/default_gw_values.yaml
+  -f https://raw.githubusercontent.com/wso2/helm-apim/4.7.x/resources/am-pattern-5-all-in-one_GW_KM/default_gw_values.yaml
 ```
 
 !!! note "To customise before deploying"
     If you used different release names than `apim-km` and `apim`, or want to make other changes, download the values file first, edit it, then replace the `-f <url>` above with `-f values-gw.yaml`:
     ```bash
-    curl -L https://raw.githubusercontent.com/wso2/helm-apim/4.7.x/docs/am-pattern-5-all-in-one_GW_KM/default_gw_values.yaml \
+    curl -L https://raw.githubusercontent.com/wso2/helm-apim/4.7.x/resources/am-pattern-5-all-in-one_GW_KM/default_gw_values.yaml \
       -o values-gw.yaml
     ```
 

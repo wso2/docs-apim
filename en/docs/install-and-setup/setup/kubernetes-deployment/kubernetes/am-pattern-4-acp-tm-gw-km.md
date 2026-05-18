@@ -234,7 +234,7 @@ The Helm chart mounts a Kubernetes secret named `apim-keystore-secret` as a volu
 1. Download the default values file for the API Control Plane:
 
     ```bash
-    curl -L https://raw.githubusercontent.com/wso2/helm-apim/4.7.x/docs/am-pattern-4-ACP_TM_GW_KM/default_acp_values.yaml \
+    curl -L https://raw.githubusercontent.com/wso2/helm-apim/4.7.x/resources/am-pattern-4-ACP_TM_GW_KM/default_acp_values.yaml \
       -o values-acp.yaml
     ```
 
@@ -297,7 +297,7 @@ The Helm chart mounts a Kubernetes secret named `apim-keystore-secret` as a volu
 1. Download the default values file for the Key Manager:
 
     ```bash
-    curl -L https://raw.githubusercontent.com/wso2/helm-apim/4.7.x/docs/am-pattern-4-ACP_TM_GW_KM/default_km_values.yaml \
+    curl -L https://raw.githubusercontent.com/wso2/helm-apim/4.7.x/resources/am-pattern-4-ACP_TM_GW_KM/default_km_values.yaml \
       -o values-km.yaml
     ```
 
@@ -363,13 +363,13 @@ helm install apim-tm wso2/wso2am-tm \
   --version 4.7.0-1 \
   --namespace apim \
   --dependency-update \
-  -f https://raw.githubusercontent.com/wso2/helm-apim/4.7.x/docs/am-pattern-4-ACP_TM_GW_KM/default_tm_values.yaml
+  -f https://raw.githubusercontent.com/wso2/helm-apim/4.7.x/resources/am-pattern-4-ACP_TM_GW_KM/default_tm_values.yaml
 ```
 
 !!! note "To customise before deploying"
     If you used different release names than `apim-km` and `apim-acp`, or want to make other changes, download the values file first, edit it, then replace the `-f <url>` above with `-f values-tm.yaml`:
     ```bash
-    curl -L https://raw.githubusercontent.com/wso2/helm-apim/4.7.x/docs/am-pattern-4-ACP_TM_GW_KM/default_tm_values.yaml \
+    curl -L https://raw.githubusercontent.com/wso2/helm-apim/4.7.x/resources/am-pattern-4-ACP_TM_GW_KM/default_tm_values.yaml \
       -o values-tm.yaml
     ```
 
@@ -382,13 +382,13 @@ helm install apim-gw wso2/wso2am-universal-gw \
   --version 4.7.0-1 \
   --namespace apim \
   --dependency-update \
-  -f https://raw.githubusercontent.com/wso2/helm-apim/4.7.x/docs/am-pattern-4-ACP_TM_GW_KM/default_gw_values.yaml
+  -f https://raw.githubusercontent.com/wso2/helm-apim/4.7.x/resources/am-pattern-4-ACP_TM_GW_KM/default_gw_values.yaml
 ```
 
 !!! note "To customise before deploying"
     If you used different release names than `apim-km`, `apim-acp`, and `apim-tm`, or want to make other changes, download the values file first, edit it, then replace the `-f <url>` above with `-f values-gw.yaml`:
     ```bash
-    curl -L https://raw.githubusercontent.com/wso2/helm-apim/4.7.x/docs/am-pattern-4-ACP_TM_GW_KM/default_gw_values.yaml \
+    curl -L https://raw.githubusercontent.com/wso2/helm-apim/4.7.x/resources/am-pattern-4-ACP_TM_GW_KM/default_gw_values.yaml \
       -o values-gw.yaml
     ```
 
