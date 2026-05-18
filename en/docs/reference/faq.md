@@ -201,28 +201,7 @@ username = "admin"
 password = "${new-password}"
 ```
 
-You can verify whether the password change is applied correctly by checking the following elements in the `<API-M_HOME>/repository/conf/api-manager.xml` file.
-
-``` xml
-<AuthManager>
-    <Username>admin</Username>
-    <Password>newpassword</Password>
-</AuthManager>
-```
-
-``` xml
-<APIGateway>
-   <Username>admin</Username>
-   <Password>newpassword</Password>
-</APIGateway>
-```
-
-``` xml
-<APIKeyManager>
-   <Username>admin</Username>
-   <Password>newpassword</Password>
-</APIKeyManager>
-```
+You can verify whether the password change is applied correctly by checking the updated `deployment.toml` values and signing in with the new credentials. The server renders runtime XML from these settings at startup, so you should not edit `api-manager.xml` directly.
 Go to the **Resources &gt; Browse** menu in the management console to open the registry and update the credentials in the `/_system/governance/apimgt/applicationdata/sign-up-config.xml` registry location.
 
 ### How can I manage session timeouts for the management console?
