@@ -5393,7 +5393,7 @@
                             "required": false,
                             "default": "NONE",
                             "possible": "NONE, ALLOW_LIST, DENY_LIST",
-                            "description": "This property controls the access control mode for mediators in the Synapse runtime. It can be set to one of the following values: NONE (no access control), ALLOW_LIST (only mediators in the allow list are accessible), DENY_LIST (mediators in the deny list are not accessible). By default, it is set to ALLOW_LIST, which means only mediators explicitly listed in the allow list will be accessible. Adjust this setting based on your security requirements and the mediators you need to use in your API configurations."
+                            "description": "This property controls the access control mode for mediators in the Synapse runtime. It can be set to one of the following values: NONE (no access control), ALLOW_LIST (only mediators in the allow list are accessible), DENY_LIST (mediators in the deny list are not accessible). By default, the access control mode is set to NONE, which means that all mediators are accessible. You can change this mode based on your security requirements and specify the list of mediators for access control using the 'synapse.mediators.access.control.list' property."
                         },
                         {
                             "name": "'synapse.mediators.access.control.list'",
