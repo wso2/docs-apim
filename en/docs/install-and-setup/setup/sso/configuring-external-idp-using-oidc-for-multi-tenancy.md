@@ -2,6 +2,8 @@
 
 WSO2 API Manager uses the OIDC Single Sign-On feature by default. This document explains how to connect WSO2 Identity Server (or WSO2 Identity Server as a Keymanager) as a third party Identity provider to API-Manager for multi tenant work flows.
 
+!!! Info
+    To use the multi-tenant SSO feature, you need to update your WSO2 API Manager pack to update level 4.5.0.63 or later.
 
 !!! Note 
     If do not require multi tenancy, you can follow this document: [Configuring Identity Server as External IDP using OIDC](./configuring-identity-server-as-external-idp-using-oidc.md)
@@ -204,7 +206,7 @@ http_method = "all"
             </tr>
             <tr>
                 <td>resource.access_control</td>
-                <td>This whitelist the tenant selection page</td>
+                <td>This whitelists the tenant selection page. You can omit this step if you can access the tenant selection page (https://{apim-ip}:9443/select-tenant) without any issues.</td>
             </tr>
         </tbody>
     </table>
