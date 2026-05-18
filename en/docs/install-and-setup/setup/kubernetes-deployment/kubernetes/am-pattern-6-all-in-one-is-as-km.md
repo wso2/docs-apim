@@ -405,7 +405,7 @@ APIM calls IS over HTTPS using the Kubernetes service name `is-identity-server:9
     helm install apim wso2/wso2am-all-in-one \
       --version 4.7.0-1 \
       --namespace apim \
-      -f https://raw.githubusercontent.com/wso2/helm-apim/4.7.x/docs/am-pattern-0-all-in-one/default_values.yaml \
+      -f https://raw.githubusercontent.com/wso2/helm-apim/4.7.x/resources/am-pattern-0-all-in-one/default_values.yaml \
       -f values-apim.yaml \
       --set wso2.apim.configurations.encryption.key=$(openssl rand -hex 32)
     ```
@@ -926,7 +926,7 @@ helm install is wso2/identity-server \
 helm install apim wso2/wso2am-all-in-one \
   --version 4.7.0-1 \
   --namespace apim \
-  -f https://raw.githubusercontent.com/wso2/helm-apim/4.7.x/docs/am-pattern-0-all-in-one/default_values.yaml \
+  -f https://raw.githubusercontent.com/wso2/helm-apim/4.7.x/resources/am-pattern-0-all-in-one/default_values.yaml \
   -f values-apim.yaml \
   --set wso2.apim.configurations.encryption.key=$(openssl rand -hex 32)
 ```
