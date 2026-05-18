@@ -266,19 +266,21 @@ The Helm chart mounts a Kubernetes secret named `apim-keystore-secret` as a volu
 
     Replace `<JDBC_URL_FOR_APIM_DB>` and `<JDBC_URL_FOR_SHARED_DB>` with the JDBC connection URL for your database. For URL formats per database type, see [Setting Up Databases]({{base_path}}/install-and-setup/setup/setting-up-databases/overview/#changing-the-default-databases).
 
-3. Deploy the All-in-One:
+3. Generate the encryption key and deploy the All-in-One:
+
+    !!! warning "Encryption key is mandatory"
+        WSO2 API Manager 4.7.0 requires a 256-bit encryption key before first startup. In a distributed deployment, **all components must use the same key**. Generate it once and keep `$APIM_ENCRYPTION_KEY` set in your shell for the Gateway deploy step that follows.
 
     ```bash
+    export APIM_ENCRYPTION_KEY=$(openssl rand -hex 32)
+
     helm install apim wso2/wso2am-all-in-one \
       --version 4.7.0-1 \
       --namespace apim --create-namespace \
       --dependency-update \
       -f values-aio.yaml \
-      --set wso2.apim.configurations.encryption.key=$(openssl rand -hex 32)
+      --set wso2.apim.configurations.encryption.key=$APIM_ENCRYPTION_KEY
     ```
-
-    !!! warning "Encryption key is mandatory"
-        WSO2 API Manager 4.7.0 requires a 256-bit encryption key before first startup. The command above generates one automatically. For production or shared environments, generate the key separately, store it securely, and set it explicitly in your `values-aio.yaml` under `wso2.apim.configurations.encryption.key`.
 
 4. Wait for the pod to be ready:
 
@@ -297,7 +299,8 @@ helm install apim-gw wso2/wso2am-universal-gw \
   --version 4.7.0-1 \
   --namespace apim \
   --dependency-update \
-  -f https://raw.githubusercontent.com/wso2/helm-apim/4.7.x/resources/am-pattern-2-all-in-one_GW/default_gw_values.yaml
+  -f https://raw.githubusercontent.com/wso2/helm-apim/4.7.x/resources/am-pattern-2-all-in-one_GW/default_gw_values.yaml \
+  --set wso2.apim.configurations.encryption.key=$APIM_ENCRYPTION_KEY
 ```
 
 !!! note "To customise before deploying"
@@ -890,25 +893,27 @@ When enabling HA, also update the EventHub and throttling URLs in `values-gw.yam
 
 ### 6. Deploy with Custom Values { #section-6 }
 
-Once your values files are configured, deploy both components with:
+Once your values files are configured, generate the encryption key once and deploy both components with the same key:
 
 ```bash
-helm install <release-name> <helm-chart-path-aio> \
-  --version 4.7.0-1 \
-  --namespace <namespace> --create-namespace \
-  --dependency-update \
-  -f values-aio.yaml
+export APIM_ENCRYPTION_KEY=$(openssl rand -hex 32)
 
-helm install <gw-release-name> <helm-chart-path-gw> \
+helm install apim wso2/wso2am-all-in-one \
   --version 4.7.0-1 \
-  --namespace <namespace> \
+  --namespace apim --create-namespace \
   --dependency-update \
-  -f values-gw.yaml
+  -f values-aio.yaml \
+  --set wso2.apim.configurations.encryption.key=$APIM_ENCRYPTION_KEY
+
+helm install apim-gw wso2/wso2am-universal-gw \
+  --version 4.7.0-1 \
+  --namespace apim \
+  --dependency-update \
+  -f values-gw.yaml \
+  --set wso2.apim.configurations.encryption.key=$APIM_ENCRYPTION_KEY
 ```
 
 !!! tip "Deployment Parameters"
-    - `<release-name>` — Name for the All-in-One Helm release (e.g. `apim`)
-    - `<gw-release-name>` — Name for the Gateway Helm release (e.g. `apim-gw`)
+    - Release names: `apim`, `apim-gw`
     - `<namespace>` — Kubernetes namespace to deploy into (e.g. `apim`)
-    - `<helm-chart-path-aio>` — Path to the All-in-One Helm chart (`wso2/wso2am-all-in-one` or a local clone)
-    - `<helm-chart-path-gw>` — Path to the Gateway Helm chart (`wso2/wso2am-universal-gw` or a local clone)
+    - Helm chart paths: `wso2/wso2am-all-in-one`, `wso2/wso2am-universal-gw` (or local clones)

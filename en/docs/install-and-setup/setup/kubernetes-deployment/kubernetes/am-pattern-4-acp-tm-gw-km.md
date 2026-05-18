@@ -270,19 +270,21 @@ The Helm chart mounts a Kubernetes secret named `apim-keystore-secret` as a volu
 
     Replace `<JDBC_URL_FOR_APIM_DB>` and `<JDBC_URL_FOR_SHARED_DB>` with the JDBC connection URL for your database. For URL formats per database type, see [Setting Up Databases]({{base_path}}/install-and-setup/setup/setting-up-databases/overview/#changing-the-default-databases).
 
-3. Deploy the API Control Plane:
+3. Generate the encryption key and deploy the API Control Plane:
+
+    !!! warning "Encryption key is mandatory"
+        WSO2 API Manager 4.7.0 requires a 256-bit encryption key before first startup. In a distributed deployment, **all components must use the same key**. Generate it once and keep `$APIM_ENCRYPTION_KEY` set in your shell for the Key Manager, Traffic Manager, and Gateway deploy steps that follow.
 
     ```bash
+    export APIM_ENCRYPTION_KEY=$(openssl rand -hex 32)
+
     helm install apim-acp wso2/wso2am-acp \
       --version 4.7.0-1 \
       --namespace apim --create-namespace \
       --dependency-update \
       -f values-acp.yaml \
-      --set wso2.apim.configurations.encryption.key=$(openssl rand -hex 32)
+      --set wso2.apim.configurations.encryption.key=$APIM_ENCRYPTION_KEY
     ```
-
-    !!! warning "Encryption key is mandatory"
-        WSO2 API Manager 4.7.0 requires a 256-bit encryption key before first startup. In a distributed deployment, **all components must use the same key** — generate it once, store it securely, and set it explicitly in all values files rather than relying on the auto-generated value above.
 
 4. Wait for the ACP pod to be ready:
 
@@ -343,7 +345,8 @@ The Helm chart mounts a Kubernetes secret named `apim-keystore-secret` as a volu
       --version 4.7.0-1 \
       --namespace apim \
       --dependency-update \
-      -f values-km.yaml
+      -f values-km.yaml \
+      --set wso2.apim.configurations.encryption.key=$APIM_ENCRYPTION_KEY
     ```
 
 4. Wait for the Key Manager pod to be ready:
@@ -363,7 +366,8 @@ helm install apim-tm wso2/wso2am-tm \
   --version 4.7.0-1 \
   --namespace apim \
   --dependency-update \
-  -f https://raw.githubusercontent.com/wso2/helm-apim/4.7.x/resources/am-pattern-4-ACP_TM_GW_KM/default_tm_values.yaml
+  -f https://raw.githubusercontent.com/wso2/helm-apim/4.7.x/resources/am-pattern-4-ACP_TM_GW_KM/default_tm_values.yaml \
+  --set wso2.apim.configurations.encryption.key=$APIM_ENCRYPTION_KEY
 ```
 
 !!! note "To customise before deploying"
@@ -382,7 +386,8 @@ helm install apim-gw wso2/wso2am-universal-gw \
   --version 4.7.0-1 \
   --namespace apim \
   --dependency-update \
-  -f https://raw.githubusercontent.com/wso2/helm-apim/4.7.x/resources/am-pattern-4-ACP_TM_GW_KM/default_gw_values.yaml
+  -f https://raw.githubusercontent.com/wso2/helm-apim/4.7.x/resources/am-pattern-4-ACP_TM_GW_KM/default_gw_values.yaml \
+  --set wso2.apim.configurations.encryption.key=$APIM_ENCRYPTION_KEY
 ```
 
 !!! note "To customise before deploying"
@@ -946,33 +951,38 @@ See [Working with user store properties](https://apim.docs.wso2.com/en/latest/ad
 
 ### 6. Deploy with Custom Values { #section-6 }
 
-Once your values files are configured, deploy all four components in order:
+Once your values files are configured, generate the encryption key once and deploy all four components in order with the same key:
 
 ```bash
+export APIM_ENCRYPTION_KEY=$(openssl rand -hex 32)
+
 helm install apim-acp wso2/wso2am-acp \
   --version 4.7.0-1 \
   --namespace apim --create-namespace \
   --dependency-update \
   -f values-acp.yaml \
-  --set wso2.apim.configurations.encryption.key=$(openssl rand -hex 32)
+  --set wso2.apim.configurations.encryption.key=$APIM_ENCRYPTION_KEY
 
 helm install apim-km wso2/wso2am-km \
   --version 4.7.0-1 \
   --namespace apim \
   --dependency-update \
-  -f values-km.yaml
+  -f values-km.yaml \
+  --set wso2.apim.configurations.encryption.key=$APIM_ENCRYPTION_KEY
 
 helm install apim-tm wso2/wso2am-tm \
   --version 4.7.0-1 \
   --namespace apim \
   --dependency-update \
-  -f values-tm.yaml
+  -f values-tm.yaml \
+  --set wso2.apim.configurations.encryption.key=$APIM_ENCRYPTION_KEY
 
 helm install apim-gw wso2/wso2am-universal-gw \
   --version 4.7.0-1 \
   --namespace apim \
   --dependency-update \
-  -f values-gw.yaml
+  -f values-gw.yaml \
+  --set wso2.apim.configurations.encryption.key=$APIM_ENCRYPTION_KEY
 ```
 
 !!! tip "Deployment Parameters"
