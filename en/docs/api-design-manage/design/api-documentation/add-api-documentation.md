@@ -96,7 +96,7 @@ Follow the instructions below to add documentation to an API:
 
         [![Add forum type URL based API documentation]({{base_path}}/assets/img/learn/add-docs-forum-type.png)]({{base_path}}/assets/img/learn/add-docs-forum-type.png)
 
-    #### Add an other type URL based document
+     #### Add another type URL-based document
 
      You can use this if you want to add a document using the **Other** type that points to a link that has a file reference of an external source.
 
