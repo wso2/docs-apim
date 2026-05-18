@@ -1,500 +1,458 @@
 # Deploy WSO2 API Manager on OpenShift
 
-This guide provides comprehensive instructions for deploying WSO2 API Manager on OpenShift Container Platform using Helm charts. OpenShift environments have unique security requirements that differ from standard Kubernetes clusters, requiring specific configuration adjustments for successful deployment.
+OpenShift is a Kubernetes distribution with stricter security defaults. The core deployment approach — Helm charts, the same patterns (P0–P5) — is identical to standard Kubernetes. The key difference is that OpenShift ignores the UID defined in the Docker image and injects a random UID at runtime, which requires additional file permission configuration in the image and specific security context settings in the Helm values.
 
-!!! info "OpenShift-Specific Configuration"
-    This guide covers the following OpenShift-specific requirements:
-    
-    - [Preparing Docker images for OpenShift compatibility](#step-1---preparing-the-docker-images)
-    - [Configuring security context settings in `values.yaml`](#step-4---configure-openshift-specific-settings-in-valuesyaml)
-    - [Applying proper permissions for container execution](#step-1---preparing-the-docker-images)
+For routing, OpenShift uses `Route` objects instead of standard Kubernetes `Ingress`.
 
-For an all-in-one deployment, following this guide is sufficient. If you need a distributed deployment, please refer to the [Deployment Patterns guide](../kubernetes/kubernetes-overview.md) and apply the additional configurations mentioned in this document on top of the provided `default_values.yaml` files.
+!!! warning "OpenShift deployment requires the following before deploying:"
 
-## Contents
+    1. **A custom Docker image** — with GID 0 group-write permissions and the JDBC driver for your database. Standard WSO2 images will fail to start on OpenShift.
+    2. **An external database** — H2 is not supported. Set up an external database before deploying.
+    3. **Database schema initialised** — run the WSO2 schema scripts against both databases before the pods start.
 
-- [WSO2 API Manager: Deployment on OpenShift](#wso2-api-manager-deployment-on-openshift)
-  - [Contents](#contents)
-  - [Prerequisites](#prerequisites)
-  - [Deployment Steps](#deployment-steps)
-    - [Step 1 - Preparing the Docker Images](#step-1---preparing-the-docker-images)
-    - [Step 2 - Login to the OpenShift Cluster](#step-2---login-to-the-openshift-cluster)
-    - [Step 3 - Create Secrets and Clone Helm Charts](#step-3---create-secrets-and-clone-helm-charts)
-    - [Step 4 - Configure OpenShift-Specific Settings in values.yaml](#step-4---configure-openshift-specific-settings-in-valuesyaml)
-  - [All-in-One Deployment](#all-in-one-deployment)
-  - [Distributed Deployment](#distributed-deployment)
+---
 
-## Prerequisites
+## Quick Start
 
-Before you begin, ensure you have met the following requirements:
+### Step 1 — Install Required Tools { #step-1 }
 
-!!! info "Prerequisites"
-    - [Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git)
-    - [Helm](https://helm.sh/docs/intro/install/) (version 3 or newer)
-    - [OpenShift CLI (oc)](https://docs.openshift.com/container-platform/latest/cli_reference/openshift_cli/getting-started-cli.html)
-    - [Kubernetes client (kubectl)](https://kubernetes.io/docs/tasks/tools/install-kubectl/)
-    - Access to an operational OpenShift cluster
-    - [NGINX Ingress Controller](https://kubernetes.github.io/ingress-nginx/deploy/) (compatible with Git release nginx-0.22.0)
-    - Access to a container registry accessible from your OpenShift cluster
-    - Database server (MySQL, MSSQL, PostgreSQL, etc.) accessible from the OpenShift cluster
+1. Ensure the following tools are installed on your machine:
 
-## Deployment Steps
+    | Tool | Purpose | Install Guide |
+    | ---- | ------- | ------------- |
+    | `oc` | OpenShift CLI for managing cluster resources | [Install](https://docs.openshift.com/container-platform/latest/cli_reference/openshift_cli/getting-started-cli.html) |
+    | `kubectl` | Kubernetes CLI (used alongside `oc`) | [Install](https://kubernetes.io/docs/tasks/tools/) |
+    | `helm` (v3) | Package manager for deploying WSO2 Helm charts | [Install](https://helm.sh/docs/intro/install/) |
+    | `docker` | Required to build and push custom WSO2 images | [Install](https://docs.docker.com/get-docker/) |
 
-### Step 1 - Preparing the Docker Images
+2. Verify all tools are installed:
 
-To fully comply with OpenShift’s security model especially its use of arbitrary user IDs, user has to create a custom Docker image tailored for OpenShift environments. Following are the steps required for modifying the image to ensure compatibility, including how to set group ownership to the root group (GID 0), which allows access when OpenShift assigns a random UID at runtime.
+    ```bash
+    oc version
+    helm version
+    docker info
+    ```
 
-The official WSO2 Docker images run as a non-root user with a fixed UID. While that works on standard Kubernetes clusters, OpenShift often injects a random UID and restricts container privileges. To prevent permission issues, update the image to:
+### Step 2 — Log in to OpenShift { #step-2 }
 
-1. Allow group write access to required directories
-2. Assign root group ownership (GID 0)
+1. Authenticate with the OpenShift CLI:
 
-Also 
+    === "Username / Password"
 
-1. Starting from v4.7.0, each component has a separate Docker image (All-in-one, Control-plane, Gateway, Traffic-manager).
-2. These Docker images do not contain any database connectors; therefore, we need to build custom Docker images based on each Docker image in order to make the deployment work with a separate DB.
-3. Download a connector which is compatible with the DB version and copy the connector while building the image
+        ```bash
+        oc login <API_SERVER_URL> -u <USERNAME> -p <PASSWORD>
+        ```
 
-!!! example "Sample Dockerfile for All-in-One Image"
+    === "Token"
+
+        ```bash
+        oc login <API_SERVER_URL> --token=<TOKEN>
+        ```
+
+2. Verify your connection and create the namespace:
+
+    ```bash
+    oc whoami
+    oc create namespace apim
+    ```
+
+### Step 3 — Add the WSO2 Helm Repository { #step-3 }
+
+1. Add the WSO2 Helm repository and update it:
+
+    ```bash
+    helm repo add wso2 https://helm.wso2.com && helm repo update
+    ```
+
+### Step 4 — Build an OpenShift-Compatible Docker Image { #step-4 }
+
+Standard WSO2 images run as a fixed UID (`wso2carbon`, UID 802). OpenShift injects a random UID at runtime, so any directories the server writes to must have **group-write permissions with root group (GID 0) ownership**. You must also add the JDBC driver for your database, as WSO2 images do not include one.
+
+!!! note "Why GID 0?"
+    OpenShift assigns a random UID to the container process but always uses GID 0 (root group). By granting group-write access to the root group, the container can write to its directories regardless of which UID OpenShift assigns. See [Red Hat's guide to OpenShift and UIDs](https://www.redhat.com/en/blog/a-guide-to-openshift-and-uids) and [group ownership and file permission](https://developers.redhat.com/blog/2020/10/26/adapting-docker-and-kubernetes-containers-to-run-on-red-hat-openshift-container-platform#group_ownership_and_file_permission) for more detail.
+
+1. Create a `Dockerfile` for the All-in-One image. The example below adds the MySQL JDBC driver — replace the URL for other databases:
+
     ```dockerfile
     FROM wso2/wso2am:4.7.0
 
-    # Change directory permissions for OpenShift compatibility
+    # Grant root group write access for OpenShift arbitrary UID support
     USER root
     RUN chgrp -R 0 ${USER_HOME} && chmod -R g=u ${USER_HOME} \
-        && chgrp -R 0 ${WSO2_SERVER_HOME} && chmod -R g=u ${WSO2_SERVER_HOME} \
-        && chgrp -R 0 ${USER_HOME}/solr && chmod -R g=u ${USER_HOME}/solr
+        && chgrp -R 0 ${WSO2_SERVER_HOME} && chmod -R g=u ${WSO2_SERVER_HOME}
     USER wso2carbon
 
-    # Copy JDBC MySQL driver
-    COPY mysql-connector.jar ${WSO2_SERVER_HOME}/repository/components/lib
+    # Add MySQL JDBC driver — replace URL for other databases
+    ADD --chown=wso2carbon:wso2 \
+      https://repo1.maven.org/maven2/mysql/mysql-connector-java/8.0.28/mysql-connector-java-8.0.28.jar \
+      ${WSO2_SERVER_HOME}/repository/components/lib/
     ```
 
-!!! info "Note"
-    Changing the group is mandatory to allow OpenShift to assign arbitrary UIDs. 
-    Ref: [a-guide-to-openshift-and-uids](https://www.redhat.com/en/blog/a-guide-to-openshift-and-uids), [group_ownership_and_file_permission](https://developers.redhat.com/blog/2020/10/26/adapting-docker-and-kubernetes-containers-to-run-on-red-hat-openshift-container-platform#group_ownership_and_file_permission)
+2. Build and push the image, replacing `<REGISTRY>` and `<TAG>` with your values:
 
-After creating your Dockerfile:
+    ```bash
+    docker buildx build --platform linux/amd64 -t <REGISTRY>/wso2am-ocp:<TAG> .
+    docker push <REGISTRY>/wso2am-ocp:<TAG>
+    ```
 
-1. Build the custom image:
-   ```bash
-   docker build -t <REGISTRY_URL>/<REPOSITORY>/<IMAGE_NAME>:<TAG> .
-   ```
+    !!! note "Matching your cluster architecture"
+        The `--platform` flag ensures the image is built for the architecture your cluster nodes run on. Most clusters use `linux/amd64`. If you are building on Apple Silicon (M1/M2/M3/M4) without this flag, the image will be built for `linux/arm64` and the pod will fail to start.
 
-2. Push the image to your registry:
-   ```bash
-   docker push <REGISTRY_URL>/<REPOSITORY>/<IMAGE_NAME>:<TAG>
-   ```
+3. Get the image digest — you will need it when configuring your values file:
 
-!!! warning "Important"
-    Make sure to update the Helm chart configurations to use these modified images when deploying to OpenShift.
+    ```bash
+    docker inspect <REGISTRY>/wso2am-ocp:<TAG> \
+      --format='{% raw %}{{index .RepoDigests 0}}{% endraw %}'
+    ```
 
+### Step 5 — Set Up the Database { #step-5 }
 
-### Step 2 - Login to the OpenShift Cluster
+Pattern 0 (All-in-One) requires two databases: `apim_db` and `shared_db`. Both must be reachable from inside the OpenShift cluster before the pods start.
 
-First, authenticate to your OpenShift cluster using the OpenShift CLI:
+Follow the [Setting Up Databases]({{base_path}}/install-and-setup/setup/setting-up-databases/overview/) guide to:
 
-!!! info "Authentication with OpenShift CLI"
-    You can authenticate using one of the following methods:
-    
-    - **Username/Password Authentication**:
-      ```bash
-      oc login <API_SERVER_URL> -u <USERNAME> -p <PASSWORD>
-      ```
-      
-    - **Token-Based Authentication**:
-      ```bash
-      oc login <API_SERVER_URL> --token=<TOKEN>
-      ```
+1. Set up a database instance accessible from your cluster
+2. Obtain the schema scripts for your database type
+3. Run the scripts to initialise both databases
 
-Once authenticated, verify your connection and check your currently selected project:
+### Step 6 — Create the Keystore Secret { #step-6 }
+
+The Helm chart mounts a Kubernetes secret named `apim-keystore-secret` as a volume into the pods. The pods will not start if this secret does not exist.
+
+1. Extract the default keystores from your image and create the secret:
+
+    ```bash
+    mkdir -p keystores
+
+    docker run --rm -v "$(pwd)/keystores:/keystores" --entrypoint bash \
+      <REGISTRY>/wso2am-ocp:<TAG> \
+      -c "cp \${WSO2_SERVER_HOME}/repository/resources/security/wso2carbon.jks \
+             \${WSO2_SERVER_HOME}/repository/resources/security/client-truststore.jks \
+             /keystores/"
+
+    kubectl create secret generic apim-keystore-secret \
+      --from-file=wso2carbon.jks=keystores/wso2carbon.jks \
+      --from-file=client-truststore.jks=keystores/client-truststore.jks \
+      -n apim
+    ```
+
+2. Verify the secret was created:
+
+    ```bash
+    kubectl get secret apim-keystore-secret -n apim
+    ```
+
+!!! note
+    The commands above use the default WSO2 keystores which are suitable for evaluation only. For production-level keystore setup, refer to [Configuring Keystores in WSO2 API Manager]({{base_path}}/install-and-setup/setup/security/configuring-keystores/configuring-keystores-in-wso2-api-manager/).
+
+### Step 7 — Deploy the All-in-One { #step-7 }
+
+1. Download the default values file:
+
+    ```bash
+    curl -L https://raw.githubusercontent.com/wso2/helm-apim/4.7.x/resources/am-pattern-0-all-in-one/default_values.yaml \
+      -o values.yaml
+    ```
+
+2. Open `values.yaml` and update the following sections:
+
+    **Custom image** — point to the OpenShift-compatible image you built in Step 4:
+
+    ```yaml
+    wso2:
+      deployment:
+        image:
+          registry: "<YOUR_REGISTRY>"
+          repository: "wso2am-ocp"
+          tag: "<YOUR_TAG>"
+          digest: "sha256:..."
+    ```
+
+    **Database connection:**
+
+    ```yaml
+    wso2:
+      apim:
+        configurations:
+          databases:
+            apim_db:
+              url: "<JDBC_URL_FOR_APIM_DB>"
+              username: "<DB_USERNAME>"
+              password: "<DB_PASSWORD>"
+            shared_db:
+              url: "<JDBC_URL_FOR_SHARED_DB>"
+              username: "<DB_USERNAME>"
+              password: "<DB_PASSWORD>"
+    ```
+
+    **OpenShift security context** — add the following block to the file:
+
+    ```yaml
+    kubernetes:
+      securityContext:
+        runAsUser: null
+        seLinux:
+          enabled: false
+          level: ""
+        seccompProfile:
+          type: RuntimeDefault
+          localhostProfile: ""
+      enableAppArmor: false
+      configMaps:
+        scripts:
+          defaultMode: "0457"
+    ```
+
+3. Deploy:
+
+    ```bash
+    helm install apim wso2/wso2am-all-in-one \
+      --version 4.7.0-1 \
+      --namespace apim \
+      --dependency-update \
+      -f values.yaml \
+      --set wso2.apim.configurations.encryption.key=$(openssl rand -hex 32)
+    ```
+
+4. Wait for the pod to be ready:
+
+    ```bash
+    oc get pods -n apim -w
+    ```
+
+    The pod should show `1/1 Running` before proceeding.
+
+### Step 8 — Configure Routes { #step-8 }
+
+OpenShift uses `Route` objects for external traffic instead of Kubernetes `Ingress`. Create routes to expose the API Manager endpoints:
 
 ```bash
-# Verify connection
-oc whoami
+oc create route passthrough apim-publisher \
+  --service=apim-wso2am-service \
+  --port=9443 \
+  --hostname=publisher.apim.example.com \
+  -n apim
 
-# Check current project
-oc project
+oc create route passthrough apim-devportal \
+  --service=apim-wso2am-service \
+  --port=9443 \
+  --hostname=devportal.apim.example.com \
+  -n apim
+
+oc create route passthrough apim-gateway \
+  --service=apim-wso2am-service \
+  --port=8243 \
+  --hostname=gateway.apim.example.com \
+  -n apim
 ```
 
-### Step 3 - Create Secrets and Clone Helm Charts
+Verify the routes are created:
 
-1. **Create Keystore Secret**:
+```bash
+oc get routes -n apim
+```
 
-   Before deploying the Helm chart, create a Kubernetes secret containing the keystores and truststore:
+---
 
-   ```bash
-   # Create a secret with default WSO2 keystores and truststores
-   kubectl create secret generic apim-keystore-secret \
-     --from-file=wso2carbon.jks \
-     --from-file=client-truststore.jks
-   ```
+## Advanced Configuration
 
-   !!! tip
-       You can find the default keystore and truststore files in the `repository/resources/security/` directory of any WSO2 API-M distribution.
+### 1. OpenShift Security Context { #section-1 }
 
-2. **Clone WSO2 Helm Charts Repository**:
-
-   ```bash
-   git clone https://github.com/wso2/helm-apim.git
-   cd helm-apim
-   ```
-
-### Step 4 - Configure OpenShift-Specific Settings in values.yaml
-
-In each `values.yaml` file for your deployment, make the following OpenShift-specific changes:
-
-Set the mandatory internal encryption key under `wso2.apim.configurations.encryption.key` before the first startup. If you are deploying more than one API-M node or component, use the same key value in every relevant values file. For more information, see [Configuring Encryption Key]({{base_path}}/install-and-setup/setup/security/encryption/symmetric-encryption/#generate-a-secret-key).
-
-!!! info "Security Context Configuration"
-    The following settings need to be applied to make your deployment compatible with OpenShift's security model:
-
-1. **Update Security Context Settings**:
-
-   | Setting | Description |
-   |---------|-------------|
-   | `runAsUser: null` | Allows OpenShift to assign arbitrary UIDs |
-   | `seLinux.enabled: true/false` | Enables/disables SELinux support |
-   | `enableAppArmor: false` | Disables AppArmor profiles |
-   | `configMaps.scripts.defaultMode: "0457"` | Sets execute permissions for ConfigMaps |
-   | `seccompProfile.type` | Controls which seccomp profile to apply |
-
-   **Example Configuration**:
-
-   ```yaml
-   securityContext:
-     # -- Set to null to allow OpenShift to assign arbitrary UIDs
-     runAsUser: null
-     # -- SELinux context configuration
-     seLinux:
-       enabled: false
-       level: ""
-     # -- Seccomp profile for the container
-     seccompProfile:
-       # -- Seccomp profile type (RuntimeDefault, Unconfined or Localhost)
-       type: RuntimeDefault
-       localhostProfile: ""
-   # -- Disable AppArmor for OpenShift compatibility
-   enableAppArmor: false
-   # -- Set execute permissions for ConfigMaps
-   configMaps:
-     scripts:
-       defaultMode: "0457"
-   ```
-
-## All-in-One Deployment
-
-The All-in-One deployment is the simplest pattern to deploy WSO2 API Manager on OpenShift. This section provides detailed instructions for deploying the All-in-One pattern in an OpenShift environment.
-
-### Step 1 - Prepare Configuration Values
-
-1. **Navigate to the All-in-One Helm Chart Directory**:
-   ```bash
-   cd helm-apim/all-in-one
-   ```
-
-2. **Create a Custom Values File**:
-   
-   Create a file named `openshift-values.yaml` with your OpenShift-specific configurations:
-
-   ```yaml
-   # OpenShift-specific settings
-   kubernetes:
-     securityContext:
-       runAsUser: null
-       seLinux:
-         enabled: false
-       seccompProfile:
-         type: RuntimeDefault
-     enableAppArmor: false
-     configMaps:
-       scripts:
-         defaultMode: "0457"
-   
-   # Database configuration
-   wso2:
-     apim:
-       configurations:
-         encryption:
-           key: "<generated-64-char-hex-key>"
-         databases:
-           apim_db:
-             url: "jdbc:mysql://<DB_HOST>:3306/apim_db?useSSL=false"
-             username: "apimadmin"
-             password: "password"
-           shared_db:
-             url: "jdbc:mysql://<DB_HOST>:3306/shared_db?useSSL=false"
-             username: "sharedadmin"
-             password: "password"
-       
-       # Keystore configuration
-       configurations:
-         security:
-           jksSecretName: "apim-keystore-secret"
-   
-   # Docker image configuration
-   wso2:
-     deployment:
-       image:
-         registry: "<YOUR_REGISTRY>"
-         repository: "<YOUR_REPOSITORY>"
-         tag: "<YOUR_TAG>"
-         # If using private registry
-         imagePullSecrets:
-           enabled: true
-           username: "<REGISTRY_USERNAME>"
-           password: "<REGISTRY_PASSWORD>"
-   ```
-
-!!! warning "Important"
-    Replace the placeholders with your actual values:
-    - `<DB_HOST>`: Your database host address
-    - `<generated-64-char-hex-key>`: The mandatory internal encryption key used by API Manager
-    - `<YOUR_REGISTRY>`, `<YOUR_REPOSITORY>`, `<YOUR_TAG>`: Your OpenShift-compatible image details
-    - `<REGISTRY_USERNAME>`, `<REGISTRY_PASSWORD>`: Your private registry credentials (if applicable)
-
-### Step 2 - Deploy Using Helm
-
-1. **Create a Namespace**:
-   ```bash
-   oc create namespace wso2
-   ```
-
-2. **Deploy with Helm**:
-   ```bash
-   helm install apim wso2/wso2am-all-in-one \
-     --namespace wso2 \
-     --create-namespace \
-     --version 4.7.0-1 \
-     -f openshift-values.yaml
-   ```
-
-   Alternatively, if you want to use the default OpenShift configuration:
-
-   ```bash
-   helm install apim wso2/wso2am-all-in-one \
-     --namespace wso2 \
-     --create-namespace \
-     --version 4.7.0-1 \
-     --set wso2.subscription.username=<USERNAME> \
-     --set wso2.subscription.password=<PASSWORD> \
-     -f https://raw.githubusercontent.com/wso2/helm-apim/4.7.x/docs/am-pattern-0-all-in-one/default_openshift_values.yaml
-   ```
-
-### Step 3 - Verify Deployment
-
-1. **Check Deployment Status**:
-   ```bash
-   oc get pods -n wso2
-   ```
-
-2. **Check Services and Routes**:
-   ```bash
-   # List services
-   oc get svc -n wso2
-   
-   # List routes
-   oc get routes -n wso2
-   ```
-
-!!! note "Access and Exposure"
-    By default, the deployment will create Kubernetes services but not OpenShift routes. You may need to create routes to expose the API Manager services externally:
-    
-    ```bash
-    oc create route passthrough apim-publisher \
-      --service=apim-wso2am-service \
-      --port=9443 \
-      --hostname=publisher.apim.example.com \
-      -n wso2
-    ```
-
-
-## Distributed Deployment
-
-For distributed deployments of WSO2 API Manager on OpenShift, you need to apply the same OpenShift-specific configurations to each component of your chosen pattern:
-
-### Step 1 - Select an Appropriate Pattern
-
-Review the [WSO2 API-M Deployment Patterns](../kubernetes/kubernetes-overview.md) and choose the pattern that suits your requirements:
-
-- [Pattern 1: HA All-in-One Deployment](../kubernetes/am-pattern-1-all-in-one-ha.md)
-- [Pattern 2: All-in-One with Gateway](../kubernetes/am-pattern-2-all-in-one-gw.md) 
-- [Pattern 3: Control Plane with Traffic Manager and Gateway](../kubernetes/am-pattern-3-acp-tm-gw.md)
-- [Pattern 4: Control Plane with Traffic Manager, Gateway and Key Manager](../kubernetes/am-pattern-4-acp-tm-gw-km.md)
-- [Pattern 5: API-M Deployment with Simple Scalable Setup](../kubernetes/am-pattern-5-all-in-one-gw-km.md)
-
-### Step 2 - Configure Each Component
-
-For each component in your selected pattern:
-
-!!! info "Component Configuration"
-    Each component requires the same OpenShift-specific configurations:
-
-    1. **Custom Docker Images**: Build OpenShift-compatible images for each component
-    2. **Security Context**: Apply the same security context settings as described in [Step 4](#step-4---configure-openshift-specific-settings-in-valuesyaml)
-    3. **Database Connections**: Configure the database connections for each component
-    4. **Encryption Key**: Set `wso2.apim.configurations.encryption.key` in each component values file and use the same value across all API-M nodes and components that share data. For more information, see [Configuring Encryption Key]({{base_path}}/install-and-setup/setup/security/encryption/symmetric-encryption/#generate-a-secret-key).
-    5. **Service and Route Configuration**: Configure services and routes appropriate for OpenShift
-
-**Example Component Configuration**:
+Every component deployed on OpenShift requires the following block in its values file. This is what you added to `values.yaml` in the Quick Start — keep it in every values file you create for distributed deployments.
 
 ```yaml
-# OpenShift security context settings for Control Plane component
+kubernetes:
+  securityContext:
+    # Allow OpenShift to assign arbitrary UIDs
+    runAsUser: null
+    seLinux:
+      enabled: false
+      level: ""
+    seccompProfile:
+      type: RuntimeDefault
+      localhostProfile: ""
+  # AppArmor is not available on OpenShift (which uses SELinux instead)
+  enableAppArmor: false
+  configMaps:
+    scripts:
+      # Startup scripts mounted via ConfigMap require execute permission
+      defaultMode: "0457"
+```
+
+| Setting | Why it's needed |
+|---|---|
+| `runAsUser: null` | Lets OpenShift assign its random UID instead of the image's fixed UID |
+| `enableAppArmor: false` | AppArmor is not supported on OpenShift |
+| `seLinux.enabled: false` | Leave off unless your cluster has SELinux policies configured for WSO2 |
+| `configMaps.scripts.defaultMode: "0457"` | Startup scripts mounted as a ConfigMap need execute permission |
+
+### 2. Distributed Deployments { #section-2 }
+
+For distributed patterns, follow the corresponding Kubernetes pattern guide and apply the OpenShift-specific changes described in this page on top.
+
+| Pattern | Guide |
+|---|---|
+| Pattern 1 — HA All-in-One | [am-pattern-1-all-in-one-ha.md](../kubernetes/am-pattern-1-all-in-one-ha.md) |
+| Pattern 2 — All-in-One + Gateway | [am-pattern-2-all-in-one-gw.md](../kubernetes/am-pattern-2-all-in-one-gw.md) |
+| Pattern 3 — ACP + TM + Gateway | [am-pattern-3-acp-tm-gw.md](../kubernetes/am-pattern-3-acp-tm-gw.md) |
+| Pattern 4 — ACP + TM + Gateway + KM | [am-pattern-4-acp-tm-gw-km.md](../kubernetes/am-pattern-4-acp-tm-gw-km.md) |
+| Pattern 5 — All-in-One + Gateway + KM | [am-pattern-5-all-in-one-gw-km.md](../kubernetes/am-pattern-5-all-in-one-gw-km.md) |
+
+**For each component in your chosen pattern:**
+
+1. **Build an OpenShift-compatible image** — apply the same `USER root` / `chgrp` / `chmod` / `USER wso2carbon` pattern from [Step 4](#step-4) to each component's base image (`wso2/wso2am-acp:4.7.0`, `wso2/wso2am-tm:4.7.0`, `wso2/wso2am-universal-gw:4.7.0`). TM and Gateway do not need the JDBC driver.
+2. **Add the security context block** from [Section 1](#section-1) to each component's values file.
+3. **Use the same encryption key across all components** — generate it once and pass it to every `helm install` command:
+
+    ```bash
+    export APIM_ENCRYPTION_KEY=$(openssl rand -hex 32)
+    ```
+
+**Example — Pattern 3 (ACP + TM + Gateway):**
+
+Create a values file for each component. For the ACP (`values-acp.yaml`):
+
+```yaml
 kubernetes:
   securityContext:
     runAsUser: null
     seLinux:
       enabled: false
+      level: ""
     seccompProfile:
       type: RuntimeDefault
+      localhostProfile: ""
   enableAppArmor: false
   configMaps:
     scripts:
       defaultMode: "0457"
 
 wso2:
+  deployment:
+    image:
+      registry: "<YOUR_REGISTRY>"
+      repository: "<YOUR_ACP_IMAGE>"
+      tag: "<YOUR_TAG>"
+      digest: "sha256:..."
   apim:
     configurations:
-      encryption:
-        key: "<generated-64-char-hex-key>"
+      databases:
+        apim_db:
+          url: "<JDBC_URL_FOR_APIM_DB>"
+          username: "<DB_USERNAME>"
+          password: "<DB_PASSWORD>"
+        shared_db:
+          url: "<JDBC_URL_FOR_SHARED_DB>"
+          username: "<DB_USERNAME>"
+          password: "<DB_PASSWORD>"
 ```
 
-### Step 3 - Deploy Components in Order
+Create equivalent `values-tm.yaml` and `values-gw.yaml` with the security context block and the custom image reference — TM and GW do not require database configuration.
 
-Deploy components in the correct order, typically:
+Deploy in order:
 
-1. **Control Plane/All-in-One**:
-   ```bash
-   helm install apim wso2/wso2am-acp \
-     --namespace wso2 \
-     --create-namespace \
-     --version 4.7.0-1 \
-     -f control-plane-openshift-values.yaml
-   ```
+```bash
+export APIM_ENCRYPTION_KEY=$(openssl rand -hex 32)
 
-2. **Traffic Manager** (if applicable):
-   ```bash
-   helm install tm wso2/wso2am-tm \
-     --namespace wso2 \
-     --create-namespace \
-     --version 4.7.0-1 \
-     -f tm-openshift-values.yaml
-   ```
+helm install apim-acp wso2/wso2am-acp \
+  --version 4.7.0-1 \
+  --namespace apim --create-namespace \
+  --dependency-update \
+  -f values-acp.yaml \
+  --set wso2.apim.configurations.encryption.key=$APIM_ENCRYPTION_KEY
 
-3. **Key Manager** (if applicable): 
-   ```bash
-   helm install km wso2/wso2am-km \
-     --namespace wso2 \
-     --version 4.7.0-1 \
-     -f km-openshift-values.yaml
-   ```
+helm install apim-tm wso2/wso2am-tm \
+  --version 4.7.0-1 \
+  --namespace apim \
+  --dependency-update \
+  -f values-tm.yaml \
+  --set wso2.apim.configurations.encryption.key=$APIM_ENCRYPTION_KEY
 
-4. **Gateway**:
-   ```bash
-   helm install gw wso2/wso2am-universal-gw \
-     --namespace wso2 \
-     --version 4.7.0-1 \
-     -f gw-openshift-values.yaml
-   ```
+helm install apim-gw wso2/wso2am-universal-gw \
+  --version 4.7.0-1 \
+  --namespace apim \
+  --dependency-update \
+  -f values-gw.yaml \
+  --set wso2.apim.configurations.encryption.key=$APIM_ENCRYPTION_KEY
+```
 
-!!! tip "Deployment Best Practices"
-    - **Namespace Strategy**: Use separate namespaces for different environments (dev, test, prod)
-    - **Resource Management**: Configure appropriate resource limits and requests for your OpenShift cluster
-    - **Health Monitoring**: Configure appropriate liveness and readiness probes for each component
-    - **Persistence**: Use persistent volumes for any stateful components
-    - **Route Configuration**: Set up OpenShift routes with proper TLS termination for external access
-    - **Integration**: Configure integration with OpenShift monitoring and logging stacks
+---
 
-## Troubleshooting OpenShift Deployments
+## Troubleshooting
 
-When deploying WSO2 API Manager on OpenShift, you might encounter some common issues. Here are solutions to the most frequent problems:
+### Permission denied errors
 
-### Permission Denied Errors
+**Symptom:** Pod fails to start with `Permission denied` in the logs.
 
-**Symptom**: Pods fail to start with permission denied errors in the logs.
+**Cause:** The container process cannot write to a directory because the image was not prepared with GID 0 group ownership.
 
-**Solution**: This typically happens because OpenShift runs containers with random UIDs. Check that:
+**Fix:** Ensure your Dockerfile includes the `chgrp -R 0` and `chmod -R g=u` steps from [Step 4](#step-4). Check the pod logs and the applied security context:
 
-1. Your custom Docker images have the proper group permissions:
-   ```bash
-   # Check container logs
-   oc logs <pod-name> -n <namespace>
-   ```
+```bash
+oc logs <pod-name> -n apim
+oc get pod <pod-name> -n apim -o yaml | grep -A 10 securityContext
+```
 
-2. Verify your security context settings in the values.yaml:
-   ```bash
-   # Ensure runAsUser is set to null
-   oc get deployment <deployment-name> -n <namespace> -o yaml | grep -A 10 securityContext
-   ```
+### Image pull errors
 
-### Image Pull Errors
+**Symptom:** Pod stuck in `ImagePullBackOff` or `ErrImagePull`.
 
-**Symptom**: Pods are stuck in "ImagePullBackOff" or "ErrImagePull" states.
+**Fix:** Create an image pull secret and link it to the service account:
 
-**Solution**:
+```bash
+oc create secret docker-registry registry-credentials \
+  --docker-server=<YOUR_REGISTRY> \
+  --docker-username=<USERNAME> \
+  --docker-password=<PASSWORD> \
+  -n apim
 
-1. Ensure your image repository is accessible from OpenShift:
-   ```bash
-   # Check image pull secrets
-   oc get secrets -n <namespace>
-   ```
+oc secrets link default registry-credentials --for=pull -n apim
+```
 
-2. Verify registry credentials:
-   ```bash
-   # Create or update image pull secret
-   oc create secret docker-registry regcred \
-     --docker-server=<your-registry-server> \
-     --docker-username=<your-username> \
-     --docker-password=<your-password> \
-     --docker-email=<your-email> \
-     -n <namespace>
-   ```
+### Volume mount errors
 
-### Volume Mount Issues
+**Symptom:** Pod crashes with volume-related errors.
 
-**Symptom**: Pods crash with volume-related errors.
+**Fix:** Check that PersistentVolumeClaims are bound:
 
-**Solution**:
+```bash
+oc get pvc -n apim
+```
 
-1. Ensure any persistent volume claims are bound:
-   ```bash
-   oc get pvc -n <namespace>
-   ```
+If a volume fails due to fsGroup permissions, patch the deployment:
 
-2. Check volume permissions:
-   ```bash
-   # Update deployment to allow writing to volumes
-   oc patch deployment <deployment-name> -n <namespace> \
-     -p '{"spec":{"template":{"spec":{"securityContext":{"fsGroup":0}}}}}'
-   ```
+```bash
+oc patch deployment <deployment-name> -n apim \
+  -p '{"spec":{"template":{"spec":{"securityContext":{"fsGroup":0}}}}}'
+```
 
-### Network Policy Issues
+### Inter-component communication failures
 
-**Symptom**: Components cannot communicate with each other.
+**Symptom:** Components cannot reach each other (e.g. GW cannot connect to ACP).
 
-**Solution**: OpenShift uses network policies that might block inter-service communication.
+**Cause:** OpenShift may enforce network policies that block cross-pod traffic within the namespace.
 
-1. Check current network policies:
-   ```bash
-   oc get netpol -n <namespace>
-   ```
+**Fix:** Check for blocking policies and apply a permissive one for all APIM pods:
 
-2. Create a permissive network policy for API-M components:
-   ```bash
-   oc apply -f - <<EOF
-   apiVersion: networking.k8s.io/v1
-   kind: NetworkPolicy
-   metadata:
-     name: allow-wso2-internal
-     namespace: <namespace>
-   spec:
-     podSelector:
-       matchLabels:
-         app: wso2am
-     ingress:
-     - from:
-       - podSelector:
-           matchLabels:
-             app: wso2am
-   EOF
-   ```
+```bash
+oc get netpol -n apim
+```
+
+```bash
+oc apply -f - <<EOF
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  name: allow-apim-internal
+  namespace: apim
+spec:
+  podSelector: {}
+  ingress:
+  - from:
+    - namespaceSelector:
+        matchLabels:
+          kubernetes.io/metadata.name: apim
+EOF
+```
+
+This allows all pods within the `apim` namespace to communicate with each other.
