@@ -2,7 +2,7 @@
 
 OpenShift is a Kubernetes distribution with stricter security defaults. The core deployment approach — Helm charts, the same patterns (P0–P5) — is identical to standard Kubernetes. The key difference is that OpenShift ignores the UID defined in the Docker image and injects a random UID at runtime, which requires additional file permission configuration in the image and specific security context settings in the Helm values.
 
-For routing, OpenShift uses `Route` objects instead of standard Kubernetes `Ingress`.
+For routing, OpenShift supports both `Route` objects (native to OpenShift) and standard Kubernetes `Ingress` (if an ingress controller is installed). The default OpenShift values file uses Routes.
 
 !!! warning "OpenShift deployment requires the following before deploying:"
 
@@ -147,10 +147,10 @@ The Helm chart mounts a Kubernetes secret named `apim-keystore-secret` as a volu
 
 ### Step 7 — Deploy the All-in-One { #step-7 }
 
-1. Download the default values file:
+1. Download the OpenShift default values file:
 
     ```bash
-    curl -L https://raw.githubusercontent.com/wso2/helm-apim/4.7.x/resources/am-pattern-0-all-in-one/default_values.yaml \
+    curl -L https://raw.githubusercontent.com/wso2/helm-apim/4.7.x/all-in-one/default_openshift_values.yaml \
       -o values.yaml
     ```
 
@@ -185,22 +185,22 @@ The Helm chart mounts a Kubernetes secret named `apim-keystore-secret` as a volu
               password: "<DB_PASSWORD>"
     ```
 
-    **OpenShift security context** — add the following block to the file:
+    **Route hostnames** — update the hostnames to match your cluster's DNS:
+
+    !!! note "Prefer Ingress over Routes?"
+        If you have an ingress controller installed on your OpenShift cluster, you can use standard Kubernetes Ingress instead. In `values.yaml`, disable the `kubernetes.route.*` entries and enable the `kubernetes.ingress.*` entries instead.
 
     ```yaml
     kubernetes:
-      securityContext:
-        runAsUser: null
-        seLinux:
-          enabled: false
-          level: ""
-        seccompProfile:
-          type: RuntimeDefault
-          localhostProfile: ""
-      enableAppArmor: false
-      configMaps:
-        scripts:
-          defaultMode: "0457"
+      route:
+        management:
+          hostname: "am.example.com"
+        gateway:
+          hostname: "gw.example.com"
+        websocket:
+          hostname: "websocket.example.com"
+        websub:
+          hostname: "websub.example.com"
     ```
 
 3. Deploy:
@@ -222,35 +222,62 @@ The Helm chart mounts a Kubernetes secret named `apim-keystore-secret` as a volu
 
     The pod should show `1/1 Running` before proceeding.
 
-### Step 8 — Configure Routes { #step-8 }
+### Step 8 — Verify Routes { #step-8 }
 
-OpenShift uses `Route` objects for external traffic instead of Kubernetes `Ingress`. Create routes to expose the API Manager endpoints:
-
-```bash
-oc create route passthrough apim-publisher \
-  --service=apim-wso2am-service \
-  --port=9443 \
-  --hostname=publisher.apim.example.com \
-  -n apim
-
-oc create route passthrough apim-devportal \
-  --service=apim-wso2am-service \
-  --port=9443 \
-  --hostname=devportal.apim.example.com \
-  -n apim
-
-oc create route passthrough apim-gateway \
-  --service=apim-wso2am-service \
-  --port=8243 \
-  --hostname=gateway.apim.example.com \
-  -n apim
-```
-
-Verify the routes are created:
+The Helm chart creates OpenShift `Route` objects automatically. Verify they were created:
 
 ```bash
 oc get routes -n apim
 ```
+
+You should see routes for `management`, `gateway`, `websocket`, and `websub` with the hostnames you configured.
+
+### Step 9 — Configure DNS { #step-9 }
+
+OpenShift's router handles traffic for all routes in the cluster. You need to point your route hostnames to the router's external address.
+
+1. Get the router's external address:
+
+    ```bash
+    oc get svc router-default -n openshift-ingress
+    ```
+
+    Note the `EXTERNAL-IP` value from the output.
+
+2. Map the hostnames to the router's address:
+
+    === "OpenShift Local (CRC)"
+
+        CRC sets up a wildcard DNS entry `*.apps-crc.testing` automatically. Use hostnames under that domain in your `values.yaml` (e.g. `am.apps-crc.testing`, `gw.apps-crc.testing`) and no manual DNS configuration is needed.
+
+    === "Managed cluster (ROSA / ARO)"
+
+        For quick testing, add the external address to your `/etc/hosts` file:
+
+        ```
+        <EXTERNAL-IP> am.example.com gw.example.com websocket.example.com websub.example.com
+        ```
+
+        For a production setup, create DNS records in your DNS provider mapping the hostnames to the external IP instead of using `/etc/hosts`.
+
+!!! note
+    These are the default hostnames. If you customised the hostnames in your `values.yaml`, use those values here instead (`kubernetes.route.management.hostname`, `kubernetes.route.gateway.hostname`, etc.).
+
+### Step 10 — Access the Portals { #step-10 }
+
+Once DNS is configured, open the following URLs in your browser:
+
+| Portal | URL |
+| ------ | --- |
+| Publisher | `https://<kubernetes.route.management.hostname>/publisher` |
+| Developer Portal | `https://<kubernetes.route.management.hostname>/devportal` |
+| Admin Portal | `https://<kubernetes.route.management.hostname>/admin` |
+| Carbon Console | `https://<kubernetes.route.management.hostname>/carbon` |
+| Gateway | `https://<kubernetes.route.gateway.hostname>` |
+
+Replace the hostname placeholders with the actual values from your `values.yaml`. With default values, the management hostname is `am.wso2.com` and the gateway hostname is `gw.wso2.com`.
+
+Default credentials: **admin / admin**
 
 ---
 
@@ -258,7 +285,7 @@ oc get routes -n apim
 
 ### 1. OpenShift Security Context { #section-1 }
 
-Every component deployed on OpenShift requires the following block in its values file. This is what you added to `values.yaml` in the Quick Start — keep it in every values file you create for distributed deployments.
+Every component deployed on OpenShift requires the following block in its values file. The `default_openshift_values.yaml` used in the Quick Start already includes this — you only need to add it manually when creating values files for distributed deployments.
 
 ```yaml
 kubernetes:
