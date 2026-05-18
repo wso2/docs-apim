@@ -340,6 +340,7 @@ order = 20
 
 ### Step - 6 Configure Tenanted Common Service Provider
 
+-   Log into carbon portal as an teanted admin
 -   Follow the same steps in [step - 4](#step-4-configure-common-service-provider)
 
 
