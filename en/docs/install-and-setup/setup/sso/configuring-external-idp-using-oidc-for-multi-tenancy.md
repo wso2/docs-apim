@@ -165,12 +165,6 @@ type="org.wso2.carbon.identity.core.handler.AbstractIdentityHandler"
 name = "org.wso2.carbon.identity.outbound.organization.auth.OrganizationJITProvisioningHandler"
 # Same value as "event.default_listener.jit_provisioning_handler.priority": "20",
 order = 20
-
-[[resource.access_control]]
-context = "(.*)/select-tenant(.*)"
-secure = false
-http_method = "all"
-
 ```
     <table>
         <thead>
@@ -203,10 +197,6 @@ http_method = "all"
             <tr>
                 <td>event_listener</td>
                 <td>This adds custom JIT provisioning handler</td>
-            </tr>
-            <tr>
-                <td>resource.access_control</td>
-                <td>This whitelists the tenant selection page. You can omit this step if you can access the tenant selection page (https://{apim-ip}:9443/select-tenant) without any issues.</td>
             </tr>
         </tbody>
     </table>
