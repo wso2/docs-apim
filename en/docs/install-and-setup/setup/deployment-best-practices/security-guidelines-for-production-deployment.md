@@ -332,7 +332,7 @@ It is recommended to use an Allow List approach for both class and method access
 <tr class="even">
 <td><p>Mediator Access Control</p></td>
 <td>
-<p>API/Operation Policies are designed to extend and customize API gateway behavior. They use synapse mediators to support use cases such as message transformation, routing control, backend interaction handling, and organization-specific policy enforcement. These capabilities allow users to adapt gateway behavior based on deployment requirements. For more information, see the [mediator catalog](https://mi.docs.wso2.com/en/latest/reference/mediators/about-mediators/).</p>
+<p>API/Operation policies are designed to extend and customize API gateway behavior. They use Synapse mediators to support use cases such as message transformation, routing control, backend interaction handling, and organization-specific policy enforcement. These capabilities allow users to adapt gateway behavior based on deployment requirements. For more information, see the [mediator catalog](https://mi.docs.wso2.com/en/latest/reference/mediators/about-mediators/).</p>
 
 <p>To provide better control over mediator usage, a mediator access control configuration has been introduced. This configuration allows administrators to allow or block mediators based on deployment requirements.</p>
 
@@ -341,7 +341,7 @@ It is recommended to use an Allow List approach for both class and method access
 <br/>
 <br/>
 
-<b>Allowlist Configuration:</b>
+<b>Allow list Configuration:</b>
 
 <br/>
 
@@ -353,7 +353,7 @@ It is recommended to use an Allow List approach for both class and method access
 
 <br/>
 
-<b>Blocklist Configuration:</b>
+<b>Block list Configuration:</b>
 
 <br/>
 
@@ -379,7 +379,7 @@ The following configuration is the recommended configuration for allowing only t
 
 <br/>
 
-If you use any other mediators, or if you want to enable mediators that are not included in the recommended allowlist, review the [mediator catalog](https://mi.docs.wso2.com/en/latest/reference/mediators/about-mediators/) to understand their capabilities and use cases before adding them to the configuration.
+If you use any other mediators, or if you want to enable mediators that are not included in the recommended allow list, review the [mediator catalog](https://mi.docs.wso2.com/en/latest/reference/mediators/about-mediators/) to understand their capabilities and use cases before adding them to the configuration.
 </td>
 </tr>
 </tbody>
@@ -507,7 +507,7 @@ This section provides a list of security guidelines for configuring the network
 <li>In addition to the &quot;/services&quot; and &quot;/carbon&quot; contexts, be sure to expose only the required applications in your product to users beyond the DMZ level in your network.</li>
 </ul>
 <p><strong>Note:</strong> </p>
-<p>It is recommended to use an allowlisting approach when allowing access to resources in your product from the DMZ level.</p>
+<p>It is recommended to use an allow listing approach when allowing access to resources in your product from the DMZ level.</p>
 
 <p>For the API-M Developer Portal, exposing the following paths would be sufficient:</p>
     <ul>

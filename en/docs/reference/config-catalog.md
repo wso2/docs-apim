@@ -15989,7 +15989,7 @@ use_username_as_sub_claim = true
                                         </div>
                                     </div>
                                     <div class="param-description">
-                                        <p>This property controls the access control mode for mediators in the Synapse runtime. It can be set to one of the following values: NONE (no access control), ALLOW_LIST (only mediators in the allow list are accessible), DENY_LIST (mediators in the deny list are not accessible). By default, it is set to ALLOW_LIST, which means only mediators explicitly listed in the allow list will be accessible. Adjust this setting based on your security requirements and the mediators you need to use in your API configurations.</p>
+                                        <p>This property controls the access control mode for mediators in the Synapse runtime. It can be set to one of the following values: NONE (no access control), ALLOW_LIST (only mediators in the allow list are accessible), DENY_LIST (mediators in the deny list are not accessible). By default, the access control mode is set to NONE, which means that all mediators are accessible. You can change this mode based on your security requirements and specify the list of mediators for access control using the &#39;synapse.mediators.access.control.list&#39; property.</p>
                                     </div>
                                 </div>
                             </div><div class="param">
