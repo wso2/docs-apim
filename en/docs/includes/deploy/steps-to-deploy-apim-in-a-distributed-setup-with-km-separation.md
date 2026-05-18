@@ -1101,4 +1101,4 @@ Once you have successfully configured all the API-M nodes in the deployment, you
 
 !!! note "Optional"
     The backend for the sample PizzaShack API is not included with the WSO2 API Manager distributed deployment components.  
-    You need to set up the backend separately—either by updating the endpoint URL to point to an existing backend, or by deploying the [sample backend]({{base_path}}/assets/attachments/pizzashack.war) if you need to try out the sample PizzaShack API.
+    You need to set up the backend separately—either by updating the endpoint URL to point to an existing backend, or by deploying the [sample backend](/en/4.5.0/assets/attachments/pizzashack.war) if you need to try out the sample PizzaShack API.

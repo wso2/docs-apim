@@ -77,6 +77,30 @@ Following is a sample of access log entries which can be monitored via `<API-M_H
 
 As the runtime of WSO2 API Manager is based on Apache Tomcat, you can use the `Access_Log_Valve` variable in Tomcat as explained below to configure access logs to the HTTP servlet transport.
 
+### Sample configuration
+
+The following is a sample configuration for `Access_Log_Valve` attributes:
+
+```properties
+[http_access_log]
+enabled = true
+directory = "${carbon.home}/repository/logs"
+prefix = "localhost_access_log_sample."
+suffix = ".log"
+pattern = "combined"
+maxDays = 1
+```
+
+The attributes that are used by default are explained below. See the descriptions of the Tomcat-supported [Access Log Valve attributes](https://tomcat.apache.org/tomcat-9.0-doc/config/valve.html#Access_Log_Valve/Attributes) and customize the required values.
+
+| Property | Description |
+| -- | -- |
+| directory | The path to the directory that will store the access log file. By default, this location is set to `${carbon.home}/repository/logs` in all WSO2 products. |
+| prefix | The prefix added to the log file's name. |
+| suffix | The suffix added to the log file's name. By default, this is `.log` for all WSO2 products. |
+| pattern | Defines the format for the access log using request/response information fields. You can use standard placeholders such as `%h` (remote host), along with Tomcat valve-supported values. Request headers can be logged using `%{xxx}i` and response headers using `%{xxx}o` (where xxx is the header name). Common predefined formats include: **Common** (Apache common log pattern): `%h %l %u %t "%r" %s %b` **Combined** (Apache combined log pattern): `%h %l %u %t "%r" %s %b "%{Referer}i" "%{User-Agent}i"` |
+| maxDays | Maximum days rotated logs are retained before deletion. By default, this value is set to `1`. |
+
 ## Configuring access logs for PassThrough or NIO transports in API Gateway
 
 By default, access logs related to service/API invocation are disabled for performance reasons in the above products. You should enable these access log only for troubleshooting errors. 
