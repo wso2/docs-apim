@@ -1,2 +1,4 @@
 [synapse_properties]
 'ws.transport.subprotocol.negotiate' = false
+'synapse.mediators.access.control.mode' = "ALLOW_LIST"
+'synapse.mediators.access.control.list' = "aggregate,builder,cache,call,class,clone,drop,enrich,filter,foreach,header,in,iterate,log,loopback,makefault,opa,out,payloadfactory,property,propertygroup,respond,rewrite,scatter-gather,script,send,sequence,switch,throwerror,variable"
