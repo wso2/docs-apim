@@ -6,7 +6,7 @@ WSO2 API Manager (WSO2 API-M) allows API Publishers to manage, govern, and monet
 
 WSO2 API Manager provides an extendable interface that allows API Management solution developers to provide custom implementations with any third-party billing engine for the purpose of monetizing APIs based on paid business plans.
 
-WSO2 API Manager uses <a href="https://stripe.com">Stripe</a> as its sample implementation billing engine via the [wso2-am-stripe-plugin](https://github.com/wso2-extensions/wso2-am-stripe-plugin). When a subscriber selects a monetized tier, APIM redirects them to a Stripe-hosted Checkout page to collect payment details. Once payment is confirmed, the APIM subscription is activated automatically. Subscribers can subsequently manage their payment method, view invoices, and cancel their subscription via a Stripe-hosted Billing Portal. However, you can use any custom implementation with WSO2 API Manager's API Monetization capabilities based on your requirement.
+WSO2 API Manager uses <a href="https://stripe.com">Stripe</a> as its sample implementation billing engine via the [wso2-am-stripe-plugin](https://github.com/wso2-extensions/wso2-am-stripe-plugin). When a subscriber selects a monetized tier, APIM redirects them to a Stripe-hosted Checkout page to collect payment details. Once payment is confirmed, the APIM subscription is activated automatically. Subscribers can subsequently manage their payment method, view invoices, and cancel their subscription via a Stripe-hosted Customer Portal. However, you can use any custom implementation with WSO2 API Manager's API Monetization capabilities based on your requirement.
 
 ## Monetize an API
 
@@ -75,9 +75,27 @@ For more information go to, [Using Connect with Standard Accounts](https://strip
 
     The stripe-service component receives Stripe push events (payment success, failure, subscription cancellation, etc.) to automatically manage the lifecycle of APIM subscriptions.
 
-    1. In the Stripe Dashboard, go to **Developers** > **Webhooks** > **Add endpoint**.
+    1. In the Stripe Dashboard, go to **Developers** > **Webhooks** and click **Create an event destination**.
 
-    2. Set the endpoint URL to:
+    2. Under **Event destination scope**, select **Connected accounts**.
+
+        This ensures that subscription lifecycle events from your connected Publisher accounts are delivered to this destination.
+
+    3. Under **API version**, select `2026-04-22.dahlia`.
+
+    4. Under **Events**, select the following events to listen for:
+
+        - `checkout.session.completed`
+        - `checkout.session.expired`
+        - `invoice.payment_succeeded`
+        - `invoice.payment_failed`
+        - `invoice.payment_action_required`
+        - `customer.subscription.updated`
+        - `customer.subscription.deleted`
+
+    5. Click **Continue** and choose **Webhook** as the destination type.
+
+    6. Set the endpoint URL to:
 
         ```
         https://<apim-host>:9443/api/am/stripe/webhook?tenantDomain=<tenant-domain>
@@ -88,17 +106,7 @@ For more information go to, [Using Connect with Standard Accounts](https://strip
         https://apim.example.com:9443/api/am/stripe/webhook?tenantDomain=carbon.super
         ```
 
-    3. Select the following events to listen for:
-
-        - `checkout.session.completed`
-        - `checkout.session.expired`
-        - `invoice.payment_succeeded`
-        - `invoice.payment_failed`
-        - `invoice.payment_action_required`
-        - `customer.subscription.updated`
-        - `customer.subscription.deleted`
-
-    4. After saving, copy the **Webhook Signing secret**. You will need this when configuring the Tenant Admin settings in APIM.
+    7. After saving, copy the **Webhook Signing secret**. You will need this when configuring the Tenant Admin settings in APIM.
 
 #### (B) - Configure WSO2 API Manager
 
@@ -120,23 +128,16 @@ For more information go to, [Using Connect with Standard Accounts](https://strip
         !!! note
             Rename the downloaded file from `api.am.stripe.war` to `api#am#stripe.war` before placing it in the `<API-M_HOME>/repository/deployment/server/webapps` directory. The `#` separator in the filename is required for the service to be accessible at `/api/am/stripe/`.
 
-        Once deployed, the service is accessible at `https://<host>:9443/api/am/stripe/` and handles webhook events, Checkout URL retrieval, session completion, and Billing Portal redirects.
+        Once deployed, the service is accessible at `https://<host>:9443/api/am/stripe/` and handles webhook events, Checkout URL retrieval, session completion, and Customer Portal redirects.
 
     4. Define the monetization implementation in WSO2 API Manager.
 
-        Add the full qualified class name of the monetization implementation in the `<API-M_HOME>/repository/conf/deployment.toml` file as follows.
+        If you are using the [wso2-am-stripe-plugin](https://github.com/wso2-extensions/wso2-am-stripe-plugin), add the full qualified class name of the monetization implementation in the `<API-M_HOME>/repository/conf/deployment.toml` file as follows.
 
-        === "Format"
-            ```toml
-            [apim.monetization]
-            monetization_impl = "<monetization-implementation>"
-            ```
-
-        === "Example"
-            ```toml
-            [apim.monetization]
-            monetization_impl = "org.wso2.apim.monetization.impl.StripeMonetizationImpl"
-            ```
+        ```toml
+        [apim.monetization]
+        monetization_impl = "org.wso2.apim.monetization.impl.StripeMonetizationImpl"
+        ```
 
 2. Configure the database.
 
@@ -222,8 +223,8 @@ For more information go to, [Using Connect with Standard Accounts](https://strip
                 API_UUID           VARCHAR(255)  NOT NULL,
                 CHECKOUT_URL       VARCHAR(2048) NOT NULL,
                 STATUS             VARCHAR(20)   NOT NULL,
-                CREATED_AT         BIGINT        NOT NULL,
-                UPDATED_AT         BIGINT,
+                CREATED_AT         TIMESTAMP     NOT NULL,
+                UPDATED_AT         TIMESTAMP,
                 PRIMARY KEY (SESSION_ID)
             ) ENGINE=InnoDB;
             ```
@@ -276,8 +277,8 @@ For more information go to, [Using Connect with Standard Accounts](https://strip
                 API_UUID           VARCHAR(255)  NOT NULL,
                 CHECKOUT_URL       VARCHAR(2048) NOT NULL,
                 STATUS             VARCHAR(20)   NOT NULL,
-                CREATED_AT         BIGINT        NOT NULL,
-                UPDATED_AT         BIGINT,
+                CREATED_AT         TIMESTAMP     NOT NULL,
+                UPDATED_AT         TIMESTAMP,
                 PRIMARY KEY (SESSION_ID)
             )/
             ```
@@ -335,8 +336,8 @@ For more information go to, [Using Connect with Standard Accounts](https://strip
                 API_UUID           VARCHAR(255)  NOT NULL,
                 CHECKOUT_URL       VARCHAR(2048) NOT NULL,
                 STATUS             VARCHAR(20)   NOT NULL,
-                CREATED_AT         BIGINT        NOT NULL,
-                UPDATED_AT         BIGINT,
+                CREATED_AT         TIMESTAMP     NOT NULL,
+                UPDATED_AT         TIMESTAMP,
                 PRIMARY KEY (SESSION_ID)
             );
             ```
@@ -393,8 +394,8 @@ For more information go to, [Using Connect with Standard Accounts](https://strip
                 API_UUID           VARCHAR(255)  NOT NULL,
                 CHECKOUT_URL       VARCHAR(2048) NOT NULL,
                 STATUS             VARCHAR(20)   NOT NULL,
-                CREATED_AT         BIGINT        NOT NULL,
-                UPDATED_AT         BIGINT,
+                CREATED_AT         TIMESTAMP     NOT NULL,
+                UPDATED_AT         TIMESTAMP,
                 PRIMARY KEY (SESSION_ID)
             )
             /
@@ -448,35 +449,23 @@ For more information go to, [Using Connect with Standard Accounts](https://strip
                 API_UUID           VARCHAR(255)  NOT NULL,
                 CHECKOUT_URL       VARCHAR(2048) NOT NULL,
                 STATUS             VARCHAR(20)   NOT NULL,
-                CREATED_AT         BIGINT        NOT NULL,
-                UPDATED_AT         BIGINT,
+                CREATED_AT         TIMESTAMP     NOT NULL,
+                UPDATED_AT         TIMESTAMP,
                 PRIMARY KEY (SESSION_ID)
             );
             ```
 
-3. Configure the additional monetization properties that are specific to the billing engine in WSO2 API Manager.
+3. If you are using the [wso2-am-stripe-plugin](https://github.com/wso2-extensions/wso2-am-stripe-plugin), configure the additional monetization properties in WSO2 API Manager.
 
     Add the following configuration in the `<API-M_HOME>/repository/conf/deployment.toml` file.
 
-    === "Format"
-        ```toml
-        [[apim.monetization.additional_attributes]]
-        name = "<Name of the attribute>"
-        display_name = "<Displayed name of the Attribute>"
-        required = "<mandatory or not>"
-        description = "<Description about the attribute>"
-        ```
-
-    === "Example"
-        ```toml
-        [[apim.monetization.additional_attributes]]
-        name = "ConnectedAccountKey"
-        display_name = "ConnectedAccountKey"
-        required = "true"
-        description = "connected account of the publisher"
-        ```
-
-    The name property has to be identical to `ConnectedAccountKey`, which is defined in the [wso2-am-stripe-plugin](https://github.com/wso2-extensions/wso2-am-stripe-plugin/blob/master/stripe-plugin/src/main/java/org/wso2/apim/monetization/impl/StripeMonetizationImpl.java). However, you can add preferred values for the other properties.
+    ```toml
+    [[apim.monetization.additional_attributes]]
+    name = "ConnectedAccountKey"
+    display_name = "ConnectedAccountKey"
+    required = "true"
+    description = "connected account of the publisher"
+    ```
 
     After saving these configurations, these additional properties appear in the **Monetization** page under the **Monetization properties** section in the API Publisher Portal.
 
@@ -551,7 +540,7 @@ For more information go to, [Using Connect with Standard Accounts](https://strip
 6. Configure the workflows.
 
     !!! note
-        It is mandatory to comment out or delete the existing default workflow executors.
+        It is mandatory to comment out or delete the existing default `SubscriptionCreation` and `SubscriptionDeletion` workflow executors before adding the Stripe-specific ones.
 
     You need to do this to ensure that the correct workflows are engaged when a subscription is added or removed.
 
@@ -638,12 +627,6 @@ For more information go to, [Using Connect with Standard Accounts](https://strip
     </body>
     </html>
 
-    After you save the policy, a product and price are created in the API Publisher's Stripe connected account.
-
-    [![Stripe connected account products]({{base_path}}/assets/img/learn/monetization-stripe-products.png)]({{base_path}}/assets/img/learn/monetization-stripe-products.png)
-
-    When you update the details of this business plan, the plan in Stripe will get updated with the corresponding details. Likewise, when you delete a business plan, the plan in Stripe will get deleted.
-
 ### Step 2 - Enable monetization
 
 1. Sign in to the API Publisher Portal.
@@ -677,21 +660,53 @@ When a subscriber selects a monetized API tier in the Developer Portal, APIM ini
 
     The subscription is created in APIM with a pending status while payment is being collected.
 
-3. The Developer Portal displays a **Complete Payment** link. Click it to be redirected to the Stripe-hosted Checkout page.
+3. The Developer Portal can be configured to display a **Complete Payment** link that redirects the subscriber to the Stripe-hosted Checkout page. See [Step 4 - Customize the Developer Portal for Stripe payment flows](#step-4---customize-the-developer-portal-for-stripe-payment-flows) for details.
 
     !!! note
         The Checkout link is valid for 24 hours. If the subscriber does not complete payment within that window, the pending subscription is automatically cancelled when Stripe fires a `checkout.session.expired` event.
 
-4. On the Stripe Checkout page, enter payment details and confirm.
+4. On the Stripe Checkout page, enter payment details and complete the subscription. Once activated, the subscriber can invoke the API.
 
-    After the subscriber confirms payment, two parallel paths ensure the APIM subscription is activated:
+### Step 4 - Customize the Developer Portal for Stripe payment flows
 
-    - **Webhook path (primary)** — Stripe fires a `checkout.session.completed` event to the [registered webhook endpoint](#webhookSetup). The stripe-service verifies the HMAC signature, confirms payment, and activates the APIM subscription by updating its status to `UNBLOCKED`.
-    - **Browser redirect path (fallback)** — Stripe redirects the subscriber's browser to the `checkoutSuccessUrl` configured in `workflow-extensions.xml`. The `/complete-session` endpoint activates the subscription if the webhook has not already done so.
+After a subscriber creates a subscription to a monetized API, the Developer Portal needs to guide them through the Stripe payment flow. You can customize the Developer Portal to use the Stripe service endpoints directly to drive these interactions.
 
-    Once activated, the subscriber can invoke the API.
+#### Redirecting to the Checkout page
 
-### Step 4 - Send usage data to the billing engine
+When a subscription is created, APIM places it in an `ON_HOLD` state until payment is collected. Your customized Developer Portal should present a **Complete Payment** button or link that redirects the subscriber to the Stripe-hosted Checkout page.
+
+Construct the redirect URL using the `subscriptionId` returned when the subscription was created:
+
+```
+https://<apim-host>:9443/api/am/stripe/checkout-url?subscriptionId=<apim-subscription-uuid>
+```
+
+The subscriber must be authenticated (via OIDC) to access this endpoint. If no valid session exists, they are automatically redirected to the APIM login page and then back.
+
+!!! note
+    The Checkout link is valid for 24 hours. If the subscriber does not complete payment within that window, Stripe fires a `checkout.session.expired` event and the pending subscription is automatically cancelled.
+
+On the Stripe Checkout page, the subscriber enters their payment details and confirms. For details on how the subscription is activated after payment, see [Step 3 - Subscribe to a monetized API](#step-3---subscribe-to-a-monetized-api).
+
+#### Redirecting to the Customer Portal
+
+Once a subscription is active, you can provide subscribers access to the Stripe-hosted Customer Portal where they can manage their payment method, view invoice history, and cancel their subscription.
+
+Construct the Customer Portal URL using the `subscriptionId` and your tenant domain:
+
+```
+https://<apim-host>:9443/api/am/stripe/portal-url?subscriptionId=<apim-subscription-uuid>&tenantDomain=<tenant-domain>
+```
+
+The subscriber must be authenticated to access this endpoint. On success, they are redirected to the Stripe Customer Portal where they can:
+
+- Update their credit card or payment method
+- Download past invoices
+- Cancel their subscription
+
+When a subscription is cancelled from the Customer Portal, Stripe fires a `customer.subscription.deleted` event, and the stripe-service automatically removes the APIM subscription.
+
+### Step 5 - Send usage data to the billing engine
 
 You can use the admin REST API, which is available in WSO2 API Manager, to publish the summarized data to Stripe. After this API call takes place, it pushes the usage data to Stripe. After Stripe gets the usage data, it checks for the subscriptions that have completed their billing cycle and charges the customer based on their API usage.
 
@@ -769,7 +784,7 @@ You can use the admin REST API, which is available in WSO2 API Manager, to publi
     {"state": "COMPLETED", "status": "SUCCESSFUL", "startedTime": "1571748288000", "lastPublsihedTime": "1571661888000"}
     ```
 
-### Step 5 - Monitor usage and manage billing
+### Step 6 - Monitor usage and manage billing
 
 Two types of business plans are available for monetized APIs namely, the fixed business plan and the dynamic business plan. Dynamic business plans are based on the subscribers' API usage. However, users who are on fixed business plans are charged a fixed price irrespective of their API usage. When deciding on a business plan, the Publisher takes into account the type of the API, the value that the API creates, and its organization business model.
 
@@ -825,18 +840,18 @@ The API Publisher can access the billing information related to each of the subs
     </body>
     </html>
 
-#### Access the Stripe Billing Portal
+#### Access the Stripe Customer Portal
 
-Subscribers can open a Stripe-hosted Billing Portal to update their payment method, view full invoice history, and cancel their subscription without contacting the API Publisher.
+Subscribers can open a Stripe-hosted Customer Portal to update their payment method, view full invoice history, and cancel their subscription without contacting the API Publisher.
 
-The Billing Portal is available at:
+The Customer Portal is available at:
 
 ```
 https://<hostname>:9443/api/am/stripe/portal-url?subscriptionId=<subscription-uuid>&tenantDomain=<tenant-domain>
 ```
 
 !!! note
-    The subscriber must be authenticated (via OIDC) to access this endpoint. If not already signed in, they will be redirected to the APIM login page and then back to the Billing Portal automatically.
+    The subscriber must be authenticated (via OIDC) to access this endpoint. If not already signed in, they will be redirected to the APIM login page and then back to the Customer Portal automatically.
 
 Accessing this URL opens a Stripe-hosted page where the subscriber can:
 
@@ -844,73 +859,7 @@ Accessing this URL opens a Stripe-hosted page where the subscriber can:
 - Download past invoices
 - Cancel their subscription
 
-When a subscription is cancelled from the Billing Portal, Stripe fires a `customer.subscription.deleted` event. The stripe-service receives this webhook and automatically removes the APIM subscription.
-
-## Stripe Service REST API
-
-The stripe-service WAR (`api#am#stripe.war`) is deployed at `https://<host>:9443/api/am/stripe/` and exposes the following endpoints used during the subscription lifecycle.
-
-### Get Checkout URL
-
-Redirects the subscriber to the Stripe-hosted Checkout page to complete payment for a pending subscription.
-
-```
-GET https://<host>:9443/api/am/stripe/checkout-url?subscriptionId=<apim-subscription-uuid>
-```
-
-| Parameter | Description |
-|---|---|
-| `subscriptionId` | The UUID of the APIM subscription in `ON_HOLD` state |
-
-The subscriber must be authenticated. If no valid session exists, the request is redirected to the APIM login page and then back to this URL automatically.
-
-On success, the browser is redirected to the Stripe Checkout page. Once the subscriber enters their payment details and confirms, the subscription is activated automatically (see [Webhook Events](#webhook-events) below).
-
-!!! note
-    The Checkout link is valid for 24 hours. If the subscriber does not complete payment within that window, Stripe fires a `checkout.session.expired` event and the pending subscription is automatically cancelled.
-
-### Get Billing Portal URL
-
-Redirects the subscriber to the Stripe-hosted Billing Portal to manage their active subscription.
-
-```
-GET https://<host>:9443/api/am/stripe/portal-url?subscriptionId=<apim-subscription-uuid>&tenantDomain=<tenant-domain>
-```
-
-| Parameter | Description |
-|---|---|
-| `subscriptionId` | The UUID of the active APIM subscription |
-| `tenantDomain` | The WSO2 tenant domain (e.g. `carbon.super`) |
-
-The subscriber must be authenticated. If no valid session exists, the request is redirected to the APIM login page and back automatically.
-
-On success, the browser is redirected to the Stripe Billing Portal where the subscriber can:
-
-- Update their credit card or payment method
-- View and download past invoices
-- Cancel their subscription
-
-When a subscription is cancelled from the Billing Portal, Stripe fires a `customer.subscription.deleted` event, which automatically removes the APIM subscription.
-
-### Webhook Events
-
-The `/webhook` endpoint receives push events from Stripe and automatically keeps APIM subscription states in sync with the billing state. No manual intervention is required.
-
-```
-POST https://<host>:9443/api/am/stripe/webhook?tenantDomain=<tenant-domain>
-```
-
-Each incoming event is verified using the webhook signing secret (`whsec_...`) configured for your tenant. Events with an invalid or missing signature are rejected.
-
-| Event | Effect on the APIM subscription |
-|---|---|
-| `checkout.session.completed` | Activates the pending subscription |
-| `checkout.session.expired` | Cancels the pending subscription (subscriber did not pay within 24 hours) |
-| `invoice.payment_succeeded` | Unblocks a previously blocked subscription |
-| `invoice.payment_failed` | Blocks the subscription — subscriber cannot invoke the API until payment succeeds |
-| `invoice.payment_action_required` | Blocks the subscription — subscriber must re-authenticate with their bank (SCA/3DS) |
-| `customer.subscription.updated` | Blocks the subscription when the Stripe status transitions to `past_due` or `unpaid` |
-| `customer.subscription.deleted` | Removes the APIM subscription and its billing record when the Stripe subscription is cancelled |
+When a subscription is cancelled from the Customer Portal, Stripe fires a `customer.subscription.deleted` event. The stripe-service receives this webhook and automatically removes the APIM subscription.
 
 ## Disable monetization
 
@@ -933,6 +882,72 @@ Follow the instructions below to disable monetization for an API:
 6. Click **Save**.
 
     The products and prices are removed from the Publisher's Stripe connected account.
+
+## Stripe Service Endpoints
+
+The stripe-service WAR (`api#am#stripe.war`) is deployed at `https://<host>:9443/api/am/stripe/` and exposes the following endpoints used during the subscription lifecycle.
+
+### Get Checkout Page
+
+Redirects the subscriber to the Stripe-hosted Checkout page to complete payment for a pending subscription.
+
+```
+https://<host>:9443/api/am/stripe/checkout-url?subscriptionId=<apim-subscription-uuid>
+```
+
+| Parameter | Description |
+|---|---|
+| `subscriptionId` | The UUID of the APIM subscription in `ON_HOLD` state |
+
+The subscriber must be authenticated. If no valid session exists, the request is redirected to the APIM login page and then back to this URL automatically.
+
+On success, the browser is redirected to the Stripe Checkout page. Once the subscriber enters their payment details and confirms, the subscription is activated automatically (see [Webhook Events](#webhook-events) below).
+
+!!! note
+    The Checkout link is valid for 24 hours. If the subscriber does not complete payment within that window, Stripe fires a `checkout.session.expired` event and the pending subscription is automatically cancelled.
+
+### Get Customer Portal Page
+
+Redirects the subscriber to the Stripe-hosted Customer Portal to manage their active subscription.
+
+```
+https://<host>:9443/api/am/stripe/portal-url?subscriptionId=<apim-subscription-uuid>&tenantDomain=<tenant-domain>
+```
+
+| Parameter | Description |
+|---|---|
+| `subscriptionId` | The UUID of the active APIM subscription |
+| `tenantDomain` | The WSO2 tenant domain (e.g. `carbon.super`) |
+
+The subscriber must be authenticated. If no valid session exists, the request is redirected to the APIM login page and back automatically.
+
+On success, the browser is redirected to the Stripe Customer Portal where the subscriber can:
+
+- Update their credit card or payment method
+- View and download past invoices
+- Cancel their subscription
+
+When a subscription is cancelled from the Customer Portal, Stripe fires a `customer.subscription.deleted` event, which automatically removes the APIM subscription.
+
+### Webhook Events
+
+The `/webhook` endpoint receives push events from Stripe and automatically keeps APIM subscription states in sync with the billing state. No manual intervention is required.
+
+```
+POST https://<host>:9443/api/am/stripe/webhook?tenantDomain=<tenant-domain>
+```
+
+Each incoming event is verified using the webhook signing secret (`whsec_...`) configured for your tenant. Events with an invalid or missing signature are rejected.
+
+| Event | Effect on the APIM subscription |
+|---|---|
+| `checkout.session.completed` | Activates the pending subscription |
+| `checkout.session.expired` | Cancels the pending subscription (subscriber did not pay within 24 hours) |
+| `invoice.payment_succeeded` | Unblocks a previously blocked subscription |
+| `invoice.payment_failed` | Blocks the subscription — subscriber cannot invoke the API until payment succeeds |
+| `invoice.payment_action_required` | Blocks the subscription — subscriber must re-authenticate with their bank (SCA/3DS) |
+| `customer.subscription.updated` | Blocks the subscription when the Stripe status transitions to `past_due` or `unpaid` |
+| `customer.subscription.deleted` | Removes the APIM subscription and its billing record when the Stripe subscription is cancelled |
 
 ## Monetization Support via Elasticsearch
 
