@@ -10105,7 +10105,7 @@ sender.trust_store.password = "$ref{truststore.password}"</code></pre>
                                         </div>
                                     </div>
                                     <div class="param-description">
-                                        <p>This property specifies the list of mediators for access control based on the mode defined in &#39;synapse.mediators.access.control.mode&#39;. It should be a comma-separated list of mediator class names. For example, if &#39;synapse.mediators.access.control.mode&#39; is set to ALLOW_LIST, only the mediators listed in this property will be accessible. If the mode is set to DENY_LIST, the mediators listed here will be blocked from access. If the mode is NONE, this property is ignored. Configure this list according to the mediators you want to allow or deny access to in your Synapse runtime environment.</p>
+                                        <p>This property specifies the list of mediators for access control based on the mode defined in &#39;synapse.mediators.access.control.mode&#39;. It should be a comma-separated list of mediator local names. For example, if &#39;synapse.mediators.access.control.mode&#39; is set to ALLOW_LIST, only the mediators listed in this property will be accessible. If the mode is set to DENY_LIST, the mediators listed here will be blocked from access. If the mode is NONE, this property is ignored. Configure this list according to the mediators you want to allow or deny access to in your Synapse runtime environment.</p>
                                     </div>
                                 </div>
                             </div>
