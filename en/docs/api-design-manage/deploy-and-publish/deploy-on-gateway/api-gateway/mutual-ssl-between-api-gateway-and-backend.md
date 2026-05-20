@@ -98,7 +98,7 @@ Now both the backend service and API Manager are configured to use default key s
      It is recommended to configure the hostname as the server when configuring custom SSL profiles. If an IP address is required to be configured as the server, the IP address needs to be mapped to a hostname in the Host file, and the hostname can be provided as the server.
 
 !!! tip
-    You can start API Manager using the following options, to see the SSI debug logs.
+    You can start API Manager using the following options, to see the SSL debug logs.
     ``` java
     -Djavax.net.debug=ssl:handshake
     -Djavax.net.debug=all

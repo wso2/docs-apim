@@ -1,6 +1,6 @@
 #Response caching
 
-The API Manager uses [WSO2 ESB's cache mediator](https://docs.wso2.com/display/EI650/Cache+Mediator) to cache response messages for each API. Caching improves performance, because the backend server does not have to process the same data for a request multiple times. You need to set an appropriate timeout period to offset the risk of stale data in the cache.
+The API Manager uses Update to current EI 6.5.0 docs URL or note it as a legacy reference to cache response messages for each API. Caching improves performance, because the backend server does not have to process the same data for a request multiple times. You need to set an appropriate timeout period to offset the risk of stale data in the cache.
 
 ##Enabling Response Caching for an API
 
@@ -79,7 +79,7 @@ Follow the instructions below to enable the stream builders in the Classic Gatew
 
 ## Invalidating Cached Responses Remotely
 
-You can invalidate all cached response remotely by using any [JMX monitoring tool such as Jconsole](https://ei.docs.wso2.com/en/latest/micro-integrator/administer-and-observe/jmx_monitoring) using the exposed MBeans. You can use the `InvalidateMediatorCache()` operation of the `org.wso2.carbon.mediation` MBean for this as shown below.
+You can invalidate all cached response remotely by using any Update to APIM-relevant monitoring docs or use {{base_path}}/observe/mi-observe/mi-monitoring-dashboard using the exposed MBeans. You can use the `InvalidateMediatorCache()` operation of the `org.wso2.carbon.mediation` MBean for this as shown below.
 
-![JMX monitoring through JConsole]({{base_path}}/assets/img/learn/jmx-monitoring-through-jsoncole.png)
+![JMX monitoring through JConsole]({{base_path}}/assets/img/learn/jmx-monitoring-through-jconsole.png)
 

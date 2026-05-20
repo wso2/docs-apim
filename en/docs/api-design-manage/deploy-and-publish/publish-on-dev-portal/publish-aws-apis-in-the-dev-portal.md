@@ -14,7 +14,7 @@ You can publish an API that exists in the AWS API Gateway, on the WSO2 API Manag
 
 3. **Configure the AWS CLI**.
 
-     For more information on configuring the AWS CLI, go to the [AWS Command Line Interface official user guide](https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-configure.html)).
+     For more information on configuring the AWS CLI, go to the [AWS Command Line Interface official user guide](https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-configure.html).
 
 4. **Enable AWS CLI pagination**. 
    

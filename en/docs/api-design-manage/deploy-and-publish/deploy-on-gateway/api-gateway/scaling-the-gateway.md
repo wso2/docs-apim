@@ -2,7 +2,7 @@
 
 Scaling the Gateway requires considering the load that the Gateways will handle. We recommend that a load test be carried out on the Gateways in the environment. For more information on what factors affect the load, and how the numbers have to be derived in order to scale, refer to the article on [Capacity Planning](https://wso2.com/library/articles/2015/12/article-capacity-planning-exercise-with-wso2-middleware-platform/) . Make sure to check the backends as well for the expected load.
 
-### Clustering Gateways and Key Managers with key caching
+Note: per GitHub issue #8379, this section is outdated for 4.x and should be removed or updated
 
 For key validation, the Gateway can usually handle 3,000 transactions per second (TPS), whereas the Key Manager can only handle 500 TPS. To improve performance, the key cache is enabled on the Gateway by default, which allows the system to handle 3,000 TPS. However, if you need better security, you can enable the cache on the Key Manager instead. Note the following about clustering with key caching:
 
@@ -27,7 +27,7 @@ Based on performance tests conducted at WSO2 Labs, a single Traffic Manager (TM)
 !!! note
     **Actual performance may vary depending on:**
 
-    - Use of custom throttling policies with different criterias
+    - Use of custom throttling policies with different criteria
 
     - Number of APIs, Policies and Applications deployed
 
