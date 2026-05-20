@@ -226,13 +226,11 @@ To customize the default workflow extension, you override the **`execute()`** an
 1.  Log in to API Manager Management Console ( `https://<Server Host>:9443/carbon` ) and select **Browse** under **Resources** .
 2.  Navigate to the `/_system/governance/apimgt/applicationdata/workflow-extensions.xml` resource and disable the `SubscriptionCreationSimpleWorkflowExecutor`.
     ``` xml
-        <WorkFlowExtensions>
+       <WorkFlowExtensions>
         ...
-        <!--SubscriptionCreation executor="org.wso2.carbon.apimgt.impl.workflow.SubscriptionCreationSimpleWorkflowExecutor"/-->
-         </SubscriptionCreation>
+        <!--<SubscriptionCreation executor="org.wso2.carbon.apimgt.impl.workflow.SubscriptionCreationSimpleWorkflowExecutor"/>-->
         ...
         </WorkFlowExtensions>
-    ```
 3.  Add and enable the implemented executor.
     ``` xml
         <WorkFlowExtensions>
@@ -244,4 +242,4 @@ To customize the default workflow extension, you override the **`execute()`** an
     ```
 ### Invoking the API Manager from a third party BPEL engine
 
-The API Manager can be invoked from a third party entity through the [update workflow status method]({{base_path}}/reference/product-apis/admin-apis/admin-v4/admin-v4/#tag/Workflows-(Individual)/paths/~1workflows~1update-workflow-status/post). Refer the [Admin REST APIs]({{base_path}}/develop/product-apis/admin-apis/admin-v1/admin-v1/#tag/Workflows-(Individual)/paths/~1workflows~1update-workflow-status/post) to learn how to invoke it.  Note that the Admin REST API resources require authentication before invocation.
+The API Manager can be invoked from a third party entity through the [update workflow status method]({{base_path}}/reference/product-apis/admin-apis/admin-v4/admin-v4/#tag/Workflows-(Individual)/paths/~1workflows~1update-workflow-status/post). Refer the [Admin REST APIs]{{base_path}}/reference/product-apis/admin-apis/admin-v4/admin-v4/#tag/Workflows-(Individual)/paths/~1workflows~1update-workflow-status/post to learn how to invoke it.  Note that the Admin REST API resources require authentication before invocation.
