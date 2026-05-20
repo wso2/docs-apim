@@ -10959,7 +10959,7 @@ class = "org.apache.axis2.json.JSONBadgerfishMessageFormatter"</code></pre>
 
 
 
-## Message Mediation
+## Message Formatter Options
 
 
 <div class="mb-config-catalog">
@@ -10969,6 +10969,87 @@ class = "org.apache.axis2.json.JSONBadgerfishMessageFormatter"</code></pre>
             
             <input name="74" type="checkbox" id="_tab_74">
                 <label class="tab-selector" for="_tab_74"><i class="icon fa fa-code"></i></label>
+                <div class="superfences-content">
+                    <div class="mb-config-example">
+<pre><code class="toml">[message_formatter.options]
+disableSendingMultipartPartCharset = true
+preserveMultipartPartContentTransferEncoding = true
+</code></pre>
+                    </div>
+                </div>
+                <div class="doc-wrapper">
+                    <div class="mb-config">
+                        <div class="config-wrap">
+                            <code>[message_formatter.options]</code>
+                            
+                            <p>
+                                
+                            </p>
+                        </div>
+                        <div class="params-wrap">
+                            <div class="param">
+                                <div class="param-name">
+                                  <span class="param-name-wrap"> <code>disableSendingMultipartPartCharset</code> </span>
+                                </div>
+                                <div class="param-info">
+                                    <div>
+                                        <p>
+                                            <span class="param-type string"> boolean </span>
+                                            
+                                        </p>
+                                        <div class="param-default">
+                                            <span class="param-default-value">Default: <code>false</code></span>
+                                        </div>
+                                        <div class="param-possible">
+                                            <span class="param-possible-values">Possible Values: <code>true false</code></span>
+                                        </div>
+                                    </div>
+                                    <div class="param-description">
+                                        <p>Defines whether the charset parameter in the Content-Type header should be preserved in each part of multipart form data.</p>
+                                    </div>
+                                </div>
+                            </div><div class="param">
+                                <div class="param-name">
+                                  <span class="param-name-wrap"> <code>preserveMultipartPartContentTransferEncoding</code> </span>
+                                </div>
+                                <div class="param-info">
+                                    <div>
+                                        <p>
+                                            <span class="param-type string"> boolean </span>
+                                            
+                                        </p>
+                                        <div class="param-default">
+                                            <span class="param-default-value">Default: <code>false</code></span>
+                                        </div>
+                                        <div class="param-possible">
+                                            <span class="param-possible-values">Possible Values: <code>true false</code></span>
+                                        </div>
+                                    </div>
+                                    <div class="param-description">
+                                        <p>Defines whether the Content-Transfer-Encoding header should be preserved in each part of multipart form data.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+
+
+
+## Message Mediation
+
+
+<div class="mb-config-catalog">
+    <section>
+        <div class="mb-config-options">
+            <div class="superfences-tabs">
+            
+            <input name="75" type="checkbox" id="_tab_75">
+                <label class="tab-selector" for="_tab_75"><i class="icon fa fa-code"></i></label>
                 <div class="superfences-content">
                     <div class="mb-config-example">
 <pre><code class="toml">[mediation]
@@ -11305,8 +11386,8 @@ inbound.max_threads = 100</code></pre>
         <div class="mb-config-options">
             <div class="superfences-tabs">
             
-            <input name="75" type="checkbox" id="_tab_75">
-                <label class="tab-selector" for="_tab_75"><i class="icon fa fa-code"></i></label>
+            <input name="76" type="checkbox" id="_tab_76">
+                <label class="tab-selector" for="_tab_76"><i class="icon fa fa-code"></i></label>
                 <div class="superfences-content">
                     <div class="mb-config-example">
 <pre><code class="toml">enabled_global_handlers= ["custom_logger"]
@@ -11387,8 +11468,8 @@ custom_logger.class= "com.wso2.apim.log.handler.SynapseLogHandler"
         <div class="mb-config-options">
             <div class="superfences-tabs">
             
-            <input name="76" type="checkbox" id="_tab_76">
-                <label class="tab-selector" for="_tab_76"><i class="icon fa fa-code"></i></label>
+            <input name="77" type="checkbox" id="_tab_77">
+                <label class="tab-selector" for="_tab_77"><i class="icon fa fa-code"></i></label>
                 <div class="superfences-content">
                     <div class="mb-config-example">
 <pre><code class="toml">[governance]
@@ -11445,8 +11526,8 @@ life_cycle_checklist_items_enabled = true</code></pre>
         <div class="mb-config-options">
             <div class="superfences-tabs">
             
-            <input name="77" type="checkbox" id="_tab_77">
-                <label class="tab-selector" for="_tab_77"><i class="icon fa fa-code"></i></label>
+            <input name="78" type="checkbox" id="_tab_78">
+                <label class="tab-selector" for="_tab_78"><i class="icon fa fa-code"></i></label>
                 <div class="superfences-content">
                     <div class="mb-config-example">
 <pre><code class="toml">[qpid.heartbeat]
@@ -11521,8 +11602,8 @@ timeout_factor = 3.0</code></pre>
         <div class="mb-config-options">
             <div class="superfences-tabs">
             
-            <input name="78" type="checkbox" id="_tab_78">
-                <label class="tab-selector" for="_tab_78"><i class="icon fa fa-code"></i></label>
+            <input name="79" type="checkbox" id="_tab_79">
+                <label class="tab-selector" for="_tab_79"><i class="icon fa fa-code"></i></label>
                 <div class="superfences-content">
                     <div class="mb-config-example">
 <pre><code class="toml">[carbon_health_check]
@@ -11577,8 +11658,8 @@ enable = true</code></pre>
         <div class="mb-config-options">
             <div class="superfences-tabs">
             
-            <input name="79" type="checkbox" id="_tab_79">
-                <label class="tab-selector" for="_tab_79"><i class="icon fa fa-code"></i></label>
+            <input name="80" type="checkbox" id="_tab_80">
+                <label class="tab-selector" for="_tab_80"><i class="icon fa fa-code"></i></label>
                 <div class="superfences-content">
                     <div class="mb-config-example">
 <pre><code class="toml">[carbon_health_check.health_checker.super_tenant_health_checker]
@@ -11653,8 +11734,8 @@ order = "98"</code></pre>
         <div class="mb-config-options">
             <div class="superfences-tabs">
             
-            <input name="80" type="checkbox" id="_tab_80">
-                <label class="tab-selector" for="_tab_80"><i class="icon fa fa-code"></i></label>
+            <input name="81" type="checkbox" id="_tab_81">
+                <label class="tab-selector" for="_tab_81"><i class="icon fa fa-code"></i></label>
                 <div class="superfences-content">
                     <div class="mb-config-example">
 <pre><code class="toml">[carbon_health_check.health_checker.super_tenant_health_checker.properties]
@@ -11707,8 +11788,8 @@ monitored.user.stores = "primary,sec"</code></pre>
         <div class="mb-config-options">
             <div class="superfences-tabs">
             
-            <input name="81" type="checkbox" id="_tab_81">
-                <label class="tab-selector" for="_tab_81"><i class="icon fa fa-code"></i></label>
+            <input name="82" type="checkbox" id="_tab_82">
+                <label class="tab-selector" for="_tab_82"><i class="icon fa fa-code"></i></label>
                 <div class="superfences-content">
                     <div class="mb-config-example">
 <pre><code class="toml">[carbon_health_check.health_checker.data_source_health_checker]
@@ -11783,8 +11864,8 @@ order = "97"</code></pre>
         <div class="mb-config-options">
             <div class="superfences-tabs">
             
-            <input name="82" type="checkbox" id="_tab_82">
-                <label class="tab-selector" for="_tab_82"><i class="icon fa fa-code"></i></label>
+            <input name="83" type="checkbox" id="_tab_83">
+                <label class="tab-selector" for="_tab_83"><i class="icon fa fa-code"></i></label>
                 <div class="superfences-content">
                     <div class="mb-config-example">
 <pre><code class="toml">[carbon_health_check.health_checker.data_source_health_checker.properties]
@@ -11857,8 +11938,8 @@ monitored.datasources = "jdbc/WSO2AM_DB,jdbc/SHARED_DB,jdbc/WSO2CarbonDB"</code>
         <div class="mb-config-options">
             <div class="superfences-tabs">
             
-            <input name="83" type="checkbox" id="_tab_83">
-                <label class="tab-selector" for="_tab_83"><i class="icon fa fa-code"></i></label>
+            <input name="84" type="checkbox" id="_tab_84">
+                <label class="tab-selector" for="_tab_84"><i class="icon fa fa-code"></i></label>
                 <div class="superfences-content">
                     <div class="mb-config-example">
 <pre><code class="toml">[health_checker]
@@ -11954,8 +12035,8 @@ first_property = "value"</code></pre>
         <div class="mb-config-options">
             <div class="superfences-tabs">
             
-            <input name="84" type="checkbox" id="_tab_84">
-                <label class="tab-selector" for="_tab_84"><i class="icon fa fa-code"></i></label>
+            <input name="85" type="checkbox" id="_tab_85">
+                <label class="tab-selector" for="_tab_85"><i class="icon fa fa-code"></i></label>
                 <div class="superfences-content">
                     <div class="mb-config-example">
 <pre><code class="toml">[oauth]
@@ -12133,8 +12214,8 @@ token_context_dialect_uri = "http://wso2.org/claims"
         <div class="mb-config-options">
             <div class="superfences-tabs">
             
-            <input name="85" type="checkbox" id="_tab_85">
-                <label class="tab-selector" for="_tab_85"><i class="icon fa fa-code"></i></label>
+            <input name="86" type="checkbox" id="_tab_86">
+                <label class="tab-selector" for="_tab_86"><i class="icon fa fa-code"></i></label>
                 <div class="superfences-content">
                     <div class="mb-config-example">
 <pre><code class="toml">[oauth.token_validation]
@@ -12228,8 +12309,8 @@ refresh_token_validity = "86400"
         <div class="mb-config-options">
             <div class="superfences-tabs">
             
-            <input name="86" type="checkbox" id="_tab_86">
-                <label class="tab-selector" for="_tab_86"><i class="icon fa fa-code"></i></label>
+            <input name="87" type="checkbox" id="_tab_87">
+                <label class="tab-selector" for="_tab_87"><i class="icon fa fa-code"></i></label>
                 <div class="superfences-content">
                     <div class="mb-config-example">
 <pre><code class="toml">[oauth.token_cleanup]
@@ -12306,8 +12387,8 @@ retain_access_tokens_for_auditing = true</code></pre>
         <div class="mb-config-options">
             <div class="superfences-tabs">
             
-            <input name="87" type="checkbox" id="_tab_87">
-                <label class="tab-selector" for="_tab_87"><i class="icon fa fa-code"></i></label>
+            <input name="88" type="checkbox" id="_tab_88">
+                <label class="tab-selector" for="_tab_88"><i class="icon fa fa-code"></i></label>
                 <div class="superfences-content">
                     <div class="mb-config-example">
 <pre><code class="toml">[oauth.oidc.extensions]
@@ -12535,8 +12616,8 @@ enable_unmapped_user_attributes = true
         <div class="mb-config-options">
             <div class="superfences-tabs">
             
-            <input name="88" type="checkbox" id="_tab_88">
-                <label class="tab-selector" for="_tab_88"><i class="icon fa fa-code"></i></label>
+            <input name="89" type="checkbox" id="_tab_89">
+                <label class="tab-selector" for="_tab_89"><i class="icon fa fa-code"></i></label>
                 <div class="superfences-content">
                     <div class="mb-config-example">
 <pre><code class="toml">[oauth.grant_type.authorization_code]
@@ -13024,8 +13105,8 @@ grant_validator = "org.wso2.carbon.identity.oauth2.grant.kerberos.KerberosGrantV
         <div class="mb-config-options">
             <div class="superfences-tabs">
             
-            <input name="89" type="checkbox" id="_tab_89">
-                <label class="tab-selector" for="_tab_89"><i class="icon fa fa-code"></i></label>
+            <input name="90" type="checkbox" id="_tab_90">
+                <label class="tab-selector" for="_tab_90"><i class="icon fa fa-code"></i></label>
                 <div class="superfences-content">
                     <div class="mb-config-example">
 <pre><code class="toml">[session_data.persistence]
@@ -13078,8 +13159,8 @@ persistence_pool_size = 0</code></pre>
         <div class="mb-config-options">
             <div class="superfences-tabs">
             
-            <input name="90" type="checkbox" id="_tab_90">
-                <label class="tab-selector" for="_tab_90"><i class="icon fa fa-code"></i></label>
+            <input name="91" type="checkbox" id="_tab_91">
+                <label class="tab-selector" for="_tab_91"><i class="icon fa fa-code"></i></label>
                 <div class="superfences-content">
                     <div class="mb-config-example">
 <pre><code class="toml">[oauth.token_generation]
@@ -13134,8 +13215,8 @@ retry_count_on_persistence_failures = 5</code></pre>
         <div class="mb-config-options">
             <div class="superfences-tabs">
             
-            <input name="91" type="checkbox" id="_tab_91">
-                <label class="tab-selector" for="_tab_91"><i class="icon fa fa-code"></i></label>
+            <input name="92" type="checkbox" id="_tab_92">
+                <label class="tab-selector" for="_tab_92"><i class="icon fa fa-code"></i></label>
                 <div class="superfences-content">
                     <div class="mb-config-example">
 <pre><code class="toml">[user_store.properties]
@@ -13944,8 +14025,8 @@ UserCoreCacheTimeOut = 5</code></pre>
         <div class="mb-config-options">
             <div class="superfences-tabs">
             
-            <input name="92" type="checkbox" id="_tab_92">
-                <label class="tab-selector" for="_tab_92"><i class="icon fa fa-code"></i></label>
+            <input name="93" type="checkbox" id="_tab_93">
+                <label class="tab-selector" for="_tab_93"><i class="icon fa fa-code"></i></label>
                 <div class="superfences-content">
                     <div class="mb-config-example">
 <pre><code class="toml">[custom_keystore.APIKeyKeyStore]
@@ -14080,8 +14161,8 @@ key_password = "wso2carbon"</code></pre>
         <div class="mb-config-options">
             <div class="superfences-tabs">
             
-            <input name="93" type="checkbox" id="_tab_93">
-                <label class="tab-selector" for="_tab_93"><i class="icon fa fa-code"></i></label>
+            <input name="94" type="checkbox" id="_tab_94">
+                <label class="tab-selector" for="_tab_94"><i class="icon fa fa-code"></i></label>
                 <div class="superfences-content">
                     <div class="mb-config-example">
 <pre><code class="toml">[http_access_log]
@@ -14136,8 +14217,8 @@ enabled = true</code></pre>
         <div class="mb-config-options">
             <div class="superfences-tabs">
             
-            <input name="94" type="checkbox" id="_tab_94">
-                <label class="tab-selector" for="_tab_94"><i class="icon fa fa-code"></i></label>
+            <input name="95" type="checkbox" id="_tab_95">
+                <label class="tab-selector" for="_tab_95"><i class="icon fa fa-code"></i></label>
                 <div class="superfences-content">
                     <div class="mb-config-example">
 <pre><code class="toml">#### Sample deployment.toml entry
@@ -14484,8 +14565,8 @@ mediaType = "application/vnd.wso2-service+xml"
         <div class="mb-config-options">
             <div class="superfences-tabs">
             
-            <input name="95" type="checkbox" id="_tab_95">
-                <label class="tab-selector" for="_tab_95"><i class="icon fa fa-code"></i></label>
+            <input name="96" type="checkbox" id="_tab_96">
+                <label class="tab-selector" for="_tab_96"><i class="icon fa fa-code"></i></label>
                 <div class="superfences-content">
                     <div class="mb-config-example">
 <pre><code class="toml">[apim.transport_headers]
