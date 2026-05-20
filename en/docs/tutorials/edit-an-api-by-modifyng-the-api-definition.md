@@ -2,13 +2,13 @@
  
 WSO2 API Manager has an integrated Swagger Editor, which is part of the Swagger project.
 
-[Swagger](http://swagger.io/) is a 100% open source, standard, language-agnostic specification and a complete framework for describing, producing, consuming, and visualizing RESTful APIs, without the need of a proxy or third-party services. Swagger allows consumers to understand the capabilities of a remote service without accessing its source code, and interact with the service with a minimal amount of implementation logic. Swagger helps describe a service in the same way that interfaces describe lower-level programming code.
+[Swagger](http://swagger.io/) is an open source, standard, language-agnostic specification and framework for describing, producing, consuming, and visualizing RESTful APIs, without the need for a proxy or third-party services. Swagger allows consumers to understand a remote service without accessing its source code and interact with it with minimal implementation logic. Swagger helps describe a service in the same way that interfaces describe lower-level programming code.
 
-The [Swagger Editor](https://github.com/swagger-api/swagger-editor) is a dependency-free collection of HTML, JavaScript, and CSS that dynamically generate documentation from a Swagger-compliant API. Swagger-compliant APIs give you interactive documentation, client SDK generation, and more discoverability. The Swagger Editor has JSON code and its UI facilitates easier code indentation, keyword highlighting and shows syntax errors on the fly. You can add resource parameters, summaries and descriptions to your APIs using the Swagger Editor.
+The [Swagger Editor](https://github.com/swagger-api/swagger-editor) is a dependency-free collection of HTML, JavaScript, and CSS that dynamically generates documentation from a Swagger-compliant API. Swagger-compliant APIs give you interactive documentation, client SDK generation, and more discoverability. The Swagger Editor has JSON code, and its UI facilitates easier code indentation, keyword highlighting, and shows syntax errors on the fly. You can add resource parameters, summaries, and descriptions to your APIs using the Swagger Editor.
 
-API Manager supports [Open API 3.1.0](https://github.com/OAI/OpenAPI-Specification/blob/main/versions/3.1.0.md), [Open API 3.0](https://github.com/OAI/OpenAPI-Specification/blob/master/versions/3.0.0.md) and [Open API 2.0](https://github.com/OAI/OpenAPI-Specification/blob/master/versions/2.0.md) specifications and you can simply create, import, edit and consume the APIs defined in both specifications.
+API Manager supports [Open API 3.1.0](https://github.com/OAI/OpenAPI-Specification/blob/main/versions/3.1.0.md), [Open API 3.0](https://github.com/OAI/OpenAPI-Specification/blob/master/versions/3.0.0.md), and [Open API 2.0](https://github.com/OAI/OpenAPI-Specification/blob/master/versions/2.0.md) specifications, and you can simply create, import, edit, and consume the APIs defined in both specifications.
 
-In this tutorial, let's see how you can add interactive documentation to an API by directly editing the Swagger code via the API Publisher UI.
+This tutorial shows how to add interactive documentation to an API by editing the Swagger code via the API Publisher UI.
 
 !!! note
     This tutorial uses the `PizzaShack` API created in [Create a REST API]({{base_path}}/manage-apis/design/create-api/create-rest-api/create-a-rest-api/) section and Published in the [Publish an API]({{base_path}}/manage-apis/deploy-and-publish/publish-on-dev-portal/publish-an-api/) section.
@@ -18,7 +18,7 @@ In this tutorial, let's see how you can add interactive documentation to an API 
 
     ![create_a_rest_api]({{base_path}}/assets/img/get_started/design-new-rest-api.png)
 
-3.  In the **Create an API** page, give an API name, a context a version and the endpoint as follows and click **Create**. 
+3.  In the **Create an API** page, give an API name, a context, a version, and the endpoint as follows, and click **Create**. 
 
     <table><colgroup> <col/> <col/> <col/> </colgroup><tbody><tr><th colspan="2" >Field</th><th >Sample value</th></tr><tr><td colspan="2" class="confluenceTd">Name</td><td class="confluenceTd">PizzaShack</td></tr><tr><td colspan="2" class="confluenceTd">Version</td><td colspan="1" class="confluenceTd">1.0.0</td></tr><tr><td colspan="2" class="confluenceTd">Context</td><td class="confluenceTd"><div class="content-wrapper"><p><code>/pizzashack</code></p><div><div class="confluence-information-macro-body"></div><div class="confluence-information-macro confluence-information-macro-tip"><span class="aui-icon aui-icon-small aui-iconfont-approve confluence-information-macro-icon"></span><div class="confluence-information-macro-body"></div></div></div></div></td></tr><tr><td colspan="2" class="confluenceTd">Endpoint</td><td colspan="1" class="confluenceTd"><p><a class="external-link" href="https://localhost:9443/am/sample/pizzashack/v1/api" rel="nofollow">https://localhost:9443/am/sample/pizzashack/v1/api/</a></p><p>The endpoint that you add is automatically added as the production and sandbox endpoints.</p></td></tr></tbody></table>
          
@@ -33,7 +33,7 @@ In this tutorial, let's see how you can add interactive documentation to an API 
     The Swagger UI opens.
     ![]({{base_path}}/assets/img/learn/tutorials/rest-api-definition-pizzashack.png)
   
-5. Add the following GET and PUT method for the API.
+5. Add the following GET and PUT methods for the API.
        1. Under the `paths` object, remove the `{}` and add the following code, as shown in the screenshot below.
 
         !!! tip
@@ -153,14 +153,14 @@ In this tutorial, let's see how you can add interactive documentation to an API 
     
     3. Click **Update Content**.
        This adds a resource with two HTTP methods into the API, which is visible in the API Publisher 
-       **Resources** tab along with the parameters defined. 
+       **Resources** tab, along with the parameters defined. 
        ![]({{base_path}}/assets/img/learn/tutorials/create-rest-api-pizzashack-resources.png)
 
            Let's assume that the backend of this API sends the response in XML format. Let's document this under the GET method in the resource that we just added.
     
         !!! info
             Troubleshooting:
-               If you get an error after adding the API definition in the Swagger UI, first check the indentation of the code that you added, which defines the API, because Swagger throw errors if the indention is not correct.
+               If you get an error after adding the API definition in the Swagger UI, first check the indentation of the code that you added, which defines the API, because Swagger throws errors if the indentation is not correct.
                 ![]({{base_path}}/assets/img/learn/tutorials/rest-api-definition-pizzashack-indentation.png)
 
        6. Add a summary and description for the GET method.
@@ -185,7 +185,7 @@ In this tutorial, let's see how you can add interactive documentation to an API 
 7. Complete the rest of the API creation process.
     For more information, see step 7 onwards under [Create a REST API]({{base_path}}/manage-apis/design/create-api/create-rest-api/create-a-rest-api/) section and Published in the [Publish an API]({{base_path}}/manage-apis/deploy-and-publish/publish-on-dev-portal/publish-an-api/) section.
 
-8. Click **View in Developer Portal** and the API you just published appears.
+8. Click **View in Developer Portal**, and the API you just published appears.
 9. Click **Try Out**.
     Note that the changes that you made earlier now appear in the Developer Portal for consumers.
     ![]({{base_path}}/assets/img/learn/tutorials/pizza-shack-api-get-dev-portal.png)
