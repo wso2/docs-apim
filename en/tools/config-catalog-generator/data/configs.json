@@ -31,7 +31,7 @@
                             "default": "default",
                             "possible": "default,api-devportal,api-key-manager,api-publisher,gateway-worker,traffic-manager",
                             "description": "The profile name of the API Manager instance."
-                        }, 
+                        },
                         {
                             "name": "enableMTOM",
                             "type": "boolean",
@@ -39,7 +39,7 @@
                             "default": "false",
                             "possible": "true,false",
                             "description": "Use this paramater to enable MTOM (Message Transmission Optimization Mechanism) for the product server."
-                        }, 
+                        },
                         {
                             "name": "enableSwA",
                             "type": "boolean",
@@ -47,7 +47,7 @@
                             "default": "false",
                             "possible": "true,false",
                             "description": "Use this paramater to enable SwA (SOAP with Attachments) for the product server. When SwA is enabled, the API Manager will process the files attached to SOAP messages."
-                        },   
+                        },
                         {
                             "name": "disable_shutdown_from_ui",
                             "type": "boolean",
@@ -55,7 +55,7 @@
                             "default": "false",
                             "possible": "true,false",
                             "description": "Use this parameter to disable the shutdown server option from carbon management console UI."
-                        },        
+                        },
                         {
                             "name": "disable_restart_from_ui",
                             "type": "boolean",
@@ -63,12 +63,12 @@
                             "default": "false",
                             "possible": "true,false",
                             "description": "Use this parameter to disable the restart server option from carbon management console UI."
-                        }                                                                                              
+                        }
                     ]
                 }
             ],
             "exampleFile": "server.toml"
-        },    
+        },
         {
             "title": "Super admin configurations",
             "options": [
@@ -1664,7 +1664,7 @@
                     ]
                 }
             ],
-            "exampleFile": "apim.workflow.toml" 
+            "exampleFile": "apim.workflow.toml"
         },
         {
             "title": "API-M SDK configurations",
@@ -1921,7 +1921,7 @@
                             "possible": "",
                             "description": "If true, it attempts to authenticate the user using the AUTH command. Defaults to false."
                         }
-                        
+
                     ]
                 }
             ],
@@ -2754,7 +2754,7 @@
                             "default": "Not defined",
                             "possible": "",
                             "description": "Provide a number starting from 1. Increase the value by one during each time you need to reindex. Make sure to backup and delete the <API-M_HOME>/solr directory after changing the configuration and before restarting the server. After a server restart, reindexing might take a considerable amount of time depending on the number of APIs you have in the registry."
-                        }                                                                                                  
+                        }
                     ]
                 }
             ],
@@ -4076,6 +4076,35 @@
             "exampleFile": "_message-formatters-custom-blocking.toml"
         },
         {
+            "title": "Message Formatter Options",
+            "options": [
+                {
+                    "name": "message_formatter.options",
+                    "required": false,
+                    "description": "",
+                    "params": [
+                        {
+                            "name": "disableSendingMultipartPartCharset",
+                            "type": "boolean",
+                            "required": false,
+                            "default": "false",
+                            "possible": "true false",
+                            "description": "Defines whether the charset parameter in the Content-Type header should be preserved in each part of multipart form data."
+                        },
+                        {
+                            "name": "preserveMultipartPartContentTransferEncoding",
+                            "type": "boolean",
+                            "required": false,
+                            "default": "false",
+                            "possible": "true false",
+                            "description": "Defines whether the Content-Transfer-Encoding header should be preserved in each part of multipart form data."
+                        }
+                    ]
+                }
+            ],
+            "exampleFile": "message_formatter.options.toml"
+        },
+        {
             "title": "Message Mediation",
             "options": [
                 {
@@ -4265,7 +4294,7 @@
                             "default": "2.0",
                             "possible": "",
                             "description": "The time duration (in seconds) allowed for a subscriber to respond to a heartbeat request. If this time elapses before the response is received, the channel of communication between the server and the subscriber will end."
-                        }                        
+                        }
                     ]
                 }
             ],
@@ -4286,7 +4315,7 @@
                             "default": "false",
                             "possible": "true,false",
                             "description": "Enable carbon health checker."
-                        }                      
+                        }
                     ]
                 }
             ],
@@ -4314,12 +4343,12 @@
                             "default": "98",
                             "possible": "",
                             "description": "The execution order."
-                        }                                                                                           
+                        }
                     ]
                 }
             ],
             "exampleFile": "super_tenant_health_checker.toml"
-        }, 
+        },
         {
             "options": [
                 {
@@ -4334,12 +4363,12 @@
                             "default": "",
                             "possible": "",
                             "description": "An array of domain names of the userstores to monitor health. If not given, health is monitered on all the super tenant secondary user stores."
-                        }                                                                                          
+                        }
                     ]
                 }
             ],
             "exampleFile": "super_tenant_health_checker_properties.toml"
-        },                
+        },
         {
             "options": [
                 {
@@ -4362,12 +4391,12 @@
                             "default": "98",
                             "possible": "",
                             "description": "The execution order."
-                        }                                             
+                        }
                     ]
                 }
             ],
             "exampleFile": "data_source_health_checker.toml"
-        },                                                 
+        },
         {
             "options": [
                 {
@@ -4390,7 +4419,7 @@
                             "default": "",
                             "possible": "",
                             "description": "An array of jndiConfig names of datasources to monitor health. If not given, health is monitered on all the datastores."
-                        }                                                                                                                   
+                        }
                     ]
                 }
             ],
@@ -4410,7 +4439,7 @@
                             "default": "-",
                             "possible": "",
                             "description": "The custom health checker name."
-                        },  
+                        },
                         {
                             "name": "order",
                             "type": "integer",
@@ -4418,7 +4447,7 @@
                             "default": "-",
                             "possible": "",
                             "description": "The custom health checker execution order."
-                        }, 
+                        },
                         {
                             "name": "properties",
                             "type": "integer",
@@ -4426,7 +4455,7 @@
                             "default": "-",
                             "possible": "",
                             "description": "The custom health checker properties. Provide as key value pairs."
-                        }                                                                                                                
+                        }
                     ]
                 }
             ],
@@ -4495,7 +4524,7 @@
                             "default": "http://wso2.org/claims",
                             "possible": "",
                             "description": "Consumer Dialect URI for Authorization Context."
-                        }                                                      
+                        }
 
                     ]
                 }
@@ -4524,7 +4553,7 @@
                             "default": "3600",
                             "possible": "",
                             "description": "Default validity period for user access tokens in seconds."
-                        }, 
+                        },
                         {
                             "name": "refresh_token_validity",
                             "type": "integer",
@@ -4532,7 +4561,7 @@
                             "default": "86400",
                             "possible": "",
                             "description": "Default validity period for refresh tokens in seconds."
-                        }                                                                                                                                                                                                                                                    
+                        }
                     ]
                 }
             ],
@@ -4560,7 +4589,7 @@
                             "default": "true",
                             "possible": "true,false",
                             "description": "Set this to true, to move the old, invalid tokens to the Audit table when token cleaning is enabled. Set this to false, if you do not wish to store old tokens in the Audit table."
-                        }                                                                                                                                                                                                                                                      
+                        }
                     ]
                 }
             ],
@@ -4580,7 +4609,7 @@
                             "default": "org.wso2.carbon.identity.openidconnect.DefaultIDTokenBuilder",
                             "possible": "",
                             "description": "IDToken builder implementation class."
-                        },  
+                        },
                         {
                             "name": "extensions.claim_callback_handler",
                             "type": "string",
@@ -4596,7 +4625,7 @@
                             "default": "org.wso2.carbon.identity.oauth.endpoint.user.impl.UserInfoUserStoreClaimRetriever",
                             "possible": "",
                             "description": "Defines the class which builds the claims for the User Info Endpoint's response. This class needs to implement the interface UserInfoClaimRetriever."
-                        }, 
+                        },
                         {
                             "name": "user_info.response_type",
                             "type": "string",
@@ -4620,7 +4649,7 @@
                             "default": "${carbon.protocol}://${carbon.host}:${carbon.management.port}/oauth2/token (OAuth2 Token Endpoint URL)",
                             "possible": "",
                             "description": "The value of issuer of the IDToken. This should be changed according to the deployment values."
-                        }, 
+                        },
                         {
                             "name": "id_token.redirect_error_page",
                             "type": "boolean",
@@ -4628,8 +4657,8 @@
                             "default": "true",
                             "possible": "true,false",
                             "description": "Send the response to OAuth2 error page."
-                        },                                                                                                 
-                                                                            
+                        },
+
                         {
                             "name": "claims.enable_oidc_dialect",
                             "type": "boolean",
@@ -4645,7 +4674,7 @@
                             "default": "false",
                             "possible": "true,false",
                             "description": "Enable adding unmapped user attributes."
-                        }                                             
+                        }
                     ]
                 }
             ],
@@ -4673,7 +4702,7 @@
                             "default": "org.wso2.carbon.identity.oauth2.token.handlers.grant.AuthorizationCodeGrantHandler",
                             "possible": "",
                             "description": "Authorization Code grant implementation class."
-                        }, 
+                        },
                         {
                             "name": "password.enable",
                             "type": "boolean",
@@ -4689,7 +4718,7 @@
                             "default": "org.wso2.carbon.identity.oauth2.token.handlers.grant.PasswordGrantHandler",
                             "possible": "",
                             "description": "Password grant implementation class."
-                        },     
+                        },
                         {
                             "name": "refresh_token.enable",
                             "type": "boolean",
@@ -4705,7 +4734,7 @@
                             "default": "org.wso2.carbon.identity.oauth2.token.handlers.grant.RefreshGrantHandler",
                             "possible": "",
                             "description": "Refresh Token grant implementation class."
-                        },  
+                        },
                         {
                             "name": "client_credentials.enable",
                             "type": "boolean",
@@ -4721,7 +4750,7 @@
                             "default": "org.wso2.carbon.identity.oauth2.token.handlers.grant.ClientCredentialsGrantHandler",
                             "possible": "",
                             "description": "Client Credentials grant implementation class."
-                        }, 
+                        },
                         {
                             "name": "client_credentials.allow_refresh_tokens",
                             "type": "boolean",
@@ -4729,7 +4758,7 @@
                             "default": "false",
                             "possible": "true,false",
                             "description": "Enable to allow refresh tokens for client credentails grant."
-                        },  
+                        },
                         {
                             "name": "client_credentials.allow_id_token",
                             "type": "boolean",
@@ -4737,7 +4766,7 @@
                             "default": "false",
                             "possible": "true,false",
                             "description": "Enable to allow ID tokens for client credentails grant."
-                        },  
+                        },
                         {
                             "name": "saml_bearer.enable",
                             "type": "boolean",
@@ -4753,7 +4782,7 @@
                             "default": "org.wso2.carbon.identity.oauth2.token.handlers.grant.saml.SAML2BearerGrantHandler",
                             "possible": "",
                             "description": "SAML2 Bearer grant implementation class."
-                        }, 
+                        },
                         {
                             "name": "iwa_ntlm.enable",
                             "type": "boolean",
@@ -4777,7 +4806,7 @@
                             "default": "org.wso2.carbon.identity.oauth.common.NTLMAuthenticationValidator",
                             "possible": "",
                             "description": "NTLM grant validator implementation class."
-                        }, 
+                        },
                         {
                             "name": "jwt_bearer.enable",
                             "type": "boolean",
@@ -4801,7 +4830,7 @@
                             "default": "org.wso2.carbon.identity.oauth2.grant.jwt.JWTGrantValidator",
                             "possible": "",
                             "description": "JWT Bearer grant validator implementation class."
-                        },                                                                            
+                        },
                         {
                             "name": "kerberos.enable",
                             "type": "boolean",
@@ -4825,8 +4854,8 @@
                             "default": "org.wso2.carbon.identity.oauth2.grant.kerberos.KerberosGrantValidator",
                             "possible": "",
                             "description": "Kerberos grant validator implementation class."
-                        }                                                                                                                                                                                           
-                                                                                                                                                                                                                                                   
+                        }
+
                     ]
                 }
             ],
@@ -4839,7 +4868,7 @@
                     "name": "session_data.persistence",
                     "required": false,
                     "description": "This includes configuration for session data persistence of tokens.",
-                    "params": [                   
+                    "params": [
                          {
                             "name": "persistence_pool_size",
                             "type": "integer",
@@ -4847,7 +4876,7 @@
                             "default": "0",
                             "possible": "",
                             "description": "This value determines the number of threads in the thread pool that are used to consume the token persisting queue. Set the value 0 to enable synchronous token persistence. Set the value higher than 0 to enable asynchronous token persistence."
-                        }                                                                                                                                                                                                                                                                              
+                        }
                     ]
                 }
             ],
@@ -4859,7 +4888,7 @@
                     "name": "oauth.token_generation",
                     "required": false,
                     "description": "This includes configuration for OAuth2 token persistence.",
-                    "params": [                   
+                    "params": [
                          {
                             "name": "retry_count_on_persistence_failures",
                             "type": "integer",
@@ -4867,7 +4896,7 @@
                             "default": "5",
                             "possible": "",
                             "description": "This indicates how many times to retry in the event of a CONN_APP_KEY violation when storing the access token."
-                        }                                                                                                                                                                                                                                                                              
+                        }
                     ]
                 }
             ],
@@ -5198,7 +5227,7 @@
                     "name": "custom_keystore.APIKeyKeyStore",
                     "required": false,
                     "description": "This includes configuration for custom Keystores in WSO2 API Manager ",
-                    "params": [                   
+                    "params": [
                          {
                             "name": "file_name",
                             "type": "string",
@@ -5238,7 +5267,7 @@
                             "default": "",
                             "possible": "",
                             "description": "The private key password of the Keystore (WSO2 recommends that you maintain the identical Keystore password and key password due to known limitations)."
-                        }                                                                                                                                                                                                                                                                            
+                        }
                     ]
                 }
             ],
@@ -5288,14 +5317,14 @@
                             "default": "",
                             "possible": "",
                             "description": "The class name of the filter which is associated with the Handler (Ex: org.wso2.carbon.registry.core.jdbc.handlers.filters.MediaTypeMatcher, org.wso2.carbon.registry.core.jdbc.handlers.filters.URLMatcher)."
-                        }              
+                        }
                     ]
                 },
                 {
                     "name": "registry_handler.properties",
                     "required": false,
                     "description": "Registry Handler custom properties which do not have nested elements. Properties are listed as key, value pairs. These custom properties will be used in Handler processing logic.",
-                    "params": [        
+                    "params": [
                     ]
                 },
                 {
@@ -5326,7 +5355,7 @@
                             "default": "xml",
                             "possible": "xml, null",
                             "description": "The type of the custom parent property."
-                        }              
+                        }
                     ]
                 },
                 {
@@ -5357,14 +5386,14 @@
                             "default": "",
                             "possible": "",
                             "description": "Value of the additional key attribute of the XML element generated for the nested property."
-                        }              
+                        }
                     ]
                 },
                 {
                     "name": "registry_handler.filter_properties",
                     "required": false,
                     "description": "Define registry handler filter element configurations.",
-                    "params": [           
+                    "params": [
                     ]
                 }
             ],
@@ -5426,4 +5455,3 @@
         }
     ]
 }
-
