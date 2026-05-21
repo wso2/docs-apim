@@ -209,7 +209,7 @@ The Helm chart mounts a Kubernetes secret named `apim-keystore-secret` as a volu
     **Route hostnames** — update the hostnames to match your cluster's DNS:
 
     !!! note "Prefer Ingress over Routes?"
-        If you have an ingress controller installed on your OpenShift cluster, you can use standard Kubernetes Ingress instead. In `values.yaml`, disable the `kubernetes.route.*` entries and enable the `kubernetes.ingress.*` entries instead.
+        The `default_openshift_values.yaml` includes both a `kubernetes.route` block and a `kubernetes.ingress` block. Routes are enabled by default and ingress is disabled. If you have an NGINX Ingress Controller installed on your OpenShift cluster and prefer to use Ingress, set `kubernetes.route.management.enabled`, `kubernetes.route.gateway.enabled`, etc. to `false`, and set the corresponding `kubernetes.ingress.*` entries to `true`.
 
     ```yaml
     kubernetes:
