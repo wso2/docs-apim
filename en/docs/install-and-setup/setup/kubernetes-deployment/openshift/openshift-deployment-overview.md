@@ -7,8 +7,8 @@ For routing, OpenShift supports both `Route` objects (native to OpenShift) and s
 !!! warning "OpenShift deployment requires the following before deploying:"
 
     1. **A custom Docker image** — with GID 0 group-write permissions and the JDBC driver for your database. Standard WSO2 images will fail to start on OpenShift.
-    2. **An external database** — H2 is not supported. Set up an external database before deploying.
-    3. **Database schema initialised** — run the WSO2 schema scripts against both databases before the pods start.
+    2. **An external database** — required for distributed deployments (P1–P5). The All-in-One pattern (P0) can use the embedded H2 database for evaluation purposes.
+    3. **Database schema initialised** — if using an external database, run the WSO2 schema scripts against both databases before the pods start.
 
 ---
 
@@ -66,27 +66,41 @@ For routing, OpenShift supports both `Route` objects (native to OpenShift) and s
 
 ### Step 4 — Build an OpenShift-Compatible Docker Image { #step-4 }
 
-Standard WSO2 images run as a fixed UID (`wso2carbon`, UID 802). OpenShift injects a random UID at runtime, so any directories the server writes to must have **group-write permissions with root group (GID 0) ownership**. You must also add the JDBC driver for your database, as WSO2 images do not include one.
+Standard WSO2 images run as a fixed UID (`wso2carbon`, UID 802). OpenShift injects a random UID at runtime, so any directories the server writes to must have **group-write permissions with root group (GID 0) ownership**.
 
 !!! note "Why GID 0?"
     OpenShift assigns a random UID to the container process but always uses GID 0 (root group). By granting group-write access to the root group, the container can write to its directories regardless of which UID OpenShift assigns. See [Red Hat's guide to OpenShift and UIDs](https://www.redhat.com/en/blog/a-guide-to-openshift-and-uids) and [group ownership and file permission](https://developers.redhat.com/blog/2020/10/26/adapting-docker-and-kubernetes-containers-to-run-on-red-hat-openshift-container-platform#group_ownership_and_file_permission) for more detail.
 
-1. Create a `Dockerfile` for the All-in-One image. The example below adds the MySQL JDBC driver — replace the URL for other databases:
+1. Create a `Dockerfile` for the All-in-One image:
 
-    ```dockerfile
-    FROM wso2/wso2am:4.7.0
+    === "Evaluation (H2 database)"
 
-    # Grant root group write access for OpenShift arbitrary UID support
-    USER root
-    RUN chgrp -R 0 ${USER_HOME} && chmod -R g=u ${USER_HOME} \
-        && chgrp -R 0 ${WSO2_SERVER_HOME} && chmod -R g=u ${WSO2_SERVER_HOME}
-    USER wso2carbon
+        ```dockerfile
+        FROM wso2/wso2am:4.7.0
 
-    # Add MySQL JDBC driver — replace URL for other databases
-    ADD --chown=wso2carbon:wso2 \
-      https://repo1.maven.org/maven2/mysql/mysql-connector-java/8.0.28/mysql-connector-java-8.0.28.jar \
-      ${WSO2_SERVER_HOME}/repository/components/lib/
-    ```
+        # Grant root group write access for OpenShift arbitrary UID support
+        USER root
+        RUN chgrp -R 0 /home/wso2carbon && chmod -R g=u /home/wso2carbon
+        USER wso2carbon
+        ```
+
+    === "Production (external database)"
+
+        WSO2 images do not include a JDBC driver. Add the driver for your database:
+
+        ```dockerfile
+        FROM wso2/wso2am:4.7.0
+
+        # Grant root group write access for OpenShift arbitrary UID support
+        USER root
+        RUN chgrp -R 0 /home/wso2carbon && chmod -R g=u /home/wso2carbon
+        USER wso2carbon
+
+        # Add MySQL JDBC driver — replace URL for other databases
+        ADD --chown=wso2carbon:wso2 \
+          https://repo1.maven.org/maven2/mysql/mysql-connector-java/8.0.28/mysql-connector-java-8.0.28.jar \
+          ${WSO2_SERVER_HOME}/repository/components/lib/
+        ```
 
 2. Build and push the image, replacing `<REGISTRY>` and `<TAG>` with your values:
 
@@ -96,7 +110,12 @@ Standard WSO2 images run as a fixed UID (`wso2carbon`, UID 802). OpenShift injec
     ```
 
     !!! note "Matching your cluster architecture"
-        The `--platform` flag ensures the image is built for the architecture your cluster nodes run on. Most clusters use `linux/amd64`. If you are building on Apple Silicon (M1/M2/M3/M4) without this flag, the image will be built for `linux/arm64` and the pod will fail to start.
+        The `--platform` flag must match the architecture of your cluster nodes:
+
+        - **Managed clusters (AKS, ROSA, ARO)** — use `linux/amd64`
+        - **OpenShift Local (CRC) on Apple Silicon (M1/M2/M3/M4)** — use `linux/arm64`
+
+        Using the wrong platform will cause `ErrImagePull` when the pod starts.
 
 3. Get the image digest — you will need it when configuring your values file:
 
@@ -107,9 +126,11 @@ Standard WSO2 images run as a fixed UID (`wso2carbon`, UID 802). OpenShift injec
 
 ### Step 5 — Set Up the Database { #step-5 }
 
-Pattern 0 (All-in-One) requires two databases: `apim_db` and `shared_db`. Both must be reachable from inside the OpenShift cluster before the pods start.
+The All-in-One pattern uses an embedded H2 database by default, which is suitable for evaluation. For production deployments, set up an external database before the pods start.
 
-Follow the [Setting Up Databases]({{base_path}}/install-and-setup/setup/setting-up-databases/overview/) guide to:
+If you are using H2, skip this step and proceed to [Step 6](#step-6).
+
+For production, follow the [Setting Up Databases]({{base_path}}/install-and-setup/setup/setting-up-databases/overview/) guide to:
 
 1. Set up a database instance accessible from your cluster
 2. Obtain the schema scripts for your database type
@@ -234,31 +255,33 @@ You should see routes for `management`, `gateway`, `websocket`, and `websub` wit
 
 ### Step 9 — Configure DNS { #step-9 }
 
-OpenShift's router handles traffic for all routes in the cluster. You need to point your route hostnames to the router's external address.
+You need to point your route hostnames to the correct address depending on your environment.
 
-1. Get the router's external address:
+=== "OpenShift Local (CRC)"
+
+    The CRC VM is always reachable at `127.0.0.1` from your local machine. Add the route hostnames to your `/etc/hosts` file:
 
     ```bash
-    oc get svc router-default -n openshift-ingress
+    sudo sh -c 'echo "127.0.0.1 am.wso2.com gw.wso2.com websocket.wso2.com websub.wso2.com" >> /etc/hosts'
     ```
 
-    Note the `EXTERNAL-IP` value from the output.
+=== "Managed cluster (ROSA / ARO)"
 
-2. Map the hostnames to the router's address:
+    1. Get the router's external IP:
 
-    === "OpenShift Local (CRC)"
-
-        CRC sets up a wildcard DNS entry `*.apps-crc.testing` automatically. Use hostnames under that domain in your `values.yaml` (e.g. `am.apps-crc.testing`, `gw.apps-crc.testing`) and no manual DNS configuration is needed.
-
-    === "Managed cluster (ROSA / ARO)"
-
-        For quick testing, add the external address to your `/etc/hosts` file:
-
-        ```
-        <EXTERNAL-IP> am.example.com gw.example.com websocket.example.com websub.example.com
+        ```bash
+        oc get svc router-default -n openshift-ingress
         ```
 
-        For a production setup, create DNS records in your DNS provider mapping the hostnames to the external IP instead of using `/etc/hosts`.
+        Note the `EXTERNAL-IP` value from the output.
+
+    2. For quick testing, add the external address to your `/etc/hosts` file:
+
+        ```
+        <EXTERNAL-IP> am.wso2.com gw.wso2.com websocket.wso2.com websub.wso2.com
+        ```
+
+    For a production setup, create DNS records in your DNS provider mapping the hostnames to the external IP instead of using `/etc/hosts`.
 
 !!! note
     These are the default hostnames. If you customised the hostnames in your `values.yaml`, use those values here instead (`kubernetes.route.management.hostname`, `kubernetes.route.gateway.hostname`, etc.).
