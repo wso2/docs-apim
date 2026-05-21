@@ -24,7 +24,7 @@ Follow the instructions below to create a Streaming API using an AsyncAPI defini
 
     [![Design New Streaming API]({{base_path}}/assets/img/design/create-api/streaming-api/design-new-streaming-api.png)]({{base_path}}/assets/img/design/create-api/streaming-api/design-new-streaming-api.png)
 
-    The following two options to import the AsynAPI definition appears.
+    The following two options to import the AsyncAPI definition appears.
 
     * **AsyncAPI URL** - If you select this option, you need to provide a URL.
     * **AsyncAPI File** - If you select this option, click **Browse File to Upload** and upload a file, which contains an AsyncAPI definition.
@@ -47,7 +47,7 @@ Follow the instructions below to create a Streaming API using an AsyncAPI defini
 
      <html><div class="admonition note">
       <p class="admonition-title">Note</p>
-      <p>The AsynAPI definition of the Streaming API will contain the basic API definition, and <b>will not specify the protocol</b>, such as WebSocket, WebSub, WebHook, SSE, that the API has to use. You need to provide the Streaming API information here.</p>
+      <p>The AsyncAPI definition of the Streaming API will contain the basic API definition, and <b>will not specify the protocol</b>, such as WebSocket, WebSub, WebHook, SSE, that the API has to use. You need to provide the Streaming API information here.</p>
       </div>
      </html>
 
