@@ -241,7 +241,7 @@ Pattern 1 uses a single Helm chart release with two pod replicas forming the act
 1. Download the default values file as a starting point:
 
     ```bash
-    curl -L https://raw.githubusercontent.com/wso2/helm-apim/4.7.x/docs/am-pattern-1-all-in-one-HA/default_values.yaml \
+    curl -L https://raw.githubusercontent.com/wso2/helm-apim/4.7.x/resources/am-pattern-1-all-in-one-HA/default_values.yaml \
       -o values.yaml
     ```
 

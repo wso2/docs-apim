@@ -1595,7 +1595,7 @@ granularities
 Templated
 templated
 ReceiveAndCount
-AsynAPI
+AsyncAPI
 ShipmentDetails
 TradeStream
 avgPrice
@@ -6366,7 +6366,7 @@ API_Manager
 Async
 websocket-server
 TotalCountStream
-AsynAPI
+AsyncAPI
 backend
 SweetProdApp
 Lifecycle
