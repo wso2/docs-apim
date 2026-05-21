@@ -235,6 +235,9 @@ The Helm chart mounts a Kubernetes secret named `apim-keystore-secret` as a volu
       --set wso2.apim.configurations.encryption.key=$(openssl rand -hex 32)
     ```
 
+    !!! warning "Encryption key is mandatory"
+        WSO2 API Manager 4.7.0 requires a 256-bit encryption key to be set before the first startup. The command above generates one automatically using `openssl`. If you are deploying to a shared or production environment, generate the key separately and store it securely — you will need the same key if you redeploy or scale the deployment. For more information, see [Configuring the Internal Encryption Key]({{base_path}}/install-and-setup/setup/security/logins-and-passwords/working-with-encrypted-passwords/).
+
 4. Wait for the pod to be ready:
 
     ```bash
