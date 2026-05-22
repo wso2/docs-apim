@@ -290,7 +290,7 @@ The Helm chart mounts a Kubernetes secret named `apim-keystore-secret` as a volu
     kubectl get pods -n apim -w
     ```
 
-    The pod should show `1/1 Running` before deploying the Gateway.
+    The pod should show `1/1 Running` before deploying the Gateway. This may take several minutes on the first run.
 
 ### Step 9 — Deploy the Classic Gateway { #step-9 }
 

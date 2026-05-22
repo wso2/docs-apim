@@ -141,7 +141,7 @@ WSO2 API Manager 4.7.0 uses Envoy Gateway by default for routing and it is the r
     kubectl get pods -n apim -w
     ```
 
-    The API Manager pod should show `1/1 Running` before proceeding.
+    The API Manager pod should show `1/1 Running` before proceeding. This may take several minutes on the first run.
 
     !!! info "Default Configuration"
         The default deployment uses:
