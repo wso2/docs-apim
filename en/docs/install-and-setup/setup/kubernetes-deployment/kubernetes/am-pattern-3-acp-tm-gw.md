@@ -290,7 +290,7 @@ The Helm chart mounts a Kubernetes secret named `apim-keystore-secret` as a volu
     kubectl get pods -n apim -w
     ```
 
-    The ACP pod should show `1/1 Running` before deploying the Traffic Manager.
+    The ACP pod should show `1/1 Running` before deploying the Traffic Manager. This may take several minutes on the first run.
 
 ### Step 9 — Deploy the Traffic Manager { #step-9 }
 

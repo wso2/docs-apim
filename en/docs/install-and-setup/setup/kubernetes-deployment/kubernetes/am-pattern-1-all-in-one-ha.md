@@ -301,7 +301,7 @@ Pattern 1 uses a single Helm chart release with two pod replicas forming the act
     kubectl get pods -n apim -w
     ```
 
-    Both pods should show `1/1 Running` before proceeding.
+    Both pods should show `1/1 Running` before proceeding. This may take several minutes on the first run.
 
 ### Step 9 — Configure Local DNS
 
