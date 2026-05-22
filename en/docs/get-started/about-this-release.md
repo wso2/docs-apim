@@ -275,7 +275,7 @@ internal_crypto_provider = "org.wso2.carbon.crypto.provider.KeyStoreBasedInterna
 
 ### Token Persistence Disabled by Default
 
-JWT token persistence is **disabled by default** to improve performance and scalability.
+JWT token persistence is **disabled by default** to improve system performance and scalability.
 
 * Tokens are **not stored in the database** during generation.
 * Each request generates a **new access + refresh token pair**.
@@ -381,7 +381,7 @@ Streaming APIs now support **AsyncAPI 3.0.x** by default.
 
 * New APIs use AsyncAPI 3.0.x.
 * Import supports both 2.x and 3.0.x.
-* Existing APIs continue unchanged.
+* Existing APIs continue to function unchanged.
 
 **Impact:**
 
@@ -404,7 +404,7 @@ Starting from 4.7.0, request bodies are **no longer sent for HTTP GET and HEAD m
 
 ### Removal of Java Security Manager support
 
-The Java Security Manager has been removed as it was deprecated in Java 17 and fully removed in Java 21. WSO2 API Manager no longer supports or relies on the Java Security Manager for defining security policies. If your deployment previously used the `-Djava.security.manager` JVM flag or a `sec.policy` file, these configurations should be removed.
+The Java Security Manager has been removed because it was deprecated in Java 17 and fully removed in Java 21. WSO2 API Manager no longer supports or relies on the Java Security Manager for defining security policies. If your deployment previously used the `-Djava.security.manager` JVM flag or a `sec.policy` file, these configurations should be removed.
 
 ## Deprecations
 
