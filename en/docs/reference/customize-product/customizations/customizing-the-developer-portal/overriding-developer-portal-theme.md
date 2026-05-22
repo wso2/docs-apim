@@ -126,7 +126,7 @@ The following documents describe some of the most commonly used customizations, 
     ```
     
     The default theme configuration can be found at `<APIM_HOME>/repository/deployment/server/webapps/devportal/source/src/app/data/defaultTheme.js`. 
-    In the shared defaultTheme.json we have overriden the `custom.appBar` configurations only.
+    In the shared defaultTheme.json we have overridden the `custom.appBar` configurations only.
     
     ```
     {

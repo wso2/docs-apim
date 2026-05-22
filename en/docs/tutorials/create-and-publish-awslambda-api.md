@@ -6,7 +6,7 @@ When using AWS Lambda, you can execute your code without having to manage or pro
 
 1. Sign in to the API Publisher Portal `https://<hostname>:9443/publisher`.
 
-2. Click **CREATE API** and then click **Start From Scrach**.
+2. Click **CREATE API** and then click **Start From Scratch**.
 
     [![Create a new REST API]({{base_path}}/assets/img/get_started/design-new-rest-api.png)]({{base_path}}/assets/img/get_started/design-new-rest-api.png)
 

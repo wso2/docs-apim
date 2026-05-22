@@ -88,7 +88,7 @@ An administrative user can lock and unlock a particular user's account through t
 
 ### Change the password policy
 
-You can define your custom password policy for the Developer Portal, Publisher and Admin Portal by defining one or both of the followings.
+You can define your custom password policy for the Developer Portal, Publisher and Admin Portal by defining one or both of the following.
     
 #### User store password RegEx
 
