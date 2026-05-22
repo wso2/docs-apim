@@ -2,7 +2,7 @@
 
 OpenShift is a Kubernetes distribution with stricter security defaults. The core deployment approach — Helm charts, the same patterns (P0–P5) — is identical to standard Kubernetes. The key difference is that OpenShift ignores the UID defined in the Docker image and injects a random UID at runtime, which requires additional file permission configuration in the image and specific security context settings in the Helm values.
 
-For routing, OpenShift supports both `Route` objects (native to OpenShift) and standard Kubernetes `Ingress` (if an ingress controller is installed). The default OpenShift values file uses Routes.
+For routing, OpenShift supports `Route` objects (native to OpenShift), Envoy Gateway (the recommended API Gateway), and standard Kubernetes `Ingress` (deprecated). The default OpenShift values file uses Routes.
 
 !!! warning "OpenShift deployment requires the following before deploying:"
 
@@ -37,16 +37,16 @@ For routing, OpenShift supports both `Route` objects (native to OpenShift) and s
 
 1. Authenticate with the OpenShift CLI:
 
+    === "Token (Recommended)"
+
+        ```bash
+        oc login <API_SERVER_URL> --token=<TOKEN>
+        ```
+
     === "Username / Password"
 
         ```bash
         oc login <API_SERVER_URL> -u <USERNAME> -p <PASSWORD>
-        ```
-
-    === "Token"
-
-        ```bash
-        oc login <API_SERVER_URL> --token=<TOKEN>
         ```
 
 2. Verify your connection and create the namespace:
