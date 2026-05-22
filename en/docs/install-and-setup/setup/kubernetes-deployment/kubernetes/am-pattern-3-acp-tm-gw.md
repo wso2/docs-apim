@@ -271,6 +271,8 @@ The Helm chart mounts a Kubernetes secret named `apim-keystore-secret` as a volu
     !!! warning "Encryption key is mandatory"
         WSO2 API Manager 4.7.0 requires a 256-bit encryption key before first startup. In a distributed deployment, **all components must use the same key**. Generate it once and keep `$APIM_ENCRYPTION_KEY` set in your shell for the Traffic Manager and Gateway deploy steps that follow.
 
+        `openssl` is not available on Windows by default. Windows users can generate the key using PowerShell's `System.Security.Cryptography.RandomNumberGenerator` class.
+
     ```bash
     export APIM_ENCRYPTION_KEY=$(openssl rand -hex 32)
 
@@ -525,6 +527,9 @@ In a distributed deployment, all API Manager nodes must use the same internal en
     ```bash
     openssl rand -hex 32
     ```
+
+    !!! note
+        `openssl` is not available on Windows by default. Windows users can generate the key using PowerShell's `System.Security.Cryptography.RandomNumberGenerator` class.
 
 2. Add the key to all your values files:
 

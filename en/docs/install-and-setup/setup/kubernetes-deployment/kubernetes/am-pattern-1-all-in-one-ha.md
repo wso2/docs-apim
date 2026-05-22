@@ -293,6 +293,8 @@ Pattern 1 uses a single Helm chart release with two pod replicas forming the act
     !!! warning "Encryption key is mandatory"
         WSO2 API Manager 4.7.0 requires a 256-bit encryption key before first startup. In an HA deployment, **both nodes must use the same key** — generate it once, store it securely, and set it explicitly in your `values.yaml` under `wso2.apim.configurations.encryption.key` rather than relying on the auto-generated value above.
 
+        `openssl` is not available on Windows by default. Windows users can generate the key using PowerShell's `System.Security.Cryptography.RandomNumberGenerator` class.
+
 4. Wait for both pods to be ready:
 
     ```bash
@@ -496,6 +498,9 @@ In a distributed or HA deployment, all API Manager nodes must use the same inter
     ```bash
     openssl rand -hex 32
     ```
+
+    !!! note
+        `openssl` is not available on Windows by default. Windows users can generate the key using PowerShell's `System.Security.Cryptography.RandomNumberGenerator` class.
 
 2. Add the key to all your values files:
 

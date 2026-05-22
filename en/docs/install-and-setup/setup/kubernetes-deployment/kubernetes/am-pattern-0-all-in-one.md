@@ -133,6 +133,8 @@ WSO2 API Manager 4.7.0 uses Envoy Gateway by default for routing and it is the r
     !!! warning "Encryption key is mandatory"
         WSO2 API Manager 4.7.0 requires a 256-bit encryption key to be set before the first startup. The command above generates one automatically using `openssl`. If you are deploying to a shared or production environment, generate the key separately and store it securely — you will need the same key if you redeploy or scale the deployment.
 
+        `openssl` is not available on Windows by default. Windows users can generate the key using PowerShell's `System.Security.Cryptography.RandomNumberGenerator` class.
+
 2. Wait for the pod to be ready:
 
     ```bash
@@ -393,6 +395,9 @@ Then reference the secret name in your `values.yaml`. For more details on config
     ```bash
     openssl rand -hex 32
     ```
+
+ !!! note
+        `openssl` is not available on Windows by default. Windows users can generate the key using PowerShell's `System.Security.Cryptography.RandomNumberGenerator` class.
 
 2. Add the key to your `values.yaml`:
 
