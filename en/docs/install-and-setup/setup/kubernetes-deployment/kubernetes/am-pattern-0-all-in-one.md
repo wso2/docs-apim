@@ -161,6 +161,9 @@ WSO2 API Manager 4.7.0 uses Envoy Gateway by default for routing and it is the r
 
     Then map the `kubernetes.gatewayAPI.*` hostnames from your `values.yaml` to the external address.
 
+!!! note "Windows users"
+    On Windows, the hosts file is at `C:\Windows\System32\drivers\etc\hosts`. Open Notepad (or another text editor) as Administrator to edit it.
+
 === "Minikube"
 
     1. Run the following command in a **separate terminal** and keep it running:

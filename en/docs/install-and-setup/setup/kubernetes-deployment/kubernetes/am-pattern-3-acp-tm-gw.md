@@ -343,6 +343,9 @@ helm install apim-gw wso2/wso2am-universal-gw \
 
     Then map the `kubernetes.gatewayAPI.*` hostnames from your `values.yaml` to the external address.
 
+!!! note "Windows users"
+    On Windows, the hosts file is at `C:\Windows\System32\drivers\etc\hosts`. Open Notepad (or another text editor) as Administrator to edit it.
+
 === "Minikube"
 
     1. Run the following command in a **separate terminal** and keep it running:
