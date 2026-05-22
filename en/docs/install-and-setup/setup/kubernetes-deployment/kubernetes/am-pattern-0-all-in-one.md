@@ -268,9 +268,12 @@ WSO2 API Manager 4.7.0 uses Envoy Gateway by default for routing and it is the r
 
 ---
 
-## Additional Configuration
+## Customized Configurations
 
-The settings below are for production deployments or scenarios where you need to go beyond the defaults. All configurations in this section are made by editing your `values.yaml` file — the Helm chart's configuration file. Once all changes are in place, deploy using the command in [Section 6](#section-6).
+The settings below are for production deployments or scenarios where you need to go beyond the defaults. All configurations in this section are made by editing your `values.yaml` file — the Helm chart's configuration file.
+
+!!! note
+    Once all changes are in place, deploy using [Deploy with Custom Values](#section-6).
 
 The Helm charts for WSO2 API Manager are available in the [WSO2 Helm Chart Repository](https://github.com/wso2/helm-apim/tree/4.7.x). You can use the charts directly from the repository or clone it and use a local copy.
 

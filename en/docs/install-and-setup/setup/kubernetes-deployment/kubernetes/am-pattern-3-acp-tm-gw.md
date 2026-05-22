@@ -453,9 +453,12 @@ helm install apim-gw wso2/wso2am-universal-gw \
 
 ---
 
-## Additional Configuration
+## Customized Configurations
 
-All configurations in this section are made by editing your `values-acp.yaml`, `values-tm.yaml`, or `values-gw.yaml` files. Once all changes are in place, deploy using the commands in [Step 8](#step-8), [Step 9](#step-9), and [Step 10](#step-10).
+All configurations in this section are made by editing your `values-acp.yaml`, `values-tm.yaml`, or `values-gw.yaml` files.
+
+!!! note
+    Once all changes are in place, deploy using [Deploy with Custom Values](#section-6).
 
 The Helm charts for WSO2 API Manager are available in the [WSO2 Helm Chart Repository](https://github.com/wso2/helm-apim/tree/4.7.x).
 

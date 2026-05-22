@@ -424,9 +424,12 @@ Pattern 1 uses a single Helm chart release with two pod replicas forming the act
 
 ---
 
-## Additional Configuration
+## Customized Configurations
 
-All configurations in this section are made by editing your `values.yaml` file. Once all changes are in place, deploy using the command in [Section 6](#6-deploy-with-custom-values).
+All configurations in this section are made by editing your `values.yaml` file.
+
+!!! note
+    Once all changes are in place, deploy using [Deploy with Custom Values](#6-deploy-with-custom-values).
 
 The Helm charts for WSO2 API Manager are available in the [WSO2 Helm Chart Repository](https://github.com/wso2/helm-apim/tree/4.7.x).
 
