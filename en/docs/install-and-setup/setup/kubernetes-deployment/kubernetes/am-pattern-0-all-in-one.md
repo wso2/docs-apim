@@ -133,13 +133,15 @@ WSO2 API Manager 4.7.0 uses Envoy Gateway by default for routing and it is the r
     !!! warning "Encryption key is mandatory"
         WSO2 API Manager 4.7.0 requires a 256-bit encryption key to be set before the first startup. The command above generates one automatically using `openssl`. If you are deploying to a shared or production environment, generate the key separately and store it securely — you will need the same key if you redeploy or scale the deployment.
 
+        `openssl` is not available on Windows by default. Windows users can generate the key using PowerShell's `System.Security.Cryptography.RandomNumberGenerator` class.
+
 2. Wait for the pod to be ready:
 
     ```bash
     kubectl get pods -n apim -w
     ```
 
-    The API Manager pod should show `1/1 Running` before proceeding.
+    The API Manager pod should show `1/1 Running` before proceeding. This may take several minutes on the first run.
 
     !!! info "Default Configuration"
         The default deployment uses:
@@ -158,6 +160,9 @@ WSO2 API Manager 4.7.0 uses Envoy Gateway by default for routing and it is the r
     ```
 
     Then map the `kubernetes.gatewayAPI.*` hostnames from your `values.yaml` to the external address.
+
+!!! note "Windows users"
+    On Windows, the hosts file is at `C:\Windows\System32\drivers\etc\hosts`. Open Notepad (or another text editor) as Administrator to edit it.
 
 === "Minikube"
 
@@ -263,9 +268,12 @@ WSO2 API Manager 4.7.0 uses Envoy Gateway by default for routing and it is the r
 
 ---
 
-## Additional Configuration
+## Customized Configurations
 
-The settings below are for production deployments or scenarios where you need to go beyond the defaults. All configurations in this section are made by editing your `values.yaml` file — the Helm chart's configuration file. Once all changes are in place, deploy using the command in [Section 6](#section-6).
+The settings below are for production deployments or scenarios where you need to go beyond the defaults. All configurations in this section are made by editing your `values.yaml` file — the Helm chart's configuration file.
+
+!!! note
+    Once all changes are in place, deploy using [Deploy with Custom Values](#section-6).
 
 The Helm charts for WSO2 API Manager are available in the [WSO2 Helm Chart Repository](https://github.com/wso2/helm-apim/tree/4.7.x). You can use the charts directly from the repository or clone it and use a local copy.
 
@@ -393,6 +401,9 @@ Then reference the secret name in your `values.yaml`. For more details on config
     ```bash
     openssl rand -hex 32
     ```
+
+ !!! note
+        `openssl` is not available on Windows by default. Windows users can generate the key using PowerShell's `System.Security.Cryptography.RandomNumberGenerator` class.
 
 2. Add the key to your `values.yaml`:
 

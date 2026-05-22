@@ -271,6 +271,8 @@ The Helm chart mounts a Kubernetes secret named `apim-keystore-secret` as a volu
     !!! warning "Encryption key is mandatory"
         WSO2 API Manager 4.7.0 requires a 256-bit encryption key before first startup. In a distributed deployment, **all components must use the same key**. Generate it once and keep `$APIM_ENCRYPTION_KEY` set in your shell for the Traffic Manager and Gateway deploy steps that follow.
 
+        `openssl` is not available on Windows by default. Windows users can generate the key using PowerShell's `System.Security.Cryptography.RandomNumberGenerator` class.
+
     ```bash
     export APIM_ENCRYPTION_KEY=$(openssl rand -hex 32)
 
@@ -288,7 +290,7 @@ The Helm chart mounts a Kubernetes secret named `apim-keystore-secret` as a volu
     kubectl get pods -n apim -w
     ```
 
-    The ACP pod should show `1/1 Running` before deploying the Traffic Manager.
+    The ACP pod should show `1/1 Running` before deploying the Traffic Manager. This may take several minutes on the first run.
 
 ### Step 9 — Deploy the Traffic Manager { #step-9 }
 
@@ -340,6 +342,9 @@ helm install apim-gw wso2/wso2am-universal-gw \
     ```
 
     Then map the `kubernetes.gatewayAPI.*` hostnames from your `values.yaml` to the external address.
+
+!!! note "Windows users"
+    On Windows, the hosts file is at `C:\Windows\System32\drivers\etc\hosts`. Open Notepad (or another text editor) as Administrator to edit it.
 
 === "Minikube"
 
@@ -448,9 +453,12 @@ helm install apim-gw wso2/wso2am-universal-gw \
 
 ---
 
-## Additional Configuration
+## Customized Configurations
 
-All configurations in this section are made by editing your `values-acp.yaml`, `values-tm.yaml`, or `values-gw.yaml` files. Once all changes are in place, deploy using the commands in [Step 8](#step-8), [Step 9](#step-9), and [Step 10](#step-10).
+All configurations in this section are made by editing your `values-acp.yaml`, `values-tm.yaml`, or `values-gw.yaml` files.
+
+!!! note
+    Once all changes are in place, deploy using [Deploy with Custom Values](#section-6).
 
 The Helm charts for WSO2 API Manager are available in the [WSO2 Helm Chart Repository](https://github.com/wso2/helm-apim/tree/4.7.x).
 
@@ -525,6 +533,9 @@ In a distributed deployment, all API Manager nodes must use the same internal en
     ```bash
     openssl rand -hex 32
     ```
+
+    !!! note
+        `openssl` is not available on Windows by default. Windows users can generate the key using PowerShell's `System.Security.Cryptography.RandomNumberGenerator` class.
 
 2. Add the key to all your values files:
 

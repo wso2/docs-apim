@@ -293,13 +293,15 @@ Pattern 1 uses a single Helm chart release with two pod replicas forming the act
     !!! warning "Encryption key is mandatory"
         WSO2 API Manager 4.7.0 requires a 256-bit encryption key before first startup. In an HA deployment, **both nodes must use the same key** — generate it once, store it securely, and set it explicitly in your `values.yaml` under `wso2.apim.configurations.encryption.key` rather than relying on the auto-generated value above.
 
+        `openssl` is not available on Windows by default. Windows users can generate the key using PowerShell's `System.Security.Cryptography.RandomNumberGenerator` class.
+
 4. Wait for both pods to be ready:
 
     ```bash
     kubectl get pods -n apim -w
     ```
 
-    Both pods should show `1/1 Running` before proceeding.
+    Both pods should show `1/1 Running` before proceeding. This may take several minutes on the first run.
 
 ### Step 9 — Configure Local DNS
 
@@ -311,6 +313,9 @@ Pattern 1 uses a single Helm chart release with two pod replicas forming the act
     ```
 
     Then map the `kubernetes.gatewayAPI.*` hostnames from your `values.yaml` to the external address.
+
+!!! note "Windows users"
+    On Windows, the hosts file is at `C:\Windows\System32\drivers\etc\hosts`. Open Notepad (or another text editor) as Administrator to edit it.
 
 === "Minikube"
 
@@ -419,9 +424,12 @@ Pattern 1 uses a single Helm chart release with two pod replicas forming the act
 
 ---
 
-## Additional Configuration
+## Customized Configurations
 
-All configurations in this section are made by editing your `values.yaml` file. Once all changes are in place, deploy using the command in [Section 6](#6-deploy-with-custom-values).
+All configurations in this section are made by editing your `values.yaml` file.
+
+!!! note
+    Once all changes are in place, deploy using [Deploy with Custom Values](#6-deploy-with-custom-values).
 
 The Helm charts for WSO2 API Manager are available in the [WSO2 Helm Chart Repository](https://github.com/wso2/helm-apim/tree/4.7.x).
 
@@ -496,6 +504,9 @@ In a distributed or HA deployment, all API Manager nodes must use the same inter
     ```bash
     openssl rand -hex 32
     ```
+
+    !!! note
+        `openssl` is not available on Windows by default. Windows users can generate the key using PowerShell's `System.Security.Cryptography.RandomNumberGenerator` class.
 
 2. Add the key to all your values files:
 

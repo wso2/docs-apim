@@ -293,7 +293,7 @@ WSO2 IS uses a self-signed certificate for its HTTPS endpoints. APIM calls IS ov
     kubectl get pods -n apim -w
     ```
 
-    The IS pod should show `1/1 Running` before deploying APIM.
+    The IS pod should show `1/1 Running` before deploying APIM. This may take several minutes on the first run.
 
 ### Step 8 — Import IS Certificate and Create Keystore Secret { #step-8 }
 
@@ -352,6 +352,8 @@ APIM calls IS over HTTPS using the Kubernetes service name `is-identity-server:9
 
     !!! warning "Encryption key is mandatory"
         WSO2 API Manager 4.7.0 requires a 256-bit encryption key before first startup. Store this key securely — you will need the same key if you redeploy.
+
+        `openssl` is not available on Windows by default. Windows users can generate the key using PowerShell's `System.Security.Cryptography.RandomNumberGenerator` class.
 
 6. Create `values-apim.yaml` with the following content, replacing all placeholder values:
 
@@ -413,15 +415,20 @@ APIM calls IS over HTTPS using the Kubernetes service name `is-identity-server:9
     !!! warning "Encryption key is mandatory"
         WSO2 API Manager 4.7.0 requires a 256-bit encryption key before first startup. The command above generates one automatically. For production or shared environments, generate the key separately, store it securely, and set it explicitly in your `values-apim.yaml` under `wso2.apim.configurations.encryption.key`.
 
+        `openssl` is not available on Windows by default. Windows users can generate the key using PowerShell's `System.Security.Cryptography.RandomNumberGenerator` class.
+
 2. Wait for the APIM pod to be ready:
 
     ```bash
     kubectl get pods -n apim -w
     ```
 
-    The APIM pod should show `1/1 Running` before proceeding.
+    The APIM pod should show `1/1 Running` before proceeding. This may take several minutes on the first run.
 
 ### Step 10 — Configure DNS { #step-10 }
+
+!!! note "Windows users"
+    On Windows, the hosts file is at `C:\Windows\System32\drivers\etc\hosts`. Open Notepad (or another text editor) as Administrator to edit it.
 
 === "Minikube"
 
@@ -575,9 +582,12 @@ Once both APIM and IS are running and DNS is configured, register IS as a Key Ma
 
 ---
 
-## Additional Configuration
+## Customized Configurations
 
 All configurations in this section are made by editing your `values-apim.yaml` or `values-is.yaml` files.
+
+!!! note
+    Once all changes are in place, deploy using [Deploy with Custom Values](#section-6).
 
 The Helm charts for WSO2 API Manager are available in the [WSO2 Helm Chart Repository](https://github.com/wso2/helm-apim/tree/4.7.x). For WSO2 Identity Server, refer to the [WSO2 IS Kubernetes deployment documentation](https://is.docs.wso2.com/en/7.0.0/deploy/deploy-is-on-kubernetes/).
 
@@ -676,6 +686,9 @@ For more details on configuring keystores, see [Configuring Keystores in WSO2 AP
     ```bash
     openssl rand -hex 32
     ```
+
+    !!! note
+        `openssl` is not available on Windows by default. Windows users can generate the key using PowerShell's `System.Security.Cryptography.RandomNumberGenerator` class.
 
 2. Add the key to your `values-apim.yaml`:
 
