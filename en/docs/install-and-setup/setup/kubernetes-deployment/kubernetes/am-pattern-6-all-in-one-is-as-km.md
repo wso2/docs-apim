@@ -25,6 +25,8 @@ This pattern deploys WSO2 API Manager as a single All-in-One node with WSO2 Iden
     2. **Two custom Docker images** — one for WSO2 API Manager (with JDBC driver) and one for WSO2 Identity Server (with the APIM notification event handler JAR).
     3. **Database schema initialised** — run the WSO2 schema scripts against both databases before the APIM pods start.
 
+    Detailed steps for each of the above are explained in the sections below.
+
 ---
 
 ## Quick Start

@@ -23,6 +23,8 @@ This pattern extends Pattern 2 by adding a dedicated Key Manager alongside the A
     2. **Two custom Docker images** — one for the All-in-One and one for the ACP (shared with the Key Manager), both with the JDBC driver for your database.
     3. **Database schema initialised** — run the WSO2 schema scripts against both databases before the pods start.
 
+    Detailed steps for each of the above are explained in the sections below.
+
 ---
 
 ## Quick Start

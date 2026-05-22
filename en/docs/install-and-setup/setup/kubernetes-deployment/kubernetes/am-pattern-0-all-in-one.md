@@ -264,6 +264,9 @@ WSO2 API Manager 4.7.0 uses Envoy Gateway by default for routing and it is the r
 
     Replace the hostname placeholders with the actual values from your `values.yaml`. With default values, all hostnames resolve to `am.wso2.com` (management) and `gw.wso2.com` (gateway).
 
+    !!! note "Chrome may block access"
+        Chrome enforces HSTS preloading for `*.wso2.com` domains and may block access with no bypass option. For detailed steps on handling browser certificate warnings, refer to the WSO2 API Manager documentation.
+
     Default credentials: **admin / admin**
 
 ---

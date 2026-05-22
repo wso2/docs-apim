@@ -13,12 +13,14 @@ This pattern deploys WSO2 API Manager as a highly available active-active cluste
 | Docker image | Default WSO2 image | Custom image with JDBC driver required |
 | High availability | No | Yes |
 
-!!! warning "Complete these before running helm install"
+!!! warning "Pattern 1 requires the following before deploying:"
     Pattern 1 requires three things that Pattern 0 does not:
 
     1. **An external database** — H2 is not supported. Set up an external database before deploying.
     2. **A custom Docker image** — the default WSO2 image does not include JDBC drivers. Build and push a custom image before deploying.
     3. **Database schema initialised** — run the WSO2 schema scripts against both databases before the pods start.
+
+    Detailed steps for each of the above are explained in the sections below.
 
 ---
 

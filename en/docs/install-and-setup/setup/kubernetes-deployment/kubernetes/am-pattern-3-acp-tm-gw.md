@@ -20,6 +20,8 @@ This pattern deploys dedicated nodes for the API Control Plane, Traffic Manager,
     2. **A custom Docker image** — for the API Control Plane, with the JDBC driver for your database.
     3. **Database schema initialised** — run the WSO2 schema scripts against both databases before the pods start.
 
+    Detailed steps for each of the above are explained in the sections below.
+
 ---
 
 ## Quick Start
