@@ -1,12 +1,12 @@
 # Quick Start Guide
 
-New to WSO2 API Manager? No worries; we'll guide you through the basics!
+New to WSO2 API Manager? This guide will walk you through the basics.
 
 In this step-by-step guide, you’ll learn how to create, publish, and invoke an API using the Publisher Portal and Developer Portal.
 
 ### Before you begin...
 
-Choose a deployment option to start WSO2 API Manager All-in-one package. The All-in-one package contains all core components in a single JVM for simplified deployment.
+Choose a deployment option to start the WSO2 API Manager All-in-one package. This package contains all core components in a single JVM for simplified deployment.
 
 === "Run on VM"
 
@@ -17,7 +17,8 @@ Choose a deployment option to start WSO2 API Manager All-in-one package. The All
         !!! tip
             For more information on setting the `JAVA_HOME` environment variable for different operating systems, see [Setup and Install]({{base_path}}/install-and-setup/install/installing-the-product/installing-api-m-runtime/#setting-up-java_home)
     
-    2. Download WSO2 API-Manager All-in-one package.
+    2. Download the WSO2 API Manager All-in-one package:
+
     - [Open Source Distribution](https://github.com/wso2/product-apim/releases/tag/v4.7.0)
     - [WSO2 Official Distribution](https://wso2.com/api-manager/#)
 
@@ -76,7 +77,7 @@ Follow the instructions below to create, deploy and publish an API via the Publi
     | `Charset`               | UTF-8                 |
     | `HTTP Response Body`    | `{"hello": "world"}`  |
 
-    Finally click **Generate My HTTP Response** to save and generate the mock service url.
+    Finally, click **Generate My HTTP Response** to save and generate the mock service url.
 
     
 4. Select **REST API** from the home screen and then click **Start From Scratch**.
@@ -145,11 +146,11 @@ Follow the instructions below to subscribe to the API via the Developer Portal o
 
 2. Click **Sign-In** and enter **`admin/admin`** as your credentials to sign in to the Developer Portal.
 
-3. Once you click on the HelloWorld API, you will be redirected to  the API overview page. Then, go ahead and click on the **TRY OUT** button.
+3. Once you click on the HelloWorld API, you will be redirected to the API overview page. Then, go ahead and click on the **TRY OUT** button.
 
      [![API try out]({{base_path}}/assets/img/get_started/try-out.png)]({{base_path}}/assets/img/get_started/try-out.png)
 
-     And with that, we have subscribed to the API using the `DefaultApplication`.
+     With that, you have subscribed to the API using the `DefaultApplication`.
 
 <a name="invoke"></a>
 
