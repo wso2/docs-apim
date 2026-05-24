@@ -133,18 +133,33 @@ Given below are some error codes and their meanings.
 <td>No authentication information provided</td>
 <td>Accessing an API without <strong>Authorization: Bearer</strong> header</td>
 </tr>
+
 <tr class="even">
 <td><code>900905</code></td>
 <td><p>Incorrect access token type is provided</p></td>
-<td><p>The access token type used is not supported when invoking the API. The supported access token types are application and user accesses tokens. See <a href="{{base_path}}/get-started/key-concepts/#access-token">Access Tokens</a>.</p></td>
-<td>Invoke an API with application token, where the resource only allows application user tokens</td>
+<td>
+<p>
+The access token type used is not supported when invoking the API. The supported access token types are application and user access tokens. See <a href="{{base_path}}/get-started/key-concepts/#access-token">Access Tokens</a>.
+</p>
+<p>
+<strong>Note:</strong> The <code>x-auth-type</code> based Application/Application User token restriction was deprecated from APIM 3.x onwards. In APIM 4.x, secured resources accept both application and application user tokens. Therefore, this error code is generally not applicable to APIM 4.x and later versions.
+</p>
+</td>
+<td>Applicable to older APIM versions that support <code>x-auth-type</code> based token restrictions.</td>
 </tr>
+
 <tr class="odd">
-<td><code>900906</code> </td>
+<td><code>900906</code></td>
 <td><p>No matching resource found in the API for the given request</p></td>
-<td>A resource with the name in the request can not be found in the API.</td>
-<td>Invoke an API resource that is not available</td>
+<td>
+<p>A resource with the name in the request cannot be found in the API.</p>
+<p>
+<strong>Note:</strong> In APIM 4.x, this error is generally not triggered through a standard API invocation. It can occur when the Gateway resource configuration and the Key Manager API definition become temporarily inconsistent due to deployment, cache, or synchronization issues.
+</p>
+</td>
+<td>May occur when the Gateway configuration and Key Manager resource definitions are temporarily out of sync.</td>
 </tr>
+
 <tr class="even">
 <td> <code>900907</code> </td>
 <td><p>The requested API is temporarily blocked</p></td>
