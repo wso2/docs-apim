@@ -154,7 +154,7 @@ Invoking an API with a JWT formatted access token is similar to invoking the API
          },
          { 
             "name":"Double Bacon 6Cheese",
-            "description":"Hickory-smoked bacon, Julienne cut Canadian bacon, Parmesan, mozzarella, Romano, Asiago and and Fontina cheese",
+            "description":"Hickory-smoked bacon, Julienne cut Canadian bacon, Parmesan, mozzarella, Romano, Asiago and Fontina cheese",
             "price":"26.99",
             "icon":"/images/9.png"
          },
