@@ -276,7 +276,7 @@ WSO2 IS uses a self-signed certificate for its HTTPS endpoints. APIM calls IS ov
     ```
 
     !!! warning "Use dotted key form for the oauth setting"
-        The IS Helm chart's base `deployment.toml` already defines `[oauth.token_cleanup]` and `[oauth.token_generation]`. Re-declaring `[oauth]` as a section header in `extraConfigs` causes a TOML parser crash (`StackOverflowError`) at startup. Use `oauth.authorize_all_scopes = true` (dotted key form) instead of a `[oauth]` section block.
+        The IS Helm chart's base `deployment.toml` already defines `[oauth.token_cleanup]` and `[oauth.token_generation]`. Redeclaring `[oauth]` as a section header in `extraConfigs` causes a TOML parser crash (`StackOverflowError`) at startup. Use `oauth.authorize_all_scopes = true` (dotted key form) instead of a `[oauth]` section block.
 
     !!! note
         The `notification_endpoint` must use the APIM pod's internal Kubernetes service name, not the ingress hostname — IS communicates with APIM from inside the cluster. With the default release name `apim`, the service name is `apim-wso2am-all-in-one-am-service`. Verify with `kubectl get svc -n apim` after deploying APIM.

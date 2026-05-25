@@ -27,7 +27,7 @@ Based on performance tests conducted at WSO2 Labs, a single Traffic Manager (TM)
 !!! note
     **Actual performance may vary depending on:**
 
-    - Use of custom throttling policies with different criterias
+    - Use of custom throttling policies with different criteria
 
     - Number of APIs, Policies and Applications deployed
 
