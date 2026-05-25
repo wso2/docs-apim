@@ -352,7 +352,7 @@ kubernetes:
 
 | Setting | Why it's needed |
 |---|---|
-| `openshift.enabled: true` | Allows to handle file system related changes to be made upon deployment |
+| `openshift.enabled: true` | Enables OpenShift-specific filesystem adjustments during deployment |
 | `runAsUser: null` | Lets OpenShift assign its random UID instead of the image's fixed UID |
 | `enableAppArmor: false` | AppArmor is not supported on OpenShift |
 | `seLinux.enabled: false` | Leave off unless your cluster has SELinux policies configured for WSO2 |
