@@ -145,11 +145,11 @@ oc project
      --from-file=client-truststore.jks
    ```
 
-   !!! tip
-       You can find the default keystore and truststore files in the `repository/resources/security/` directory of any WSO2 API-M distribution.
+!!! tip
+    You can find the default keystore and truststore files in the `repository/resources/security/` directory of any WSO2 API-M distribution.
 
-    !!! info "Note"
-        Make sure to create the secret within the same namespace used for installing the API Manager.
+!!! info "Note"
+    Make sure to create the secret within the same namespace used for installing the API Manager.
 
 2. **Clone WSO2 Helm Charts Repository**:
 
