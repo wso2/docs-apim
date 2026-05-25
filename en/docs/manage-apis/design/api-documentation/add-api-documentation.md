@@ -54,7 +54,7 @@ Follow the instructions below to add documentation to an API:
         !!! note
             You can edit the content later by clicking **Edit Content**. It will open up the embedded editor to proceed.
 
-        [![Edit content in a API document]({{base_path}}/assets/img/learn/add-docs-edit-content.png)]({{base_path}}/assets/img/learn/add-docs-edit-content.png)
+        [![Edit content in an API document]({{base_path}}/assets/img/learn/add-docs-edit-content.png)]({{base_path}}/assets/img/learn/add-docs-edit-content.png)
 
     5.  Edit the document content in-line using the embedded editor and click **Update Content**.
     

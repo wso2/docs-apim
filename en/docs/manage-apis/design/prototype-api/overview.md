@@ -12,7 +12,7 @@ In the Developer Portal, these APIs will be the labelled as **PRE-RELEASED** and
 
 WSO2 API Manager allows prototyping an API at two different stages. 
 
-- At an initial stage, before implementing the actual backend, the backend responses can be mocked by changing the **Endpoint Type** of the Prototype API to **Mock Implementation**. You can use the these APIs to get feedback before you start implementing the actual service.
+- At an initial stage, before implementing the actual backend, the backend responses can be mocked by changing the **Endpoint Type** of the Prototype API to **Mock Implementation**. You can use these APIs to get feedback before you start implementing the actual service.
 
 	[![Select Mock Implementation]({{base_path}}/assets/img/learn/prototype-api/create-api-prototype-mock-impl-swagger-petstore.png)]({{base_path}}/assets/img/learn/prototype-api/create-api-prototype-mock-impl-swagger-petstore.png)
 
