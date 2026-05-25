@@ -6,13 +6,13 @@
 
 1.  Download **apictl** based on your preferred platform (i.e., Mac, Windows, Linux).
 
-    - [For Mac with Intel Chip](https://github.com/wso2/product-apim-tooling/releases/download/v4.2.7/apictl-4.2.7-darwin-amd64.tar.gz)
-    - [For Mac with Apple Silicon](https://github.com/wso2/product-apim-tooling/releases/download/v4.2.7/apictl-4.2.7-darwin-arm64.tar.gz)
-    - [For Linux 32-bit](https://github.com/wso2/product-apim-tooling/releases/download/v4.2.7/apictl-4.2.7-linux-i586.tar.gz)
-    - [For Linux 64-bit with AMD processor](https://github.com/wso2/product-apim-tooling/releases/download/v4.2.7/apictl-4.2.7-linux-amd64.tar.gz)
-    - [For Linux 64-bit with ARM processor](https://github.com/wso2/product-apim-tooling/releases/download/v4.2.7/apictl-4.2.7-linux-arm64.tar.gz)
-    - [For Windows 32-bit](https://github.com/wso2/product-apim-tooling/releases/download/v4.2.7/apictl-4.2.7-windows-i586.zip)
-    - [For Windows 64-bit](https://github.com/wso2/product-apim-tooling/releases/download/v4.2.7/apictl-4.2.7-windows-x64.zip)
+    - [For Mac with Intel Chip](https://github.com/wso2/product-apim-tooling/releases/download/v4.2.8/apictl-4.2.8-darwin-amd64.tar.gz)
+    - [For Mac with Apple Silicon](https://github.com/wso2/product-apim-tooling/releases/download/v4.2.8/apictl-4.2.8-darwin-arm64.tar.gz)
+    - [For Linux 32-bit](https://github.com/wso2/product-apim-tooling/releases/download/v4.2.8/apictl-4.2.8-linux-i586.tar.gz)
+    - [For Linux 64-bit with AMD processor](https://github.com/wso2/product-apim-tooling/releases/download/v4.2.8/apictl-4.2.8-linux-amd64.tar.gz)
+    - [For Linux 64-bit with ARM processor](https://github.com/wso2/product-apim-tooling/releases/download/v4.2.8/apictl-4.2.8-linux-arm64.tar.gz)
+    - [For Windows 32-bit](https://github.com/wso2/product-apim-tooling/releases/download/v4.2.8/apictl-4.2.8-windows-i586.zip)
+    - [For Windows 64-bit](https://github.com/wso2/product-apim-tooling/releases/download/v4.2.8/apictl-4.2.8-windows-x64.zip)
 
 2.  Extract the downloaded archive of the apictl to the desired location.
 3.  Navigate to the working directory where the executable apictl resides.
