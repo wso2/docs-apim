@@ -6,7 +6,7 @@ This page walks you through how to manually configure WSO2 API Manager (WSO2 API
 
 Follow the instructions below to configure and deploy API-M by using an Active-Active deployment:
 
-## Step 1 - Create a SSL Certificate
+## Step 1 - Create an SSL Certificate
 
 !!! info   
     All WSO2 products are by default shipped with a keystore file and truststore file stored in the 

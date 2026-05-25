@@ -7,7 +7,7 @@ WSO2 API Manager has integrated the support for invoking **REST API** with custo
 
 1. Sign in to the API Publisher Portal `https://<hostname>:9443/publisher`.
 
-2. Click **CREATE API** and then click **Start From Scrach**.
+2. Click **CREATE API** and then click **Start From Scratch**.
 
     [![Create a new REST API]({{base_path}}/assets/img/learn/create-lambda-api.png)]({{base_path}}/assets/img/learn/create-lambda-api.png)
 

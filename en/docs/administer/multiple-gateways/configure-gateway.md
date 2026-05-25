@@ -32,7 +32,7 @@ Each Gateway environment definition contains details related to a specific Gatew
 
        [![Add a Gateway Environment]({{base_path}}/assets/img/deploy/add-gateway-environment.png)]({{base_path}}/assets/img/deploy/add-gateway-environment.png)
 
-    3. Optionally, click **Advanced Settings** to add a HTTP(S) context and custom ports.
+    3. Optionally, click **Advanced Settings** to add an HTTP(S) context and custom ports.
 
          <a href="{{base_path}}/assets/img/deploy/vhost-advanced-settings.png">
              <img src="{{base_path}}/assets/img/deploy/vhost-advanced-settings.png" alt="Advanced VHost settings"

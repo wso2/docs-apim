@@ -6,7 +6,7 @@ When using AWS Lambda, you can execute your code without having to manage or pro
 
 1. Sign in to the API Publisher Portal `https://<hostname>:9443/publisher`.
 
-2. Click **CREATE API** and then click **Start From Scrach**.
+2. Click **CREATE API** and then click **Start From Scratch**.
 
     [![Create a new REST API]({{base_path}}/assets/img/learn/create-lambda-api.png)]({{base_path}}/assets/img/learn/create-lambda-api.png)
 
@@ -27,7 +27,7 @@ When using AWS Lambda, you can execute your code without having to manage or pro
 
     1. **Using IAM role-supplied temporary AWS credentials**
 
-        If API Manager is running on an AWS EC2 or ECS instance, it is recommended to select this method. You need to attach an IAM role with both `AWSLambda_ReadOnlyAccess` and `AWSLambdaRole` permissions to the insatance so that it can grant permission to applications to list and invoke Lambda functions. For more information on attaching an IAM role to EC2, see [Using an IAM Role to Grant Permissions to Applications Running on Amazon EC2 Instances](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_switch-role-ec2.html).
+        If API Manager is running on an AWS EC2 or ECS instance, it is recommended to select this method. You need to attach an IAM role with both `AWSLambda_ReadOnlyAccess` and `AWSLambdaRole` permissions to the instance so that it can grant permission to applications to list and invoke Lambda functions. For more information on attaching an IAM role to EC2, see [Using an IAM Role to Grant Permissions to Applications Running on Amazon EC2 Instances](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_switch-role-ec2.html).
 
     2. **Using stored AWS credentials**
     
@@ -92,7 +92,7 @@ When using AWS Lambda, you can execute your code without having to manage or pro
           [![Delete all existing resources]({{base_path}}/assets/img/learn/delete-all-existing-resources.png)]({{base_path}}/assets/img/learn/delete-all-existing-resources.png)
 
     2. Add a new resource.
-          1. Select a HTTP Verb.
+          1. Select an HTTP Verb.
           2. Enter a meaningful name for URI Pattern (You can add path parameter as well).
           3. Click **(+)** to add a new resource.
 

@@ -144,7 +144,7 @@ disable_restart_from_ui = false</code></pre>
                                         </div>
                                     </div>
                                     <div class="param-description">
-                                        <p>Use this paramater to enable MTOM (Message Transmission Optimization Mechanism) for the product server.</p>
+                                        <p>Use this parameter to enable MTOM (Message Transmission Optimization Mechanism) for the product server.</p>
                                     </div>
                                 </div>
                             </div><div class="param">
@@ -165,7 +165,7 @@ disable_restart_from_ui = false</code></pre>
                                         </div>
                                     </div>
                                     <div class="param-description">
-                                        <p>Use this paramater to enable SwA (SOAP with Attachments) for the product server. When SwA is enabled, the API Manager will process the files attached to SOAP messages.</p>
+                                        <p>Use this parameter to enable SwA (SOAP with Attachments) for the product server. When SwA is enabled, the API Manager will process the files attached to SOAP messages.</p>
                                     </div>
                                 </div>
                             </div><div class="param">
@@ -2304,7 +2304,7 @@ enable = true</code></pre>
                                         
                                     </div>
                                     <div class="param-description">
-                                        <p>Enabel cache for scopes. This expires in 15 minutes by default.</p>
+                                        <p>Enable cache for scopes. This expires in 15 minutes by default.</p>
                                     </div>
                                 </div>
                             </div>
@@ -12739,7 +12739,7 @@ timeout_factor = 3.0</code></pre>
                             <code>[qpid.heartbeat]</code>
                             
                             <p>
-                                This includes configurations related to the frequency of the internal heartbeat sent by the underlying Qpid brocker component of Traffic Manager. You need to to configure a proper delay for the heartbeat value if the connections will stay idle for a long time.
+                                This includes configurations related to the frequency of the internal heartbeat sent by the underlying Qpid broker component of Traffic Manager. You need to configure a proper delay for the heartbeat value if the connections will stay idle for a long time.
                             </p>
                         </div>
                         <div class="params-wrap">
