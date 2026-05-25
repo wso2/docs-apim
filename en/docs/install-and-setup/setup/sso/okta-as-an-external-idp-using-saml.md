@@ -42,7 +42,7 @@ Before you begin, make sure you do the following.
 
     [![View Setup Instructions]({{base_path}}/assets/img/learn/okta-saml-create-new-app-config1.png)]({{base_path}}/assets/img/learn/okta-saml-create-new-app-config1.png)
 
-    1.  Scroll up to the **Provide the following IDP metadata to your SP provider** section. Copy and save the details given to a XML file.
+    1.  Scroll up to the **Provide the following IDP metadata to your SP provider** section. Copy and save the details given to an XML file.
 
         [![Copy and save xml]({{base_path}}/assets/img/learn/okta-saml-create-new-app-config2.png)]({{base_path}}/assets/img/learn/okta-saml-create-new-app-config2.png)
 
@@ -82,7 +82,7 @@ Before you begin, make sure you do the following.
 
 ## Step 2 - Setup API-Manager
 
-1. Log in in to `https://localhost:9443/carbon`. 
+1. Log in to `https://localhost:9443/carbon`. 
 
 2. Create a role that needs to be assigned to users that will be provisioned from Okta.
 
