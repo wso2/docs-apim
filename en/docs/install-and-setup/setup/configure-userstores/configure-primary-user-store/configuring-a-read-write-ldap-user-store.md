@@ -482,7 +482,7 @@ Following are some key points to consider  :
             MembershipAttribute = "member"
             ```
 
-        To read roles based on a backlink attribute, use the following code snipet instead of the above:
+        To read roles based on a backlink attribute, use the following code snippet instead of the above:
 
         ```
         ReadGroups = "false"

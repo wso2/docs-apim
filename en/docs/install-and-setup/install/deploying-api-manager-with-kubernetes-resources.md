@@ -35,7 +35,7 @@ Follow the instructions below to use Kubernetes (K8s) and Helm resources for con
     | Parameter                                                                   | Description                                                                               | Default Value               |
     |-----------------------------------------------------------------------------|-------------------------------------------------------------------------------------------|-----------------------------|
     | `wso2.deployment.image.registry`                                                | Registry of the APIM Docker image                                                           | ""                          |
-    | `wso2.deployment.image.repository`                                                | Repostiory of the APIM Docker image                                                           | ""                          |
+    | `wso2.deployment.image.repository`                                                | Repository of the APIM Docker image                                                           | ""                          |
     | `wso2.deployment.image.digest`                                                | Digest of the APIM Docker image                                                           | ""                          |
 
 3. Deploy WSO2 API Manager

@@ -188,7 +188,7 @@ Given below is a sample configuration for the external read/write user store in 
             MembershipAttribute="member"
             ```
 
-    To read roles based on a backlink attribute, use the following code snipet instead of the above:
+    To read roles based on a backlink attribute, use the following code snippet instead of the above:
         ```
         ReadGroups="false"
         GroupSearchBase="ou=system"
