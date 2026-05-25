@@ -223,6 +223,7 @@ nav:
           - Expose a SOAP Service as a REST API: tutorials/expose-a-soap-service-as-a-rest-api.md
           - Edit an API by Modifying the API Definition: tutorials/edit-an-api-by-modifyng-the-api-definition.md
           - Enforce Rate Limiting and Resource Access Policies: tutorials/enforce-throttling-and-resource-access-policies.md
+          - Develop and Test Policies: tutorials/develop-and-test-policies.md
     - API Design & Manage:
         - Design APIs:
             - Design APIs Overview: api-design-manage/design/design-api-overview.md
@@ -286,7 +287,6 @@ nav:
                 - Overview: api-design-manage/design/api-policies/overview.md
                 - Attach Policy: api-design-manage/design/api-policies/attach-policy.md
                 - Create Policy: api-design-manage/design/api-policies/create-policy.md
-                - Develop and Test Policies: api-design-manage/design/api-policies/develop-and-test-policies.md
             - Rate Limiting:
                 - Set API Operation Limits: api-design-manage/design/rate-limiting/set-api-level-throttling.md
                 - Protect Backend Services: api-design-manage/design/rate-limiting/protect-backend-services.md
