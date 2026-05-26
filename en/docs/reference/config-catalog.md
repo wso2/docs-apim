@@ -17477,12 +17477,21 @@ excludedClaimAttributes="at_hash,iss,iat,exp,aud,azp"
                 <label class="tab-selector" for="_tab_121"><i class="icon fa fa-code"></i></label>
                 <div class="superfences-content">
                     <div class="mb-config-example">
-<pre><code class="toml">[apim.ai.embedding_provider]
+<pre><code class="toml"># API KEY CONFIGS
+[apim.ai.embedding_provider]
 type = "openai"
 [apim.ai.embedding_provider.properties]
 apikey = "<your-api-key>"
 embedding_endpoint = "https://api.openai.com/v1/embeddings"
 embedding_model = "<embedding-model>"
+
+# AZURE UMI CONFIGS
+[apim.ai.embedding_provider]
+type = "azure-openai"
+[apim.ai.embedding_provider.properties]
+auth_type = "umi"
+embedding_endpoint = "https://api.openai.azure.com/openai/deployments/text-embedding-3-small/embeddings?api-version=2024-02-01"
+azure_umi_scope = "https://cognitiveservices.azure.com/.default"
 </code></pre>
                     </div>
                 </div>
@@ -17527,6 +17536,27 @@ embedding_model = "<embedding-model>"
                         </div>
                         <div class="params-wrap">
                             <div class="param">
+                                <div class="param-name">
+                                  <span class="param-name-wrap"> <code>auth_type</code> </span>
+                                </div>
+                                <div class="param-info">
+                                    <div>
+                                        <p>
+                                            <span class="param-type string"> string </span>
+                                            
+                                        </p>
+                                        <div class="param-default">
+                                            <span class="param-default-value">Default: <code>apikey</code></span>
+                                        </div>
+                                        <div class="param-possible">
+                                            <span class="param-possible-values">Possible Values: <code>apikey, umi</code></span>
+                                        </div>
+                                    </div>
+                                    <div class="param-description">
+                                        <p>The authentication type for the embedding provider. This is applicable when embedding provider type is azure-openai. Supported values are apikey (use API key for authentication) and umi (use Azure User Managed Identity for authentication). If not specified, defaults to apikey.</p>
+                                    </div>
+                                </div>
+                            </div><div class="param">
                                 <div class="param-name">
                                   <span class="param-name-wrap"> <code>apikey</code> </span>
                                 </div>
@@ -17581,6 +17611,25 @@ embedding_model = "<embedding-model>"
                                     </div>
                                     <div class="param-description">
                                         <p>The embedding model to use. Required for openai (e.g., text-embedding-3-small) and mistral (e.g., mistral-embed) provider types. Not required for azure-openai as the model is determined by the endpoint.</p>
+                                    </div>
+                                </div>
+                            </div><div class="param">
+                                <div class="param-name">
+                                  <span class="param-name-wrap"> <code>azure_umi_scope</code> </span>
+                                </div>
+                                <div class="param-info">
+                                    <div>
+                                        <p>
+                                            <span class="param-type string"> string </span>
+                                            
+                                        </p>
+                                        <div class="param-default">
+                                            <span class="param-default-value">Default: <code>https://cognitiveservices.azure.com/.default</code></span>
+                                        </div>
+                                        
+                                    </div>
+                                    <div class="param-description">
+                                        <p>The scope to use when authenticating with Azure User Managed Identity. This is applicable when embedding provider type is azure-openai and auth_type is set to umi. The scope should be in the format https://&lt;custom-scope&gt;.azure.com/.default. Defaults to cognitive services scope (https://cognitiveservices.azure.com/.default) if not specified.</p>
                                     </div>
                                 </div>
                             </div>
@@ -17710,6 +17759,63 @@ ttl = 3600
                                     </div>
                                     <div class="param-description">
                                         <p>Time-to-live in seconds for cached vector entries. If not specified, defaults to 3600 seconds (1 hour).</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+
+
+
+## Azure AI Foundry UMI configurations
+
+
+<div class="mb-config-catalog">
+    <section>
+        <div class="mb-config-options">
+            <div class="superfences-tabs">
+            
+            <input name="123" type="checkbox" id="_tab_123">
+                <label class="tab-selector" for="_tab_123"><i class="icon fa fa-code"></i></label>
+                <div class="superfences-content">
+                    <div class="mb-config-example">
+<pre><code class="toml">[apim.ai.azure_umi]
+scope = "https://ai.azure.com/.default"
+</code></pre>
+                    </div>
+                </div>
+                <div class="doc-wrapper">
+                    <div class="mb-config">
+                        <div class="config-wrap">
+                            <code>[apim.ai.azure_umi]</code>
+                            
+                            <p>
+                                Configuration for Azure User Managed Identity (UMI) authentication used with Azure AI Foundry.
+                            </p>
+                        </div>
+                        <div class="params-wrap">
+                            <div class="param">
+                                <div class="param-name">
+                                  <span class="param-name-wrap"> <code>scope</code> </span>
+                                </div>
+                                <div class="param-info">
+                                    <div>
+                                        <p>
+                                            <span class="param-type string"> string </span>
+                                            
+                                        </p>
+                                        <div class="param-default">
+                                            <span class="param-default-value">Default: <code>https://ai.azure.com/.default</code></span>
+                                        </div>
+                                        
+                                    </div>
+                                    <div class="param-description">
+                                        <p>The OAuth scope used when authenticating with Azure User Managed Identity for Azure AI Foundry. Use this to override the default scope (https://ai.azure.com/.default) with a custom scope in the format https://&lt;custom-scope&gt;.azure.com/.default.</p>
                                     </div>
                                 </div>
                             </div>

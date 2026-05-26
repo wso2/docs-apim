@@ -6653,6 +6653,14 @@
                     "description": "Provider-specific properties for the embedding provider.",
                     "params": [
                         {
+                            "name": "auth_type",
+                            "type": "string",
+                            "required": false,
+                            "default": "apikey",
+                            "possible": "apikey, umi",
+                            "description": "The authentication type for the embedding provider. This is applicable when embedding provider type is azure-openai. Supported values are apikey (use API key for authentication) and umi (use Azure User Managed Identity for authentication). If not specified, defaults to apikey."
+                        },
+                        {
                             "name": "apikey",
                             "type": "string",
                             "required": true,
@@ -6675,6 +6683,14 @@
                             "default": "",
                             "possible": "",
                             "description": "The embedding model to use. Required for openai (e.g., text-embedding-3-small) and mistral (e.g., mistral-embed) provider types. Not required for azure-openai as the model is determined by the endpoint."
+                        },
+                        {
+                            "name": "azure_umi_scope",
+                            "type": "string",
+                            "required": false,
+                            "default": "https://cognitiveservices.azure.com/.default",
+                            "possible": "",
+                            "description": "The scope to use when authenticating with Azure User Managed Identity. This is applicable when embedding provider type is azure-openai and auth_type is set to umi. The scope should be in the format https://<custom-scope>.azure.com/.default. Defaults to cognitive services scope (https://cognitiveservices.azure.com/.default) if not specified."
                         }
                     ]
                 }
@@ -6732,7 +6748,28 @@
                 }
             ],
             "exampleFile": "apim.ai.vector_db_provider.toml"
-        }  
+        },
+        {
+            "title": "Azure AI Foundry UMI configurations",
+            "options": [
+                {
+                    "name": "apim.ai.azure_umi",
+                    "required": false,
+                    "description": "Configuration for Azure User Managed Identity (UMI) authentication used with Azure AI Foundry.",
+                    "params": [
+                        {
+                            "name": "scope",
+                            "type": "string",
+                            "required": false,
+                            "default": "https://ai.azure.com/.default",
+                            "possible": "",
+                            "description": "The OAuth scope used when authenticating with Azure User Managed Identity for Azure AI Foundry. Use this to override the default scope (https://ai.azure.com/.default) with a custom scope in the format https://<custom-scope>.azure.com/.default."
+                        }
+                    ]
+                }
+            ],
+            "exampleFile": "apim.ai.azure_umi.toml"
+        }
     ]
 }
 
