@@ -50,12 +50,25 @@ For routing, WSO2 API Manager 4.6.0 uses standard Kubernetes Ingress. An **NGINX
         oc login <API_SERVER_URL> --token=<TOKEN>
         ```
 
-2. Verify your connection and create the namespace:
+2. Once authenticated, verify your connection and check your currently selected project:
 
-    ```bash
-    oc whoami
-    oc create namespace apim
-    ```
+      ```bash
+      # Verify connection
+      oc whoami
+
+      # Check current project
+      oc project
+      ```
+
+!!! warning "Important"
+    Always create a dedicated project for your deployments instead of using the ```default``` to ensure proper resource isolation and security policy enforcement. Using a separate project allows you to manage access control and quotas independently from cluster infrastructure services.
+
+    - **To create a new project**:
+      ```bash
+      oc new-project <PROJECT-NAME>
+      ```
+    
+    Creating an OpenShift project automatically creates the corresponding Kubernetes namespace and switches the current context to it.
 
 ### Step 3 — Add the WSO2 Helm Repository { #step-3 }
 
@@ -89,7 +102,7 @@ Wait for the controller pod to be ready:
 kubectl get pods -n ingress-nginx -w
 ```
 
-The pod should show `1/1 Running` before proceeding.
+Make sure the deployment is up and running and the pods are ready before proceeding.
 
 ### Step 5 — Build an OpenShift-Compatible Docker Image { #step-5 }
 
@@ -140,9 +153,9 @@ Standard WSO2 images run as a fixed UID (`wso2carbon`, UID 802). OpenShift injec
         The `--platform` flag must match the architecture of your cluster nodes:
 
         - **Managed clusters (AKS, ROSA, ARO)** — use `linux/amd64`
-        - **OpenShift Local (CRC) on Apple Silicon (M1/M2/M3/M4)** — use `linux/arm64`
+        - **ARM based VMs** — use `linux/arm64`
 
-        Using the wrong platform will cause `ErrImagePull` when the pod starts.
+        Using the wrong platform will cause `ErrImagePull` when the pod starts. You can check a node's architecture with `kubectl get nodes -o wide`
 
 3. Get the image digest — you will need it when configuring your values file:
 
@@ -191,7 +204,8 @@ The Helm chart mounts a Kubernetes secret named `apim-keystore-secret` as a volu
     ```
 
 !!! note
-    The commands above use the default WSO2 keystores which are suitable for evaluation only. For production-level keystore setup, refer to [Configuring Keystores in WSO2 API Manager]({{base_path}}/install-and-setup/setup/security/configuring-keystores/configuring-keystores-in-wso2-api-manager/).
+    - Make sure to create the secret inside the namespace which will be used for installing the API Manager.
+    - The commands above use the default WSO2 keystores which are suitable for evaluation only. For production-level keystore setup, refer to [Configuring Keystores in WSO2 API Manager]({{base_path}}/install-and-setup/setup/security/configuring-keystores/configuring-keystores-in-wso2-api-manager/).
 
 ### Step 8 — Deploy the All-in-One { #step-8 }
 
