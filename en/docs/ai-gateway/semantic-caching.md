@@ -30,15 +30,30 @@ Choose one of the following embedding providers and add the configuration to you
     embedding_model = "mistral-embed"
     ```
 
-=== "Azure OpenAI"
+=== "Azure OpenAI (API-Key)"
 
     ```toml
     [apim.ai.embedding_provider]
     type = "azure-openai"
     [apim.ai.embedding_provider.properties]
     apikey = "<your-azure-openai-api-key>"
-    embedding_endpoint = "<your-azure-openai-embedding-endpoint>"
+    embedding_endpoint = "https://<resource>.openai.azure.com/openai/deployments/<deployment-id>/embeddings?api-version=2024-02-01"
     ```
+
+=== "Azure OpenAI (UMI)"
+    
+    From version 4.6.0 onwards (update level 30 for wso2am-4.6.0 and 31 for wso2am-acp-4.6.0), WSO2 API Manager supports **Azure Workload Identity (UMI)** authentication for AKS deployments (available from update level 30 for wso2am-4.6.0 and update level 31 for wso2am-acp-4.6.0). Instead of an API key, you can authenticate using Azure Workload Identity. Make sure Azure Workload Identity is enabled for the AKS cluster, the gateway uses a federated Kubernetes service account, and the managed identity has the required role assignment. For setup details, see [Azure Workload Identity prerequisites](https://learn.microsoft.com/azure/aks/workload-identity-overview). Then use the following configuration:
+
+    ```toml
+    [apim.ai.embedding_provider]
+    type = "azure-openai"
+    [apim.ai.embedding_provider.properties]
+    auth_type = "umi"
+    embedding_endpoint = "https://<resource>.openai.azure.com/openai/deployments/<deployment-id>/embeddings?api-version=2024-02-01"
+    # azure_umi_scope = "https://<custom-scope>.azure.com/.default"
+    ```
+
+    The `azure_umi_scope` is optional and can be used to override the default scope: _https://cognitiveservices.azure.com/.default_
 
 === "OpenAI"
 

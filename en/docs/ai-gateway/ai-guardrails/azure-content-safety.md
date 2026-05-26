@@ -20,6 +20,8 @@ This policy improves AI API safety by inspecting incoming prompts and AI-generat
 
     Add the following to the `$APIM_HOME/repository/conf/deployment.toml` file to register Azure Content Safety as a guardrail provider:
 
+    **API Key**
+
     ```toml
     [[apim.ai.guardrail_provider]]
     type = "azure-contentsafety"
@@ -27,6 +29,21 @@ This policy improves AI API safety by inspecting incoming prompts and AI-generat
     endpoint = "<azure-contentsafety-endpoint>"
     key = "<azure-contentsafety-api-key>"
     ```
+
+    **Azure Workload Identity (UMI)**
+
+    From version 4.6.0 onwards (update level 30 for wso2am-4.6.0 and 31 for wso2am-acp-4.6.0), WSO2 API Manager supports **Azure Workload Identity (UMI)** authentication for AKS deployments. Instead of an API key, you can authenticate using a federated Kubernetes service account with the required role assignment. Make sure Azure Workload Identity is enabled for the AKS cluster and the managed identity has the required role assignment. For setup details, see [Azure Workload Identity prerequisites](https://learn.microsoft.com/azure/aks/workload-identity-overview). Then use the following configuration:
+
+    ```toml
+    [[apim.ai.guardrail_provider]]
+    type = "azure-contentsafety"
+    [apim.ai.guardrail_provider.properties]
+    auth_type = "umi"
+    endpoint = "<azure-contentsafety-endpoint>"
+    # azure_umi_scope = "https://<custom-scope>.azure.com/.default"
+    ```
+
+    The `azure_umi_scope` is optional and can be used to override the default scope: _https://cognitiveservices.azure.com/.default_
 
 Follow these steps to integrate the **Azure Content Safety Content Moderation Guardrail** policy into your AI API:
 
