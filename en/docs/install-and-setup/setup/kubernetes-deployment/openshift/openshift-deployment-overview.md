@@ -49,12 +49,26 @@ For routing, OpenShift supports `Route` objects (native to OpenShift), Envoy Gat
         oc login <API_SERVER_URL> -u <USERNAME> -p <PASSWORD>
         ```
 
-2. Verify your connection and create the namespace:
+2. Once authenticated, verify your connection and check your currently selected project:
 
-    ```bash
-    oc whoami
-    oc create namespace apim
-    ```
+      ```bash
+      # Verify connection
+      oc whoami
+
+      # Check current project
+      oc project
+      ```
+
+!!! warning "Important"
+    Always create a dedicated project for your deployments instead of using the ```default``` to ensure proper resource isolation and security policy enforcement. Using a separate project allows you to manage access control and quotas independently from cluster infrastructure services.
+
+    - **To create a new project**:
+      ```bash
+      oc new-project <PROJECT-NAME>
+      ```
+    
+    Creating an OpenShift project automatically creates the corresponding Kubernetes namespace and switches the current context to it.
+
 
 ### Step 3 — Add the WSO2 Helm Repository { #step-3 }
 
@@ -112,10 +126,10 @@ Standard WSO2 images run as a fixed UID (`wso2carbon`, UID 802). OpenShift injec
     !!! note "Matching your cluster architecture"
         The `--platform` flag must match the architecture of your cluster nodes:
 
-        - **Managed clusters (AKS, ROSA, ARO)** — use `linux/amd64`
-        - **OpenShift Local (CRC) on Apple Silicon (M1/M2/M3/M4)** — use `linux/arm64`
+        - **Managed clusters (AKS, ROSA, ARO)** — use `linux/amd64` by default
+        - **ARM based VMs** — use `linux/arm64`
 
-        Using the wrong platform will cause `ErrImagePull` when the pod starts.
+        Using the wrong platform will cause `ErrImagePull` when the pod starts. You can check a node's architecture with `kubectl get nodes -o wide`
 
 3. Get the image digest — you will need it when configuring your values file:
 
@@ -164,7 +178,9 @@ The Helm chart mounts a Kubernetes secret named `apim-keystore-secret` as a volu
     ```
 
 !!! note
-    The commands above use the default WSO2 keystores which are suitable for evaluation only. For production-level keystore setup, refer to [Configuring Keystores in WSO2 API Manager]({{base_path}}/install-and-setup/setup/security/configuring-keystores/configuring-keystores-in-wso2-api-manager/).
+    - Make sure to create the secret inside the namespace which will be used for installing the API Manager.
+    - The commands above use the default WSO2 keystores which are suitable for evaluation only. For production-level keystore setup, refer to [Configuring Keystores in WSO2 API Manager]({{base_path}}/install-and-setup/setup/security/configuring-keystores/configuring-keystores-in-wso2-api-manager/).
+
 
 ### Step 7 — Deploy the All-in-One { #step-7 }
 
@@ -315,6 +331,8 @@ Every component deployed on OpenShift requires the following block in its values
 
 ```yaml
 kubernetes:
+  openshift:
+    enabled: true
   securityContext:
     # Allow OpenShift to assign arbitrary UIDs
     runAsUser: null
@@ -334,6 +352,7 @@ kubernetes:
 
 | Setting | Why it's needed |
 |---|---|
+| `openshift.enabled: true` | Enables OpenShift-specific filesystem adjustments during deployment |
 | `runAsUser: null` | Lets OpenShift assign its random UID instead of the image's fixed UID |
 | `enableAppArmor: false` | AppArmor is not supported on OpenShift |
 | `seLinux.enabled: false` | Leave off unless your cluster has SELinux policies configured for WSO2 |
@@ -367,6 +386,8 @@ Create a values file for each component. For the ACP (`values-acp.yaml`):
 
 ```yaml
 kubernetes:
+  openshift:
+    enabled: true
   securityContext:
     runAsUser: null
     seLinux:
