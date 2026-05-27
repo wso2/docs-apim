@@ -1,6 +1,6 @@
-# Changing the Provider of an Api
+# Changing the Provider of an API
 
-If required, you can transfer the ownership of your api to another user in your organization. Thereby, when transferring ownership, the new provider/owner will have the required permission to delete or edit the respective api.
+If required, you can transfer the ownership of your API to another user in your organization. Thereby, when transferring ownership, the new provider/owner will have the required permission to delete or edit the respective API.
 
 For example, let's consider that **Chris** and **Kim** are in the same organization and that **Kim** owns testApi and he wants to transfer the ownership of testApi to **Chris**.
 
@@ -16,13 +16,13 @@ Follow the instructions below to change the ownership of an application:
      2. Create two users named **Chris** and **Kim** with the `Internal/creator` role.
         Refer [Create New Users]({{base_path}}/administer/managing-users-and-roles/managing-users#adding-a-new-user) for more information.
 
-3.  We can check the current provider by logging to the publisher portal and by looking at the api tiles.
+3.  We can check the current provider by logging to the publisher portal and by looking at the API tiles.
 
-    1.  Sign in to the WSO2 API-M Publisher Portal using the api owner's (Kim's) user credentials.
+    1.  Sign in to the WSO2 API-M Publisher Portal using the API owner's (Kim's) user credentials.
 
          `https://<APIM-hostname>:9443/publisher`
 
-    2.  If the apis does not exist, create it in the Publisher Portal.
+    2.  If the API does not exist, create it in the Publisher Portal.
 
 4.  Change the owner/provider of the api.
 

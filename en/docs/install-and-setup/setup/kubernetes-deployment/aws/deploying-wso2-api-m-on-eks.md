@@ -3,7 +3,7 @@
 This guide provides a step-by-step approach to deploying WSO2 API Manager on Amazon Elastic Kubernetes Service (EKS). This deployment follows the standard WSO2 Kubernetes architecture, extended to use AWS-specific services such as Amazon RDS/Aurora for databases and Application Load Balancer (ALB) for ingress.
 
 !!! info
-    This deployment aligns with the standard deployment models described in [WSO2 API Manager Deployment Patterns]({{base_path}}/install-and-setup/setup/kubernetes-deployment/kubernetes/kubernetes-deployment-overview.md) and [API-M Deployment with All-in-One HA Setup]({{base_path}}/install-and-setup/setup/kubernetes-deployment/kubernetes/am-pattern-1-all-in-one-ha.md).
+    This deployment aligns with the standard deployment models described in [WSO2 API Manager Deployment Patterns]({{base_path}}/install-and-setup/setup/kubernetes-deployment/kubernetes/kubernetes-overview/#deployment-patterns) and [API-M Deployment with All-in-One HA Setup]({{base_path}}/install-and-setup/setup/kubernetes-deployment/kubernetes/am-pattern-1-all-in-one-ha/).
 
 ## Contents
 
@@ -155,7 +155,7 @@ The official WSO2 APIM Docker image does not include JDBC drivers. You need to b
 Create a `Dockerfile` with the following content:
 
 ```dockerfile
-FROM docker.wso2.com/wso2am:4.7.0.0
+FROM registry.wso2.com/wso2-apim/am:4.7.0.0
 
 ARG USER=wso2carbon
 ARG USER_HOME=/home/${USER}

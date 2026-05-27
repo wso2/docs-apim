@@ -15,7 +15,7 @@ Here's a summary:
 
 **Client** `(headers: Authorization, Custom)`--> **Gateway** `(drop: Authorization, convert: Custom->Authorization)` --> **Backend**
 
-1.  Add the following sequence content to a file and save it as `tokenExchange.xml`.
+1.  Add the following sequence content to a file and save it as `tokenExchange.j2`.
 
     !!! example
         ```xml
@@ -44,7 +44,7 @@ Here's a summary:
     |                           | Description       | Passing a custom authorization token to the backend |
     |                           | Applicable Flows  | Request               |
     |                           | Supported API Types  | HTTP               |
-    | Gateway Specific Details  | Policy File       | `tokenExchange.xml` file you created |
+    | Gateway Specific Details  | Policy File       | `tokenExchange.j2` file you created |
     | Policy Attributes         | N/A               | N/A                     |
 
 4.  Next, find the **Custom Authorization Token** policy that you just created by following Step 3, from the `Request` tab of the policy list. Drag and drop this policy to the desired API operation(s) by following the instructions in [Attach Policies]({{base_path}}/api-design-manage/design/api-policies/attach-policy/).

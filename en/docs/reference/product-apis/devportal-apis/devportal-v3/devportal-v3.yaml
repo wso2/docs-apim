@@ -100,7 +100,7 @@ info:
     * Make sure you have an API Manager instance up and running.
     * Update the `basepath` parameter to match the hostname and port of the APIM instance.
 
-    <a href="../../../../../assets/attachments/reference/devportal-v3.4-postman-collection.json"
+    <a href="../../../../../assets/attachments/reference/devportal-v3.5-postman-collection.json"
     download="WSO2 API Manager 4.7.0 DevPortal REST API.postman_collection.json"
     style="display: inline-block; padding: 10px 15px; color: white; background-color: #ef5b25; text-align: center; text-decoration: none; border-radius: 5px;font-weight: bold;">
     Download Postman Collection
@@ -184,7 +184,9 @@ paths:
         - OAuth2Security: []
       x-code-samples:
         - lang: Curl
-          source: curl -k "https://localhost:9443/api/am/devportal/v3/apis"
+          source: |
+            curl -k \
+              "https://localhost:9443/api/am/devportal/v3/apis"
 
   /apis/{apiId}:
     get:
@@ -237,7 +239,9 @@ paths:
         - OAuth2Security: []
       x-code-samples:
         - lang: Curl
-          source: curl -k "https://localhost:9443/api/am/devportal/v3/apis/c43a325c-260b-4302-81cb-768eafaa3aed"
+          source: |
+            curl -k \
+              "https://localhost:9443/api/am/devportal/v3/apis/c43a325c-260b-4302-81cb-768eafaa3aed"
 
   /apis/{apiId}/swagger:
     get:
@@ -263,9 +267,9 @@ paths:
           description: |
             **Key Manager Specific Swagger Generation**.
             To retrieve an OpenAPI Specification (OAS) definition for a specific Key Manager, please specify the Key Manager's ID in your request. 
-              
+            
             For example, by passing the query parameter `kmId=65e30b46-85e4-4788-85b7-b1c3de06b2e0`, you will receive the OAS definition containing all relevant information for the Key Manager associated with that ID.
-              
+            
             **Important:** If you're using a client that does not automatically handle URL encoding (such as `curl`), please ensure that you encode the URL properly.
           schema:
             type: string
@@ -317,7 +321,9 @@ paths:
         - OAuth2Security: []
       x-code-samples:
         - lang: Curl
-          source: curl -k "https://localhost:9443/api/am/devportal/v3/apis/c43a325c-260b-4302-81cb-768eafaa3aed/swagger"
+          source: |
+            curl -k \
+              "https://localhost:9443/api/am/devportal/v3/apis/c43a325c-260b-4302-81cb-768eafaa3aed/swagger"
 
   /apis/{apiId}/async-api-specification:
     get:
@@ -425,7 +431,9 @@ paths:
         - OAuth2Security: [ ]
       x-code-samples:
         - lang: Curl
-          source: curl -k "https://localhost:9443/api/am/devportal/v3/apis/c43a325c-260b-4302-81cb-768eafaa3aed/async-api-specification"
+          source: |
+            curl -k \
+              "https://localhost:9443/api/am/devportal/v3/apis/c43a325c-260b-4302-81cb-768eafaa3aed/async-api-specification"
 
   /apis/{apiId}/graphql-schema:
     get:
@@ -572,7 +580,9 @@ paths:
         - OAuth2Security: []
       x-code-samples:
         - lang: Curl
-          source: curl -k "https://localhost:9443/api/am/devportal/v3/apis/c43a325c-260b-4302-81cb-768eafaa3aed/graphql-schema"
+          source: |
+            curl -k \
+              "https://localhost:9443/api/am/devportal/v3/apis/c43a325c-260b-4302-81cb-768eafaa3aed/graphql-schema"
 
   /apis/{apiId}/sdks/{language}:
     get:
@@ -615,9 +625,10 @@ paths:
             - apim:subscribe
       x-code-samples:
         - lang: Curl
-          source: curl -k -H "Authorization:Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8"
-            "https://localhost:9443/api/am/devportal/v3/apis/890a4f4d-09eb-4877-a323-57f6ce2ed79b/sdks/java"
-            > Petstore_java_1.0.0.zip
+          source: |
+            curl -k \
+              -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" \
+              "https://localhost:9443/api/am/devportal/v3/apis/890a4f4d-09eb-4877-a323-57f6ce2ed79b/sdks/java" > Petstore_java_1.0.0.zip
 
   /apis/{apiId}/wsdl:
     get:
@@ -628,10 +639,14 @@ paths:
         This operation can be used to retrieve the swagger definition of an API.
       operationId: getWSDLOfAPI
       parameters:
+        - $ref: '#/components/parameters/formatWsdl'
         - $ref: '#/components/parameters/apiId'
         - $ref: '#/components/parameters/environmentName'
         - $ref: '#/components/parameters/If-None-Match'
         - $ref: '#/components/parameters/requestedTenant'
+        - $ref: '#/components/parameters/exp'
+        - $ref: '#/components/parameters/sig'
+        - $ref: '#/components/parameters/requestedTenant-Q'
       responses:
         200:
           description: |
@@ -663,7 +678,9 @@ paths:
         - OAuth2Security: []
       x-code-samples:
         - lang: Curl
-          source: curl -k "https://localhost:9443/api/am/devportal/v3/apis/c43a325c-260b-4302-81cb-768eafaa3aed/wsdl"
+          source: |
+            curl -k \
+              "https://localhost:9443/api/am/devportal/v3/apis/c43a325c-260b-4302-81cb-768eafaa3aed/wsdl"
 
   ######################################################
   # The "Document Collection" resource APIs
@@ -715,7 +732,9 @@ paths:
         - OAuth2Security: []
       x-code-samples:
         - lang: Curl
-          source: curl -k "https://localhost:9443/api/am/devportal/v3/apis/c43a325c-260b-4302-81cb-768eafaa3aed/documents"
+          source: |
+            curl -k \
+              "https://localhost:9443/api/am/devportal/v3/apis/c43a325c-260b-4302-81cb-768eafaa3aed/documents"
 
   ######################################################
   # The "Individual Document" resource APIs
@@ -767,7 +786,9 @@ paths:
         - OAuth2Security: []
       x-code-samples:
         - lang: Curl
-          source: curl -k "https://localhost:9443/api/am/devportal/v3/apis/c43a325c-260b-4302-81cb-768eafaa3aed/documents/850a4f34-db2c-4d23-9d85-3f95fbfb082c"
+          source: |
+            curl -k \
+              "https://localhost:9443/api/am/devportal/v3/apis/c43a325c-260b-4302-81cb-768eafaa3aed/documents/850a4f34-db2c-4d23-9d85-3f95fbfb082c"
 
   /apis/{apiId}/documents/{documentId}/content:
     get:
@@ -839,7 +860,9 @@ paths:
         - OAuth2Security: []
       x-code-samples:
         - lang: Curl
-          source: curl -k "https://localhost:9443/api/am/devportal/v3/apis/890a4f4d-09eb-4877-a323-57f6ce2ed79b/documents/0bcb7f05-599d-4e1a-adce-5cb89bfe58d5/content"
+          source: |
+            curl -k \
+              "https://localhost:9443/api/am/devportal/v3/apis/890a4f4d-09eb-4877-a323-57f6ce2ed79b/documents/0bcb7f05-599d-4e1a-adce-5cb89bfe58d5/content"
 
   /apis/{apiId}/thumbnail:
     get:
@@ -894,7 +917,9 @@ paths:
         - OAuth2Security: []
       x-code-samples:
         - lang: Curl
-          source: 'curl -k "https://localhost:9443/api/am/devportal/v3/apis/e93fb282-b456-48fc-8981-003fb89086ae/thumbnail" > image.jpeg'
+          source: |
+            curl -k \
+              "https://localhost:9443/api/am/devportal/v3/apis/e93fb282-b456-48fc-8981-003fb89086ae/thumbnail" > image.jpeg
 
   /apis/{apiId}/ratings:
     get:
@@ -925,7 +950,9 @@ paths:
         - OAuth2Security: []
       x-code-samples:
         - lang: Curl
-          source: curl -k "https://localhost:9443/api/am/devportal/v3/apis/e93fb282-b456-48fc-8981-003fb89086ae/ratings"
+          source: |
+            curl -k \
+              "https://localhost:9443/api/am/devportal/v3/apis/e93fb282-b456-48fc-8981-003fb89086ae/ratings"
 
   /apis/{apiId}/user-rating:
     get:
@@ -976,8 +1003,10 @@ paths:
             - apim:subscribe
       x-code-samples:
         - lang: Curl
-          source: curl -k -H "Authorization:Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8"
-            "https://localhost:9443/api/am/devportal/v3/apis/e93fb282-b456-48fc-8981-003fb89086ae/user-rating"
+          source: |
+            curl -k \
+              -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" \
+              "https://localhost:9443/api/am/devportal/v3/apis/e93fb282-b456-48fc-8981-003fb89086ae/user-rating"
 
     put:
       tags:
@@ -1022,8 +1051,12 @@ paths:
             - apim:subscribe
       x-code-samples:
         - lang: Curl
-          source: 'curl -k -X PUT -H "Authorization:Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8"
-          -H "Content-Type: application/json" -d @data.json "https://localhost:9443/api/am/devportal/v3/apis/e93fb282-b456-48fc-8981-003fb89086ae/user-rating"'
+          source: |
+            curl -k -X PUT \
+              -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" \
+              -H "Content-Type: application/json" \
+              -d @data.json \
+              "https://localhost:9443/api/am/devportal/v3/apis/e93fb282-b456-48fc-8981-003fb89086ae/user-rating"
 
     delete:
       tags:
@@ -1048,8 +1081,10 @@ paths:
             - apim:subscribe
       x-code-samples:
         - lang: Curl
-          source: curl -k -X DELETE -H "Authorization:Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8"
-            "https://localhost:9443/api/am/devportal/v3/apis/e93fb282-b456-48fc-8981-003fb89086ae/user-rating"
+          source: |
+            curl -k -X DELETE \
+              -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" \
+              "https://localhost:9443/api/am/devportal/v3/apis/e93fb282-b456-48fc-8981-003fb89086ae/user-rating"
 
   /apis/{apiId}/comments:
     get:
@@ -1082,7 +1117,9 @@ paths:
         - OAuth2Security: []
       x-code-samples:
         - lang: Curl
-          source: curl -k "https://localhost:9443/api/am/devportal/v3/apis/e93fb282-b456-48fc-8981-003fb89086ae/comments"
+          source: |
+            curl -k \
+              "https://localhost:9443/api/am/devportal/v3/apis/e93fb282-b456-48fc-8981-003fb89086ae/comments"
 
     post:
       tags:
@@ -1136,8 +1173,12 @@ paths:
             - apim:subscribe
       x-code-samples:
         - lang: Curl
-          source: 'curl -k -X POST -H "Authorization:Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8"
-          -H "Content-Type: application/json" -d @data.json "https://localhost:9443/api/am/devportal/v3/apis/e93fb282-b456-48fc-8981-003fb89086ae/comments"'
+          source: |
+            curl -k -X POST \
+              -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" \
+              -H "Content-Type: application/json" \
+              -d @data.json \
+              "https://localhost:9443/api/am/devportal/v3/apis/e93fb282-b456-48fc-8981-003fb89086ae/comments"
 
   /apis/{apiId}/comments/{commentId}:
     get:
@@ -1189,7 +1230,9 @@ paths:
         - OAuth2Security: []
       x-code-samples:
         - lang: Curl
-          source: curl -k "https://localhost:9443/api/am/devportal/v3/apis/e93fb282-b456-48fc-8981-003fb89086ae/comments/d4cf1704-5d09-491c-bc48-4d19ce6ea9b4"
+          source: |
+            curl -k \
+              "https://localhost:9443/api/am/devportal/v3/apis/e93fb282-b456-48fc-8981-003fb89086ae/comments/d4cf1704-5d09-491c-bc48-4d19ce6ea9b4"
 
     patch:
       tags:
@@ -1248,8 +1291,12 @@ paths:
             - apim:subscribe
       x-code-samples:
         - lang: Curl
-          source: 'curl -k -X PATCH -H "Authorization:Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8"
-          -H "Content-Type: application/json" -d @data.json "https://localhost:9443/api/am/devportal/v3/apis/e93fb282-b456-48fc-8981-003fb89086ae/comments/d4cf1704-5d09-491c-bc48-4d19ce6ea9b4"'
+          source: |
+            curl -k -X PATCH \
+              -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" \
+              -H "Content-Type: application/json" \
+              -d @data.json \
+              "https://localhost:9443/api/am/devportal/v3/apis/e93fb282-b456-48fc-8981-003fb89086ae/comments/d4cf1704-5d09-491c-bc48-4d19ce6ea9b4"
 
     delete:
       tags:
@@ -1290,8 +1337,10 @@ paths:
             - apim:admin # special scope added to moderate comments
       x-code-samples:
         - lang: Curl
-          source: curl -k -X DELETE -H "Authorization:Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8"
-            "https://localhost:9443/api/am/devportal/v3/apis/e93fb282-b456-48fc-8981-003fb89086ae/comments/d4cf1704-5d09-491c-bc48-4d19ce6ea9b4"
+          source: |
+            curl -k -X DELETE \
+              -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" \
+              "https://localhost:9443/api/am/devportal/v3/apis/e93fb282-b456-48fc-8981-003fb89086ae/comments/d4cf1704-5d09-491c-bc48-4d19ce6ea9b4"
 
   /apis/{apiId}/comments/{commentId}/replies:
     get:
@@ -1343,7 +1392,10 @@ paths:
         - OAuth2Security: []
       x-code-samples:
         - lang: Curl
-          source: curl -k -H "Authorization:Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" "https://localhost:9443/api/am/devportal/v3/apis/e93fb282-b456-48fc-8981-003fb89086ae/comments/d4cf1704-5d09-491c-bc48-4d19ce6ea9b4/replies"
+          source: |
+            curl -k \
+              -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" \
+              "https://localhost:9443/api/am/devportal/v3/apis/e93fb282-b456-48fc-8981-003fb89086ae/comments/d4cf1704-5d09-491c-bc48-4d19ce6ea9b4/replies"
 
   /apis/{apiId}/topics:
     get:
@@ -1380,8 +1432,10 @@ paths:
         - OAuth2Security: []
       x-code-samples:
         - lang: Curl
-          source: curl -k -H "Authorization:Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8"
-            "https://localhost:9443/api/am/devportal/v3/apis/5b65808c-cdf2-43e1-a695-de63e3ad0ae9/topics"
+          source: |
+            curl -k \
+              -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" \
+              "https://localhost:9443/api/am/devportal/v3/apis/5b65808c-cdf2-43e1-a695-de63e3ad0ae9/topics"
 
   /apis/{apiId}/subscription-policies:
     get:
@@ -1432,7 +1486,282 @@ paths:
         - OAuth2Security: []
       x-code-samples:
         - lang: Curl
-          source: curl -k "https://localhost:9443/api/am/devportal/v3/apis/268c9e55-3dc1-4f47-82e7-977e5343d077/subscription-policies"
+          source: |
+            curl -k \
+              "https://localhost:9443/api/am/devportal/v3/apis/268c9e55-3dc1-4f47-82e7-977e5343d077/subscription-policies"
+
+  /apis/{apiId}/api-keys/generate:
+    post:
+      tags:
+        - APIKeys
+      summary: Generate API Key
+      description: |
+        Generate a self contained API Key for the API
+      operationId: generateApiBoundApiKey
+      parameters:
+        - $ref: '#/components/parameters/apiId'
+        - $ref: '#/components/parameters/If-Match'
+      requestBody:
+        description: |
+          API Key generation request object
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/APIAPIKeyGenerateRequest'
+        required: true
+      responses:
+        200:
+          description: |
+            OK.
+            Api key generated.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/APIKey'
+        400:
+          $ref: '#/components/responses/BadRequest'
+        404:
+          $ref: '#/components/responses/NotFound'
+        412:
+          $ref: '#/components/responses/PreconditionFailed'
+      security:
+        - OAuth2Security:
+            - apim:subscribe
+            - apim:app_manage
+            - apim:api_key
+      x-code-samples:
+        - lang: Curl
+          source: |
+            curl -k -X POST \
+              -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" \
+              -H "Content-Type: application/json" \
+              -d @data.json \
+              "https://localhost:9443/api/am/devportal/v3/apis/16cd2684-9657-4a01-a956-4efd89e96077/api-keys/generate"
+
+  /apis/{apiId}/api-keys/regenerate:
+    post:
+      tags:
+        - APIKeys
+      summary: Regenerate API Key
+      description: |
+        Regenerate a self contained API Key for the API specified by the key UUID
+      operationId: regenerateAPIBoundAPIKey
+      parameters:
+        - $ref: '#/components/parameters/apiId'
+        - $ref: '#/components/parameters/If-Match'
+      requestBody:
+        description: |
+          API Key renewal request object
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/APIKeyRenewRequest'
+        required: true
+      responses:
+        200:
+          description: |
+            OK.
+            Api key regenerated successfully.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/APIKey'
+        400:
+          $ref: '#/components/responses/BadRequest'
+        404:
+          $ref: '#/components/responses/NotFound'
+        412:
+          $ref: '#/components/responses/PreconditionFailed'
+      security:
+        - OAuth2Security:
+            - apim:subscribe
+            - apim:app_manage
+            - apim:api_key
+      x-code-samples:
+        - lang: Curl
+          source: |
+            curl -k -X POST \
+              -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" \
+              -H "Content-Type: application/json" \
+              -d @data.json \
+              "https://localhost:9443/api/am/devportal/v3/apis/16cd2684-9657-4a01-a956-4efd89e96077/api-keys/regenerate"
+
+  /apis/{apiId}/api-keys:
+    get:
+      tags:
+        - APIKeys
+      summary: Get API Key(s) of a Given API
+      description: |
+        Retrieve self contained API Key(s) for the API.
+      operationId: getAPIBoundAPIKeys
+      parameters:
+        - $ref: '#/components/parameters/apiId'
+        - $ref: '#/components/parameters/If-None-Match'
+      responses:
+        200:
+          description: |
+            OK.
+            API key(s) of a given API are returned.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/APIAPIKeyList'
+        400:
+          $ref: '#/components/responses/BadRequest'
+        404:
+          $ref: '#/components/responses/NotFound'
+        412:
+          $ref: '#/components/responses/PreconditionFailed'
+      security:
+        - OAuth2Security:
+            - apim:subscribe
+            - apim:app_manage
+            - apim:api_key
+      x-code-samples:
+        - lang: Curl
+          source: |
+            curl -k -X GET \
+              -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" \
+              -H "Content-Type: application/json" \
+              "https://localhost:9443/api/am/devportal/v3/apis/16cd2684-9657-4a01-a956-4efd89e96077/api-keys"
+
+  /apis/{apiId}/api-keys/revoke:
+    post:
+      tags:
+        - APIKeys
+      summary: Revoke API Key
+      description: |
+        Revoke a self contained API Key for the API specified by the key UUID
+      operationId: revokeAPIBoundAPIKey
+      parameters:
+        - $ref: '#/components/parameters/apiId'
+        - $ref: '#/components/parameters/If-Match'
+      requestBody:
+        description: |
+          API Key revocation request object
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/APIAPIKeyRevokeRequest'
+        required: true
+      responses:
+        200:
+          description: |
+            OK.
+            Api key revoked successfully.
+          content: { }
+        400:
+          $ref: '#/components/responses/BadRequest'
+        404:
+          $ref: '#/components/responses/NotFound'
+        412:
+          $ref: '#/components/responses/PreconditionFailed'
+      security:
+        - OAuth2Security:
+            - apim:subscribe
+            - apim:app_manage
+            - apim:api_key
+      x-code-samples:
+        - lang: Curl
+          source: |
+            curl -k -X POST \
+              -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" \
+              -H "Content-Type: application/json" \
+              -d @data.json \
+              "https://localhost:9443/api/am/devportal/v3/apis/16cd2684-9657-4a01-a956-4efd89e96077/api-keys/revoke"
+
+  /apis/{apiId}/api-keys/associate:
+    post:
+      tags:
+        - APIKeys
+      summary: Create an association for the API Key
+      description: |
+        Create an association for a self contained API Key for the API
+      operationId: associateAPIKey
+      parameters:
+        - $ref: '#/components/parameters/apiId'
+        - $ref: '#/components/parameters/If-Match'
+      requestBody:
+        description: |
+          API Key association request object
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/APIAPIKeyAssociateRequest'
+        required: true
+      responses:
+        200:
+          description: |
+            OK.
+            Api key associated successfully.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/APIKeyAssociation'
+        400:
+          $ref: '#/components/responses/BadRequest'
+        404:
+          $ref: '#/components/responses/NotFound'
+        412:
+          $ref: '#/components/responses/PreconditionFailed'
+      security:
+        - OAuth2Security:
+            - apim:subscribe
+            - apim:app_manage
+            - apim:api_key
+      x-code-samples:
+        - lang: Curl
+          source: |
+            curl -k -X POST \
+              -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" \
+              -H "Content-Type: application/json" \
+              -d @data.json \
+              "https://localhost:9443/api/am/devportal/v3/apis/16cd2684-9657-4a01-a956-4efd89e96077/api-keys/associate"
+
+  /apis/{apiId}/api-keys/dissociate:
+    post:
+      tags:
+        - APIKeys
+      summary: Remove an Association for the API Key
+      description: |
+        Remove an association a self contained API Key for the API specified by the key UUID
+      operationId: dissociateAPIKey
+      parameters:
+        - $ref: '#/components/parameters/apiId'
+        - $ref: '#/components/parameters/If-Match'
+      requestBody:
+        description: |
+          API Key dissociation request object
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/APIKeyDissociateRequest'
+        required: true
+      responses:
+        200:
+          description: |
+            OK.
+            Removed association for the Api key successfully.
+          content: { }
+        400:
+          $ref: '#/components/responses/BadRequest'
+        404:
+          $ref: '#/components/responses/NotFound'
+        412:
+          $ref: '#/components/responses/PreconditionFailed'
+      security:
+        - OAuth2Security:
+            - apim:subscribe
+            - apim:app_manage
+            - apim:api_key
+      x-code-samples:
+        - lang: Curl
+          source: |
+            curl -k -X POST \
+              -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" \
+              -H "Content-Type: application/json" \
+              -d @data.json \
+              "https://localhost:9443/api/am/devportal/v3/apis/16cd2684-9657-4a01-a956-4efd89e96077/api-keys/dissociate"
 
   /mcp-servers:
     get:
@@ -1502,7 +1831,9 @@ paths:
         - OAuth2Security: [ ]
       x-code-samples:
         - lang: Curl
-          source: curl -k "https://localhost:9443/api/am/devportal/v3/mcp-servers"
+          source: |
+            curl -k \
+              "https://localhost:9443/api/am/devportal/v3/mcp-servers"
       operationId: getAllMCPServers
 
   /mcp-servers/{mcpServerId}:
@@ -1561,7 +1892,9 @@ paths:
         - OAuth2Security: [ ]
       x-code-samples:
         - lang: Curl
-          source: curl -k "https://localhost:9443/api/am/devportal/v3/mcp-servers/c43a325c-260b-4302-81cb-768eafaa3aed"
+          source: |
+            curl -k \
+              "https://localhost:9443/api/am/devportal/v3/mcp-servers/c43a325c-260b-4302-81cb-768eafaa3aed"
       operationId: getMCPServer
 
   ######################################################
@@ -1618,7 +1951,9 @@ paths:
         - OAuth2Security: [ ]
       x-code-samples:
         - lang: Curl
-          source: curl -k "https://localhost:9443/api/am/devportal/v3/mcp-servers/c43a325c-260b-4302-81cb-768eafaa3aed/documents"
+          source: |
+            curl -k \
+              "https://localhost:9443/api/am/devportal/v3/mcp-servers/c43a325c-260b-4302-81cb-768eafaa3aed/documents"
       operationId: getMCPServerDocuments
 
   ######################################################
@@ -1674,7 +2009,9 @@ paths:
         - OAuth2Security: [ ]
       x-code-samples:
         - lang: Curl
-          source: curl -k "https://localhost:9443/api/am/devportal/v3/mcp-servers/c43a325c-260b-4302-81cb-768eafaa3aed/documents/850a4f34-db2c-4d23-9d85-3f95fbfb082c"
+          source: |
+            curl -k \
+              "https://localhost:9443/api/am/devportal/v3/mcp-servers/c43a325c-260b-4302-81cb-768eafaa3aed/documents/850a4f34-db2c-4d23-9d85-3f95fbfb082c"
       operationId: getMCPServerDocument
 
   /mcp-servers/{mcpServerId}/documents/{documentId}/content:
@@ -1750,7 +2087,9 @@ paths:
         - OAuth2Security: [ ]
       x-code-samples:
         - lang: Curl
-          source: curl -k "https://localhost:9443/api/am/devportal/v3/mcp-servers/890a4f4d-09eb-4877-a323-57f6ce2ed79b/documents/0bcb7f05-599d-4e1a-adce-5cb89bfe58d5/content"
+          source: |
+            curl -k \
+              "https://localhost:9443/api/am/devportal/v3/mcp-servers/890a4f4d-09eb-4877-a323-57f6ce2ed79b/documents/0bcb7f05-599d-4e1a-adce-5cb89bfe58d5/content"
       operationId: getMCPServerDocumentContent
 
   /mcp-servers/{mcpServerId}/thumbnail:
@@ -1809,7 +2148,9 @@ paths:
         - OAuth2Security: [ ]
       x-code-samples:
         - lang: Curl
-          source: 'curl -k "https://localhost:9443/api/am/devportal/v3/mcp-servers/e93fb282-b456-48fc-8981-003fb89086ae/thumbnail" > image.jpeg'
+          source: |
+            curl -k \
+              "https://localhost:9443/api/am/devportal/v3/mcp-servers/e93fb282-b456-48fc-8981-003fb89086ae/thumbnail" > image.jpeg
       operationId: getMCPServerThumbnail
 
   /mcp-servers/{mcpServerId}/ratings:
@@ -1843,7 +2184,9 @@ paths:
         - OAuth2Security: [ ]
       x-code-samples:
         - lang: Curl
-          source: curl -k "https://localhost:9443/api/am/devportal/v3/mcp-servers/e93fb282-b456-48fc-8981-003fb89086ae/ratings"
+          source: |
+            curl -k \
+              "https://localhost:9443/api/am/devportal/v3/mcp-servers/e93fb282-b456-48fc-8981-003fb89086ae/ratings"
       operationId: getMCPServerRatings
 
   /mcp-servers/{mcpServerId}/user-rating:
@@ -1896,8 +2239,10 @@ paths:
             - apim:subscribe
       x-code-samples:
         - lang: Curl
-          source: curl -k -H "Authorization:Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8"
-            "https://localhost:9443/api/am/devportal/v3/mcp-servers/e93fb282-b456-48fc-8981-003fb89086ae/user-rating"
+          source: |
+            curl -k \
+              -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" \
+              "https://localhost:9443/api/am/devportal/v3/mcp-servers/e93fb282-b456-48fc-8981-003fb89086ae/user-rating"
       operationId: getMCPServerRating
 
     put:
@@ -1945,9 +2290,12 @@ paths:
             - apim:subscribe
       x-code-samples:
         - lang: Curl
-          source: 'curl -k -X PUT -H "Authorization:Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8"
-          -H "Content-Type: application/json" -d @data.json 
-          "https://localhost:9443/api/am/devportal/v3/mcp-servers/e93fb282-b456-48fc-8981-003fb89086ae/user-rating"'
+          source: |
+            curl -k -X PUT \
+              -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" \
+              -H "Content-Type: application/json" \
+              -d @data.json \
+              "https://localhost:9443/api/am/devportal/v3/mcp-servers/e93fb282-b456-48fc-8981-003fb89086ae/user-rating"
       operationId: addMCPServerRating
 
     delete:
@@ -1975,8 +2323,10 @@ paths:
             - apim:subscribe
       x-code-samples:
         - lang: Curl
-          source: curl -k -X DELETE -H "Authorization:Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8"
-            "https://localhost:9443/api/am/devportal/v3/mcp-servers/e93fb282-b456-48fc-8981-003fb89086ae/user-rating"
+          source: |
+            curl -k -X DELETE \
+              -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" \
+              "https://localhost:9443/api/am/devportal/v3/mcp-servers/e93fb282-b456-48fc-8981-003fb89086ae/user-rating"
       operationId: deleteMCPServerRating
 
   /mcp-servers/{mcpServerId}/comments:
@@ -2009,7 +2359,9 @@ paths:
         - OAuth2Security: [ ]
       x-code-samples:
         - lang: Curl
-          source: curl -k "https://localhost:9443/api/am/devportal/v3/mcp-servers/e93fb282-b456-48fc-8981-003fb89086ae/comments"
+          source: |
+            curl -k \
+              "https://localhost:9443/api/am/devportal/v3/mcp-servers/e93fb282-b456-48fc-8981-003fb89086ae/comments"
       operationId: getAllCommentsOfMCPServer
 
     post:
@@ -2063,9 +2415,12 @@ paths:
             - apim:subscribe
       x-code-samples:
         - lang: Curl
-          source: 'curl -k -X POST -H "Authorization:Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8"
-          -H "Content-Type: application/json" -d @data.json 
-          "https://localhost:9443/api/am/devportal/v3/mcp-servers/e93fb282-b456-48fc-8981-003fb89086ae/comments"'
+          source: |
+            curl -k -X POST \
+              -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" \
+              -H "Content-Type: application/json" \
+              -d @data.json \
+              "https://localhost:9443/api/am/devportal/v3/mcp-servers/e93fb282-b456-48fc-8981-003fb89086ae/comments"
       operationId: addCommentToMCPServer
 
   /mcp-servers/{mcpServerId}/comments/{commentId}:
@@ -2117,7 +2472,9 @@ paths:
         - OAuth2Security: [ ]
       x-code-samples:
         - lang: Curl
-          source: curl -k "https://localhost:9443/api/am/devportal/v3/mcp-servers/e93fb282-b456-48fc-8981-003fb89086ae/comments/d4cf1704-5d09-491c-bc48-4d19ce6ea9b4"
+          source: |
+            curl -k \
+              "https://localhost:9443/api/am/devportal/v3/mcp-servers/e93fb282-b456-48fc-8981-003fb89086ae/comments/d4cf1704-5d09-491c-bc48-4d19ce6ea9b4"
       operationId: getCommentOfMCPServer
 
     patch:
@@ -2176,9 +2533,12 @@ paths:
             - apim:subscribe
       x-code-samples:
         - lang: Curl
-          source: 'curl -k -X PATCH -H "Authorization:Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8"
-          -H "Content-Type: application/json" -d @data.json 
-          "https://localhost:9443/api/am/devportal/v3/mcp-servers/e93fb282-b456-48fc-8981-003fb89086ae/comments/d4cf1704-5d09-491c-bc48-4d19ce6ea9b4"'
+          source: |
+            curl -k -X PATCH \
+              -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" \
+              -H "Content-Type: application/json" \
+              -d @data.json \
+              "https://localhost:9443/api/am/devportal/v3/mcp-servers/e93fb282-b456-48fc-8981-003fb89086ae/comments/d4cf1704-5d09-491c-bc48-4d19ce6ea9b4"
       operationId: editCommentOfMCPServer
 
     delete:
@@ -2219,8 +2579,10 @@ paths:
             - apim:admin # special scope added to moderate comments
       x-code-samples:
         - lang: Curl
-          source: curl -k -X DELETE -H "Authorization:Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8"
-            "https://localhost:9443/api/am/devportal/v3/mcp-servers/e93fb282-b456-48fc-8981-003fb89086ae/comments/d4cf1704-5d09-491c-bc48-4d19ce6ea9b4"
+          source: |
+            curl -k -X DELETE \
+              -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" \
+              "https://localhost:9443/api/am/devportal/v3/mcp-servers/e93fb282-b456-48fc-8981-003fb89086ae/comments/d4cf1704-5d09-491c-bc48-4d19ce6ea9b4"
       operationId: deleteCommentOfMCPServer
 
   /mcp-servers/{mcpServerId}/comments/{commentId}/replies:
@@ -2272,7 +2634,10 @@ paths:
         - OAuth2Security: [ ]
       x-code-samples:
         - lang: Curl
-          source: curl -k -H "Authorization:Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" "https://localhost:9443/api/am/devportal/v3/mcp-servers/e93fb282-b456-48fc-8981-003fb89086ae/comments/d4cf1704-5d09-491c-bc48-4d19ce6ea9b4/replies"
+          source: |
+            curl -k \
+              -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" \
+              "https://localhost:9443/api/am/devportal/v3/mcp-servers/e93fb282-b456-48fc-8981-003fb89086ae/comments/d4cf1704-5d09-491c-bc48-4d19ce6ea9b4/replies"
       operationId: getRepliesOfCommentOfMCPServer
 
   /mcp-servers/{mcpServerId}/subscription-policies:
@@ -2327,7 +2692,9 @@ paths:
         - OAuth2Security: [ ]
       x-code-samples:
         - lang: Curl
-          source: curl -k "https://localhost:9443/api/am/devportal/v3/mcp-servers/268c9e55-3dc1-4f47-82e7-977e5343d077/subscription-policies"
+          source: |
+            curl -k \
+              "https://localhost:9443/api/am/devportal/v3/mcp-servers/268c9e55-3dc1-4f47-82e7-977e5343d077/subscription-policies"
       operationId: getMCPServerSubscriptionPolicies
 
   ######################################################
@@ -2406,8 +2773,10 @@ paths:
             - apim:app_import_export
       x-code-samples:
         - lang: Curl
-          source: 'curl -k -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8"
-          "https://localhost:9443/api/am/devportal/v3/applications?query=CalculatorApp"'
+          source: |
+            curl -k \
+              -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" \
+              "https://localhost:9443/api/am/devportal/v3/applications?query=CalculatorApp"
 
     post:
       tags:
@@ -2471,8 +2840,12 @@ paths:
             - apim:app_manage
       x-code-samples:
         - lang: Curl
-          source: 'curl -k -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8"
-          -H "Content-Type: application/json" -X POST -d @data.json "https://localhost:9443/api/am/devportal/v3/applications"'
+          source: |
+            curl -k -X POST \
+              -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" \
+              -H "Content-Type: application/json" \
+              -d @data.json \
+              "https://localhost:9443/api/am/devportal/v3/applications"
 
   ######################################################
   # The "Individual Application" resource APIs
@@ -2525,8 +2898,10 @@ paths:
             - apim:app_manage
       x-code-samples:
         - lang: Curl
-          source: 'curl -k -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8"
-          "https://localhost:9443/api/am/devportal/v3/applications/896658a0-b4ee-4535-bbfa-806c894a4015"'
+          source: |
+            curl -k \
+              -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" \
+              "https://localhost:9443/api/am/devportal/v3/applications/896658a0-b4ee-4535-bbfa-806c894a4015"
 
     put:
       tags:
@@ -2584,8 +2959,12 @@ paths:
             - apim:app_manage
       x-code-samples:
         - lang: Curl
-          source: 'curl -k -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8"
-          -H "Content-Type: application/json" -X PUT -d @data.json "https://localhost:9443/api/am/devportal/v3/applications/896658a0-b4ee-4535-bbfa-806c894a4015"'
+          source: |
+            curl -k -X PUT \
+              -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" \
+              -H "Content-Type: application/json" \
+              -d @data.json \
+              "https://localhost:9443/api/am/devportal/v3/applications/896658a0-b4ee-4535-bbfa-806c894a4015"
 
     delete:
       tags:
@@ -2628,8 +3007,10 @@ paths:
             - apim:app_import_export
       x-code-samples:
         - lang: Curl
-          source: 'curl -k -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8"
-          -X DELETE "https://localhost:9443/api/am/devportal/v3/applications/896658a0-b4ee-4535-bbfa-806c894a4015"'
+          source: |
+            curl -k -X DELETE \
+              -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" \
+              "https://localhost:9443/api/am/devportal/v3/applications/896658a0-b4ee-4535-bbfa-806c894a4015"
 
   /applications/{applicationId}/generate-keys:
     post:
@@ -2670,8 +3051,12 @@ paths:
             - apim:app_manage
       x-code-samples:
         - lang: Curl
-          source: 'curl -k -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8"
-          -H "Content-Type: application/json" -X POST -d @data.json "https://localhost:9443/api/am/devportal/v3/applications/896658a0-b4ee-4535-bbfa-806c894a4015/generate-keys"'
+          source: |
+            curl -k -X POST \
+              -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" \
+              -H "Content-Type: application/json" \
+              -d @data.json \
+              "https://localhost:9443/api/am/devportal/v3/applications/896658a0-b4ee-4535-bbfa-806c894a4015/generate-keys"
 
   /applications/{applicationId}/map-keys:
     post:
@@ -2712,8 +3097,12 @@ paths:
             - apim:app_manage
       x-code-samples:
         - lang: Curl
-          source: 'curl -k -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8"
-          -H "Content-Type: application/json" -X POST -d @data.json "https://localhost:9443/api/am/devportal/v3/applications/896658a0-b4ee-4535-bbfa-806c894a4015/map-keys"'
+          source: |
+            curl -k -X POST \
+              -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" \
+              -H "Content-Type: application/json" \
+              -d @data.json \
+              "https://localhost:9443/api/am/devportal/v3/applications/896658a0-b4ee-4535-bbfa-806c894a4015/map-keys"
 
   /applications/{applicationId}/keys:
     get:
@@ -2746,8 +3135,10 @@ paths:
             - apim:app_manage
       x-code-samples:
         - lang: Curl
-          source: 'curl -k -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8"
-          "https://localhost:9443/api/am/devportal/v3/applications/896658a0-b4ee-4535-bbfa-806c894a4015/keys"'
+          source: |
+            curl -k \
+              -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" \
+              "https://localhost:9443/api/am/devportal/v3/applications/896658a0-b4ee-4535-bbfa-806c894a4015/keys"
 
   /applications/{applicationId}/keys/{keyType}:
     get:
@@ -2783,8 +3174,10 @@ paths:
             - apim:app_manage
       x-code-samples:
         - lang: Curl
-          source: 'curl -k -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8"
-          "https://localhost:9443/api/am/devportal/v3/applications/896658a0-b4ee-4535-bbfa-806c894a4015/keys/PRODUCTION"'
+          source: |
+            curl -k \
+              -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" \
+              "https://localhost:9443/api/am/devportal/v3/applications/896658a0-b4ee-4535-bbfa-806c894a4015/keys/PRODUCTION"
 
     put:
       tags:
@@ -2826,8 +3219,12 @@ paths:
             - apim:app_manage
       x-code-samples:
         - lang: Curl
-          source: 'curl -k -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8"
-          -H "Content-Type: application/json" -X PUT -d @data.json "https://localhost:9443/api/am/devportal/v3/applications/896658a0-b4ee-4535-bbfa-806c894a4015/keys/PRODUCTION"'
+          source: |
+            curl -k -X PUT \
+              -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" \
+              -H "Content-Type: application/json" \
+              -d @data.json \
+              "https://localhost:9443/api/am/devportal/v3/applications/896658a0-b4ee-4535-bbfa-806c894a4015/keys/PRODUCTION"
 
   /applications/{applicationId}/keys/{keyType}/regenerate-secret:
     post:
@@ -2880,8 +3277,11 @@ paths:
             - apim:app_manage
       x-code-samples:
         - lang: Curl
-          source: 'curl -k -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8"
-          -H "Content-Type: application/json" -X POST "https://localhost:9443/api/am/devportal/v3/applications/896658a0-b4ee-4535-bbfa-806c894a4015/keys/PRODUCTION/regenerate-secret"'
+          source: |
+            curl -k -X POST \
+              -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" \
+              -H "Content-Type: application/json" \
+              "https://localhost:9443/api/am/devportal/v3/applications/896658a0-b4ee-4535-bbfa-806c894a4015/keys/PRODUCTION/regenerate-secret"
 
   /applications/{applicationId}/keys/{keyType}/clean-up:
     post:
@@ -2913,8 +3313,11 @@ paths:
             - apim:app_manage
       x-code-samples:
         - lang: Curl
-          source: 'curl -k -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8"
-          -H "Content-Type: application/json" -X POST "https://localhost:9443/api/am/devportal/v3/applications/896658a0-b4ee-4535-bbfa-806c894a4015/keys/PRODUCTION/clean-up"'
+          source: |
+            curl -k -X POST \
+              -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" \
+              -H "Content-Type: application/json" \
+              "https://localhost:9443/api/am/devportal/v3/applications/896658a0-b4ee-4535-bbfa-806c894a4015/keys/PRODUCTION/clean-up"
 
   /applications/{applicationId}/keys/{keyType}/generate-token:
     post:
@@ -2957,8 +3360,12 @@ paths:
             - apim:app_manage
       x-code-samples:
         - lang: Curl
-          source: 'curl -k -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8"
-          -H "Content-Type: application/json" -X POST -d @data.json "https://localhost:9443/api/am/devportal/v3/applications/16cd2684-9657-4a01-a956-4efd89e96077/keys/PRODUCTION/generate-token"'
+          source: |
+            curl -k -X POST \
+              -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" \
+              -H "Content-Type: application/json" \
+              -d @data.json \
+              "https://localhost:9443/api/am/devportal/v3/applications/16cd2684-9657-4a01-a956-4efd89e96077/keys/PRODUCTION/generate-token"
 
   /applications/{applicationId}/oauth-keys:
     get:
@@ -2991,8 +3398,10 @@ paths:
             - apim:app_manage
       x-code-samples:
         - lang: Curl
-          source: 'curl -k -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8"
-          "https://localhost:9443/api/am/devportal/v3/applications/16cd2684-9657-4a01-a956-4efd89e96077/oauth-keys"'
+          source: |
+            curl -k \
+              -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" \
+              "https://localhost:9443/api/am/devportal/v3/applications/16cd2684-9657-4a01-a956-4efd89e96077/oauth-keys"
 
   /applications/{applicationId}/oauth-keys/{keyMappingId}:
     get:
@@ -3027,8 +3436,10 @@ paths:
             - apim:app_manage
       x-code-samples:
         - lang: Curl
-          source: 'curl -k -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8"
-          "https://localhost:9443/api/am/devportal/v3/applications/16cd2684-9657-4a01-a956-4efd89e96077/oauth-keys/df972173-c957-46d4-96ac-99be8e303584"'
+          source: |
+            curl -k \
+              -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" \
+              "https://localhost:9443/api/am/devportal/v3/applications/16cd2684-9657-4a01-a956-4efd89e96077/oauth-keys/df972173-c957-46d4-96ac-99be8e303584"
 
     put:
       tags:
@@ -3069,8 +3480,12 @@ paths:
             - apim:app_manage
       x-code-samples:
         - lang: Curl
-          source: 'curl -k -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8"
-          -H "Content-Type: application/json" -X PUT -d @data.json "https://localhost:9443/api/am/devportal/v3/applications/16cd2684-9657-4a01-a956-4efd89e96077/oauth-keys/df972173-c957-46d4-96ac-99be8e303584"'
+          source: |
+            curl -k -X PUT \
+              -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" \
+              -H "Content-Type: application/json" \
+              -d @data.json \
+              "https://localhost:9443/api/am/devportal/v3/applications/16cd2684-9657-4a01-a956-4efd89e96077/oauth-keys/df972173-c957-46d4-96ac-99be8e303584"
 
     delete:
       tags:
@@ -3100,8 +3515,11 @@ paths:
             - apim:app_manage
       x-code-samples:
         - lang: Curl
-          source: 'curl -k -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8"
-          -H "Content-Type: application/json" -X DELETE "https://localhost:9443/api/am/devportal/v3/applications/16cd2684-9657-4a01-a956-4efd89e96077/oauth-keys/df972173-c957-46d4-96ac-99be8e303584"'
+          source: |
+            curl -k -X DELETE \
+              -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" \
+              -H "Content-Type: application/json" \
+              "https://localhost:9443/api/am/devportal/v3/applications/16cd2684-9657-4a01-a956-4efd89e96077/oauth-keys/df972173-c957-46d4-96ac-99be8e303584"
 
 
   /applications/{applicationId}/oauth-keys/{keyMappingId}/regenerate-secret:
@@ -3144,6 +3562,8 @@ paths:
                 $ref: '#/components/schemas/ApplicationKeyReGenerateResponse'
         400:
           $ref: '#/components/responses/BadRequest'
+        403:
+          $ref: '#/components/responses/Forbidden'
         404:
           $ref: '#/components/responses/NotFound'
         412:
@@ -3154,8 +3574,11 @@ paths:
             - apim:app_manage
       x-code-samples:
         - lang: Curl
-          source: 'curl -k -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8"
-          -H "Content-Type: application/json" -X POST "https://localhost:9443/api/am/devportal/v3/applications/16cd2684-9657-4a01-a956-4efd89e96077/oauth-keys/df972173-c957-46d4-96ac-99be8e303584/regenerate-secret"'
+          source: |
+            curl -k -X POST \
+              -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" \
+              -H "Content-Type: application/json" \
+              "https://localhost:9443/api/am/devportal/v3/applications/16cd2684-9657-4a01-a956-4efd89e96077/oauth-keys/df972173-c957-46d4-96ac-99be8e303584/regenerate-secret"
 
   /applications/{applicationId}/oauth-keys/{keyMappingId}/clean-up:
     post:
@@ -3186,8 +3609,11 @@ paths:
             - apim:app_manage
       x-code-samples:
         - lang: Curl
-          source: 'curl -k -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8"
-          -H "Content-Type: application/json" -X POST "https://localhost:9443/api/am/devportal/v3/applications/16cd2684-9657-4a01-a956-4efd89e96077/oauth-keys/df972173-c957-46d4-96ac-99be8e303584/clean-up"'
+          source: |
+            curl -k -X POST \
+              -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" \
+              -H "Content-Type: application/json" \
+              "https://localhost:9443/api/am/devportal/v3/applications/16cd2684-9657-4a01-a956-4efd89e96077/oauth-keys/df972173-c957-46d4-96ac-99be8e303584/clean-up"
 
   /applications/{applicationId}/oauth-keys/{keyMappingId}/generate-token:
     post:
@@ -3229,16 +3655,181 @@ paths:
             - apim:app_manage
       x-code-samples:
         - lang: Curl
-          source: 'curl -k -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8"
-          -H "Content-Type: application/json" -X POST -d @data.json "https://localhost:9443/api/am/devportal/v3/applications/16cd2684-9657-4a01-a956-4efd89e96077/oauth-keys/{keyMappingId}/generate-token"'
+          source: |
+            curl -k -X POST \
+              -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" \
+              -H "Content-Type: application/json" \
+              -d @data.json \
+              "https://localhost:9443/api/am/devportal/v3/applications/16cd2684-9657-4a01-a956-4efd89e96077/oauth-keys/{keyMappingId}/generate-token"
+
+  /applications/{applicationId}/oauth-keys/{keyMappingId}/generate-secret:
+    post:
+      tags:
+        - Application Secrets
+      summary: |
+        Generate a New Consumer Secret
+      description: |
+        This operation can be used to generate a new consumer secret for an application for the given key type
+      operationId: generateConsumerSecret
+      parameters:
+        - $ref: '#/components/parameters/applicationId'
+        - $ref: '#/components/parameters/keyMappingId'
+      requestBody:
+        description: |
+          Request payload containing details for creating a new consumer secret
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ConsumerSecretCreationRequest'
+        required: true
+      responses:
+        201:
+          description: |
+            Created.
+            Successful response with the newly created object as entity in the body.
+            Location header contains URL of newly created entity.
+          headers:
+            Location:
+              description: |
+                Location to the newly created secret entity.
+              schema:
+                type: string
+            Content-Type:
+              description: |
+                The content type of the body.
+              schema:
+                type: string
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ConsumerSecret'
+        400:
+          $ref: '#/components/responses/BadRequest'
+        401:
+          $ref: '#/components/responses/Unauthorized'
+        403:
+          $ref: '#/components/responses/Forbidden'
+        500:
+          $ref: '#/components/responses/InternalServerError'
+      security:
+        - OAuth2Security:
+            - apim:subscribe
+            - apim:app_manage
+      x-code-samples:
+        - lang: Curl
+          source: |
+            curl -k \
+              -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" \
+              -H "Content-Type: application/json" \
+              -X POST \
+              -d '{"additionalProperties":{"description":"pizza application secret7","expiresIn":86400}}' \
+              "https://localhost:9443/api/am/devportal/v3/applications/16cd2684-9657-4a01-a956-4efd89e96077/oauth-keys/df972173-c957-46d4-96ac-99be8e303584/generate-secret"
+  /applications/{applicationId}/oauth-keys/{keyMappingId}/secrets:
+    get:
+      tags:
+        - Application Secrets
+      summary: |
+        Retrieve Consumer Secrets
+      description: |
+        This operation can be used to retrieve consumer secrets of an application for the given key type
+      operationId: getConsumerSecrets
+      parameters:
+        - $ref: '#/components/parameters/applicationId'
+        - $ref: '#/components/parameters/keyMappingId'
+      responses:
+        200:
+          description: |
+            OK.
+            Consumer secrets are retrieved.
+          headers:
+            Content-Type:
+              description: |
+                The content type of the body.
+              schema:
+                type: string
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ConsumerSecretList'
+        400:
+          $ref: '#/components/responses/BadRequest'
+        401:
+          $ref: '#/components/responses/Unauthorized'
+        403:
+          $ref: '#/components/responses/Forbidden'
+        404:
+          $ref: '#/components/responses/NotFound'
+        500:
+          $ref: '#/components/responses/InternalServerError'
+      security:
+        - OAuth2Security:
+            - apim:subscribe
+            - apim:app_manage
+      x-code-samples:
+        - lang: Curl
+          source: |
+            curl -k -X GET \
+              -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" \
+              -H "Content-Type: application/json" \
+              "https://localhost:9443/api/am/devportal/v3/applications/16cd2684-9657-4a01-a956-4efd89e96077/oauth-keys/df972173-c957-46d4-96ac-99be8e303584/secrets"
+  /applications/{applicationId}/oauth-keys/{keyMappingId}/revoke-secret:
+    post:
+      tags:
+        - Application Secrets
+      summary: |
+        Revoke a Consumer Secret
+      description: |
+        This operation can be used to revoke a consumer secret for an application for the give key type
+      operationId: revokeConsumerSecret
+      parameters:
+        - $ref: '#/components/parameters/applicationId'
+        - $ref: '#/components/parameters/keyMappingId'
+      requestBody:
+        description: |
+          Request payload containing details for revoking a new consumer secret
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ConsumerSecretDeletionRequest'
+        required: true
+      responses:
+        204:
+          description: |
+            OK.
+            Consumer secret deleted.
+          content: { }
+        400:
+          $ref: '#/components/responses/BadRequest'
+        401:
+          $ref: '#/components/responses/Unauthorized'
+        403:
+          $ref: '#/components/responses/Forbidden'
+        404:
+          $ref: '#/components/responses/NotFound'
+        500:
+          $ref: '#/components/responses/InternalServerError'
+      security:
+        - OAuth2Security:
+            - apim:subscribe
+            - apim:app_manage
+      x-code-samples:
+        - lang: Curl
+          source: |
+            curl -k \
+              -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" \
+              -H "Content-Type: application/json" \
+              -X POST \
+              -d '{"secretId":"sec_123456"}' \
+              "https://localhost:9443/api/am/devportal/v3/applications/16cd2684-9657-4a01-a956-4efd89e96077/oauth-keys/df972173-c957-46d4-96ac-99be8e303584/revoke-secret"
 
   /applications/{applicationId}/api-keys/{keyType}/generate:
     post:
       tags:
-        - API Keys
+        - APIKeys
       summary: Generate API Key
       description: |
         Generate a self contained API Key for the application
+      operationId: applicationsApplicationIdApiKeysKeyTypeGeneratePost
       parameters:
         - $ref: '#/components/parameters/applicationId'
         - $ref: '#/components/parameters/keyType'
@@ -3255,7 +3846,7 @@ paths:
         200:
           description: |
             OK.
-            apikey generated.
+            Api key generated.
           content:
             application/json:
               schema:
@@ -3273,16 +3864,110 @@ paths:
             - apim:api_key
       x-code-samples:
         - lang: Curl
-          source: 'curl -k -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8"
-          -H "Content-Type: application/json" -X POST -d @data.json "https://localhost:9443/api/am/devportal/v3/applications/16cd2684-9657-4a01-a956-4efd89e96077/api-keys/PRODUCTION/generate"'
+          source: |
+            curl -k -X POST \
+              -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" \
+              -H "Content-Type: application/json" \
+              -d @data.json \
+              "https://localhost:9443/api/am/devportal/v3/applications/16cd2684-9657-4a01-a956-4efd89e96077/api-keys/PRODUCTION/generate"
+
+  /applications/{applicationId}/api-keys/{keyType}/regenerate:
+    post:
+      tags:
+        - APIKeys
+      summary: Regenerate API Key
+      description: |
+        Regenerate a self contained API Key for the application specified by the key UUID
+      operationId: regenerateAppBoundAPIKey
+      parameters:
+        - $ref: '#/components/parameters/applicationId'
+        - $ref: '#/components/parameters/keyType'
+        - $ref: '#/components/parameters/If-Match'
+      requestBody:
+        description: |
+          API Key renewal request object
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/APIKeyRenewRequest'
+        required: true
+      responses:
+        200:
+          description: |
+            OK.
+            Api key regenerated successfully.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/APIKey'
+        400:
+          $ref: '#/components/responses/BadRequest'
+        404:
+          $ref: '#/components/responses/NotFound'
+        412:
+          $ref: '#/components/responses/PreconditionFailed'
+      security:
+        - OAuth2Security:
+            - apim:subscribe
+            - apim:app_manage
+            - apim:api_key
+      x-code-samples:
+        - lang: Curl
+          source: |
+            curl -k -X POST \
+              -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" \
+              -H "Content-Type: application/json" \
+              -d @data.json \
+              "https://localhost:9443/api/am/devportal/v3/applications/16cd2684-9657-4a01-a956-4efd89e96077/api-keys/PRODUCTION/regenerate"
+
+  /applications/{applicationId}/api-keys/{keyType}:
+    get:
+      tags:
+        - APIKeys
+      summary: Get API Key(s) of a Given Type
+      description: |
+        Retrieve self contained API Key(s) for the application specifying the key type in the URI.
+      operationId: getAppBoundAPIKeys
+      parameters:
+        - $ref: '#/components/parameters/applicationId'
+        - $ref: '#/components/parameters/keyType'
+        - $ref: '#/components/parameters/If-None-Match'
+      responses:
+        200:
+          description: |
+            OK.
+            API key(s) of given type are returned.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/APIKeyList'
+        400:
+          $ref: '#/components/responses/BadRequest'
+        404:
+          $ref: '#/components/responses/NotFound'
+        412:
+          $ref: '#/components/responses/PreconditionFailed'
+      security:
+        - OAuth2Security:
+            - apim:subscribe
+            - apim:app_manage
+            - apim:api_key
+      x-code-samples:
+        - lang: Curl
+          source: |
+            curl -k -X GET \
+              -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" \
+              -H "Content-Type: application/json" \
+              "https://localhost:9443/api/am/devportal/v3/applications/16cd2684-9657-4a01-a956-4efd89e96077/api-keys/PRODUCTION"
 
   /applications/{applicationId}/api-keys/{keyType}/revoke:
     post:
       tags:
-        - API Keys
+        - APIKeys
       summary: Revoke API Key
       description: |
         Revoke a self contained API Key for the application
+      operationId: applicationsApplicationIdApiKeysKeyTypeRevokePost
       parameters:
         - $ref: '#/components/parameters/applicationId'
         - $ref: '#/components/parameters/keyType'
@@ -3294,12 +3979,12 @@ paths:
           application/json:
             schema:
               $ref: '#/components/schemas/APIKeyRevokeRequest'
-        required: false
+        required: true
       responses:
         200:
           description: |
             OK.
-            apikey revoked successfully.
+            Api key revoked successfully.
           content: {}
         400:
           $ref: '#/components/responses/BadRequest'
@@ -3312,8 +3997,187 @@ paths:
             - apim:api_key
       x-code-samples:
         - lang: Curl
-          source: 'curl -k -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8"
-          -H "Content-Type: application/json" -X POST -d @data.json "https://localhost:9443/api/am/devportal/v3/applications/16cd2684-9657-4a01-a956-4efd89e96077/api-keys/PRODUCTION/revoke"'
+          source: |
+            curl -k -X POST \
+              -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" \
+              -H "Content-Type: application/json" \
+              -d @data.json \
+              "https://localhost:9443/api/am/devportal/v3/applications/16cd2684-9657-4a01-a956-4efd89e96077/api-keys/PRODUCTION/revoke"
+
+  /applications/{applicationId}/api-keys/{keyType}/subscriptions:
+    get:
+      tags:
+        - APIKeys
+      summary: Get Subscribed APIs with API Key(s) of a Given Type
+      description: |
+        Retrieve subscribed APIs with non-associated API Key(s) for the application specifying the key type in the URI.
+      operationId: getSubscribedAPIsWithAPIKeys
+      parameters:
+        - $ref: '#/components/parameters/applicationId'
+        - $ref: '#/components/parameters/keyType'
+        - $ref: '#/components/parameters/If-None-Match'
+      responses:
+        200:
+          description: |
+            OK.
+            Subscribed APIs along with the non-associated API key(s) of given type are returned.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SubscribedAPIWithApiKeyList'
+        400:
+          $ref: '#/components/responses/BadRequest'
+        404:
+          $ref: '#/components/responses/NotFound'
+        412:
+          $ref: '#/components/responses/PreconditionFailed'
+      security:
+        - OAuth2Security:
+            - apim:subscribe
+            - apim:app_manage
+            - apim:api_key
+      x-code-samples:
+        - lang: Curl
+          source: |
+            curl -k -X GET \
+              -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" \
+              -H "Content-Type: application/json" \
+              "https://localhost:9443/api/am/devportal/v3/applications/16cd2684-9657-4a01-a956-4efd89e96077/api-keys/PRODUCTION/subscriptions"
+
+  /applications/{applicationId}/api-keys/{keyType}/associate:
+    post:
+      tags:
+        - APIKeys
+      summary: Associate an API Key to the Application
+      description: |
+        Create an association to a self contained API Key for the application
+      operationId: associateAPIKeyToApp
+      parameters:
+        - $ref: '#/components/parameters/applicationId'
+        - $ref: '#/components/parameters/keyType'
+        - $ref: '#/components/parameters/If-Match'
+      requestBody:
+        description: |
+          API Key association request object
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AppAPIKeyAssociateRequest'
+        required: true
+      responses:
+        200:
+          description: |
+            OK.
+            Api key associated successfully.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/APIKeyAssociation'
+        400:
+          $ref: '#/components/responses/BadRequest'
+        404:
+          $ref: '#/components/responses/NotFound'
+        412:
+          $ref: '#/components/responses/PreconditionFailed'
+      security:
+        - OAuth2Security:
+            - apim:subscribe
+            - apim:app_manage
+            - apim:api_key
+      x-code-samples:
+        - lang: Curl
+          source: |
+            curl -k -X POST \
+              -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" \
+              -H "Content-Type: application/json" \
+              -d @data.json \
+              "https://localhost:9443/api/am/devportal/v3/applications/16cd2684-9657-4a01-a956-4efd89e96077/api-keys/PRODUCTION/associate"
+
+  /applications/{applicationId}/api-keys/{keyType}/dissociate:
+    post:
+      tags:
+        - APIKeys
+      summary: Remove the association of the API Key to the Application
+      description: |
+        Remove the association to a self contained API Key for the application
+      operationId: dissociateAPIKeyFromApp
+      parameters:
+        - $ref: '#/components/parameters/applicationId'
+        - $ref: '#/components/parameters/keyType'
+        - $ref: '#/components/parameters/If-Match'
+      requestBody:
+        description: |
+          API Key dissociation request object
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/APIKeyDissociateRequest'
+        required: true
+      responses:
+        200:
+          description: |
+            OK.
+            Removed association for the API key successfully.
+          content: { }
+        400:
+          $ref: '#/components/responses/BadRequest'
+        404:
+          $ref: '#/components/responses/NotFound'
+        412:
+          $ref: '#/components/responses/PreconditionFailed'
+      security:
+        - OAuth2Security:
+            - apim:subscribe
+            - apim:app_manage
+            - apim:api_key
+      x-code-samples:
+        - lang: Curl
+          source: |
+            curl -k -X POST \
+              -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" \
+              -H "Content-Type: application/json" \
+              -d @data.json \
+              "https://localhost:9443/api/am/devportal/v3/applications/16cd2684-9657-4a01-a956-4efd89e96077/api-keys/PRODUCTION/dissociate"
+
+  /applications/{applicationId}/api-keys/{keyType}/associations:
+    get:
+      tags:
+        - APIKeys
+      summary: Get API Key associations of a Given Type
+      description: |
+        Retrieve API key associations for the application specifying the key type in the URI.
+      operationId: getAPIKeyAssociationsForApp
+      parameters:
+        - $ref: '#/components/parameters/applicationId'
+        - $ref: '#/components/parameters/keyType'
+        - $ref: '#/components/parameters/If-None-Match'
+      responses:
+        200:
+          description: |
+            OK.
+            API key associations of given type are returned.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/APIKeyAssociationList'
+        400:
+          $ref: '#/components/responses/BadRequest'
+        404:
+          $ref: '#/components/responses/NotFound'
+        412:
+          $ref: '#/components/responses/PreconditionFailed'
+      security:
+        - OAuth2Security:
+            - apim:subscribe
+            - apim:app_manage
+            - apim:api_key
+      x-code-samples:
+        - lang: Curl
+          source: |
+            curl -k -X GET \
+              -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" \
+              -H "Content-Type: application/json" \
+              "https://localhost:9443/api/am/devportal/v3/applications/16cd2684-9657-4a01-a956-4efd89e96077/api-keys/PRODUCTION/associations"
 
   /applications/export:
     get:
@@ -3379,9 +4243,10 @@ paths:
             - apim:app_import_export
       x-code-samples:
         - lang: Curl
-          source: 'curl -k -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8"
-          "https://localhost:9443/api/am/devportal/v3/applications/export?appName=sampleApp&appOwner=admin&withKeys=true"
-          > exportedApplication.zip'
+          source: |
+            curl -k \
+              -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" \
+              "https://localhost:9443/api/am/devportal/v3/applications/export?appName=sampleApp&appOwner=admin&withKeys=true" > exportedApplication.zip
 
   /applications/import:
     post:
@@ -3472,8 +4337,11 @@ paths:
             - apim:app_import_export
       x-code-samples:
         - lang: Curl
-          source: 'curl -k -X POST -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8"
-          -F file=@exportedApplication.zip "https://127.0.0.1:9443/api/am/devportal/v3/applications/import?preserveOwner=true&skipSubscriptions=false&appOwner=admin&skipApplicationKeys=false&update=true"'
+          source: |
+            curl -k -X POST \
+              -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" \
+              -F file=@exportedApplication.zip \
+              "https://127.0.0.1:9443/api/am/devportal/v3/applications/import?preserveOwner=true&skipSubscriptions=false&appOwner=admin&skipApplicationKeys=false&update=true"
 
   ######################################################
   # The "Subscription Collection" resource APIs
@@ -3535,8 +4403,10 @@ paths:
             - apim:sub_manage
       x-code-samples:
         - lang: Curl
-          source: 'curl -k -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8"
-          "https://localhost:9443/api/am/devportal/v3/subscriptions?apiId=02e658e7-71c7-4b1d-a623-be145b789340"'
+          source: |
+            curl -k \
+              -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" \
+              "https://localhost:9443/api/am/devportal/v3/subscriptions?apiId=02e658e7-71c7-4b1d-a623-be145b789340"
 
     post:
       tags:
@@ -3604,8 +4474,12 @@ paths:
             - apim:sub_manage
       x-code-samples:
         - lang: Curl
-          source: 'curl -k -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8"
-          -H "Content-Type: application/json" -X POST -d @data.json "https://localhost:9443/api/am/devportal/v3/subscriptions"'
+          source: |
+            curl -k -X POST \
+              -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" \
+              -H "Content-Type: application/json" \
+              -d @data.json \
+              "https://localhost:9443/api/am/devportal/v3/subscriptions"
 
   /subscriptions/multiple:
     post:
@@ -3666,8 +4540,12 @@ paths:
             - apim:sub_manage
       x-code-samples:
         - lang: Curl
-          source: 'curl -k -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8"
-          -H "Content-Type: application/json" -X POST -d @data.json "https://localhost:9443/api/am/devportal/v3/subscriptions/multiple"'
+          source: |
+            curl -k -X POST \
+              -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" \
+              -H "Content-Type: application/json" \
+              -d @data.json \
+              "https://localhost:9443/api/am/devportal/v3/subscriptions/multiple"
 
   ######################################################
   # The "Subscriptions related to API" resource API
@@ -3712,7 +4590,10 @@ paths:
         - OAuth2Security: []
       x-code-samples:
         - lang: Curl
-          source: 'curl -k -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" "https://localhost:9443/api/am/devportal/v3/subscriptions/e93fb282-b456-48fc-8981-003fb89086ae/additionalInfo"'
+          source: |
+            curl -k \
+              -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" \
+              "https://localhost:9443/api/am/devportal/v3/subscriptions/e93fb282-b456-48fc-8981-003fb89086ae/additionalInfo"
 
   ######################################################
   # The "Individual Subscription" resource APIs
@@ -3761,8 +4642,10 @@ paths:
             - apim:sub_manage
       x-code-samples:
         - lang: Curl
-          source: 'curl -k -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8"
-          "https://localhost:9443/api/am/devportal/v3/subscriptions/5b65808c-cdf2-43e1-a695-de63e3ad0ae9"'
+          source: |
+            curl -k \
+              -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" \
+              "https://localhost:9443/api/am/devportal/v3/subscriptions/5b65808c-cdf2-43e1-a695-de63e3ad0ae9"
 
     put:
       tags:
@@ -3840,8 +4723,12 @@ paths:
             - apim:sub_manage
       x-code-samples:
         - lang: Curl
-          source: 'curl -k -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8"
-          -H "Content-Type: application/json" -X PUT -d @data.json "https://localhost:9443/api/am/devportal/v3/subscriptions/80369180-7d90-4ee8-99a1-19fa68512aa5"'
+          source: |
+            curl -k -X PUT \
+              -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" \
+              -H "Content-Type: application/json" \
+              -d @data.json \
+              "https://localhost:9443/api/am/devportal/v3/subscriptions/80369180-7d90-4ee8-99a1-19fa68512aa5"
 
     delete:
       tags:
@@ -3883,8 +4770,11 @@ paths:
             - apim:sub_manage
       x-code-samples:
         - lang: Curl
-          source: 'curl -k -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8"
-          -H "Content-Type: application/json" -X DELETE "https://localhost:9443/api/am/devportal/v3/subscriptions/80369180-7d90-4ee8-99a1-19fa68512aa5"'
+          source: |
+            curl -k -X DELETE \
+              -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" \
+              -H "Content-Type: application/json" \
+              "https://localhost:9443/api/am/devportal/v3/subscriptions/80369180-7d90-4ee8-99a1-19fa68512aa5"
 
   /subscriptions/{subscriptionId}/usage:
     get:
@@ -3933,8 +4823,10 @@ paths:
             - apim:sub_manage
       x-code-samples:
         - lang: Curl
-          source: 'curl -k -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8"
-          "https://localhost:9443/api/am/devportal/v3/subscriptions/5b65808c-cdf2-43e1-a695-de63e3ad0ae9/usage"'
+          source: |
+            curl -k \
+              -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" \
+              "https://localhost:9443/api/am/devportal/v3/subscriptions/5b65808c-cdf2-43e1-a695-de63e3ad0ae9/usage"
 
   ######################################################
   # The "Throttling Policy Collection" resource APIs
@@ -3979,7 +4871,9 @@ paths:
         - OAuth2Security: []
       x-code-samples:
         - lang: Curl
-          source: curl -k "https://localhost:9443/api/am/devportal/v3/throttling-policies/application"
+          source: |
+            curl -k \
+              "https://localhost:9443/api/am/devportal/v3/throttling-policies/application"
 
   ######################################################
   # The "Individual Throttling Policy" resource APIs
@@ -4034,7 +4928,9 @@ paths:
         - OAuth2Security: []
       x-code-samples:
         - lang: Curl
-          source: curl -k "https://localhost:9443/api/am/devportal/v3/throttling-policies/application/10PerMin"
+          source: |
+            curl -k \
+              "https://localhost:9443/api/am/devportal/v3/throttling-policies/application/10PerMin"
 
   ######################################################
   # The "Throttling Policy Reset" resource APIs
@@ -4075,15 +4971,13 @@ paths:
           $ref: '#/components/responses/InternalServerError'
       security:
         - OAuth2Security:
-          - apim:app_manage
-          - apim:subscribe
+            - apim:app_manage
+            - apim:subscribe
       x-code-samples:
         - lang: Curl
-          source: 'curl -k \
-            -H "Authorization: Bearer 80249337-fe7c-3c66-bde6-ed431c144372" \
-            -H "Content-Type: application/json" -X POST \
-            -d @payload.json \
-            "https://localhost:9443/api/am/devportal/v3/application/37dd21cc-631e-4c73-bf73-c59cc7087a63/reset-throttle-policy"'
+          source: |
+            curl -k \
+              \ -H "Authorization: Bearer 80249337-fe7c-3c66-bde6-ed431c144372" \ -H "Content-Type: application/json" -X POST \ -d @payload.json \ "https://localhost:9443/api/am/devportal/v3/application/37dd21cc-631e-4c73-bf73-c59cc7087a63/reset-throttle-policy"
 
   ######################################################
   # The "Tag Collection" resource API
@@ -4135,7 +5029,9 @@ paths:
         - OAuth2Security: []
       x-code-samples:
         - lang: Curl
-          source: curl -k "https://localhost:9443/api/am/devportal/v3/tags"
+          source: |
+            curl -k \
+              "https://localhost:9443/api/am/devportal/v3/tags"
 
   ######################################################
   # The "Content Search Results" resource APIs
@@ -4191,7 +5087,9 @@ paths:
         - OAuth2Security: []
       x-code-samples:
         - lang: Curl
-          source: curl -k "https://localhost:9443/api/am/devportal/v3/search?query=PizzaShackAPI"
+          source: |
+            curl -k \
+              "https://localhost:9443/api/am/devportal/v3/search?query=PizzaShackAPI"
 
   ######################################################
   # The "SDK Generation Languages" list resource APIs
@@ -4221,8 +5119,10 @@ paths:
             - apim:subscribe
       x-code-samples:
         - lang: Curl
-          source: curl -k -H "Authorization:Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8"
-            "https://localhost:9443/api/am/devportal/v3/sdk-gen/languages"
+          source: |
+            curl -k \
+              -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" \
+              "https://localhost:9443/api/am/devportal/v3/sdk-gen/languages"
 
   ######################################################
   # The Web hook API topic details
@@ -4264,8 +5164,10 @@ paths:
         - OAuth2Security: []
       x-code-samples:
         - lang: Curl
-          source: curl -k -H "Authorization:Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8"
-            "https://localhost:9443/api/am/devportal/v3/webhooks/subscriptions?applicationId=5b65808c-cdf2-43e1-a695-de63e3ad0ae9&apiId=ae4eae22-3f65-387b-a171-d37eaa366fa8"
+          source: |
+            curl -k \
+              -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" \
+              "https://localhost:9443/api/am/devportal/v3/webhooks/subscriptions?applicationId=5b65808c-cdf2-43e1-a695-de63e3ad0ae9&apiId=ae4eae22-3f65-387b-a171-d37eaa366fa8"
 
   ######################################################
   # The Developer Portal settings List
@@ -4295,8 +5197,10 @@ paths:
             - apim:store_settings
       x-code-samples:
         - lang: Curl
-          source: 'curl -k -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8"
-          "https://localhost:9443/api/am/devportal/v3/settings"'
+          source: |
+            curl -k \
+              -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" \
+              "https://localhost:9443/api/am/devportal/v3/settings"
 
   /settings/application-attributes:
     get:
@@ -4332,8 +5236,10 @@ paths:
             - apim:subscribe
       x-code-samples:
         - lang: Curl
-          source: 'curl -k -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8"
-          "https://localhost:9443/api/am/devportal/v3/settings/application-attributes"'
+          source: |
+            curl -k \
+              -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" \
+              "https://localhost:9443/api/am/devportal/v3/settings/application-attributes"
 
   ######################################################
   # The tenant resource APIs
@@ -4384,7 +5290,9 @@ paths:
         - OAuth2Security: []
       x-code-samples:
         - lang: Curl
-          source: curl -k "https://localhost:9443/api/am/devportal/v3/tenants"
+          source: |
+            curl -k \
+              "https://localhost:9443/api/am/devportal/v3/tenants"
 
   ######################################################
   # The "Recommendations" resource API
@@ -4418,8 +5326,10 @@ paths:
             - apim:subscribe
       x-code-samples:
         - lang: Curl
-          source: 'curl -k -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8"
-          "https://localhost:9443/api/am/devportal/v3/recommendations"'
+          source: |
+            curl -k \
+              -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" \
+              "https://localhost:9443/api/am/devportal/v3/recommendations"
 
   ######################################################
   # The "Category Collection" resource API
@@ -4446,7 +5356,9 @@ paths:
         - OAuth2Security: []
       x-code-samples:
         - lang: Curl
-          source: curl -k "https://localhost:9443/api/am/devportal/v3/api-categories"
+          source: |
+            curl -k \
+              "https://localhost:9443/api/am/devportal/v3/api-categories"
 
   ######################################################
   # The "Key Manager Collection" resource API
@@ -4474,8 +5386,10 @@ paths:
             - apim:subscribe
       x-code-samples:
         - lang: Curl
-          source: 'curl -k -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8"
-          "https://localhost:9443/api/am/devportal/v3/key-managers"'
+          source: |
+            curl -k \
+              -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" \
+              "https://localhost:9443/api/am/devportal/v3/key-managers"
 
   ######################################################
   # GraphQL "Query Complexity" resource APIs
@@ -4514,7 +5428,9 @@ paths:
         - OAuth2Security: []
       x-code-samples:
         - lang: Curl
-          source: curl -k "https://localhost:9443/api/am/devportal/v3/apis/e93fb282-b456-48fc-8981-003fb89086ae/graphql-policies/complexity"
+          source: |
+            curl -k \
+              "https://localhost:9443/api/am/devportal/v3/apis/e93fb282-b456-48fc-8981-003fb89086ae/graphql-policies/complexity"
 
   /apis/{apiId}/graphql-policies/complexity/types:
     get:
@@ -4550,7 +5466,9 @@ paths:
         - OAuth2Security: []
       x-code-samples:
         - lang: Curl
-          source: curl -k "https://localhost:9443/api/am/devportal/v3/apis/e93fb282-b456-48fc-8981-003fb89086ae/graphql-policies/complexity/types"
+          source: |
+            curl -k \
+              "https://localhost:9443/api/am/devportal/v3/apis/e93fb282-b456-48fc-8981-003fb89086ae/graphql-policies/complexity/types"
 
   ######################################################
   # The "API Chat Feature" resource API
@@ -4596,8 +5514,42 @@ paths:
             An error occurred while invoking the API Chat service.
       x-code-samples:
         - lang: Curl
-          source: 'curl -k -X POST -H "Content-Type: application/json" -d @request.json
-          "https://localhost:9443/api/am/devportal/v3/apis/e93fb282-b456-48fc-8981-003fb89086ae/api-chat?apiChatAction=EXECUTE"'
+          source: |
+            curl -k -X POST \
+              -H "Content-Type: application/json" \
+              -d @request.json \
+              "https://localhost:9443/api/am/devportal/v3/apis/e93fb282-b456-48fc-8981-003fb89086ae/api-chat?apiChatAction=EXECUTE"
+
+  /apis/{apiId}/generate-definition-url:
+    post:
+      tags:
+        - APIs
+      summary: Generate a URL to download a resource for an API
+      description: >-
+        Generate a URL to access an API resource like the WSDL definition.
+      operationId: generateDefinitionURL
+      parameters:
+        - $ref: '#/components/parameters/resourceType'
+        - $ref: '#/components/parameters/environmentName'
+        - $ref: '#/components/parameters/apiId'
+        - $ref: '#/components/parameters/requestedTenant'
+      responses:
+        '200':
+          description: OK. Returns generated download URL as a string.
+          content:
+            application/json:
+              schema:
+                type: string
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        '500':
+          $ref: '#/components/responses/InternalServerError'
+      security:
+        - OAuth2Security: [ ]
 
   ######################################################
   # User resource APIs
@@ -4629,8 +5581,12 @@ paths:
             - apim:subscribe
       x-code-samples:
         - lang: Curl
-          source: 'curl -k -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8"
-          -H "Content-Type: application/json" -X POST -d @data.json "https://localhost:9443/api/am/devportal/v3/me/change-password"'
+          source: |
+            curl -k -X POST \
+              -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" \
+              -H "Content-Type: application/json" \
+              -d @data.json \
+              "https://localhost:9443/api/am/devportal/v3/me/change-password"
 
   /me/organization-information:
     get:
@@ -4656,10 +5612,14 @@ paths:
             - apim:subscribe
       x-code-samples:
         - lang: Curl
-          source: 'curl -k -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8"
-          -H "Content-Type: application/json" -X POST -d @data.json "https://localhost:9443/api/am/devportal/v3/me/organization"'
-          
- ######################################################
+          source: |
+            curl -k -X POST \
+              -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" \
+              -H "Content-Type: application/json" \
+              -d @data.json \
+              "https://localhost:9443/api/am/devportal/v3/me/organization"
+
+  ######################################################
   # The "Marketplace Assistant Feature" resource APIs
   ######################################################
   '/marketplace-assistant/api-count':
@@ -4693,7 +5653,9 @@ paths:
             An error occurred while retrieving the API count.
       x-code-samples:
         - lang: Curl
-          source: 'curl -k "https://localhost:9443/api/am/devportal/v3/apis/marketplace-assistant/api-count"'
+          source: |
+            curl -k \
+              "https://localhost:9443/api/am/devportal/v3/apis/marketplace-assistant/api-count"
 
   '/marketplace-assistant/chat':
 
@@ -4735,7 +5697,10 @@ paths:
             An error occurred while executing test using Marketplace Chat service.
       x-code-samples:
         - lang: Curl
-          source: 'curl -k -X POST -d request.json "https://localhost:9443/api/am/devportal/v3/apis/marketplace-assistant/chat"'
+          source: |
+            curl -k -X POST \
+              -d request.json \
+              "https://localhost:9443/api/am/devportal/v3/apis/marketplace-assistant/chat"
 
 
 components:
@@ -5869,14 +6834,190 @@ components:
       title: API Key details to invoke APIs
       type: object
       properties:
+        keyName:
+          type: string
+          description: API Key name
+          example: Test_Key
         apikey:
           type: string
           description: API Key
           example: eyJoZWxsbyI6IndvcmxkIn0=.eyJ3c28yIjoiYXBpbSJ9.eyJ3c28yIjoic2lnbmF0dXJlIn0=
-        validityTime:
+        validityPeriod:
           type: integer
-          format: int32
+          format: int64
           example: 3600
+    APIKeyAssociation:
+      title: API Key association
+      type: object
+      properties:
+        keyName:
+          type: string
+          description: API Key name
+          example: Test_Key
+        apiName:
+          type: string
+          description: API name
+          example: NotificationAPI
+        applicationName:
+          type: string
+          description: Application name
+          example: DefaultApplication
+    APIKeyAssociationInfo:
+      title: API Key association
+      type: object
+      properties:
+        keyUUID:
+          type: string
+          description: The UUID of the API key
+        keyName:
+          type: string
+          description: API Key name
+          example: Test_Key
+        apiName:
+          type: string
+          description: API name
+          example: NotificationAPI
+        apiUUID:
+          type: string
+          description: The UUID of the API
+        issuedOn:
+          type: integer
+          format: int64
+          description: Created Time
+          example: 2026-02-06 23:45:07
+        validityPeriod:
+          type: integer
+          format: int64
+          example: 3600
+        lastUsed:
+          type: integer
+          format: int64
+          description: Last used time as epoch milliseconds.
+          example:
+    APIKeyInfo:
+      title: API Key details to invoke APIs
+      type: object
+      properties:
+        keyUUID:
+          type: string
+          description: The UUID of the API key
+        keyName:
+          type: string
+          description: API Key name
+          example: Test_Key
+        issuedOn:
+          type: integer
+          format: int64
+          description: Created Time
+          example: 3600
+        validityPeriod:
+          type: integer
+          format: int64
+          example: 3600
+        lastUsed:
+          type: integer
+          format: int64
+          description: Last used time as epoch milliseconds.
+          example: 3600
+    APIWithKeyInfo:
+      title: API with API Key
+      type: object
+      properties:
+        keyName:
+          type: string
+          description: API Key name
+          example: Test_Key
+        keyUUID:
+          type: string
+          description: The UUID of the API key
+        apiName:
+          type: string
+          description: API name
+          example: NotificationAPI
+        apiUUID:
+          type: string
+          description: The UUID of the associated API
+    APIAPIKeyInfo:
+      title: API Key details to invoke APIs
+      type: object
+      properties:
+        keyUUID:
+          type: string
+          description: The UUID of the API key
+        keyName:
+          type: string
+          description: API Key name
+          example: Test_Key
+        associatedApp:
+          type: string
+          description: Associated application
+          example: DefaultApplication
+        issuedOn:
+          type: integer
+          format: int64
+          description: Created Time
+          example: 2026-02-06 23:45:07
+        validityPeriod:
+          type: integer
+          format: int64
+          example: 3600
+        lastUsed:
+          type: integer
+          format: int64
+          description: Last used time as epoch milliseconds.
+          example: 2026-02-06 23:45:07
+    APIAPIKeyList:
+      title: API Keys List
+      type: object
+      properties:
+        count:
+          type: integer
+          description: |
+            Number of API keys returned.
+          example: 1
+        list:
+          type: array
+          items:
+            $ref: '#/components/schemas/APIAPIKeyInfo'
+    APIKeyList:
+      title: API Keys List
+      type: object
+      properties:
+        count:
+          type: integer
+          description: |
+            Number of API keys returned.
+          example: 1
+        list:
+          type: array
+          items:
+            $ref: '#/components/schemas/APIKeyInfo'
+    SubscribedAPIWithApiKeyList:
+      title: Subscribed APIs with non-associated API keys
+      type: object
+      properties:
+        count:
+          type: integer
+          description: |
+            Number of subscribed APIs with API keys returned.
+          example: 1
+        list:
+          type: array
+          items:
+            $ref: '#/components/schemas/APIWithKeyInfo'
+    APIKeyAssociationList:
+      title: API Key Associations List
+      type: object
+      properties:
+        count:
+          type: integer
+          description: |
+            Number of API key associations returned.
+          example: 1
+        list:
+          type: array
+          items:
+            $ref: '#/components/schemas/APIKeyAssociationInfo'
     ApplicationKey:
       title: Application key details
       type: object
@@ -5900,6 +7041,12 @@ components:
           description: Consumer secret of the application
           readOnly: true
           example: TIDlOFkpzB7WjufO3OJUhy1fsvAa
+        consumerSecrets:
+          type: array
+          description: A list of all consumer secrets of the application
+            When multiple consumer secrets are enabled
+          items:
+            $ref: '#/components/schemas/ConsumerSecret'
         supportedGrantTypes:
           type: array
           description: The grant types that are supported by the application
@@ -6080,27 +7227,115 @@ components:
           type: object
           properties: {}
           description: Additional parameters if Authorization server needs any
+    APIAPIKeyGenerateRequest:
+      title: API Key generation request object
+      type: object
+      properties:
+        keyName:
+          type: string
+          description: API Key name
+          example: Test_Key
+        keyType:
+          type: string
+          description: Type of the API key
+          example: PRODUCTION
+          enum:
+            - PRODUCTION
+            - SANDBOX
+        validityPeriod:
+          type: integer
+          description: API key validity period
+          format: int64
+          example: 3600
+        additionalProperties:
+          type: object
+          properties: { }
+          description: Additional parameters if Authorization server needs any
     APIKeyGenerateRequest:
       title: API Key generation request object
       type: object
       properties:
+        keyName:
+          type: string
+          description: API Key name
+          example: Test_Key
         validityPeriod:
           type: integer
-          description: Token validity period
-          format: int32
+          description: API key validity period
+          format: int64
           example: 3600
         additionalProperties:
           type: object
           properties: {}
           description: Additional parameters if Authorization server needs any
+    APIKeyRenewRequest:
+      title: API Key renewal request object
+      type: object
+      required:
+        - keyUUID
+      properties:
+        keyUUID:
+          type: string
+          description: The UUID of the API key
+    APIAPIKeyAssociateRequest:
+      title: API Key association request object
+      type: object
+      required:
+        - keyUUID
+        - applicationUUID
+      properties:
+        keyUUID:
+          type: string
+          description: The UUID of the API key
+        applicationUUID:
+          type: string
+          description: The UUID of the Application to be associated
+    APIKeyDissociateRequest:
+      title: API Key dissociation request object
+      type: object
+      required:
+        - keyUUID
+      properties:
+        keyUUID:
+          type: string
+          description: The UUID of the API key
+    AppAPIKeyAssociateRequest:
+      title: API Key association request object
+      type: object
+      required:
+        - keyUUID
+        - apiUUID
+      properties:
+        apiUUID:
+          type: string
+          description: The unique identifier of the API.
+          example: 2962f3bb-8330-438e-baee-0ee1d6434ba4
+        keyUUID:
+          type: string
+          description: The UUID of the API key
     APIKeyRevokeRequest:
       title: API Key revoke request object
       type: object
+      oneOf:
+        - required: [ apikey ]
+        - required: [ keyUUID ]
       properties:
         apikey:
           type: string
           description: API Key to revoke
           example: eyJoZWxsbyI6IndvcmxkIn0=.eyJ3c28yIjoiYXBpbSJ9.eyJ3c28yIjoic2lnbmF0dXJlIn0=
+        keyUUID:
+          type: string
+          description: The UUID of the API key
+    APIAPIKeyRevokeRequest:
+      title: API Key revoke request object
+      type: object
+      required:
+        - keyUUID
+      properties:
+        keyUUID:
+          type: string
+          description: The UUID of the API key
     ScopeInfo:
       title: API Scope info object with scope details
       type: object
@@ -6505,6 +7740,9 @@ components:
         applicationSharingEnabled:
           type: boolean
           default: false
+        IsLegacyApiKeysEnabled:
+          type: boolean
+          default: false
         mapExistingAuthApps:
           type: boolean
           default: false
@@ -6531,7 +7769,7 @@ components:
         IsPasswordChangeEnabled:
           type: boolean
           default: true
-        IsJWTEnabledForLoginTokens: 
+        IsJWTEnabledForLoginTokens:
           type: boolean
           default: false
         orgAccessControlEnabled:
@@ -6868,6 +8106,19 @@ components:
           items:
             type: object
             properties: {}
+        constraint:
+          $ref: '#/components/schemas/ApplicationConfigurationConstraint'
+    ApplicationConfigurationConstraint:
+      title: Application Configuration Constraint
+      type: object
+      properties:
+        type:
+          type: string
+          example: RANGE
+        value:
+          type: object
+          properties: {}
+          example: '{ "min": 60, "max": 3600 }'
     KeyManagerList:
       title: Key Manager List
       type: object
@@ -7283,6 +8534,76 @@ components:
           description: |
             Category of the comment
           example: general
+    #-----------------------------------------------------
+    # Consumer Secret Object
+    #-----------------------------------------------------
+    ConsumerSecret:
+      type: object
+      properties:
+        secretId:
+          type: string
+          description: Unique identifier for the secret
+          example: sec_123456
+        secretValue:
+          type: string
+          description: The actual secret string
+          example: "***r3tV@lu3"
+        additionalProperties:
+          type: object
+          description: Additional dynamic properties for the secret creation request.
+          additionalProperties:
+            type: object
+          example:
+            expiresAt: 1761568483
+            description: "pizza application secret"
+    #-----------------------------------------------------
+    # Consumer Secret Request Object
+    #-----------------------------------------------------
+    ConsumerSecretCreationRequest:
+      type: object
+      properties:
+        additionalProperties:
+          type: object
+          description: Additional properties for the secret creation request.
+          additionalProperties:
+            type: object
+          example:
+            expiresIn: 86400
+            description: "pizza application secret"
+      example:
+        additionalProperties:
+          expiresIn: 86400
+          description: "pizza application secret"
+    #-----------------------------------------------------
+    # Consumer Secret Deletion Object
+    #-----------------------------------------------------
+    ConsumerSecretDeletionRequest:
+      type: object
+      properties:
+        secretId:
+          type: string
+          description: Unique identifier for the secret
+          example: sec_123456
+        additionalProperties:
+          type: object
+          description: Additional properties for the secret deletion request.
+          additionalProperties:
+            type: object
+    #-----------------------------------------------------
+    # Consumer Secret List Object
+    #-----------------------------------------------------
+    ConsumerSecretList:
+      title: Client Secret List
+      properties:
+        count:
+          type: integer
+          description: |
+            Number of consumer secrets returned.
+          example: 1
+        list:
+          type: array
+          items:
+            $ref: '#/components/schemas/ConsumerSecret'
 
   responses:
     BadRequest:
@@ -7372,6 +8693,18 @@ components:
             description: The user is not authorized
             moreInfo: ""
             error: []
+    Forbidden:
+      description: Forbidden. The user does not have permission to perform this action.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+          example:
+            code: 403
+            message: Forbidden
+            description: The user does not have permission to perform this action
+            moreInfo: ""
+            error: [ ]
     UnsupportedMediaType:
       description: Unsupported Media Type. The entity of the request was not in a
         supported format.
@@ -7572,6 +8905,40 @@ components:
         Name of the API gateway environment.
       schema:
         type: string
+    exp:
+      name: exp
+      in: query
+      description: |
+        Time of expiration of the generated URL.
+      required: false
+      schema:
+        type: integer
+        format: int64
+    sig:
+      name: sig
+      in: query
+      description: |
+        Signature to validate the generated URL.
+      required: false
+      schema:
+        type: string
+    formatWsdl:
+      name: format
+      in: query
+      description: |
+        If format is wsdl, send the content of the main WSDL file and not the archived WSDL. If not defined, send the zip.
+      required: false
+      schema:
+        type: string
+    resourceType:
+      name: type
+      in: query
+      description: Type of the resource to be retrieved using the generated url (Ex - wsdl)
+      required: true
+      schema:
+        type: string
+        enum:
+          - wsdl
     limit:
       name: limit
       in: query
@@ -7615,6 +8982,15 @@ components:
         enum:
           - PRODUCTION
           - SANDBOX
+    keyName:
+      name: keyName
+      in: path
+      description: |
+        Name of the API key. URL-encode reserved characters.
+      required: true
+      schema:
+        type: string
+      x-encoded: true
     If-None-Match:
       name: If-None-Match
       in: header

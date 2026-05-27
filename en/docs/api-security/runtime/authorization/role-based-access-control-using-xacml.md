@@ -61,7 +61,7 @@ Based on the requirement, a single API is exposed to add or retrieve order info
 7.  In the **Define Entitlement Rule(s)** area, set the following 2 rules to define the kind of requests and from which user they should be permitted.
     1.  AdminGrant - grants full access to the admin user. Give the information below,
         
-        **Conditions:** Under **Define your conditions by using followings....** , select drop down options as **Subject** , **is/are** , **at-least-one-member-of** in order and enter **admin** in the last field.
+        **Conditions:** Under **Define your conditions by using following....** , select drop down options as **Subject** , **is/are** , **at-least-one-member-of** in order and enter **admin** in the last field.
         Click the icon next to **END** shown below to configure the attribute value and attribute source to retrieve the user roles from the user store.
         ![]({{base_path}}/assets/img/learn/define-entitlement-rules.png)
         
@@ -82,7 +82,7 @@ Based on the requirement, a single API is exposed to add or retrieve order info
         **Rule Name:** GetOrder
         
         **Conditions:** Under **Rule's conditions are evaluated......** , select drop down options as **Action** , **is** , **equal** in order and enter **GET** in the last field.
-        Under **Define your conditions by using followings....** , select drop down options as **Subject** , **is/are** , **at-least-one-member-of** in order and enter **webuser** in the last field.
+        Under **Define your conditions by using following....** , select drop down options as **Subject** , **is/are** , **at-least-one-member-of** in order and enter **webuser** in the last field.
         Click the icon next to **END** shown below to configure the attribute value and attribute source to retrieve the user roles from the user store.
 
         ![]({{base_path}}/assets/img/learn/add-getorder-rule.png)

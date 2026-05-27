@@ -14,7 +14,7 @@ WSO2 API Manager uses this unique policy engine to evaluate the requests that th
 
 ## How to use OPA for request validation?
 
-In oder to evaluate requests with OPA, first you need to deploy OPA as a host-level daemon or a sidecar container. Once a Gateway receives a request,
+In order to evaluate requests with OPA, first you need to deploy OPA as a host-level daemon or a sidecar container. Once a Gateway receives a request,
 it extracts a predefined set of meta-data from the request and query OPA via HTTP/HTTPS. The OPA Policy engine evaluates the request meta-data against the configured policy and returns its validation response.
 The Gateway allows or blocks the request based on the response.
 
@@ -144,7 +144,7 @@ By default, each Gateway uses a default Request Generator to generate the reques
 Similar to the request generation, the default request generator class validates the response from OPA. When using the default implementation, you have to write your OPA policies using the following response format when queried with the `allow` policy.
 
 !!! note
-    If required, you can have your own **Response Valiation Implementation** by implementing the interface **OPARequestGenerator**. For more information, see [Custom OPA Policy with Custom Request Generator](#custom-opa-policy-with-custom-request-generator).
+    If required, you can have your own **Response Validation Implementation** by implementing the interface **OPARequestGenerator**. For more information, see [Custom OPA Policy with Custom Request Generator](#custom-opa-policy-with-custom-request-generator).
 
 === "Format"
     ```json

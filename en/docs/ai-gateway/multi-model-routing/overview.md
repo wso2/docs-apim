@@ -12,6 +12,8 @@ We cater to your multi-model routing requirements via **AI Policies**. Listed be
 - Model Round Robin Policy
 - Model Weighted Round Robin Policy
 - Model Failover Policy
+- Intelligent Model Routing
+- Semantic Model Routing
 
 !!! tip
      You can only attach one of these AI Policies to your AI API based on your routing requirements, unless you are using the Failover policy. You can attach multiple Failover policies by configuring different primary models.
@@ -27,7 +29,7 @@ Detailed below is how to complete these two prerequisites:
 
 #### Configuring Model List
 
-Make sure to add the model list you desire to utilize prior to moving into the AI policy configuraiton section.
+Make sure to add the model list you desire to utilize prior to moving into the AI policy configuration section.
 
 !!! tip
      Note that the models that are listed under the corresponding AI Service Provider gets listed down as available models at the time of policy configuration. 

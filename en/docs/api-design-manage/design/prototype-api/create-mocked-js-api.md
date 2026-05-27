@@ -32,9 +32,12 @@ Follow the instructions below to add a mock implementation to the API:
      [![Select Mock Implementation]({{base_path}}/assets/img/learn/prototype-api/create-api-prototype-mock-impl-swagger-petstore.png)]({{base_path}}/assets/img/learn/prototype-api/create-api-prototype-mock-impl-swagger-petstore.png)
 
 3. View the inline script that has been generated.
-   
-     Click and expand any of the methods that contain a sample/mock payload. 
-     
+
+    !!! important
+        Currently, generation of example payloads for mock implementations is supported only for Swagger 2.x and OpenAPI 3.0.x versions.
+
+     Click and expand any of the methods that contain a sample/mock payload.
+
      Let's click on the `GET /pet/{petId}` method.
 
      [![Generated inline script]({{base_path}}/assets/img/learn/create-api-prototype-generated-script.png)]({{base_path}}/assets/img/learn/create-api-prototype-generated-script.png)

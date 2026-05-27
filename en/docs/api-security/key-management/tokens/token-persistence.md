@@ -28,7 +28,7 @@ In large-scale deployments of WSO2 API Manager, when there are millions of users
 
 ### Disabling Token Persistence Optimization
 
-1. Add the following to the `deployment.toml` in API Manager. Add this to the Control plane profile if you are using a distributed API-M setup. 
+1. Add the following to the `deployment.toml` in API Manager. Add this to the Key Manager if you are using a distributed API-M setup. 
 
     ```toml
         [oauth.token_persistence]
