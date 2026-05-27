@@ -68,7 +68,7 @@
                 }
             ],
             "exampleFile": "server.toml"
-        },    
+        },
         {
             "title": "Super admin configurations",
             "options": [
@@ -264,6 +264,67 @@
                 }
             ],
             "exampleFile": "database_shared_db.toml"
+        },
+        {
+            "title": "Proxy Configurations",
+            "options": [
+                {
+                    "name": "apim.proxy_config",
+                    "required": false,
+                    "description": "configuration used to enable or disable proxy configurations. Note that targetProxyHosts configuration is only available from U2 update level 19 onwards.",
+                    "params": [
+                        {
+                            "name": "enable",
+                            "type": "boolean",
+                            "required": true,
+                            "default": "",
+                            "possible": "",
+                            "description": "Enable or disable a defined proxy configuration."
+                        },
+                        {
+                            "name": "host",
+                            "type": "string",
+                            "required": true,
+                            "default": "",
+                            "possible": "",
+                            "description": "Fully qualified domain name of the proxy server."
+                        },
+                        {
+                            "name": "port",
+                            "type": "int",
+                            "required": true,
+                            "default": "",
+                            "possible": "",
+                            "description": "Port number of the proxy server."
+                        },
+                        {
+                            "name": "protocol",
+                            "type": "string",
+                            "required": false,
+                            "default": "",
+                            "possible": "",
+                            "description": "Protocol used by the proxy server (e.g., HTTP, HTTPS)."
+                        },
+                        {
+                            "name": "nonProxyHosts",
+                            "type": "string",
+                            "required": false,
+                            "default": "",
+                            "possible": "",
+                            "description": "List of hosts separated by '|' that should bypass the proxy server."
+                        },
+                        {
+                            "name": "targetProxyHosts",
+                            "type": "string",
+                            "required": false,
+                            "default": "",
+                            "possible": "",
+                            "description": "List of hosts separated by '|' that should use the proxy server."
+                        }
+                    ]
+                }
+            ],
+            "exampleFile": "proxy_config.toml"
         },
         {
             "title": "JWT Configurations",
@@ -5522,6 +5583,54 @@
                             "default": "org.wso2.carbon.identity.oauth2.grant.kerberos.KerberosGrantValidator",
                             "possible": "",
                             "description": "Kerberos grant validator implementation class."
+                        },
+                        {
+                            "name": "token_exchange.enable",
+                            "type": "boolean",
+                            "required": false,
+                            "default": "true",
+                            "possible": "true,false",
+                            "description": "Enable Token Exchange grant."
+                        },
+                        {
+                            "name": "token_exchange.grant_handler",
+                            "type": "string",
+                            "required": false,
+                            "default": "org.wso2.carbon.identity.oauth2.grant.token.exchange.TokenExchangeGrantHandler",
+                            "possible": "",
+                            "description": "Token Exchange grant implementation class."
+                        },
+                        {
+                            "name": "token_exchange.grant_validator",
+                            "type": "string",
+                            "required": false,
+                            "default": "org.wso2.carbon.identity.oauth2.grant.token.exchange.TokenExchangeGrantValidator",
+                            "possible": "",
+                            "description": "Token Exchange grant validator implementation class."
+                        },
+                        {
+                            "name": "token_exchange.allow_refresh_tokens",
+                            "type": "boolean",
+                            "required": false,
+                            "default": "true",
+                            "possible": "true,false",
+                            "description": "Enable to allow refresh tokens for token exchange grant."
+                        },
+                        {
+                            "name": "token_exchange.iat_validity_period",
+                            "type": "string",
+                            "required": false,
+                            "default": "1h",
+                            "possible": "",
+                            "description": "The validity period for the issued at (iat) claim in token exchange. Accepts time formats like '1h', '30m', '3600s'."
+                        },
+                        {
+                            "name": "token_exchange.enable_multi_value_claim_handling",
+                            "type": "boolean",
+                            "required": false,
+                            "default": "false",
+                            "possible": "true,false",
+                            "description": "Enable multi-value claim handling for token exchange grant."
                         }                                                                                                                                                                                           
                                                                                                                                                                                                                                                    
                     ]
@@ -6543,7 +6652,36 @@
                 }
             ],
             "exampleFile": "apim.aws_lambda.http_client.toml"
-        }
+        },
+        {
+          "title": "Synapse Properties",
+          "options": [
+              {
+                  "name": "synapse_properties",
+                  "required": false,
+                  "description": "This includes configurations for synapse runtime.",
+                  "params": [
+                      {
+                          "name": "'synapse.mediators.access.control.mode'",
+                          "type": "string",
+                          "required": false,
+                          "default": "NONE",
+                          "possible": "NONE, ALLOW_LIST, DENY_LIST",
+                          "description": "This property controls the access control mode for mediators in the Synapse runtime. It can be set to one of the following values: NONE (no access control), ALLOW_LIST (only mediators in the allow list are accessible), DENY_LIST (mediators in the deny list are not accessible). By default, the access control mode is set to NONE, which means that all mediators are accessible. You can change this mode based on your security requirements and specify the list of mediators for access control using the 'synapse.mediators.access.control.list' property."
+                      },
+                      {
+                          "name": "'synapse.mediators.access.control.list'",
+                          "type": "string",
+                          "required": false,
+                          "default": "",
+                          "possible": "comma-separated list of mediator local names",
+                          "description": "This property specifies the list of mediators for access control based on the mode defined in 'synapse.mediators.access.control.mode'. It should be a comma-separated list of mediator local names. For example, if 'synapse.mediators.access.control.mode' is set to ALLOW_LIST, only the mediators listed in this property will be accessible. If the mode is set to DENY_LIST, the mediators listed here will be blocked from access. If the mode is NONE, this property is ignored. Configure this list according to the mediators you want to allow or deny access to in your Synapse runtime environment."
+                      }
+                  ]
+              }
+          ],
+          "exampleFile": "synapse_properties.toml"
+      }
     ]
 }
 

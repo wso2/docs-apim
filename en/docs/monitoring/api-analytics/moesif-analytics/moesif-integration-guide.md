@@ -66,7 +66,7 @@ Replace `YOUR_MOESIF_API_KEY_HERE` with the actual API key you copied from Step 
 | enable | Enable/Disable Analytics | true | Boolean | Yes |
 | type | Type of Analytics platform | moesif | String | Yes |
 | moesifKey | Moesif API Key | - | String | No |
-| moesif_base_url | Base URL of Moesif API | https://api.moesif.com | String | Yes |
+| moesif_base_url | Base URL of Moesif API | https://api.moesif.net | String | Yes |
 | send_headers | Whether to send request and response headers to Moesif | false | Boolean | Yes |
 
 ### 2.2 Restart WSO2 API Manager
@@ -243,7 +243,7 @@ If you don't see data in your Moesif dashboard after configuration:
 2. **Check WSO2 Logs**: Review `<APIM-HOME>/repository/logs/wso2carbon.log` for analytics-related errors
 3. **Confirm Restart**: Ensure you restarted WSO2 APIM after making configuration changes
 4. **Test API Invocation**: Make a test API call and wait 2-3 minutes for data to appear in Moesif
-5. **Network Connectivity**: Verify that your WSO2 APIM server can reach `https://api.moesif.com`
+5. **Network Connectivity**: Verify that your WSO2 APIM server can reach `https://api.moesif.net`
 
 ### Common Configuration Errors
 

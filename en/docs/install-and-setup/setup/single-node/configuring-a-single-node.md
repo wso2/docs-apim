@@ -1,4 +1,4 @@
-# Configuring a Single Node
+# Pattern 0: All-in-One Setup
 
 This page walks you through how to manually configure and deploy WSO2 API Manager in a single standalone instance, without using a distributed or HA deployment patterns. 
 
@@ -6,7 +6,7 @@ This page walks you through how to manually configure and deploy WSO2 API Manage
 
 Follow the instructions below to configure and deploy API-M using a single node:
 
-## Step 1 - Create a SSL Certificate
+## Step 1 - Create an SSL Certificate
 
 !!! info   
     All WSO2 products are by default shipped with a keystore file and truststore file stored in the 

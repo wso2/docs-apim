@@ -31,7 +31,7 @@ In large-scale deployments of WSO2 API Manager, when there are millions of users
 ### Enabling Token Persistence Optimization
 
 1. Follow the steps in [Enable JWT for Web Portal]({{base_path}}/install-and-setup/setup/security/securing-api-m-web-portals/#enable-jwt-for-web-portals).
-2. Add the following to the `deployment.toml` in API Manager. Add this to the Control plane profile if you are using a distributed API-M setup.
+2. Add the following to the `deployment.toml` in API Manager. Add this to the Key Manager if you are using a distributed API-M setup.
     
    ```toml
     [oauth.token_persistence]

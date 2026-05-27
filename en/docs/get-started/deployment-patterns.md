@@ -80,8 +80,8 @@ database</strong></p>
 </tr>
 <tr class="odd">
 <td><strong>WSO2 Traffic Manager</strong></td>
-<td>Used</td>
-<td>Used</td>
+<td>Not used</td>
+<td>Not used</td>
 </tr>
 </tbody>
 </table>
