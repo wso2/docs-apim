@@ -139,6 +139,7 @@ nav:
                         - Configure a Read-Write Active Directory User Store: install-and-setup/setup/configure-userstores/configure-primary-user-store/configuring-a-read-write-active-directory-user-store.md
                 - SSO:
                     - Configure Identity Server As External IDP with OIDC: install-and-setup/setup/sso/configuring-identity-server-as-external-idp-using-oidc.md
+                    - Configure External IDP with OIDC for Multi-tenancy: install-and-setup/setup/sso/configuring-external-idp-using-oidc-for-multi-tenancy.md
                     - Configure Identity Server As External IDP with SAML: install-and-setup/setup/sso/configuring-identity-server-as-external-idp-using-saml.md
                     - OKTA As An External IDP With OIDC: install-and-setup/setup/sso/okta-as-an-external-idp-using-oidc.md
                     - OKTA As An External IDP With SAML: install-and-setup/setup/sso/okta-as-an-external-idp-using-saml.md
