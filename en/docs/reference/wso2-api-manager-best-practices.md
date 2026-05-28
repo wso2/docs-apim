@@ -18,7 +18,7 @@ Here are the guidelines and recommendations to design and deploy APIs using WSO2
 
 ### Proper Naming APIs
 
-It's important to have proper names for services and service paths. For example, if you create an API related to camera-related operations, you can select a name with camera-related terms such a “camera-api”. When you create a resource for the API, you can select names such as “capture-image”, “delete-image”. Resources must be named properly through URIs (Uniform Resource Identifiers). Proper naming of resources is key to increase the understandability of an API to its users.
+It's important to have proper names for services and service paths. For example, if you create an API related to camera-related operations, you can select a name with camera-related terms such as “camera-api”. When you create a resource for the API, you can select names such as “capture-image”, “delete-image”. Resources must be named properly through URIs (Uniform Resource Identifiers). Proper naming of resources is key to increase the understandability of an API to its users.
 
 Following are some of the guidelines for designing proper API/Resource paths and names. Note that these are not mandatory rules but best practices.
 
