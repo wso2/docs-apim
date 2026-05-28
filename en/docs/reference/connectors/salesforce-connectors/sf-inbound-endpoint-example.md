@@ -30,34 +30,70 @@ Now that you have configured the Salesforce Inbound Endpoint, use the following 
 
 3. Click on **Inbound Endpoint** in design view and under `properties` tab, update class name to `org.wso2.carbon.inbound.salesforce.poll.SalesforceStreamData`. 
 
-4. Navigate to the source view and update it with the following configuration as required. 
+4. Navigate to the source view and update it with the following configuration as required.
 
-   ```xml
-   <?xml version="1.0" encoding="UTF-8"?>
-   <inboundEndpoint xmlns="http://ws.apache.org/ns/synapse"
-                    name="SaleforceInboundEP"
-                    sequence="test"
-                    onError="fault"
-                    class="org.wso2.carbon.inbound.salesforce.poll.SalesforceStreamData"
-                    suspend="false">
-      <parameters>
-         <parameter name="inbound.behavior">polling</parameter>
-         <parameter name="interval">100</parameter>
-         <parameter name="sequential">true</parameter>
-         <parameter name="coordination">true</parameter>
-         <parameter name="connection.salesforce.replay">false</parameter>
-         <parameter name="connection.salesforce.EventIDStoredFilePath">/home/kasun/Documents/SalesForceConnector/a.txt</parameter>
-         <parameter name="connection.salesforce.packageVersion">37.0</parameter>
-         <parameter name="connection.salesforce.salesforceObject">/topic/Account</parameter>
-         <parameter name="connection.salesforce.loginEndpoint">https://login.salesforce.com</parameter>
-         <parameter name="connection.salesforce.userName">Username</parameter>
-         <parameter name="connection.salesforce.password">test123XXXXXXXXXX</parameter>
-         <parameter name="connection.salesforce.waitTime">5000</parameter>
-         <parameter name="connection.salesforce.connectionTimeout">20000</parameter>
-         <parameter name="connection.salesforce.soapApiVersion">22.0</parameter>
-      </parameters>
-   </inboundEndpoint>
-   ```
+    !!! info "Version requirement"
+        OAuth2 Client Credentials authentication is available from **Salesforce Inbound Endpoint version 2.1.17** onwards.
+
+    === "Username/Password (username-token)"
+
+        ```xml
+        <?xml version="1.0" encoding="UTF-8"?>
+        <inboundEndpoint xmlns="http://ws.apache.org/ns/synapse"
+                         name="SaleforceInboundEP"
+                         sequence="test"
+                         onError="fault"
+                         class="org.wso2.carbon.inbound.salesforce.poll.SalesforceStreamData"
+                         suspend="false">
+           <parameters>
+              <parameter name="inbound.behavior">polling</parameter>
+              <parameter name="interval">100</parameter>
+              <parameter name="sequential">true</parameter>
+              <parameter name="coordination">true</parameter>
+              <parameter name="connection.salesforce.replay">false</parameter>
+              <parameter name="connection.salesforce.EventIDStoredFilePath">/home/kasun/Documents/SalesForceConnector/a.txt</parameter>
+              <parameter name="connection.salesforce.packageVersion">37.0</parameter>
+              <parameter name="connection.salesforce.salesforceObject">/topic/Account</parameter>
+              <parameter name="connection.salesforce.authenticationType">username-token</parameter>
+              <parameter name="connection.salesforce.loginEndpoint">https://login.salesforce.com</parameter>
+              <parameter name="connection.salesforce.userName">Username</parameter>
+              <parameter name="connection.salesforce.password">test123XXXXXXXXXX</parameter>
+              <parameter name="connection.salesforce.waitTime">5000</parameter>
+              <parameter name="connection.salesforce.connectionTimeout">20000</parameter>
+              <parameter name="connection.salesforce.soapApiVersion">22.0</parameter>
+           </parameters>
+        </inboundEndpoint>
+        ```
+
+    === "OAuth2 Client Credentials (oauth)"
+
+        ```xml
+        <?xml version="1.0" encoding="UTF-8"?>
+        <inboundEndpoint xmlns="http://ws.apache.org/ns/synapse"
+                         name="SaleforceInboundEP"
+                         sequence="test"
+                         onError="fault"
+                         class="org.wso2.carbon.inbound.salesforce.poll.SalesforceStreamData"
+                         suspend="false">
+           <parameters>
+              <parameter name="inbound.behavior">polling</parameter>
+              <parameter name="interval">100</parameter>
+              <parameter name="sequential">true</parameter>
+              <parameter name="coordination">true</parameter>
+              <parameter name="connection.salesforce.replay">false</parameter>
+              <parameter name="connection.salesforce.EventIDStoredFilePath">/home/kasun/Documents/SalesForceConnector/a.txt</parameter>
+              <parameter name="connection.salesforce.packageVersion">37.0</parameter>
+              <parameter name="connection.salesforce.salesforceObject">/topic/Account</parameter>
+              <parameter name="connection.salesforce.authenticationType">oauth</parameter>
+              <parameter name="connection.salesforce.clientId"><CONSUMER_KEY></parameter>
+              <parameter name="connection.salesforce.clientSecret"><CONSUMER_SECRET></parameter>
+              <parameter name="connection.salesforce.tokenEndpoint">https://login.salesforce.com/services/oauth2/token</parameter>
+              <parameter name="connection.salesforce.waitTime">5000</parameter>
+              <parameter name="connection.salesforce.connectionTimeout">20000</parameter>
+           </parameters>
+        </inboundEndpoint>
+        ```
+
    Sequence to process the message.
    
    In this example for simplicity we will just log the message, but in a real world use case, this can be any type of message mediation.
@@ -69,7 +105,7 @@ Now that you have configured the Salesforce Inbound Endpoint, use the following 
        <drop/>
    </sequence>
    ```
-> **Note**: To configure the `connection.salesforce.password` parameter value, please use the steps given under the topic `Reset Security Token` in the [Salesforce inbound endpoint configuration]({{base_path}}/reference/connectors/salesforce-connectors/sf-inbound-endpoint-configuration/) document.
+> **Note**: To set up authentication, see the [Salesforce inbound endpoint configuration]({{base_path}}/reference/connectors/salesforce-connectors/sf-inbound-endpoint-configuration/) document.
    
 ## Exporting Integration Logic as a CApp
 
