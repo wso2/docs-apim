@@ -8,6 +8,10 @@ WSO2 API Manager provides an extendable interface that allows API Management sol
 
 WSO2 API Manager uses <a href="https://stripe.com">Stripe</a> as its sample implementation billing engine via the [wso2-am-stripe-plugin](https://github.com/wso2-extensions/wso2-am-stripe-plugin). When a subscriber selects a monetized tier, APIM redirects them to a Stripe-hosted Checkout page to collect payment details. Once payment is confirmed, the APIM subscription is activated automatically. Subscribers can subsequently manage their payment method, view invoices, and cancel their subscription via a Stripe-hosted Customer Portal. However, you can use any custom implementation with WSO2 API Manager's API Monetization capabilities based on your requirement.
 
+The following diagram provides an overview of the monetization architecture between WSO2 API Manager and Stripe.
+
+[![Monetization architecture diagram]({{base_path}}/assets/img/learn/monetization-architecture.png)]({{base_path}}/assets/img/learn/monetization-architecture.png)
+
 ## Monetize an API
 
 !!! warning
