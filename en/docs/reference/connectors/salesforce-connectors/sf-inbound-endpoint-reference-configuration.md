@@ -45,25 +45,53 @@ The following configurations allow you to configure Salesforce Inbound Endpoint 
     <td class="tg-0pky">-</td>
   </tr>
   <tr>
+    <td class="tg-0pky">authenticationType</td>
+    <td class="tg-0pky">The authentication method to use when connecting to Salesforce. <code>username-token</code> uses SOAP login with a username, password and security token. <code>oauth</code> uses the OAuth2 Client Credentials grant type. Configurations without this parameter default to <code>username-token</code>. OAuth2 Client Credentials support is available from inbound version 2.1.17 onwards.</td>
+    <td class="tg-0pky">No</td>
+    <td class="tg-0pky">username-token, oauth</td>
+    <td class="tg-0pky">username-token</td>
+  </tr>
+  <tr>
     <td class="tg-0pky">loginEndpoint</td>
-    <td class="tg-0pky">The Endpoint of the Salesforce account.</td>
-    <td class="tg-0pky">Yes</td>
+    <td class="tg-0pky">The SOAP login endpoint for the Salesforce account. Required only when <code>authenticationType</code> is <code>username-token</code>.</td>
+    <td class="tg-0pky">Yes (when authenticationType = username-token)</td>
     <td class="tg-0pky">https://login.salesforce.com</td>
     <td class="tg-0pky">https://login.salesforce.com</td>
   </tr>
   <tr>
     <td class="tg-0pky">userName</td>
-    <td class="tg-0pky">The username for accessing the Salesforce account.</td>
-    <td class="tg-0pky">Yes</td>
+    <td class="tg-0pky">The username for accessing the Salesforce account. Required only when <code>authenticationType</code> is <code>username-token</code>.</td>
+    <td class="tg-0pky">Yes (when authenticationType = username-token)</td>
     <td class="tg-0pky">-</td>
     <td class="tg-0pky">-</td>
   </tr> 
   <tr>
     <td class="tg-0pky">password</td>
-    <td class="tg-0pky"> The password provided here is a concatenation of the user password and the security token provided by Salesforce. For more information, see <a href="https://help.salesforce.com/articleView?id=user_security_token.htm&type=5">Information on creating a security token in Salesforce</a></td>
-    <td class="tg-0pky">Yes</td>
+    <td class="tg-0pky">The password provided here is a concatenation of the user password and the security token provided by Salesforce. Required only when <code>authenticationType</code> is <code>username-token</code>. For more information, see <a href="https://help.salesforce.com/articleView?id=user_security_token.htm&type=5">Information on creating a security token in Salesforce</a>.</td>
+    <td class="tg-0pky">Yes (when authenticationType = username-token)</td>
     <td class="tg-0pky">eitest123xxxxxxx</td>
     <td class="tg-0pky">-</td>
+  </tr>
+  <tr>
+    <td class="tg-0pky">clientId</td>
+    <td class="tg-0pky">The OAuth2 consumer key from the Salesforce Connected App. Required only when <code>authenticationType</code> is <code>oauth</code>.</td>
+    <td class="tg-0pky">Yes (when authenticationType = oauth)</td>
+    <td class="tg-0pky">-</td>
+    <td class="tg-0pky">-</td>
+  </tr>
+  <tr>
+    <td class="tg-0pky">clientSecret</td>
+    <td class="tg-0pky">The OAuth2 consumer secret from the Salesforce Connected App. Required only when <code>authenticationType</code> is <code>oauth</code>.</td>
+    <td class="tg-0pky">Yes (when authenticationType = oauth)</td>
+    <td class="tg-0pky">-</td>
+    <td class="tg-0pky">-</td>
+  </tr>
+  <tr>
+    <td class="tg-0pky">tokenEndpoint</td>
+    <td class="tg-0pky">The OAuth2 token endpoint URL. Use <code>https://test.salesforce.com/services/oauth2/token</code> for sandbox environments. Applicable only when <code>authenticationType</code> is <code>oauth</code>.</td>
+    <td class="tg-0pky">No (when authenticationType = oauth)</td>
+    <td class="tg-0pky">https://login.salesforce.com/services/oauth2/token</td>
+    <td class="tg-0pky">https://login.salesforce.com/services/oauth2/token</td>
   </tr>
   <tr>
     <td class="tg-0pky">waitTime</td>

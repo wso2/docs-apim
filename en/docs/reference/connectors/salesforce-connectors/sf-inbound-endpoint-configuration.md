@@ -6,7 +6,7 @@ This documentation explains how to set up the Salesforce environment to connect 
 * Creating a PushTopic.
 * Subscribing to the PushTopic Channel
 * Testing the PushTopic Channel.
-* Reset Security Token.
+* Set up Salesforce Authentication.
  
 ## Create a custom object or object in Salesforce.
 
@@ -111,25 +111,59 @@ In this step, we need to [subscribe](https://developer.salesforce.com/docs/atlas
       "channel": "/topic/Account"
     }
     ```
-## Reset Security Token
+## Set up Salesforce Authentication
 
-1. **Login** to the **Salesforce Account**. Navigate to the top right corner of the **Home page** and click **Settings**.
+The Salesforce Inbound Endpoint supports two authentication methods:
 
-    <img src="{{base_path}}/assets/img/integrate/connectors/salesforce-inboundep-click-settings-updated.png" title="Select Settings." width="40%" alt="Select Settings"/> 
+- **Username/Password (username-token)** — authenticates using a Salesforce username, password, and security token via the SOAP login API. This is the default authentication type.
+- **OAuth2 Client Credentials (oauth)** — authenticates using a Salesforce Connected App's consumer key and secret via the OAuth2 Client Credentials grant. Recommended for server-to-server integrations where storing a user password is undesirable.
 
-2. Select **Reset My Security Token** and then click **Reset Security Token** button.   
-   
-    <img src="{{base_path}}/assets/img/integrate/connectors/salesforce-inboundep-resetsecurity-token-updated.png" title="Reset Security Token" width="70%" alt="Reset Security Token"/>
-      
-    When setting up the Inbound Endpoint you need to provide the Salesforce password in the following manner. The password provided here is a concatenation of the user password and the security token provided by Salesforce. For more information, see [information on creating a security token in Salesforce](https://help.salesforce.com/articleView?id=user_security_token.htm&type=5).
-   
-    Example : 
-   
-    | Field              | Value           |   
-    | ------------------ |-----------------|
-    |salesforce password | test123         |
-    |Security Token      | XXXXXXXXXX      |
-   
-    ```
-    <parameter name="connection.salesforce.password">test123XXXXXXXXXX</parameter>
-    ```
+!!! info "Version requirement"
+    OAuth2 Client Credentials authentication is available from **Salesforce Inbound Endpoint version 2.1.17** onwards.
+
+=== "Username/Password (username-token)"
+
+    1. **Login** to the **Salesforce Account**. Navigate to the top right corner of the **Home page** and click **Settings**.
+
+        <img src="{{base_path}}/assets/img/integrate/connectors/salesforce-inboundep-click-settings-updated.png" title="Select Settings." width="40%" alt="Select Settings"/> 
+
+    2. Select **Reset My Security Token** and then click **Reset Security Token** button.   
+       
+        <img src="{{base_path}}/assets/img/integrate/connectors/salesforce-inboundep-resetsecurity-token-updated.png" title="Reset Security Token" width="70%" alt="Reset Security Token"/>
+          
+        When setting up the Inbound Endpoint you need to provide the Salesforce password in the following manner. The password provided here is a concatenation of the user password and the security token provided by Salesforce. For more information, see [information on creating a security token in Salesforce](https://help.salesforce.com/articleView?id=user_security_token.htm&type=5).
+       
+        Example : 
+       
+        | Field              | Value           |   
+        | ------------------ |-----------------|
+        |salesforce password | test123         |
+        |Security Token      | XXXXXXXXXX      |
+       
+        ```
+        <parameter name="connection.salesforce.password">test123XXXXXXXXXX</parameter>
+        ```
+
+=== "OAuth2 Client Credentials (oauth)"
+
+    Create a Salesforce External Client App that supports the Client Credentials flow:
+
+    1. **Login** to your **Salesforce Account** and click the **Setup** icon (top right).
+
+    2. In the **Quick Find** box, search for **External Client App Manager** (under **External Client Apps**) and open it. Alternatively, go to **App Manager** (under **Apps**) and click the **New External Client App** button in the top right.
+
+    3. Click **New External Client App**.
+
+    4. Enter an **App Name** and a **Contact Email Address**.
+
+    5. Under **OAuth Settings**, enable **Enable OAuth** and configure the following:
+        - **Callback URL**: Enter any valid URL (e.g., `https://login.salesforce.com/services/oauth2/success`).
+        - **Selected OAuth Scopes**: Add **Manage user data via APIs (api)** and any other required scopes.
+        - Enable **Enable Client Credentials Flow**.
+
+    6. Click **Create**. After saving, open the app, go to the **Settings** tab, and click **Consumer Key and Secret** to retrieve the **Consumer Key** (clientId) and **Consumer Secret** (clientSecret).
+
+    7. To assign a run-as user for the Client Credentials flow, go to the app's **Policies** tab, click **Edit**, and set the **Run As** username to a dedicated integration user.
+
+    !!! note
+        The Client Credentials flow does not require end-user interaction and is intended for server-to-server integrations. Use a dedicated integration user with the minimum required permissions as the run-as user.
