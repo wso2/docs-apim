@@ -52,7 +52,7 @@ API authentication is a way of protecting API access from unidentified or anonym
 
 **Authorization**
 
-Due to the expanding consumer base, the application developers have to focus on limiting the API access in order to make sure that only the authorized parties have access to the respective resources/services. Please refer to [an overview of Authorization in API Manager]({{base_path}}/api-security/runtime/authorization/api-authorization) for more information.
+Due to the expanding consumer base, the application developers have to focus on limiting API access in order to make sure that only the authorized parties have access to the respective resources/services. Please refer to [an overview of Authorization in API Manager]({{base_path}}/api-security/runtime/authorization/api-authorization) for more information.
 
 **Threat Protection**
 
