@@ -23,6 +23,7 @@ This guide provides a step-by-step approach to deploying WSO2 API Manager on Azu
   - [Step 4: Set Up Docker Images](#step-4-set-up-docker-images)
     - [Create a Custom Dockerfile](#create-a-custom-dockerfile)
     - [Build and Push to ACR](#build-and-push-to-acr)
+    - [Grant AKS Access to ACR](#grant-aks-access-to-acr)
   - [Step 5: Generate Keystore and Truststore](#step-5-generate-keystore-and-truststore)
     - [Locate Default Keystores](#locate-default-keystores)
     - [Create a New Keystore](#create-a-new-keystore)
@@ -113,15 +114,7 @@ az aks create \
 
 ## Step 2: Install Envoy Gateway API Controller
 
-WSO2 API Manager uses the Gateway API to route traffic to the cluster. You can install it using the following command and configure additional settings as needed via the `values.yaml` file:
-
-```bash
-helm install envoy-gateway oci://docker.io/envoyproxy/gateway-helm \
---version v1.7.0 -n envoy-gateway-system \
---set config.envoyGateway.extensionApis.enableBackend=true \
---set envoyGateway.gateway.experimentalFeatures.enabled=true \
---create-namespace
-```
+WSO2 API Manager uses the Gateway API to route traffic to the cluster. You can install it and configure additional settings as needed via the `values.yaml` file by following the instructions in the [API-M Deployment with All-in-One HA Routing Controller Setup]({{base_path}}/install-and-setup/setup/kubernetes-deployment/kubernetes/am-pattern-1-all-in-one-ha/#step-4-install-a-routing-controller) guide.
 
 ## Step 3: Configure the Databases
 
@@ -208,9 +201,50 @@ docker push <ACR_NAME>.azurecr.io/wso2am-mysql:4.7.0
 !!! note
     Replace `<ACR_NAME>` with your actual Azure Container Registry name. Ensure your ACR repository exists before pushing.
 
+### Grant AKS Access to ACR
+
+AKS needs pull access to your ACR. There are two ways to achieve this:
+
+**Option 1 — Attach ACR to AKS (recommended)**
+
+This is the preferred approach for AKS. It uses the cluster's managed identity and requires no credentials in your `values.yaml`:
+
+```bash
+az aks update \
+  --name <AKS_CLUSTER_NAME> \
+  --resource-group <RESOURCE_GROUP> \
+  --attach-acr <ACR_NAME>
+```
+
+With this option, leave `imagePullSecrets.enabled: false` in `values.yaml` (the default).
+
+**Option 2 — Kubernetes image pull secret**
+
+If managed identity is not available, create a pull secret manually and reference it in the Helm chart:
+
+```bash
+kubectl create secret docker-registry acr-secret \
+  --docker-server=<ACR_NAME>.azurecr.io \
+  --docker-username=<SERVICE_PRINCIPAL_ID> \
+  --docker-password=<SERVICE_PRINCIPAL_PASSWORD> \
+  -n wso2
+```
+
+Then set the following in `values.yaml`:
+
+```yaml
+wso2:
+  deployment:
+    image:
+      imagePullSecrets:
+        enabled: true
+        username: "<SERVICE_PRINCIPAL_ID>"
+        password: "<SERVICE_PRINCIPAL_PASSWORD>"
+```
+
 ## Step 5: Generate Keystore and Truststore
 
-WSO2 APIM uses Java keystores for internal communication. While self-signed certificates are sufficient for internal traffic, you should use publicly trusted certificates for external communication (configured via Ingress).
+WSO2 APIM uses Java keystores for internal communication. While self-signed certificates are sufficient for internal traffic, you should use publicly trusted certificates for external communication.
 
 ### Locate Default Keystores
 
@@ -281,6 +315,9 @@ Before deploying, set the mandatory internal encryption key under `wso2.apim.con
 Create a `values.yaml` file with the following configuration:
 
 ```yaml
+azure:
+  enabled: true
+
 kubernetes:
   gatewayAPI:
     enabled: true
@@ -331,7 +368,8 @@ wso2:
     image:
       registry: "<ACR_NAME>.azurecr.io"
       repository: "wso2am-mysql"
-      digest: "4.7.0"
+      tag: "4.7.0"
+      digest: "sha256:your-image-digest"
       imagePullSecrets:
         enabled: false
         username: ""
@@ -341,7 +379,9 @@ wso2:
 !!! tip "Advanced Configuration"
     WSO2 APIM offers extensive configuration options. You can review the full `values.yaml` file in the [WSO2 Helm APIM repository](https://github.com/wso2/helm-apim). For example:
     - The chart uses Gateway API by default. To switch to a different ingress controller such as NGINX, disable Gateway API under `kubernetes.gatewayAPI` and configure the `kubernetes.ingress` section instead
-    - Azure-specific configurations can be found under the `azure` section
+    - Setting `azure.enabled: true` (as shown above) enables Azure-specific Helm resources. It activates two optional sub-features:
+        - **Azure Key Vault** — set `wso2.apim.secureVaultEnabled: true` and configure `azure.keyVault` (vault name, service principal, tenant ID, subscription, and secret identifiers) to use Azure Key Vault via the Secrets Store CSI driver instead of plain Kubernetes secrets
+        - **Azure File persistence** — set `wso2.deployment.persistence.solrIndexing.enabled: true` and configure `azure.persistence` (storage class, file share name, and secret name) to back Solr indexing data with an Azure File Share
     - For production deployments, review and adjust resource requests, limits, and autoscaling parameters
 
 ### Deploy the Helm Chart
