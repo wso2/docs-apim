@@ -42,7 +42,7 @@
   font-size: .8rem;
   position: relative;
   top: -2px;
-  left: -8px;
+  left: -14px;
   transform: none !important;
   opacity: 1 !important;
 }
@@ -51,7 +51,7 @@
   font-weight: 400;
   display: block !important;
   position: relative !important;
-  left: -8px;
+  left: -14px;
 }
 
 /* Hide the page title topic to keep site name always visible */
@@ -120,7 +120,11 @@
 }
 
 /* Logo */
-.md-header__button.md-logo img, 
+.md-header__button.md-logo {
+  margin-right: 0;
+}
+
+.md-header__button.md-logo img,
 .md-header__button.md-logo svg {
   height: 1.4rem;
   padding: .1rem 0;

@@ -49,7 +49,7 @@ You can import the MCP Server to an environment using any of the following comma
             `--skip-deployments` : Skip the deployment environments specified in the project and only update the current MCP Server.   
             `--preserve-provider` : Preserve the existing provider of MCP Server after importing. The default value is `true`.   
             `--update` : Update an existing MCP Server or create a new MCP Server in the importing environment.    
-            `--params` : Provide a API Manager environment params file. For more information, see [Configuring Environment Specific Parameters]({{base_path}}/install-and-setup/setup/api-controller/advanced-topics/configuring-environment-specific-parameters).    
+            `--params` : Provide an API Manager environment params file. For more information, see [Configuring Environment Specific Parameters]({{base_path}}/install-and-setup/setup/api-controller/advanced-topics/configuring-environment-specific-parameters).    
             `--skip-cleanup` : Leave all temporary files created in apictl during import process. The default value is `false`.    
     
     !!! note

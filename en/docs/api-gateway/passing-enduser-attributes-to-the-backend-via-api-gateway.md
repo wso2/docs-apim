@@ -115,7 +115,7 @@ In order to validate the backend JWT using JWKS, you will need to invoke the JWK
 
 ## Expiry time of the JWT
 
-The JWT expiry time depends directly on whether caching is enabled in the Gateway Manager or Key Manager. The WSO2 Universal Gateway caching is enabled by default. However, if required, you can enable or disable the caching for the Gateway Manager or the Key Manager using the `apim.cache.gateway_token.enable` or `apim.cache.km_token.enable` elements respectively in the `<API-M_HOME>/repository/conf/deployment.toml` file. If caching is enabled for the Gateway Manager or the Key Manager, the JWT expiry time will be the same as the default cache expiry time.
+The JWT expiry time depends directly on whether caching is enabled in the Gateway Manager or Key Manager. The WSO2 Classic Gateway caching is enabled by default. However, if required, you can enable or disable the caching for the Gateway Manager or the Key Manager using the `apim.cache.gateway_token.enable` or `apim.cache.km_token.enable` elements respectively in the `<API-M_HOME>/repository/conf/deployment.toml` file. If caching is enabled for the Gateway Manager or the Key Manager, the JWT expiry time will be the same as the default cache expiry time.
 
 The claims that are retrieved for the JWT access token generation are cached. You can set the expiry time of these JWT claims by setting the `apim.cache.jwt_claim.expiry_time` in the `<API-M_HOME>/repository/conf/deployment.toml` file:
 
@@ -127,7 +127,7 @@ expiry_time = "900"
 
 ## Enabling the default backend JWT generator
 
-Before passing end user attributes, you need to enable and configure the JWT implementation, as mentioned below in the default Universal Gateway.
+Before passing end user attributes, you need to enable and configure the JWT implementation, as mentioned below in the default Classic Gateway.
 
 1. Navigate to the `<API-M_HOME>/repository/conf/deployment.toml` file.
 
@@ -194,7 +194,7 @@ Follow the instructions below if you want to pass additional attributes to the b
             String text = "This is custom JWT";
             Map map = new HashMap();
             map.put("current_timestamp", time.toString());
-            map.put("messge" , text);
+            map.put("message" , text);
             return map;
         }
     }
@@ -412,7 +412,7 @@ apim.jwt.binding_federated_user_claims</code></pre></td>
 </table>
 
 !!! tip
-    You can use TCPMon or Universal Gateway debug logs to capture the JWT access token header with end user details. Follow the instructions below to enable the Gateway DEBUG logs for wire messages:
+    You can use TCPMon or Classic Gateway debug logs to capture the JWT access token header with end user details. Follow the instructions below to enable the Gateway DEBUG logs for wire messages:
 
     1.  Go to the `<APIM_GATEWAY>/repository/conf` directory and open the `log4j2.properties` file with a text editor.
     2.  Add these two loggers to the list of loggers:<br/>

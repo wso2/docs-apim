@@ -10,7 +10,7 @@ WSO2 API Manager uses [Bouncy Castle](https://www.bouncycastle.org/) as the defa
 
 ## How to configure the Crypto Provider in APIM?
 
-APIM supports the configuration of crypto provider to either Bouncy Castle (default) or Bouncy Castle FIPS which is a crypto provider and depdencies from Bouncy Castle adhering to the FIPS 140-2 compliance.
+APIM supports the configuration of crypto provider to either Bouncy Castle (default) or Bouncy Castle FIPS which is a crypto provider and dependencies from Bouncy Castle adhering to the FIPS 140-2 compliance.
 
 ### Change the crypto provider to BCFIPS (Bouncy Castle FIPS)
 

@@ -40,7 +40,7 @@ A Streaming API is a logical collection of related topics through which clients 
 
 ## Secure APIs
 
-Many enterprises need to implement API management solutions that provide mechanisms such as authentication, authorization, and rate limiting. These are must-have capabilities for controlling who access APIs across an API ecosystem — and how often.
+Many enterprises need to implement API management solutions that provide mechanisms such as authentication, authorization, and rate limiting. These are must-have capabilities for controlling who can access APIs across an API ecosystem — and how often.
 
 **Rate Limiting**
 

@@ -125,11 +125,11 @@ This message indicates that the request you made has exceeded the allowed token 
 
 **8. I am getting this error response: Apologies for the inconvenience. `It appears that your token is invalid or expired. Please provide a valid token or upgrade your subscription plan `**
 
-This message suggests that your on-prem key is not valid or it is expired. You can request an extended trial period or you can upgrade your subscription plan so that you can seamlessly use Marketplace Assistant
+This message suggests that your on-prem key is not valid or it is expired. You can request an extended trial period or you can upgrade your subscription plan so that you can seamlessly use Marketplace Assistant.
 
 **9. I am getting this error response: Apologies for the inconvenience. `It seems that something went wrong with the Marketplace Assistant. Please try again later `**
 
-This message signifies that an unexpected error has occurred. It could be due to various reasons such as server issues, network problems, etc. Kindly reach out to the administrator for assistance in resolving the problem,
+This message signifies that an unexpected error has occurred. It could be due to various reasons such as server issues, network problems, etc. Kindly reach out to the administrator for assistance in resolving the problem.
 
 **10. What type of questions I can ask from Marketplace Assistant:**
 
@@ -151,6 +151,6 @@ if you encounter any issues or have further questions, go to the Issues tab of t
 
 **11. This error message is prompted in the terminal when I use the apictl to upload my APIs: `context deadline exceeded (Client.Timeout exceeded while awaiting headers)`.**
 
-The dafault HTTP request timeout for apictl is 10s. Due to network connnectivity or some other issues, the uploading might exceed this limit. If you encounter this issue you can simply set the timeout to a higher value.
+The default HTTP request timeout for apictl is 10s. Due to network connnectivity or some other issues, the uploading might exceed this limit. If you encounter this issue you can simply set the timeout to a higher value.
 
 you can modify the `main_config.yaml` file, which you can find in the `APICTL_CONFIG_DIR` and increase the `http_request_timeout` value (Note that the value should be given in milli seconds, e.g: `http_request_timeout: 20000`).

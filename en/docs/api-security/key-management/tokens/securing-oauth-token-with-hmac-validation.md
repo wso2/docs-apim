@@ -1,6 +1,6 @@
 # Securing OAuth Token with HMAC Validation
 
-Implementing security measures in order to prevent the possible attacks is a need in using enterprise software. Keyed-Hash Message Authentication Code (HMAC) validation is such measure which involved a cryptographic hash function and used to verify both the data integrity and authentication of a Message as with any Message Authentication code. In this tutorial you will use the HMAC to validate the OAuth tokens created in WSO2 API Manager and and WSO2 Identity Server.
+Implementing security measures in order to prevent the possible attacks is a need in using enterprise software. Keyed-Hash Message Authentication Code (HMAC) validation is such measure which involved a cryptographic hash function and used to verify both the data integrity and authentication of a Message as with any Message Authentication code. In this tutorial you will use the HMAC to validate the OAuth tokens created in WSO2 API Manager and WSO2 Identity Server.
 
 -   [Preventing miss-use of OAuth Tokens](#SecuringOAuthTokenwithHMACValidation-Preventingmiss-useofOAuthTokens)
 -   [WSO2 IS Extension - OAuth Token Generator Extension](#SecuringOAuthTokenwithHMACValidation-WSO2ISExtension-OAuthTokenGeneratorExtension)
