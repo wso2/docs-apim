@@ -139,7 +139,7 @@ Given below are some error codes and their meanings.
 <td><p>Incorrect access token type is provided</p></td>
 <td>
 <p>
-The access token type used is not supported when invoking the API. The supported access token types are application and user access tokens. See <a href="{{base_path}}/get-started/key-concepts/#access-token">Access Tokens</a>.
+The access token type used is not supported when invoking the API. The supported access token types are application and application user access tokens. See <a href="{{base_path}}/get-started/key-concepts/#access-token">Access Tokens</a>.
 </p>
 <p>
 <strong>Note:</strong> The <code>x-auth-type</code> based Application/Application User token restriction was deprecated from APIM 3.x onwards. In APIM 4.x, secured resources accept both application and application user tokens. Therefore, this error code is generally not applicable to APIM 4.x and later versions.
