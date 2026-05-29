@@ -54,10 +54,10 @@ Before deploying WSO2 API Manager on Google Cloud GKE, ensure you have the follo
 - Access to WSO2 API Manager (APIM) Docker images
 - Kubernetes deployment artifacts (Helm charts or YAML manifests from the WSO2 docs repository)
 - Knowledge of:
-  - API-M database schemas
-  - Deployment patterns
-  - Clustering requirements
-  - Keystore and TLS configuration
+    - API-M database schemas
+    - Deployment patterns
+    - Clustering requirements
+    - Keystore and TLS configuration
 
 ## Architecture Overview
 
@@ -338,11 +338,12 @@ wso2:
 
 !!! tip "Advanced Configuration"
     WSO2 APIM offers extensive configuration options. You can review the full `values.yaml` file in the [WSO2 Helm APIM repository](https://github.com/wso2/helm-apim). For example:
-    - The chart uses Gateway API by default. To switch to a different ingress controller such as NGINX, disable Gateway API under `kubernetes.gatewayAPI` and configure the `kubernetes.ingress` section instead
+
+    - The chart uses Gateway API by default. To switch to a different ingress controller such as NGINX, disable Gateway API under `kubernetes.gatewayAPI` and configure the `kubernetes.ingress` section instead.
     - Setting `gcp.enabled: true` (as shown above) enables GCP-specific Helm resources. It activates two optional sub-features:
-        - **GCP Secret Manager** — set `wso2.apim.secureVaultEnabled: true` and configure `gcp.secretsManager` (project ID, secret provider class, and secret identifiers) to use GCP Secret Manager via the Secrets Store CSI driver instead of plain Kubernetes secrets
-        - **GCP Filestore persistence** — set `wso2.deployment.persistence.solrIndexing.enabled: true` and configure `gcp.fs` (filestore name, fileshare name, IP, tier, network, and location) to back Solr indexing data with a GCP Filestore instance
-    - For production deployments, review and adjust resource requests, limits, and autoscaling parameters
+        - **GCP Secret Manager** — set `wso2.apim.secureVaultEnabled: true` and configure `gcp.secretsManager` (project ID, secret provider class, and the secret name and version under `secretEncryptionKey`) to use GCP Secret Manager via the Secrets Store CSI driver instead of plain Kubernetes secrets.
+        - **GCP Filestore persistence** — set `wso2.deployment.persistence.solrIndexing.enabled: true` and configure `gcp.fs` (capacity, tier, network, location, and two separate fileshares under `gcp.fs.fileshares.carbonDB` and `gcp.fs.fileshares.solr` — each requiring a filestore name, fileshare name, and IP) to back both the CarbonDB and Solr indexed data with GCP Filestore instances.
+    - For production deployments, review and adjust resource requests, limits, and autoscaling parameters.
 
 ### Deploy the Helm Chart
 

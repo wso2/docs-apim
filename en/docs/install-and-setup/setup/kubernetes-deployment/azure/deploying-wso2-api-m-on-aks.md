@@ -378,11 +378,12 @@ wso2:
 
 !!! tip "Advanced Configuration"
     WSO2 APIM offers extensive configuration options. You can review the full `values.yaml` file in the [WSO2 Helm APIM repository](https://github.com/wso2/helm-apim). For example:
-    - The chart uses Gateway API by default. To switch to a different ingress controller such as NGINX, disable Gateway API under `kubernetes.gatewayAPI` and configure the `kubernetes.ingress` section instead
+
+    - The chart uses Gateway API by default. To switch to a different ingress controller such as NGINX, disable Gateway API under `kubernetes.gatewayAPI` and configure the `kubernetes.ingress` section instead.
     - Setting `azure.enabled: true` (as shown above) enables Azure-specific Helm resources. It activates two optional sub-features:
-        - **Azure Key Vault** — set `wso2.apim.secureVaultEnabled: true` and configure `azure.keyVault` (vault name, service principal, tenant ID, subscription, and secret identifiers) to use Azure Key Vault via the Secrets Store CSI driver instead of plain Kubernetes secrets
-        - **Azure File persistence** — set `wso2.deployment.persistence.solrIndexing.enabled: true` and configure `azure.persistence` (storage class, file share name, and secret name) to back Solr indexing data with an Azure File Share
-    - For production deployments, review and adjust resource requests, limits, and autoscaling parameters
+        - **Azure Key Vault** — set `wso2.apim.secureVaultEnabled: true` and configure `azure.keyVault` (vault name, service principal, tenant ID, subscription, and secret identifiers) to use Azure Key Vault via the Secrets Store CSI driver instead of plain Kubernetes secrets.
+        - **Azure File persistence** — set `wso2.deployment.persistence.solrIndexing.enabled: true` and configure `azure.persistence` (storage class, file share name, and secret name) to back Solr indexing data with an Azure File Share.
+    - For production deployments, review and adjust resource requests, limits, and autoscaling parameters.
 
 ### Deploy the Helm Chart
 
