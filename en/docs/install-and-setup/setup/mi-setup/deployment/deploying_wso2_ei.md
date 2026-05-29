@@ -239,6 +239,12 @@ resolving_frequency = "3"
     </tr>
 </table>
 
+
+### RDBMS Coordination Parameters
+
+For detailed information on configuring RDBMS coordination parameters, including heartbeat configuration and rolling updates, see [RDBMS Coordination Configuration]({{base_path}}/install-and-setup/setup/mi-setup/feature_configs/configuring_rdbms_coordination).
+
+
 ## Deployment synchronization
 
 When you have a cluster of nodes, the integration artifacts deployed in each server node needs to be identical. This can be achieved by synchronizing the deployment directories of each server.
