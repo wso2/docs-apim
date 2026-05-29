@@ -7,7 +7,7 @@ WSO2 API Manager has integrated the support for invoking **REST API** with custo
 
 1. Sign in to the API Publisher Portal `https://<hostname>:9443/publisher`.
 
-2. Click **CREATE API** and then click **Start From Scrach**.
+2. Click **CREATE API** and then click **Start From Scratch**.
 
     [![Create a new REST API]({{base_path}}/assets/img/get_started/design-new-rest-api.png)]({{base_path}}/assets/img/get_started/design-new-rest-api.png)
 
@@ -29,7 +29,7 @@ WSO2 API Manager has integrated the support for invoking **REST API** with custo
 3. Upload a sequence file to the preferred **Key Type**
     
     To upload, you can hit Add button under the selected key type.
-    Sequence Backend endpoint configuration needs to have atleast one sequence for the API (either SANDBOX or PRODUCTION).
+    Sequence Backend endpoint configuration needs to have at least one sequence for the API (either SANDBOX or PRODUCTION).
         [![Upload Sequence Backend]({{base_path}}/assets/img/learn/upload-sequence-backend-file.png)]({{base_path}}/assets/img/learn/upload-sequence-backend-file.png)
 
     !!!note
@@ -45,7 +45,7 @@ WSO2 API Manager has integrated the support for invoking **REST API** with custo
 4. Download sequence uploaded of the preferred key type. This will download the sequence uploaded by the user.
 
 5. Delete sequence uploaded from the preferred key type
-    If there's only one item to be deleted, you will not be permitted to perform the operation as atleast one sequence should be provided under the "Sequence Backend" endpoint type.
+    If there's only one item to be deleted, you will not be permitted to perform the operation as at least one sequence should be provided under the "Sequence Backend" endpoint type.
 
 6. Click **Save**.
 

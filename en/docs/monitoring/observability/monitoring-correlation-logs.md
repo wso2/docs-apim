@@ -443,7 +443,7 @@ In contrast to the information provided by the Synapse global handler level, the
     <tr class="odd">
     <td>httpState</td>
     <td>
-        Listed below are the state changes that a message goes through when it flows through WSO2 API-M, and when the message flows between WSO2 API-M and exernal clients. A new log is generated for the message to record each of the following states.
+        Listed below are the state changes that a message goes through when it flows through WSO2 API-M, and when the message flows between WSO2 API-M and external clients. A new log is generated for the message to record each of the following states.
         <ul>
         <li><strong>REQUEST_HEAD</strong>: All HTTP headers in the incoming request are being written to the backend.</li>
         <li><strong>REQUEST_BODY</strong>: The body of the incoming request is being written to the backend.</li>

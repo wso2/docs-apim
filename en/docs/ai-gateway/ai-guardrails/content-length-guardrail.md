@@ -1,6 +1,6 @@
 # Content Length Guardrail
 
-The **Content Length Guardrail** is a custom Synapse mediator for the **WSO2 API Manager Universal Gateway**, designed to enforce content byte-length constraints on incoming AI API requests and GenAI responses JSON payloads. This guardrail helps ensure that API requests and responses conform to configurable minimum and maximum byte size limits, targeting specific fields using JSON Path expressions.
+The **Content Length Guardrail** is a custom Synapse mediator for the **WSO2 API Manager Classic Gateway**, designed to enforce content byte-length constraints on incoming AI API requests and GenAI responses JSON payloads. This guardrail helps ensure that API requests and responses conform to configurable minimum and maximum byte size limits, targeting specific fields using JSON Path expressions.
 
 ## Features
 

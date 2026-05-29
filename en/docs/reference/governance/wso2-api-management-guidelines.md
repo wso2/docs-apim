@@ -18,7 +18,6 @@ A guide detailing best practices for creating robust, scalable, and secure APIs,
 | [api-resources-security-required](#api-resources-security-required) | Error | Security must be enabled for all API resources. |
 | [api-name-cannot-contain-version](#api-name-cannot-contain-version) | Warn | API `name` should not contain a semantic version substring (e.g., x.y.z). |
 | [api-context-cannot-contain-version](#api-context-cannot-contain-version) | Warn | API `context` should not contain the version (e.g., x.y.z). |
-| [api-no-unlimited-business-plan](#api-no-unlimited-business-plan) | Warn | API should not have an unlimited business plan. |
 | [api-no-insecure-transports](#api-no-insecure-transports) | Warn | API should not allow insecure transports. |
 | [api-tags](#api-tags) | Warn | API should have tags. |
 | [api-tags-count](#api-tags-count) | Warn | API should have at least one tag. |
@@ -27,7 +26,6 @@ A guide detailing best practices for creating robust, scalable, and secure APIs,
 | [api-business-owner](#api-business-owner) | Warn | The business owner must be set. |
 | [api-technical-owner](#api-technical-owner) | Warn | The technical owner must be set. |
 | [api-technical-owner-email](#api-technical-owner-email) | Warn | The technical owner's email must be provided. |
-| [api-no-unlimited-throttling-policy](#api-no-unlimited-throttling-policy) | Warn | API should not have an unlimited throttling policy. |
 | [api-endpointConfig-sandbox-suggestion](#api-endpointconfig-sandbox-suggestion) | Info | A sandbox endpoint for testing is recommended. |
 
 ## Detailed Rules
@@ -375,33 +373,6 @@ data:
 
 ---
 
-### api-no-unlimited-business-plan
-
-**Description:** API should not have an unlimited business plan.
-
-**Severity:** Warn
-
-**Invalid Example**
-
-```yaml
-data:
-  policies:
-    - Unlimited
-  description: Sample API description.
-```
-
-**Valid Example**
-
-```yaml
-data:
-  policies:
-    - Gold
-    - Silver
-  description: Sample API description.
-```
-
----
-
 ### api-no-insecure-transports
 
 **Description:** API should not allow insecure transports.
@@ -608,34 +579,6 @@ data:
 data:
   businessInformation:
     technicalOwnerEmail: tech@example.com
-  description: Sample API description.
-```
-
----
-
-### api-no-unlimited-throttling-policy
-
-**Description:** API should not have an unlimited throttling policy.
-
-**Severity:** Warn
-
-**Invalid Example**
-
-```yaml
-data:
-  operations:
-    - name: getCustomerData
-      throttlingPolicy: Unlimited
-  description: Sample API description.
-```
-
-**Valid Example**
-
-```yaml
-data:
-  operations:
-    - name: getCustomerData
-      throttlingPolicy: Gold
   description: Sample API description.
 ```
 

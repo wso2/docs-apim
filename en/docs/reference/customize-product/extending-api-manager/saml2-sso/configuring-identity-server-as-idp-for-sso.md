@@ -234,7 +234,7 @@ Similarly, add the Identity Server as an identity provider configurations in `ht
 !!! note
     Even with SSO enabled, if the users do not have sufficient privileges to access API Publisher/Developer Portal/Admin Portal or any other application, they will not be authorized to access them.
 
-    Hence the users who will be JIT provisioned should be assigned the relevant role (Internal/creator, Internal/publisher, Internal/subscriber) for them to be able to successsfully login to API Publisher/Developer Portal/Admin Portal.
+    Hence the users who will be JIT provisioned should be assigned the relevant role (Internal/creator, Internal/publisher, Internal/subscriber) for them to be able to successfully login to API Publisher/Developer Portal/Admin Portal.
 
 !!! info
     For more information on Single Sign-On with WSO2 Identity Server, see [SAML 2.0 Web SSO](https://is.docs.wso2.com/en/5.10.0/learn/saml-2.0-web-sso/) in the WSO2 Identity Server documentation.

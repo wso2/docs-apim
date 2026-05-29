@@ -153,7 +153,7 @@ window.addEventListener('DOMContentLoaded', function() {
   var docSetUrl = window.location.origin + '/' + docSetLang;
   
   // Try to load from local first, fallback to remote
-  var versionsUrl = docSetUrl + 'versions/assets/versions.json';
+  var versionsUrl = docSetUrl + 'versions/assets/versions.json?_=' + Date.now();
   
   var request = new XMLHttpRequest();
 
@@ -256,4 +256,3 @@ window.addEventListener('DOMContentLoaded', function() {
 
   request.send();
 });
-

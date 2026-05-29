@@ -167,4 +167,4 @@ Now the WSO2 IS 7.x as the  default key manager will be created with the name `R
 [//]: # ( <image>)
 
 ## Configuring WSO2 IS 7.x as a third party key manager
-Please refer [this]({{base_path}}/administer/key-managers/configure-wso2is7-connector/) guide to configure WSO2 IS 7.x as a Key Manager in API Manager.
+Please refer [this]({{base_path}}/administer/key-managers/configure-wso2is7-connector/) guide to configure WSO2 IS as a Key Manager in API Manager.

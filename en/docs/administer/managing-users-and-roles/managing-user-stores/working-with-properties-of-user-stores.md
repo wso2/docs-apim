@@ -179,7 +179,7 @@ The following table provides descriptions of the key properties you use to confi
 </tr>
 <tr class="even">
 <td><code>             UserDNPattern            </code></td>
-<td>(LDAP) The patten for the user's DN, which can be defined to improve the search. When there are many user entries in the LDAP user store, defining a <code>             UserDNPattern            </code> provides more impact on performances as the LDAP does not have to travel through the entire tree to find users.</td>
+<td>(LDAP) The pattern for the user's DN, which can be defined to improve the search. When there are many user entries in the LDAP user store, defining a <code>             UserDNPattern            </code> provides more impact on performances as the LDAP does not have to travel through the entire tree to find users.</td>
 </tr>
 <tr class="odd">
 <td><code>             ReplaceEscapeCharactersAtUserLogin            </code></td>

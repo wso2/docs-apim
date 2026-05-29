@@ -115,7 +115,7 @@ Let's add support for the French language to the Developer Portal.
 
     ```js
     "Apis.Details.ApiConsole.ApiConsole.title": "Try Out",
-    "Apis.Details.ApiConsole.SelectAppPanel.applications": "Appplications",
+    "Apis.Details.ApiConsole.SelectAppPanel.applications": "Applications",
     ```
 
     1. [Find the keys to modify](#finding-the-keys-to-modify).

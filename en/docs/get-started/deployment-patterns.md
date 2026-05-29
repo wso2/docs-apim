@@ -43,7 +43,7 @@ Distributed patterns separate WSO2 API Manager into distinct component distribut
 The main component distributions are:
 
 *   **WSO2 API Control Plane (ACP)**: Includes the Key Manager, Publisher Portal, and Developer Portal for API creation, management, and governance.
-*   **WSO2 Universal Gateway**: The proxy that handles API traffic, enforces security policies, and gathers statistics. Only starts the components related to the API Gateway.
+*   **WSO2 Classic Gateway (Universal)**: The proxy that handles API traffic, enforces security policies, and gathers statistics. Only starts the components related to the API Gateway.
 *   **WSO2 Traffic Manager**: Manages rate limiting and traffic policies for the gateways. Only starts the Traffic Manager component. 
 
 
@@ -73,7 +73,7 @@ database</strong></p>
 <td><p>Used</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>WSO2 Universal Gateway</strong></p></td>
+<td><p><strong>WSO2 Classic Gateway (Universal)</strong></p></td>
 <td><p>Not used</p></td>
 <td><p>Used (in multi-tenancy mode/ in multiple gateway mode when Google Analytics is used)</p></td>
 
@@ -86,7 +86,7 @@ database</strong></p>
 </tbody>
 </table>
 
-!!! Warning "WSO2 Universal Gateway - `shared_db` configuration"
+!!! Warning "WSO2 Classic Gateway - `shared_db` configuration"
     Note that the registry data source **should not** be completely removed from the gateway node, although the `shared_db` is not required for certain use cases. During server initialization, the user core and registry modules rely on the registry and user store pointing to the default H2 shared db or the H2-based carbon DB. Therefore, ensure that at least the registry and user store configurations are appropriately set.
 
 ### API-M Components
@@ -144,7 +144,7 @@ Listed below are the five main components in the API-M server. When you run the 
     </tr>
 </table>
 
-In a typical distributed deployment, you only have the WSO2 API Control Plane, WSO2 Universal Gateway and WSO2 Traffic Manager distributions running as separate nodes. However, you have the option of separating the Key Manager from the WSO2 API Control Plane. With this, there are few patterns under which we can configure a distributed deployment for API-M. They are as follows.
+In a typical distributed deployment, you only have the WSO2 API Control Plane, WSO2 Classic Gateway and WSO2 Traffic Manager distributions running as separate nodes. However, you have the option of separating the Key Manager from the WSO2 API Control Plane. With this, there are few patterns under which we can configure a distributed deployment for API-M. They are as follows.
 
 ---
 ### Pattern 2: Simple Scalable Deployment

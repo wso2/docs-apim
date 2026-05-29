@@ -46,7 +46,7 @@ Follow the instructions below to register your on-premise environment:
       <table>
       <tr>
       <th><b>User Type</b></th>
-      <th><b>Descrption</b></th>
+      <th><b>Description</b></th>
       <th><b>Validity Period</b></th>
       <th><b>Number of Keys Allowed</b></th>
       </tr>

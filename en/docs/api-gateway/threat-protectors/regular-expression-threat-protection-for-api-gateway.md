@@ -1,4 +1,4 @@
-# Regular Expression Threat Protection for Universal Gateway
+# Regular Expression Threat Protection for Classic Gateway
 
 WSO2 API Manager provides predefined regex patterns to sanitize the request from SQL injection attacks. The attacks 
 may depend on the API traffic at runtime. The API developers should identify the common attacks and select the 

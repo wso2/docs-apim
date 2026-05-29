@@ -10,7 +10,7 @@ Follow the instructions in this tutorial to design, publish, and invoke a GraphQ
 
 {!includes/design/create-graphql-api.md!}
 
-Now, you have created and configured the GraphQL API successfully. 
+Now, you have created and configured the GraphQL API successfully.
 
 ### Step 3 - Deploy the GraphQL API
 

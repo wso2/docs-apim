@@ -241,7 +241,7 @@ You can import an application to your environment as a zipped application. When 
 
     -   **Response**
         ``` bash
-        Succesfully imported Application!
+        Successfully imported Application!
         ```
 
     !!! note

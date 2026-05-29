@@ -1,4 +1,4 @@
-# JSON Threat Protection for Universal Gateway
+# JSON Threat Protection for Classic Gateway
 
 The JSON threat protector in WSO2 API Manager validates the request body of the JSON message based on pre-configured to 
 thwart payload attacks.

@@ -100,7 +100,7 @@ info:
     * Make sure you have an API Manager instance up and running.
     * Update the `basepath` parameter to match the hostname and port of the APIM instance.
      
-     <a href="../../../../../assets/attachments/reference/admin-v4.4-postman-collection.json"
+     <a href="../../../../../assets/attachments/reference/admin-v4.5-postman-collection.json"
      download="WSO2 API Manager 4.7.0 Admin REST API.postman_collection.json"
      style="display: inline-block; padding: 10px 15px; color: white; background-color: #ef5b25; text-align: center; text-decoration: none; border-radius: 5px;font-weight: bold;">
      Download Postman Collection
@@ -136,7 +136,7 @@ paths:
           schema:
             type: string
       responses:
-        200:
+        '200':
           description: |
             OK.
             List of qualifying Throttling Policies is returned.
@@ -157,8 +157,9 @@ paths:
             - apim:policies_import_export
       x-code-samples:
         - lang: Curl
-          source: 'curl -k -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8"
-          "https://127.0.0.1:9443/api/am/admin/v4/throttling/policies/search?query=type:sub"'
+          source: |
+            curl -k -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" \
+            "https://127.0.0.1:9443/api/am/admin/v4/throttling/policies/search?query=type:sub"
       operationId: throttlingPolicySearch
 
   ######################################################
@@ -174,7 +175,7 @@ paths:
       parameters:
         - $ref: '#/components/parameters/Accept'
       responses:
-        200:
+        '200':
           description: |
             OK.
             Policies returned
@@ -188,7 +189,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/ApplicationThrottlePolicyList'
-        406:
+        '406':
           $ref: '#/components/responses/NotAcceptable'
       security:
         - OAuth2Security:
@@ -197,8 +198,9 @@ paths:
             - apim:admin_tier_view
       x-code-samples:
         - lang: Curl
-          source: 'curl -k -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8"
-          "https://127.0.0.1:9443/api/am/admin/v4/throttling/policies/application"'
+          source: |
+            curl -k -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" \
+            "https://127.0.0.1:9443/api/am/admin/v4/throttling/policies/application"
 
     post:
       tags:
@@ -217,7 +219,7 @@ paths:
               $ref: '#/components/schemas/ApplicationThrottlePolicy'
         required: true
       responses:
-        201:
+        '201':
           description: |
             Created.
             Successful response with the newly created object as entity in the body.
@@ -250,9 +252,9 @@ paths:
                     timeUnit: min
                     unitTime: 1
                     requestCount: 20
-        400:
+        '400':
           $ref: '#/components/responses/BadRequest'
-        415:
+        '415':
           $ref: '#/components/responses/UnsupportedMediaType'
       security:
         - OAuth2Security:
@@ -261,8 +263,9 @@ paths:
             - apim:admin_tier_manage
       x-code-samples:
         - lang: Curl
-          source: 'curl -k -X POST -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8"
-          -H "Content-Type: application/json" -d @data.json "https://127.0.0.1:9443/api/am/admin/v4/throttling/policies/application"'
+          source: |
+            curl -k -X POST -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" \
+            -H "Content-Type: application/json" -d @data.json "https://127.0.0.1:9443/api/am/admin/v4/throttling/policies/application"
 
   ######################################################
   # The "Individual Application Throttling Policy" resource API
@@ -277,7 +280,7 @@ paths:
       parameters:
         - $ref: '#/components/parameters/policyId'
       responses:
-        200:
+        '200':
           description: |
             OK.
             Policy returned
@@ -304,9 +307,9 @@ paths:
                     timeUnit: min
                     unitTime: 1
                     requestCount: 20
-        404:
+        '404':
           $ref: '#/components/responses/NotFound'
-        406:
+        '406':
           $ref: '#/components/responses/NotAcceptable'
       security:
         - OAuth2Security:
@@ -315,8 +318,9 @@ paths:
             - apim:admin_tier_view
       x-code-samples:
         - lang: Curl
-          source: 'curl -k -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8"
-          "https://127.0.0.1:9443/api/am/admin/v4/throttling/policies/application/4e098fff-7f94-459a-981f-d257332f69d0"'
+          source: |
+            curl -k -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" \
+            "https://127.0.0.1:9443/api/am/admin/v4/throttling/policies/application/4e098fff-7f94-459a-981f-d257332f69d0"
 
     put:
       tags:
@@ -336,7 +340,7 @@ paths:
               $ref: '#/components/schemas/ApplicationThrottlePolicy'
         required: true
       responses:
-        200:
+        '200':
           description: |
             OK.
             Policy updated.
@@ -368,9 +372,9 @@ paths:
                     timeUnit: min
                     unitTime: 1
                     requestCount: 20
-        400:
+        '400':
           $ref: '#/components/responses/BadRequest'
-        404:
+        '404':
           $ref: '#/components/responses/NotFound'
       security:
         - OAuth2Security:
@@ -379,8 +383,9 @@ paths:
             - apim:admin_tier_manage
       x-code-samples:
         - lang: Curl
-          source: 'curl -k -X PUT -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8"
-          -H "Content-Type: application/json" -d @data.json "https://127.0.0.1:9443/api/am/admin/v4/throttling/policies/application/4e098fff-7f94-459a-981f-d257332f69d0"'
+          source: |
+            curl -k -X PUT -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" \
+            -H "Content-Type: application/json" -d @data.json "https://127.0.0.1:9443/api/am/admin/v4/throttling/policies/application/4e098fff-7f94-459a-981f-d257332f69d0"
 
     delete:
       tags:
@@ -391,12 +396,12 @@ paths:
       parameters:
         - $ref: '#/components/parameters/policyId'
       responses:
-        200:
+        '200':
           description: |
             OK.
             Resource successfully deleted.
           content: {}
-        404:
+        '404':
           $ref: '#/components/responses/NotFound'
       security:
         - OAuth2Security:
@@ -406,8 +411,9 @@ paths:
             - apim:policies_import_export
       x-code-samples:
         - lang: Curl
-          source: 'curl -k -X DELETE -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8"
-          "https://127.0.0.1:9443/api/am/admin/v4/throttling/policies/application/4e098fff-7f94-459a-981f-d257332f69d0"'
+          source: |
+            curl -k -X DELETE -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" \
+            "https://127.0.0.1:9443/api/am/admin/v4/throttling/policies/application/4e098fff-7f94-459a-981f-d257332f69d0"
 
 
   ######################################################
@@ -423,7 +429,7 @@ paths:
       parameters:
         - $ref: '#/components/parameters/Accept'
       responses:
-        200:
+        '200':
           description: |
             OK.
             Policies returned
@@ -437,7 +443,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/SubscriptionThrottlePolicyList'
-        406:
+        '406':
           $ref: '#/components/responses/NotAcceptable'
       security:
         - OAuth2Security:
@@ -446,8 +452,9 @@ paths:
             - apim:admin_tier_view
       x-code-samples:
         - lang: Curl
-          source: 'curl -k -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8"
-          "https://127.0.0.1:9443/api/am/admin/v4/throttling/policies/subscription"'
+          source: |
+            curl -k -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" \
+            "https://127.0.0.1:9443/api/am/admin/v4/throttling/policies/subscription"
 
     post:
       tags:
@@ -466,7 +473,7 @@ paths:
               $ref: '#/components/schemas/SubscriptionThrottlePolicy'
         required: true
       responses:
-        201:
+        '201':
           description: |
             Created.
             Successful response with the newly created object as entity in the body.
@@ -504,9 +511,9 @@ paths:
                 customAttributes: []
                 stopOnQuotaReach: true
                 billingPlan: FREE
-        400:
+        '400':
           $ref: '#/components/responses/BadRequest'
-        415:
+        '415':
           $ref: '#/components/responses/UnsupportedMediaType'
       security:
         - OAuth2Security:
@@ -515,8 +522,9 @@ paths:
             - apim:admin_tier_manage
       x-code-samples:
         - lang: Curl
-          source: 'curl -k -X POST -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8"
-          -H "Content-Type: application/json" -d @data.json "https://127.0.0.1:9443/api/am/admin/v4/throttling/policies/subscription"'
+          source: |
+            curl -k -X POST -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" \
+            -H "Content-Type: application/json" -d @data.json "https://127.0.0.1:9443/api/am/admin/v4/throttling/policies/subscription"
 
   ######################################################
   # The "Individual Subscription Throttling Policy" resource API
@@ -531,7 +539,7 @@ paths:
       parameters:
         - $ref: '#/components/parameters/policyId'
       responses:
-        200:
+        '200':
           description: |
             OK.
             Policy returned
@@ -563,9 +571,9 @@ paths:
                 customAttributes: []
                 stopOnQuotaReach: true
                 billingPlan: FREE
-        404:
+        '404':
           $ref: '#/components/responses/NotFound'
-        406:
+        '406':
           $ref: '#/components/responses/NotAcceptable'
       security:
         - OAuth2Security:
@@ -574,8 +582,9 @@ paths:
             - apim:admin_tier_view
       x-code-samples:
         - lang: Curl
-          source: 'curl -k -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8"
-          "https://127.0.0.1:9443/api/am/admin/v4/throttling/policies/subscription/c948c723-71dd-4d50-8c77-0a0e99c8cbb1"'
+          source: |
+            curl -k -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" \
+            "https://127.0.0.1:9443/api/am/admin/v4/throttling/policies/subscription/c948c723-71dd-4d50-8c77-0a0e99c8cbb1"
 
     put:
       tags:
@@ -595,7 +604,7 @@ paths:
               $ref: '#/components/schemas/SubscriptionThrottlePolicy'
         required: true
       responses:
-        200:
+        '200':
           description: |
             OK.
             Policy updated.
@@ -632,9 +641,9 @@ paths:
                 customAttributes: []
                 stopOnQuotaReach: true
                 billingPlan: FREE
-        400:
+        '400':
           $ref: '#/components/responses/BadRequest'
-        404:
+        '404':
           $ref: '#/components/responses/NotFound'
       security:
         - OAuth2Security:
@@ -643,8 +652,9 @@ paths:
             - apim:admin_tier_manage
       x-code-samples:
         - lang: Curl
-          source: 'curl -k -X PUT -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8"
-          -H "Content-Type: application/json" -d @data.json "https://127.0.0.1:9443/api/am/admin/v4/throttling/policies/subscription/c948c723-71dd-4d50-8c77-0a0e99c8cbb1"'
+          source: |
+            curl -k -X PUT -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" \
+            -H "Content-Type: application/json" -d @data.json "https://127.0.0.1:9443/api/am/admin/v4/throttling/policies/subscription/c948c723-71dd-4d50-8c77-0a0e99c8cbb1"
 
     delete:
       tags:
@@ -655,12 +665,12 @@ paths:
       parameters:
         - $ref: '#/components/parameters/policyId'
       responses:
-        200:
+        '200':
           description: |
             OK.
             Resource successfully deleted.
           content: {}
-        404:
+        '404':
           $ref: '#/components/responses/NotFound'
       security:
         - OAuth2Security:
@@ -670,8 +680,9 @@ paths:
             - apim:policies_import_export
       x-code-samples:
         - lang: Curl
-          source: 'curl -k -X DELETE -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8"
-          "https://127.0.0.1:9443/api/am/admin/v4/throttling/policies/subscription/c948c723-71dd-4d50-8c77-0a0e99c8cbb1"'
+          source: |
+            curl -k -X DELETE -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" \
+            "https://127.0.0.1:9443/api/am/admin/v4/throttling/policies/subscription/c948c723-71dd-4d50-8c77-0a0e99c8cbb1"
 
   ######################################################
   # The "Custom Rules Collection" resource API
@@ -689,7 +700,7 @@ paths:
       parameters:
         - $ref: '#/components/parameters/Accept'
       responses:
-        200:
+        '200':
           description: |
             OK.
             Policies returned
@@ -703,7 +714,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/CustomRuleList'
-        406:
+        '406':
           $ref: '#/components/responses/NotAcceptable'
       security:
         - OAuth2Security:
@@ -712,8 +723,9 @@ paths:
             - apim:admin_tier_view
       x-code-samples:
         - lang: Curl
-          source: 'curl -k -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8"
-          "https://127.0.0.1:9443/api/am/admin/v4/throttling/policies/custom"'
+          source: |
+            curl -k -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" \
+            "https://127.0.0.1:9443/api/am/admin/v4/throttling/policies/custom"
 
     post:
       tags:
@@ -735,7 +747,7 @@ paths:
               $ref: '#/components/schemas/CustomRule'
         required: true
       responses:
-        201:
+        '201':
           description: |
             Created.
             Successful response with the newly created object as entity in the body.
@@ -767,9 +779,9 @@ paths:
                   \ expiryTimeStamp group by throttleKey \nINSERT ALL EVENTS into\
                   \ ResultStream;"
                 keyTemplate: $userId
-        400:
+        '400':
           $ref: '#/components/responses/BadRequest'
-        415:
+        '415':
           $ref: '#/components/responses/UnsupportedMediaType'
       security:
         - OAuth2Security:
@@ -778,8 +790,9 @@ paths:
             - apim:admin_tier_manage
       x-code-samples:
         - lang: Curl
-          source: 'curl -k -X POST -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8"
-          -H "Content-Type: application/json" -d @data.json "https://127.0.0.1:9443/api/am/admin/v4/throttling/policies/custom"'
+          source: |
+            curl -k -X POST -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" \
+            -H "Content-Type: application/json" -d @data.json "https://127.0.0.1:9443/api/am/admin/v4/throttling/policies/custom"
 
   ######################################################
   # The "Individual Custom Rule" resource API
@@ -797,7 +810,7 @@ paths:
       parameters:
         - $ref: '#/components/parameters/ruleId'
       responses:
-        200:
+        '200':
           description: |
             OK.
             Policy returned
@@ -823,9 +836,9 @@ paths:
                   \ expiryTimeStamp group by throttleKey \nINSERT ALL EVENTS into\
                   \ ResultStream;"
                 keyTemplate: $userId
-        404:
+        '404':
           $ref: '#/components/responses/NotFound'
-        406:
+        '406':
           $ref: '#/components/responses/NotAcceptable'
       security:
         - OAuth2Security:
@@ -834,8 +847,9 @@ paths:
             - apim:admin_tier_view
       x-code-samples:
         - lang: Curl
-          source: 'curl -k -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8"
-          "https://127.0.0.1:9443/api/am/admin/v4/throttling/policies/custom/33662a62-8db1-4d75-af08-afd63c6bd0b4"'
+          source: |
+            curl -k -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" \
+            "https://127.0.0.1:9443/api/am/admin/v4/throttling/policies/custom/33662a62-8db1-4d75-af08-afd63c6bd0b4"
 
     put:
       tags:
@@ -858,7 +872,7 @@ paths:
               $ref: '#/components/schemas/CustomRule'
         required: true
       responses:
-        200:
+        '200':
           description: |
             OK.
             Policy updated.
@@ -889,9 +903,9 @@ paths:
                   \ expiryTimeStamp group by throttleKey \nINSERT ALL EVENTS into\
                   \ ResultStream;"
                 keyTemplate: $userId
-        400:
+        '400':
           $ref: '#/components/responses/BadRequest'
-        404:
+        '404':
           $ref: '#/components/responses/NotFound'
       security:
         - OAuth2Security:
@@ -900,8 +914,9 @@ paths:
             - apim:admin_tier_manage
       x-code-samples:
         - lang: Curl
-          source: 'curl -k -X PUT -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8"
-          -H "Content-Type: application/json" -d @data.json "https://127.0.0.1:9443/api/am/admin/v4/throttling/policies/custom/33662a62-8db1-4d75-af08-afd63c6bd0b4"'
+          source: |
+            curl -k -X PUT -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" \
+            -H "Content-Type: application/json" -d @data.json "https://127.0.0.1:9443/api/am/admin/v4/throttling/policies/custom/33662a62-8db1-4d75-af08-afd63c6bd0b4"
 
     delete:
       tags:
@@ -915,12 +930,12 @@ paths:
       parameters:
         - $ref: '#/components/parameters/ruleId'
       responses:
-        200:
+        '200':
           description: |
             OK.
             Resource successfully deleted.
           content: {}
-        404:
+        '404':
           $ref: '#/components/responses/NotFound'
       security:
         - OAuth2Security:
@@ -930,8 +945,9 @@ paths:
             - apim:policies_import_export
       x-code-samples:
         - lang: Curl
-          source: 'curl -k -X DELETE -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8"
-          "https://127.0.0.1:9443/api/am/admin/v4/throttling/policies/custom/33662a62-8db1-4d75-af08-afd63c6bd0b4"'
+          source: |
+            curl -k -X DELETE -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" \
+            "https://127.0.0.1:9443/api/am/admin/v4/throttling/policies/custom/33662a62-8db1-4d75-af08-afd63c6bd0b4"
 
   ######################################################
   # The "Advanced Throttling Policy Collection" resource API
@@ -946,7 +962,7 @@ paths:
       parameters:
         - $ref: '#/components/parameters/Accept'
       responses:
-        200:
+        '200':
           description: |
             OK.
             Policies returned
@@ -960,7 +976,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/AdvancedThrottlePolicyList'
-        406:
+        '406':
           $ref: '#/components/responses/NotAcceptable'
       security:
         - OAuth2Security:
@@ -969,8 +985,9 @@ paths:
             - apim:admin_tier_view
       x-code-samples:
         - lang: Curl
-          source: 'curl -k -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8"
-          "https://127.0.0.1:9443/api/am/admin/v4/throttling/policies/advanced"'
+          source: |
+            curl -k -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" \
+            "https://127.0.0.1:9443/api/am/admin/v4/throttling/policies/advanced"
 
     post:
       tags:
@@ -989,7 +1006,7 @@ paths:
               $ref: '#/components/schemas/AdvancedThrottlePolicy'
         required: true
       responses:
-        201:
+        '201':
           description: |
             Created.
             Successful response with the newly created object as entity in the body.
@@ -1022,9 +1039,9 @@ paths:
                     unitTime: 1
                     requestCount: 10000
                 conditionalGroups: []
-        400:
+        '400':
           $ref: '#/components/responses/BadRequest'
-        415:
+        '415':
           $ref: '#/components/responses/UnsupportedMediaType'
       security:
         - OAuth2Security:
@@ -1033,8 +1050,9 @@ paths:
             - apim:admin_tier_manage
       x-code-samples:
         - lang: Curl
-          source: 'curl -k -X POST -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8"
-          -H "Content-Type: application/json" -d @data.json "https://127.0.0.1:9443/api/am/admin/v4/throttling/policies/advanced"'
+          source: |
+            curl -k -X POST -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" \
+            -H "Content-Type: application/json" -d @data.json "https://127.0.0.1:9443/api/am/admin/v4/throttling/policies/advanced"
 
   ######################################################
   # The "Individual Advanced Throttling Policy" resource API
@@ -1049,7 +1067,7 @@ paths:
       parameters:
         - $ref: '#/components/parameters/policyId'
       responses:
-        200:
+        '200':
           description: |
             OK.
             Policy returned
@@ -1076,9 +1094,9 @@ paths:
                     unitTime: 1
                     requestCount: 10000
                 conditionalGroups: []
-        404:
+        '404':
           $ref: '#/components/responses/NotFound'
-        406:
+        '406':
           $ref: '#/components/responses/NotAcceptable'
       security:
         - OAuth2Security:
@@ -1087,8 +1105,9 @@ paths:
             - apim:admin_tier_view
       x-code-samples:
         - lang: Curl
-          source: 'curl -k -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8"
-          "https://127.0.0.1:9443/api/am/admin/v4/throttling/policies/advanced/229a3c46-c836-43c8-b988-8eebd9c7774b"'
+          source: |
+            curl -k -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" \
+            "https://127.0.0.1:9443/api/am/admin/v4/throttling/policies/advanced/229a3c46-c836-43c8-b988-8eebd9c7774b"
 
     put:
       tags:
@@ -1108,7 +1127,7 @@ paths:
               $ref: '#/components/schemas/AdvancedThrottlePolicy'
         required: true
       responses:
-        200:
+        '200':
           description: |
             OK.
             Policy updated.
@@ -1140,9 +1159,9 @@ paths:
                     unitTime: 1
                     requestCount: 10000
                 conditionalGroups: []
-        400:
+        '400':
           $ref: '#/components/responses/BadRequest'
-        404:
+        '404':
           $ref: '#/components/responses/NotFound'
       security:
         - OAuth2Security:
@@ -1151,8 +1170,9 @@ paths:
             - apim:admin_tier_manage
       x-code-samples:
         - lang: Curl
-          source: 'curl -k -X PUT -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8"
-          -H "Content-Type: application/json" -d @data.json "https://127.0.0.1:9443/api/am/admin/v4/throttling/policies/advanced/229a3c46-c836-43c8-b988-8eebd9c7774b"'
+          source: |
+            curl -k -X PUT -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" \
+            -H "Content-Type: application/json" -d @data.json "https://127.0.0.1:9443/api/am/admin/v4/throttling/policies/advanced/229a3c46-c836-43c8-b988-8eebd9c7774b"
 
     delete:
       tags:
@@ -1163,12 +1183,12 @@ paths:
       parameters:
         - $ref: '#/components/parameters/policyId'
       responses:
-        200:
+        '200':
           description: |
             OK.
             Resource successfully deleted.
           content: {}
-        404:
+        '404':
           $ref: '#/components/responses/NotFound'
       security:
         - OAuth2Security:
@@ -1178,8 +1198,9 @@ paths:
             - apim:policies_import_export
       x-code-samples:
         - lang: Curl
-          source: 'curl -k -X DELETE -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8"
-          "https://127.0.0.1:9443/api/am/admin/v4/throttling/policies/advanced/229a3c46-c836-43c8-b988-8eebd9c7774b"'
+          source: |
+            curl -k -X DELETE -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" \
+            "https://127.0.0.1:9443/api/am/admin/v4/throttling/policies/advanced/229a3c46-c836-43c8-b988-8eebd9c7774b"
   ######################################################
   # "Export Throttling Policy" resource API
   ######################################################
@@ -1214,7 +1235,7 @@ paths:
               - api
               - global
       responses:
-        200:
+        '200':
           description: |
             OK.
             Export Successful.
@@ -1254,9 +1275,9 @@ paths:
                       timeUnit: min
                       unitTime: 5
                       eventCount: 16
-        404:
+        '404':
           $ref: '#/components/responses/NotFound'
-        500:
+        '500':
           $ref: '#/components/responses/InternalServerError'
       security:
         - OAuth2Security:
@@ -1266,8 +1287,9 @@ paths:
             - apim:policies_import_export
       x-code-samples:
         - lang: Curl
-          source: 'curl -k -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8"
-          "https://127.0.0.1:9443/api/am/admin/v4/throttling/policies/export?policyId=96077508-fd01-4fae-bc64-5de0e2baf43c&name=Bronze&type=sub&format=YAML"'
+          source: |
+            curl -k -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" \
+            "https://127.0.0.1:9443/api/am/admin/v4/throttling/policies/export?policyId=96077508-fd01-4fae-bc64-5de0e2baf43c&name=Bronze&type=sub&format=YAML"
       operationId: exportThrottlingPolicy
   ####################################################################
   # Import Throttling Policy
@@ -1300,17 +1322,17 @@ paths:
                   format: binary
         required: true
       responses:
-        200:
+        '200':
           description: |
             Created.
             Throttling Policy Imported Successfully.
-        403:
+        '403':
           $ref: '#/components/responses/Forbidden'
-        404:
+        '404':
           $ref: '#/components/responses/NotFound'
-        409:
+        '409':
           $ref: '#/components/responses/Conflict'
-        500:
+        '500':
           $ref: '#/components/responses/InternalServerError'
       security:
         - OAuth2Security:
@@ -1320,8 +1342,9 @@ paths:
             - apim:policies_import_export
       x-code-samples:
         - lang: Curl
-          source: 'curl -k -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8"
-          "https://127.0.0.1:9443/api/am/admin/v4/throttling/policies/import?overwrite=True"'
+          source: |
+            curl -k -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" \
+            "https://127.0.0.1:9443/api/am/admin/v4/throttling/policies/import?overwrite=True"
       operationId: importThrottlingPolicy
   ######################################################
   # The "Deny Policy Collection" resource API
@@ -1348,7 +1371,7 @@ paths:
           schema:
             type: string
       responses:
-        200:
+        '200':
           description: |
             OK.
             Deny Policies returned
@@ -1362,7 +1385,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/BlockingConditionList'
-        406:
+        '406':
           $ref: '#/components/responses/NotAcceptable'
       security:
         - OAuth2Security:
@@ -1370,8 +1393,9 @@ paths:
             - apim:bl_view
       x-code-samples:
         - lang: Curl
-          source: 'curl -k -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8"
-          "https://127.0.0.1:9443/api/am/admin/v4/throttling/deny-policies"'
+          source: |
+            curl -k -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" \
+            "https://127.0.0.1:9443/api/am/admin/v4/throttling/deny-policies"
 
     post:
       tags:
@@ -1390,7 +1414,7 @@ paths:
               $ref: '#/components/schemas/BlockingCondition'
         required: true
       responses:
-        201:
+        '201':
           description: |
             Created.
             Successful response with the newly created object as entity in the body.
@@ -1410,9 +1434,9 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/BlockingCondition'
-        400:
+        '400':
           $ref: '#/components/responses/BadRequest'
-        415:
+        '415':
           $ref: '#/components/responses/UnsupportedMediaType'
       security:
         - OAuth2Security:
@@ -1420,8 +1444,9 @@ paths:
             - apim:bl_manage
       x-code-samples:
         - lang: Curl
-          source: 'curl -k -X POST -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8"
-          -H "Content-Type: application/json" -d @data.json "https://127.0.0.1:9443/api/am/admin/v4/throttling/deny-policies"'
+          source: |
+            curl -k -X POST -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" \
+            -H "Content-Type: application/json" -d @data.json "https://127.0.0.1:9443/api/am/admin/v4/throttling/deny-policies"
 
   ######################################################
   # The "Individual Deny Policy" resource API
@@ -1436,7 +1461,7 @@ paths:
       parameters:
         - $ref: '#/components/parameters/conditionId'
       responses:
-        200:
+        '200':
           description: |
             OK.
             Condition returned
@@ -1450,9 +1475,9 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/BlockingCondition'
-        404:
+        '404':
           $ref: '#/components/responses/NotFound'
-        406:
+        '406':
           $ref: '#/components/responses/NotAcceptable'
       security:
         - OAuth2Security:
@@ -1460,8 +1485,9 @@ paths:
             - apim:bl_view
       x-code-samples:
         - lang: Curl
-          source: 'curl -k -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8"
-          "https://127.0.0.1:9443/api/am/admin/v4/throttling/deny-policy/b513eb68-69e8-4c32-92cf-852c101363c"'
+          source: |
+            curl -k -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" \
+            "https://127.0.0.1:9443/api/am/admin/v4/throttling/deny-policy/b513eb68-69e8-4c32-92cf-852c101363c"
 
     delete:
       tags:
@@ -1472,12 +1498,12 @@ paths:
       parameters:
         - $ref: '#/components/parameters/conditionId'
       responses:
-        200:
+        '200':
           description: |
             OK.
             Resource successfully deleted.
           content: {}
-        404:
+        '404':
           $ref: '#/components/responses/NotFound'
       security:
         - OAuth2Security:
@@ -1485,8 +1511,9 @@ paths:
             - apim:bl_manage
       x-code-samples:
         - lang: Curl
-          source: 'curl -k -X DELETE -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8"
-          "https://127.0.0.1:9443/api/am/admin/v4/throttling/deny-policy/b513eb68-69e8-4c32-92cf-852c101363c"'
+          source: |
+            curl -k -X DELETE -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" \
+            "https://127.0.0.1:9443/api/am/admin/v4/throttling/deny-policy/b513eb68-69e8-4c32-92cf-852c101363c"
 
     patch:
       tags:
@@ -1506,7 +1533,7 @@ paths:
               $ref: '#/components/schemas/BlockingConditionStatus'
         required: true
       responses:
-        200:
+        '200':
           description: |
             OK.
             Resource successfully updated.
@@ -1514,9 +1541,9 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/BlockingCondition'
-        400:
+        '400':
           $ref: '#/components/responses/BadRequest'
-        404:
+        '404':
           $ref: '#/components/responses/NotFound'
       security:
         - OAuth2Security:
@@ -1524,8 +1551,9 @@ paths:
             - apim:bl_manage
       x-code-samples:
         - lang: Curl
-          source: 'curl -k -X PATCH -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8"
-          -H "Content-Type: application/json" -d @data.json "https://127.0.0.1:9443/api/am/admin/v4/throttling/deny-policy/b513eb68-69e8-4c32-92cf-852c101363c"'
+          source: |
+            curl -k -X PATCH -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" \
+            -H "Content-Type: application/json" -d @data.json "https://127.0.0.1:9443/api/am/admin/v4/throttling/deny-policy/b513eb68-69e8-4c32-92cf-852c101363c"
 
   ######################################################
   # The "Application Collection" resource APIs
@@ -1533,7 +1561,7 @@ paths:
   /applications:
     get:
       tags:
-        - Application (Collection)
+        - Applications
       summary: |
         Retrieve/Search Applications
       description: |
@@ -1576,7 +1604,7 @@ paths:
               - desc
             default: asc
       responses:
-        200:
+        '200':
           description: |
             OK.
             Application list returned.
@@ -1590,9 +1618,9 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/ApplicationList'
-        400:
+        '400':
           $ref: '#/components/responses/BadRequest'
-        406:
+        '406':
           $ref: '#/components/responses/NotAcceptable'
       security:
         - OAuth2Security:
@@ -1602,8 +1630,9 @@ paths:
             - apim:admin_application_view
       x-code-samples:
         - lang: Curl
-          source: 'curl -k -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8"
-          "https://127.0.0.1:9443/api/am/admin/v4/applications"'
+          source: |
+            curl -k -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" \
+            "https://127.0.0.1:9443/api/am/admin/v4/applications"
 
   ######################################################
   # The "Individual Application" resource APIs
@@ -1619,7 +1648,7 @@ paths:
       parameters:
         - $ref: '#/components/parameters/applicationId'
       responses:
-        200:
+        '200':
           description: |
             OK.
             Application details returned.
@@ -1627,11 +1656,11 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Application'
-        400:
+        '400':
           $ref: '#/components/responses/BadRequest'
-        404:
+        '404':
           $ref: '#/components/responses/NotFound'
-        406:
+        '406':
           $ref: '#/components/responses/NotAcceptable'
       security:
         - OAuth2Security:
@@ -1640,8 +1669,9 @@ paths:
             - apim:admin_application_view
       x-code-samples:
         - lang: Curl
-          source: 'curl -k -X GET -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8"
-          "https://127.0.0.1:9443/api/am/admin/v4/applications/0a043c2b-ee75-4ef3-9e1c-fc2610ccfa8b"'
+          source: |
+            curl -k -X GET -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" \
+            "https://127.0.0.1:9443/api/am/admin/v4/applications/0a043c2b-ee75-4ef3-9e1c-fc2610ccfa8b"
 
     delete:
       tags:
@@ -1653,12 +1683,12 @@ paths:
       parameters:
         - $ref: '#/components/parameters/applicationId'
       responses:
-        200:
+        '200':
           description: |
             OK.
             Resource successfully deleted.
           content: {}
-        202:
+        '202':
           description: |
             Accepted.
             The request has been accepted.
@@ -1672,7 +1702,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/WorkflowResponse'
-        404:
+        '404':
           $ref: '#/components/responses/NotFound'
       security:
         - OAuth2Security:
@@ -1680,15 +1710,64 @@ paths:
             - apim:app_import_export
       x-code-samples:
         - lang: Curl
-          source: 'curl -k -X DELETE -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8"
-          "https://127.0.0.1:9443/api/am/admin/v4/applications/0a043c2b-ee75-4ef3-9e1c-fc2610ccfa8b"'
+          source: |
+            curl -k -X DELETE -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" \
+            "https://127.0.0.1:9443/api/am/admin/v4/applications/0a043c2b-ee75-4ef3-9e1c-fc2610ccfa8b"
+
+  /applications/{applicationId}/change-settings:
+    post:
+      tags:
+        - Applications
+      operationId: updateApplicationSettings
+      summary: Update Application Settings
+      description: |
+        This operation allows updating one or more settings of an application.
+      parameters:
+        - $ref: '#/components/parameters/applicationId'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ApplicationUpdateRequest'
+      responses:
+        '200':
+          description: Application updated successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Application'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '404':
+          $ref: '#/components/responses/NotFound'
+      security:
+        - OAuth2Security:
+            - apim:admin
+            - apim:app_settings_change
+      x-code-samples:
+        - lang: Curl
+          source: |
+            curl -k -X POST \
+            -H "Authorization: Bearer <access-token>" \
+            -H "Content-Type: application/json" \
+            -d '{
+                  "owner": "newOwner",
+                  "tokenType": "JWT"
+                }' \
+            "https://127.0.0.1:9443/api/am/admin/v4/applications/0a043c2b-ee75-4ef3-9e1c-fc2610ccfa8b"
 
   /applications/{applicationId}/change-owner:
     post:
+      deprecated: true
       tags:
         - Application
       summary: Change Application Owner
       description: |
+        **Deprecated.**
+        This API will be removed in a future release.
+        Use `/applications/{applicationId}/change-settings` instead.
+        
         This operation is used to change the owner of an Application.
         In order to change the owner of an application, we need to pass the new application owner as a query parameter
       parameters:
@@ -1699,14 +1778,14 @@ paths:
             type: string
         - $ref: '#/components/parameters/applicationId'
       responses:
-        200:
+        '200':
           description: |
             OK.
             Application owner changed successfully.
           content: {}
-        400:
+        '400':
           $ref: '#/components/responses/BadRequest'
-        404:
+        '404':
           $ref: '#/components/responses/NotFound'
       security:
         - OAuth2Security:
@@ -1714,8 +1793,9 @@ paths:
             - apim:app_owner_change
       x-code-samples:
         - lang: Curl
-          source: 'curl -k -X POST -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8"
-          "https://127.0.0.1:9443/api/am/admin/v4/applications/0a043c2b-ee75-4ef3-9e1c-fc2610ccfa8b/change-owner?owner=admin"'
+          source: |
+            curl -k -X POST -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" \
+            "https://127.0.0.1:9443/api/am/admin/v4/applications/0a043c2b-ee75-4ef3-9e1c-fc2610ccfa8b/change-owner?owner=admin"
 
   ######################################################
   # AI Service Providers resource APIs
@@ -1728,7 +1808,7 @@ paths:
       description: |
         Get all AI Service providers
       responses:
-        200:
+        '200':
           description: |
             OK.
             AI Service providers returned
@@ -1741,8 +1821,9 @@ paths:
             - apim:admin
       x-code-samples:
         - lang: Curl
-          source: 'curl -k -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8"
-          "https://127.0.0.1:9443/api/am/admin/v4/ai-service-providers"'
+          source: |
+            curl -k -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" \
+            "https://127.0.0.1:9443/api/am/admin/v4/ai-service-providers"
       operationId: getAIServiceProviders
 
     post:
@@ -1760,7 +1841,7 @@ paths:
               $ref: '#/components/schemas/AIServiceProviderRequest'
         required: true
       responses:
-        201:
+        '201':
           description: |
             Created.
             Successful response with the newly created AI Service provider as entity in the body.
@@ -1768,7 +1849,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/AIServiceProviderResponse'
-        400:
+        '400':
           $ref: '#/components/responses/BadRequest'
       security:
         - OAuth2Security:
@@ -1776,10 +1857,11 @@ paths:
             - apim:llm_provider_manage
       x-code-samples:
         - lang: Curl
-          source: 'curl -k -X POST -H "Authorization: Bearer <ACCESS_TOKEN>" -H "Content-Type: multipart/form-data" 
-          -F "name=AIServiceProviderName" -F "apiVersion=v1" -F "configurations={\"key\":\"value\"}" 
-          -F "apiDefinition=@api_definition_file.json" 
-          "https://127.0.0.1:9443/api/am/admin/v4/ai-service-providers"'
+          source: |
+            curl -k -X POST -H "Authorization: Bearer <ACCESS_TOKEN>" -H "Content-Type: multipart/form-data" \
+            -F "name=AIServiceProviderName" -F "apiVersion=v1" -F "configurations={\"key\":\"value\"}" \
+            -F "apiDefinition=@api_definition_file.json" \
+            "https://127.0.0.1:9443/api/am/admin/v4/ai-service-providers"
       operationId: addAIServiceProvider
 
   ######################################################
@@ -1803,7 +1885,7 @@ paths:
               $ref: '#/components/schemas/AIServiceProviderRequest'
         required: true
       responses:
-        200:
+        '200':
           description: |
             OK.
             AI Service Provider updated.
@@ -1811,9 +1893,9 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/AIServiceProviderResponse'
-        400:
+        '400':
           $ref: '#/components/responses/BadRequest'
-        404:
+        '404':
           $ref: '#/components/responses/NotFound'
       security:
         - OAuth2Security:
@@ -1821,12 +1903,13 @@ paths:
             - apim:llm_provider_manage
       x-code-samples:
         - lang: Curl
-          source: 'curl -k -X PUT -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" \
-                   -F "name=UpdatedProviderName" \
-                   -F "apiVersion=v2" \
-                   -F "configurations={\"key\":\"value\"}" \
-                   -F "apiDefinition=@api_definition.json" \
-                   "https://127.0.0.1:9443/api/am/admin/v4/ai-service-providers/{aiServiceProviderId}"'
+          source: |
+            curl -k -X PUT -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" \
+            -F "name=UpdatedProviderName" \
+            -F "apiVersion=v2" \
+            -F "configurations={\"key\":\"value\"}" \
+            -F "apiDefinition=@api_definition.json" \
+            "https://127.0.0.1:9443/api/am/admin/v4/ai-service-providers/{aiServiceProviderId}"
       operationId: updateAIServiceProvider
 
     delete:
@@ -1838,12 +1921,12 @@ paths:
       parameters:
         - $ref: '#/components/parameters/aiServiceProviderId'
       responses:
-        200:
+        '200':
           description: |
             OK.
             AI Service provider successfully deleted.
           content: { }
-        404:
+        '404':
           $ref: '#/components/responses/NotFound'
       security:
         - OAuth2Security:
@@ -1851,8 +1934,9 @@ paths:
             - apim:llm_provider_manage
       x-code-samples:
         - lang: Curl
-          source: 'curl -k -X DELETE -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8"
-          "https://127.0.0.1:9443/api/am/admin/v4/ai-service-providers/a2f1e643-9b2a-4f58-bd7a-8c2d3f1e9d6f"'
+          source: |
+            curl -k -X DELETE -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" \
+            "https://127.0.0.1:9443/api/am/admin/v4/ai-service-providers/a2f1e643-9b2a-4f58-bd7a-8c2d3f1e9d6f"
       operationId: deleteAIServiceProvider
 
     get:
@@ -1864,7 +1948,7 @@ paths:
       parameters:
         - $ref: '#/components/parameters/aiServiceProviderId'
       responses:
-        200:
+        '200':
           description: |
             OK.
             OpenAPI specification
@@ -1877,8 +1961,9 @@ paths:
             - apim:admin
       x-code-samples:
         - lang: Curl
-          source: 'curl -k -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8"
-          "https://127.0.0.1:9443/api/am/admin/v4/ai-service-providers/a2f1e643-9b2a-4f58-bd7a-8c2d3f1e9d6f"'
+          source: |
+            curl -k -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" \
+            "https://127.0.0.1:9443/api/am/admin/v4/ai-service-providers/a2f1e643-9b2a-4f58-bd7a-8c2d3f1e9d6f"
       operationId: getAIServiceProvider
 
   ######################################################
@@ -1893,7 +1978,7 @@ paths:
       description: |
         Get all LLM providers
       responses:
-        200:
+        '200':
           description: |
             OK.
             LLM providers returned
@@ -1906,8 +1991,9 @@ paths:
             - apim:admin
       x-code-samples:
         - lang: Curl
-          source: 'curl -k -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8"
-          "https://127.0.0.1:9443/api/am/admin/v4/llm-providers"'
+          source: |
+            curl -k -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" \
+            "https://127.0.0.1:9443/api/am/admin/v4/llm-providers"
       operationId: getLLMProviders
 
     post:
@@ -1931,7 +2017,7 @@ paths:
               $ref: '#/components/schemas/LLMProviderRequest'
         required: true
       responses:
-        201:
+        '201':
           description: |
             Created.
             Successful response with the newly created LLM provider as entity in the body.
@@ -1939,7 +2025,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/LLMProviderResponse'
-        400:
+        '400':
           $ref: '#/components/responses/BadRequest'
       security:
         - OAuth2Security:
@@ -1947,8 +2033,9 @@ paths:
             - apim:llm_provider_manage
       x-code-samples:
         - lang: Curl
-          source: 'curl -k -X POST -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8"
-          -H "Content-Type: application/json" -d @data.json "https://127.0.0.1:9443/api/am/admin/v4/llm-providers"'
+          source: |
+            curl -k -X POST -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" \
+            -H "Content-Type: application/json" -d @data.json "https://127.0.0.1:9443/api/am/admin/v4/llm-providers"
       operationId: addLLMProvider
 
   ######################################################
@@ -1975,7 +2062,7 @@ paths:
               $ref: '#/components/schemas/LLMProviderRequest'
         required: true
       responses:
-        200:
+        '200':
           description: |
             OK.
             LLM Provider updated.
@@ -1983,9 +2070,9 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/LLMProviderResponse'
-        400:
+        '400':
           $ref: '#/components/responses/BadRequest'
-        404:
+        '404':
           $ref: '#/components/responses/NotFound'
       security:
         - OAuth2Security:
@@ -1993,8 +2080,9 @@ paths:
             - apim:llm_provider_manage
       x-code-samples:
         - lang: Curl
-          source: 'curl -k -X PUT -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8"
-          -H "Content-Type: application/json" -d @data.json "https://127.0.0.1:9443/api/am/admin/v4/llm-providers/a2f1e643-9b2a-4f58-bd7a-8c2d3f1e9d6f"'
+          source: |
+            curl -k -X PUT -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" \
+            -H "Content-Type: application/json" -d @data.json "https://127.0.0.1:9443/api/am/admin/v4/llm-providers/a2f1e643-9b2a-4f58-bd7a-8c2d3f1e9d6f"
       operationId: updateLLMProvider
 
     delete:
@@ -2007,12 +2095,12 @@ paths:
       parameters:
         - $ref: '#/components/parameters/llmProviderId'
       responses:
-        200:
+        '200':
           description: |
             OK.
             LLM provider successfully deleted.
           content: { }
-        404:
+        '404':
           $ref: '#/components/responses/NotFound'
       security:
         - OAuth2Security:
@@ -2020,8 +2108,9 @@ paths:
             - apim:llm_provider_manage
       x-code-samples:
         - lang: Curl
-          source: 'curl -k -X DELETE -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8"
-          "https://127.0.0.1:9443/api/am/admin/v4/llm-providers/a2f1e643-9b2a-4f58-bd7a-8c2d3f1e9d6f"'
+          source: |
+            curl -k -X DELETE -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" \
+            "https://127.0.0.1:9443/api/am/admin/v4/llm-providers/a2f1e643-9b2a-4f58-bd7a-8c2d3f1e9d6f"
       operationId: deleteLLMProvider
 
     get:
@@ -2033,7 +2122,7 @@ paths:
       parameters:
         - $ref: '#/components/parameters/llmProviderId'
       responses:
-        200:
+        '200':
           description: |
             OK.
             OpenAPI specification
@@ -2046,8 +2135,9 @@ paths:
             - apim:admin
       x-code-samples:
         - lang: Curl
-          source: 'curl -k -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8"
-          "https://127.0.0.1:9443/api/am/admin/v4/llm-providers/a2f1e643-9b2a-4f58-bd7a-8c2d3f1e9d6f"'
+          source: |
+            curl -k -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" \
+            "https://127.0.0.1:9443/api/am/admin/v4/llm-providers/a2f1e643-9b2a-4f58-bd7a-8c2d3f1e9d6f"
       operationId: getLLMProvider
 
   ######################################################
@@ -2061,7 +2151,7 @@ paths:
       description: |
         Get all Registered Environments
       responses:
-        200:
+        '200':
           description: |
             OK.
             Environments returned
@@ -2075,8 +2165,9 @@ paths:
             - apim:environment_read
       x-code-samples:
         - lang: Curl
-          source: 'curl -k -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8"
-          "https://127.0.0.1:9443/api/am/admin/v4/environments"'
+          source: |
+            curl -k -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" \
+            "https://127.0.0.1:9443/api/am/admin/v4/environments"
 
     post:
       tags:
@@ -2093,7 +2184,7 @@ paths:
               $ref: '#/components/schemas/Environment'
         required: true
       responses:
-        201:
+        '201':
           description: |
             Created.
             Successful response with the newly created environment as entity in the body.
@@ -2101,7 +2192,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Environment'
-        400:
+        '400':
           $ref: '#/components/responses/BadRequest'
       security:
         - OAuth2Security:
@@ -2109,8 +2200,9 @@ paths:
             - apim:environment_manage
       x-code-samples:
         - lang: Curl
-          source: 'curl -k -X POST -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8"
-          -H "Content-Type: application/json" -d @data.json "https://127.0.0.1:9443/api/am/admin/v4/environments"'
+          source: |
+            curl -k -X POST -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" \
+            -H "Content-Type: application/json" -d @data.json "https://127.0.0.1:9443/api/am/admin/v4/environments"
 
   ######################################################
   # The "Individual Environment" resource APIs
@@ -2125,7 +2217,7 @@ paths:
       parameters:
         - $ref: '#/components/parameters/environmentId'
       responses:
-        200:
+        '200':
           description: |
             OK.
             Gateway Environment Configuration returned
@@ -2139,9 +2231,9 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Environment'
-        404:
+        '404':
           $ref: '#/components/responses/NotFound'
-        406:
+        '406':
           $ref: '#/components/responses/NotAcceptable'
       security:
         - OAuth2Security:
@@ -2149,8 +2241,9 @@ paths:
             - apim:environment_manage
       x-code-samples:
         - lang: Curl
-          source: 'curl -k -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8"
-          "https://127.0.0.1:9443/api/am/admin/v4/environments/8d263942-a6df-4cc2-a804-7a2525501450"'
+          source: |
+            curl -k -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" \
+            "https://127.0.0.1:9443/api/am/admin/v4/environments/8d263942-a6df-4cc2-a804-7a2525501450"
     put:
       tags:
         - Environments
@@ -2168,7 +2261,7 @@ paths:
               $ref: '#/components/schemas/Environment'
         required: true
       responses:
-        200:
+        '200':
           description: |
             OK.
             Environment updated.
@@ -2176,9 +2269,9 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Environment'
-        400:
+        '400':
           $ref: '#/components/responses/BadRequest'
-        404:
+        '404':
           $ref: '#/components/responses/NotFound'
       security:
         - OAuth2Security:
@@ -2186,8 +2279,9 @@ paths:
             - apim:environment_manage
       x-code-samples:
         - lang: Curl
-          source: 'curl -k -X PUT -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8"
-          -H "Content-Type: application/json" -d @data.json "https://127.0.0.1:9443/api/am/admin/v4/environments/d7cf8523-9180-4255-84fa-6cb171c1f779"'
+          source: |
+            curl -k -X PUT -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" \
+            -H "Content-Type: application/json" -d @data.json "https://127.0.0.1:9443/api/am/admin/v4/environments/d7cf8523-9180-4255-84fa-6cb171c1f779"
 
     delete:
       tags:
@@ -2198,12 +2292,12 @@ paths:
       parameters:
         - $ref: '#/components/parameters/environmentId'
       responses:
-        200:
+        '200':
           description: |
             OK.
             Environment successfully deleted.
           content: {}
-        404:
+        '404':
           $ref: '#/components/responses/NotFound'
       security:
         - OAuth2Security:
@@ -2211,8 +2305,9 @@ paths:
             - apim:environment_manage
       x-code-samples:
         - lang: Curl
-          source: 'curl -k -X DELETE -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8"
-          "https://127.0.0.1:9443/api/am/admin/v4/environments/d7cf8523-9180-4255-84fa-6cb171c1f779"'
+          source: |
+            curl -k -X DELETE -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" \
+            "https://127.0.0.1:9443/api/am/admin/v4/environments/d7cf8523-9180-4255-84fa-6cb171c1f779"
 
   /environments/{environmentId}/gateways:
     get:
@@ -2224,7 +2319,7 @@ paths:
       parameters:
         - $ref: '#/components/parameters/environmentId'
       responses:
-        200:
+        '200':
           description: |
             OK.
             List of gateway Instances in the gateway environment returned
@@ -2238,11 +2333,11 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/GatewayInstanceList'
-        400:
+        '400':
           $ref: '#/components/responses/BadRequest'
-        404:
+        '404':
           $ref: '#/components/responses/NotFound'
-        406:
+        '406':
           $ref: '#/components/responses/NotAcceptable'
       security:
         - OAuth2Security:
@@ -2250,9 +2345,185 @@ paths:
             - apim:environment_read
       x-code-samples:
         - lang: Curl
-          source: 'curl -k -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8"
-          "https://127.0.0.1:9443/api/am/admin/v4/environments/8d263942-a6df-4cc2-a804-7a2525501450/gateways"'
+          source: |
+            curl -k -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" \
+            "https://127.0.0.1:9443/api/am/admin/v4/environments/8d263942-a6df-4cc2-a804-7a2525501450/gateways"
 
+  ######################################################
+  # The "Platform Gateways" resource API (platform / self-hosted gateway registration)
+  ######################################################
+  /gateways:
+    get:
+      operationId: getPlatformGateways
+      tags:
+        - Platform Gateways
+      summary: Get all platform gateways
+      description: |
+        Get all registered platform gateways for the organization.
+      responses:
+        '200':
+          description: |
+            OK.
+            List of platform gateways returned (without registration tokens).
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GatewayList'
+        '404':
+          $ref: '#/components/responses/NotFound'
+      security:
+        - OAuth2Security:
+            - apim:admin
+      x-code-samples:
+        - lang: Curl
+          source: |
+            curl -k -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" \
+            "https://127.0.0.1:9443/api/am/admin/v4/gateways"
+    post:
+      operationId: createPlatformGateway
+      tags:
+        - Platform Gateways
+      summary: Register a platform gateway
+      description: |
+        Register a new platform gateway. A registration token is generated and returned
+        once in the response; store it (e.g. as GATEWAY_CONTROL_PLANE_TOKEN in Docker Compose) for the
+        gateway to connect to the control plane WebSocket. The token is stored hashed and cannot be retrieved later.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreatePlatformGatewayRequest'
+      responses:
+        '201':
+          description: |
+            Created.
+            Gateway and registration token (returned once) in the response body.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GatewayResponseWithToken'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        '409':
+          $ref: '#/components/responses/Conflict'
+      security:
+        - OAuth2Security:
+            - apim:admin
+      x-code-samples:
+        - lang: Curl
+          source: |
+            curl -k -X POST -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" \
+            -H "Content-Type: application/json" -d @data.json "https://127.0.0.1:9443/api/am/admin/v4/gateways"
+
+  /gateways/{gatewayId}/regenerate-token:
+    post:
+      operationId: regeneratePlatformGatewayToken
+      tags:
+        - Platform Gateways
+      summary: Regenerate registration token for a platform gateway
+      description: |
+        Regenerate the registration token for an existing platform gateway. The old token is revoked
+        and a new one is generated. Store the new token (e.g. as GATEWAY_CONTROL_PLANE_TOKEN in Docker Compose)
+        for the gateway to reconnect to the control plane WebSocket. The token is returned only once.
+      parameters:
+        - name: gatewayId
+          in: path
+          description: Gateway UUID
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: |
+            OK.
+            Gateway and new registration token (returned once) in the response body.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GatewayResponseWithToken'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '404':
+          $ref: '#/components/responses/NotFound'
+      security:
+        - OAuth2Security:
+            - apim:admin
+      x-code-samples:
+        - lang: Curl
+          source: |
+            curl -k -X POST -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" \
+            "https://127.0.0.1:9443/api/am/admin/v4/gateways/{gatewayId}/regenerate-token"
+
+  /gateways/{gatewayId}:
+    put:
+      operationId: updatePlatformGateway
+      tags:
+        - Platform Gateways
+      summary: Update a platform gateway
+      description: |
+        Update platform gateway metadata. Request body must include all updatable fields (displayName,
+        description, properties, permissions). Name and vhost cannot be changed. UI should send
+        the full resource representation to align with PUT semantics.
+      parameters:
+        - name: gatewayId
+          in: path
+          description: Gateway UUID
+          required: true
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UpdatePlatformGatewayRequest'
+      responses:
+        '200':
+          description: OK. Updated platform gateway in the response body.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PlatformGatewayResponse'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '404':
+          $ref: '#/components/responses/NotFound'
+      security:
+        - OAuth2Security:
+            - apim:admin
+    delete:
+      operationId: deletePlatformGateway
+      tags:
+        - Platform Gateways
+      summary: Delete a platform gateway
+      description: |
+        Delete a platform gateway and all its references (tokens, instance mappings, revision deployment
+        records, gateway environment, permissions). Fails with 409 if any API revisions are currently
+        deployed to this gateway; undeploy all APIs from the gateway first.
+      parameters:
+        - name: gatewayId
+          in: path
+          description: Gateway UUID
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK. Gateway and all references removed.
+        '404':
+          $ref: '#/components/responses/NotFound'
+        '409':
+          description: Conflict. Cannot delete gateway while API revisions are deployed to it.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+      security:
+        - OAuth2Security:
+            - apim:admin
   ######################################################
   # The "Organizations" resource API
   ######################################################
@@ -2264,7 +2535,7 @@ paths:
       description: |
         Get all Registered Organizations
       responses:
-        200:
+        '200':
           description: |
             OK.
             Organizations returned
@@ -2278,8 +2549,9 @@ paths:
             - apim:organization_read
       x-code-samples:
         - lang: Curl
-          source: 'curl -k -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8"
-          "https://127.0.0.1:9443/api/am/admin/v4/organizations"'
+          source: |
+            curl -k -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" \
+            "https://127.0.0.1:9443/api/am/admin/v4/organizations"
 
     post:
       tags:
@@ -2296,7 +2568,7 @@ paths:
               $ref: '#/components/schemas/Organization'
         required: true
       responses:
-        201:
+        '201':
           description: |
             Created.
             Successful response with the newly created organization as entity in the body.
@@ -2304,7 +2576,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Organization'
-        400:
+        '400':
           $ref: '#/components/responses/BadRequest'
       security:
         - OAuth2Security:
@@ -2312,8 +2584,9 @@ paths:
             - apim:organization_manage
       x-code-samples:
         - lang: Curl
-          source: 'curl -k -X POST -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8"
-          -H "Content-Type: application/json" -d @data.json "https://127.0.0.1:9443/api/am/admin/v4/organizations"'
+          source: |
+            curl -k -X POST -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" \
+            -H "Content-Type: application/json" -d @data.json "https://127.0.0.1:9443/api/am/admin/v4/organizations"
 
   ######################################################
   # The "Individual Environment" resource APIs
@@ -2328,7 +2601,7 @@ paths:
       parameters:
         - $ref: '#/components/parameters/organizationId'
       responses:
-        200:
+        '200':
           description: |
             OK.
             Organization.
@@ -2336,9 +2609,9 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Organization'
-        400:
+        '400':
           $ref: '#/components/responses/BadRequest'
-        404:
+        '404':
           $ref: '#/components/responses/NotFound'
       security:
         - OAuth2Security:
@@ -2346,8 +2619,9 @@ paths:
             - apim:organization_read
       x-code-samples:
         - lang: Curl
-          source: 'curl -k -X GET -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8"
-          -H "Content-Type: application/json" -d @data.json "https://127.0.0.1:9443/api/am/admin/v4/organizations/d7cf8523-9180-4255-84fa-6cb171c1f779"'
+          source: |
+            curl -k -X GET -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" \
+            -H "Content-Type: application/json" -d @data.json "https://127.0.0.1:9443/api/am/admin/v4/organizations/d7cf8523-9180-4255-84fa-6cb171c1f779"
     put:
       tags:
         - Organizations
@@ -2365,7 +2639,7 @@ paths:
               $ref: '#/components/schemas/Organization'
         required: true
       responses:
-        200:
+        '200':
           description: |
             OK.
             Organization updated.
@@ -2373,9 +2647,9 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Organization'
-        400:
+        '400':
           $ref: '#/components/responses/BadRequest'
-        404:
+        '404':
           $ref: '#/components/responses/NotFound'
       security:
         - OAuth2Security:
@@ -2383,8 +2657,9 @@ paths:
             - apim:organization_manage
       x-code-samples:
         - lang: Curl
-          source: 'curl -k -X PUT -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8"
-          -H "Content-Type: application/json" -d @data.json "https://127.0.0.1:9443/api/am/admin/v4/organizations/d7cf8523-9180-4255-84fa-6cb171c1f779"'
+          source: |
+            curl -k -X PUT -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" \
+            -H "Content-Type: application/json" -d @data.json "https://127.0.0.1:9443/api/am/admin/v4/organizations/d7cf8523-9180-4255-84fa-6cb171c1f779"
 
     delete:
       tags:
@@ -2395,12 +2670,12 @@ paths:
       parameters:
         - $ref: '#/components/parameters/organizationId'
       responses:
-        200:
+        '200':
           description: |
             OK.
             Organization successfully deleted.
           content: {}
-        404:
+        '404':
           $ref: '#/components/responses/NotFound'
       security:
         - OAuth2Security:
@@ -2408,8 +2683,9 @@ paths:
             - apim:organization_manage
       x-code-samples:
         - lang: Curl
-          source: 'curl -k -X DELETE -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8"
-          "https://127.0.0.1:9443/api/am/admin/v4/organizations/d7cf8523-9180-4255-84fa-6cb171c1f779"'
+          source: |
+            curl -k -X DELETE -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" \
+            "https://127.0.0.1:9443/api/am/admin/v4/organizations/d7cf8523-9180-4255-84fa-6cb171c1f779"
  
   /me/organization-information:
     get:
@@ -2420,7 +2696,7 @@ paths:
         Using this operation, logged-in user can get their organization information.
       operationId: organizationInformation
       responses:
-        200:
+        '200':
           description: |
             OK.
             Key Manager list returned
@@ -2428,7 +2704,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/OrganizationInfo'
-        400:
+        '400':
           $ref: '#/components/responses/BadRequest'
       security:
         - OAuth2Security:
@@ -2436,8 +2712,9 @@ paths:
             - apim:admin_settings
       x-code-samples:
         - lang: Curl
-          source: 'curl -k -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8"
-          -H "Content-Type: application/json" -X POST -d @data.json "https://localhost:9443/api/am/publisher/v4/me/organization"'
+          source: |
+            curl -k -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" \
+            -H "Content-Type: application/json" -X POST -d @data.json "https://localhost:9443/api/am/publisher/v4/me/organization"
   ######################################################
   # The Bot Detection Data API resources
   ######################################################
@@ -2451,7 +2728,7 @@ paths:
         Get all bot detected data
       operationId: getBotDetectionData
       responses:
-        200:
+        '200':
           description: |
             OK.
             Bot detected data returned.
@@ -2465,7 +2742,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/BotDetectionDataList'
-        404:
+        '404':
           $ref: '#/components/responses/NotFound'
       security:
         - OAuth2Security:
@@ -2473,8 +2750,9 @@ paths:
             - apim:bot_data
       x-code-samples:
         - lang: Curl
-          source: 'curl -k -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8"
-          "https://127.0.0.1:9443/api/am/admin/v4/bot-detection-data"'
+          source: |
+            curl -k -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" \
+            "https://127.0.0.1:9443/api/am/admin/v4/bot-detection-data"
 
   ######################################################
   # The "Monetization" resource APIs
@@ -2487,21 +2765,21 @@ paths:
       description: |
         Publish usage records of monetized APIs
       responses:
-        200:
+        '200':
           description: Usage records successfully published.
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/PublishStatus'
-        202:
+        '202':
           description: Request is sucessfully accepted for processing.
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/PublishStatus'
-        404:
+        '404':
           $ref: '#/components/responses/NotFound'
-        500:
+        '500':
           $ref: '#/components/responses/InternalServerError'
       security:
         - OAuth2Security:
@@ -2509,8 +2787,9 @@ paths:
             - apim:monetization_usage_publish
       x-code-samples:
         - lang: Curl
-          source: 'curl -k -X POST -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8"
-          "https://127.0.0.1:9443/api/am/admin/v4/monetization/publish-usage"'
+          source: |
+            curl -k -X POST -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" \
+            "https://127.0.0.1:9443/api/am/admin/v4/monetization/publish-usage"
 
   /monetization/publish-usage/status:
     get:
@@ -2520,7 +2799,7 @@ paths:
       description: |
         Get the status of monetization usage publisher
       responses:
-        200:
+        '200':
           description: |
             OK.
             Status returned
@@ -2534,8 +2813,9 @@ paths:
             - apim:monetization_usage_publish
       x-code-samples:
         - lang: Curl
-          source: 'curl -k -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8"
-          "https://127.0.0.1:9443/api/am/admin/v4/monetization/publish-usage/status"'
+          source: |
+            curl -k -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" \
+            "https://127.0.0.1:9443/api/am/admin/v4/monetization/publish-usage/status"
 
   ######################################################
   # The "Workflow Collection" resource APIs
@@ -2571,7 +2851,7 @@ paths:
               - AM_API_PRODUCT_STATE
               - AM_REVISION_DEPLOYMENT
       responses:
-        200:
+        '200':
           description: |
             OK.
             Workflow pendding process list returned.
@@ -2585,11 +2865,11 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/WorkflowList'
-        400:
+        '400':
           $ref: '#/components/responses/BadRequest'
-        404:
+        '404':
           $ref: '#/components/responses/NotFound'
-        406:
+        '406':
           $ref: '#/components/responses/NotAcceptable'
       security:
         - OAuth2Security:
@@ -2597,8 +2877,9 @@ paths:
             - apim:api_workflow_view
       x-code-samples:
         - lang: Curl
-          source: 'curl -k -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8"
-          "https://127.0.0.1:9443/api/am/admin/v4/workflows"'
+          source: |
+            curl -k -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" \
+            "https://127.0.0.1:9443/api/am/admin/v4/workflows"
 
   /workflows/{externalWorkflowRef}:
     get:
@@ -2617,7 +2898,7 @@ paths:
           schema:
             type: string
       responses:
-        200:
+        '200':
           description: |
             OK.
             Requested Workflow Pending is returned
@@ -2625,14 +2906,14 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/WorkflowInfo'
-        304:
+        '304':
           description: |
             Not Modified.
             Empty body because the client has already the latest version of the requested resource.
           content: {}
-        404:
+        '404':
           $ref: '#/components/responses/NotFound'
-        406:
+        '406':
           $ref: '#/components/responses/NotAcceptable'
       security:
         - OAuth2Security:
@@ -2640,8 +2921,9 @@ paths:
             - apim:api_workflow_view
       x-code-samples:
         - lang: Curl
-          source: 'curl -k -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8"
-          "https://127.0.0.1:9443/api/am/admin/v4/workflows/c43a325c-260b-4302-81cb-768eafaa3aed"'
+          source: |
+            curl -k -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" \
+            "https://127.0.0.1:9443/api/am/admin/v4/workflows/c43a325c-260b-4302-81cb-768eafaa3aed"
 
   /workflows/update-workflow-status:
     post:
@@ -2661,7 +2943,7 @@ paths:
               $ref: '#/components/schemas/Workflow'
         required: true
       responses:
-        200:
+        '200':
           description: |
             OK.
             Workflow request information is returned.
@@ -2675,9 +2957,9 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Workflow'
-        400:
+        '400':
           $ref: '#/components/responses/BadRequest'
-        404:
+        '404':
           $ref: '#/components/responses/NotFound'
       security:
         - OAuth2Security:
@@ -2685,8 +2967,9 @@ paths:
             - apim:api_workflow_approve
       x-code-samples:
         - lang: Curl
-          source: 'curl -k -X POST -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8"
-          -H "Content-Type: application/json" -d @data.json "https://127.0.0.1:9443/api/am/admin/v4/workflows/update-workflow-status?workflowReferenceId=56e3a170-a7a7-45f8-b051-7e43a58a67e1"'
+          source: |
+            curl -k -X POST -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" \
+            -H "Content-Type: application/json" -d @data.json "https://127.0.0.1:9443/api/am/admin/v4/workflows/update-workflow-status?workflowReferenceId=56e3a170-a7a7-45f8-b051-7e43a58a67e1"
 
   ######################################################
   # The Tenant Info resource API
@@ -2710,7 +2993,7 @@ paths:
             type: string
             default: john
       responses:
-        200:
+        '200':
           description: |
             OK.
             Tenant id of the user retrieved.
@@ -2724,9 +3007,9 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/TenantInfo'
-        404:
+        '404':
           $ref: '#/components/responses/NotFound'
-        406:
+        '406':
           $ref: '#/components/responses/NotAcceptable'
       security:
         - OAuth2Security:
@@ -2734,8 +3017,9 @@ paths:
             - apim:tenantInfo
       x-code-samples:
         - lang: Curl
-          source: 'curl -k -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8"
-          "https://127.0.0.1:9443/api/am/admin/v4/tenant-info/john"'
+          source: |
+            curl -k -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" \
+            "https://127.0.0.1:9443/api/am/admin/v4/tenant-info/john"
 
   ######################################################
   # The Custom URL Info resource API
@@ -2758,7 +3042,7 @@ paths:
           schema:
             type: string
       responses:
-        200:
+        '200':
           description: |
             OK.
             Custom url info of the tenant is retrieved.
@@ -2772,9 +3056,9 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/CustomUrlInfo'
-        404:
+        '404':
           $ref: '#/components/responses/NotFound'
-        406:
+        '406':
           $ref: '#/components/responses/NotAcceptable'
       security:
         - OAuth2Security:
@@ -2782,8 +3066,9 @@ paths:
             - apim:tenantInfo
       x-code-samples:
         - lang: Curl
-          source: 'curl -k -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8"
-          "https://127.0.0.1:9443/api/am/admin/v4/custom-urls/wso2.com"'
+          source: |
+            curl -k -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" \
+            "https://127.0.0.1:9443/api/am/admin/v4/custom-urls/wso2.com"
 
   ######################################################
   # The "Category Collection" resource API
@@ -2796,7 +3081,7 @@ paths:
       description: |
         Get all API categories
       responses:
-        200:
+        '200':
           description: |
             OK.
             Categories returned
@@ -2811,8 +3096,9 @@ paths:
             - apim:api_category
       x-code-samples:
         - lang: Curl
-          source: 'curl -k -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8"
-          "https://127.0.0.1:9443/api/am/admin/v4/api-categories"'
+          source: |
+            curl -k -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" \
+            "https://127.0.0.1:9443/api/am/admin/v4/api-categories"
 
     post:
       tags:
@@ -2829,7 +3115,7 @@ paths:
               $ref: '#/components/schemas/APICategory'
         required: true
       responses:
-        201:
+        '201':
           description: |
             Created.
             Successful response with the newly created object as entity in the body.
@@ -2837,7 +3123,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/APICategory'
-        400:
+        '400':
           $ref: '#/components/responses/BadRequest'
       security:
         - OAuth2Security:
@@ -2846,8 +3132,9 @@ paths:
             - apim:api_category
       x-code-samples:
         - lang: Curl
-          source: 'curl -k -X POST -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8"
-          -H "Content-Type: application/json" -d @data.json "https://127.0.0.1:9443/api/am/admin/v4/api-categories"'
+          source: |
+            curl -k -X POST -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" \
+            -H "Content-Type: application/json" -d @data.json "https://127.0.0.1:9443/api/am/admin/v4/api-categories"
 
   ######################################################
   # The "Individual Category" resource APIs
@@ -2870,7 +3157,7 @@ paths:
               $ref: '#/components/schemas/APICategory'
         required: true
       responses:
-        200:
+        '200':
           description: |
             OK.
             Label updated.
@@ -2878,9 +3165,9 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/APICategory'
-        400:
+        '400':
           $ref: '#/components/responses/BadRequest'
-        404:
+        '404':
           $ref: '#/components/responses/NotFound'
       security:
         - OAuth2Security:
@@ -2889,8 +3176,9 @@ paths:
             - apim:api_category
       x-code-samples:
         - lang: Curl
-          source: 'curl -k -X PUT -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8"
-          -H "Content-Type: application/json" -d @data.json "https://127.0.0.1:9443/api/am/admin/v4/api-categories/d7cf8523-9180-4255-84fa-6cb171c1f779"'
+          source: |
+            curl -k -X PUT -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" \
+            -H "Content-Type: application/json" -d @data.json "https://127.0.0.1:9443/api/am/admin/v4/api-categories/d7cf8523-9180-4255-84fa-6cb171c1f779"
 
     delete:
       tags:
@@ -2901,12 +3189,12 @@ paths:
       parameters:
         - $ref: '#/components/parameters/apiCategoryId'
       responses:
-        200:
+        '200':
           description: |
             OK.
             API Category successfully deleted.
           content: {}
-        404:
+        '404':
           $ref: '#/components/responses/NotFound'
       security:
         - OAuth2Security:
@@ -2915,8 +3203,9 @@ paths:
             - apim:api_category
       x-code-samples:
         - lang: Curl
-          source: 'curl -k -X DELETE -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8"
-          "https://127.0.0.1:9443/api/am/admin/v4/api-categories/d7cf8523-9180-4255-84fa-6cb171c1f779"'
+          source: |
+            curl -k -X DELETE -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" \
+            "https://127.0.0.1:9443/api/am/admin/v4/api-categories/d7cf8523-9180-4255-84fa-6cb171c1f779"
 
   ######################################################
   # The Admin settings List
@@ -2929,7 +3218,7 @@ paths:
       description: |
         Retreive admin settings
       responses:
-        200:
+        '200':
           description: |
             OK.
             Settings returned
@@ -2937,7 +3226,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Settings'
-        404:
+        '404':
           $ref: '#/components/responses/NotFound'
       security:
         - OAuth2Security:
@@ -2945,8 +3234,9 @@ paths:
             - apim:admin_settings
       x-code-samples:
         - lang: Curl
-          source: 'curl -k -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8"
-          "https://127.0.0.1:9443/api/am/admin/v4/settings"'
+          source: |
+            curl -k -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" \
+            "https://127.0.0.1:9443/api/am/admin/v4/settings"
 
   ####################################################
   # The Admin alert  management resources
@@ -2961,7 +3251,7 @@ paths:
         This operation is used to get the list of supportd alert types for the apim admin dashboard
       operationId: getAdminAlertTypes
       responses:
-        200:
+        '200':
           description: |
             OK.
             The list of admin alert types are returned.
@@ -2975,7 +3265,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/AlertTypesList'
-        500:
+        '500':
           $ref: '#/components/responses/InternalServerError'
       security:
         - OAuth2Security:
@@ -2983,8 +3273,9 @@ paths:
             - apim:admin_alert_manage
       x-code-samples:
         - lang: Curl
-          source: 'curl -k -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8"
-          "https://127.0.0.1:9443/api/am/admin/v4/alert-types"'
+          source: |
+            curl -k -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" \
+            "https://127.0.0.1:9443/api/am/admin/v4/alert-types"
 
   /alert-subscriptions:
     get:
@@ -2996,7 +3287,7 @@ paths:
         This operation is used to get the list of subscribed alert types by the user.
       operationId: getSubscribedAlertTypes
       responses:
-        200:
+        '200':
           description: |
             OK.
             The list of subscribed alert types are returned.
@@ -3010,7 +3301,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/AlertsSubscription'
-        500:
+        '500':
           $ref: '#/components/responses/InternalServerError'
       security:
         - OAuth2Security:
@@ -3018,8 +3309,9 @@ paths:
             - apim:admin_alert_manage
       x-code-samples:
         - lang: Curl
-          source: 'curl -k -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8"
-          "https://127.0.0.1:9443/api/am/admin/v4/alert-subscriptions"'
+          source: |
+            curl -k -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" \
+            "https://127.0.0.1:9443/api/am/admin/v4/alert-subscriptions"
 
     put:
       tags:
@@ -3037,7 +3329,7 @@ paths:
               $ref: '#/components/schemas/AlertsSubscription'
         required: true
       responses:
-        200:
+        '200':
           description: |
             OK.
             Successful response with the newly subscribed alerts.
@@ -3051,9 +3343,9 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/AlertsSubscription'
-        400:
+        '400':
           $ref: '#/components/responses/BadRequest'
-        500:
+        '500':
           $ref: '#/components/responses/InternalServerError'
       security:
         - OAuth2Security:
@@ -3061,8 +3353,9 @@ paths:
             - apim:admin_alert_manage
       x-code-samples:
         - lang: Curl
-          source: 'curl -k -X PUT -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8"
-          -H "Content-Type: application/json" -d @data.json "https://127.0.0.1:9443/api/am/admin/v4/alert-subscriptions"'
+          source: |
+            curl -k -X PUT -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" \
+            -H "Content-Type: application/json" -d @data.json "https://127.0.0.1:9443/api/am/admin/v4/alert-subscriptions"
 
     delete:
       tags:
@@ -3073,7 +3366,7 @@ paths:
         This operation is used to unsubscribe the respective user from all the admin alert types.
       operationId: unsubscribeAllAlerts
       responses:
-        200:
+        '200':
           description: |
             OK.
             The user is unsubscribed from the alerts successfully.
@@ -3084,7 +3377,7 @@ paths:
               schema:
                 type: string
           content: {}
-        500:
+        '500':
           $ref: '#/components/responses/InternalServerError'
       security:
         - OAuth2Security:
@@ -3092,8 +3385,9 @@ paths:
             - apim:admin_alert_manage
       x-code-samples:
         - lang: Curl
-          source: 'curl -k -X DELETE -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8"
-          "https://127.0.0.1:9443/api/am/admin/v4/alert-subscriptions"'
+          source: |
+            curl -k -X DELETE -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" \
+            "https://127.0.0.1:9443/api/am/admin/v4/alert-subscriptions"
 
   /alert-subscriptions/bot-detection:
     get:
@@ -3105,7 +3399,7 @@ paths:
         Get the list of subscriptions which are subscribed to receive email alerts for bot detection
       operationId: getBotDetectionAlertSubscriptions
       responses:
-        200:
+        '200':
           description: |
             OK.
             The list of bot detection alert subscriptions are returned.
@@ -3119,7 +3413,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/BotDetectionAlertSubscriptionList'
-        500:
+        '500':
           $ref: '#/components/responses/InternalServerError'
       security:
         - OAuth2Security:
@@ -3127,8 +3421,9 @@ paths:
             - apim:admin_alert_manage
       x-code-samples:
         - lang: Curl
-          source: 'curl -k -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8"
-          "https://127.0.0.1:9443/api/am/admin/v4/alert-subscriptions/bot-detection"'
+          source: |
+            curl -k -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" \
+            "https://127.0.0.1:9443/api/am/admin/v4/alert-subscriptions/bot-detection"
 
     post:
       tags:
@@ -3146,7 +3441,7 @@ paths:
               $ref: '#/components/schemas/BotDetectionAlertSubscription'
         required: true
       responses:
-        200:
+        '200':
           description: |
             OK.
             Bot detection alert subscription is registered successfully.
@@ -3160,9 +3455,9 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/BotDetectionAlertSubscription'
-        400:
+        '400':
           $ref: '#/components/responses/BadRequest'
-        500:
+        '500':
           $ref: '#/components/responses/InternalServerError'
       security:
         - OAuth2Security:
@@ -3170,8 +3465,9 @@ paths:
             - apim:admin_alert_manage
       x-code-samples:
         - lang: Curl
-          source: 'curl -k -X POST -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8"
-          -H "Content-Type: application/json" -d @data.json "https://127.0.0.1:9443/api/am/admin/v4/alert-subscriptions/bot-detection"'
+          source: |
+            curl -k -X POST -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" \
+            -H "Content-Type: application/json" -d @data.json "https://127.0.0.1:9443/api/am/admin/v4/alert-subscriptions/bot-detection"
 
   /alert-subscriptions/bot-detection/{uuid}:
     delete:
@@ -3189,7 +3485,7 @@ paths:
           schema:
             type: string
       responses:
-        200:
+        '200':
           description: |
             OK.
             Bot detection alert subscription is deleted successfully.
@@ -3200,9 +3496,9 @@ paths:
               schema:
                 type: string
           content: {}
-        404:
+        '404':
           $ref: '#/components/responses/NotFound'
-        500:
+        '500':
           $ref: '#/components/responses/InternalServerError'
       security:
         - OAuth2Security:
@@ -3210,8 +3506,9 @@ paths:
             - apim:admin_alert_manage
       x-code-samples:
         - lang: Curl
-          source: 'curl -k -X DELETE -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8"
-          "https://127.0.0.1:9443/api/am/admin/v4/alert-subscriptions/bot-detection/7c9ee02d-37f5-4694-b99c-6d5641b28645"'
+          source: |
+            curl -k -X DELETE -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" \
+            "https://127.0.0.1:9443/api/am/admin/v4/alert-subscriptions/bot-detection/7c9ee02d-37f5-4694-b99c-6d5641b28645"
 
   ######################################################
   # System scopes resource API
@@ -3232,7 +3529,7 @@ paths:
             type: string
         - $ref: '#/components/parameters/scopeName'
       responses:
-        200:
+        '200':
           description: |
             OK.
             Particular scope exists for the given user.
@@ -3240,9 +3537,9 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/ScopeSettings'
-        400:
+        '400':
           $ref: '#/components/responses/BadRequest'
-        404:
+        '404':
           $ref: '#/components/responses/NotFound'
       security:
         - OAuth2Security:
@@ -3250,8 +3547,9 @@ paths:
             - apim:scope_manage
       x-code-samples:
         - lang: Curl
-          source: 'curl -k -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8"
-          "https://127.0.0.1:9443/api/am/admin/v4/system-scopes/YXBpbTpzdWJzY3JpYmU?username=john"'
+          source: |
+            curl -k -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" \
+            "https://127.0.0.1:9443/api/am/admin/v4/system-scopes/YXBpbTpzdWJzY3JpYmU?username=john"
 
   /system-scopes:
     get:
@@ -3263,7 +3561,7 @@ paths:
         This operation is used to get the list of role scope mapping from tenant-conf for the apim admin dashboard
       operationId: systemScopesGet
       responses:
-        200:
+        '200':
           description: |
             OK.
             The list of role scope mappings are returned.
@@ -3277,7 +3575,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/ScopeList'
-        500:
+        '500':
           $ref: '#/components/responses/InternalServerError'
       security:
         - OAuth2Security:
@@ -3285,8 +3583,9 @@ paths:
             - apim:admin
       x-code-samples:
         - lang: Curl
-          source: 'curl -k -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8"
-          "https://127.0.0.1:9443/api/am/admin/v4/system-scopes"'
+          source: |
+            curl -k -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" \
+            "https://127.0.0.1:9443/api/am/admin/v4/system-scopes"
 
     put:
       tags:
@@ -3305,7 +3604,7 @@ paths:
               $ref: '#/components/schemas/ScopeList'
         required: true
       responses:
-        200:
+        '200':
           description: |
             OK.
             Successful response with the newly added roles.
@@ -3319,9 +3618,9 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/ScopeList'
-        400:
+        '400':
           $ref: '#/components/responses/BadRequest'
-        500:
+        '500':
           $ref: '#/components/responses/InternalServerError'
       security:
         - OAuth2Security:
@@ -3329,8 +3628,9 @@ paths:
             - apim:scope_manage
       x-code-samples:
         - lang: Curl
-          source: 'curl -k -X PUT -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8"
-          -H "Content-Type: application/json" -d @data.json "https://127.0.0.1:9443/api/am/admin/v4/system-scopes"'
+          source: |
+            curl -k -X PUT -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" \
+            -H "Content-Type: application/json" -d @data.json "https://127.0.0.1:9443/api/am/admin/v4/system-scopes"
 
   /system-scopes/role-aliases:
     get:
@@ -3340,7 +3640,7 @@ paths:
       description: |
         This operation can be used to retreive role alias mapping
       responses:
-        200:
+        '200':
           description: |
             OK.
             The list of role mappings are returned.
@@ -3354,7 +3654,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/RoleAliasList'
-        404:
+        '404':
           $ref: '#/components/responses/NotFound'
       security:
         - OAuth2Security:
@@ -3362,8 +3662,9 @@ paths:
             - apim:scope_manage
       x-code-samples:
         - lang: Curl
-          source: 'curl -k -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8"
-          "https://127.0.0.1:9443/api/am/admin/v4/system-scopes/role-aliases"'
+          source: |
+            curl -k -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" \
+            "https://127.0.0.1:9443/api/am/admin/v4/system-scopes/role-aliases"
 
     put:
       tags:
@@ -3379,7 +3680,7 @@ paths:
               $ref: '#/components/schemas/RoleAliasList'
         required: true
       responses:
-        200:
+        '200':
           description: |
             OK.
             Role mapping alias returned
@@ -3387,9 +3688,9 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/RoleAliasList'
-        400:
+        '400':
           $ref: '#/components/responses/BadRequest'
-        500:
+        '500':
           $ref: '#/components/responses/InternalServerError'
       security:
         - OAuth2Security:
@@ -3397,8 +3698,9 @@ paths:
             - apim:admin
       x-code-samples:
         - lang: Curl
-          source: 'curl -k -X PUT -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8"
-          -H "Content-Type: application/json" -d @data.json "https://127.0.0.1:9443/api/am/admin/v4/system-scopes/role-aliases"'
+          source: |
+            curl -k -X PUT -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" \
+            -H "Content-Type: application/json" -d @data.json "https://127.0.0.1:9443/api/am/admin/v4/system-scopes/role-aliases"
 
   ######################################################
   # Roles resource APIs
@@ -3414,12 +3716,12 @@ paths:
       parameters:
         - $ref: '#/components/parameters/roleId'
       responses:
-        200:
+        '200':
           description: OK. Requested role name exists.
           content: {}
-        404:
+        '404':
           $ref: '#/components/responses/NotFound'
-        500:
+        '500':
           $ref: '#/components/responses/InternalServerError'
       security:
         - OAuth2Security:
@@ -3427,8 +3729,9 @@ paths:
             - apim:role_manage
       x-code-samples:
         - lang: Curl
-          source: 'curl -k -I -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8"
-          "https://127.0.0.1:9443/api/am/admin/v4/roles/SW50ZXJuYWwvcHVibGlzaGVyCQ"'
+          source: |
+            curl -k -I -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" \
+            "https://127.0.0.1:9443/api/am/admin/v4/roles/SW50ZXJuYWwvcHVibGlzaGVyCQ"
 
   ######################################################
   # The Tenant Theme resource APIs
@@ -3442,7 +3745,7 @@ paths:
         This operation can be used to export a DevPortal tenant theme as a zip file.
       operationId: exportTenantTheme
       responses:
-        200:
+        '200':
           description: |
             OK.
             Tenant Theme Exported Successfully.
@@ -3457,11 +3760,11 @@ paths:
               schema:
                 type: string
                 format: binary
-        403:
+        '403':
           $ref: '#/components/responses/Forbidden'
-        404:
+        '404':
           $ref: '#/components/responses/NotFound'
-        500:
+        '500':
           $ref: '#/components/responses/InternalServerError'
       security:
         - OAuth2Security:
@@ -3469,8 +3772,9 @@ paths:
             - apim:tenant_theme_manage
       x-code-samples:
         - lang: Curl
-          source: 'curl -k -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8"
-          "https://127.0.0.1:9443/api/am/admin/v4/tenant-theme" > theme.zip'
+          source: |
+            curl -k -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" \
+            "https://127.0.0.1:9443/api/am/admin/v4/tenant-theme" > theme.zip
 
     put:
       tags:
@@ -3493,16 +3797,16 @@ paths:
                   format: binary
         required: true
       responses:
-        200:
+        '200':
           description: |
             Ok.
             Tenant Theme Imported Successfully.
           content: {}
-        403:
+        '403':
           $ref: '#/components/responses/Forbidden'
-        413:
+        '413':
           $ref: '#/components/responses/PayloadTooLarge'
-        500:
+        '500':
           $ref: '#/components/responses/InternalServerError'
       security:
         - OAuth2Security:
@@ -3510,8 +3814,9 @@ paths:
             - apim:tenant_theme_manage
       x-code-samples:
         - lang: Curl
-          source: 'curl -k -X PUT -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8"
-          -F file=@theme.zip "https://127.0.0.1:9443/api/am/admin/v4/tenant-theme"'
+          source: |
+            curl -k -X PUT -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" \
+            -F file=@theme.zip "https://127.0.0.1:9443/api/am/admin/v4/tenant-theme"
 
   ######################################################
   # Organization theme of Devportal related APIs
@@ -3529,7 +3834,7 @@ paths:
           schema:
             type: boolean
       responses:
-        200:
+        '200':
           description: List of org themes
           content:
             application/json:
@@ -3537,13 +3842,13 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/ContentPublishStatusResponse'
-        404:
+        '404':
           $ref: '#/components/responses/NotFound'
-        400:
+        '400':
           $ref: '#/components/responses/BadRequest'
-        403:
+        '403':
           $ref: '#/components/responses/Forbidden'
-        500:
+        '500':
           $ref: '#/components/responses/InternalServerError'
       security:
         - OAuth2Security:
@@ -3551,8 +3856,9 @@ paths:
             - apim:tenant_theme_manage
       x-code-samples:
         - lang: Curl
-          source: 'curl -k -X GET -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8"
-                "https://127.0.0.1:9443/api/am/admin/v4/org-themes?publish=true"'
+          source: |
+            curl -k -X GET -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" \
+            "https://127.0.0.1:9443/api/am/admin/v4/org-themes?publish=true"
 
     post:
       operationId: importOrgTheme
@@ -3572,17 +3878,17 @@ paths:
                     The org-content.zip file
                   format: binary
       responses:
-        200:
+        '200':
           description: Successfully imported
-        400:
+        '400':
           $ref: '#/components/responses/BadRequest'
-        404:
+        '404':
           $ref: '#/components/responses/NotFound'
-        403:
+        '403':
           $ref: '#/components/responses/Forbidden'
-        413:
+        '413':
           $ref: '#/components/responses/PayloadTooLarge'
-        500:
+        '500':
           $ref: '#/components/responses/InternalServerError'
       security:
         - OAuth2Security:
@@ -3590,9 +3896,10 @@ paths:
             - apim:tenant_theme_manage
       x-code-samples:
         - lang: Curl
-          source: 'curl -k -X POST -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" 
-                -F "file=@org-content.zip" 
-                "https://127.0.0.1:9443/api/am/admin/v4/org-themes"'
+          source: |
+            curl -k -X POST -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" \
+            -F "file=@org-content.zip" \
+            "https://127.0.0.1:9443/api/am/admin/v4/org-themes"
 
   /org-themes/{id}/content:
     get:
@@ -3606,20 +3913,20 @@ paths:
           schema:
             type: string
       responses:
-        200:
+        '200':
           description: Returns the org theme zip
           content:
             application/zip:
               schema:
                 type: string
                 format: binary
-        404:
+        '404':
           $ref: '#/components/responses/NotFound'
-        400:
+        '400':
           $ref: '#/components/responses/BadRequest'
-        403:
+        '403':
           $ref: '#/components/responses/Forbidden'
-        500:
+        '500':
           $ref: '#/components/responses/InternalServerError'
       security:
         - OAuth2Security:
@@ -3627,9 +3934,10 @@ paths:
             - apim:tenant_theme_manage
       x-code-samples:
         - lang: Curl
-          source: 'curl -k -X GET -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8"
-                "https://127.0.0.1:9443/api/am/admin/v4/org-themes/{id}/content" 
-                -o org-content.zip'
+          source: |
+            curl -k -X GET -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" \
+            "https://127.0.0.1:9443/api/am/admin/v4/org-themes/{id}/content" \
+            -o org-content.zip
 
   /org-themes/{id}:
     delete:
@@ -3643,15 +3951,15 @@ paths:
           schema:
             type: string
       responses:
-        200:
+        '200':
           description: Successfully deleted
-        404:
+        '404':
           $ref: '#/components/responses/NotFound'
-        400:
+        '400':
           $ref: '#/components/responses/BadRequest'
-        403:
+        '403':
           $ref: '#/components/responses/Forbidden'
-        500:
+        '500':
           $ref: '#/components/responses/InternalServerError'
       security:
         - OAuth2Security:
@@ -3659,8 +3967,9 @@ paths:
             - apim:tenant_theme_manage
       x-code-samples:
         - lang: Curl
-          source: 'curl -k -X DELETE -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8"
-                "https://127.0.0.1:9443/api/am/admin/v4/org-themes/{id}"'
+          source: |
+            curl -k -X DELETE -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" \
+            "https://127.0.0.1:9443/api/am/admin/v4/org-themes/{id}"
 
   /org-themes/{id}/status:
     post:
@@ -3680,15 +3989,15 @@ paths:
             schema:
               $ref: "#/components/schemas/ContentPublishStatus"
       responses:
-        200:
+        '200':
           description: Successfully updated status
-        400:
+        '400':
           $ref: '#/components/responses/BadRequest'
-        403:
+        '403':
           $ref: '#/components/responses/Forbidden'
-        404:
+        '404':
           $ref: '#/components/responses/NotFound'
-        500:
+        '500':
           $ref: '#/components/responses/InternalServerError'
       security:
         - OAuth2Security:
@@ -3696,10 +4005,11 @@ paths:
             - apim:tenant_theme_manage
       x-code-samples:
         - lang: Curl
-          source: 'curl -k -X POST -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" 
-                -H "Content-Type: application/json" 
-                -d ''{"ACTION": "PUBLISH"}'' 
-                "https://127.0.0.1:9443/api/am/admin/v4/org-themes/{id}/status"'
+          source: |
+            curl -k -X POST -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" \
+            -H "Content-Type: application/json" \
+            -d '{"ACTION": "PUBLISH"}' \
+            "https://127.0.0.1:9443/api/am/admin/v4/org-themes/{id}/status"
 
   ######################################################
   # The Tenant config resource APIs
@@ -3713,7 +4023,7 @@ paths:
         This operation can be used to export a tenant-config.json used in deployment.
       operationId: exportTenantConfig
       responses:
-        200:
+        '200':
           description: |
             OK.
             Tenant config Exported Successfully.
@@ -3727,19 +4037,20 @@ paths:
             application/json:
               schema:
                 type: string
-        403:
+        '403':
           $ref: '#/components/responses/Forbidden'
-        404:
+        '404':
           $ref: '#/components/responses/NotFound'
-        500:
+        '500':
           $ref: '#/components/responses/InternalServerError'
       security:
         - OAuth2Security:
             - apim:admin
       x-code-samples:
         - lang: Curl
-          source: 'curl -k -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8"
-          "https://127.0.0.1:9443/api/am/admin/v4/tenant-config" > tenant-config.json'
+          source: |
+            curl -k -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" \
+            "https://127.0.0.1:9443/api/am/admin/v4/tenant-config" > tenant-config.json
     put:
       tags:
         - Tenant Config
@@ -3755,7 +4066,7 @@ paths:
               type: string
         required: true
       responses:
-        200:
+        '200':
           description: |
             OK.
             Role mapping alias returned
@@ -3763,19 +4074,20 @@ paths:
             application/json:
               schema:
                 type: object
-        403:
+        '403':
           $ref: '#/components/responses/Forbidden'
-        413:
+        '413':
           $ref: '#/components/responses/PayloadTooLarge'
-        500:
+        '500':
           $ref: '#/components/responses/InternalServerError'
       security:
         - OAuth2Security:
             - apim:admin
       x-code-samples:
         - lang: Curl
-          source: 'curl -k -X PUT -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8"
-           "https://127.0.0.1:9443/api/am/admin/v4/tenant-config"'
+          source: |
+            curl -k -X PUT -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" \
+            "https://127.0.0.1:9443/api/am/admin/v4/tenant-config"
 
   ######################################################
   # The Tenant config schema resource APIs
@@ -3789,7 +4101,7 @@ paths:
         This operation can be used to export a tenant-config-schema.json used in deployment.
       operationId: exportTenantConfigSchema
       responses:
-        200:
+        '200':
           description: |
             OK.
             Tenant config schema exported successfully.
@@ -3803,19 +4115,20 @@ paths:
             application/json:
               schema:
                 type: string
-        403:
+        '403':
           $ref: '#/components/responses/Forbidden'
-        404:
+        '404':
           $ref: '#/components/responses/NotFound'
-        500:
+        '500':
           $ref: '#/components/responses/InternalServerError'
       security:
         - OAuth2Security:
             - apim:admin
       x-code-samples:
         - lang: Curl
-          source: 'curl -k -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8"
-          "https://127.0.0.1:9443/api/am/admin/v4/tenant-config-schema" > tenant-config-schema.json'
+          source: |
+            curl -k -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" \
+            "https://127.0.0.1:9443/api/am/admin/v4/tenant-config-schema" > tenant-config-schema.json
 
   ######################################################
   # The "Key Manager Collection" resource API
@@ -3828,7 +4141,7 @@ paths:
       description: |
         Get all Key managers
       responses:
-        200:
+        '200':
           description: |
             OK.
             KeyManagers returned
@@ -3843,8 +4156,9 @@ paths:
             - apim:keymanagers_manage
       x-code-samples:
         - lang: Curl
-          source: 'curl -k -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8"
-          "https://127.0.0.1:9443/api/am/admin/v4/key-managers"'
+          source: |
+            curl -k -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" \
+            "https://127.0.0.1:9443/api/am/admin/v4/key-managers"
 
     post:
       tags:
@@ -3861,7 +4175,7 @@ paths:
               $ref: '#/components/schemas/KeyManager'
         required: true
       responses:
-        201:
+        '201':
           description: |
             Created.
             Successful response with the newly created object as entity in the body.
@@ -3869,7 +4183,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/KeyManager'
-        400:
+        '400':
           $ref: '#/components/responses/BadRequest'
       security:
         - OAuth2Security:
@@ -3878,8 +4192,9 @@ paths:
             - apim:keymanagers_manage
       x-code-samples:
         - lang: Curl
-          source: 'curl -k -X POST -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8"
-          -H "Content-Type: application/json" -d @data.json "https://127.0.0.1:9443/api/am/admin/v4/key-managers"'
+          source: |
+            curl -k -X POST -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" \
+            -H "Content-Type: application/json" -d @data.json "https://127.0.0.1:9443/api/am/admin/v4/key-managers"
 
   ######################################################
   # The "Individual KeyManager" resource APIs
@@ -3894,7 +4209,7 @@ paths:
       parameters:
         - $ref: '#/components/parameters/keyManagerId'
       responses:
-        200:
+        '200':
           description: |
             OK.
             KeyManager Configuration returned
@@ -3908,9 +4223,9 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/KeyManager'
-        404:
+        '404':
           $ref: '#/components/responses/NotFound'
-        406:
+        '406':
           $ref: '#/components/responses/NotAcceptable'
       security:
         - OAuth2Security:
@@ -3919,8 +4234,9 @@ paths:
             - apim:keymanagers_manage
       x-code-samples:
         - lang: Curl
-          source: 'curl -k -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8"
-          "https://127.0.0.1:9443/api/am/admin/v4/key-managers/8d263942-a6df-4cc2-a804-7a2525501450"'
+          source: |
+            curl -k -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" \
+            "https://127.0.0.1:9443/api/am/admin/v4/key-managers/8d263942-a6df-4cc2-a804-7a2525501450"
 
     put:
       tags:
@@ -3939,7 +4255,7 @@ paths:
               $ref: '#/components/schemas/KeyManager'
         required: true
       responses:
-        200:
+        '200':
           description: |
             OK.
             Label updated.
@@ -3947,9 +4263,9 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/KeyManager'
-        400:
+        '400':
           $ref: '#/components/responses/BadRequest'
-        404:
+        '404':
           $ref: '#/components/responses/NotFound'
       security:
         - OAuth2Security:
@@ -3958,8 +4274,9 @@ paths:
             - apim:keymanagers_manage
       x-code-samples:
         - lang: Curl
-          source: 'curl -k -X PUT -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8"
-          -H "Content-Type: application/json" -d @data.json "https://127.0.0.1:9443/api/am/admin/v4/key-managers/8d263942-a6df-4cc2-a804-7a2525501450"'
+          source: |
+            curl -k -X PUT -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" \
+            -H "Content-Type: application/json" -d @data.json "https://127.0.0.1:9443/api/am/admin/v4/key-managers/8d263942-a6df-4cc2-a804-7a2525501450"
 
     delete:
       tags:
@@ -3970,12 +4287,12 @@ paths:
       parameters:
         - $ref: '#/components/parameters/keyManagerId'
       responses:
-        200:
+        '200':
           description: |
             OK.
             Key Manager successfully deleted.
           content: { }
-        404:
+        '404':
           $ref: '#/components/responses/NotFound'
       security:
         - OAuth2Security:
@@ -3983,8 +4300,9 @@ paths:
             - apim:admin_operations
       x-code-samples:
         - lang: Shell
-          source: 'curl -k -X DELETE -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8"
-          "https://127.0.0.1:9443/api/am/admin/v2/global-key-managers/8d263942-a6df-4cc2-a804-7a2525501450"'
+          source: |
+            curl -k -X DELETE -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" \
+            "https://127.0.0.1:9443/api/am/admin/v2/global-key-managers/8d263942-a6df-4cc2-a804-7a2525501450"
 
   ######################################################
   # The "Global Key Manager Collection" resource API
@@ -3997,7 +4315,7 @@ paths:
       description: |
         Get all Global Key managers
       responses:
-        200:
+        '200':
           description: |
             OK.
             KeyManagers returned
@@ -4012,8 +4330,9 @@ paths:
             - apim:keymanagers_manage
       x-code-samples:
         - lang: Shell
-          source: 'curl -k -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8"
-          "https://127.0.0.1:9443/api/am/admin/v2/global-key-managers"'
+          source: |
+            curl -k -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" \
+            "https://127.0.0.1:9443/api/am/admin/v2/global-key-managers"
 
     post:
       tags:
@@ -4030,7 +4349,7 @@ paths:
               $ref: '#/components/schemas/KeyManager'
         required: true
       responses:
-        201:
+        '201':
           description: |
             Created.
             Successful response with the newly created object as entity in the body.
@@ -4038,7 +4357,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/KeyManager'
-        400:
+        '400':
           $ref: '#/components/responses/BadRequest'
       security:
         - OAuth2Security:
@@ -4047,9 +4366,10 @@ paths:
             - apim:keymanagers_manage
       x-code-samples:
         - lang: Shell
-          source: 'curl -k -X POST -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8"
-          -H "Content-Type: application/json" -d @data.json 
-          "https://127.0.0.1:9443/api/am/admin/v2/global-key-managers"'
+          source: |
+            curl -k -X POST -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" \
+            -H "Content-Type: application/json" -d @data.json \
+            "https://127.0.0.1:9443/api/am/admin/v2/global-key-managers"
 
   ######################################################
   # The "Global Individual KeyManager" resource APIs
@@ -4065,7 +4385,7 @@ paths:
       parameters:
         - $ref: '#/components/parameters/keyManagerId'
       responses:
-        200:
+        '200':
           description: |
             OK.
             KeyManager Configuration returned
@@ -4079,9 +4399,9 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/KeyManager'
-        404:
+        '404':
           $ref: '#/components/responses/NotFound'
-        406:
+        '406':
           $ref: '#/components/responses/NotAcceptable'
       security:
         - OAuth2Security:
@@ -4090,8 +4410,9 @@ paths:
             - apim:keymanagers_manage
       x-code-samples:
         - lang: Shell
-          source: 'curl -k -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8"
-          "https://127.0.0.1:9443/api/am/admin/v3/key-managers/8d263942-a6df-4cc2-a804-7a2525501450"'
+          source: |
+            curl -k -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" \
+            "https://127.0.0.1:9443/api/am/admin/v3/key-managers/8d263942-a6df-4cc2-a804-7a2525501450"
 
     put:
       tags:
@@ -4110,7 +4431,7 @@ paths:
               $ref: '#/components/schemas/KeyManager'
         required: true
       responses:
-        200:
+        '200':
           description: |
             OK.
             Label updated.
@@ -4118,9 +4439,9 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/KeyManager'
-        400:
+        '400':
           $ref: '#/components/responses/BadRequest'
-        404:
+        '404':
           $ref: '#/components/responses/NotFound'
       security:
         - OAuth2Security:
@@ -4129,8 +4450,9 @@ paths:
             - apim:keymanagers_manage
       x-code-samples:
         - lang: Shell
-          source: 'curl -k -X PUT -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8"
-          -H "Content-Type: application/json" -d @data.json "https://127.0.0.1:9443/api/am/admin/v3/key-managers/8d263942-a6df-4cc2-a804-7a2525501450"'
+          source: |
+            curl -k -X PUT -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" \
+            -H "Content-Type: application/json" -d @data.json "https://127.0.0.1:9443/api/am/admin/v3/key-managers/8d263942-a6df-4cc2-a804-7a2525501450"
 
     delete:
       tags:
@@ -4141,12 +4463,12 @@ paths:
       parameters:
         - $ref: '#/components/parameters/keyManagerId'
       responses:
-        200:
+        '200':
           description: |
             OK.
             Key Manager successfully deleted.
           content: {}
-        404:
+        '404':
           $ref: '#/components/responses/NotFound'
       security:
         - OAuth2Security:
@@ -4155,8 +4477,9 @@ paths:
             - apim:keymanagers_manage
       x-code-samples:
         - lang: Curl
-          source: 'curl -k -X DELETE -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8"
-          "https://127.0.0.1:9443/api/am/admin/v4/key-managers/8d263942-a6df-4cc2-a804-7a2525501450"'
+          source: |
+            curl -k -X DELETE -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" \
+            "https://127.0.0.1:9443/api/am/admin/v4/key-managers/8d263942-a6df-4cc2-a804-7a2525501450"
 
   /key-managers/discover:
     post:
@@ -4179,7 +4502,7 @@ paths:
                     Key Manager Type
                   default: "false"
       responses:
-        200:
+        '200':
           description: |
             OK.
             KeyManagers returned
@@ -4194,8 +4517,9 @@ paths:
             - apim:keymanagers_manage
       x-code-samples:
         - lang: Curl
-          source: 'curl -k -X POST -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8"
-          -F "type=WSO2-IS" "https://127.0.0.1:9443/api/am/admin/v4/key-managers/discover"'
+          source: |
+            curl -k -X POST -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" \
+            -F "type=WSO2-IS" "https://127.0.0.1:9443/api/am/admin/v4/key-managers/discover"
 
   /key-managers/{keyManagerId}/api-usages:
     get:
@@ -4210,7 +4534,7 @@ paths:
         - $ref: '#/components/parameters/limit'
         - $ref: '#/components/parameters/keyManagerId'
       responses:
-        200:
+        '200':
           description: |
             OK.
             KeyManager API usages returned.
@@ -4224,9 +4548,9 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/KeyManagerAPIUsages'
-        404:
+        '404':
           $ref: '#/components/responses/NotFound'
-        406:
+        '406':
           $ref: '#/components/responses/NotAcceptable'
       security:
         - OAuth2Security:
@@ -4234,8 +4558,9 @@ paths:
             - apim:admin_operations
       x-code-samples:
         - lang: Curl
-          source: 'curl -k -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8"
-            "https://127.0.0.1:9443/api/am/admin/v4/key-managers/8d263942-a6df-4cc2-a804-7a2525501450/api-usages"'
+          source: |
+            curl -k -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" \
+            "https://127.0.0.1:9443/api/am/admin/v4/key-managers/8d263942-a6df-4cc2-a804-7a2525501450/api-usages"
 
   /key-managers/{keyManagerId}/app-usages:
     get:
@@ -4250,7 +4575,7 @@ paths:
         - $ref: '#/components/parameters/limit'
         - $ref: '#/components/parameters/keyManagerId'
       responses:
-        200:
+        '200':
           description: |
             OK.
             KeyManager application usages returned.
@@ -4264,9 +4589,9 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/KeyManagerAppUsages'
-        404:
+        '404':
           $ref: '#/components/responses/NotFound'
-        406:
+        '406':
           $ref: '#/components/responses/NotAcceptable'
       security:
         - OAuth2Security:
@@ -4274,8 +4599,9 @@ paths:
             - apim:admin_operations
       x-code-samples:
         - lang: Curl
-          source: 'curl -k -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8"
-            "https://127.0.0.1:9443/api/am/admin/v4/key-managers/8d263942-a6df-4cc2-a804-7a2525501450/app-usages"'
+          source: |
+            curl -k -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" \
+            "https://127.0.0.1:9443/api/am/admin/v4/key-managers/8d263942-a6df-4cc2-a804-7a2525501450/app-usages"
 
   ######################################################
   # The "API Collection" resource APIs
@@ -4302,7 +4628,7 @@ paths:
             type: string
         - $ref: '#/components/parameters/If-None-Match'
       responses:
-        200:
+        '200':
           description: |
             OK.
             List of qualifying APIs is returned.
@@ -4320,12 +4646,12 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/SearchResultList'
-        304:
+        '304':
           description: |
             Not Modified.
             Empty body because the client has already the latest version of the requested resource (Will be supported in future).
           content: {}
-        406:
+        '406':
           $ref: '#/components/responses/NotAcceptable'
       security:
         - OAuth2Security:
@@ -4333,8 +4659,9 @@ paths:
             - apim:api_provider_change
       x-code-samples:
         - lang: Curl
-          source: 'curl -k -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8"
-          "https://127.0.0.1:9443/api/am/publisher/v4/apis"'
+          source: |
+            curl -k -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" \
+            "https://127.0.0.1:9443/api/am/publisher/v4/apis"
       operationId: getAllAPIs
   ######################################################
   # Change Api Provider
@@ -4355,7 +4682,7 @@ paths:
             type: string
         - $ref: '#/components/parameters/apiId'
       responses:
-        200:
+        '200':
           description: |
             OK.
             Api Provider updated.
@@ -4365,9 +4692,9 @@ paths:
                 The content type of the body.
               schema:
                 type: string
-        400:
+        '400':
           $ref: '#/components/responses/BadRequest'
-        404:
+        '404':
           $ref: '#/components/responses/NotFound'
       security:
         - OAuth2Security:
@@ -4375,8 +4702,9 @@ paths:
             - apim:api_provider_change
       x-code-samples:
         - lang: Curl
-          source: 'curl -k -X POST -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8"
-              -H "Content-Type: application/json" "https://127.0.0.1:9443/api/am/admin/v4/apis/33662a62-8db1-4d75-af08-afd63c6bd0b4/change-provider?provider=user1"'
+          source: |
+            curl -k -X POST -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" \
+            -H "Content-Type: application/json" "https://127.0.0.1:9443/api/am/admin/v4/apis/33662a62-8db1-4d75-af08-afd63c6bd0b4/change-provider?provider=user1"
   ######################################################
   # The "Transaction Count" resource API
   ######################################################
@@ -4400,7 +4728,7 @@ paths:
           schema:
             type: "string"
       responses:
-        200:
+        '200':
           description: "Transaction count retrieved successfully"
           content:
             application/json:
@@ -4415,18 +4743,83 @@ paths:
       security:
         - OAuth2Security:
             - apim:admin
+    ######################################################
+  # Export API Consumption Data
+  ######################################################
+  /export-consumption:
+    get:
+      tags:
+        - Consumption
+      summary: |
+        Export API Consumption Data
+      description: |
+        This operation provides a ZIP archive containing API consumption/usage data
+        for a given date range.
+      parameters:
+        - name: fromDate
+          in: query
+          description: |
+            Start date of the export range (inclusive). Format: YYYY-MM-DD.
+          required: true
+          schema:
+            type: string
+        - name: toDate
+          in: query
+          description: |
+            End date of the export range (inclusive). Format: YYYY-MM-DD.
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: |
+            OK.
+            Consumption data exported successfully as a ZIP file.
+          headers:
+            Content-Disposition:
+              description: |
+                Indicates the filename for the download (e.g., consumption-report.zip).
+              schema:
+                type: string
+            Content-Type:
+              description: The content type of the body.
+              schema:
+                type: string
+          content:
+            application/zip:
+              schema:
+                type: string
+                format: binary
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '500':
+          $ref: '#/components/responses/InternalServerError'
+      security:
+        - OAuth2Security:
+            - apim:admin
+      x-code-samples:
+        - lang: Curl
+          source: |
+            curl -k -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" \
+            "https://127.0.0.1:9443/api/am/admin/v4/export-consumption?fromDate=2026-01-01&toDate=2026-03-31" \
+            > consumption-report.zip
+      operationId: exportConsumptionData
   ######################################################
   # The "Label Collection" resource API
   ######################################################
   /labels:
     get:
       tags:
-        - Labels (Collection)
+        - Labels
       summary: Get all Labels
       description: |
         Get all Labels
       responses:
-        200:
+        '200':
           description: |
             OK.
             Labels returned
@@ -4439,13 +4832,14 @@ paths:
             - apim:admin
       x-code-samples:
         - lang: Curl
-          source: 'curl -k -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8"
-          "https://127.0.0.1:9443/api/am/admin/v4/labels"'
+          source: |
+            curl -k -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" \
+            "https://127.0.0.1:9443/api/am/admin/v4/labels"
       operationId: getAllLabels
 
     post:
       tags:
-        - Label (Individual)
+        - Labels
       summary: Add a new Label
       description: |
         Add a new Label
@@ -4458,7 +4852,7 @@ paths:
               $ref: '#/components/schemas/Label'
         required: true
       responses:
-        201:
+        '201':
           description: |
             Created.
             Successful response with the newly created object as entity in the body.
@@ -4466,17 +4860,18 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Label'
-        400:
+        '400':
           $ref: '#/components/responses/BadRequest'
-        409:
+        '409':
             $ref: '#/components/responses/Conflict'
       security:
         - OAuth2Security:
             - apim:admin
       x-code-samples:
         - lang: Curl
-          source: 'curl -k -X POST -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8"
-          -H "Content-Type: application/json" -d @data.json "https://127.0.0.1:9443/api/am/admin/v4/labels"'
+          source: |
+            curl -k -X POST -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" \
+            -H "Content-Type: application/json" -d @data.json "https://127.0.0.1:9443/api/am/admin/v4/labels"
       operationId: createLabel
 
   ######################################################
@@ -4485,7 +4880,7 @@ paths:
   /labels/{labelId}:
     put:
       tags:
-        - Label (Individual)
+        - Labels
       summary: Update a Label
       description: |
         Update a Label by label id
@@ -4500,7 +4895,7 @@ paths:
               $ref: '#/components/schemas/Label'
         required: true
       responses:
-        200:
+        '200':
           description: |
             OK.
             Label updated.
@@ -4508,46 +4903,48 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Label'
-        400:
+        '400':
           $ref: '#/components/responses/BadRequest'
-        404:
+        '404':
           $ref: '#/components/responses/NotFound'
-        409:
+        '409':
           $ref: '#/components/responses/Conflict'
       security:
         - OAuth2Security:
             - apim:admin
       x-code-samples:
         - lang: Curl
-          source: 'curl -k -X PUT -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8"
-          -H "Content-Type: application/json" -d @data.json "https://127.0.0.1:9443/api/am/admin/v4/labels/d7cf8523-9180-4255-84fa-6cb171c1f779"'
+          source: |
+            curl -k -X PUT -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" \
+            -H "Content-Type: application/json" -d @data.json "https://127.0.0.1:9443/api/am/admin/v4/labels/d7cf8523-9180-4255-84fa-6cb171c1f779"
       operationId: updateLabel
 
     delete:
       tags:
-        - Label (Individual)
+        - Labels
       summary: Delete a Label
       description: |
         Delete a Label by label id
       parameters:
         - $ref: '#/components/parameters/labelId'
       responses:
-        200:
+        '200':
           description: |
             OK.
             Label successfully deleted.
           content: {}
-        409:
+        '409':
           $ref: '#/components/responses/Conflict'
-        404:
+        '404':
           $ref: '#/components/responses/NotFound'
       security:
         - OAuth2Security:
             - apim:admin
       x-code-samples:
         - lang: Curl
-          source: 'curl -k -X DELETE -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8"
-          "https://127.0.0.1:9443/api/am/admin/v4/labels/d7cf8523-9180-4255-84fa-6cb171c1f779"'
+          source: |
+            curl -k -X DELETE -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" \
+            "https://127.0.0.1:9443/api/am/admin/v4/labels/d7cf8523-9180-4255-84fa-6cb171c1f779"
       operationId: deleteLabel
 
   ######################################################
@@ -4556,14 +4953,14 @@ paths:
   /labels/{labelId}/usage:
     get:
       tags:
-        - Label (Individual)
+        - Labels
       summary: Get a Label Usage
       description: |
         Retrieve a single Label Usage. We should provide the Id of the Label as a path parameter.
       parameters:
         - $ref: '#/components/parameters/labelId'
       responses:
-        200:
+        '200':
           description: |
             OK.
             Label Usage returned
@@ -4571,16 +4968,87 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/LabelUsage'
-        404:
+        '404':
           $ref: '#/components/responses/NotFound'
       security:
         - OAuth2Security:
             - apim:admin
       x-code-samples:
         - lang: Curl
-          source: 'curl -k -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8"
-          "https://127.0.0.1:9443/api/am/admin/v4/labels/d7cf8523-9180-4255-84fa-6cb171c1f779/usage"'
+          source: |
+            curl -k -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" \
+            "https://127.0.0.1:9443/api/am/admin/v4/labels/d7cf8523-9180-4255-84fa-6cb171c1f779/usage"
       operationId: getLabelUsage
+
+  ######################################################
+  # The "API Key Collection" resource API
+  ######################################################
+  /api-keys:
+    get:
+      tags:
+        - APIKeys
+      summary: Get all API Keys
+      description: |
+        Retrieve all API Keys.
+      operationId: getAllAPIKeys
+      responses:
+        '200':
+          description: |
+            OK.
+            API keys returned.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/APIKeyList'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        '412':
+          $ref: '#/components/responses/PreconditionFailed'
+      security:
+        - OAuth2Security:
+            - apim:admin
+      x-code-samples:
+        - lang: Curl
+          source: |
+            curl -k -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" \
+            -H "Content-Type: application/json" -X GET "https://127.0.0.1:9443/api/am/admin/v4/api-keys"
+
+  /api-keys/revoke:
+    post:
+      tags:
+        - APIKeys
+      summary: Revoke an API Key
+      description: |
+        Revoke an API Key for the API
+      operationId: revokeAPIKeyFromAdmin
+      requestBody:
+        description: |
+          API key revoke object
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/APIKeyRevokeRequest'
+        required: true
+      responses:
+        '200':
+          description: |
+            OK.
+            Api key revoked successfully.
+          content: { }
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '412':
+          $ref: '#/components/responses/PreconditionFailed'
+      security:
+        - OAuth2Security:
+            - apim:admin
+      x-code-samples:
+        - lang: Curl
+          source: |
+            curl -k -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" -H "Content-Type: application/json" -X POST -d @data.json \
+            "https://127.0.0.1:9443/api/am/admin/v4/api-keys/ght65523-7650-4255-84fa-6cb171c1f779/d7cf8523-9180-4255-84fa-6cb171c1f779/PRODUCTION/revoke"
 
 components:
   schemas:
@@ -5345,6 +5813,19 @@ components:
         owner:
           type: string
           example: admin
+        tokenType:
+          type: string
+          enum:
+            - OAUTH
+            - JWT
+        createdTime:
+          type: string
+          readOnly: true
+          example: "1651555310208"
+        keyManagers:
+          type: array
+          items:
+            $ref: '#/components/schemas/KeyManagerInfo'
         status:
           type: string
           example: APPROVED
@@ -5497,7 +5978,6 @@ components:
           example: Gateway environment in US Region
         isReadOnly:
           type: boolean
-          readOnly: true
           example: false
           default: false
           deprecated: true
@@ -5549,6 +6029,28 @@ components:
               items:
                 type: string
                 example: Internal/everyone
+        status:
+          type: string
+          readOnly: true
+          description: For platform gateway environments (gatewayType APIPlatform), connection status to the control plane (Active or Inactive).
+          example: Active
+          default: Active
+          enum:
+            - Active
+            - Inactive
+        vhost:
+          type: string
+          format: uri
+          readOnly: true
+          description: For platform gateway environments, the gateway URL (e.g. https://host:9443). Same as Platform Gateways API; only set when this environment represents a platform gateway.
+          example: https://mg.wso2.com
+        platformGatewayVersions:
+          type: array
+          readOnly: true
+          description: API Platform Gateway versions from config. Set for deploy targets so UI can show version choices in the quick-start guide.
+          items:
+            type: string
+            example: "1.0.0"
     EnvironmentList:
       title: Environment List
       type: object
@@ -5594,6 +6096,203 @@ components:
           enum:
             - ACTIVE
             - EXPIRED
+    ApplicationUpdateRequest:
+      type: object
+      description: Request body to update application attributes
+      properties:
+        owner:
+          type: string
+          description: The new owner of the application
+        tokenType:
+          type: string
+          description: The type of token for the application (e.g., JWT)
+          enum:
+            - JWT
+    CreatePlatformGatewayRequest:
+      title: Create Platform Gateway Request
+      description: Request body for creating a platform gateway (name, displayName, vhost as URL, optional properties). Same property name as platform API; type is URL.
+      required:
+        - name
+        - displayName
+        - vhost
+      type: object
+      properties:
+        name:
+          type: string
+          pattern: '^[a-z0-9-]+$'
+          minLength: 3
+          maxLength: 64
+          description: URL-friendly gateway identifier (lowercase alphanumeric with hyphens, unique per organization)
+          example: prod-gateway-01
+        displayName:
+          type: string
+          minLength: 1
+          maxLength: 128
+          description: Human-readable gateway name
+          example: Production Gateway 01
+        description:
+          type: string
+          maxLength: 1023
+          description: Optional description
+        vhost:
+          type: string
+          format: uri
+          description: Gateway URL (e.g. https://mg.example.com:9443). Same name as platform API; type is URL. Server persists host internally.
+          example: https://mg.wso2.com
+        properties:
+          type: object
+          additionalProperties: true
+          description: Custom key-value properties for the gateway
+          example: {"region": "us-west", "tier": "premium"}
+        permissions:
+          type: object
+          description: Gateway visibility permissions configuration
+          properties:
+            permissionType:
+              type: string
+              enum: [PUBLIC, ALLOW, DENY]
+              default: PUBLIC
+              description: |
+                Permission type for gateway visibility:
+                - PUBLIC: Gateway is visible to all users
+                - ALLOW: Gateway is visible only to specified roles
+                - DENY: Gateway is hidden from specified roles
+            roles:
+              type: array
+              items:
+                type: string
+              description: List of roles for ALLOW/DENY permission types
+              example: ["admin", "publisher"]
+          example:
+            permissionType: ALLOW
+            roles: ["admin", "publisher"]
+    UpdatePlatformGatewayRequest:
+      title: Update Platform Gateway Request
+      description: |
+        Request body for PUT /gateways/{gatewayId}. Per PUT semantics, send the full resource
+        representation. Name and vhost are immutable (server validates they match the existing gateway).
+      required:
+        - name
+        - displayName
+        - vhost
+      type: object
+      properties:
+        name:
+          type: string
+          pattern: '^[a-z0-9-]+$'
+          minLength: 3
+          maxLength: 64
+          description: Gateway identifier (immutable; must match existing). Required for PUT full representation.
+        vhost:
+          type: string
+          format: uri
+          description: Gateway URL (immutable; must match existing). Same name as platform API; type is URL. Example https://mg.wso2.com
+          example: https://mg.wso2.com
+        displayName:
+          type: string
+          minLength: 1
+          maxLength: 128
+          description: Human-readable gateway name
+          example: Production Gateway 01
+        description:
+          type: string
+          maxLength: 1023
+          description: Optional description
+        properties:
+          type: object
+          additionalProperties: true
+          description: Custom key-value properties for the gateway
+          example: {"region": "us-west", "tier": "premium"}
+        permissions:
+          type: object
+          description: Gateway visibility permissions (on-prem extension)
+          properties:
+            permissionType:
+              type: string
+              enum: [PUBLIC, ALLOW, DENY]
+              default: PUBLIC
+            roles:
+              type: array
+              items:
+                type: string
+              description: List of roles for ALLOW/DENY permission types
+    PlatformGatewayResponse:
+      title: Platform Gateway Response
+      description: Platform gateway response (without registration token). Used for list and get.
+      type: object
+      properties:
+        id:
+          type: string
+          readOnly: true
+          description: Gateway UUID
+        name:
+          type: string
+        displayName:
+          type: string
+        description:
+          type: string
+        properties:
+          type: object
+          additionalProperties: true
+          description: Custom key-value properties
+        vhost:
+          type: string
+          format: uri
+          readOnly: true
+          description: Gateway URL (e.g. https://host or https://host:9443). Same name as platform API; type is URL.
+        isActive:
+          type: boolean
+          readOnly: true
+          description: Indicates if the gateway is currently connected to the control plane via WebSocket
+        permissions:
+          type: object
+          description: Gateway visibility permissions configuration
+          properties:
+            permissionType:
+              type: string
+              enum: [PUBLIC, ALLOW, DENY]
+              default: PUBLIC
+              description: |
+                Permission type for gateway visibility:
+                - PUBLIC: Gateway is visible to all users
+                - ALLOW: Gateway is visible only to specified roles
+                - DENY: Gateway is hidden from specified roles
+            roles:
+              type: array
+              items:
+                type: string
+              description: List of roles for ALLOW/DENY permission types
+        createdAt:
+          type: string
+          format: date-time
+          readOnly: true
+        updatedAt:
+          type: string
+          format: date-time
+          readOnly: true
+    GatewayResponseWithToken:
+      title: Gateway Response With Token
+      description: Platform gateway response including the one-time registration token (POST create or regenerate-token).
+      allOf:
+        - $ref: '#/components/schemas/PlatformGatewayResponse'
+        - type: object
+          properties:
+            registrationToken:
+              type: string
+              description: |
+                Registration token (returned only once on create or regenerate). Use as api-key when connecting
+                the gateway to the control plane WebSocket. Store e.g. as GATEWAY_REGISTRATION_TOKEN.
+    GatewayList:
+      title: Gateway List
+      type: object
+      properties:
+        count:
+          type: integer
+          description: Number of platform gateways returned
+        list:
+          type: array
+          items:
+            $ref: '#/components/schemas/PlatformGatewayResponse'
     Organization:
       title: Organization
       required:
@@ -5735,6 +6434,10 @@ components:
           description: List of model providers supported by the AI Service Provider
           items:
             $ref: '#/components/schemas/ModelProvider'
+        deprecated:
+          type: boolean
+          description: Indicates if the LLM provider is deprecated
+          example: false
     AIServiceProviderSummaryResponse:
       title: AIServiceProviderSummaryResponse
       type: object
@@ -5763,6 +6466,10 @@ components:
           maxLength: 1023
           type: string
           example: OpenAI LLM Provider
+        deprecated:
+          type: boolean
+          description: Indicates if the LLM provider is deprecated
+          example: false
     AIServiceProviderSummaryResponseList:
       title: AIServiceProviderSummaryResponseList
       type: object
@@ -6090,7 +6797,7 @@ components:
           type: array
           items:
             type: string
-        IsJWTEnabledForLoginTokens: 
+        IsJWTEnabledForLoginTokens:
           type: boolean
           default: false
         orgAccessControlEnabled:
@@ -6127,6 +6834,10 @@ components:
                 type: array
                 items:
                   $ref: '#/components/schemas/KeyManagerConfiguration'
+              configurationConstraints:
+                type: array
+                items:
+                  $ref: '#/components/schemas/ConfigurationConstraint'
         gatewayConfiguration:
           type: array
           items:
@@ -6162,6 +6873,16 @@ components:
           type: boolean
           description: Is Gateway Notification Enabled
           default: false
+        platformGatewayVersions:
+          type: array
+          description: API Platform Gateway versions for the quick-start guide.
+          items:
+            type: string
+            example: "1.0.0"
+        consumptionExportEnabled:
+          type: boolean
+          description: Whether the ConsumptionDataExportService OSGi service is available
+          example: false
     ScopeList:
       title: Scope Role Mapping List
       type: object
@@ -6484,6 +7205,36 @@ components:
           description: Indicates that this configuration field cannot be modified once the Key Manager is created.
           default: false
           example: true
+    ConfigurationConstraint:
+      title: Configurable Configuration Constraints
+      type: object
+      properties:
+        name:
+          type: string
+          example: application_access_token_expiry_time
+        label:
+          type: string
+          example: Access Token Expiry
+        type:
+          type: string
+          example: input
+        multiple:
+          type: boolean
+          example: true
+        tooltip:
+          type: string
+          example: Define the valid range for token expiration in seconds.
+        constraintType:
+          type: string
+          example: RANGE
+        values:
+          type: array
+          items:
+            type: object
+            properties: { }
+        default:
+          type: object
+          properties: { }
     GatewayConfiguration:
       title: Gateway Configuration
       type: object
@@ -7046,6 +7797,73 @@ components:
               description: List of APIs associated with the label.
               items:
                 $ref: '#/components/schemas/ApiResult'
+    APIKey:
+      title: API Key details to invoke APIs
+      type: object
+      properties:
+        keyUUID:
+          type: string
+          description: The UUID of the API key
+        keyName:
+          type: string
+          description: API Key name
+          example: Test_Key
+        apiName:
+          type: string
+          description: API Name
+          example: NotificationsAPI
+        applicationName:
+          type: string
+          description: Application Name
+          example: DefaultApplication
+        keyType:
+          type: string
+          description: Application Key Type
+          example: PRODUCTION
+          enum:
+            - PRODUCTION
+            - SANDBOX
+        user:
+          type: string
+          description: Owner of the Application
+          example: Bob
+        issuedOn:
+          type: integer
+          format: int64
+          description: Created time in Unix epoch milliseconds
+          example: 1599196134000
+        validityPeriod:
+          type: integer
+          format: int64
+          example: 3600
+        lastUsed:
+          type: integer
+          format: int64
+          nullable: true
+          description: Last used time in Unix epoch milliseconds
+          example: 1599196134000
+    APIKeyList:
+      title: API Keys List
+      type: object
+      properties:
+        count:
+          type: integer
+          description: |
+            Number of API keys returned.
+          example: 1
+        list:
+          type: array
+          items:
+            $ref: '#/components/schemas/APIKey'
+    APIKeyRevokeRequest:
+      title: API Key revoke request object
+      type: object
+      required:
+        - keyUUID
+      properties:
+        keyUUID:
+          type: string
+          description: The UUID of the API key
 
   responses:
     BadRequest:
@@ -7387,6 +8205,17 @@ components:
       required: true
       schema:
         type: string
+    keyType:
+      name: keyType
+      in: path
+      description: |
+        **Application Key Type** standing for the type of the keys (i.e. Production or Sandbox).
+      required: true
+      schema:
+        type: string
+        enum:
+          - PRODUCTION
+          - SANDBOX
   securitySchemes:
     OAuth2Security:
       type: oauth2
@@ -7406,6 +8235,7 @@ components:
             apim:mediation_policy_view: View mediation policies
             apim:mediation_policy_create: Create and update mediation policies
             apim:app_owner_change: Retrieve and manage applications
+            apim:app_settings_change: Change Application Settings
             apim:app_import_export: Import and export applications related operations
             apim:api_import_export: Import and export APIs related operations
             apim:api_product_import_export: Import and export API Products related

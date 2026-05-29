@@ -1,6 +1,6 @@
 # Prompt Decorator
 
-The **Prompt Decorator** is a custom Synapse mediator for the **WSO2 API Manager Universal Gateway**, designed to enhance and standardize prompt inputs sent to AI services. It applies structured **prompt decoration techniques** to incoming text or chat-based payloads, enabling centralized control over prompt formatting, tone, behavior hints, and other guiding cues.
+The **Prompt Decorator** is a custom Synapse mediator for the **WSO2 API Manager Classic Gateway**, designed to enhance and standardize prompt inputs sent to AI services. It applies structured **prompt decoration techniques** to incoming text or chat-based payloads, enabling centralized control over prompt formatting, tone, behavior hints, and other guiding cues.
 
 Prompt decoration is a specialized **prompt engineering technique** that uses explicit modifiers such as symbols, keywords, or formatting cues to direct the AI’s reasoning, structure, or output format. These *decorators* act as **meta-instructions**, clarifying how the AI should approach a task. Among emerging techniques, prompt decoration stands out as a **practical method** for guiding AI behavior with **precision and consistency**.
 
@@ -48,7 +48,7 @@ This example demonstrates how the Prompt Decorator policy can be used to inject 
       ```
 
 3. Save and re-deploy the API.
-4. Invoke the API's `chat/completion` endpoint with a large text to summerize in the payload:
+4. Invoke the API's `chat/completion` endpoint with a large text to summarize in the payload:
 
       ```json
       {

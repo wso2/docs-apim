@@ -38,7 +38,7 @@ First, enable the API subscription workflow for **Approval Workflow Executor.**
      
     [![Subscription Creation Unblocked]({{base_path}}/assets/img/learn/subscription-creation-unblocked.png)]({{base_path}}/assets/img/learn/subscription-creation-unblocked.png)
 
-5. The subscription creation approval capability is now added into API Publisher portal as well to enable the Publishers of the API to approve/reject the subscriptions without being depended on the Admin for the above task. In order to check the subcription requests from the publisher portal Goto **Tasks** --> **Subscription** --> **Creation**.
+5. The subscription creation approval capability is now added into API Publisher portal as well to enable the Publishers of the API to approve/reject the subscriptions without being depended on the Admin for the above task. In order to check the subscription requests from the publisher portal Goto **Tasks** --> **Subscription** --> **Creation**.
 
     [![Subscription Creation Tasks in Publisher portal]({{base_path}}/assets/img/learn/subscription-creation-pending-list-in-publisher-portal.png)]({{base_path}}/assets/img/learn/subscription-creation-pending-list-in-publisher-portal.png)
 

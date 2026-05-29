@@ -292,7 +292,7 @@ If you get the following error: `org.wso2.carbon.server.admin.module.handler.Aut
 
 **Reason for occurrence**
 
-The *`javax.net.ssl.SSLException: hostname in certificate didn't match: <ip addrees> != <localhost>         `* exception is a very common exception that occurs whenever the WSO2 product server is accessed using a different IP address (e.g., `https://10.100.0.77:9443/publisher`) except localhost (e.g., `https://localhost:9443/publisher`).
+The *`javax.net.ssl.SSLException: hostname in certificate didn't match: <ip address> != <localhost>         `* exception is a very common exception that occurs whenever the WSO2 product server is accessed using a different IP address (e.g., `https://10.100.0.77:9443/publisher`) except localhost (e.g., `https://localhost:9443/publisher`).
 
 The reason that the exception occurs is because the self-signed certificate that is shipped with WSO2 products is configured using the hostname as `localhost`, and as a result Apache Shindig does not allow any other HTTP requests that originate from other hostnames/IP addresses other than localhost.
 

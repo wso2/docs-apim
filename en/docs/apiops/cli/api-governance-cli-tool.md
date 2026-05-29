@@ -20,7 +20,7 @@ Server:
 
 !!! note
 
-    When generating the access token using the above provided clinetID and clientSecret, the following scopes are provided.
+    When generating the access token using the above provided clientID and clientSecret, the following scopes are provided.
         ```
             apim:api_view
             apim:api_create

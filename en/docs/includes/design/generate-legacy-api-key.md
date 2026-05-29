@@ -9,13 +9,6 @@
 
 4. Select an application and select a throttling policy.
 
-      <html>
-      <div class="admonition note">
-      <p class="admonition-title">Note</p>
-      <p>API Keys can work with any application, which is either JWT or OAuth. </p>
-      </div> 
-     </html>
-
 5. Click **Subscribe**.
 
      [![Subscribe to the API](../../../../assets/img/learn/subscribe-to-api.png)](../../../../assets/img/learn/subscribe-to-api.png)
@@ -25,22 +18,24 @@
      [![View list of credentials](../../../../assets/img/learn/view-credentials-manage-app.png)](../../../../assets/img/learn/view-credentials-manage-app.png)
 
 7. Go to Legacy API Keys. 
+     [![Generate Legacy API Key Option](../../../../assets/img/learn/api-keys/legacy-api-key-option.png)](../../../../assets/img/learn/api-keys/legacy-api-key-option.png)
 
-     [![Generate Legacy API Key Option](../../../../assets/img/learn/api-keys/legacy-api-key-option.png){: style="width:80%"}](../../../../assets/img/learn/api-keys/legacy-api-key-option.png)
-
-8. Click **Generate Legacy API Key**.
+8. Click **Generate Legacy API Key** to open the key generation form.
 
      [![Generate Legacy API key](../../../../assets/img/learn/api-keys/generate-legacy-api-key.png){: style="width:80%"}](../../../../assets/img/learn/api-keys/generate-legacy-api-key.png)
 
-8. Optionally, define a validity period for the token.
+9. Optionally, configure the validity period before generating the key.
 
-     By default, the API Key does not expire. However, optionally, you can define a validity period for the token as follows:
-
-    1. When you click **Generate Legacy API Key** Select the required validity period option from the drop down.
-
-    2. For the custom validity period, enter the expiry time in **seconds**.
+     By default, the Legacy API Key does not expire. To set an expiry, select the required validity period option from the drop-down. For a custom validity period, enter the expiry time in **days**.
      
-9.  Copy the API key.
+10. Generate and copy the Legacy API Key.
 
-     [![Copy API key](../../../../assets/img/learn/api-keys/legacy-api-key-response.png){: style="width:60%"}](../../../../assets/img/learn/api-keys/legacy-api-key-response.png)
+     <html>
+     <div class="admonition note">
+     <p class="admonition-title">Note</p>
+     <p>From WSO2 API Manager 4.7.0 onwards, only opaque-based Legacy API Keys are generated.</p>
+     </div>
+     </html>
+
+     [![Copy Legacy API Key](../../../../assets/img/learn/api-keys/legacy-api-key-response.png){: style="width:80%"}](../../../../assets/img/learn/api-keys/legacy-api-key-response.png)
      

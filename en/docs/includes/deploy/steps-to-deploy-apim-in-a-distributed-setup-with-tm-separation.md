@@ -2,7 +2,7 @@
 
 To install and set up the API-M servers:
 
-1.  Download the WSO2 API Control Plane, WSO2 Universal Gateway and WSO2 Traffic Manager component distributions from the [WSO2 API Manager website](https://wso2.com/api-manager/).
+1.  Download the WSO2 API Control Plane, WSO2 Classic Gateway (Universal) and WSO2 Traffic Manager component distributions from the [WSO2 API Manager website](https://wso2.com/api-manager/).
 
 ### Step 2 - Install and configure the databases
 
@@ -27,7 +27,7 @@ For more information, see [Creating SSL Certificates](../../../../install-and-se
 
 ### Step 5 - Configure API-M Analytics
 
-API Manager Analytics is delivered via the API Manager Analytics cloud solution. You need to configure the WSO2 Universal Gateway distribution to publish analytics data to the cloud.
+API Manager Analytics is delivered via the API Manager Analytics cloud solution. You need to configure the WSO2 Classic Gateway distribution to publish analytics data to the cloud.
 
 See the instructions on [configuring the Gateway](../../../../monitoring/api-analytics/moesif-analytics/moesif-integration-guide/) with the cloud-based analytics solution.
 
@@ -41,7 +41,7 @@ Configure the Gateway to communicate with the API Control Plane and the Traffic 
 
 Follow the instructions given below to configure the Gateway node so that it can communicate with the API Control Plane node:
 
-1. Open the `<UNIVERSAL-GW_HOME>/repository/conf/deployment.toml` file of the Gateway node.
+1. Open the `<CLASSIC-GW_HOME>/repository/conf/deployment.toml` file of the Gateway node.
 
 2. Add the following configurations to the deployment.toml file. 
 
@@ -153,14 +153,14 @@ Follow the instructions given below to configure the Gateway node so that it can
     !!! Note
         This is not applicable if you use the default certificates, which are the certificates that are shipped with the product itself.
 
-7. Follow the steps given below to configure High Availability (HA) for the Universal Gateway:
+7. Follow the steps given below to configure High Availability (HA) for the Classic Gateway:
 
-    1. Create a copy of the WSO2 Universal Gateway node that you just configured. This is the second node of the Gateway cluster.
+    1. Create a copy of the WSO2 Classic Gateway node that you just configured. This is the second node of the Gateway cluster.
 
     2. Configure a load balancer fronting the two Gateway nodes in your deployment. For instructions, see [Configuring the Proxy Server and the Load Balancer](../../../../install-and-setup/setup/setting-up-proxy-server-and-the-load-balancer/configuring-the-proxy-server-and-the-load-balancer).
 
         !!! Note
-            To keep custom runtime artifacts deployed in the Gateway, add the following configuration in the `<UNIVERSAL-GW_HOME>/repository/conf/deployment.toml` file of the Gateway nodes.
+            To keep custom runtime artifacts deployed in the Gateway, add the following configuration in the `<CLASSIC-GW_HOME>/repository/conf/deployment.toml` file of the Gateway nodes.
 
             ```toml
             [apim.sync_runtime_artifacts.gateway.skip_list]
@@ -343,7 +343,7 @@ Follow the instructions given below to configure the Gateway node so that it can
 
 #### Configure the API Control Plane nodes
 
-Follow the steps given below to configure the API Control Plane nodes to communicate with the Universal Gateway.
+Follow the steps given below to configure the API Control Plane nodes to communicate with the Classic Gateway.
 
 1. Open the `<ACP_HOME>/repository/conf/deployment.toml` file of the API Control Plane node.
 
@@ -832,17 +832,17 @@ Once you have successfully configured all the API-M nodes in the deployment, you
 
 -   Starting the Gateway nodes
 
-    Open a terminal, navigate to the `<UNIVERSAL-GW_HOME>/bin` folder, and execute the following command:
+    Open a terminal, navigate to the `<CLASSIC-GW_HOME>/bin` folder, and execute the following command:
     
     === "Linux/Mac OS"
         ``` java
-        cd <UNIVERSAL-GW_HOME>/bin/
+        cd <CLASSIC-GW_HOME>/bin/
         sh gateway.sh
         ```
     
     === "Windows"
         ``` java
-        cd <UNIVERSAL-GW_HOME>\bin\
+        cd <CLASSIC-GW_HOME>\bin\
         gateway.bat --run
         ```
 

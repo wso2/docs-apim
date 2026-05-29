@@ -26,7 +26,7 @@ Next, let's see how to add the header as a parameter to the API Console.
 
     ![]({{base_path}}/assets/img/learn/resource-parameters.png)
 
-3.  Add a header parameter with the name `userId`. Once added the the newly added parameter should be listed as follows.
+3.  Add a header parameter with the name `userId`. Once added the newly added parameter should be listed as follows.
 
     ![]({{base_path}}/assets/img/learn/add-header-parameter.png)
 

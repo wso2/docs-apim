@@ -144,7 +144,7 @@ disable_restart_from_ui = false</code></pre>
                                         </div>
                                     </div>
                                     <div class="param-description">
-                                        <p>Use this paramater to enable MTOM (Message Transmission Optimization Mechanism) for the product server.</p>
+                                        <p>Use this parameter to enable MTOM (Message Transmission Optimization Mechanism) for the product server.</p>
                                     </div>
                                 </div>
                             </div><div class="param">
@@ -165,7 +165,7 @@ disable_restart_from_ui = false</code></pre>
                                         </div>
                                     </div>
                                     <div class="param-description">
-                                        <p>Use this paramater to enable SwA (SOAP with Attachments) for the product server. When SwA is enabled, the API Manager will process the files attached to SOAP messages.</p>
+                                        <p>Use this parameter to enable SwA (SOAP with Attachments) for the product server. When SwA is enabled, the API Manager will process the files attached to SOAP messages.</p>
                                     </div>
                                 </div>
                             </div><div class="param">
@@ -897,7 +897,7 @@ claims_extractor_impl = "org.wso2.carbon.apimgt.impl.token.DefaultClaimsRetrieve
                                         
                                     </div>
                                     <div class="param-description">
-                                        <p>You can define the custom claim retiriver implmentation by adding the following apim.jwt.enable_user_claims=true. Make sure that it is the fully-qualified class name.</p>
+                                        <p>You can define the custom claim retiriver implementation by adding the following apim.jwt.enable_user_claims=true. Make sure that it is the fully-qualified class name.</p>
                                     </div>
                                 </div>
                             </div><div class="param">
@@ -937,7 +937,7 @@ claims_extractor_impl = "org.wso2.carbon.apimgt.impl.token.DefaultClaimsRetrieve
                                         </div>
                                     </div>
                                     <div class="param-description">
-                                        <p>Specify NONE to disbale the sigining.</p>
+                                        <p>Specify NONE to disable the sigining.</p>
                                     </div>
                                 </div>
                             </div><div class="param">
@@ -1652,7 +1652,7 @@ tenants = "*"</code></pre>
                                         
                                     </div>
                                     <div class="param-description">
-                                        <p>Comma seperated list of tenants to be loaded on the gateway. Use * to load all tenants</p>
+                                        <p>Comma separated list of tenants to be loaded on the gateway. Use * to load all tenants</p>
                                     </div>
                                 </div>
                             </div>
@@ -2222,7 +2222,7 @@ enable = true</code></pre>
                                         
                                     </div>
                                     <div class="param-description">
-                                        <p>Enabel cache for scopes. This expires in 15 minutes by default.</p>
+                                        <p>Enable cache for scopes. This expires in 15 minutes by default.</p>
                                     </div>
                                 </div>
                             </div>
@@ -2651,7 +2651,7 @@ type = "failover"</code></pre>
                                         
                                     </div>
                                     <div class="param-description">
-                                        <p>Define each analytics node that the API Manager will connect to, as an array. If there are mutiple node, you need to define this configuration for each node.</p>
+                                        <p>Define each analytics node that the API Manager will connect to, as an array. If there are multiple node, you need to define this configuration for each node.</p>
                                     </div>
                                 </div>
                             </div><div class="param">
@@ -2889,7 +2889,7 @@ enable_application_scopes_for_resident_km = false</code></pre>
                                         
                                     </div>
                                     <div class="param-description">
-                                        <p>You can provide a custom key validation handler implmentation. To do this, set the &quot;key_validation_handler_type&quot; to custom</p>
+                                        <p>You can provide a custom key validation handler implementation. To do this, set the &quot;key_validation_handler_type&quot; to custom</p>
                                     </div>
                                 </div>
                             </div><div class="param">
@@ -4637,7 +4637,7 @@ skip_redeploying_policies = ["carbon.super_app_unitApp","carbon.super_app_20PerM
                                         </div>
                                     </div>
                                     <div class="param-description">
-                                        <p>Binary - Uses the binary transport. Recommended.Thrift - Uses thrift tranport</p>
+                                        <p>Binary - Uses the binary transport. Recommended.Thrift - Uses thrift transport</p>
                                     </div>
                                 </div>
                             </div><div class="param">
@@ -7354,7 +7354,7 @@ environment = "live"</code></pre>
                                         
                                     </div>
                                     <div class="param-description">
-                                        <p>TThe signature of the attached PayPal account.</p>
+                                        <p>the signature of the attached PayPal account.</p>
                                     </div>
                                 </div>
                             </div><div class="param">
@@ -7503,7 +7503,7 @@ execution_interval_in_ms = "-1"</code></pre>
                             <code>[multi_tenancy.usage_agent.data_persistence_task]</code>
                             
                             <p>
-                                Configures the data presistance for user agents in multi-tenant mode.
+                                Configures the data persistence for user agents in multi-tenant mode.
                             </p>
                         </div>
                         <div class="params-wrap">
@@ -7523,7 +7523,7 @@ execution_interval_in_ms = "-1"</code></pre>
                                         
                                     </div>
                                     <div class="param-description">
-                                        <p>Connection delay to start data presistance at startup.</p>
+                                        <p>Connection delay to start data persistence at startup.</p>
                                     </div>
                                 </div>
                             </div><div class="param">
@@ -7561,7 +7561,7 @@ execution_interval_in_ms = "-1"</code></pre>
                                         
                                     </div>
                                     <div class="param-description">
-                                        <p>Time between execution cycles in miliseconds.</p>
+                                        <p>Time between execution cycles in milliseconds.</p>
                                     </div>
                                 </div>
                             </div>
@@ -7675,7 +7675,7 @@ delay = "60"</code></pre>
                                         
                                     </div>
                                     <div class="param-description">
-                                        <p>Time interval betweeen throttling manager tasks.</p>
+                                        <p>Time interval between throttling manager tasks.</p>
                                     </div>
                                 </div>
                             </div><div class="param">
@@ -12311,7 +12311,7 @@ application_binary =  "org.apache.axis2.format.BinaryFormatter"</code></pre>
                                         </div>
                                     </div>
                                     <div class="param-description">
-                                        <p>The message formating implementation that formats messages with the &#39;application_xml&#39; content type before they are sent out of the Micro Integrator. If required, you can change the default formating class.</p>
+                                        <p>The message formatting implementation that formats messages with the &#39;application_xml&#39; content type before they are sent out of the Micro Integrator. If required, you can change the default formatting class.</p>
                                     </div>
                                 </div>
                             </div><div class="param">
@@ -12332,7 +12332,7 @@ application_binary =  "org.apache.axis2.format.BinaryFormatter"</code></pre>
                                         </div>
                                     </div>
                                     <div class="param-description">
-                                        <p>The message formating implementation that formats messages with the &#39;form_urlencoded&#39; content type before they are sent out of the Micro Integrator. If required, you can change the default formating class.</p>
+                                        <p>The message formatting implementation that formats messages with the &#39;form_urlencoded&#39; content type before they are sent out of the Micro Integrator. If required, you can change the default formatting class.</p>
                                     </div>
                                 </div>
                             </div><div class="param">
@@ -12353,7 +12353,7 @@ application_binary =  "org.apache.axis2.format.BinaryFormatter"</code></pre>
                                         </div>
                                     </div>
                                     <div class="param-description">
-                                        <p>The message formating implementation that formats messages with the &#39;multipart_form_data&#39; content type before they are sent out of the Micro Integrator. If required, you can change the default formating class.</p>
+                                        <p>The message formatting implementation that formats messages with the &#39;multipart_form_data&#39; content type before they are sent out of the Micro Integrator. If required, you can change the default formatting class.</p>
                                     </div>
                                 </div>
                             </div><div class="param">
@@ -12374,7 +12374,7 @@ application_binary =  "org.apache.axis2.format.BinaryFormatter"</code></pre>
                                         </div>
                                     </div>
                                     <div class="param-description">
-                                        <p>The message formating implementation that formats messages with the &#39;text_plain&#39; content type before they are sent out of the Micro Integrator. If required, you can change the default formating class.</p>
+                                        <p>The message formatting implementation that formats messages with the &#39;text_plain&#39; content type before they are sent out of the Micro Integrator. If required, you can change the default formatting class.</p>
                                     </div>
                                 </div>
                             </div><div class="param">
@@ -12395,7 +12395,7 @@ application_binary =  "org.apache.axis2.format.BinaryFormatter"</code></pre>
                                         </div>
                                     </div>
                                     <div class="param-description">
-                                        <p>The message formating implementation that formats messages with the &#39;application_json&#39; content type before they are sent out of the Micro Integrator. If required, you can change the default formating class.</p>
+                                        <p>The message formatting implementation that formats messages with the &#39;application_json&#39; content type before they are sent out of the Micro Integrator. If required, you can change the default formatting class.</p>
                                     </div>
                                 </div>
                             </div><div class="param">
@@ -12416,7 +12416,7 @@ application_binary =  "org.apache.axis2.format.BinaryFormatter"</code></pre>
                                         </div>
                                     </div>
                                     <div class="param-description">
-                                        <p>The message formating implementation that formats messages with the &#39;json_badgerfish&#39; content type before they are sent out of the Micro Integrator. If required, you can change the default formating class.</p>
+                                        <p>The message formatting implementation that formats messages with the &#39;json_badgerfish&#39; content type before they are sent out of the Micro Integrator. If required, you can change the default formatting class.</p>
                                     </div>
                                 </div>
                             </div><div class="param">
@@ -12437,7 +12437,7 @@ application_binary =  "org.apache.axis2.format.BinaryFormatter"</code></pre>
                                         </div>
                                     </div>
                                     <div class="param-description">
-                                        <p>The message formating implementation that formats messages with the &#39;text_javascript&#39; content type before they are sent out of the Micro Integrator. If required, you can change the default formating class.</p>
+                                        <p>The message formatting implementation that formats messages with the &#39;text_javascript&#39; content type before they are sent out of the Micro Integrator. If required, you can change the default formatting class.</p>
                                     </div>
                                 </div>
                             </div><div class="param">
@@ -12458,7 +12458,7 @@ application_binary =  "org.apache.axis2.format.BinaryFormatter"</code></pre>
                                         </div>
                                     </div>
                                     <div class="param-description">
-                                        <p>The message formatting implementation that formats messages with the &#39;octet_stream&#39; content type before they are sent out of the Micro Integrator. If required, you can change the default formating class.</p>
+                                        <p>The message formatting implementation that formats messages with the &#39;octet_stream&#39; content type before they are sent out of the Micro Integrator. If required, you can change the default formatting class.</p>
                                     </div>
                                 </div>
                             </div><div class="param">
@@ -12479,7 +12479,7 @@ application_binary =  "org.apache.axis2.format.BinaryFormatter"</code></pre>
                                         </div>
                                     </div>
                                     <div class="param-description">
-                                        <p>The message formating implementation that formats messages with the &#39;application_binary&#39; content type before they are sent out of the Micro Integrator. If required, you can change the default formating class.</p>
+                                        <p>The message formatting implementation that formats messages with the &#39;application_binary&#39; content type before they are sent out of the Micro Integrator. If required, you can change the default formatting class.</p>
                                     </div>
                                 </div>
                             </div><div class="param">
@@ -12500,7 +12500,7 @@ application_binary =  "org.apache.axis2.format.BinaryFormatter"</code></pre>
                                         </div>
                                     </div>
                                     <div class="param-description">
-                                        <p>The message formating implementation that formats messages with the &#39;text_xml&#39; content type before they are sent out of the Micro Integrator. If required, you can change the default formating class.</p>
+                                        <p>The message formatting implementation that formats messages with the &#39;text_xml&#39; content type before they are sent out of the Micro Integrator. If required, you can change the default formatting class.</p>
                                     </div>
                                 </div>
                             </div><div class="param">
@@ -12521,7 +12521,7 @@ application_binary =  "org.apache.axis2.format.BinaryFormatter"</code></pre>
                                         </div>
                                     </div>
                                     <div class="param-description">
-                                        <p>The message formating implementation that formats messages with the &#39;soap_xml&#39; content type before they are sent out of the Micro Integrator. If required, you can change the default formating class.</p>
+                                        <p>The message formatting implementation that formats messages with the &#39;soap_xml&#39; content type before they are sent out of the Micro Integrator. If required, you can change the default formatting class.</p>
                                     </div>
                                 </div>
                             </div>
@@ -13546,7 +13546,7 @@ monitored.user.stores = "primary,sec"</code></pre>
                                         
                                     </div>
                                     <div class="param-description">
-                                        <p>An array of domain names of the userstores to monitor health. If not given, health is monitered on all the super tenant secondary user stores.</p>
+                                        <p>An array of domain names of the userstores to monitor health. If not given, health is monitored on all the super tenant secondary user stores.</p>
                                     </div>
                                 </div>
                             </div>
@@ -13696,7 +13696,7 @@ monitored.datasources = "jdbc/WSO2AM_DB,jdbc/SHARED_DB,jdbc/WSO2CarbonDB"</code>
                                         
                                     </div>
                                     <div class="param-description">
-                                        <p>An array of jndiConfig names of datasources to monitor health. If not given, health is monitered on all the datastores.</p>
+                                        <p>An array of jndiConfig names of datasources to monitor health. If not given, health is monitored on all the datastores.</p>
                                     </div>
                                 </div>
                             </div>
@@ -14235,7 +14235,7 @@ enable_unmapped_user_attributes = true
                                         
                                     </div>
                                     <div class="param-description">
-                                        <p>This can be used to return extra custom claims with the IDToken . You can implement a claims call back handler to push the custom claims to the IDToken implmenting interface CustomClaimsCallbackHandler.</p>
+                                        <p>This can be used to return extra custom claims with the IDToken . You can implement a claims call back handler to push the custom claims to the IDToken implementing interface CustomClaimsCallbackHandler.</p>
                                     </div>
                                 </div>
                             </div><div class="param">
@@ -14623,7 +14623,7 @@ grant_validator = "org.wso2.carbon.identity.oauth2.grant.kerberos.KerberosGrantV
                                         </div>
                                     </div>
                                     <div class="param-description">
-                                        <p>Enable to allow refresh tokens for client credentails grant.</p>
+                                        <p>Enable to allow refresh tokens for client credentials grant.</p>
                                     </div>
                                 </div>
                             </div><div class="param">
@@ -14644,7 +14644,7 @@ grant_validator = "org.wso2.carbon.identity.oauth2.grant.kerberos.KerberosGrantV
                                         </div>
                                     </div>
                                     <div class="param-description">
-                                        <p>Enable to allow ID tokens for client credentails grant.</p>
+                                        <p>Enable to allow ID tokens for client credentials grant.</p>
                                     </div>
                                 </div>
                             </div><div class="param">
@@ -15583,7 +15583,7 @@ UserCoreCacheTimeOut = 5 </code></pre>
                                         
                                     </div>
                                     <div class="param-description">
-                                        <p>(LDAP) The patten for the user&#39;s DN, which can be defined to improve the search. When there are many user entries in the LDAP user store, defining a UserDNPattern provides more impact on performances as the LDAP does not have to travel through the entire tree to find users.</p>
+                                        <p>(LDAP) The pattern for the user&#39;s DN, which can be defined to improve the search. When there are many user entries in the LDAP user store, defining a UserDNPattern provides more impact on performances as the LDAP does not have to travel through the entire tree to find users.</p>
                                     </div>
                                 </div>
                             </div><div class="param">
@@ -17187,7 +17187,7 @@ same_site_cookies = "lax"
 
 
 
-## Dependency Configurations
+## Synapse Properties
 
 
 <div class="mb-config-catalog">
@@ -17197,6 +17197,87 @@ same_site_cookies = "lax"
             
             <input name="117" type="checkbox" id="_tab_117">
                 <label class="tab-selector" for="_tab_117"><i class="icon fa fa-code"></i></label>
+                <div class="superfences-content">
+                    <div class="mb-config-example">
+<pre><code class="toml">[synapse_properties]
+'synapse.mediators.access.control.mode' = "ALLOW_LIST"
+'synapse.mediators.access.control.list' = "aggregate,builder,cache,call,class,clone,drop,enrich,filter,foreach,header,in,iterate,log,loopback,makefault,opa,out,payloadfactory,property,propertygroup,respond,rewrite,scatter-gather,script,send,sequence,switch,throwerror,variable"
+</code></pre>
+                    </div>
+                </div>
+                <div class="doc-wrapper">
+                    <div class="mb-config">
+                        <div class="config-wrap">
+                            <code>[synapse_properties]</code>
+                            
+                            <p>
+                                This includes configurations for synapse runtime.
+                            </p>
+                        </div>
+                        <div class="params-wrap">
+                            <div class="param">
+                                <div class="param-name">
+                                  <span class="param-name-wrap"> <code>&#39;synapse.mediators.access.control.mode&#39;</code> </span>
+                                </div>
+                                <div class="param-info">
+                                    <div>
+                                        <p>
+                                            <span class="param-type string"> string </span>
+                                            
+                                        </p>
+                                        <div class="param-default">
+                                            <span class="param-default-value">Default: <code>ALLOW_LIST</code></span>
+                                        </div>
+                                        <div class="param-possible">
+                                            <span class="param-possible-values">Possible Values: <code>NONE, ALLOW_LIST, DENY_LIST</code></span>
+                                        </div>
+                                    </div>
+                                    <div class="param-description">
+                                        <p>This property controls the access control mode for mediators in the Synapse runtime. It can be set to one of the following values: NONE (no access control), ALLOW_LIST (only mediators in the allow list are accessible), DENY_LIST (mediators in the deny list are not accessible). By default, it is set to ALLOW_LIST, which means only mediators explicitly listed in the allow list will be accessible. Adjust this setting based on your security requirements and the mediators you need to use in your API configurations.</p>
+                                    </div>
+                                </div>
+                            </div><div class="param">
+                                <div class="param-name">
+                                  <span class="param-name-wrap"> <code>&#39;synapse.mediators.access.control.list&#39;</code> </span>
+                                </div>
+                                <div class="param-info">
+                                    <div>
+                                        <p>
+                                            <span class="param-type string"> string </span>
+                                            
+                                        </p>
+                                        <div class="param-default">
+                                            <span class="param-default-value">Default: <code>aggregate,builder,cache,call,class,clone,drop,enrich,filter,foreach,header,in,iterate,log,loopback,makefault,opa,out,payloadfactory,property,propertygroup,respond,rewrite,scatter-gather,script,send,sequence,switch,throwerror,variable</code></span>
+                                        </div>
+                                        <div class="param-possible">
+                                            <span class="param-possible-values">Possible Values: <code>comma-separated list of mediator local names</code></span>
+                                        </div>
+                                    </div>
+                                    <div class="param-description">
+                                        <p>This property specifies the list of mediators for access control based on the mode defined in &#39;synapse.mediators.access.control.mode&#39;. It should be a comma-separated list of mediator local names. For example, if &#39;synapse.mediators.access.control.mode&#39; is set to ALLOW_LIST, only the mediators listed in this property will be accessible. If the mode is set to DENY_LIST, the mediators listed here will be blocked from access. If the mode is NONE, this property is ignored. Configure this list according to the mediators you want to allow or deny access to in your Synapse runtime environment.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+
+
+
+## Dependency Configurations
+
+
+<div class="mb-config-catalog">
+    <section>
+        <div class="mb-config-options">
+            <div class="superfences-tabs">
+            
+            <input name="119" type="checkbox" id="_tab_119">
+                <label class="tab-selector" for="_tab_119"><i class="icon fa fa-code"></i></label>
                 <div class="superfences-content">
                     <div class="mb-config-example">
 <pre><code class="toml">[dependency_properties]

@@ -13,13 +13,15 @@ For more information on WSO2 API Manager, see the [overview]({{base_path}}/get-s
 ## New Features
 
 
-??? note "API Platform Gateway Integration"
+??? note "Platform Gateway Integration"
 
-    WSO2 API Manager introduces integration with the API Platform Gateway, enabling modern gateway capabilities while allowing APIM to act as the centralized control plane.
+    WSO2 API Manager introduces integration with the Platform Gateway, enabling modern gateway capabilities while allowing APIM to act as the centralized control plane.
 
     - **Envoy-based gateway support**: Leverage modern gateway features such as HTTP/2 and HTTP/3 in on-prem deployments.
     - **APIM as control plane**: Manage gateway registration, configuration, API deployments, and policies directly from API Manager.
     - **Unified gateway model**: Use a single gateway implementation across cloud and on-prem environments.
+
+    **[Learn more]({{base_path}}/api-gateway/platform-gateway/getting-started)**
 
 ??? note "API-Bound API Keys with Enhanced Security and Access Control"
 
@@ -71,6 +73,8 @@ For more information on WSO2 API Manager, see the [overview]({{base_path}}/get-s
     
     - Enforce ruleset-attached policies on MCP Servers in either synchronous or asynchronous mode.
 
+    **[Learn more]({{base_path}}/administer/governance/governance-concept)**
+
 ??? note "MCP Analytics"
 
     WSO2 API Manager introduces MCP-aware analytics, enabling deeper visibility into Model Context Protocol (MCP) interactions with structured, protocol-specific insights.
@@ -106,8 +110,8 @@ For more information on WSO2 API Manager, see the [overview]({{base_path}}/get-s
 
     WSO2 API Manager introduces new policies to support multi-model routing, enabling dynamic selection of models based on request context and defined strategies.
 
-    - **Intelligent Model Routing**: Selects the most suitable model based on predefined criteria and runtime conditions. **[Learn more]({{base_path}}/ai-gateway/ai-guardrails/semantic-tool-filtering-guardrail/)**
-    - **Semantic Model Routing**: Routes requests to models based on semantic relevance. **[Semantic Model Routing]({{base_path}}/ai-gateway/multi-model-routing/semantic-model-routing/)**
+    - **Intelligent Model Routing**: Selects the most suitable model based on predefined criteria and runtime conditions. **[Learn more]({{base_path}}/ai-gateway/multi-model-routing/intelligent-model-routing/)**
+    - **Semantic Model Routing**: Routes requests to models based on semantic relevance. **[Learn more]({{base_path}}/ai-gateway/multi-model-routing/semantic-model-routing/)**
     
 ## Improvements
 
@@ -149,6 +153,17 @@ For more information on WSO2 API Manager, see the [overview]({{base_path}}/get-s
 ## **Key Changes**
 
 Before upgrading to WSO2 API Manager 4.7.0, review the following architectural and behavioral changes that may impact your deployment, integrations, and runtime behavior:
+
+### JDK 21 and 25 Are the Only Supported Versions
+
+WSO2 API Manager 4.7.0 requires **JDK 21 or JDK 25** to run. Older JDK versions are no longer supported.
+
+* JDK versions prior to 21 are **not supported** and will not work with this release.
+* Ensure your environment is running **JDK 21** or **JDK 25** before upgrading.
+
+**Impact:**
+
+* Deployments running on JDK 11 or JDK 17 must upgrade their JDK before migrating to API Manager 4.7.0.
 
 ### Control Plane Resource Access Restricted by Default
 
@@ -403,7 +418,7 @@ Application-bound API keys are **deprecated** and disabled by default.
 ## Fixed issues
 
 - [API Manager](https://github.com/wso2/api-manager/issues?q=is%3Aissue%20is%3Aclosed%20label%3AComponent%2FAPIM%20closed%3A2025-10-28..2026-04-03%20-label%3AResolution%2FInvalid%20-label%3AResolution%2FDuplicate%20-label%3A%22Resolution%2FNot%20a%20bug%22%20-label%3A%22Resolution%2FCannot%20Reproduce%22%20-label%3A%22Resolution%2FWon%E2%80%99t%20Fix%22)
-- [API Controller](https://github.com/wso2/api-manager/issues?q=is%3Aissue%20is%3Aclosed%20label%3AComponent%2FAPICTL%20closed%3A2025-10-28..2025-04-03%20-label%3AResolution%2FInvalid%20-label%3AResolution%2FDuplicate%20-label%3A%22Resolution%2FNot%20a%20bug%22%20-label%3A%22Resolution%2FCannot%20Reproduce%22%20-label%3A%22Resolution%2FWon%E2%80%99t%20Fix%22)
+- [API Controller](https://github.com/wso2/api-manager/issues?q=is%3Aissue%20is%3Aclosed%20label%3AComponent%2FAPICTL%20closed%3A2025-10-28..2026-04-03%20-label%3AResolution%2FInvalid%20-label%3AResolution%2FDuplicate%20-label%3A%22Resolution%2FNot%20a%20bug%22%20-label%3A%22Resolution%2FCannot%20Reproduce%22%20-label%3A%22Resolution%2FWon%E2%80%99t%20Fix%22)
 
 ## Known issues
 

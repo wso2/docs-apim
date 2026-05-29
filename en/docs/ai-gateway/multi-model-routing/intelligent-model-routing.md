@@ -13,6 +13,46 @@ You define each rule with a **name** (which can be any label you choose, such as
 - **Default Fallback**: Automatically routes to a default model when the LLM cannot confidently match any rule.
 - **Multi-Environment Support**: Separate rule configurations for production and sandbox environments.
 
+## Configure the Environment
+
+Before using the Intelligent Model Routing policy, you must configure an LLM provider in the `deployment.toml` file.
+
+### LLM Provider Configuration
+
+Choose one of the following LLM providers and add the configuration to your `<APIM_HOME>/repository/conf/deployment.toml` file:
+
+=== "OpenAI"
+
+    ```toml
+    [apim.ai.llm_provider]
+    type = "openai"
+    [apim.ai.llm_provider.properties]
+    llm_endpoint = "https://api.openai.com/v1/chat/completions"
+    apikey = "<your-openai-api-key>"
+    llm_model = "gpt-4o-mini"
+    ```
+
+=== "Mistral"
+
+    ```toml
+    [apim.ai.llm_provider]
+    type = "mistral"
+    [apim.ai.llm_provider.properties]
+    llm_endpoint = "https://api.mistral.ai/v1/chat/completions"
+    apikey = "<your-mistral-api-key>"
+    llm_model = "mistral-small-latest"
+    ```
+
+=== "Azure OpenAI"
+
+    ```toml
+    [apim.ai.llm_provider]
+    type = "azure-openai"
+    [apim.ai.llm_provider.properties]
+    llm_endpoint = "<your-azure-openai-chat-completions-endpoint>"
+    apikey = "<your-azure-openai-api-key>"
+    ```
+
 ## How It Works
 
 Intelligent Model Routing operates through the following process:
@@ -45,12 +85,12 @@ Follow these steps to configure the Intelligent Model Routing policy for your AI
 
 5. Fill in the requested details and click **Save**.
 
-    [![Intelligent Model Routing Policy Configuration]({{base_path}}/assets/img/learn/ai-gateway/intelligent-model-routing-policy-configuration.png){: style="width:40%"}]({{base_path}}/assets/img/learn/ai-gateway/intelligent-model-routing-policy-configuration.png)
+    [![Intelligent Model Routing Policy Configuration]({{base_path}}/assets/img/learn/ai-gateway/intelligent-model-routing-policy-configuration.png){: style="width:90%"}]({{base_path}}/assets/img/learn/ai-gateway/intelligent-model-routing-policy-configuration.png)
 
 !!! note "AWS Bedrock Configuration"
     When configuring intelligent model routing with AWS Bedrock as a multi-model provider service, you must select both the **Provider** (model family) and the **Model** for each rule and the default model. The **Provider** dropdown lists the model families you have set up in the Admin Portal (such as Meta, Anthropic, DeepSeek, etc.), and once a provider is selected, the **Model** dropdown will display the specific models available under that provider.
 
-    [![AWS Bedrock Intelligent Model Routing Policy Configuration]({{base_path}}/assets/img/learn/ai-gateway/aws-bedrock-intelligent-model-routing-policy-configuration.png){: style="width:40%"}]({{base_path}}/assets/img/learn/ai-gateway/aws-bedrock-intelligent-model-routing-policy-configuration.png)
+    [![AWS Bedrock Intelligent Model Routing Policy Configuration]({{base_path}}/assets/img/learn/ai-gateway/aws-bedrock-intelligent-model-routing-policy-configuration.png){: style="width:90%"}]({{base_path}}/assets/img/learn/ai-gateway/aws-bedrock-intelligent-model-routing-policy-configuration.png)
 
 ## Policy Configuration
 
@@ -152,10 +192,3 @@ For each environment (Production/Sandbox), you can configure multiple routing ru
 | Inconsistent routing for the same query | LLM non-determinism | Add a more explicit and detailed context description; ensure rule names are unambiguous |
 | Classification fails entirely | LLM provider not configured or unreachable | Verify the LLM provider is correctly configured for the API and is reachable |
 | Policy not applying | Incorrect content path | Check that the **Content Path** JSONPath expression correctly targets the user message field in your request payload |
-
-## AWS Bedrock Configuration
-
-!!! note "AWS Bedrock Multi-Model Provider"
-    If you are configuring intelligent model routing with AWS Bedrock as a multi-model provider service, you must select both the **Provider** (model family) and the **Model** for each rule and the default model. The **Provider** dropdown lists the model families you have set up in the Admin Portal (such as Meta, Anthropic, DeepSeek, etc.), and once a provider is selected, the **Model** dropdown will display the specific models available under that provider.
-
-    [![AWS Bedrock Intelligent Model Routing Policy Configuration]({{base_path}}/assets/img/learn/ai-gateway/aws-bedrock-intelligent-model-routing-policy-configuration.png){: style="width:40%"}]({{base_path}}/assets/img/learn/ai-gateway/aws-bedrock-intelligent-model-routing-policy-configuration.png)

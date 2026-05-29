@@ -247,7 +247,9 @@ This dashboard is useful when AI agents or MCP-enabled clients are interacting w
 
 <a href="{{base_path}}/assets/img/analytics/moesif/moesif-mcp-dashboard.png"><img src="{{base_path}}/assets/img/analytics/moesif/moesif-mcp-dashboard.png" width="95%" alt="Moesif MCP Analytics Dashboard"/></a>
 
-<a href="{{base_path}}/assets/img/analytics/moesif/moesif-mcp-dashboard-2.png"><img src="{{base_path}}/assets/img/analytics/moesif/moesif-mcp-dashboard-2.png" width="95%" alt="Moesif MCP Analytics Dashboard Additional View"/></a>
+<a href="{{base_path}}/assets/img/analytics/moesif/moesif-mcp-dashboard-2.png"><img src="{{base_path}}/assets/img/analytics/moesif/moesif-mcp-dashboard-2.png" width="95%" alt="Moesif MCP Analytics Dashboard View 2"/></a>
+
+<a href="{{base_path}}/assets/img/analytics/moesif/moesif-mcp-dashboard-3.png"><img src="{{base_path}}/assets/img/analytics/moesif/moesif-mcp-dashboard-3.png" width="95%" alt="Moesif MCP Analytics Dashboard View 3"/></a>
 
 ### Summary Metrics
 

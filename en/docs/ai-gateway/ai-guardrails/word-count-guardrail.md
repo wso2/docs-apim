@@ -1,6 +1,6 @@
 # Word Count Guardrail
 
-The **Word Count Guardrail** is a custom Synapse mediator for the **WSO2 API Manager Universal Gateway** that enforces **minimum and/or maximum word count limits** on a selected JSON field in AI API requests or GenAI responses. It helps control verbosity, prompt injection surface, and output consistency.
+The **Word Count Guardrail** is a custom Synapse mediator for the **WSO2 API Manager Classic Gateway** that enforces **minimum and/or maximum word count limits** on a selected JSON field in AI API requests or GenAI responses. It helps control verbosity, prompt injection surface, and output consistency.
 
 ## Features
 

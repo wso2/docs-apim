@@ -1,6 +1,6 @@
 # Prompt Template
 
-The **Prompt Template** is a custom Synapse mediator for the **WSO2 API Manager Universal Gateway**, designed to translate incoming requests into structured, context-aware instructions for AI services. It dynamically applies configurable **prompt templates** to user inputs, helping align requests with the desired format, tone, and task-specific guidance without violating the underlying AI service’s OpenAPI specification.
+The **Prompt Template** is a custom Synapse mediator for the **WSO2 API Manager Classic Gateway**, designed to translate incoming requests into structured, context-aware instructions for AI services. It dynamically applies configurable **prompt templates** to user inputs, helping align requests with the desired format, tone, and task-specific guidance without violating the underlying AI service’s OpenAPI specification.
 
 Prompt templates are a foundational **prompt engineering technique** used to standardize and structure prompts before they are sent to a language model. By combining user inputs with reusable instruction patterns, prompt templates guide the model’s behavior more effectively, helping ensure that responses are relevant, coherent, and contextually appropriate. They are especially valuable for applications that require task clarity, tone consistency, or compliance with operational rules.
 

@@ -26,8 +26,8 @@ public class SimpleClassMediator extends AbstractMediator {
     public SimpleClassMediator(){}
 
     public boolean mediate(MessageContext mc) {
-        // Do somthing useful..
-        // Implementation of Reading the propertly values of Message context and modifying request / logging properties
+        // Do something useful..
+        // Implementation of Reading the properly values of Message context and modifying request / logging properties
         return true;
     }
 
@@ -68,7 +68,7 @@ By referring to this class with the fully qualified class name in a class mediat
 If any properties are specified in the java class of the class mediator, the corresponding setter methods are invoked once in the class during initialization.
 
 !!! note
-    You can use the Class mediator for user-specific, custom developments only when there is no built-in mediator that already provides the required functionality because maintaining custom classes incurs a high overhead. Therefore, avoid using them unless the scenario is frequently re-used and very user-specific.
+    You can use the Class mediator for user-specific, custom developments only when there is no built-in mediator that already provides the required functionality because maintaining custom classes incurs a high overhead. Therefore, avoid using them unless the scenario is frequently reused and very user-specific.
 
 !!! warning
     Your class mediator might not be picked up and updated if you use an existing package when creating it.

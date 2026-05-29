@@ -21,7 +21,7 @@ Following steps illustrate how you can enable a custom handler for a selected se
     ```
     <handlers xmlns="http://ws.apache.org/ns/synapse">
     
-     ##Engage the Custom handler based on 'custom_authentication' propert value
+     ##Engage the Custom handler based on 'custom_authentication' property value
      #if($apiObj.additionalProperties.get('custom_authentication') == "true"))
        <handler class="org.wso2.apimgt.custom.CustomAPIAuthenticationHandler"/>
      #end

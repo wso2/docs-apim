@@ -75,12 +75,12 @@ Follow these steps to configure the Semantic Routing policy for your AI API:
 
 5. Fill in the requested details and click **Save**.
 
-    [![Semantic Model Routing Policy Configuration]({{base_path}}/assets/img/learn/ai-gateway/semantic-model-routing-policy-configuration.png){: style="width:40%"}]({{base_path}}/assets/img/learn/ai-gateway/semantic-model-routing-policy-configuration.png)
+    [![Semantic Model Routing Policy Configuration]({{base_path}}/assets/img/learn/ai-gateway/semantic-model-routing-policy-configuration.png){: style="width:90%"}]({{base_path}}/assets/img/learn/ai-gateway/semantic-model-routing-policy-configuration.png)
 
 !!! note "AWS Bedrock Configuration"
     When configuring semantic routing with AWS Bedrock as a multi-model provider service, you must select both the **Provider** (model family) and the **Model** for each route and the default model. The **Provider** dropdown lists the model families you have set up in the Admin Portal (such as Meta, Anthropic, DeepSeek, etc.), and once a provider is selected, the **Model** dropdown will display the specific models available under that provider.
 
-    [![AWS Bedrock Semantic Model Routing Policy Configuration]({{base_path}}/assets/img/learn/ai-gateway/aws-bedrock-semantic-model-routing-policy-configuration.png){: style="width:40%"}]({{base_path}}/assets/img/learn/ai-gateway/aws-bedrock-semantic-model-routing-policy-configuration.png)
+    [![AWS Bedrock Semantic Model Routing Policy Configuration]({{base_path}}/assets/img/learn/ai-gateway/aws-bedrock-semantic-model-routing-policy-configuration.png){: style="width:90%"}]({{base_path}}/assets/img/learn/ai-gateway/aws-bedrock-semantic-model-routing-policy-configuration.png)
 
 ## Policy Configuration
 
@@ -209,11 +209,3 @@ The score threshold determines the minimum cosine similarity (0.0 to 1.0) requir
 | Requests routing to wrong model | Similar utterances across routes | Make utterances more distinct and specific to each route's purpose |
 | Embedding provider errors | Invalid credentials or endpoint | Verify your embedding provider configuration in `deployment.toml` |
 | Policy not working | Embedding provider not configured | Ensure embedding provider is properly configured and restart the server |
-
-
-## AWS Bedrock Configuration
-
-!!! note "AWS Bedrock Multi-Model Provider"
-    If you are configuring semantic routing with AWS Bedrock as a multi-model provider service, you must select both the **Provider** (model family) and the **Model** for each route and the default model. The **Provider** dropdown lists the model families you have set up in the Admin Portal (such as Meta, Anthropic, DeepSeek, etc.), and once a provider is selected, the **Model** dropdown will display the specific models available under that provider.
-
-    [![AWS Bedrock Semantic Model Routing Policy Configuration]({{base_path}}/assets/img/learn/ai-gateway/aws-bedrock-semantic-model-routing-policy-configuration.png){: style="width:40%"}]({{base_path}}/assets/img/learn/ai-gateway/aws-bedrock-semantic-model-routing-policy-configuration.png)

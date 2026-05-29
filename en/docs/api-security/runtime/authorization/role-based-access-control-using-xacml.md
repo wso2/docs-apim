@@ -122,7 +122,7 @@ Based on the requirement, a single API is exposed to add or retrieve order info
 
 12. Restart the server once the JAR file is added.
 
-13. Now, you need to create a API Policy containing the entitlement policy mediator that can be attached to each API required to authorize users with the entitlement server. Create an XML file with the following configuration and name it `EntitlementMediator.j2` .
+13. Now, you need to create an API Policy containing the entitlement policy mediator that can be attached to each API required to authorize users with the entitlement server. Create an XML file with the following configuration and name it `EntitlementMediator.j2` .
 
     ``` xml
 <entitlementService xmlns="http://ws.apache.org/ns/synapse" remoteServiceUrl="https://localhost:9444/services" remoteServiceUserName="admin" remoteServicePassword="admin" callbackClass="org.wso2.sample.handlers.entitlement.APIEntitlementCallbackHandler"/>

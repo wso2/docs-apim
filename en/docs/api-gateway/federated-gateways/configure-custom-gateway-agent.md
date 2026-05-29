@@ -56,7 +56,7 @@ You need to write a custom Gateway Agent bundle as explained below.
     </tr>
     <tr class="odd">
     <td><strong>getGatewayFeatureCatalog</strong></td>
-    <td><p>Provides the list of portal features supported by the third party gateway. Portal UIs will be rendered based on the availability of features. Please refer [Universal Gateway Feature Catalog](https://github.com/wso2/carbon-apimgt/blob/v9.31.86/components/apimgt/org.wso2.carbon.apimgt.impl/src/main/resources/gatewayFeatureCatalog/synapse-gateway-feature-catalog.json) to see how to do this configuration.
+    <td><p>Provides the list of portal features supported by the third party gateway. Portal UIs will be rendered based on the availability of features. Please refer [Classic Gateway Feature Catalog](https://github.com/wso2/carbon-apimgt/blob/v9.31.86/components/apimgt/org.wso2.carbon.apimgt.impl/src/main/resources/gatewayFeatureCatalog/synapse-gateway-feature-catalog.json) to see how to do this configuration.
     </p></td>
     </tr>
     <tr class="even">

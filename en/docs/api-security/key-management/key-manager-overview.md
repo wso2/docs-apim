@@ -106,8 +106,8 @@ The **Built-in Key Manager** provides comprehensive OAuth2 and OpenID Connect ca
 ### Supported Third-Party Key Managers
 
 #### Enterprise Identity Providers
-- **[WSO2 Identity Server]({{base_path}}/api-security/key-management/third-party-key-managers/configure-wso2is-connector/)**: Full-featured identity and access management platform
-- **[WSO2 Identity Server 7.x]({{base_path}}/api-security/key-management/third-party-key-managers/configure-wso2is7-connector/)**: Latest identity server with enhanced capabilities
+- **[WSO2 Identity Server]({{base_path}}/api-security/key-management/third-party-key-managers/configure-wso2is7-connector/)**: Latest identity server with enhanced capabilities
+- **[WSO2 Identity Server 6.x]({{base_path}}/api-security/key-management/third-party-key-managers/configure-wso2is-connector/)**: Full-featured identity and access management platform
 - **[Keycloak]({{base_path}}/api-security/key-management/third-party-key-managers/configure-keycloak-connector/)**: Open-source identity and access management solution
 - **[Okta]({{base_path}}/api-security/key-management/third-party-key-managers/configure-okta-connector/)**: Cloud-based identity service integration
 

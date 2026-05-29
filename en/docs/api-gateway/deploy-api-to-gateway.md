@@ -1,6 +1,6 @@
 # Deploy an API to Gateway
 
-This guide provides comprehensive instructions for deploying APIs and API Products to the WSO2 Universal Gateway, enabling them to be invoked through Gateway environments.
+This guide provides comprehensive instructions for deploying APIs and API Products to the WSO2 Classic Gateway, enabling them to be invoked through Gateway environments.
 
 !!! info
     You can deploy the following to the Gateway:

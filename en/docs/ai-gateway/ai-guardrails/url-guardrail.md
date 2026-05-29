@@ -1,6 +1,6 @@
 # URL Guardrail
 
-The **URL Guardrail** is a custom Synapse mediator for the **WSO2 API Manager Universal Gateway** that validates URLs referenced in incoming AI API requests and GenAI responses. It extracts candidate URLs from a targeted JSON field and checks their basic reachability or resolvability to help prevent workflows from relying on malformed, inaccessible, or potentially malicious links.
+The **URL Guardrail** is a custom Synapse mediator for the **WSO2 API Manager Classic Gateway** that validates URLs referenced in incoming AI API requests and GenAI responses. It extracts candidate URLs from a targeted JSON field and checks their basic reachability or resolvability to help prevent workflows from relying on malformed, inaccessible, or potentially malicious links.
 
 ## Features
 

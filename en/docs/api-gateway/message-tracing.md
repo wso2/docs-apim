@@ -72,7 +72,7 @@ can be viewed via the terminal or the `wso2carbon` log file.
 
         Leave the **Unique Identifier** field blank.
         
-        [![Add a Event Publisher]({{base_path}}/assets/img/learn/message_tracer_logger_publisher.png)]({{base_path}}/assets/img/learn/message_tracer_logger_publisher.png)
+        [![Add an Event Publisher]({{base_path}}/assets/img/learn/message_tracer_logger_publisher.png)]({{base_path}}/assets/img/learn/message_tracer_logger_publisher.png)
 
 After enabling message tracing, dump message content, and logging, you will see a log message similar to the following 
 on the API Console/terminal for events such as API invocation etc.

@@ -338,7 +338,7 @@ The repositories (**Source** and **Deployment**) that you committed the project 
         - It is mandatory to have your API projects in a Git based version control system.
         - The directories inside the **Source** repository should have the naming format `<API_Name>-<API_Version>`.
         - The directories inside the **Deployment** repository should have the naming format `DeploymentArtifacts_<API_Name>-<API_Version>`.
-        - It is mandatory to have `api_meta.yaml` file either inside the Soure API Project (This is created by default when you export an API using `export api` or initialized an API Project using `init`) or inside the individual deployment repository (This is created when you generate the individual deployment repository using the `apictl gen deployment-dir` command).
+        - It is mandatory to have `api_meta.yaml` file either inside the Source API Project (This is created by default when you export an API using `export api` or initialized an API Project using `init`) or inside the individual deployment repository (This is created when you generate the individual deployment repository using the `apictl gen deployment-dir` command).
         - During the `vcs deploy`, if the `api_meta.yaml` is inside both the source API project and the individual deployment repository, the priority will be given to the file that is inside the individual deployment repository.
         - The following configuration section in the `api_meta.yaml` file is used to deploy the API.
             ```bash
@@ -518,7 +518,7 @@ For example, let us consider there is an [API Product]({{base_path}}/manage-apis
         - It is mandatory to have your API Product projects in a Git based version control system.
         - The directories inside the **Source** repository should have the naming format `<API_Product_Name>-<API_Product_Version>` (Since API Products do not have a version, the `API_Product_Version` should be 1.0.0 by default).
         - The directories inside the **Deployment** repository should have the naming format `DeploymentArtifacts_<API_Product_Name>-<API_Product_Version>`.
-        - It is mandatory to have `api_product_meta.yaml` file either inside the Soure API Product Project (This is created by default when you export an API using `export api product`) or inside the individual deployment repository (This is created when you generate the individual deployment repository using the `apictl gen deployment-dir` command).
+        - It is mandatory to have `api_product_meta.yaml` file either inside the Source API Product Project (This is created by default when you export an API using `export api product`) or inside the individual deployment repository (This is created when you generate the individual deployment repository using the `apictl gen deployment-dir` command).
         - During the `vcs deploy`, if the `api_product_meta.yaml` is inside both the source API Product project and the individual deployment repository, the priority will be given to the file that is inside the individual deployment repository.
         - The following configuration section in the `api_product_meta.yaml` file is used to deploy the API Product.
             ```bash
@@ -537,7 +537,7 @@ For example, let us consider there is an [API Product]({{base_path}}/manage-apis
                     </tr>
                     <tr class="odd">
                         <td>importApis</td>
-                        <td>Import the dependant API(s) along with the API Product if the dependant API(s) are not available in the target environment</td>
+                        <td>Import the dependent API(s) along with the API Product if the dependent API(s) are not available in the target environment</td>
                     </tr>
                     <tr class="even">
                         <td>preserveProvider</td>
