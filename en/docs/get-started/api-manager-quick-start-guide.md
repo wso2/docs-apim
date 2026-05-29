@@ -84,42 +84,42 @@ Follow the instructions below to create, deploy and publish an API via the Publi
 
 5. Enter the API details.
 
-<table>
-<tr> 
- <th>
- Name
- </th>
- <td>
- HelloWorld
- </td>
- </tr>
- <tr>
- <th>
- Display Name
- </th>
- <td>
- Hello World
- </td>
- </tr>
- <tr> 
- <th>Context
- </th>
- <td><code>/hello</code>
- </td>
- </tr>
- <tr> 
- <th>Version
- </th>
- <td>1.0.0
- </td>
- </tr>
- <tr> 
- <th>Endpoint
- </th>
- <td><code>https://run.mocky.io/v3/e42a76f0-95f3-4759-b658-dcc2b0c8bacd</code>
- </td>
- </tr>
- </table>
+    <table>
+    <tr> 
+     <th>
+     Name
+     </th>
+     <td>
+     HelloWorld
+     </td>
+     </tr>
+     <tr>
+     <th>
+     Display Name
+     </th>
+     <td>
+     Hello World
+     </td>
+     </tr>
+     <tr> 
+     <th>Context
+     </th>
+     <td><code>/hello</code>
+     </td>
+     </tr>
+     <tr> 
+     <th>Version
+     </th>
+     <td>1.0.0
+     </td>
+     </tr>
+     <tr> 
+     <th>Endpoint
+     </th>
+     <td><code>https://run.mocky.io/v3/e42a76f0-95f3-4759-b658-dcc2b0c8bacd</code>
+     </td>
+     </tr>
+     </table>
 
 6. Click **Create & Publish**.
 
