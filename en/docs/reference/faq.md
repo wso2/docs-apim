@@ -392,7 +392,7 @@ The root cause for the `javax.net.ssl.SSLException: Received fatal alert: unknow
 
 To resolve this issue, first access the Gateway URL via a new browser tab of the same browser and accept the certificate from the browser.
 
-### I get a **`Hostname verfiication failed`** exception when trying to send requests to a secured endpoint. What should I do?
+### I get a **`Hostname verification failed`** exception when trying to send requests to a secured endpoint. What should I do?
 
 Set the `HostnameVerifier` element to `AllowAll` in `<API-M_HOME>/repository/conf/deployment.toml` file's HTTPS transport sender configuration.
 
