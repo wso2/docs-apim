@@ -179,6 +179,7 @@ nav:
                 - API-M on Openshift: install-and-setup/setup/kubernetes-deployment/openshift/openshift-deployment-overview.md
                 - API-M on EKS: install-and-setup/setup/kubernetes-deployment/aws/deploying-wso2-api-m-on-eks.md
                 - API-M on AKS: install-and-setup/setup/kubernetes-deployment/azure/deploying-wso2-api-m-on-aks.md
+                - API-M on GKE: install-and-setup/setup/kubernetes-deployment/gcp/deploying-wso2-api-m-on-gke.md
             - Deployment Best Practices:
                 - Deployment Checklist: install-and-setup/setup/deployment-best-practices/production-deployment-guidelines.md
                 - Security Guidelines for a Production Deployment: install-and-setup/setup/deployment-best-practices/security-guidelines-for-production-deployment.md
