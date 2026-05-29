@@ -275,9 +275,6 @@ Before deploying, set the mandatory internal encryption key under `wso2.apim.con
 Create a `values.yaml` file with the following configuration:
 
 ```yaml
-gcp:
-  enabled: true
-
 kubernetes:
   gatewayAPI:
     enabled: true
@@ -338,9 +335,8 @@ wso2:
 
 !!! tip "Advanced Configuration"
     WSO2 APIM offers extensive configuration options. You can review the full `values.yaml` file in the [WSO2 Helm APIM repository](https://github.com/wso2/helm-apim). For example:
-
-    - The chart uses Gateway API by default. To switch to a different ingress controller such as NGINX, disable Gateway API under `kubernetes.gatewayAPI` and configure the `kubernetes.ingress` section instead.
-    - Setting `gcp.enabled: true` (as shown above) enables GCP-specific Helm resources. It activates two optional sub-features:
+    - The chart uses Gateway API by default. To switch to a different routing controller such as the native GKE Gateway Controller, the templated Gateway API resources can be disabled under `kubernetes.gatewayAPI`
+    - Setting `gcp.enabled: true` in the helm-chart enables GCP-specific Helm resources. It activates two optional sub-features:
         - **GCP Secret Manager** — set `wso2.apim.secureVaultEnabled: true` and configure `gcp.secretsManager` (project ID, secret provider class, and the secret name and version under `secretEncryptionKey`) to use GCP Secret Manager via the Secrets Store CSI driver instead of plain Kubernetes secrets.
         - **GCP Filestore persistence** — set `wso2.deployment.persistence.solrIndexing.enabled: true` and configure `gcp.fs` (capacity, tier, network, location, and two separate fileshares under `gcp.fs.fileshares.carbonDB` and `gcp.fs.fileshares.solr` — each requiring a filestore name, fileshare name, and IP) to back both the CarbonDB and Solr indexed data with GCP Filestore instances.
     - For production deployments, review and adjust resource requests, limits, and autoscaling parameters.
