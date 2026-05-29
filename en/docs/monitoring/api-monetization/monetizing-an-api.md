@@ -122,12 +122,12 @@ For more information go to, [Using Connect with Standard Accounts](https://strip
     1. Download the following JARs and place them in the `<API-M_HOME>/repository/components/lib` directory.
 
         - [stripe-java-24.3.0.jar](https://mvnrepository.com/artifact/com.stripe/stripe-java/24.3.0)
-        - [org.wso2.apim.monetization.impl-1.6.0.jar](https://github.com/wso2-extensions/wso2-am-stripe-plugin/releases/download/v1.6.0/org.wso2.apim.monetization.impl-1.6.0.jar)
+        - [org.wso2.apim.monetization.impl-1.7.0.jar](https://github.com/wso2-extensions/wso2-am-stripe-plugin/releases/download/v1.7.0/org.wso2.apim.monetization.impl-1.7.0.jar)
         - [jakarta.json-api-2.1.1.jar](https://repo1.maven.org/maven2/jakarta/json/jakarta.json-api/2.1.1/jakarta.json-api-2.1.1.jar)
 
     2. Deploy the Stripe service WAR.
 
-        Download [api#am#stripe.war](https://github.com/wso2-extensions/wso2-am-stripe-plugin/releases/download/v1.6.0/api.am.stripe.war).
+        Download [api#am#stripe.war](https://github.com/wso2-extensions/wso2-am-stripe-plugin/releases/download/v1.7.0/api.am.stripe.war).
 
         !!! note
             Rename the downloaded file from `api.am.stripe.war` to `api#am#stripe.war` before placing it in the `<API-M_HOME>/repository/deployment/server/webapps` directory. The `#` separator in the filename is required for the service to be accessible at `/api/am/stripe/`.
@@ -141,6 +141,17 @@ For more information go to, [Using Connect with Standard Accounts](https://strip
         ```toml
         [apim.monetization]
         monetization_impl = "org.wso2.apim.monetization.impl.StripeMonetizationImpl"
+        ```
+
+    5. Allow unauthenticated access to the Stripe service endpoints.
+
+        The Stripe service endpoints (e.g., webhook, checkout redirect) must be accessible without authentication. Add the following configuration to the `<API-M_HOME>/repository/conf/deployment.toml` file.
+
+        ```toml
+        [[resource.access_control]]
+        context = "(.*)/api/am/stripe(.*)"
+        secure = false
+        http_method = "all"
         ```
 
 2. Configure the database.
