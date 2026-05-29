@@ -16763,3 +16763,62 @@ connection_acquisition_timeout = 60
         </div>
     </section>
 </div>
+
+
+
+## OIDC Authenticator Parameters
+
+
+<div class="mb-config-catalog">
+    <section>
+        <div class="mb-config-options">
+            <div class="superfences-tabs">
+            
+            <input name="111" type="checkbox" id="_tab_111">
+                <label class="tab-selector" for="_tab_111"><i class="icon fa fa-code"></i></label>
+                <div class="superfences-content">
+                    <div class="mb-config-example">
+<pre><code class="toml">[authentication.authenticator.oidc.parameters]
+excludedClaimAttributes="at_hash,iss,iat,exp,aud,azp"</code></pre>
+                    </div>
+                </div>
+                <div class="doc-wrapper">
+                    <div class="mb-config">
+                        <div class="config-wrap">
+                            <code>[authentication.authenticator.oidc.parameters]</code>
+                            
+                            <p>
+                                This includes configurations for OIDC authenticator claim mapping behavior.
+                            </p>
+                        </div>
+                        <div class="params-wrap">
+                            <div class="param">
+                                <div class="param-name">
+                                  <span class="param-name-wrap"> <code>excludedClaimAttributes</code> </span>
+                                </div>
+                                <div class="param-info">
+                                    <div>
+                                        <p>
+                                            <span class="param-type string"> string </span>
+                                            
+                                        </p>
+                                        <div class="param-default">
+                                            <span class="param-default-value">Default: <code>at_hash,iss,iat,exp,aud,azp</code></span>
+                                        </div>
+                                        <div class="param-possible">
+                                            <span class="param-possible-values">Possible Values: <code>comma-separated list of JWT claim attributes</code></span>
+                                        </div>
+                                    </div>
+                                    <div class="param-description">
+                                        <p>This property defines the JWT claim attributes that should be excluded during OIDC claim mapping. The value should be provided as a comma-separated list of claim names. When configured, only the specified claim attributes will be excluded from the claim mapping process. If this property is not explicitly configured, the system falls back to the default exclusion list to preserve existing behavior. Customizing this property allows users to control which JWT claims are ignored during mapping based on application requirements.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+
