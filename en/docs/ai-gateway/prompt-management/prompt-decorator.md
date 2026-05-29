@@ -48,7 +48,7 @@ This example demonstrates how the Prompt Decorator policy can be used to inject 
       ```
 
 3. Save and re-deploy the API.
-4. Invoke the API's `chat/completion` endpoint with a large text to summerize in the payload:
+4. Invoke the API's `chat/completion` endpoint with a large text to summarize in the payload:
 
       ```json
       {

@@ -80,7 +80,7 @@ Run the following apictl command to check the version.
 !!!note
     **Set mode of apictl**
 
-    From the apictl 4.0.0 onwards the flag (--mode) which was used to set the mode of apictl has been deprecated. Now, you do not need to set the mode of apictl, because if you want to execute Kubernetes based commads, you just need to add the `k8s` keyword after `apictl` keyword. (Example: `apictl k8s add api`). By default apictl will execute the commands in the `default` mode (which means if you did not use `k8s` keyword).
+    From the apictl 4.0.0 onwards the flag (--mode) which was used to set the mode of apictl has been deprecated. Now, you do not need to set the mode of apictl, because if you want to execute Kubernetes based commands, you just need to add the `k8s` keyword after `apictl` keyword. (Example: `apictl k8s add api`). By default apictl will execute the commands in the `default` mode (which means if you did not use `k8s` keyword).
 
     You can still use the `mode` flag as explained below if you need it, but it will be removed in the future.
         

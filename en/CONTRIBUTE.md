@@ -1,6 +1,6 @@
 # Contributing to WSO2 API Manager Documentation
 
-WSO2 API Manager (API-M) documentation is a relavitely new project that involves hosting source documentation on GitHub. This documentation is rendered using [mkdocs](https://www.mkdocs.org/), which is a static site generator that's geared towards building project documentation. Documentation source files are written in Markdown, and configured with a single YAML configuration file.
+WSO2 API Manager (API-M) documentation is a relatively new project that involves hosting source documentation on GitHub. This documentation is rendered using [mkdocs](https://www.mkdocs.org/), which is a static site generator that's geared towards building project documentation. Documentation source files are written in Markdown, and configured with a single YAML configuration file.
 
 We are an open-source project registered under Apache license.
 

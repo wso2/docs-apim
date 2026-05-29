@@ -163,7 +163,7 @@ This tutorial shows how to add interactive documentation to an API by editing th
                If you get an error after adding the API definition in the Swagger UI, first check the indentation of the code that you added, which defines the API, because Swagger throws errors if the indentation is not correct.
                 ![]({{base_path}}/assets/img/learn/tutorials/rest-api-definition-pizzashack-indentation.png)
 
-       6. Add a summary and description for the GET method.
+6. Add a summary and description for the GET method.
 
            1.  Click **Edit Source** and add the following code, which defines a summary and description, to the GET method.
 

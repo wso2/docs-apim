@@ -20,8 +20,8 @@ Here's a summary:
     !!! example
         ```xml
         <sequence xmlns="http://ws.apache.org/ns/synapse" name="TokenExchange">
-            <property name="Custom" expression="get-property('transport', 'Custom')"/>
-            <property name="Authorization" expression="get-property('Custom')" scope="transport"/>
+            <property name="CustomValue" expression="get-property('transport', 'Custom')"/>
+            <property name="Authorization" expression="get-property('CustomValue')" scope="transport"/>
             <property name="Custom" scope="transport" action="remove"/>
         </sequence>
         ```

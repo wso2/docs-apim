@@ -148,7 +148,7 @@ The Micro Integrator and Streaming Integrator containers that were created when 
                 <li><a href="{{base_path}}/tutorials/scenarios/scenario9-realtime-data">Scenario 9: Realtime Data with WebSocket API<a></li>
                 <li><a href="{{base_path}}/tutorials/scenarios/scenario10-notifications-webhooks">Scenario 10: Notifications Using Webhooks<a></li>
                 <li><a href="{{base_path}}/tutorials/scenarios/scenario11-graphql">Scenario 11: GraphQL Support<a></li>
-                <li><a href="{{base_path}}/tutorials/scenarios/scenario12-message-delivery">Scenario 12: Gauranteed Message Delivery<a></li>
+                <li><a href="{{base_path}}/tutorials/scenarios/scenario12-message-delivery">Scenario 12: Guaranteed Message Delivery<a></li>
                 <li><a href="{{base_path}}/tutorials/scenarios/scenario13-integrate-with-connectors">Scenario 13: Integrate with Services via Connectors<a></li>
                 <li><a href="{{base_path}}/tutorials/scenarios/scenario14-external-key-manager">Scenario 14: External Key Manager Support<a></li>
             </ul>
