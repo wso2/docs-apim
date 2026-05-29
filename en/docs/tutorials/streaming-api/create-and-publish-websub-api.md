@@ -153,7 +153,7 @@ A public URL should be forwarded to `localhost:9021`, so that your local server 
           <td>Payload URL</td>
           <td>
           <code>http://3b1*******c9.ngrok.io/repo-watcher/1.0.0/webhooks_events_receiver_resource?topic=/issues</code>
-          <p>This is obtained by replacing <code>https://{GATEWAY_HOST}:9021</code> part of the **/issues** topic's <b>Callback URL</b>, with the forwarding HTTP URL from ngrock (For example, <code>http://3b1*******c9.ngrok.io</code>). </p>
+          <p>This is obtained by replacing <code>https://{GATEWAY_HOST}:9021</code> part of the **/issues** topic's <b>Callback URL</b>, with the forwarding HTTP URL from ngrok (For example, <code>http://3b1*******c9.ngrok.io</code>). </p>
           </td>
           </tr>
           <tr>

@@ -17,7 +17,7 @@ The WebSocket server can send messages to the WebSocket client, or vice-versa, o
 
 ## Example usage
 
-For example, chat room applications use WebSocket API so that messages can be sent in a bi-directional manner from the server to the client and vise versa.
+For example, chat room applications use WebSocket API so that messages can be sent in a bi-directional manner from the server to the client and vice versa.
 
 ## Basic flow
 

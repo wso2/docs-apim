@@ -3,7 +3,7 @@
 Follow the instructions below to configure WSO2 Identity Server (WSO2 IS) as the Resident Key Manager of the WSO2 API Manager (WSO2 API-M) deployment globally.
 
 !!! warning
-    WSO2 Identity Server 7.x **cannot** be set up as a Resident Key Manager. It can only be set up as a [Third-party Key Manager]({{base_path}}/install-and-setup/setup/distributed-deployment/configure-a-third-party-key-manager). See [Configure WSO2 IS 7.x as a Key Manager]({{base_path}}/api-security/key-management/configuration/configure-wso2is7-connector) for instructions on configuring WSO2 Identity Server 7.x as a Third-party Key Manager.
+    WSO2 Identity Server 7.x **cannot** be set up as a Resident Key Manager. It can only be set up as a [Third-party Key Manager]({{base_path}}/install-and-setup/setup/distributed-deployment/configure-a-third-party-key-manager). See [Configure WSO2 IS Key Manager]({{base_path}}/api-security/key-management/configuration/configure-wso2is7-connector) for instructions on configuring WSO2 Identity Server 7.x as a Third-party Key Manager.
 
 - [Step 1 - Download and install WSO2 IS](#step-1-download-and-install-wso2-is)
 - [Step 2 - Optionally, configure port offset for WSO2 IS](#step-2-optionally-configure-port-offset-for-wso2-is)
@@ -158,14 +158,14 @@ Follow the instructions below to set up and configure the databases for the WSO2
 
 ## Step 4 - Configure WSO2 IS with WSO2 API-M
 
-1. Download the [WSO2 IS Connector]({{base_path}}/assets/attachments/administer/wso2is-extensions-1.7.11.zip).
+1. Download the [WSO2 IS Connector]({{base_path}}/assets/attachments/administer/wso2is-extensions-1.8.8.zip).
 
-2. Extract the distribution and copy the following JAR files, which are in the `<wso2is-extensions-1.7.11>/dropins` directory, to the `<IS_HOME>/repository/components/dropins` directory.
+2. Extract the distribution and copy the following JAR files, which are in the `<wso2is-extensions-1.8.8>/dropins` directory, to the `<IS_HOME>/repository/components/dropins` directory.
 
-     - `wso2is.key.manager.core-1.7.11.jar`
-     - `wso2is.notification.event.handlers-1.7.11.jar`
+     - `wso2is.key.manager.core-1.8.8.jar`
+     - `wso2is.notification.event.handlers-1.8.8.jar`
 
-3. Add the `keymanager-operations.war`, which is in the `<wso2is-extensions-1.7.11>/webapps` directory, to the `<IS_HOME>/repository/deployment/server/webapps` directory.
+3. Add the `keymanager-operations.war`, which is in the `<wso2is-extensions-1.8.8>/webapps` directory, to the `<IS_HOME>/repository/deployment/server/webapps` directory.
 
 4.  Configure the Traffic Manager endpoints.
 

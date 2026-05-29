@@ -203,7 +203,7 @@ Make sure to update the pom file for the above project you created (or downloade
 ## Engaging the custom handler
 
 1.  Build the custom authenticator code created/downloaded previously.
-2.  If the jar you created is non-OSGI, you should place the jar in the `<APIM_HOME>/repository/components/lib` directory otherwise you should place the jar in the `<APIM_HOME>/repository/components/dropins` driectory.
+2.  If the jar you created is non-OSGI, you should place the jar in the `<APIM_HOME>/repository/components/lib` directory otherwise you should place the jar in the `<APIM_HOME>/repository/components/dropins` directory.
 3.  Engage the custom handler using the API template as explained below:
     You can engage a custom handler to all APIs at once or only to selected APIs. 
     

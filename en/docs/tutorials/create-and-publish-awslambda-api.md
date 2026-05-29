@@ -6,7 +6,7 @@ When using AWS Lambda, you can execute your code without having to manage or pro
 
 1. Sign in to the API Publisher Portal `https://<hostname>:9443/publisher`.
 
-2. Click **CREATE API** and then click **Start From Scrach**.
+2. Click **CREATE API** and then click **Start From Scratch**.
 
     [![Create a new REST API]({{base_path}}/assets/img/get_started/design-new-rest-api.png)]({{base_path}}/assets/img/get_started/design-new-rest-api.png)
 
@@ -92,7 +92,7 @@ When using AWS Lambda, you can execute your code without having to manage or pro
           [![Delete all existing resources]({{base_path}}/assets/img/learn/delete-all-existing-resources.png)]({{base_path}}/assets/img/learn/delete-all-existing-resources.png)
 
     2. Add a new resource.
-          1. Select a HTTP Verb.
+          1. Select an HTTP Verb.
           2. Enter a meaningful name for URI Pattern (You can add path parameter as well).
           3. Click **(+)** to add a new resource.
 

@@ -13,6 +13,46 @@ You define each rule with a **name** (which can be any label you choose, such as
 - **Default Fallback**: Automatically routes to a default model when the LLM cannot confidently match any rule.
 - **Multi-Environment Support**: Separate rule configurations for production and sandbox environments.
 
+## Configure the Environment
+
+Before using the Intelligent Model Routing policy, you must configure an LLM provider in the `deployment.toml` file.
+
+### LLM Provider Configuration
+
+Choose one of the following LLM providers and add the configuration to your `<APIM_HOME>/repository/conf/deployment.toml` file:
+
+=== "OpenAI"
+
+    ```toml
+    [apim.ai.llm_provider]
+    type = "openai"
+    [apim.ai.llm_provider.properties]
+    llm_endpoint = "https://api.openai.com/v1/chat/completions"
+    apikey = "<your-openai-api-key>"
+    llm_model = "gpt-4o-mini"
+    ```
+
+=== "Mistral"
+
+    ```toml
+    [apim.ai.llm_provider]
+    type = "mistral"
+    [apim.ai.llm_provider.properties]
+    llm_endpoint = "https://api.mistral.ai/v1/chat/completions"
+    apikey = "<your-mistral-api-key>"
+    llm_model = "mistral-small-latest"
+    ```
+
+=== "Azure OpenAI"
+
+    ```toml
+    [apim.ai.llm_provider]
+    type = "azure-openai"
+    [apim.ai.llm_provider.properties]
+    llm_endpoint = "<your-azure-openai-chat-completions-endpoint>"
+    apikey = "<your-azure-openai-api-key>"
+    ```
+
 ## How It Works
 
 Intelligent Model Routing operates through the following process:

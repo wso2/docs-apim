@@ -32,7 +32,7 @@ session_timeout = "30m"
 
 ## Restricting access to web portals
 
-You can restrict access to the web portals of the API-M runtime either by allowing only selected IP addresses to access all web applications or by applying access control filters to specific servlet URLs, as explained below.
+You can restrict access to the web portals of the API-M runtime by binding them with selected IP addresses.
 
 -   To control access to all web applications deployed in your server, add the following configuration to the `<API-M_HOME>/repository/conf/deployment.toml` file:
 

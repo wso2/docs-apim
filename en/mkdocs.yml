@@ -18,12 +18,12 @@
 site_name: WSO2 API Manager Documentation
 site_description: Documentation for WSO2 API Manager
 site_author: WSO2
-site_url: https://apim.docs.wso2.com/en/4.6.0/
+site_url: https://apim.docs.wso2.com/en/4.7.0/
 
 # Repository
 repo_name: wso2/docs-apim
 repo_url: https://github.com/wso2/docs-apim
-edit_uri: https://github.com/wso2/docs-apim/edit/4.6.0/en/docs/
+edit_uri: https://github.com/wso2/docs-apim/edit/4.7.0/en/docs/
 dev_addr: localhost:8000
 # Copyright
 copyright: WSO2 API Manager - Documentation
@@ -141,6 +141,7 @@ nav:
                         - Configure a Read-Write Active Directory User Store: install-and-setup/setup/configure-userstores/configure-primary-user-store/configuring-a-read-write-active-directory-user-store.md
                 - SSO:
                     - Configure Identity Server As External IDP with OIDC: install-and-setup/setup/sso/configuring-identity-server-as-external-idp-using-oidc.md
+                    - Configure External IDP with OIDC for Multi-tenancy: install-and-setup/setup/sso/configuring-external-idp-using-oidc-for-multi-tenancy.md
                     - Configure Identity Server As External IDP with SAML: install-and-setup/setup/sso/configuring-identity-server-as-external-idp-using-saml.md
                     - OKTA As An External IDP With OIDC: install-and-setup/setup/sso/okta-as-an-external-idp-using-oidc.md
                     - OKTA As An External IDP With SAML: install-and-setup/setup/sso/okta-as-an-external-idp-using-saml.md
@@ -152,13 +153,12 @@ nav:
         - Deploy:
             - Deploy on VMs:
                 - All-In-One Deployment:
-                    - Single Node Deployment: install-and-setup/setup/single-node/configuring-a-single-node.md
-                    - Active-Active Deployment: install-and-setup/setup/single-node/configuring-an-active-active-deployment.md
+                    - Pattern 0 - All-in-One Setup: install-and-setup/setup/single-node/configuring-a-single-node.md
+                    - Pattern 1 - All-in-One HA Setup: install-and-setup/setup/single-node/configuring-an-active-active-deployment.md
                 - Distributed Deployment:
-                    
-                    - Simple Scalable Deployment: install-and-setup/setup/distributed-deployment/deploying-wso2-api-m-in-a-simple-scalable-setup.md
-                    - Distributed Deployment (Recommended): install-and-setup/setup/distributed-deployment/deploying-wso2-api-m-in-a-distributed-setup.md
-                    - Distributed Deployment with Key Manager Separation: install-and-setup/setup/distributed-deployment/deploying-wso2-api-m-in-a-distributed-setup-with-km-separated.md
+                    - Pattern 2 - Simple Scalable Setup: install-and-setup/setup/distributed-deployment/deploying-wso2-api-m-in-a-simple-scalable-setup.md
+                    - Pattern 3 - Distributed Setup: install-and-setup/setup/distributed-deployment/deploying-wso2-api-m-in-a-distributed-setup.md
+                    - Pattern 4 - Distributed Setup with Key Manager Separation: install-and-setup/setup/distributed-deployment/deploying-wso2-api-m-in-a-distributed-setup-with-km-separated.md
                 - Multi-DC Deployment:
                     - Patterns Overview: install-and-setup/setup/multi-dc-deployment/multi-dc-deployment-patterns-overview.md
                     - Multi-DC Deployment - Pattern 1: install-and-setup/setup/multi-dc-deployment/configuring-multi-dc-deployment-pattern-1.md
@@ -166,15 +166,16 @@ nav:
             - Deploy on Kubernetes:
                 - API-M on K8s:
                     - Overview: install-and-setup/setup/kubernetes-deployment/kubernetes/kubernetes-overview.md
+                    - Quick Start: install-and-setup/setup/kubernetes-deployment/kubernetes/kubernetes-quick-start.md
                     - All-In-One Deployment:
-                        - Single Node Deployment: install-and-setup/setup/kubernetes-deployment/kubernetes/am-pattern-0-all-in-one.md
-                        - Active-Active Deployment: install-and-setup/setup/kubernetes-deployment/kubernetes/am-pattern-1-all-in-one-ha.md
+                        - Pattern 0 - All-in-One Setup: install-and-setup/setup/kubernetes-deployment/kubernetes/am-pattern-0-all-in-one.md
+                        - Pattern 1 - All-in-One HA Setup: install-and-setup/setup/kubernetes-deployment/kubernetes/am-pattern-1-all-in-one-ha.md
                     - Distributed Deployment:
-                        - Simple Scalable Deployment: install-and-setup/setup/kubernetes-deployment/kubernetes/am-pattern-2-all-in-one-gw.md
-                        - Distributed Deployment (Recommended): install-and-setup/setup/kubernetes-deployment/kubernetes/am-pattern-3-acp-tm-gw.md
-                        - Distributed Deployment with Key Manager Separation: install-and-setup/setup/kubernetes-deployment/kubernetes/am-pattern-4-acp-tm-gw-km.md
-                        - Simple Scalable Deployment with Key Manager Separation: install-and-setup/setup/kubernetes-deployment/kubernetes/am-pattern-5-all-in-one-gw-km.md
-                        - Configure IS as Key Manager: install-and-setup/setup/kubernetes-deployment/kubernetes/am-pattern-6-all-in-one-is-as-km.md
+                        - Pattern 2 - Simple Scalable Setup: install-and-setup/setup/kubernetes-deployment/kubernetes/am-pattern-2-all-in-one-gw.md
+                        - Pattern 3 - Distributed Setup: install-and-setup/setup/kubernetes-deployment/kubernetes/am-pattern-3-acp-tm-gw.md
+                        - Pattern 4 - Fully Distributed Setup: install-and-setup/setup/kubernetes-deployment/kubernetes/am-pattern-4-acp-tm-gw-km.md
+                        - Pattern 5 - Simple Scalable with Dedicated Key Manager: install-and-setup/setup/kubernetes-deployment/kubernetes/am-pattern-5-all-in-one-gw-km.md
+                        - Pattern 6 - All-in-One with IS as Key Manager: install-and-setup/setup/kubernetes-deployment/kubernetes/am-pattern-6-all-in-one-is-as-km.md
                 - API-M on Openshift: install-and-setup/setup/kubernetes-deployment/openshift/openshift-deployment-overview.md
                 - API-M on EKS: install-and-setup/setup/kubernetes-deployment/aws/deploying-wso2-api-m-on-eks.md
             - Deployment Best Practices:
@@ -354,6 +355,8 @@ nav:
             - SOAP Client: api-developer-portal/invoke-apis/invoke-apis-using-tools/invoke-an-api-using-a-soap-client.md
             - Postman: api-developer-portal/invoke-apis/invoke-apis-using-tools/try-out-using-postman.md
             - Test APIs with API Chat: api-developer-portal/invoke-apis/invoke-apis-using-tools/test-apis-with-apichat.md
+        - View API Documentation:
+            - View API Documents: api-developer-portal/view-api-documentation/view-api-documentation.md
         - Collaborations:
             - Interact with the Community: api-developer-portal/collaboration/interact-with-the-community.md
         - Generating SDKs:
@@ -378,7 +381,9 @@ nav:
             - Authentication:
                 - Overview: api-security/runtime/api-authentication/api-authentication-overview.md
                 - Disable Security: api-security/runtime/api-authentication/disable-security.md
-                - Secure APIs Using API Keys: api-security/runtime/api-authentication/secure-apis-using-api-keys.md
+                - Secure APIs Using API Keys:
+                    - API Keys: api-security/runtime/api-authentication/secure-apis-using-api-keys.md
+                    - Legacy API Keys (DEPRECATED): api-security/runtime/api-authentication/secure-apis-using-legacy-api-keys.md
                 - Secure APIs Using Basic Authentication: api-security/runtime/api-authentication/secure-apis-using-basic-authentication.md
                 - Secure APIs Using Mutual SSL: api-security/runtime/api-authentication/secure-apis-using-mutual-ssl.md
                 - Secure APIs Using OAuth2 Tokens: api-security/runtime/api-authentication/secure-apis-using-oauth2-tokens.md
@@ -422,8 +427,8 @@ nav:
                 - Obtain User Profile Information with OpenID Connect: api-security/key-management/identity/obtaining-user-profile-information-with-openid-connect.md
             - Third-Party Key Managers:
                 - Overview: api-security/key-management/third-party-key-managers/overview.md
-                - Configure WSO2 IS as a Key Manager: api-security/key-management/third-party-key-managers/configure-wso2is-connector.md
-                - Configure WSO2 IS 7.x as a Key Manager: api-security/key-management/third-party-key-managers/configure-wso2is7-connector.md
+                - Configure WSO2 IS Key Manager: api-security/key-management/third-party-key-managers/configure-wso2is7-connector.md
+                - Configure WSO2 IS 6.x as a Key Manager: api-security/key-management/third-party-key-managers/configure-wso2is-connector.md
                 - Configure Asgardeo as a Key Manager: api-security/key-management/third-party-key-managers/configure-asgardeo-connector.md
                 - Configure Keycloak as a Key Manager: api-security/key-management/third-party-key-managers/configure-keycloak-connector.md
                 - Configure Okta as a Key Manager: api-security/key-management/third-party-key-managers/configure-okta-connector.md
@@ -437,17 +442,22 @@ nav:
                 - Application Configuration Constraints: api-security/key-management/third-party-key-managers/configure-km-application-configuration-constraints.md
 
     - API Gateway:
-        - Universal Gateway:
-            - Overview of the WSO2 Universal Gateway: api-gateway/overview-of-the-api-gateway.md
+        - Overview: api-gateway/platform-gateway-capability.md
+        - Platform Gateway:
+            - Getting Started: api-gateway/platform-gateway/getting-started.md
+            - Setting Up: api-gateway/platform-gateway/setting-up.md
+            - Adding and Managing Policies: api-gateway/platform-gateway/adding-and-managing-policies.md
+        - Classic Gateway (Universal):
+            - Overview of the WSO2 Classic Gateway: api-gateway/overview-of-the-api-gateway.md
             - Deploy an API to Gateway: api-gateway/deploy-api-to-gateway.md
             - Response Caching: api-gateway/response-caching.md
             - Pass End User Attributes to the Backend: api-gateway/passing-enduser-attributes-to-the-backend-via-api-gateway.md
             - Gateway Environments: api-gateway/maintaining-separate-production-and-sandbox-gateways.md
             - Scale the Gateway: api-gateway/scaling-the-gateway.md
             - Advanced Topics:
-                - Universal Gateway with Dedicated Tenants: api-gateway/maintain-seperate-gateways-per-tenants.md
-                - Universal Gateways with Dedicated Backends: api-gateway/api-gateways-with-dedicated-backends.md
-                - Mutual SSL Between Universal Gateway and Backend: api-gateway/mutual-ssl-between-api-gateway-and-backend.md
+                - Classic Gateway with Dedicated Tenants: api-gateway/maintain-seperate-gateways-per-tenants.md
+                - Classic Gateways with Dedicated Backends: api-gateway/api-gateways-with-dedicated-backends.md
+                - Mutual SSL Between Classic Gateway and Backend: api-gateway/mutual-ssl-between-api-gateway-and-backend.md
                 - Storing Custom Synapse Artifacts in the Gateway: api-gateway/custom-synapse-artifacts.md
             - Gateway Policies:
                 - Adding Dynamic Endpoints: api-gateway/policies/adding-dynamic-endpoints.md
@@ -530,12 +540,17 @@ nav:
                 - URL Guardrail: ai-gateway/ai-guardrails/url-guardrail.md
                 - Word Count Guardrail: ai-gateway/ai-guardrails/word-count-guardrail.md
                 - Semantic Prompt Guardrail: ai-gateway/ai-guardrails/semantic-prompt-guardrail.md
+                - Semantic Tool Filtering Guardrail: ai-gateway/ai-guardrails/semantic-tool-filtering-guardrail.md
                 - PII Masking with Regex: ai-gateway/ai-guardrails/regex-pii-masking.md
                 - Azure Content Safety: ai-gateway/ai-guardrails/azure-content-safety.md
                 - AWS Bedrock Guardrail: ai-gateway/ai-guardrails/aws-bedrock-guardrail.md
                 - Guardrail Error Response: ai-gateway/ai-guardrails/guardrail-error-response.md
             - Semantic Caching: ai-gateway/semantic-caching.md
             - AI APIs via SDKs: ai-gateway/using-proxy-apis-in-sdks.md
+            - AI Tools:
+                - Claude Code configuration with AI Gateway: ai-gateway/ai-tools/claude-code-with-ai-gateway.md
+                - Google Gemini CLI configuration with AI Gateway: ai-gateway/ai-tools/gemini-cli-with-ai-gateway.md
+                - OpenAI Codex CLI configuration with AI Gateway: ai-gateway/ai-tools/codex-with-ai-gateway.md
         - MCP Gateway:
             - Getting Started: ai-gateway/mcp-gateway/overview.md
             - Create from an OpenAPI Definition: ai-gateway/mcp-gateway/create-from-openapi.md
@@ -832,7 +847,7 @@ extra_css:
 extra_javascript:
     - assets/lib/json-formatter/json-formatter.umd.js
     - assets/lib/highlightjs/highlight.min.js
-    - assets/js/theme.js
+    - assets/js/theme.js?v=4.7.0
 extra:
     material:
       jinja2content: true

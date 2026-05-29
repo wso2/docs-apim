@@ -23,7 +23,7 @@ By using `defaultTheme.js` as a reference , you could customize these link tabs 
     }
     ```
 
-    | Property Name | type | Perpose |
+    | Property Name | type | Purpose |
     | ---- | ---- | ---- |
     | showCredentials | boolean | Enables the credentials tab if true or disable the Credentials tab if false. |
     | showComments | boolean | Enables the comments tab if true or disable the Credentials tab if false. |

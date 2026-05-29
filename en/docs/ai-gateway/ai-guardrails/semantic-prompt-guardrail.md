@@ -1,6 +1,6 @@
 # Semantic Prompt Guardrail
 
-The **Semantic Prompt Guardrail** is a custom Synapse mediator for the **WSO2 API Manager Universal Gateway** that validates incoming AI API requests based on their semantic similarity to API creator defined allow and deny prompt sets. Instead of relying on literal or regex phrase matching, it enforces intent boundaries using embedding similarity.
+The **Semantic Prompt Guardrail** is a custom Synapse mediator for the **WSO2 API Manager Classic Gateway** that validates incoming AI API requests based on their semantic similarity to API creator defined allow and deny prompt sets. Instead of relying on literal or regex phrase matching, it enforces intent boundaries using embedding similarity.
 
 This guardrail helps maintain safety, compliance, and domain relevance in scenarios where users can submit free‑form natural language prompts.
 

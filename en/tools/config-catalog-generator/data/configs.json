@@ -1642,6 +1642,14 @@
                             "description": "^"
                         },
                         {
+                            "name": "enable_legacy_api_keys",
+                            "type": "string",
+                            "required": false,
+                            "default": "FALSE",
+                            "possible": "",
+                            "description": "The config to enable application bound legacy API key option."
+                        },
+                        {
                             "name": "application_sharing_claim",
                             "type": "string",
                             "required": false,
@@ -4773,6 +4781,35 @@
             "exampleFile": "_message-formatters-custom-blocking.toml"
         },
         {
+            "title": "Message Formatter Options",
+            "options": [
+                {
+                    "name": "message_formatter.options",
+                    "required": false,
+                    "description": "This configuration header is required for configuring the message formatter options that are used during the message building process before sending the request to the backend. These options are mainly used for tuning the message formatting process for multipart form data content type.",
+                    "params": [
+                        {
+                            "name": "disableSendingMultipartPartCharset",
+                            "type": "boolean",
+                            "required": false,
+                            "default": true,
+                            "possible": "\"true\" or \"false\"",
+                            "description": "Defines whether the charset parameter in the Content-Type header should be preserved in each part of multipart form data during the message building process before sending the request to the backend."
+                        },
+                        {
+                            "name": "preserveMultipartPartContentTransferEncoding",
+                            "type": "boolean",
+                            "required": false,
+                            "default": true,
+                            "possible": "\"true\" or \"false\"",
+                            "description": "Defines whether the Content-Transfer-Encoding header should be preserved in each part of multipart form data during the message building process before sending the request to the backend."
+                        }
+                    ]
+                }
+            ],
+            "exampleFile": "message_formatter.options.toml"
+        },
+        {
             "title": "Message Mediation",
             "options": [
                 {
@@ -6519,6 +6556,35 @@
                 }
             ],
             "exampleFile": "web_app.cookie_processor.toml"
+        },
+        {
+            "title": "Synapse Properties",
+            "options": [
+                {
+                    "name": "synapse_properties",
+                    "required": false,
+                    "description": "This includes configurations for synapse runtime.",
+                    "params": [
+                        {
+                            "name": "'synapse.mediators.access.control.mode'",
+                            "type": "string",
+                            "required": false,
+                            "default": "ALLOW_LIST",
+                            "possible": "NONE, ALLOW_LIST, DENY_LIST",
+                            "description": "This property controls the access control mode for mediators in the Synapse runtime. It can be set to one of the following values: NONE (no access control), ALLOW_LIST (only mediators in the allow list are accessible), DENY_LIST (mediators in the deny list are not accessible). By default, it is set to ALLOW_LIST, which means only mediators explicitly listed in the allow list will be accessible. Adjust this setting based on your security requirements and the mediators you need to use in your API configurations."
+                        },
+                        {
+                            "name": "'synapse.mediators.access.control.list'",
+                            "type": "string",
+                            "required": false,
+                            "default": "aggregate,builder,cache,call,class,clone,drop,enrich,filter,foreach,header,in,iterate,log,loopback,makefault,opa,out,payloadfactory,property,propertygroup,respond,rewrite,scatter-gather,script,send,sequence,switch,throwerror,variable",
+                            "possible": "comma-separated list of mediator local names",
+                            "description": "This property specifies the list of mediators for access control based on the mode defined in 'synapse.mediators.access.control.mode'. It should be a comma-separated list of mediator local names. For example, if 'synapse.mediators.access.control.mode' is set to ALLOW_LIST, only the mediators listed in this property will be accessible. If the mode is set to DENY_LIST, the mediators listed here will be blocked from access. If the mode is NONE, this property is ignored. Configure this list according to the mediators you want to allow or deny access to in your Synapse runtime environment."
+                        }
+                    ]
+                }
+            ],
+            "exampleFile": "synapse_properties.toml"
         },
         {
             "title": "Dependency Configurations",

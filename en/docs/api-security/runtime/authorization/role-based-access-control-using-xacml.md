@@ -61,7 +61,7 @@ Based on the requirement, a single API is exposed to add or retrieve order info
 7.  In the **Define Entitlement Rule(s)** area, set the following 2 rules to define the kind of requests and from which user they should be permitted.
     1.  AdminGrant - grants full access to the admin user. Give the information below,
         
-        **Conditions:** Under **Define your conditions by using followings....** , select drop down options as **Subject** , **is/are** , **at-least-one-member-of** in order and enter **admin** in the last field.
+        **Conditions:** Under **Define your conditions by using following....** , select drop down options as **Subject** , **is/are** , **at-least-one-member-of** in order and enter **admin** in the last field.
         Click the icon next to **END** shown below to configure the attribute value and attribute source to retrieve the user roles from the user store.
         ![]({{base_path}}/assets/img/learn/define-entitlement-rules.png)
         
@@ -82,7 +82,7 @@ Based on the requirement, a single API is exposed to add or retrieve order info
         **Rule Name:** GetOrder
         
         **Conditions:** Under **Rule's conditions are evaluated......** , select drop down options as **Action** , **is** , **equal** in order and enter **GET** in the last field.
-        Under **Define your conditions by using followings....** , select drop down options as **Subject** , **is/are** , **at-least-one-member-of** in order and enter **webuser** in the last field.
+        Under **Define your conditions by using following....** , select drop down options as **Subject** , **is/are** , **at-least-one-member-of** in order and enter **webuser** in the last field.
         Click the icon next to **END** shown below to configure the attribute value and attribute source to retrieve the user roles from the user store.
 
         ![]({{base_path}}/assets/img/learn/add-getorder-rule.png)
@@ -122,7 +122,7 @@ Based on the requirement, a single API is exposed to add or retrieve order info
 
 12. Restart the server once the JAR file is added.
 
-13. Now, you need to create a API Policy containing the entitlement policy mediator that can be attached to each API required to authorize users with the entitlement server. Create an XML file with the following configuration and name it `EntitlementMediator.j2` .
+13. Now, you need to create an API Policy containing the entitlement policy mediator that can be attached to each API required to authorize users with the entitlement server. Create an XML file with the following configuration and name it `EntitlementMediator.j2` .
 
     ``` xml
 <entitlementService xmlns="http://ws.apache.org/ns/synapse" remoteServiceUrl="https://localhost:9444/services" remoteServiceUserName="admin" remoteServicePassword="admin" callbackClass="org.wso2.sample.handlers.entitlement.APIEntitlementCallbackHandler"/>

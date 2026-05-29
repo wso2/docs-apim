@@ -1,6 +1,6 @@
 # About this Release
 
-WSO2 API Manager is a complete platform for building, integrating, and exposing your digital services as managed APIs in the cloud, on-premise, and hybrid architectures to drive your digital transformation strategy. It comes with a cloud-native, standards-based messaging engine, and an integration framework for integrating APIs, services, data, SaaS, proprietary, and legacy systems and it can also serve streaming-based integrations. The product comes with command-line and developer tools that enable easy design, development, and testing.
+WSO2 API Manager is a complete platform for building, integrating, and exposing your digital services as managed APIs in the cloud, on-premises, and hybrid architectures to drive your digital transformation strategy. It comes with a cloud-native, standards-based messaging engine, and an integration framework for integrating APIs, services, data, SaaS, proprietary, and legacy systems and it can also serve streaming-based integrations. The product comes with command-line and developer tools that enable easy design, development, and testing.
 
 **WSO2 API Manager 4.7.0** is the latest **WSO2 API Manager release** and is the successor of **WSO2 API Manager 4.6.0**.
 
@@ -13,13 +13,15 @@ For more information on WSO2 API Manager, see the [overview]({{base_path}}/get-s
 ## New Features
 
 
-??? note "API Platform Gateway Integration"
+??? note "Platform Gateway Integration"
 
-    WSO2 API Manager introduces integration with the API Platform Gateway, enabling modern gateway capabilities while allowing APIM to act as the centralized control plane.
+    WSO2 API Manager introduces integration with the Platform Gateway, enabling modern gateway capabilities while allowing APIM to act as the centralized control plane.
 
     - **Envoy-based gateway support**: Leverage modern gateway features such as HTTP/2 and HTTP/3 in on-prem deployments.
     - **APIM as control plane**: Manage gateway registration, configuration, API deployments, and policies directly from API Manager.
     - **Unified gateway model**: Use a single gateway implementation across cloud and on-prem environments.
+
+    **[Learn more]({{base_path}}/api-gateway/platform-gateway/getting-started)**
 
 ??? note "API-Bound API Keys with Enhanced Security and Access Control"
 
@@ -152,6 +154,17 @@ For more information on WSO2 API Manager, see the [overview]({{base_path}}/get-s
 
 Before upgrading to WSO2 API Manager 4.7.0, review the following architectural and behavioral changes that may impact your deployment, integrations, and runtime behavior:
 
+### JDK 21 and 25 Are the Only Supported Versions
+
+WSO2 API Manager 4.7.0 requires **JDK 21 or JDK 25** to run. Older JDK versions are no longer supported.
+
+* JDK versions prior to 21 are **not supported** and will not work with this release.
+* Ensure your environment is running **JDK 21** or **JDK 25** before upgrading.
+
+**Impact:**
+
+* Deployments running on JDK 11 or JDK 17 must upgrade their JDK before migrating to API Manager 4.7.0.
+
 ### Control Plane Resource Access Restricted by Default
 
 Starting from 4.7.0, control plane resource access via the Tomcat valve follows a **default deny** model instead of the previous permissive behavior.
@@ -262,7 +275,7 @@ internal_crypto_provider = "org.wso2.carbon.crypto.provider.KeyStoreBasedInterna
 
 ### Token Persistence Disabled by Default
 
-JWT token persistence is **disabled by default** to improve performance and scalability.
+JWT token persistence is **disabled by default** to improve system performance and scalability.
 
 * Tokens are **not stored in the database** during generation.
 * Each request generates a **new access + refresh token pair**.
@@ -368,7 +381,7 @@ Streaming APIs now support **AsyncAPI 3.0.x** by default.
 
 * New APIs use AsyncAPI 3.0.x.
 * Import supports both 2.x and 3.0.x.
-* Existing APIs continue unchanged.
+* Existing APIs continue to function unchanged.
 
 **Impact:**
 
@@ -391,7 +404,7 @@ Starting from 4.7.0, request bodies are **no longer sent for HTTP GET and HEAD m
 
 ### Removal of Java Security Manager support
 
-The Java Security Manager has been removed as it was deprecated in Java 17 and fully removed in Java 21. WSO2 API Manager no longer supports or relies on the Java Security Manager for defining security policies. If your deployment previously used the `-Djava.security.manager` JVM flag or a `sec.policy` file, these configurations should be removed.
+The Java Security Manager has been removed because it was deprecated in Java 17 and fully removed in Java 21. WSO2 API Manager no longer supports or relies on the Java Security Manager for defining security policies. If your deployment previously used the `-Djava.security.manager` JVM flag or a `sec.policy` file, these configurations should be removed.
 
 ## Deprecations
 
