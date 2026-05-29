@@ -27,7 +27,7 @@ You can create services and publish them to WSO2 API Manager. For example, you c
 
 **Create a GraphQL API**
 
-GraphQL, which has been developed by Facebook, is a data query language for APIs. When using GraphQL, users can explicitly specify what data they need from an API. GraphQL APIs are an alternative to REST-based APIs. Refer to the [documentation on how to create a GraphQL API]({{base_path}}/api-design-manage/design/create-api/create-a-graphql-api) for more information.
+GraphQL, developed by Facebook, is a data query language for APIs. When using GraphQL, users can explicitly specify what data they need from an API. GraphQL APIs are an alternative to REST-based APIs. Refer to the [documentation on how to create a GraphQL API]({{base_path}}/api-design-manage/design/create-api/create-a-graphql-api) for more information.
 
 **Create a Streaming API**
 
@@ -40,7 +40,7 @@ A Streaming API is a logical collection of related topics through which clients 
 
 ## Secure APIs
 
-Many enterprises need to implement API management solutions that provide mechanisms such as authentication, authorization, and rate limiting. These are must-have capabilities for controlling who access APIs across an API ecosystem — and how often.
+Many enterprises need to implement API management solutions that provide mechanisms such as authentication, authorization, and rate limiting. These are must-have capabilities for controlling who accesses APIs across an API ecosystem — and how often.
 
 **Rate Limiting**
 
@@ -52,7 +52,7 @@ API authentication is a way of protecting API access from unidentified or anonym
 
 **Authorization**
 
-Due to the expanding consumer base, the application developers have to focus on limiting the API access in order to make sure that only the authorized parties have access to the respective resources/services. Please refer to [an overview of Authorization in API Manager]({{base_path}}/api-security/runtime/authorization/api-authorization) for more information.
+Due to the expanding consumer base, the application developers have to focus on limiting API access in order to make sure that only the authorized parties have access to the respective resources/services. Please refer to [an overview of Authorization in API Manager]({{base_path}}/api-security/runtime/authorization/api-authorization) for more information.
 
 **Threat Protection**
 
