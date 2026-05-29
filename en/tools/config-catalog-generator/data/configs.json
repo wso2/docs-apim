@@ -38,7 +38,7 @@
                             "required": false,
                             "default": "false",
                             "possible": "true,false",
-                            "description": "Use this paramater to enable MTOM (Message Transmission Optimization Mechanism) for the product server."
+                            "description": "Use this parameter to enable MTOM (Message Transmission Optimization Mechanism) for the product server."
                         }, 
                         {
                             "name": "enableSwA",
@@ -46,7 +46,7 @@
                             "required": false,
                             "default": "false",
                             "possible": "true,false",
-                            "description": "Use this paramater to enable SwA (SOAP with Attachments) for the product server. When SwA is enabled, the API Manager will process the files attached to SOAP messages."
+                            "description": "Use this parameter to enable SwA (SOAP with Attachments) for the product server. When SwA is enabled, the API Manager will process the files attached to SOAP messages."
                         },   
                         {
                             "name": "disable_shutdown_from_ui",
@@ -846,7 +846,7 @@
                             "required": false,
                             "default": "TRUE",
                             "possible": "",
-                            "description": "Enabel cache for scopes. This expires in 15 minutes by default."
+                            "description": "Enable cache for scopes. This expires in 15 minutes by default."
                         }
                     ]
                 }
@@ -4562,6 +4562,35 @@
             "exampleFile": "_message-formatters-custom-blocking.toml"
         },
         {
+            "title": "Message Formatter Options",
+            "options": [
+                {
+                    "name": "message_formatter.options",
+                    "required": false,
+                    "description": "",
+                    "params": [
+                        {
+                            "name": "disableSendingMultipartPartCharset",
+                            "type": "boolean",
+                            "required": false,
+                            "default": "false",
+                            "possible": "true false",
+                            "description": "Defines whether the charset parameter in the Content-Type header should be preserved in each part of multipart form data."
+                        },
+                        {
+                            "name": "preserveMultipartPartContentTransferEncoding",
+                            "type": "boolean",
+                            "required": false,
+                            "default": "false",
+                            "possible": "true false",
+                            "description": "Defines whether the Content-Transfer-Encoding header should be preserved in each part of multipart form data."
+                        }
+                    ]
+                }
+            ],
+            "exampleFile": "message_formatter.options.toml"
+        },
+        {
             "title": "Message Mediation",
             "options": [
                 {
@@ -4734,7 +4763,7 @@
                 {
                     "name": "qpid.heartbeat",
                     "required": false,
-                    "description": "This includes configurations related to the frequency of the internal heartbeat sent by the underlying Qpid brocker component of Traffic Manager. You need to to configure a proper delay for the heartbeat value if the connections will stay idle for a long time.",
+                    "description": "This includes configurations related to the frequency of the internal heartbeat sent by the underlying Qpid broker component of Traffic Manager. You need to configure a proper delay for the heartbeat value if the connections will stay idle for a long time.",
                     "params": [
                         {
                             "name": "delay",
