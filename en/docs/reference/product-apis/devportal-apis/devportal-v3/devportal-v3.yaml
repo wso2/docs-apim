@@ -8240,7 +8240,7 @@ components:
           example: false
         solaceOrganization:
           type: string
-          example: SolaceWSO2
+          example: SolaceWso2
         solaceDeployedEnvironments:
           type: array
           items:
