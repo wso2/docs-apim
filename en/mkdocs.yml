@@ -1511,6 +1511,7 @@ nav:
                     - Configure a Proxy Server: install-and-setup/setup/mi-setup/configuring_proxy_servers.md
                     - Enable SSL Tunneling through Proxy Server: install-and-setup/setup/mi-setup/enabling_ssl_tunneling_thru_proxy_server.md
                 - Time Stamp Conversion for RDBMS: install-and-setup/setup/mi-setup/feature_configs/configuring_timestamp_conversion_for_rdbms.md
+                - RDBMS Coordination Configuration: install-and-setup/setup/mi-setup/feature_configs/configuring_rdbms_coordination.md
             - Set up Streaming Integrator:
                 - Update WSO2 Streaming Integrator: install-and-setup/setup/si-setup/updating-si.md
                 - Production Checklist: install-and-setup/setup/si-setup/production-checklist.md
