@@ -12,3 +12,5 @@
      [![Configure API key authentication](../../../../assets/img/learn/api-key-option.png)](../../../../assets/img/learn/api-key-option.png)
      
 5. Click **Save and Deploy** to save the changes made within the **Runtime Configurations** page. Upon redirection to the **Deployments** page, select the relevant Gateway and click on **Deploy**.
+
+6. Publish the API to make it available in the Developer Portal. Navigate to the **Lifecycle** section and click **Publish** to publish the API. Once published, the API will be visible to subscribers in the Developer Portal.
