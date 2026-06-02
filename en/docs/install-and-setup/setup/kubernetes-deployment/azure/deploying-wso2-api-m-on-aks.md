@@ -77,9 +77,6 @@ This deployment follows the standard WSO2 Kubernetes architecture, extended to u
 - AKS manages the Kubernetes cluster and worker nodes
 - Envoy Gateway Controller manages Gateway API resources
 
-### Azure Deployment Architecture
-
-<a href="{{base_path}}/assets/img/setup-and-install/azure-aks-deployment-architecture.png"><img src="{{base_path}}/assets/img/setup-and-install/azure-aks-deployment-architecture.png" alt="Azure deployment architecture overview" width="80%"></a>
 
 ### WSO2 API Manager Deployment Architecture
 
@@ -375,8 +372,9 @@ wso2:
 
 !!! tip "Advanced Configuration"
     WSO2 APIM offers extensive configuration options. You can review the full `values.yaml` file in the [WSO2 Helm APIM repository](https://github.com/wso2/helm-apim). For example:
-    - The chart uses Gateway API by default. To switch to a different routing controller such as the Azure Application Gateway for Containers, the templated Gateway API resources can be disabled under `kubernetes.gatewayAPI`
-    - Setting `azure.enabled: true` in the helm-chart enables Azure-specific Helm resources. It activates two optional sub-features:
+
+      - The chart uses Gateway API by default. To switch to a different routing controller such as the Azure Application Gateway for Containers, the templated Gateway API resources can be disabled under `kubernetes.gatewayAPI`
+      - Setting `azure.enabled: true` in the helm-chart enables Azure-specific Helm resources. It activates two optional sub-features:
         - **Azure Key Vault** — set `wso2.apim.secureVaultEnabled: true` and configure `azure.keyVault` (vault name, service principal, tenant ID, subscription, and secret identifiers) to use Azure Key Vault via the Secrets Store CSI driver instead of plain Kubernetes secrets.
         - **Azure File persistence** — set `wso2.deployment.persistence.solrIndexing.enabled: true` and configure `azure.persistence` (storage class, file share name, and secret name) to back Solr indexing data with an Azure File Share.
     - For production deployments, review and adjust resource requests, limits, and autoscaling parameters.
