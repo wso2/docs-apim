@@ -6577,6 +6577,28 @@
                 }
             ],
             "exampleFile": "dependency_properties.toml"
+        },
+        {
+            "title": "OIDC Authenticator Parameters",
+            "options": [
+                {
+                "name": "authentication.authenticator.oidc.parameters",
+                "required": false,
+                "description": "This includes configurations for OIDC authenticator claim mapping behavior.",
+                "params": [
+                    {
+                    "name": "excludedClaimAttributes",
+                    "type": "string",
+                    "required": false,
+                    "default": "at_hash,iss,iat,exp,aud,azp",
+                    "possible": "comma-separated list of JWT claim attributes",
+                    "description": "This property defines the JWT claim attributes that should be excluded during OIDC claim mapping. The value should be provided as a comma-separated list of claim names. When configured, only the specified claim attributes will be excluded from the claim mapping process. If this property is not explicitly configured, the system falls back to the default exclusion list to preserve existing behavior. Customizing this property allows users to control which JWT claims are ignored during mapping based on application requirements."
+                    }
+                ]
+                }
+            ],
+            "exampleFile": "oidc_authenticator_parameters.toml"
+
         }
     ]
 }
