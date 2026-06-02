@@ -141,6 +141,7 @@ nav:
                 - Overview: manage-apis/design/api-policies/overview.md
                 - Attach Policies: manage-apis/design/api-policies/attach-policy.md
                 - Create a Policy: manage-apis/design/api-policies/create-policy.md
+                - Develop and Test Policies: manage-apis/design/api-policies/develop-and-test-policies.md
                 - Regular Gateway Policies:
                     - Add Dynamic Endpoints: manage-apis/design/api-policies/regular-gateway-policies/adding-dynamic-endpoints.md
                     - Remove Specific Request Headers From Response: manage-apis/design/api-policies/regular-gateway-policies/removing-specific-request-headers-from-response.md
