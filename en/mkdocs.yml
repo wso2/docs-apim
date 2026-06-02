@@ -288,6 +288,7 @@ nav:
                 - Overview: api-design-manage/design/api-policies/overview.md
                 - Attach Policy: api-design-manage/design/api-policies/attach-policy.md
                 - Create Policy: api-design-manage/design/api-policies/create-policy.md
+                - Develop and Test Policies: api-design-manage/design/api-policies/develop-and-test-policies.md
             - Rate Limiting:
                 - Set API Operation Limits: api-design-manage/design/rate-limiting/set-api-level-throttling.md
                 - Protect Backend Services: api-design-manage/design/rate-limiting/protect-backend-services.md
