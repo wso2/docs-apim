@@ -92,6 +92,9 @@ You need to mount the following folders of the two nodes to the shared file syst
 1.  `<API-M_HOME>/repository/deployment/server/userstores` -  If a secondary user store has been configured in the super tenant, this folder needs to be backed up.
 2.  `<API-M_HOME>/repository/tenants` - If tenancy is used and any secondary userstores are configured for the tenants.
 
+!!! note
+    Mounting `<API-M_HOME>/repository/deployment/server` is only necessary if you need to persist custom artifacts such as custom sequences, webapps, or execution plans etc. Alternatively, these custom artifacts can be packaged directly into the Docker image instead of mounting the directory externally.
+
 ??? note "NFS configuration"
     For more information on setting up NFS on Ubuntu, see [Network File System (NFS)](https://ubuntu.com/server/docs/service-nfs).
     Note that these configurations may change depending on the OS.
