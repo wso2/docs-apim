@@ -17775,7 +17775,7 @@ excludedClaimAttributes="at_hash,iss,iat,exp,aud,azp"
                                         
                                     </div>
                                     <div class="param-description">
-                                        <p>This sets the maximum file size (in MB) for YAML files processed by SnakeYAML during API definition import/export operations. Overrides the default codepoint limit of 3,145,728 characters (~3MB) to support larger YAML OpenAPI files. The system calculates the actual codepoint limit using the formula: configured_value × 4 × 1024 × 1024 (e.g., 10 MB = 41,943,040 codepoints). Increasing this value may expose the system to DoS attacks via large malicious files - configure based on actual requirements and security policies.</p>
+                                        <p>This sets the maximum file size (in MB) for YAML files processed by SnakeYAML during API definition import/export operations. Overrides the default codepoint limit of 3,145,728 characters (~3MB) to support larger YAML OpenAPI files. The system calculates the actual codepoint limit using the formula: configured_value × 4 × 1024 × 1024 (e.g., 10 MB = 41,943,040 codepoints). Increasing this value may expose the system to DoS attacks via large malicious files - configure based on actual requirements and security policies. Note that this configuration is available in wso2am-4.6.0, wso2am-tm-4.6.0, wso2am-universal-gw-4.6.0  starting from update level 31 and wso2am-acp-4.6.0 starting from update level 32.</p>
                                     </div>
                                 </div>
                             </div>
