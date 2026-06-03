@@ -18,8 +18,8 @@ Choose a deployment option to start the WSO2 API Manager All-in-one package. The
             For more information on setting the `JAVA_HOME` environment variable for different operating systems, see [Setup and Install]({{base_path}}/install-and-setup/install/installing-the-product/installing-api-m-runtime/#setting-up-java_home)
 
     2. Download WSO2 API-Manager All-in-one package.
-    - [Open Source Distribution](https://github.com/wso2/product-apim/releases/tag/v4.7.0)
-    - [WSO2 Official Distribution](https://wso2.com/api-manager/#)
+        - [Open Source Distribution](https://github.com/wso2/product-apim/releases/tag/v4.7.0)
+        - [WSO2 Official Distribution](https://wso2.com/api-manager/#)
 
     3. Extract the downloaded zip file.
 
@@ -61,26 +61,26 @@ Follow the instructions below to create, deploy and publish an API via the Publi
 
 1. Navigate to the Publisher Portal.
 
-   [https://localhost:9443/publisher](https://localhost:9443/publisher)
+    [https://localhost:9443/publisher](https://localhost:9443/publisher)
 
 2. Sign in with **`admin/admin`** as the credentials.
 
-   [![Publisher portal home page]({{base_path}}/assets/img/get_started/api-publisher-home.png)]({{base_path}}/assets/img/get_started/api-publisher-home.png)
+    [![Publisher portal home page]({{base_path}}/assets/img/get_started/api-publisher-home.png)]({{base_path}}/assets/img/get_started/api-publisher-home.png)
 
 3. Next, let's create a mock REST service by navigating to [Mocky.io](https://designer.mocky.io/design). You can provide the following configuration to create a mock service.
 
-   | Field                   | Value                |
-   | ----------------------- | -------------------- |
-   | `HTTP Status`           | 200 - OK             |
-   | `Response Content Type` | application/json     |
-   | `Charset`               | UTF-8                |
-   | `HTTP Response Body`    | `{"hello": "world"}` |
+    | Field                   | Value                |
+    | ----------------------- | -------------------- |
+    | `HTTP Status`           | 200 - OK             |
+    | `Response Content Type` | application/json     |
+    | `Charset`               | UTF-8                |
+    | `HTTP Response Body`    | `{"hello": "world"}` |
 
-   Finally, click **Generate My HTTP Response** to save and generate the mock service URL.
+    Finally, click **Generate My HTTP Response** to save and generate the mock service URL.
 
 4. Select **REST API** from the home screen and then click **Start From Scratch**.
 
-   [![Design a new REST API]({{base_path}}/assets/img/get_started/design-new-rest-api.png)]({{base_path}}/assets/img/get_started/design-new-rest-api.png)
+    [![Design a new REST API]({{base_path}}/assets/img/get_started/design-new-rest-api.png)]({{base_path}}/assets/img/get_started/design-new-rest-api.png)
 
 5. Enter the API details.
 
@@ -123,9 +123,9 @@ Follow the instructions below to create, deploy and publish an API via the Publi
 
 6. Click **Create & Publish**.
 
-   [![Create an API]({{base_path}}/assets/img/get_started/api-create.png){: style="width:100%"}]({{base_path}}/assets/img/get_started/api-create.png)
+    [![Create an API]({{base_path}}/assets/img/get_started/api-create.png){: style="width:100%"}]({{base_path}}/assets/img/get_started/api-create.png)
 
-   This will publish your first API on the Developer Portal as well as deploy it on the gateway. You now have an OAuth 2.0 secured REST API that is ready to be consumed.
+    This will publish your first API on the Developer Portal as well as deploy it on the gateway. You now have an OAuth 2.0 secured REST API that is ready to be consumed.
 
 <a name="subscribe"></a>
 
@@ -135,19 +135,19 @@ Follow the instructions below to subscribe to the API via the Developer Portal o
 
 1. Navigate to the Developer Portal.
 
-   [https://localhost:9443/devportal](https://localhost:9443/devportal)
+    [https://localhost:9443/devportal](https://localhost:9443/devportal)
 
-   The published `HelloWorld` API is listed in the Developer Portal as shown below.
+    The published `HelloWorld` API is listed in the Developer Portal as shown below.
 
-   [![Developer Portal home page]({{base_path}}/assets/img/get_started/dev-portal-landing-page.png)]({{base_path}}/assets/img/get_started/dev-portal-landing-page.png)
+    [![Developer Portal home page]({{base_path}}/assets/img/get_started/dev-portal-landing-page.png)]({{base_path}}/assets/img/get_started/dev-portal-landing-page.png)
 
 2. Click **Sign-In** and enter **`admin/admin`** as your credentials to sign in to the Developer Portal.
 
 3. Once you click on the HelloWorld API, you will be redirected to the API overview page. Then, go ahead and click on the **TRY OUT** button.
 
-   [![API try out]({{base_path}}/assets/img/get_started/try-out.png)]({{base_path}}/assets/img/get_started/try-out.png)
+    [![API try out]({{base_path}}/assets/img/get_started/try-out.png)]({{base_path}}/assets/img/get_started/try-out.png)
 
-   And with that, we have subscribed to the API using the `DefaultApplication`.
+    And with that, we have subscribed to the API using the `DefaultApplication`.
 
 <a name="invoke"></a>
 
@@ -155,7 +155,7 @@ Follow the instructions below to subscribe to the API via the Developer Portal o
 
 Follow the instructions below to invoke the created API.
 
-1.  Click on **Try Out** &rarr; **API Console** from the left menu. Then, click on **GET TEST KEY** to generate an access token.
+1. Click on **Try Out** &rarr; **API Console** from the left menu. Then, click on **GET TEST KEY** to generate an access token.
 
     !!! note
 
@@ -167,11 +167,11 @@ Follow the instructions below to invoke the created API.
 
     [![Test API]({{base_path}}/assets/img/get_started/test-api.png)]({{base_path}}/assets/img/get_started/test-api.png)
 
-2.  Click on the `GET` resource of the API to expand the resource and click **Try It Out**.
+2. Click on the `GET` resource of the API to expand the resource and click **Try It Out**.
 
     [![GET resource]({{base_path}}/assets/img/get_started/expanded-get-resource.png)]({{base_path}}/assets/img/get_started/expanded-get-resource.png)
 
-3.  Click **Execute**.
+3. Click **Execute**.
 
     [![GET resource]({{base_path}}/assets/img/get_started/try-api.png)]({{base_path}}/assets/img/get_started/try-api.png)
 
