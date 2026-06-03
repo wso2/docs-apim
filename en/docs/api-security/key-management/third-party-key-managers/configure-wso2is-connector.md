@@ -374,7 +374,14 @@ depending on your setup:
 !!! tip "Application Scopes"
     To ensure that application-level scopes are properly enforced on OAuth
     applications managed by this Key Manager, enable the **"Enable application
-    scopes for OAuth applications"** option under **Advanced Configurations**
-    of the Key Manager.
+    scopes for OAuth applications"** option.
+
+    To enable this:
+
+    1. In the Admin Portal, navigate to **Key Managers** and click on the WSO2
+       IS Key Manager you configured.
+    2. Under **Advanced Configurations**, enable **"Enable application scopes
+       for OAuth applications"**.
+    3. Click **Save**.
 
 You can also configure the WSO2 Identity Server as the identity provider. For more information on how to do this, see [Configuring WSO2 Identity Server as an Identity Provider]({{base_path}}/reference/customize-product/extending-api-manager/saml2-sso/configuring-identity-server-as-idp-for-sso/#configuring-wso2-identity-server-as-a-saml-20-sso-identity-provider).
