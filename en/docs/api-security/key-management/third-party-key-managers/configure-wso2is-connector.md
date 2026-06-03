@@ -352,4 +352,21 @@ Follow the steps given below to configure WSO2 IS 6.x as a Key Manager component
       </tbody>
       </table>
 
+### Additional Configurations
+
+After adding the Key Manager, the following additional settings may be required depending on your setup:
+
+!!! tip "User Ownership and Self-Signed-Up Users"
+    If your Developer Portal allows self-signup and application owners are not replicated to the WSO2 IS side, you must enable the **"Enable admin user as the owner of created OAuth applications"** option. Without this, OAuth key generation will fail for applications created by self-signed-up users.
+
+    To enable this:
+    
+    1. In the Admin Portal, navigate to **Key Managers** and click on the WSO2 IS Key Manager you configured.
+    2. Under **Advanced Configurations**, enable **"Enable admin user as the owner of created OAuth applications"**.
+    3. Click **Save**.
+
+!!! tip "Application Scopes"
+    To ensure that application-level scopes are properly enforced on OAuth applications managed by this Key Manager, enable the **"Enable application scopes for OAuth applications"** option under **Advanced Configurations** of the Key Manager.
+
 You can also configure the WSO2 Identity Server as the identity provider. For more information on how to do this, see [Configuring WSO2 Identity Server as an Identity Provider]({{base_path}}/reference/customize-product/extending-api-manager/saml2-sso/configuring-identity-server-as-idp-for-sso/#configuring-wso2-identity-server-as-a-saml-20-sso-identity-provider).
+
