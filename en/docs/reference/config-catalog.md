@@ -16855,12 +16855,13 @@ connection_acquisition_timeout = 60
         <div class="mb-config-options">
             <div class="superfences-tabs">
             
-            <input name="111" type="checkbox" id="_tab_111">
-                <label class="tab-selector" for="_tab_111"><i class="icon fa fa-code"></i></label>
+            <input name="112" type="checkbox" id="_tab_112">
+                <label class="tab-selector" for="_tab_112"><i class="icon fa fa-code"></i></label>
                 <div class="superfences-content">
                     <div class="mb-config-example">
 <pre><code class="toml">[authentication.authenticator.oidc.parameters]
-excludedClaimAttributes="at_hash,iss,iat,exp,aud,azp"</code></pre>
+excludedClaimAttributes="at_hash,iss,iat,exp,aud,azp"
+</code></pre>
                     </div>
                 </div>
                 <div class="doc-wrapper">
