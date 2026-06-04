@@ -107,8 +107,8 @@ Before you begin, ensure you have the following prerequisites in place:
 
 - An example for MySQL is provided below:
   ```sql
-  CREATE DATABASE apim_db CHARACTER SET latin1;
-  CREATE DATABASE shared_db CHARACTER SET latin1;
+  CREATE DATABASE apim_db CHARACTER SET latin1 COLLATE latin1_bin;
+  CREATE DATABASE shared_db CHARACTER SET latin1 COLLATE latin1_bin;
   ```
   ```bash
   mysql -h <DB_HOST> -P 3306 -u sharedadmin -p -Dshared_db < './dbscripts/mysql.sql'
@@ -571,4 +571,3 @@ If you are using Ingress:
 - API Manager DevPortal: `https://<kubernetes.ingress.management.hostname>/devportal`
 - API Manager Carbon Console: `https://<kubernetes.ingress.management.hostname>/carbon`
 - Universal Gateway: `https://<kubernetes.ingress.gateway.hostname>`
-
