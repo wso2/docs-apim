@@ -7,7 +7,7 @@ WSO2 API Manager is a comprehensive, fully open-source API management platform t
 - Platform Gateway for centrally managed hybrid deployments 
 - AI Gateway for governing LLM and MCP traffic. 
 
-WSO2 API Manager supports REST, GraphQL, WebSocket, WebSub/WebHook, SSE, and AI APIs. It can be deployed on VMs, Kubernetes (EKS, AKS, GKE, OpenShift), or in multi-datacenter configurations.
+WSO2 API Manager supports API types such as REST, GraphQL, WebSocket, WebSub/WebHook, SSE, and AI. It can be deployed on VMs, Kubernetes (EKS, AKS, GKE, OpenShift), or in multi-datacenter configurations.
 
 ## Get Started
 
