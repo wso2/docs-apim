@@ -122,6 +122,37 @@ The following properties are required when [creating a scheduled task]({{base_pa
    </tbody>
 </table>
 
+### Optional Properties
+
+<table>
+   <thead>
+      <tr class="header">
+         <th>Parameter</th>
+         <th>Description</th>
+      </tr>
+   </thead>
+   <tbody>
+      <tr class="odd">
+         <td>Start on load</td>
+         <td>
+            <div class="content-wrapper">
+                <p>The <code>startOnLoad</code> attribute defines whether a Scheduled Task is automatically activated and executed upon deployment.</p>
+                <p> <code>startOnLoad="true"</code> <strong>(Default)</strong>: The task will be automatically activated and executed according to its defined trigger schedule as soon as it is deployed. This means that the task will start running without any manual intervention, following the specified timing and frequency defined in the trigger configuration.</p>
+                <p> <code>startOnLoad="false"</code>: The task is scheduled but its trigger remains in an inactive (PAUSED) state. It will not execute until explicitly resumed.</p>
+                <b>Note</b>:
+                <p>The <code>startOnLoad</code> attribute only supports from <strong>MI 4.1.0.175</strong> onwards. This configuration determines the lifecycle state only during the very first deployment of the task on the WSO2MI server. For all subsequent server restarts or deployments, the Micro Integrator evaluates the persisted state in the internal registry to decide whether to start or pause the task.</p>
+                <b>Syntax</b>:
+                  <div class="sourceCode" id="cb1" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence" style="brush: java; gutter: false; theme: Confluence">
+<pre class="sourceCode java"><code class="sourceCode java"><span id="cb1-1"><a href="#cb1-1"></a>&lt;task name=<span class="st">&quot;CheckPrice&quot;</span> <span class="kw">class</span>=<span class="st">&quot;org.wso2.esb.tutorial.tasks.PlaceStockOrderTask&quot;</span> startOnLoad=<span class="st">&quot;true&quot;</span> &gt;</span>
+    <span id="cb1-2"><a href="#cb1-2"></a>&lt;trigger once=<span class="st">&quot;true&quot;</span>/&gt;</span>
+    <span id="cb1-3"><a href="#cb1-3"></a>&lt;/task&gt;</span></code></pre>
+                                    </div>
+            </div>
+         </td>
+      </tr>
+   </tbody>
+</table>
+
 !!! Note
       - From <strong>MI 4.1.0.145</strong> onwards, the task scheduler supports graceful shutdown. When the shutdown hook is triggered, the scheduler waits for currently running tasks to complete, up to a maximum of 180 seconds.
       - You can configure the maximum graceful shutdown timeout (in seconds) using the system property `-DgracefulShutdownTimeout=value`
