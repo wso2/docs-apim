@@ -14,7 +14,7 @@ Refer to the instructions below to do the configurations.
 You need to write a custom Gateway Agent bundle as explained below.
 
 !!! tip
-    The following is a out-of-the-box agent that you can use as references.
+    The following is an out-of-the-box agent that you can use as references.
 
       - [AWS GW Agent](https://github.com/wso2-extensions/apim-gw-agents/tree/main/aws)
 
