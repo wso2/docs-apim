@@ -90,7 +90,7 @@ Import the certificate and private key to Postman.
     
 3. Set the Certificate Bound Access Token as the Bearer token.
    
-     The token comprises of client certificate thumbprint as the cnf claim.
+     The token comprises the client certificate thumbprint as the cnf claim.
    
     ```
     "cnf", "{"x5t#S256": "9a0c3570ac7392bee14a408ecb38978852a86d38cbc087feeeeaab2c9a07b9f1"}"

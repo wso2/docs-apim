@@ -104,7 +104,7 @@ The topics below explain the configurations.
      [![sample Service Provider]({{base_path}}/assets/img/learn/extensions/saml2-sso/sample-sp.png)]({{base_path}}/assets/img/learn/extensions/saml2-sso/sample-sp.png)
 
 9.  Upload the public certificate of the API Manager by selecting **Select SP Certificate Type**.
-10. Create a role: `testRole`, create an user with name `testUser` and assign the role `testRole` to the created user. This user will be used to sign in to the APIM apps. 
+10. Create a role: `testRole`, create a user with name `testUser` and assign the role `testRole` to the created user. This user will be used to sign in to the APIM apps. 
 
 ## Configuring WSO2 Identity Server as a SAML 2.0 SSO Identity Provider
 
