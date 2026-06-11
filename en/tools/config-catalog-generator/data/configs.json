@@ -6599,7 +6599,111 @@
             ],
             "exampleFile": "oidc_authenticator_parameters.toml"
 
-        }
+        },
+        {
+            "title": "Embedding Provider configurations",
+            "options": [
+                {
+                    "name": "apim.ai.embedding_provider",
+                    "required": true,
+                    "description": "Configuration for the embedding provider used to generate vector embeddings for AI features.",
+                    "params": [
+                        {
+                            "name": "type",
+                            "type": "string",
+                            "required": true,
+                            "default": "",
+                            "possible": "openai,azure-openai,mistral",
+                            "description": "The embedding provider type. Supported values are openai, azure-openai, and mistral."
+                        }
+                    ]
+                },
+                {
+                    "name": "apim.ai.embedding_provider.properties",
+                    "required": true,
+                    "description": "Provider-specific properties for the embedding provider.",
+                    "params": [
+                        {
+                            "name": "apikey",
+                            "type": "string",
+                            "required": true,
+                            "default": "",
+                            "possible": "",
+                            "description": "The API key used to authenticate requests to the embedding provider."
+                        },
+                        {
+                            "name": "embedding_endpoint",
+                            "type": "string",
+                            "required": true,
+                            "default": "",
+                            "possible": "",
+                            "description": "The endpoint URL of the embedding API. For OpenAI use https://api.openai.com/v1/embeddings, for Mistral use https://api.mistral.ai/v1/embeddings, and for Azure OpenAI use the Azure OpenAI-provided endpoint."
+                        },
+                        {
+                            "name": "embedding_model",
+                            "type": "string",
+                            "required": false,
+                            "default": "",
+                            "possible": "",
+                            "description": "The embedding model to use. Required for openai (e.g., text-embedding-3-small) and mistral (e.g., mistral-embed) provider types. Not required for azure-openai as the model is determined by the endpoint."
+                        }
+                    ]
+                }
+            ],
+            "exampleFile": "apim.ai.embedding_provider.toml"
+        },
+        {
+            "title": "Vector DB Provider configurations",
+            "options": [
+                {
+                    "name": "apim.ai.vector_db_provider",
+                    "required": true,
+                    "description": "Configuration for the vector database provider used to store and query vector embeddings for AI features.",
+                    "params": [
+                        {
+                            "name": "type",
+                            "type": "string",
+                            "required": true,
+                            "default": "",
+                            "possible": "zilliz",
+                            "description": "The vector database provider type. Use zilliz to connect to either Zilliz Cloud or a Milvus instance."
+                        }
+                    ]
+                },
+                {
+                    "name": "apim.ai.vector_db_provider.properties",
+                    "required": true,
+                    "description": "Provider-specific connection properties for the vector database.",
+                    "params": [
+                        {
+                            "name": "uri",
+                            "type": "string",
+                            "required": true,
+                            "default": "",
+                            "possible": "",
+                            "description": "The URI of the vector database instance. For Zilliz, use the Zilliz Cloud cluster endpoint. For Milvus, use the Milvus server address (e.g., http://localhost:19530)."
+                        },
+                        {
+                            "name": "token",
+                            "type": "string",
+                            "required": true,
+                            "default": "",
+                            "possible": "",
+                            "description": "The access token for authenticating with the vector database. For Zilliz, use the Zilliz Cloud API token. For Milvus, use the username and password in the format username:password (e.g., root:Milvus)."
+                        },
+                        {
+                            "name": "ttl",
+                            "type": "integer",
+                            "required": false,
+                            "default": "3600",
+                            "possible": "",
+                            "description": "Time-to-live in seconds for cached vector entries. If not specified, defaults to 3600 seconds (1 hour)."
+                        }
+                    ]
+                }
+            ],
+            "exampleFile": "apim.ai.vector_db_provider.toml"
+        }  
     ]
 }
 
