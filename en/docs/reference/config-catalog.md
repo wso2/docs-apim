@@ -12993,10 +12993,10 @@ preserveMultipartPartContentTransferEncoding = true
                                             
                                         </p>
                                         <div class="param-default">
-                                            <span class="param-default-value">Default: <code>false</code></span>
+                                            <span class="param-default-value">Default: <code>true</code></span>
                                         </div>
                                         <div class="param-possible">
-                                            <span class="param-possible-values">Possible Values: <code>true false</code></span>
+                                            <span class="param-possible-values">Possible Values: <code>true, false</code></span>
                                         </div>
                                     </div>
                                     <div class="param-description">
@@ -13017,7 +13017,7 @@ preserveMultipartPartContentTransferEncoding = true
                                             <span class="param-default-value">Default: <code>false</code></span>
                                         </div>
                                         <div class="param-possible">
-                                            <span class="param-possible-values">Possible Values: <code>true false</code></span>
+                                            <span class="param-possible-values">Possible Values: <code>true, false</code></span>
                                         </div>
                                     </div>
                                     <div class="param-description">

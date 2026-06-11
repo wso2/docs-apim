@@ -4845,8 +4845,8 @@
                             "name": "disableSendingMultipartPartCharset",
                             "type": "boolean",
                             "required": false,
-                            "default": "false",
-                            "possible": "true false",
+                            "default": "true",
+                            "possible": "true, false",
                             "description": "Defines whether the charset parameter in the Content-Type header should be preserved in each part of multipart form data."
                         },
                         {
@@ -4854,7 +4854,7 @@
                             "type": "boolean",
                             "required": false,
                             "default": "false",
-                            "possible": "true false",
+                            "possible": "true, false",
                             "description": "Defines whether the Content-Transfer-Encoding header should be preserved in each part of multipart form data."
                         }
                     ]
