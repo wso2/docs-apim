@@ -458,7 +458,7 @@ nav:
             - Gateway Environments: api-gateway/maintaining-separate-production-and-sandbox-gateways.md
             - Scale the Gateway: api-gateway/scaling-the-gateway.md
             - Advanced Topics:
-                - Classic Gateway with Dedicated Tenants: api-gateway/maintain-seperate-gateways-per-tenants.md
+                - Classic Gateway with Dedicated Tenants: api-gateway/maintain-separate-gateways-per-tenants.md
                 - Classic Gateways with Dedicated Backends: api-gateway/api-gateways-with-dedicated-backends.md
                 - Mutual SSL Between Classic Gateway and Backend: api-gateway/mutual-ssl-between-api-gateway-and-backend.md
                 - Storing Custom Synapse Artifacts in the Gateway: api-gateway/custom-synapse-artifacts.md

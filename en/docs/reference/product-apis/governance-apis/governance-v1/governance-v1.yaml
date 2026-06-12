@@ -20,7 +20,7 @@ info:
   title: WSO2 API Manager - Governance
   description: |
     This document specifies a **RESTful API** for WSO2 **API Manager - Governance**.
-    
+
     # Authentication
     The Governance REST API is protected using OAuth2 and access control is achieved through scopes. Before you start invoking
     the the API you need to obtain an access token with the required scopes. This guide will walk you through the steps
@@ -71,7 +71,7 @@ info:
     of this document and scope for each resource is given in **authorization** section of resource documentation.
     Following is the format of the request if you are using the password grant type.
     ```
-    curl -k -d "grant_type=password&username=<admin_username>&password=<admin_passowrd&scope=<scopes seperated by space>"
+    curl -k -d "grant_type=password&username=<admin_username>&password=<admin_passowrd&scope=<scopes separated by space>"
     \ -H "Authorization: Basic base64(cliet_id:client_secret)"
     \ https://<host>:<servlet_port>/oauth2/token
     ```
@@ -156,8 +156,8 @@ paths:
       tags:
         - Rulesets
       parameters:
-        - $ref: '#/components/parameters/limit'
-        - $ref: '#/components/parameters/offset'
+        - $ref: "#/components/parameters/limit"
+        - $ref: "#/components/parameters/offset"
         - name: query
           in: query
           schema:
@@ -180,7 +180,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/RulesetList'
+                $ref: "#/components/schemas/RulesetList"
         "400":
           description: Bad Request
           content:
@@ -220,14 +220,14 @@ paths:
         content:
           multipart/form-data:
             schema:
-              $ref: '#/components/schemas/RulesetInput'
+              $ref: "#/components/schemas/RulesetInput"
       responses:
         "201":
           description: OK. Ruleset created successfully.
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/RulesetInfo'
+                $ref: "#/components/schemas/RulesetInfo"
         "400":
           description: Bad Request
           content:
@@ -263,14 +263,14 @@ paths:
       tags:
         - Rulesets
       parameters:
-        - $ref: '#/components/parameters/rulesetId'
+        - $ref: "#/components/parameters/rulesetId"
       responses:
         "200":
           description: OK. Ruleset details retrieved successfully.
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/RulesetInfo'
+                $ref: "#/components/schemas/RulesetInfo"
         "400":
           description: Bad Request
           content:
@@ -305,21 +305,21 @@ paths:
       tags:
         - Rulesets
       parameters:
-        - $ref: '#/components/parameters/rulesetId'
+        - $ref: "#/components/parameters/rulesetId"
       requestBody:
         required: true
         description: JSON object containing the updated ruleset details.
         content:
           multipart/form-data:
             schema:
-              $ref: '#/components/schemas/RulesetInput'
+              $ref: "#/components/schemas/RulesetInput"
       responses:
         "200":
           description: OK. Ruleset updated successfully.
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/RulesetInfo'
+                $ref: "#/components/schemas/RulesetInfo"
         "400":
           description: Bad Request
           content:
@@ -354,9 +354,9 @@ paths:
       tags:
         - Rulesets
       parameters:
-        - $ref: '#/components/parameters/rulesetId'
+        - $ref: "#/components/parameters/rulesetId"
       responses:
-        '204':
+        "204":
           description: OK. Ruleset deleted successfully.
         "400":
           description: Bad Request
@@ -393,7 +393,7 @@ paths:
       tags:
         - Rulesets
       parameters:
-        - $ref: '#/components/parameters/rulesetId'
+        - $ref: "#/components/parameters/rulesetId"
       responses:
         "200":
           description: OK. Ruleset content retrieved successfully.
@@ -439,7 +439,7 @@ paths:
       tags:
         - Rulesets
       parameters:
-        - $ref: '#/components/parameters/rulesetId'
+        - $ref: "#/components/parameters/rulesetId"
       responses:
         "200":
           description: OK. Ruleset usage retrieved successfully.
@@ -486,8 +486,8 @@ paths:
       tags:
         - Governance Policies
       parameters:
-        - $ref: '#/components/parameters/limit'
-        - $ref: '#/components/parameters/offset'
+        - $ref: "#/components/parameters/limit"
+        - $ref: "#/components/parameters/offset"
         - name: query
           in: query
           schema:
@@ -498,7 +498,7 @@ paths:
 
               - "query=name:{NAME}" searches policies by name.
               - "query=state:{STATE} " searches policies by state.
-            
+
             You can also use multiple attributes to search for policies.
               - "query=name:{NAME} state:{STATE}" searches policies by name, state, and label.
 
@@ -509,7 +509,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/APIMGovernancePolicyList'
+                $ref: "#/components/schemas/APIMGovernancePolicyList"
         "400":
           description: Bad Request
           content:
@@ -549,14 +549,14 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/APIMGovernancePolicy'
+              $ref: "#/components/schemas/APIMGovernancePolicy"
       responses:
         "201":
           description: OK. Governance policy created successfully.
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/APIMGovernancePolicy'
+                $ref: "#/components/schemas/APIMGovernancePolicy"
         "400":
           description: Bad Request
           content:
@@ -592,14 +592,14 @@ paths:
       tags:
         - Governance Policies
       parameters:
-        - $ref: '#/components/parameters/policyId'
+        - $ref: "#/components/parameters/policyId"
       responses:
         "200":
           description: OK. Governance policy details retrieved successfully.
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/APIMGovernancePolicy'
+                $ref: "#/components/schemas/APIMGovernancePolicy"
         "400":
           description: Bad Request
           content:
@@ -634,21 +634,21 @@ paths:
       tags:
         - Governance Policies
       parameters:
-        - $ref: '#/components/parameters/policyId'
+        - $ref: "#/components/parameters/policyId"
       requestBody:
         required: true
         description: JSON object containing the updated governance policy details.
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/APIMGovernancePolicy'
+              $ref: "#/components/schemas/APIMGovernancePolicy"
       responses:
         "200":
           description: OK. Governance policy updated successfully.
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/APIMGovernancePolicy'
+                $ref: "#/components/schemas/APIMGovernancePolicy"
         "400":
           description: Bad Request
           content:
@@ -683,9 +683,9 @@ paths:
       tags:
         - Governance Policies
       parameters:
-        - $ref: '#/components/parameters/policyId'
+        - $ref: "#/components/parameters/policyId"
       responses:
-        '204':
+        "204":
           description: OK. Governance policy deleted successfully.
         "400":
           description: Bad Request
@@ -720,8 +720,8 @@ paths:
       description: Retrieves compliance of all API artifacts within the organization visible to logged-in user.
       operationId: getComplianceStatusListOfAPIs
       parameters:
-        - $ref: '#/components/parameters/limit'
-        - $ref: '#/components/parameters/offset'
+        - $ref: "#/components/parameters/limit"
+        - $ref: "#/components/parameters/offset"
       tags:
         - Artifact Compliance
       responses:
@@ -730,7 +730,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ArtifactComplianceList'
+                $ref: "#/components/schemas/ArtifactComplianceList"
         "400":
           description: Bad request
           content:
@@ -771,7 +771,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ArtifactComplianceSummary'
+                $ref: "#/components/schemas/ArtifactComplianceSummary"
         "400":
           description: Bad request
           content:
@@ -807,14 +807,14 @@ paths:
       tags:
         - Artifact Compliance
       parameters:
-        - $ref: '#/components/parameters/apiId'
+        - $ref: "#/components/parameters/apiId"
       responses:
         "200":
           description: Successful response with compliance details for the specified artifact.
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ArtifactComplianceDetails'
+                $ref: "#/components/schemas/ArtifactComplianceDetails"
         "400":
           description: Bad request
           content:
@@ -850,15 +850,15 @@ paths:
       tags:
         - Artifact Compliance
       parameters:
-        - $ref: '#/components/parameters/apiId'
-        - $ref: '#/components/parameters/rulesetId'
+        - $ref: "#/components/parameters/apiId"
+        - $ref: "#/components/parameters/rulesetId"
       responses:
         "200":
           description: Successful response with ruleset validation results for the specified API.
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/RulesetValidationResult'
+                $ref: "#/components/schemas/RulesetValidationResult"
         "400":
           description: Bad request
           content:
@@ -892,8 +892,8 @@ paths:
       description: Retrieve adherence status of all governance policies within the organization.
       operationId: getPolicyAdherenceForAllPolicies
       parameters:
-        - $ref: '#/components/parameters/limit'
-        - $ref: '#/components/parameters/offset'
+        - $ref: "#/components/parameters/limit"
+        - $ref: "#/components/parameters/offset"
       tags:
         - Policy Adherence
       responses:
@@ -902,7 +902,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/PolicyAdherenceList'
+                $ref: "#/components/schemas/PolicyAdherenceList"
         "400":
           description: Bad request
           content:
@@ -943,7 +943,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/PolicyAdherenceSummary'
+                $ref: "#/components/schemas/PolicyAdherenceSummary"
         "400":
           description: Bad request
           content:
@@ -979,14 +979,14 @@ paths:
       tags:
         - Policy Adherence
       parameters:
-        - $ref: '#/components/parameters/policyId'
+        - $ref: "#/components/parameters/policyId"
       responses:
         "200":
           description: Ok. Successful response with adherence details for the specified policy.
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/PolicyAdherenceDetails'
+                $ref: "#/components/schemas/PolicyAdherenceDetails"
         "400":
           description: Bad request
           content:
@@ -1068,9 +1068,9 @@ components:
           type: array
           description: List of rulesets.
           items:
-            $ref: '#/components/schemas/RulesetInfo'
+            $ref: "#/components/schemas/RulesetInfo"
         pagination:
-          $ref: '#/components/schemas/Pagination'
+          $ref: "#/components/schemas/Pagination"
     RulesetInput:
       type: object
       description: Detailed information about a ruleset.
@@ -1259,7 +1259,7 @@ components:
           type: array
           description: List of actions taken when the governance policy is violated. An action is defined by the state and rule severity. If an action is not specified to each state and rule severity, the default action is `NOTIFY`.
           items:
-            $ref: '#/components/schemas/Action'
+            $ref: "#/components/schemas/Action"
         rulesets:
           type: array
           description: List of rulesets associated with the governance policy.
@@ -1344,9 +1344,9 @@ components:
           type: array
           description: List of governance policies.
           items:
-            $ref: '#/components/schemas/APIMGovernancePolicy'
+            $ref: "#/components/schemas/APIMGovernancePolicy"
         pagination:
-          $ref: '#/components/schemas/Pagination'
+          $ref: "#/components/schemas/Pagination"
     ArtifactComplianceSummary:
       type: object
       description: Summary of compliance of certain artifact in the organization.
@@ -1402,9 +1402,9 @@ components:
         list:
           type: array
           items:
-            $ref: '#/components/schemas/ArtifactComplianceStatus'
+            $ref: "#/components/schemas/ArtifactComplianceStatus"
         pagination:
-          $ref: '#/components/schemas/Pagination'
+          $ref: "#/components/schemas/Pagination"
     PolicyAdherenceList:
       type: object
       description: Policy adherence status of a list of policies.
@@ -1416,9 +1416,9 @@ components:
         list:
           type: array
           items:
-            $ref: '#/components/schemas/PolicyAdherenceStatus'
+            $ref: "#/components/schemas/PolicyAdherenceStatus"
         pagination:
-          $ref: '#/components/schemas/Pagination'
+          $ref: "#/components/schemas/Pagination"
     ArtifactComplianceStatus:
       type: object
       description: Provides compliance status of an artifact.
@@ -1437,14 +1437,14 @@ components:
             - PENDING
           example: "COMPLIANT"
         info:
-          $ref: '#/components/schemas/ArtifactInfo'
+          $ref: "#/components/schemas/ArtifactInfo"
         policyAdherenceSummary:
-          $ref: '#/components/schemas/PolicyAdherenceSummary'
+          $ref: "#/components/schemas/PolicyAdherenceSummary"
         severityBasedRuleViolationSummary:
           type: array
           description: Summary of severity based rule violations.
           items:
-            $ref: '#/components/schemas/SeverityBasedRuleViolationCount'
+            $ref: "#/components/schemas/SeverityBasedRuleViolationCount"
     PolicyAdherenceStatus:
       type: object
       description: Provides adherence status of a policy.
@@ -1466,7 +1466,7 @@ components:
             - UNAPPLIED
           example: "FOLLOWED"
         artifactComplianceSummary:
-          $ref: '#/components/schemas/ArtifactComplianceSummaryForPolicy'
+          $ref: "#/components/schemas/ArtifactComplianceSummaryForPolicy"
     ArtifactComplianceSummaryForPolicy:
       type: object
       description: Summary of compliance of artifacts evaluated against a specific policy.
@@ -1497,12 +1497,12 @@ components:
             - PENDING
           example: "COMPLIANT"
         info:
-          $ref: '#/components/schemas/ArtifactInfo'
+          $ref: "#/components/schemas/ArtifactInfo"
         governedPolicies:
           type: array
           description: List of policies under which the artifact was governed.
           items:
-            $ref: '#/components/schemas/PolicyAdherenceWithRulesets'
+            $ref: "#/components/schemas/PolicyAdherenceWithRulesets"
     PolicyAdherenceDetails:
       type: object
       description: Provides adherence details of a policy.
@@ -1527,7 +1527,7 @@ components:
           type: array
           description: Compliance status of the artifacts evaluated against the policy.
           items:
-            $ref: '#/components/schemas/ArtifactComplianceForPolicy'
+            $ref: "#/components/schemas/ArtifactComplianceForPolicy"
     PolicyAdherenceWithRulesets:
       type: object
       description: Adherence status of a policy with ruleset details.
@@ -1553,7 +1553,7 @@ components:
           type: array
           description: List of ruleset validation information.
           items:
-            $ref: '#/components/schemas/RulesetValidationResultWithoutRules'
+            $ref: "#/components/schemas/RulesetValidationResultWithoutRules"
     ArtifactComplianceForPolicy:
       type: object
       description: Compliance status of an artifact for a specific policy.
@@ -1571,7 +1571,7 @@ components:
             - NOT-APPLICABLE
           example: "COMPLIANT"
         info:
-          $ref: '#/components/schemas/ArtifactInfo'
+          $ref: "#/components/schemas/ArtifactInfo"
     RulesetValidationResult:
       type: object
       description: Result of the ruleset validation.
@@ -1596,12 +1596,12 @@ components:
           type: array
           description: List of violated rules.
           items:
-            $ref: '#/components/schemas/RuleValidationResult'
+            $ref: "#/components/schemas/RuleValidationResult"
         followedRules:
           type: array
           description: List of followed rules.
           items:
-            $ref: '#/components/schemas/RuleValidationResult'
+            $ref: "#/components/schemas/RuleValidationResult"
     RulesetValidationResultWithoutRules:
       type: object
       description: Result of the ruleset validation.
