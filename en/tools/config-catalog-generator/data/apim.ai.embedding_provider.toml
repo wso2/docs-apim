@@ -1,0 +1,6 @@
+[apim.ai.embedding_provider]
+type = "openai"
+[apim.ai.embedding_provider.properties]
+apikey = "<your-api-key>"
+embedding_endpoint = "https://api.openai.com/v1/embeddings"
+embedding_model = "<embedding-model>"
