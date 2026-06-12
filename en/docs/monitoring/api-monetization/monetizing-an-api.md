@@ -136,7 +136,7 @@ For more information go to, [Using Connect with Standard Accounts](https://strip
 
     4. Define the monetization implementation in WSO2 API Manager.
 
-        If you are using the [wso2-am-stripe-plugin](https://github.com/wso2-extensions/wso2-am-stripe-plugin), add the full qualified class name of the monetization implementation in the `<API-M_HOME>/repository/conf/deployment.toml` file as follows.
+        If you are using the [wso2-am-stripe-plugin](https://github.com/wso2-extensions/wso2-am-stripe-plugin), add the fully qualified class name of the monetization implementation in the `<API-M_HOME>/repository/conf/deployment.toml` file as follows.
 
         ```toml
         [apim.monetization]
