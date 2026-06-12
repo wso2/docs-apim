@@ -118,7 +118,7 @@ Follow the instructions below to create, deploy and publish an API via the Publi
      <tr> 
      <th>Endpoint
      </th>
-     <td><code>https://run.mocky.io/v3/e42a76f0-95f3-4759-b658-dcc2b0c8bacd</code>
+     <td><code>https://run.mocky.io/v3/<YOUR_GENERATED_MOCKY_ID></code>
      </td>
      </tr>
      </table>
