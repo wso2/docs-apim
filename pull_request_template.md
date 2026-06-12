@@ -3,6 +3,7 @@
 
 ## Checklist
  - [ ] Verified that `llms.txt` (located at `en/docs/llms.txt`) is up-to-date.
+ - [ ] Ensured meaningful alt text for images and that the information contained in an image also appears in text so the relevant info exists in the body of the document.
 
 ## Goals
 > Describe the solutions that this feature/fix will introduce to resolve the problems described above
