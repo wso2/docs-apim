@@ -773,7 +773,7 @@ nav:
         - Guides:
             - Message Flow in the API Manager Gateway: reference/guides/message-flow-in-the-api-manager-gateway.md
             - Accessing API Manager by Multiple Devices Simultaneously: reference/guides/accessing-api-manager-by-multiple-devices-simultaneously.md
-            - admin_Directory Structure of WSO2 Products: reference/guides/directory-structure-of-wso2-products.md
+            - Directory Structure of WSO2 Products: reference/guides/directory-structure-of-wso2-products.md
         - Common Runtime and Configuration Artifacts: reference/common-runtime-and-configuration-artifacts.md
         - Default Product Ports: reference/default-product-ports.md
         - Product Compatibility: reference/product-compatibility.md
