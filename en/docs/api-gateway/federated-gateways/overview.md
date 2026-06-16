@@ -40,7 +40,7 @@ Deploy and manage APIs on Microsoft Azure API Management Service. The built-in A
 - Integration with Microsoft Entra ID
 - Centralized governance from WSO2 API Manager
 
-[Learn more about Azure API Gateway deployment]({{base_path}}/deploy-and-publish/federated-gateways/azure/deploy-on-azure-api-gateway/)
+[Learn more about Azure API Gateway deployment]({{base_path}}/api-gateway/federated-gateways/azure/deploy-on-azure-api-gateway.md)
 
 ### Kong Gateway
 Discover and manage APIs deployed on Kong Gateway. WSO2 API Manager supports both Kong Kubernetes and Kong Standalone deployments.

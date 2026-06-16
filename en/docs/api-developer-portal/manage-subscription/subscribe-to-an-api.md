@@ -2,7 +2,7 @@
 
 You have to **subscribe** to a published API before using it in your applications. The subscription process fulfills the authentication process and provides you with access tokens that you can use to invoke an API. 
 
-The examples here use the `PizzaShackAPI` REST API, which is [created]({{base_path}}/manage-apis/design/create-api/create-rest-api/create-a-rest-api) and [published]({{base_path}}/manage-apis/deploy-and-publish/publish-on-dev-portal/publish-an-api) to Developer Portal in WSO2 API Manager.
+The examples here use the `PizzaShackAPI` REST API, which is [created]({{base_path}}/api-design-manage/design/create-api/create-rest-api/create-a-rest-api.md) and [published]({{base_path}}/api-design-manage/deploy-and-publish/publish-on-dev-portal/publish-an-api.md) to Developer Portal in WSO2 API Manager.
 
 The following are the two methods available in the Developer Portal to subscribe an API to an application. 
 
@@ -32,7 +32,7 @@ The following are the two methods available in the Developer Portal to subscribe
      
      [![Subscribe to new application process]({{base_path}}/assets/img/learn/key-gen-wizard-subscribe.png)]({{base_path}}/assets/img/learn/key-gen-wizard-subscribe.png)
     
-5. [Generate application keys]({{base_path}}/consume/manage-application/generate-keys/generate-api-keys) (Production or sandbox) by clicking on the **Next** button. 
+5. [Generate application keys]({{base_path}}/api-developer-portal/manage-application/generate-keys/generate-api-keys.md) (Production or sandbox) by clicking on the **Next** button. 
 
      The application keys are generated in this step.
 
@@ -49,7 +49,7 @@ The following are the two methods available in the Developer Portal to subscribe
     
 7.  Copy the generated access token. 
 
-8. Click **Finish** to complete the wizard or click **Test** to navigate to the [API Console]({{base_path}}/consume/invoke-apis/invoke-apis-using-tools/invoke-an-api-using-the-integrated-api-console) so that you can invoke and try out the API.
+8. Click **Finish** to complete the wizard or click **Test** to navigate to the [API Console]({{base_path}}/api-developer-portal/invoke-apis/invoke-apis-using-tools/invoke-an-api-using-the-integrated-api-console.md) so that you can invoke and try out the API.
 
     [![Copy access token]({{base_path}}/assets/img/learn/key-gen-wizard-access.png)]({{base_path}}/assets/img/learn/key-gen-wizard-access.png)
     
@@ -91,7 +91,7 @@ If you already have an existing application, follow the instructions below to su
     
     ![Subscription_update_completed]({{base_path}}/assets/img/learn/subscription-update-completed.png)
 
-Follow the steps mentioned in [Adding an API Subscription Update Workflow]({{base_path}}/consume/manage-subscription/advanced-topics/adding-an-api-subscription-tier-update-workflow) if you need to configure an approval process to update the subscription tier. 
+Follow the steps mentioned in [Adding an API Subscription Update Workflow]({{base_path}}/api-developer-portal/manage-subscription/advanced-topics/adding-an-api-subscription-tier-update-workflow.md) if you need to configure an approval process to update the subscription tier. 
 
 ## Unsubscribe from an API
 

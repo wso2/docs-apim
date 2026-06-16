@@ -4,7 +4,7 @@ The **WSO2 API Controller (apictl)** can inject dynamic values based on environm
 
 ## Add dynamic data to environment configurations
 
-To allow easily configuring environment-specific details, by default, the apictl supports an additional parameter file. For more information on using an environment parameter file, see [Configuring Environment Specific Parameters]({{base_path}}/install-and-setup/setup/api-controller/advanced-topics/configuring-environment-specific-parameters). 
+To allow easily configuring environment-specific details, by default, the apictl supports an additional parameter file. For more information on using an environment parameter file, see [Configuring Environment Specific Parameters]({{base_path}}/apiops/cli/advanced-topics/configuring-environment-specific-parameters.md). 
 
 The file supports detecting environment variables during the API (or API Product) import process. You can use the notation `${DEV_URL}` to specify environment variables to any attribute in this file. 
 

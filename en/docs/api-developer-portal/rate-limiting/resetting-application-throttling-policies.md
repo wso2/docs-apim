@@ -48,9 +48,9 @@ To verify the reset worked, the user should try invoking APIs using the applicat
 
 The username or UUID used by the traffic manager to identify users depends on the OAuth grant type used to obtain access tokens:
 
-- **Client Credentials Grant**: Use the normal username of the application owner. With this grant type, your application accesses APIs on behalf of the client rather than individual users. See [Client Credentials Grant]({{base_path}}/manage-apis/design/api-security/oauth2/grant-types/client-credentials-grant/) for details.
+- **Client Credentials Grant**: Use the normal username of the application owner. With this grant type, your application accesses APIs on behalf of the client rather than individual users. See [Client Credentials Grant]({{base_path}}/api-security/key-management/authentication/grant-types/client-credentials-grant.md) for details.
 
-- **Password Grant** and **Authorization Code Grant**: Use the **UUID** of the end-user, not their username. See [Password Grant]({{base_path}}/manage-apis/design/api-security/oauth2/grant-types/password-grant/) and [Authorization Code Grant]({{base_path}}/manage-apis/design/api-security/oauth2/grant-types/authorization-code-grant/) for details.
+- **Password Grant** and **Authorization Code Grant**: Use the **UUID** of the end-user, not their username. See [Password Grant]({{base_path}}/api-security/key-management/authentication/grant-types/password-grant.md) and [Authorization Code Grant]({{base_path}}/api-security/key-management/authentication/grant-types/authorization-code-grant.md) for details.
 
 ### Finding User UUIDs Using Analytics
 

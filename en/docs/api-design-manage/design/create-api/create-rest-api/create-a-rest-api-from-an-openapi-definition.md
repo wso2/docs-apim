@@ -246,11 +246,11 @@ Next, [deploy the API]({{base_path}}/api-design-manage/deploy-and-publish/deploy
 
 Learn more on the concepts that you need to know when creating a REST API:
 
--   [Endpoints]({{base_path}}/manage-apis/design/endpoints/endpoint-types/)
--   [API Security]({{base_path}}/manage-apis/design/api-security/api-authentication/secure-apis-using-oauth2-tokens/)
+-   [Endpoints]({{base_path}}/api-design-manage/design/endpoints/endpoint-types.md)
+-   [API Security]({{base_path}}/api-security/runtime/api-authentication/secure-apis-using-oauth2-tokens.md)
 -   [Rate Limiting]({{base_path}}/manage-apis/design/rate-limiting/introducing-throttling-use-cases/)
--   [Life Cycle Management]({{base_path}}/manage-apis/design/lifecycle-management/api-lifecycle/)
--   [API Monetization]({{base_path}}/manage-apis/design/api-monetization/monetizing-an-api/)
--   [API Visibility]({{base_path}}/manage-apis/design/advanced-topics/control-api-visibility-and-subscription-availability-in-developer-portal/)
--   [API Documentation]({{base_path}}/manage-apis/design/api-documentation/add-api-documentation/)
--   [Custom Properties]({{base_path}}/manage-apis/design/create-api/adding-custom-properties-to-apis/)
+-   [Life Cycle Management]({{base_path}}/api-design-manage/design/lifecycle-management/api-lifecycle.md)
+-   [API Monetization]({{base_path}}/monitoring/api-monetization/monetizing-an-api.md)
+-   [API Visibility]({{base_path}}/api-design-manage/design/advanced-topics/control-api-visibility-and-subscription-availability-in-developer-portal.md)
+-   [API Documentation]({{base_path}}/api-design-manage/design/api-documentation/add-api-documentation.md)
+-   [Custom Properties]({{base_path}}/api-design-manage/design/create-api/adding-custom-properties-to-apis.md)

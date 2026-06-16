@@ -37,7 +37,7 @@ Follow the steps in [Configuring the Proxy Server and the Load Balancer]({{base_
 
 ## Step 3 - Configure the Databases
 
-WSO2 API-M is shipped with H2 databases by default. However, in a **production setup**, it is recommended to use an industry-standard RDBMS databases for  `WSO2AM_DB` and `WSO2SHARED_DB`. For more information on default databases and changing them into RDBMS databases, see [Working with Databases]({{base_path}}/install-and-setup/setting-up-databases/overview/).
+WSO2 API-M is shipped with H2 databases by default. However, in a **production setup**, it is recommended to use an industry-standard RDBMS databases for  `WSO2AM_DB` and `WSO2SHARED_DB`. For more information on default databases and changing them into RDBMS databases, see [Working with Databases]({{base_path}}/install-and-setup/setup/setting-up-databases/overview.md).
 
 ??? tip
     If you have configured the apim and shared databases correctly, the `deployment.toml` in `<API-M_HOME>/repository/conf` 
@@ -119,9 +119,9 @@ In a **production setup**, ensure that you have taken into account the respectiv
 (e.g., changing and encrypting the default passwords, configuring JVM security etc.) and other production deployment 
 guidelines (e.g., tuning parameters, backup and recovery recommendations etc.) before deploying WSO2 API-M node. 
 
-For more information on security hardening guidelines, see [Security Guidelines for Production Deployment]({{base_path}}/install-and-setup/deploying-wso2-api-manager/security-guidelines-for-production-deployment/).
+For more information on security hardening guidelines, see [Security Guidelines for Production Deployment]({{base_path}}/install-and-setup/setup/deployment-best-practices/security-guidelines-for-production-deployment.md).
 
-For more information on other production deployment guidelines, see [Production Deployment Guidelines]({{base_path}}/install-and-setup/deploying-wso2-api-manager/production-deployment-guidelines/#common-guidelines-and-checklist).
+For more information on other production deployment guidelines, see [Production Deployment Guidelines]({{base_path}}/install-and-setup/setup/deployment-best-practices/production-deployment-guidelines.md#common-guidelines-and-checklist).
   
 ## Step 9 - Start the WSO2 API-M server
 

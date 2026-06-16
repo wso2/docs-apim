@@ -5,17 +5,17 @@
 !!! info
     **Before you begin** 
 
-    -   Make sure apictl is initialized and setup, if not follow the steps in [Download and Initialize the apictl]({{base_path}}/install-and-setup/setup/api-controller/getting-started-with-wso2-api-controller/#download-and-initialize-the-apictl).
+    -   Make sure apictl is initialized and setup, if not follow the steps in [Download and Initialize the apictl]({{base_path}}/apiops/cli/getting-started-with-wso2-api-controller.md#download-and-initialize-the-apictl).
 
     -  Make sure to add an environment before you start working with the following apictl commands, because all API Products need to be imported or exported to/from a specific environment.      
-    For more information, visit [Add an Environment]({{base_path}}/install-and-setup/setup/api-controller/getting-started-with-wso2-api-controller#add-an-environment).
+    For more information, visit [Add an Environment]({{base_path}}/apiops/cli/getting-started-with-wso2-api-controller.md#add-an-environment).
 
 !!! tip
-    A user with `Internal/devops` role or `admin` role are allowed to import/export API Products. To create a custom user who can import/export APIs, refer [Steps to Create a Custom User who can Perform API Controller Operations]({{base_path}}/install-and-setup/setup/api-controller/advanced-topics/creating-custom-users-to-perform-api-controller-operations/#steps-to-create-a-custom-user-who-can-perform-api-controller-operations).
+    A user with `Internal/devops` role or `admin` role are allowed to import/export API Products. To create a custom user who can import/export APIs, refer [Steps to Create a Custom User who can Perform API Controller Operations]({{base_path}}/apiops/cli/advanced-topics/creating-custom-users-to-perform-api-controller-operations.md#steps-to-create-a-custom-user-who-can-perform-api-controller-operations).
 
 ### Export an API Product
 
-1.  Log in to the WSO2 API-M in the exporting environment by following steps in [Login to an Environment]({{base_path}}/install-and-setup/setup/api-controller/getting-started-with-wso2-api-controller#login-to-an-environment).  
+1.  Log in to the WSO2 API-M in the exporting environment by following steps in [Login to an Environment]({{base_path}}/apiops/cli/getting-started-with-wso2-api-controller.md#login-to-an-environment).  
     
     !!! tip
         If you are already logged-in and your logged-in credentials and keys or the access-token are (is) already available in the `<USER_HOME>/.wso2apictl/keys.json` file, you can skip this step. 
@@ -226,7 +226,7 @@ If the API Product archive contains information about deployment environments in
 once the API Product is successfully created or updated, a **new revision will be created** and that revision will be deployed in the
 mentioned gateway environments. If the **deployment environments are not provided, only the working copy will be updated**.  
 
-1.  Log in to the WSO2 API-M in the importing environment by following steps in [Login to an Environment]({{base_path}}/install-and-setup/setup/api-controller/getting-started-with-wso2-api-controller#login-to-an-environment).
+1.  Log in to the WSO2 API-M in the importing environment by following steps in [Login to an Environment]({{base_path}}/apiops/cli/getting-started-with-wso2-api-controller.md#login-to-an-environment).
     
     !!! tip
         If you are already logged-in and your logged-in credentials and keys or the access-token are (is) already available in the `<USER_HOME>/.wso2apictl/keys.json` file, you can skip this step. 
@@ -343,11 +343,11 @@ mentioned gateway environments. If the **deployment environments are not provide
 !!! note
     **Configuring Environment Specific Parameters**
 
-    When the importing and exporting environments are different, before importing the API Product, you may need to update the exported API Product with details relevant to the importing environment. For example, the subscription policies, MutualSSL certificates and deployment environments of an API Product might differ between the dev and production environments. Furthermore, when considering the dependent APIs of an API product, the production and sandbox URLs, the timeout configurations, the backend certificates of your endpoints might differ between environments as well. To allow easily configuring environment-specific details, by default apictl supports an additional parameter file. For more information on using an environment parameter file for API Products, see [Defining the params file for an API Product]({{base_path}}/install-and-setup/setup/api-controller/advanced-topics/configuring-environment-specific-parameters/#defining-the-params-file-for-an-api-product).
+    When the importing and exporting environments are different, before importing the API Product, you may need to update the exported API Product with details relevant to the importing environment. For example, the subscription policies, MutualSSL certificates and deployment environments of an API Product might differ between the dev and production environments. Furthermore, when considering the dependent APIs of an API product, the production and sandbox URLs, the timeout configurations, the backend certificates of your endpoints might differ between environments as well. To allow easily configuring environment-specific details, by default apictl supports an additional parameter file. For more information on using an environment parameter file for API Products, see [Defining the params file for an API Product]({{base_path}}/apiops/cli/advanced-topics/configuring-environment-specific-parameters.md#defining-the-params-file-for-an-api-product).
 
     **Add dynamic data to environment configs**
 
-    The above parameter file supports detecting environment variables during the API Product import process. For more information on using dynamic data, see [Add dynamic data to environment configs]({{base_path}}/install-and-setup/setup/api-controller/advanced-topics/using-dynamic-data-in-api-controller-projects/#add-dynamic-data-to-environment-configs).
+    The above parameter file supports detecting environment variables during the API Product import process. For more information on using dynamic data, see [Add dynamic data to environment configs]({{base_path}}/apiops/cli/advanced-topics/using-dynamic-data-in-api-controller-projects.md#add-dynamic-data-to-environment-configs).
 
 !!! info
     Tiers are provider-specific. If an exported tier is not already available in the importing environment, that tier is not added to the new environment.

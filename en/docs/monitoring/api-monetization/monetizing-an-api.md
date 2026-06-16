@@ -520,7 +520,7 @@ Let's use the [wso2-am-stripe-plugin](https://github.com/wso2-extensions/wso2-am
      These configurations are required only if you intend to create dynamic plans (usage-based plans) where consumers are charged based on the usage of the API. In such situations, you need analytics to record and retrieve the usage of the monetized APIs. 
 
     !!! note
-        For instructions on configuring API Manager with ELK Analytics, see [Monetization Support via Elasticsearch](../../design/api-monetization/monetizing-an-api/#monetization-support-via-elasticsearch)
+        For instructions on configuring API Manager with ELK Analytics, see [Monetization Support via Elasticsearch]({{base_path}}/monitoring/api-monetization/monetizing-an-api.md#monetization-support-via-elasticsearch)
     
     1. Enable analytics.
     
@@ -679,7 +679,7 @@ Let's use the [wso2-am-stripe-plugin](https://github.com/wso2-extensions/wso2-am
 
 ### Step 3 - Subscribe to a monetized API
 
-[Subscribe to an API]({{base_path}}/consume/manage-subscription/subscribe-to-an-api) and invoke the API. The price of the business plan appears when subscribing to an API. Therefore, the Subscriber can select an appropriate plan and subscribe to it. 
+[Subscribe to an API]({{base_path}}/api-developer-portal/manage-subscription/subscribe-to-an-api.md) and invoke the API. The price of the business plan appears when subscribing to an API. Therefore, the Subscriber can select an appropriate plan and subscribe to it. 
 
 When subscribing to an API, simultaneously a customer is created in the Stripe platform account (e.g., the Stripe account is created for the Tenant Admin). The following screenshot shows the customer record in the platform Stripe account.
 

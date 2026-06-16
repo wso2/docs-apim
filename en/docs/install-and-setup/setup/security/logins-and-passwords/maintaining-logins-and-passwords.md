@@ -186,7 +186,7 @@ Follow the instructions below to change the default admin password:
 
 ### Setup a social media login
 
-You can auto-provision users based on a social network login by integrating the API Manager with WSO2 Identity Server. For more information, see [Log in to the API Developer Portal using Social Media]({{base_path}}/develop/customizations/log-in-to-the-dev-portal-using-social-media).
+You can auto-provision users based on a social network login by integrating the API Manager with WSO2 Identity Server. For more information, see [Log in to the API Developer Portal using Social Media]({{base_path}}/reference/customize-product/customizations/log-in-to-the-dev-portal-using-social-media.md).
 
 !!! note
     Note that auto-provision users based on a social network login are not supported in a **multi-tenant environment**.

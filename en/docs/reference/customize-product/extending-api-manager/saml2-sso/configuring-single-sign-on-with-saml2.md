@@ -8,8 +8,8 @@ Single Sign-On (SSO) allows users, who are authenticated against one application
 
 This section covers the following topics.
 
--   [Configuring Identity Server as IDP for SSO]({{base_path}}/develop/extending-api-manager/saml2-sso/configuring-identity-server-as-idp-for-sso)
--   [Configuring External IDP through Identity Server for SSO]({{base_path}}/develop/extending-api-manager/saml2-sso/configuring-external-idp-through-identity-server-for-sso)
+-   [Configuring Identity Server as IDP for SSO]({{base_path}}/reference/customize-product/extending-api-manager/saml2-sso/configuring-identity-server-as-idp-for-sso.md)
+-   [Configuring External IDP through Identity Server for SSO]({{base_path}}/reference/customize-product/extending-api-manager/saml2-sso/configuring-external-idp-through-identity-server-for-sso.md)
 
 !!! info
     The **Single Sign-On with OpenID Connect** feature is enabled by default in the API Manager.  

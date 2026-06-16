@@ -3,7 +3,7 @@
 Follow the instructions below to configure WSO2 Identity Server (WSO2 IS) as the Resident Key Manager of the WSO2 API Manager (WSO2 API-M) deployment globally.
 
 !!! warning
-    WSO2 Identity Server 7.x **cannot** be set up as a Resident Key Manager. It can only be set up as a [Third-party Key Manager]({{base_path}}/install-and-setup/setup/distributed-deployment/configure-a-third-party-key-manager). See [Configure WSO2 IS Key Manager]({{base_path}}/api-security/key-management/configuration/configure-wso2is7-connector) for instructions on configuring WSO2 Identity Server 7.x as a Third-party Key Manager.
+    WSO2 Identity Server 7.x **cannot** be set up as a Resident Key Manager. It can only be set up as a [Third-party Key Manager]({{base_path}}/install-and-setup/setup/distributed-deployment/configure-a-third-party-key-manager). See [Configure WSO2 IS Key Manager]({{base_path}}/api-security/key-management/third-party-key-managers/configure-wso2is7-connector.md) for instructions on configuring WSO2 Identity Server 7.x as a Third-party Key Manager.
 
 - [Step 1 - Download and install WSO2 IS](#step-1-download-and-install-wso2-is)
 - [Step 2 - Optionally, configure port offset for WSO2 IS](#step-2-optionally-configure-port-offset-for-wso2-is)
@@ -279,7 +279,7 @@ Follow the instructions below to set up and configure the databases for the WSO2
 
 ## Step 5 - Configure WSO2 API-M with the WSO2 IS
 
-1. By default, WSO2 API Manager and WSO2 Identity Server come with a JDBC User Store as the primary userstore. If you wish to use any other type of user store (e.g., LDAP, Active Directory, etc.) in WSO2 IS, it has to be configured in the API Manager nodes. For more information, see [Configuring the Primary User Store]({{base_path}}/administer/product-administration/managing-users-and-roles/managing-user-stores/configure-primary-user-store/configuring-the-primary-user-store/) and apply the relevant configs to plug in a new user store.
+1. By default, WSO2 API Manager and WSO2 Identity Server come with a JDBC User Store as the primary userstore. If you wish to use any other type of user store (e.g., LDAP, Active Directory, etc.) in WSO2 IS, it has to be configured in the API Manager nodes. For more information, see [Configuring the Primary User Store]({{base_path}}/install-and-setup/setup/configure-userstores/configure-primary-user-store/configuring-the-primary-user-store.md) and apply the relevant configs to plug in a new user store.
   
     Add below configuration in `<APIM_HOME>/repository/conf/deployment.toml`
   
@@ -344,6 +344,6 @@ Start WSO2 Identity Server for the changes to take effect. For more information,
 Follow the instructions below to configure the other WSO2 API-M components, namely the Publisher, Developer Portal, Traffic Manager, and Gateway:
 
 - All-in-One Deployment
-    - [Configuring a Single Node]({{base_path}}/install-and-setup/deploying-wso2-api-manager/single-node/configuring-a-single-node/)
-    - [Configuring an Active-Active Deployment]({{base_path}}/install-and-setup/deploying-wso2-api-manager/single-node/configuring-an-active-active-deployment/)
+    - [Configuring a Single Node]({{base_path}}/install-and-setup/setup/single-node/configuring-a-single-node.md)
+    - [Configuring an Active-Active Deployment]({{base_path}}/install-and-setup/setup/single-node/configuring-an-active-active-deployment.md)
 - [Distributed Deployment]({{base_path}}/install-and-setup/setup/distributed-deployment/deploying-wso2-api-m-in-a-distributed-setup/)

@@ -67,7 +67,7 @@ Learn more on the concepts that you need to know when creating a GraphQL API:
 -   [API Security]({{base_path}}/api-security/runtime/api-authentication/secure-apis-using-oauth2-tokens/)
 -   [Rate Limiting]({{base_path}}/api-design-manage/design/rate-limiting/graphql-api/overview-query-limits-for-graphql/)
 -   [Life Cycle Management]({{base_path}}/api-design-manage/design/lifecycle-management/api-lifecycle/)
--   [API Monetization]({{base_path}}/api-design-manage/design/api-monetization/monetizing-an-api/)
+-   [API Monetization]({{base_path}}/monitoring/api-monetization/monetizing-an-api.md)
 -   [API Visibility]({{base_path}}/api-design-manage/design/advanced-topics/control-api-visibility-and-subscription-availability-in-developer-portal/)
 -   [API Documentation]({{base_path}}/api-design-manage/design/api-documentation/add-api-documentation/)
 -   [Custom Properties]({{base_path}}/api-design-manage/design/create-api/adding-custom-properties-to-apis/)

@@ -1,6 +1,6 @@
 # Adding an API Subscription Deletion Workflow
 
-[Subscription Deletion]({{base_path}}/consume/manage-subscription/subscribe-to-an-api/) provides the capability to remove an already existing subscription. Attaching a custom workflow to the API subscription deletion, enables an admin to approve/reject the subscription deletion request made for an existing subscription. Note that only an admin is able to approve/reject a subscription deletion request.
+[Subscription Deletion]({{base_path}}/api-developer-portal/manage-subscription/subscribe-to-an-api.md) provides the capability to remove an already existing subscription. Attaching a custom workflow to the API subscription deletion, enables an admin to approve/reject the subscription deletion request made for an existing subscription. Note that only an admin is able to approve/reject a subscription deletion request.
 
 When the API subscription deletion workflow is enabled, when the subscription deletion request is made, the subscription status is changed to the `DELETE_PENDING` state. In this state, a consumer can still invoke the API with the same subscription, using its production or sandbox keys, until the subscription deletion is approved. Once the subscription deletion request is approved the subscription will be deleted.
 

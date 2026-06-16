@@ -45,7 +45,7 @@ in the demiliterized zone (DMZ).
 
 The `WSO2AM_DB` and `WSO2SHARED_DB` databases need to be shared between the two API-M nodes. It is recommended to use an
 industry-standard RDBMS databases for this purpose. For more 
-information on default databases and changing them into RDBMS databases, see [Working with Databases]({{base_path}}/install-and-setup/setting-up-databases/overview/).
+information on default databases and changing them into RDBMS databases, see [Working with Databases]({{base_path}}/install-and-setup/setup/setting-up-databases/overview.md).
 
 ??? tip
     If you have configured the apim and shared databases correctly, the `deployment.toml` in `<API-M_HOME>/repository/conf` 
@@ -247,7 +247,7 @@ guidelines (e.g., tuning parameters, backup and recovery recommendations etc.) b
 
 For more information on security hardening guidelines, see [Security Guidelines for Production Deployment]({{base_path}}/install-and-setup/setup/deployment-best-practices/security-guidelines-for-production-deployment/).
 
-For more information on other production deployment guidelines, see [Production Deployment Guidelines]({{base_path}}//install-and-setup/setup/deployment-best-practices/production-deployment-guidelines/#common-guidelines-and-checklist/).
+For more information on other production deployment guidelines, see [Production Deployment Guidelines]({{base_path}}/install-and-setup/setup/deployment-best-practices/production-deployment-guidelines.md#common-guidelines-and-checklist/).
 
 ## Step 13 - Start the WSO2 API-M Servers
 

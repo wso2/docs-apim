@@ -338,7 +338,7 @@ Therefore,
 Error code = 101504 + 3 = 101507
 
 These Transport error codes are used in [Advanced Configurations of
-Endpoints]({{base_path}}/manage-apis/design/endpoints/endpoint-types/)
+Endpoints]({{base_path}}/api-design-manage/design/endpoints/endpoint-types.md)
 .
 
 ### Custom error messages

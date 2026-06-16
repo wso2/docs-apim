@@ -9,7 +9,7 @@ Following actions on common API Policies are allowed by apictl.
 
 ## Add common API Policies in an environment
 
-You can add common API Policies via the Publisher Portal. For more information, see [Create API Policy via Publisher Portal]({{base_path}}/manage-apis/design/api-policies/create-policy).
+You can add common API Policies via the Publisher Portal. For more information, see [Create API Policy via Publisher Portal]({{base_path}}/api-design-manage/design/api-policies/create-policy.md).
 However, **WSO2 API Controller (apictl)** allows you to create API Policies without using the Publisher Portal.
 
 ## Get common API Policies in an environment
@@ -17,8 +17,8 @@ However, **WSO2 API Controller (apictl)** allows you to create API Policies with
 Follow the instructions below to display a list of common API Policies in an environment using apictl:
 
 1.  Make sure that the WSO2 API Manager (WSO2 API-M) is started and that the relevant version of apictl is set up.   
-     For more information, see [Download and Initialize the apictl]({{base_path}}/install-and-setup/setup/api-controller/getting-started-with-wso2-api-controller/#download-and-initialize-the-apictl).
-2.  Log in to the WSO2 API-M in the environment by following the instructions in [Login to an Environment]({{base_path}}/install-and-setup/setup/api-controller/getting-started-with-wso2-api-controller/#login-to-an-environment).
+     For more information, see [Download and Initialize the apictl]({{base_path}}/apiops/cli/getting-started-with-wso2-api-controller.md#download-and-initialize-the-apictl).
+2.  Log in to the WSO2 API-M in the environment by following the instructions in [Login to an Environment]({{base_path}}/apiops/cli/getting-started-with-wso2-api-controller.md#login-to-an-environment).
 3.  Run the corresponding apictl command below to get (list) common API Policies in an environment.
 
     - Get API common Policies in an environment.
@@ -77,7 +77,7 @@ Follow the instructions below to display a list of common API Policies in an env
                 get all available common API Policies.
 
             !!!note
-                Output of the `get policies api` command can be formatted with Go Templates. For more information on formatting the get commands, see [Formatting the outputs of get commands]({{base_path}}/install-and-setup/setup/api-controller/advanced-topics/formatting-the-output-of-get-command).
+                Output of the `get policies api` command can be formatted with Go Templates. For more information on formatting the get commands, see [Formatting the outputs of get commands]({{base_path}}/apiops/cli/advanced-topics/formatting-the-output-of-get-command.md).
                
 
 ## Delete a common API Policy in an environment
@@ -85,8 +85,8 @@ Follow the instructions below to display a list of common API Policies in an env
 Follow the instructions below to delete a common API Policy in an environment using apictl:
 
 1.  Make sure that the WSO2 API-M is started and that the corresponding version of apictl is set up.   
-For more information, see [Download and Initialize the apictl]({{base_path}}/install-and-setup/setup/api-controller/getting-started-with-wso2-api-controller/#download-and-initialize-the-apictl).
-2.  Log in to the WSO2 API-M in the environment by following the instructions in [Login to an Environment]({{base_path}}/install-and-setup/setup/api-controller/getting-started-with-wso2-api-controller/#login-to-an-environment).
+For more information, see [Download and Initialize the apictl]({{base_path}}/apiops/cli/getting-started-with-wso2-api-controller.md#download-and-initialize-the-apictl).
+2.  Log in to the WSO2 API-M in the environment by following the instructions in [Login to an Environment]({{base_path}}/apiops/cli/getting-started-with-wso2-api-controller.md#login-to-an-environment).
 3.  Run the corresponding apictl command below to delete a common API Policy in an environment.
 
     1. Delete a common API Policy in an environment.

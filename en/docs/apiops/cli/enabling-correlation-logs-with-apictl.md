@@ -7,8 +7,8 @@
 Follow the instructions below to get the correlation logging components in an environment using apictl:
 
 1.  Make sure that the WSO2 API-M is started and the apictl is set up.   
-For more information, see [Download and Initialize the apictl]({{base_path}}/install-and-setup/setup/api-controller/getting-started-with-wso2-api-controller/#download-and-initialize-the-apictl).
-2.  Log in to the WSO2 API-M in the environment by following the instructions in [Login to an Environment]({{base_path}}/install-and-setup/setup/api-controller/getting-started-with-wso2-api-controller/#login-to-an-environment).
+For more information, see [Download and Initialize the apictl]({{base_path}}/apiops/cli/getting-started-with-wso2-api-controller.md#download-and-initialize-the-apictl).
+2.  Log in to the WSO2 API-M in the environment by following the instructions in [Login to an Environment]({{base_path}}/apiops/cli/getting-started-with-wso2-api-controller.md#login-to-an-environment).
 3.  Run the corresponding apictl command below to get the correlation logging components in an environment.
 
     1. Get the correlation logging components in an environment.
@@ -52,8 +52,8 @@ For more information, see [Download and Initialize the apictl]({{base_path}}/ins
 Follow the instructions below to set the correlation configs for a correlation logging component in an environment using apictl:
 
 1.  Make sure that the WSO2 API-M is started and the apictl is set up.   
-For more information, see [Download and Initialize the apictl]({{base_path}}/install-and-setup/setup/api-controller/getting-started-with-wso2-api-controller/#download-and-initialize-the-apictl).
-2.  Log in to the WSO2 API-M in the environment by following the instructions in [Login to an Environment]({{base_path}}/install-and-setup/setup/api-controller/getting-started-with-wso2-api-controller/#login-to-an-environment).
+For more information, see [Download and Initialize the apictl]({{base_path}}/apiops/cli/getting-started-with-wso2-api-controller.md#download-and-initialize-the-apictl).
+2.  Log in to the WSO2 API-M in the environment by following the instructions in [Login to an Environment]({{base_path}}/apiops/cli/getting-started-with-wso2-api-controller.md#login-to-an-environment).
 3.  Run the corresponding apictl command below to set the correlation configs for a correlation logging component in an environment.
 
     1. Set the correlation configs for a correlation logging component in an environment.

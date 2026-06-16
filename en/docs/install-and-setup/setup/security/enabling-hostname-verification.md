@@ -5,7 +5,7 @@ If hostname verification is disabled for your product, the hostnames (that are a
 !!! note
     **Important!**
     
-    Be sure to enable hostname verification for your production environment. This is necessary to avoid security issues in production. See the full list of [security recommendations for production]({{base_path}}/install-and-setup/deploying-wso2-api-manager/security-guidelines-for-production-deployment/) environments.
+    Be sure to enable hostname verification for your production environment. This is necessary to avoid security issues in production. See the full list of [security recommendations for production]({{base_path}}/install-and-setup/setup/deployment-best-practices/security-guidelines-for-production-deployment.md) environments.
 
 ### Configuring hostname verification
 

@@ -5,17 +5,17 @@
 !!! info
     **Before you begin** 
 
-    -   Make sure apictl is initialized and setup, if not follow the steps in [Download and Initialize the apictl]({{base_path}}/install-and-setup/setup/api-controller/getting-started-with-wso2-api-controller/#download-and-initialize-the-apictl).
+    -   Make sure apictl is initialized and setup, if not follow the steps in [Download and Initialize the apictl]({{base_path}}/apiops/cli/getting-started-with-wso2-api-controller.md#download-and-initialize-the-apictl).
 
     -  Make sure to add an environment before you start working with the following apictl commands, because all API Products need to be imported or exported to/from a specific environment.      
-    For more information, visit [Add an Environment]({{base_path}}/install-and-setup/setup/api-controller/getting-started-with-wso2-api-controller#add-an-environment).
+    For more information, visit [Add an Environment]({{base_path}}/apiops/cli/getting-started-with-wso2-api-controller.md#add-an-environment).
 
 !!! tip
-    A user with `Internal/devops` role or `admin` role are allowed to import/export Common API Policies. To create a custom user who can import/export Common API Policies, refer [Steps to Create a Custom User who can Perform API Controller Operations]({{base_path}}/install-and-setup/setup/api-controller/advanced-topics/creating-custom-users-to-perform-api-controller-operations/#steps-to-create-a-custom-user-who-can-perform-api-controller-operations).
+    A user with `Internal/devops` role or `admin` role are allowed to import/export Common API Policies. To create a custom user who can import/export Common API Policies, refer [Steps to Create a Custom User who can Perform API Controller Operations]({{base_path}}/apiops/cli/advanced-topics/creating-custom-users-to-perform-api-controller-operations.md#steps-to-create-a-custom-user-who-can-perform-api-controller-operations).
 
 ### Export a Common API Policy
 
-1.  Log in to the WSO2 API-M in the exporting environment by following steps in [Login to an Environment]({{base_path}}/install-and-setup/setup/api-controller/getting-started-with-wso2-api-controller#login-to-an-environment).  
+1.  Log in to the WSO2 API-M in the exporting environment by following steps in [Login to an Environment]({{base_path}}/apiops/cli/getting-started-with-wso2-api-controller.md#login-to-an-environment).  
     
     !!! tip
         If you are already logged-in and your logged-in credentials and keys or the access-token are (is) already available in the `<USER_HOME>/.wso2apictl/keys.json` file, you can skip this step. 
@@ -103,7 +103,7 @@ The structure of an exported Common API Policy ZIP file is explained below:
 
 You can use the common API Policy archive exported from the previous section (or you can extract it and use the extracted folder) and import it to the WSO2 API-M instance in the target environment. 
 
-1.  Log in to the WSO2 API-M in the importing environment by following steps in [Login to an Environment]({{base_path}}/install-and-setup/setup/api-controller/getting-started-with-wso2-api-controller#login-to-an-environment).
+1.  Log in to the WSO2 API-M in the importing environment by following steps in [Login to an Environment]({{base_path}}/apiops/cli/getting-started-with-wso2-api-controller.md#login-to-an-environment).
     
     !!! tip
         If you are already logged-in and your logged-in credentials and keys or the access-token are (is) already available in the `<USER_HOME>/.wso2apictl/keys.json` file, you can skip this step. 

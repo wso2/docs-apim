@@ -5,7 +5,7 @@
 <p>The steps involved in deploying an API and deploying an API Product are the same.</p>
 </div>
 
-**API Deploying** is the process of making the API available for invocation via a Gateway. You can deploy an API to a selected API Gateway environment via the Publisher Portal. To invoke an API, it needs to be published on the Developer Portal as well as deployed on a Gateway environment. You need to create a revision of an API in order to deploy it. For more information, see [Create API Revisions]({{base_path}}/manage-apis/design/create-api/create-api-revisions/)
+**API Deploying** is the process of making the API available for invocation via a Gateway. You can deploy an API to a selected API Gateway environment via the Publisher Portal. To invoke an API, it needs to be published on the Developer Portal as well as deployed on a Gateway environment. You need to create a revision of an API in order to deploy it. For more information, see [Create API Revisions]({{base_path}}/api-design-manage/design/create-api/create-api-revisions.md)
 
 **Undeploying an API**  will remove the API from the API Gateway Environment.
 

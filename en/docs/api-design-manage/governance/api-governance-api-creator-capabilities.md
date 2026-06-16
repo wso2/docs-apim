@@ -22,10 +22,10 @@ APIs are evaluated based on governance policies that enforce rulesets to ensure 
 - If a policy is **non-blocking**, API actions can proceed while the **compliance check runs in the background**. The results will be displayed in the compliance dashboard once the evaluation is complete. By default, the background compliance check runs every 2 minutes if a change has been detected.
 
 !!! note
-    To configure blocking policies as an administrator, refer to [Create a New Policy]({{base_path}}/governance/api-governance-admin-capabilities/#create-a-new-policy) in the admin guide.
+    To configure blocking policies as an administrator, refer to [Create a New Policy]({{base_path}}/administer/governance/api-governance-admin-capabilities.md#create-a-new-policy) in the admin guide.
 
 !!! tip "Understand Governance Concepts"
-    To understand the core concepts of governance in WSO2 API Manager, refer to the [Governance Concepts]({{base_path}}/governance/governance-concept) documentation.
+    To understand the core concepts of governance in WSO2 API Manager, refer to the [Governance Concepts]({{base_path}}/administer/governance/governance-concept.md) documentation.
 
 ## Labeling APIs 
 

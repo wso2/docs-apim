@@ -2,7 +2,7 @@
 
 This section explains as to how you can attach a simple approval workflow to the **application registration** operation in the API Manager. 
 
-[Application creation]({{base_path}}/consume/manage-application/advanced-topics/adding-an-application-creation-workflow) and **Application registration** are different workflows. After an application is created, you can subscribe to available APIs, but you get the consumer key/secret and access tokens only after registering the application. There are two types of registrations with regard to an application: production and sandbox. The following are the situations in which you need to change the default application registration workflow:
+[Application creation]({{base_path}}/api-developer-portal/manage-application/advanced-topics/adding-an-application-creation-workflow.md) and **Application registration** are different workflows. After an application is created, you can subscribe to available APIs, but you get the consumer key/secret and access tokens only after registering the application. There are two types of registrations with regard to an application: production and sandbox. The following are the situations in which you need to change the default application registration workflow:
 
 -  To only issue sandbox keys when creating production keys is deferred until testing is complete.
 -  To restrict untrusted applications from creating production keys. You allow only the creation of sandbox keys.
@@ -58,7 +58,7 @@ First, enable the application registration workflow.
 
 
     !!! note
-        If you do not have an API already created and an Application subscribed to it, follow [Create a REST API]({{base_path}}/manage-apis/design/create-api/create-rest-api/create-a-rest-api/), [Publish an API]({{base_path}}/manage-apis/deploy-and-publish/publish-on-dev-portal/publish-an-api/), and [Subscribe to an API]({{base_path}}/consume/manage-subscription/subscribe-to-an-api) to create an API and subscribe to it.
+        If you do not have an API already created and an Application subscribed to it, follow [Create a REST API]({{base_path}}/api-design-manage/design/create-api/create-rest-api/create-a-rest-api.md), [Publish an API]({{base_path}}/api-design-manage/deploy-and-publish/publish-on-dev-portal/publish-an-api.md), and [Subscribe to an API]({{base_path}}/api-developer-portal/manage-subscription/subscribe-to-an-api.md) to create an API and subscribe to it.
 
 5.  Select **Production Keys** or **Sandbox Keys** from the side navigation bar and click on **GENERATE KEYS**.
     

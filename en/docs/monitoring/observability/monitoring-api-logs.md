@@ -160,5 +160,5 @@ Devops REST API can be used to configure log level of APIs. It only allows the u
 
 APICTL provides the functionality to get and set the log level of APIs. It only allows the user with super admission permissions to configure API Logs. For more instructions, refer to the following doc pages.
 
-1. [Get the log level of APIs or an API in an environment]({{base_path}}/install-and-setup/setup/api-controller/managing-apis-api-products/managing-apis-and-api-products/#get-the-log-level-of-apis-or-an-api-in-an-environment)
-2. [Set the log level of an API in an environment]({{base_path}}/install-and-setup/setup/api-controller/managing-apis-api-products/managing-apis-and-api-products/#set-the-log-level-of-an-api-in-an-environment)
+1. [Get the log level of APIs or an API in an environment]({{base_path}}/apiops/cli/managing-apis-api-products/managing-apis-and-api-products.md#get-the-log-level-of-apis-or-an-api-in-an-environment)
+2. [Set the log level of an API in an environment]({{base_path}}/apiops/cli/managing-apis-api-products/managing-apis-and-api-products.md#set-the-log-level-of-an-api-in-an-environment)

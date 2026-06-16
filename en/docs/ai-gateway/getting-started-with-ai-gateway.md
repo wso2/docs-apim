@@ -140,4 +140,4 @@ Now that you've successfully created your first AI API, explore these advanced c
 - **[AI APIs via SDKs]({{base_path}}/ai-gateway/using-proxy-apis-in-sdks/)** - Generate and use SDKs for your AI APIs
 
 ### Explore MCP Gateway
-- **[MCP Gateway]({{base_path}}/mcp/overview/)** - Transform your APIs into AI-ready tools for Large Language Models
+- **[MCP Gateway]({{base_path}}/ai-gateway/mcp-gateway/overview.md)** - Transform your APIs into AI-ready tools for Large Language Models

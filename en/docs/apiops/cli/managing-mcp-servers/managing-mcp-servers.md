@@ -3,15 +3,15 @@
 ## Add MCP Servers in an environment
 
 You can add MCP Servers via the Publisher Portal.
-However, **WSO2 API Controller (apictl)** allows you to create and deploy MCP Servers without using the Publisher Portal. For more information on adding MCP Servers, see [Importing MCP Servers Via Dev First Approach]({{base_path}}/install-and-setup/setup/api-controller/managing-mcp-servers/importing-mcp-servers-via-dev-first-approach).
+However, **WSO2 API Controller (apictl)** allows you to create and deploy MCP Servers without using the Publisher Portal. For more information on adding MCP Servers, see [Importing MCP Servers Via Dev First Approach]({{base_path}}/apiops/cli/managing-mcp-servers/importing-mcp-servers-via-dev-first-approach.md).
 
 ## Get MCP Servers in an environment
 
 Follow the instructions below to display a list of MCP Servers in an environment using apictl:
 
 1.  Make sure that the WSO2 API Manager is started and the apictl is set up.   
-     For more information, see [Download and Initialize the apictl]({{base_path}}/install-and-setup/setup/api-controller/getting-started-with-wso2-api-controller/#download-and-initialize-the-apictl).
-2.  Log in to the WSO2 API-M in the environment by following the instructions in [Login to an Environment]({{base_path}}/install-and-setup/setup/api-controller/getting-started-with-wso2-api-controller/#login-to-an-environment).
+     For more information, see [Download and Initialize the apictl]({{base_path}}/apiops/cli/getting-started-with-wso2-api-controller.md#download-and-initialize-the-apictl).
+2.  Log in to the WSO2 API-M in the environment by following the instructions in [Login to an Environment]({{base_path}}/apiops/cli/getting-started-with-wso2-api-controller.md#login-to-an-environment).
 3.  Run the corresponding apictl command below to get (list) MCP Servers in an environment.
 
     -   **Command**
@@ -59,8 +59,8 @@ Follow the instructions below to display a list of MCP Servers in an environment
 Follow the instructions below to display a list of revisions created for an MCP Server in an environment using apictl:
 
 1.  Make sure that the WSO2 API-M is started and the apictl is set up.   
-     For more information, see [Download and Initialize the apictl]({{base_path}}/install-and-setup/setup/api-controller/getting-started-with-wso2-api-controller/#download-and-initialize-the-apictl).
-2.  Log in to the WSO2 API-M in the environment by following the instructions in [Login to an Environment]({{base_path}}/install-and-setup/setup/api-controller/getting-started-with-wso2-api-controller/#login-to-an-environment).
+     For more information, see [Download and Initialize the apictl]({{base_path}}/apiops/cli/getting-started-with-wso2-api-controller.md#download-and-initialize-the-apictl).
+2.  Log in to the WSO2 API-M in the environment by following the instructions in [Login to an Environment]({{base_path}}/apiops/cli/getting-started-with-wso2-api-controller.md#login-to-an-environment).
 3.  Run the corresponding apictl command below to get (list) revisions for the required MCP Server in an environment.
 
     -   **Command**
@@ -112,15 +112,15 @@ Follow the instructions below to display a list of revisions created for an MCP 
     gateway environment. Without the ```query``` flag, revisions will be displayed irrespective of the deployment.
 
 !!! note
-    Output of the `get mcp-server-revisions` command can be formatted with Go Templates. For more information on formatting the get commands, see [Formatting the outputs of get commands]({{base_path}}/install-and-setup/setup/api-controller/advanced-topics/formatting-the-output-of-get-command).
+    Output of the `get mcp-server-revisions` command can be formatted with Go Templates. For more information on formatting the get commands, see [Formatting the outputs of get commands]({{base_path}}/apiops/cli/advanced-topics/formatting-the-output-of-get-command.md).
 
 ## Delete an MCP Server in an environment
 
 Follow the instructions below to delete an MCP Server in an environment using apictl:
 
 1.  Make sure that the WSO2 API-M is started and the apictl is set up.   
-For more information, see [Download and Initialize the apictl]({{base_path}}/install-and-setup/setup/api-controller/getting-started-with-wso2-api-controller/#download-and-initialize-the-apictl).
-2.  Log in to the WSO2 API-M in the environment by following the instructions in [Login to an Environment]({{base_path}}/install-and-setup/setup/api-controller/getting-started-with-wso2-api-controller/#login-to-an-environment).
+For more information, see [Download and Initialize the apictl]({{base_path}}/apiops/cli/getting-started-with-wso2-api-controller.md#download-and-initialize-the-apictl).
+2.  Log in to the WSO2 API-M in the environment by following the instructions in [Login to an Environment]({{base_path}}/apiops/cli/getting-started-with-wso2-api-controller.md#login-to-an-environment).
 3.  Run the corresponding apictl command below to delete an MCP Server in an environment.
 
     -   **Command**
@@ -166,8 +166,8 @@ For more information, see [Download and Initialize the apictl]({{base_path}}/ins
 Follow the instructions below to change the status of an MCP Server in an environment using apictl:
 
 1.  Make sure that the WSO2 API-M is started and the apictl is set up.   
-For more information, see [Download and Initialize the apictl]({{base_path}}/install-and-setup/setup/api-controller/getting-started-with-wso2-api-controller/#download-and-initialize-the-apictl).
-2.  Log in to the WSO2 API-M in the environment by following the instructions in [Login to an Environment]({{base_path}}/install-and-setup/setup/api-controller/getting-started-with-wso2-api-controller/#login-to-an-environment).
+For more information, see [Download and Initialize the apictl]({{base_path}}/apiops/cli/getting-started-with-wso2-api-controller.md#download-and-initialize-the-apictl).
+2.  Log in to the WSO2 API-M in the environment by following the instructions in [Login to an Environment]({{base_path}}/apiops/cli/getting-started-with-wso2-api-controller.md#login-to-an-environment).
 3.  Run the corresponding apictl command below to change the status of an MCP Server in an environment.
 
     -   **Command**
@@ -218,8 +218,8 @@ For more information, see [Download and Initialize the apictl]({{base_path}}/ins
 Follow the instructions below to undeploy a revision of an MCP Server from a selected gateway environment using apictl:
 
 1.  Make sure that the WSO2 API-M is started and the apictl is set up.   
-For more information, see [Download and Initialize the apictl]({{base_path}}/install-and-setup/setup/api-controller/getting-started-with-wso2-api-controller/#download-and-initialize-the-apictl).
-2.  Log in to the WSO2 API-M in the environment by following the instructions in [Login to an Environment]({{base_path}}/install-and-setup/setup/api-controller/getting-started-with-wso2-api-controller/#login-to-an-environment).
+For more information, see [Download and Initialize the apictl]({{base_path}}/apiops/cli/getting-started-with-wso2-api-controller.md#download-and-initialize-the-apictl).
+2.  Log in to the WSO2 API-M in the environment by following the instructions in [Login to an Environment]({{base_path}}/apiops/cli/getting-started-with-wso2-api-controller.md#login-to-an-environment).
 3.  Run the corresponding apictl command below to undeploy the revision from a gateway environment.
 
     -   **Command**
@@ -272,8 +272,8 @@ For more information, see [Download and Initialize the apictl]({{base_path}}/ins
 Follow the instructions below to get the logging details of MCP Servers or an MCP Server in an environment using apictl:
 
 1.  Make sure that the WSO2 API-M is started and the apictl is set up.   
-For more information, see [Download and Initialize the apictl]({{base_path}}/install-and-setup/setup/api-controller/getting-started-with-wso2-api-controller/#download-and-initialize-the-apictl).
-2.  Log in to the WSO2 API-M in the environment by following the instructions in [Login to an Environment]({{base_path}}/install-and-setup/setup/api-controller/getting-started-with-wso2-api-controller/#login-to-an-environment).
+For more information, see [Download and Initialize the apictl]({{base_path}}/apiops/cli/getting-started-with-wso2-api-controller.md#download-and-initialize-the-apictl).
+2.  Log in to the WSO2 API-M in the environment by following the instructions in [Login to an Environment]({{base_path}}/apiops/cli/getting-started-with-wso2-api-controller.md#login-to-an-environment).
 3.  Run the corresponding apictl command below to get the logging details of MCP Servers or an MCP Server in an environment.
 
     -   **Command**
@@ -336,8 +336,8 @@ For more information, see [Download and Initialize the apictl]({{base_path}}/ins
 Follow the instructions below to add/change/remove the log level of an MCP Server in an environment using apictl:
 
 1.  Make sure that the WSO2 API-M is started and the apictl is set up.   
-For more information, see [Download and Initialize the apictl]({{base_path}}/install-and-setup/setup/api-controller/getting-started-with-wso2-api-controller/#download-and-initialize-the-apictl).
-2.  Log in to the WSO2 API-M in the environment by following the instructions in [Login to an Environment]({{base_path}}/install-and-setup/setup/api-controller/getting-started-with-wso2-api-controller/#login-to-an-environment).
+For more information, see [Download and Initialize the apictl]({{base_path}}/apiops/cli/getting-started-with-wso2-api-controller.md#download-and-initialize-the-apictl).
+2.  Log in to the WSO2 API-M in the environment by following the instructions in [Login to an Environment]({{base_path}}/apiops/cli/getting-started-with-wso2-api-controller.md#login-to-an-environment).
 3.  Run the corresponding apictl command below to set the log level of an MCP Server in an environment.
 
     -   **Command**
