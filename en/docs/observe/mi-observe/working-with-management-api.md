@@ -789,7 +789,7 @@ The management API has multiple resources to provide information regarding the d
 	    ```
 
     !!! note
-		This API supports only from WSO2MI 4.1.0.175 onwards.
+		This API was introduced in WSO2 MI version 4.1.0.175.
 
 ### GET MESSAGE STORES
 
