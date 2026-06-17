@@ -13,7 +13,7 @@ below scopes  chart to define scopes.
 ## Step 2 - Create a new user
 
 1. Click `Add` under `Users and Role` and click on `Add New User`.
-2. Give an username, password and click `next`.
+2. Give a username, password and click `next`.
 3. On the `Users of role` screen, choose and assign the role previously created to the new user.
 
 ## Step 3 - Assign scopes for the user

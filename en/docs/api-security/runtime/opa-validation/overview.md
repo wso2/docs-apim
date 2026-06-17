@@ -3,7 +3,7 @@
 The [Open Policy Agent (OPA)](https://openpolicyagent.org/) is an open source, general-purpose policy engine that unifies policy enforcement. 
 With the ability to define complex policies as a code, OPA provides the much needed flexibility over standard static access control mechanisms such as role based or attribute based access control.
 
-You can offload some responsibility of making the decision to authorize or not when a consumer invokes APIs based on policies attached to APIs. Open Policy Agent comprises of a policy engine that allows users (or systems) to query policies for decisions. 
+You can offload some responsibility of making the decision to authorize or not when a consumer invokes APIs based on policies attached to APIs. Open Policy Agent comprises a policy engine that allows users (or systems) to query policies for decisions. 
 A policy for Open Policy Agent can be though as a set of rules and policy engine evaluate these rules based on the input it receives.
 
 WSO2 API Manager uses this unique policy engine to evaluate the requests that the Gateway receives and decides the fate of the request.

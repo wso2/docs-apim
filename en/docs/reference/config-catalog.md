@@ -17404,3 +17404,426 @@ same_site_cookies = "lax"
     </section>
 </div>
 
+
+
+## OIDC Authenticator Parameters
+
+
+<div class="mb-config-catalog">
+    <section>
+        <div class="mb-config-options">
+            <div class="superfences-tabs">
+            
+            <input name="120" type="checkbox" id="_tab_120">
+                <label class="tab-selector" for="_tab_120"><i class="icon fa fa-code"></i></label>
+                <div class="superfences-content">
+                    <div class="mb-config-example">
+<pre><code class="toml">[authentication.authenticator.oidc.parameters]
+excludedClaimAttributes="at_hash,iss,iat,exp,aud,azp"
+</code></pre>
+                    </div>
+                </div>
+                <div class="doc-wrapper">
+                    <div class="mb-config">
+                        <div class="config-wrap">
+                            <code>[authentication.authenticator.oidc.parameters]</code>
+                            
+                            <p>
+                                This includes configurations for OIDC authenticator claim mapping behavior.
+                            </p>
+                        </div>
+                        <div class="params-wrap">
+                            <div class="param">
+                                <div class="param-name">
+                                  <span class="param-name-wrap"> <code>excludedClaimAttributes</code> </span>
+                                </div>
+                                <div class="param-info">
+                                    <div>
+                                        <p>
+                                            <span class="param-type string"> string </span>
+                                            
+                                        </p>
+                                        <div class="param-default">
+                                            <span class="param-default-value">Default: <code>at_hash,iss,iat,exp,aud,azp</code></span>
+                                        </div>
+                                        <div class="param-possible">
+                                            <span class="param-possible-values">Possible Values: <code>comma-separated list of JWT claim attributes</code></span>
+                                        </div>
+                                    </div>
+                                    <div class="param-description">
+                                        <p>This property defines the JWT claim attributes that should be excluded during OIDC claim mapping. The value should be provided as a comma-separated list of claim names. When configured, only the specified claim attributes will be excluded from the claim mapping process. If this property is not explicitly configured, the system falls back to the default exclusion list to preserve existing behavior. Customizing this property allows users to control which JWT claims are ignored during mapping based on application requirements.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+
+
+
+## Embedding Provider configurations
+
+
+<div class="mb-config-catalog">
+    <section>
+        <div class="mb-config-options">
+            <div class="superfences-tabs">
+            
+            <input name="121" type="checkbox" id="_tab_121">
+                <label class="tab-selector" for="_tab_121"><i class="icon fa fa-code"></i></label>
+                <div class="superfences-content">
+                    <div class="mb-config-example">
+<pre><code class="toml"># API KEY CONFIGS
+[apim.ai.embedding_provider]
+type = "openai"
+[apim.ai.embedding_provider.properties]
+apikey = "<your-api-key>"
+embedding_endpoint = "https://api.openai.com/v1/embeddings"
+embedding_model = "<embedding-model>"
+
+# AZURE UMI CONFIGS
+[apim.ai.embedding_provider]
+type = "azure-openai"
+[apim.ai.embedding_provider.properties]
+auth_type = "umi"
+embedding_endpoint = "https://api.openai.azure.com/openai/deployments/text-embedding-3-small/embeddings?api-version=2024-02-01"
+azure_umi_scope = "https://cognitiveservices.azure.com/.default"
+</code></pre>
+                    </div>
+                </div>
+                <div class="doc-wrapper">
+                    <div class="mb-config">
+                        <div class="config-wrap">
+                            <code>[apim.ai.embedding_provider]</code>
+                            <span class="badge-required">Required</span>
+                            <p>
+                                Configuration for the embedding provider used to generate vector embeddings for AI features.
+                            </p>
+                        </div>
+                        <div class="params-wrap">
+                            <div class="param">
+                                <div class="param-name">
+                                  <span class="param-name-wrap"> <code>type</code> </span>
+                                </div>
+                                <div class="param-info">
+                                    <div>
+                                        <p>
+                                            <span class="param-type string"> string </span>
+                                            <span class="badge-required">Required</span>
+                                        </p>
+                                        <div class="param-default">
+                                            <span class="param-default-value">Default: <code></code></span>
+                                        </div>
+                                        <div class="param-possible">
+                                            <span class="param-possible-values">Possible Values: <code>openai,azure-openai,mistral</code></span>
+                                        </div>
+                                    </div>
+                                    <div class="param-description">
+                                        <p>The embedding provider type. Supported values are openai, azure-openai, and mistral.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div><div class="config-wrap">
+                            <code>[apim.ai.embedding_provider.properties]</code>
+                            <span class="badge-required">Required</span>
+                            <p>
+                                Provider-specific properties for the embedding provider.
+                            </p>
+                        </div>
+                        <div class="params-wrap">
+                            <div class="param">
+                                <div class="param-name">
+                                  <span class="param-name-wrap"> <code>auth_type</code> </span>
+                                </div>
+                                <div class="param-info">
+                                    <div>
+                                        <p>
+                                            <span class="param-type string"> string </span>
+                                            
+                                        </p>
+                                        <div class="param-default">
+                                            <span class="param-default-value">Default: <code>apikey</code></span>
+                                        </div>
+                                        <div class="param-possible">
+                                            <span class="param-possible-values">Possible Values: <code>apikey, umi</code></span>
+                                        </div>
+                                    </div>
+                                    <div class="param-description">
+                                        <p>The authentication type for the embedding provider. This is applicable when embedding provider type is azure-openai. Supported values are apikey (use API key for authentication) and umi (use Azure User Managed Identity for authentication). If not specified, defaults to apikey.</p>
+                                    </div>
+                                </div>
+                            </div><div class="param">
+                                <div class="param-name">
+                                  <span class="param-name-wrap"> <code>apikey</code> </span>
+                                </div>
+                                <div class="param-info">
+                                    <div>
+                                        <p>
+                                            <span class="param-type string"> string </span>
+                                            <span class="badge-required">Required</span>
+                                        </p>
+                                        <div class="param-default">
+                                            <span class="param-default-value">Default: <code></code></span>
+                                        </div>
+                                        
+                                    </div>
+                                    <div class="param-description">
+                                        <p>The API key used to authenticate requests to the embedding provider.</p>
+                                    </div>
+                                </div>
+                            </div><div class="param">
+                                <div class="param-name">
+                                  <span class="param-name-wrap"> <code>embedding_endpoint</code> </span>
+                                </div>
+                                <div class="param-info">
+                                    <div>
+                                        <p>
+                                            <span class="param-type string"> string </span>
+                                            <span class="badge-required">Required</span>
+                                        </p>
+                                        <div class="param-default">
+                                            <span class="param-default-value">Default: <code></code></span>
+                                        </div>
+                                        
+                                    </div>
+                                    <div class="param-description">
+                                        <p>The endpoint URL of the embedding API. For OpenAI use https://api.openai.com/v1/embeddings, for Mistral use https://api.mistral.ai/v1/embeddings, and for Azure OpenAI use the Azure OpenAI-provided endpoint.</p>
+                                    </div>
+                                </div>
+                            </div><div class="param">
+                                <div class="param-name">
+                                  <span class="param-name-wrap"> <code>embedding_model</code> </span>
+                                </div>
+                                <div class="param-info">
+                                    <div>
+                                        <p>
+                                            <span class="param-type string"> string </span>
+                                            
+                                        </p>
+                                        <div class="param-default">
+                                            <span class="param-default-value">Default: <code></code></span>
+                                        </div>
+                                        
+                                    </div>
+                                    <div class="param-description">
+                                        <p>The embedding model to use. Required for openai (e.g., text-embedding-3-small) and mistral (e.g., mistral-embed) provider types. Not required for azure-openai as the model is determined by the endpoint.</p>
+                                    </div>
+                                </div>
+                            </div><div class="param">
+                                <div class="param-name">
+                                  <span class="param-name-wrap"> <code>azure_umi_scope</code> </span>
+                                </div>
+                                <div class="param-info">
+                                    <div>
+                                        <p>
+                                            <span class="param-type string"> string </span>
+                                            
+                                        </p>
+                                        <div class="param-default">
+                                            <span class="param-default-value">Default: <code>https://cognitiveservices.azure.com/.default</code></span>
+                                        </div>
+                                        
+                                    </div>
+                                    <div class="param-description">
+                                        <p>The scope to use when authenticating with Azure User Managed Identity. This is applicable when embedding provider type is azure-openai and auth_type is set to umi. The scope should be in the format https://&lt;custom-scope&gt;.azure.com/.default. Defaults to cognitive services scope (https://cognitiveservices.azure.com/.default) if not specified.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+
+
+
+## Vector DB Provider configurations
+
+
+<div class="mb-config-catalog">
+    <section>
+        <div class="mb-config-options">
+            <div class="superfences-tabs">
+            
+            <input name="122" type="checkbox" id="_tab_122">
+                <label class="tab-selector" for="_tab_122"><i class="icon fa fa-code"></i></label>
+                <div class="superfences-content">
+                    <div class="mb-config-example">
+<pre><code class="toml">[apim.ai.vector_db_provider]
+type = "zilliz"
+[apim.ai.vector_db_provider.properties]
+uri = "<your-zilliz-instance-uri>"
+token = "<your-zilliz-token>"
+ttl = 3600
+</code></pre>
+                    </div>
+                </div>
+                <div class="doc-wrapper">
+                    <div class="mb-config">
+                        <div class="config-wrap">
+                            <code>[apim.ai.vector_db_provider]</code>
+                            <span class="badge-required">Required</span>
+                            <p>
+                                Configuration for the vector database provider used to store and query vector embeddings for AI features.
+                            </p>
+                        </div>
+                        <div class="params-wrap">
+                            <div class="param">
+                                <div class="param-name">
+                                  <span class="param-name-wrap"> <code>type</code> </span>
+                                </div>
+                                <div class="param-info">
+                                    <div>
+                                        <p>
+                                            <span class="param-type string"> string </span>
+                                            <span class="badge-required">Required</span>
+                                        </p>
+                                        <div class="param-default">
+                                            <span class="param-default-value">Default: <code></code></span>
+                                        </div>
+                                        <div class="param-possible">
+                                            <span class="param-possible-values">Possible Values: <code>zilliz</code></span>
+                                        </div>
+                                    </div>
+                                    <div class="param-description">
+                                        <p>The vector database provider type. Use zilliz to connect to either Zilliz Cloud or a Milvus instance.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div><div class="config-wrap">
+                            <code>[apim.ai.vector_db_provider.properties]</code>
+                            <span class="badge-required">Required</span>
+                            <p>
+                                Provider-specific connection properties for the vector database.
+                            </p>
+                        </div>
+                        <div class="params-wrap">
+                            <div class="param">
+                                <div class="param-name">
+                                  <span class="param-name-wrap"> <code>uri</code> </span>
+                                </div>
+                                <div class="param-info">
+                                    <div>
+                                        <p>
+                                            <span class="param-type string"> string </span>
+                                            <span class="badge-required">Required</span>
+                                        </p>
+                                        <div class="param-default">
+                                            <span class="param-default-value">Default: <code></code></span>
+                                        </div>
+                                        
+                                    </div>
+                                    <div class="param-description">
+                                        <p>The URI of the vector database instance. For Zilliz, use the Zilliz Cloud cluster endpoint. For Milvus, use the Milvus server address (e.g., http://localhost:19530).</p>
+                                    </div>
+                                </div>
+                            </div><div class="param">
+                                <div class="param-name">
+                                  <span class="param-name-wrap"> <code>token</code> </span>
+                                </div>
+                                <div class="param-info">
+                                    <div>
+                                        <p>
+                                            <span class="param-type string"> string </span>
+                                            <span class="badge-required">Required</span>
+                                        </p>
+                                        <div class="param-default">
+                                            <span class="param-default-value">Default: <code></code></span>
+                                        </div>
+                                        
+                                    </div>
+                                    <div class="param-description">
+                                        <p>The access token for authenticating with the vector database. For Zilliz, use the Zilliz Cloud API token. For Milvus, use the username and password in the format username:password (e.g., root:Milvus).</p>
+                                    </div>
+                                </div>
+                            </div><div class="param">
+                                <div class="param-name">
+                                  <span class="param-name-wrap"> <code>ttl</code> </span>
+                                </div>
+                                <div class="param-info">
+                                    <div>
+                                        <p>
+                                            <span class="param-type string"> integer </span>
+                                            
+                                        </p>
+                                        <div class="param-default">
+                                            <span class="param-default-value">Default: <code>3600</code></span>
+                                        </div>
+                                        
+                                    </div>
+                                    <div class="param-description">
+                                        <p>Time-to-live in seconds for cached vector entries. If not specified, defaults to 3600 seconds (1 hour).</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+
+
+
+## Azure AI Foundry UMI configurations
+
+
+<div class="mb-config-catalog">
+    <section>
+        <div class="mb-config-options">
+            <div class="superfences-tabs">
+            
+            <input name="123" type="checkbox" id="_tab_123">
+                <label class="tab-selector" for="_tab_123"><i class="icon fa fa-code"></i></label>
+                <div class="superfences-content">
+                    <div class="mb-config-example">
+<pre><code class="toml">[apim.ai.azure_umi]
+scope = "https://ai.azure.com/.default"
+</code></pre>
+                    </div>
+                </div>
+                <div class="doc-wrapper">
+                    <div class="mb-config">
+                        <div class="config-wrap">
+                            <code>[apim.ai.azure_umi]</code>
+                            
+                            <p>
+                                Configuration for Azure User Managed Identity (UMI) authentication used with Azure AI Foundry.
+                            </p>
+                        </div>
+                        <div class="params-wrap">
+                            <div class="param">
+                                <div class="param-name">
+                                  <span class="param-name-wrap"> <code>scope</code> </span>
+                                </div>
+                                <div class="param-info">
+                                    <div>
+                                        <p>
+                                            <span class="param-type string"> string </span>
+                                            
+                                        </p>
+                                        <div class="param-default">
+                                            <span class="param-default-value">Default: <code>https://ai.azure.com/.default</code></span>
+                                        </div>
+                                        
+                                    </div>
+                                    <div class="param-description">
+                                        <p>The OAuth scope used when authenticating with Azure User Managed Identity for Azure AI Foundry. Use this to override the default scope (https://ai.azure.com/.default) with a custom scope in the format https://&lt;custom-scope&gt;.azure.com/.default.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+

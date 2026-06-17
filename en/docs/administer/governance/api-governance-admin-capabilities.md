@@ -81,7 +81,7 @@ To create a new policy, click the **Create Policy** button and provide the follo
 | Description | A brief description of the policy.             | No | -                                                                                                                                                              |
 | Attachment  | The way the policy is attached to the Artifacts.    | Yes | All Artifacts (REST, ASYNC and MCP Server) <br/> Artifacts with specific labels<br/> None                                                                                            |
 | Enforcement | The detail of the policy enforcement criteria. | Yes | **When to Enforce** <br/> Create, Update, Deploy, Publish <br/> **Actions to Take** (based on severity of rule violations) <br/> Notify, Block |
-| Rulesets    | The list rulesets included in the policy.      | Yes | -                                                                                                                                                              |
+| Rulesets    | The list of rulesets included in the policy.     | Yes | -                                                                                                                                                              |
 
 
 After providing the required information, click on the **Create** button to create the policy.

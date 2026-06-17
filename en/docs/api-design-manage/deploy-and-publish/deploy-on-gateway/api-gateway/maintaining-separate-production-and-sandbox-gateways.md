@@ -62,7 +62,7 @@ The `type` attribute of the environment can take the following values:
 
 If you work with Gateways in different geographical locations, configuring multiple environments in the `<API-M_HOME>/repository/conf/deployment.toml` file is recommended. The diagram below depicts a sample setup:
 
-[![Multi-region Gateway]({{base_path}}/assets/img/learn/multi-reigion-gw.png)]({{base_path}}/assets/img/learn/multi-reigion-gw.png)
+[![Multi-region Gateway]({{base_path}}/assets/img/learn/multi-region-gw.png)]({{base_path}}/assets/img/learn/multi-region-gw.png)
 
 **Figure** : Classic Gateways in different geographical regions
 

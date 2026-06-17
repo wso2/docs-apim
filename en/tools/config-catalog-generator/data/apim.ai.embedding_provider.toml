@@ -1,0 +1,15 @@
+# API KEY CONFIGS
+[apim.ai.embedding_provider]
+type = "openai"
+[apim.ai.embedding_provider.properties]
+apikey = "<your-api-key>"
+embedding_endpoint = "https://api.openai.com/v1/embeddings"
+embedding_model = "<embedding-model>"
+
+# AZURE UMI CONFIGS
+[apim.ai.embedding_provider]
+type = "azure-openai"
+[apim.ai.embedding_provider.properties]
+auth_type = "umi"
+embedding_endpoint = "https://api.openai.azure.com/openai/deployments/text-embedding-3-small/embeddings?api-version=2024-02-01"
+azure_umi_scope = "https://cognitiveservices.azure.com/.default"

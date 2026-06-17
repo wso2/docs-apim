@@ -22,7 +22,7 @@ When APIs are created and published through the **Publisher**, they become avail
 
 ### Subscribe to APIs
 
-Before using an API, the developer must first subscribe to the APIs and obtain the required authentication keys through an **application**.
+Before using an API, the developer must first subscribe to the API and obtain the required authentication keys through an **application**.
 
 **Applications**
 
