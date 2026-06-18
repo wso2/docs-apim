@@ -379,6 +379,9 @@ Configure the Control Plane to communicate with the Gateway.
     !!! Info
         As there are two event hubs in a HA setup, each event hub has to publish events to both event streams. This will be done through the event streams created with `apim.event_hub.publish.url_group`. The token revocation events that are received to an event hub will be duplicated to the other event hub using `event_duplicate_url`.
 
+    !!! Warning "Super admin passwords with special characters"
+        If the super admin password contains special characters, you must add an `[apim.event_hub.jms]` section with the URL-encoded password. See [Maintaining Logins and Passwords](../security/logins-and-passwords/maintaining-logins-and-passwords.md) for the full configuration.
+
     **Add Event Listener Configurations**:
 
     The below configurations are only added to the Control Plane if you are using the Resident Key Manager (which resides in the Control Plane). If you are using WSO2 IS as a Key Manager, you need to add these to the IS node. Once you add the below configurations, the Control Plane or Identity Server will listen to token revocation events and invoke the `notification_endpoint` regarding the revoked token. 
