@@ -92,9 +92,9 @@ invoke it using the **wscat** WebSocket client.
      
          For more information, see the following sections on endpoint related configurations.
 
-         - [Endpoint Timeouts]({{base_path}}/manage-apis/design/endpoints/resiliency/endpoint-timeouts)
-         - [Endpoint Suspension]({{base_path}}/manage-apis/design/endpoints/resiliency/endpoint-suspension)
-         - [Prevent API Suspension]({{base_path}}/manage-apis/design/endpoints/resiliency/prevent-api-suspension)
+         - [Endpoint Timeouts]({{base_path}}/api-design-manage/design/endpoints/resiliency/endpoint-timeouts.md)
+         - [Endpoint Suspension]({{base_path}}/api-design-manage/design/endpoints/resiliency/endpoint-suspension.md)
+         - [Prevent API Suspension]({{base_path}}/api-design-manage/design/endpoints/resiliency/prevent-api-suspension.md)
 
      [![View endpoint details]({{base_path}}/assets/img/learn/endpoint-view-of-websocket-api.jpg)]({{base_path}}/assets/img/learn/endpoint-view-of-websocket-api.jpg)
 

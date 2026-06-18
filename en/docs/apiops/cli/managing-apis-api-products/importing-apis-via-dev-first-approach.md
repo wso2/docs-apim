@@ -5,11 +5,11 @@
 !!! info
     **Before you begin** 
 
-    -   Make sure that the apictl is downloaded and initialized, if not, follow the steps in [Download and Initialize the apictl]({{base_path}}/install-and-setup/setup/api-controller/getting-started-with-wso2-api-controller/#download-and-initialize-the-apictl).
+    -   Make sure that the apictl is downloaded and initialized, if not, follow the steps in [Download and Initialize the apictl]({{base_path}}/apiops/cli/getting-started-with-wso2-api-controller.md#download-and-initialize-the-apictl).
 
     -   Make sure you already have added an environment using the apictl for the WSO2 API-M environment you plan to import the API to. 
 
-        If not, follow the steps in [Add an Environment]({{base_path}}/install-and-setup/setup//api-controller/getting-started-with-wso2-api-controller#add-an-environment).
+        If not, follow the steps in [Add an Environment]({{base_path}}/apiops/cli/getting-started-with-wso2-api-controller.md#add-an-environment).
 
 ## Initialize an API project
 
@@ -316,7 +316,7 @@
             </tr>
         <tr class="odd">
             <td>Policies</td>
-            <td>Contains the operation policies attached to the operations of the API. To learn more about adding a custom operation policy with dynamic data, see [Add dynamic data to Operation Policies in an API project]({{base_path}}/install-and-setup/setup/api-controller/advanced-topics/using-dynamic-data-in-api-controller-projects/#add-dynamic-data-to-operation-policies-in-an-api-project).</td>
+            <td>Contains the operation policies attached to the operations of the API. To learn more about adding a custom operation policy with dynamic data, see [Add dynamic data to Operation Policies in an API project]({{base_path}}/apiops/cli/advanced-topics/using-dynamic-data-in-api-controller-projects.md#add-dynamic-data-to-operation-policies-in-an-api-project).</td>
         </tr>
         <tr class="even">
         <td>Client-certificates</td>
@@ -345,7 +345,7 @@
 
         **Generate APIs with Dynamic Data**
 
-        When initializing an API Project, apictl is capable of detecting environment variables in the default definition file or in the provided custom definition file. For more information on using dynamic data, see [Initialize API Projects with Dynamic Data]({{base_path}}/install-and-setup/setup/api-controller/advanced-topics/using-dynamic-data-in-api-controller-projects/#initialize-api-projects-with-dynamic-data).
+        When initializing an API Project, apictl is capable of detecting environment variables in the default definition file or in the provided custom definition file. For more information on using dynamic data, see [Initialize API Projects with Dynamic Data]({{base_path}}/apiops/cli/advanced-topics/using-dynamic-data-in-api-controller-projects.md#initialize-api-projects-with-dynamic-data).
 
 4. Open the `<API Project>/api.yaml` file. You can edit the **mandatory configurations** in the field named `data` as listed below.
 
@@ -390,13 +390,13 @@
 !!! info
     **Before you begin...** 
 
-    -   Make sure you have already created an environment to which you are planning to import the API. If not, follow steps in [Add an Environment]({{base_path}}/install-and-setup/setup/api-controller/getting-started-with-wso2-api-controller#add-an-environment).
+    -   Make sure you have already created an environment to which you are planning to import the API. If not, follow steps in [Add an Environment]({{base_path}}/apiops/cli/getting-started-with-wso2-api-controller.md#add-an-environment).
     
-    -   Make sure you have logged-in to the importing environment. If not, follow steps in [Login to an Environment]({{base_path}}/install-and-setup/setup/api-controller/getting-started-with-wso2-api-controller#login-to-an-environment). 
+    -   Make sure you have logged-in to the importing environment. If not, follow steps in [Login to an Environment]({{base_path}}/apiops/cli/getting-started-with-wso2-api-controller.md#login-to-an-environment). 
 
 
 !!! tip
-    A user with `Internal/devops` role or `admin` role are allowed to import APIs. To create a custom user who can import APIs, refer [Steps to Create a Custom User who can Perform API Controller Operations]({{base_path}}/install-and-setup/setup/api-controller/advanced-topics/creating-custom-users-to-perform-api-controller-operations/#steps-to-create-a-custom-user-who-can-perform-api-controller-operations).
+    A user with `Internal/devops` role or `admin` role are allowed to import APIs. To create a custom user who can import APIs, refer [Steps to Create a Custom User who can Perform API Controller Operations]({{base_path}}/apiops/cli/advanced-topics/creating-custom-users-to-perform-api-controller-operations.md#steps-to-create-a-custom-user-who-can-perform-api-controller-operations).
 
 After editing the mandatory fields in the API Project, you can import the API to an environment using any of the following commands.  
 
@@ -429,7 +429,7 @@ After editing the mandatory fields in the API Project, you can import the API to
             `--skip-deployments` : Skip the deployment environments specified in the project and only update the current API of the API.   
             `--preserve-provider` : Preserve the existing provider of API after importing. The default value is `true`.   
             `--update` : Update an existing API or create a new API in the importing environment.    
-            `--params` : Provide an API Manager environment params file. For more information, see [Configuring Environment Specific Parameters]({{base_path}}/install-and-setup/setup/api-controller/advanced-topics/configuring-environment-specific-parameters).    
+            `--params` : Provide an API Manager environment params file. For more information, see [Configuring Environment Specific Parameters]({{base_path}}/apiops/cli/advanced-topics/configuring-environment-specific-parameters.md).    
             `--skip-cleanup` : Leave all temporary files created in apictl during import process. The default value is `false`.    
     
     !!! note

@@ -33,7 +33,7 @@ The following are the methods that the `JWTValidator` interface uses to carry ou
 </tbody>
 </table>
 
-You can implement the `JWTValidator` interface inside a custom Key Manager connector. For more information, see [writing a custom key manager connector]({{base_path}}/administer/key-managers/configure-custom-connector).
+You can implement the `JWTValidator` interface inside a custom Key Manager connector. For more information, see [writing a custom key manager connector]({{base_path}}/api-security/key-management/third-party-key-managers/configure-custom-connector.md).
 
 After you implement the `JWTValidator` interface the implementation class can be instantiated using the `KeyManagerConnectorConfiguration`interface.
 

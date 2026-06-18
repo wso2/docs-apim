@@ -7,7 +7,7 @@ There are mainly 2 ways to customize and override the publisher portal theme.
 
 In this section, we will cover the first technique which is the easiest way to change the appearance of Developer portal.
 
-For the second technique, please refer [Advanced Customization]({{base_path}}/develop/customizations/advanced-ui-customization/) section.
+For the second technique, please refer [Advanced Customization]({{base_path}}/reference/customize-product/customizations/advanced-ui-customization.md) section.
 
 The default theme of the Publisher portal is built into the portal bundle file. You can find the pre-packed default theme file in the `<API-M_HOME>/repository/deployment/server/webapps/publisher/source/src/app/data/defaultTheme.js` source directory.
 

@@ -27,7 +27,7 @@ Follow the instructions below to use the MCP Playground to test a MCP Server:
 
 !!! prerequisite
     - You need to have an application subscribed to the MCP Server. For more information, see [Subscribe to a MCP Server]({{base_path}}/ai-gateway/mcp-gateway/subscribe-to-a-mcp-server/).
-    - Obtain an access token for the application. You can use the token endpoint to get a JWT token. For more information, see [Generate an Access Token]({{base_path}}/consume/invoke-apis/invoke-apis-using-tools/invoke-an-api-using-the-integrated-api-console/#step-3-get-an-access-token).
+    - Obtain an access token for the application. You can use the token endpoint to get a JWT token. For more information, see [Generate an Access Token]({{base_path}}/api-developer-portal/invoke-apis/invoke-apis-using-tools/invoke-an-api-using-the-integrated-api-console.md#step-3-get-an-access-token).
 
 The examples here use the `Petstore` MCP Server, which was created in [Create a MCP Server from an OpenAPI definition]({{base_path}}/ai-gateway/mcp-gateway/create-from-openapi/).
 

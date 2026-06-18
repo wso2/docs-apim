@@ -1,13 +1,13 @@
 # Marketplace Assistant Getting Started Guide
 
-The Marketplace Assistant is a powerful tool provided by API Manager, utilizing AI to chat with your APIs and offer recommendations, moving beyond traditional keyword searches. Using this you can access role-restricted APIs in addition to the public APIs defined according to the [developer portal visibility]({{base_path}}/manage-apis/design/advanced-topics/control-api-visibility-and-subscription-availability-in-developer-portal/#control-api-visibility-in-the-developer-portal).
+The Marketplace Assistant is a powerful tool provided by API Manager, utilizing AI to chat with your APIs and offer recommendations, moving beyond traditional keyword searches. Using this you can access role-restricted APIs in addition to the public APIs defined according to the [developer portal visibility]({{base_path}}/api-design-manage/design/advanced-topics/control-api-visibility-and-subscription-availability-in-developer-portal.md#control-api-visibility-in-the-developer-portal).
 
 [![Marketplace Assistant Landing Page]({{base_path}}/assets/img/get_started/marketplace-assistant.png)]({{base_path}}/assets/img/get_started/marketplace-assistant.png)
 
 Follow the steps below to get started with the Marketplace Assistant:
 
 !!! tip
-    If you've previously registered your environment for the [API Chat]({{base_path}}/consume/invoke-apis/invoke-apis-using-tools/test-apis-with-apichat), you can skip Step 1 and 2 by utilizing the same credentials for the Marketplace Assistant. Otherwise, complete Step 1 to register your on-premise environment.
+    If you've previously registered your environment for the [API Chat]({{base_path}}/api-developer-portal/invoke-apis/invoke-apis-using-tools/test-apis-with-apichat.md), you can skip Step 1 and 2 by utilizing the same credentials for the Marketplace Assistant. Otherwise, complete Step 1 to register your on-premise environment.
 
 ## Step 1 - Sign in to AI Subscription Portal
 
@@ -67,7 +67,7 @@ Follow the steps below to get started with the Marketplace Assistant:
 
 To ensure that the Marketplace Assistant is aware of all published APIs and to update the vector database with the current APIs, you have to upload all APIs and API Products.
 
-For more information, see [AI related operations with apictl]({{base_path}}/install-and-setup/setup/api-controller/ai-related-operations-with-apictl/)
+For more information, see [AI related operations with apictl]({{base_path}}/apiops/cli/ai-related-operations-with-apictl.md)
 
 ## Step 5 - Engage with the Marketplace Assistant
 

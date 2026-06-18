@@ -32,7 +32,7 @@ Let us check out the basic building blocks for creating a CI/CD pipeline with WS
 
 2.  Download and setup apictl. 
 
-     For more information, see [Download and initialize the apictl]({{base_path}}/install-and-setup/setup/api-controller/getting-started-with-wso2-api-controller/#download-and-initialize-the-apictl).
+     For more information, see [Download and initialize the apictl]({{base_path}}/apiops/cli/getting-started-with-wso2-api-controller.md#download-and-initialize-the-apictl).
 
 3.  Add WSO2 API-M environments using the `add env` command.
 
@@ -53,7 +53,7 @@ Let us check out the basic building blocks for creating a CI/CD pipeline with WS
             apictl add env prod --apim https://localhost:9444 
             ```    
 
-    For more information, see [Add an environment]({{base_path}}/install-and-setup/setup/api-controller/getting-started-with-wso2-api-controller/#add-an-environment).
+    For more information, see [Add an environment]({{base_path}}/apiops/cli/getting-started-with-wso2-api-controller.md#add-an-environment).
     
     !!!note
         `apictl add-env` command has been deprecated from apictl 4.0.0 onwards. Instead use `apictl add env` as shown above. 
@@ -79,7 +79,7 @@ For this example, let us use the [Swagger Petstore - OpenAPI 3.0](https://petsto
   3. Provide the **OpenAPI URL** (`https://petstore3.swagger.io/api/v3/openapi.json`) and proceed to the next step.
   
   4. Define the API name as `SwaggerPetstore` and Version as `1.0.0` and click on the **Create** button
-  (For more information, see [Create a REST API from an Open API Definition]({{base_path}}/manage-apis/design/create-api/create-rest-api/create-a-rest-api-from-an-openapi-definition)).
+  (For more information, see [Create a REST API from an Open API Definition]({{base_path}}/api-design-manage/design/create-api/create-rest-api/create-a-rest-api-from-an-openapi-definition.md)).
 
     [![]({{base_path}}/assets/img/learn/api-controller/create-api-last-step.png)]({{base_path}}/assets/img/learn/api-controller/create-api-last-step.png)
 
@@ -100,7 +100,7 @@ For this example, let us use the [Swagger Petstore - OpenAPI 3.0](https://petsto
 
       [![]({{base_path}}/assets/img/learn/api-controller/business-plan-gold-selected.png)]({{base_path}}/assets/img/learn/api-controller/business-plan-gold-selected.png)
 
-  7. [Deploy]({{base_path}}/manage-apis/deploy-and-publish/deploy-on-gateway/deploy-api/deploy-an-api) and [Publish]({{base_path}}/manage-apis/deploy-and-publish/publish-on-dev-portal/publish-an-api) the API.
+  7. [Deploy]({{base_path}}/api-design-manage/deploy-and-publish/deploy-on-gateway/deploy-api/deploy-an-api.md) and [Publish]({{base_path}}/api-design-manage/deploy-and-publish/publish-on-dev-portal/publish-an-api.md) the API.
 
 <a name="Step 3"></a>
 ### Step 3 - Export an API from a lower environment
@@ -114,10 +114,10 @@ The apictl can export an API as an archive from a lower environment (i.e., dev),
         apictl login dev -u admin -p admin 
         ```
 
-     For more information, see [Login to an Environment]({{base_path}}/install-and-setup/setup/api-controller/getting-started-with-wso2-api-controller/#login-to-an-environment).
+     For more information, see [Login to an Environment]({{base_path}}/apiops/cli/getting-started-with-wso2-api-controller.md#login-to-an-environment).
 
     !!! tip
-        A user with `Internal/devops` role or `admin` role are allowed to export APIs. To create a custom user who can export APIs, refer [Steps to Create a Custom User who can Perform API Controller Operations]({{base_path}}/install-and-setup/setup/api-controller/advanced-topics/creating-custom-users-to-perform-api-controller-operations/#steps-to-create-a-custom-user-who-can-perform-api-controller-operations).
+        A user with `Internal/devops` role or `admin` role are allowed to export APIs. To create a custom user who can export APIs, refer [Steps to Create a Custom User who can Perform API Controller Operations]({{base_path}}/apiops/cli/advanced-topics/creating-custom-users-to-perform-api-controller-operations.md#steps-to-create-a-custom-user-who-can-perform-api-controller-operations).
 
 2. Export the latest revision of the API from the lower environment using the `export api` command.
 
@@ -126,7 +126,7 @@ The apictl can export an API as an archive from a lower environment (i.e., dev),
         apictl export api -e dev -n SwaggerPetstore -v 1.0.0 --provider admin --latest
         ```
 
-     For more information, see [Export an API]({{base_path}}/install-and-setup/setup/api-controller/managing-apis-api-products/migrating-apis-to-different-environments/#export-an-api).
+     For more information, see [Export an API]({{base_path}}/apiops/cli/managing-apis-api-products/migrating-apis-to-different-environments.md#export-an-api).
     
     !!!note
         - Here we are assuming that the latest revision is up to date with all the changes. If needed, you can remove the `--latest`
@@ -154,14 +154,14 @@ Execute the following command to directly generate the `PetstoreAPI` project usi
 - For example, when an organization depends on a microservices architecture, this method can be utilized to create an automated pipeline to move Swagger/OpenAPI specifications to upper environments.
 
 For more information on initializing an API Project using OpenAPI/Swagger Specification, see 
-[Initialize an API Project]({{base_path}}/install-and-setup/setup/api-controller/managing-apis-api-products/importing-apis-via-dev-first-approach/#initialize-an-api-project).
+[Initialize an API Project]({{base_path}}/apiops/cli/managing-apis-api-products/importing-apis-via-dev-first-approach.md#initialize-an-api-project).
 
 Open the `api.yaml` and `api_meta.yaml` files inside the `SwaggerPetstore-1.0.0` repository in a text editor, and change the `name` and `version` to `SwaggerPetstore` and `1.0.0` accordingly in each file, for easy reference.
 
 <a name="Step 5"></a>
 ### Step 5 - Prepare an API project for CI/CD
 
-Create two (2) repositories in your Version Control System. You can give any names to these repositories, but in this example we will be naming those as **Source** and **Deployment**. Note that, **Deployment** repository is only needed if you want to [Configure Environment Specific Parameters]({{base_path}}/install-and-setup/setup/api-controller/advanced-topics/configuring-environment-specific-parameters).
+Create two (2) repositories in your Version Control System. You can give any names to these repositories, but in this example we will be naming those as **Source** and **Deployment**. Note that, **Deployment** repository is only needed if you want to [Configure Environment Specific Parameters]({{base_path}}/apiops/cli/advanced-topics/configuring-environment-specific-parameters.md).
 
 1. Copy the created/exported API project into the Source repository.
     
@@ -176,7 +176,7 @@ Create two (2) repositories in your Version Control System. You can give any nam
         apictl gen deployment-dir -s path/to/Source/SwaggerPetstore-1.0.0 -d path/to/Deployment
         ``` 
     
-        The generated individual deployment repository with the name `DeploymentArtifacts_SwaggerPetstore-1.0.0` can be found inside the Deployment repository. For more information, see [Generating the Deployment Directory]({{base_path}}/install-and-setup/setup/api-controller/advanced-topics/configuring-environment-specific-parameters/#generating-the-deployment-directory). 
+        The generated individual deployment repository with the name `DeploymentArtifacts_SwaggerPetstore-1.0.0` can be found inside the Deployment repository. For more information, see [Generating the Deployment Directory]({{base_path}}/apiops/cli/advanced-topics/configuring-environment-specific-parameters.md#generating-the-deployment-directory). 
     
         In this example, let's define the backend URLs using the parameters file inside the generated deployment repository. 
 
@@ -203,9 +203,9 @@ Create two (2) repositories in your Version Control System. You can give any nam
 
         !!! info
             - The tool reduces the pipeline’s complexity and provides a simple and powerful mechanism to handle environment-specific configurations.
-            - For more information on the parameters file of an API, see [Defining the parameters file for an API]({{base_path}}/install-and-setup/setup/api-controller/advanced-topics/configuring-environment-specific-parameters/#defining-the-parameters-file-for-an-api).
-            - For more information on the parameters file of an API Products, see [Defining the parameters file for an API Product]({{base_path}}/install-and-setup/setup/api-controller/advanced-topics/configuring-environment-specific-parameters/#defining-the-parameters-file-for-an-api-product).
-            - The apictl supports detecting environment variables defined. If an environment variable is not set, the tool will fail. Also, the system will request the user for a set of required environment variables to ensure that information is not missing during the migration process. For more information, see [Using Dynamic Data in apictl Projects]({{base_path}}/install-and-setup/setup/api-controller/advanced-topics/using-dynamic-data-in-api-controller-projects).
+            - For more information on the parameters file of an API, see [Defining the parameters file for an API]({{base_path}}/apiops/cli/advanced-topics/configuring-environment-specific-parameters.md#defining-the-parameters-file-for-an-api).
+            - For more information on the parameters file of an API Products, see [Defining the parameters file for an API Product]({{base_path}}/apiops/cli/advanced-topics/configuring-environment-specific-parameters.md#defining-the-parameters-file-for-an-api-product).
+            - The apictl supports detecting environment variables defined. If an environment variable is not set, the tool will fail. Also, the system will request the user for a set of required environment variables to ensure that information is not missing during the migration process. For more information, see [Using Dynamic Data in apictl Projects]({{base_path}}/apiops/cli/advanced-topics/using-dynamic-data-in-api-controller-projects.md).
             - It is recommended to store API and environment-specific parameters in separate repositories (i.e, Source and Deployment).
 
 
@@ -275,9 +275,9 @@ The repositories (**Source** and **Deployment**) that you committed the project 
 
     !!! tip
         - Make sure you have already logged-in to the `prod` environment. For more information, see 
-        [Login to an Environment]({{base_path}}/install-and-setup/setup/api-controller/getting-started-with-wso2-api-controller/#login-to-an-environment).
+        [Login to an Environment]({{base_path}}/apiops/cli/getting-started-with-wso2-api-controller.md#login-to-an-environment).
 
-        - A user with `Internal/devops` role or `admin` role are allowed to import APIs. To create a custom user who can import APIs, see [Steps to Create a Custom User who can Perform API Controller Operations]({{base_path}}/install-and-setup/setup/api-controller/advanced-topics/creating-custom-users-to-perform-api-controller-operations/#minimal-permissions-and-scopes-required-to-perform-apictl-operations).
+        - A user with `Internal/devops` role or `admin` role are allowed to import APIs. To create a custom user who can import APIs, see [Steps to Create a Custom User who can Perform API Controller Operations]({{base_path}}/apiops/cli/advanced-topics/creating-custom-users-to-perform-api-controller-operations.md#minimal-permissions-and-scopes-required-to-perform-apictl-operations).
 
     !!! example
         ```bash
@@ -382,7 +382,7 @@ You can use the following alternative approach to promote a single API via CI/CD
     !!! note
         - When the `--update` flag is present, WSO2 API-M will attempt to seamlessly update if an existing API is found with the same name and version. Here, the Current API (Working Copy) will get updated. Meanwhile, if you have specified deployment gateway environments related information (i. e, if the `deployment_environments.yaml` is specified inside the Source project, or if you have mentioned those details in the parameters file in the Deployment repository), a new revision will be created during the import. If the maximum number of revisions (5) reached for the API and `--rotate-revision` flag is present, the earliest revision for that API will be deleted and a new revision will be created.
         - The import command prepares an API Project for WSO2 API-M by processing the parameter file. It determines which configuration should be processed to create an API Project by detecting the environment that has been used to import it. Note that, if you do not need to overwrite the parameters using the Deployment repository, no need to specify the `params` file path.
-        - For more information on importing an API to an environment, see [Import an API]({{base_path}}/install-and-setup/setup/api-controller/managing-apis-api-products/migrating-apis-to-different-environments/#import-an-api).
+        - For more information on importing an API to an environment, see [Import an API]({{base_path}}/apiops/cli/managing-apis-api-products/migrating-apis-to-different-environments.md#import-an-api).
         - `apictl import-api` command has been deprecated from apictl 4.0.0 onwards. Instead use `apictl import api` as shown above.
 
     The above command will detect the target environment and provision the API to it.
@@ -401,16 +401,16 @@ You can use the following alternative approach to promote a single API via CI/CD
 !!! info  
     -   When exporting an API, the apictl tool will also export the API’s lifecycle status. When importing to another environment, this lifecycle status will be preserved. This ensures that the API has the same state across environments. 
     
-    -   For example, if an API is in the `PUBLISHED` state in the development environment, it will also be in the same state in the testing environment. This default behavior can be changed via the apictl tool, which assigns APIs the `CREATED` state after importing. See [Change status of an API or API Product in an environment]({{base_path}}/install-and-setup/setup/api-controller/managing-apis-api-products/managing-apis-and-api-products/#change-status-of-an-api-or-api-product-in-an-environment) for more information.
+    -   For example, if an API is in the `PUBLISHED` state in the development environment, it will also be in the same state in the testing environment. This default behavior can be changed via the apictl tool, which assigns APIs the `CREATED` state after importing. See [Change status of an API or API Product in an environment]({{base_path}}/apiops/cli/managing-apis-api-products/managing-apis-and-api-products.md#change-status-of-an-api-or-api-product-in-an-environment) for more information.
 
 <a name="Step 7"></a>
 ### Step 7 - Get keys for an API/API Product
 
-Follow the instructions below to generate a JWT/OAuth token for testing purposes using apictl in order to invoke an API or an [API Product]({{base_path}}/manage-apis/design/create-api-product/api-product-overview) by subscribing to it using a new application created by apictl.
+Follow the instructions below to generate a JWT/OAuth token for testing purposes using apictl in order to invoke an API or an [API Product]({{base_path}}/api-design-manage/design/create-api-product/api-product-overview.md) by subscribing to it using a new application created by apictl.
 
 !!! tip
-    - Make sure that WSO2 API-M is started and the apictl is set up. For more information, see [Download and Initialize the apictl]({{base_path}}/install-and-setup/setup/api-controller/getting-started-with-wso2-api-controller/#download-and-initialize-the-apictl). 
-    - You should log in to the WSO2 API-M in the environment by following the instructions in [Login to an Environment]({{base_path}}/install-and-setup/setup/api-controller/getting-started-with-wso2-api-controller/#login-to-an-environment).
+    - Make sure that WSO2 API-M is started and the apictl is set up. For more information, see [Download and Initialize the apictl]({{base_path}}/apiops/cli/getting-started-with-wso2-api-controller.md#download-and-initialize-the-apictl). 
+    - You should log in to the WSO2 API-M in the environment by following the instructions in [Login to an Environment]({{base_path}}/apiops/cli/getting-started-with-wso2-api-controller.md#login-to-an-environment).
 
 Run any of the following apictl commands to get keys for the API/API Product.
 
@@ -453,15 +453,15 @@ Run any of the following apictl commands to get keys for the API/API Product.
 
 !!! info
     - Upon running the above command, the apictl tool will create a default application in the environment, subscribe to the API, and generate keys based on the token type defined in the `<USER_HOME>/.wso2apictl/main-config.yaml`file. 
-    - Using apictl tool the HTTP request timeout, and export directory can be set up and changed. For more information on changing the HTTP request timeout, see [Set HTTP request timeout]({{base_path}}/install-and-setup/setup/api-controller/getting-started-with-wso2-api-controller/#set-http-request-timeout) and [Set export directory]({{base_path}}/install-and-setup/setup/api-controller/getting-started-with-wso2-api-controller/##set-export-directory) accordingly. 
+    - Using apictl tool the HTTP request timeout, and export directory can be set up and changed. For more information on changing the HTTP request timeout, see [Set HTTP request timeout]({{base_path}}/apiops/cli/getting-started-with-wso2-api-controller.md#set-http-request-timeout) and [Set export directory]({{base_path}}/apiops/cli/getting-started-with-wso2-api-controller.md##set-export-directory) accordingly. 
     - When running the above command, if you have not specified the --version (-v), the tool will consider the version as 1.0.0 by default. If you have specified the version, then that value will be considered.
 
 <a name="Step 8"></a>
 ### Step 8 - Extending a CI/CD pipeline to support API Products
 
-For example, let us consider there is an [API Product]({{base_path}}/manage-apis/design/create-api-product/api-product-overview) **PetsInfo** in the development environment with a subset of operations of **SwaggerPetstore** API.
+For example, let us consider there is an [API Product]({{base_path}}/api-design-manage/design/create-api-product/api-product-overview.md) **PetsInfo** in the development environment with a subset of operations of **SwaggerPetstore** API.
 
-1.  Export the API Product using `export api-product` command from the development environment (dev). For more information, see [Export an API Product]({{base_path}}/install-and-setup/setup/api-controller/managing-apis-api-products/migrating-api-products-to-different-environments/#export-an-api-product).
+1.  Export the API Product using `export api-product` command from the development environment (dev). For more information, see [Export an API Product]({{base_path}}/apiops/cli/managing-apis-api-products/migrating-api-products-to-different-environments.md#export-an-api-product).
 
     ```bash
     apictl export api-product -n PetsInfo -v 1.0.0 -e dev --latest

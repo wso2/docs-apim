@@ -59,7 +59,7 @@ A **Solace Event API** corresponds to an API in WSO2 API Manager. Follow the ste
 ## Subscribe to the API
 
 1. Log in to the Developer Portal via `https://<hostname>:9443/devportal`, and provide your username & password.
-2. [Subscribe to the API]({{base_path}}/consume/manage-subscription/subscribe-to-an-api) you have created above with an Application. When subscribing, choose the Subscription Level Policy that corresponds to the Solace Plan that you want to use for the API.
+2. [Subscribe to the API]({{base_path}}/api-developer-portal/manage-subscription/subscribe-to-an-api.md) you have created above with an Application. When subscribing, choose the Subscription Level Policy that corresponds to the Solace Plan that you want to use for the API.
 3. Obtain a token for the subscribed application.
 
 !!! warning "Warning"

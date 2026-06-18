@@ -4,7 +4,7 @@
 
 ### What is WSO2 API Manager?
 
-WSO2 API Manager is a complete solution for creating, publishing and managing all aspects of an API and its life cycle. For more information, see the [introduction]({{base_path}}/getting-started/overview/).
+WSO2 API Manager is a complete solution for creating, publishing and managing all aspects of an API and its life cycle. For more information, see the [introduction]({{base_path}}/get-started/overview.md).
 
 ### What is the open source license of the API Manager?
 
@@ -16,11 +16,11 @@ It is completely supported from evaluation to production. For more details, see 
 
 ### What are the default ports opened in the API Manager?
 
-For a list of all default ports available, see [Default Ports of WSO2 Products]({{base_path}}/install-and-setup/setup/reference/default-product-ports/#api-manager).
+For a list of all default ports available, see [Default Ports of WSO2 Products]({{base_path}}/reference/default-product-ports.md#api-manager).
 
 ### What are the technologies used underneath WSO2 API Manager?
 
-The API Manager is built on top of [WSO2 Carbon](https://wso2.com/products/carbon/), an OSGi based components framework for SOA. For more details, see [API Manager components]({{base_path}}/getting-started/key-concepts/).
+The API Manager is built on top of [WSO2 Carbon](https://wso2.com/products/carbon/), an OSGi based components framework for SOA. For more details, see [API Manager components]({{base_path}}/get-started/key-concepts.md).
 
 ### Can I get involved in API-M development activities?
 
@@ -68,7 +68,7 @@ The memory allocation settings are stored in the `<API-M_HOME>/bin/api-manager.s
 
 ### What are the different deployment patterns and clustering configurations of the API Manager?
 
-See [Deploying WSO2 API Manager]({{base_path}}/install-and-setup/setup/deployment-patterns/).
+See [Deploying WSO2 API Manager]({{base_path}}/get-started/deployment-patterns.md).
 
 ### What are the container technologies that are supported in API Manager?
 
@@ -173,7 +173,7 @@ You can enable centralized authentication using a WSO2 Identity Server based [se
 
 ### How can I manage the API permissions/visibility?
 
-To set visibility of the API only to selected user roles in the server, see [API Visibility]({{base_path}}/manage-apis/design/advanced-topics/control-api-visibility-and-subscription-availability-in-developer-portal/).
+To set visibility of the API only to selected user roles in the server, see [API Visibility]({{base_path}}/api-design-manage/design/advanced-topics/control-api-visibility-and-subscription-availability-in-developer-portal.md).
 
 ### How can I add security policies (UT, XACML, etc.) for the services?
 
@@ -181,11 +181,11 @@ This should be done in the backend services in the Application Server or WSO2 ES
 
 ### How can I enable self signup to the Developer Portal ?
 
-See [how to enable self signup]({{base_path}}/consume/customizations/customizing-the-developer-portal/enabling-or-disabling-self-signup/).
+See [how to enable self signup]({{base_path}}/reference/customize-product/customizations/customizing-the-developer-portal/enabling-or-disabling-self-signup.md).
 
 ### How can I disable self signup to the Developer Portal ? I want to engage my own approval mechanism.
 
-To disable the self signup capability, open the API-M management console and click the **Resources &gt; Browse** menu. The registry opens. Navigate to the `/_system/governance/apimgt/applicationdata/sign-up-config.xml` file and set the `<SelfSignUp><Enabled>` element to false. To engage your own signup process, see [Adding a User Signup Workflow]({{base_path}}/develop/customizations/adding-a-user-signup-workflow/).
+To disable the self signup capability, open the API-M management console and click the **Resources &gt; Browse** menu. The registry opens. Navigate to the `/_system/governance/apimgt/applicationdata/sign-up-config.xml` file and set the `<SelfSignUp><Enabled>` element to false. To engage your own signup process, see [Adding a User Signup Workflow]({{base_path}}/reference/customize-product/customizations/adding-a-user-signup-workflow.md).
 
 ### Is there a way to lock a user's account after a certain number of failed login attempts to the Developer Portal ?
 

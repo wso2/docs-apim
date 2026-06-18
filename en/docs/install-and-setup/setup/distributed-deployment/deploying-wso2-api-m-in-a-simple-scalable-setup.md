@@ -52,7 +52,7 @@ For information, see [Installing and Configuring the Databases]({{base_path}}/in
 
 Ensure that you have taken into account the respective security hardening factors (e.g., changing and encrypting the default passwords, configuring JVM security, etc.) before deploying WSO2 API-M.
 
-For more information, see [Production Deployment Guidelines]({{base_path}}/install-and-setup/deploying-wso2-api-manager/production-deployment-guidelines/#common-guidelines-and-checklist).
+For more information, see [Production Deployment Guidelines]({{base_path}}/install-and-setup/setup/deployment-best-practices/production-deployment-guidelines.md#common-guidelines-and-checklist).
 
 !!! Note
     Configure the same encryption key on all API Manager instances before starting any node for the first time so they can decrypt shared registry resources consistently. For more information, see [Configuring Encryption Key]({{base_path}}/install-and-setup/setup/security/encryption/symmetric-encryption/#generate-a-secret-key).
@@ -202,7 +202,7 @@ Follow the instructions given below to configure the Gateway node so that it can
     !!! Info
         To further optimize the gateway notification feature, you can use additional `gateway_notification` configurations. For more information, see [API-M Revision Deployment Monitoring]({{base_path}}/reference/config-catalog/#api-m-gateway-notification-configurations).
 
-5. Enable JSON Web Token (JWT) if required. For instructions, see [Generating JSON Web Token]({{base_path}}/manage-apis/deploy-and-publish/deploy-on-gateway/api-gateway/passing-enduser-attributes-to-the-backend-via-api-gateway).
+5. Enable JSON Web Token (JWT) if required. For instructions, see [Generating JSON Web Token]({{base_path}}/api-gateway/passing-enduser-attributes-to-the-backend-via-api-gateway.md).
 
 6. Add the public certificate of the private key (that is used for signing the tokens) to the truststore under the "gateway_certificate_alias" alias. For instructions, see [Create and import SSL certificates]({{base_path}}/install-and-setup/setup/security/configuring-keystores/keystore-basics/creating-new-keystores).
 
@@ -434,7 +434,7 @@ Follow the steps given below to configure the All-in-One nodes to communicate wi
         ```
 
     !!! Info
-        This configuration is used for deploying APIs to the Gateway and for connecting the Developer Portal component to the Gateway if the Gateway is shared across tenants. If the Gateway is not used in multiple tenants, you can create a [Gateway Environment using the Admin Portal]({{base_path}}/manage-apis/deploy-and-publish/deploy-on-gateway/deploy-api/exposing-apis-via-custom-hostnames/#using-a-new-gateway-environment-to-expose-apis-via-custom-hostnames).
+        This configuration is used for deploying APIs to the Gateway and for connecting the Developer Portal component to the Gateway if the Gateway is shared across tenants. If the Gateway is not used in multiple tenants, you can create a [Gateway Environment using the Admin Portal]({{base_path}}/api-design-manage/deploy-and-publish/deploy-on-gateway/deploy-api/exposing-apis-via-custom-hostnames.md#using-a-new-gateway-environment-to-expose-apis-via-custom-hostnames).
         Note that in the above configurations, the `service_url` points to the `9443` port of the Gateway node, while `http_endpoint` and `https_endpoint` points to the `http` and `https nio ports` (8280 and 8243).
    
     **Add Event Hub Configurations**
@@ -518,7 +518,7 @@ Follow the steps given below to configure the All-in-One nodes to communicate wi
         'header.X-WSO2-KEY-MANAGER' = "default"
         ```
 
-3. If required, encrypt the Auth Keys (access tokens, client secrets, and authorization codes), see [Encrypting OAuth Keys]({{base_path}}/manage-apis/design/api-security/oauth2/encrypting-oauth2-tokens).
+3. If required, encrypt the Auth Keys (access tokens, client secrets, and authorization codes), see [Encrypting OAuth Keys]({{base_path}}/api-security/key-management/tokens/encrypting-oauth2-tokens.md).
 
 4. Optionally, add the following configuration to enable distributed cache invalidation within the All-in-One nodes.
 

@@ -37,7 +37,7 @@ After providing the required information, click on the **Create** button to crea
 
 ### Writing Your Own Ruleset
 
-Please refer to the [WSO2 Rule Validator Documentation]({{base_path}}/governance/rule-validator/rule-validator) to understand the ruleset format and how to write your own ruleset.
+Please refer to the [WSO2 Rule Validator Documentation]({{base_path}}/reference/governance/rule-validator/rule-validator.md) to understand the ruleset format and how to write your own ruleset.
 
 - If Ruleset Type is selected as **Definition**, the ruleset should only contain rules that can be validated against the Artifact definition file (OpenAPI or AsyncAPI).
 - If Ruleset Type is selected as **Metadata**, the ruleset should only contain rules that can be validated against the [API's YAML Representation]({{base_path}}/reference/governance/api-yaml-representation/).

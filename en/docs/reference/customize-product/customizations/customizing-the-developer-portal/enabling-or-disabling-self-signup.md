@@ -63,4 +63,4 @@ In a multi-tenanted API Manager setup, self-signup to the Developer Portal works
     ```
 
 !!! tip
-    To engage your own signup process, see [Adding a User Signup Workflow]({{base_path}}/develop/customizations/adding-a-user-signup-workflow).
+    To engage your own signup process, see [Adding a User Signup Workflow]({{base_path}}/reference/customize-product/customizations/adding-a-user-signup-workflow.md).

@@ -92,7 +92,7 @@ You can define your custom password policy for the Developer Portal, Publisher a
     
 #### User store password RegEx
 
-For more information, see [Configuring a JDBC User Store]({{base_path}}/administer/managing-users-and-roles/managing-user-stores/configure-primary-user-store/configuring-a-jdbc-user-store/#configuring-a-jdbc-user-store)  
+For more information, see [Configuring a JDBC User Store]({{base_path}}/install-and-setup/setup/configure-userstores/configure-primary-user-store/configuring-a-jdbc-user-store.md#configuring-a-jdbc-user-store)  
 
 Example:
 

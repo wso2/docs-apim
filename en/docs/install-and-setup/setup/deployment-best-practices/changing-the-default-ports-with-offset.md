@@ -8,7 +8,7 @@ There are two ways to set a port offset: update the server configuration or pass
 
 ## Before you begin
 
-See the complete list of [default ports]({{base_path}}/install-and-setup/setup/reference/default-product-ports) in all the API Manager components.
+See the complete list of [default ports]({{base_path}}/reference/default-product-ports.md) in all the API Manager components.
 
 Note that most of the **runtime ports** change automatically based on the offset you specify here.
 

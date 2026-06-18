@@ -1,7 +1,7 @@
 # Performance Test Results for Token Persistence
 
 
-The token endpoint's performance was assessed in the WSO2 API Manager, both with and without token persistence. The tests were conducted with **100** concurrent users and **10** Developer Portal applications. Tokens were generated with device scopes to simulate high load, mimicking scenarios where thousands of tokens are generated within a short period of time. Tests covered Client Credentials, Passwords, and Refresh grant types. Please refer the [Token Persistence Management]({{base_path}}/manage-apis/design/api-security/oauth2/token-persistence/) documentation to get more insights about the use cases in which this feature should be used.
+The token endpoint's performance was assessed in the WSO2 API Manager, both with and without token persistence. The tests were conducted with **100** concurrent users and **10** Developer Portal applications. Tokens were generated with device scopes to simulate high load, mimicking scenarios where thousands of tokens are generated within a short period of time. Tests covered Client Credentials, Passwords, and Refresh grant types. Please refer the [Token Persistence Management]({{base_path}}/api-security/key-management/tokens/token-persistence.md) documentation to get more insights about the use cases in which this feature should be used.
 
 A few key performance metrics were used to measure the performance of each grant type.
 

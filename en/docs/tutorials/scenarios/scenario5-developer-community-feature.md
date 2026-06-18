@@ -21,7 +21,7 @@ This demo setup contains a sample API to demonstrate these features. Log in to t
 
 ![Community features]({{base_path}}/assets/img/tutorials/scenarios/dev-portal-community.png)
 
-You could generate client side SDKs for different programming languages. You could find more information on this in our [official documentation]({{base_path}}/consume/generating-sdks/write-a-client-application-using-the-sdk/).  We have provided a sample Java program created using the Java SDK downloaded from the **QuantisTrainAPI**.
+You could generate client side SDKs for different programming languages. You could find more information on this in our [official documentation]({{base_path}}/api-developer-portal/generating-sdks/write-a-client-application-using-the-sdk.md).  We have provided a sample Java program created using the Java SDK downloaded from the **QuantisTrainAPI**.
 
 1. Subscribe to the **QuantisTrainAPI** using an application and generate an access token.
 2. Go to the `/resources` location and invoke the API using the `sdk-demo-1.0.0.jar` with the access token

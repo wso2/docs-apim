@@ -24,7 +24,7 @@ In this example, you have constructed the `service_ep` property dynamically and 
     The mediation extension is applied to all resources of the API. Therefore, all resources will contain a similar logic to construct the endpoint.
 
 !!! tip
-    For more details about working with dynamic endpoints, see [Endpoint Types]({{base_path}}/learn/design-api/endpoints/endpoint-types).
+    For more details about working with dynamic endpoints, see [Endpoint Types]({{base_path}}/api-design-manage/design/endpoints/endpoint-types.md).
 
 You can copy the content of the above sequence to an XML file and upload it to an API configured with a dynamic endpoint using the Publisher Portal UI.
 

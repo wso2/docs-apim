@@ -661,11 +661,11 @@ Enable observability with WSO2 API-M and start the WSO2 API-M server as explain
 
 If you don't have an API to access, follow the following links: 
 
-1. [Creating an API]({{base_path}}/manage-apis/design/create-api/create-rest-api/create-a-rest-api)
+1. [Creating an API]({{base_path}}/api-design-manage/design/create-api/create-rest-api/create-a-rest-api.md)
 
-2. [Publish the API]({{base_path}}/manage-apis/deploy-and-publish/publish-on-dev-portal/publish-an-api)
+2. [Publish the API]({{base_path}}/api-design-manage/deploy-and-publish/publish-on-dev-portal/publish-an-api.md)
 
-3. [Subscribe to the API]({{base_path}}/consume/manage-subscription/subscribe-to-an-api)
+3. [Subscribe to the API]({{base_path}}/api-developer-portal/manage-subscription/subscribe-to-an-api.md)
 
 Use the following command to invoke the API.
 
