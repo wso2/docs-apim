@@ -87,10 +87,50 @@ Listed below are the ports used by the API-M runtime when the [port offset]({{ba
     </tr>
     <tr>
         <td>
+            <code>10711</code>
+        </td>
+        <td>
+            SSL port for the secure transport used in data publishing and analytics. This port is used for secure communication with analytics servers.
+        </td>
+    </tr>
+    <tr>
+        <td>
             <code>9099</code>
         </td>
         <td>
             Web Socket ports.
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <code>8099</code>
+        </td>
+        <td>
+            Web Socket secure port (WSS).
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <code>9021</code>
+        </td>
+        <td>
+            TCP port used for internal event streaming and communication between API-M components.
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <code>8021</code>
+        </td>
+        <td>
+            Port used for internal event streaming communication.
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <code>8672</code>
+        </td>
+        <td>
+            Port used for message broker AMQP transport with SSL.
         </td>
     </tr>
     <tr>
