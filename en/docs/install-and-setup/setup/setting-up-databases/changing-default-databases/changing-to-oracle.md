@@ -14,6 +14,9 @@ The following sections describe how to set up Oracle database to replace the def
 
 Follow the instructions below to set up an Oracle database.
 
+!!! important "Case Sensitivity"
+    Oracle databases use **case-sensitive comparison** by default. It is **required** to maintain your Oracle database with case-sensitive comparison to preserve product behaviors.
+
 1. As SYSDBA, create a database user and grant privileges to the user as shown below:
 
     ```sh
