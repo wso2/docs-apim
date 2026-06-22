@@ -14,6 +14,9 @@ The following sections describe how to set up a IBM DB2 database to replace the 
 
 Follow the instructions below to set up a IBM DB2 database:
 
+!!! important "Character Set and Collation"
+    IBM DB2 uses **UTF-8 encoding** and **case-sensitive comparison** by default. It is **required** to maintain your DB2 database with case-sensitive comparison to preserve product behaviors.
+
 1. Create the database using the following command:
    ```sh
    db2 CREATE DATABASE <DATABASE_NAME>

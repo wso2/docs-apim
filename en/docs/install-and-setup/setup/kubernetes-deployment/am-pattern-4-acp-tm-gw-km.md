@@ -115,8 +115,8 @@ Before you begin, ensure you have the following prerequisites in place:
 
 - An example for MySQL is provided below.
   ```sql
-  CREATE DATABASE apim_db CHARACTER SET latin1;
-  CREATE DATABASE shared_db CHARACTER SET latin1;
+  CREATE DATABASE apim_db CHARACTER SET latin1 COLLATE latin1_bin;
+  CREATE DATABASE shared_db CHARACTER SET latin1 COLLATE latin1_bin;
 
   GRANT ALL ON apim_db.* TO 'apimadmin'@'%';
 
@@ -547,4 +547,3 @@ If the defined hostnames are not backed by a DNS service, for the purpose of eva
 - API Manager Carbon Console: `https://<kubernetes.ingress.management.hostname>/carbon`
 
 - Universal Gateway: `https://<kubernetes.ingress.gateway.hostname>`
-
