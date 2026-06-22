@@ -257,3 +257,7 @@ Controls which roles can see or use specific throttling tiers, enabling administ
 | TENANT_ID | The identifier of the tenant to which this tier permission belongs. |
 
 ---
+
+## Entity Relationship Diagram
+
+![Throttling and Policy related tables]({{base_path}}/assets/img/setup-and-install/data-dictionary/throttling-and-policy-related-tables.png)

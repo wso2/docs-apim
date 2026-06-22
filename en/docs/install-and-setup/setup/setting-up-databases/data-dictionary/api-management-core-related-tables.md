@@ -510,3 +510,9 @@ This table stores backend service definitions in the APIM Service Catalog, provi
 | SERVICE_DEFINITION | The binary content of the service's API definition file (for example, OpenAPI JSON/YAML). |
 
 ---
+
+## Entity Relationship Diagrams
+
+![API Management Core related tables — API Definition & Structure]({{base_path}}/assets/img/setup-and-install/data-dictionary/api-management-core-related-tables-1.png)
+
+![API Management Core related tables — Revisions, Lifecycle, Social & Catalog]({{base_path}}/assets/img/setup-and-install/data-dictionary/api-management-core-related-tables-2.png)

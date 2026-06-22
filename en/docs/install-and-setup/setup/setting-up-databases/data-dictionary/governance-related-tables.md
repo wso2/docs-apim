@@ -198,3 +198,7 @@ Records individual rule violations detected during governance evaluation, provid
 | VIOLATED_PATH | The specific location in the artifact where the violation was found (e.g., a JSON path in an OpenAPI specification). |
 
 ---
+
+## Entity Relationship Diagram
+
+![Governance related tables]({{base_path}}/assets/img/setup-and-install/data-dictionary/governance-related-tables.png)

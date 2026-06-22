@@ -201,3 +201,7 @@ Defines the mapping between federated identity provider roles and local WSO2 rol
 | LOCAL_ROLE | The name of the local WSO2 role to which the federated identity provider role is mapped. |
 
 ---
+
+## Entity Relationship Diagram
+
+![Identity Provider related tables]({{base_path}}/assets/img/setup-and-install/data-dictionary/identity-provider-related-tables.png)

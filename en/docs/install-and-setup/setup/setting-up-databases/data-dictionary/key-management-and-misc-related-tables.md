@@ -429,3 +429,9 @@ Records webhook unsubscription events, serving as an audit trail and synchroniza
 | ADDED_AT | The timestamp when this unsubscription event was recorded. |
 
 ---
+
+## Entity Relationship Diagrams
+
+![Key Management and Miscellaneous related tables — Key Managers, API Keys, Scopes & LLM Providers]({{base_path}}/assets/img/setup-and-install/data-dictionary/key-management-and-misc-related-tables-1.png)
+
+![Key Management and Miscellaneous related tables — Alerts, Webhooks, System & Operational]({{base_path}}/assets/img/setup-and-install/data-dictionary/key-management-and-misc-related-tables-2.png)

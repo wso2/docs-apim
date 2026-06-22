@@ -135,3 +135,7 @@ Links running workflow instances to the workflow requests that initiated them, t
 | TENANT_ID | The identifier of the tenant to which this workflow-request relationship belongs. |
 
 ---
+
+## Entity Relationship Diagram
+
+![Workflow related tables]({{base_path}}/assets/img/setup-and-install/data-dictionary/workflow-related-tables.png)

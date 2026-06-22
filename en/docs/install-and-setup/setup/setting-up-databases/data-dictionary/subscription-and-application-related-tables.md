@@ -153,3 +153,7 @@ Records the relationship between an application and an API, representing a devel
 | UUID | Unique. The universally unique identifier for this subscription, used in REST API references. |
 
 ---
+
+## Entity Relationship Diagram
+
+![Subscription and Application related tables]({{base_path}}/assets/img/setup-and-install/data-dictionary/subscription-and-application-related-tables.png)

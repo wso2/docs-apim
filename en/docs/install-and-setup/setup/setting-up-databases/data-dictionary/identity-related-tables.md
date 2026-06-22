@@ -1159,3 +1159,11 @@ This table stores extensible key-value properties associated with user-functiona
 | PROPERTY_VALUE | The value of the property. |
 
 ---
+
+## Entity Relationship Diagrams
+
+![Identity related tables — OAuth & OIDC]({{base_path}}/assets/img/setup-and-install/data-dictionary/identity-related-tables-1.png)
+
+![Identity related tables — Claims, Secrets, UMA, CORS & Remote-Fetch]({{base_path}}/assets/img/setup-and-install/data-dictionary/identity-related-tables-2.png)
+
+![Identity related tables — Sessions, Config & Standalone]({{base_path}}/assets/img/setup-and-install/data-dictionary/identity-related-tables-3.png)

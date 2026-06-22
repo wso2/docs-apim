@@ -152,3 +152,7 @@ Associates SP-purpose combinations (from the `CM_SP_PURPOSE_ASSOC` table) with p
 | PURPOSE_CATEGORY_ID | Foreign key to the `CM_PURPOSE_CATEGORY` table. The identifier of the purpose category associated with this SP-purpose combination. |
 
 ---
+
+## Entity Relationship Diagram
+
+![Consent Management related tables]({{base_path}}/assets/img/setup-and-install/data-dictionary/consent-management-related-tables.png)

@@ -468,3 +468,11 @@ Maps each user's unique UUID to their user store domain, providing a fast lookup
 | UM_TENANT_ID | The identifier of the tenant to which this user belongs. |
 
 ---
+
+## Entity Relationship Diagrams
+
+![User Management related tables — Users, Roles & Permissions]({{base_path}}/assets/img/setup-and-install/data-dictionary/user-management-related-tables-1.png)
+
+![User Management related tables — Organization (B2B) Model]({{base_path}}/assets/img/setup-and-install/data-dictionary/user-management-related-tables-2.png)
+
+![User Management related tables — Claims, Dialects, Tenants & Modules]({{base_path}}/assets/img/setup-and-install/data-dictionary/user-management-related-tables-3.png)

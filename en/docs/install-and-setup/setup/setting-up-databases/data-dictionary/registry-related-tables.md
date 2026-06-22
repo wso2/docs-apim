@@ -258,3 +258,7 @@ Stores user-defined tags (free-form labels) that can be applied to registry reso
 | REG_TENANT_ID | Primary key (composite). The identifier of the tenant to which this tag belongs. |
 
 ---
+
+## Entity Relationship Diagram
+
+![Registry related tables]({{base_path}}/assets/img/setup-and-install/data-dictionary/registry-related-tables.png)

@@ -334,3 +334,9 @@ Stores the gateway-specific implementation of an operation policy, containing th
 | DEFINITION_MD5 | The MD5 hash of the definition content, used for tracking changes during deployment synchronization. |
 
 ---
+
+## Entity Relationship Diagrams
+
+![Gateway and Runtime related tables — Operation & Gateway Policies]({{base_path}}/assets/img/setup-and-install/data-dictionary/gateway-and-runtime-related-tables-1.png)
+
+![Gateway and Runtime related tables — Gateway Environments, Instances & Artifacts]({{base_path}}/assets/img/setup-and-install/data-dictionary/gateway-and-runtime-related-tables-2.png)

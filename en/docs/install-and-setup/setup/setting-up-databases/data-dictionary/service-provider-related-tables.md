@@ -212,3 +212,7 @@ Stores reusable service provider configuration templates that can be used as sta
 | CONTENT | The serialized service provider configuration content (authentication steps, claim mappings, provisioning settings) that this template captures. |
 
 ---
+
+## Entity Relationship Diagram
+
+![Service Provider related tables]({{base_path}}/assets/img/setup-and-install/data-dictionary/service-provider-related-tables.png)

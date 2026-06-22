@@ -40,3 +40,7 @@ Stores FIDO2/WebAuthn credential registrations for users, supporting modern pass
 | IS_USERNAMELESS_SUPPORTED | Indicates whether this credential supports resident/discoverable credential flows (`1`), enabling true passwordless authentication. |
 
 ---
+
+## Entity Relationship Diagram
+
+![FIDO related tables]({{base_path}}/assets/img/setup-and-install/data-dictionary/fido-related-tables.png)
