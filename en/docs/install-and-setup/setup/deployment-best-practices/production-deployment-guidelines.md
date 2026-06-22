@@ -129,13 +129,12 @@ If you need to set additional system properties when the server starts, you can 
   start the server. To avoid having to modify the script each time you upgrade, the best approach is to create your own startup script that wraps the WSO2 startup script and adds the properties you want to set, rather than editing the WSO2 startup script directly.
 
     !!! note
-        Be sure to set the system properties `org.opensaml.httpclient.https.disableHostnameVerification` and `httpclient.hostnameVerifier`
+        Be sure to set the system property `httpclient.hostnameVerifier`
          in the the product's startup script file to as follows. This setting will enable hostname verification of 
          HTTP requests and responses in the Carbon server, and thereby avoid security issues in production environments. 
          For more information, see [Enabling HostName Verification]({{base_path}}/administer/product-security/enabling-hostname-verification/).
 
 ```  
-    -Dorg.opensaml.httpclient.https.disableHostnameVerification=false \
     -Dhttpclient.hostnameVerifier=Strict \
 ```
 
