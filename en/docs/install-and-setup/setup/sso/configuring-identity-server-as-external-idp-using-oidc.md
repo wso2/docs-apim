@@ -227,6 +227,9 @@ WSO2 API Manager uses the OIDC Single Sign-On feature by default. This document 
 
 Now you will be able to login to Publisher and Devportal using the users in WSO2 Identity Server.
 
+!!! Note For secondary user stores
+    If your Identity Provider has multiple secondary user stores (such as LDAP) and you want to include the user domain in the subject identifier (`LDAP_DOMAIN/username`), you must also connect the same user stores to the API Manager in read-only mode. This is required when the secondary user stores contain users with the same name and you cannot provision those users to the API Manager primary user store.
+
 !!! Tip "Troubleshooting"
     When using Identity Server as external IdP, following error can be observed in API Manager, when logging in to Portals.
 

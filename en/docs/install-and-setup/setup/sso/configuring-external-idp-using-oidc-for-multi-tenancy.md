@@ -93,7 +93,7 @@ WSO2 API Manager uses the OIDC Single Sign-On feature by default. This document 
     e.  Under the **Protocol** tab, copy the **Client ID** and **Client Secret**.
 
     !!! Info
-        For each tenant you have to create new application
+        For each tenant, you must create a new application. For the super tenant, the **Authorized Redirect URL** is `https://localhost:9443/commonauth`.
 
 ### Step 3: Create users and roles
 
@@ -166,6 +166,7 @@ name = "org.wso2.carbon.identity.outbound.organization.auth.OrganizationJITProvi
 # Same value as "event.default_listener.jit_provisioning_handler.priority": "20",
 order = 20
 ```
+
     <table>
         <thead>
             <tr>
@@ -362,6 +363,9 @@ order = 20
 
     [![Tenant Selection Page]({{base_path}}/assets/img/setup-and-install/tenant-selection-page.png)]({{base_path}}/assets/img/setup-and-install/tenant-selection-page.png)
 
+
+!!! Note For secondary user stores
+    If your Identity Provider has multiple secondary user stores (such as LDAP) and you want to include the user domain in the subject identifier (`LDAP_DOMAIN/username`), you must also connect the same user stores to the API Manager in read-only mode. This is required when the secondary user stores contain users with the same name and you cannot provision those users to the API Manager primary user store.
 
 !!! Tips
     This approach is not limited to WSO2 IS 7.x, you can connect any third party identity provider using this method
