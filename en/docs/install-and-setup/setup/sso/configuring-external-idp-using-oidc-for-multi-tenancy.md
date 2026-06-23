@@ -53,7 +53,7 @@ WSO2 API Manager uses the OIDC Single Sign-On feature by default. This document 
 
     [![IS 7 register new org]({{base_path}}/assets/img/setup-and-install/is-register-new-org.png)]({{base_path}}/assets/img/setup-and-install/is-register-new-org.png)
 
-4. Log into the new organization. (https://localhost:9444/t/<TENENT_DOMAIN>/console)
+4. Log into the new organization. (https://localhost:9444/t/TENENT_DOMAIN/console)
 
     !!! Note
         In this example, go to `https://localhost:9444/t/asd.com/console`, where `asd.com` is a sample tenant domain name. Replace it with your actual tenant domain.
