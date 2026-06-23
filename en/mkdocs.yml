@@ -888,7 +888,7 @@ extra:
     - title: Get Started
       options:
         - verticle-line
-        - no-collapsible
+        - divider
     - title: Install & Setup
       options:
         - verticle-line
