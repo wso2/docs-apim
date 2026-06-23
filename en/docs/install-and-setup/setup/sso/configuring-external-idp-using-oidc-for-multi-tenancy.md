@@ -1,4 +1,4 @@
-# Configuring external IDP using OIDC for Multi Tenancy
+# Configuring external IdP using OIDC for Multi Tenancy
 
 WSO2 API Manager uses the OIDC Single Sign-On feature by default. This document explains how to connect WSO2 Identity Server (or WSO2 Identity Server as a Keymanager) as a third party Identity provider to API-Manager for multi tenant work flows.
 
@@ -6,7 +6,7 @@ WSO2 API Manager uses the OIDC Single Sign-On feature by default. This document 
     To use the multi-tenant SSO feature, you need to update your WSO2 API Manager pack to update level 4.5.0.63 or later.
 
 !!! Note 
-    If do not require multi tenancy, you can follow this document: [Configuring Identity Server as External IDP using OIDC](./configuring-identity-server-as-external-idp-using-oidc.md)
+    If do not require multi tenancy, you can follow this document: [Configuring Identity Server as External IdP using OIDC](./configuring-identity-server-as-external-idp-using-oidc.md)
 
 
 ## Prerequisites
@@ -44,7 +44,7 @@ WSO2 API Manager uses the OIDC Single Sign-On feature by default. This document 
     https://{is-ip}:9444/console
     ```
 
-2. Click on Root Organization and Click Manage Root Organization
+2. Click on **Root Organization** and click **Manage Root Organization**
 
     [![IS 7 dashboard]({{base_path}}/assets/img/setup-and-install/is-create-new-org.png)]({{base_path}}/assets/img/setup-and-install/is-create-new-org.png)
 
@@ -53,7 +53,7 @@ WSO2 API Manager uses the OIDC Single Sign-On feature by default. This document 
 
     [![IS 7 register new org]({{base_path}}/assets/img/setup-and-install/is-register-new-org.png)]({{base_path}}/assets/img/setup-and-install/is-register-new-org.png)
 
-4. Log into the new organization. (https://localhost:9444/t/TENENT_DOMAIN/console)
+4. Log into the new organization. (https://localhost:9444/t/TENANT_DOMAIN/console)
 
     !!! Note
         In this example, go to `https://localhost:9444/t/asd.com/console`, where `asd.com` is a sample tenant domain name. Replace it with your actual tenant domain.
@@ -345,13 +345,13 @@ order = 20
 -   Follow the same steps in [step - 4](#step-4-configure-common-service-provider)
 
 
-### Step 7: Configure the IDP for the Portals
+### Step 7: Configure the IdP for the Portals
 
 -   Now, In carbon portal, again log as super admin.
 -   Click on the List under the Service Providers section.
 -   We can see the apim_devportal, apim_publisher and apim_admin_portal service providers as below.
 -   Click on the Edit button of one of the service providers and then expand the Local & Outbound Authentication Configuration section.
--   Select Federated Authentication option under the Authentication Type section and select the created IDP (WSO2_IS7)
+-   Select Federated Authentication option under the Authentication Type section and select the created IdP (WSO2_IS7)
 -   Put a tick to Assert identity using mapped local subject identifier option. Please note that this is a mandatory one to perform the role mapping properly.
 
     [![Multi Tenant Portal SPs Configs]({{base_path}}/assets/img/setup-and-install/multi-tenant-portal-sps.png)]({{base_path}}/assets/img/setup-and-install/multi-tenant-portal-sps.png)
