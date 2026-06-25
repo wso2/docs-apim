@@ -103,6 +103,21 @@ nav:
                         - Change to Oracle: install-and-setup/setup/setting-up-databases/changing-default-databases/changing-to-oracle.md
                         - Change to IBM DB2: install-and-setup/setup/setting-up-databases/changing-default-databases/changing-to-ibm-db2.md
                         - Change to Oracle RAC: install-and-setup/setup/setting-up-databases/changing-default-databases/changing-to-oracle-rac.md
+                    - Data Dictionary:
+                        - Registry Related Tables: install-and-setup/setup/setting-up-databases/data-dictionary/registry-related-tables.md
+                        - User Management Related Tables: install-and-setup/setup/setting-up-databases/data-dictionary/user-management-related-tables.md
+                        - Identity Related Tables: install-and-setup/setup/setting-up-databases/data-dictionary/identity-related-tables.md
+                        - Service Provider Related Tables: install-and-setup/setup/setting-up-databases/data-dictionary/service-provider-related-tables.md
+                        - Identity Provider Related Tables: install-and-setup/setup/setting-up-databases/data-dictionary/identity-provider-related-tables.md
+                        - API Management Core Related Tables: install-and-setup/setup/setting-up-databases/data-dictionary/api-management-core-related-tables.md
+                        - Subscription and Application Related Tables: install-and-setup/setup/setting-up-databases/data-dictionary/subscription-and-application-related-tables.md
+                        - Throttling and Policy Related Tables: install-and-setup/setup/setting-up-databases/data-dictionary/throttling-and-policy-related-tables.md
+                        - Gateway and Runtime Related Tables: install-and-setup/setup/setting-up-databases/data-dictionary/gateway-and-runtime-related-tables.md
+                        - Key Management and Miscellaneous Related Tables: install-and-setup/setup/setting-up-databases/data-dictionary/key-management-and-misc-related-tables.md
+                        - Workflow Related Tables: install-and-setup/setup/setting-up-databases/data-dictionary/workflow-related-tables.md
+                        - Consent Management Related Tables: install-and-setup/setup/setting-up-databases/data-dictionary/consent-management-related-tables.md
+                        - Governance Related Tables: install-and-setup/setup/setting-up-databases/data-dictionary/governance-related-tables.md
+                        - FIDO Related Tables: install-and-setup/setup/setting-up-databases/data-dictionary/fido-related-tables.md
                     - Manage Data Growth and Improving Performance: install-and-setup/setup/setting-up-databases/managing-data-growth-and-improving-performance.md
                 - Set up Proxy Server and the Load Balancer:
                     - Configure the Proxy Server and the Load Balancer: install-and-setup/setup/setting-up-proxy-server-and-the-load-balancer/configuring-the-proxy-server-and-the-load-balancer.md
