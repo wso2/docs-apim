@@ -224,7 +224,7 @@ nav:
           - Create and Publish an AWS Lambda API: tutorials/create-and-publish-awslambda-api.md
           - Create and Publish an API with Sequence as a Backend: tutorials/create-and-publish-a-sequencebackend-api.md
           - Expose a SOAP Service as a REST API: tutorials/expose-a-soap-service-as-a-rest-api.md
-          - Edit an API by Modifying the API Definition: tutorials/edit-an-api-by-modifyng-the-api-definition.md
+          - Edit an API by Modifying the API Definition: tutorials/edit-an-api-by-modifying-the-api-definition.md
           - Enforce Rate Limiting and Resource Access Policies: tutorials/enforce-throttling-and-resource-access-policies.md
     - API Design & Manage:
         - Design APIs:

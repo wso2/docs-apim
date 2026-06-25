@@ -1,3 +1,4 @@
+
 "learn/consume-api/customizations/customizing-the-developer-portal/customize-api-listing/api-category-based-grouping.md": "{{SITE_URL}}/reference/customize-product/customizations/customizing-the-developer-portal/customize-api-listing/api-category-based-grouping/"
 "learn/consume-api/customizations/customizing-the-developer-portal/customize-api-listing/change-default-view.md": "{{SITE_URL}}/reference/customize-product/customizations/customizing-the-developer-portal/customize-api-listing/change-default-view/"
 "learn/consume-api/customizations/customizing-the-developer-portal/enabling-or-disabling-api-detail-tabs.md": "{{SITE_URL}}/reference/customize-product/customizations/customizing-the-developer-portal/enabling-or-disabling-api-detail-tabs/"
@@ -134,8 +135,7 @@
 "learn/tutorials/create-and-publish-awslambda-api.md": "{{SITE_URL}}/tutorials/create-and-publish-awslambda-api/"
 "learn/tutorials/create-and-publish-a-sequencebackend-api.md": "{{SITE_URL}}/tutorials/create-and-publish-a-sequencebackend-api/"
 "learn/tutorials/expose-a-soap-service-as-a-rest-api.md": "{{SITE_URL}}/tutorials/expose-a-soap-service-as-a-rest-api/"
-"learn/tutorials/edit-an-api-by-modifyng-the-api-definition.md": "{{SITE_URL}}/tutorials/edit-an-api-by-modifyng-the-api-definition/"
-"learn/tutorials/create-and-publish-websocket-api.md": "{{SITE_URL}}/tutorials/streaming-api/create-and-publish-websocket-api/"
+"learn/tutorials/edit-an-api-by-modifying-the-api-definition.md": "{{SITE_URL}}/tutorials/edit-an-api-by-modifying-the-api-definition/"
 "learn/analytics/overview-of-api-analytics.md": "{{SITE_URL}}/observe/api-manager-analytics/overview-of-api-analytics/"
 "learn/analytics/viewing-api-statistics/monitoring-dashboard.md": "{{SITE_URL}}/observe/api-manager-analytics/overview-of-api-analytics/"
 "learn/analytics/viewing-api-statistics/business-analytics-dashboard.md": "{{SITE_URL}}/observe/api-manager-analytics/overview-of-api-analytics/"
@@ -258,7 +258,7 @@
 "administer/product-security/identity-management-for-the-api-dev-portal.md": "{{SITE_URL}}/install-and-setup/setup/security/user-account-management/"
 "observe/api-manager-analytics/analyzing-apim-statistics-with-batch-analytics/using-geo-location-based-statistics/configuring-geolocation-based-statistics.md": "{{SITE_URL}}/observe/api-manager-analytics/overview-of-api-analytics/"
 "observe/api-manager-analytics/analyzing-apim-statistics-with-batch-analytics/using-geo-location-based-statistics/writing-a-custom-geolocation-provider.md": "{{SITE_URL}}/observe/api-manager-analytics/overview-of-api-analytics/"
-"learn/tutorials/edit-and-consume-apis-using-swagger-tools.md": "{{SITE_URL}}/tutorials/edit-an-api-by-modifyng-the-api-definition/"
+"learn/tutorials/edit-and-consume-apis-using-swagger-tools.md": "{{SITE_URL}}/tutorials/edit-an-api-by-modifying-the-api-definition/"
 "install-and-setup/setup/security/identity-management-for-the-api-dev-portal.md": "{{SITE_URL}}/install-and-setup/setup/security/user-account-management/"
 "troubleshooting/removing-unused-tokens-from-the-database.md": "{{SITE_URL}}/install-and-setup/setup/setting-up-databases/managing-data-growth-and-improving-performance/"
 "develop/product-apis/restful-apis.md": "{{SITE_URL}}/reference/product-apis/overview/"
