@@ -8,20 +8,20 @@ This section lists out all the workflow related tables and their attributes in t
 
 ### AM_WORKFLOWS
 
-Manages human-approval and automated workflow instances for various API Manager operations such as application creation, subscription, user sign-up, and API state changes. A record is created when an operation triggers a configured workflow (e.g., a subscription request that requires admin approval). The `WF_STATUS` column tracks the workflow state (CREATED, APPROVED, REJECTED), and `WF_EXTERNAL_REFERENCE` links to an external workflow engine (e.g., WSO2 BPS) when configured. Workflow metadata and properties are stored as serialized blobs for flexibility.
+Manages human-approval and automated workflow instances for various API Manager operations such as application creation, subscription, user sign-up, application registration, API/API-product state changes, and API revision deployment. A record is created when an operation triggers a configured workflow (e.g., a subscription request that requires admin approval). Workflows are driven by a pluggable `WorkflowExecutor` architecture: Simple executors auto-approve in-process, Approval executors hold the request for a human decision, and WS executors delegate the human task to an external BPM engine — WSO2 BPS (via BPEL) or Camunda. The `WF_STATUS` column tracks the workflow state (CREATED on initiation, then APPROVED or REJECTED on the decision, with REGISTERED used for application-registration flows), and `WF_EXTERNAL_REFERENCE` holds the correlation reference to the external engine when a WS executor is configured. Workflow metadata and properties are stored as serialized blobs for flexibility.
 
 | Column | Description |
 |--------|-------------|
 | WF_ID | Primary key. Auto-generated unique identifier for this workflow instance. |
 | WF_REFERENCE | The identifier of the entity this workflow pertains to (e.g., application ID, subscription ID). |
-| WF_TYPE | The type of workflow operation (e.g., AM_APPLICATION_CREATION, AM_SUBSCRIPTION_CREATION, AM_USER_SIGNUP). |
-| WF_STATUS | The current state of the workflow (e.g., CREATED, APPROVED, REJECTED). |
+| WF_TYPE | The type of workflow operation (e.g., AM_APPLICATION_CREATION, AM_APPLICATION_DELETION, AM_SUBSCRIPTION_CREATION, AM_SUBSCRIPTION_DELETION, AM_SUBSCRIPTION_UPDATE, AM_USER_SIGNUP, AM_APPLICATION_REGISTRATION_PRODUCTION, AM_APPLICATION_REGISTRATION_SANDBOX, AM_API_STATE, AM_API_PRODUCT_STATE). |
+| WF_STATUS | The current state of the workflow: CREATED on initiation, then APPROVED or REJECTED once the decision is made (REGISTERED is used by application-registration flows). |
 | WF_CREATED_TIME | The timestamp when this workflow instance was initiated. |
 | WF_UPDATED_TIME | The timestamp when this workflow instance was last updated. |
 | WF_STATUS_DESC | A human-readable description providing additional context about the current workflow status. |
 | TENANT_ID | The identifier of the tenant in which this workflow was initiated. |
 | TENANT_DOMAIN | The domain name of the tenant in which this workflow was initiated. |
-| WF_EXTERNAL_REFERENCE | Unique. The reference identifier linking to an external workflow engine (e.g., WSO2 BPS) for human-task workflows. |
+| WF_EXTERNAL_REFERENCE | Unique. The correlation reference linking this instance to an external BPM engine (e.g., WSO2 BPS via BPEL, or Camunda) when a WS (web service) workflow executor is configured; used to match the engine's asynchronous callback back to this workflow. |
 | WF_METADATA | Serialized metadata associated with this workflow instance, containing context-specific information. |
 | WF_PROPERTIES | Serialized properties providing additional configuration for workflow execution. |
 
@@ -123,7 +123,7 @@ Stores the configuration parameters for each workflow definition, providing the 
 
 ### WF_WORKFLOW_REQUEST_RELATION
 
-Links running workflow instances to the workflow requests that initiated them, tracking the execution status of each workflow-request pair. A record is created when a workflow request triggers a workflow instance execution on the BPS engine. The `STATUS` column tracks whether the workflow instance is in progress, completed, or failed, and `UPDATED_AT` records the most recent state change. This table enables the system to correlate BPS workflow execution with the original operation request. The `WORKFLOW_ID` column is a foreign key to the `WF_WORKFLOW` table and the `REQUEST_ID` column is a foreign key to the `WF_REQUEST` table.
+Links running workflow instances to the workflow requests that initiated them, tracking the execution status of each workflow-request pair. A record is created when a workflow request triggers a workflow instance execution (in-process or on an external BPM engine such as WSO2 BPS or Camunda). The `STATUS` column tracks whether the workflow instance is in progress, completed, or failed, and `UPDATED_AT` records the most recent state change. This table enables the system to correlate workflow execution with the original operation request. The `WORKFLOW_ID` column is a foreign key to the `WF_WORKFLOW` table and the `REQUEST_ID` column is a foreign key to the `WF_REQUEST` table.
 
 | Column | Description |
 |--------|-------------|

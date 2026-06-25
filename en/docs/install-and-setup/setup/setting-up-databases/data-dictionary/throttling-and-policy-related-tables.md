@@ -145,7 +145,7 @@ Defines application-level throttling policies that set an overall request rate l
 
 ### AM_POLICY_GLOBAL
 
-Defines global (custom) throttling policies that use Siddhi CEP (Complex Event Processing) queries for advanced throttle scenarios not covered by standard policy types. Records are created by administrators through the Admin portal when defining cross-cutting throttle rules. The `SIDDHI_QUERY` column contains the Siddhi query that the traffic manager evaluates against the API event stream, and the `KEY_TEMPLATE` column defines how throttle keys are constructed from request attributes.
+Defines global (custom) throttling policies that use Siddhi CEP (Complex Event Processing) queries for advanced throttle scenarios not covered by standard policy types, with IP-based blocking being a primary use case (for example, denying or limiting traffic from specific IP addresses or ranges via the Siddhi query's conditions). Records are created by administrators through the Admin portal when defining cross-cutting throttle rules. The `SIDDHI_QUERY` column contains the Siddhi query that the traffic manager evaluates against the API event stream, and the `KEY_TEMPLATE` column defines how throttle keys are constructed from request attributes.
 
 | Column | Description |
 |--------|-------------|
@@ -181,7 +181,7 @@ Defines hard throttling limits that enforce absolute rate caps that cannot be ex
 
 ### AM_POLICY_SUBSCRIPTION
 
-Defines subscription-level throttling policies (business plans) that control how many requests an application can make to a subscribed API within a given time window. Records are created by an administrator through the Admin portal, and a developer selects one of these policies as their tier when subscribing to an API. The policy supports request count and bandwidth quotas, burst rate limiting, monetization plans, and GraphQL/WebSocket/AI-specific limits such as max complexity, max depth, connection counts, and token limits.
+Defines subscription-level throttling policies (business plans) that control how many requests an application can make to a subscribed API within a given time window. Records are created by an administrator through the Admin portal, and a developer selects one of these policies as their tier when subscribing to an API. The policy supports request count and bandwidth quotas, burst control (spike arrest) via the `RATE_LIMIT_COUNT` and `RATE_LIMIT_TIME_UNIT` columns, monetization plans, and GraphQL/WebSocket/AI-specific limits such as max complexity, max depth, connection counts, and token limits.
 
 | Column | Description |
 |--------|-------------|
@@ -195,8 +195,8 @@ Defines subscription-level throttling policies (business plans) that control how
 | QUOTA_UNIT | The unit of measurement for bandwidth quotas (for example, KB, MB). |
 | UNIT_TIME | The duration of the time window over which the quota is measured. |
 | TIME_UNIT | The time unit for the quota window (for example, min, hour, day). |
-| RATE_LIMIT_COUNT | The burst rate limit that caps the maximum number of requests in a short burst window. |
-| RATE_LIMIT_TIME_UNIT | The time unit for the burst rate limit window. |
+| RATE_LIMIT_COUNT | The burst-control (spike arrest) limit that caps the maximum number of requests allowed within the short `RATE_LIMIT_TIME_UNIT` window, smoothing out request spikes that would otherwise be permitted within the larger quota window. |
+| RATE_LIMIT_TIME_UNIT | The time unit for the burst-control (spike arrest) window over which `RATE_LIMIT_COUNT` is enforced. |
 | IS_DEPLOYED | Flag indicating whether this policy has been deployed to the Gateway's traffic manager for enforcement. |
 | CUSTOM_ATTRIBUTES | Serialized JSON containing custom key-value attributes associated with this policy. |
 | STOP_ON_QUOTA_REACH | Flag controlling whether requests are blocked (true) or allowed with degraded service (false) when the quota is exhausted. |
@@ -232,7 +232,7 @@ Defines query parameter-based conditions within a throttle condition group, allo
 
 ### AM_THROTTLE_TIER_PERMISSIONS
 
-Controls role-based visibility of throttle tiers, determining which user roles can see and select specific throttle tiers when subscribing to APIs or creating applications. Records are created when an administrator configures tier permissions through the Admin portal. This table functions similarly to the `AM_TIER_PERMISSIONS` table but is used specifically in the context of the advanced throttling framework.
+Controls role-based visibility of throttle tiers, determining which user roles can see and select specific throttle tiers when subscribing to APIs or creating applications. Records are created when an administrator configures tier permissions through the Admin portal. This is the current tier-permissions table used by the advanced throttling framework and is the preferred path for new deployments; the older `AM_TIER_PERMISSIONS` table is retained for backward compatibility.
 
 | Column | Description |
 |--------|-------------|
@@ -246,7 +246,7 @@ Controls role-based visibility of throttle tiers, determining which user roles c
 
 ### AM_TIER_PERMISSIONS
 
-Controls which roles can see or use specific throttling tiers, enabling administrators to restrict tier visibility. Records are created when an administrator configures tier permissions through the Admin portal. The `PERMISSIONS_TYPE` column determines whether the listed roles are allowed (allow-list) or denied (deny-list) access to the tier, which is useful for reserving premium tiers for specific user groups.
+Controls which roles can see or use specific throttling tiers, enabling administrators to restrict tier visibility. Records are created when an administrator configures tier permissions through the Admin portal. The `PERMISSIONS_TYPE` column determines whether the listed roles are allowed (allow-list) or denied (deny-list) access to the tier, which is useful for reserving premium tiers for specific user groups. This table is maintained for backward compatibility and is still read and written by the product; new deployments should prefer the `AM_THROTTLE_TIER_PERMISSIONS` table used by the advanced throttling framework.
 
 | Column | Description |
 |--------|-------------|

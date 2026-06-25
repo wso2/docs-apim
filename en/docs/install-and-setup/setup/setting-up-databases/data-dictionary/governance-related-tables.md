@@ -8,12 +8,12 @@ This section lists out all the governance related tables and their attributes in
 
 ### GOV_ARTIFACT
 
-Registers artifacts (typically APIs) that are subject to governance evaluation, providing a stable reference point for tracking governance status across evaluation runs. A record is created when an API or other governable artifact first undergoes governance evaluation. The `ARTIFACT_REF_ID` links to the external identifier of the artifact (e.g., the API UUID), while `ARTIFACT_KEY` provides a governance-specific stable key. This table is referenced by the `GOV_REQUEST`, `GOV_POLICY_RUN`, and `GOV_RULESET_RUN` tables to associate evaluation results with specific artifacts.
+Registers artifacts (typically APIs) that are subject to governance evaluation, providing a stable reference point for tracking governance status across evaluation runs. A record is created when an API or other governable artifact first undergoes governance evaluation. The `ARTIFACT_KEY` is a governance-specific surrogate key (UUID) used internally, while the natural key by which the governance engine looks up an artifact is the combination of `ARTIFACT_REF_ID` (the external identifier such as the API UUID), `ARTIFACT_TYPE`, and `ORGANIZATION`, enforced by a unique constraint. This table is referenced by the `GOV_REQUEST`, `GOV_POLICY_RUN`, and `GOV_RULESET_RUN` tables (via `ARTIFACT_KEY`) to associate evaluation results with specific artifacts.
 
 | Column | Description |
 |--------|-------------|
-| ARTIFACT_KEY | Primary key. The governance-specific stable key for this artifact. |
-| ARTIFACT_REF_ID | The external identifier of the artifact (e.g., the API UUID) linking to the source system. |
+| ARTIFACT_KEY | Primary key. The governance-specific surrogate key (UUID) for this artifact, used internally to associate evaluation runs. |
+| ARTIFACT_REF_ID | The external identifier of the artifact (e.g., the API UUID) linking to the source system. Part of the unique natural key together with `ARTIFACT_TYPE` and `ORGANIZATION`. |
 | ARTIFACT_TYPE | The type of governable artifact (e.g., API, AsyncAPI). |
 | ORGANIZATION | The organization to which this artifact belongs. |
 
@@ -85,7 +85,7 @@ Links governance policies to their constituent rulesets, defining which collecti
 
 ### GOV_POLICY_RUN
 
-Records the outcome of a governance policy evaluation against a specific artifact, capturing when the policy was last evaluated. A record is created or updated each time a governance policy is evaluated for an artifact, storing the timestamp of the most recent run. The detailed pass/fail results are captured at the ruleset level in the `GOV_RULESET_RUN` table, while this table provides the policy-level summary. The composite key ensures one record per artifact-policy pair, always reflecting the latest evaluation. The `ARTIFACT_KEY` column is a foreign key to the `GOV_ARTIFACT` table and the `POLICY_ID` column is a foreign key to the `GOV_POLICY` table.
+Records the outcome of a governance policy evaluation against a specific artifact, capturing when the policy was last evaluated. A record is inserted each time a governance policy is evaluated for an artifact, storing the timestamp of the run; any prior row for the same artifact-policy pair is deleted before re-insertion, so the row always reflects the most recent evaluation. The detailed pass/fail results are captured at the ruleset level in the `GOV_RULESET_RUN` table, while this table provides the policy-level summary. The composite primary key (`ARTIFACT_KEY`, `POLICY_ID`) ensures one record per artifact-policy pair. The `ARTIFACT_KEY` column is a foreign key to the `GOV_ARTIFACT` table and the `POLICY_ID` column is a foreign key to the `GOV_POLICY` table.
 
 | Column | Description |
 |--------|-------------|
@@ -97,15 +97,15 @@ Records the outcome of a governance policy evaluation against a specific artifac
 
 ### GOV_REQUEST
 
-Tracks governance evaluation requests, representing a single evaluation cycle where all applicable policies are assessed against an artifact. A record is created when a governance evaluation is triggered, typically by an API lifecycle state change or an on-demand evaluation request. The `STATUS` progresses from PENDING to IN_PROGRESS to COMPLETED as the evaluation engine processes the request. Associated policy evaluations are tracked in the `GOV_REQUEST_POLICY` table, and detailed results are stored in the `GOV_POLICY_RUN` and `GOV_RULESET_RUN` tables.
+Tracks governance evaluation requests, representing a single evaluation cycle where all applicable policies are assessed against an artifact. A record is created with `STATUS` set to PENDING when a governance evaluation is triggered, typically by an API lifecycle state change or an on-demand evaluation request. A background worker picks up pending requests and transitions them to PROCESSING (recording `PROCESSING_TIMESTAMP`); once evaluation finishes, the request row is deleted while the results persist in `GOV_POLICY_RUN`, `GOV_RULESET_RUN`, and `GOV_RULE_VIOLATION`. A unique constraint on (`STATUS`, `ARTIFACT_KEY`) prevents duplicate pending or processing requests for the same artifact. Associated policy evaluations are tracked in the `GOV_REQUEST_POLICY` table.
 
 | Column | Description |
 |--------|-------------|
 | REQ_ID | Primary key. The universally unique identifier for this governance evaluation request. |
-| ARTIFACT_KEY | The governance artifact key identifying the artifact being evaluated. |
-| STATUS | The current processing state of the evaluation request (PENDING, IN_PROGRESS, or COMPLETED). |
-| REQ_TIMESTAMP | The timestamp when the governance evaluation was requested. |
-| PROCESSING_TIMESTAMP | The timestamp when the evaluation engine began processing this request. |
+| ARTIFACT_KEY | The `ARTIFACT_KEY` from the `GOV_ARTIFACT` table identifying the artifact being evaluated. |
+| STATUS | The current processing state of the evaluation request, either PENDING (queued) or PROCESSING (being evaluated by the engine). Defaults to PENDING. Completed requests are removed from this table. |
+| REQ_TIMESTAMP | The timestamp when the governance evaluation was requested. Defaults to the current time. |
+| PROCESSING_TIMESTAMP | The timestamp when the evaluation engine began processing this request. Null until the request transitions to PROCESSING. |
 
 ---
 
@@ -166,13 +166,13 @@ Stores individual rules extracted from a governance ruleset, representing discre
 | RULE_NAME | The name of the rule, unique within its parent ruleset. |
 | RULE_DESCRIPTION | A human-readable description explaining what this rule validates. |
 | SEVERITY | The severity level of violations of this rule (error, warn, or info), determining how governance policies handle violations. |
-| RULE_CONTENT | The implementation or definition of the rule used for evaluation. |
+| RULE_CONTENT | The binary content holding the implementation or definition of the rule used for evaluation. |
 
 ---
 
 ### GOV_RULESET_RUN
 
-Records the results of individual ruleset evaluations within a governance run, capturing whether each ruleset passed or failed against the target artifact. A record is created for each ruleset evaluated during a governance request, with the `RESULT` field indicating pass (1) or fail (0). Each run is assigned a unique UUID that serves as the parent reference for individual rule violations stored in the `GOV_RULE_VIOLATION` table. This table provides the ruleset-level granularity needed to identify which specific validation categories an artifact failed. The `ARTIFACT_KEY` column is a foreign key to the `GOV_ARTIFACT` table and the `RULESET_ID` column is a foreign key to the `GOV_RULESET` table.
+Records the results of individual ruleset evaluations within a governance run, capturing whether each ruleset passed or failed against the target artifact. A record is created for each ruleset evaluated during a governance request, with the `RESULT` field indicating pass (1) or fail (0). A unique constraint on (`ARTIFACT_KEY`, `RULESET_ID`) ensures one row per artifact-ruleset pair, so a row reflects the latest evaluation of that ruleset against the artifact. Each run is assigned a unique UUID (`RULESET_RUN_ID`) that serves as the parent reference for individual rule violations stored in the `GOV_RULE_VIOLATION` table. This table provides the ruleset-level granularity needed to identify which specific validation categories an artifact failed. The `ARTIFACT_KEY` column is a foreign key to the `GOV_ARTIFACT` table and the `RULESET_ID` column is a foreign key to the `GOV_RULESET` table.
 
 | Column | Description |
 |--------|-------------|

@@ -21,7 +21,7 @@ This table serves as the central registry for all APIs managed by WSO2 API Manag
 | CONTEXT_TEMPLATE | The context path template containing a `{version}` placeholder, used to generate versioned context paths dynamically. |
 | API_TIER | The default throttling policy tier applied to this API, controlling the request rate limit for all resources unless overridden. |
 | API_TYPE | The protocol type of the API (for example, HTTP, WS, SSE, GRAPHQL, ASYNC), determining how the Gateway handles traffic. |
-| API_SUBTYPE | The subtype classification of the API, providing further categorization within the primary API type. |
+| API_SUBTYPE | The subtype classification of the API within its primary type. Stores values such as `DEFAULT`, `AIAPI` (an LLM-proxy API), `SERVER_PROXY`, `DIRECT_BACKEND`, or `EXISTING_API`; an empty value is treated as `DEFAULT`. |
 | ORGANIZATION | The organization to which this API belongs, enabling organization-scoped API management. |
 | GATEWAY_VENDOR | The Gateway vendor that serves this API (defaults to `wso2`), supporting multi-vendor Gateway deployments. |
 | CREATED_BY | The username of the user who created this API. |
@@ -30,12 +30,12 @@ This table serves as the central registry for all APIs managed by WSO2 API Manag
 | UPDATED_TIME | The timestamp when this API was last modified. |
 | STATUS | The current lifecycle status of the API (for example, CREATED, PUBLISHED, DEPRECATED, BLOCKED, RETIRED). |
 | LOG_LEVEL | The per-API logging verbosity level used for diagnostic and debugging purposes (defaults to `OFF`). |
-| IS_EGRESS | Flag indicating whether this is an egress API that proxies outbound traffic to external services. |
+| IS_EGRESS | Integer flag (defaults to `0`) indicating whether this is an egress API that proxies outbound traffic to external services; `1` marks it as egress. |
 | REVISIONS_CREATED | The running count of revisions created for this API, used to enforce the maximum revision limit. |
 | VERSION_COMPARABLE | A normalized version string formatted for lexicographic sorting, enabling correct version ordering. |
-| SUB_VALIDATION | Controls whether the Gateway validates subscription status before allowing API invocation (defaults to `ENABLED`). |
+| SUB_VALIDATION | Controls whether the Gateway validates subscription status before allowing API invocation. Stores `ENABLED` (the default) or `DISABLED`. |
 | API_DISPLAY_NAME | The human-friendly display name shown in portal UIs, which may differ from the technical `API_NAME`. |
-| INITIATED_FROM_GW | Flag indicating whether this API was auto-discovered from an existing Gateway deployment rather than created through the Publisher portal. |
+| INITIATED_FROM_GW | Integer flag (defaults to `0`) indicating whether this API was initiated/discovered from an existing Gateway deployment (`1`) rather than created through the Publisher portal (`0`). |
 
 ---
 
@@ -74,10 +74,10 @@ This table stores client certificates for mutual SSL (mTLS) authentication on a 
 | TENANT_ID | The identifier of the tenant that owns this client certificate. |
 | ALIAS | Part of the composite primary key. The unique alias name identifying this client certificate. |
 | API_ID | Foreign key to the `AM_API` table. The API that requires this client certificate for mutual TLS authentication. |
-| CERTIFICATE | The binary content of the client certificate. |
-| REMOVED | Part of the composite primary key. Flag indicating whether this certificate has been soft-deleted, preserving history across revisions. |
+| CERTIFICATE | The client certificate content, stored as binary data. |
+| REMOVED | Part of the composite primary key. Boolean flag (defaults to `0`/false) indicating whether this certificate has been soft-deleted, preserving history across revisions. |
 | TIER_NAME | The throttling tier associated with requests authenticated using this client certificate. |
-| KEY_TYPE | Part of the composite primary key. The environment type this certificate applies to (PRODUCTION or SANDBOX). |
+| KEY_TYPE | Part of the composite primary key. The environment type this certificate applies to, `PRODUCTION` (the default) or `SANDBOX`. |
 | REVISION_UUID | Part of the composite primary key. The revision of the API that this certificate configuration is scoped to. |
 
 ---
@@ -95,8 +95,8 @@ This table stores user comments posted on APIs in the Developer Portal, supporti
 | UPDATED_TIME | The timestamp when this comment was last edited. |
 | API_ID | Foreign key to the `AM_API` table. The API that this comment was posted on. |
 | PARENT_COMMENT_ID | Foreign key to the `AM_API_COMMENTS` table. The parent comment this is a reply to, enabling threaded discussions (null for top-level comments). |
-| ENTRY_POINT | The portal surface from which the comment was posted. |
-| CATEGORY | The classification category of the comment (defaults to `general`). |
+| ENTRY_POINT | The portal surface from which the comment was posted. Stores `PUBLISHER` (Publisher portal) or `DEVPORTAL` (Developer Portal). |
+| CATEGORY | A free-text classification tag for the comment (defaults to `general`), allowing comments to be grouped or filtered by purpose. |
 
 ---
 
@@ -125,8 +125,8 @@ This table stores endpoint configurations for each API revision, defining how th
 | ENDPOINT_UUID | Part of the composite primary key. The unique identifier for this endpoint entry. |
 | REVISION_UUID | Part of the composite primary key. The revision this endpoint configuration is associated with (defaults to `Current API`). |
 | ENDPOINT_NAME | The human-readable name identifying this endpoint configuration. |
-| KEY_TYPE | The environment type this endpoint serves (PRODUCTION or SANDBOX), allowing different backend targets per environment. |
-| ENDPOINT_CONFIG | The serialized JSON containing endpoint details such as URL, timeouts, retry policies, and load balancing settings. |
+| KEY_TYPE | The environment type this endpoint serves (typically `PRODUCTION` or `SANDBOX`), allowing different backend targets per environment. |
+| ENDPOINT_CONFIG | The endpoint details (such as URL, timeouts, retry policies, and load balancing settings), stored as binary content (serialized JSON). |
 | ORGANIZATION | Part of the composite primary key. The organization to which this endpoint configuration belongs. |
 
 ---
@@ -139,7 +139,7 @@ This table maps APIs to their corresponding configurations on external Gateway e
 |--------|-------------|
 | API_ID | Part of the composite primary key. Foreign key to the `API_UUID` column of the `AM_API` table. The API being managed on the external Gateway. |
 | GATEWAY_ENV_ID | Part of the composite primary key. Foreign key to the `UUID` column of the `AM_GATEWAY_ENVIRONMENT` table. The external Gateway environment where the API is deployed. |
-| REFERENCE_ARTIFACT | The serialized reference artifact containing the external Gateway's API identifier and configuration for lifecycle synchronization. |
+| REFERENCE_ARTIFACT | The reference artifact (stored as binary content) containing the external Gateway's API identifier and configuration for lifecycle synchronization. |
 
 ---
 
@@ -273,16 +273,16 @@ This table stores per-revision overrides for API metadata properties that can di
 
 ### AM_API_SEQUENCE_BACKEND
 
-This table stores custom mediation sequences (policies) attached to specific API backends, enabling per-backend request/response transformation. Records are created when a publisher attaches mediation sequences to a particular backend endpoint. The `TYPE` column indicates whether the sequence executes on the request flow, response flow, or fault flow.
+This table stores custom backend sequences attached to an API, used to define a custom (Synapse) backend per endpoint environment for APIs configured with a custom backend. Records are created when a publisher uploads a custom backend sequence for an API. The `TYPE` column identifies which endpoint environment the sequence applies to, so an API can have separate production and sandbox custom backends.
 
 | Column | Description |
 |--------|-------------|
-| ID | Part of the composite primary key. The unique identifier for this mediation sequence entry. |
+| ID | Part of the composite primary key. The unique identifier for this custom backend sequence entry. |
 | API_UUID | Part of the composite primary key. Foreign key to the `AM_API` table. The API whose backend this sequence is attached to. |
-| REVISION_UUID | The revision of the API that this sequence belongs to (defaults to `0`). |
-| SEQUENCE | The serialized mediation sequence content (for example, Synapse XML configuration). |
-| NAME | The human-readable name of the mediation sequence. |
-| TYPE | Part of the composite primary key. The flow direction in which this sequence executes (in for request, out for response, fault for error handling). |
+| REVISION_UUID | The revision of the API that this sequence belongs to (defaults to `0` for the working copy). |
+| SEQUENCE | The custom backend sequence content (for example, Synapse XML configuration), stored as binary content. |
+| NAME | The name of the custom backend sequence, typically derived from the uploaded sequence file name. |
+| TYPE | Part of the composite primary key. The endpoint environment this custom backend applies to, storing the key type such as `PRODUCTION` or `SANDBOX`. |
 
 ---
 
@@ -308,14 +308,14 @@ This table defines the individual resources (operations) exposed by an API, mapp
 | URL_MAPPING_ID | Primary key. Auto-generated unique identifier for this URL mapping (operation). |
 | API_ID | The internal identifier of the API that this operation belongs to. |
 | HTTP_METHOD | The HTTP method for this operation (for example, GET, POST, PUT, DELETE, PATCH). |
-| AUTH_SCHEME | The authentication scheme required to invoke this operation. |
+| AUTH_SCHEME | The authentication scheme required to invoke this operation. Typical values are `Any` (application or user token), `Application`, `Application_User`, and `None` (no authentication required). |
 | URL_PATTERN | The URL path pattern for this operation relative to the API context. |
 | THROTTLING_TIER | The throttling policy tier applied to this specific operation, overriding the API-level default. |
-| MEDIATION_SCRIPT | An optional inline mediation script executed during request processing for this operation. |
+| MEDIATION_SCRIPT | An optional inline mediation script (stored as binary content) executed during request processing for this operation. |
 | REVISION_UUID | The revision of the API that this operation definition belongs to. |
 | LOG_LEVEL | The logging verbosity level for this specific resource, enabling per-operation diagnostic tracing (defaults to `OFF`). |
-| DESCRIPTION | A human-readable description of what this API operation does. |
-| SCHEMA_DEFINITION | The request/response schema definition for this operation, typically derived from the API specification. |
+| DESCRIPTION | A description of what this API operation does, stored as binary content. |
+| SCHEMA_DEFINITION | The request/response schema definition for this operation (stored as binary content), typically derived from the API specification. |
 
 ---
 
@@ -339,8 +339,8 @@ This table defines backend service targets that APIs route traffic to, supportin
 |--------|-------------|
 | BACKEND_ID | Primary key. Auto-generated unique identifier for this backend service definition. |
 | BACKEND_NAME | The name of the backend service, unique within the scope of an API and revision combination. |
-| ENDPOINT_CONFIG | The serialized endpoint configuration containing connection details for this backend service. |
-| DEFINITION | The API definition (for example, an OpenAPI spec) describing the backend service's interface. |
+| ENDPOINT_CONFIG | The endpoint configuration containing connection details for this backend service, stored as binary content. |
+| DEFINITION | The API definition (for example, an OpenAPI spec) describing the backend service's interface, stored as binary content. |
 | REFERENCE_API_UUID | Foreign key to the `AM_API` table. The API that references this backend service. |
 | REFERENCE_API_REVISION_UUID | The revision of the API that this backend service definition is associated with (defaults to `Current API`). |
 | ORGANIZATION | The organization to which this backend service belongs. |
@@ -383,8 +383,8 @@ This table maps API revisions to their target deployment environments, tracking 
 | NAME | Part of the composite primary key. The name of the Gateway environment this revision is deployed to. |
 | VHOST | The virtual host under which the API is accessible in this deployment. |
 | REVISION_UUID | Part of the composite primary key. Foreign key to the `AM_REVISION` table. The revision deployed to this environment. |
-| REVISION_STATUS | The deployment status of this revision in the environment. |
-| DISPLAY_ON_DEVPORTAL | Flag controlling whether this API is visible in the Developer Portal for this specific environment. |
+| REVISION_STATUS | The deployment status of this revision in the environment, for example `CREATED` for a recorded deployment mapping that is not yet live. |
+| DISPLAY_ON_DEVPORTAL | Boolean flag (defaults to `0`/false) controlling whether this API is visible in the Developer Portal for this specific environment. |
 | DEPLOYED_TIME | The timestamp when this revision was deployed to the environment. |
 
 ---
@@ -472,7 +472,7 @@ This table defines labels that can be applied to APIs for categorization, filter
 
 ### AM_REVISION
 
-This table stores immutable snapshots of API configurations, enabling publishers to version their API designs and roll back to previous states. A record is created each time a publisher creates a new revision, capturing the API's current configuration as a frozen snapshot. Revisions are the unit of deployment; only revisions (not the working copy) can be deployed to Gateway environments.
+This table stores immutable snapshots of API configurations, enabling publishers to version their API designs, roll back to previous states, and perform A/B testing by deploying different revisions to different Gateway environments. A record is created each time a publisher creates a new revision, capturing the API's current configuration as a frozen snapshot. Revisions are the unit of deployment; only revisions (not the working copy) can be deployed to Gateway environments.
 
 | Column | Description |
 |--------|-------------|
@@ -502,7 +502,7 @@ This table stores backend service definitions in the APIM Service Catalog, provi
 | DEFINITION_URL | The URL where the service definition can be fetched from, if hosted externally. |
 | DESCRIPTION | A human-readable description of the backend service and its capabilities. |
 | SECURITY_TYPE | The security mechanism required to access the backend service (for example, BASIC, OAUTH2, NONE). |
-| MUTUAL_SSL_ENABLED | Flag indicating whether the backend service requires mutual TLS (mTLS) authentication. |
+| MUTUAL_SSL_ENABLED | Boolean flag (defaults to `0`/false) indicating whether the backend service requires mutual TLS (mTLS) authentication. |
 | CREATED_TIME | The timestamp when this service catalog entry was initially created. |
 | LAST_UPDATED_TIME | The timestamp when this service catalog entry was last updated. |
 | CREATED_BY | The username of the user who registered this service in the catalog. |

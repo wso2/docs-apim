@@ -110,7 +110,7 @@ Stores metadata for SSL certificates used to establish secure connections betwee
 
 ### AM_KEY_MANAGER
 
-Stores configurations for OAuth2 key manager integrations, allowing APIM to work with multiple identity providers simultaneously. A record is created when an administrator configures a key manager, connecting APIM to identity providers such as the built-in Resident Key Manager, Keycloak, Okta, Auth0, or any custom OAuth2 server. The `CONFIGURATION` blob stores provider-specific settings including token endpoints and credential details.
+Stores configurations for OAuth2 key manager integrations, allowing APIM to work with multiple identity providers simultaneously. A record is created when an administrator configures a key manager, connecting APIM to identity providers such as the built-in Resident Key Manager, Keycloak, Okta, Auth0, Azure AD, any provider exposed through the standard OIDC protocol, or any custom OAuth2 server. The `CONFIGURATION` blob stores provider-specific settings including token endpoints and credential details.
 
 | Column | Description |
 |--------|-------------|
@@ -118,7 +118,7 @@ Stores configurations for OAuth2 key manager integrations, allowing APIM to work
 | NAME | The name of the key manager, unique within an organization (e.g., Resident Key Manager, Keycloak). |
 | DISPLAY_NAME | The human-readable display name shown in portal UIs when selecting a key manager. |
 | DESCRIPTION | A human-readable description of the key manager and its purpose. |
-| TYPE | The key manager type identifying the IdP implementation (e.g., default, KeyCloak, Okta, Auth0). |
+| TYPE | The key manager type identifying the IdP implementation (free-form `VARCHAR(45)`), e.g., default, KeyCloak, Okta, Auth0, AzureAD, or OIDC. OIDC denotes the open/standard OpenID Connect protocol type used to integrate generic, standards-compliant providers that do not have a dedicated connector. |
 | CONFIGURATION | The serialized configuration containing provider-specific settings such as endpoints, credentials, and claim mappings. |
 | ENABLED | Flag indicating whether this key manager is active and available for use by developers. |
 | ORGANIZATION | The organization to which this key manager configuration belongs. |

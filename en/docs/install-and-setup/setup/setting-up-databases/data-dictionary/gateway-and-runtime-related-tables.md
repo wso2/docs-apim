@@ -302,7 +302,7 @@ Defines virtual hosts (vhosts) associated with each Gateway environment, enablin
 
 ### AM_OPERATION_POLICY
 
-Defines reusable operation-level mediation policies that can be attached to API operations to transform, validate, or enrich requests and responses. Records are created when an administrator or publisher creates a new operation policy, either as a common (organization-wide) policy or an API-specific policy. Each policy specifies which flows it applies to, which gateway types support it, and what parameters it accepts. The `POLICY_MD5` hash enables efficient change detection, and the `POLICY_CATEGORY` classifies policies for organized browsing in the Publisher portal.
+Defines reusable operation-level mediation policies that can be attached to API operations to transform, validate, or enrich requests and responses. Records are created when an administrator or publisher creates a new operation policy, either as a common (organization-wide) policy or an API-specific policy. Policies are authored either in **YAML** (which can embed JavaScript or Python scripting for inline logic) or in **XML** for sequence-based (Synapse) mediation; this table holds the policy specification (name, applicable flows, supported gateway types, and accepted parameters), while the compiled gateway-specific policy definition content is stored in the related `AM_OPERATION_POLICY_DEFINITION` table. The `POLICY_MD5` hash enables efficient change detection, and the `POLICY_CATEGORY` classifies policies for organized browsing in the Publisher portal.
 
 | Column | Description |
 |--------|-------------|
@@ -314,7 +314,7 @@ Defines reusable operation-level mediation policies that can be attached to API 
 | APPLICABLE_FLOWS | The mediation flows this policy can be applied to (request, response, fault, or combinations). |
 | GATEWAY_TYPES | The Gateway runtime types that support this policy. |
 | API_TYPES | The API protocol types this policy is compatible with (e.g., HTTP, SOAP, GraphQL). |
-| POLICY_PARAMETERS | The JSON schema defining the configurable parameters this policy accepts. |
+| POLICY_PARAMETERS | The schema (derived from the policy's YAML or XML specification) defining the configurable parameters this policy accepts; the corresponding runtime values are supplied per attachment in the mapping tables. |
 | ORGANIZATION | The organization to which this policy belongs. |
 | POLICY_CATEGORY | The classification category for organized browsing in the Publisher portal (e.g., Mediation, Security, Transform). |
 | POLICY_MD5 | The MD5 hash of the policy content, enabling efficient change detection during deployment synchronization. |
