@@ -62,14 +62,14 @@ info:
     ```
     Note that in a distributed deployment or IS as KM separated environment to invoke RESTful APIs (product APIs), users must generate tokens through API-M Control Plane's token endpoint.
     The tokens generated using third party key managers, are to manage end-user authentication when accessing APIs.
-    
+
     Next you must use the above client id and secret to obtain the access token.
     We will be using the password grant type for this, you can use any grant type you desire.
     You also need to add the proper **scope** when getting the access token. All possible scopes for Admin REST API can be viewed in **OAuth2 Security** section
     of this document and scope for each resource is given in **authorizations** section of resource documentation.
     Following is the format of the request if you are using the password grant type.
     ```
-    curl -k -d "grant_type=password&username=<admin_username>&password=<admin_passowrd>&scope=<scopes seperated by space>"
+    curl -k -d "grant_type=password&username=<admin_username>&password=<admin_passowrd>&scope=<scopes separated by space>"
     \ -H "Authorization: Basic base64(cliet_id:client_secret)"
     \ https://<host>:<server_port>/oauth2/token
     ```
@@ -136,7 +136,7 @@ paths:
           schema:
             type: string
       responses:
-        '200':
+        "200":
           description: |
             OK.
             List of qualifying Throttling Policies is returned.
@@ -148,7 +148,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ThrottlePolicyDetailsList'
+                $ref: "#/components/schemas/ThrottlePolicyDetailsList"
       security:
         - OAuth2Security:
             - apim:admin
@@ -173,9 +173,9 @@ paths:
       description: |
         Retrieves all existing application throttling policies.
       parameters:
-        - $ref: '#/components/parameters/Accept'
+        - $ref: "#/components/parameters/Accept"
       responses:
-        '200':
+        "200":
           description: |
             OK.
             Policies returned
@@ -188,9 +188,9 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ApplicationThrottlePolicyList'
-        '406':
-          $ref: '#/components/responses/NotAcceptable'
+                $ref: "#/components/schemas/ApplicationThrottlePolicyList"
+        "406":
+          $ref: "#/components/responses/NotAcceptable"
       security:
         - OAuth2Security:
             - apim:admin
@@ -209,17 +209,17 @@ paths:
       description: |
         This operation can be used to add a new application level throttling policy.
       parameters:
-        - $ref: '#/components/parameters/Content-Type'
+        - $ref: "#/components/parameters/Content-Type"
       requestBody:
         description: |
           Application level policy object that should to be added
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/ApplicationThrottlePolicy'
+              $ref: "#/components/schemas/ApplicationThrottlePolicy"
         required: true
       responses:
-        '201':
+        "201":
           description: |
             Created.
             Successful response with the newly created object as entity in the body.
@@ -238,7 +238,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ApplicationThrottlePolicy'
+                $ref: "#/components/schemas/ApplicationThrottlePolicy"
               example:
                 policyId: e0fd4a15-969e-4056-94c8-8a7b56f8103f
                 policyName: 20PerMin
@@ -252,10 +252,10 @@ paths:
                     timeUnit: min
                     unitTime: 1
                     requestCount: 20
-        '400':
-          $ref: '#/components/responses/BadRequest'
-        '415':
-          $ref: '#/components/responses/UnsupportedMediaType'
+        "400":
+          $ref: "#/components/responses/BadRequest"
+        "415":
+          $ref: "#/components/responses/UnsupportedMediaType"
       security:
         - OAuth2Security:
             - apim:admin
@@ -278,9 +278,9 @@ paths:
       description: |
         Retrieves an application throttling policy.
       parameters:
-        - $ref: '#/components/parameters/policyId'
+        - $ref: "#/components/parameters/policyId"
       responses:
-        '200':
+        "200":
           description: |
             OK.
             Policy returned
@@ -293,7 +293,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ApplicationThrottlePolicy'
+                $ref: "#/components/schemas/ApplicationThrottlePolicy"
               example:
                 policyId: e0fd4a15-969e-4056-94c8-8a7b56f8103f
                 policyName: 20PerMin
@@ -307,10 +307,10 @@ paths:
                     timeUnit: min
                     unitTime: 1
                     requestCount: 20
-        '404':
-          $ref: '#/components/responses/NotFound'
-        '406':
-          $ref: '#/components/responses/NotAcceptable'
+        "404":
+          $ref: "#/components/responses/NotFound"
+        "406":
+          $ref: "#/components/responses/NotAcceptable"
       security:
         - OAuth2Security:
             - apim:admin
@@ -329,18 +329,18 @@ paths:
       description: |
         Updates an existing application level throttling policy. Upon a succesfull update, you will receive the updated application policy as the response.
       parameters:
-        - $ref: '#/components/parameters/policyId'
-        - $ref: '#/components/parameters/Content-Type'
+        - $ref: "#/components/parameters/policyId"
+        - $ref: "#/components/parameters/Content-Type"
       requestBody:
         description: |
           Policy object that needs to be modified
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/ApplicationThrottlePolicy'
+              $ref: "#/components/schemas/ApplicationThrottlePolicy"
         required: true
       responses:
-        '200':
+        "200":
           description: |
             OK.
             Policy updated.
@@ -358,7 +358,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ApplicationThrottlePolicy'
+                $ref: "#/components/schemas/ApplicationThrottlePolicy"
               example:
                 policyId: e0fd4a15-969e-4056-94c8-8a7b56f8103f
                 policyName: 20PerMin
@@ -372,10 +372,10 @@ paths:
                     timeUnit: min
                     unitTime: 1
                     requestCount: 20
-        '400':
-          $ref: '#/components/responses/BadRequest'
-        '404':
-          $ref: '#/components/responses/NotFound'
+        "400":
+          $ref: "#/components/responses/BadRequest"
+        "404":
+          $ref: "#/components/responses/NotFound"
       security:
         - OAuth2Security:
             - apim:admin
@@ -394,15 +394,15 @@ paths:
       description: |
         Deletes an application level throttling policy.
       parameters:
-        - $ref: '#/components/parameters/policyId'
+        - $ref: "#/components/parameters/policyId"
       responses:
-        '200':
+        "200":
           description: |
             OK.
             Resource successfully deleted.
           content: {}
-        '404':
-          $ref: '#/components/responses/NotFound'
+        "404":
+          $ref: "#/components/responses/NotFound"
       security:
         - OAuth2Security:
             - apim:admin
@@ -415,7 +415,6 @@ paths:
             curl -k -X DELETE -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" \
             "https://127.0.0.1:9443/api/am/admin/v4/throttling/policies/application/4e098fff-7f94-459a-981f-d257332f69d0"
 
-
   ######################################################
   # The "Subscription Throttling Policy Collection" resource API
   ######################################################
@@ -427,9 +426,9 @@ paths:
       description: |
         This operation can be used to retrieve all Subscription level throttling policies.
       parameters:
-        - $ref: '#/components/parameters/Accept'
+        - $ref: "#/components/parameters/Accept"
       responses:
-        '200':
+        "200":
           description: |
             OK.
             Policies returned
@@ -442,9 +441,9 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/SubscriptionThrottlePolicyList'
-        '406':
-          $ref: '#/components/responses/NotAcceptable'
+                $ref: "#/components/schemas/SubscriptionThrottlePolicyList"
+        "406":
+          $ref: "#/components/responses/NotAcceptable"
       security:
         - OAuth2Security:
             - apim:admin
@@ -463,17 +462,17 @@ paths:
       description: |
         This operation can be used to add a Subscription level throttling policy specifying the details of the policy in the payload.
       parameters:
-        - $ref: '#/components/parameters/Content-Type'
+        - $ref: "#/components/parameters/Content-Type"
       requestBody:
         description: |
           Subscripion level policy object that should to be added
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/SubscriptionThrottlePolicy'
+              $ref: "#/components/schemas/SubscriptionThrottlePolicy"
         required: true
       responses:
-        '201':
+        "201":
           description: |
             Created.
             Successful response with the newly created object as entity in the body.
@@ -492,7 +491,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/SubscriptionThrottlePolicy'
+                $ref: "#/components/schemas/SubscriptionThrottlePolicy"
               example:
                 policyId: 78c3ebff-176d-40d8-9377-fb3276528291
                 policyName: Gold
@@ -511,10 +510,10 @@ paths:
                 customAttributes: []
                 stopOnQuotaReach: true
                 billingPlan: FREE
-        '400':
-          $ref: '#/components/responses/BadRequest'
-        '415':
-          $ref: '#/components/responses/UnsupportedMediaType'
+        "400":
+          $ref: "#/components/responses/BadRequest"
+        "415":
+          $ref: "#/components/responses/UnsupportedMediaType"
       security:
         - OAuth2Security:
             - apim:admin
@@ -580,9 +579,9 @@ paths:
       description: |
         This operation can be used to retrieves subscription level throttling policy by specifying the Id of the policy as a path parameter
       parameters:
-        - $ref: '#/components/parameters/policyId'
+        - $ref: "#/components/parameters/policyId"
       responses:
-        '200':
+        "200":
           description: |
             OK.
             Policy returned
@@ -595,7 +594,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/SubscriptionThrottlePolicy'
+                $ref: "#/components/schemas/SubscriptionThrottlePolicy"
               example:
                 policyId: 78c3ebff-176d-40d8-9377-fb3276528291
                 policyName: Gold
@@ -614,10 +613,10 @@ paths:
                 customAttributes: []
                 stopOnQuotaReach: true
                 billingPlan: FREE
-        '404':
-          $ref: '#/components/responses/NotFound'
-        '406':
-          $ref: '#/components/responses/NotAcceptable'
+        "404":
+          $ref: "#/components/responses/NotFound"
+        "406":
+          $ref: "#/components/responses/NotAcceptable"
       security:
         - OAuth2Security:
             - apim:admin
@@ -636,18 +635,18 @@ paths:
       description: |
         Updates an existing subscription level throttling policy.
       parameters:
-        - $ref: '#/components/parameters/policyId'
-        - $ref: '#/components/parameters/Content-Type'
+        - $ref: "#/components/parameters/policyId"
+        - $ref: "#/components/parameters/Content-Type"
       requestBody:
         description: |
           Policy object that needs to be modified
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/SubscriptionThrottlePolicy'
+              $ref: "#/components/schemas/SubscriptionThrottlePolicy"
         required: true
       responses:
-        '200':
+        "200":
           description: |
             OK.
             Policy updated.
@@ -665,7 +664,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/SubscriptionThrottlePolicy'
+                $ref: "#/components/schemas/SubscriptionThrottlePolicy"
               example:
                 policyId: 78c3ebff-176d-40d8-9377-fb3276528291
                 policyName: Gold
@@ -684,10 +683,10 @@ paths:
                 customAttributes: []
                 stopOnQuotaReach: true
                 billingPlan: FREE
-        '400':
-          $ref: '#/components/responses/BadRequest'
-        '404':
-          $ref: '#/components/responses/NotFound'
+        "400":
+          $ref: "#/components/responses/BadRequest"
+        "404":
+          $ref: "#/components/responses/NotFound"
       security:
         - OAuth2Security:
             - apim:admin
@@ -706,15 +705,15 @@ paths:
       description: |
         This operation can be used to delete a subscription level throttling policy by specifying the Id of the policy as a path parameter.
       parameters:
-        - $ref: '#/components/parameters/policyId'
+        - $ref: "#/components/parameters/policyId"
       responses:
-        '200':
+        "200":
           description: |
             OK.
             Resource successfully deleted.
           content: {}
-        '404':
-          $ref: '#/components/responses/NotFound'
+        "404":
+          $ref: "#/components/responses/NotFound"
       security:
         - OAuth2Security:
             - apim:admin
@@ -741,9 +740,9 @@ paths:
         **NOTE:**
         * Only super tenant users are allowed for this operation.
       parameters:
-        - $ref: '#/components/parameters/Accept'
+        - $ref: "#/components/parameters/Accept"
       responses:
-        '200':
+        "200":
           description: |
             OK.
             Policies returned
@@ -756,9 +755,9 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/CustomRuleList'
-        '406':
-          $ref: '#/components/responses/NotAcceptable'
+                $ref: "#/components/schemas/CustomRuleList"
+        "406":
+          $ref: "#/components/responses/NotAcceptable"
       security:
         - OAuth2Security:
             - apim:admin
@@ -780,17 +779,17 @@ paths:
         **NOTE:**
         * Only super tenant users are allowed for this operation.
       parameters:
-        - $ref: '#/components/parameters/Content-Type'
+        - $ref: "#/components/parameters/Content-Type"
       requestBody:
         description: |
           Custom Rule object that should to be added
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/CustomRule'
+              $ref: "#/components/schemas/CustomRule"
         required: true
       responses:
-        '201':
+        "201":
           description: |
             Created.
             Successful response with the newly created object as entity in the body.
@@ -809,23 +808,24 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/CustomRule'
+                $ref: "#/components/schemas/CustomRule"
               example:
                 policyId: 7c7ed7c4-5a7c-4e08-850a-a95bbfcc2fb6
                 policyName: custom
                 description: Allow 10 requests per minute for admin user
                 isDeployed: true
-                siddhiQuery: "FROM RequestStream\nSELECT userId, ( userId == 'admin@carbon.super'\
+                siddhiQuery:
+                  "FROM RequestStream\nSELECT userId, ( userId == 'admin@carbon.super'\
                   \ ) AS isEligible , str:concat('admin@carbon.super','') as throttleKey\n\
                   INSERT INTO EligibilityStream; \n\nFROM EligibilityStream[isEligible==true]#throttler:timeBatch(1\
                   \ min) \nSELECT throttleKey, (count(userId) >= 10) as isThrottled,\
                   \ expiryTimeStamp group by throttleKey \nINSERT ALL EVENTS into\
                   \ ResultStream;"
                 keyTemplate: $userId
-        '400':
-          $ref: '#/components/responses/BadRequest'
-        '415':
-          $ref: '#/components/responses/UnsupportedMediaType'
+        "400":
+          $ref: "#/components/responses/BadRequest"
+        "415":
+          $ref: "#/components/responses/UnsupportedMediaType"
       security:
         - OAuth2Security:
             - apim:admin
@@ -851,9 +851,9 @@ paths:
         **NOTE:**
         * Only super tenant users are allowed for this operation.
       parameters:
-        - $ref: '#/components/parameters/ruleId'
+        - $ref: "#/components/parameters/ruleId"
       responses:
-        '200':
+        "200":
           description: |
             OK.
             Policy returned
@@ -866,23 +866,24 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/CustomRule'
+                $ref: "#/components/schemas/CustomRule"
               example:
                 policyId: 7c7ed7c4-5a7c-4e08-850a-a95bbfcc2fb6
                 policyName: custom
                 description: Allow 10 requests per minute for admin user
                 isDeployed: true
-                siddhiQuery: "FROM RequestStream\nSELECT userId, ( userId == 'admin@carbon.super'\
+                siddhiQuery:
+                  "FROM RequestStream\nSELECT userId, ( userId == 'admin@carbon.super'\
                   \ ) AS isEligible , str:concat('admin@carbon.super','') as throttleKey\n\
                   INSERT INTO EligibilityStream; \n\nFROM EligibilityStream[isEligible==true]#throttler:timeBatch(1\
                   \ min) \nSELECT throttleKey, (count(userId) >= 10) as isThrottled,\
                   \ expiryTimeStamp group by throttleKey \nINSERT ALL EVENTS into\
                   \ ResultStream;"
                 keyTemplate: $userId
-        '404':
-          $ref: '#/components/responses/NotFound'
-        '406':
-          $ref: '#/components/responses/NotAcceptable'
+        "404":
+          $ref: "#/components/responses/NotFound"
+        "406":
+          $ref: "#/components/responses/NotAcceptable"
       security:
         - OAuth2Security:
             - apim:admin
@@ -904,18 +905,18 @@ paths:
         **NOTE:**
         * Only super tenant users are allowed for this operation.
       parameters:
-        - $ref: '#/components/parameters/ruleId'
-        - $ref: '#/components/parameters/Content-Type'
+        - $ref: "#/components/parameters/ruleId"
+        - $ref: "#/components/parameters/Content-Type"
       requestBody:
         description: |
           Policy object that needs to be modified
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/CustomRule'
+              $ref: "#/components/schemas/CustomRule"
         required: true
       responses:
-        '200':
+        "200":
           description: |
             OK.
             Policy updated.
@@ -933,23 +934,24 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/CustomRule'
+                $ref: "#/components/schemas/CustomRule"
               example:
                 policyId: 7c7ed7c4-5a7c-4e08-850a-a95bbfcc2fb6
                 policyName: custom
                 description: Allow 10 requests per minute for admin user
                 isDeployed: true
-                siddhiQuery: "FROM RequestStream\nSELECT userId, ( userId == 'admin@carbon.super'\
+                siddhiQuery:
+                  "FROM RequestStream\nSELECT userId, ( userId == 'admin@carbon.super'\
                   \ ) AS isEligible , str:concat('admin@carbon.super','') as throttleKey\n\
                   INSERT INTO EligibilityStream; \n\nFROM EligibilityStream[isEligible==true]#throttler:timeBatch(1\
                   \ min) \nSELECT throttleKey, (count(userId) >= 10) as isThrottled,\
                   \ expiryTimeStamp group by throttleKey \nINSERT ALL EVENTS into\
                   \ ResultStream;"
                 keyTemplate: $userId
-        '400':
-          $ref: '#/components/responses/BadRequest'
-        '404':
-          $ref: '#/components/responses/NotFound'
+        "400":
+          $ref: "#/components/responses/BadRequest"
+        "404":
+          $ref: "#/components/responses/NotFound"
       security:
         - OAuth2Security:
             - apim:admin
@@ -971,15 +973,15 @@ paths:
         **NOTE:**
         * Only super tenant users are allowed for this operation.
       parameters:
-        - $ref: '#/components/parameters/ruleId'
+        - $ref: "#/components/parameters/ruleId"
       responses:
-        '200':
+        "200":
           description: |
             OK.
             Resource successfully deleted.
           content: {}
-        '404':
-          $ref: '#/components/responses/NotFound'
+        "404":
+          $ref: "#/components/responses/NotFound"
       security:
         - OAuth2Security:
             - apim:admin
@@ -1003,9 +1005,9 @@ paths:
       description: |
         Retrieves all existing advanced throttling policies.
       parameters:
-        - $ref: '#/components/parameters/Accept'
+        - $ref: "#/components/parameters/Accept"
       responses:
-        '200':
+        "200":
           description: |
             OK.
             Policies returned
@@ -1018,9 +1020,9 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/AdvancedThrottlePolicyList'
-        '406':
-          $ref: '#/components/responses/NotAcceptable'
+                $ref: "#/components/schemas/AdvancedThrottlePolicyList"
+        "406":
+          $ref: "#/components/responses/NotAcceptable"
       security:
         - OAuth2Security:
             - apim:admin
@@ -1039,17 +1041,17 @@ paths:
       description: |
         Add a new advanced throttling policy.
       parameters:
-        - $ref: '#/components/parameters/Content-Type'
+        - $ref: "#/components/parameters/Content-Type"
       requestBody:
         description: |
           Advanced level policy object that should to be added
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/AdvancedThrottlePolicy'
+              $ref: "#/components/schemas/AdvancedThrottlePolicy"
         required: true
       responses:
-        '201':
+        "201":
           description: |
             Created.
             Successful response with the newly created object as entity in the body.
@@ -1068,7 +1070,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/AdvancedThrottlePolicy'
+                $ref: "#/components/schemas/AdvancedThrottlePolicy"
               example:
                 policyId: 4cf46441-a538-4f79-a499-ab81200c9bca
                 policyName: 10KPerMin
@@ -1082,10 +1084,10 @@ paths:
                     unitTime: 1
                     requestCount: 10000
                 conditionalGroups: []
-        '400':
-          $ref: '#/components/responses/BadRequest'
-        '415':
-          $ref: '#/components/responses/UnsupportedMediaType'
+        "400":
+          $ref: "#/components/responses/BadRequest"
+        "415":
+          $ref: "#/components/responses/UnsupportedMediaType"
       security:
         - OAuth2Security:
             - apim:admin
@@ -1108,9 +1110,9 @@ paths:
       description: |
         Retrieves an advanced throttling policy.
       parameters:
-        - $ref: '#/components/parameters/policyId'
+        - $ref: "#/components/parameters/policyId"
       responses:
-        '200':
+        "200":
           description: |
             OK.
             Policy returned
@@ -1123,7 +1125,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/AdvancedThrottlePolicy'
+                $ref: "#/components/schemas/AdvancedThrottlePolicy"
               example:
                 policyId: 4cf46441-a538-4f79-a499-ab81200c9bca
                 policyName: 10KPerMin
@@ -1137,10 +1139,10 @@ paths:
                     unitTime: 1
                     requestCount: 10000
                 conditionalGroups: []
-        '404':
-          $ref: '#/components/responses/NotFound'
-        '406':
-          $ref: '#/components/responses/NotAcceptable'
+        "404":
+          $ref: "#/components/responses/NotFound"
+        "406":
+          $ref: "#/components/responses/NotAcceptable"
       security:
         - OAuth2Security:
             - apim:admin
@@ -1159,18 +1161,18 @@ paths:
       description: |
         Updates an existing Advanced throttling policy.
       parameters:
-        - $ref: '#/components/parameters/policyId'
-        - $ref: '#/components/parameters/Content-Type'
+        - $ref: "#/components/parameters/policyId"
+        - $ref: "#/components/parameters/Content-Type"
       requestBody:
         description: |
           Policy object that needs to be modified
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/AdvancedThrottlePolicy'
+              $ref: "#/components/schemas/AdvancedThrottlePolicy"
         required: true
       responses:
-        '200':
+        "200":
           description: |
             OK.
             Policy updated.
@@ -1188,7 +1190,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/AdvancedThrottlePolicy'
+                $ref: "#/components/schemas/AdvancedThrottlePolicy"
               example:
                 policyId: 4cf46441-a538-4f79-a499-ab81200c9bca
                 policyName: 10KPerMin
@@ -1202,10 +1204,10 @@ paths:
                     unitTime: 1
                     requestCount: 10000
                 conditionalGroups: []
-        '400':
-          $ref: '#/components/responses/BadRequest'
-        '404':
-          $ref: '#/components/responses/NotFound'
+        "400":
+          $ref: "#/components/responses/BadRequest"
+        "404":
+          $ref: "#/components/responses/NotFound"
       security:
         - OAuth2Security:
             - apim:admin
@@ -1224,15 +1226,15 @@ paths:
       description: |
         Deletes an advanced throttling policy.
       parameters:
-        - $ref: '#/components/parameters/policyId'
+        - $ref: "#/components/parameters/policyId"
       responses:
-        '200':
+        "200":
           description: |
             OK.
             Resource successfully deleted.
           content: {}
-        '404':
-          $ref: '#/components/responses/NotFound'
+        "404":
+          $ref: "#/components/responses/NotFound"
       security:
         - OAuth2Security:
             - apim:admin
@@ -1278,7 +1280,7 @@ paths:
               - api
               - global
       responses:
-        '200':
+        "200":
           description: |
             OK.
             Export Successful.
@@ -1291,7 +1293,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ExportThrottlePolicy'
+                $ref: "#/components/schemas/ExportThrottlePolicy"
               example:
                 type: rate-limiting policy
                 subtype: application
@@ -1318,10 +1320,10 @@ paths:
                       timeUnit: min
                       unitTime: 5
                       eventCount: 16
-        '404':
-          $ref: '#/components/responses/NotFound'
-        '500':
-          $ref: '#/components/responses/InternalServerError'
+        "404":
+          $ref: "#/components/responses/NotFound"
+        "500":
+          $ref: "#/components/responses/InternalServerError"
       security:
         - OAuth2Security:
             - apim:admin
@@ -1365,18 +1367,18 @@ paths:
                   format: binary
         required: true
       responses:
-        '200':
+        "200":
           description: |
             Created.
             Throttling Policy Imported Successfully.
-        '403':
-          $ref: '#/components/responses/Forbidden'
-        '404':
-          $ref: '#/components/responses/NotFound'
-        '409':
-          $ref: '#/components/responses/Conflict'
-        '500':
-          $ref: '#/components/responses/InternalServerError'
+        "403":
+          $ref: "#/components/responses/Forbidden"
+        "404":
+          $ref: "#/components/responses/NotFound"
+        "409":
+          $ref: "#/components/responses/Conflict"
+        "500":
+          $ref: "#/components/responses/InternalServerError"
       security:
         - OAuth2Security:
             - apim:admin
@@ -1400,7 +1402,7 @@ paths:
       description: |
         Retrieves all existing deny policies.
       parameters:
-        - $ref: '#/components/parameters/Accept'
+        - $ref: "#/components/parameters/Accept"
         - name: query
           in: query
           description: |
@@ -1414,7 +1416,7 @@ paths:
           schema:
             type: string
       responses:
-        '200':
+        "200":
           description: |
             OK.
             Deny Policies returned
@@ -1427,9 +1429,9 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/BlockingConditionList'
-        '406':
-          $ref: '#/components/responses/NotAcceptable'
+                $ref: "#/components/schemas/BlockingConditionList"
+        "406":
+          $ref: "#/components/responses/NotAcceptable"
       security:
         - OAuth2Security:
             - apim:admin
@@ -1447,17 +1449,17 @@ paths:
       description: |
         Adds a new deny policy
       parameters:
-        - $ref: '#/components/parameters/Content-Type'
+        - $ref: "#/components/parameters/Content-Type"
       requestBody:
         description: |
           Blocking condition object that should to be added
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/BlockingCondition'
+              $ref: "#/components/schemas/BlockingCondition"
         required: true
       responses:
-        '201':
+        "201":
           description: |
             Created.
             Successful response with the newly created object as entity in the body.
@@ -1476,11 +1478,11 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/BlockingCondition'
-        '400':
-          $ref: '#/components/responses/BadRequest'
-        '415':
-          $ref: '#/components/responses/UnsupportedMediaType'
+                $ref: "#/components/schemas/BlockingCondition"
+        "400":
+          $ref: "#/components/responses/BadRequest"
+        "415":
+          $ref: "#/components/responses/UnsupportedMediaType"
       security:
         - OAuth2Security:
             - apim:admin
@@ -1502,9 +1504,9 @@ paths:
       description: |
         Retrieves a Deny policy providing the condition Id
       parameters:
-        - $ref: '#/components/parameters/conditionId'
+        - $ref: "#/components/parameters/conditionId"
       responses:
-        '200':
+        "200":
           description: |
             OK.
             Condition returned
@@ -1517,11 +1519,11 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/BlockingCondition'
-        '404':
-          $ref: '#/components/responses/NotFound'
-        '406':
-          $ref: '#/components/responses/NotAcceptable'
+                $ref: "#/components/schemas/BlockingCondition"
+        "404":
+          $ref: "#/components/responses/NotFound"
+        "406":
+          $ref: "#/components/responses/NotAcceptable"
       security:
         - OAuth2Security:
             - apim:admin
@@ -1539,15 +1541,15 @@ paths:
       description: |
         Deletes an existing deny policy
       parameters:
-        - $ref: '#/components/parameters/conditionId'
+        - $ref: "#/components/parameters/conditionId"
       responses:
-        '200':
+        "200":
           description: |
             OK.
             Resource successfully deleted.
           content: {}
-        '404':
-          $ref: '#/components/responses/NotFound'
+        "404":
+          $ref: "#/components/responses/NotFound"
       security:
         - OAuth2Security:
             - apim:admin
@@ -1565,29 +1567,29 @@ paths:
       description: |
         Update a deny policy by Id
       parameters:
-        - $ref: '#/components/parameters/conditionId'
-        - $ref: '#/components/parameters/Content-Type'
+        - $ref: "#/components/parameters/conditionId"
+        - $ref: "#/components/parameters/Content-Type"
       requestBody:
         description: |
           Blocking condition with updated status
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/BlockingConditionStatus'
+              $ref: "#/components/schemas/BlockingConditionStatus"
         required: true
       responses:
-        '200':
+        "200":
           description: |
             OK.
             Resource successfully updated.
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/BlockingCondition'
-        '400':
-          $ref: '#/components/responses/BadRequest'
-        '404':
-          $ref: '#/components/responses/NotFound'
+                $ref: "#/components/schemas/BlockingCondition"
+        "400":
+          $ref: "#/components/responses/BadRequest"
+        "404":
+          $ref: "#/components/responses/NotFound"
       security:
         - OAuth2Security:
             - apim:admin
@@ -1611,10 +1613,10 @@ paths:
         This operation can be used to retrieve list of applications owned by the given user, If no user
         is provided, the applications owned by the user associated with the provided access token will be returned.
       parameters:
-        - $ref: '#/components/parameters/user'
-        - $ref: '#/components/parameters/limit'
-        - $ref: '#/components/parameters/offset'
-        - $ref: '#/components/parameters/Accept'
+        - $ref: "#/components/parameters/user"
+        - $ref: "#/components/parameters/limit"
+        - $ref: "#/components/parameters/offset"
+        - $ref: "#/components/parameters/Accept"
         - name: name
           in: query
           description: |
@@ -1647,7 +1649,7 @@ paths:
               - desc
             default: asc
       responses:
-        '200':
+        "200":
           description: |
             OK.
             Application list returned.
@@ -1660,11 +1662,11 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ApplicationList'
-        '400':
-          $ref: '#/components/responses/BadRequest'
-        '406':
-          $ref: '#/components/responses/NotAcceptable'
+                $ref: "#/components/schemas/ApplicationList"
+        "400":
+          $ref: "#/components/responses/BadRequest"
+        "406":
+          $ref: "#/components/responses/NotAcceptable"
       security:
         - OAuth2Security:
             - apim:admin
@@ -1689,22 +1691,22 @@ paths:
       description: |
         This operation can be used to get the details of an application by specifying its id.
       parameters:
-        - $ref: '#/components/parameters/applicationId'
+        - $ref: "#/components/parameters/applicationId"
       responses:
-        '200':
+        "200":
           description: |
             OK.
             Application details returned.
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Application'
-        '400':
-          $ref: '#/components/responses/BadRequest'
-        '404':
-          $ref: '#/components/responses/NotFound'
-        '406':
-          $ref: '#/components/responses/NotAcceptable'
+                $ref: "#/components/schemas/Application"
+        "400":
+          $ref: "#/components/responses/BadRequest"
+        "404":
+          $ref: "#/components/responses/NotFound"
+        "406":
+          $ref: "#/components/responses/NotAcceptable"
       security:
         - OAuth2Security:
             - apim:admin
@@ -1724,14 +1726,14 @@ paths:
       description: |
         This operation can be used to delete an application by specifying its id.
       parameters:
-        - $ref: '#/components/parameters/applicationId'
+        - $ref: "#/components/parameters/applicationId"
       responses:
-        '200':
+        "200":
           description: |
             OK.
             Resource successfully deleted.
           content: {}
-        '202':
+        "202":
           description: |
             Accepted.
             The request has been accepted.
@@ -1744,9 +1746,9 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/WorkflowResponse'
-        '404':
-          $ref: '#/components/responses/NotFound'
+                $ref: "#/components/schemas/WorkflowResponse"
+        "404":
+          $ref: "#/components/responses/NotFound"
       security:
         - OAuth2Security:
             - apim:admin
@@ -1766,24 +1768,24 @@ paths:
       description: |
         This operation allows updating one or more settings of an application.
       parameters:
-        - $ref: '#/components/parameters/applicationId'
+        - $ref: "#/components/parameters/applicationId"
       requestBody:
         required: true
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/ApplicationUpdateRequest'
+              $ref: "#/components/schemas/ApplicationUpdateRequest"
       responses:
-        '200':
+        "200":
           description: Application updated successfully
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Application'
-        '400':
-          $ref: '#/components/responses/BadRequest'
-        '404':
-          $ref: '#/components/responses/NotFound'
+                $ref: "#/components/schemas/Application"
+        "400":
+          $ref: "#/components/responses/BadRequest"
+        "404":
+          $ref: "#/components/responses/NotFound"
       security:
         - OAuth2Security:
             - apim:admin
@@ -1810,7 +1812,7 @@ paths:
         **Deprecated.**
         This API will be removed in a future release.
         Use `/applications/{applicationId}/change-settings` instead.
-        
+
         This operation is used to change the owner of an Application.
         In order to change the owner of an application, we need to pass the new application owner as a query parameter
       parameters:
@@ -1819,17 +1821,17 @@ paths:
           required: true
           schema:
             type: string
-        - $ref: '#/components/parameters/applicationId'
+        - $ref: "#/components/parameters/applicationId"
       responses:
-        '200':
+        "200":
           description: |
             OK.
             Application owner changed successfully.
           content: {}
-        '400':
-          $ref: '#/components/responses/BadRequest'
-        '404':
-          $ref: '#/components/responses/NotFound'
+        "400":
+          $ref: "#/components/responses/BadRequest"
+        "404":
+          $ref: "#/components/responses/NotFound"
       security:
         - OAuth2Security:
             - apim:admin
@@ -1851,14 +1853,14 @@ paths:
       description: |
         Get all AI Service providers
       responses:
-        '200':
+        "200":
           description: |
             OK.
             AI Service providers returned
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/AIServiceProviderSummaryResponseList'
+                $ref: "#/components/schemas/AIServiceProviderSummaryResponseList"
       security:
         - OAuth2Security:
             - apim:admin
@@ -1881,19 +1883,19 @@ paths:
         content:
           multipart/form-data:
             schema:
-              $ref: '#/components/schemas/AIServiceProviderRequest'
+              $ref: "#/components/schemas/AIServiceProviderRequest"
         required: true
       responses:
-        '201':
+        "201":
           description: |
             Created.
             Successful response with the newly created AI Service provider as entity in the body.
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/AIServiceProviderResponse'
-        '400':
-          $ref: '#/components/responses/BadRequest'
+                $ref: "#/components/schemas/AIServiceProviderResponse"
+        "400":
+          $ref: "#/components/responses/BadRequest"
       security:
         - OAuth2Security:
             - apim:admin
@@ -1918,28 +1920,28 @@ paths:
       description: |
         Update a AI Service provider by AIServiceProviderId
       parameters:
-        - $ref: '#/components/parameters/aiServiceProviderId'
+        - $ref: "#/components/parameters/aiServiceProviderId"
       requestBody:
         description: |
           AI Service Provider object with updated information
         content:
           multipart/form-data:
             schema:
-              $ref: '#/components/schemas/AIServiceProviderRequest'
+              $ref: "#/components/schemas/AIServiceProviderRequest"
         required: true
       responses:
-        '200':
+        "200":
           description: |
             OK.
             AI Service Provider updated.
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/AIServiceProviderResponse'
-        '400':
-          $ref: '#/components/responses/BadRequest'
-        '404':
-          $ref: '#/components/responses/NotFound'
+                $ref: "#/components/schemas/AIServiceProviderResponse"
+        "400":
+          $ref: "#/components/responses/BadRequest"
+        "404":
+          $ref: "#/components/responses/NotFound"
       security:
         - OAuth2Security:
             - apim:admin
@@ -1962,15 +1964,15 @@ paths:
       description: |
         Delete a AI Service Provider by aiServiceProviderId
       parameters:
-        - $ref: '#/components/parameters/aiServiceProviderId'
+        - $ref: "#/components/parameters/aiServiceProviderId"
       responses:
-        '200':
+        "200":
           description: |
             OK.
             AI Service provider successfully deleted.
-          content: { }
-        '404':
-          $ref: '#/components/responses/NotFound'
+          content: {}
+        "404":
+          $ref: "#/components/responses/NotFound"
       security:
         - OAuth2Security:
             - apim:admin
@@ -1989,16 +1991,16 @@ paths:
       description: |
         Get a AI Service Provider
       parameters:
-        - $ref: '#/components/parameters/aiServiceProviderId'
+        - $ref: "#/components/parameters/aiServiceProviderId"
       responses:
-        '200':
+        "200":
           description: |
             OK.
             OpenAPI specification
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/AIServiceProviderResponse'
+                $ref: "#/components/schemas/AIServiceProviderResponse"
       security:
         - OAuth2Security:
             - apim:admin
@@ -2021,14 +2023,14 @@ paths:
       description: |
         Get all LLM providers
       responses:
-        '200':
+        "200":
           description: |
             OK.
             LLM providers returned
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/LLMProviderSummaryResponseList'
+                $ref: "#/components/schemas/LLMProviderSummaryResponseList"
       security:
         - OAuth2Security:
             - apim:admin
@@ -2057,19 +2059,19 @@ paths:
                 - apiVersion
                 - configurations
                 - apiDefinition
-              $ref: '#/components/schemas/LLMProviderRequest'
+              $ref: "#/components/schemas/LLMProviderRequest"
         required: true
       responses:
-        '201':
+        "201":
           description: |
             Created.
             Successful response with the newly created LLM provider as entity in the body.
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/LLMProviderResponse'
-        '400':
-          $ref: '#/components/responses/BadRequest'
+                $ref: "#/components/schemas/LLMProviderResponse"
+        "400":
+          $ref: "#/components/responses/BadRequest"
       security:
         - OAuth2Security:
             - apim:admin
@@ -2093,7 +2095,7 @@ paths:
       description: |
         Update a LLM provider by LLMProviderId
       parameters:
-        - $ref: '#/components/parameters/llmProviderId'
+        - $ref: "#/components/parameters/llmProviderId"
       requestBody:
         description: |
           LLM Provider object with updated information
@@ -2102,21 +2104,21 @@ paths:
             schema:
               required:
                 - apiDefinition
-              $ref: '#/components/schemas/LLMProviderRequest'
+              $ref: "#/components/schemas/LLMProviderRequest"
         required: true
       responses:
-        '200':
+        "200":
           description: |
             OK.
             LLM Provider updated.
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/LLMProviderResponse'
-        '400':
-          $ref: '#/components/responses/BadRequest'
-        '404':
-          $ref: '#/components/responses/NotFound'
+                $ref: "#/components/schemas/LLMProviderResponse"
+        "400":
+          $ref: "#/components/responses/BadRequest"
+        "404":
+          $ref: "#/components/responses/NotFound"
       security:
         - OAuth2Security:
             - apim:admin
@@ -2136,15 +2138,15 @@ paths:
       description: |
         Delete a LLM Provider by llmProviderId
       parameters:
-        - $ref: '#/components/parameters/llmProviderId'
+        - $ref: "#/components/parameters/llmProviderId"
       responses:
-        '200':
+        "200":
           description: |
             OK.
             LLM provider successfully deleted.
-          content: { }
-        '404':
-          $ref: '#/components/responses/NotFound'
+          content: {}
+        "404":
+          $ref: "#/components/responses/NotFound"
       security:
         - OAuth2Security:
             - apim:admin
@@ -2163,16 +2165,16 @@ paths:
       description: |
         Get a LLM Provider
       parameters:
-        - $ref: '#/components/parameters/llmProviderId'
+        - $ref: "#/components/parameters/llmProviderId"
       responses:
-        '200':
+        "200":
           description: |
             OK.
             OpenAPI specification
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/LLMProviderResponse'
+                $ref: "#/components/schemas/LLMProviderResponse"
       security:
         - OAuth2Security:
             - apim:admin
@@ -2194,14 +2196,14 @@ paths:
       description: |
         Get all Registered Environments
       responses:
-        '200':
+        "200":
           description: |
             OK.
             Environments returned
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/EnvironmentList'
+                $ref: "#/components/schemas/EnvironmentList"
       security:
         - OAuth2Security:
             - apim:admin
@@ -2224,19 +2226,19 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/Environment'
+              $ref: "#/components/schemas/Environment"
         required: true
       responses:
-        '201':
+        "201":
           description: |
             Created.
             Successful response with the newly created environment as entity in the body.
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Environment'
-        '400':
-          $ref: '#/components/responses/BadRequest'
+                $ref: "#/components/schemas/Environment"
+        "400":
+          $ref: "#/components/responses/BadRequest"
       security:
         - OAuth2Security:
             - apim:admin
@@ -2258,9 +2260,9 @@ paths:
       description: |
         Retrieve a single Gateway Environment Configuration. We should provide the Id of the Environment as a path parameter.
       parameters:
-        - $ref: '#/components/parameters/environmentId'
+        - $ref: "#/components/parameters/environmentId"
       responses:
-        '200':
+        "200":
           description: |
             OK.
             Gateway Environment Configuration returned
@@ -2273,11 +2275,11 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Environment'
-        '404':
-          $ref: '#/components/responses/NotFound'
-        '406':
-          $ref: '#/components/responses/NotAcceptable'
+                $ref: "#/components/schemas/Environment"
+        "404":
+          $ref: "#/components/responses/NotFound"
+        "406":
+          $ref: "#/components/responses/NotAcceptable"
       security:
         - OAuth2Security:
             - apim:admin
@@ -2294,28 +2296,28 @@ paths:
       description: |
         Update a gateway Environment by environment Id
       parameters:
-        - $ref: '#/components/parameters/environmentId'
+        - $ref: "#/components/parameters/environmentId"
       requestBody:
         description: |
           Environment object with updated information
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/Environment'
+              $ref: "#/components/schemas/Environment"
         required: true
       responses:
-        '200':
+        "200":
           description: |
             OK.
             Environment updated.
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Environment'
-        '400':
-          $ref: '#/components/responses/BadRequest'
-        '404':
-          $ref: '#/components/responses/NotFound'
+                $ref: "#/components/schemas/Environment"
+        "400":
+          $ref: "#/components/responses/BadRequest"
+        "404":
+          $ref: "#/components/responses/NotFound"
       security:
         - OAuth2Security:
             - apim:admin
@@ -2333,15 +2335,15 @@ paths:
       description: |
         Delete a Environment by Environment Id
       parameters:
-        - $ref: '#/components/parameters/environmentId'
+        - $ref: "#/components/parameters/environmentId"
       responses:
-        '200':
+        "200":
           description: |
             OK.
             Environment successfully deleted.
           content: {}
-        '404':
-          $ref: '#/components/responses/NotFound'
+        "404":
+          $ref: "#/components/responses/NotFound"
       security:
         - OAuth2Security:
             - apim:admin
@@ -2360,9 +2362,9 @@ paths:
       description: |
         Retrieve list of gateway Instances in the gateway environment.
       parameters:
-        - $ref: '#/components/parameters/environmentId'
+        - $ref: "#/components/parameters/environmentId"
       responses:
-        '200':
+        "200":
           description: |
             OK.
             List of gateway Instances in the gateway environment returned
@@ -2375,13 +2377,13 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/GatewayInstanceList'
-        '400':
-          $ref: '#/components/responses/BadRequest'
-        '404':
-          $ref: '#/components/responses/NotFound'
-        '406':
-          $ref: '#/components/responses/NotAcceptable'
+                $ref: "#/components/schemas/GatewayInstanceList"
+        "400":
+          $ref: "#/components/responses/BadRequest"
+        "404":
+          $ref: "#/components/responses/NotFound"
+        "406":
+          $ref: "#/components/responses/NotAcceptable"
       security:
         - OAuth2Security:
             - apim:admin
@@ -2404,16 +2406,16 @@ paths:
       description: |
         Get all registered platform gateways for the organization.
       responses:
-        '200':
+        "200":
           description: |
             OK.
             List of platform gateways returned (without registration tokens).
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/GatewayList'
-        '404':
-          $ref: '#/components/responses/NotFound'
+                $ref: "#/components/schemas/GatewayList"
+        "404":
+          $ref: "#/components/responses/NotFound"
       security:
         - OAuth2Security:
             - apim:admin
@@ -2436,22 +2438,22 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/CreatePlatformGatewayRequest'
+              $ref: "#/components/schemas/CreatePlatformGatewayRequest"
       responses:
-        '201':
+        "201":
           description: |
             Created.
             Gateway and registration token (returned once) in the response body.
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/GatewayResponseWithToken'
-        '400':
-          $ref: '#/components/responses/BadRequest'
-        '404':
-          $ref: '#/components/responses/NotFound'
-        '409':
-          $ref: '#/components/responses/Conflict'
+                $ref: "#/components/schemas/GatewayResponseWithToken"
+        "400":
+          $ref: "#/components/responses/BadRequest"
+        "404":
+          $ref: "#/components/responses/NotFound"
+        "409":
+          $ref: "#/components/responses/Conflict"
       security:
         - OAuth2Security:
             - apim:admin
@@ -2479,18 +2481,18 @@ paths:
           schema:
             type: string
       responses:
-        '200':
+        "200":
           description: |
             OK.
             Gateway and new registration token (returned once) in the response body.
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/GatewayResponseWithToken'
-        '400':
-          $ref: '#/components/responses/BadRequest'
-        '404':
-          $ref: '#/components/responses/NotFound'
+                $ref: "#/components/schemas/GatewayResponseWithToken"
+        "400":
+          $ref: "#/components/responses/BadRequest"
+        "404":
+          $ref: "#/components/responses/NotFound"
       security:
         - OAuth2Security:
             - apim:admin
@@ -2522,18 +2524,18 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/UpdatePlatformGatewayRequest'
+              $ref: "#/components/schemas/UpdatePlatformGatewayRequest"
       responses:
-        '200':
+        "200":
           description: OK. Updated platform gateway in the response body.
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/PlatformGatewayResponse'
-        '400':
-          $ref: '#/components/responses/BadRequest'
-        '404':
-          $ref: '#/components/responses/NotFound'
+                $ref: "#/components/schemas/PlatformGatewayResponse"
+        "400":
+          $ref: "#/components/responses/BadRequest"
+        "404":
+          $ref: "#/components/responses/NotFound"
       security:
         - OAuth2Security:
             - apim:admin
@@ -2554,16 +2556,16 @@ paths:
           schema:
             type: string
       responses:
-        '200':
+        "200":
           description: OK. Gateway and all references removed.
-        '404':
-          $ref: '#/components/responses/NotFound'
-        '409':
+        "404":
+          $ref: "#/components/responses/NotFound"
+        "409":
           description: Conflict. Cannot delete gateway while API revisions are deployed to it.
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Error'
+                $ref: "#/components/schemas/Error"
       security:
         - OAuth2Security:
             - apim:admin
@@ -2578,14 +2580,14 @@ paths:
       description: |
         Get all Registered Organizations
       responses:
-        '200':
+        "200":
           description: |
             OK.
             Organizations returned
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/OrganizationList'
+                $ref: "#/components/schemas/OrganizationList"
       security:
         - OAuth2Security:
             - apim:admin
@@ -2608,19 +2610,19 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/Organization'
+              $ref: "#/components/schemas/Organization"
         required: true
       responses:
-        '201':
+        "201":
           description: |
             Created.
             Successful response with the newly created organization as entity in the body.
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Organization'
-        '400':
-          $ref: '#/components/responses/BadRequest'
+                $ref: "#/components/schemas/Organization"
+        "400":
+          $ref: "#/components/responses/BadRequest"
       security:
         - OAuth2Security:
             - apim:admin
@@ -2642,20 +2644,20 @@ paths:
       description: |
         Get an organization by organization Id
       parameters:
-        - $ref: '#/components/parameters/organizationId'
+        - $ref: "#/components/parameters/organizationId"
       responses:
-        '200':
+        "200":
           description: |
             OK.
             Organization.
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Organization'
-        '400':
-          $ref: '#/components/responses/BadRequest'
-        '404':
-          $ref: '#/components/responses/NotFound'
+                $ref: "#/components/schemas/Organization"
+        "400":
+          $ref: "#/components/responses/BadRequest"
+        "404":
+          $ref: "#/components/responses/NotFound"
       security:
         - OAuth2Security:
             - apim:admin
@@ -2672,28 +2674,28 @@ paths:
       description: |
         Update an organization by organization Id
       parameters:
-        - $ref: '#/components/parameters/organizationId'
+        - $ref: "#/components/parameters/organizationId"
       requestBody:
         description: |
           Organization object with updated information
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/Organization'
+              $ref: "#/components/schemas/Organization"
         required: true
       responses:
-        '200':
+        "200":
           description: |
             OK.
             Organization updated.
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Organization'
-        '400':
-          $ref: '#/components/responses/BadRequest'
-        '404':
-          $ref: '#/components/responses/NotFound'
+                $ref: "#/components/schemas/Organization"
+        "400":
+          $ref: "#/components/responses/BadRequest"
+        "404":
+          $ref: "#/components/responses/NotFound"
       security:
         - OAuth2Security:
             - apim:admin
@@ -2711,15 +2713,15 @@ paths:
       description: |
         Delete an organization by organization Id
       parameters:
-        - $ref: '#/components/parameters/organizationId'
+        - $ref: "#/components/parameters/organizationId"
       responses:
-        '200':
+        "200":
           description: |
             OK.
             Organization successfully deleted.
           content: {}
-        '404':
-          $ref: '#/components/responses/NotFound'
+        "404":
+          $ref: "#/components/responses/NotFound"
       security:
         - OAuth2Security:
             - apim:admin
@@ -2729,7 +2731,7 @@ paths:
           source: |
             curl -k -X DELETE -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" \
             "https://127.0.0.1:9443/api/am/admin/v4/organizations/d7cf8523-9180-4255-84fa-6cb171c1f779"
- 
+
   /me/organization-information:
     get:
       tags:
@@ -2739,16 +2741,16 @@ paths:
         Using this operation, logged-in user can get their organization information.
       operationId: organizationInformation
       responses:
-        '200':
+        "200":
           description: |
             OK.
             Key Manager list returned
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/OrganizationInfo'
-        '400':
-          $ref: '#/components/responses/BadRequest'
+                $ref: "#/components/schemas/OrganizationInfo"
+        "400":
+          $ref: "#/components/responses/BadRequest"
       security:
         - OAuth2Security:
             - apim:admin
@@ -2771,7 +2773,7 @@ paths:
         Get all bot detected data
       operationId: getBotDetectionData
       responses:
-        '200':
+        "200":
           description: |
             OK.
             Bot detected data returned.
@@ -2784,9 +2786,9 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/BotDetectionDataList'
-        '404':
-          $ref: '#/components/responses/NotFound'
+                $ref: "#/components/schemas/BotDetectionDataList"
+        "404":
+          $ref: "#/components/responses/NotFound"
       security:
         - OAuth2Security:
             - apim:admin
@@ -2808,22 +2810,22 @@ paths:
       description: |
         Publish usage records of monetized APIs
       responses:
-        '200':
+        "200":
           description: Usage records successfully published.
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/PublishStatus'
-        '202':
+                $ref: "#/components/schemas/PublishStatus"
+        "202":
           description: Request is sucessfully accepted for processing.
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/PublishStatus'
-        '404':
-          $ref: '#/components/responses/NotFound'
-        '500':
-          $ref: '#/components/responses/InternalServerError'
+                $ref: "#/components/schemas/PublishStatus"
+        "404":
+          $ref: "#/components/responses/NotFound"
+        "500":
+          $ref: "#/components/responses/InternalServerError"
       security:
         - OAuth2Security:
             - apim:admin
@@ -2842,14 +2844,14 @@ paths:
       description: |
         Get the status of monetization usage publisher
       responses:
-        '200':
+        "200":
           description: |
             OK.
             Status returned
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/MonetizationUsagePublishInfo'
+                $ref: "#/components/schemas/MonetizationUsagePublishInfo"
       security:
         - OAuth2Security:
             - apim:admin
@@ -2872,9 +2874,9 @@ paths:
       description: |
         This operation can be used to retrieve list of workflow pending processes.
       parameters:
-        - $ref: '#/components/parameters/limit'
-        - $ref: '#/components/parameters/offset'
-        - $ref: '#/components/parameters/Accept'
+        - $ref: "#/components/parameters/limit"
+        - $ref: "#/components/parameters/offset"
+        - $ref: "#/components/parameters/Accept"
         - name: workflowType
           in: query
           description: |
@@ -2894,7 +2896,7 @@ paths:
               - AM_API_PRODUCT_STATE
               - AM_REVISION_DEPLOYMENT
       responses:
-        '200':
+        "200":
           description: |
             OK.
             Workflow pendding process list returned.
@@ -2907,13 +2909,13 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/WorkflowList'
-        '400':
-          $ref: '#/components/responses/BadRequest'
-        '404':
-          $ref: '#/components/responses/NotFound'
-        '406':
-          $ref: '#/components/responses/NotAcceptable'
+                $ref: "#/components/schemas/WorkflowList"
+        "400":
+          $ref: "#/components/responses/BadRequest"
+        "404":
+          $ref: "#/components/responses/NotFound"
+        "406":
+          $ref: "#/components/responses/NotAcceptable"
       security:
         - OAuth2Security:
             - apim:admin
@@ -2941,23 +2943,23 @@ paths:
           schema:
             type: string
       responses:
-        '200':
+        "200":
           description: |
             OK.
             Requested Workflow Pending is returned
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/WorkflowInfo'
-        '304':
+                $ref: "#/components/schemas/WorkflowInfo"
+        "304":
           description: |
             Not Modified.
             Empty body because the client has already the latest version of the requested resource.
           content: {}
-        '404':
-          $ref: '#/components/responses/NotFound'
-        '406':
-          $ref: '#/components/responses/NotAcceptable'
+        "404":
+          $ref: "#/components/responses/NotFound"
+        "406":
+          $ref: "#/components/responses/NotAcceptable"
       security:
         - OAuth2Security:
             - apim:admin
@@ -2976,17 +2978,17 @@ paths:
       description: |
         This operation can be used to approve or reject a workflow task.
       parameters:
-        - $ref: '#/components/parameters/workflowReferenceId-Q'
+        - $ref: "#/components/parameters/workflowReferenceId-Q"
       requestBody:
         description: |
           Workflow event that need to be updated
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/Workflow'
+              $ref: "#/components/schemas/Workflow"
         required: true
       responses:
-        '200':
+        "200":
           description: |
             OK.
             Workflow request information is returned.
@@ -2999,11 +3001,11 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Workflow'
-        '400':
-          $ref: '#/components/responses/BadRequest'
-        '404':
-          $ref: '#/components/responses/NotFound'
+                $ref: "#/components/schemas/Workflow"
+        "400":
+          $ref: "#/components/responses/BadRequest"
+        "404":
+          $ref: "#/components/responses/NotFound"
       security:
         - OAuth2Security:
             - apim:admin
@@ -3036,7 +3038,7 @@ paths:
             type: string
             default: john
       responses:
-        '200':
+        "200":
           description: |
             OK.
             Tenant id of the user retrieved.
@@ -3049,11 +3051,11 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/TenantInfo'
-        '404':
-          $ref: '#/components/responses/NotFound'
-        '406':
-          $ref: '#/components/responses/NotAcceptable'
+                $ref: "#/components/schemas/TenantInfo"
+        "404":
+          $ref: "#/components/responses/NotFound"
+        "406":
+          $ref: "#/components/responses/NotAcceptable"
       security:
         - OAuth2Security:
             - apim:admin
@@ -3085,7 +3087,7 @@ paths:
           schema:
             type: string
       responses:
-        '200':
+        "200":
           description: |
             OK.
             Custom url info of the tenant is retrieved.
@@ -3098,11 +3100,11 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/CustomUrlInfo'
-        '404':
-          $ref: '#/components/responses/NotFound'
-        '406':
-          $ref: '#/components/responses/NotAcceptable'
+                $ref: "#/components/schemas/CustomUrlInfo"
+        "404":
+          $ref: "#/components/responses/NotFound"
+        "406":
+          $ref: "#/components/responses/NotAcceptable"
       security:
         - OAuth2Security:
             - apim:admin
@@ -3124,14 +3126,14 @@ paths:
       description: |
         Get all API categories
       responses:
-        '200':
+        "200":
           description: |
             OK.
             Categories returned
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/APICategoryList'
+                $ref: "#/components/schemas/APICategoryList"
       security:
         - OAuth2Security:
             - apim:admin
@@ -3155,19 +3157,19 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/APICategory'
+              $ref: "#/components/schemas/APICategory"
         required: true
       responses:
-        '201':
+        "201":
           description: |
             Created.
             Successful response with the newly created object as entity in the body.
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/APICategory'
-        '400':
-          $ref: '#/components/responses/BadRequest'
+                $ref: "#/components/schemas/APICategory"
+        "400":
+          $ref: "#/components/responses/BadRequest"
       security:
         - OAuth2Security:
             - apim:admin
@@ -3190,28 +3192,28 @@ paths:
       description: |
         Update an API Category by category Id
       parameters:
-        - $ref: '#/components/parameters/apiCategoryId'
+        - $ref: "#/components/parameters/apiCategoryId"
       requestBody:
         description: |
           API Category object with updated information
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/APICategory'
+              $ref: "#/components/schemas/APICategory"
         required: true
       responses:
-        '200':
+        "200":
           description: |
             OK.
             Label updated.
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/APICategory'
-        '400':
-          $ref: '#/components/responses/BadRequest'
-        '404':
-          $ref: '#/components/responses/NotFound'
+                $ref: "#/components/schemas/APICategory"
+        "400":
+          $ref: "#/components/responses/BadRequest"
+        "404":
+          $ref: "#/components/responses/NotFound"
       security:
         - OAuth2Security:
             - apim:admin
@@ -3230,15 +3232,15 @@ paths:
       description: |
         Delete an API Category by API Category Id
       parameters:
-        - $ref: '#/components/parameters/apiCategoryId'
+        - $ref: "#/components/parameters/apiCategoryId"
       responses:
-        '200':
+        "200":
           description: |
             OK.
             API Category successfully deleted.
           content: {}
-        '404':
-          $ref: '#/components/responses/NotFound'
+        "404":
+          $ref: "#/components/responses/NotFound"
       security:
         - OAuth2Security:
             - apim:admin
@@ -3261,16 +3263,16 @@ paths:
       description: |
         Retreive admin settings
       responses:
-        '200':
+        "200":
           description: |
             OK.
             Settings returned
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Settings'
-        '404':
-          $ref: '#/components/responses/NotFound'
+                $ref: "#/components/schemas/Settings"
+        "404":
+          $ref: "#/components/responses/NotFound"
       security:
         - OAuth2Security:
             - apim:admin
@@ -3294,7 +3296,7 @@ paths:
         This operation is used to get the list of supportd alert types for the apim admin dashboard
       operationId: getAdminAlertTypes
       responses:
-        '200':
+        "200":
           description: |
             OK.
             The list of admin alert types are returned.
@@ -3307,9 +3309,9 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/AlertTypesList'
-        '500':
-          $ref: '#/components/responses/InternalServerError'
+                $ref: "#/components/schemas/AlertTypesList"
+        "500":
+          $ref: "#/components/responses/InternalServerError"
       security:
         - OAuth2Security:
             - apim:admin
@@ -3330,7 +3332,7 @@ paths:
         This operation is used to get the list of subscribed alert types by the user.
       operationId: getSubscribedAlertTypes
       responses:
-        '200':
+        "200":
           description: |
             OK.
             The list of subscribed alert types are returned.
@@ -3343,9 +3345,9 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/AlertsSubscription'
-        '500':
-          $ref: '#/components/responses/InternalServerError'
+                $ref: "#/components/schemas/AlertsSubscription"
+        "500":
+          $ref: "#/components/responses/InternalServerError"
       security:
         - OAuth2Security:
             - apim:admin
@@ -3369,10 +3371,10 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/AlertsSubscription'
+              $ref: "#/components/schemas/AlertsSubscription"
         required: true
       responses:
-        '200':
+        "200":
           description: |
             OK.
             Successful response with the newly subscribed alerts.
@@ -3385,11 +3387,11 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/AlertsSubscription'
-        '400':
-          $ref: '#/components/responses/BadRequest'
-        '500':
-          $ref: '#/components/responses/InternalServerError'
+                $ref: "#/components/schemas/AlertsSubscription"
+        "400":
+          $ref: "#/components/responses/BadRequest"
+        "500":
+          $ref: "#/components/responses/InternalServerError"
       security:
         - OAuth2Security:
             - apim:admin
@@ -3409,7 +3411,7 @@ paths:
         This operation is used to unsubscribe the respective user from all the admin alert types.
       operationId: unsubscribeAllAlerts
       responses:
-        '200':
+        "200":
           description: |
             OK.
             The user is unsubscribed from the alerts successfully.
@@ -3420,8 +3422,8 @@ paths:
               schema:
                 type: string
           content: {}
-        '500':
-          $ref: '#/components/responses/InternalServerError'
+        "500":
+          $ref: "#/components/responses/InternalServerError"
       security:
         - OAuth2Security:
             - apim:admin
@@ -3442,7 +3444,7 @@ paths:
         Get the list of subscriptions which are subscribed to receive email alerts for bot detection
       operationId: getBotDetectionAlertSubscriptions
       responses:
-        '200':
+        "200":
           description: |
             OK.
             The list of bot detection alert subscriptions are returned.
@@ -3455,9 +3457,9 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/BotDetectionAlertSubscriptionList'
-        '500':
-          $ref: '#/components/responses/InternalServerError'
+                $ref: "#/components/schemas/BotDetectionAlertSubscriptionList"
+        "500":
+          $ref: "#/components/responses/InternalServerError"
       security:
         - OAuth2Security:
             - apim:admin
@@ -3481,10 +3483,10 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/BotDetectionAlertSubscription'
+              $ref: "#/components/schemas/BotDetectionAlertSubscription"
         required: true
       responses:
-        '200':
+        "200":
           description: |
             OK.
             Bot detection alert subscription is registered successfully.
@@ -3497,11 +3499,11 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/BotDetectionAlertSubscription'
-        '400':
-          $ref: '#/components/responses/BadRequest'
-        '500':
-          $ref: '#/components/responses/InternalServerError'
+                $ref: "#/components/schemas/BotDetectionAlertSubscription"
+        "400":
+          $ref: "#/components/responses/BadRequest"
+        "500":
+          $ref: "#/components/responses/InternalServerError"
       security:
         - OAuth2Security:
             - apim:admin
@@ -3528,7 +3530,7 @@ paths:
           schema:
             type: string
       responses:
-        '200':
+        "200":
           description: |
             OK.
             Bot detection alert subscription is deleted successfully.
@@ -3539,10 +3541,10 @@ paths:
               schema:
                 type: string
           content: {}
-        '404':
-          $ref: '#/components/responses/NotFound'
-        '500':
-          $ref: '#/components/responses/InternalServerError'
+        "404":
+          $ref: "#/components/responses/NotFound"
+        "500":
+          $ref: "#/components/responses/InternalServerError"
       security:
         - OAuth2Security:
             - apim:admin
@@ -3570,20 +3572,20 @@ paths:
           in: query
           schema:
             type: string
-        - $ref: '#/components/parameters/scopeName'
+        - $ref: "#/components/parameters/scopeName"
       responses:
-        '200':
+        "200":
           description: |
             OK.
             Particular scope exists for the given user.
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ScopeSettings'
-        '400':
-          $ref: '#/components/responses/BadRequest'
-        '404':
-          $ref: '#/components/responses/NotFound'
+                $ref: "#/components/schemas/ScopeSettings"
+        "400":
+          $ref: "#/components/responses/BadRequest"
+        "404":
+          $ref: "#/components/responses/NotFound"
       security:
         - OAuth2Security:
             - apim:admin
@@ -3604,7 +3606,7 @@ paths:
         This operation is used to get the list of role scope mapping from tenant-conf for the apim admin dashboard
       operationId: systemScopesGet
       responses:
-        '200':
+        "200":
           description: |
             OK.
             The list of role scope mappings are returned.
@@ -3617,9 +3619,9 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ScopeList'
-        '500':
-          $ref: '#/components/responses/InternalServerError'
+                $ref: "#/components/schemas/ScopeList"
+        "500":
+          $ref: "#/components/responses/InternalServerError"
       security:
         - OAuth2Security:
             - apim:scope_manage
@@ -3644,10 +3646,10 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/ScopeList'
+              $ref: "#/components/schemas/ScopeList"
         required: true
       responses:
-        '200':
+        "200":
           description: |
             OK.
             Successful response with the newly added roles.
@@ -3660,11 +3662,11 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ScopeList'
-        '400':
-          $ref: '#/components/responses/BadRequest'
-        '500':
-          $ref: '#/components/responses/InternalServerError'
+                $ref: "#/components/schemas/ScopeList"
+        "400":
+          $ref: "#/components/responses/BadRequest"
+        "500":
+          $ref: "#/components/responses/InternalServerError"
       security:
         - OAuth2Security:
             - apim:admin
@@ -3683,7 +3685,7 @@ paths:
       description: |
         This operation can be used to retreive role alias mapping
       responses:
-        '200':
+        "200":
           description: |
             OK.
             The list of role mappings are returned.
@@ -3696,9 +3698,9 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/RoleAliasList'
-        '404':
-          $ref: '#/components/responses/NotFound'
+                $ref: "#/components/schemas/RoleAliasList"
+        "404":
+          $ref: "#/components/responses/NotFound"
       security:
         - OAuth2Security:
             - apim:admin
@@ -3720,21 +3722,21 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/RoleAliasList'
+              $ref: "#/components/schemas/RoleAliasList"
         required: true
       responses:
-        '200':
+        "200":
           description: |
             OK.
             Role mapping alias returned
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/RoleAliasList'
-        '400':
-          $ref: '#/components/responses/BadRequest'
-        '500':
-          $ref: '#/components/responses/InternalServerError'
+                $ref: "#/components/schemas/RoleAliasList"
+        "400":
+          $ref: "#/components/responses/BadRequest"
+        "500":
+          $ref: "#/components/responses/InternalServerError"
       security:
         - OAuth2Security:
             - apim:scope_manage
@@ -3757,15 +3759,15 @@ paths:
         Using this operation, user can check a given role name exists or not.
       operationId: validateSystemRole
       parameters:
-        - $ref: '#/components/parameters/roleId'
+        - $ref: "#/components/parameters/roleId"
       responses:
-        '200':
+        "200":
           description: OK. Requested role name exists.
           content: {}
-        '404':
-          $ref: '#/components/responses/NotFound'
-        '500':
-          $ref: '#/components/responses/InternalServerError'
+        "404":
+          $ref: "#/components/responses/NotFound"
+        "500":
+          $ref: "#/components/responses/InternalServerError"
       security:
         - OAuth2Security:
             - apim:admin
@@ -3788,7 +3790,7 @@ paths:
         This operation can be used to export a DevPortal tenant theme as a zip file.
       operationId: exportTenantTheme
       responses:
-        '200':
+        "200":
           description: |
             OK.
             Tenant Theme Exported Successfully.
@@ -3803,12 +3805,12 @@ paths:
               schema:
                 type: string
                 format: binary
-        '403':
-          $ref: '#/components/responses/Forbidden'
-        '404':
-          $ref: '#/components/responses/NotFound'
-        '500':
-          $ref: '#/components/responses/InternalServerError'
+        "403":
+          $ref: "#/components/responses/Forbidden"
+        "404":
+          $ref: "#/components/responses/NotFound"
+        "500":
+          $ref: "#/components/responses/InternalServerError"
       security:
         - OAuth2Security:
             - apim:admin
@@ -3840,17 +3842,17 @@ paths:
                   format: binary
         required: true
       responses:
-        '200':
+        "200":
           description: |
             Ok.
             Tenant Theme Imported Successfully.
           content: {}
-        '403':
-          $ref: '#/components/responses/Forbidden'
-        '413':
-          $ref: '#/components/responses/PayloadTooLarge'
-        '500':
-          $ref: '#/components/responses/InternalServerError'
+        "403":
+          $ref: "#/components/responses/Forbidden"
+        "413":
+          $ref: "#/components/responses/PayloadTooLarge"
+        "500":
+          $ref: "#/components/responses/InternalServerError"
       security:
         - OAuth2Security:
             - apim:admin
@@ -3877,22 +3879,22 @@ paths:
           schema:
             type: boolean
       responses:
-        '200':
+        "200":
           description: List of org themes
           content:
             application/json:
               schema:
                 type: array
                 items:
-                  $ref: '#/components/schemas/ContentPublishStatusResponse'
-        '404':
-          $ref: '#/components/responses/NotFound'
-        '400':
-          $ref: '#/components/responses/BadRequest'
-        '403':
-          $ref: '#/components/responses/Forbidden'
-        '500':
-          $ref: '#/components/responses/InternalServerError'
+                  $ref: "#/components/schemas/ContentPublishStatusResponse"
+        "404":
+          $ref: "#/components/responses/NotFound"
+        "400":
+          $ref: "#/components/responses/BadRequest"
+        "403":
+          $ref: "#/components/responses/Forbidden"
+        "500":
+          $ref: "#/components/responses/InternalServerError"
       security:
         - OAuth2Security:
             - apim:admin
@@ -3921,18 +3923,18 @@ paths:
                     The org-content.zip file
                   format: binary
       responses:
-        '200':
+        "200":
           description: Successfully imported
-        '400':
-          $ref: '#/components/responses/BadRequest'
-        '404':
-          $ref: '#/components/responses/NotFound'
-        '403':
-          $ref: '#/components/responses/Forbidden'
-        '413':
-          $ref: '#/components/responses/PayloadTooLarge'
-        '500':
-          $ref: '#/components/responses/InternalServerError'
+        "400":
+          $ref: "#/components/responses/BadRequest"
+        "404":
+          $ref: "#/components/responses/NotFound"
+        "403":
+          $ref: "#/components/responses/Forbidden"
+        "413":
+          $ref: "#/components/responses/PayloadTooLarge"
+        "500":
+          $ref: "#/components/responses/InternalServerError"
       security:
         - OAuth2Security:
             - apim:admin
@@ -3956,21 +3958,21 @@ paths:
           schema:
             type: string
       responses:
-        '200':
+        "200":
           description: Returns the org theme zip
           content:
             application/zip:
               schema:
                 type: string
                 format: binary
-        '404':
-          $ref: '#/components/responses/NotFound'
-        '400':
-          $ref: '#/components/responses/BadRequest'
-        '403':
-          $ref: '#/components/responses/Forbidden'
-        '500':
-          $ref: '#/components/responses/InternalServerError'
+        "404":
+          $ref: "#/components/responses/NotFound"
+        "400":
+          $ref: "#/components/responses/BadRequest"
+        "403":
+          $ref: "#/components/responses/Forbidden"
+        "500":
+          $ref: "#/components/responses/InternalServerError"
       security:
         - OAuth2Security:
             - apim:admin
@@ -3994,16 +3996,16 @@ paths:
           schema:
             type: string
       responses:
-        '200':
+        "200":
           description: Successfully deleted
-        '404':
-          $ref: '#/components/responses/NotFound'
-        '400':
-          $ref: '#/components/responses/BadRequest'
-        '403':
-          $ref: '#/components/responses/Forbidden'
-        '500':
-          $ref: '#/components/responses/InternalServerError'
+        "404":
+          $ref: "#/components/responses/NotFound"
+        "400":
+          $ref: "#/components/responses/BadRequest"
+        "403":
+          $ref: "#/components/responses/Forbidden"
+        "500":
+          $ref: "#/components/responses/InternalServerError"
       security:
         - OAuth2Security:
             - apim:admin
@@ -4032,16 +4034,16 @@ paths:
             schema:
               $ref: "#/components/schemas/ContentPublishStatus"
       responses:
-        '200':
+        "200":
           description: Successfully updated status
-        '400':
-          $ref: '#/components/responses/BadRequest'
-        '403':
-          $ref: '#/components/responses/Forbidden'
-        '404':
-          $ref: '#/components/responses/NotFound'
-        '500':
-          $ref: '#/components/responses/InternalServerError'
+        "400":
+          $ref: "#/components/responses/BadRequest"
+        "403":
+          $ref: "#/components/responses/Forbidden"
+        "404":
+          $ref: "#/components/responses/NotFound"
+        "500":
+          $ref: "#/components/responses/InternalServerError"
       security:
         - OAuth2Security:
             - apim:admin
@@ -4066,7 +4068,7 @@ paths:
         This operation can be used to export a tenant-config.json used in deployment.
       operationId: exportTenantConfig
       responses:
-        '200':
+        "200":
           description: |
             OK.
             Tenant config Exported Successfully.
@@ -4080,12 +4082,12 @@ paths:
             application/json:
               schema:
                 type: string
-        '403':
-          $ref: '#/components/responses/Forbidden'
-        '404':
-          $ref: '#/components/responses/NotFound'
-        '500':
-          $ref: '#/components/responses/InternalServerError'
+        "403":
+          $ref: "#/components/responses/Forbidden"
+        "404":
+          $ref: "#/components/responses/NotFound"
+        "500":
+          $ref: "#/components/responses/InternalServerError"
       security:
         - OAuth2Security:
             - apim:admin
@@ -4109,7 +4111,7 @@ paths:
               type: string
         required: true
       responses:
-        '200':
+        "200":
           description: |
             OK.
             Role mapping alias returned
@@ -4117,12 +4119,12 @@ paths:
             application/json:
               schema:
                 type: object
-        '403':
-          $ref: '#/components/responses/Forbidden'
-        '413':
-          $ref: '#/components/responses/PayloadTooLarge'
-        '500':
-          $ref: '#/components/responses/InternalServerError'
+        "403":
+          $ref: "#/components/responses/Forbidden"
+        "413":
+          $ref: "#/components/responses/PayloadTooLarge"
+        "500":
+          $ref: "#/components/responses/InternalServerError"
       security:
         - OAuth2Security:
             - apim:admin
@@ -4144,7 +4146,7 @@ paths:
         This operation can be used to export a tenant-config-schema.json used in deployment.
       operationId: exportTenantConfigSchema
       responses:
-        '200':
+        "200":
           description: |
             OK.
             Tenant config schema exported successfully.
@@ -4158,12 +4160,12 @@ paths:
             application/json:
               schema:
                 type: string
-        '403':
-          $ref: '#/components/responses/Forbidden'
-        '404':
-          $ref: '#/components/responses/NotFound'
-        '500':
-          $ref: '#/components/responses/InternalServerError'
+        "403":
+          $ref: "#/components/responses/Forbidden"
+        "404":
+          $ref: "#/components/responses/NotFound"
+        "500":
+          $ref: "#/components/responses/InternalServerError"
       security:
         - OAuth2Security:
             - apim:admin
@@ -4184,14 +4186,14 @@ paths:
       description: |
         Get all Key managers
       responses:
-        '200':
+        "200":
           description: |
             OK.
             KeyManagers returned
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/KeyManagerList'
+                $ref: "#/components/schemas/KeyManagerList"
       security:
         - OAuth2Security:
             - apim:admin
@@ -4215,19 +4217,19 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/KeyManager'
+              $ref: "#/components/schemas/KeyManager"
         required: true
       responses:
-        '201':
+        "201":
           description: |
             Created.
             Successful response with the newly created object as entity in the body.
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/KeyManager'
-        '400':
-          $ref: '#/components/responses/BadRequest'
+                $ref: "#/components/schemas/KeyManager"
+        "400":
+          $ref: "#/components/responses/BadRequest"
       security:
         - OAuth2Security:
             - apim:admin
@@ -4250,9 +4252,9 @@ paths:
       description: |
         Retrieve a single Key Manager Configuration. We should provide the Id of the KeyManager as a path parameter.
       parameters:
-        - $ref: '#/components/parameters/keyManagerId'
+        - $ref: "#/components/parameters/keyManagerId"
       responses:
-        '200':
+        "200":
           description: |
             OK.
             KeyManager Configuration returned
@@ -4265,11 +4267,11 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/KeyManager'
-        '404':
-          $ref: '#/components/responses/NotFound'
-        '406':
-          $ref: '#/components/responses/NotAcceptable'
+                $ref: "#/components/schemas/KeyManager"
+        "404":
+          $ref: "#/components/responses/NotFound"
+        "406":
+          $ref: "#/components/responses/NotAcceptable"
       security:
         - OAuth2Security:
             - apim:admin
@@ -4288,28 +4290,28 @@ paths:
       description: |
         Update a Key Manager by keyManager id
       parameters:
-        - $ref: '#/components/parameters/keyManagerId'
+        - $ref: "#/components/parameters/keyManagerId"
       requestBody:
         description: |
           Key Manager object with updated information
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/KeyManager'
+              $ref: "#/components/schemas/KeyManager"
         required: true
       responses:
-        '200':
+        "200":
           description: |
             OK.
             Label updated.
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/KeyManager'
-        '400':
-          $ref: '#/components/responses/BadRequest'
-        '404':
-          $ref: '#/components/responses/NotFound'
+                $ref: "#/components/schemas/KeyManager"
+        "400":
+          $ref: "#/components/responses/BadRequest"
+        "404":
+          $ref: "#/components/responses/NotFound"
       security:
         - OAuth2Security:
             - apim:admin
@@ -4328,15 +4330,15 @@ paths:
       description: |
         Delete a Key Manager by keyManager id
       parameters:
-        - $ref: '#/components/parameters/keyManagerId'
+        - $ref: "#/components/parameters/keyManagerId"
       responses:
-        '200':
+        "200":
           description: |
             OK.
             Key Manager successfully deleted.
-          content: { }
-        '404':
-          $ref: '#/components/responses/NotFound'
+          content: {}
+        "404":
+          $ref: "#/components/responses/NotFound"
       security:
         - OAuth2Security:
             - apim:admin
@@ -4358,14 +4360,14 @@ paths:
       description: |
         Get all Global Key managers
       responses:
-        '200':
+        "200":
           description: |
             OK.
             KeyManagers returned
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/KeyManagerList'
+                $ref: "#/components/schemas/KeyManagerList"
       security:
         - OAuth2Security:
             - apim:admin
@@ -4389,19 +4391,19 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/KeyManager'
+              $ref: "#/components/schemas/KeyManager"
         required: true
       responses:
-        '201':
+        "201":
           description: |
             Created.
             Successful response with the newly created object as entity in the body.
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/KeyManager'
-        '400':
-          $ref: '#/components/responses/BadRequest'
+                $ref: "#/components/schemas/KeyManager"
+        "400":
+          $ref: "#/components/responses/BadRequest"
       security:
         - OAuth2Security:
             - apim:admin
@@ -4426,9 +4428,9 @@ paths:
         Retrieve a single Global Key Manager Configuration. We should provide the Id of the KeyManager as a path 
         parameter.
       parameters:
-        - $ref: '#/components/parameters/keyManagerId'
+        - $ref: "#/components/parameters/keyManagerId"
       responses:
-        '200':
+        "200":
           description: |
             OK.
             KeyManager Configuration returned
@@ -4441,11 +4443,11 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/KeyManager'
-        '404':
-          $ref: '#/components/responses/NotFound'
-        '406':
-          $ref: '#/components/responses/NotAcceptable'
+                $ref: "#/components/schemas/KeyManager"
+        "404":
+          $ref: "#/components/responses/NotFound"
+        "406":
+          $ref: "#/components/responses/NotAcceptable"
       security:
         - OAuth2Security:
             - apim:admin
@@ -4464,28 +4466,28 @@ paths:
       description: |
         Update a Global Key Manager by keyManager id
       parameters:
-        - $ref: '#/components/parameters/keyManagerId'
+        - $ref: "#/components/parameters/keyManagerId"
       requestBody:
         description: |
           Key Manager object with updated information
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/KeyManager'
+              $ref: "#/components/schemas/KeyManager"
         required: true
       responses:
-        '200':
+        "200":
           description: |
             OK.
             Label updated.
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/KeyManager'
-        '400':
-          $ref: '#/components/responses/BadRequest'
-        '404':
-          $ref: '#/components/responses/NotFound'
+                $ref: "#/components/schemas/KeyManager"
+        "400":
+          $ref: "#/components/responses/BadRequest"
+        "404":
+          $ref: "#/components/responses/NotFound"
       security:
         - OAuth2Security:
             - apim:admin
@@ -4504,15 +4506,15 @@ paths:
       description: |
         Delete a Global Key Manager by keyManager id
       parameters:
-        - $ref: '#/components/parameters/keyManagerId'
+        - $ref: "#/components/parameters/keyManagerId"
       responses:
-        '200':
+        "200":
           description: |
             OK.
             Key Manager successfully deleted.
           content: {}
-        '404':
-          $ref: '#/components/responses/NotFound'
+        "404":
+          $ref: "#/components/responses/NotFound"
       security:
         - OAuth2Security:
             - apim:admin
@@ -4545,14 +4547,14 @@ paths:
                     Key Manager Type
                   default: "false"
       responses:
-        '200':
+        "200":
           description: |
             OK.
             KeyManagers returned
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/KeyManagerWellKnownResponse'
+                $ref: "#/components/schemas/KeyManagerWellKnownResponse"
       security:
         - OAuth2Security:
             - apim:admin
@@ -4573,11 +4575,11 @@ paths:
         Retrieves a list of APIs that are specifically utilizing the Key Manager identified by the provided ID.
         The Key Manager ID should be provided as a path parameter.
       parameters:
-        - $ref: '#/components/parameters/offset'
-        - $ref: '#/components/parameters/limit'
-        - $ref: '#/components/parameters/keyManagerId'
+        - $ref: "#/components/parameters/offset"
+        - $ref: "#/components/parameters/limit"
+        - $ref: "#/components/parameters/keyManagerId"
       responses:
-        '200':
+        "200":
           description: |
             OK.
             KeyManager API usages returned.
@@ -4590,11 +4592,11 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/KeyManagerAPIUsages'
-        '404':
-          $ref: '#/components/responses/NotFound'
-        '406':
-          $ref: '#/components/responses/NotAcceptable'
+                $ref: "#/components/schemas/KeyManagerAPIUsages"
+        "404":
+          $ref: "#/components/responses/NotFound"
+        "406":
+          $ref: "#/components/responses/NotAcceptable"
       security:
         - OAuth2Security:
             - apim:admin
@@ -4614,11 +4616,11 @@ paths:
         Retrieves a list of Applications that are specifically utilizing the Key Manager identified by the provided ID.
         The Key Manager ID should be provided as a path parameter.
       parameters:
-        - $ref: '#/components/parameters/offset'
-        - $ref: '#/components/parameters/limit'
-        - $ref: '#/components/parameters/keyManagerId'
+        - $ref: "#/components/parameters/offset"
+        - $ref: "#/components/parameters/limit"
+        - $ref: "#/components/parameters/keyManagerId"
       responses:
-        '200':
+        "200":
           description: |
             OK.
             KeyManager application usages returned.
@@ -4631,11 +4633,11 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/KeyManagerAppUsages'
-        '404':
-          $ref: '#/components/responses/NotFound'
-        '406':
-          $ref: '#/components/responses/NotAcceptable'
+                $ref: "#/components/schemas/KeyManagerAppUsages"
+        "404":
+          $ref: "#/components/responses/NotFound"
+        "406":
+          $ref: "#/components/responses/NotAcceptable"
       security:
         - OAuth2Security:
             - apim:admin
@@ -4659,8 +4661,8 @@ paths:
         This operation provides you a list of available APIs qualifying under a given search condition.
         Each retrieved API is represented with a minimal amount of attributes. If you want to get complete details of an API, you need to use **Get details of an API** operation.
       parameters:
-        - $ref: '#/components/parameters/limit'
-        - $ref: '#/components/parameters/offset'
+        - $ref: "#/components/parameters/limit"
+        - $ref: "#/components/parameters/offset"
         - name: query
           in: query
           description: |
@@ -4669,9 +4671,9 @@ paths:
             You can search by proving a keyword.
           schema:
             type: string
-        - $ref: '#/components/parameters/If-None-Match'
+        - $ref: "#/components/parameters/If-None-Match"
       responses:
-        '200':
+        "200":
           description: |
             OK.
             List of qualifying APIs is returned.
@@ -4688,14 +4690,14 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/SearchResultList'
-        '304':
+                $ref: "#/components/schemas/SearchResultList"
+        "304":
           description: |
             Not Modified.
             Empty body because the client has already the latest version of the requested resource (Will be supported in future).
           content: {}
-        '406':
-          $ref: '#/components/responses/NotAcceptable'
+        "406":
+          $ref: "#/components/responses/NotAcceptable"
       security:
         - OAuth2Security:
             - apim:admin
@@ -4723,9 +4725,9 @@ paths:
           required: true
           schema:
             type: string
-        - $ref: '#/components/parameters/apiId'
+        - $ref: "#/components/parameters/apiId"
       responses:
-        '200':
+        "200":
           description: |
             OK.
             Api Provider updated.
@@ -4735,10 +4737,10 @@ paths:
                 The content type of the body.
               schema:
                 type: string
-        '400':
-          $ref: '#/components/responses/BadRequest'
-        '404':
-          $ref: '#/components/responses/NotFound'
+        "400":
+          $ref: "#/components/responses/BadRequest"
+        "404":
+          $ref: "#/components/responses/NotFound"
       security:
         - OAuth2Security:
             - apim:admin
@@ -4771,7 +4773,7 @@ paths:
           schema:
             type: "string"
       responses:
-        '200':
+        "200":
           description: "Transaction count retrieved successfully"
           content:
             application/json:
@@ -4814,7 +4816,7 @@ paths:
           schema:
             type: string
       responses:
-        '200':
+        "200":
           description: |
             OK.
             Consumption data exported successfully as a ZIP file.
@@ -4833,14 +4835,14 @@ paths:
               schema:
                 type: string
                 format: binary
-        '400':
-          $ref: '#/components/responses/BadRequest'
-        '401':
-          $ref: '#/components/responses/Unauthorized'
-        '403':
-          $ref: '#/components/responses/Forbidden'
-        '500':
-          $ref: '#/components/responses/InternalServerError'
+        "400":
+          $ref: "#/components/responses/BadRequest"
+        "401":
+          $ref: "#/components/responses/Unauthorized"
+        "403":
+          $ref: "#/components/responses/Forbidden"
+        "500":
+          $ref: "#/components/responses/InternalServerError"
       security:
         - OAuth2Security:
             - apim:admin
@@ -4862,14 +4864,14 @@ paths:
       description: |
         Get all Labels
       responses:
-        '200':
+        "200":
           description: |
             OK.
             Labels returned
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/LabelList'
+                $ref: "#/components/schemas/LabelList"
       security:
         - OAuth2Security:
             - apim:admin
@@ -4888,25 +4890,25 @@ paths:
         Add a new Label
       requestBody:
         description: |
-            Label object that should to be added
+          Label object that should to be added
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/Label'
+              $ref: "#/components/schemas/Label"
         required: true
       responses:
-        '201':
+        "201":
           description: |
             Created.
             Successful response with the newly created object as entity in the body.
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Label'
-        '400':
-          $ref: '#/components/responses/BadRequest'
-        '409':
-            $ref: '#/components/responses/Conflict'
+                $ref: "#/components/schemas/Label"
+        "400":
+          $ref: "#/components/responses/BadRequest"
+        "409":
+          $ref: "#/components/responses/Conflict"
       security:
         - OAuth2Security:
             - apim:admin
@@ -4928,30 +4930,30 @@ paths:
       description: |
         Update a Label by label id
       parameters:
-        - $ref: '#/components/parameters/labelId'
+        - $ref: "#/components/parameters/labelId"
       requestBody:
         description: |
           Label object with updated information
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/Label'
+              $ref: "#/components/schemas/Label"
         required: true
       responses:
-        '200':
+        "200":
           description: |
             OK.
             Label updated.
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Label'
-        '400':
-          $ref: '#/components/responses/BadRequest'
-        '404':
-          $ref: '#/components/responses/NotFound'
-        '409':
-          $ref: '#/components/responses/Conflict'
+                $ref: "#/components/schemas/Label"
+        "400":
+          $ref: "#/components/responses/BadRequest"
+        "404":
+          $ref: "#/components/responses/NotFound"
+        "409":
+          $ref: "#/components/responses/Conflict"
       security:
         - OAuth2Security:
             - apim:admin
@@ -4969,17 +4971,17 @@ paths:
       description: |
         Delete a Label by label id
       parameters:
-        - $ref: '#/components/parameters/labelId'
+        - $ref: "#/components/parameters/labelId"
       responses:
-        '200':
+        "200":
           description: |
             OK.
             Label successfully deleted.
           content: {}
-        '409':
-          $ref: '#/components/responses/Conflict'
-        '404':
-          $ref: '#/components/responses/NotFound'
+        "409":
+          $ref: "#/components/responses/Conflict"
+        "404":
+          $ref: "#/components/responses/NotFound"
       security:
         - OAuth2Security:
             - apim:admin
@@ -5001,18 +5003,18 @@ paths:
       description: |
         Retrieve a single Label Usage. We should provide the Id of the Label as a path parameter.
       parameters:
-        - $ref: '#/components/parameters/labelId'
+        - $ref: "#/components/parameters/labelId"
       responses:
-        '200':
+        "200":
           description: |
             OK.
             Label Usage returned
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/LabelUsage'
-        '404':
-          $ref: '#/components/responses/NotFound'
+                $ref: "#/components/schemas/LabelUsage"
+        "404":
+          $ref: "#/components/responses/NotFound"
       security:
         - OAuth2Security:
             - apim:admin
@@ -5035,20 +5037,20 @@ paths:
         Retrieve all API Keys.
       operationId: getAllAPIKeys
       responses:
-        '200':
+        "200":
           description: |
             OK.
             API keys returned.
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/APIKeyList'
-        '400':
-          $ref: '#/components/responses/BadRequest'
-        '404':
-          $ref: '#/components/responses/NotFound'
-        '412':
-          $ref: '#/components/responses/PreconditionFailed'
+                $ref: "#/components/schemas/APIKeyList"
+        "400":
+          $ref: "#/components/responses/BadRequest"
+        "404":
+          $ref: "#/components/responses/NotFound"
+        "412":
+          $ref: "#/components/responses/PreconditionFailed"
       security:
         - OAuth2Security:
             - apim:admin
@@ -5072,18 +5074,18 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/APIKeyRevokeRequest'
+              $ref: "#/components/schemas/APIKeyRevokeRequest"
         required: true
       responses:
-        '200':
+        "200":
           description: |
             OK.
             Api key revoked successfully.
-          content: { }
-        '400':
-          $ref: '#/components/responses/BadRequest'
-        '412':
-          $ref: '#/components/responses/PreconditionFailed'
+          content: {}
+        "400":
+          $ref: "#/components/responses/BadRequest"
+        "412":
+          $ref: "#/components/responses/PreconditionFailed"
       security:
         - OAuth2Security:
             - apim:admin
@@ -5123,7 +5125,7 @@ components:
             If there are more than one error list them out.
             For example, list out validation errors by each field.
           items:
-            $ref: '#/components/schemas/ErrorListItem'
+            $ref: "#/components/schemas/ErrorListItem"
     ErrorListItem:
       title: Description of individual errors that may have occurred during a request.
       required:
@@ -5169,9 +5171,9 @@ components:
         list:
           type: array
           items:
-            $ref: '#/components/schemas/ThrottlePolicy'
+            $ref: "#/components/schemas/ThrottlePolicy"
         pagination:
-          $ref: '#/components/schemas/Pagination'
+          $ref: "#/components/schemas/Pagination"
     ThrottlePolicyDetailsList:
       title: Policy List
       type: object
@@ -5184,7 +5186,7 @@ components:
         list:
           type: array
           items:
-            $ref: '#/components/schemas/ThrottlePolicyDetails'
+            $ref: "#/components/schemas/ThrottlePolicyDetails"
     ThrottlePolicyDetails:
       title: Generic Policy
       required:
@@ -5262,7 +5264,7 @@ components:
         propertyName: type
     ExportThrottlePolicy:
       title: Export Throttling Policy
-      type : object
+      type: object
       properties:
         type:
           type: string
@@ -5275,27 +5277,27 @@ components:
     AdvancedThrottlePolicyInfo:
       title: Advanced Throttling Policy
       allOf:
-        - $ref: '#/components/schemas/ThrottlePolicy'
+        - $ref: "#/components/schemas/ThrottlePolicy"
         - type: object
           properties:
             defaultLimit:
-              $ref: '#/components/schemas/ThrottleLimit'
+              $ref: "#/components/schemas/ThrottleLimit"
     AdvancedThrottlePolicy:
       title: Advanced Throttling Policy
       allOf:
-        - $ref: '#/components/schemas/ThrottlePolicy'
+        - $ref: "#/components/schemas/ThrottlePolicy"
         - required:
             - defaultLimit
           type: object
           properties:
             defaultLimit:
-              $ref: '#/components/schemas/ThrottleLimit'
+              $ref: "#/components/schemas/ThrottleLimit"
             conditionalGroups:
               type: array
               description: |
                 Group of conditions which allow adding different parameter conditions to the throttling limit.
               items:
-                $ref: '#/components/schemas/ConditionalGroup'
+                $ref: "#/components/schemas/ConditionalGroup"
     AdvancedThrottlePolicyList:
       title: Advanced Throttling Policy List
       type: object
@@ -5308,19 +5310,19 @@ components:
         list:
           type: array
           items:
-            $ref: '#/components/schemas/AdvancedThrottlePolicyInfo'
+            $ref: "#/components/schemas/AdvancedThrottlePolicyInfo"
     ApplicationThrottlePolicy:
       title: Application Throttling Policy
       allOf:
-        - $ref: '#/components/schemas/ThrottlePolicy'
+        - $ref: "#/components/schemas/ThrottlePolicy"
         - required:
             - defaultLimit
           type: object
           properties:
             defaultLimit:
-              $ref: '#/components/schemas/ThrottleLimit'
+              $ref: "#/components/schemas/ThrottleLimit"
             burstLimit:
-              $ref: '#/components/schemas/BurstLimit'
+              $ref: "#/components/schemas/BurstLimit"
     ApplicationThrottlePolicyList:
       title: Application Level Throttling Policy List
       type: object
@@ -5333,20 +5335,20 @@ components:
         list:
           type: array
           items:
-            $ref: '#/components/schemas/ApplicationThrottlePolicy'
+            $ref: "#/components/schemas/ApplicationThrottlePolicy"
     SubscriptionThrottlePolicy:
       title: Subscription Throttling Policy
       allOf:
-        - $ref: '#/components/schemas/ThrottlePolicy'
-        - $ref: '#/components/schemas/GraphQLQuery'
+        - $ref: "#/components/schemas/ThrottlePolicy"
+        - $ref: "#/components/schemas/GraphQLQuery"
         - required:
             - defaultLimit
           type: object
           properties:
             defaultLimit:
-              $ref: '#/components/schemas/ThrottleLimit'
+              $ref: "#/components/schemas/ThrottleLimit"
             monetization:
-              $ref: '#/components/schemas/MonetizationInfo'
+              $ref: "#/components/schemas/MonetizationInfo"
             rateLimitCount:
               type: integer
               description: Burst control request count
@@ -5365,7 +5367,7 @@ components:
                 Custom attributes added to the Subscription Throttling Policy
               example: []
               items:
-                $ref: '#/components/schemas/CustomAttribute'
+                $ref: "#/components/schemas/CustomAttribute"
             stopOnQuotaReach:
               type: boolean
               description: |
@@ -5377,7 +5379,7 @@ components:
                 define whether this is Paid or a Free plan. Allowed values are FREE or COMMERCIAL.
               example: FREE
             permissions:
-              $ref: '#/components/schemas/SubscriptionThrottlePolicyPermission'
+              $ref: "#/components/schemas/SubscriptionThrottlePolicyPermission"
     SubscriptionThrottlePolicyPermission:
       title: SubscriptionThrottlePolicyPermission
       required:
@@ -5421,11 +5423,11 @@ components:
         list:
           type: array
           items:
-            $ref: '#/components/schemas/SubscriptionThrottlePolicy'
+            $ref: "#/components/schemas/SubscriptionThrottlePolicy"
     CustomRule:
       title: Custom Rule
       allOf:
-        - $ref: '#/components/schemas/ThrottlePolicy'
+        - $ref: "#/components/schemas/ThrottlePolicy"
         - required:
             - keyTemplate
             - siddhiQuery
@@ -5438,7 +5440,8 @@ components:
                 FROM RequestStream\nSELECT userId, ( userId == 'admin@carbon.super' ) AS isEligible , str:concat('admin@carbon.super','') as throttleKey\nINSERT INTO EligibilityStream; \n\nFROM EligibilityStream[isEligible==true]#throttler:timeBatch(1 min) \nSELECT throttleKey, (count(userId) >= 10) as isThrottled, expiryTimeStamp group by throttleKey \nINSERT ALL EVENTS into ResultStream;
             keyTemplate:
               type: string
-              description: The specific combination of attributes that are checked in
+              description:
+                The specific combination of attributes that are checked in
                 the policy.
               example: $userId
     CustomRuleList:
@@ -5453,7 +5456,7 @@ components:
         list:
           type: array
           items:
-            $ref: '#/components/schemas/CustomRule'
+            $ref: "#/components/schemas/CustomRule"
     ConditionalGroup:
       title: Conditional Groups for Throttling
       required:
@@ -5511,9 +5514,9 @@ components:
               }
             ]
           items:
-            $ref: '#/components/schemas/ThrottleCondition'
+            $ref: "#/components/schemas/ThrottleCondition"
         limit:
-          $ref: '#/components/schemas/ThrottleLimit'
+          $ref: "#/components/schemas/ThrottleLimit"
     ThrottleCondition:
       title: Throttling Conditions
       required:
@@ -5539,13 +5542,13 @@ components:
             same value ('true' or 'false') for the same type of conditional group.
           default: false
         headerCondition:
-          $ref: '#/components/schemas/HeaderCondition'
+          $ref: "#/components/schemas/HeaderCondition"
         ipCondition:
-          $ref: '#/components/schemas/IPCondition'
+          $ref: "#/components/schemas/IPCondition"
         jwtClaimsCondition:
-          $ref: '#/components/schemas/JWTClaimsCondition'
+          $ref: "#/components/schemas/JWTClaimsCondition"
         queryParameterCondition:
-          $ref: '#/components/schemas/QueryParameterCondition'
+          $ref: "#/components/schemas/QueryParameterCondition"
       description: Conditions used for Throttling
     HeaderCondition:
       title: HTTP Header based throttling condition
@@ -5566,7 +5569,8 @@ components:
       properties:
         ipConditionType:
           type: string
-          description: Type of the IP condition. Allowed values are "IPRANGE" and
+          description:
+            Type of the IP condition. Allowed values are "IPRANGE" and
             "IPSPECIFIC"
           enum:
             - IPRANGE
@@ -5615,7 +5619,8 @@ components:
       properties:
         timeUnit:
           type: string
-          description: Unit of the time. Allowed values are "sec", "min", "hour",
+          description:
+            Unit of the time. Allowed values are "sec", "min", "hour",
             "day"
           example: min
         unitTime:
@@ -5642,13 +5647,13 @@ components:
             - EVENTCOUNTLIMIT
             - AIAPIQUOTALIMIT
         requestCount:
-          $ref: '#/components/schemas/RequestCountLimit'
+          $ref: "#/components/schemas/RequestCountLimit"
         bandwidth:
-          $ref: '#/components/schemas/BandwidthLimit'
+          $ref: "#/components/schemas/BandwidthLimit"
         eventCount:
-          $ref: '#/components/schemas/EventCountLimit'
+          $ref: "#/components/schemas/EventCountLimit"
         aiApiQuota:
-          $ref: '#/components/schemas/AIAPIQuotaLimit'
+          $ref: "#/components/schemas/AIAPIQuotaLimit"
     BurstLimit:
       title: Burst Limit object
       type: object
@@ -5682,7 +5687,7 @@ components:
     BandwidthLimit:
       title: Bandwidth Limit object
       allOf:
-        - $ref: '#/components/schemas/ThrottleLimitBase'
+        - $ref: "#/components/schemas/ThrottleLimitBase"
         - required:
             - dataAmount
             - dataUnit
@@ -5695,13 +5700,14 @@ components:
               example: 1000
             dataUnit:
               type: string
-              description: Unit of data allowed to be transferred. Allowed values are
+              description:
+                Unit of data allowed to be transferred. Allowed values are
                 "KB", "MB" and "GB"
               example: KB
     RequestCountLimit:
       title: Request Count Limit object
       allOf:
-        - $ref: '#/components/schemas/ThrottleLimitBase'
+        - $ref: "#/components/schemas/ThrottleLimitBase"
         - required:
             - requestCount
           type: object
@@ -5714,7 +5720,7 @@ components:
     AIAPIQuotaLimit:
       title: AI API Quota Limit object
       allOf:
-        - $ref: '#/components/schemas/ThrottleLimitBase'
+        - $ref: "#/components/schemas/ThrottleLimitBase"
         - required:
             - requestCount
           type: object
@@ -5742,7 +5748,7 @@ components:
     EventCountLimit:
       title: Event Count Limit object
       allOf:
-        - $ref: '#/components/schemas/ThrottleLimitBase'
+        - $ref: "#/components/schemas/ThrottleLimitBase"
         - required:
             - eventCount
           type: object
@@ -5797,7 +5803,7 @@ components:
         list:
           type: array
           items:
-            $ref: '#/components/schemas/BlockingCondition'
+            $ref: "#/components/schemas/BlockingCondition"
     BlockingConditionStatus:
       title: Blocking Conditions Status
       required:
@@ -5840,9 +5846,9 @@ components:
         list:
           type: array
           items:
-            $ref: '#/components/schemas/ApplicationInfo'
+            $ref: "#/components/schemas/ApplicationInfo"
         pagination:
-          $ref: '#/components/schemas/Pagination'
+          $ref: "#/components/schemas/Pagination"
     ApplicationInfo:
       title: Application info object with basic application details
       type: object
@@ -5868,7 +5874,7 @@ components:
         keyManagers:
           type: array
           items:
-            $ref: '#/components/schemas/KeyManagerInfo'
+            $ref: "#/components/schemas/KeyManagerInfo"
         status:
           type: string
           example: APPROVED
@@ -5921,7 +5927,7 @@ components:
         subscriptionScopes:
           type: array
           items:
-            $ref: '#/components/schemas/ScopeInfo'
+            $ref: "#/components/schemas/ScopeInfo"
         owner:
           description: |
             Application created user
@@ -5942,7 +5948,7 @@ components:
           items:
             type: string
           description: Allowed roles for the scope
-          example: ["manager","developer"]
+          example: ["manager", "developer"]
         description:
           type: string
           description: Description of the scope
@@ -5958,7 +5964,7 @@ components:
         list:
           type: array
           items:
-            $ref: '#/components/schemas/APIInfo'
+            $ref: "#/components/schemas/APIInfo"
     APIInfo:
       title: API info object with basic API details
       type: object
@@ -5996,7 +6002,7 @@ components:
         name:
           maxLength: 255
           minLength: 1
-          pattern: '^[a-zA-Z0-9_-]+$'
+          pattern: "^[a-zA-Z0-9_-]+$"
           type: string
           example: us-region
         displayName:
@@ -6047,15 +6053,15 @@ components:
           type: array
           minItems: 1
           items:
-            $ref: '#/components/schemas/VHost'
+            $ref: "#/components/schemas/VHost"
         endpointURIs:
           type: array
           items:
-            $ref: '#/components/schemas/GatewayEnvironmentProtocolURI'
+            $ref: "#/components/schemas/GatewayEnvironmentProtocolURI"
         additionalProperties:
           type: array
           items:
-            $ref: '#/components/schemas/AdditionalProperty'
+            $ref: "#/components/schemas/AdditionalProperty"
         permissions:
           type: object
           properties:
@@ -6106,7 +6112,7 @@ components:
         list:
           type: array
           items:
-            $ref: '#/components/schemas/Environment'
+            $ref: "#/components/schemas/Environment"
     GatewayInstanceList:
       title: Gateway instance list
       type: object
@@ -6119,7 +6125,7 @@ components:
         list:
           type: array
           items:
-            $ref: '#/components/schemas/GatewayInstance'
+            $ref: "#/components/schemas/GatewayInstance"
     GatewayInstance:
       title: Gateway instance in the gateway environment
       type: object
@@ -6162,7 +6168,7 @@ components:
       properties:
         name:
           type: string
-          pattern: '^[a-z0-9-]+$'
+          pattern: "^[a-z0-9-]+$"
           minLength: 3
           maxLength: 64
           description: URL-friendly gateway identifier (lowercase alphanumeric with hyphens, unique per organization)
@@ -6186,7 +6192,7 @@ components:
           type: object
           additionalProperties: true
           description: Custom key-value properties for the gateway
-          example: {"region": "us-west", "tier": "premium"}
+          example: { "region": "us-west", "tier": "premium" }
         permissions:
           type: object
           description: Gateway visibility permissions configuration
@@ -6222,7 +6228,7 @@ components:
       properties:
         name:
           type: string
-          pattern: '^[a-z0-9-]+$'
+          pattern: "^[a-z0-9-]+$"
           minLength: 3
           maxLength: 64
           description: Gateway identifier (immutable; must match existing). Required for PUT full representation.
@@ -6245,7 +6251,7 @@ components:
           type: object
           additionalProperties: true
           description: Custom key-value properties for the gateway
-          example: {"region": "us-west", "tier": "premium"}
+          example: { "region": "us-west", "tier": "premium" }
         permissions:
           type: object
           description: Gateway visibility permissions (on-prem extension)
@@ -6317,7 +6323,7 @@ components:
       title: Gateway Response With Token
       description: Platform gateway response including the one-time registration token (POST create or regenerate-token).
       allOf:
-        - $ref: '#/components/schemas/PlatformGatewayResponse'
+        - $ref: "#/components/schemas/PlatformGatewayResponse"
         - type: object
           properties:
             registrationToken:
@@ -6335,7 +6341,7 @@ components:
         list:
           type: array
           items:
-            $ref: '#/components/schemas/PlatformGatewayResponse'
+            $ref: "#/components/schemas/PlatformGatewayResponse"
     Organization:
       title: Organization
       required:
@@ -6380,7 +6386,7 @@ components:
         list:
           type: array
           items:
-            $ref: '#/components/schemas/Organization'
+            $ref: "#/components/schemas/Organization"
     AIServiceProviderRequest:
       title: AIServiceProvider
       required:
@@ -6476,7 +6482,7 @@ components:
           type: array
           description: List of model providers supported by the AI Service Provider
           items:
-            $ref: '#/components/schemas/ModelProvider'
+            $ref: "#/components/schemas/ModelProvider"
         deprecated:
           type: boolean
           description: Indicates if the LLM provider is deprecated
@@ -6525,7 +6531,7 @@ components:
         list:
           type: array
           items:
-            $ref: '#/components/schemas/AIServiceProviderSummaryResponse'
+            $ref: "#/components/schemas/AIServiceProviderSummaryResponse"
     LLMProviderRequest:
       title: LLMProvider
       type: object
@@ -6627,7 +6633,7 @@ components:
         list:
           type: array
           items:
-            $ref: '#/components/schemas/LLMProviderSummaryResponse'
+            $ref: "#/components/schemas/LLMProviderSummaryResponse"
     VHost:
       title: Virtual Host
       required:
@@ -6814,14 +6820,15 @@ components:
         list:
           type: array
           items:
-            $ref: '#/components/schemas/APICategory'
+            $ref: "#/components/schemas/APICategory"
     FileInfo:
       title: File Information including meta data
       type: object
       properties:
         relativePath:
           type: string
-          description: relative location of the file (excluding the base context and
+          description:
+            relative location of the file (excluding the base context and
             host of the Admin API)
           example: api-categories/01234567-0123-0123-0123-012345678901/thumbnail
         mediaType:
@@ -6868,19 +6875,19 @@ components:
               authConfigurations:
                 type: array
                 items:
-                  $ref: '#/components/schemas/KeyManagerConfiguration'
+                  $ref: "#/components/schemas/KeyManagerConfiguration"
               configurations:
                 type: array
                 items:
-                  $ref: '#/components/schemas/KeyManagerConfiguration'
+                  $ref: "#/components/schemas/KeyManagerConfiguration"
               endpointConfigurations:
                 type: array
                 items:
-                  $ref: '#/components/schemas/KeyManagerConfiguration'
+                  $ref: "#/components/schemas/KeyManagerConfiguration"
               configurationConstraints:
                 type: array
                 items:
-                  $ref: '#/components/schemas/ConfigurationConstraint'
+                  $ref: "#/components/schemas/ConfigurationConstraint"
         gatewayConfiguration:
           type: array
           items:
@@ -6896,14 +6903,14 @@ components:
                 type: array
                 items:
                   type: string
-                  example: 'READ_WRITE'
+                  example: "READ_WRITE"
               configurations:
                 type: array
                 items:
-                  $ref: '#/components/schemas/GatewayConfiguration'
+                  $ref: "#/components/schemas/GatewayConfiguration"
               defaultHostnameTemplate:
                 type: string
-                example: '{apiId}.execute-api.{region}.amazonaws.com'
+                example: "{apiId}.execute-api.{region}.amazonaws.com"
         analyticsEnabled:
           type: boolean
           description: To determine whether analytics is enabled or not
@@ -6939,7 +6946,7 @@ components:
         list:
           type: array
           items:
-            $ref: '#/components/schemas/Scope'
+            $ref: "#/components/schemas/Scope"
     Scope:
       title: Scope Role
       type: object
@@ -6977,7 +6984,7 @@ components:
           example: true
           default: false
         value:
-          $ref: '#/components/schemas/KeyManager'
+          $ref: "#/components/schemas/KeyManager"
     KeyManager:
       title: Key Manager
       required:
@@ -7049,7 +7056,7 @@ components:
         endpoints:
           type: array
           items:
-            $ref: '#/components/schemas/KeyManagerEndpoint'
+            $ref: "#/components/schemas/KeyManagerEndpoint"
         certificates:
           type: object
           properties:
@@ -7104,7 +7111,7 @@ components:
         claimMapping:
           type: array
           items:
-            $ref: '#/components/schemas/ClaimMappingEntry'
+            $ref: "#/components/schemas/ClaimMappingEntry"
         consumerKeyClaim:
           type: string
           example: azp
@@ -7114,7 +7121,7 @@ components:
         tokenValidation:
           type: array
           items:
-            $ref: '#/components/schemas/TokenValidation'
+            $ref: "#/components/schemas/TokenValidation"
         enabled:
           type: boolean
           example: true
@@ -7146,7 +7153,8 @@ components:
                 example: Internal/subscriber
         tokenType:
           type: string
-          description: The type of the tokens to be used (exchanged or without exchanged).
+          description:
+            The type of the tokens to be used (exchanged or without exchanged).
             Accepted values are EXCHANGED, DIRECT and BOTH.
           example: EXCHANGED
           default: DIRECT
@@ -7167,10 +7175,10 @@ components:
       properties:
         name:
           type: string
-          example: 'token_endpoint'
+          example: "token_endpoint"
         value:
           type: string
-          example: 'https://localhost:9443/oauth2/token'
+          example: "https://localhost:9443/oauth2/token"
     KeyManagerInfo:
       title: Key Manager Info
       required:
@@ -7201,7 +7209,8 @@ components:
           example: true
         tokenType:
           type: string
-          description: The type of the tokens to be used (exchanged or without exchanged).
+          description:
+            The type of the tokens to be used (exchanged or without exchanged).
             Accepted values are EXCHANGED, DIRECT and BOTH.
           example: EXCHANGED
           default: DIRECT
@@ -7236,13 +7245,13 @@ components:
           example: Enter username to connect to key manager
         default:
           type: object
-          properties: { }
+          properties: {}
           example: admin
         values:
           type: array
           items:
             type: object
-            properties: { }
+            properties: {}
         updateDisabled:
           type: boolean
           description: Indicates that this configuration field cannot be modified once the Key Manager is created.
@@ -7274,10 +7283,10 @@ components:
           type: array
           items:
             type: object
-            properties: { }
+            properties: {}
         default:
           type: object
-          properties: { }
+          properties: {}
     GatewayConfiguration:
       title: Gateway Configuration
       type: object
@@ -7324,7 +7333,7 @@ components:
         list:
           type: array
           items:
-            $ref: '#/components/schemas/KeyManagerInfo'
+            $ref: "#/components/schemas/KeyManagerInfo"
 
     KeyManagerAppUsages:
       title: Key Manager Application Usages.
@@ -7339,7 +7348,7 @@ components:
         applications:
           type: array
           items:
-            $ref: '#/components/schemas/ApplicationInfoKeyManager'
+            $ref: "#/components/schemas/ApplicationInfoKeyManager"
 
     ApplicationInfoKeyManager:
       type: object
@@ -7379,7 +7388,7 @@ components:
         apis:
           type: array
           items:
-            $ref: '#/components/schemas/APIInfoKeyManager'
+            $ref: "#/components/schemas/APIInfoKeyManager"
 
     APIInfoKeyManager:
       type: object
@@ -7475,7 +7484,7 @@ components:
         alerts:
           type: array
           items:
-            $ref: '#/components/schemas/AlertType'
+            $ref: "#/components/schemas/AlertType"
     AlertType:
       title: Alert Type
       type: object
@@ -7495,7 +7504,7 @@ components:
         alerts:
           type: array
           items:
-            $ref: '#/components/schemas/AlertType'
+            $ref: "#/components/schemas/AlertType"
         emailList:
           type: array
           items:
@@ -7514,7 +7523,7 @@ components:
         list:
           type: array
           items:
-            $ref: '#/components/schemas/BotDetectionAlertSubscription'
+            $ref: "#/components/schemas/BotDetectionAlertSubscription"
     BotDetectionAlertSubscription:
       title: Bot Detection Alert Subscription
       required:
@@ -7553,7 +7562,7 @@ components:
         list:
           type: array
           items:
-            $ref: '#/components/schemas/WorkflowInfo'
+            $ref: "#/components/schemas/WorkflowInfo"
     WorkflowInfo:
       title: Workflow info object with basic workflow details
       type: object
@@ -7606,7 +7615,8 @@ components:
           type: string
           description: |
             description is a message with basic details about the workflow request.
-          example: Approve application [APP1] creation request from application creator
+          example:
+            Approve application [APP1] creation request from application creator
             - admin with throttling tier - 10MinPer
     WorkflowResponse:
       title: workflow Response
@@ -7640,7 +7650,7 @@ components:
         list:
           type: array
           items:
-            $ref: '#/components/schemas/BotDetectionData'
+            $ref: "#/components/schemas/BotDetectionData"
     BotDetectionData:
       title: Bot Detection Data
       type: object
@@ -7661,7 +7671,7 @@ components:
         headerSet:
           type: string
           description: The header set
-          example: '[Accept=*/*, Host=localhost:8243, User-Agent=curl/7.58.0]'
+          example: "[Accept=*/*, Host=localhost:8243, User-Agent=curl/7.58.0]"
         messageBody:
           type: string
           description: The content of the message body
@@ -7691,7 +7701,7 @@ components:
         list:
           type: array
           items:
-            $ref: '#/components/schemas/RoleAlias'
+            $ref: "#/components/schemas/RoleAlias"
     RoleAlias:
       title: Role alias
       type: object
@@ -7763,14 +7773,14 @@ components:
         apis:
           type: array
           items:
-            $ref: '#/components/schemas/ApiResult'
+            $ref: "#/components/schemas/ApiResult"
         count:
           type: integer
           description: |
             Number of results returned.
           example: 1
         pagination:
-          $ref: '#/components/schemas/Pagination'
+          $ref: "#/components/schemas/Pagination"
     ApiResult:
       type: object
       properties:
@@ -7819,9 +7829,9 @@ components:
           type: array
           description: List of labels.
           items:
-            $ref: '#/components/schemas/Label'
+            $ref: "#/components/schemas/Label"
         pagination:
-          $ref: '#/components/schemas/Pagination'
+          $ref: "#/components/schemas/Pagination"
     LabelUsage:
       title: Label Usage
       type: object
@@ -7839,7 +7849,7 @@ components:
               type: array
               description: List of APIs associated with the label.
               items:
-                $ref: '#/components/schemas/ApiResult'
+                $ref: "#/components/schemas/ApiResult"
     APIKey:
       title: API Key details to invoke APIs
       type: object
@@ -7897,7 +7907,7 @@ components:
         list:
           type: array
           items:
-            $ref: '#/components/schemas/APIKey'
+            $ref: "#/components/schemas/APIKey"
     APIKeyRevokeRequest:
       title: API Key revoke request object
       type: object
@@ -7914,7 +7924,7 @@ components:
       content:
         application/json:
           schema:
-            $ref: '#/components/schemas/Error'
+            $ref: "#/components/schemas/Error"
           example:
             code: 400
             message: Bad Request
@@ -7926,7 +7936,7 @@ components:
       content:
         application/json:
           schema:
-            $ref: '#/components/schemas/Error'
+            $ref: "#/components/schemas/Error"
           example:
             code: 409
             message: Conflict
@@ -7934,16 +7944,18 @@ components:
             moreInfo: ""
             error: []
     Forbidden:
-      description: Forbidden. The request must be conditional but no condition has
+      description:
+        Forbidden. The request must be conditional but no condition has
         been specified.
       content:
         application/json:
           schema:
-            $ref: '#/components/schemas/Error'
+            $ref: "#/components/schemas/Error"
           example:
             code: 403
             message: Forbidden
-            description: The request must be conditional but no condition has been
+            description:
+              The request must be conditional but no condition has been
               specified
             moreInfo: ""
             error: []
@@ -7952,11 +7964,12 @@ components:
       content:
         application/json:
           schema:
-            $ref: '#/components/schemas/Error'
+            $ref: "#/components/schemas/Error"
           example:
             code: 500
             message: Internal Server Error
-            description: The server encountered an internal error. Please contact
+            description:
+              The server encountered an internal error. Please contact
               administrator.
             moreInfo: ""
             error: []
@@ -7965,7 +7978,7 @@ components:
       content:
         application/json:
           schema:
-            $ref: '#/components/schemas/Error'
+            $ref: "#/components/schemas/Error"
           example:
             code: 406
             message: Not Acceptable
@@ -7977,7 +7990,7 @@ components:
       content:
         application/json:
           schema:
-            $ref: '#/components/schemas/Error'
+            $ref: "#/components/schemas/Error"
           example:
             code: 404
             message: Not Found
@@ -7985,12 +7998,13 @@ components:
             moreInfo: ""
             error: []
     PayloadTooLarge:
-      description: Payload Too Large. Request entity is larger than limits defined
+      description:
+        Payload Too Large. Request entity is larger than limits defined
         by server.
       content:
         application/json:
           schema:
-            $ref: '#/components/schemas/Error'
+            $ref: "#/components/schemas/Error"
           example:
             code: 413
             message: Payload Too Large
@@ -7998,16 +8012,18 @@ components:
             moreInfo: ""
             error: []
     PreconditionFailed:
-      description: Precondition Failed. The request has not been performed because
+      description:
+        Precondition Failed. The request has not been performed because
         one of the preconditions is not met.
       content:
         application/json:
           schema:
-            $ref: '#/components/schemas/Error'
+            $ref: "#/components/schemas/Error"
           example:
             code: 412
             message: Precondition Failed
-            description: The request has not been performed because one of the preconditions
+            description:
+              The request has not been performed because one of the preconditions
               is not met
             moreInfo: ""
             error: []
@@ -8016,7 +8032,7 @@ components:
       content:
         application/json:
           schema:
-            $ref: '#/components/schemas/Error'
+            $ref: "#/components/schemas/Error"
           example:
             code: 401
             message: Unauthorized
@@ -8024,12 +8040,13 @@ components:
             moreInfo: ""
             error: []
     UnsupportedMediaType:
-      description: Unsupported Media Type. The entity of the request was not in a
+      description:
+        Unsupported Media Type. The entity of the request was not in a
         supported format.
       content:
         application/json:
           schema:
-            $ref: '#/components/schemas/Error'
+            $ref: "#/components/schemas/Error"
           example:
             code: 415
             message: Unsupported media type
@@ -8281,17 +8298,20 @@ components:
             apim:app_settings_change: Change Application Settings
             apim:app_import_export: Import and export applications related operations
             apim:api_import_export: Import and export APIs related operations
-            apim:api_product_import_export: Import and export API Products related
+            apim:api_product_import_export:
+              Import and export API Products related
               operations
             apim:environment_manage: Manage gateway environments
             apim:environment_read: Retrieve gateway environments
-            apim:monetization_usage_publish: Retrieve and publish Monetization related
+            apim:monetization_usage_publish:
+              Retrieve and publish Monetization related
               usage records
             apim:api_workflow_approve: Manage workflows
             apim:bot_data: Retrieve bot detection data
             apim:tenantInfo: Retrieve tenant related information
             apim:tenant_theme_manage: Manage tenant themes
-            apim:admin_operations: Manage API categories and Key Managers related
+            apim:admin_operations:
+              Manage API categories and Key Managers related
               operations
             apim:api_category: Manage API categories
             apim:admin_settings: Retrieve admin settings
