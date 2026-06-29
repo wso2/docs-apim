@@ -21,7 +21,7 @@
     - **<xs:attributeGroup\>**
     - **<xs:any\>**
     - **<xs:anyAttribute\>**
-    - **<xs:enumaration\>**
+    - **<xs:enumeration\>**
     - **<xs:alternative\>**
     - **<xs:assert\>**
     - **<xs:key\>**
