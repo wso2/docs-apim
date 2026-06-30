@@ -28,6 +28,8 @@ See the instructions on using the [Kubernetes Exporter]({{base_path}}/integrate/
 
 ## Enable priority-based composite application deployment
 
+> **Note:** Priority-based composite application deployment is available from **WSO2 Micro Integrator 4.1.0.177 update level** onwards.
+
 When multiple composite applications are deployed, they are processed in alphabetical order by default. However, if some composite applications depend on others, deployment may fail due to incorrect ordering. To enable priority-based deployment, add the following configuration to `<MI_HOME>/conf/deployment.toml`:
 
 ```toml
@@ -37,7 +39,7 @@ enable_priority_deployment = true
 
 With this configuration, composite applications are divided into two categories:
 
-- **High-priority**: composite applications containing a connector, registry resource, or class mediator.
+- **High-priority**: composite applications containing a connector, datasource, registry resource, or class mediator.
 - **Low-priority**: all other composite applications.
 
 High-priority composite applications are deployed first (in alphabetical order), followed by low-priority ones (also in alphabetical order).
