@@ -24,17 +24,23 @@ This section guides you through deploying the Carbon Health Check components in 
 
      `git clone https://github.com/[git-username]/carbon-health-check`
    
-3. Navigate to `<HEALTH_CHECK_HOME>` and build the product.
+3. Checkout to tag `v1.3.3`.
+
+4. Navigate to `<HEALTH_CHECK_HOME>` and build the product.
     
       `mvn clean install`
       
-4. Rename `org.wso2.carbon.healthcheck.api.core-<version-number>-SNAPSHOT.jar`, which is found in the `<HEALTH_CHECK_HOME>/components/org.wso2.carbon.healthcheck.api.core/target` directory, as `org.wso2.carbon.healthcheck.api.core-<version-number>.jar` and paste it in the `<API-M_HOME>/repository/components/dropins` directory.
+5. Rename `org.wso2.carbon.healthcheck.api.core-<version-number>-SNAPSHOT.jar`, which is found in the `<HEALTH_CHECK_HOME>/components/org.wso2.carbon.healthcheck.api.core/target` directory, as `org.wso2.carbon.healthcheck.api.core-<version-number>.jar` and paste it in the `<API-M_HOME>/repository/components/dropins` directory.
 
-5. Copy the webapp `api#health-check#v1.0.war`, which is found in the `<HEALTH_CHECK_HOME>/components/org.wso2.carbon.healthcheck.api.endpoint/target/` directory and paste it in the `<API-M_HOME>/repository/deployment/server/webapps` directory.
+6. Copy the webapp `api#health-check#v1.0.war`, which is found in the `<HEALTH_CHECK_HOME>/components/org.wso2.carbon.healthcheck.api.endpoint/target/` directory and paste it in the `<API-M_HOME>/repository/deployment/server/webapps` directory.
 
+<<<<<<< HEAD
 6. Copy the `health-check.config.xml` configuration file found in the `<API_HOME>/features/org.wso2.carbon.healthcheck.server_1.0.0` directory to your `<PRODUCT_HOME>/repository/conf/` directory.
+=======
+7. Copy the `health-check-config.xml` configuration file found in the `<HEALTH_CHECK_HOME>/features/org.wso2.carbon.healthcheck.server.feature/resources` directory to your `<PRODUCT_HOME>/repository/conf/` directory.
+>>>>>>> 7ec42c541 (Update health check docs with tag info)
 
-7. Correct the health check related configurations as indicated below in the `<API-M-HOME>/repository/conf/deployment.toml` file.
+8. Correct the health check related configurations as indicated below in the `<API-M-HOME>/repository/conf/deployment.toml` file.
 
     ```toml
     [carbon_health_check]
