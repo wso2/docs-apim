@@ -6194,6 +6194,21 @@
             "title": "API-M AWS Lambda Configurations",
             "options": [
                 {
+                    "name": "apim.aws_lambda",
+                    "required": false,
+                    "description": "Configures the AWS Lambda backend integration for WSO2 API Manager.",
+                    "params": [
+                        {
+                            "name": "enable_proxy_response_mapping",
+                            "type": "boolean",
+                            "required": false,
+                            "default": "false",
+                            "possible": "true, false",
+                            "description": "Enables proxy response mapping mode for the AWS Lambda mediator. When enabled, Lambda functions must return payloads in the AWS API Gateway Lambda proxy integration response envelope format (containing statusCode, headers, multiValueHeaders, body, and isBase64Encoded fields). The mediator maps these fields to the HTTP response, allowing Lambda functions to control the response status code, headers, and content type. Supported content types for body routing are application/json, text/plain, and application/xml. Note that this configuration is available in wso2am-4.5.0 and wso2am-universal-gw-4.5.0 starting from update level 62."
+                        }
+                    ]
+                },
+                {
                     "name": "apim.aws_lambda.http_client",
                     "required": false,
                     "description": " Configurations to tune the underlying HTTP connection pool settings used by each AWS Lambda client instance, to improve performance under high load.",
@@ -6233,7 +6248,7 @@
                     ]
                 }
             ],
-            "exampleFile": "apim.aws_lambda.http_client.toml"
+            "exampleFile": "apim.aws_lambda.toml"
         },
         {
           "title": "Synapse Properties",
