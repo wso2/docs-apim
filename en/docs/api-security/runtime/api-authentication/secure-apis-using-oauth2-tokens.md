@@ -230,7 +230,7 @@ Follow the instructions below to add a customized authorization header for an AP
       x-wso2-auth-header: "CustomAuthorizationHeader"
       ```
       
-##Try out the customized authorization header
+## Try out the customized authorization header
   
 Before you start, sign in to the API Publisher and deploy the sample API (`PizzaShackAPI`) if you have not done so already, as the following example is based on the `PizzaShackAPI` API.
 

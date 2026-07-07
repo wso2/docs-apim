@@ -57,7 +57,7 @@ Follow these steps to integrate the Semantic Tool Filtering policy into your AI 
 	embedding_endpoint = "https://api.mistral.ai/v1/embeddings"
 	embedding_model = "mistral-embed"
     ```
-	##Policy parameter configurations for text based and JSON formatted tools list.
+	## Policy parameter configurations for text based and JSON formatted tools list.
 	### Tools as JSON list
 
 	JSON formatted Tool List Policy parameters Configuration

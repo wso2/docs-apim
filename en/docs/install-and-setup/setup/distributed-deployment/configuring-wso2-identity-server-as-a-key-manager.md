@@ -321,7 +321,7 @@ Start WSO2 Identity Server for the changes to take effect. For more information,
         wso2server.bat 
         ```
 
-    !!! Troubleshooting
+    !!! tip "Troubleshooting"
 
         If you have configured the hostnames for WSO2 API Manager and WSO2 Identity Server, during the server startup, you will see the following warning in the WSO2 API Manager backend logs.
 

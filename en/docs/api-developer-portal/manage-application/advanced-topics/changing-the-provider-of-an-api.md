@@ -38,7 +38,7 @@ Follow the instructions below to change the ownership of an application:
 
     4.  Update the **Provider** field with the new provider's username (Chris).
 
-        !!! Troubleshooting
+        !!! tip "Troubleshooting"
             If you get a "`Not a valid user `" error (e.g., Chris123 not is a valid user) in the Admin Portal, make sure to request that specific user (e.g., Kim) by checking the spellings.
 
 
