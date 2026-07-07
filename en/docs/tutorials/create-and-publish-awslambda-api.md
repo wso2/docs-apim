@@ -214,3 +214,25 @@ The elements in the above configuration are described below. If these values are
 
 !!! Note 
     These configurations serve as the global settings for all AWS Lambda endpoints in the Gateway. However, please note that each API resource initializes its own independent **AWS Lambda client**. Therefore, the values defined here (such as <code>max_connections</code>) are applied per API resource, not as a server-wide aggregate limit.
+
+## Configure Proxy Response Mapping
+
+!!! note
+    This capability is supported only from the U2 levels listed below in APIM products
+
+    - wso2am-4.5.0 - U2 level 62
+    - wso2am-universal-gw-4.5.0 - U2 level 62
+
+By default, WSO2 API Manager forwards the raw Lambda function response payload directly to clients as JSON with an HTTP 200 status code. To allow Lambda functions to control the response status code, headers, and content type, you can enable proxy response mapping.
+
+When enabled, the API Manager parses the Lambda response as an [AWS API Gateway Lambda proxy integration response](https://docs.aws.amazon.com/apigateway/latest/developerguide/set-up-lambda-proxy-integrations.html#api-gateway-simple-proxy-for-lambda-output-format) envelope and maps the `statusCode`, `headers`, `multiValueHeaders`, `body`, and `isBase64Encoded` fields to the HTTP response.
+
+To enable proxy response mapping, add the following configuration to the <code>&lt;API-M_HOME&gt;/repository/conf/deployment.toml</code> file. For more information, see [Configuration Catalog]({{base_path}}/reference/config-catalog/).
+
+```toml
+[apim.aws_lambda]
+enable_proxy_response_mapping = true
+```
+
+!!! warning
+    When enabled, Lambda functions must return payloads in the proxy envelope format. Existing integrations are not affected unless this is explicitly enabled (default: `false`). Supported content types for body routing are `application/json`, `text/plain`, and `application/xml`.

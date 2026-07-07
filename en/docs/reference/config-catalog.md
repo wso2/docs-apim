@@ -16661,7 +16661,10 @@ same_site_cookies = "lax"
                 <label class="tab-selector" for="_tab_110"><i class="icon fa fa-code"></i></label>
                 <div class="superfences-content">
                     <div class="mb-config-example">
-<pre><code class="toml">[apim.aws_lambda.http_client]
+<pre><code class="toml">[apim.aws_lambda]
+enable_proxy_response_mapping = true
+
+[apim.aws_lambda.http_client]
 max_connections = 50
 connection_timeout = 10
 socket_timeout = 30
@@ -16672,6 +16675,36 @@ connection_acquisition_timeout = 60
                 <div class="doc-wrapper">
                     <div class="mb-config">
                         <div class="config-wrap">
+                            <code>[apim.aws_lambda]</code>
+                            
+                            <p>
+                                Configures the AWS Lambda backend integration for WSO2 API Manager.
+                            </p>
+                        </div>
+                        <div class="params-wrap">
+                            <div class="param">
+                                <div class="param-name">
+                                  <span class="param-name-wrap"> <code>enable_proxy_response_mapping</code> </span>
+                                </div>
+                                <div class="param-info">
+                                    <div>
+                                        <p>
+                                            <span class="param-type string"> boolean </span>
+                                            
+                                        </p>
+                                        <div class="param-default">
+                                            <span class="param-default-value">Default: <code>false</code></span>
+                                        </div>
+                                        <div class="param-possible">
+                                            <span class="param-possible-values">Possible Values: <code>true, false</code></span>
+                                        </div>
+                                    </div>
+                                    <div class="param-description">
+                                        <p>Enables proxy response mapping mode for the AWS Lambda mediator. When enabled, Lambda functions must return payloads in the AWS API Gateway Lambda proxy integration response envelope format (containing statusCode, headers, multiValueHeaders, body, and isBase64Encoded fields). The mediator maps these fields to the HTTP response, allowing Lambda functions to control the response status code, headers, and content type. Supported content types for body routing are application/json, text/plain, and application/xml. Note that this configuration is available in wso2am-4.5.0 and wso2am-universal-gw-4.5.0 starting from update level 62.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div><div class="config-wrap">
                             <code>[apim.aws_lambda.http_client]</code>
                             
                             <p>
