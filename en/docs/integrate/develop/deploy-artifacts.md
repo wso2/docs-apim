@@ -51,3 +51,11 @@ If high-priority composite applications depend on each other, deployment may sti
 enable_priority_deployment = true
 priority_deployment_retry_count = 2
 ```
+
+By default, the artifact types listed above (connector, datasource, registry resource, and class mediator) are treated as high-priority. You can override this default list by configuring `priority_deployment_high_priority_types` with the specific artifact types you want to treat as high-priority.
+
+```toml
+[server]
+enable_priority_deployment = true
+priority_deployment_high_priority_types = ["lib/synapse/mediator", "synapse/lib", "registry/resource", "datasource/datasource"]
+```
