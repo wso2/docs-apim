@@ -402,7 +402,12 @@ WSO2 API Controller (**apictl**) allows you to create and deploy APIs without us
         <td><pre><code>Docs
       |── FileContents</code></pre>
         </td>
-        <td>Contains the documents. To add a new document, add the document in the <code>Docs/FileContents/</code>directory.</td>
+        <td>Contains the documents. To add a new document, add the document in the <code>Docs/FileContents/</code>directory.
+            <div class="admonition warning">
+            <p class="admonition-title">Warning</p>
+            <p>Ensure that each documentation file referenced in <code>docs.yaml</code> is placed in the correct location (<code>Docs/FileContents/</code> or <code>Docs/InlineContents/</code>). Files placed outside these folders are silently skipped during import. Although the API import succeeds, the skipped documents will not be included in the imported API.</p>
+            </div>
+            </td>
         </tr>
         </tbody>
     </table>
