@@ -108,7 +108,7 @@ By default, web portals generate opaque tokens during the login. You could chang
 
 ```toml
 [transport.https.properties]
-maxHttpHeaderSize = "12288"
+maxHttpHeaderSize = "32768"
 
 [apim.oauth_config]
 enable_jwt_for_portals = true
