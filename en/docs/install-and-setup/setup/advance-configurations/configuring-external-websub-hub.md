@@ -58,7 +58,7 @@ disable_topic_context_prefix = false
 
 ### Topic naming
 
-When the topic-context prefix is enabled (the default), the gateway rewrites each topic before sending it to the external hub, so that topics from different APIs do not collide on a shared hub. The rewritten topic uses the API context as a prefix, with `/` characters replaced by `_`.
+When the topic-context prefix is enabled (the default), the gateway rewrites each topic before sending it to the external hub, so that topics with the same name from different WebSub APIs do not collide on a shared hub. The rewritten topic uses the API context as a prefix, with `/` characters replaced by `_`.
 
 For example, the publish request to the `commits` topic of the `/repo-watcher/1.0.0` WebSub API is forwarded to the `repo-watcher_1.0.0_commits` topic of the external WebSub Hub. Publish and subscribe requests are rewritten the same way, so publishers and subscribers stay consistent.
 
