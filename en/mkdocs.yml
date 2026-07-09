@@ -148,6 +148,7 @@ nav:
                     - Configure Caching: install-and-setup/setup/advance-configurations/configuring-caching.md
                     - Customize the Management Console: install-and-setup/setup/advance-configurations/customizing-the-management-console.md
                     - Configure the Crypto Provider: install-and-setup/setup/advance-configurations/configuring-the-crypto-provider.md
+                    - Configure an External WebSub Hub: install-and-setup/setup/advance-configurations/configuring-external-websub-hub.md
         - Deploy:
             - Deploy on VMs:
                 - All-In-One Deployment:
@@ -698,6 +699,7 @@ nav:
                 - Extend API Gateway:
                     - Customize API Template: reference/customize-product/extending-api-manager/extending-gateway/customizing-api-template-for-gateway.md
                     - Write Custom Handlers: reference/customize-product/extending-api-manager/extending-gateway/writing-custom-handlers.md
+                    - Extend WebSub Topic Matching: reference/customize-product/extending-api-manager/extending-gateway/extending-websub-topic-matching.md
                 - Extend Workflows:
                     - Invoke the API Manager from the BPEL Engine: reference/customize-product/extending-api-manager/extending-workflows/invoking-the-api-manager-from-the-bpel-engine.md
                     - Customize a Workflow Extension: reference/customize-product/extending-api-manager/extending-workflows/customizing-a-workflow-extension.md

@@ -140,3 +140,6 @@ Learn more by trying out an end-to-end tutorial on <a href="{{base_path}}/tutori
 ## See Also
 
 {!includes/design/stream-more-links.md!}
+
+- [Configure an External WebSub Hub]({{base_path}}/install-and-setup/setup/advance-configurations/configuring-external-websub-hub/) — delegate hub responsibilities to a dedicated external WebSub hub.
+- [Extend WebSub Topic Matching]({{base_path}}/reference/customize-product/extending-api-manager/extending-gateway/extending-websub-topic-matching/) — plug in custom topic-matching logic for WebSub APIs.
