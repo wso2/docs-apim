@@ -285,6 +285,9 @@
     ├── Definitions
     │   └── swagger.yaml
     ├── Docs
+    │   └── <DocName>
+    │       ├── document.yaml
+    │       └── <doc-file>
     ├── Endpoint-certificates
     ├── Image
     └── Sequences
@@ -331,7 +334,12 @@
         </tr>
         <tr class="odd">
         <td>Docs</td>
-        <td>Contains the documents.</td>
+        <td>Contains the documents attached to the API. Each document must have its own folder named after the document, containing a <code>document.yaml</code> file with the document metadata and any associated files.
+            <div class="admonition warning">
+            <p class="admonition-title">Warning</p>
+            <p>Each documentation file must be placed inside its corresponding <code>Docs/&lt;DocName&gt;/</code> folder, alongside the <code>document.yaml</code> file. If a file is not found in that folder, the import process will silently skip that document without failing the import. The overall API import will still succeed, but the affected document will be missing from the imported API.</p>
+            </div>
+        </td>
         </tr>
         <tr class="even">
         <td>Endpoint-certificates</td>
