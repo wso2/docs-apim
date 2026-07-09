@@ -210,6 +210,10 @@ data:
             <br>If the you have attached an <b>INLINE</b> document, the <code>sourceType</code> will be changed to <b>INLINE</b> and the field named <code>fileName</code> will not be available. The inline content of that particular document will be included in the same individual document directory named by the document name (E.g., <code>Doc2</code>).
             <br> Similarly if you have attached a <b>MARKDOWN</b> document, the <code>sourceType</code> will be changed to <b>MARKDOWN</b> and there will not be a field named <code>fileName</code>. The markdown content of that particular document will be included in the same individual document directory named by the document name (E.g., <code>Doc3</code>).
             <br> If the document is just a URL, the <code>sourceType</code> will be changed to <b>URL</b> and a field named <code>sourceURL</code> will be there which will consist the URL of the document.
+            <div class="admonition warning">
+            <p class="admonition-title">Warning</p>
+            <p>If a documentation file is not found in the individual folder described above, the import process will silently skip that document without failing the import. The overall API Product import will still succeed, but the affected document will be missing from the imported API Product. To avoid this, ensure that each file referenced in <code>document.yaml</code> is placed in the same individual folder alongside the <code>document.yaml</code> file before importing.</p>
+            </div>
             </td>
         </tr>
         <tr class="even">
