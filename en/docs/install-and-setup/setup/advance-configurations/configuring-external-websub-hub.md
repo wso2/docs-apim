@@ -1,6 +1,6 @@
 # Configuring an External WebSub Hub
 
-By default, WSO2 API Manager handles the WebSub protocol (topic registration, subscription, unsubscription, and content publishing) inside the Universal Gateway itself. This works well for most deployments, but there are situations where you may want to delegate the hub responsibility to a dedicated external WebSub hub — for example, to reuse an existing hub that already serves other systems, to scale hub traffic independently of API traffic, or to take advantage of hub-specific features such as persistent subscriptions.
+By default, WSO2 API Manager handles the WebSub protocol (topic registration, subscription, unsubscription, and content publishing) inside the Universal Gateway itself. This works well for most deployments, but there are situations where you may want to delegate the hub responsibility to a dedicated external WebSub hub — for example, to reuse an existing hub that already serves other systems, to scale hub traffic independently of API traffic, or to take advantage of hub-specific features such as guaranteed deliveries.
 
 When an external hub is configured, WebSub APIs deployed from the Publisher continue to handle authentication, authorization, and throttling at the Gateway as usual, but the hub-mode requests (`subscribe`, `unsubscribe`, and `publish`) are forwarded to the external hub instead of being processed internally.
 
