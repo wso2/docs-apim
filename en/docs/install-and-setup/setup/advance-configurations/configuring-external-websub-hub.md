@@ -5,6 +5,15 @@ By default, WSO2 API Manager handles the WebSub protocol (topic registration, su
 When an external hub is configured, WebSub APIs deployed from the Publisher continue to handle authentication, authorization, and throttling at the Gateway as usual, but the hub requests (`subscribe`, `unsubscribe`, and `publish`) are forwarded to the external hub instead of being processed internally.
 
 !!! note
+    This feature requires the following minimum update levels for WSO2 API Manager 4.6.0:
+
+    - All-in-One (`wso2am`): 4.6.0.32
+    - Control Plane (`wso2am-acp`): 4.6.0.33
+    - Universal Gateway (`wso2am-universal-gw`): 4.6.0.32
+
+    Run the [WSO2 Update Tool](https://updates.docs.wso2.com/en/latest/updates/update-tool/) to get the latest updates.
+
+!!! note
     This configuration applies to WebSub APIs only. REST, GraphQL, WebSocket, and SSE APIs are not affected.
 
 ## Configuration

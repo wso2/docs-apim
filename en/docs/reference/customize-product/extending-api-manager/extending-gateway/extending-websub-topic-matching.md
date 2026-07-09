@@ -9,6 +9,14 @@ If neither rule accepts the subscriber's topic, the request is rejected as inval
 
 These rules cover most use cases, but sometimes the topic scheme used by an external system cannot be expressed as an exact string or a URI template. Common examples include topics with versioning suffixes (`orders.v2`), hierarchical wildcards not supported by URI templates, or topics that need to be looked up against an external registry. For these cases, WSO2 API Manager exposes an extension point that lets you plug in your own topic-matching logic for WebSub APIs.
 
+!!! note
+    This feature requires the following minimum update levels for WSO2 API Manager 4.6.0:
+
+    - All-in-One (`wso2am`): 4.6.0.32
+    - Universal Gateway (`wso2am-universal-gw`): 4.6.0.32
+
+    Run the [WSO2 Update Tool](https://updates.docs.wso2.com/en/latest/updates/update-tool/) to get the latest updates.
+
 ## How it works
 
 Before the built-in matcher runs, the Gateway invokes your custom matcher and passes it two pieces of information:
