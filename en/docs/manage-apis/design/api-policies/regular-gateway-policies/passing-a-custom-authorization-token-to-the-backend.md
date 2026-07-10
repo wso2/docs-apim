@@ -62,15 +62,15 @@ Here's a summary:
 
 4.  Navigate to the **API Configurations** --> **Policies** tab. Create a new policy with the information given in the table below by following the instructions in [Create a Policy]({{base_path}}/api-design-manage/design/api-policies/create-policy/).
 
-    | Section                   | Field             | Sample Value          |
-        |---------------------------|-------------------|-----------------------|
-    | General Details           | Name              | Custom Authorization Token |
-    |                               | Version           | 1.0                |
+    | Section                   | Field             | Sample Value                                        |
+        |---------------------------|-------------------|-----------------------------------------------------|
+    | General Details           | Name              | Custom Authorization Token                          |
+    |                               | Version           | 1.0                                                 |
     |                           | Description       | Passing a custom authorization token to the backend |
-    |                           | Applicable Flows  | Request               |
-    |                           | Supported API Types  | HTTP               |
-    | Gateway Specific Details  | Policy File       | `tokenExchange.j2` file you created |
-    | Policy Attributes         | N/A               | N/A                     |
+    |                           | Applicable Flows  | Request                                             |
+    |                           | Supported API Types  | HTTP                                                |
+    | Gateway Specific Details  | Policy File       | `tokenExchange.xml` file you created                |
+    | Policy Attributes         | N/A               | N/A                                                 |
 
 5.  Next, find the **Custom Authorization Token** policy that you just created by following Step 4, from the `Request` tab of the policy list. Drag and drop this policy to the desired API operation(s) by following the instructions in [Attach Policies]({{base_path}}/api-design-manage/design/api-policies/attach-policy/).
 
