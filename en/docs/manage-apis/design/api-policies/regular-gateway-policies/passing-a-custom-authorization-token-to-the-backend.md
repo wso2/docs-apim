@@ -51,7 +51,7 @@ Here's a summary:
 
         Incoming requests and their headers are printed directly to the terminal, so you can verify what the gateway forwarded to the backend.
 
-3.  Log in to the **API Publisher**, create a new REST API with the information given in the table below by following the instructions in [Create a REST API]({{base_path}}/api-design-manage/design/create-api/create-rest-api/create-a-rest-api/).
+3.  Log in to the **API Publisher**, create a new REST API with the information given in the table below by following the instructions in [Create a REST API]({{base_path}}/manage-apis/design/create-api/create-rest-api/create-a-rest-api/).
 
     | Field         | Sample Value         |
         |---------------|----------------------|
@@ -60,7 +60,7 @@ Here's a summary:
     | Version       | 1.0.0                |
     | Endpoint      | http://localhost:8080/custom-auth-header/validate-header |
 
-4.  Navigate to the **API Configurations** --> **Policies** tab. Create a new policy with the information given in the table below by following the instructions in [Create a Policy]({{base_path}}/api-design-manage/design/api-policies/create-policy/).
+4.  Navigate to the **API Configurations** --> **Policies** tab. Create a new policy with the information given in the table below by following the instructions in [Create a Policy]({{base_path}}/manage-apis/design/api-policies/create-policy/).
 
     | Section                   | Field             | Sample Value                                        |
         |---------------------------|-------------------|-----------------------------------------------------|
@@ -72,7 +72,7 @@ Here's a summary:
     | Gateway Specific Details  | Policy File       | `tokenExchange.xml` file you created                |
     | Policy Attributes         | N/A               | N/A                                                 |
 
-5.  Next, find the **Custom Authorization Token** policy that you just created by following Step 4, from the `Request` tab of the policy list. Drag and drop this policy to the desired API operation(s) by following the instructions in [Attach Policies]({{base_path}}/api-design-manage/design/api-policies/attach-policy/).
+5.  Next, find the **Custom Authorization Token** policy that you just created by following Step 4, from the `Request` tab of the policy list. Drag and drop this policy to the desired API operation(s) by following the instructions in [Attach Policies]({{base_path}}/manage-apis/design/api-policies/attach-policy/).
 
     [![Custom Authorization Token Policy]({{base_path}}/assets/img/design/api-policies/custom-authorization-token-policy.png)]({{base_path}}/assets/img/design/api-policies/custom-authorization-token-policy.png)
 
@@ -85,7 +85,7 @@ Here's a summary:
 8. Go to the **Developer Portal**, subscribe and obtain a token to invoke the published API.
 
    !!! tip
-   Follow the instructions in [here]({{base_path}}/api-developer-portal/manage-application/generate-keys/generate-api-keys/#generating-application-keys) to generate an application access token.
+   Follow the instructions in [here]({{base_path}}/consume/manage-application/generate-keys/generate-api-keys/#generating-application-keys) to generate an application access token.
 
 9. Install any REST client in your machine. We use [cURL](http://curl.haxx.se/download.html) here.
 
