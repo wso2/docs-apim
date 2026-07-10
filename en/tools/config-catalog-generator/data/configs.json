@@ -1583,7 +1583,7 @@
                             "required": false,
                             "default": "If the config is not mentioned, then undefined.default",
                             "possible": "default, saml",
-                            "description": "Use the application_sharing_impl as default implmentationIf it is saml, the group extractor extracts the claims to group the applications from the saml response."
+                            "description": "Use the application_sharing_impl as default implementationIf it is saml, the group extractor extracts the claims to group the applications from the saml response."
                         },
                         {
                             "name": "application_sharing_impl",
@@ -4780,7 +4780,7 @@
                             "required": false,
                             "default": "org.wso2.carbon.relay.ExpandingMessageFormatter",
                             "possible": "-",
-                            "description": "The message formatting implementation that formats messages with the 'octet_stream' content type before they are sent out of the Micro Integrator. If required, you can change the default formating class."
+                            "description": "The message formatting implementation that formats messages with the 'octet_stream' content type before they are sent out of the Micro Integrator. If required, you can change the default formatting class."
                         },
                         {
                             "name": "application_binary",

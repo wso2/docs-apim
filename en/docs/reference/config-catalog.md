@@ -144,7 +144,7 @@ disable_restart_from_ui = false</code></pre>
                                         </div>
                                     </div>
                                     <div class="param-description">
-                                        <p>Use this paramater to enable MTOM (Message Transmission Optimization Mechanism) for the product server.</p>
+                                        <p>Use this parameter to enable MTOM (Message Transmission Optimization Mechanism) for the product server.</p>
                                     </div>
                                 </div>
                             </div><div class="param">
@@ -165,7 +165,7 @@ disable_restart_from_ui = false</code></pre>
                                         </div>
                                     </div>
                                     <div class="param-description">
-                                        <p>Use this paramater to enable SwA (SOAP with Attachments) for the product server. When SwA is enabled, the API Manager will process the files attached to SOAP messages.</p>
+                                        <p>Use this parameter to enable SwA (SOAP with Attachments) for the product server. When SwA is enabled, the API Manager will process the files attached to SOAP messages.</p>
                                     </div>
                                 </div>
                             </div><div class="param">
@@ -1652,7 +1652,7 @@ tenants = "*"</code></pre>
                                         
                                     </div>
                                     <div class="param-description">
-                                        <p>Comma seperated list of tenants to be loaded on the gateway. Use * to load all tenants</p>
+                                        <p>Comma separated list of tenants to be loaded on the gateway. Use * to load all tenants</p>
                                     </div>
                                 </div>
                             </div>
@@ -2222,7 +2222,7 @@ enable = true</code></pre>
                                         
                                     </div>
                                     <div class="param-description">
-                                        <p>Enabel cache for scopes. This expires in 15 minutes by default.</p>
+                                        <p>Enable cache for scopes. This expires in 15 minutes by default.</p>
                                     </div>
                                 </div>
                             </div>
@@ -2889,7 +2889,7 @@ enable_application_scopes_for_resident_km = false</code></pre>
                                         
                                     </div>
                                     <div class="param-description">
-                                        <p>You can provide a custom key validation handler implmentation. To do this, set the &quot;key_validation_handler_type&quot; to custom</p>
+                                        <p>You can provide a custom key validation handler implementation. To do this, set the &quot;key_validation_handler_type&quot; to custom</p>
                                     </div>
                                 </div>
                             </div><div class="param">
@@ -4240,7 +4240,7 @@ mode = "HYBRID"
                                         </div>
                                     </div>
                                     <div class="param-description">
-                                        <p>Use the application_sharing_impl as default implmentationIf it is saml, the group extractor extracts the claims to group the applications from the saml response.</p>
+                                        <p>Use the application_sharing_impl as default implementationIf it is saml, the group extractor extracts the claims to group the applications from the saml response.</p>
                                     </div>
                                 </div>
                             </div><div class="param">
@@ -7503,7 +7503,7 @@ execution_interval_in_ms = "-1"</code></pre>
                             <code>[multi_tenancy.usage_agent.data_persistence_task]</code>
                             
                             <p>
-                                Configures the data presistance for user agents in multi-tenant mode.
+                                Configures the data persistence for user agents in multi-tenant mode.
                             </p>
                         </div>
                         <div class="params-wrap">
@@ -7523,7 +7523,7 @@ execution_interval_in_ms = "-1"</code></pre>
                                         
                                     </div>
                                     <div class="param-description">
-                                        <p>Connection delay to start data presistance at startup.</p>
+                                        <p>Connection delay to start data persistence at startup.</p>
                                     </div>
                                 </div>
                             </div><div class="param">
@@ -7561,7 +7561,7 @@ execution_interval_in_ms = "-1"</code></pre>
                                         
                                     </div>
                                     <div class="param-description">
-                                        <p>Time between execution cycles in miliseconds.</p>
+                                        <p>Time between execution cycles in milliseconds.</p>
                                     </div>
                                 </div>
                             </div>
@@ -7675,7 +7675,7 @@ delay = "60"</code></pre>
                                         
                                     </div>
                                     <div class="param-description">
-                                        <p>Time interval betweeen throttling manager tasks.</p>
+                                        <p>Time interval between throttling manager tasks.</p>
                                     </div>
                                 </div>
                             </div><div class="param">
@@ -12808,7 +12808,7 @@ application_binary =  "org.apache.axis2.format.BinaryFormatter"</code></pre>
                                         </div>
                                     </div>
                                     <div class="param-description">
-                                        <p>The message formatting implementation that formats messages with the &#39;octet_stream&#39; content type before they are sent out of the Micro Integrator. If required, you can change the default formating class.</p>
+                                        <p>The message formatting implementation that formats messages with the &#39;octet_stream&#39; content type before they are sent out of the Micro Integrator. If required, you can change the default formatting class.</p>
                                     </div>
                                 </div>
                             </div><div class="param">
@@ -12829,7 +12829,7 @@ application_binary =  "org.apache.axis2.format.BinaryFormatter"</code></pre>
                                         </div>
                                     </div>
                                     <div class="param-description">
-                                        <p>The message formating implementation that formats messages with the &#39;application_binary&#39; content type before they are sent out of the Micro Integrator. If required, you can change the default formating class.</p>
+                                        <p>The message formatting implementation that formats messages with the &#39;application_binary&#39; content type before they are sent out of the Micro Integrator. If required, you can change the default formatting class.</p>
                                     </div>
                                 </div>
                             </div><div class="param">
@@ -12850,7 +12850,7 @@ application_binary =  "org.apache.axis2.format.BinaryFormatter"</code></pre>
                                         </div>
                                     </div>
                                     <div class="param-description">
-                                        <p>The message formating implementation that formats messages with the &#39;text_xml&#39; content type before they are sent out of the Micro Integrator. If required, you can change the default formating class.</p>
+                                        <p>The message formatting implementation that formats messages with the &#39;text_xml&#39; content type before they are sent out of the Micro Integrator. If required, you can change the default formatting class.</p>
                                     </div>
                                 </div>
                             </div><div class="param">
@@ -12871,7 +12871,7 @@ application_binary =  "org.apache.axis2.format.BinaryFormatter"</code></pre>
                                         </div>
                                     </div>
                                     <div class="param-description">
-                                        <p>The message formating implementation that formats messages with the &#39;soap_xml&#39; content type before they are sent out of the Micro Integrator. If required, you can change the default formating class.</p>
+                                        <p>The message formatting implementation that formats messages with the &#39;soap_xml&#39; content type before they are sent out of the Micro Integrator. If required, you can change the default formatting class.</p>
                                     </div>
                                 </div>
                             </div>
@@ -13750,7 +13750,7 @@ timeout_factor = 3.0</code></pre>
                             <code>[qpid.heartbeat]</code>
                             
                             <p>
-                                This includes configurations related to the frequency of the internal heartbeat sent by the underlying Qpid brocker component of Traffic Manager. You need to to configure a proper delay for the heartbeat value if the connections will stay idle for a long time.
+                                This includes configurations related to the frequency of the internal heartbeat sent by the underlying Qpid broker component of Traffic Manager. You need to configure a proper delay for the heartbeat value if the connections will stay idle for a long time.
                             </p>
                         </div>
                         <div class="params-wrap">
@@ -13977,7 +13977,7 @@ monitored.user.stores = "primary,sec"</code></pre>
                                         
                                     </div>
                                     <div class="param-description">
-                                        <p>An array of domain names of the userstores to monitor health. If not given, health is monitered on all the super tenant secondary user stores.</p>
+                                        <p>An array of domain names of the userstores to monitor health. If not given, health is monitored on all the super tenant secondary user stores.</p>
                                     </div>
                                 </div>
                             </div>
@@ -14127,7 +14127,7 @@ monitored.datasources = "jdbc/WSO2AM_DB,jdbc/SHARED_DB,jdbc/WSO2CarbonDB"</code>
                                         
                                     </div>
                                     <div class="param-description">
-                                        <p>An array of jndiConfig names of datasources to monitor health. If not given, health is monitered on all the datastores.</p>
+                                        <p>An array of jndiConfig names of datasources to monitor health. If not given, health is monitored on all the datastores.</p>
                                     </div>
                                 </div>
                             </div>
@@ -15054,7 +15054,7 @@ grant_validator = "org.wso2.carbon.identity.oauth2.grant.kerberos.KerberosGrantV
                                         </div>
                                     </div>
                                     <div class="param-description">
-                                        <p>Enable to allow refresh tokens for client credentails grant.</p>
+                                        <p>Enable to allow refresh tokens for client credentials grant.</p>
                                     </div>
                                 </div>
                             </div><div class="param">
@@ -15075,7 +15075,7 @@ grant_validator = "org.wso2.carbon.identity.oauth2.grant.kerberos.KerberosGrantV
                                         </div>
                                     </div>
                                     <div class="param-description">
-                                        <p>Enable to allow ID tokens for client credentails grant.</p>
+                                        <p>Enable to allow ID tokens for client credentials grant.</p>
                                     </div>
                                 </div>
                             </div><div class="param">
