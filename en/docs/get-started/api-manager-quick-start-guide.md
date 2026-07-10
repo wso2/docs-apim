@@ -118,13 +118,13 @@ Follow the instructions below to subscribe to the API via the Developer Portal o
 
      [https://localhost:9443/devportal](https://localhost:9443/devportal)
     
-     The published `HelloWorld` API is listed in the Developer Portal as shown below.
+     The published `RandomUUID` API is listed in the Developer Portal as shown below.
 
      [![Developer Portal home page]({{base_path}}/assets/img/get_started/dev-portal-landing-page.png)]({{base_path}}/assets/img/get_started/dev-portal-landing-page.png)
 
 2. Click **Sign-In** and enter **`admin/admin`** as your credentials to sign in to the Developer Portal.
 
-3. Once you click on the HelloWorld API, you will be redirected to  the API overview page. Then, go ahead and click on the **TRY OUT** button.
+3. Once you click on the RandomUUID API, you will be redirected to  the API overview page. Then, go ahead and click on the **TRY OUT** button.
 
      [![API try out]({{base_path}}/assets/img/get_started/try-out.png)]({{base_path}}/assets/img/get_started/try-out.png)
 
@@ -148,6 +148,10 @@ Follow the instructions below to invoke the created API.
 
      [![Test API]({{base_path}}/assets/img/get_started/test-api.png)]({{base_path}}/assets/img/get_started/test-api.png)
 
+     This will prompt you for the customer secret created at the startup to generate the access token.
+
+     [![Test API]({{base_path}}/assets/img/get_started/enter-customer-secret.png)]({{base_path}}/assets/img/get_started/enter-customer-secret.png)
+
 2. Click on the `GET` resource of the API to expand the resource and Click **Try It Out**.
    
      [![GET resource]({{base_path}}/assets/img/get_started/expanded-get-resource.png)]({{base_path}}/assets/img/get_started/expanded-get-resource.png)
@@ -156,7 +160,7 @@ Follow the instructions below to invoke the created API.
 
      [![GET resource]({{base_path}}/assets/img/get_started/try-api.png)]({{base_path}}/assets/img/get_started/try-api.png)
 
-     You should see the `{"hello" : "world"}` response from the API. 
+     You should see the `{"uuid": "<random-generated-uuid>"}` response from the API.
 
      [![Successful response]({{base_path}}/assets/img/get_started/try-it-success.png)]({{base_path}}/assets/img/get_started/try-it-success.png)
 
