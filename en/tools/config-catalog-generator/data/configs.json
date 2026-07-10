@@ -4493,6 +4493,128 @@
             "exampleFile": "_wss-transport.toml"
         },
         {
+            "title": "WebSocket Proxy Profile",
+            "options": [
+                {
+                    "name": "[transport.ws.proxy_profile]",
+                    "required": false,
+                    "description": "Configures an HTTP CONNECT proxy profile for outbound WebSocket (ws://) connections from the gateway to the backend. Multiple profiles can be defined; the gateway evaluates them in order and uses the first matching profile. Specific profiles (no wildcard in target_hosts) are evaluated before the catch-all profile (target_hosts = [\"*\"]).",
+                    "params": [
+                        {
+                            "name": "target_hosts",
+                            "type": "string",
+                            "required": true,
+                            "default": "-",
+                            "possible": "[\"example\\\\.com\"], [\"*\"]",
+                            "description": "A list of Java regular expression patterns matched against the backend hostname. Use [\"*\"] to create a catch-all profile that applies to all hosts not matched by a specific profile. Escape dots: \"example\\\\.com\"."
+                        },
+                        {
+                            "name": "proxy_host",
+                            "type": "string",
+                            "required": true,
+                            "default": "-",
+                            "possible": "-",
+                            "description": "Hostname or IP address of the HTTP CONNECT proxy server."
+                        },
+                        {
+                            "name": "proxy_port",
+                            "type": "integer",
+                            "required": true,
+                            "default": "-",
+                            "possible": "-",
+                            "description": "Port number of the HTTP CONNECT proxy server."
+                        },
+                        {
+                            "name": "bypass_hosts",
+                            "type": "string",
+                            "required": false,
+                            "default": "-",
+                            "possible": "[\"localhost\", \"127\\\\.0\\\\.0\\\\.1\"]",
+                            "description": "A list of Java regular expression patterns. Backend hosts matching any pattern connect directly, bypassing the proxy for this profile. Takes precedence over target_hosts."
+                        },
+                        {
+                            "name": "proxy_username",
+                            "type": "string",
+                            "required": false,
+                            "default": "-",
+                            "possible": "-",
+                            "description": "Username for Proxy-Authorization: Basic authentication. Omit for an unauthenticated proxy."
+                        },
+                        {
+                            "name": "proxy_password",
+                            "type": "string",
+                            "required": false,
+                            "default": "-",
+                            "possible": "-",
+                            "description": "Password for proxy authentication."
+                        }
+                    ]
+                }
+            ],
+            "exampleFile": "_ws-proxy-profile.toml"
+        },
+        {
+            "title": "Secure WebSocket Proxy Profile",
+            "options": [
+                {
+                    "name": "[transport.wss.proxy_profile]",
+                    "required": false,
+                    "description": "Configures an HTTP CONNECT proxy profile for outbound secure WebSocket (wss://) connections from the gateway to the backend. The gateway opens a raw TCP tunnel through the proxy via HTTP CONNECT, then performs TLS with the backend inside that tunnel. Multiple profiles can be defined; evaluation rules are the same as for ws proxy profiles.",
+                    "params": [
+                        {
+                            "name": "target_hosts",
+                            "type": "string",
+                            "required": true,
+                            "default": "-",
+                            "possible": "[\"example\\\\.com\"], [\"*\"]",
+                            "description": "A list of Java regular expression patterns matched against the backend hostname. Use [\"*\"] to create a catch-all profile that applies to all hosts not matched by a specific profile. Escape dots: \"example\\\\.com\"."
+                        },
+                        {
+                            "name": "proxy_host",
+                            "type": "string",
+                            "required": true,
+                            "default": "-",
+                            "possible": "-",
+                            "description": "Hostname or IP address of the HTTP CONNECT proxy server."
+                        },
+                        {
+                            "name": "proxy_port",
+                            "type": "integer",
+                            "required": true,
+                            "default": "-",
+                            "possible": "-",
+                            "description": "Port number of the HTTP CONNECT proxy server."
+                        },
+                        {
+                            "name": "bypass_hosts",
+                            "type": "string",
+                            "required": false,
+                            "default": "-",
+                            "possible": "[\"localhost\", \"127\\\\.0\\\\.0\\\\.1\"]",
+                            "description": "A list of Java regular expression patterns. Backend hosts matching any pattern connect directly, bypassing the proxy for this profile. Takes precedence over target_hosts."
+                        },
+                        {
+                            "name": "proxy_username",
+                            "type": "string",
+                            "required": false,
+                            "default": "-",
+                            "possible": "-",
+                            "description": "Username for Proxy-Authorization: Basic authentication. Omit for an unauthenticated proxy."
+                        },
+                        {
+                            "name": "proxy_password",
+                            "type": "string",
+                            "required": false,
+                            "default": "-",
+                            "possible": "-",
+                            "description": "Password for proxy authentication."
+                        }
+                    ]
+                }
+            ],
+            "exampleFile": "_wss-proxy-profile.toml"
+        },
+        {
             "title": "Message Builders (non-blocking mode)",
             "options": [
                 {
