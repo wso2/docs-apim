@@ -490,6 +490,9 @@ nav:
                 - Configure Distributed Throttling: api-gateway/rate-limiting/distributed-throttling.md
         - Federated Gateways:
               - Overview: api-gateway/federated-gateways/overview.md
+              - Federated API Discovery: api-gateway/federated-gateways/federated-api-discovery.md
+              - Apigee:
+                - Discover APIs on Apigee Gateway: api-gateway/federated-gateways/apigee/discover-apis-on-apigee-gateway.md
               - AWS:
                 - Deploy on AWS API Gateway: api-gateway/federated-gateways/aws/deploy-on-aws-api-gateway.md
                 - Discover APIs on AWS API Gateway: api-gateway/federated-gateways/aws/discover-apis-on-aws-api-gateway.md

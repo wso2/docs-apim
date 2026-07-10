@@ -47,16 +47,16 @@ Follow the instructions given below to configure AWS API Gateway as a Federated 
    [![add aws gateway discovery environment]({{base_path}}/assets/img/deploy/add-aws-gw-environment.png){: style="width:90%"}]({{base_path}}/assets/img/deploy/add-aws-gw-discovery.png)
 
 
-## Step 3 : Deploy to Developer Portal
+## Step 3: Discover and Publish to Developer Portal
 
-1. Sign in to Publisher Portal.
+1. Sign in to the Publisher Portal.
    `https://<hostname>:9443/publisher`
 
    `https://localhost:9443/publisher`
 
-2. Go to APIs view and the APIs discovered from AWS API Gateway will be listed.
-3. Click on the API to view the API details.
-4. From the left menu, click **Lifecycle** and select **Publish** so that API will deploy to the Developer Portal.
+2. Discover and import your APIs. For step-by-step instructions, see [Federated API Discovery]({{base_path}}/api-gateway/federated-gateways/federated-api-discovery/).
+3. Once imported, click on the API from the listing to view its details.
+4. From the left menu, click **Lifecycle** and select **Publish** so that the API will deploy to the Developer Portal.
 
 ## Step 4 : Invoke the API
 1. Sign in to the Developer Portal.
