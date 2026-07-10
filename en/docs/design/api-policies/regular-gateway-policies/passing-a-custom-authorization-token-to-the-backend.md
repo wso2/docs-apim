@@ -54,7 +54,7 @@ Here's a summary:
 3.  Log in to the **API Publisher**, create a new REST API with the information given in the table below by following the instructions in [Create a REST API]({{base_path}}/design/create-api/create-rest-api/create-a-rest-api/).
 
     | Field         | Sample Value         |
-            |---------------|----------------------|
+    |---------------|----------------------|
     | Name          | TestCustomHeader     |
     | Context       | /testcustomheader    |
     | Version       | 1.0.0                |
@@ -63,9 +63,9 @@ Here's a summary:
 4.  Navigate to the **API Configurations** --> **Policies** tab. Create a new policy with the information given in the table below by following the instructions in [Create a Policy]({{base_path}}/design/api-policies/create-policy/).
 
     | Section                   | Field             | Sample Value                                        |
-            |---------------------------|-------------------|-----------------------------------------------------|
+    |---------------------------|-------------------|-----------------------------------------------------|
     | General Details           | Name              | Custom Authorization Token                          |
-    |                               | Version           | 1.0                                                 |
+    |                           | Version           | 1.0                                                 |
     |                           | Description       | Passing a custom authorization token to the backend |
     |                           | Applicable Flows  | Request                                             |
     |                           | Supported API Types  | HTTP                                                |
