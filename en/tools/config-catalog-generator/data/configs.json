@@ -6558,6 +6558,42 @@
             "exampleFile": "web_app.cookie_processor.toml"
         },
         {
+            "title": "API-M AWS Lambda Configurations",
+            "options": [
+                {
+                    "name": "apim.aws_lambda",
+                    "required": false,
+                    "description": "Configures the AWS Lambda backend integration for WSO2 API Manager.",
+                    "params": [
+                        {
+                            "name": "enable_proxy_response_mapping",
+                            "type": "boolean",
+                            "required": false,
+                            "default": "false",
+                            "possible": "true, false",
+                            "description": "Enables proxy response mapping mode for the AWS Lambda mediator. When enabled, Lambda functions must return payloads in the AWS API Gateway Lambda proxy integration response envelope format (containing statusCode, headers, multiValueHeaders, body, and isBase64Encoded fields). The mediator maps these fields to the HTTP response, allowing Lambda functions to control the response status code, headers, and content type. Supported content types for body routing are application/json, text/plain, and application/xml. Note that this configuration is available in wso2am-4.7.0 and wso2am-universal-gw-4.7.0 starting from update level 8."
+                        }
+                    ]
+                },
+                {
+                    "name": "apim.aws_lambda.sdk",
+                    "required": false,
+                    "description": "Configures the AWS SDK behavior used by the AWS Lambda mediator.",
+                    "params": [
+                        {
+                            "name": "retry_max_attempts",
+                            "type": "integer",
+                            "required": false,
+                            "default": "4",
+                            "possible": "",
+                            "description": "The total number of attempts for AWS Lambda invocations, including the initial request. Must be an integer greater than or equal to 1. If this configuration is not provided, the AWS SDK default retry behavior will be used. Note that this configuration is available in wso2am-4.7.0 and wso2am-universal-gw-4.7.0 starting from update level 8."
+                        }
+                    ]
+                }
+            ],
+            "exampleFile": "apim.aws_lambda.toml"
+        },
+        {
             "title": "Synapse Properties",
             "options": [
                 {
