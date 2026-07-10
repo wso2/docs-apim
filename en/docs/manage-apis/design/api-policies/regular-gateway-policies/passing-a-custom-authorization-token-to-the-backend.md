@@ -15,7 +15,7 @@ Here's a summary:
 
 **Client** `(headers: Authorization, Custom)`--> **Gateway** `(drop: Authorization, convert: Custom->Authorization)` --> **Backend**
 
-1.  Add the following sequence content to a file and save it as `tokenExchange.j2`.
+1.  Add the following sequence content to a file and save it as `tokenExchange.xml`.
 
     !!! example
     ```xml
