@@ -119,13 +119,36 @@ Given below is a checklist that will guide you to set up your production environ
          </td>
       </tr>
       <tr class="odd">
+         <td>HTTP header size</td>
+         <td>
+            <div class="content-wrapper">
+               <p>Starting from U2 update level 35, the default value of <code>maxHttpHeaderSize</code> on both the HTTP and HTTPS connectors in <code>&lt;APIM_HOME&gt;/repository/conf/tomcat/catalina-server.xml</code> is <strong>32 KB (32768 bytes)</strong>, increased from the previous default of 8 KB (8192 bytes).</p>
+               <p>This value <strong>must not be set to less than 32 KB (32768 bytes)</strong>, specifically on the <strong>API Control Plane (ACP) node</strong> in a distributed deployment (or on the single node in an all-in-one deployment), if <strong>Multi-Option Authentication</strong> is used for portal (Publisher, DevPortal, Admin) logins in federated authentication flows.</p>
+               <p>If set lower, the <code>/commonauth</code> redirect from the external Identity Provider carries the full OAuth scope list in the request URI, and the combined size of the request line and headers exceeds the buffer. Tomcat then rejects the request with a <code>400 Bad Request</code> or <code>414 Request-URI Too Long</code> error, breaking the federated login flow.</p>
+               <p>If you need to override the value via <code>deployment.toml</code>, keep it at or above the default:</p>
+               <div class="code panel pdl" style="border-width: 1px;">
+                  <div class="codeContent panelContent pdl">
+                     <div class="sourceCode" id="cb2" data-syntaxhighlighter-params="brush: text; gutter: false; theme: Confluence" data-theme="Confluence" style="brush: text; gutter: false; theme: Confluence">
+                        <pre class="sourceCode text"><code class="sourceCode text">[transport.http.properties]
+maxHttpHeaderSize = 32768
+
+[transport.https.properties]
+maxHttpHeaderSize = 32768</code></pre>
+                     </div>
+                  </div>
+               </div>
+               <p>If a reverse proxy, load balancer, ingress controller, or CDN is deployed in front of APIM, ensure its header and URL size limits are also aligned to at least 32 KB — otherwise the request will be rejected at the front tier before it reaches APIM.</p>
+            </div>
+         </td>
+      </tr>
+      <tr class="even">
          <td>High availability</td>
          <td>
             <p>Configure your deployment with high availability. Refer the <a href="{{base_path}}/install-and-setup/setup/deployment-overview">recommended deployment patterns</a> and select an option that fits your requirements.</p>
             <p>In the cloud native deployment, high availability should be achieved via the container orchestration system (Kubernetes).</p>
          </td>
       </tr>
-      <tr class="even">
+      <tr class="odd">
          <td>Data backup and archiving</td>
          <td>Implement a <a href="{{base_path}}/install-and-setup/setup/deployment-best-practices/backup-recovery">backup and recovery strategy</a> for your system.</td>
       </tr>
