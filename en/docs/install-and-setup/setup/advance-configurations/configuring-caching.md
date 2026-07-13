@@ -69,6 +69,36 @@ The Key Manager consists of the OAuth Cache.
 
 The OAuth token is saved in this cache, which is enabled by default. Whenever a new OAuth token is generated, it is saved in this cache to prevent constant database calls. Unless an OAuth expires or is revoked, the same token is sent back for the same user. Therefore, you do not need to change this cached token most of the time.
 
+## Identity provider cache
+
+When WSO2 API Manager is deployed with WSO2 Identity Server (with shared databases), the identity provider (IDP) cache stores IDP configuration information to optimize identity provider lookups. This cache is particularly important in integrated deployments, as it affects how quickly configuration changes made in one carbon portal are reflected in the other.
+
+### IDP cache by name
+
+The `idp_cache_by_name` cache stores identity provider information indexed by provider name, enabling efficient retrieval without repeated database queries. When this cache is enabled, changes made to IDP configurations (such as role mappings) in one carbon portal will be reflected in the other carbon portal after the cache timeout period.
+
+By default, this cache is enabled with a 15-minute (900 seconds) timeout. You can configure this cache in the `<API-M_HOME>/repository/conf/deployment.toml` file:
+
+```toml
+[cache.idp_cache_by_name]
+enable = true
+timeout = "900"
+capacity = "5000"
+```
+
+The following table describes the configuration parameters:
+
+| Parameter | Default value | Description |
+|-----------|---------------|-------------|
+| enable | true | Activates caching for identity provider name-based lookups. |
+| timeout | 900 | Cache entry timeout in seconds. When a cache entry is added, it is stored until the time exceeds this timeout value. Set to `-1` to maintain entries indefinitely. |
+| capacity | 5000 | Maximum number of cached entries. This represents the entry count limit, not memory size. |
+
+!!! note
+    When you make changes to IDP configurations in an APIM-IS integrated deployment, the changes will take up to 900 seconds (15 minutes) to reflect in the other portal due to this cache timeout. If you need immediate reflection of changes, you can reduce the timeout value or disable the cache temporarily.
+
+For more information about identity application management cache layers, see the [WSO2 Identity Server documentation](https://is.docs.wso2.com/en/6.1.0/deploy/performance/configure-cache-layers/#identity-application-management-cache-layer).
+
 ## Response cache
 
 For information on how to enable response caching for a given API, see [Response Caching]({{base_path}}/manage-apis/deploy-and-publish/deploy-on-gateway/api-gateway/response-caching/).
