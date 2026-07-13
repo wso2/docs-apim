@@ -122,7 +122,7 @@ Given below is a checklist that will guide you to set up your production environ
          <td>HTTP header size</td>
          <td>
             <div class="content-wrapper">
-               <p>Starting from U2 update level 35, the default value of <code>maxHttpHeaderSize</code> on both the HTTP and HTTPS connectors in <code>&lt;APIM_HOME&gt;/repository/conf/tomcat/catalina-server.xml</code> is <strong>32 KB (32768 bytes)</strong>, increased from the previous default of 8 KB (8192 bytes).</p>
+               <p>Starting from U2 update level 35, the default value of <code>maxHttpHeaderSize</code> on both the HTTP and HTTPS connectors in <code>&lt;API-M_HOME&gt;/repository/conf/tomcat/catalina-server.xml</code> is <strong>32 KB (32768 bytes)</strong>, increased from the previous default of 8 KB (8192 bytes).</p>
                <p>This value <strong>must not be set to less than 32 KB (32768 bytes)</strong>, specifically on the <strong>API Control Plane (ACP) node</strong> in a distributed deployment (or on the single node in an all-in-one deployment), if <strong>Multi-Option Authentication</strong> is used for portal (Publisher, DevPortal, Admin) logins in federated authentication flows.</p>
                <p>If set lower, the <code>/commonauth</code> redirect from the external Identity Provider carries the full OAuth scope list in the request URI, and the combined size of the request line and headers exceeds the buffer. Tomcat then rejects the request with a <code>400 Bad Request</code> or <code>414 Request-URI Too Long</code> error, breaking the federated login flow.</p>
                <p>If you need to override the value via <code>deployment.toml</code>, keep it at or above the default:</p>
@@ -137,7 +137,7 @@ maxHttpHeaderSize = 32768</code></pre>
                      </div>
                   </div>
                </div>
-               <p>If a reverse proxy, load balancer, ingress controller, or CDN is deployed in front of APIM, ensure its header and URL size limits are also aligned to at least 32 KB — otherwise the request will be rejected at the front tier before it reaches APIM.</p>
+               <p>If a reverse proxy, load balancer, ingress controller, or CDN is deployed in front of API-M, ensure its header and URL size limits are also aligned to at least 32 KB — otherwise the request will be rejected at the front tier before it reaches API-M.</p>
             </div>
          </td>
       </tr>

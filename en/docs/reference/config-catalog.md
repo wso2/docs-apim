@@ -9064,7 +9064,7 @@ re_indexing = 1</code></pre>
 port = "9763"
 redirectPort = "9443"
 bindOnInit = "false"
-maxHttpHeaderSize = "8192"
+maxHttpHeaderSize = "32768"
 acceptorThreadCount = "2"
 maxThreads = "250"
 minSpareThreads = "50"
@@ -9143,14 +9143,14 @@ URIEncoding = "UTF-8"</code></pre>
                                             <span class="badge-required">Required</span>
                                         </p>
                                         <div class="param-default">
-                                            <span class="param-default-value">Default: <code>8192</code></span>
+                                            <span class="param-default-value">Default: <code>32768</code></span>
                                         </div>
                                         <div class="param-possible">
                                             <span class="param-possible-values">Possible Values: <code>-</code></span>
                                         </div>
                                     </div>
                                     <div class="param-description">
-                                        <p></p>
+                                        <p>Maximum size in bytes of the HTTP request line and headers that Tomcat will accept. The default was raised from 8192 to 32768 starting from U2 update level 35. Keep this value at 32768 (32 KB) or higher, especially on the API Control Plane (ACP) node when Multi-Option Authentication is used for federated portal logins. A lower value can cause /commonauth requests to be rejected with a 400 Bad Request or 414 Request-URI Too Long error.</p>
                                     </div>
                                 </div>
                             </div><div class="param">
@@ -9474,7 +9474,7 @@ URIEncoding = "UTF-8"</code></pre>
 port = "9763"
 redirectPort = "9443"
 bindOnInit = "false"
-maxHttpHeaderSize = "8192"
+maxHttpHeaderSize = "32768"
 acceptorThreadCount = "2"
 maxThreads = "250"
 minSpareThreads = "50"
@@ -9557,14 +9557,14 @@ SSLEnabled = "true"</code></pre>
                                             <span class="badge-required">Required</span>
                                         </p>
                                         <div class="param-default">
-                                            <span class="param-default-value">Default: <code>8192</code></span>
+                                            <span class="param-default-value">Default: <code>32768</code></span>
                                         </div>
                                         <div class="param-possible">
                                             <span class="param-possible-values">Possible Values: <code>-</code></span>
                                         </div>
                                     </div>
                                     <div class="param-description">
-                                        <p></p>
+                                        <p>Maximum size in bytes of the HTTP request line and headers that Tomcat will accept. The default was raised from 8192 to 32768 starting from U2 update level 35. Keep this value at 32768 (32 KB) or higher, especially on the API Control Plane (ACP) node when Multi-Option Authentication is used for federated portal logins. A lower value can cause /commonauth requests to be rejected with a 400 Bad Request or 414 Request-URI Too Long error.</p>
                                     </div>
                                 </div>
                             </div><div class="param">

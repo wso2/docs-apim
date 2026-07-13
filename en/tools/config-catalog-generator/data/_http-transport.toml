@@ -2,7 +2,7 @@
 port = "9763"
 redirectPort = "9443"
 bindOnInit = "false"
-maxHttpHeaderSize = "8192"
+maxHttpHeaderSize = "32768"
 acceptorThreadCount = "2"
 maxThreads = "250"
 minSpareThreads = "50"
