@@ -446,3 +446,49 @@ message's HTTP status code as a custom error message:
         {"fault":{"code":900901,"type":"Status report","message":"Runtime Error","description":"Invalid Credentials"}}   
         ```
 
+## Customize Error Responses for AI APIs
+
+To enable custom error response formatting for AI APIs, add the following configuration to the `<API-M_HOME>/repository/conf/deployment.toml` file. For more information, see the [Configuration Catalog]({{base_path}}/reference/config-catalog/).
+
+```toml
+[apim.ai]
+custom_error_response_sequence = "openai_error_response_formatter"
+```
+
+!!! info
+
+    In a distributed deployment, add this configuration to the `deployment.toml` file of both the **API Control Plane (ACP)** node (`<ACP_HOME>/repository/conf/deployment.toml`) and the **Universal Gateway** node (`<UNIVERSAL-GW_HOME>/repository/conf/deployment.toml`).
+
+When this configuration is enabled, gateway error responses for AI APIs are formatted using the `<API-M_HOME>/repository/deployment/server/synapse-configs/default/sequences/openai_error_response_formatter.xml` Synapse sequence:
+
+By default, this sequence produces the following OpenAI-compatible error response:
+
+```json
+{
+  "error": {
+    "code": "<error code>",
+    "type": "<error type>",
+    "message": "<error description>"
+  }
+}
+```
+
+To customize the error response format, modify the `openai_error_response_formatter.xml` sequence.
+
+!!! note
+
+    This configuration applies only to AI APIs. Non-AI APIs, and AI APIs when `custom_error_response_sequence` is not configured, continue to use the default error response format.
+
+!!! info
+
+    This configuration is available in wso2am-4.6.0 starting from update level 39 and wso2am-universal-gw-4.6.0 starting from update level 38.
+
+!!! info
+
+    For the customization to take effect on **tenants that existed before this update was applied**, copy the following files from the `<API-M_HOME>/repository/resources/apim-synapse-config` directory to the `<API-M_HOME>/repository/tenants/<tenant-id>/synapse-configs/default/sequences` directory:
+
+    - `_sandbox_key_error_.xml`
+    - `guardrail_fault.xml`
+
+    Tenants created after applying this update receive these files automatically during tenant creation. Therefore, no manual copying is required.
+
