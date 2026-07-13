@@ -137,7 +137,7 @@ maxHttpHeaderSize = 32768</code></pre>
                      </div>
                   </div>
                </div>
-               <p>If a reverse proxy, load balancer, ingress controller, or CDN is deployed in front of APIM, ensure its header and URL size limits are also aligned to at least 32 KB — otherwise the request will be rejected at the front tier before it reaches APIM.</p>
+               <p>If a reverse proxy, load balancer, ingress controller, or CDN is deployed in front of API-M, ensure its header and URL size limits are also aligned to at least 32 KB — otherwise the request will be rejected at the front tier before it reaches API-M.</p>
             </div>
          </td>
       </tr>
