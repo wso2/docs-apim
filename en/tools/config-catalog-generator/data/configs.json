@@ -3411,9 +3411,9 @@
                             "name": "maxHttpHeaderSize",
                             "type": "integer",
                             "required": true,
-                            "default": "8192",
+                            "default": "32768",
                             "possible": "-",
-                            "description": ""
+                            "description": "Maximum size in bytes of the HTTP request line and headers that Tomcat will accept. Keep this value at 32768 (32 KB) or higher, especially on the API Control Plane (ACP) node when Multi-Option Authentication is used for federated portal logins. A lower value can cause /commonauth requests to be rejected with a 400 Bad Request or 414 Request-URI Too Long error."
                         },
                         {
                             "name": "acceptorThreadCount",
@@ -3560,9 +3560,9 @@
                             "name": "maxHttpHeaderSize",
                             "type": "integer",
                             "required": true,
-                            "default": "8192",
+                            "default": "32768",
                             "possible": "-",
-                            "description": ""
+                            "description": "Maximum size in bytes of the HTTP request line and headers that Tomcat will accept. Keep this value at 32768 (32 KB) or higher, especially on the API Control Plane (ACP) node when Multi-Option Authentication is used for federated portal logins. A lower value can cause /commonauth requests to be rejected with a 400 Bad Request or 414 Request-URI Too Long error."
                         },
                         {
                             "name": "acceptorThreadCount",

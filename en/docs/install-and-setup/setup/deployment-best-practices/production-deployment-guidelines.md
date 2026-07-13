@@ -122,7 +122,7 @@ Given below is a checklist that will guide you to set up your production environ
          <td>HTTP header size</td>
          <td>
             <div class="content-wrapper">
-               <p>The default value of <code>maxHttpHeaderSize</code> on both the HTTP and HTTPS connectors in <code>&lt;APIM_HOME&gt;/repository/conf/tomcat/catalina-server.xml</code> is set to <strong>32 KB (32768 bytes)</strong>.</p>
+               <p>The default value of <code>maxHttpHeaderSize</code> on both the HTTP and HTTPS connectors in <code>&lt;API-M_HOME&gt;/repository/conf/tomcat/catalina-server.xml</code> is set to <strong>32 KB (32768 bytes)</strong>.</p>
                <p>This value <strong>must not be set to less than 32 KB (32768 bytes)</strong>, specifically on the <strong>API Control Plane (ACP) node</strong> in a distributed deployment (or on the single node in an all-in-one deployment), if <strong>Multi-Option Authentication</strong> is used for portal (Publisher, DevPortal, Admin) logins in federated authentication flows.</p>
                <p>If set lower, the <code>/commonauth</code> redirect from the external Identity Provider carries the full OAuth scope list in the request URI, and the combined size of the request line and headers exceeds the buffer. Tomcat then rejects the request with a <code>400 Bad Request</code> or <code>414 Request-URI Too Long</code> error, breaking the federated login flow.</p>
                <p>If you need to override the value via <code>deployment.toml</code>, keep it at or above the default:</p>
