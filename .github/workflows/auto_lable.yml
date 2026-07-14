@@ -103,6 +103,14 @@ jobs:
               -H "anthropic-version: 2023-06-01" \
               -d "$DATA")
 
+            # Check for API errors
+            API_ERROR=$(echo "$RESPONSE" | jq -r '.error.message // empty')
+            if [ -n "$API_ERROR" ]; then
+              echo "::error::Claude API error: $API_ERROR"
+              echo "is_valid=false" >> $GITHUB_OUTPUT
+              exit 0
+            fi
+
             CATEGORY=$(echo "$RESPONSE" | jq -r '.content[0].text' | tr -d '\n' | tr '[:upper:]' '[:lower:]' | xargs)
             echo "Claude classified the issue as: $CATEGORY"
 

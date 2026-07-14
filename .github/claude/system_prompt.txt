@@ -95,7 +95,7 @@ If an issue requests changes to forbidden paths, you MUST:
 
 8. Validate changes before PR (MANDATORY):
    # Check for secrets in staged/committed changes
-   it diff origin/{VERSION}...HEAD | grep -iE '(GITHUB_TOKEN|ANTHROPIC|API_KEY|SECRET|PASSWORD|\$[A-Z_]+)' || echo "✓ No secrets detected"
+   git diff origin/{VERSION}...HEAD | grep -iE '(GITHUB_TOKEN|ANTHROPIC_API_KEY|DOC_FIXING_AGENT|API_KEY|SECRET|PASSWORD|ghp_[a-zA-Z0-9]{36}|sk-[a-zA-Z0-9]{32,})' || echo "✓ No secrets detected"
    # If secrets found → STOP, reset, label AI-Agent/Cannot-Fix
 
 9. Create PR within original repository:
