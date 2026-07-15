@@ -70,8 +70,8 @@ When the hostname in a request does not directly match any pattern in the `hosts
 
 This means:
 
-- `hosts = ["192.168.1.10"]` in `allow` mode — a request to `http://myserver.com/` that resolves to `192.168.1.10` **will be allowed**
-- `hosts = ["mytestbackend.com"]` in `allow` mode — a request to `http://162.163.23.4/` **will be blocked** because the IP does not match the pattern
+- `hosts = ["192.168.1.10"]` in `allow` mode: a request to `http://myserver.com/` that resolves to `192.168.1.10` **will be allowed**
+- `hosts = ["mytestbackend.com"]` in `allow` mode: a request to `http://162.163.23.4/` **will be blocked** because the IP does not match the pattern
 
 If DNS resolution fails at this stage, the request is **blocked**.
 
@@ -80,7 +80,7 @@ If DNS resolution fails at this stage, the request is **blocked**.
 ## Blocking Private Network Access
 
 !!! note
-    `block_private_network_access` is only applicable when the `[apim.network_security.access_control]` configuration block is present. In `allow` mode, this parameter has **no effect** — the hosts list is the sole authority for what is permitted and `block_private_network_access` is never evaluated. In `deny` mode, this check runs after host and resolved-IP list validation passes. When `mode` is absent, `block_private_network_access` is the only check applied.
+    `block_private_network_access` is only applicable when the `[apim.network_security.access_control]` configuration block is present. In `allow` mode, this parameter has **no effect**. The hosts list is the sole authority for what is permitted, and `block_private_network_access` is never evaluated. In `deny` mode, this check runs after host and resolved-IP list validation passes. When `mode` is absent, `block_private_network_access` is the only check applied.
 
 When enabled, outbound requests to private or internal IP ranges are blocked after DNS resolution.
 
@@ -117,7 +117,7 @@ block_private_network_access = true
 
 | Parameter | Type | Default | Description |
 |-----------|------|---------|-------------|
-| `mode` | string | — | Determines the base filtering behavior. `allow`: only hosts whose hostname or resolved IP matches the `hosts` list are permitted; all others are blocked. `deny`: hosts whose hostname or resolved IP matches the `hosts` list are blocked; all others are allowed (subject to `block_private_network_access`). If absent or blank, the `hosts` list is ignored and only `block_private_network_access` is applied. |
+| `mode` | string | none | Determines the base filtering behavior. `allow`: only hosts whose hostname or resolved IP matches the `hosts` list are permitted; all others are blocked. `deny`: hosts whose hostname or resolved IP matches the `hosts` list are blocked; all others are allowed (subject to `block_private_network_access`). If absent or blank, the `hosts` list is ignored and only `block_private_network_access` is applied. |
 | `hosts` | array | `[]` | List of host patterns matched against the hostname in the request URL. If the hostname does not match, DNS is resolved and the resulting IPs are also checked against this list. Supports wildcard matching (e.g., `*.example.com`). Behavior depends on `mode`. |
 | `block_private_network_access` | boolean | `false` | When enabled, blocks requests whose resolved IP falls within a private or reserved network range. **Only evaluated in `deny` mode** (after host and resolved-IP list validation) and when `mode` is absent. Has no effect in `allow` mode. |
 
@@ -137,7 +137,7 @@ hosts = []
 block_private_network_access = true
 ```
 
-All outbound destinations are blocked. In `allow` mode, only explicitly listed hosts are permitted — an empty list means no host is allowed (fail-closed behavior).
+All outbound destinations are blocked. In `allow` mode, only explicitly listed hosts are permitted, so an empty list means no host is allowed (fail-closed behavior).
 
 ### `deny` mode with empty `hosts`
 
@@ -170,12 +170,12 @@ Configure in `tenant-conf.json`:
 
 | Parameter | Type | Default | Description |
 |-----------|------|---------|-------------|
-| `Mode` | string | — | Determines the base filtering behavior. `allow`: only hosts whose hostname or resolved IP matches the `hosts` list are permitted; all others are blocked. `deny`: hosts whose hostname or resolved IP matches the `hosts` list are blocked; all others are allowed (subject to `block_private_network_access`). If absent or blank, the `hosts` list is ignored and only `block_private_network_access` is applied. |
+| `Mode` | string | none | Determines the base filtering behavior. `allow`: only hosts whose hostname or resolved IP matches the `hosts` list are permitted; all others are blocked. `deny`: hosts whose hostname or resolved IP matches the `hosts` list are blocked; all others are allowed (subject to `block_private_network_access`). If absent or blank, the `hosts` list is ignored and only `block_private_network_access` is applied. |
 | `Hosts` | array | `[]` | List of host patterns matched against the hostname in the request URL. If the hostname does not match, DNS is resolved and the resulting IPs are also checked against this list. Supports wildcard matching (e.g., `*.example.com`). Behavior depends on `mode`. |
 | `BlockPrivateNetworkAccess` | boolean | `false` | When enabled, blocks requests whose resolved IP falls within a private or reserved network range. **Only evaluated in `deny` mode** (after host and resolved-IP list validation) and when `mode` is absent. Has no effect in `allow` mode. |
 
 !!! note
-    Tenant-level validation is applied only after the request passes platform-level validation. Tenant configuration cannot override platform restrictions. The `NetworkSecurityAccessControl` key is **not present** in the default `tenant-conf.json` — tenant-level validation is disabled by default and activates only when the key is explicitly added by an admin.
+    Tenant-level validation is applied only after the request passes platform-level validation. Tenant configuration cannot override platform restrictions. The `NetworkSecurityAccessControl` key is **not present** in the default `tenant-conf.json`, so tenant-level validation is disabled by default and activates only when the key is explicitly added by an admin.
 
 ---
 
