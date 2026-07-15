@@ -259,3 +259,72 @@ Results:
 | `http://127.0.0.1` | Blocked (private network) |
 | `http://192.168.1.10` | Blocked (private network) |
 | `https://api.github.com` | Allowed |
+
+---
+
+## Remote OpenAPI `$ref` Resolution
+
+The network access-control policy is also enforced on remote `$ref` URLs embedded inside OpenAPI/Swagger definitions. When an API definition contains external `$ref` references (for example, `$ref: 'https://schemas.example.com/common.yaml#/components/schemas/Foo'`), WSO2 API Manager validates each referenced URL against the configured policy before fetching it.
+
+This enforcement applies during the OpenAPI/Swagger validate and import operations, for OAS 2.0, OAS 3.0, and OAS 3.1. The same `[apim.network_security.access_control]` platform-level configuration and `NetworkSecurityAccessControl` tenant-level configuration described above apply. No additional configuration is required.
+
+#### Behavior
+
+- If a `$ref` URL resolves to a disallowed or private-network host, the validation or import request fails with HTTP 400.
+- If a `$ref` URL resolves to an allow-listed host, the reference is fetched normally.
+- Only remote `http` and `https` `$ref` URLs are validated. Local and relative `$ref` references (for example, `$ref: '#/components/schemas/Foo'` or `$ref: './models.yaml#/Bar'`) are unaffected.
+
+!!! note "Backwards compatibility: enforcement requires a configured policy"
+    Remote `$ref` enforcement is active only when a network access-control policy is configured (a platform-level `[apim.network_security.access_control]` block in `deployment.toml`, or a tenant-level `NetworkSecurityAccessControl` policy in `tenant-conf.json`). If neither is present, remote `$ref` resolution is unrestricted and behaves exactly as in earlier releases: references are resolved without any host validation, including private-network and link-local addresses. This preserves backwards compatibility for deployments that have not opted into the policy. To enable `$ref` enforcement, configure the policy as described above.
+
+### Limitations
+
+!!! note
+    The following limitations apply specifically to `$ref` URL enforcement. They do not affect top-level definition URL validation (the URL used to import or validate the API definition itself).
+
+Once a policy is configured, private-network addresses are always blocked for embedded `$ref`s. Private, internal, loopback, and link-local addresses are unconditionally blocked for remote `$ref` URLs, independent of the `block_private_network_access` setting in `deployment.toml` (which controls only the top-level URL check). Setting `mode = "allow"` and listing specific hosts in the `hosts` array is the only way to permit a `$ref` that resolves to a private-range address.
+
+## Remote WSDL Reference Resolution
+
+The network access-control policy is also enforced on remote references embedded inside WSDL documents when creating a SOAP API from a WSDL. This covers:
+
+- **Nested WSDL/XSD imports (WSDL 1.1 and WSDL 2.0)**: `wsdl:import`, `xsd:import`, and `xsd:include` (plus `xsd:redefine` for WSDL 1.1) whose `location`/`schemaLocation` points at a remote host.
+- **SOAP-to-REST type resolution**: the namespace-derived schema fetch performed when generating REST APIs from a WSDL (`implementationType=SOAPTOREST`).
+
+Enforcement applies during the WSDL validate and import operations, using the same `[apim.network_security.access_control]` platform-level and `NetworkSecurityAccessControl` tenant-level configuration described above. No additional configuration is required.
+
+#### Behavior
+
+- If a nested reference resolves to a disallowed or private-network host, the validate or import operation fails with a "URL is not trusted" error. Validate returns `isValid: false` with the error; import returns HTTP 400.
+- If the reference resolves to an allow-listed host, it is fetched normally.
+- Only remote `http`/`https` references are gated. The top-level WSDL URL is validated separately by the top-level URL check described earlier on this page.
+
+!!! note "Backwards compatibility: enforcement requires a configured policy"
+    As with OpenAPI `$ref` resolution, nested WSDL/XSD reference enforcement is active only when a network access-control policy is configured (a platform-level `[apim.network_security.access_control]` block in `deployment.toml`, or a tenant-level `NetworkSecurityAccessControl` policy in `tenant-conf.json`). If neither is present, nested references resolve exactly as in earlier releases, with no host validation.
+
+### Limitations
+
+!!! warning "`allow` mode with WSDL 2.0: allow-list the XML-standards hosts"
+    A WSDL 2.0 document that uses any XML Schema type (for example `xs:string`) causes the XML parser to resolve the standard XML Schema definitions (the schema-for-schemas, `xml.xsd`, and related DTDs) from the W3C standards host `www.w3.org`. These are fixed public standards identifiers referenced by virtually every typed WSDL 2.0, not user-supplied endpoints.
+
+    When `mode = "allow"` is used, every host that is not in the `hosts` array is blocked, including `www.w3.org`. As a result, validating or importing a WSDL 2.0 service under an `allow`-mode policy fails with "The provided URL is not trusted". The blocked host, `www.w3.org`, is recorded in `repository/logs/wso2carbon.log`, not in the user-facing message.
+
+    To import WSDL 2.0 services under `allow` mode, add the XML-standards hosts to the allow-list:
+
+    ```toml
+    [apim.network_security.access_control]
+    mode = "allow"
+    hosts = ["api.github.com", "www.w3.org", "schemas.xmlsoap.org"]
+    block_private_network_access = true
+    ```
+
+    This limitation applies only to `mode = "allow"` with WSDL 2.0. It does not affect:
+
+    - **WSDL 1.1** documents (the vast majority of SOAP services): these do not resolve the standard schema definitions, so they are unaffected.
+    - **`deny` mode**: `www.w3.org` is not in the deny-list, so it is permitted automatically.
+    - Deployments with no policy configured: no validation is performed.
+
+    Malicious nested references (for example, a `wsdl:import` to an internal or loopback host) remain blocked in all cases; only the fixed public standards hosts need to be allow-listed.
+
+!!! warning "Redirects are followed without re-validation"
+    Only the host of the reference as written in the document is validated. If an allow-listed host responds with an HTTP redirect (`3xx`) to a different target, the redirect is followed without re-validating the redirect target. Allow-list a host only if you trust it not to redirect nested-reference fetches to internal or otherwise-blocked endpoints. Addresses reached via the initial reference (private, internal, loopback, and link-local) are still blocked as described above. This limitation concerns only server-issued redirects from an already-permitted host.
