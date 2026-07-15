@@ -18,7 +18,6 @@
 
 import React, { useEffect, useRef, useState } from 'react';
 import MessageItem from './MessageItem';
-import authService from '../api/authService';
 import SendIcon from '@mui/icons-material/Send';
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
@@ -34,12 +33,17 @@ export default function ChatUI() {
   const [scrollDirection, setScrollDirection] = useState('down'); // 'up' or 'down'
   const listRef = useRef(null);
   const abortControllerRef = useRef(null);
+  const latestMessagesRef = useRef([]);
 
   const suggestions = [
     "How do I create an API?",
     "How do I secure an API?",
     "How to subscribe to an API?",
   ];
+
+  useEffect(() => {
+    latestMessagesRef.current = messages;
+  }, [messages]);
 
   useEffect(() => {
     // Load messages from localStorage on initial render
@@ -54,6 +58,26 @@ export default function ChatUI() {
         if (abortControllerRef.current) {
           abortControllerRef.current.abort();
         }
+
+        // Before clearing, snapshot the current conversation to the parent page
+        // (the docs site) so it can be stored in the saved sessions list.
+        try {
+          const state = {
+            chatHistory: localStorage.getItem('chatHistory') || JSON.stringify(latestMessagesRef.current || [])
+          };
+
+          // Only post if we are inside an iframe and can reach parent.
+          if (window.parent && window.parent !== window) {
+            window.parent.postMessage({
+              type: 'chat-snapshot',
+              id: 's_' + Date.now(),
+              state
+            }, '*');
+          }
+        } catch (e) {
+          // non-fatal
+        }
+
         localStorage.removeItem('chatHistory');
         setMessages([]);
         setLoading(false);
@@ -69,7 +93,7 @@ export default function ChatUI() {
     return () => {
       window.removeEventListener('hashchange', handleHashChange);
     };
-  }, []); // Empty dependency array ensures this runs only once
+  }, []); // register once
 
   useEffect(() => {
     // Save messages to localStorage whenever they change
@@ -160,7 +184,6 @@ export default function ChatUI() {
     const signal = abortControllerRef.current.signal;
 
     try {
-      const token = await authService.getAccessToken();
       
       const headers = {
         'Accept': 'application/json',
@@ -168,12 +191,8 @@ export default function ChatUI() {
         'product': 'apim',
         'branch': '4_6_0'
       };
-      
-      if (token) {
-        headers['Authorization'] = `Bearer ${token}`;
-      }
-      
-      const response = await fetch('https://e95488c8-8511-4882-967f-ec3ae2a0f86f-prod.e1-us-east-azure.choreoapis.dev/docs-assistant-us/docs-assistant/v1.0/chat', {
+
+      const response = await fetch('https://apis.wso2.com/wso2-docs-assistant/assistant/v1.0/chat', {
         method: 'POST',
         headers,
         body: JSON.stringify({
