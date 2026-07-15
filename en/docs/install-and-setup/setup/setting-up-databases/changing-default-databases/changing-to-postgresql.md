@@ -14,6 +14,9 @@ The following sections describe how to set up PostgreSQL database to replace the
 
 Follow the  instructions below to set up the PostgreSQL database and users.
 
+!!! important "Case Sensitivity"
+    PostgreSQL databases use **case-sensitive comparison** by default. It is **required** to maintain your PostgreSQL database with case-sensitive comparison to preserve product behaviors.
+
 1. Login to PostgreSQL using a client (e.g. `psql`). Enter the following command in a command prompt, where `USER_NAME` is the username that you will use to access the databases and `POSTGRE_HOST_IP` is the IP of the host of PostgreSQL server.
   
    ```sh
