@@ -56,7 +56,7 @@ For more information, see [OpenTelemetry Configurations]({{base_path}}/reference
 		remote_tracer.enable = true
 		remote_tracer.name = "jaeger"
 		remote_tracer.hostname = "localhost"
-		remote_tracer.port = 14250
+		remote_tracer.port = 4317
 		```
 
 2. Start the server.
