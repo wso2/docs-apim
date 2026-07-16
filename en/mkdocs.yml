@@ -249,7 +249,6 @@ nav:
             - Blacklisting and Whitelisting Requests: learn/rate-limiting/blacklisting-whitelisting.md
             - Enforce Throttling and Resource Access Policies: learn/rate-limiting/enforce-throttling-and-resource-access-policies.md
             - Setting Maximum Backend Throughput Limits: learn/rate-limiting/setting-maximum-backend-throughput-limits.md
-            - Engaging a New Throttling Policy at Runtime: learn/rate-limiting/engaging-a-new-throttling-policy-at-runtime.md
             - Advanced Topics:
                 - Custom Throttling: learn/rate-limiting/advanced-topics/custom-throttling.md
         - API Monetization:
