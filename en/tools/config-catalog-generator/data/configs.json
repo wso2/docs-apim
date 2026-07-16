@@ -1256,6 +1256,14 @@
                             "default": "true",
                             "possible": "true,false",
                             "description": "Enable the MCP features."
+                        },
+                        {
+                            "name": "enforce_auth_for_all_mcp_methods",
+                            "type": "boolean",
+                            "required": false,
+                            "default": "false",
+                            "possible": "true,false",
+                            "description": "By default, all MCP requests except tools/call requests are unauthenticated. If this option is set to true, authentication will be required for all MCP requests. For improved security, it is recommended to enable this option."
                         }
                     ]
                 }
