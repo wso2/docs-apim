@@ -17268,7 +17268,7 @@ same_site_cookies = "lax"
 
 
 
-## Synapse Properties
+## API-M AWS Lambda Configurations
 
 
 <div class="mb-config-catalog">
@@ -17278,6 +17278,96 @@ same_site_cookies = "lax"
             
             <input name="118" type="checkbox" id="_tab_118">
                 <label class="tab-selector" for="_tab_118"><i class="icon fa fa-code"></i></label>
+                <div class="superfences-content">
+                    <div class="mb-config-example">
+<pre><code class="toml">[apim.aws_lambda]
+enable_proxy_response_mapping = true
+
+[apim.aws_lambda.sdk]
+retry_max_attempts = 2
+</code></pre>
+                    </div>
+                </div>
+                <div class="doc-wrapper">
+                    <div class="mb-config">
+                        <div class="config-wrap">
+                            <code>[apim.aws_lambda]</code>
+                            
+                            <p>
+                                Configures the AWS Lambda backend integration for WSO2 API Manager.
+                            </p>
+                        </div>
+                        <div class="params-wrap">
+                            <div class="param">
+                                <div class="param-name">
+                                  <span class="param-name-wrap"> <code>enable_proxy_response_mapping</code> </span>
+                                </div>
+                                <div class="param-info">
+                                    <div>
+                                        <p>
+                                            <span class="param-type string"> boolean </span>
+                                            
+                                        </p>
+                                        <div class="param-default">
+                                            <span class="param-default-value">Default: <code>false</code></span>
+                                        </div>
+                                        <div class="param-possible">
+                                            <span class="param-possible-values">Possible Values: <code>true, false</code></span>
+                                        </div>
+                                    </div>
+                                    <div class="param-description">
+                                        <p>Enables proxy response mapping mode for the AWS Lambda mediator. When enabled, Lambda functions must return payloads in the AWS API Gateway Lambda proxy integration response envelope format (containing statusCode, headers, multiValueHeaders, body, and isBase64Encoded fields). The mediator maps these fields to the HTTP response, allowing Lambda functions to control the response status code, headers, and content type. Supported content types for body routing are application/json, text/plain, and application/xml. Note that this configuration is available in wso2am-4.7.0 and wso2am-universal-gw-4.7.0 starting from update level 8.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div><div class="config-wrap">
+                            <code>[apim.aws_lambda.sdk]</code>
+                            
+                            <p>
+                                Configures the AWS SDK behavior used by the AWS Lambda mediator.
+                            </p>
+                        </div>
+                        <div class="params-wrap">
+                            <div class="param">
+                                <div class="param-name">
+                                  <span class="param-name-wrap"> <code>retry_max_attempts</code> </span>
+                                </div>
+                                <div class="param-info">
+                                    <div>
+                                        <p>
+                                            <span class="param-type string"> integer </span>
+                                            
+                                        </p>
+                                        <div class="param-default">
+                                            <span class="param-default-value">Default: <code>4</code></span>
+                                        </div>
+                                        
+                                    </div>
+                                    <div class="param-description">
+                                        <p>The total number of attempts for AWS Lambda invocations, including the initial request. Must be an integer greater than or equal to 1. If this configuration is not provided, the AWS SDK default retry behavior will be used. Note that this configuration is available in wso2am-4.7.0 and wso2am-universal-gw-4.7.0 starting from update level 8.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+
+
+
+## Synapse Properties
+
+
+<div class="mb-config-catalog">
+    <section>
+        <div class="mb-config-options">
+            <div class="superfences-tabs">
+            
+            <input name="119" type="checkbox" id="_tab_119">
+                <label class="tab-selector" for="_tab_119"><i class="icon fa fa-code"></i></label>
                 <div class="superfences-content">
                     <div class="mb-config-example">
 <pre><code class="toml">[synapse_properties]
@@ -17357,8 +17447,8 @@ same_site_cookies = "lax"
         <div class="mb-config-options">
             <div class="superfences-tabs">
             
-            <input name="119" type="checkbox" id="_tab_119">
-                <label class="tab-selector" for="_tab_119"><i class="icon fa fa-code"></i></label>
+            <input name="120" type="checkbox" id="_tab_120">
+                <label class="tab-selector" for="_tab_120"><i class="icon fa fa-code"></i></label>
                 <div class="superfences-content">
                     <div class="mb-config-example">
 <pre><code class="toml">[dependency_properties]
@@ -17414,8 +17504,8 @@ same_site_cookies = "lax"
         <div class="mb-config-options">
             <div class="superfences-tabs">
             
-            <input name="120" type="checkbox" id="_tab_120">
-                <label class="tab-selector" for="_tab_120"><i class="icon fa fa-code"></i></label>
+            <input name="121" type="checkbox" id="_tab_121">
+                <label class="tab-selector" for="_tab_121"><i class="icon fa fa-code"></i></label>
                 <div class="superfences-content">
                     <div class="mb-config-example">
 <pre><code class="toml">[authentication.authenticator.oidc.parameters]
@@ -17473,8 +17563,8 @@ excludedClaimAttributes="at_hash,iss,iat,exp,aud,azp"
         <div class="mb-config-options">
             <div class="superfences-tabs">
             
-            <input name="120" type="checkbox" id="_tab_120">
-                <label class="tab-selector" for="_tab_120"><i class="icon fa fa-code"></i></label>
+            <input name="122" type="checkbox" id="_tab_122">
+                <label class="tab-selector" for="_tab_122"><i class="icon fa fa-code"></i></label>
                 <div class="superfences-content">
                     <div class="mb-config-example">
 <pre><code class="toml">[apim.ai.embedding_provider]
@@ -17602,8 +17692,8 @@ embedding_model = "<embedding-model>"
         <div class="mb-config-options">
             <div class="superfences-tabs">
             
-            <input name="121" type="checkbox" id="_tab_121">
-                <label class="tab-selector" for="_tab_121"><i class="icon fa fa-code"></i></label>
+            <input name="123" type="checkbox" id="_tab_123">
+                <label class="tab-selector" for="_tab_123"><i class="icon fa fa-code"></i></label>
                 <div class="superfences-content">
                     <div class="mb-config-example">
 <pre><code class="toml">[apim.ai.vector_db_provider]
