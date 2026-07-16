@@ -215,5 +215,13 @@ The products have been tested and confirmed to work on the following ARM-based p
 ARMv9
 </td>
 </tr>
+<tr>
+<td>
+<p><b>Windows 11 (25H2)</b></p>
+</td>
+<td>
+ARM64 (aarch64)
+</td>
+</tr>
 </table>
 </html>
