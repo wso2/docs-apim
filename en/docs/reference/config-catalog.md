@@ -937,7 +937,7 @@ claims_extractor_impl = "org.wso2.carbon.apimgt.impl.token.DefaultClaimsRetrieve
                                         </div>
                                     </div>
                                     <div class="param-description">
-                                        <p>Specify NONE to disbale the sigining.</p>
+                                        <p>Specify NONE to disable the sigining.</p>
                                     </div>
                                 </div>
                             </div><div class="param">
@@ -2651,7 +2651,7 @@ type = "failover"</code></pre>
                                         
                                     </div>
                                     <div class="param-description">
-                                        <p>Define each analytics node that the API Manager will connect to, as an array. If there are mutiple node, you need to define this configuration for each node.</p>
+                                        <p>Define each analytics node that the API Manager will connect to, as an array. If there are multiple node, you need to define this configuration for each node.</p>
                                     </div>
                                 </div>
                             </div><div class="param">
@@ -12661,7 +12661,7 @@ application_binary =  "org.apache.axis2.format.BinaryFormatter"</code></pre>
                                         </div>
                                     </div>
                                     <div class="param-description">
-                                        <p>The message formatting implementation that formats messages with the &#39;application_xml&#39; content type before they are sent out of the Micro Integrator. If required, you can change the default formating class.</p>
+                                        <p>The message formatting implementation that formats messages with the &#39;application_xml&#39; content type before they are sent out of the Micro Integrator. If required, you can change the default formatting class.</p>
                                     </div>
                                 </div>
                             </div><div class="param">
@@ -12682,7 +12682,7 @@ application_binary =  "org.apache.axis2.format.BinaryFormatter"</code></pre>
                                         </div>
                                     </div>
                                     <div class="param-description">
-                                        <p>The message formatting implementation that formats messages with the &#39;form_urlencoded&#39; content type before they are sent out of the Micro Integrator. If required, you can change the default formating class.</p>
+                                        <p>The message formatting implementation that formats messages with the &#39;form_urlencoded&#39; content type before they are sent out of the Micro Integrator. If required, you can change the default formatting class.</p>
                                     </div>
                                 </div>
                             </div><div class="param">
@@ -12703,7 +12703,7 @@ application_binary =  "org.apache.axis2.format.BinaryFormatter"</code></pre>
                                         </div>
                                     </div>
                                     <div class="param-description">
-                                        <p>The message formatting implementation that formats messages with the &#39;multipart_form_data&#39; content type before they are sent out of the Micro Integrator. If required, you can change the default formating class.</p>
+                                        <p>The message formatting implementation that formats messages with the &#39;multipart_form_data&#39; content type before they are sent out of the Micro Integrator. If required, you can change the default formatting class.</p>
                                     </div>
                                 </div>
                             </div><div class="param">
@@ -12724,7 +12724,7 @@ application_binary =  "org.apache.axis2.format.BinaryFormatter"</code></pre>
                                         </div>
                                     </div>
                                     <div class="param-description">
-                                        <p>The message formatting implementation that formats messages with the &#39;text_plain&#39; content type before they are sent out of the Micro Integrator. If required, you can change the default formating class.</p>
+                                        <p>The message formatting implementation that formats messages with the &#39;text_plain&#39; content type before they are sent out of the Micro Integrator. If required, you can change the default formatting class.</p>
                                     </div>
                                 </div>
                             </div><div class="param">
@@ -12745,7 +12745,7 @@ application_binary =  "org.apache.axis2.format.BinaryFormatter"</code></pre>
                                         </div>
                                     </div>
                                     <div class="param-description">
-                                        <p>The message formatting implementation that formats messages with the &#39;application_json&#39; content type before they are sent out of the Micro Integrator. If required, you can change the default formating class.</p>
+                                        <p>The message formatting implementation that formats messages with the &#39;application_json&#39; content type before they are sent out of the Micro Integrator. If required, you can change the default formatting class.</p>
                                     </div>
                                 </div>
                             </div><div class="param">
@@ -12766,7 +12766,7 @@ application_binary =  "org.apache.axis2.format.BinaryFormatter"</code></pre>
                                         </div>
                                     </div>
                                     <div class="param-description">
-                                        <p>The message formatting implementation that formats messages with the &#39;json_badgerfish&#39; content type before they are sent out of the Micro Integrator. If required, you can change the default formating class.</p>
+                                        <p>The message formatting implementation that formats messages with the &#39;json_badgerfish&#39; content type before they are sent out of the Micro Integrator. If required, you can change the default formatting class.</p>
                                     </div>
                                 </div>
                             </div><div class="param">
@@ -12787,7 +12787,7 @@ application_binary =  "org.apache.axis2.format.BinaryFormatter"</code></pre>
                                         </div>
                                     </div>
                                     <div class="param-description">
-                                        <p>The message formatting implementation that formats messages with the &#39;text_javascript&#39; content type before they are sent out of the Micro Integrator. If required, you can change the default formating class.</p>
+                                        <p>The message formatting implementation that formats messages with the &#39;text_javascript&#39; content type before they are sent out of the Micro Integrator. If required, you can change the default formatting class.</p>
                                     </div>
                                 </div>
                             </div><div class="param">
@@ -14666,7 +14666,7 @@ enable_unmapped_user_attributes = true
                                         
                                     </div>
                                     <div class="param-description">
-                                        <p>This can be used to return extra custom claims with the IDToken . You can implement a claims call back handler to push the custom claims to the IDToken implmenting interface CustomClaimsCallbackHandler.</p>
+                                        <p>This can be used to return extra custom claims with the IDToken . You can implement a claims call back handler to push the custom claims to the IDToken implementing interface CustomClaimsCallbackHandler.</p>
                                     </div>
                                 </div>
                             </div><div class="param">
@@ -16014,7 +16014,7 @@ UserCoreCacheTimeOut = 5 </code></pre>
                                         
                                     </div>
                                     <div class="param-description">
-                                        <p>(LDAP) The patten for the user&#39;s DN, which can be defined to improve the search. When there are many user entries in the LDAP user store, defining a UserDNPattern provides more impact on performances as the LDAP does not have to travel through the entire tree to find users.</p>
+                                        <p>(LDAP) The pattern for the user&#39;s DN, which can be defined to improve the search. When there are many user entries in the LDAP user store, defining a UserDNPattern provides more impact on performances as the LDAP does not have to travel through the entire tree to find users.</p>
                                     </div>
                                 </div>
                             </div><div class="param">
