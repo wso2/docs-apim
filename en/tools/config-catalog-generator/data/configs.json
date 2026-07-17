@@ -1151,6 +1151,14 @@
                             "default": "30",
                             "possible": "",
                             "description": "The default timeout (in seconds) for AI API requests"
+                        },
+                        {
+                            "name": "custom_error_response_sequence",
+                            "type": "string",
+                            "required": false,
+                            "default": "",
+                            "possible": "openai_error_response_formatter",
+                            "description": "The name of the Synapse sequence used to format gateway error responses for AI APIs. Applies only to AI APIs. If not set, AI APIs use the default error response format."
                         }
                     ]
                 },
