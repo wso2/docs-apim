@@ -147,15 +147,6 @@ Add the following configuration in the `deployment.toml` file (stored in the `<A
 enable = false
 ```
 
-### Disabling the WebHook Transport
-
-Add the following configuration in the `deployment.toml` file (stored in the `<API-M_HOME>/repository/conf` folder).
-
-```toml
-[apim.webhooks.http]
-enable = false
-```
-
 ### Adding Response Headers to Web Applications
 
 You can add response headers to all the web applications that are deployed in the Tomcat instance via a Tomcat filter.
