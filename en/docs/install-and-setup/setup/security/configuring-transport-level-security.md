@@ -146,15 +146,6 @@ Add the following configuration in the `deployment.toml` file (stored in the `<A
 enable = false
 ```
 
-### Disabling the WebHook Transport
-
-Add the following configuration in the `deployment.toml` file (stored in the `<API-M_HOME>/repository/conf` folder).
-
-```toml
-[apim.webhooks.http]
-enable = false
-```
-
 ## What's Next?
 
 See the [Security Guidelines for Production Deployment]({{base_path}}/install-and-setup/setup/deployment-best-practices/security-guidelines-for-production-deployment) for the full list of security-related recommendations for WSO2 API Manager.
