@@ -11990,12 +11990,13 @@ sender.trust_store.password = "$ref{truststore.password}"</code></pre>
                 <label class="tab-selector" for="_tab_79"><i class="icon fa fa-code"></i></label>
                 <div class="superfences-content">
                     <div class="mb-config-example">
-<pre><code class="toml">[[transport.ws.proxy_profile]]
+<pre><code class="toml"># Example deployment.toml entry
+[[transport.ws.proxy_profile]]
 target_hosts = ["example\\.backend\\.corp"]
 proxy_host = "proxy.corp.internal"
 proxy_port = 3128
-proxy_username = "gateway"
-proxy_password = "s3cr3t"
+proxy_username = "<proxy-username>"
+proxy_password = "<proxy-password>"
 bypass_hosts = ["localhost", "127\\.0\\.0\\.1"]
 
 [[transport.ws.proxy_profile]]
@@ -12027,7 +12028,7 @@ bypass_hosts = ["localhost"]
                                             <span class="badge-required">Required</span>
                                         </p>
                                         <div class="param-default">
-                                            <span class="param-default-value">Default: <code>-</code></span>
+                                            <span class="param-default-value">Default: <code></code></span>
                                         </div>
                                         <div class="param-possible">
                                             <span class="param-possible-values">Possible Values: <code>[&quot;example&#92;&#92;.com&quot;], [&quot;*&quot;]</code></span>
@@ -12048,7 +12049,7 @@ bypass_hosts = ["localhost"]
                                             <span class="badge-required">Required</span>
                                         </p>
                                         <div class="param-default">
-                                            <span class="param-default-value">Default: <code>-</code></span>
+                                            <span class="param-default-value">Default: <code></code></span>
                                         </div>
                                         <div class="param-possible">
                                             <span class="param-possible-values">Possible Values: <code>-</code></span>
@@ -12069,7 +12070,7 @@ bypass_hosts = ["localhost"]
                                             <span class="badge-required">Required</span>
                                         </p>
                                         <div class="param-default">
-                                            <span class="param-default-value">Default: <code>-</code></span>
+                                            <span class="param-default-value">Default: <code></code></span>
                                         </div>
                                         <div class="param-possible">
                                             <span class="param-possible-values">Possible Values: <code>-</code></span>
@@ -12090,7 +12091,7 @@ bypass_hosts = ["localhost"]
                                             
                                         </p>
                                         <div class="param-default">
-                                            <span class="param-default-value">Default: <code>-</code></span>
+                                            <span class="param-default-value">Default: <code></code></span>
                                         </div>
                                         <div class="param-possible">
                                             <span class="param-possible-values">Possible Values: <code>[&quot;localhost&quot;, &quot;127&#92;&#92;.0&#92;&#92;.0&#92;&#92;.1&quot;]</code></span>
@@ -12111,7 +12112,7 @@ bypass_hosts = ["localhost"]
                                             
                                         </p>
                                         <div class="param-default">
-                                            <span class="param-default-value">Default: <code>-</code></span>
+                                            <span class="param-default-value">Default: <code></code></span>
                                         </div>
                                         <div class="param-possible">
                                             <span class="param-possible-values">Possible Values: <code>-</code></span>
@@ -12132,7 +12133,7 @@ bypass_hosts = ["localhost"]
                                             
                                         </p>
                                         <div class="param-default">
-                                            <span class="param-default-value">Default: <code>-</code></span>
+                                            <span class="param-default-value">Default: <code></code></span>
                                         </div>
                                         <div class="param-possible">
                                             <span class="param-possible-values">Possible Values: <code>-</code></span>
@@ -12165,12 +12166,13 @@ bypass_hosts = ["localhost"]
                 <label class="tab-selector" for="_tab_80"><i class="icon fa fa-code"></i></label>
                 <div class="superfences-content">
                     <div class="mb-config-example">
-<pre><code class="toml">[[transport.wss.proxy_profile]]
+<pre><code class="toml"># Example deployment.toml entry
+[[transport.wss.proxy_profile]]
 target_hosts = ["secure-backend\\.corp"]
 proxy_host = "proxy.corp.internal"
 proxy_port = 3128
-proxy_username = "gateway"
-proxy_password = "s3cr3t"
+proxy_username = "<proxy-username>"
+proxy_password = "<proxy-password>"
 bypass_hosts = ["localhost", "127\\.0\\.0\\.1"]
 
 [[transport.wss.proxy_profile]]
@@ -12202,7 +12204,7 @@ bypass_hosts = ["localhost"]
                                             <span class="badge-required">Required</span>
                                         </p>
                                         <div class="param-default">
-                                            <span class="param-default-value">Default: <code>-</code></span>
+                                            <span class="param-default-value">Default: <code></code></span>
                                         </div>
                                         <div class="param-possible">
                                             <span class="param-possible-values">Possible Values: <code>[&quot;example&#92;&#92;.com&quot;], [&quot;*&quot;]</code></span>
@@ -12223,7 +12225,7 @@ bypass_hosts = ["localhost"]
                                             <span class="badge-required">Required</span>
                                         </p>
                                         <div class="param-default">
-                                            <span class="param-default-value">Default: <code>-</code></span>
+                                            <span class="param-default-value">Default: <code></code></span>
                                         </div>
                                         <div class="param-possible">
                                             <span class="param-possible-values">Possible Values: <code>-</code></span>
@@ -12244,7 +12246,7 @@ bypass_hosts = ["localhost"]
                                             <span class="badge-required">Required</span>
                                         </p>
                                         <div class="param-default">
-                                            <span class="param-default-value">Default: <code>-</code></span>
+                                            <span class="param-default-value">Default: <code></code></span>
                                         </div>
                                         <div class="param-possible">
                                             <span class="param-possible-values">Possible Values: <code>-</code></span>
@@ -12265,7 +12267,7 @@ bypass_hosts = ["localhost"]
                                             
                                         </p>
                                         <div class="param-default">
-                                            <span class="param-default-value">Default: <code>-</code></span>
+                                            <span class="param-default-value">Default: <code></code></span>
                                         </div>
                                         <div class="param-possible">
                                             <span class="param-possible-values">Possible Values: <code>[&quot;localhost&quot;, &quot;127&#92;&#92;.0&#92;&#92;.0&#92;&#92;.1&quot;]</code></span>
@@ -12286,7 +12288,7 @@ bypass_hosts = ["localhost"]
                                             
                                         </p>
                                         <div class="param-default">
-                                            <span class="param-default-value">Default: <code>-</code></span>
+                                            <span class="param-default-value">Default: <code></code></span>
                                         </div>
                                         <div class="param-possible">
                                             <span class="param-possible-values">Possible Values: <code>-</code></span>
@@ -12307,7 +12309,7 @@ bypass_hosts = ["localhost"]
                                             
                                         </p>
                                         <div class="param-default">
-                                            <span class="param-default-value">Default: <code>-</code></span>
+                                            <span class="param-default-value">Default: <code></code></span>
                                         </div>
                                         <div class="param-possible">
                                             <span class="param-possible-values">Possible Values: <code>-</code></span>
@@ -18277,8 +18279,8 @@ scope = "https://ai.azure.com/.default"
         <div class="mb-config-options">
             <div class="superfences-tabs">
             
-            <input name="125" type="checkbox" id="_tab_125">
-                <label class="tab-selector" for="_tab_125"><i class="icon fa fa-code"></i></label>
+            <input name="127" type="checkbox" id="_tab_127">
+                <label class="tab-selector" for="_tab_127"><i class="icon fa fa-code"></i></label>
                 <div class="superfences-content">
                     <div class="mb-config-example">
 <pre><code class="toml">[apim.aws_lambda.http_client]

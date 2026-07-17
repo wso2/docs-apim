@@ -4504,7 +4504,7 @@
                             "name": "target_hosts",
                             "type": "string",
                             "required": true,
-                            "default": "-",
+                            "default": "",
                             "possible": "[\"example\\\\.com\"], [\"*\"]",
                             "description": "A list of Java regular expression patterns matched against the backend hostname. Use [\"*\"] to create a catch-all profile that applies to all hosts not matched by a specific profile. Escape dots: \"example\\\\.com\"."
                         },
@@ -4512,7 +4512,7 @@
                             "name": "proxy_host",
                             "type": "string",
                             "required": true,
-                            "default": "-",
+                            "default": "",
                             "possible": "-",
                             "description": "Hostname or IP address of the HTTP CONNECT proxy server."
                         },
@@ -4520,7 +4520,7 @@
                             "name": "proxy_port",
                             "type": "integer",
                             "required": true,
-                            "default": "-",
+                            "default": "",
                             "possible": "-",
                             "description": "Port number of the HTTP CONNECT proxy server."
                         },
@@ -4528,7 +4528,7 @@
                             "name": "bypass_hosts",
                             "type": "string",
                             "required": false,
-                            "default": "-",
+                            "default": "",
                             "possible": "[\"localhost\", \"127\\\\.0\\\\.0\\\\.1\"]",
                             "description": "A list of Java regular expression patterns. Backend hosts matching any pattern connect directly, bypassing the proxy for this profile. Takes precedence over target_hosts."
                         },
@@ -4536,7 +4536,7 @@
                             "name": "proxy_username",
                             "type": "string",
                             "required": false,
-                            "default": "-",
+                            "default": "",
                             "possible": "-",
                             "description": "Username for Proxy-Authorization: Basic authentication. Omit for an unauthenticated proxy."
                         },
@@ -4544,7 +4544,7 @@
                             "name": "proxy_password",
                             "type": "string",
                             "required": false,
-                            "default": "-",
+                            "default": "",
                             "possible": "-",
                             "description": "Password for proxy authentication."
                         }
@@ -4565,7 +4565,7 @@
                             "name": "target_hosts",
                             "type": "string",
                             "required": true,
-                            "default": "-",
+                            "default": "",
                             "possible": "[\"example\\\\.com\"], [\"*\"]",
                             "description": "A list of Java regular expression patterns matched against the backend hostname. Use [\"*\"] to create a catch-all profile that applies to all hosts not matched by a specific profile. Escape dots: \"example\\\\.com\"."
                         },
@@ -4573,7 +4573,7 @@
                             "name": "proxy_host",
                             "type": "string",
                             "required": true,
-                            "default": "-",
+                            "default": "",
                             "possible": "-",
                             "description": "Hostname or IP address of the HTTP CONNECT proxy server."
                         },
@@ -4581,7 +4581,7 @@
                             "name": "proxy_port",
                             "type": "integer",
                             "required": true,
-                            "default": "-",
+                            "default": "",
                             "possible": "-",
                             "description": "Port number of the HTTP CONNECT proxy server."
                         },
@@ -4589,7 +4589,7 @@
                             "name": "bypass_hosts",
                             "type": "string",
                             "required": false,
-                            "default": "-",
+                            "default": "",
                             "possible": "[\"localhost\", \"127\\\\.0\\\\.0\\\\.1\"]",
                             "description": "A list of Java regular expression patterns. Backend hosts matching any pattern connect directly, bypassing the proxy for this profile. Takes precedence over target_hosts."
                         },
@@ -4597,7 +4597,7 @@
                             "name": "proxy_username",
                             "type": "string",
                             "required": false,
-                            "default": "-",
+                            "default": "",
                             "possible": "-",
                             "description": "Username for Proxy-Authorization: Basic authentication. Omit for an unauthenticated proxy."
                         },
@@ -4605,7 +4605,7 @@
                             "name": "proxy_password",
                             "type": "string",
                             "required": false,
-                            "default": "-",
+                            "default": "",
                             "possible": "-",
                             "description": "Password for proxy authentication."
                         }
