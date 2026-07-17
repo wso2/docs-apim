@@ -461,6 +461,7 @@ nav:
                 - Classic Gateway with Dedicated Tenants: api-gateway/maintain-seperate-gateways-per-tenants.md
                 - Classic Gateways with Dedicated Backends: api-gateway/api-gateways-with-dedicated-backends.md
                 - Mutual SSL Between Classic Gateway and Backend: api-gateway/mutual-ssl-between-api-gateway-and-backend.md
+                - WebSocket Proxy Profiles: api-gateway/websocket-proxy-profiles.md
                 - Storing Custom Synapse Artifacts in the Gateway: api-gateway/custom-synapse-artifacts.md
             - Gateway Policies:
                 - Adding Dynamic Endpoints: api-gateway/policies/adding-dynamic-endpoints.md

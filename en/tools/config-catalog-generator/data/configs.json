@@ -1591,7 +1591,7 @@
                             "required": false,
                             "default": "If the config is not mentioned, then undefined.default",
                             "possible": "default, saml",
-                            "description": "Use the application_sharing_impl as default implmentationIf it is saml, the group extractor extracts the claims to group the applications from the saml response."
+                            "description": "Use the application_sharing_impl as default implementation. If it is saml, the group extractor extracts the claims to group the applications from the saml response."
                         },
                         {
                             "name": "application_sharing_impl",
@@ -4501,6 +4501,128 @@
             "exampleFile": "_wss-transport.toml"
         },
         {
+            "title": "WebSocket Proxy Profile",
+            "options": [
+                {
+                    "name": "[transport.ws.proxy_profile]",
+                    "required": false,
+                    "description": "Configures an HTTP CONNECT proxy profile for outbound WebSocket (ws://) connections from the gateway to the backend. Multiple profiles can be defined; the gateway evaluates them in order and uses the first matching profile. Specific profiles (no wildcard in target_hosts) are evaluated before the catch-all profile (target_hosts = [\"*\"]).",
+                    "params": [
+                        {
+                            "name": "target_hosts",
+                            "type": "string",
+                            "required": true,
+                            "default": "",
+                            "possible": "[\"example\\\\.com\"], [\"*\"]",
+                            "description": "A list of Java regular expression patterns matched against the backend hostname. Use [\"*\"] to create a catch-all profile that applies to all hosts not matched by a specific profile. Escape dots: \"example\\\\.com\"."
+                        },
+                        {
+                            "name": "proxy_host",
+                            "type": "string",
+                            "required": true,
+                            "default": "",
+                            "possible": "-",
+                            "description": "Hostname or IP address of the HTTP CONNECT proxy server."
+                        },
+                        {
+                            "name": "proxy_port",
+                            "type": "integer",
+                            "required": true,
+                            "default": "",
+                            "possible": "-",
+                            "description": "Port number of the HTTP CONNECT proxy server."
+                        },
+                        {
+                            "name": "bypass_hosts",
+                            "type": "string",
+                            "required": false,
+                            "default": "",
+                            "possible": "[\"localhost\", \"127\\\\.0\\\\.0\\\\.1\"]",
+                            "description": "A list of Java regular expression patterns. Backend hosts matching any pattern connect directly, bypassing the proxy for this profile. Takes precedence over target_hosts."
+                        },
+                        {
+                            "name": "proxy_username",
+                            "type": "string",
+                            "required": false,
+                            "default": "",
+                            "possible": "-",
+                            "description": "Username for Proxy-Authorization: Basic authentication. Omit for an unauthenticated proxy."
+                        },
+                        {
+                            "name": "proxy_password",
+                            "type": "string",
+                            "required": false,
+                            "default": "",
+                            "possible": "-",
+                            "description": "Password for proxy authentication."
+                        }
+                    ]
+                }
+            ],
+            "exampleFile": "_ws-proxy-profile.toml"
+        },
+        {
+            "title": "Secure WebSocket Proxy Profile",
+            "options": [
+                {
+                    "name": "[transport.wss.proxy_profile]",
+                    "required": false,
+                    "description": "Configures an HTTP CONNECT proxy profile for outbound secure WebSocket (wss://) connections from the gateway to the backend. The gateway opens a raw TCP tunnel through the proxy via HTTP CONNECT, then performs TLS with the backend inside that tunnel. Multiple profiles can be defined; evaluation rules are the same as for ws proxy profiles.",
+                    "params": [
+                        {
+                            "name": "target_hosts",
+                            "type": "string",
+                            "required": true,
+                            "default": "",
+                            "possible": "[\"example\\\\.com\"], [\"*\"]",
+                            "description": "A list of Java regular expression patterns matched against the backend hostname. Use [\"*\"] to create a catch-all profile that applies to all hosts not matched by a specific profile. Escape dots: \"example\\\\.com\"."
+                        },
+                        {
+                            "name": "proxy_host",
+                            "type": "string",
+                            "required": true,
+                            "default": "",
+                            "possible": "-",
+                            "description": "Hostname or IP address of the HTTP CONNECT proxy server."
+                        },
+                        {
+                            "name": "proxy_port",
+                            "type": "integer",
+                            "required": true,
+                            "default": "",
+                            "possible": "-",
+                            "description": "Port number of the HTTP CONNECT proxy server."
+                        },
+                        {
+                            "name": "bypass_hosts",
+                            "type": "string",
+                            "required": false,
+                            "default": "",
+                            "possible": "[\"localhost\", \"127\\\\.0\\\\.0\\\\.1\"]",
+                            "description": "A list of Java regular expression patterns. Backend hosts matching any pattern connect directly, bypassing the proxy for this profile. Takes precedence over target_hosts."
+                        },
+                        {
+                            "name": "proxy_username",
+                            "type": "string",
+                            "required": false,
+                            "default": "",
+                            "possible": "-",
+                            "description": "Username for Proxy-Authorization: Basic authentication. Omit for an unauthenticated proxy."
+                        },
+                        {
+                            "name": "proxy_password",
+                            "type": "string",
+                            "required": false,
+                            "default": "",
+                            "possible": "-",
+                            "description": "Password for proxy authentication."
+                        }
+                    ]
+                }
+            ],
+            "exampleFile": "_wss-proxy-profile.toml"
+        },
+        {
             "title": "Message Builders (non-blocking mode)",
             "options": [
                 {
@@ -4610,7 +4732,7 @@
                             "required": false,
                             "default": "org.apache.axis2.transport.http.ApplicationXMLFormatter",
                             "possible": "-",
-                            "description": "The message formatting implementation that formats messages with the 'application_xml' content type before they are sent out of the Micro Integrator. If required, you can change the default formating class."
+                            "description": "The message formatting implementation that formats messages with the 'application_xml' content type before they are sent out of the Micro Integrator. If required, you can change the default formatting class."
                         },
                         {
                             "name": "form_urlencoded",
@@ -4618,7 +4740,7 @@
                             "required": false,
                             "default": "-",
                             "possible": "org.apache.synapse.commons.formatters.XFormURLEncodedFormatter",
-                            "description": "The message formatting implementation that formats messages with the 'form_urlencoded' content type before they are sent out of the Micro Integrator. If required, you can change the default formating class."
+                            "description": "The message formatting implementation that formats messages with the 'form_urlencoded' content type before they are sent out of the Micro Integrator. If required, you can change the default formatting class."
                         },
                         {
                             "name": "multipart_form_data",
@@ -4626,7 +4748,7 @@
                             "required": false,
                             "default": "org.apache.axis2.transport.http.MultipartFormDataFormatter",
                             "possible": "-",
-                            "description": "The message formatting implementation that formats messages with the 'multipart_form_data' content type before they are sent out of the Micro Integrator. If required, you can change the default formating class."
+                            "description": "The message formatting implementation that formats messages with the 'multipart_form_data' content type before they are sent out of the Micro Integrator. If required, you can change the default formatting class."
                         },
                         {
                             "name": "text_plain",
@@ -4634,7 +4756,7 @@
                             "required": false,
                             "default": "org.apache.axis2.format.PlainTextFormatter",
                             "possible": "-",
-                            "description": "The message formatting implementation that formats messages with the 'text_plain' content type before they are sent out of the Micro Integrator. If required, you can change the default formating class."
+                            "description": "The message formatting implementation that formats messages with the 'text_plain' content type before they are sent out of the Micro Integrator. If required, you can change the default formatting class."
                         },
                         {
                             "name": "application_json",
@@ -4642,7 +4764,7 @@
                             "required": false,
                             "default": "org.wso2.micro.integrator.core.json.JsonStreamFormatter",
                             "possible": "-",
-                            "description": "The message formatting implementation that formats messages with the 'application_json' content type before they are sent out of the Micro Integrator. If required, you can change the default formating class."
+                            "description": "The message formatting implementation that formats messages with the 'application_json' content type before they are sent out of the Micro Integrator. If required, you can change the default formatting class."
                         },
                         {
                             "name": "json_badgerfish",
@@ -4650,7 +4772,7 @@
                             "required": false,
                             "default": "org.apache.axis2.json.JSONBadgerfishMessageFormatter",
                             "possible": "-",
-                            "description": "The message formatting implementation that formats messages with the 'json_badgerfish' content type before they are sent out of the Micro Integrator. If required, you can change the default formating class."
+                            "description": "The message formatting implementation that formats messages with the 'json_badgerfish' content type before they are sent out of the Micro Integrator. If required, you can change the default formatting class."
                         },
                         {
                             "name": "text_javascript",
@@ -4658,7 +4780,7 @@
                             "required": false,
                             "default": "org.apache.axis2.json.JSONMessageFormatter",
                             "possible": "-",
-                            "description": "The message formatting implementation that formats messages with the 'text_javascript' content type before they are sent out of the Micro Integrator. If required, you can change the default formating class."
+                            "description": "The message formatting implementation that formats messages with the 'text_javascript' content type before they are sent out of the Micro Integrator. If required, you can change the default formatting class."
                         },
                         {
                             "name": "octet_stream",
@@ -4666,7 +4788,7 @@
                             "required": false,
                             "default": "org.wso2.carbon.relay.ExpandingMessageFormatter",
                             "possible": "-",
-                            "description": "The message formatting implementation that formats messages with the 'octet_stream' content type before they are sent out of the Micro Integrator. If required, you can change the default formating class."
+                            "description": "The message formatting implementation that formats messages with the 'octet_stream' content type before they are sent out of the Micro Integrator. If required, you can change the default formatting class."
                         },
                         {
                             "name": "application_binary",
