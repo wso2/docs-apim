@@ -1,8 +1,8 @@
-#Response caching
+# Response caching
 
 The API Manager uses [WSO2 ESB's cache mediator](https://docs.wso2.com/display/EI650/Cache+Mediator) to cache response messages for each API. Caching improves performance, because the backend server does not have to process the same data for a request multiple times. You need to set an appropriate timeout period to offset the risk of stale data in the cache.
 
-##Enabling Response Caching for an API
+## Enabling Response Caching for an API
 
 You need to enable response caching when creating a new API or editing an existing API using the API Publisher.
 

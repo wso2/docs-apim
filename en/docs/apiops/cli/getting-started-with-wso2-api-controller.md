@@ -19,7 +19,7 @@
 4.  Add the current working directory to your system's `$PATH` variable to be able to access the executable from anywhere.
 5.  Execute the following command to start the apictl.
 
-    !!! Warn
+    !!! warning
         If you have previously used an apictl old version, backup and remove `/home/<user>/.wso2apictl` directory and reconfigure the environments using the commands as explained below in [Add an environment](#add-an-environment) section.
 
     ``` go

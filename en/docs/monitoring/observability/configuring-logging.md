@@ -8,7 +8,7 @@ WSO2 API Manager uses various types of logs to track real time internal and exte
 
 WSO2 API Manager is shipped with log4j2 logging capabilities, which generate logs for administrative and server-side activities. By default, the Carbon Logs are persisted in the `wso2carbon.log` file, which is located in the `<API-M_HOME>/repository/logs` directory. You can configure the details that are captured in this log file by configuring the `<API-M_HOME>/repository/conf/log4j2.properties`.
 
-!!! Java logging and Log4j integration
+!!! info "Java logging and Log4j integration"
     In addition to the logs from libraries that use Log4j, all logs from libraries such as, Tomcat and Hazelcast, which use Java logging framework are also visible in the same log files. Therefore, when Java logging is enabled in Carbon, only the Log4j appenders will write to the log files. If the Java Logging Handlers have logs, these logs will be delegated to the log events of the corresponding Log4j appenders. A Pub/Sub registry pattern implementation has been used in the latter mentioned scenario to plug the handlers and appenders. 
     
 ### Configuring Carbon Logs
@@ -217,7 +217,7 @@ The following is a sample Gateway Wire Log for an API request.
 
 4. Observe the logs for incoming and outgoing traffic in the `<API-M_HOME>/repository/logs/wso2carbon.log` file.
 
-!!! Limitation
+!!! warning "Limitation"
     If synapse-wire logs are enabled during high load, outgoing traffic between the gateway and the backend will not be printed in the `wso2carbon.log` file. This happens when the backend connection is keep alive. As we are maintaining connections in a connection pool, the same connections will be reused in keep alive mode irrespective of the changes done in the `log4j2.properties` file.
 
 ## HTTP Access Logs

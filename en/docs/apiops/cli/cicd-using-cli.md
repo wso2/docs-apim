@@ -642,5 +642,5 @@ Let us assume that the **PetsApp** application is in the development environment
 Now, you know the building blocks of creating a CI/CD pipeline using apictl. By using the above, you can create 
 an automated pipeline for API promotion between environments using either one of the latter mentioned approaches. 
 
-!!! More
+!!! info "More"
     Next let us use the above knowledge to create a [Jenkins CI/CD Pipeline with WSO2 API Management for a Dev First Approach]({{base_path}}/install-and-setup/setup/api-controller/building-jenkins-ci-cd-pipeline-for-dev-first-approach/).
