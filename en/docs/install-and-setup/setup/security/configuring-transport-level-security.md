@@ -147,20 +147,6 @@ Add the following configuration in the `deployment.toml` file (stored in the `<A
 enable = false
 ```
 
-### Disabling the WebHook Transport
-
-!!! warning
-    The `[apim.webhooks.http] enable = false` configuration has no effect in this version. The backing implementation for this configuration is not present, so the WebSub HTTP inbound endpoint on port 9021 will remain active regardless of this setting.
-
-    **Workaround:** To prevent external access to port 9021, use a firewall rule or configure your load balancer to block inbound traffic on that port. Do not expose port 9021 to the public internet in a production deployment.
-
-Add the following configuration in the `deployment.toml` file (stored in the `<API-M_HOME>/repository/conf` folder).
-
-```toml
-[apim.webhooks.http]
-enable = false
-```
-
 ### Adding Response Headers to Web Applications
 
 You can add response headers to all the web applications that are deployed in the Tomcat instance via a Tomcat filter.
