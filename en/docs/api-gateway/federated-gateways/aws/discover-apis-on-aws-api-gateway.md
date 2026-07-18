@@ -37,7 +37,9 @@ Follow the instructions given below to configure AWS API Gateway as a Federated 
 3. Add a new Gateway Environment.
     1. Select the Gateway Type as AWS Gateway from the dropdown and provide the relevant details in the fields accordingly.
     2. Select the Gateway Mode as Read Only, or Read Write based on the requirement.
-    3. Enter the Access Key and Secret Key obtained in Step 1 under Gateway Connector Configurations. 
+    3. Configure the credentials under Gateway Connector Configurations:
+        * **Access Key & Secret Key:** Enter the static keys obtained in Step 1. Alternatively, leave these blank to fall back to the host's IAM Role (e.g., if WSO2 is running on an EC2 instance or EKS pod).
+        * **IAM Role ARN (Optional):** Enter the ARN of an IAM Role to assume (e.g., `arn:aws:iam::123456789012:role/MyRole`). This enables secure cross-account API discovery.
     4. Provide the scheduling interval for API discovery in minutes.
     5. Save the configurations.
 
