@@ -552,6 +552,8 @@ nav:
                 - AWS Bedrock Guardrail: ai-gateway/ai-guardrails/aws-bedrock-guardrail.md
                 - Guardrail Error Response: ai-gateway/ai-guardrails/guardrail-error-response.md
             - Semantic Caching: ai-gateway/semantic-caching.md
+            - AI Cost Management:
+                - LLM Cost: ai-gateway/ai-cost-management/llm-cost.md
             - AI APIs via SDKs: ai-gateway/using-proxy-apis-in-sdks.md
             - AI Tools:
                 - Claude Code configuration with AI Gateway: ai-gateway/ai-tools/claude-code-with-ai-gateway.md
