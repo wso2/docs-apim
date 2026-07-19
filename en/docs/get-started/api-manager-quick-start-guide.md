@@ -35,7 +35,7 @@ Choose a deployment option to start the WSO2 API Manager All-in-one package. Thi
         
         === "On Windows"
             ```bash
-            api-manager.bat --run
+            api-manager.bat
             ```
 
 === "Run on Kubernetes"
