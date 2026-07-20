@@ -47,33 +47,21 @@ In this sample scenario, you implement a full lifecycle of an API using WSO2 API
 
 ### Step 1 - Create and publish an API
 
-Follow the instructions below to create and publish an API via the Publisher Portal of WSO2 API-M.
+Follow the instructions below to create, deploy and publish an API via the Publisher Portal of WSO2 API-M.
 
 1. Navigate to the Publisher Portal.
    
-     `https://localhost:9443/publisher`
+     [https://localhost:9443/publisher](https://localhost:9443/publisher)
      
 2. Sign in with **`admin/admin`** as the credentials.
                                                  
      [![Publisher portal home page]({{base_path}}/assets/img/get_started/api-publisher-home.png)]({{base_path}}/assets/img/get_started/api-publisher-home.png)
 
-3. Create a mock REST service.
-
-     Let's use a mock REST service to create a REST API from scratch.
- 
-     A mock service with a JSON response `{"hello": "world"}` is provided by default when you use the service URL as `http://run.mocky.io/v2/5185415ba171ea3a00704eed`, which appears in the [https://designer.mocky.io/](https://designer.mocky.io/) mock service. Let's use the HTTP protocol instead of the HTTPS protocol for this guide.
-
-    !!! tip
-        Optionally, to test this service, copy the service URL [http://run.mocky.io/v2/5185415ba171ea3a00704eed](http://run.mocky.io/v2/5185415ba171ea3a00704eed) and navigate to it on a new browser. You should see the following JSON message.
-            
-         `{"hello": "world"}`
-    
-4. Select **REST API** from the home screen and then click **Start From Scratch**.
+3. Next, let's create a **REST API** in the API Manager to proxy an existing REST service by selecting **REST API** from the home screen and then click **Start From Scratch**.
    
     [![Design a new REST API]({{base_path}}/assets/img/get_started/design-new-rest-api.png)]({{base_path}}/assets/img/get_started/design-new-rest-api.png)
 
-
-5. Enter the API details.
+4. Fill the following API details in the relevant fields.
 
     <table>
     <tr> 
@@ -81,13 +69,13 @@ Follow the instructions below to create and publish an API via the Publisher Por
      Name
      </th>
      <td>
-     HelloWorld
+     RandomUUID
      </td>
      </tr>
      <tr> 
      <th>Context
      </th>
-     <td><code>/hello</code>
+     <td><code>/uuid</code>
      </td>
      </tr>
      <tr> 
@@ -99,20 +87,16 @@ Follow the instructions below to create and publish an API via the Publisher Por
      <tr> 
      <th>Endpoint
      </th>
-     <td><code>http://run.mocky.io/v2/5185415ba171ea3a00704eed</code>
-      <div class="admonition note">
-      <p class="admonition-title">Note</p>
-      <p><b>Use the HTTP protocol</b> because to use HTTPS you need to import the [https://designer.mocky.io/](https://designer.mocky.io/) certificate into WSO2 API-M.</p>
-      </div> 
+     <td><code>https://dev-tools.wso2.com/gs/helpers/v1.0/uuid</code>
      </td>
      </tr>
      </table>
      
-     [![Create an API]({{base_path}}/assets/img/get_started/api-create.png){: style="width:60%"}]({{base_path}}/assets/img/get_started/api-create.png)
-        
-6. Click **Create & Publish**.
+5. Click **Create & Publish**.
 
-     This will publish your first API on the Developer Portal as well as deploy it on the API Gateway. You now have an OAuth 2.0 secured REST API that is ready to be consumed.
+    [![Create an API]({{base_path}}/assets/img/get_started/api-create.png){: style="width:100%"}]({{base_path}}/assets/img/get_started/api-create.png)
+
+    This will publish your first API on the Developer Portal as well as deploy it on the gateway. You now have an OAuth 2.0 secured REST API that is ready to be consumed.
 
 <a name="subscribe"></a>
 
@@ -124,7 +108,7 @@ Follow the instructions below to subscribe to the API and generate the keys via 
 
      `https://localhost:9443/devportal`
    
-     The published `HelloWorld` API is listed in the Developer Portal as shown below.
+     The published `RandomUUID` API is listed in the Developer Portal as shown below.
 
      [![Developer Portal home page]({{base_path}}/assets/img/get_started/dev-portal-landing-page.png)]({{base_path}}/assets/img/get_started/dev-portal-landing-page.png)
 
@@ -132,7 +116,7 @@ Follow the instructions below to subscribe to the API and generate the keys via 
 
 3. Click on the API thumbnail to view the overview of the API.
 
-     [![API overview]({{base_path}}/assets/img/get_started/api-overview.png)]({{base_path}}/assets/img/get_started/api-overview.png)
+     [![API overview]({{base_path}}/assets/img/get_started/try-out.png)]({{base_path}}/assets/img/get_started/try-out.png)
  
 4. Register an OAuth 2.0 application.
 
@@ -142,7 +126,7 @@ Follow the instructions below to subscribe to the API and generate the keys via 
     
     2. Click **SUBSCRIPTION & KEY GENERATION WIZARD** in the above screen.
     
-         This wizard walks you through 5 steps that will register an OAuth 2.0 application which you will use to consume the `HelloWorld` API.
+         This wizard walks you through 5 steps that will register an OAuth 2.0 application which you will use to consume the `RandomUUID` API.
 
          [![Key generation wizard]({{base_path}}/assets/img/get_started/key-gen-wizard.png)]({{base_path}}/assets/img/get_started/key-gen-wizard.png)
 
@@ -171,7 +155,7 @@ Follow the instructions below to subscribe to the API and generate the keys via 
 
      3. Subscribe the application to the API.
         
-         This subscribes the `Greetings` application to the `HelloWorld` API on the selected Business Plan. Click **Next** without changing any of the default values.
+         This subscribes the `Greetings` application to the `RandomUUID` API on the selected Business Plan. Click **Next** without changing any of the default values.
 
          [![Wizard - Subscribe to new application]({{base_path}}/assets/img/get_started/key-gen-wizard-2.png)]({{base_path}}/assets/img/get_started/key-gen-wizard-2.png)
 
@@ -181,7 +165,7 @@ Follow the instructions below to subscribe to the API and generate the keys via 
 
          [![Wizard - Generate Keys]({{base_path}}/assets/img/get_started/key-gen-wizard-3.png)]({{base_path}}/assets/img/get_started/key-gen-wizard-3.png)
 
-     5. Generate a test access token for the **Greetings** application to access the **HelloWorld** API.
+     5. Generate a test access token for the **Greetings** application to access the **RandomUUID** API.
      
          This step allows you to specify the permissions (scopes) for the token. Click **Next** without changing any of the default values.
 
@@ -193,7 +177,7 @@ Follow the instructions below to subscribe to the API and generate the keys via 
     
      7.  Click **Finish**.
 
- **Voila!!!** You can now test the **HelloWorld** API with the OAuth 2.0 token that you just generated.
+ **Voila!!!** You can now test the **RandomUUID** API with the OAuth 2.0 token that you just generated.
 
 <a name="invoke"></a>
 
@@ -225,7 +209,8 @@ Follow the instructions below to invoke the previously created API with the gene
 
      [![GET resource]({{base_path}}/assets/img/get_started/try-api.png)]({{base_path}}/assets/img/get_started/try-api.png)
 
-     You should see the `{"hello" : "world"}` response from the API. 
+     You should see the `{"uuid": "<random-uuid-here>"}` response from the API.
+
 
      [![Successful response]({{base_path}}/assets/img/get_started/try-it-success.png)]({{base_path}}/assets/img/get_started/try-it-success.png)
 
