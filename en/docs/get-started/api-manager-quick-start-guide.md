@@ -45,7 +45,7 @@ In this sample scenario, you implement a full lifecycle of an API using WSO2 API
 
  Let's get started...
 
-### Step 1: Create, Deploy and Publish an API
+### Step 1 - Create and publish an API
 
 Follow the instructions below to create, deploy and publish an API via the Publisher Portal of WSO2 API-M.
 
