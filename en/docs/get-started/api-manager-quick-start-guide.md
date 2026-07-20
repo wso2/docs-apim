@@ -1,12 +1,12 @@
 # Quick Start Guide
 
-New to WSO2 API Manager? No worries; we'll guide you through the basics!
+New to WSO2 API Manager? This guide will walk you through the basics.
 
 In this step-by-step guide, you’ll learn how to create, publish, and invoke an API using the Publisher Portal and Developer Portal.
 
 ### Before you begin...
 
-Choose a deployment option to start the WSO2 API Manager All-in-one package. The All-in-one package contains all core components in a single JVM for simplified deployment.
+Choose a deployment option to start the WSO2 API Manager All-in-one package. This package contains all core components in a single JVM for simplified deployment.
 
 === "Run on VM"
 
@@ -18,8 +18,8 @@ Choose a deployment option to start the WSO2 API Manager All-in-one package. The
             For more information on setting the `JAVA_HOME` environment variable for different operating systems, see [Setup and Install]({{base_path}}/install-and-setup/install/installing-the-product/installing-api-m-runtime/#setting-up-java_home)
     
     2. Download WSO2 API-Manager All-in-one package.
-    - [Open Source Distribution](https://github.com/wso2/product-apim/releases/tag/v4.7.0)
-    - [WSO2 Official Distribution](https://wso2.com/api-manager/#)
+        - [Open Source Distribution](https://github.com/wso2/product-apim/releases/tag/v4.7.0)
+        - [WSO2 Official Distribution](https://wso2.com/api-manager/#)
 
     3. Extract the downloaded zip file.
 
@@ -152,7 +152,7 @@ Follow the instructions below to invoke the created API.
 
      [![Test API]({{base_path}}/assets/img/get_started/enter-customer-secret.png)]({{base_path}}/assets/img/get_started/enter-customer-secret.png)
 
-2. Click on the `GET` resource of the API to expand the resource and Click **Try It Out**.
+2. Click on the `GET` resource of the API to expand the resource and click **Try It Out**.
    
      [![GET resource]({{base_path}}/assets/img/get_started/expanded-get-resource.png)]({{base_path}}/assets/img/get_started/expanded-get-resource.png)
 
