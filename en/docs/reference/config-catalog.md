@@ -18423,7 +18423,8 @@ connection_acquisition_timeout = 60
                 <div class="superfences-content">
                     <div class="mb-config-example">
 <pre><code class="toml">[authentication_policy]
-disable_account_disable_handler = false</code></pre>
+disable_account_disable_handler = false
+disable_account_confirmation_validation_handler = false</code></pre>
                     </div>
                 </div>
                 <div class="doc-wrapper">
@@ -18455,6 +18456,27 @@ disable_account_disable_handler = false</code></pre>
                                     </div>
                                     <div class="param-description">
                                         <p>Disables the account disable handler during authentication.</p>
+                                    </div>
+                                </div>
+                            </div><div class="param">
+                                <div class="param-name">
+                                  <span class="param-name-wrap"> <code>disable_account_confirmation_validation_handler</code> </span>
+                                </div>
+                                <div class="param-info">
+                                    <div>
+                                        <p>
+                                            <span class="param-type string"> boolean </span>
+                                            
+                                        </p>
+                                        <div class="param-default">
+                                            <span class="param-default-value">Default: <code>false</code></span>
+                                        </div>
+                                        <div class="param-possible">
+                                            <span class="param-possible-values">Possible Values: <code>true,false</code></span>
+                                        </div>
+                                    </div>
+                                    <div class="param-description">
+                                        <p>Disables the account confirmation validation handler during authentication.</p>
                                     </div>
                                 </div>
                             </div>

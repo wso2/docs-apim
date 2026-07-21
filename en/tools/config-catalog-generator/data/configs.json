@@ -6996,6 +6996,14 @@
                             "default": "false",
                             "possible": "true,false",
                             "description": "Disables the account disable handler during authentication."
+                        },
+                        {
+                            "name": "disable_account_confirmation_validation_handler",
+                            "type": "boolean",
+                            "required": false,
+                            "default": "false",
+                            "possible": "true,false",
+                            "description": "Disables the account confirmation validation handler during authentication."
                         }
                     ]
                 }
