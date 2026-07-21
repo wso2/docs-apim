@@ -15910,7 +15910,7 @@ disable_account_disable_handler = false</code></pre>
                                         </div>
                                     </div>
                                     <div class="param-description">
-                                        <p>Disables the account disable handler during authentication.</p>
+                                        <p>Disables the account disable handler during authentication. Note that this configuration is supported from update level 120 onwards.</p>
                                     </div>
                                 </div>
                             </div>
