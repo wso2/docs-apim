@@ -6320,6 +6320,27 @@
                 }
             ],
             "exampleFile": "dependency_properties.toml"
+        },
+        {
+            "title": "Authentication Policy",
+            "options": [
+                {
+                    "name": "authentication_policy",
+                    "required": false,
+                    "description": "Defines the authentication policy settings for WSO2 API Manager.",
+                    "params": [
+                        {
+                            "name": "disable_account_disable_handler",
+                            "type": "boolean",
+                            "required": false,
+                            "default": "false",
+                            "possible": "true,false",
+                            "description": "Disables the account disable handler during authentication. Note that this configuration is available in wso2am-4.5.0, wso2am-universal-gw-4.5.0 starting from update level 73, wso2am-tm-4.5.0 starting from update level 71 and wso2am-acp-4.5.0 starting from update level 74."
+                        }
+                    ]
+                }
+            ],
+            "exampleFile": "authentication_policy.toml"
         }
     ]
 }
