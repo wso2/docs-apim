@@ -55,6 +55,14 @@ Listed below are the ports used by the API-M runtime when the [port offset]({{ba
     </tr>
     <tr>
         <td>
+            <code>8021</code>
+        </td>
+        <td>
+            Port used for internal event streaming communication.
+        </td>
+    </tr>
+    <tr>
+        <td>
             <code>8280</code>
         </td>
         <td>
@@ -83,6 +91,38 @@ Listed below are the ports used by the API-M runtime when the [port offset]({{ba
         </td>
         <td>
             SSL port of the secure transport for receiving throttling events. This is required when the binary data publisher is used for throttling.
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <code>10711</code>
+        </td>
+        <td>
+            SSL port for secure transport used in data publishing and analytics.
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <code>8099</code>
+        </td>
+        <td>
+            Web Socket secure port (WSS).
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <code>8672</code>
+        </td>
+        <td>
+            Port used for message broker AMQP transport with SSL.
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <code>9021</code>
+        </td>
+        <td>
+            TCP port used for internal event streaming and communication.
         </td>
     </tr>
     <tr>
