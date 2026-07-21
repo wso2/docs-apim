@@ -67,6 +67,13 @@ strict: false
 # Navigation
 nav:
     - Home: index.md
+    - Backstage Plugin for APIM:
+        - Overview: backstage-plugin/overview.md
+        - Getting Started:
+            - Installation & Config: backstage-plugin/setup/installation-and-configuration.md
+            - OpenChoreo Setup: backstage-plugin/setup/openchoreo-setup.md
+        - Troubleshooting: backstage-plugin/troubleshooting.md
+        - References: backstage-plugin/references.md
     - Get Started:
           - Introduction: get-started/overview.md
           - Key Concepts: get-started/key-concepts.md
@@ -859,6 +866,7 @@ extra:
     product_name: WSO2 API Manager
     explicit_tab_list:
       - Home
+      - Backstage Plugin for APIM
       - Get Started
       - Install & Setup
       - Tutorials
@@ -890,6 +898,9 @@ extra:
       options:
         - verticle-line
         - no-collapsible
+    - title: Backstage Plugin for APIM
+      options:
+        - verticle-line
     - title: Install & Setup
       options:
         - verticle-line
@@ -931,6 +942,9 @@ extra:
     nav_icons:
       Home:
         icon: octicons/home-16
+        level: 1
+      Backstage Plugin for APIM:
+        icon: octicons/plug-16
         level: 1
       Get Started:
         icon: octicons/rocket-16
