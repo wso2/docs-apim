@@ -5954,6 +5954,27 @@
                 }
             ],
             "exampleFile": "synapse_properties.toml"
+        },
+        {
+            "title": "Authentication Policy",
+            "options": [
+                {
+                    "name": "authentication_policy",
+                    "required": false,
+                    "description": "Defines the authentication policy settings for WSO2 API Manager.",
+                    "params": [
+                        {
+                            "name": "disable_account_disable_handler",
+                            "type": "boolean",
+                            "required": false,
+                            "default": "false",
+                            "possible": "true,false",
+                            "description": "Disables the account disable handler during authentication. Note that this configuration is supported from update level 88 onwards."
+                        }
+                    ]
+                }
+            ],
+            "exampleFile": "authentication_policy.toml"
         }
     ]
 }
