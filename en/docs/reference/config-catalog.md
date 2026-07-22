@@ -3331,6 +3331,7 @@ default_request_timeout = 30</code></pre>
                     <div class="mb-config-example">
 <pre><code class="toml">[apim.mcp]
 enable = true
+enforce_auth_for_all_mcp_methods = false
 </code></pre>
                     </div>
                 </div>
@@ -3363,6 +3364,27 @@ enable = true
                                     </div>
                                     <div class="param-description">
                                         <p>Enable the MCP features.</p>
+                                    </div>
+                                </div>
+                            </div><div class="param">
+                                <div class="param-name">
+                                  <span class="param-name-wrap"> <code>enforce_auth_for_all_mcp_methods</code> </span>
+                                </div>
+                                <div class="param-info">
+                                    <div>
+                                        <p>
+                                            <span class="param-type string"> boolean </span>
+                                            
+                                        </p>
+                                        <div class="param-default">
+                                            <span class="param-default-value">Default: <code>false</code></span>
+                                        </div>
+                                        <div class="param-possible">
+                                            <span class="param-possible-values">Possible Values: <code>true,false</code></span>
+                                        </div>
+                                    </div>
+                                    <div class="param-description">
+                                        <p>By default, all MCP requests except &#39;tools/call&#39; requests are unauthenticated. If this option is set to true, authentication will be required for all MCP requests. For improved security, it is recommended to enable this option.</p>
                                     </div>
                                 </div>
                             </div>
