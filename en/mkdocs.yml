@@ -889,7 +889,6 @@ extra:
     - title: Get Started
       options:
         - verticle-line
-        - no-collapsible
     - title: Install & Setup
       options:
         - verticle-line
