@@ -6,7 +6,7 @@ different (or a custom generated) authorization token than the application gener
 token exchange mechanism in mediation logic of the API. In this tutorial, we explain how to pass a custom authorization 
 token that is different to the authorization token generated for the application.
 
-In this tutorial, you have a sample JAX-RS backend and it always expects 1234 as the authorization token. In your API 
+In this tutorial, you have a sample backend that always expects 1234 as the authorization token. In your API 
 request, you pass the token that is generated in the `Authorization` header, and 1234 in a `Custom` header. 
 The mediation extension you write extracts the value of the `Custom` header, and sets it as the `Authorization` header 
 before sending it to the backend.
@@ -26,16 +26,41 @@ Here's a summary:
         </sequence>
         ```
 
-2.  Log in to the **API Publisher**, create a new REST API with the information given in the table below by following the instructions in [Create a REST API]({{base_path}}/api-design-manage/design/create-api/create-rest-api/create-a-rest-api/).
+2.  Start the sample backend server. Let's use the custom authorization token sample backend server as the backend for the API. It accepts any path and method, and authorizes a request only when the `Authorization` header is exactly `Bearer 1234`. On success it returns HTTP 200 with "Request Received."; otherwise HTTP 401.
+
+    1.  Clone the [WSO2 API Manager Samples](https://github.com/wso2/samples-apim) repository.
+
+        ```bash
+        git clone https://github.com/wso2/samples-apim
+        ```
+
+    2.  Navigate to the `custom-auth-token-backend` directory.
+
+        ```bash
+        cd samples-apim/custom-auth-token-backend
+        ```
+
+    3.  Run the server.
+
+        ```bash
+        python3 server.py
+        ```
+
+        Once the above steps are done, the backend server will be running on `http://localhost:8080`.
+        [![CLI output]({{base_path}}/assets/img/learn/custom-auth-backend-cli-output.png){: style="width:65%"}]({{base_path}}/assets/img/learn/custom-auth-backend-cli-output.png)
+    
+        Incoming requests and their headers are printed directly to the terminal, so you can verify what the gateway forwarded to the backend.
+
+3.  Log in to the **API Publisher**, create a new REST API with the information given in the table below by following the instructions in [Create a REST API]({{base_path}}/api-design-manage/design/create-api/create-rest-api/create-a-rest-api/).
 
     | Field         | Sample Value         |
     |---------------|----------------------|
     | Name          | TestCustomHeader     |
     | Context       | /testcustomheader    |
     | Version       | 1.0.0                |
-    | Endpoint      | http://wso2cloud-custom-auth-header-sample-1-0-0.wso2apps.com/custom-auth-header/validate-header |
+    | Endpoint      | http://localhost:8080/custom-auth-header/validate-header |
 
-3.  Navigate to the **API Configurations** --> **Policies** tab. Create a new policy with the information given in the table below by following the instructions in [Create a Policy]({{base_path}}/api-design-manage/design/api-policies/create-policy/).
+4.  Navigate to the **API Configurations** --> **Policies** tab. Create a new policy with the information given in the table below by following the instructions in [Create a Policy]({{base_path}}/api-design-manage/design/api-policies/create-policy/).
 
     | Section                   | Field             | Sample Value          |
     |---------------------------|-------------------|-----------------------|
@@ -47,24 +72,24 @@ Here's a summary:
     | Gateway Specific Details  | Policy File       | `tokenExchange.j2` file you created |
     | Policy Attributes         | N/A               | N/A                     |
 
-4.  Next, find the **Custom Authorization Token** policy that you just created by following Step 3, from the `Request` tab of the policy list. Drag and drop this policy to the desired API operation(s) by following the instructions in [Attach Policies]({{base_path}}/api-design-manage/design/api-policies/attach-policy/).
+5.  Next, find the **Custom Authorization Token** policy that you just created by following Step 4, from the `Request` tab of the policy list. Drag and drop this policy to the desired API operation(s) by following the instructions in [Attach Policies]({{base_path}}/api-design-manage/design/api-policies/attach-policy/).
 
     [![Custom Authorization Token Policy]({{base_path}}/assets/img/design/api-policies/custom-authorization-token-policy.png)]({{base_path}}/assets/img/design/api-policies/custom-authorization-token-policy.png)
 
-5.  Finally, scroll down and click on the **Save** button in order to apply the attached policies to the API.
+6.  Finally, scroll down and click on the **Save** button in order to apply the attached policies to the API.
 
     [![Disable Chunking]({{base_path}}/assets/img/design/api-policies/save-api-for-custom-authorization-token-policy.png)]({{base_path}}/assets/img/design/api-policies/save-api-for-custom-authorization-token-policy.png)
       
-6.  Make sure to navigate to the **Deployments** tab and click on **Deploy New Revision** button. Also, if the API is not in `PUBLISHED` state, navigate to the **Lifecycle** tab and publish your API.
+7.  Make sure to navigate to the **Deployments** tab and click on **Deploy New Revision** button. Also, if the API is not in `PUBLISHED` state, navigate to the **Lifecycle** tab and publish your API.
 
-5. Go to the **Developer Portal**, subscribe and obtain a token to invoke the published API. 
+8. Go to the **Developer Portal**, subscribe and obtain a token to invoke the published API. 
 
     !!! tip
         Follow the instructions in [here]({{base_path}}/api-developer-portal/manage-application/generate-keys/generate-api-keys/#generating-application-keys) to generate an application access token.  
 
-6. Install any REST client in your machine. We use [cURL](http://curl.haxx.se/download.html) here.
+9. Install any REST client in your machine. We use [cURL](http://curl.haxx.se/download.html) here.
 
-7. Go to the command line, and invoke the API using the following cURL command.   
+10. Go to the command line, and invoke the API using the following cURL command.   
 In this command, you pass the token that 
 the backend expects, i.e., 1234, in the **`Custom`** header with the authorization token that the system generates in 
 the **`Authorization`** header.
@@ -82,12 +107,12 @@ the **`Authorization`** header.
             ```
 
     !!! info
-        -   **<access token&gt;** is the token that you got in step 7.
+        -   **<access token&gt;** is the token that you got in step 8.
         -   **<API URL&gt;** appears on the API's **Overview** page in the API Developer Portal. Copy the HTTP endpoint. 
             If you select the HTTPs endpoint, be sure to run the cURL command with the -k option.
 
-24. Note the response that you get in the command line. According to the sample backend used in this tutorial, 
-you get the response as "Request Received."  
+11. Note the response that you get in the command line. According to the sample backend used in this tutorial, 
+you get the response as "Request Received.". You can also check the backend server's terminal to verify that the `Authorization` header received by the backend is `Bearer 1234` (swapped in from the `Custom` header) and that the `Custom` header has been removed.  
 
     [![]({{base_path}}/assets/img/learn/api-gateway/message-mediation/custom-header-response.png)]({{base_path}}/assets/img/learn/api-gateway/message-mediation/custom-header-response.png)
 
