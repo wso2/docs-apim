@@ -8,7 +8,6 @@ By enforcing rate limits, you can:
 - Optimize performance by ensuring fair resource distribution.
 - Protect AI backends from overuse and service degradation.
 
-
 ## Subscription-Level Rate Limiting
 
 Subscription-level rate limiting applies different quotas based on business plans, allowing API providers to enforce request-based or token-based limits on API subscribers.
