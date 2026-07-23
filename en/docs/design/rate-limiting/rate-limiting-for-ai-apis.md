@@ -4,9 +4,6 @@
 
 AI APIs in the WSO2 API Manager use the token based rate limiting policies in subscriptions by way of business plans. These policies allow for granular control of how AI APIs are used by applications.
 
-!!! note
-    Streaming is not supported for AI APIs when using the **WSO2 API Manager Universal Gateway**. As a result, token-based rate limiting is not enforced for streaming requests. See [Limitations]({{base_path}}/design/create-api/create-ai-api/create-an-ai-api/#limitations) for details.
-
 AI API subscription policies can be created and customized based on the following quotas:
 
 - **Request Count** - This quota limits the total number of requests an application can make. Once the specified request count limit is reached, further requests from that application will be throttled, preventing access to the AI API until the quota is reset.
