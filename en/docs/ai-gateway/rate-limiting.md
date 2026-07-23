@@ -8,6 +8,9 @@ By enforcing rate limits, you can:
 - Optimize performance by ensuring fair resource distribution.
 - Protect AI backends from overuse and service degradation.
 
+!!! note
+    Token-based rate limiting is not enforced for streaming AI API responses (`text/event-stream`) when using the **WSO2 API Manager Universal Gateway**. The gateway buffers the complete response before forwarding it, which means token counts are not extracted from streaming responses. See [Limitations]({{base_path}}/ai-gateway/ai-gateway-overview/#limitations) for details.
+
 ## Subscription-Level Rate Limiting
 
 Subscription-level rate limiting applies different quotas based on business plans, allowing API providers to enforce request-based or token-based limits on API subscribers.
