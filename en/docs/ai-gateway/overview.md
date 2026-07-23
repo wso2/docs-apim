@@ -21,3 +21,7 @@ With a comprehensive set of capabilities, the AI Gateway ensures secure and effi
 - **AI API Observability**: Track AI API usage statistics using [Analytics]({{base_path}}/monitoring/api-analytics/choreo-analytics/api-analytics-architecture/) solutions.
 
 By leveraging these capabilities, organizations can efficiently integrate, monitor, and scale AI APIs, unlocking the full potential of AI-driven applications.
+
+## Limitations
+
+Streaming AI API responses (SSE / `text/event-stream`) are not streamed chunk-by-chunk to the client when using the **WSO2 API Manager Universal Gateway**. The gateway buffers the complete response before forwarding it, because AI gateway features — token analytics, token-based throttling, guardrails, and other payload-dependent policies — require the full response payload to be available during mediation.
