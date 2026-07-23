@@ -71,6 +71,10 @@ The overview page of the newly created API appears.
 
 Now, you have successfully created an AI API. Next, [deploy the API]({{base_path}}/deploy-and-publish/deploy-on-gateway/deploy-api/deploy-an-api/), [test the API]({{base_path}}/design/create-api/create-rest-api/test-a-rest-api/), and finally [publish the API]({{base_path}}/deploy-and-publish/publish-on-dev-portal/publish-an-api).
 
+## Limitations
+
+Streaming AI API responses (SSE / `text/event-stream`) are not streamed chunk-by-chunk to the client when using the **WSO2 API Manager Universal Gateway**. The gateway buffers the complete response before forwarding it, because AI gateway features — token analytics, token-based throttling, guardrails, and other payload-dependent policies — require the full response payload to be available during mediation.
+
 ## See Also
 
 Learn more on the concepts that you need to know when creating a REST API:
