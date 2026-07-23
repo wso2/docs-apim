@@ -10,7 +10,6 @@ By enforcing rate limits, you can:
 
 WSO2 API Manager enables you to define rate limits at different levels, including subscription-level, and backend-level, ensuring flexibility in managing API usage.
 
-
 ## Subscription-Level Rate Limiting
 
 Subscription-level rate limiting applies different quotas based on business plans, allowing API providers to enforce request-based or token-based limits on API subscribers.
