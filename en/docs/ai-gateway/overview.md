@@ -24,4 +24,4 @@ By leveraging these capabilities, organizations can efficiently integrate, monit
 
 ## Limitations
 
-Streaming AI API responses (SSE / `text/event-stream`) are not streamed chunk-by-chunk to the client when using the **WSO2 API Manager Universal Gateway**. The gateway buffers the complete response before forwarding it, because AI gateway features — token analytics, token-based throttling, guardrails, and other payload-dependent policies — require the full response payload to be available during mediation.
+Streaming is not supported for AI APIs when using the **WSO2 API Manager Universal Gateway**. If an AI backend returns a streaming response (`text/event-stream`), the gateway buffers the complete response and forwards it to the client as a single batch. This is because AI gateway features — token analytics, token-based throttling, guardrails, and other payload-dependent policies — require the full response payload to be available during mediation.
