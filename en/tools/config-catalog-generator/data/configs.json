@@ -6776,7 +6776,36 @@
                 }
             ],
             "exampleFile": "apim.ai.vector_db_provider.toml"
-        }  
+        },
+        {
+            "title": "Authentication Policy",
+            "options": [
+                {
+                    "name": "authentication_policy",
+                    "required": false,
+                    "description": "Defines the authentication policy settings for WSO2 API Manager.",
+                    "params": [
+                        {
+                            "name": "disable_account_disable_handler",
+                            "type": "boolean",
+                            "required": false,
+                            "default": "false",
+                            "possible": "true,false",
+                            "description": "Disables the account disable handler during authentication. Note that this configuration is available in wso2am-4.7.0, wso2am-universal-gw-4.7.0, wso2am-acp-4.7.0, and wso2am-tm-4.7.0 starting from update level 9."
+                        },
+                        {
+                            "name": "disable_account_confirmation_validation_handler",
+                            "type": "boolean",
+                            "required": false,
+                            "default": "false",
+                            "possible": "true,false",
+                            "description": "Disables the account confirmation validation handler during authentication. Note that this configuration is available in wso2am-4.7.0, wso2am-universal-gw-4.7.0, wso2am-acp-4.7.0, and wso2am-tm-4.7.0 starting from update level 9."
+                        }
+                    ]
+                }
+            ],
+            "exampleFile": "authentication_policy.toml"
+        }
     ]
 }
 
