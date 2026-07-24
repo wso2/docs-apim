@@ -1,5 +1,9 @@
 # Configure WebSocket Proxy Profiles
 
+!!! note
+    - This feature is available in WSO2 API Manager 4.7.0 starting from update level 6.
+    - This feature is available in WSO2 API Manager Universal Gateway 4.7.0 starting from update level 6.
+
 ## Overview
 
 WebSocket proxy profiles allow the Classic Gateway to route outbound WebSocket connections (gateway → backend) through one or more HTTP CONNECT proxies. Each profile matches a set of backend hostnames and directs traffic to a specific proxy. You can define multiple profiles to send different backends through different proxies, require proxy authentication on a per-profile basis, or bypass the proxy entirely for selected hostnames.
