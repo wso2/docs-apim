@@ -20,17 +20,6 @@ This architectural pattern enables organizations to:
 
 WSO2 API Manager provides built-in support for deploying APIs to the following federated gateways:
 
-### Google Apigee Gateway
-Discover and manage API proxies deployed on Google Apigee. The built-in Apigee gateway connector enables automatic discovery of API proxies from your Apigee organization and brings them under centralized WSO2 API Manager governance.
-
-**Key Features:**
-- Discover existing API proxies from Apigee organizations
-- Multi-strategy OpenAPI spec retrieval (API Hub, proxy bundle reconstruction, wildcard fallback)
-- GCP Service Account authentication
-- Centralized governance from WSO2 API Manager
-
-[Learn more about Apigee Gateway discovery]({{base_path}}/api-gateway/federated-gateways/apigee/discover-apis-on-apigee-gateway/)
-
 ### AWS API Gateway
 Deploy and manage APIs on Amazon Web Services API Gateway. WSO2 API Manager comes prepackaged with an AWS gateway connector that enables seamless deployment and management of APIs on AWS infrastructure.
 
@@ -63,6 +52,24 @@ Discover and manage APIs deployed on Kong Gateway. WSO2 API Manager supports bot
 - Unified management through WSO2 API Manager Control Plane
 
 [Learn more about Kong Gateway integration]({{base_path}}/api-gateway/federated-gateways/kong/kong-standalone/discover-apis-on-kong-gateway/)
+
+### Google Apigee Gateway
+Discover and manage API proxies deployed on Google Apigee. The built-in 
+Apigee gateway connector enables automatic discovery of API proxies from your 
+Apigee organization and brings them under centralized WSO2 API Manager 
+governance.
+
+
+**Key Features:**
+- Discover existing API proxies from Apigee organizations
+- Multi-strategy OpenAPI spec retrieval (API Hub, proxy bundle 
+reconstruction, wildcard fallback)
+- GCP Service Account authentication
+- Centralized governance from WSO2 API Manager
+
+
+[Learn more about Apigee Gateway discovery]({{base_path}}/api-gateway/
+federated-gateways/apigee/discover-apis-on-apigee-gateway/)
 
 ### Envoy Gateway
 Discover and manage APIs deployed on Envoy Gateway in Kubernetes environments. 
