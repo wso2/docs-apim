@@ -7,14 +7,14 @@ WSO2 API Manager supports deploying APIs to external third-party API Gateways, e
 A federated gateway is an external API gateway that operates independently but is managed centrally through WSO2 API Manager. In this architecture:
 
 - **Central API Management**: WSO2 API Manager serves as the control plane where you define, version, secure, and monitor your APIs.
-- **Distributed API Gateways**: APIs are deployed to multiple runtime gateways across different environments such as cloud platforms (AWS, Azure), on-premises systems, or Kubernetes clusters.
+- **Distributed API Gateways**: APIs are deployed to multiple runtime gateways across different environments such as cloud platforms (AWS, Azure, Google Cloud/Apigee), on-premises systems, or Kubernetes clusters.
 
 This architectural pattern enables organizations to:
 
 - **Improve Performance**: Route API traffic to the nearest or most optimal gateway, reducing latency.
 - **Enhance Resilience**: Isolate failures so that issues in one gateway don't affect others.
 - **Maintain Governance**: Enforce policies and lifecycle management centrally across all federated gateways.
-- **Enable Cloud Flexibility**: Deploy APIs across AWS, Azure, on-premises, or in hybrid/multi-cloud environments.
+- **Enable Cloud Flexibility**: Deploy APIs across AWS, Azure, Google Cloud (Apigee), on-premises, or in hybrid/multi-cloud environments.
 
 ## Supported Gateway Types
 
@@ -53,6 +53,24 @@ Discover and manage APIs deployed on Kong Gateway. WSO2 API Manager supports bot
 
 [Learn more about Kong Gateway integration]({{base_path}}/api-gateway/federated-gateways/kong/kong-standalone/discover-apis-on-kong-gateway/)
 
+### Google Apigee Gateway
+Discover and manage API proxies deployed on Google Apigee. The built-in 
+Apigee gateway connector enables automatic discovery of API proxies from your 
+Apigee organization and brings them under centralized WSO2 API Manager 
+governance.
+
+
+**Key Features:**
+- Discover existing API proxies from Apigee organizations
+- Multi-strategy OpenAPI spec retrieval (API Hub, proxy bundle 
+reconstruction, wildcard fallback)
+- GCP Service Account authentication
+- Centralized governance from WSO2 API Manager
+
+
+[Learn more about Apigee Gateway discovery]({{base_path}}/api-gateway/
+federated-gateways/apigee/discover-apis-on-apigee-gateway/)
+
 ### Envoy Gateway
 Discover and manage APIs deployed on Envoy Gateway in Kubernetes environments. 
 
@@ -70,6 +88,12 @@ Federated gateways can operate in different modes depending on your requirements
 - **Write-Only Mode**: Deploy and manage APIs from WSO2 API Manager to the federated gateway.
 - **Read-Only Mode**: Discover and import existing APIs from the federated gateway into WSO2 API Manager.
 - **Read-Write Mode**: Both deploy new APIs and discover existing APIs, providing full bidirectional synchronization.
+
+## Federated API Discovery
+
+WSO2 API Manager allows discovering existing APIs from registered external gateways and importing them into your central repository. Publishers can trigger discovery on-demand through the Publisher Portal or REST APIs, and then selectively import or update APIs.
+
+For more information, see [Federated API Discovery]({{base_path}}/api-gateway/federated-gateways/federated-api-discovery/).
 
 ## Custom Gateway Agents
 
@@ -92,7 +116,7 @@ Implementing a federated gateway architecture with WSO2 API Manager provides sev
 
 To get started with federated gateways:
 
-1. **Choose Your Gateway**: Select the appropriate federated gateway based on your infrastructure (AWS, Azure, Kong, Envoy, or custom).
+1. **Choose Your Gateway**: Select the appropriate federated gateway based on your infrastructure (Apigee, AWS, Azure, Kong, Envoy, or custom).
 2. **Configure Credentials**: Set up the necessary credentials and permissions in your chosen gateway platform.
 3. **Register Gateway**: Add the federated gateway as a new gateway environment in the WSO2 API Manager Admin Portal.
 4. **Deploy APIs**: Create APIs in the Publisher Portal and deploy them to your federated gateway.

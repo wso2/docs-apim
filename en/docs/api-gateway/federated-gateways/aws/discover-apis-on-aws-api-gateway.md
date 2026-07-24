@@ -37,7 +37,9 @@ Follow the instructions given below to configure AWS API Gateway as a Federated 
 3. Add a new Gateway Environment.
     1. Select the Gateway Type as AWS Gateway from the dropdown and provide the relevant details in the fields accordingly.
     2. Select the Gateway Mode as Read Only, or Read Write based on the requirement.
-    3. Enter the Access Key and Secret Key obtained in Step 1 under Gateway Connector Configurations. 
+    3. Configure the credentials under Gateway Connector Configurations:
+        * **Access Key & Secret Key:** Enter the static keys obtained in Step 1. Alternatively, leave these blank to fall back to the host's IAM Role (e.g., if WSO2 is running on an EC2 instance or EKS pod).
+        * **IAM Role ARN (Optional):** Enter the ARN of an IAM Role to assume (e.g., `arn:aws:iam::123456789012:role/MyRole`). This enables secure cross-account API discovery.
     4. Provide the scheduling interval for API discovery in minutes.
     5. Save the configurations.
 
@@ -47,16 +49,16 @@ Follow the instructions given below to configure AWS API Gateway as a Federated 
    [![add aws gateway discovery environment]({{base_path}}/assets/img/deploy/add-aws-gw-environment.png){: style="width:90%"}]({{base_path}}/assets/img/deploy/add-aws-gw-discovery.png)
 
 
-## Step 3 : Deploy to Developer Portal
+## Step 3: Discover and Publish to Developer Portal
 
-1. Sign in to Publisher Portal.
+1. Sign in to the Publisher Portal.
    `https://<hostname>:9443/publisher`
 
    `https://localhost:9443/publisher`
 
-2. Go to APIs view and the APIs discovered from AWS API Gateway will be listed.
-3. Click on the API to view the API details.
-4. From the left menu, click **Lifecycle** and select **Publish** so that API will deploy to the Developer Portal.
+2. Discover and import your APIs. For step-by-step instructions, see [Federated API Discovery]({{base_path}}/api-gateway/federated-gateways/federated-api-discovery/).
+3. Once imported, click on the API from the listing to view its details.
+4. From the left menu, click **Lifecycle** and select **Publish** so that the API will deploy to the Developer Portal.
 
 ## Step 4 : Invoke the API
 1. Sign in to the Developer Portal.

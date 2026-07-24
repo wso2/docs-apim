@@ -491,6 +491,9 @@ nav:
                 - Configure Distributed Throttling: api-gateway/rate-limiting/distributed-throttling.md
         - Federated Gateways:
               - Overview: api-gateway/federated-gateways/overview.md
+              - Federated API Discovery: api-gateway/federated-gateways/federated-api-discovery.md
+              - Apigee:
+                - Discover APIs on Apigee Gateway: api-gateway/federated-gateways/apigee/discover-apis-on-apigee-gateway.md
               - AWS:
                 - Deploy on AWS API Gateway: api-gateway/federated-gateways/aws/deploy-on-aws-api-gateway.md
                 - Discover APIs on AWS API Gateway: api-gateway/federated-gateways/aws/discover-apis-on-aws-api-gateway.md
@@ -550,6 +553,8 @@ nav:
                 - AWS Bedrock Guardrail: ai-gateway/ai-guardrails/aws-bedrock-guardrail.md
                 - Guardrail Error Response: ai-gateway/ai-guardrails/guardrail-error-response.md
             - Semantic Caching: ai-gateway/semantic-caching.md
+            - AI Cost Management:
+                - LLM Cost: ai-gateway/ai-cost-management/llm-cost.md
             - AI APIs via SDKs: ai-gateway/using-proxy-apis-in-sdks.md
             - AI Tools:
                 - Claude Code configuration with AI Gateway: ai-gateway/ai-tools/claude-code-with-ai-gateway.md
@@ -982,8 +987,8 @@ extra:
             version: 1.2.0-1
             git_tag: v1.2.0.1
     site_version: 4.7.0
-    #base_path: http://localhost:8000/en/4.7.0
-    base_path: https://apim.docs.wso2.com/en/4.7.0
+    base_path: http://localhost:8000/en/4.7.0
+    #base_path: https://apim.docs.wso2.com/en/4.7.0
     envoy_path: https://www.envoyproxy.io/docs/envoy/v1.24.1
     redoc_theme: '{
         "colors": {

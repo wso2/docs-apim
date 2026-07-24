@@ -27,7 +27,9 @@ Follow the instructions given below to configure AWS API Gateway as a Federated 
 
 3. Add a new Gateway Environment.
     1. Select the Gateway type as AWS and provide the relevant details in the fields accordingly.
-    2. Enter the Access Key and Secret Key obtained in Step 1 under Gateway configurations.
+    2. Configure the credentials under Gateway configurations:
+        * **Access Key & Secret Key:** Enter the static keys obtained in Step 1. Alternatively, leave these blank to fall back to the host's IAM Role (e.g., if WSO2 is running on an EC2 instance or EKS pod).
+        * **IAM Role ARN (Optional):** Enter the ARN of an IAM Role to assume (e.g., `arn:aws:iam::123456789012:role/MyRole`). This enables secure cross-account deployments.
     3. Save the configurations.
 
     [![add aws gateway environment]({{base_path}}/assets/img/deploy/add-aws-gw-environment.png){: style="width:90%"}]({{base_path}}/assets/img/deploy/add-aws-gw-environment.png)
