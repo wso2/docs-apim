@@ -185,3 +185,5 @@ Once you create and publish a WebSocket API, you can also <a href="{{base_path}}
 ## See Also
 
 {!includes/design/stream-more-links.md!}
+
+- If your WebSocket backend is only reachable through an HTTP CONNECT proxy, see [Configure WebSocket Proxy Profiles]({{base_path}}/manage-apis/deploy-and-publish/deploy-on-gateway/api-gateway/websocket-proxy-profiles).
