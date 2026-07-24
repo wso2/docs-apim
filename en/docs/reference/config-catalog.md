@@ -17833,3 +17833,83 @@ ttl = 3600
     </section>
 </div>
 
+
+
+## Authentication Policy
+
+
+<div class="mb-config-catalog">
+    <section>
+        <div class="mb-config-options">
+            <div class="superfences-tabs">
+            
+            <input name="124" type="checkbox" id="_tab_124">
+                <label class="tab-selector" for="_tab_124"><i class="icon fa fa-code"></i></label>
+                <div class="superfences-content">
+                    <div class="mb-config-example">
+<pre><code class="toml">[authentication_policy]
+disable_account_disable_handler = false
+disable_account_confirmation_validation_handler = false</code></pre>
+                    </div>
+                </div>
+                <div class="doc-wrapper">
+                    <div class="mb-config">
+                        <div class="config-wrap">
+                            <code>[authentication_policy]</code>
+                            
+                            <p>
+                                Defines the authentication policy settings for WSO2 API Manager.
+                            </p>
+                        </div>
+                        <div class="params-wrap">
+                            <div class="param">
+                                <div class="param-name">
+                                  <span class="param-name-wrap"> <code>disable_account_disable_handler</code> </span>
+                                </div>
+                                <div class="param-info">
+                                    <div>
+                                        <p>
+                                            <span class="param-type string"> boolean </span>
+                                            
+                                        </p>
+                                        <div class="param-default">
+                                            <span class="param-default-value">Default: <code>false</code></span>
+                                        </div>
+                                        <div class="param-possible">
+                                            <span class="param-possible-values">Possible Values: <code>true,false</code></span>
+                                        </div>
+                                    </div>
+                                    <div class="param-description">
+                                        <p>Disables the account disable handler during authentication. Note that this configuration is available in wso2am-4.7.0, wso2am-universal-gw-4.7.0, wso2am-acp-4.7.0, and wso2am-tm-4.7.0 starting from update level 9.</p>
+                                    </div>
+                                </div>
+                            </div><div class="param">
+                                <div class="param-name">
+                                  <span class="param-name-wrap"> <code>disable_account_confirmation_validation_handler</code> </span>
+                                </div>
+                                <div class="param-info">
+                                    <div>
+                                        <p>
+                                            <span class="param-type string"> boolean </span>
+                                            
+                                        </p>
+                                        <div class="param-default">
+                                            <span class="param-default-value">Default: <code>false</code></span>
+                                        </div>
+                                        <div class="param-possible">
+                                            <span class="param-possible-values">Possible Values: <code>true,false</code></span>
+                                        </div>
+                                    </div>
+                                    <div class="param-description">
+                                        <p>Disables the account confirmation validation handler during authentication. Note that this configuration is available in wso2am-4.7.0, wso2am-universal-gw-4.7.0, wso2am-acp-4.7.0, and wso2am-tm-4.7.0 starting from update level 9.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+
