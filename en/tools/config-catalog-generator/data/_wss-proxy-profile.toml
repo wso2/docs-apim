@@ -1,0 +1,14 @@
+# Example deployment.toml entry
+[[transport.wss.proxy_profile]]
+target_hosts = ["secure-backend\\.corp"]
+proxy_host = "proxy.corp.internal"
+proxy_port = 3128
+proxy_username = "<proxy-username>"
+proxy_password = "<proxy-password>"
+bypass_hosts = ["localhost", "127\\.0\\.0\\.1"]
+
+[[transport.wss.proxy_profile]]
+target_hosts = ["*"]
+proxy_host = "proxy.corp.internal"
+proxy_port = 3128
+bypass_hosts = ["localhost"]
