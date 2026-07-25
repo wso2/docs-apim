@@ -6,7 +6,7 @@ This page covers known issues, error patterns, and how to resolve them when usin
 
 When setting up the plugins, make sure you follow the guide that matches your Backstage architecture:
 
-- If you use the **New Backend System**, follow the [Standard Setup](setup/installation-and-configuration.md).
+- If you use the **New Backend System**, follow the [Latest Setup](setup/latest-setup.md).
 - If you use the **Legacy Backend System**, follow the [Legacy Setup](setup/legacy-setup.md).
 
 If you have a **hybrid setup** (e.g., using the New Backend System with the Legacy Frontend System, or vice versa), simply follow the specific backend/frontend instructions suited for your instance.
