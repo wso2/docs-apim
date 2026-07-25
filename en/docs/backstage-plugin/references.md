@@ -102,7 +102,7 @@ This page provides reference information for the WSO2 Backstage plugin suite, in
   <tr>
     <td>gateways[].discoveryUrl</td>
     <td>string</td>
-    <td>The endpoint used to fetch API deployments from the gateway directly (e.g., &lt;GATEWAY_URL&gt;/rest-apis).</td>
+    <td>The endpoint used to fetch API deployments from the gateway directly (e.g., &lt;GATEWAY_URL&gt;/rest-apis). Only APIs onboarded through the WSO2 API Platform Publisher are returned by this endpoint. APIs created directly as Kubernetes CRDs on the gateway (e.g., via OpenChoreo's <code>api-management</code> trait) are not surfaced and will not be discovered.</td>
   </tr>
   <tr>
     <td>gateways[].discoveryUsername</td>
