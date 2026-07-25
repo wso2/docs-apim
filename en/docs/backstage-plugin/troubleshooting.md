@@ -51,6 +51,6 @@ The catalog provider runs on a schedule. If you have done some changes to WSO2 A
 - The API is subscriptionless.
 - API key invocation is enabled in the WSO2 configuration.
 - The API is deployed (has an active revision/deployment).
-- The API was discovered through WSO2 (not a self-hosted gateway or from a third party gateway like AWS etc).
+- The API was discovered through WSO2 (not a self hosted gateway or from a third party gateway like AWS etc).
 
 We provide user-friendly notifications and error messages directly from the Try Out panel to help diagnose the issue. However, if these messages are not helpful, you can check the configurations in the WSO2 API Manager directly.
