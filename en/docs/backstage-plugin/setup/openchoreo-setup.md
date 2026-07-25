@@ -15,6 +15,6 @@ backend.add(import('@wso2/backstage-plugin-wso2-api-manager-backend'));
 
 ## 2. Frontend Setup
 
-For the frontend, Choreo requires the legacy setup. Follow the [Legacy Frontend Setup](./legacy-setup.md#legacy-frontend-setup) instructions to configure your application's UI.
+For the frontend, Choreo requires the legacy setup. Follow the [Legacy Frontend Setup](./legacy-setup.md#legacy-frontend) instructions to configure your application's UI.
 
 Once both are configured, you are good to go!
