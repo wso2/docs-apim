@@ -16,11 +16,11 @@ Before installing the WSO2 Backstage plugins, ensure your environment meets thes
 
 The WSO2 integration consists of three packages that work together. You need all three for the full experience:
 
-| Package                                                   | Purpose                                                             |
-| -----------------------------------------------------------| ---------------------------------------------------------------------|
-| `@wso2/backstage-plugin-wso2-api-manager`                 | Frontend UI — the main page and entity cards                        |
-| `@wso2/backstage-plugin-wso2-api-manager-backend`         | Backend plugin — API proxying and runtime operations                |
-| `@wso2/backstage-plugin-catalog-backend-module-wso2-apim` | Catalog module — automatic discovery and ingestion of WSO2 entities |
+| Package                                                           | Purpose                                                             |
+| -------------------------------------------------------------------| ---------------------------------------------------------------------|
+| `@wso2/backstage-plugin-wso2-api-platform`                        | Frontend UI — the main page and entity cards                        |
+| `@wso2/backstage-plugin-wso2-api-platform-backend`                | Backend plugin — API proxying and runtime operations                |
+| `@wso2/backstage-plugin-catalog-backend-module-wso2-api-platform` | Catalog module — automatic discovery and ingestion of WSO2 entities |
 
 ## Installation
 
@@ -28,10 +28,10 @@ Install the full suite in your Backstage application using Yarn:
 
 ```bash
 # Frontend plugin — add to your app package
-yarn workspace app add @wso2/backstage-plugin-wso2-api-manager
+yarn workspace app add @wso2/backstage-plugin-wso2-api-platform
 
 # Backend plugin and catalog module — add to your backend package
-yarn workspace backend add @wso2/backstage-plugin-wso2-api-manager-backend @wso2/backstage-plugin-catalog-backend-module-wso2-apim
+yarn workspace backend add @wso2/backstage-plugin-wso2-api-platform-backend @wso2/backstage-plugin-catalog-backend-module-wso2-api-platform
 ```
 
 
@@ -39,45 +39,56 @@ yarn workspace backend add @wso2/backstage-plugin-wso2-api-manager-backend @wso2
 
 After installation, check your package.json files for the expected entries:
 
-- **packages/app/package.json** — should list `@wso2/backstage-plugin-wso2-api-manager`
-- **packages/backend/package.json** — should list `@wso2/backstage-plugin-wso2-api-manager-backend` and `@wso2/backstage-plugin-catalog-backend-module-wso2-apim`
+- **packages/app/package.json** — should list `@wso2/backstage-plugin-wso2-api-platform`
+- **packages/backend/package.json** — should list `@wso2/backstage-plugin-wso2-api-platform-backend` and `@wso2/backstage-plugin-catalog-backend-module-wso2-api-platform`
 
 If those entries are present, the plugins are correctly integrated into your workspace and ready for configuration.
 
 ## Configuration
 
-After installing, add the WSO2 configuration block to your app-config.yaml. Note that you can enable both **wso2PlatformGateway** and **wso2ApiManager** or disable one. If you are running in a local environment, you can set **tls.rejectUnauthorized: false**.
+After installing, update your `app-config.yaml` with the following configurations. Note that you can enable both **wso2ApiPlatform** and **wso2ApiPlatformGateway**, or just one depending on your setup. For a detailed breakdown of every configuration property, please see the [References](../references.md).
 
-For a detailed breakdown of every configuration property, please see the [References](../references.md).
+First, add the following configuration under `catalog.providers`:
 
 ```yaml
-wso2PlatformGateway:
-  enabled: true
-  gateways:
-    - name: APIPlatform
-      urls:
-        - https://<YOUR_GATEWAY_URL>
-      discoveryUrl: https://<YOUR_DISCOVERY_URL>/rest-apis
-      discoveryUsername: <YOUR_USERNAME>
-      discoveryPassword: <YOUR_PASSWORD>
-      description: 'Gateways in wso2 API platform environment (config_dump discovery)'
+catalog:
+  providers:
+    wso2ApiPlatform:
+      # TODO: Update the base URL for the WSO2 APIM Entity Provider
+      baseUrl: ${WSO2_BASE_URL}
+      namespace: wso2
+      username: ${WSO2_APIM_USERNAME}
+      password: ${WSO2_APIM_PASSWORD}
+      schedule:
+        frequency:
+          minutes: ${WSO2_SYNC_FREQUENCY_MINUTES}
+        timeout:
+          minutes: ${WSO2_SYNC_TIMEOUT_MINUTES}
+        initialDelay:
+          seconds: ${WSO2_SYNC_INITIAL_DELAY_SECONDS}
+```
 
-wso2ApiManager:
+Next, put this below everything in the config, as an independent configuration block. If you are running in a local environment, you can set `tls.rejectUnauthorized: false`.
+
+```yaml
+wso2ApiPlatform:
   enabled: true
+  # Maximum time (in seconds) the Backstage plugin will wait for a response when making an HTTP request to the WSO2 API Manager instance before aborting the request. Default is 30.
+  requestTimeoutSeconds: 30
   # TODO: Update the base URL of your WSO2 API Manager instance
-  baseUrl: https://<WSO2_HOST>:<PORT>
-  publisherBasePath: /api/am/publisher/v4
-  developerBasePath: /api/am/devportal/v3
-  serviceCatalogBasePath: /api/am/service-catalog/v1
+  baseUrl: ${WSO2_BASE_URL}
+  publisherBasePath: ${WSO2_PUBLISHER_BASE_PATH}
+  developerBasePath: ${WSO2_DEVPORTAL_BASE_PATH}
+  serviceCatalogBasePath: ${WSO2_SERVICE_CATALOG_BASE_PATH}
   tls:
-    rejectUnauthorized: true
+    rejectUnauthorized: ${WSO2_TLS_REJECT_UNAUTHORIZED}
   auth:
     # TODO: Update with your WSO2 APIM application credentials
-    clientId: <WSO2_SERVICE_ACCOUNT_CLIENT_ID>
-    clientSecret: <WSO2_SERVICE_ACCOUNT_CLIENT_SECRET>
+    clientId: ${WSO2_CLIENT_ID}
+    clientSecret: ${WSO2_CLIENT_SECRET}
     # TODO: Update the token URL and grant type if necessary
-    tokenUrl: https://<WSO2_HOST>:<PORT>/oauth2/token
-    additionalScopes:
+    tokenUrl: ${WSO2_BASE_URL}/oauth2/token
+    requiredScopes:
       - apim:api_view
       - apim:mcp_server_view
       - apim:mcp_server_create
@@ -86,24 +97,27 @@ wso2ApiManager:
       - apim:mcp_server_import_export
       - apim:mcp_server_list_view
       - apim:llm_provider_read
+      - apim:publisher_settings
+      - apim:api_create
+      - apim:api_publish
+      - apim:api_import_export
+      - apim:mcp_server_create
+      - apim:mcp_server_list_view
+
     grantType: client_credentials
   catalogSyncTimeoutSeconds: 60
 
-catalog:
-  providers:
-    wso2Apim:
-      # TODO: Update the base URL for the WSO2 APIM Entity Provider
-      baseUrl: https://<WSO2_HOST>:<PORT>
-      namespace: wso2
-      username: <YOUR_USERNAME>
-      password: <YOUR_PASSWORD>
-      schedule:
-        frequency:
-          minutes: 15
-        timeout:
-          minutes: 5
-        initialDelay:
-          seconds: 15
+wso2ApiPlatformGateway:
+  enabled: true
+  gateways:
+    - name: Self-Hosted-1
+      environmentType: Development
+      urls:
+        - ${WSO2_GATEWAY_SELF_HOSTED_URL}
+      discoveryUrl: ${WSO2_GATEWAY_SELF_HOSTED_DISCOVERY_URL}
+      discoveryUsername: ${WSO2_GATEWAY_DISCOVERY_USERNAME}
+      discoveryPassword: ${WSO2_GATEWAY_DISCOVERY_PASSWORD}
+      description: 'Gateways in wso2 API platform environment (config_dump discovery)'
 ```
 
 
