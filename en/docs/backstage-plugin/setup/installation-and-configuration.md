@@ -124,5 +124,6 @@ Now that you have installed the plugins and updated your configuration, choose t
 
 - **[Latest Backstage Setup](./latest-setup.md)**: If you are using the latest Backstage backend and frontend systems.
 - **[Legacy Backstage Setup](./legacy-setup.md)**: If your application is still using the legacy backend or frontend systems.
+- **[OpenChoreo Setup](./openchoreo-setup.md)**: If you are deploying your Backstage instance on the OpenChoreo platform.
 
 Once you have configured the setup, you can see our [tutorials](./tutorials.md) to get hands-on experience using the plugin features.
