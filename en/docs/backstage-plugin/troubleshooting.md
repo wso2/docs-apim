@@ -17,16 +17,16 @@ If you see a Gateway Discovery Warning on the APIs tab:
 
 ![Gateway Discovery Warning](../assets/img/backstage-plugin/gateway-discovery-warning.png)
 
-First, check if API Manager and Platform Gateway are enabled in your app-config.yaml:
+First, check if WSO2 API Platform and WSO2 API Platform Gateway are enabled in your app-config.yaml:
 ```yaml
-wso2ApiManager:
+wso2ApiPlatform:
   enabled: true
   
-wso2PlatformGateway:
+wso2ApiPlatformGateway:
   enabled: true
 ```
 
-The WSO2 API Manager and Platform Gateway integrations work independently. If you only need to use one of them (e.g., just the API Manager), you can simply set enabled: false for the other in your configuration. The plugin will continue to function normally without displaying offline warnings for the disabled component.
+The WSO2 API Platform and WSO2 API Platform Gateway integrations work independently. If you only need to use one of them (e.g., just the WSO2 API Platform), you can simply set enabled: false for the other in your configuration. The plugin will continue to function normally without displaying offline warnings for the disabled component.
 
 ## Connection fails due to self-signed certificate (TLS) errors
 
