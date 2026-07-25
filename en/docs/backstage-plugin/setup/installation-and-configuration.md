@@ -101,9 +101,6 @@ wso2ApiPlatform:
       - apim:api_create
       - apim:api_publish
       - apim:api_import_export
-      - apim:mcp_server_create
-      - apim:mcp_server_list_view
-
     grantType: client_credentials
   catalogSyncTimeoutSeconds: 60
 
