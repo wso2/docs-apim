@@ -681,7 +681,7 @@ nav:
             - Overview: backstage-plugin/overview.md
             - Getting Started:
                 - Installation & Prerequisites: backstage-plugin/setup/installation-and-configuration.md
-                - Configure for Your Backend System:
+                - Configure for Your Backstage System:
                     - New Backend System: backstage-plugin/setup/latest-setup.md
                     - Legacy Backend & Frontend System: backstage-plugin/setup/legacy-setup.md
                 - Deploying on OpenChoreo: backstage-plugin/setup/openchoreo-setup.md
