@@ -7,6 +7,9 @@ Follow the instructions given below to configure AWS API Gateway as a Federated 
 
 ## Step 1: Configure User Credentials in AWS API Gateway
 
+!!!note
+    This step creates the static Access Key and Secret Key used by the first authentication method described in Step 2. If WSO2 API Manager runs on AWS infrastructure and you intend to use the IAM role of the host instead, you can skip this step.
+
 1. Login to your [AWS](https://console.aws.amazon.com/) account and navigate to Console Home. Search for “IAM” in the search bar.
 2. Click on the IAM service. Navigate to **Users** under **Access Management**.
 3. Create an IAM user in AWS with `AmazonAPIGatewayAdministrator` permission.
@@ -27,9 +30,17 @@ Follow the instructions given below to configure AWS API Gateway as a Federated 
 
 3. Add a new Gateway Environment.
     1. Select the Gateway type as AWS and provide the relevant details in the fields accordingly.
-    2. Configure the credentials under Gateway configurations:
-        * **Access Key & Secret Key:** Enter the static keys obtained in Step 1. Alternatively, leave these blank to fall back to the host's IAM Role (e.g., if WSO2 is running on an EC2 instance or EKS pod).
-        * **IAM Role ARN (Optional):** Enter the ARN of an IAM Role to assume (e.g., `arn:aws:iam::123456789012:role/MyRole`). This enables secure cross-account deployments.
+    2. Under **Gateway Connector Configurations**, provide the following:
+        - **AWS Region** – The region that hosts your AWS API Gateway (e.g., `us-east-1`).
+        - **Access Key** and **Secret Key** – The static keys obtained in Step 1. Leave both blank to use the IAM role of the host on which WSO2 API Manager runs, such as an EC2 instance profile or an EKS pod identity.
+        - **IAM Role ARN** – Optional. The ARN of an IAM role to assume (e.g., `arn:aws:iam::123456789012:role/MyRole`), which enables cross-account deployments.
+        - **Stage Name** – The default stage to which the APIs are deployed in AWS API Gateway (e.g., `prod`).
+
+        The **IAM Role ARN** is not an alternative to the credentials above it. When provided, the role is assumed using whichever credentials were resolved, so it can be combined with either the static keys or the IAM role of the host.
+
+        !!!note
+            To assume a role, the identity resolved from the credentials above must be allowed to perform the `sts:AssumeRole` action, and the trust policy of the role being assumed must permit that identity to assume it. The assumed role must also carry the API Gateway permissions described in Step 1.
+
     3. Save the configurations.
 
     [![add aws gateway environment]({{base_path}}/assets/img/deploy/add-aws-gw-environment.png){: style="width:90%"}]({{base_path}}/assets/img/deploy/add-aws-gw-environment.png)

@@ -54,22 +54,15 @@ Discover and manage APIs deployed on Kong Gateway. WSO2 API Manager supports bot
 [Learn more about Kong Gateway integration]({{base_path}}/api-gateway/federated-gateways/kong/kong-standalone/discover-apis-on-kong-gateway/)
 
 ### Google Apigee Gateway
-Discover and manage API proxies deployed on Google Apigee. The built-in 
-Apigee gateway connector enables automatic discovery of API proxies from your 
-Apigee organization and brings them under centralized WSO2 API Manager 
-governance.
-
+Discover and manage API proxies deployed on Google Apigee. The built-in Apigee gateway connector enables discovery of API proxies from your Apigee organization and brings them under centralized WSO2 API Manager governance.
 
 **Key Features:**
 - Discover existing API proxies from Apigee organizations
-- Multi-strategy OpenAPI spec retrieval (API Hub, proxy bundle 
-reconstruction, wildcard fallback)
+- OpenAPI specification retrieval from Apigee API Hub
 - GCP Service Account authentication
 - Centralized governance from WSO2 API Manager
 
-
-[Learn more about Apigee Gateway discovery]({{base_path}}/api-gateway/
-federated-gateways/apigee/discover-apis-on-apigee-gateway/)
+[Learn more about Apigee Gateway discovery]({{base_path}}/api-gateway/federated-gateways/apigee/discover-apis-on-apigee-gateway/)
 
 ### Envoy Gateway
 Discover and manage APIs deployed on Envoy Gateway in Kubernetes environments. 
@@ -119,7 +112,9 @@ To get started with federated gateways:
 1. **Choose Your Gateway**: Select the appropriate federated gateway based on your infrastructure (Apigee, AWS, Azure, Kong, Envoy, or custom).
 2. **Configure Credentials**: Set up the necessary credentials and permissions in your chosen gateway platform.
 3. **Register Gateway**: Add the federated gateway as a new gateway environment in the WSO2 API Manager Admin Portal.
-4. **Deploy APIs**: Create APIs in the Publisher Portal and deploy them to your federated gateway.
+4. **Deploy or Discover APIs**: Depending on the mode the gateway is registered in:
+    - **Write-Only or Read-Write**: Create APIs in the Publisher Portal and deploy them to your federated gateway.
+    - **Read-Only or Read-Write**: Discover the APIs that already exist on the gateway and import them into WSO2 API Manager. See [Federated API Discovery]({{base_path}}/api-gateway/federated-gateways/federated-api-discovery/).
 5. **Monitor and Manage**: Use WSO2 API Manager to monitor and manage your APIs across all federated gateways.
 
 ## Additional Resources
