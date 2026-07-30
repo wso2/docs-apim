@@ -142,6 +142,10 @@ If building AI agents that need to interact with your business systems, implemen
 ### Use Smart Routing for Production
 Implement [smart routing]({{base_path}}/ai-gateway/multi-model-routing/overview/) to balance cost and performance. Route simple queries to cost-effective models and complex reasoning tasks to premium models. Set up automated failover between providers to maintain availability.
 
+## Limitations
+
+Streaming is not supported for AI APIs when using the **WSO2 API Manager Universal Gateway**.
+
 ## Next Steps
 
 Choose your path based on your use case:
