@@ -42,17 +42,17 @@ Follow the steps below to configure Kong Gateway as a Federated API Gateway for 
 
     1. Enter the **Name** obtained in Step 2 under Gateway configurations and select the **Gateway type** as **Kong Gateway** and provide the relevant details in the fields accordingly.
     2. Select the Gateway mode as ReadOnly, or ReadWrite based on the requirement.
-    3. Provide the Schedule time for the API discovery.
+    3. Provide the scheduling interval for API discovery in minutes (e.g., set to `0` to disable background scheduling).
     4. Select the **Deployment Type** as **Standalone** under **Gateway Connector configurations**.
-    5. Enter the **Admin URL** with derived from the **Admin API** obtained in Step 2. Here the URL should be in the format `https://<region>.api.konghq.com` under **Gateway Connector configurations**. Please note that the Admin URL should not contain the `/v2/control-planes` basepath.
+    5. Enter the **Admin URL** derived from the **Admin API** obtained in Step 2. Here the URL should be in the format `https://<region>.api.konghq.com` under **Gateway Connector configurations**. Please note that the Admin URL should not contain the `/v2/control-planes` basepath.
     6. Enter the **Control Plane ID** derived from the **ID** obtained in Step 2 under **Gateway Connector configurations**.
     7. Enter the **Access Token** obtained in Step 1 under **Gateway configurations**.
-    8. Enter the **Vhost** derived from the **Proxy URL** obtained in Step 2. Here the for the Vhost provide only the hostname part of the Proxy URL.
+    8. Enter the **Vhost** derived from the **Proxy URL** obtained in Step 2. Here, for the Vhost, provide only the hostname part of the Proxy URL.
     9. Click **Add** button to add the Gateway.
 
          [![add kong gateway environment]({{base_path}}/assets/img/deploy/add-kong-gw-discovery.png){: style="width:90%"}]({{base_path}}/assets/img/deploy/add-kong-gw-discovery.png)
 
-## Step 4 : Discover the API and Publish the API to Developer Portal
+## Step 4: Discover the API and Publish the API to Developer Portal
 
 1. Sign in to the Publisher Portal.
 
@@ -65,7 +65,8 @@ Follow the steps below to configure Kong Gateway as a Federated API Gateway for 
         https://<hostname>:9443/publisher
         ```
 
-2. Select the Discovered API and click on the **Publish** button to publish the API to DevPortal.
+2. Discover and import your APIs. For step-by-step instructions, see [Federated API Discovery]({{base_path}}/api-gateway/federated-gateways/federated-api-discovery/).
+3. Once imported, select the Discovered API and click on the **Publish** button to publish the API to DevPortal.
 
 ## Step 5 : Invoke the API
 
