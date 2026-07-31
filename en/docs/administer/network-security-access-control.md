@@ -18,7 +18,7 @@ When an outbound request is initiated:
 2. If allowed, tenant-level validation is applied (if enabled)
 3. The request proceeds only if all validations pass
 
-Platform-level validation is activated automatically when the `[apim.network_security.access_control]` configuration block is present in `deployment.toml`. If the block is absent, platform-level validation is skipped entirely.
+Platform-level validation is activated automatically when the `[server.network_security.access_control]` configuration block is present in `deployment.toml`. If the block is absent, platform-level validation is skipped entirely.
 
 ---
 
@@ -80,7 +80,7 @@ If DNS resolution fails at this stage, the request is **blocked**.
 ## Blocking Private Network Access
 
 !!! note
-    `block_private_network_access` is only applicable when the `[apim.network_security.access_control]` configuration block is present. In `allow` mode, this parameter has **no effect**. The hosts list is the sole authority for what is permitted, and `block_private_network_access` is never evaluated. In `deny` mode, this check runs after host and resolved-IP list validation passes. When `mode` is absent, `block_private_network_access` is the only check applied.
+    `block_private_network_access` is only applicable when the `[server.network_security.access_control]` configuration block is present. In `allow` mode, this parameter has **no effect**. The hosts list is the sole authority for what is permitted, and `block_private_network_access` is never evaluated. In `deny` mode, this check runs after host and resolved-IP list validation passes. When `mode` is absent, `block_private_network_access` is the only check applied.
 
 When enabled, outbound requests to private or internal IP ranges are blocked after DNS resolution.
 
@@ -109,7 +109,7 @@ If DNS resolution fails, the request is blocked.
 Configure in `deployment.toml`:
 
 ```toml
-[apim.network_security.access_control]
+[server.network_security.access_control]
 mode = "allow"
 hosts = ["api.github.com", "*.wso2.com"]
 block_private_network_access = true
@@ -122,7 +122,7 @@ block_private_network_access = true
 | `block_private_network_access` | boolean | `false` | When enabled, blocks requests whose resolved IP falls within a private or reserved network range. **Only evaluated in `deny` mode** (after host and resolved-IP list validation) and when `mode` is absent. Has no effect in `allow` mode. |
 
 !!! note
-    Validation is only active when the `[apim.network_security.access_control]` configuration block is explicitly added to `deployment.toml`. If the block is absent, platform-level validation is skipped entirely.
+    Validation is only active when the `[server.network_security.access_control]` configuration block is explicitly added to `deployment.toml`. If the block is absent, platform-level validation is skipped entirely.
 
 ---
 
@@ -131,7 +131,7 @@ block_private_network_access = true
 ### `allow` mode with empty `hosts`
 
 ```toml
-[apim.network_security.access_control]
+[server.network_security.access_control]
 mode = "allow"
 hosts = []
 block_private_network_access = true
@@ -142,7 +142,7 @@ All outbound destinations are blocked. In `allow` mode, only explicitly listed h
 ### `deny` mode with empty `hosts`
 
 ```toml
-[apim.network_security.access_control]
+[server.network_security.access_control]
 mode = "deny"
 hosts = []
 block_private_network_access = true
@@ -184,7 +184,7 @@ Configure in `tenant-conf.json`:
 ### 1. Allow only trusted external hosts
 
 ```toml
-[apim.network_security.access_control]
+[server.network_security.access_control]
 mode = "allow"
 hosts = ["api.github.com", "*.wso2.com", "localhost"]
 block_private_network_access = true
@@ -206,7 +206,7 @@ Results:
 ### 2. Block specific hosts, allow everything else
 
 ```toml
-[apim.network_security.access_control]
+[server.network_security.access_control]
 mode = "deny"
 hosts = ["localhost", "*.internal"]
 block_private_network_access = true
@@ -246,7 +246,7 @@ Behavior:
 ### 4. Deny mode with no denylist (private network protection only)
 
 ```toml
-[apim.network_security.access_control]
+[server.network_security.access_control]
 mode = "deny"
 hosts = []
 block_private_network_access = true
@@ -266,7 +266,7 @@ Results:
 
 The network access-control policy is also enforced on remote `$ref` URLs embedded inside OpenAPI/Swagger definitions. When an API definition contains external `$ref` references (for example, `$ref: 'https://schemas.example.com/common.yaml#/components/schemas/Foo'`), WSO2 API Manager validates each referenced URL against the configured policy before fetching it.
 
-This enforcement applies during the OpenAPI/Swagger validate and import operations, for OAS 2.0, OAS 3.0, and OAS 3.1. The same `[apim.network_security.access_control]` platform-level configuration and `NetworkSecurityAccessControl` tenant-level configuration described above apply. No additional configuration is required.
+This enforcement applies during the OpenAPI/Swagger validate and import operations, for OAS 2.0, OAS 3.0, and OAS 3.1. The same `[server.network_security.access_control]` platform-level configuration and `NetworkSecurityAccessControl` tenant-level configuration described above apply. No additional configuration is required.
 
 #### Behavior
 
@@ -275,7 +275,7 @@ This enforcement applies during the OpenAPI/Swagger validate and import operatio
 - Only remote `http` and `https` `$ref` URLs are validated. Local and relative `$ref` references (for example, `$ref: '#/components/schemas/Foo'` or `$ref: './models.yaml#/Bar'`) are unaffected.
 
 !!! note "Backwards compatibility: enforcement requires a configured policy"
-    Remote `$ref` enforcement is active only when a network access-control policy is configured (a platform-level `[apim.network_security.access_control]` block in `deployment.toml`, or a tenant-level `NetworkSecurityAccessControl` policy in `tenant-conf.json`). If neither is present, remote `$ref` resolution is unrestricted and behaves exactly as in earlier releases: references are resolved without any host validation, including private-network and link-local addresses. This preserves backwards compatibility for deployments that have not opted into the policy. To enable `$ref` enforcement, configure the policy as described above.
+    Remote `$ref` enforcement is active only when a network access-control policy is configured (a platform-level `[server.network_security.access_control]` block in `deployment.toml`, or a tenant-level `NetworkSecurityAccessControl` policy in `tenant-conf.json`). If neither is present, remote `$ref` resolution is unrestricted and behaves exactly as in earlier releases: references are resolved without any host validation, including private-network and link-local addresses. This preserves backwards compatibility for deployments that have not opted into the policy. To enable `$ref` enforcement, configure the policy as described above.
 
 ### Limitations
 
@@ -291,7 +291,7 @@ The network access-control policy is also enforced on remote references embedded
 - **Nested WSDL/XSD imports (WSDL 1.1 and WSDL 2.0)**: `wsdl:import`, `xsd:import`, and `xsd:include` (plus `xsd:redefine` for WSDL 1.1) whose `location`/`schemaLocation` points at a remote host.
 - **SOAP-to-REST type resolution**: the namespace-derived schema fetch performed when generating REST APIs from a WSDL (`implementationType=SOAPTOREST`).
 
-Enforcement applies during the WSDL validate and import operations, using the same `[apim.network_security.access_control]` platform-level and `NetworkSecurityAccessControl` tenant-level configuration described above. No additional configuration is required.
+Enforcement applies during the WSDL validate and import operations, using the same `[server.network_security.access_control]` platform-level and `NetworkSecurityAccessControl` tenant-level configuration described above. No additional configuration is required.
 
 #### Behavior
 
@@ -300,7 +300,7 @@ Enforcement applies during the WSDL validate and import operations, using the sa
 - Only remote `http`/`https` references are gated. The top-level WSDL URL is validated separately by the top-level URL check described earlier on this page.
 
 !!! note "Backwards compatibility: enforcement requires a configured policy"
-    As with OpenAPI `$ref` resolution, nested WSDL/XSD reference enforcement is active only when a network access-control policy is configured (a platform-level `[apim.network_security.access_control]` block in `deployment.toml`, or a tenant-level `NetworkSecurityAccessControl` policy in `tenant-conf.json`). If neither is present, nested references resolve exactly as in earlier releases, with no host validation.
+    As with OpenAPI `$ref` resolution, nested WSDL/XSD reference enforcement is active only when a network access-control policy is configured (a platform-level `[server.network_security.access_control]` block in `deployment.toml`, or a tenant-level `NetworkSecurityAccessControl` policy in `tenant-conf.json`). If neither is present, nested references resolve exactly as in earlier releases, with no host validation.
 
 ### Limitations
 
@@ -312,7 +312,7 @@ Enforcement applies during the WSDL validate and import operations, using the sa
     To import WSDL 2.0 services under `allow` mode, add the XML-standards hosts to the allow-list:
 
     ```toml
-    [apim.network_security.access_control]
+    [server.network_security.access_control]
     mode = "allow"
     hosts = ["api.github.com", "www.w3.org", "schemas.xmlsoap.org"]
     block_private_network_access = true
