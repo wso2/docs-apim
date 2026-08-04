@@ -56,8 +56,10 @@ Symmetric encryption uses an AES-256 encryption key that must be initialized bef
 ### Choose a ciphertext format
 
 `apictl secret create symmetric` accepts an optional second argument that selects the shape of the
-encrypted value, depending on which system will read it back. All three use the exact same
-AES-256 key initialized above &mdash; only the wrapping around the ciphertext changes.
+encrypted value, depending on which system will read it back. In every sub-mode, apictl prints (or
+writes to a file) a single base64-encoded string; for `internal` and `external`, that string decodes
+to the JSON shown below. All three sub-modes use the exact same AES-256 key initialized above
+&mdash; only the wrapping around the ciphertext changes.
 
 <table>
     <tr>
@@ -75,7 +77,7 @@ AES-256 key initialized above &mdash; only the wrapping around the ciphertext ch
     <tr>
         <td>Internal</td>
         <td><code>apictl secret create symmetric internal</code></td>
-        <td><code>{"c": "&lt;base64 inner&gt;", "t": "AES/GCM/NoPadding", "iv": "..."}</code>, where the inner value decodes to <code>{"cipher", "initializationVector", "keyId"}</code></td>
+        <td><code>{"c": "&lt;base64 inner&gt;", "t": "AES/GCM/NoPadding", "iv": "..."}</code>, where the base64-decoded inner value is <code>{"cipher": "...", "initializationVector": "...", "keyId": "..."}</code></td>
         <td>The target runtime decrypts secrets via carbon-crypto-service (self-contained ciphertext format)</td>
     </tr>
     <tr>
