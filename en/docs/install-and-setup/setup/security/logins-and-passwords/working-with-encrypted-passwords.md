@@ -96,10 +96,6 @@ While you are able to encrypt passwords using symmetric or asymmetric encryption
 
                 openssl rand -hex 32
 
-        !!! warning "Important"
-
-            When [encrypting secured endpoint passwords]({{base_path}}/install-and-setup/setup/security/logins-and-passwords/working-with-encrypted-passwords/#encrypting-secured-endpoint-passwords) to enable backend security encryption using this configuration, or if you have written custom mediation sequences that use secure vault lookup (`vault-lookup()`), you must use the same key for the Cipher Tool as the key configured in the `deployment.toml` file. For instructions on generating and configuring this key, see [Generate a secret key]({{base_path}}/install-and-setup/setup/security/encryption/symmetric-encryption/#generate-a-secret-key).
-
         - **For Linux**: `./ciphertool.sh -Dconfigure -Dsymmetric -Dkey.based.encryption`
 
         - **For Windows**: `ciphertool.bat -Dconfigure -Dsymmetric -Dkey.based.encryption`
