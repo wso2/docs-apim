@@ -5676,7 +5676,7 @@
                             "name": "max_wait_millis",
                             "type": "integer",
                             "required": false,
-                            "default": "-1 (Redis default)",
+                            "default": "-1 (Jedis default)",
                             "possible": "",
                             "description": "The maximum time (in ms) a thread waits for a pooled connection when the pool is exhausted. The default of -1 is the underlying Redis/Jedis client's own default (block indefinitely, no timeout), not a value tuned for this product. Do not keep this default in production — always set an explicit bound so request threads fail fast instead of hanging if Redis is slow or overloaded."
                         },

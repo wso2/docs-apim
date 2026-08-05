@@ -15203,7 +15203,7 @@ max_wait_millis = 2000
                                             
                                         </p>
                                         <div class="param-default">
-                                            <span class="param-default-value">Default: <code>-1 (Redis default)</code></span>
+                                            <span class="param-default-value">Default: <code>-1 (Jedis default)</code></span>
                                         </div>
                                         
                                     </div>
