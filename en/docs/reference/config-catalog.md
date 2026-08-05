@@ -15012,7 +15012,7 @@ connection_timeout = 1000
                                         
                                     </div>
                                     <div class="param-description">
-                                        <p>The timeout (in ms) for socket reads after the connection is established. If this is not configured, or is set to 0, the Jedis default of 2000 ms is applied.</p>
+                                        <p>The timeout (in ms) for socket reads after the connection is established. If this is not configured, or is set to 0, the Jedis default of 2000 ms is applied. Note that this configuration is only available from update level 399 onwards.</p>
                                     </div>
                                 </div>
                             </div><div class="param">
@@ -15208,7 +15208,7 @@ max_wait_millis = 2000
                                         
                                     </div>
                                     <div class="param-description">
-                                        <p>The maximum time (in ms) a thread waits for a pooled connection when the pool is exhausted. The default of -1 is the underlying Redis/Jedis client&#39;s own default (block indefinitely, no timeout), not a value tuned for this product. Do not keep this default in production — always set an explicit bound so request threads fail fast instead of hanging if Redis is slow or overloaded.</p>
+                                        <p>The maximum time (in ms) a thread waits for a pooled connection when the pool is exhausted. The default of -1 is the underlying Redis/Jedis client&#39;s own default (block indefinitely, no timeout), not a value tuned for this product. Do not keep this default in production — always set an explicit bound so request threads fail fast instead of hanging if Redis is slow or overloaded. Note that this configuration is only available from update level 399 onwards.</p>
                                     </div>
                                 </div>
                             </div><div class="param">

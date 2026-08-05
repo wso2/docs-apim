@@ -171,6 +171,9 @@ Please note that the above set of configurations are the minimum required config
 !!! warning
     `pool_options.max_wait_millis` defaults to `-1`, inherited from the Redis/Jedis client, which means waiting indefinitely for a connection. This is not recommended for production deployments. Therefore, configure a suitable bounded value based on your deployment requirements.
 
+!!! note
+    The `socket_timeout` and `pool_options.max_wait_millis` configurations are available from U2 level 399 onwards. (wso2am-4.0.0.399)
+
 **Details on configurations under `[throttle_properties]`** are as follows.
 
 | **Config**                                 | **Description**                                                                                                                                                                                                          | **Mandatory/Optional** | **Sample values** | **Default Value** | 
