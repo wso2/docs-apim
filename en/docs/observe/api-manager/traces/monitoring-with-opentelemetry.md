@@ -14,6 +14,9 @@ For more information, see [OpenTelemetry Configurations]({{base_path}}/reference
 !!! note
     At a time, only one of the below types can be enabled.
 
+!!! important "Configuration placement"
+    When adding configurations that start with `apim.` (such as `[apim.open_telemetry]`) to the `deployment.toml` file, ensure that you place them after any existing `apim` configuration blocks in the file. Alternatively, you can add these configurations at the end of the file. Placing `apim.` configurations before the existing `apim` block may cause the product startup to fail.
+
 !!! info
 	**OTEL_RESOURCE_ATTRIBUTES:**
 
