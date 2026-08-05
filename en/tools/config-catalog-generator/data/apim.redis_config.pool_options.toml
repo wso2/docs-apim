@@ -1,0 +1,8 @@
+[apim.redis_config.pool_options]
+test_on_borrow = true
+test_on_return = true
+test_while_idle = true
+max_total = 80
+max_idle = 50
+min_idle = 10
+max_wait_millis = 2000

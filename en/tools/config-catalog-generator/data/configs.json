@@ -5539,6 +5539,207 @@
                 }
             ],
             "exampleFile": "synapse_properties.toml"
+        },
+        {
+            "title": "API-M Redis configurations",
+            "options": [
+                {
+                    "name": "apim.redis_config",
+                    "required": false,
+                    "description": "Redis connection configurations used by the gateway for distributed/hybrid throttling. Declaring this table (with any key set) automatically enables Redis-backed distributed throttling on the node — there is no separate enable flag. If this table is absent entirely, throttling falls back to local in-memory counters.",
+                    "params": [
+                        {
+                            "name": "host",
+                            "type": "string",
+                            "required": true,
+                            "default": "",
+                            "possible": "",
+                            "description": "Host name of the Redis server."
+                        },
+                        {
+                            "name": "port",
+                            "type": "integer",
+                            "required": true,
+                            "default": "",
+                            "possible": "",
+                            "description": "Port of the Redis server."
+                        },
+                        {
+                            "name": "user",
+                            "type": "string",
+                            "required": false,
+                            "default": "",
+                            "possible": "",
+                            "description": "Username of the Redis server. If the Redis server is configured in NOAUTH mode, this is not required. This depends on the Redis server. In Azure Cache for Redis by default 'user' is not required and only the password (access key) is required."
+                        },
+                        {
+                            "name": "password",
+                            "type": "string",
+                            "required": false,
+                            "default": "",
+                            "possible": "",
+                            "description": "Password of the Redis server. If the Redis server is configured in NOAUTH mode, this is not required."
+                        },
+                        {
+                            "name": "database_id",
+                            "type": "integer",
+                            "required": false,
+                            "default": "0",
+                            "possible": "",
+                            "description": "The Redis logical database index (SELECT n) used for throttling data. Use a dedicated index to isolate throttle keys from other Redis tenants on the same server."
+                        },
+                        {
+                            "name": "connection_timeout",
+                            "type": "integer",
+                            "required": false,
+                            "default": "2000",
+                            "possible": "",
+                            "description": "The timeout (in ms) for establishing a connection to the Redis server. If this is not configured, or is set to 0, the Jedis default of 2000 ms is applied."
+                        },
+                        {
+                            "name": "socket_timeout",
+                            "type": "integer",
+                            "required": false,
+                            "default": "2000",
+                            "possible": "",
+                            "description": "The timeout (in ms) for socket reads after the connection is established. If this is not configured, or is set to 0, the Jedis default of 2000 ms is applied."
+                        },
+                        {
+                            "name": "ssl",
+                            "type": "boolean",
+                            "required": false,
+                            "default": "false",
+                            "possible": "true,false",
+                            "description": "Whether to connect to the Redis server over TLS. Enable this for managed Redis offerings that mandate in-transit encryption."
+                        },
+                        {
+                            "name": "gateway_id",
+                            "type": "string",
+                            "required": true,
+                            "default": "",
+                            "possible": "",
+                            "description": "ID of the gateway node. This is used to identify the gateway node, hence should be a unique value for each gateway node."
+                        },
+                        {
+                            "name": "min_gateway_count",
+                            "type": "integer",
+                            "required": false,
+                            "default": "1",
+                            "possible": "",
+                            "description": "This is used to define the minimum number of gateway nodes in the cluster if required. Gateway count of the cluster is calculated by each of the gateway nodes using the redis server and this gateway count is used to calculate the local quota of API requests in the throttling calculations."
+                        },
+                        {
+                            "name": "key_lock_retrieval_timeout",
+                            "type": "integer",
+                            "required": false,
+                            "default": "50",
+                            "possible": "",
+                            "description": "This timeout value defines the timeout value (in ms) that the gateway will wait to acquire the required lock in Redis. This lock is required for gateways to perform syncing of throttle parameters in-between gateway nodes and the Redis server. Optimal default value observed for this is 50ms, and this can be tuned based on the deployment."
+                        }
+                    ]
+                }
+            ],
+            "exampleFile": "apim.redis_config.toml"
+        },
+        {
+            "options": [
+                {
+                    "name": "apim.redis_config.pool_options",
+                    "required": false,
+                    "description": "Jedis connection pool tuning for the Redis connection used by [apim.redis_config].",
+                    "params": [
+                        {
+                            "name": "max_total",
+                            "type": "integer",
+                            "required": false,
+                            "default": "8",
+                            "possible": "",
+                            "description": "Maximum number of total Redis connections (active + idle) that can be allocated by the connection pool at a time."
+                        },
+                        {
+                            "name": "max_idle",
+                            "type": "integer",
+                            "required": false,
+                            "default": "8",
+                            "possible": "",
+                            "description": "The maximum number of idle (unused, kept warm) connections retained in the pool."
+                        },
+                        {
+                            "name": "min_idle",
+                            "type": "integer",
+                            "required": false,
+                            "default": "0",
+                            "possible": "",
+                            "description": "Minimum number of idle Redis connections that should be maintained in the pool."
+                        },
+                        {
+                            "name": "max_wait_millis",
+                            "type": "integer",
+                            "required": false,
+                            "default": "-1 (Redis default)",
+                            "possible": "",
+                            "description": "The maximum time (in ms) a thread waits for a pooled connection when the pool is exhausted. The default of -1 is the underlying Redis/Jedis client's own default (block indefinitely, no timeout), not a value tuned for this product. Do not keep this default in production — always set an explicit bound so request threads fail fast instead of hanging if Redis is slow or overloaded."
+                        },
+                        {
+                            "name": "test_on_borrow",
+                            "type": "boolean",
+                            "required": false,
+                            "default": "false",
+                            "possible": "true,false",
+                            "description": "Whether to validate (PING) a connection's health before handing it out from the pool. Enable this in environments with flaky network paths to Redis to avoid handing out dead connections."
+                        },
+                        {
+                            "name": "test_on_return",
+                            "type": "boolean",
+                            "required": false,
+                            "default": "false",
+                            "possible": "true,false",
+                            "description": "Indicates whether a connection should be validated when returned to the pool."
+                        },
+                        {
+                            "name": "test_while_idle",
+                            "type": "boolean",
+                            "required": false,
+                            "default": "true",
+                            "possible": "true,false",
+                            "description": "Specifies whether idle connections should be validated periodically during eviction runs."
+                        },
+                        {
+                            "name": "block_when_exhausted",
+                            "type": "boolean",
+                            "required": false,
+                            "default": "true",
+                            "possible": "true,false",
+                            "description": "Whether a connection borrow blocks (rather than throwing immediately) when the pool is exhausted. Set this to false to fail fast instead of having request-handling threads stall, bounded otherwise by max_wait_millis."
+                        },
+                        {
+                            "name": "min_evictable_idle_time_millis",
+                            "type": "integer",
+                            "required": false,
+                            "default": "60000",
+                            "possible": "",
+                            "description": "The idle duration (in ms) a pooled connection must remain unused before it becomes eligible for eviction."
+                        },
+                        {
+                            "name": "time_between_eviction_runs_millis",
+                            "type": "integer",
+                            "required": false,
+                            "default": "30000",
+                            "possible": "",
+                            "description": "Time interval (in milliseconds) between idle connection eviction runs. If set to a negative value, eviction will not run."
+                        },
+                        {
+                            "name": "num_tests_per_eviction_run",
+                            "type": "integer",
+                            "required": false,
+                            "default": "-1",
+                            "possible": "",
+                            "description": "Number of connections to examine during each eviction run. A negative value means all idle connections will be tested."
+                        }
+                    ]
+                }
+            ],
+            "exampleFile": "apim.redis_config.pool_options.toml"
         }
     ]
 }
