@@ -64,6 +64,49 @@ Please follow below steps to enable response caching for an API.
     </tbody>
     </table>
 
+## Cache mediator syntax
+
+You can use the cache mediator to control the hash generation behavior without providing a custom hash generator class. The following syntax shows the available cache mediator attributes:
+
+=== "Template"
+    ```xml
+    <cache [timeout="seconds"] [collector=(true | false)] [maxMessageSize="in-bytes"] >
+       <onCacheHit [sequence="key"]>
+        (mediator)+
+       </onCacheHit>?
+       <protocol type="http" >?
+         <methods>string</methods>
+         <headersToExcludeInHash>string</headersToExcludeInHash>
+         <responseCodes>regular expression</responseCodes>
+         <enableCacheControl>(true | false)</enableCacheControl>
+         <includeAgeHeader>(true | false)</includeAgeHeader>
+         <hashGenerator>class</hashGenerator>
+       </protocol>
+       <implementation [maxSize="int"]/>
+    </cache>
+    ```
+
+=== "Example"
+    ```xml
+    <cache scope="per-host" collector="false" hashGenerator="org.wso2.carbon.mediator.cache.digest.HttpRequestHashGenerator" timeout="$!responseCacheTimeOut">
+        <implementation type="memory" maxSize="500"/>
+        <onCacheHit>
+            <property name="api.analytics.cacheHit" value="true" scope="default"/>
+            <respond/>
+        </onCacheHit>
+        <protocol type="HTTP">
+            <methods>*</methods>
+            <headersToExcludeInHash>Postman-Token</headersToExcludeInHash>
+            <headersToIncludeInHash/>
+            <responseCodes>.*</responseCodes>
+            <enableCacheControl>false</enableCacheControl>
+            <includeAgeHeader>false</includeAgeHeader>
+        </protocol>
+    </cache>
+    ```
+
+This configuration allows you to control aspects of hash generation, such as excluding specific headers, without implementing a custom hash generator class.
+
 !!! note
     When running a distributed deployment, you need to enable the JSON stream builders on the API Gateway and maintain the standard builders on the API Developer Portal node.
 
