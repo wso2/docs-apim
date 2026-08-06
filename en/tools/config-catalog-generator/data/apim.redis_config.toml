@@ -1,0 +1,8 @@
+[apim.redis_config]
+host = "localhost"
+port = 6379
+password = "user"
+gateway_id = "GW1"
+min_gateway_count = 1
+socket_timeout = 1000
+connection_timeout = 1000
