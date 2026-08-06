@@ -16021,3 +16021,63 @@ use_username_as_sub_claim = true
         </div>
     </section>
 </div>
+
+
+
+## Authentication Policy
+
+
+<div class="mb-config-catalog">
+    <section>
+        <div class="mb-config-options">
+            <div class="superfences-tabs">
+            
+            <input name="104" type="checkbox" id="_tab_104">
+                <label class="tab-selector" for="_tab_104"><i class="icon fa fa-code"></i></label>
+                <div class="superfences-content">
+                    <div class="mb-config-example">
+<pre><code class="toml">[authentication_policy]
+disable_account_disable_handler = false
+</code></pre>
+                    </div>
+                </div>
+                <div class="doc-wrapper">
+                    <div class="mb-config">
+                        <div class="config-wrap">
+                            <code>[authentication_policy]</code>
+                            
+                            <p>
+                                Defines the authentication policy settings for WSO2 API Manager.
+                            </p>
+                        </div>
+                        <div class="params-wrap">
+                            <div class="param">
+                                <div class="param-name">
+                                  <span class="param-name-wrap"> <code>disable_account_disable_handler</code> </span>
+                                </div>
+                                <div class="param-info">
+                                    <div>
+                                        <p>
+                                            <span class="param-type string"> boolean </span>
+                                            
+                                        </p>
+                                        <div class="param-default">
+                                            <span class="param-default-value">Default: <code>false</code></span>
+                                        </div>
+                                        <div class="param-possible">
+                                            <span class="param-possible-values">Possible Values: <code>true,false</code></span>
+                                        </div>
+                                    </div>
+                                    <div class="param-description">
+                                        <p>Disables the account disable handler during authentication. Note that this configuration is supported from update level 88 onwards.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+
