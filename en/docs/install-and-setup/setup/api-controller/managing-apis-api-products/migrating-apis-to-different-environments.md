@@ -490,6 +490,9 @@ mentioned gateway environments. If the **deployment environments are not provide
 !!! info
     Tiers and sequences are provider-specific. If an exported tier is not already available in the importing environment, that tier is not added to the new environment. However, if an exported API sequence is not available in the importing environment, it is added.
 
+!!! warning
+    For scopes and operations, the API definition file (e.g., `swagger.yaml` in the `Definitions` directory) is the source of truth during an API import. If scopes and operations are added to the `api.yaml` file instead of the API definition, they will be silently dropped during the import.
+
 !!! tip
     **Troubleshooting**  
     

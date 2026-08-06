@@ -143,6 +143,9 @@
 
             Make sure to set the security type as **`oauth2`** when defining the scopes. Also when defining the roles under a particular scope, put them under **x-scopes-bindings:**  as a scope name and roles mapping.        
 
+            !!! warning
+                For scopes and operations, the API definition (Swagger2/OpenAPI3 specification) is the source of truth during an API import. If scopes and operations are added to the `api.yaml` file instead of the API definition, they will be silently dropped during the import.
+
             
         !!! note
             You can define WSO2 API-M supported open API extensions for an API when defining a Swagger2 or OpenAPI3 specification to generate an API. These extensions can be used to define endpoint configurations, runtime configurations, resource level throttling, and API level throttling, transport-level security, CORS configurations and response cache configurations. The list of APIM supported OpenAPI extensions is as follows.
