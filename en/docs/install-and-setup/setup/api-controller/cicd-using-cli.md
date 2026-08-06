@@ -148,9 +148,8 @@ Execute the following command to directly generate the `PetstoreAPI` project usi
     ```
 
 - This generates an API project in the `SwaggerPetstore-1.0.0` directory using the provided specification. This project can be directly imported into the WSO2 API-M.
-- The apictl allows further customization to the project initialization using a template file. Organization-specific common details can be added into this template file and shared across developers to increase productivity.
 - To further fine tune API creation, an additional API Definition file can be used. This definition file supports detecting environment variables during the creation process. It can be combined with scripting to develop powerful tools for automating API Project creation.
-- Using this method, the Swagger/OpenAPI specification becomes a single source of truth for API deployment. By combining templating and the definition file, the automation servers can be configured to initialize API Projects from Swagger/OpenAPI specifications and also have custom parameter files. This reduces human intervention and boosts productivity.
+- Using this method, the Swagger/OpenAPI specification becomes a single source of truth for API deployment. By using the definition file, the automation servers can be configured to initialize API Projects from Swagger/OpenAPI specifications and also have custom parameter files. This reduces human intervention and boosts productivity.
 - For example, when an organization depends on a microservices architecture, this method can be utilized to create an automated pipeline to move Swagger/OpenAPI specifications to upper environments.
 
 For more information on initializing an API Project using OpenAPI/Swagger Specification, see 
