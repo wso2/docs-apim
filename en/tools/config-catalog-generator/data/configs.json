@@ -5689,22 +5689,6 @@
                             "description": "Whether to validate (PING) a connection's health before handing it out from the pool. Enable this in environments with flaky network paths to Redis to avoid handing out dead connections."
                         },
                         {
-                            "name": "test_on_return",
-                            "type": "boolean",
-                            "required": false,
-                            "default": "false",
-                            "possible": "true,false",
-                            "description": "Indicates whether a connection should be validated when returned to the pool."
-                        },
-                        {
-                            "name": "test_while_idle",
-                            "type": "boolean",
-                            "required": false,
-                            "default": "true",
-                            "possible": "true,false",
-                            "description": "Specifies whether idle connections should be validated periodically during eviction runs."
-                        },
-                        {
                             "name": "block_when_exhausted",
                             "type": "boolean",
                             "required": false,
@@ -5727,14 +5711,6 @@
                             "default": "30000",
                             "possible": "",
                             "description": "Time interval (in milliseconds) between idle connection eviction runs. If set to a negative value, eviction will not run."
-                        },
-                        {
-                            "name": "num_tests_per_eviction_run",
-                            "type": "integer",
-                            "required": false,
-                            "default": "-1",
-                            "possible": "",
-                            "description": "Number of connections to examine during each eviction run. A negative value means all idle connections will be tested."
                         }
                     ]
                 }

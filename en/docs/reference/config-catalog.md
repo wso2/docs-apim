@@ -15116,8 +15116,6 @@ connection_timeout = 1000
                     <div class="mb-config-example">
 <pre><code class="toml">[apim.redis_config.pool_options]
 test_on_borrow = true
-test_on_return = true
-test_while_idle = true
 max_total = 80
 max_idle = 50
 min_idle = 10
@@ -15234,48 +15232,6 @@ max_wait_millis = 2000
                                 </div>
                             </div><div class="param">
                                 <div class="param-name">
-                                  <span class="param-name-wrap"> <code>test_on_return</code> </span>
-                                </div>
-                                <div class="param-info">
-                                    <div>
-                                        <p>
-                                            <span class="param-type string"> boolean </span>
-                                            
-                                        </p>
-                                        <div class="param-default">
-                                            <span class="param-default-value">Default: <code>false</code></span>
-                                        </div>
-                                        <div class="param-possible">
-                                            <span class="param-possible-values">Possible Values: <code>true,false</code></span>
-                                        </div>
-                                    </div>
-                                    <div class="param-description">
-                                        <p>Indicates whether a connection should be validated when returned to the pool.</p>
-                                    </div>
-                                </div>
-                            </div><div class="param">
-                                <div class="param-name">
-                                  <span class="param-name-wrap"> <code>test_while_idle</code> </span>
-                                </div>
-                                <div class="param-info">
-                                    <div>
-                                        <p>
-                                            <span class="param-type string"> boolean </span>
-                                            
-                                        </p>
-                                        <div class="param-default">
-                                            <span class="param-default-value">Default: <code>true</code></span>
-                                        </div>
-                                        <div class="param-possible">
-                                            <span class="param-possible-values">Possible Values: <code>true,false</code></span>
-                                        </div>
-                                    </div>
-                                    <div class="param-description">
-                                        <p>Specifies whether idle connections should be validated periodically during eviction runs.</p>
-                                    </div>
-                                </div>
-                            </div><div class="param">
-                                <div class="param-name">
                                   <span class="param-name-wrap"> <code>block_when_exhausted</code> </span>
                                 </div>
                                 <div class="param-info">
@@ -15331,25 +15287,6 @@ max_wait_millis = 2000
                                     </div>
                                     <div class="param-description">
                                         <p>Time interval (in milliseconds) between idle connection eviction runs. If set to a negative value, eviction will not run.</p>
-                                    </div>
-                                </div>
-                            </div><div class="param">
-                                <div class="param-name">
-                                  <span class="param-name-wrap"> <code>num_tests_per_eviction_run</code> </span>
-                                </div>
-                                <div class="param-info">
-                                    <div>
-                                        <p>
-                                            <span class="param-type string"> integer </span>
-                                            
-                                        </p>
-                                        <div class="param-default">
-                                            <span class="param-default-value">Default: <code>-1</code></span>
-                                        </div>
-                                        
-                                    </div>
-                                    <div class="param-description">
-                                        <p>Number of connections to examine during each eviction run. A negative value means all idle connections will be tested.</p>
                                     </div>
                                 </div>
                             </div>
