@@ -25,16 +25,16 @@ This pattern extends Pattern 2 by adding a dedicated Key Manager alongside the A
 
 ## Minimum Node Requirements
 
-The table below lists the minimum CPU and memory each node must provide, based on the default `resources` block in each component's Helm chart values.
+The table below lists the minimum CPU and memory each node must provide, based on the default `resources.requests` block in each component's Helm chart values.
 
-| Component | CPU cores (Request / Limit) | Memory (Request / Limit) |
+| Component | Minimum CPU (cores) | Minimum Memory |
 |---|---|---|
-| API Manager (All-in-One) | 2 / 3 | 2Gi / 3Gi |
-| Classic Gateway | 2 / 3 | 2Gi / 3Gi |
-| Key Manager (KM) | 2 / 3 | 2Gi / 3Gi |
+| API Manager (All-in-One) | 2 | 2Gi |
+| Classic Gateway | 2 | 2Gi |
+| Key Manager (KM) | 2 | 2Gi |
 
 !!! note
-    These are the default resource requests and limits defined in each component's `default_values.yaml`. Each node must have at least the requested CPU and memory free for that component's pod to be scheduled.
+    These are the default resource requests defined in each component's `default_values.yaml`. Each node must have at least this much CPU and memory free for that component's pod to be scheduled.
 
 ---
 
