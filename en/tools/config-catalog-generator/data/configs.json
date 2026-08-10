@@ -1063,6 +1063,98 @@
             "exampleFile": "apim.analytics.url_group.toml"
         },
         {
+            "title": "API-M Moesif Analytics configurations",
+            "options": [
+                {
+                    "name": "apim.analytics",
+                    "required": true,
+                    "description": "Top-level configuration for publishing analytics to Moesif. Supported from WSO2 API Manager 4.5.0 Update Level 11 onwards.",
+                    "params": [
+                        {
+                            "name": "enable",
+                            "type": "boolean",
+                            "required": true,
+                            "default": "FALSE",
+                            "possible": "TRUE | FALSE",
+                            "description": "Set TRUE to enable analytics in API Manager"
+                        },
+                        {
+                            "name": "type",
+                            "type": "string",
+                            "required": true,
+                            "default": "no default value",
+                            "possible": "moesif",
+                            "description": "Analytics provider type. Set this to 'moesif' to publish analytics to Moesif."
+                        }
+                    ]
+                },
+                {
+                    "name": "apim.analytics.properties",
+                    "required": true,
+                    "description": "Moesif specific properties. Applicable only when the analytics type is 'moesif'.",
+                    "params": [
+                        {
+                            "name": "moesifKey",
+                            "type": "string",
+                            "required": true,
+                            "default": "no default value",
+                            "possible": "",
+                            "description": "Moesif API key used to authenticate ingestion."
+                        },
+                        {
+                            "name": "moesif_base_url",
+                            "type": "string",
+                            "required": false,
+                            "default": "https://api.moesif.net",
+                            "possible": "",
+                            "description": "Base URL of the Moesif ingestion endpoint."
+                        },
+                        {
+                            "name": "send_headers",
+                            "type": "boolean",
+                            "required": false,
+                            "default": "FALSE",
+                            "possible": "TRUE | FALSE",
+                            "description": "If TRUE, include request/response headers in events sent to analytics."
+                        },
+                        {
+                            "name": "build_response_message",
+                            "type": "boolean",
+                            "required": false,
+                            "default": "FALSE",
+                            "possible": "TRUE | FALSE",
+                            "description": "If TRUE, the response will be built and the responseSize will be calculated, which will be included in the response analytics event."
+                        },
+                        {
+                            "name": "send_payloads",
+                            "type": "boolean",
+                            "required": false,
+                            "default": "FALSE",
+                            "possible": "TRUE | FALSE",
+                            "description": "If TRUE, include request/response bodies in events sent to analytics. Captured bodies are published in full and are not masked."
+                        },
+                        {
+                            "name": "payload_size_limit",
+                            "type": "integer",
+                            "required": false,
+                            "default": 100000,
+                            "possible": "",
+                            "description": "Maximum size in bytes of a single request or response body captured for analytics. A larger body is dropped, not truncated. Applies only when send_payloads is TRUE."
+                        },
+                        {
+                            "name": "capture_payloads_without_content_length",
+                            "type": "boolean",
+                            "required": false,
+                            "default": "FALSE",
+                            "possible": "TRUE | FALSE",
+                            "description": "If TRUE, capture bodies that do not declare a Content-Length header, such as chunked payloads. Such a body is read into memory in full before its size is checked. Applies only when send_payloads is TRUE."
+                        }
+                    ]
+                }
+            ],
+            "exampleFile": "apim.analytics.moesif.toml"
+        },
+        {
             "title": "API-M Key Manager related configurations",
             "options": [
                 {
