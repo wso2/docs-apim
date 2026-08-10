@@ -6,14 +6,14 @@ This pattern deploys all WSO2 API Manager components — Control Plane, Gateway,
 
 ## Minimum Node Requirements
 
-The table below lists the minimum CPU and memory the node must provide, based on the default `resources` block in the pattern's Helm chart values.
+The table below lists the minimum CPU and memory the node must provide, based on the default `resources.requests` block in the pattern's Helm chart values.
 
-| Component | CPU cores (Request / Limit) | Memory (Request / Limit) |
+| Component | Minimum CPU (cores) | Minimum Memory |
 |---|---|---|
-| API Manager (All-in-One) | 2 / 3 | 2Gi / 3Gi |
+| API Manager (All-in-One) | 2 | 2Gi |
 
 !!! note
-    These are the default resource requests and limits defined in the chart's `default_values.yaml`. The node must have at least the requested CPU and memory free for the pod to be scheduled.
+    These are the default resource requests defined in the chart's `default_values.yaml`. The node must have at least this much CPU and memory free for the pod to be scheduled.
 
 ---
 
