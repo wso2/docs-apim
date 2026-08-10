@@ -24,16 +24,16 @@ This pattern deploys dedicated nodes for the API Control Plane, Traffic Manager,
 
 ## Minimum Node Requirements
 
-The table below lists the minimum CPU and memory each node must provide, based on the default `resources` block in each component's Helm chart values.
+The table below lists the minimum CPU and memory each node must provide, based on the default `resources.requests` block in each component's Helm chart values.
 
-| Component | CPU cores (Request / Limit) | Memory (Request / Limit) |
+| Component | Minimum CPU (cores) | Minimum Memory |
 |---|---|---|
-| API Control Plane (ACP) | 2 / 3 | 2Gi / 5Gi |
-| Traffic Manager (TM) | 2 / 3 | 2Gi / 3Gi |
-| Classic Gateway | 2 / 3 | 2Gi / 3Gi |
+| API Control Plane (ACP) | 2 | 2Gi |
+| Traffic Manager (TM) | 2 | 2Gi |
+| Classic Gateway | 2 | 2Gi |
 
 !!! note
-    These are the default resource requests and limits defined in each component's `default_values.yaml`. Each node must have at least the requested CPU and memory free for that component's pod to be scheduled.
+    These are the default resource requests defined in each component's `default_values.yaml`. Each node must have at least this much CPU and memory free for that component's pod to be scheduled.
 
 ---
 
