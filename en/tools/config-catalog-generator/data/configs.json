@@ -911,9 +911,9 @@
                   "name": "type",
                   "type": "string",
                   "required": true,
-                  "default": "moesif",
+                  "default": "",
                   "possible": "moesif, log",
-                  "description": "Analytics provider type. For API-M 4.6.0+, use 'moesif' or 'log'."
+                  "description": "Analytics provider type. There is no default; set it explicitly. For API-M 4.6.0+, use 'moesif' or 'log'."
                 }
               ]
             },
@@ -953,6 +953,30 @@
                   "default": false,
                   "possible": "TRUE | FALSE",
                   "description": "If TRUE, response will be build and calculate the responseSize which will includes in response analytics event"
+                },
+                {
+                  "name": "send_payloads",
+                  "type": "boolean",
+                  "required": false,
+                  "default": false,
+                  "possible": "TRUE | FALSE",
+                  "description": "If TRUE, include request/response bodies in events sent to analytics. Captured bodies are published in full and are not masked."
+                },
+                {
+                  "name": "payload_size_limit",
+                  "type": "integer",
+                  "required": false,
+                  "default": 100000,
+                  "possible": "",
+                  "description": "Maximum size in bytes of a single request or response body captured for analytics. A larger body is dropped, not truncated. Applies only when send_payloads is TRUE."
+                },
+                {
+                  "name": "capture_payloads_without_content_length",
+                  "type": "boolean",
+                  "required": false,
+                  "default": false,
+                  "possible": "TRUE | FALSE",
+                  "description": "If TRUE, capture bodies that do not declare a Content-Length header, such as chunked payloads. Such a body is read into memory in full before its size is checked. Applies only when send_payloads is TRUE."
                 }
               ]
             }
