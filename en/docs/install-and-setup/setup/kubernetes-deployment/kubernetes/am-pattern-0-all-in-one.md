@@ -4,6 +4,17 @@ This pattern deploys all WSO2 API Manager components — Control Plane, Gateway,
 
 <a href="{{base_path}}/assets/img/setup-and-install/single-node-apim-deployment.png"><img src="{{base_path}}/assets/img/setup-and-install/single-node-apim-deployment.png" alt="single-node api-m deployment" width="60%"></a>
 
+## Minimum Node Requirements
+
+The table below lists the minimum CPU and memory the node must provide, based on the default `resources` block in the pattern's Helm chart values.
+
+| Component | CPU cores (Request / Limit) | Memory (Request / Limit) |
+|---|---|---|
+| API Manager (All-in-One) | 2 / 3 | 2Gi / 3Gi |
+
+!!! note
+    These are the default resource requests and limits defined in the chart's `default_values.yaml`. The node must have at least the requested CPU and memory free for the pod to be scheduled.
+
 ---
 
 ## Quick Start

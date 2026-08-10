@@ -25,6 +25,18 @@ This pattern deploys WSO2 API Manager as a single All-in-One node with WSO2 Iden
     2. **Two custom Docker images** — one for WSO2 API Manager (with JDBC driver) and one for WSO2 Identity Server (with the APIM notification event handler JAR).
     3. **Database schema initialised** — run the WSO2 schema scripts against both databases before the APIM pods start.
 
+## Minimum Node Requirements
+
+The table below lists the minimum CPU and memory each node must provide, based on the default `resources` block in the respective Helm chart values.
+
+| Component | CPU cores (Request / Limit) | Memory (Request / Limit) |
+|---|---|---|
+| API Manager (All-in-One) | 2 / 3 | 2Gi / 3Gi |
+| WSO2 Identity Server | 2 / 3 | 2Gi / 4Gi |
+
+!!! note
+    These are the default resource requests and limits defined in the `wso2am-all-in-one` and `identity-server` Helm charts. Each node must have at least the requested CPU and memory free for that component's pod to be scheduled.
+
 ---
 
 ## Quick Start
