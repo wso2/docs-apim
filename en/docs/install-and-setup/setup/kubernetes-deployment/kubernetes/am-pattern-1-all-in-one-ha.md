@@ -22,6 +22,17 @@ This pattern deploys WSO2 API Manager as a highly available active-active cluste
 
     Detailed steps for each of the above are explained in the sections below.
 
+## Minimum Node Requirements
+
+The table below lists the minimum CPU and memory each of the two nodes must provide, based on the default `resources` block in the pattern's Helm chart values.
+
+| Component | CPU cores (Request / Limit) | Memory (Request / Limit) |
+|---|---|---|
+| API Manager (All-in-One) | 2 / 3 | 2Gi / 3Gi |
+
+!!! note
+    These are the default resource requests and limits defined in the chart's `default_values.yaml`, and apply to **each** of the two active-active nodes. Each node must have at least the requested CPU and memory free for the pod to be scheduled.
+
 ---
 
 ## Quick Start

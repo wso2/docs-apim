@@ -22,6 +22,18 @@ This pattern deploys a dedicated Classic Gateway alongside the All-in-One node, 
 
     Detailed steps for each of the above are explained in the sections below.
 
+## Minimum Node Requirements
+
+The table below lists the minimum CPU and memory each node must provide, based on the default `resources` block in each component's Helm chart values.
+
+| Component | CPU cores (Request / Limit) | Memory (Request / Limit) |
+|---|---|---|
+| API Manager (All-in-One) | 2 / 3 | 2Gi / 3Gi |
+| Classic Gateway | 2 / 3 | 2Gi / 3Gi |
+
+!!! note
+    These are the default resource requests and limits defined in each component's `default_values.yaml`. Each node must have at least the requested CPU and memory free for that component's pod to be scheduled.
+
 ---
 
 ## Quick Start
