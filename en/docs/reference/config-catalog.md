@@ -2445,7 +2445,10 @@ type = "moesif"
 moesifKey = "estY2FtcGxlLW1vZXNpZi1rZXk="
 moesif_base_url = "https://api.moesif.net"
 send_headers = false
-build_response_message = false</code></pre>
+build_response_message = false
+send_payloads = false
+payload_size_limit = 100000
+capture_payloads_without_content_length = false</code></pre>
                     </div>
                 </div>
                 <div class="doc-wrapper">
@@ -2490,14 +2493,14 @@ build_response_message = false</code></pre>
                                             <span class="badge-required">Required</span>
                                         </p>
                                         <div class="param-default">
-                                            <span class="param-default-value">Default: <code>moesif</code></span>
+                                            <span class="param-default-value">Default: <code></code></span>
                                         </div>
                                         <div class="param-possible">
                                             <span class="param-possible-values">Possible Values: <code>moesif, log</code></span>
                                         </div>
                                     </div>
                                     <div class="param-description">
-                                        <p>Analytics provider type. For API-M 4.6.0+, use &#39;moesif&#39; or &#39;log&#39;.</p>
+                                        <p>Analytics provider type. There is no default; set it explicitly. For API-M 4.6.0+, use &#39;moesif&#39; or &#39;log&#39;.</p>
                                     </div>
                                 </div>
                             </div>
@@ -2587,6 +2590,67 @@ build_response_message = false</code></pre>
                                     </div>
                                     <div class="param-description">
                                         <p>If TRUE, the response will be built and the responseSize will be calculated, which will be included in the response analytics event.</p>
+                                    </div>
+                                </div>
+                            </div><div class="param">
+                                <div class="param-name">
+                                  <span class="param-name-wrap"> <code>send_payloads</code> </span>
+                                </div>
+                                <div class="param-info">
+                                    <div>
+                                        <p>
+                                            <span class="param-type string"> boolean </span>
+                                            
+                                        </p>
+                                        <div class="param-default">
+                                            <span class="param-default-value">Default: <code>false</code></span>
+                                        </div>
+                                        <div class="param-possible">
+                                            <span class="param-possible-values">Possible Values: <code>TRUE | FALSE</code></span>
+                                        </div>
+                                    </div>
+                                    <div class="param-description">
+                                        <p>If TRUE, include request/response bodies in events sent to analytics. Captured bodies are published in full and are not masked.</p>
+                                    </div>
+                                </div>
+                            </div><div class="param">
+                                <div class="param-name">
+                                  <span class="param-name-wrap"> <code>payload_size_limit</code> </span>
+                                </div>
+                                <div class="param-info">
+                                    <div>
+                                        <p>
+                                            <span class="param-type string"> integer </span>
+                                            
+                                        </p>
+                                        <div class="param-default">
+                                            <span class="param-default-value">Default: <code>100000</code></span>
+                                        </div>
+                                        
+                                    </div>
+                                    <div class="param-description">
+                                        <p>Maximum size in bytes of a single request or response body captured for analytics. A larger body is dropped, not truncated. Applies only when send_payloads is TRUE.</p>
+                                    </div>
+                                </div>
+                            </div><div class="param">
+                                <div class="param-name">
+                                  <span class="param-name-wrap"> <code>capture_payloads_without_content_length</code> </span>
+                                </div>
+                                <div class="param-info">
+                                    <div>
+                                        <p>
+                                            <span class="param-type string"> boolean </span>
+                                            
+                                        </p>
+                                        <div class="param-default">
+                                            <span class="param-default-value">Default: <code>false</code></span>
+                                        </div>
+                                        <div class="param-possible">
+                                            <span class="param-possible-values">Possible Values: <code>TRUE | FALSE</code></span>
+                                        </div>
+                                    </div>
+                                    <div class="param-description">
+                                        <p>If TRUE, capture bodies that do not declare a Content-Length header, such as chunked payloads. Such a body is read into memory in full before its size is checked. Applies only when send_payloads is TRUE.</p>
                                     </div>
                                 </div>
                             </div>
@@ -3228,7 +3292,7 @@ enforce_auth_for_all_mcp_methods = false
                                         </div>
                                     </div>
                                     <div class="param-description">
-                                        <p>By default, all MCP requests except &#39;tools/call&#39; requests are unauthenticated. If this option is set to true, authentication will be required for all MCP requests. For improved security, it is recommended to enable this option.</p>
+                                        <p>By default, all MCP requests except tools/call requests are unauthenticated. If this option is set to true, authentication will be required for all MCP requests. For improved security, it is recommended to enable this option.</p>
                                     </div>
                                 </div>
                             </div>
@@ -18195,8 +18259,8 @@ ttl = 3600
         <div class="mb-config-options">
             <div class="superfences-tabs">
             
-            <input name="124" type="checkbox" id="_tab_124">
-                <label class="tab-selector" for="_tab_124"><i class="icon fa fa-code"></i></label>
+            <input name="126" type="checkbox" id="_tab_126">
+                <label class="tab-selector" for="_tab_126"><i class="icon fa fa-code"></i></label>
                 <div class="superfences-content">
                     <div class="mb-config-example">
 <pre><code class="toml">[authentication_policy]
