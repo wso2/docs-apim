@@ -1,0 +1,118 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1440" height="760" viewBox="0 0 1440 760" role="img" aria-labelledby="diagram-title diagram-description">
+  <title id="diagram-title">AI service extension architecture in WSO2 API Manager</title>
+  <desc id="diagram-description">API Manager builds standard AI request payloads and can optionally enrich them with customer properties. Requests pass through an API Gateway to customer-owned AI services that implement the published OpenAPI contracts.</desc>
+
+  <defs>
+    <filter id="shadow" x="-10%" y="-10%" width="120%" height="130%">
+      <feDropShadow dx="0" dy="3" stdDeviation="5" flood-color="#14213d" flood-opacity="0.12"/>
+    </filter>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="9" refY="5" orient="auto" markerUnits="strokeWidth">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#4b5563"/>
+    </marker>
+    <marker id="arrow-dashed" markerWidth="10" markerHeight="10" refX="9" refY="5" orient="auto" markerUnits="strokeWidth">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#64748b"/>
+    </marker>
+  </defs>
+
+  <rect width="1440" height="760" fill="#ffffff"/>
+
+  <text x="720" y="54" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="28" font-weight="700" fill="#1f2937">
+    Extending AI Services in WSO2 API Manager
+  </text>
+  <text x="720" y="86" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="16" fill="#5b6472">
+    Add optional request properties and connect contract-compatible customer AI services
+  </text>
+
+  <g filter="url(#shadow)">
+    <rect x="60" y="145" width="540" height="430" rx="12" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1.5"/>
+    <rect x="60" y="145" width="540" height="10" rx="5" fill="#ff7300"/>
+  </g>
+  <text x="90" y="193" font-family="Arial, Helvetica, sans-serif" font-size="22" font-weight="700" fill="#1f2937">WSO2 API Manager</text>
+
+  <g font-family="Arial, Helvetica, sans-serif" font-size="13" font-weight="600" text-anchor="middle">
+    <rect x="90" y="220" width="142" height="40" rx="20" fill="#fff2e8" stroke="#ffb26b"/>
+    <text x="161" y="245" fill="#8a3d00">Marketplace Assistant</text>
+    <rect x="248" y="220" width="142" height="40" rx="20" fill="#fff2e8" stroke="#ffb26b"/>
+    <text x="319" y="245" fill="#8a3d00">Design Assistant</text>
+    <rect x="406" y="220" width="142" height="40" rx="20" fill="#fff2e8" stroke="#ffb26b"/>
+    <text x="477" y="245" fill="#8a3d00">API Chat</text>
+  </g>
+
+  <rect x="120" y="302" width="420" height="84" rx="9" fill="#ffffff" stroke="#94a3b8" stroke-width="1.5"/>
+  <text x="330" y="335" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="17" font-weight="700" fill="#253247">Standard AI request payload</text>
+  <text x="330" y="363" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="14" fill="#64748b">Built by the selected API-M AI feature</text>
+
+  <line x1="330" y1="386" x2="330" y2="417" stroke="#4b5563" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <rect x="120" y="420" width="420" height="112" rx="9" fill="#fff7ed" stroke="#ff8a28" stroke-width="2"/>
+  <text x="330" y="455" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="17" font-weight="700" fill="#8a3d00">AIRequestPropertyEnricher</text>
+  <text x="330" y="480" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="14" font-weight="600" fill="#8a3d00">Optional Java extension</text>
+  <text x="330" y="508" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="13.5" fill="#6b4a2f">Adds new top-level fields without replacing standard fields</text>
+
+  <g filter="url(#shadow)">
+    <rect x="690" y="210" width="280" height="330" rx="12" fill="#f4f8ff" stroke="#8bb4e8" stroke-width="1.5"/>
+    <rect x="690" y="210" width="280" height="10" rx="5" fill="#2f80c9"/>
+  </g>
+  <text x="830" y="260" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="22" font-weight="700" fill="#183b63">API Gateway</text>
+
+  <g font-family="Arial, Helvetica, sans-serif">
+    <rect x="725" y="295" width="210" height="52" rx="8" fill="#ffffff" stroke="#aac7e8"/>
+    <circle cx="752" cy="321" r="8" fill="#2f80c9"/>
+    <text x="773" y="326" font-size="15" font-weight="600" fill="#284966">OAuth authentication</text>
+
+    <rect x="725" y="363" width="210" height="52" rx="8" fill="#ffffff" stroke="#aac7e8"/>
+    <circle cx="752" cy="389" r="8" fill="#2f80c9"/>
+    <text x="773" y="394" font-size="15" font-weight="600" fill="#284966">Configured API routing</text>
+
+    <rect x="725" y="431" width="210" height="72" rx="8" fill="#eaf3ff" stroke="#6aa1dc"/>
+    <circle cx="752" cy="457" r="8" fill="#2f80c9"/>
+    <text x="773" y="462" font-size="15" font-weight="600" fill="#284966">keyID policy</text>
+    <text x="773" y="486" font-size="12.5" fill="#4b6580">Marketplace Assistant only</text>
+  </g>
+
+  <line x1="600" y1="475" x2="690" y2="410" stroke="#4b5563" stroke-width="2.4" marker-end="url(#arrow)"/>
+  <text x="633" y="414" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="12.5" fill="#4b5563" transform="rotate(-35 633 414)">Enriched or unchanged payload</text>
+
+  <g filter="url(#shadow)">
+    <rect x="1060" y="145" width="320" height="430" rx="12" fill="#f3faf6" stroke="#8fc7a5" stroke-width="1.5"/>
+    <rect x="1060" y="145" width="320" height="10" rx="5" fill="#25855a"/>
+  </g>
+  <text x="1220" y="193" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="22" font-weight="700" fill="#185b3e">Customer-owned AI services</text>
+
+  <g font-family="Arial, Helvetica, sans-serif">
+    <rect x="1095" y="226" width="250" height="78" rx="8" fill="#ffffff" stroke="#a9d4ba"/>
+    <text x="1220" y="257" text-anchor="middle" font-size="16" font-weight="700" fill="#24563f">Marketplace Assistant</text>
+    <text x="1220" y="281" text-anchor="middle" font-size="13" fill="#547261">and Spec Populator</text>
+
+    <rect x="1095" y="322" width="250" height="64" rx="8" fill="#ffffff" stroke="#a9d4ba"/>
+    <text x="1220" y="361" text-anchor="middle" font-size="16" font-weight="700" fill="#24563f">Design Assistant</text>
+
+    <rect x="1095" y="404" width="250" height="64" rx="8" fill="#ffffff" stroke="#a9d4ba"/>
+    <text x="1220" y="443" text-anchor="middle" font-size="16" font-weight="700" fill="#24563f">API Chat</text>
+
+    <rect x="1095" y="492" width="250" height="48" rx="24" fill="#e3f3ea" stroke="#8fc7a5"/>
+    <text x="1220" y="521" text-anchor="middle" font-size="13.5" font-weight="600" fill="#24563f">Customer-selected models and storage</text>
+  </g>
+
+  <line x1="970" y1="375" x2="1060" y2="375" stroke="#4b5563" stroke-width="2.4" marker-end="url(#arrow)"/>
+  <text x="1015" y="355" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="12.5" fill="#4b5563">Contract-compatible</text>
+  <text x="1015" y="371" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="12.5" fill="#4b5563">request</text>
+
+  <rect x="1035" y="640" width="370" height="76" rx="10" fill="#f8fafc" stroke="#64748b" stroke-width="1.5" stroke-dasharray="7 5"/>
+  <text x="1220" y="672" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="17" font-weight="700" fill="#334155">Published OpenAPI contracts</text>
+  <text x="1220" y="694" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="13" fill="#64748b">Defines required requests, responses,</text>
+  <text x="1220" y="711" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="13" fill="#64748b">errors, and status codes</text>
+  <line x1="1220" y1="640" x2="1220" y2="578" stroke="#64748b" stroke-width="2" stroke-dasharray="7 5" marker-end="url(#arrow-dashed)"/>
+
+  <rect x="75" y="642" width="390" height="74" rx="10" fill="#f8fafc" stroke="#cbd5e1"/>
+  <text x="95" y="672" font-family="Arial, Helvetica, sans-serif" font-size="15" font-weight="700" fill="#334155">Runtime configuration</text>
+  <text x="95" y="695" font-family="Arial, Helvetica, sans-serif" font-size="12.5" fill="#64748b">deployment.toml selects enabled features and the Gateway endpoint</text>
+  <text x="95" y="711" font-family="Arial, Helvetica, sans-serif" font-size="12.5" fill="#64748b">Resource paths are fully configurable</text>
+
+  <g font-family="Arial, Helvetica, sans-serif" font-size="12.5" fill="#64748b">
+    <line x1="520" y1="674" x2="570" y2="674" stroke="#4b5563" stroke-width="2" marker-end="url(#arrow)"/>
+    <text x="585" y="679">Runtime request flow</text>
+    <line x1="735" y1="674" x2="785" y2="674" stroke="#64748b" stroke-width="2" stroke-dasharray="7 5" marker-end="url(#arrow-dashed)"/>
+    <text x="800" y="679">Implementation contract</text>
+  </g>
+</svg>

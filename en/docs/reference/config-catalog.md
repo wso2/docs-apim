@@ -3165,6 +3165,10 @@ enable = true
 token = "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
 endpoint = "https://e95488c8-8511-4882-967f-ec3ae2a0f86f-prod.e1-us-east-azure.choreoapis.dev/lgpt/interceptor-service/interceptor-service-be2/v1.0"
 default_request_timeout = 30
+api_chat_enable = false
+marketplace_assistant_enable = false
+design_assistant_enable = false
+property_enricher_impl = org.wso2.carbon.apimgt.custom.ai.CustomAIRequestPropertyEnricher
 
 [apim.ai.failover_configurations]
 failover_endpoints_limit = 10
@@ -3257,6 +3261,87 @@ default_request_timeout = 30</code></pre>
                                     </div>
                                     <div class="param-description">
                                         <p>The default timeout (in seconds) for AI API requests</p>
+                                    </div>
+                                </div>
+                            </div><div class="param">
+                                <div class="param-name">
+                                  <span class="param-name-wrap"> <code>api_chat_enable</code> </span>
+                                </div>
+                                <div class="param-info">
+                                    <div>
+                                        <p>
+                                            <span class="param-type string"> boolean </span>
+                                        </p>
+                                        <div class="param-default">
+                                            <span class="param-default-value">Default: <code>true</code></span>
+                                        </div>
+                                        <div class="param-possible">
+                                            <span class="param-possible-values">Possible Values: <code>true,false</code></span>
+                                        </div>
+                                    </div>
+                                    <div class="param-description">
+                                        <p>Enable or disable the API Chat feature.</p>
+                                    </div>
+                                </div>
+                            </div><div class="param">
+                                <div class="param-name">
+                                  <span class="param-name-wrap"> <code>marketplace_assistant_enable</code> </span>
+                                </div>
+                                <div class="param-info">
+                                    <div>
+                                        <p>
+                                            <span class="param-type string"> boolean </span>
+                                        </p>
+                                        <div class="param-default">
+                                            <span class="param-default-value">Default: <code>true</code></span>
+                                        </div>
+                                        <div class="param-possible">
+                                            <span class="param-possible-values">Possible Values: <code>true,false</code></span>
+                                        </div>
+                                    </div>
+                                    <div class="param-description">
+                                        <p>Enable or disable the Marketplace Assistant feature.</p>
+                                    </div>
+                                </div>
+                            </div><div class="param">
+                                <div class="param-name">
+                                  <span class="param-name-wrap"> <code>design_assistant_enable</code> </span>
+                                </div>
+                                <div class="param-info">
+                                    <div>
+                                        <p>
+                                            <span class="param-type string"> boolean </span>
+                                        </p>
+                                        <div class="param-default">
+                                            <span class="param-default-value">Default: <code>true</code></span>
+                                        </div>
+                                        <div class="param-possible">
+                                            <span class="param-possible-values">Possible Values: <code>true,false</code></span>
+                                        </div>
+                                    </div>
+                                    <div class="param-description">
+                                        <p>Enable or disable the API Design Assistant feature.</p>
+                                    </div>
+                                </div>
+                            </div><div class="param">
+                                <div class="param-name">
+                                    <span class="param-name-wrap">
+                                        <code>property_enricher_impl</code>
+                                    </span>
+                                </div>
+                                <div class="param-info">
+                                    <div>
+                                        <p>
+                                            <span class="param-type string"> string </span>
+                                        </p>
+                                        <div class="param-default">
+                                            <span class="param-default-value">Default: <code></code></span>
+                                        </div>
+                                    </div>
+                                    <div class="param-description">
+                                        <p>
+                                            The fully qualified class name of the AIRequestPropertyEnricher implementation used to add customer-specific properties to outbound AI service request payloads. When this is not configured, the standard request payloads remain unchanged.
+                                        </p>
                                     </div>
                                 </div>
                             </div>
@@ -18295,4 +18380,3 @@ disable_account_disable_handler = false
         </div>
     </section>
 </div>
-

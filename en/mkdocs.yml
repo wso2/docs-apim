@@ -696,6 +696,7 @@ nav:
                     - Extend Scope Validation: reference/customize-product/extending-api-manager/extending-key-management/extending-scope-validation.md
                     - Extend Key Manager: reference/customize-product/extending-api-manager/extending-key-management/extending-the-key-manager-interface.md
                     - Write Custom Grant Types: reference/customize-product/extending-api-manager/extending-key-management/writing-custom-grant-types.md
+                    - Extend AI Services: reference/customize-product/extending-api-manager/extending-ai-services.md
                 - Extend API Gateway:
                     - Customize API Template: reference/customize-product/extending-api-manager/extending-gateway/customizing-api-template-for-gateway.md
                     - Write Custom Handlers: reference/customize-product/extending-api-manager/extending-gateway/writing-custom-handlers.md
@@ -960,8 +961,8 @@ extra:
             version: 1.2.0-1
             git_tag: v1.2.0.1
     site_version: 4.6.0
-    #base_path: http://localhost:8000/en/4.6.0
-    base_path: https://apim.docs.wso2.com/en/4.6.0
+    base_path: http://localhost:8000/en/4.6.0
+    #base_path: https://apim.docs.wso2.com/en/4.6.0
     envoy_path: https://www.envoyproxy.io/docs/envoy/v1.24.1
     redoc_theme: '{
         "colors": {
