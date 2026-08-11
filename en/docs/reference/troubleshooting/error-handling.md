@@ -481,7 +481,7 @@ To customize the error response format, modify the `openai_error_response_format
 
 !!! info
 
-    This configuration is available in wso2am-4.6.0 starting from update level 39 and wso2am-universal-gw-4.6.0 starting from update level 38.
+    This configuration is available in wso2am-4.6.0, wso2am-tm-4.6.0, wso2am-universal-gw-4.6.0 starting from update level 38 and wso2am-acp-4.6.0 starting from update level 39.
 
 !!! info
 
