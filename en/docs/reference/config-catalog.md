@@ -3165,6 +3165,7 @@ enable = true
 token = "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
 endpoint = "https://e95488c8-8511-4882-967f-ec3ae2a0f86f-prod.e1-us-east-azure.choreoapis.dev/lgpt/interceptor-service/interceptor-service-be2/v1.0"
 default_request_timeout = 30
+custom_error_response_sequence = "openai_error_response_formatter"
 
 [apim.ai.failover_configurations]
 failover_endpoints_limit = 10
@@ -3257,6 +3258,27 @@ default_request_timeout = 30</code></pre>
                                     </div>
                                     <div class="param-description">
                                         <p>The default timeout (in seconds) for AI API requests</p>
+                                    </div>
+                                </div>
+                            </div><div class="param">
+                                <div class="param-name">
+                                  <span class="param-name-wrap"> <code>custom_error_response_sequence</code> </span>
+                                </div>
+                                <div class="param-info">
+                                    <div>
+                                        <p>
+                                            <span class="param-type string"> string </span>
+                                            
+                                        </p>
+                                        <div class="param-default">
+                                            <span class="param-default-value">Default: <code></code></span>
+                                        </div>
+                                        <div class="param-possible">
+                                            <span class="param-possible-values">Possible Values: <code>openai_error_response_formatter</code></span>
+                                        </div>
+                                    </div>
+                                    <div class="param-description">
+                                        <p>The name of the Synapse sequence used to format gateway error responses for AI APIs. Applies only to AI APIs. If not set, AI APIs use the default error response format.</p>
                                     </div>
                                 </div>
                             </div>
