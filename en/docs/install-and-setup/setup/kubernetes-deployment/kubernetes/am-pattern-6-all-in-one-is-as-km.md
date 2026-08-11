@@ -37,7 +37,7 @@ The table below lists the minimum CPU and memory each node must provide, based o
 | WSO2 Identity Server | 2 | 2Gi |
 
 !!! note
-    These are the default resource requests defined in the `wso2am-all-in-one` and `identity-server` Helm charts. Each node must have at least this much CPU and memory free for that component's pod to be scheduled.
+    These are the default resource requests defined in the `wso2am-all-in-one` and `identity-server` Helm charts. Each node must have at least this much CPU and memory free for that component's pod to be scheduled. This assumes each component runs on its own dedicated node, as described above — if you co-locate multiple components on a shared node, that node needs the sum of their requests.
 
 ---
 
