@@ -59,7 +59,7 @@ As an alternative to the Admin Portal, you can declare a Platform Gateway direct
     versions = ["1.0.0"]
 
     [[apim.platform_gateway.connect]]
-    registration_token = "<token-id>.<plain-token>"
+    registration_token = "$env{PLATFORM_GW_1_REGISTRATION_TOKEN}"
     name = "platform-gw-1"
     display_name = "Production Platform Gateway"
     description = "Platform Gateway for production traffic"
@@ -69,10 +69,11 @@ As an alternative to the Admin Portal, you can declare a Platform Gateway direct
 
     | Parameter | Required | Description |
     |---|---|---|
-    | `registration_token` | Yes | The gateway's registration token, in `<token-id>.<plain-token>` format. Choose any value for `<token-id>` (for example a UUID) and `<plain-token>` (for example a random string) - you are defining the token, not copying one from the Admin Portal. Use this same value as `GATEWAY_REGISTRATION_TOKEN` when you configure the gateway in [Step 2: Configure the Gateway](#step-2-configure-the-gateway). |
+    | `registration_token` | Yes | The gateway's registration token, in `<token-id>.<plain-token>` format. Choose any value for `<token-id>` (for example a UUID) and `<plain-token>` (for example a random string) - you are defining the token, not copying one from the Admin Portal. Use this same value as `GATEWAY_REGISTRATION_TOKEN` when you configure the gateway in [Step 2: Configure the Gateway](#step-2-configure-the-gateway). Reference it with WSO2's `$env{...}` syntax (as shown above) instead of a literal value, especially if `deployment.toml` is checked into version control (for example under GitOps). |
     | `url` | Yes | The URL where the gateway will be accessible, for example `https://<gateway-host>:<gateway-port>`. |
     | `name` | No | Environment name shown in the Control Plane. Defaults to an ID derived from `registration_token`. |
     | `display_name` | No | Display name shown in the Admin Portal and Publisher Portal. Defaults to `name`. |
+    | `description` | No | Optional description of the gateway. |
     | `organization` | No | Tenant organization that owns the gateway. Defaults to `carbon.super`. A Platform Gateway is always scoped to a single tenant; `WSO2-ALL-TENANTS` is not supported here. |
 
     You can repeat the `[[apim.platform_gateway.connect]]` block to declare multiple gateways. For the full parameter reference, see [apim.platform_gateway.connect]({{base_path}}/reference/config-catalog/#api-m-platform-gateway-connect-configurations) in the Configuration Catalog.
