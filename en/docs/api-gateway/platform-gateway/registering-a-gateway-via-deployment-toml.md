@@ -33,10 +33,10 @@ As an alternative to the Admin Portal, you can declare a Platform Gateway direct
 2. Restart API Manager. `registration_token` and `url` are validated for every entry at startup; fix and restart if the server logs a configuration error.
 
 !!! note
-    If you later regenerate this gateway's token from the Admin Portal, update `registration_token` in `deployment.toml` to match. Once a gateway has connected, its stored token is authoritative, so a stale value in `deployment.toml` will fail to authenticate.
+    If you later regenerate this gateway's token from the Admin Portal, update the environment variable or secret referenced by `PLATFORM_GW_1_REGISTRATION_TOKEN` and the gateway runtime's `GATEWAY_REGISTRATION_TOKEN` together - don't replace the `$env{...}` reference in `deployment.toml` with the literal token. Once a gateway has connected, its stored token is authoritative, so a stale value on either side will fail to authenticate.
 
 ## Start the gateway
 
-Continue with [Setup the Gateway]({{base_path}}/api-gateway/platform-gateway/getting-started/#setup-the-gateway) in the Getting Started guide to download, configure, and start the gateway. When you create `configs/keys.env`, set `GATEWAY_REGISTRATION_TOKEN` to the same `registration_token` value you configured above, and set `GATEWAY_CONTROLPLANE_HOST` to your Control Plane host and port. The gateway registers automatically the moment it connects - no Admin Portal step is required.
+Continue with [Setup the Gateway]({{base_path}}/api-gateway/platform-gateway/getting-started/#setup-the-gateway) in the Getting Started guide to download, configure, and start the gateway. When you create `configs/keys.env`, set `GATEWAY_REGISTRATION_TOKEN` to the same value you stored in `PLATFORM_GW_1_REGISTRATION_TOKEN` above, and set `GATEWAY_CONTROLPLANE_HOST` to your Control Plane host and port. The gateway registers automatically the moment it connects - no Admin Portal step is required.
 
 Once the gateway is running and connected, continue with [Add an API and invoke it]({{base_path}}/api-gateway/platform-gateway/getting-started/#add-an-api-and-invoke-it) in the Getting Started guide.
