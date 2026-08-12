@@ -38,3 +38,4 @@ See [Policy Hub](https://wso2.com/api-platform/policy-hub) for available policie
 ## What's next
 
 - Return to [Getting Started]({{base_path}}/api-gateway/platform-gateway/getting-started/) to test API invocation with and without API-key-based authentication.
+- See [Registering a Platform Gateway via deployment.toml]({{base_path}}/api-gateway/platform-gateway/registering-a-gateway-via-deployment-toml/) to onboard a gateway declaratively instead of through the Admin Portal.
