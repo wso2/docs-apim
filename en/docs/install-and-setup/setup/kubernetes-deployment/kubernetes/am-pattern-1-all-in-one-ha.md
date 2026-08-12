@@ -20,6 +20,17 @@ This pattern deploys WSO2 API Manager as a highly available active-active cluste
     2. **A custom Docker image** — the default WSO2 image does not include JDBC drivers. Build and push a custom image before deploying.
     3. **Database schema initialised** — run the WSO2 schema scripts against both databases before the pods start.
 
+## Minimum Node Requirements
+
+The table below lists the minimum CPU and memory each of the two nodes must provide, based on the default `resources.requests` block in the pattern's Helm chart values.
+
+| Component | Minimum CPU (cores) | Minimum Memory |
+|---|---|---|
+| API Manager (All-in-One) | 2 | 2Gi |
+
+!!! note
+    These are the default resource requests defined in the chart's `default_values.yaml`, and apply to **each** of the two active-active nodes. Each node must have at least this much CPU and memory free for the pod to be scheduled.
+
 ---
 
 ## Quick Start
