@@ -52,12 +52,9 @@ You can create a Platform Gateway from the Admin Portal (below), or declare it d
 
 As an alternative to the Admin Portal, you can declare a Platform Gateway directly in `<API-M_HOME>/repository/conf/deployment.toml`. This lets you onboard a gateway purely through configuration, for example to automate provisioning with GitOps. The gateway record is not created at Control Plane startup - it is created the first time the gateway connects, using the details below.
 
-1. Add a `[[apim.platform_gateway.connect]]` entry under `[apim.platform_gateway]` in `deployment.toml`:
+1. Add a `[[apim.platform_gateway.connect]]` entry in `deployment.toml`:
 
     ```toml
-    [apim.platform_gateway]
-    versions = ["1.0.0"]
-
     [[apim.platform_gateway.connect]]
     registration_token = "$env{PLATFORM_GW_1_REGISTRATION_TOKEN}"
     name = "platform-gw-1"
@@ -95,7 +92,7 @@ As an alternative to the Admin Portal, you can declare a Platform Gateway direct
 
 ### Step 1: Download the Gateway
 
-Prefer the download command shown in the Admin Portal for your gateway so the release version always matches the connector. Alternatively, replace `<gateway-version>` in the following example with that release tag (for example, `v1.0.0`). If you registered the gateway via `deployment.toml`, use one of the versions listed in `apim.platform_gateway.versions` (the Admin Portal has no generated command until the gateway connects for the first time).
+Prefer the download command shown in the Admin Portal for your gateway so the release version always matches the connector. Alternatively, replace `<gateway-version>` in the following example with that release tag (for example, `v1.0.0`).
 
 ```bash
 curl -sLO https://github.com/wso2/api-platform/releases/download/gateway/<gateway-version>/wso2apip-api-gateway-<gateway-version>.zip && \
