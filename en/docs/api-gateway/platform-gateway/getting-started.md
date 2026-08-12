@@ -18,6 +18,8 @@ Before you begin, ensure that you have the following:
 
 ## Create a Platform Gateway in the Admin Portal
 
+You can create a Platform Gateway from the Admin Portal (below), or declare it directly in `deployment.toml` without using the Admin Portal at all (see [Register a Platform Gateway via deployment.toml](#register-a-platform-gateway-via-deploymenttoml)).
+
 1. Sign in to the **Admin Portal**.
 2. Go to the **Gateways** section from the left navigation panel.
 3. In the **WSO2 Gateways** section, click **Add WSO2 Gateways**.
@@ -46,6 +48,41 @@ Before you begin, ensure that you have the following:
 
 6. Click **Add**.
 
+## Register a Platform Gateway via deployment.toml
+
+As an alternative to the Admin Portal, you can declare a Platform Gateway directly in `<API-M_HOME>/repository/conf/deployment.toml`. This lets you onboard a gateway purely through configuration, for example to automate provisioning with GitOps. The gateway record is not created at Control Plane startup - it is created the first time the gateway connects, using the details below.
+
+1. Add a `[[apim.platform_gateway.connect]]` entry under `[apim.platform_gateway]` in `deployment.toml`:
+
+    ```toml
+    [apim.platform_gateway]
+    versions = ["1.0.0"]
+
+    [[apim.platform_gateway.connect]]
+    registration_token = "<token-id>.<plain-token>"
+    name = "platform-gw-1"
+    display_name = "Production Platform Gateway"
+    description = "Platform Gateway for production traffic"
+    url = "https://<gateway-host>:<gateway-port>"
+    organization = "carbon.super"
+    ```
+
+    | Parameter | Required | Description |
+    |---|---|---|
+    | `registration_token` | Yes | The gateway's registration token, in `<token-id>.<plain-token>` format. Choose any value for `<token-id>` (for example a UUID) and `<plain-token>` (for example a random string) - you are defining the token, not copying one from the Admin Portal. Use this same value as `GATEWAY_REGISTRATION_TOKEN` when you configure the gateway in [Step 2: Configure the Gateway](#step-2-configure-the-gateway). |
+    | `url` | Yes | The URL where the gateway will be accessible, for example `https://<gateway-host>:<gateway-port>`. |
+    | `name` | No | Environment name shown in the Control Plane. Defaults to an ID derived from `registration_token`. |
+    | `display_name` | No | Display name shown in the Admin Portal and Publisher Portal. Defaults to `name`. |
+    | `organization` | No | Tenant organization that owns the gateway. Defaults to `carbon.super`. A Platform Gateway is always scoped to a single tenant; `WSO2-ALL-TENANTS` is not supported here. |
+
+    You can repeat the `[[apim.platform_gateway.connect]]` block to declare multiple gateways. For the full parameter reference, see [apim.platform_gateway.connect]({{base_path}}/reference/config-catalog/#api-m-platform-gateway-connect-configurations) in the Configuration Catalog.
+
+2. Restart API Manager. `registration_token` and `url` are validated for every entry at startup; fix and restart if the server logs a configuration error.
+3. Continue from [Setup the Gateway](#setup-the-gateway) below to download, configure, and start the gateway. In [Step 2: Configure the Gateway](#step-2-configure-the-gateway), set `GATEWAY_REGISTRATION_TOKEN` to the same `registration_token` value you configured above, and set `GATEWAY_CONTROLPLANE_HOST` to your Control Plane host and port as usual. The gateway is registered automatically the moment it connects - no Admin Portal step is required.
+
+!!! note
+    If you later regenerate this gateway's token from the Admin Portal, update `registration_token` in `deployment.toml` to match. Once a gateway has connected, its stored token is authoritative, so a stale value in `deployment.toml` will fail to authenticate.
+
 ## Setup the Gateway
 
 1. Next, download, configure, and start the gateway on your machine by following the steps in the **Quick Start** section or the detailed instructions below (Steps 1-4).
@@ -57,7 +94,7 @@ Before you begin, ensure that you have the following:
 
 ### Step 1: Download the Gateway
 
-Prefer the download command shown in the Admin Portal for your gateway so the release version always matches the connector. Alternatively, replace `<gateway-version>` in the following example with that release tag (for example, `v1.0.0`):
+Prefer the download command shown in the Admin Portal for your gateway so the release version always matches the connector. Alternatively, replace `<gateway-version>` in the following example with that release tag (for example, `v1.0.0`). If you registered the gateway via `deployment.toml`, use one of the versions listed in `apim.platform_gateway.versions` (the Admin Portal has no generated command until the gateway connects for the first time).
 
 ```bash
 curl -sLO https://github.com/wso2/api-platform/releases/download/gateway/<gateway-version>/wso2apip-api-gateway-<gateway-version>.zip && \
@@ -75,7 +112,7 @@ GATEWAY_REGISTRATION_TOKEN=<your-gateway-token>
 ENVFILE
 ```
 
-When you copy this command from the UI, the placeholder values are populated automatically.
+When you copy this command from the UI, the placeholder values are populated automatically. If you registered the gateway via `deployment.toml`, set `GATEWAY_CONTROLPLANE_HOST` to your Control Plane host and port, and set `GATEWAY_REGISTRATION_TOKEN` to the same `registration_token` value you configured in `deployment.toml`.
 
 ### Step 3: Start the Gateway
 
