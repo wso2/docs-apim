@@ -236,7 +236,6 @@ nav:
                 - Block Subscription to an API: manage-apis/design/advanced-topics/block-subscription-to-an-api.md
                 - Disable Subscription Requirement for an API: manage-apis/design/advanced-topics/disable-subscriptions-for-an-api.md
                 - Validate API Definitions with Linters: manage-apis/design/advanced-topics/validate-api-definitions-with-linters.md
-                - API Governance CLI Tool: manage-apis/design/advanced-topics/api-governance-cli-tool.md
         - Deploy and Publish APIs:
             - Deploy on Gateway:
                 - Deploy API:
@@ -1214,7 +1213,6 @@ plugins:
               'deploy-and-publish/publish-on-dev-portal/publish-to-multiple-external-api-stores.md': 'https://apim.docs.wso2.com/en/4.5.0/manage-apis/deploy-and-publish/publish-on-dev-portal/publish-to-multiple-external-api-stores/'
               'deploy-and-publish/publish-on-dev-portal/third-party-api-support.md': 'https://apim.docs.wso2.com/en/4.5.0/manage-apis/deploy-and-publish/publish-on-dev-portal/third-party-api-support/'
               'design/advanced-topics/adding-an-api-state-change-workflow.md': 'https://apim.docs.wso2.com/en/4.5.0/manage-apis/design/advanced-topics/adding-an-api-state-change-workflow/'
-              'design/advanced-topics/api-governance-cli-tool.md': 'https://apim.docs.wso2.com/en/4.5.0/manage-apis/design/advanced-topics/api-governance-cli-tool/'
               'design/advanced-topics/block-subscription-to-an-api.md': 'https://apim.docs.wso2.com/en/4.5.0/manage-apis/design/advanced-topics/block-subscription-to-an-api/'
               'design/advanced-topics/control-api-visibility-and-subscription-availability-in-developer-portal.md': 'https://apim.docs.wso2.com/en/4.5.0/manage-apis/design/advanced-topics/control-api-visibility-and-subscription-availability-in-developer-portal/'
               'design/advanced-topics/disable-subscriptions-for-an-api.md': 'https://apim.docs.wso2.com/en/4.5.0/manage-apis/design/advanced-topics/disable-subscriptions-for-an-api/'
