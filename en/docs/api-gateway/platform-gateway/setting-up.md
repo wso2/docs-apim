@@ -217,3 +217,4 @@ This guide provides detailed instructions for deploying Platform Gateway in prod
 ## What's Next?
 
 - [Adding and Managing Policies]({{base_path}}/api-gateway/platform-gateway/adding-and-managing-policies/)
+- [Registering a Platform Gateway via deployment.toml]({{base_path}}/api-gateway/platform-gateway/registering-a-gateway-via-deployment-toml/)
