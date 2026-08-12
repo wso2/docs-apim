@@ -627,7 +627,6 @@ nav:
             - Build a CI/CD Pipeline for APIs using Jenkins: apiops/cli/building-jenkins-ci-cd-pipeline.md
         - CLI:
             - Getting Started with WSO2 API Controller (apictl): apiops/cli/getting-started-with-wso2-api-controller.md
-            - API Governance CLI Tool: apiops/cli/api-governance-cli-tool.md
             - Manage APIs and API Products:
                 - Manage APIs and API Products: apiops/cli/managing-apis-api-products/managing-apis-and-api-products.md
                 - Import APIs Via Dev First Approach: apiops/cli/managing-apis-api-products/importing-apis-via-dev-first-approach.md
