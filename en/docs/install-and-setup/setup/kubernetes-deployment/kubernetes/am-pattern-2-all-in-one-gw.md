@@ -20,6 +20,18 @@ This pattern deploys a dedicated Classic Gateway alongside the All-in-One node, 
     2. **A custom Docker image** — for the All-in-One node, with the JDBC driver for your database.
     3. **Database schema initialised** — run the WSO2 schema scripts against both databases before the pods start.
 
+## Minimum Node Requirements
+
+The table below lists the minimum CPU and memory each node must provide, based on the default `resources.requests` block in each component's Helm chart values.
+
+| Component | Minimum CPU (cores) | Minimum Memory |
+|---|---|---|
+| API Manager (All-in-One) | 2 | 2Gi |
+| Classic Gateway | 2 | 2Gi |
+
+!!! note
+    These are the default resource requests defined in each component's `default_values.yaml`. Each node must have at least this much CPU and memory free for that component's pod to be scheduled. This assumes each component runs on its own dedicated node, as described above — if you co-locate multiple components on a shared node, that node needs the sum of their requests.
+
 ---
 
 ## Quick Start
