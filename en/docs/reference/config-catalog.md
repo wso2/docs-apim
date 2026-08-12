@@ -3996,7 +3996,7 @@ versions = ["1.0.0", "1.1.0"]
                 <div class="superfences-content">
                     <div class="mb-config-example">
 <pre><code class="toml">[[apim.platform_gateway.connect]]
-registration_token = "&lt;token-id&gt;.&lt;plain-token&gt;"
+registration_token = "$env{PLATFORM_GW_1_REGISTRATION_TOKEN}"
 name = "platform-gw-1"
 display_name = "Production Platform Gateway"
 description = "Platform Gateway for production traffic"
@@ -4008,7 +4008,7 @@ organization = "carbon.super"
                 <div class="doc-wrapper">
                     <div class="mb-config">
                         <div class="config-wrap">
-                            <code>[apim.platform_gateway.connect]</code>
+                            <code>[[apim.platform_gateway.connect]]</code>
                             
                             <p>
                                 Declares a Platform Gateway that is registered through <code>deployment.toml</code> instead of the Admin Portal. Repeat this array-of-tables block once per gateway. The gateway record is created the first time the gateway connects to the Control Plane, not at startup. Note that this configuration is available in wso2am-4.7.0 starting from update level 7.
@@ -4031,7 +4031,7 @@ organization = "carbon.super"
                                         
                                     </div>
                                     <div class="param-description">
-                                        <p>The gateway's registration token, in <code>&lt;token-id&gt;.&lt;plain-token&gt;</code> format. Choose any value for <code>&lt;token-id&gt;</code> (for example a UUID) and <code>&lt;plain-token&gt;</code> (for example a random string) - this token is defined here, not copied from the Admin Portal. Configure the same value as <code>GATEWAY_REGISTRATION_TOKEN</code> on the gateway.</p>
+                                        <p>The gateway's registration token, in <code>&lt;token-id&gt;.&lt;plain-token&gt;</code> format. Choose any value for <code>&lt;token-id&gt;</code> (for example a UUID) and <code>&lt;plain-token&gt;</code> (for example a random string) - this token is defined here, not copied from the Admin Portal. Configure the same value as <code>GATEWAY_REGISTRATION_TOKEN</code> on the gateway. Reference it with WSO2's <code>$env{...}</code> syntax (as shown above) rather than a literal value in <code>deployment.toml</code>, especially when <code>deployment.toml</code> is checked into version control.</p>
                                     </div>
                                 </div>
                             </div><div class="param">
@@ -4064,7 +4064,7 @@ organization = "carbon.super"
                                             
                                         </p>
                                         <div class="param-default">
-                                            <span class="param-default-value">Default: <code></code></span>
+                                            <span class="param-default-value">Default: <code>ID derived from registration_token</code></span>
                                         </div>
                                         
                                     </div>
@@ -4083,7 +4083,7 @@ organization = "carbon.super"
                                             
                                         </p>
                                         <div class="param-default">
-                                            <span class="param-default-value">Default: <code></code></span>
+                                            <span class="param-default-value">Default: <code>name</code></span>
                                         </div>
                                         
                                     </div>
