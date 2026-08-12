@@ -3990,6 +3990,220 @@ data_retention_period = "30d"
 
 
 
+## API-M platform gateway configurations
+
+
+<div class="mb-config-catalog">
+    <section>
+        <div class="mb-config-options">
+            <div class="superfences-tabs">
+            
+            <input name="131" type="checkbox" id="_tab_131">
+                <label class="tab-selector" for="_tab_131"><i class="icon fa fa-code"></i></label>
+                <div class="superfences-content">
+                    <div class="mb-config-example">
+<pre><code class="toml">[apim.platform_gateway]
+versions = ["1.0.0", "1.1.0"]
+</code></pre>
+                    </div>
+                </div>
+                <div class="doc-wrapper">
+                    <div class="mb-config">
+                        <div class="config-wrap">
+                            <code>[apim.platform_gateway]</code>
+                            
+                            <p>
+                                Configuration for Platform Gateway, a lightweight gateway distribution used for hybrid API Platform deployments.
+                            </p>
+                        </div>
+                        <div class="params-wrap">
+                            <div class="param">
+                                <div class="param-name">
+                                  <span class="param-name-wrap"> <code>versions</code> </span>
+                                </div>
+                                <div class="param-info">
+                                    <div>
+                                        <p>
+                                            <span class="param-type string"> array </span>
+                                            
+                                        </p>
+                                        <div class="param-default">
+                                            <span class="param-default-value">Default: <code>[]</code></span>
+                                        </div>
+                                        
+                                    </div>
+                                    <div class="param-description">
+                                        <p>List of Platform Gateway package version strings. These values are listed in the <b>Gateway version</b> drop-down when adding or editing a platform gateway from the Admin Portal.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+
+
+
+## API-M platform gateway connect configurations
+
+
+<div class="mb-config-catalog">
+    <section>
+        <div class="mb-config-options">
+            <div class="superfences-tabs">
+            
+            <input name="132" type="checkbox" id="_tab_132">
+                <label class="tab-selector" for="_tab_132"><i class="icon fa fa-code"></i></label>
+                <div class="superfences-content">
+                    <div class="mb-config-example">
+<pre><code class="toml">[[apim.platform_gateway.connect]]
+registration_token = "$env{PLATFORM_GW_1_REGISTRATION_TOKEN}"
+name = "platform-gw-1"
+display_name = "Production Platform Gateway"
+description = "Platform Gateway for production traffic"
+url = "https://&lt;gateway-host&gt;:&lt;gateway-port&gt;"
+organization = "carbon.super"
+</code></pre>
+                    </div>
+                </div>
+                <div class="doc-wrapper">
+                    <div class="mb-config">
+                        <div class="config-wrap">
+                            <code>[[apim.platform_gateway.connect]]</code>
+                            
+                            <p>
+                                Declares a Platform Gateway that is registered through <code>deployment.toml</code> instead of the Admin Portal. Repeat this array-of-tables block once per gateway. The gateway record is created the first time the gateway connects to the Control Plane, not at startup.
+                            </p>
+                        </div>
+                        <div class="params-wrap">
+                            <div class="param">
+                                <div class="param-name">
+                                  <span class="param-name-wrap"> <code>registration_token</code> </span>
+                                </div>
+                                <div class="param-info">
+                                    <div>
+                                        <p>
+                                            <span class="param-type string"> string </span>
+                                            <span class="badge-required">Required</span>
+                                        </p>
+                                        <div class="param-default">
+                                            <span class="param-default-value">Default: <code></code></span>
+                                        </div>
+                                        
+                                    </div>
+                                    <div class="param-description">
+                                        <p>The gateway's registration token, in <code>&lt;token-id&gt;.&lt;plain-token&gt;</code> format. Choose any value for <code>&lt;token-id&gt;</code> (for example a UUID) and <code>&lt;plain-token&gt;</code> (for example a random string) - this token is defined here, not copied from the Admin Portal. Configure the same value as <code>GATEWAY_REGISTRATION_TOKEN</code> on the gateway. Reference it with WSO2's <code>$env{...}</code> syntax (as shown above) rather than a literal value in <code>deployment.toml</code>, especially when <code>deployment.toml</code> is checked into version control.</p>
+                                    </div>
+                                </div>
+                            </div><div class="param">
+                                <div class="param-name">
+                                  <span class="param-name-wrap"> <code>url</code> </span>
+                                </div>
+                                <div class="param-info">
+                                    <div>
+                                        <p>
+                                            <span class="param-type string"> string </span>
+                                            <span class="badge-required">Required</span>
+                                        </p>
+                                        <div class="param-default">
+                                            <span class="param-default-value">Default: <code></code></span>
+                                        </div>
+                                        
+                                    </div>
+                                    <div class="param-description">
+                                        <p>The URL where the gateway will be accessible, for example <code>https://&lt;gateway-host&gt;:&lt;gateway-port&gt;</code>. Must be a valid <code>http</code> or <code>https</code> URL with a host.</p>
+                                    </div>
+                                </div>
+                            </div><div class="param">
+                                <div class="param-name">
+                                  <span class="param-name-wrap"> <code>name</code> </span>
+                                </div>
+                                <div class="param-info">
+                                    <div>
+                                        <p>
+                                            <span class="param-type string"> string </span>
+                                            
+                                        </p>
+                                        <div class="param-default">
+                                            <span class="param-default-value">Default: <code>ID derived from registration_token</code></span>
+                                        </div>
+                                        
+                                    </div>
+                                    <div class="param-description">
+                                        <p>Environment name shown in the Control Plane. Use lowercase letters, numbers, and hyphens only. Defaults to an ID derived from <code>registration_token</code> when not set.</p>
+                                    </div>
+                                </div>
+                            </div><div class="param">
+                                <div class="param-name">
+                                  <span class="param-name-wrap"> <code>display_name</code> </span>
+                                </div>
+                                <div class="param-info">
+                                    <div>
+                                        <p>
+                                            <span class="param-type string"> string </span>
+                                            
+                                        </p>
+                                        <div class="param-default">
+                                            <span class="param-default-value">Default: <code>name</code></span>
+                                        </div>
+                                        
+                                    </div>
+                                    <div class="param-description">
+                                        <p>Display name shown in the Admin Portal and Publisher Portal. Defaults to <code>name</code> when not set.</p>
+                                    </div>
+                                </div>
+                            </div><div class="param">
+                                <div class="param-name">
+                                  <span class="param-name-wrap"> <code>description</code> </span>
+                                </div>
+                                <div class="param-info">
+                                    <div>
+                                        <p>
+                                            <span class="param-type string"> string </span>
+                                            
+                                        </p>
+                                        <div class="param-default">
+                                            <span class="param-default-value">Default: <code></code></span>
+                                        </div>
+                                        
+                                    </div>
+                                    <div class="param-description">
+                                        <p>Optional description of the gateway.</p>
+                                    </div>
+                                </div>
+                            </div><div class="param">
+                                <div class="param-name">
+                                  <span class="param-name-wrap"> <code>organization</code> </span>
+                                </div>
+                                <div class="param-info">
+                                    <div>
+                                        <p>
+                                            <span class="param-type string"> string </span>
+                                            
+                                        </p>
+                                        <div class="param-default">
+                                            <span class="param-default-value">Default: <code>carbon.super</code></span>
+                                        </div>
+                                        
+                                    </div>
+                                    <div class="param-description">
+                                        <p>Tenant organization that owns the gateway. A Platform Gateway is always scoped to a single tenant; <code>WSO2-ALL-TENANTS</code> is not supported here.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+
+
+
 ## API-M Mutual SSL Configuration
 
 
