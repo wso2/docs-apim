@@ -1,0 +1,25 @@
+name: "Alt text check"
+
+on:
+  pull_request:
+
+jobs:
+  alt-text:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Find markdown images with empty alt text
+        run: |
+          set -euo pipefail
+          echo "Checking Markdown image alt text..."
+          # Find markdown images with empty alt: ![](path) or ![  ](path)
+          md_empty_alt=$(git grep -n -E "!\[\s*\]\([^)]*\)" -- 'en/**/*.md' || true)
+          # Find HTML <img> tags missing an alt attribute
+          html_missing_alt=$(git grep -n -P "<img\b(?![^>]*\balt=)[^>]*>" -- 'en/**/*.md' || true)
+          if [ -n "$md_empty_alt" ] || [ -n "$html_missing_alt" ]; then
+            echo "Found images missing alt text:" >&2
+            echo "$md_empty_alt" >&2
+            echo "$html_missing_alt" >&2
+            exit 1
+          fi
+          echo "All images have alt text (as far as this check can detect)."
