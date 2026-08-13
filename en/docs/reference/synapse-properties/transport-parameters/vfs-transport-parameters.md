@@ -227,6 +227,16 @@ See [Creating a Proxy Service]({{base_path}}/integrate/develop/creating-artifact
          <td>Only file sizes that are less than or equal to the defined limit are processed. Specify the file size in bytes. The default value is <code>-1</code>(unlimited file size).</td>
       </tr>
       <tr>
+         <td>transport.vfs.CheckSizeIgnoreEmpty</td>
+         <td>When this parameter is set to <code>true</code>, empty files are ignored during reading. The default setting is <code>false</code>.</td>
+      </tr>
+      <tr>
+         <td>transport.vfs.CheckSizeInterval</td>
+         <td>
+            The duration in milliseconds to wait between two consecutive file size checks in order to determine whether a file is still being written to (for example, still being uploaded). The file will not be picked up for processing as long as its size keeps changing between checks. Specify a positive integer, such as <code>1000</code>.
+         </td>
+      </tr>
+      <tr>
          <td>transport.vfs.AutoLockReleaseInterval</td>
          <td>
             The timeout value for stale locks where the VFS transport will ignore those file locks once the defined time period is reached. The time period is calculated from the time the lock is created to the time you attempt to access it. If you need stale locks to never timeout provide -1 as the timeout value. Specify the time in miliseconds. The default value is <code>20000</code>.
