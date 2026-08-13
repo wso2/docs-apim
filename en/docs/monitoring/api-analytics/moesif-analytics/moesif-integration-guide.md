@@ -89,6 +89,10 @@ cd <APIM-HOME>/bin
 ./api-manager.sh start
 ```
 
+!!! Note
+    The request and response header and body capture capabilities described in the following two sections are supported starting from WSO2 API Manager 4.5.0 Update Level 75 and onwards. Ensure that you are using a compatible update level of WSO2 API Manager 4.5.0.
+    Refer to this [guide]({{base_path}}/administer/updating-wso2-api-manager/) to update your WSO2 API Manager to the required or latest update level.
+
 ## Capturing Request and Response Headers
 
 By default, request and response headers are **not** sent to Moesif. To include them, set
