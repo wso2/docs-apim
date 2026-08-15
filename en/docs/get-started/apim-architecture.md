@@ -28,7 +28,7 @@ The Developer Portal is a state-of-the-art web interface that allows API publish
 
 WSO2 API Control Plane includes a Service Catalog where developers can register their services in a RESTful manner. Service Catalog is one of the main attributes that enable the API-first Integration in WSO2 API Manager. Through the Service Catalog, integration services are made discoverable to the API Management layer so that API proxies can directly be created using them. 
 
-These integration services can be created using WSO2 Integration Studio and a variety of other platforms. For an Integration Studio user, the service registration happens automatically when exporting the project as a composite application (CApp).
+These integration services can be created using WSO2 Integrator: MI for VS Code and a variety of other platforms. For users of WSO2 Integrator: MI for VS Code, the service registration happens automatically when exporting the project as a composite application (CApp).
 
 #### Key Manager
  
