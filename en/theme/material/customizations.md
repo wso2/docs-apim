@@ -150,7 +150,7 @@ theme/material/assets/stylesheets/application.*.css
 theme/material/base.html
 ```
 
-5. Copy the the new files back to your `docs-apim` clone from the `mkdocs-material` clone you built at step 3.
+5. Copy the new files back to your `docs-apim` clone from the `mkdocs-material` clone you built at step 3.
 
 ```
 material/assets/javascripts/application.*.js
