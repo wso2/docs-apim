@@ -3,6 +3,9 @@
 Given below are the various transport-level security configurations that are required for WSO2 API Manager. See the following topics for instructions.
 
 -   [Disabling weak ciphers](#disabling-weak-ciphers)
+    -   [Disabling weak ciphers for the Tomcat transport](#disabling-weak-ciphers-for-the-tomcat-transport)
+    -   [Configuring PassThrough transport-level ciphers and TLS versions](#configuring-passthrough-transport-level-ciphers-and-tls-versions)
+    -   [Configuring binary transport SSL protocols and ciphers](#configuring-binary-transport-ssl-protocols-and-ciphers)
 -   [Changing the server name in HTTP response headers](#changing-the-server-name-in-http-response-headers)
 
 ## Disabling weak ciphers
@@ -77,6 +80,31 @@ To prevent these types of security attacks, it is encouraged to disable the weak
         [transport.passthru_https.listener.parameters]
         HttpsProtocols = "TLSv1.2,TLSv1.3"
         ```
+
+#### Configuring binary transport SSL protocols and ciphers
+
+For secure binary transport communication, you can configure SSL protocols and cipher suites for the binary transport receiver.
+
+1. To configure SSL protocols and ciphers for the binary transport receiver, add the following configuration to the `<PRODUCT_HOME>/repository/conf/deployment.toml` file.
+
+    === "Format"
+        ``` toml
+        [transport.binary.receiver]
+        sslEnabledProtocols = "<SSL_PROTOCOL>"
+        ciphers = ["<CIPHER_1>", "<CIPHER_2>"]
+        ```
+
+    === "Example"
+        ``` toml
+        [transport.binary.receiver]
+        sslEnabledProtocols = "TLSv1.2"
+        ciphers = ["TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256", "TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256"]
+        ```
+
+2. Restart the server for the changes to take effect.
+
+!!! note
+    The binary transport receiver configuration is used for secure communication over the binary transport protocol. Ensure that you use strong cipher suites and disable weak protocols for optimal security.
 
 ## Changing the server name in HTTP response headers
 
