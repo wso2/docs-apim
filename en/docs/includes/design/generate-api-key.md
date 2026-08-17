@@ -54,7 +54,7 @@ A valid subscription must exist and the generated API key must be associated wit
 
      Alternatively, you can associate the API key from the subscribed application's **API Keys** page.
 
-     [![Associate API key from App button](../../../../assets/img/learn/api-keys/app-associate-buttopn.png)](../../../../assets/img/learn/api-keys/app-associate-buttopn.png)
+     [![Associate API key from App button](../../../../assets/img/learn/api-keys/app-associate-button.png)](../../../../assets/img/learn/api-keys/app-associate-button.png)
 
      Select the API and the generated API key from the drop-down and associate.
 
