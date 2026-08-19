@@ -1,11 +1,24 @@
-# Registering a Platform Gateway via deployment.toml
+# Gateway Registration and Deployment
+
+## Overview
+
+A Platform Gateway can be registered with the Control Plane in two ways:
+
+- **Admin Portal** - create the gateway from the UI, then download and start it using the generated commands. This is the default, manual method.
+- **Automated Gateway Registration** - declare the gateway in `deployment.toml`, so it registers itself the first time it connects, without an Admin Portal step. Use this to automate provisioning, for example with GitOps.
+
+## Create a Platform Gateway in the Admin Portal
+
+Sign in to the Admin Portal, add a Platform Gateway environment with a display name, description, URL, and gateway version, then use the generated download, configuration, and start commands to bring the gateway up. See [Create a Platform Gateway in the Admin Portal]({{base_path}}/api-gateway/platform-gateway/getting-started/#create-a-platform-gateway-in-the-admin-portal) in the Getting Started guide for the full walkthrough.
+
+## Automated Gateway Registration
 
 !!! note
     This feature is available in WSO2 API Manager 4.7.0 starting from update level 7.
 
 As an alternative to the Admin Portal, you can declare a Platform Gateway directly in `<API-M_HOME>/repository/conf/deployment.toml`. This lets you onboard a gateway purely through configuration, for example to automate provisioning with GitOps. The gateway record is not created at Control Plane startup - it is created the first time the gateway connects, using the details below.
 
-## Configure the gateway
+### Configure the gateway
 
 1. Add a `[[apim.platform_gateway.connect]]` entry in `deployment.toml`:
 
@@ -35,7 +48,7 @@ As an alternative to the Admin Portal, you can declare a Platform Gateway direct
 !!! note
     If you later regenerate this gateway's token from the Admin Portal, update the environment variable or secret referenced by `PLATFORM_GW_1_REGISTRATION_TOKEN` and the gateway runtime's `GATEWAY_REGISTRATION_TOKEN` together - don't replace the `$env{...}` reference in `deployment.toml` with the literal token. Once a gateway has connected, its stored token is authoritative, so a stale value on either side will fail to authenticate.
 
-## Start the gateway
+### Start the gateway
 
 Continue with [Setup the Gateway]({{base_path}}/api-gateway/platform-gateway/getting-started/#setup-the-gateway) in the Getting Started guide to download, configure, and start the gateway. When you create `configs/keys.env`, set `GATEWAY_REGISTRATION_TOKEN` to the same value you stored in `PLATFORM_GW_1_REGISTRATION_TOKEN` above, and set `GATEWAY_CONTROLPLANE_HOST` to your Control Plane host and port. The gateway registers automatically the moment it connects - no Admin Portal step is required.
 

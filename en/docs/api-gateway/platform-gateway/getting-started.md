@@ -7,6 +7,8 @@ This guide walks you through setting up a Platform Gateway in your environment. 
 The Platform Gateway is a lightweight gateway distribution intended for hybrid API Platform deployments where the gateway runtime stays in your own infrastructure, while API design, deployment, and visibility are handled centrally through the Control Plane.
 You can also deploy gateway policies to APIs running on Platform Gateway through Policy Hub.
 
+Platform Gateway uses a subscription-less model: there is no Application or Subscribe step. Access to an API deployed on Platform Gateway is governed entirely by the security policies (API Key, JWT/OAuth, Basic Auth, and so on) you attach to it through Policy Hub.
+
 ## Prerequisites
 
 Before you begin, ensure that you have the following:
@@ -146,7 +148,7 @@ To redeploy the API:
 
 ## Test the API
 
-APIs deployed to **Platform Gateway** rely on [Policy Hub](https://wso2.com/api-platform/policy-hub) policies for runtime security. Depending on what you attach to the API, the gateway may expect **API key**, **JWT / OAuth-style bearer token**, **HTTP Basic** credentials, or other supported schemes.
+APIs deployed to **Platform Gateway** rely on [Policy Hub](https://wso2.com/api-platform/policy-hub) policies for runtime security. Depending on what you attach to the API, the gateway may expect **API key**, **JWT / OAuth-style bearer token**, **HTTP Basic** credentials, or other supported schemes. There is no subscription step. Any consumer that satisfies the attached policy can invoke the API.
 
 In the **Dev Portal**, open the API **Try out** (API Console) view. The **Security** section lists only the auth types that apply to that API (for example **OAuth2** for JWT-style policies, **API Key** for API key policies, **Basic** for basic auth). If the API has no auth policies, the Security section may be hidden.
 
@@ -208,4 +210,4 @@ If authentication fails, confirm the policy is deployed, the header names match 
 
 - [Setting Up Platform Gateway]({{base_path}}/api-gateway/platform-gateway/setting-up/)
 - [Adding and Managing Policies]({{base_path}}/api-gateway/platform-gateway/adding-and-managing-policies/)
-- [Registering a Platform Gateway via deployment.toml]({{base_path}}/api-gateway/platform-gateway/registering-a-gateway-via-deployment-toml/)
+- [Gateway Registration and Deployment]({{base_path}}/api-gateway/platform-gateway/gateway-registration-and-deployment/)
