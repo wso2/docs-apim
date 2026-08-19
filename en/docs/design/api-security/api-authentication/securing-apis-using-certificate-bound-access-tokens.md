@@ -69,9 +69,13 @@ Import the certificate and private key to Postman.
    
      The token comprises of client certificate thumbprint as the cnf claim.
    
+    ```json
+    "cnf": {
+      "x5t#S256": "mgw1cKxzkr7hSkCOyziXiFKobTjLwIf-7uqrLJoHufE"
+    }
     ```
-    "cnf", "{"x5t#S256": "9a0c3570ac7392bee14a408ecb38978852a86d38cbc087feeeeaab2c9a07b9f1"}"
-    ```
+
+     The `x5t#S256` value is the base64url-encoded SHA-256 thumbprint of the DER-encoded client certificate, as defined in [RFC 8705](https://www.rfc-editor.org/rfc/rfc8705#name-jwt-certificate-thumbprint-).
 
 4. Invoke the API from Postman.
 
