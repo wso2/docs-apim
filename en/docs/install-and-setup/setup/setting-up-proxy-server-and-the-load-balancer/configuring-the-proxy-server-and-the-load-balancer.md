@@ -141,7 +141,7 @@ Carry out the following steps to configure the load balancer to front multiple 
     -   The placeholders {tm-1-ip-address} and {tm-2-ip-address} correspond to the IP addresses of the back-end nodes in which APIM Traffic Managers are running.
 
 
-!!! configurations
+!!! example "Configurations"
     === "Single node"
         ```
         upstream sslapi.am.wso2.com {

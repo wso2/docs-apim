@@ -5,7 +5,7 @@ Follow the instructions below to use Kubernetes (K8s) and Helm resources for con
 !!! note
         -   In the context of this document, **&lt;`HELM_HOME>         `** refers to a local copy of the [`wso2/helm-apim         `](https://github.com/wso2/helm-apim/).
 
-!!! Prerequisites
+!!! info "Prerequisites"
     
     - Install [Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git), [Helm](https://helm.sh/docs/intro/install/), [Dep](https://golang.github.io/dep/docs/installation.html)
       and [Kubernetes client](https://kubernetes.io/docs/tasks/tools/install-kubectl/) in order to run the steps

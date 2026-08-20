@@ -373,8 +373,8 @@ http_method = "all"
     [![Tenant Selection Page]({{base_path}}/assets/img/setup-and-install/tenant-selection-page.png)]({{base_path}}/assets/img/setup-and-install/tenant-selection-page.png)
 
 
-!!! Note For secondary user stores
+!!! note "For secondary user stores"
     If your Identity Provider has multiple secondary user stores (such as LDAP) and you want to include the user domain in the subject identifier (`LDAP_DOMAIN/username`), you must also connect the same user stores to the API Manager in read-only mode. This is required when the secondary user stores contain users with the same name and you cannot provision those users to the API Manager primary user store.
 
-!!! Tips
+!!! tip
     This approach is not limited to WSO2 IS 7.x, you can connect any third party identity provider using this method
