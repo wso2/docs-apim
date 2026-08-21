@@ -57,6 +57,9 @@ Download the binary distribution of the product, and then follow the instruction
 
 Follow the steps given below to configure the MI servers to publish data to the dashboard.
 
+!!! Tip "Recommended deployment"
+    Deploy the dashboard in the **same network as the MI nodes**, so that it can reach each node directly on the node's own IP address. Use the `management_hostname` and `management_port` overrides described below only when placing the dashboard in the same network is not possible.
+
 1.  To connect the MI servers with the dashboard, add the following configuration to the `deployment.toml` file (stored in the `<MI_HOME>/conf/` folder) of each server instance.
 
     ```toml
@@ -67,22 +70,46 @@ Follow the steps given below to configure the MI servers to publish data to the 
     node_id = "dev_node_2"
     ```
     
-    If the Micro Integrator server is deployed in a Kubernetes environment, add the following configuration to the `deployment.toml` file. 
+    **How the MI node advertises its management API**
 
-    <br/>Limitation: When there are replicas in the deployment, the write operations will not work properly.
+    Communication between the two servers happens in both directions:
 
-    If communicating via Ingress, use the following configuration:
-    ```toml
-    dashboard_url = "https://{hostname/ip}:{port}/dashboard/api/"
-    management_hostname = "<INGRESS_HOSTNAME>"
+    -   The MI node pushes a heartbeat *to* the dashboard at `dashboard_url`.
+    -   The dashboard calls *back into* the MI node's management API to read artifact data and to perform management operations.
+
+    For the second direction to work, each MI node has to tell the dashboard how to reach it. It does this by including its own management API URL (`mgtApiUrl`) in every heartbeat.
+
+    At startup, MI derives this URL from **the IP address of the server's default network interface** and the internal HTTPS API port:
+
     ```
-    
-    If communicating via Service instead, use the following configuration:
-    ```toml
-    dashboard_url = "https://{hostname/ip}:{port}/dashboard/api/"
-    management_hostname = "<SERVICE_NAME>"
-    management_port = <SERVICE_PORT>
+    https://<NODE_IP>:9164/management/
     ```
+
+    This works only when the dashboard can open a connection to that IP address directly. If the dashboard runs outside the MI deployment — in a different network, a different Kubernetes cluster, or outside the cluster entirely — the node IP is not routable from the dashboard. In this case, the node still appears in the dashboard UI, because heartbeats flow in the other direction and continue to succeed, but every attempt to load artifact data or run an operation on the node fails.
+
+    When the dashboard cannot reach the node IP directly, override the advertised address using `management_hostname` and `management_port`:
+
+    ```toml
+    [dashboard_config]
+    dashboard_url = "https://{hostname/ip}:{port}/dashboard/api/"
+    management_hostname = "<MI_MANAGEMENT_HOSTNAME>"
+    management_port = <MI_MANAGEMENT_PORT>
+    ```
+
+    MI then advertises `https://<MI_MANAGEMENT_HOSTNAME>:<MI_MANAGEMENT_PORT>/management/` instead of the IP-based URL.
+
+    If you omit `management_port`, MI advertises `https://<MI_MANAGEMENT_HOSTNAME>/management/` with no port. Use this form when the node is exposed through an Ingress or a reverse proxy that listens on the default HTTPS port (443).
+
+    !!! Warning "Reaching MI through a load balancer or a Kubernetes Service"
+        The dashboard addresses MI nodes individually: when you select a node in the UI, the request goes to the `mgtApiUrl` that node reported. If `management_hostname` points to a load balancer, a Kubernetes Service, or an Ingress that fronts **more than one MI replica**, that assumption breaks — the load balancer decides which replica actually serves each request, and it may not be the node you selected.
+
+        As a result, the following are not reliable in such a deployment:
+
+        -   **Node-scoped read operations.** Log files, log configurations, deployed artifact lists, and server details are returned by whichever replica happened to receive the request, so the dashboard UI may attribute them to the wrong node.
+        -   **Write and state-changing operations.** Activating/deactivating proxy services, endpoints, and message processors; enabling/disabling tracing; updating log levels; adding loggers; and adding or removing users are applied only to the replica that received the request. They do not apply to the node you selected, and they are not propagated across the group.
+        -   **Consistency across retries.** Repeating the same operation can land on a different replica each time, so the state shown in the UI may not match the state on any single node.
+
+        If you need accurate per-node monitoring and management, expose each MI node under its own address — for example, a distinct hostname or port per node, a per-pod Ingress rule, or the stable pod DNS names of a StatefulSet fronted by a headless Service — and set `management_hostname`/`management_port` on each node to its own address.
 
     <table>
         <tr>
@@ -123,7 +150,7 @@ Follow the steps given below to configure the MI servers to publish data to the 
                 management_hostname
             </th>
             <td>
-                <b>Required if MI server is deployed in a Kubernetes environment</b>. Hostname for the Micro Integrator management endpoint.
+                <b>Required only if the dashboard cannot reach this node directly on its own IP address</b> (for example, when the dashboard is deployed outside the MI deployment, or when MI runs in Kubernetes behind an Ingress/Service). Hostname dedicated to <b>this specific</b> Micro Integrator node's management endpoint. When this is not set, MI advertises <code>https://&lt;NODE_IP&gt;:9164/management/</code>, where <code>&lt;NODE_IP&gt;</code> is the IP address of the node's default network interface — see <a href="#step-2-configure-the-mi-servers">the explanation above</a>.
             </td>
         </tr>
         <tr>
@@ -131,7 +158,7 @@ Follow the steps given below to configure the MI servers to publish data to the 
                 management_port
             </th>
             <td>
-                <b>Optional</b>. Port of the Micro Integrator management endpoint.
+                <b>Optional</b>. Port of the Micro Integrator management endpoint, set alongside <code>management_hostname</code>. If omitted, the advertised URL carries no port (<code>https://&lt;management_hostname&gt;/management/</code>), which suits an Ingress or reverse proxy on the default HTTPS port.
             </td>
         </tr>
     </table> 
