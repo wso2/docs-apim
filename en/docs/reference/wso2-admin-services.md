@@ -41,7 +41,7 @@ By default, the WSDLs of admin services are hidden from consumers. Follow the in
      Type `listAdminServices` in the OSGi shell and press `Enter`.
 
     ``` shell
-    osgi> listAdminServices
+    g! listAdminServices
     ```
     
      The list of admin services related to WSO2 API Manager product will appear as shown below. 
