@@ -295,7 +295,7 @@ Enforcement applies during the WSDL validate and import operations, using the sa
 
 #### Behavior
 
-- If a nested reference resolves to a disallowed or private-network host, the validate or import operation fails with a "URL is not trusted" error. Validate returns `isValid: false` with the error; import returns HTTP 400.
+- If a nested reference resolves to a disallowed or private-network host, the validate or import operation fails with a "remote reference in the definition could not be resolved" error. Validate returns `isValid: false` with the error; import returns HTTP 400.
 - If the reference resolves to an allow-listed host, it is fetched normally.
 - Only remote `http`/`https` references are gated. The top-level WSDL URL is validated separately by the top-level URL check described earlier on this page.
 
@@ -307,7 +307,7 @@ Enforcement applies during the WSDL validate and import operations, using the sa
 !!! warning "`allow` mode with WSDL 2.0: allow-list the XML-standards hosts"
     A WSDL 2.0 document that uses any XML Schema type (for example `xs:string`) causes the XML parser to resolve the standard XML Schema definitions (the schema-for-schemas, `xml.xsd`, and related DTDs) from the W3C standards host `www.w3.org`. These are fixed public standards identifiers referenced by virtually every typed WSDL 2.0, not user-supplied endpoints.
 
-    When `mode = "allow"` is used, every host that is not in the `hosts` array is blocked, including `www.w3.org`. As a result, validating or importing a WSDL 2.0 service under an `allow`-mode policy fails with "The provided URL is not trusted". The blocked host, `www.w3.org`, is recorded in `repository/logs/wso2carbon.log`, not in the user-facing message.
+    When `mode = "allow"` is used, every host that is not in the `hosts` array is blocked, including `www.w3.org`. As a result, validating or importing a WSDL 2.0 service under an `allow`-mode policy fails with "A remote reference in the definition could not be resolved". The blocked host, `www.w3.org`, is recorded in `repository/logs/wso2carbon.log`, not in the user-facing message.
 
     To import WSDL 2.0 services under `allow` mode, add the XML-standards hosts to the allow-list:
 
