@@ -11,65 +11,49 @@
 
 <!-- Google Tag Manager -->
 <script>
-  if (window.location.hostname.endsWith('wso2.com')) {
-    (function(w, d, s, l, i) {
-      w[l] = w[l] || [];
-      w[l].push({
-        'gtm.start': new Date().getTime(),
-        event: 'gtm.js'
-      });
-      var f = d.getElementsByTagName(s)[0],
-        j = d.createElement(s),
-        dl = l != 'dataLayer' ? '&l=' + l : '';
-      j.setAttributeNode(d.createAttribute('data-ot-ignore'));
-      j.async = true;
-      j.src =
-        'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
-      f.parentNode.insertBefore(j, f);
-    })(window, document, 'script', 'dataLayer', 'GTM-PSTXMT');
-  } else {
-    console.warn("GTM not loaded: not on an allowed domain");
-  }
+  (function(w, d, s, l, i) {
+    w[l] = w[l] || [];
+    w[l].push({
+      'gtm.start': new Date().getTime(),
+      event: 'gtm.js'
+    });
+    var f = d.getElementsByTagName(s)[0],
+      j = d.createElement(s),
+      dl = l != 'dataLayer' ? '&l=' + l : '';
+    j.setAttributeNode(d.createAttribute('data-ot-ignore'));
+    j.async = true;
+    j.src =
+      'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
+    f.parentNode.insertBefore(j, f);
+  })(window, document, 'script', 'dataLayer', 'GTM-PSTXMT');
 </script>
 <!-- End Google Tag Manager -->
 
-<!-- Start of Reo Javascript -->
+<!-- CookiePro Cookies Consent Notice start for wso2.com -->
+<script src="https://cookie-cdn.cookiepro.com/scripttemplates/otSDKStub.js"  type="text/javascript" charset="UTF-8" data-domain-script="486163bc-a8c5-40d8-b185-c707cc718a23" ></script>
 <script type="text/javascript">
-  if (window.location.hostname.endsWith('wso2.com')) {
-    (function () {
-      var clientId = "{{ config.extra.reo_client_id | d('8995a8d9dc109cb') }}";
-      var script = document.createElement("script");
-      script.src = "https://static.reo.dev/" + clientId + "/reo.js";
-      script.defer = true;
-      script.onload = function () {
-        try {
-          if (typeof Reo !== "undefined" && Reo && typeof Reo.init === "function") {
-            Reo.init({ clientID: clientId });
-          } else {
-            console.error("Reo script loaded but Reo.init is not available");
-          }
-        } catch (err) {
-          console.error("Error during Reo initialization", err);
-        }
-      };
-      script.onerror = function (err) {
-        console.error("Failed to load Reo script from https://static.reo.dev/", err);
-      };
-      document.head.appendChild(script);
-    })();
-    } else {
-      console.warn("Reo not loaded: not on an allowed domain");
-  }
+  function OptanonWrapper() { }
 </script>
-<!-- End of Reo Javascript -->
+<!-- CookiePro Cookies Consent Notice end for wso2.com -->
 
 {% for path in config.extra_javascript %}
 <script src="{{ path | url }}"></script>
 {% endfor %}
 
-<script src="//unpkg.com/moesif-browser-js@^1/moesif.min.js"></script>
-<script type="text/javascript">
-  moesif.init({
-    applicationId: 'eyJhcHAiOiI0OTM6MzQwOSIsInZlciI6IjIuMSIsIm9yZyI6IjEwNDc6NjY2IiwicHViIjp0cnVlLCJpYXQiOjE3Njk5MDQwMDB9.KbF_rIN-phhR-W4pMHEn-8bAfjO-YSZ24Ch9xEtXqYk',
+<script>
+  function trackEvent(eventName, properties) {
+    if (moesif) {
+      moesif.track(eventName, {
+        product: "api",
+        asset_type: "docs",
+        domain: window.location.hostname,
+        page_url: window.location.pathname,
+        ...properties,
+      });
+    }
+  }
+  
+  document.addEventListener("DOMContentLoaded", function () {
+    trackEvent("Page-Viewed", { page_title: document.title });
   });
 </script>

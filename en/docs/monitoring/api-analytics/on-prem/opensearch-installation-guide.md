@@ -199,8 +199,8 @@ Open the `wso2am-4.x.x/repository/conf` directory. To enable logging for a repor
 
 1. To install Fluent Bit, follow one of the guides below based on your operating system.
 
-    - If you are a Linux user, follow this [guide](https://docs.fluentbit.io/manual/installation/linux/ubuntu).
-    - If you are a MacOS user, follow this [guide](https://docs.fluentbit.io/manual/installation/macos).
+    - If you are a Linux user, follow this [guide](https://docs.fluentbit.io/manual/installation/downloads/linux).
+    - If you are a MacOS user, follow this [guide](https://docs.fluentbit.io/manual/installation/downloads/macos).
 
 2. After installing Fluent Bit and OpenSearch, create a Fluent Bit configuration file (fluent-bit.conf) with the following attributes to direct WSO2 APIM metrics logs in the `repository/logs` folder to the OpenSearch cluster.
 

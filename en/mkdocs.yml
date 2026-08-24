@@ -93,7 +93,6 @@ nav:
                 - Set up Kubernetes Gateway with APIM: install-and-setup/setup/distributed-deployment/configuring-apim-as-a-gateway.md
                 - Set up a Key Manager:
                     - Set up a Third-party Key Manager: install-and-setup/setup/distributed-deployment/configure-a-third-party-key-manager.md
-                    - Set up WSO2 Identity Server as a Resident Key Manager: install-and-setup/setup/distributed-deployment/configuring-wso2-identity-server-as-a-key-manager.md
                 - Set up Databases:
                     - Overview: install-and-setup/setup/setting-up-databases/overview.md
                     - Change Default Databases:
@@ -141,6 +140,7 @@ nav:
                         - Configure a Read-Write Active Directory User Store: install-and-setup/setup/configure-userstores/configure-primary-user-store/configuring-a-read-write-active-directory-user-store.md
                 - SSO:
                     - Configure Identity Server As External IDP with OIDC: install-and-setup/setup/sso/configuring-identity-server-as-external-idp-using-oidc.md
+                    - Configure External IDP with OIDC for Multi-tenancy: install-and-setup/setup/sso/configuring-external-idp-using-oidc-for-multi-tenancy.md
                     - Configure Identity Server As External IDP with SAML: install-and-setup/setup/sso/configuring-identity-server-as-external-idp-using-saml.md
                     - OKTA As An External IDP With OIDC: install-and-setup/setup/sso/okta-as-an-external-idp-using-oidc.md
                     - OKTA As An External IDP With SAML: install-and-setup/setup/sso/okta-as-an-external-idp-using-saml.md
@@ -177,6 +177,8 @@ nav:
                         - Pattern 6 - All-in-One with IS as Key Manager: install-and-setup/setup/kubernetes-deployment/kubernetes/am-pattern-6-all-in-one-is-as-km.md
                 - API-M on Openshift: install-and-setup/setup/kubernetes-deployment/openshift/openshift-deployment-overview.md
                 - API-M on EKS: install-and-setup/setup/kubernetes-deployment/aws/deploying-wso2-api-m-on-eks.md
+                - API-M on AKS: install-and-setup/setup/kubernetes-deployment/azure/deploying-wso2-api-m-on-aks.md
+                - API-M on GKE: install-and-setup/setup/kubernetes-deployment/gke/deploying-wso2-api-m-on-gke.md
             - Deployment Best Practices:
                 - Deployment Checklist: install-and-setup/setup/deployment-best-practices/production-deployment-guidelines.md
                 - Security Guidelines for a Production Deployment: install-and-setup/setup/deployment-best-practices/security-guidelines-for-production-deployment.md
@@ -286,6 +288,7 @@ nav:
                 - Overview: api-design-manage/design/api-policies/overview.md
                 - Attach Policy: api-design-manage/design/api-policies/attach-policy.md
                 - Create Policy: api-design-manage/design/api-policies/create-policy.md
+                - Develop and Test Policies: api-design-manage/design/api-policies/develop-and-test-policies.md
             - Rate Limiting:
                 - Set API Operation Limits: api-design-manage/design/rate-limiting/set-api-level-throttling.md
                 - Protect Backend Services: api-design-manage/design/rate-limiting/protect-backend-services.md
@@ -389,7 +392,6 @@ nav:
                 - Securing APIs Using Certificate Bound Access Tokens: api-security/runtime/api-authentication/securing-apis-using-certificate-bound-access-tokens.md
             - Authorization:
                 - Overview: api-security/runtime/authorization/api-authorization.md
-                - Role-based Access Control Using XACML: api-security/runtime/authorization/role-based-access-control-using-xacml.md
                 - Fine Grained Access Control with OAuth Scopes: api-security/runtime/authorization/oauth2-scopes/fine-grained-access-control-with-oauth-scopes.md
                 - Application Scopes: api-security/runtime/authorization/oauth2-scopes/application-scopes.md
                 - Scope Whitelisting: api-security/runtime/authorization/oauth2-scopes/scope-whitelisting.md
@@ -427,7 +429,6 @@ nav:
             - Third-Party Key Managers:
                 - Overview: api-security/key-management/third-party-key-managers/overview.md
                 - Configure WSO2 IS Key Manager: api-security/key-management/third-party-key-managers/configure-wso2is7-connector.md
-                - Configure WSO2 IS 6.x as a Key Manager: api-security/key-management/third-party-key-managers/configure-wso2is-connector.md
                 - Configure Asgardeo as a Key Manager: api-security/key-management/third-party-key-managers/configure-asgardeo-connector.md
                 - Configure Keycloak as a Key Manager: api-security/key-management/third-party-key-managers/configure-keycloak-connector.md
                 - Configure Okta as a Key Manager: api-security/key-management/third-party-key-managers/configure-okta-connector.md
@@ -446,6 +447,7 @@ nav:
             - Getting Started: api-gateway/platform-gateway/getting-started.md
             - Setting Up: api-gateway/platform-gateway/setting-up.md
             - Adding and Managing Policies: api-gateway/platform-gateway/adding-and-managing-policies.md
+            - Gateway Registration and Deployment: api-gateway/platform-gateway/gateway-registration-and-deployment.md
         - Classic Gateway (Universal):
             - Overview of the WSO2 Classic Gateway: api-gateway/overview-of-the-api-gateway.md
             - Deploy an API to Gateway: api-gateway/deploy-api-to-gateway.md
@@ -457,6 +459,7 @@ nav:
                 - Classic Gateway with Dedicated Tenants: api-gateway/maintain-seperate-gateways-per-tenants.md
                 - Classic Gateways with Dedicated Backends: api-gateway/api-gateways-with-dedicated-backends.md
                 - Mutual SSL Between Classic Gateway and Backend: api-gateway/mutual-ssl-between-api-gateway-and-backend.md
+                - WebSocket Proxy Profiles: api-gateway/websocket-proxy-profiles.md
                 - Storing Custom Synapse Artifacts in the Gateway: api-gateway/custom-synapse-artifacts.md
             - Gateway Policies:
                 - Adding Dynamic Endpoints: api-gateway/policies/adding-dynamic-endpoints.md

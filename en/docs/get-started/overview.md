@@ -1,6 +1,6 @@
 # Overview
 
-WSO2 API Manager is a comprehensive, fully open-source API management platform that provides complete API lifecycle management with enterprise-grade security, advanced gateway capabilities, and AI-powered features. It enables organizations to design, secure, publish, and analyze APIs while providing developers with a rich marketplace experience.
+WSO2 API Manager is a fully open-source API management platform that supports the complete API lifecycle. It enables organizations to design, secure, publish, and analyze APIs while providing developers with a rich marketplace experience. It also provides enterprise-grade security, advanced gateway capabilities, and AI-powered features.
 
 ## Core Capabilities
 <hr style="border: 0; border-top: 1px solid #ccc; margin-top: -10px; margin-bottom: 20px;">
@@ -11,7 +11,7 @@ Create and manage diverse API types with comprehensive tooling and AI assistance
 
 - **Multiple API Types**: REST, GraphQL, WebSocket, WebSub/WebHook, Server-Sent Events (SSE), SOAP-to-REST, and AI APIs
 - **API Design Tools**: OpenAPI/Swagger import, AsyncAPI support, GraphQL SDL, and service catalog integration
-- **AI-Assisted Design**: Create APIs with AI, API Chat for testing, and Marketplace Assistant for discovery
+- **AI-Assisted Design**: Create APIs using AI assistance, test them with API Chat, and discover APIs through the Marketplace Assistant
 - **API Products**: Combine resources from multiple APIs into unified product offerings
 - **Prototype APIs**: Mock implementations and existing backend prototypes
 - **Versioning & Revisions**: Comprehensive API versioning with revision-based deployment
@@ -54,7 +54,7 @@ Deploy APIs across multiple gateway types with centralized management:
 
 Multi-layered security with flexible authentication and authorization:
 
-- **Authentication Methods**: OAuth 2.0, API Keys, Mutual SSL, Basic Authentication, and Certificate Bound Access Tokens
+- **Authentication Methods**: OAuth 2.0, API Keys, Mutual SSL, Basic Authentication, and Certificate-Bound Access Tokens
 - **Authorization**: Role-based access control (RBAC), OAuth scopes, XACML policies, and application scopes
 - **Key Manager Integration**: Built-in key manager plus third-party support for WSO2 Identity Server, Keycloak, Okta, Auth0, PingFederate, ForgeRock, and Azure AD
 - **Threat Protection**: Regular expression, JSON, and XML threat protectors, plus bot detection
@@ -100,7 +100,7 @@ Sophisticated traffic management:
 
 Comprehensive insights and revenue generation with multiple analytics solutions:
 
-- **Moesif Analytics**: Advanced API analytics with user behavior tracking.
+- **Moesif Analytics**: Advanced API analytics with user behavior tracking
 - **Alternative Solutions**: ELK, Datadog, OpenSearch, and Choreo-based analytics
 - **Observability**: Correlation logs, HTTP access logs, audit logs, API logs, and WebSocket logs
 - **Tracing**: OpenTracing and OpenTelemetry integration

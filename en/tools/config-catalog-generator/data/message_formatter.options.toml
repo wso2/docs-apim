@@ -1,0 +1,3 @@
+[message_formatter.options]
+disableSendingMultipartPartCharset = true
+preserveMultipartPartContentTransferEncoding = true
