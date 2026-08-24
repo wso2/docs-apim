@@ -172,44 +172,44 @@ secure = false
 http_method = "all"
 ```
 
-    <table>
-        <thead>
-            <tr>
-                <th>Config</th>
-                <th>Description</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td>tenant_context.enable_tenant_qualified_urls</td>
-                <td>Enable tenant qualified URLs.</td>
-            </tr>
-            <tr>
-                <td>tenant_context.enable_tenanted_sessions</td>
-                <td>Enable tenanted sessions</td>
-            </tr>
-            <tr>
-                <td>tenant_context.skip_tenant_validation_for_oauth_endpoints</td>
-                <td>Enable this if you are using resident key manager</td>
-            </tr>
-            <tr>
-                <td>tenant_context.session_manager</td>
-                <td>You can skip this if you are using external key manager</td>
-            </tr>
-            <tr>
-                <td>event.default_listener.jit_provisioning_handler.enable</td>
-                <td>To disable default JIT provisioning handler</td>
-            </tr>
-            <tr>
-                <td>event_listener</td>
-                <td>This adds custom JIT provisioning handler</td>
-            </tr>
-            <tr>
-                <td>resource.access_control</td>
-                <td>Whitelist tenant selection page.</td>
-            </tr>
-        </tbody>
-    </table>
+<table>
+    <thead>
+        <tr>
+            <th>Config</th>
+            <th>Description</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>tenant_context.enable_tenant_qualified_urls</td>
+            <td>Enable tenant qualified URLs.</td>
+        </tr>
+        <tr>
+            <td>tenant_context.enable_tenanted_sessions</td>
+            <td>Enable tenanted sessions</td>
+        </tr>
+        <tr>
+            <td>tenant_context.skip_tenant_validation_for_oauth_endpoints</td>
+            <td>Enable this if you are using resident key manager</td>
+        </tr>
+        <tr>
+            <td>tenant_context.session_manager</td>
+            <td>You can skip this if you are using external key manager</td>
+        </tr>
+        <tr>
+            <td>event.default_listener.jit_provisioning_handler.enable</td>
+            <td>To disable default JIT provisioning handler</td>
+        </tr>
+        <tr>
+            <td>event_listener</td>
+            <td>This adds custom JIT provisioning handler</td>
+        </tr>
+        <tr>
+            <td>resource.access_control</td>
+            <td>Whitelist tenant selection page.</td>
+        </tr>
+    </tbody>
+</table>
 
 
 
