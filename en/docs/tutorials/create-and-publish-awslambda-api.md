@@ -146,3 +146,96 @@ When using AWS Lambda, you can execute your code without having to manage or pro
 2. Go to **Lifecycle** page and click on **PUBLISH** to publish the API to Developer Portal.
 
 You have successfully published the AWS Lambda API. Try invoking the Lambda API in the Developer Portal.
+
+!!! note "Configure Proxy Response Mapping"
+    By default, WSO2 API Manager forwards the raw Lambda function response payload directly to clients as JSON with an HTTP 200 status code. To allow Lambda functions to control the response status code, headers, and content type, you can enable proxy response mapping.
+
+    When enabled, the API Manager parses the Lambda response as an [AWS API Gateway Lambda proxy integration response](https://docs.aws.amazon.com/apigateway/latest/developerguide/set-up-lambda-proxy-integrations.html#api-gateway-simple-proxy-for-lambda-output-format) envelope and maps the `statusCode`, `headers`, `multiValueHeaders`, `body`, and `isBase64Encoded` fields to the HTTP response.
+
+    To enable proxy response mapping, add the following configuration to the <code>&lt;API-M_HOME&gt;/repository/conf/deployment.toml</code> file. For more information, see [Configuration Catalog]({{base_path}}/reference/config-catalog/).
+
+    ```toml
+    [apim.aws_lambda]
+    enable_proxy_response_mapping = true
+    ```
+
+    !!! warning
+        When enabled, Lambda functions must return payloads in the proxy envelope format. Existing integrations are not affected unless this is explicitly enabled (default: `false`). Supported content types for body routing are `application/json`, `text/plain`, and `application/xml`.
+
+!!! note "Configure AWS SDK Retry Behavior"
+    You can configure the maximum number of retry attempts for AWS Lambda invocations. When not configured, the AWS SDK default retry behavior is preserved.
+
+    To configure the retry behavior, add the following configuration to the <code>&lt;API-M_HOME&gt;/repository/conf/deployment.toml</code> file. For more information, see [Configuration Catalog]({{base_path}}/reference/config-catalog/).
+
+    ```toml
+    [apim.aws_lambda.sdk]
+    retry_max_attempts = 2
+    ```
+
+## Configure Connection Pooling 
+
+You can fine-tune the underlying HTTP connection pool used by the **AWS Lambda client** to optimize performance under high load. 
+
+To configure the connection pooling, add the following configuration to the <code>&lt;API-M_HOME&gt;/repository/conf/deployment.toml</code> file.  For more information, see  [Configuration Catalog]({{base_path}}/reference/config-catalog/).
+
+
+
+```toml
+[apim.aws_lambda.http_client]
+max_connections = 50
+connection_timeout = 10
+socket_timeout = 30
+connection_acquisition_timeout = 60
+```
+
+The elements in the above configuration are described below. If these values are not configured, the system will use the default settings.
+
+<table>
+  <thead>
+    <tr>
+      <th>Setting</th>
+      <th>Key</th>
+      <th>Description</th>
+      <th>Default</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <tr>
+      <td><strong>Max Connections</strong></td>
+      <td><code>max_connections</code></td>
+      <td>
+        The maximum number of concurrent HTTP connections allowed in the pool.
+        Increase this value if you expect high concurrent throughput to Lambda functions.
+      </td>
+      <td>100</td>
+    </tr>
+
+    <tr>
+      <td><strong>Connection Timeout</strong></td>
+      <td><code>connection_timeout</code></td>
+      <td>The maximum time (in seconds) to wait when establishing a new TCP connection to AWS.</td>
+      <td>2 seconds</td>
+    </tr>
+
+    <tr>
+      <td><strong>Socket Timeout</strong></td>
+      <td><code>socket_timeout</code></td>
+      <td>The maximum time (in seconds) to wait for data to be transferred after a connection is established.</td>
+      <td>30 seconds</td>
+    </tr>
+
+    <tr>
+      <td><strong>Connection Acquisition Timeout</strong></td>
+      <td><code>connection_acquisition_timeout</code></td>
+      <td>
+        The maximum time (in seconds) to wait for a connection to become available from the pool
+        if <strong>Max Connections</strong> has been reached.
+      </td>
+      <td>30 seconds</td>
+    </tr>
+  </tbody>
+</table>
+
+!!! Note 
+    These configurations serve as the global settings for all AWS Lambda endpoints in the Gateway. However, please note that each API resource initializes its own independent **AWS Lambda client**. Therefore, the values defined here (such as <code>max_connections</code>) are applied per API resource, not as a server-wide aggregate limit.

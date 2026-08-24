@@ -224,7 +224,7 @@ nav:
           - Create and Publish an AWS Lambda API: tutorials/create-and-publish-awslambda-api.md
           - Create and Publish an API with Sequence as a Backend: tutorials/create-and-publish-a-sequencebackend-api.md
           - Expose a SOAP Service as a REST API: tutorials/expose-a-soap-service-as-a-rest-api.md
-          - Edit an API by Modifying the API Definition: tutorials/edit-an-api-by-modifyng-the-api-definition.md
+          - Edit an API by Modifying the API Definition: tutorials/edit-an-api-by-modifying-the-api-definition.md
           - Enforce Rate Limiting and Resource Access Policies: tutorials/enforce-throttling-and-resource-access-policies.md
     - API Design & Manage:
         - Design APIs:
@@ -393,7 +393,6 @@ nav:
                 - Securing APIs Using Certificate Bound Access Tokens: api-security/runtime/api-authentication/securing-apis-using-certificate-bound-access-tokens.md
             - Authorization:
                 - Overview: api-security/runtime/authorization/api-authorization.md
-                - Role-based Access Control Using XACML: api-security/runtime/authorization/role-based-access-control-using-xacml.md
                 - Fine Grained Access Control with OAuth Scopes: api-security/runtime/authorization/oauth2-scopes/fine-grained-access-control-with-oauth-scopes.md
                 - Application Scopes: api-security/runtime/authorization/oauth2-scopes/application-scopes.md
                 - Scope Whitelisting: api-security/runtime/authorization/oauth2-scopes/scope-whitelisting.md
@@ -450,6 +449,7 @@ nav:
             - Getting Started: api-gateway/platform-gateway/getting-started.md
             - Setting Up: api-gateway/platform-gateway/setting-up.md
             - Adding and Managing Policies: api-gateway/platform-gateway/adding-and-managing-policies.md
+            - Gateway Registration and Deployment: api-gateway/platform-gateway/gateway-registration-and-deployment.md
         - Classic Gateway (Universal):
             - Overview of the WSO2 Classic Gateway: api-gateway/overview-of-the-api-gateway.md
             - Deploy an API to Gateway: api-gateway/deploy-api-to-gateway.md
@@ -461,6 +461,7 @@ nav:
                 - Classic Gateway with Dedicated Tenants: api-gateway/maintain-seperate-gateways-per-tenants.md
                 - Classic Gateways with Dedicated Backends: api-gateway/api-gateways-with-dedicated-backends.md
                 - Mutual SSL Between Classic Gateway and Backend: api-gateway/mutual-ssl-between-api-gateway-and-backend.md
+                - WebSocket Proxy Profiles: api-gateway/websocket-proxy-profiles.md
                 - Storing Custom Synapse Artifacts in the Gateway: api-gateway/custom-synapse-artifacts.md
             - Gateway Policies:
                 - Adding Dynamic Endpoints: api-gateway/policies/adding-dynamic-endpoints.md

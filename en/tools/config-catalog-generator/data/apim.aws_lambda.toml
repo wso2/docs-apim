@@ -1,0 +1,5 @@
+[apim.aws_lambda]
+enable_proxy_response_mapping = true
+
+[apim.aws_lambda.sdk]
+retry_max_attempts = 2

@@ -27,6 +27,18 @@ This pattern deploys WSO2 API Manager as a single All-in-One node with WSO2 Iden
 
     Detailed steps for each of the above are explained in the sections below.
 
+## Minimum Node Requirements
+
+The table below lists the minimum CPU and memory each node must provide, based on the default `resources.requests` block in the respective Helm chart values.
+
+| Component | Minimum CPU (cores) | Minimum Memory |
+|---|---|---|
+| API Manager (All-in-One) | 2 | 2Gi |
+| WSO2 Identity Server | 2 | 2Gi |
+
+!!! note
+    These are the default resource requests defined in the `wso2am-all-in-one` and `identity-server` Helm charts. Each node must have at least this much CPU and memory free for that component's pod to be scheduled. This assumes each component runs on its own dedicated node, as described above — if you co-locate multiple components on a shared node, that node needs the sum of their requests.
+
 ---
 
 ## Quick Start

@@ -14,6 +14,9 @@ For more information, see [OpenTelemetry Configurations]({{base_path}}/reference
 !!! note
     At a time, only one of the below types can be enabled.
 
+!!! important "Configuration placement"
+    When adding configurations that start with `apim.` (such as `[apim.open_telemetry]`) to the `deployment.toml` file, ensure that you place them after any existing `apim` configuration blocks in the file. Alternatively, you can add these configurations at the end of the file. Placing `apim.` configurations before the existing `apim` block may cause the product startup to fail.
+
 !!! note
 	[``OTEL_RESOURCE_ATTRIBUTES``](https://opentelemetry.io/docs/specs/otel/resource/sdk/#specifying-resource-information-via-an-environment-variable) can be used to set resource attributes such as `deployment.environment` and `service.name`. This can be done in one of the following ways:
 
@@ -56,7 +59,7 @@ For more information, see [OpenTelemetry Configurations]({{base_path}}/reference
 		remote_tracer.enable = true
 		remote_tracer.name = "jaeger"
 		remote_tracer.hostname = "localhost"
-		remote_tracer.port = 14250
+		remote_tracer.port = 4317
 		```
 
 2. Start the server.

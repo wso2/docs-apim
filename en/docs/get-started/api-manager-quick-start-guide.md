@@ -67,24 +67,11 @@ Follow the instructions below to create, deploy and publish an API via the Publi
                                                  
      [![Publisher portal home page]({{base_path}}/assets/img/get_started/api-publisher-home.png)]({{base_path}}/assets/img/get_started/api-publisher-home.png)
 
-3. Next, let's create a mock REST service by navigating to [Mocky.io](https://designer.mocky.io/design). You can provide the following configuration in order to create a mock service.
-    
-    | Field                   | Value                 |
-    | ----------------------- |-----------------------|
-    | `HTTP Status`           | 200 - OK              |
-    | `Response Content Type` | application/json      |
-    | `Charset`               | UTF-8                 |
-    | `HTTP Response Body`    | `{"hello": "world"}`  |
-
-    Finally, click **Generate My HTTP Response** to save and generate the mock service url.
-
-    
-4. Select **REST API** from the home screen and then click **Start From Scratch**.
+3. Next, let's create a **REST API** in the API Manager to proxy an existing REST service by selecting **REST API** from the home screen and then click **Start From Scratch**.
    
     [![Design a new REST API]({{base_path}}/assets/img/get_started/design-new-rest-api.png)]({{base_path}}/assets/img/get_started/design-new-rest-api.png)
 
-
-5. Enter the API details.
+4. Fill the following API details in the relevant fields.
 
     <table>
     <tr> 
@@ -92,21 +79,13 @@ Follow the instructions below to create, deploy and publish an API via the Publi
      Name
      </th>
      <td>
-     HelloWorld
-     </td>
-     </tr>
-     <tr>
-     <th>
-     Display Name
-     </th>
-     <td>
-     Hello World
+     RandomUUID
      </td>
      </tr>
      <tr> 
      <th>Context
      </th>
-     <td><code>/hello</code>
+     <td><code>/uuid</code>
      </td>
      </tr>
      <tr> 
@@ -118,12 +97,12 @@ Follow the instructions below to create, deploy and publish an API via the Publi
      <tr> 
      <th>Endpoint
      </th>
-     <td><code>https://run.mocky.io/v3/e42a76f0-95f3-4759-b658-dcc2b0c8bacd</code>
+     <td><code>https://dev-tools.wso2.com/gs/helpers/v1.0/uuid</code>
      </td>
      </tr>
      </table>
      
-6. Click **Create & Publish**.
+5. Click **Create & Publish**.
 
     [![Create an API]({{base_path}}/assets/img/get_started/api-create.png){: style="width:100%"}]({{base_path}}/assets/img/get_started/api-create.png)
 
@@ -139,13 +118,13 @@ Follow the instructions below to subscribe to the API via the Developer Portal o
 
      [https://localhost:9443/devportal](https://localhost:9443/devportal)
     
-     The published `HelloWorld` API is listed in the Developer Portal as shown below.
+     The published `RandomUUID` API is listed in the Developer Portal as shown below.
 
      [![Developer Portal home page]({{base_path}}/assets/img/get_started/dev-portal-landing-page.png)]({{base_path}}/assets/img/get_started/dev-portal-landing-page.png)
 
 2. Click **Sign-In** and enter **`admin/admin`** as your credentials to sign in to the Developer Portal.
 
-3. Once you click on the HelloWorld API, you will be redirected to  the API overview page. Then, go ahead and click on the **TRY OUT** button.
+3. Once you click on the RandomUUID API, you will be redirected to  the API overview page. Then, go ahead and click on the **TRY OUT** button.
 
      [![API try out]({{base_path}}/assets/img/get_started/try-out.png)]({{base_path}}/assets/img/get_started/try-out.png)
 
@@ -169,6 +148,10 @@ Follow the instructions below to invoke the created API.
 
      [![Test API]({{base_path}}/assets/img/get_started/test-api.png)]({{base_path}}/assets/img/get_started/test-api.png)
 
+     This will prompt you for the customer secret created at the startup to generate the access token.
+
+     [![Test API]({{base_path}}/assets/img/get_started/enter-customer-secret.png)]({{base_path}}/assets/img/get_started/enter-customer-secret.png)
+
 2. Click on the `GET` resource of the API to expand the resource and Click **Try It Out**.
    
      [![GET resource]({{base_path}}/assets/img/get_started/expanded-get-resource.png)]({{base_path}}/assets/img/get_started/expanded-get-resource.png)
@@ -177,7 +160,7 @@ Follow the instructions below to invoke the created API.
 
      [![GET resource]({{base_path}}/assets/img/get_started/try-api.png)]({{base_path}}/assets/img/get_started/try-api.png)
 
-     You should see the `{"hello" : "world"}` response from the API. 
+     You should see the `{"uuid": "<random-generated-uuid>"}` response from the API.
 
      [![Successful response]({{base_path}}/assets/img/get_started/try-it-success.png)]({{base_path}}/assets/img/get_started/try-it-success.png)
 
