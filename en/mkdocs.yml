@@ -123,7 +123,6 @@ nav:
             - Authorization:
                 - Overview: design/api-security/authorization/api-authorization.md
                 - Role-Based Access Control Using Scopes: design/api-security/oauth2/oauth2-scopes/fine-grained-access-control-with-oauth-scopes.md
-                - Role-Based Access Control Using XACML: design/api-security/authorization/role-based-access-control-using-xacml.md
             - Secure APIs by Auditing API Definitions: design/api-security/configuring-api-security-audit.md
             - Request-Response Schema Validation:
                 - JSON Schema Validator: design/api-security/api-request-response-schema-validation/json-schema-validator.md
