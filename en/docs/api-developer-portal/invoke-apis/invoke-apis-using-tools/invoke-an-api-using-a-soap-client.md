@@ -21,7 +21,7 @@ Let's invoke the `PhoneVerification` API using a SOAP client.
     
 5.  Copy the access token to the clipboard as you need it later to invoke the API.
     
-6.  Download the SOAP UI installation that suits your operating system from <https://www.soapui.org/downloads/soapui.html> and open its console.
+6.  Download the SOAP UI installation that suits your operating system from <https://www.soapui.org/downloads/latest-release/> and open its console.
     
 7.  In the SOAP UI, right click on the **Projects** menu and create a new SOAP project.
     
