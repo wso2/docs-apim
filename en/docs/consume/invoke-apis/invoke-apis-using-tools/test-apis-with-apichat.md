@@ -39,7 +39,18 @@ Follow the instructions below to register your on-premise environment:
 
 ## Step 3 - Configure API Manager
 
-1. The following configuration change must be done in the `<API-M_HOME>/repository/conf/deployment.toml` file. Update the `[apim.ai]` config by providing the on-premise token obtained from Step 2. Also, be sure to update the endpoint field as below.
+!!! note
+    This step requires administrator access to the API Manager server. If you don't have access to the server files, contact your system administrator to complete this configuration.
+
+To enable API Chat functionality, configure the API Manager server by following the steps below:
+
+1. Locate the API Manager installation directory on your server.
+   
+    The installation directory is referred to as `<API-M_HOME>`. This is the root folder where you installed WSO2 API Manager (for example, `/usr/lib/wso2/wso2am-4.3.0` on Linux or `C:\Program Files\WSO2\API Manager\4.3.0` on Windows).
+
+2. Open the configuration file located at `<API-M_HOME>/repository/conf/deployment.toml` using a text editor.
+
+3. Add or update the `[apim.ai]` configuration section with the on-premise token you generated in Step 2.
 
       ```toml
       [apim.ai]
@@ -47,8 +58,15 @@ Follow the instructions below to register your on-premise environment:
       endpoint = "https://dev-tools.wso2.com/apim-ai-service"
       token = "<use token that you generated>"
       ```
+   
+    Replace `<use token that you generated>` with the actual token you copied from Choreo in Step 2.
 
-2. Restart the API Manager.
+4. Save the configuration file.
+
+5. Restart the API Manager server for the changes to take effect.
+   
+    - On Linux: Run the shutdown script `<API-M_HOME>/bin/api-manager.sh stop` and then start the server using `<API-M_HOME>/bin/api-manager.sh start`
+    - On Windows: Stop the Windows service or close the command window running the server, then restart using `<API-M_HOME>\bin\api-manager.bat`
 
 ## Step 4 - Test your APIs
 
