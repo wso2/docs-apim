@@ -1,7 +1,7 @@
 # Managing Tenants
 
 
-##Adding a new tenant
+## Adding a new tenant
 You can add a new tenant in the management console and then view it by following the procedure below. In order to add a new tenant, you should be logged in as a super user.
 
 1.  Click **Add New Tenant** in the **Configure** tab of the management console.

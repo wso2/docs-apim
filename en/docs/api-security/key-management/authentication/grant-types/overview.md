@@ -1,4 +1,4 @@
-#OAuth2 Grant Types
+# OAuth2 Grant Types
 
 
 In OAuth2, the term **Grant Type** refers to the way for a client application to acquire an access token depending on the type of the resource owner, type of the application and the trust relationship between the authorization server and the resource owner. 

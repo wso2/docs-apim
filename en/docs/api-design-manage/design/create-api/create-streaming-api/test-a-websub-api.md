@@ -4,7 +4,7 @@
 
 Follow the instructions below to test a WebSub API (WebHook API):
 
-!!! Prerequisites
+!!! info "Prerequisites"
      1. The WebSub/WebHook API should have been published.
 
      2. The WebSub/WebHook API topic should have been registered with your WebHook provider. For more details, see [Create a WebSub/WebHook API](../../../../design/create-api/create-streaming-api/create-a-websub-streaming-api).
