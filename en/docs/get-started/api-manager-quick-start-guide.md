@@ -47,7 +47,7 @@ In this sample scenario, you'll implement the full lifecycle of an API using WSO
 
 <a href="{{base_path}}/assets/img/get_started/apim-qsg-diagram.png"><img src="{{base_path}}/assets/img/get_started/apim-qsg-diagram.png" width="60%"></a>
 
-Here are the steps that we are going to follow:
+The following steps will guide you through the process:
 
 - [Step 1: Create, Deploy and Publish an API](#step-1-create-deploy-and-publish-an-api)
 - [Step 2: Subscribe to the API](#step-2-subscribe-to-the-api)
