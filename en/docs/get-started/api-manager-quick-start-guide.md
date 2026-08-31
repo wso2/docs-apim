@@ -10,7 +10,7 @@ Choose a deployment option to start the WSO2 API Manager All-in-one package. The
 
 === "Run on VM"
 
-    Here's how you can download and run WSO2 API Manager All-in-one package locally on a VM:
+    Here's how you can download and run the WSO2 API Manager All-in-one package locally on a VM:
 
     1. Install [Java SE Development Kit (JDK)](https://adoptium.net/temurin/releases/?arch=any&version=21) version **21** and set the `JAVA_HOME` environment variable.
     
