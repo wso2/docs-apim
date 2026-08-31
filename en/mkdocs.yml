@@ -678,7 +678,16 @@ nav:
                 - Configuring Different Endpoint Security Types: apiops/cli/advanced-topics/configuring-different-endpoint-security-types.md
                 - Format the Outputs of Get Commands: apiops/cli/advanced-topics/formatting-the-output-of-get-command.md
                 - Configure Git Integration: apiops/cli/advanced-topics/configuring-git-integration.md
-
+        - Backstage Plugin for APIM:
+            - Overview: backstage-plugin/overview.md
+            - Getting Started:
+                - Installation & Prerequisites: backstage-plugin/setup/installation-and-configuration.md
+                - Configure for Your Backstage System:
+                    - New Backend System: backstage-plugin/setup/latest-setup.md
+                    - Legacy Backend & Frontend System: backstage-plugin/setup/legacy-setup.md
+                - Deploying on OpenChoreo: backstage-plugin/setup/openchoreo-setup.md
+            - Troubleshooting: backstage-plugin/troubleshooting.md
+            - References: backstage-plugin/references.md
     - Reference:
         - Product REST APIs:
             - Overview: reference/product-apis/overview.md
@@ -857,6 +866,7 @@ extra:
     product_name: WSO2 API Manager
     explicit_tab_list:
       - Home
+      - Backstage Plugin for APIM
       - Get Started
       - Install & Setup
       - Tutorials
@@ -888,6 +898,9 @@ extra:
       options:
         - verticle-line
         - no-collapsible
+    - title: Backstage Plugin for APIM
+      options:
+        - verticle-line
     - title: Install & Setup
       options:
         - verticle-line
@@ -929,6 +942,9 @@ extra:
     nav_icons:
       Home:
         icon: octicons/home-16
+        level: 1
+      Backstage Plugin for APIM:
+        icon: octicons/plug-16
         level: 1
       Get Started:
         icon: octicons/rocket-16
