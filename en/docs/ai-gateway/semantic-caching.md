@@ -105,9 +105,6 @@ The Semantic Cache supports Zilliz, Milvus, and AWS ElastiCache as vector databa
     "jedis.pool.max_idle" = 5
     ```
 
-!!! note "Important"
-    AWS ElastiCache is supported only from WSO2 API Manager 4.6.0 U2 update level (`wso2am-4.6.0.40`) onwards.
-
 You can optionally specify a `ttl` property to control the time-to-live for cached entries. If not set, the default TTL is 3600 seconds.
 
 ## How to Use

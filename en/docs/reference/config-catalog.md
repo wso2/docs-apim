@@ -18434,7 +18434,7 @@ ttl = 3600
                                         </div>
                                     </div>
                                     <div class="param-description">
-                                        <p>The vector database provider type. Use zilliz to connect to either Zilliz Cloud or a Milvus instance, or elasticache to connect to AWS ElastiCache (Redis/Valkey). Support for elasticache is available only from WSO2 API Manager 4.6.0 U2 update level (wso2am-4.6.0.40) onwards.</p>
+                                        <p>The vector database provider type. Use zilliz to connect to either Zilliz Cloud or a Milvus instance, or elasticache to connect to AWS ElastiCache (Redis/Valkey).</p>
                                     </div>
                                 </div>
                             </div>
