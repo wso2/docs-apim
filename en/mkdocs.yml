@@ -63,7 +63,7 @@ theme:
        - search.share
     language: 'en'
 #Breaks build if there's a warning
-strict: false
+strict: true
 # Navigation
 nav:
     - Home: index.md
