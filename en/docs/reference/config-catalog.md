@@ -18462,7 +18462,7 @@ ttl = 3600
                                         
                                     </div>
                                     <div class="param-description">
-                                        <p>The URI of the vector database instance. For Zilliz, use the Zilliz Cloud cluster endpoint. For Milvus, use the Milvus server address (e.g., http://localhost:19530). Applicable only when type is zilliz.</p>
+                                        <p>The URI of the vector database instance. For Zilliz, use the Zilliz Cloud cluster endpoint. For Milvus, use the Milvus server address (e.g., http://localhost:19530). Not applicable to Vector DB providers other than Zilliz and Milvus.</p>
                                     </div>
                                 </div>
                             </div><div class="param">
@@ -18481,7 +18481,7 @@ ttl = 3600
                                         
                                     </div>
                                     <div class="param-description">
-                                        <p>The access token for authenticating with the vector database. For Zilliz, use the Zilliz Cloud API token. For Milvus, use the username and password in the format username:password (e.g., root:Milvus). Applicable only when type is zilliz.</p>
+                                        <p>The access token for authenticating with the vector database. For Zilliz, use the Zilliz Cloud API token. For Milvus, use the username and password in the format username:password (e.g., root:Milvus). Not applicable to Vector DB providers other than Zilliz and Milvus.</p>
                                     </div>
                                 </div>
                             </div><div class="param">
@@ -18500,7 +18500,7 @@ ttl = 3600
                                         
                                     </div>
                                     <div class="param-description">
-                                        <p>The hostname or endpoint of the ElastiCache/Redis instance. Applicable only when type is elasticache.</p>
+                                        <p>The hostname or endpoint of the ElastiCache/Redis instance. Applicable only when type is elasticache. When cluster_mode_enabled is true, this must be the ElastiCache cluster's Configuration Endpoint (its hostname contains clustercfg.) rather than an individual node/shard endpoint.</p>
                                     </div>
                                 </div>
                             </div><div class="param">

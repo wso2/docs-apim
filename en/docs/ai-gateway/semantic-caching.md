@@ -98,8 +98,9 @@ The Semantic Cache supports Zilliz, Milvus, and AWS ElastiCache as vector databa
     [apim.ai.vector_db_provider.properties]
     host = "<your-elasticache-endpoint>"
     port = "6379"
-    ssl_enabled = "false"
-    cluster_mode_enabled = "true"
+    ssl_enabled = false
+    # When 'cluster_mode_enabled' is 'true', set 'host' to the ElastiCache cluster's Configuration Endpoint (its hostname contains 'clustercfg.') rather than an individual node/shard endpoint.
+    cluster_mode_enabled = true
     # The underlying Jedis connection pool used to talk to ElastiCache can be tuned via `jedis.pool.*` properties. Eg:
     "jedis.pool.max_total" = 15
     "jedis.pool.max_idle" = 5
