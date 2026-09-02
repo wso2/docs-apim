@@ -1,23 +1,23 @@
 # Extending AI Services
 
-WSO2 API Manager (WSO2 API-M) provides extension points for integrating customer-owned AI services with Marketplace Assistant, Design Assistant, and API Chat.
+WSO2 API Manager (WSO2 API-M) provides extension points for integrating user-owned AI services with Marketplace Assistant, Design Assistant, and API Chat.
 
 You can use these extension points to:
 
-- Add optional customer-specific properties to the request payload sent by API-M to an AI service.
-- Replace the WSO2-managed AI backend with a customer-owned implementation for one or more AI features.
-- Use both approaches when a customer-owned service also requires additional request properties.
+- Add optional user-specific properties to the request payload sent by API-M to an AI service.
+- Replace the WSO2-managed AI backend with a user-owned implementation for one or more AI features.
+- Use both approaches when a user-owned service also requires additional request properties.
 
 | Requirement | Extension to use |
 | :--- | :--- |
-| Keep the configured AI service and add fields such as a customer identifier or username | Implement an AI request property enricher |
-| Use a customer-owned AI service | Implement the published OpenAPI contract and configure API-M to invoke it through an API Gateway |
-| Use a customer-owned service that requires extra request fields | Implement the service contract and an AI request property enricher |
+| Keep the configured AI service and add fields such as a user identifier or username | Implement an AI request property enricher |
+| Use a user-owned AI service | Implement the published OpenAPI contract and configure API-M to invoke it through an API Gateway |
+| Use a user-owned service that requires extra request fields | Implement the service contract and an AI request property enricher |
 
 !!! note
     This capability is delivered through WSO2 product updates. Update the API-M product to **update level 40** or above level before configuring the extension.
 
-The following diagram shows how API-M enriches AI service requests and connects to customer-owned AI service implementations.
+The following diagram shows how API-M enriches AI service requests and connects to user-owned AI service implementations.
 
 [![AI service extension architecture]({{base_path}}/assets/img/learn/extensions/ai-services/ai-service-extension-overview.svg)]({{base_path}}/assets/img/learn/extensions/ai-services/ai-service-extension-overview.svg)
 
@@ -41,11 +41,11 @@ to:
 {
   "query": "Show APIs for processing payments",
   "username": "alex@acme.com",
-  "customerOrganization": "acme.com"
+  "userOrganization": "acme.com"
 }
 ```
 
-The additional fields must be optional in the customer service contract so that the service remains compatible with the standard API-M payload.
+The additional fields must be optional in the custom service contract so that the service remains compatible with the standard API-M payload.
 
 ### Supported AI operations
 
@@ -132,7 +132,7 @@ public class CustomAIRequestPropertyEnricher extends AbstractAIRequestPropertyEn
             properties.put("username", context.getUsername());
         }
         if (context.getOrganization() != null) {
-            properties.put("customerOrganization", context.getOrganization());
+            properties.put("userOrganization", context.getOrganization());
         }
         return properties;
     }
@@ -161,7 +161,7 @@ Restart API-M after adding the JAR or changing the configuration.
 ### Step 5 - Verify the extension
 
 1. Invoke an AI feature for which the implementation overrides an enrichment method.
-2. Confirm that the customer AI service receives the additional top-level properties.
+2. Confirm that the custom AI service receives the additional top-level properties.
 3. Confirm that the standard payload fields remain unchanged.
 4. Test operations that are not overridden and confirm that their payloads remain unchanged.
 
@@ -179,17 +179,17 @@ The following rules apply to every enrichment method:
 - The enrichment methods run on the request path. Avoid slow network calls and expensive processing.
 - Do not add passwords, access tokens, client secrets, or other sensitive values to the payload.
 
-## Integrate a customer-owned AI service
+## Integrate a user-owned AI service
 
-API-M can invoke customer-owned implementations of Marketplace Assistant, Design Assistant, and API Chat. The customer service can use any language, AI provider, or data store, but **it must follow the OpenAPI contract** for the selected feature.
+API-M can invoke user-owned implementations of Marketplace Assistant, Design Assistant, and API Chat. The user service can use any language, AI provider, or data store, but **it must follow the OpenAPI contract** for the selected feature.
 
 The public contracts, reference implementations, and full deployment instructions are available in the [API-M AI services deployment guide](https://github.com/wso2/samples-apim/blob/master/apim-ai-deployments/README.md).
 
-The reference source demonstrates how the WSO2 services are implemented. It is provided as development guidance and is not a packaged service that customers are expected to deploy unchanged.
+The reference source demonstrates how the WSO2 services are implemented. It is provided as development guidance and is not a packaged service that users are expected to deploy unchanged.
 
 ### Available service contracts
 
-| API-M feature | Required customer service |
+| API-M feature | Required custom service |
 | :--- | :--- |
 | Marketplace Assistant | Spec Populator Service for indexing and Marketplace Assistant service for chat |
 | Design Assistant | API Design Assistant service |
@@ -209,24 +209,24 @@ Review the OpenAPI specifications for the features that you want to enable. Impl
 
 Treat the OpenAPI specification as the source of truth. API-M checks particular success status codes and maps responses to product DTOs. Returning another success status or adding unsupported response fields can cause the invocation to fail.
 
-If the service needs customer-specific request fields, define them as optional fields or allow additional request properties as specified by the contract. Then use the property enricher described above to provide their values.
+If the service needs user-specific request fields, define them as optional fields or allow additional request properties as specified by the contract. Then use the property enricher described above to provide their values.
 
 ### Step 2 - Deploy and expose the services
 
-Deploy the customer services in your environment and expose their required resources through an API Gateway.
+Deploy the user services in your environment and expose their required resources through an API Gateway.
 
 The Gateway should handle:
 
 - Authentication of requests from API-M
-- Routing from the published Gateway paths to the customer services
+- Routing from the published Gateway paths to the user services
 - Transport-level mediation required to align the API-M invocation with the published contract
 - Injection of the Marketplace Assistant `keyID` query parameter
 
-Gateway API contexts and resource prefixes are customer-defined. They do not need to match the sample paths. Configure the paths exposed by your Gateway in `deployment.toml`.
+Gateway API contexts and resource prefixes are user-defined. They do not need to match the sample paths. Configure the paths exposed by your Gateway in `deployment.toml`.
 
 ### Step 3 - Create the application and subscriptions
 
-1. Publish the customer AI service APIs in the Gateway.
+1. Publish the custom AI service APIs in the Gateway.
 2. Create one application in the Developer Portal for the AI service integration.
 3. Subscribe that application to every AI service API required by the enabled features.
 4. Generate the consumer key and consumer secret.
@@ -290,7 +290,7 @@ Restart API-M after changing `deployment.toml`.
 
 Validate the integration in the following order:
 
-1. Invoke each customer service directly and validate the response against its OpenAPI contract.
+1. Invoke each custom service directly and validate the response against its OpenAPI contract.
 2. Invoke each API through the Gateway using the integration application's access token.
 3. Confirm that the Gateway routes every configured path to the intended service operation.
 4. For Marketplace Assistant, confirm that the same non-empty `keyID` reaches the indexing, chat, removal, and count operations.
