@@ -14,9 +14,6 @@ You can use these extension points to:
 | Use a user-owned AI service | Implement the published OpenAPI contract and configure API-M to invoke it through an API Gateway |
 | Use a user-owned service that requires extra request fields | Implement the service contract and an AI request property enricher |
 
-!!! note
-    This capability is delivered through WSO2 product updates. Update the API-M product to **update level 40** or above level before configuring the extension.
-
 The following diagram shows how API-M enriches AI service requests and connects to user-owned AI service implementations.
 
 [![AI service extension architecture]({{base_path}}/assets/img/learn/extensions/ai-services/ai-service-extension-overview.svg)]({{base_path}}/assets/img/learn/extensions/ai-services/ai-service-extension-overview.svg)
@@ -230,7 +227,13 @@ Gateway API contexts and resource prefixes are user-defined. They do not need to
 2. Create one application in the Developer Portal for the AI service integration.
 3. Subscribe that application to every AI service API required by the enabled features.
 4. Generate the consumer key and consumer secret.
-5. Base64-encode `<consumer-key>:<consumer-secret>` and use the result as the API-M AI service key.
+5. Base64-encode `<consumer-key>:<consumer-secret>`, without a trailing line break, and use the result as the API-M AI service key.
+
+For example, on a Unix-like system:
+
+```bash
+printf '%s' '<consumer-key>:<consumer-secret>' | base64
+```
 
 Use the same application for the Marketplace Assistant and Spec Populator APIs. The Gateway derives `keyID` from the application's consumer key. Using separate applications would result in different data partitions.
 
