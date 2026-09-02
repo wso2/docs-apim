@@ -695,7 +695,7 @@ nav:
                     - Extend Scope Validation: reference/customize-product/extending-api-manager/extending-key-management/extending-scope-validation.md
                     - Extend Key Manager: reference/customize-product/extending-api-manager/extending-key-management/extending-the-key-manager-interface.md
                     - Write Custom Grant Types: reference/customize-product/extending-api-manager/extending-key-management/writing-custom-grant-types.md
-                    - Extend AI Services: reference/customize-product/extending-api-manager/extending-ai-services.md
+                - Extend AI Services: reference/customize-product/extending-api-manager/extending-ai-services.md
                 - Extend API Gateway:
                     - Customize API Template: reference/customize-product/extending-api-manager/extending-gateway/customizing-api-template-for-gateway.md
                     - Write Custom Handlers: reference/customize-product/extending-api-manager/extending-gateway/writing-custom-handlers.md
