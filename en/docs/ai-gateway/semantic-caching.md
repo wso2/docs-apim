@@ -68,7 +68,7 @@ Choose one of the following embedding providers and add the configuration to you
 
 ### 2. Vector Database Configuration
 
-The Semantic Cache supports Zilliz and Milvus as vector database providers (**Support for additional vector database providers will be added soon**). Configure the desired provider in your `<APIM_HOME>/repository/conf/deployment.toml` file:
+The Semantic Cache supports Zilliz, Milvus, and AWS ElastiCache as vector database providers (**Support for additional vector database providers will be added soon**). Configure the desired provider in your `<APIM_HOME>/repository/conf/deployment.toml` file:
 
 === "Zilliz"
 
@@ -88,6 +88,22 @@ The Semantic Cache supports Zilliz and Milvus as vector database providers (**Su
     [apim.ai.vector_db_provider.properties]
     uri = "http://localhost:19530"
     token = "root:Milvus"
+    ```
+
+=== "AWS ElastiCache"
+
+    ```toml
+    [apim.ai.vector_db_provider]
+    type = "elasticache"
+    [apim.ai.vector_db_provider.properties]
+    host = "<your-elasticache-endpoint>"
+    port = "6379"
+    ssl_enabled = false
+    # When 'cluster_mode_enabled' is 'true', set 'host' to the ElastiCache cluster's Configuration Endpoint (its hostname contains 'clustercfg.') rather than an individual node/shard endpoint.
+    cluster_mode_enabled = true
+    # The underlying Jedis connection pool used to talk to ElastiCache can be tuned via `jedis.pool.*` properties. Eg:
+    "jedis.pool.max_total" = 15
+    "jedis.pool.max_idle" = 5
     ```
 
 You can optionally specify a `ttl` property to control the time-to-live for cached entries. If not set, the default TTL is 3600 seconds.
