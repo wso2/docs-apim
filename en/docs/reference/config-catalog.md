@@ -18265,11 +18265,11 @@ ttl = 3600
                                             <span class="param-default-value">Default: <code></code></span>
                                         </div>
                                         <div class="param-possible">
-                                            <span class="param-possible-values">Possible Values: <code>zilliz</code></span>
+                                            <span class="param-possible-values">Possible Values: <code>zilliz,elasticache</code></span>
                                         </div>
                                     </div>
                                     <div class="param-description">
-                                        <p>The vector database provider type. Use zilliz to connect to either Zilliz Cloud or a Milvus instance.</p>
+                                        <p>The vector database provider type. Use zilliz to connect to either Zilliz Cloud or a Milvus instance, or elasticache to connect to AWS ElastiCache (Redis/Valkey). Support for elasticache is available only from WSO2 API Manager 4.6.0 U2 update level (wso2am-4.6.0.40) onwards.</p>
                                     </div>
                                 </div>
                             </div>
@@ -18297,7 +18297,7 @@ ttl = 3600
                                         
                                     </div>
                                     <div class="param-description">
-                                        <p>The URI of the vector database instance. For Zilliz, use the Zilliz Cloud cluster endpoint. For Milvus, use the Milvus server address (e.g., http://localhost:19530).</p>
+                                        <p>The URI of the vector database instance. For Zilliz, use the Zilliz Cloud cluster endpoint. For Milvus, use the Milvus server address (e.g., http://localhost:19530). Not applicable to Vector DB providers other than Zilliz and Milvus.</p>
                                     </div>
                                 </div>
                             </div><div class="param">
@@ -18316,7 +18316,125 @@ ttl = 3600
                                         
                                     </div>
                                     <div class="param-description">
-                                        <p>The access token for authenticating with the vector database. For Zilliz, use the Zilliz Cloud API token. For Milvus, use the username and password in the format username:password (e.g., root:Milvus).</p>
+                                        <p>The access token for authenticating with the vector database. For Zilliz, use the Zilliz Cloud API token. For Milvus, use the username and password in the format username:password (e.g., root:Milvus). Not applicable to Vector DB providers other than Zilliz and Milvus.</p>
+                                    </div>
+                                </div>
+                            </div><div class="param">
+                                <div class="param-name">
+                                  <span class="param-name-wrap"> <code>host</code> </span>
+                                </div>
+                                <div class="param-info">
+                                    <div>
+                                        <p>
+                                            <span class="param-type string"> string </span>
+                                            <span class="badge-required">Required</span>
+                                        </p>
+                                        <div class="param-default">
+                                            <span class="param-default-value">Default: <code></code></span>
+                                        </div>
+                                        
+                                    </div>
+                                    <div class="param-description">
+                                        <p>The hostname or endpoint of the ElastiCache/Redis instance. Applicable only when type is elasticache. When cluster_mode_enabled is true, this must be the ElastiCache cluster's Configuration Endpoint (its hostname contains clustercfg.) rather than an individual node/shard endpoint.</p>
+                                    </div>
+                                </div>
+                            </div><div class="param">
+                                <div class="param-name">
+                                  <span class="param-name-wrap"> <code>port</code> </span>
+                                </div>
+                                <div class="param-info">
+                                    <div>
+                                        <p>
+                                            <span class="param-type string"> string </span>
+                                            <span class="badge-required">Required</span>
+                                        </p>
+                                        <div class="param-default">
+                                            <span class="param-default-value">Default: <code></code></span>
+                                        </div>
+                                        
+                                    </div>
+                                    <div class="param-description">
+                                        <p>The port of the ElastiCache/Redis instance. Applicable only when type is elasticache.</p>
+                                    </div>
+                                </div>
+                            </div><div class="param">
+                                <div class="param-name">
+                                  <span class="param-name-wrap"> <code>username</code> </span>
+                                </div>
+                                <div class="param-info">
+                                    <div>
+                                        <p>
+                                            <span class="param-type string"> string </span>
+                                            
+                                        </p>
+                                        <div class="param-default">
+                                            <span class="param-default-value">Default: <code></code></span>
+                                        </div>
+                                        
+                                    </div>
+                                    <div class="param-description">
+                                        <p>The username used to authenticate with the ElastiCache/Redis instance, if authentication is enabled. Applicable only when type is elasticache.</p>
+                                    </div>
+                                </div>
+                            </div><div class="param">
+                                <div class="param-name">
+                                  <span class="param-name-wrap"> <code>password</code> </span>
+                                </div>
+                                <div class="param-info">
+                                    <div>
+                                        <p>
+                                            <span class="param-type string"> string </span>
+                                            
+                                        </p>
+                                        <div class="param-default">
+                                            <span class="param-default-value">Default: <code></code></span>
+                                        </div>
+                                        
+                                    </div>
+                                    <div class="param-description">
+                                        <p>The password used to authenticate with the ElastiCache/Redis instance, if authentication is enabled. Applicable only when type is elasticache.</p>
+                                    </div>
+                                </div>
+                            </div><div class="param">
+                                <div class="param-name">
+                                  <span class="param-name-wrap"> <code>ssl_enabled</code> </span>
+                                </div>
+                                <div class="param-info">
+                                    <div>
+                                        <p>
+                                            <span class="param-type string"> boolean </span>
+                                            
+                                        </p>
+                                        <div class="param-default">
+                                            <span class="param-default-value">Default: <code>false</code></span>
+                                        </div>
+                                        <div class="param-possible">
+                                            <span class="param-possible-values">Possible Values: <code>true, false</code></span>
+                                        </div>
+                                    </div>
+                                    <div class="param-description">
+                                        <p>Whether to use SSL/TLS when connecting to the ElastiCache/Redis instance. Applicable only when type is elasticache.</p>
+                                    </div>
+                                </div>
+                            </div><div class="param">
+                                <div class="param-name">
+                                  <span class="param-name-wrap"> <code>cluster_mode_enabled</code> </span>
+                                </div>
+                                <div class="param-info">
+                                    <div>
+                                        <p>
+                                            <span class="param-type string"> boolean </span>
+                                            
+                                        </p>
+                                        <div class="param-default">
+                                            <span class="param-default-value">Default: <code>false</code></span>
+                                        </div>
+                                        <div class="param-possible">
+                                            <span class="param-possible-values">Possible Values: <code>true, false</code></span>
+                                        </div>
+                                    </div>
+                                    <div class="param-description">
+                                        <p>Whether the ElastiCache deployment is running in cluster mode. Applicable only when type is elasticache.</p>
                                     </div>
                                 </div>
                             </div><div class="param">
@@ -18335,7 +18453,205 @@ ttl = 3600
                                         
                                     </div>
                                     <div class="param-description">
-                                        <p>Time-to-live in seconds for cached vector entries. If not specified, defaults to 3600 seconds (1 hour).</p>
+                                        <p>Time-to-live in seconds for cached vector entries. If not specified, defaults to 3600 seconds (1 hour). Applicable to all vector database provider types.</p>
+                                    </div>
+                                </div>
+                            </div><div class="param">
+                                <div class="param-name">
+                                  <span class="param-name-wrap"> <code>jedis.pool.max_total</code> </span>
+                                </div>
+                                <div class="param-info">
+                                    <div>
+                                        <p>
+                                            <span class="param-type string"> integer </span>
+                                            
+                                        </p>
+                                        <div class="param-default">
+                                            <span class="param-default-value">Default: <code>8</code></span>
+                                        </div>
+                                        
+                                    </div>
+                                    <div class="param-description">
+                                        <p>Maximum number of connections the Jedis connection pool can allocate at a given time. Applicable only when type is elasticache.</p>
+                                    </div>
+                                </div>
+                            </div><div class="param">
+                                <div class="param-name">
+                                  <span class="param-name-wrap"> <code>jedis.pool.max_idle</code> </span>
+                                </div>
+                                <div class="param-info">
+                                    <div>
+                                        <p>
+                                            <span class="param-type string"> integer </span>
+                                            
+                                        </p>
+                                        <div class="param-default">
+                                            <span class="param-default-value">Default: <code>8</code></span>
+                                        </div>
+                                        
+                                    </div>
+                                    <div class="param-description">
+                                        <p>Maximum number of idle connections kept in the Jedis connection pool. Applicable only when type is elasticache.</p>
+                                    </div>
+                                </div>
+                            </div><div class="param">
+                                <div class="param-name">
+                                  <span class="param-name-wrap"> <code>jedis.pool.min_idle</code> </span>
+                                </div>
+                                <div class="param-info">
+                                    <div>
+                                        <p>
+                                            <span class="param-type string"> integer </span>
+                                            
+                                        </p>
+                                        <div class="param-default">
+                                            <span class="param-default-value">Default: <code>0</code></span>
+                                        </div>
+                                        
+                                    </div>
+                                    <div class="param-description">
+                                        <p>Minimum number of idle connections the Jedis connection pool tries to maintain. Applicable only when type is elasticache.</p>
+                                    </div>
+                                </div>
+                            </div><div class="param">
+                                <div class="param-name">
+                                  <span class="param-name-wrap"> <code>jedis.pool.test_on_borrow</code> </span>
+                                </div>
+                                <div class="param-info">
+                                    <div>
+                                        <p>
+                                            <span class="param-type string"> boolean </span>
+                                            
+                                        </p>
+                                        <div class="param-default">
+                                            <span class="param-default-value">Default: <code>false</code></span>
+                                        </div>
+                                        <div class="param-possible">
+                                            <span class="param-possible-values">Possible Values: <code>true, false</code></span>
+                                        </div>
+                                    </div>
+                                    <div class="param-description">
+                                        <p>Whether to validate a connection before it is handed out from the Jedis connection pool. Applicable only when type is elasticache.</p>
+                                    </div>
+                                </div>
+                            </div><div class="param">
+                                <div class="param-name">
+                                  <span class="param-name-wrap"> <code>jedis.pool.test_on_return</code> </span>
+                                </div>
+                                <div class="param-info">
+                                    <div>
+                                        <p>
+                                            <span class="param-type string"> boolean </span>
+                                            
+                                        </p>
+                                        <div class="param-default">
+                                            <span class="param-default-value">Default: <code>false</code></span>
+                                        </div>
+                                        <div class="param-possible">
+                                            <span class="param-possible-values">Possible Values: <code>true, false</code></span>
+                                        </div>
+                                    </div>
+                                    <div class="param-description">
+                                        <p>Whether to validate a connection before it is returned to the Jedis connection pool. Applicable only when type is elasticache.</p>
+                                    </div>
+                                </div>
+                            </div><div class="param">
+                                <div class="param-name">
+                                  <span class="param-name-wrap"> <code>jedis.pool.test_while_idle</code> </span>
+                                </div>
+                                <div class="param-info">
+                                    <div>
+                                        <p>
+                                            <span class="param-type string"> boolean </span>
+                                            
+                                        </p>
+                                        <div class="param-default">
+                                            <span class="param-default-value">Default: <code>true</code></span>
+                                        </div>
+                                        <div class="param-possible">
+                                            <span class="param-possible-values">Possible Values: <code>true, false</code></span>
+                                        </div>
+                                    </div>
+                                    <div class="param-description">
+                                        <p>Whether idle connections in the Jedis connection pool are validated by the idle object evictor. Applicable only when type is elasticache.</p>
+                                    </div>
+                                </div>
+                            </div><div class="param">
+                                <div class="param-name">
+                                  <span class="param-name-wrap"> <code>jedis.pool.block_when_exhausted</code> </span>
+                                </div>
+                                <div class="param-info">
+                                    <div>
+                                        <p>
+                                            <span class="param-type string"> boolean </span>
+                                            
+                                        </p>
+                                        <div class="param-default">
+                                            <span class="param-default-value">Default: <code>true</code></span>
+                                        </div>
+                                        <div class="param-possible">
+                                            <span class="param-possible-values">Possible Values: <code>true, false</code></span>
+                                        </div>
+                                    </div>
+                                    <div class="param-description">
+                                        <p>Whether callers block and wait for a connection when the Jedis connection pool is exhausted, instead of failing immediately. Applicable only when type is elasticache.</p>
+                                    </div>
+                                </div>
+                            </div><div class="param">
+                                <div class="param-name">
+                                  <span class="param-name-wrap"> <code>jedis.pool.min_evictable_idle_time_millis</code> </span>
+                                </div>
+                                <div class="param-info">
+                                    <div>
+                                        <p>
+                                            <span class="param-type string"> integer </span>
+                                            
+                                        </p>
+                                        <div class="param-default">
+                                            <span class="param-default-value">Default: <code>60000</code></span>
+                                        </div>
+                                        
+                                    </div>
+                                    <div class="param-description">
+                                        <p>Minimum time (in milliseconds) a connection may sit idle in the Jedis connection pool before it becomes eligible for eviction. Applicable only when type is elasticache.</p>
+                                    </div>
+                                </div>
+                            </div><div class="param">
+                                <div class="param-name">
+                                  <span class="param-name-wrap"> <code>jedis.pool.time_between_eviction_runs_millis</code> </span>
+                                </div>
+                                <div class="param-info">
+                                    <div>
+                                        <p>
+                                            <span class="param-type string"> integer </span>
+                                            
+                                        </p>
+                                        <div class="param-default">
+                                            <span class="param-default-value">Default: <code>30000</code></span>
+                                        </div>
+                                        
+                                    </div>
+                                    <div class="param-description">
+                                        <p>Time (in milliseconds) between runs of the idle connection evictor thread of the Jedis connection pool. Applicable only when type is elasticache.</p>
+                                    </div>
+                                </div>
+                            </div><div class="param">
+                                <div class="param-name">
+                                  <span class="param-name-wrap"> <code>jedis.pool.num_tests_per_eviction_run</code> </span>
+                                </div>
+                                <div class="param-info">
+                                    <div>
+                                        <p>
+                                            <span class="param-type string"> integer </span>
+                                            
+                                        </p>
+                                        <div class="param-default">
+                                            <span class="param-default-value">Default: <code>-1</code></span>
+                                        </div>
+                                        
+                                    </div>
+                                    <div class="param-description">
+                                        <p>Number of connections checked per eviction run (-1 checks all idle connections). Applicable only when type is elasticache.</p>
                                     </div>
                                 </div>
                             </div>
