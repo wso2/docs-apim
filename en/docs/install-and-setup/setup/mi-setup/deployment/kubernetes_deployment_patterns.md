@@ -59,6 +59,9 @@ However, the following set of integration artifacts are stateful and requires co
     -   MQTT Inbound Endpoint
     -   RabbitMQ Inbound Endpoint
 
+!!! Note
+    If you dynamically change the state of a Message Processor or Inbound Endpoint using the Management API, or if your deployment has any other artifact state or data that needs to be consistent across all nodes in the cluster, you must share the registry across Micro Integrator instances to persist the state when new nodes join the cluster. Refer to [Registry synchronization](#registry-synchronization) for Kubernetes-specific instructions. Registry synchronization is an optional setup and is not required for basic coordination. Refer to [Registry synchronization (sharing)]({{base_path}}/install-and-setup/setup/mi-setup/deployment/deploying_wso2_ei/#registry-synchronization-sharing) for more information.
+
 As long as you maintain a single artifact deployment for each of these artifacts, coordination is not required. You can arrange your cluster in the following manner to ensure that the same task is not deployed in multiple containers/pods in the cluster. As shown below, you can have multiple replicas of <b>POD 1</b>. However, <b>POD 2</b> and <b>POD 3</b> can only have one replica each because they contain stateful artifacts.
 
 <img src="{{base_path}}/assets/img/integrate/k8s_deployment/k8s-muliple-workers.png">
@@ -72,3 +75,45 @@ In the example shown above, you can assume that `recurringOrder_Task` and `sched
 ### High availability
 
 Because stateful artifacts (that require coordination) are deployed in one container/pod in one worker node, if the node fails or if the pod fails, the pod will be spawned again in one of the running working nodes. This avoids single point of failure. However, there will be a downtime until the pod deployment becomes active again.
+
+### Registry synchronization
+
+Registry sharing is required if you dynamically change the state of a Message Processor or Inbound Endpoint using the Management API, or if any other artifact state or data needs to be consistent across all nodes in the cluster.
+
+In a Kubernetes deployment, since pods are ephemeral and do not share a local file system by default, the `<MI_HOME>/registry` directory must be backed by a shared, persistent volume that is accessible by all replicas simultaneously.
+
+1.  Ensure your Kubernetes environment has a `StorageClass` that supports the `ReadWriteMany` (RWX) access mode, so that multiple pods can mount the same volume concurrently. Follow your Kubernetes provider's documentation to provision RWX-capable storage in your environment.
+2.  Create a `PersistentVolumeClaim` (PVC) that requests this shared volume.
+
+    ```yaml
+    apiVersion: v1
+    kind: PersistentVolumeClaim
+    metadata:
+      name: mi-shared-registry-pvc
+    spec:
+      accessModes:
+        - ReadWriteMany
+      storageClassName: "<RWX_STORAGE_CLASS_NAME>"
+      resources:
+        requests:
+          storage: 1Gi
+    ```
+
+    Replace `<RWX_STORAGE_CLASS_NAME>` with a StorageClass in your Kubernetes environment that supports `ReadWriteMany` access.
+
+3.  Mount the PVC at the `<MI_HOME>/registry` path in the Micro Integrator container specification, using the same PVC across all replicas in the Deployment or StatefulSet.
+
+    ```yaml
+    spec:
+      template:
+        spec:
+          containers:
+            - name: mi
+              volumeMounts:
+                - name: shared-registry
+                  mountPath: "<MI_HOME>/registry"
+          volumes:
+            - name: shared-registry
+              persistentVolumeClaim:
+                claimName: mi-shared-registry-pvc
+    ```
