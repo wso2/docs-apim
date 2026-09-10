@@ -33,7 +33,7 @@ Follow the instructions below to create a WebSocket API using the basic flow:
         2. Add the following configuration.
             
             ```toml
-             [[apim.gateway.environmentss]]
+             [[apim.gateway.environment]]
              ws_endpoint = "ws://localhost:9190"
             ```
 
