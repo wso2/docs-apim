@@ -80,6 +80,7 @@ To create a new policy, click the **Create Policy** button and provide the follo
 | Description | A brief description of the policy.             | No | -                                                                                                                                                              |
 | Attachment  | The way the policy is attached to the APIs.    | Yes | All APIs (REST and ASYNC) <br/> APIs with specific labels<br/> None                                                                                            |
 | Enforcement | The detail of the policy enforcement criteria. | Yes | **When to Enforce** <br/> API Create, API Update, API Deploy, API Publish <br/> **Actions to Take** (based on severity of rule violations) <br/> Notify, Block |
+| Compliance Affecting Severities | The severities that decide whether this policy is violated. Violations of other severities are still evaluated and reported, but do not violate the policy. Shown only when [severity-based compliance](#enabling-severity-based-compliance) is enabled. | No | Error, Warn, Info <br/> Leave empty for every severity to affect compliance |
 | Rulesets    | The list rulesets included in the policy.      | Yes | -                                                                                                                                                              |
 
 
@@ -149,6 +150,55 @@ thread_pool_size = 20 # Number of threads in the thread pool, be cautious when c
 queue_size = 20 # Size of the queue, be cautious when changing this value as it can affect the performance
 task_check_interval_minutes = 2 # Interval in minutes to check for compliance tasks
 task_cleanup_interval_minutes = 30 # Interval in minutes to clean up any stale tasks
-``` 
+```
+
+### Enabling Severity-based Compliance
+
+By default every rule severity affects a policy's verdict, which means a single `Info` violation marks an API non-compliant. To let a policy declare which severities decide its verdict, an administrator must complete **both** of the following steps. Neither step is sufficient on its own.
+
+**Step 1 - Add the optional column**
+
+The selection is stored in an optional column on the `GOV_POLICY` table of the API Manager database. Add it using the statement for your database.
+
+=== "MySQL"
+    ``` sql
+    ALTER TABLE GOV_POLICY ADD COLUMN COMPLIANCE_AFFECTING_SEVERITIES VARCHAR(64) NULL;
+    ```
+=== "PostgreSQL"
+    ``` sql
+    ALTER TABLE GOV_POLICY ADD COLUMN COMPLIANCE_AFFECTING_SEVERITIES VARCHAR(64);
+    ```
+=== "Oracle"
+    ``` sql
+    ALTER TABLE GOV_POLICY ADD (COMPLIANCE_AFFECTING_SEVERITIES VARCHAR2(64));
+    ```
+=== "SQL Server"
+    ``` sql
+    ALTER TABLE GOV_POLICY ADD COMPLIANCE_AFFECTING_SEVERITIES VARCHAR(64) NULL;
+    ```
+=== "DB2"
+    ``` sql
+    ALTER TABLE GOV_POLICY ADD COLUMN COMPLIANCE_AFFECTING_SEVERITIES VARCHAR(64);
+    ```
+
+**Step 2 - Enable the configuration**
+
+Add the following to the `deployment.toml` file located in the `<APIM_HOME>/repository/conf` directory and restart the server.
+
+``` toml
+[apim.governance]
+per_policy_severity_filtering_enabled = true
+```
+
+Once both steps are complete, the **Compliance Affecting Severities** field appears when creating or editing a policy. A policy that does not set it continues to count every severity, so existing policies are unaffected until you change them.
+
+!!! note "If only one step is completed"
+    Every severity affects compliance, exactly as before, and the product continues to operate normally.
+
+    - With the configuration disabled, the field is not offered and nothing is stored.
+    - With the configuration enabled but the column not yet added, policy listings and compliance results are still shown with every severity counting, and a warning naming the required `ALTER TABLE` is written to the log. Attempting to save a severity selection is rejected with a message naming the same statement, and the policy is left unchanged.
+
+!!! warning "Global policies also count"
+    An API is compliant only when every policy governing it is satisfied. A policy that has not declared its severities counts every severity, so narrowing one policy while a global policy still applies to the same API will not change that API's verdict. Check every policy that applies, including global ones. 
 
 
