@@ -61,6 +61,12 @@ Run the following command to initialize the apictl with the Key Store used to en
 !!! Note    
     Encrypting algorithm used in this step needs to be the same algorithm used by the WSO2 API-M or WSO2 MI to decrypt secrets.
 
+!!! Warning
+    apictl's default encryption algorithm (`RSA/ECB/OAEPWithSHA1AndMGF1Padding`) does **not** match the WSO2 API-M / WSO2 MI runtime's own default decrypt algorithm, which is `RSA/ECB/PKCS1Padding`. If you encrypt with apictl's default and leave the runtime at its default, secret decryption will fail at startup. Choose one of the following:
+
+    -   **Recommended:** encrypt with `apictl secret create -c RSA/ECB/PKCS1Padding` to match the runtime's default. This requires no server-side configuration change.
+    -   **Alternative:** keep apictl's OAEP default, and explicitly set `secretRepositories.file.algorithm=RSA/ECB/OAEPwithSHA1andMGF1Padding` in `secret-conf.properties` (or the equivalent Kubernetes configuration for your deployment) to align the runtime's decrypt algorithm. This setting applies to the **entire** file secret repository, not to a single secret — use it only if every secret in that repository was encrypted with apictl. It will break decryption of any secret that was instead encrypted with `ciphertool`, which defaults to (and self-aligns on) `RSA/ECB/PKCS1Padding`.
+
 Run the following command to encrypt secrets with the apictl,
 
 -   **Command**
