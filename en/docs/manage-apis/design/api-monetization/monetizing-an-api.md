@@ -122,7 +122,7 @@ For more information go to, [Using Connect with Standard Accounts](https://strip
     1. Download the following JARs and place them in the `<API-M_HOME>/repository/components/lib` directory.
 
         - [stripe-java-24.3.0.jar](https://mvnrepository.com/artifact/com.stripe/stripe-java/24.3.0)
-        - [org.wso2.apim.monetization.impl-1.6.0.jar](https://github.com/wso2-extensions/wso2-am-stripe-plugin/releases/download/v1.6.0/org.wso2.apim.monetization.impl-1.6.0.jar)
+        - [org.wso2.apim.monetization.impl-1.6.1.jar](https://github.com/wso2-extensions/wso2-am-stripe-plugin/releases/download/v1.6.1/org.wso2.apim.monetization.impl-1.6.1.jar)
         - [jakarta.json-api-2.1.1.jar](https://repo1.maven.org/maven2/jakarta/json/jakarta.json-api/2.1.1/jakarta.json-api-2.1.1.jar)
 
     2. Deploy the Stripe service WAR.
