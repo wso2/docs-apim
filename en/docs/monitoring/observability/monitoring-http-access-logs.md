@@ -43,8 +43,8 @@ In the API Manager, access logs of applications get recorded or written into the
     ```
     appender.HTTP_ACCESS.type = RollingFile
     appender.HTTP_ACCESS.name = HTTP_ACCESS
-    appender.HTTP_ACCESS.fileName =${sys:carbon.home}/repository/logs/wso2carbon.log
-    appender.HTTP_ACCESS.filePattern =${sys:carbon.home}/repository/logs/wso2carbon-%d{MM-dd-yyyy}.log
+    appender.HTTP_ACCESS.fileName =${sys:carbon.home}/repository/logs/http_access_.log
+    appender.HTTP_ACCESS.filePattern =${sys:carbon.home}/repository/logs/http_access_%d{yyyy-MM-dd}.log
     appender.HTTP_ACCESS.layout.type = PatternLayout
     appender.HTTP_ACCESS.layout.pattern = [%X{Correlation-ID}] %mm%n
     appender.HTTP_ACCESS.policies.type = Policies
