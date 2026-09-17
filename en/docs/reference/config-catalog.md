@@ -3292,7 +3292,7 @@ enforce_auth_for_all_mcp_methods = false
                                         </div>
                                     </div>
                                     <div class="param-description">
-                                        <p>By default, all MCP requests except tools/call requests are unauthenticated. If this option is set to true, authentication will be required for all MCP requests. For improved security, it is recommended to enable this option.</p>
+                                        <p>By default, all MCP requests sent over POST except tools/call requests are unauthenticated. If this option is set to true, authentication will be required for all such MCP requests sent over POST. This option does not apply to the GET request made to the MCP endpoint (used to check for SSE transport support), which is never authenticated regardless of this setting. For improved security, it is recommended to enable this option.</p>
                                     </div>
                                 </div>
                             </div>
