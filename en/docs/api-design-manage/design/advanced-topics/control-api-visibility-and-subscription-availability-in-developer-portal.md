@@ -139,3 +139,30 @@ When using the REST API directly, the subscription availability options are avai
     </tbody>
     </table>
     
+
+## Control cross organization subscription visibility in the Developer Portal
+
+When an application subscribes to an API that is owned by another organization, the subscription is listed in the Developer Portal of the organization that owns the API. In the **Applications** > **Subscriptions** view of the organization that owns the application, the subscription is neither listed nor counted. Subscription listings are scoped to the organization of the signed-in user.
+
+If you are upgrading from WSO2 API Manager 4.0.0 or earlier and you have a Developer Portal customization that depends on the previous behavior, you can restore it using the configuration given below.
+
+!!! warning "Deprecated feature"
+    This configuration is deprecated. It is provided only for deployments that are migrating a Developer Portal customization which depended on the behavior in WSO2 API Manager 4.0.0 and earlier. Do not enable it in new deployments.
+
+Add the following configuration to the `<API-M_HOME>/repository/conf/deployment.toml` file and restart the server.
+
+```toml
+[apim.devportal]
+enable_cross_tenant_subscriptions = true
+enable_deprecated_cross_tenant_subscription_visibility = true
+```
+
+`enable_cross_tenant_subscriptions` is a prerequisite, as cross organization subscriptions have to be possible before the Developer Portal has any such subscription to list.
+
+Once the above configuration is enabled,
+
+- An application's subscriptions to APIs and API Products that are owned by other organizations are listed and counted in the **Applications** > **Subscriptions** view.
+- A **Provider Organization** column indicates the organization that owns each subscribed API.
+- A cross organization subscription is listed with an empty **Lifecycle State**, and the **Edit** and **Delete** actions for that subscription are disabled. This is because the API details cannot be resolved from the organization of the signed-in user.
+
+To revert to the default behavior, where subscription listings are scoped to the organization of the signed-in user, either set `enable_deprecated_cross_tenant_subscription_visibility` to `false` or remove it from the `deployment.toml` file, and restart the server.
