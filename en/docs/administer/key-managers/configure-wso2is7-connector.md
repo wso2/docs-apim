@@ -129,3 +129,16 @@ Follow the steps given below to configure WSO2 IS 7.x as a Key Manager component
     | WSO2 Identity Server 7 API Resource Management Endpoint | `https://localhost:9444/api/server/v1/api-resources` |
     | WSO2 Identity Server 7 Roles Endpoint                   | `https://localhost:9444/scim2/v2/Roles`              |
 
+
+!!! note "Scope names containing `/`"
+    Scopes with `/` in the name cannot be updated or deleted in WSO2 IS 7.x by default. To manage them, tick **Manage scopes using the scope ID** under **Connector Configurations**.
+
+    This requires the following U2 update levels:
+
+    | Product                              | Minimum U2 update level |
+    |--------------------------------------|-------------------------|
+    | WSO2 API Manager 4.3.0               | 4.3.0.130               |
+    | WSO2 Identity Server 7.0.0           | 7.0.0.177               |
+    | WSO2 Identity Server 7.1.0           | 7.1.0.51                |
+    | WSO2 Identity Server 7.2.0           | 7.2.0.18                |
+    | WSO2 Identity Server 7.3.0 and later | Available from GA       |
