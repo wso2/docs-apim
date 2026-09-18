@@ -155,3 +155,15 @@ When enabled, the following naming conventions are followed when creating/access
     !!! Note
         **_Application_ roles** are not used.
 
+
+!!! note "Scope names containing `/`"
+    Scopes with `/` in the name cannot be updated or deleted in WSO2 IS 7.x by default. To manage them, tick **Manage scopes using the scope ID** under **Connector Configurations**.
+
+    This requires the following WSO2 Identity Server U2 update levels:
+
+    | WSO2 Identity Server version         | Minimum U2 update level |
+    |--------------------------------------|-------------------------|
+    | WSO2 Identity Server 7.0.0           | 7.0.0.177               |
+    | WSO2 Identity Server 7.1.0           | 7.1.0.51                |
+    | WSO2 Identity Server 7.2.0           | 7.2.0.18                |
+    | WSO2 Identity Server 7.3.0 and later | Available from GA       |
