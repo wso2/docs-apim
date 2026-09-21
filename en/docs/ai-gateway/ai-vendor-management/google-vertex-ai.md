@@ -8,7 +8,7 @@
 Google Cloud's [Vertex AI](https://cloud.google.com/vertex-ai/docs) is a platform that hosts foundation models from a range of providers. WSO2 API Manager integrates with Vertex AI as a **default AI Service Provider**, so you can expose and govern Vertex AI models through the AI Gateway.
 
 !!! note "Supported Vertex AI models"
-    WSO2 API Manager 4.6.0 supports only **Anthropic Claude** models on Vertex AI, through the built-in `VertexAI-Anthropic` service provider. This provider uses Claude's native Messages format via the Vertex AI `:rawPredict` and `:streamRawPredict` methods.
+    WSO2 API Manager 4.6.0 supports only **Anthropic Claude** models on Vertex AI, through the built-in `VertexAI-Anthropic` service provider.
 
 Unlike the other default providers, Vertex AI is not accessed with a simple API key &mdash; every request is authenticated with a **Google Cloud service account** using OAuth 2.0, and the Gateway obtains and injects the access token on your behalf. See [Authentication](#authentication).
 
