@@ -525,6 +525,7 @@ nav:
                 - Azure AI Foundry: ai-gateway/ai-vendor-management/azure-ai-foundry.md
                 - Azure OpenAI: ai-gateway/ai-vendor-management/azure-openai.md
                 - Gemini: ai-gateway/ai-vendor-management/gemini.md
+                - Google Vertex AI: ai-gateway/ai-vendor-management/google-vertex-ai.md
                 - Mistral AI: ai-gateway/ai-vendor-management/mistral-ai.md
                 - OpenAI: ai-gateway/ai-vendor-management/openai.md
                 - Custom AI Service Providers:
@@ -983,8 +984,8 @@ extra:
             version: 1.2.0-1
             git_tag: v1.2.0.1
     site_version: 4.7.0
-    #base_path: http://localhost:8000/en/4.7.0
-    base_path: https://apim.docs.wso2.com/en/4.7.0
+    base_path: http://localhost:8000/en/4.7.0
+    #base_path: https://apim.docs.wso2.com/en/4.7.0
     envoy_path: https://www.envoyproxy.io/docs/envoy/v1.24.1
     redoc_theme: '{
         "colors": {
