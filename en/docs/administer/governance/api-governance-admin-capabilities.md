@@ -199,6 +199,26 @@ Once both steps are complete, the **Compliance Affecting Severities** field appe
     - With the configuration enabled but the column not yet added, policy listings and compliance results are still shown with every severity counting, and a warning naming the required `ALTER TABLE` is written to the log. Attempting to save a severity selection is rejected with a message naming the same statement, and the policy is left unchanged.
 
 !!! warning "Global policies also count"
-    An API is compliant only when every policy governing it is satisfied. A policy that has not declared its severities counts every severity, so narrowing one policy while a global policy still applies to the same API will not change that API's verdict. Check every policy that applies, including global ones. 
+    An API is compliant only when every policy governing it is satisfied. A policy that has not declared its severities counts every severity, so narrowing one policy while a global policy still applies to the same API will not change that API's verdict. Check every policy that applies, including global ones.
+
+The selection is stored per policy. Two policies that share a ruleset are judged independently, so narrowing one of them does not affect the other.
+
+#### Setting the severities over the REST API
+
+The field is also available on the [Governance API]({{base_path}}/reference/product-apis/governance-apis/governance-v1/governance-v1/) as `complianceAffectingSeverities`, a comma separated string.
+
+```json
+{
+  "name": "Security Policy",
+  "complianceAffectingSeverities": "ERROR,WARN"
+}
+```
+
+- The allowed severities are `ERROR`, `WARN` and `INFO`. Any other value is rejected with **HTTP 400** and error code **990213**, and the policy is left unchanged.
+- An accepted value is normalised before it is stored: case is ignored, surrounding whitespace is dropped and repeats are collapsed, so the value may read back in a different form from the one sent.
+- Omitting the field on an update preserves whatever is stored. Sending it as an empty string clears the selection, returning the policy to counting every severity.
+- Sending a selection to a deployment that has not completed both steps above is rejected with **HTTP 400** rather than accepted and dropped, so a client never believes a selection was stored when it was not.
+
+The field reads back as `null` while the capability is not enabled, as an empty string once it is enabled but the policy has not narrowed anything, and as the stored list otherwise. 
 
 

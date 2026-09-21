@@ -41,6 +41,8 @@ For example, for a policy that counts only `Error` and `Warn`:
 
 In the first row the `Info` finding is still listed under the ruleset's violated rules. Nothing is hidden; only the verdict changes.
 
+The selection belongs to the policy, not to the ruleset. Two policies that share a ruleset reach their verdicts independently, so narrowing one of them never suppresses a finding under the other.
+
 !!! note
     An API is compliant only when **every** policy governing it is satisfied. A policy that has not declared its severities counts every severity, so if a global policy applies to the API alongside a targeted one, narrowing the targeted policy alone will not change the API's verdict. Review every policy that applies to the API, including global policies.
 
