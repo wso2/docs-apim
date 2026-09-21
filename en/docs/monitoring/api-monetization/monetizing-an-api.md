@@ -127,7 +127,7 @@ For more information go to, [Using Connect with Standard Accounts](https://strip
 
     2. Deploy the Stripe service WAR.
 
-        Download [api#am#stripe.war](https://github.com/wso2-extensions/wso2-am-stripe-plugin/releases/download/v1.6.0/api.am.stripe.war).
+        Download [api#am#stripe.war](https://github.com/wso2-extensions/wso2-am-stripe-plugin/releases/download/v1.6.1/api.am.stripe.war).
 
         !!! note
             Rename the downloaded file from `api.am.stripe.war` to `api#am#stripe.war` before placing it in the `<API-M_HOME>/repository/deployment/server/webapps` directory. The `#` separator in the filename is required for the service to be accessible at `/api/am/stripe/`.
