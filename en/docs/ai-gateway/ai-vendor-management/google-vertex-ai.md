@@ -93,7 +93,7 @@ The following configurations can be updated:
     </tbody>
 </table>
 
-- By default, the following models are included: `claude-sonnet-4`, `claude-3-5-sonnet-v2`, and `claude-3-5-haiku`.
+- By default, the following models are included: `claude-sonnet-4` and `claude-3-5-sonnet-v2`.
 - To add available models supported by Claude on Vertex AI, type the model name and press enter.
 - This enables model-based load balancing and failover capabilities. For more details, see [Multi-Model Routing Overview]({{base_path}}/ai-gateway/multi-model-routing/overview/).
 
@@ -177,9 +177,10 @@ The service account that the Gateway uses (whether via an uploaded key or the at
         </tbody>
     </table>
 
-    The builder assembles the Vertex AI URL for you. For reference, the underlying template is:
+    The builder assembles the Vertex AI URL for you. For reference, the underlying templates are:
 
-    `https://{region}-aiplatform.googleapis.com/v1/projects/{project_id}/locations/{region}/publishers/anthropic/models`
+    - **Regional**: `https://{region}-aiplatform.googleapis.com/v1/projects/{project_id}/locations/{region}/publishers/anthropic/models`
+    - **Global**: `https://aiplatform.googleapis.com/v1/projects/{project_id}/locations/global/publishers/anthropic/models`
 
     [![Vertex AI Endpoint URL Builder]({{base_path}}/assets/img/learn/ai-gateway/vertex-ai-endpoint-url.png){: style="width:100%"}]({{base_path}}/assets/img/learn/ai-gateway/vertex-ai-endpoint-url.png)
 
