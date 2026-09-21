@@ -508,6 +508,7 @@ nav:
                 - Azure AI Foundry: ai-gateway/ai-vendor-management/azure-ai-foundry.md
                 - Azure OpenAI: ai-gateway/ai-vendor-management/azure-openai.md
                 - Gemini: ai-gateway/ai-vendor-management/gemini.md
+                - Google Vertex AI: ai-gateway/ai-vendor-management/google-vertex-ai.md
                 - Mistral AI: ai-gateway/ai-vendor-management/mistral-ai.md
                 - OpenAI: ai-gateway/ai-vendor-management/openai.md
                 - Custom AI Service Providers:
