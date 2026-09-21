@@ -432,6 +432,8 @@ WSO2 API Manager supports API types such as REST, GraphQL, WebSocket, WebSub/Web
 - [API Logs](https://apim.docs.wso2.com/en/4.7.0/monitoring/observability/monitoring-api-logs.md): Enable and view per-API request/response logs for debugging and compliance
 - [WebSocket Logs](https://apim.docs.wso2.com/en/4.7.0/monitoring/observability/monitoring-websocket-logs.md): Monitor WebSocket connection and frame-level logs through the Classic Gateway
 - [OpenSearch Log Monitoring](https://apim.docs.wso2.com/en/4.7.0/monitoring/observability/monitoring-with-opensearch.md): Ship API Manager logs to OpenSearch for centralized log aggregation and search
+- [Exporting Logs to Moesif](https://apim.docs.wso2.com/en/4.7.0/monitoring/observability/monitoring-with-moesif.md): Export WSO2 API Manager logs to Moesif using the OpenTelemetry Collector for viewing in Moesif's Live Event Log
+- [Exporting Logs with OpenTelemetry](https://apim.docs.wso2.com/en/4.7.0/monitoring/observability/monitoring-with-opentelementry.md): Forward API Manager logs to any OTLP-compatible backend using the OpenTelemetry Collector
 - [OpenTracing](https://apim.docs.wso2.com/en/4.7.0/monitoring/observability/traces/monitoring-with-opentracing.md): Enable OpenTracing in the Classic Gateway and export spans to Jaeger or Zipkin
 - [OpenTelemetry](https://apim.docs.wso2.com/en/4.7.0/monitoring/observability/traces/monitoring-with-opentelemetry.md): Enable OpenTelemetry in the Classic Gateway and export traces to an OTLP-compatible backend
 - [JMX-Based Monitoring](https://apim.docs.wso2.com/en/4.7.0/monitoring/observability/metrics/jmx-based-monitoring.md): Monitor API Manager runtime metrics (thread pools, connections, memory) via JMX using JConsole or similar tools

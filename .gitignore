@@ -46,3 +46,5 @@ env/
 # .venv/
 # venv/
 # **/__pycache__/
+
+AGENTS.md
