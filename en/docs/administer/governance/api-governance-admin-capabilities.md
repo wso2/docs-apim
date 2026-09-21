@@ -81,6 +81,7 @@ To create a new policy, click the **Create Policy** button and provide the follo
 | Description | A brief description of the policy.             | No | -                                                                                                                                                              |
 | Attachment  | The way the policy is attached to the Artifacts.    | Yes | All Artifacts (REST, ASYNC and MCP Server) <br/> Artifacts with specific labels<br/> None                                                                                            |
 | Enforcement | The detail of the policy enforcement criteria. | Yes | **When to Enforce** <br/> Create, Update, Deploy, Publish <br/> **Actions to Take** (based on severity of rule violations) <br/> Notify, Block |
+| Compliance Affecting Severities | The severities that decide whether this policy is violated. See [Compliance Affecting Severities](#compliance-affecting-severities). | No | Error, Warn, Info <br/> Select none for every severity to affect compliance |
 | Rulesets    | The list of rulesets included in the policy.     | Yes | -                                                                                                                                                              |
 
 
@@ -89,6 +90,32 @@ After providing the required information, click on the **Create** button to crea
 <a href="{{base_path}}/assets/img/governance/policy_create.png">
   <img src="{{base_path}}/assets/img/governance/policy_create.png" alt="APIM Governance Policy Create" width="60%" />
 </a>
+
+### Compliance Affecting Severities
+
+By default every rule severity affects a policy's verdict, which means a single `Info` violation marks an Artifact non-compliant. **Compliance Affecting Severities** lets a policy declare which severities decide its own verdict. Violations of the other severities are still evaluated, still recorded and still listed under the ruleset's violated rules — they no longer make the policy fail. For the verdict each combination produces, see [Severities that Affect Compliance]({{base_path}}/administer/governance/governance-concept/#severities-that-affect-compliance).
+
+Selecting no severity means the policy is judged on every severity, which is the behaviour of a policy that predates this field. Existing policies therefore keep the compliance posture they had before an upgrade until you change them.
+
+The selection is stored per policy. Two policies that share a ruleset are judged independently, so narrowing one of them does not affect the other.
+
+!!! warning "Global policies also count"
+    An Artifact is compliant only when every policy governing it is satisfied. A policy that has not narrowed its severities counts every severity, so narrowing one policy while a global policy still applies to the same Artifact will not change that Artifact's verdict. Check every policy that applies, including global ones.
+
+#### Setting the severities over the REST API
+
+The field is also available on the [Governance API]({{base_path}}/reference/product-apis/governance-apis/governance-v1/governance-v1/) as `complianceAffectingSeverities`, a comma separated string.
+
+```json
+{
+  "name": "Security Policy",
+  "complianceAffectingSeverities": "ERROR,WARN"
+}
+```
+
+- The allowed severities are `ERROR`, `WARN` and `INFO`. Any other value is rejected with **HTTP 400** and error code **990212**, and the policy is left unchanged.
+- An accepted value is normalised before it is stored: case is ignored, surrounding whitespace is dropped and repeats are collapsed, so the value may read back in a different form from the one sent.
+- Omitting the field on an update preserves whatever is stored. Sending it as an empty string clears the selection, returning the policy to counting every severity.
 
 ### Default Policies
 
