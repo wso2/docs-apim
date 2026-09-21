@@ -123,7 +123,7 @@ By default, the following models are included:
     <tbody>
         <tr>
             <td><strong>VertexAI-Anthropic</strong></td>
-            <td><code>claude-sonnet-4</code>, <code>claude-3-5-sonnet-v2</code>, <code>claude-3-5-haiku</code></td>
+            <td><code>claude-sonnet-4</code>, <code>claude-3-5-sonnet-v2</code></td>
         </tr>
         <tr>
             <td><strong>VertexAI-Gemini</strong></td>
@@ -217,8 +217,15 @@ The service account that the Gateway uses (whether via an uploaded key or the at
 
     The builder assembles the Vertex AI URL for you. For reference, the underlying templates are:
 
+    Regional endpoints:
+
     - **VertexAI-Anthropic**: `https://{region}-aiplatform.googleapis.com/v1/projects/{project_id}/locations/{region}/publishers/anthropic/models`
     - **VertexAI-Gemini**: `https://{region}-aiplatform.googleapis.com/v1/projects/{project_id}/locations/{region}/publishers/google/models`
+
+    Global endpoints:
+
+    - **VertexAI-Anthropic**: `https://aiplatform.googleapis.com/v1/projects/{project_id}/locations/global/publishers/anthropic/models`
+    - **VertexAI-Gemini**: `https://aiplatform.googleapis.com/v1/projects/{project_id}/locations/global/publishers/google/models`
 
     [![Vertex AI Endpoint URL Builder]({{base_path}}/assets/img/learn/ai-gateway/vertex-ai-endpoint-url.png){: style="width:100%"}]({{base_path}}/assets/img/learn/ai-gateway/vertex-ai-endpoint-url.png)
 
