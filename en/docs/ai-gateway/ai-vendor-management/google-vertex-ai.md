@@ -5,7 +5,10 @@
     - This feature is available in WSO2 API Manager Control Plane 4.6.0 starting from update level 48.
     - This feature is available in WSO2 API Manager Universal Gateway 4.6.0 starting from update level 46.
 
-Google Vertex AI is a **default AI Service Provider** in WSO2 API Manager that lets you consume Anthropic Claude models hosted on Google Cloud's [Vertex AI](https://cloud.google.com/vertex-ai/docs) platform through the AI Gateway. It is shipped as the **`VertexAI-Anthropic`** provider, which exposes Claude's native Messages format through the Vertex AI `:rawPredict` / `:streamRawPredict` custom methods (the `publishers/anthropic/models` model resource).
+Google Cloud's [Vertex AI](https://cloud.google.com/vertex-ai/docs) is a platform that hosts foundation models from a range of providers. WSO2 API Manager integrates with Vertex AI as a **default AI Service Provider**, so you can expose and govern Vertex AI models through the AI Gateway.
+
+!!! note "Supported Vertex AI models"
+    WSO2 API Manager 4.6.0 supports only **Anthropic Claude** models on Vertex AI, through the built-in `VertexAI-Anthropic` service provider. This provider uses Claude's native Messages format via the Vertex AI `:rawPredict` and `:streamRawPredict` methods.
 
 Unlike the other default providers, Vertex AI is not accessed with a simple API key &mdash; every request is authenticated with a **Google Cloud service account** using OAuth 2.0, and the Gateway obtains and injects the access token on your behalf. See [Authentication](#authentication).
 
@@ -204,16 +207,16 @@ The service account that the Gateway uses (whether via an uploaded key or the at
     [![Vertex AI Service Account Key]({{base_path}}/assets/img/learn/ai-gateway/vertex-ai-service-account-key.png){: style="width:100%"}]({{base_path}}/assets/img/learn/ai-gateway/vertex-ai-service-account-key.png)
 
 5. Click **Update** to save the endpoint.
-6. Repeat for the other endpoint (production or sandbox) as required, then **Save and re-deploy the API** for the changes to take effect.
+6. **Save and deploy the API** for the changes to take effect.
 
 !!! Note
     - The endpoint URL ends at `.../models`; the specific model is taken from each request's URL path and appended by the Gateway, so you do not put the model in the URL.
     - The **Region** must match a region where your models are available and enabled in Model Garden. A regional Vertex AI URL requires the same region in both the host and the `locations` path &mdash; the structured builder keeps them consistent, so prefer it over hand-editing the URL.
 
 !!! Important "Required for VertexAI-Anthropic APIs: add the DISABLE_CHUNKING policy"
-    For **every AI API that uses `VertexAI-Anthropic`**, add the **`DISABLE_CHUNKING`** policy to the **request flow at the API level**, then **Save and re-deploy** the API.
+    For **every AI API that uses `VertexAI-Anthropic`**, add the **`DISABLE_CHUNKING`** policy to the **request flow at the API level**, then **Save and deploy** the API.
 
-    **How to add it:** In the Publisher Portal, open the API and go to **API Configurations → Policies**. Attach the `DISABLE_CHUNKING` policy to the **request** flow at the **API level** (not to an individual operation), save, and re-deploy the API.
+    **How to add it:** In the Publisher Portal, open the API and go to **API Configurations → Policies**. Attach the `DISABLE_CHUNKING` policy to the **request** flow at the **API level** (not to an individual operation), save, and deploy the API.
 
     **Why it is needed:** By default the Gateway forwards the request body to the backend using HTTP *chunked transfer-encoding*. The Anthropic Claude models on Vertex AI (`:rawPredict` / `:streamRawPredict`) expect the request with a fixed **`Content-Length`** header and do not reliably accept a chunked request body, so requests can be rejected by the backend. The `DISABLE_CHUNKING` policy makes the Gateway buffer the request and send it with a `Content-Length` header instead of chunked transfer-encoding, which is what the Vertex AI Anthropic endpoints require.
 
