@@ -25,6 +25,27 @@ Rules within a ruleset can have different **severity levels**, such as:
 - **Warn** – Indicates a warning that requires attention.
 - **Info** – Provides informational messages about compliance.
 
+### Severities that Affect Compliance
+
+By default a policy is violated by a violation of **any** severity. A single `Info` finding is enough to mark the ruleset failed, the policy violated and the Artifact non-compliant.
+
+A policy can instead declare which severities decide its verdict, using the **Compliance Affecting Severities** field described in [Create a new Policy]({{base_path}}/administer/governance/api-governance-admin-capabilities/#create-a-new-policy). Violations of the remaining severities are still evaluated, still recorded and still shown in compliance results — they simply do not make the policy fail.
+
+For example, for a policy that counts only `Error` and `Warn`:
+
+| Violations found   | Ruleset | Policy   | Artifact       |
+|--------------------|---------|----------|----------------|
+| `Info` only        | Passed  | Followed | Compliant      |
+| `Warn`             | Failed  | Violated | Non-compliant  |
+| `Error` and `Info` | Failed  | Violated | Non-compliant  |
+
+In the first row the `Info` finding is still listed under the ruleset's violated rules. Nothing is hidden; only the verdict changes.
+
+The selection belongs to the policy, not to the ruleset. Two policies that share a ruleset reach their verdicts independently, so narrowing one of them never suppresses a finding under the other.
+
+!!! note
+    An Artifact is compliant only when **every** policy governing it is satisfied. A policy that has not declared its severities counts every severity, so if a global policy applies to the Artifact alongside a targeted one, narrowing the targeted policy alone will not change the Artifact's verdict. Review every policy that applies to the Artifact, including global policies.
+
 ## Policy
 
 A policy is a **collection of rulesets** that can be enforced on [governance artifacts](#artifact) to ensure governance compliance.
