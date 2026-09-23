@@ -137,12 +137,12 @@ Follow the instructions given below to configure PingFederate as a third-party K
           <tr class="odd">
             <td>Revoke Endpoint</td>
             <td>The endpoint that revokes the access tokens.</td>
-            <td>Optional</td>
+            <td>Mandatory</td>
           </tr>
           <tr class="even">
             <td>Userinfo Endpoint</td>
             <td>The endpoint that allows clients to verify the identity of the end-user based on the authentication performed by an authorization server, as well as to obtain basic profile information about the end-user.</td>
-            <td>Optional</td>
+            <td>Mandatory</td>
           </tr>
           <tr class="odd">
             <td>Authorize Endpoint</td>
@@ -152,7 +152,7 @@ Follow the instructions given below to configure PingFederate as a third-party K
           <tr class="even">
             <td>Scope Management Endpoint </td>
             <td>The endpoint that is used to manage the scopes.</td>
-            <td>Optional</td>
+            <td>Mandatory</td>
           </tr>
           <tr class="odd">
             <td><b>Connector Configurations</b></td>
