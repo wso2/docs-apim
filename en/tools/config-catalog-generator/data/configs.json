@@ -977,6 +977,78 @@
                   "default": false,
                   "possible": "TRUE | FALSE",
                   "description": "If TRUE, capture bodies that do not declare a Content-Length header, such as chunked payloads. Such a body is read into memory in full before its size is checked. Applies only when send_payloads is TRUE."
+                },
+                {
+                  "name": "sampling_enabled",
+                  "type": "boolean",
+                  "required": false,
+                  "default": false,
+                  "possible": "TRUE | FALSE",
+                  "description": "If TRUE, publish only a sampled share of API invocations to Moesif. Sample rates are defined in the Moesif application configuration, not here. Applies only to the direct-key path, that is when type is 'moesif' and moesifKey is set; deployments that resolve Moesif keys through the Moesif microservice path do not apply sampling."
+                },
+                {
+                  "name": "sampling_refresh_interval_ms",
+                  "type": "integer",
+                  "required": false,
+                  "default": 60000,
+                  "possible": "Positive integer",
+                  "description": "How often, in milliseconds, the sampling configuration is re-fetched from Moesif. Must be a positive integer. Applies only when sampling_enabled is TRUE."
+                },
+                {
+                  "name": "sampling_fallback_rate",
+                  "type": "integer",
+                  "required": false,
+                  "default": 100,
+                  "possible": "0 - 100",
+                  "description": "Percentage of events to publish when no sampling configuration has been fetched from Moesif yet, or when the fetched configuration carries no rate. Applies only when sampling_enabled is TRUE."
+                },
+                {
+                  "name": "retry_buffer_enabled",
+                  "type": "boolean",
+                  "required": false,
+                  "default": true,
+                  "possible": "TRUE | FALSE",
+                  "description": "If TRUE, hold analytics events in memory while Moesif is unreachable and publish them on recovery. Enabled by default; set to FALSE to drop events when a publish fails."
+                },
+                {
+                  "name": "retry_buffer_size",
+                  "type": "integer",
+                  "required": false,
+                  "default": 10000,
+                  "possible": "Positive integer",
+                  "description": "Maximum number of events held for retry, counted per Moesif API key. When the limit is reached the oldest queued batches are evicted whole until the new batch fits, and a single batch larger than this limit is dropped rather than queued."
+                },
+                {
+                  "name": "retry_interval_seconds",
+                  "type": "integer",
+                  "required": false,
+                  "default": 5,
+                  "possible": "Positive integer",
+                  "description": "How often, in seconds, Moesif is probed and queued events are drained. Must be a positive integer."
+                },
+                {
+                  "name": "retry_log_multiplier",
+                  "type": "integer",
+                  "required": false,
+                  "default": 10,
+                  "possible": "Positive integer",
+                  "description": "Multiplier applied to retry_interval_seconds to decide how often the repeated 'still unreachable' error is logged."
+                },
+                {
+                  "name": "retry_drain_burst_size",
+                  "type": "integer",
+                  "required": false,
+                  "default": 5,
+                  "possible": "Positive integer",
+                  "description": "Maximum number of catch-up batches sent in quick succession once Moesif becomes reachable again."
+                },
+                {
+                  "name": "retry_drain_batch_delay_ms",
+                  "type": "integer",
+                  "required": false,
+                  "default": 100,
+                  "possible": "0 or a positive integer",
+                  "description": "Delay, in milliseconds, between catch-up batches during a burst drain."
                 }
               ]
             }

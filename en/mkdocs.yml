@@ -569,6 +569,10 @@ nav:
             - Overview: monitoring/api-analytics/analytics-overview.md
             - Moesif Analytics:
                 - Integration Guide: monitoring/api-analytics/moesif-analytics/moesif-integration-guide.md
+                - Capturing Request and Response Data: monitoring/api-analytics/moesif-analytics/moesif-data-capture.md
+                - Sampling and Reliability: monitoring/api-analytics/moesif-analytics/moesif-sampling-and-reliability.md
+                - Privacy and Data Masking: monitoring/api-analytics/moesif-analytics/moesif-data-masking.md
+                - Analytics Event Reference: monitoring/api-analytics/moesif-analytics/moesif-event-reference.md
                 - Analytics Dashboards: monitoring/api-analytics/moesif-analytics/moesif-analytics-dashboards.md
             - Other Analytics Solutions:
                 - ELK Based Analytics Installation Guide: monitoring/api-analytics/on-prem/elk-installation-guide.md
