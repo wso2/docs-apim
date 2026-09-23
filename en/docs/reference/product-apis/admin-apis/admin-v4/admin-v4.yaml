@@ -3777,7 +3777,7 @@ paths:
       x-code-samples:
         - lang: Shell
           source: 'curl -k -X DELETE -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8"
-          "https://127.0.0.1:9443/api/am/admin/v2/global-key-managers/8d263942-a6df-4cc2-a804-7a2525501450"'
+          "https://127.0.0.1:9443/api/am/admin/v4/global-key-managers/8d263942-a6df-4cc2-a804-7a2525501450"'
 
   ######################################################
   # The "Global Key Manager Collection" resource API
@@ -3806,7 +3806,7 @@ paths:
       x-code-samples:
         - lang: Shell
           source: 'curl -k -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8"
-          "https://127.0.0.1:9443/api/am/admin/v2/global-key-managers"'
+          "https://127.0.0.1:9443/api/am/admin/v4/global-key-managers"'
 
     post:
       tags:
@@ -3841,8 +3841,8 @@ paths:
       x-code-samples:
         - lang: Shell
           source: 'curl -k -X POST -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8"
-          -H "Content-Type: application/json" -d @data.json 
-          "https://127.0.0.1:9443/api/am/admin/v2/global-key-managers"'
+          -H "Content-Type: application/json" -d @data.json
+          "https://127.0.0.1:9443/api/am/admin/v4/global-key-managers"'
 
   ######################################################
   # The "Global Individual KeyManager" resource APIs
@@ -3884,7 +3884,7 @@ paths:
       x-code-samples:
         - lang: Shell
           source: 'curl -k -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8"
-          "https://127.0.0.1:9443/api/am/admin/v3/key-managers/8d263942-a6df-4cc2-a804-7a2525501450"'
+          "https://127.0.0.1:9443/api/am/admin/v4/global-key-managers/8d263942-a6df-4cc2-a804-7a2525501450"'
 
     put:
       tags:
@@ -3923,7 +3923,7 @@ paths:
       x-code-samples:
         - lang: Shell
           source: 'curl -k -X PUT -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8"
-          -H "Content-Type: application/json" -d @data.json "https://127.0.0.1:9443/api/am/admin/v3/key-managers/8d263942-a6df-4cc2-a804-7a2525501450"'
+          -H "Content-Type: application/json" -d @data.json "https://127.0.0.1:9443/api/am/admin/v4/global-key-managers/8d263942-a6df-4cc2-a804-7a2525501450"'
 
     delete:
       tags:
