@@ -21,7 +21,7 @@
     </tr>
     <tr>
         <td>Symmetric</td>
-        <td>When the target runtime is configured to use AES-based secret encryption.</td>
+        <td>When the target runtime is configured to use AES-based secret encryption. Choose a ciphertext format &mdash; normal, <code>internal</code> or <code>external</code> &mdash; to match how the target runtime reads the value back; see <a href="#choose-a-ciphertext-format">Choose a ciphertext format</a>.</td>
         <td>Requires <code>apictl secret init symmetric</code>.</td>
         <td>Defaults to <code>AES/GCM/NoPadding</code>. <code>AES256</code> is also accepted as an alias.</td>
     </tr>
@@ -47,18 +47,53 @@ Symmetric encryption uses an AES-256 encryption key that must be initialized bef
     openssl rand -hex 32
     ```
 
-Run the following commands for symmetric encryption:
-
 -   **Initialization**
 
     ```bash
     apictl secret init symmetric
     ```
 
+### Choose a ciphertext format
+
+`apictl secret create symmetric` accepts an optional second argument that selects the shape of the
+encrypted value, depending on which system will read it back. In every sub-mode, apictl prints (or
+writes to a file) a single base64-encoded string; for `internal` and `external`, that string decodes
+to the JSON shown below. All three sub-modes use the exact same AES-256 key initialized above
+&mdash; only the wrapping around the ciphertext changes.
+
+<table>
+    <tr>
+        <th>Sub-mode</th>
+        <th>Command</th>
+        <th>Ciphertext shape</th>
+        <th>Use when</th>
+    </tr>
+    <tr>
+        <td>Normal (default)</td>
+        <td><code>apictl secret create symmetric</code></td>
+        <td>A single opaque base64 value &mdash; no JSON envelope</td>
+        <td>The value is only ever consumed by apictl or your own tooling, not decrypted by a WSO2 runtime's own secret-handling code</td>
+    </tr>
+    <tr>
+        <td>Internal</td>
+        <td><code>apictl secret create symmetric internal</code></td>
+        <td><code>{"c": "&lt;base64 inner&gt;", "t": "AES/GCM/NoPadding", "iv": "..."}</code>, where the base64-decoded inner value is <code>{"cipher": "...", "initializationVector": "...", "keyId": "..."}</code></td>
+        <td>The target runtime decrypts secrets via carbon-crypto-service (self-contained ciphertext format)</td>
+    </tr>
+    <tr>
+        <td>External</td>
+        <td><code>apictl secret create symmetric external</code></td>
+        <td><code>{"cipherText": "...", "iv": "..."}</code></td>
+        <td>The target runtime decrypts secrets via cipher-tool, carbon-secvault, or the current carbon-mediation secure vault</td>
+    </tr>
+</table>
+
 -   **Create encrypted secrets**
 
     ```bash
     apictl secret create symmetric
+    apictl secret create symmetric internal
+    apictl secret create symmetric external
     ```
 
     !!! info
@@ -80,12 +115,38 @@ Run the following commands for symmetric encryption:
             Repeat plain text secret:
             ```
 
-    -   Encrypt secrets defined in a properties file
+        -   Response
+
+            ```text
+            db_password : FZgqm4+P1MzURwMO0yAlQyrvKICRVuPufpGu1IYeJ1U45sb+03mY7aJl
+            ```
+
+    -   Encrypt secrets defined in a properties file, in the internal (carbon-crypto-service) format
 
         !!! example
 
             ```bash
-            apictl secret create symmetric -f ./keys/secrets.properties
+            apictl secret create symmetric internal -f ./keys/secrets.properties
+            ```
+
+        -   Response (decoded)
+
+            ```json
+            {"c":"<base64 inner>","t":"AES/GCM/NoPadding","iv":"..."}
+            ```
+
+    -   Encrypt secrets defined in a properties file, in the external (cipher-tool/carbon-secvault/carbon-mediation) format
+
+        !!! example
+
+            ```bash
+            apictl secret create symmetric external -f ./keys/secrets.properties
+            ```
+
+        -   Response (decoded)
+
+            ```json
+            {"cipherText":"...","iv":"..."}
             ```
 
     -   Encrypt secrets defined in a properties file and get a `.properties` file
@@ -93,7 +154,7 @@ Run the following commands for symmetric encryption:
         !!! example
 
             ```bash
-            apictl secret create symmetric -o file -f ./keys/secrets.properties
+            apictl secret create symmetric internal -o file -f ./keys/secrets.properties
             ```
 
     -   Encrypt secrets defined in a properties file and get a `.yaml` file
@@ -101,7 +162,7 @@ Run the following commands for symmetric encryption:
         !!! example
 
             ```bash
-            apictl secret create symmetric -o k8 -f ./keys/secrets.properties
+            apictl secret create symmetric internal -o k8 -f ./keys/secrets.properties
             ```
 
 -   **Response**
