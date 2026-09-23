@@ -1,6 +1,6 @@
 # Create a REST API
 
-**API creation** is the process of linking an existing backend API implementation to the [API Publisher]({{base_path}}/get-started/apim-architecture/#api-publisher), so that you can manage and monitor the [API's lifecycle]({{base_path}}/api-design-manage/design/lifecycle-management/api-lifecycle/), documentation, security, community, and subscriptions. Alternatively, you can provide the API implementation in-line in the [API Publisher]({{base_path}}/get-started/apim-architecture/#api-publisher) itself.
+**API creation** is the process of linking an existing backend API implementation to the [API Publisher]({{base_path}}/get-started/apim-architecture/#api-publisher), so that you can manage and monitor the [API's lifecycle]({{base_path}}/manage-apis/design/lifecycle-management/api-lifecycle/), documentation, security, community, and subscriptions. Alternatively, you can provide the API implementation in-line in the [API Publisher]({{base_path}}/get-started/apim-architecture/#api-publisher) itself.
 
 Follow the instructions below to create a REST API using the basic flow:
 
@@ -48,7 +48,7 @@ Follow the instructions below to create a REST API using the basic flow:
 
          <html><div class="admonition note">
          <p class="admonition-title">Note</p>
-         <p>By default, **All** users who have `creator` permission are allowed **<a href='{{base_path}}/api-design-manage/design/advanced-topics/enable-publisher-access-control-in-api-publisher-portal/'>Publisher Access Control</a>** and public **<a href='{{base_path}}/api-design-manage/design/advanced-topics/control-api-visibility-and-subscription-availability-in-developer-portal/'> 
+         <p>By default, **All** users who have `creator` permission are allowed **<a href='{{base_path}}/manage-apis/design/advanced-topics/enable-publisher-access-control-in-api-publisher-portal/'>Publisher Access Control</a>** and public **<a href='{{base_path}}/manage-apis/design/advanced-topics/control-api-visibility-and-subscription-availability-in-developer-portal/'> 
          Developer Portal visibility</a>**.</p>
          <p>
          </div>
@@ -171,7 +171,7 @@ Follow the instructions below to create a REST API using the basic flow:
         </div>
 
 
-Now, you have successfully created and configured a REST API. Next, [deploy the API]({{base_path}}/api-design-manage/deploy-and-publish/deploy-on-gateway/deploy-api/deploy-an-api/), [test the API]({{base_path}}/api-design-manage/design/create-api/create-rest-api/test-a-rest-api/), and finally [publish the API]({{base_path}}/api-design-manage/deploy-and-publish/publish-on-dev-portal/publish-an-api).
+Now, you have successfully created and configured a REST API. Next, [deploy the API]({{base_path}}/manage-apis/deploy-and-publish/deploy-on-gateway/deploy-api/deploy-an-api/), [test the API]({{base_path}}/manage-apis/design/create-api/create-rest-api/test-a-rest-api/), and finally [publish the API]({{base_path}}/manage-apis/deploy-and-publish/publish-on-dev-portal/publish-an-api).
 
 ## See Also
 
