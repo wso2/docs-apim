@@ -123,7 +123,7 @@ By default, the following models are included:
     <tbody>
         <tr>
             <td><strong>VertexAI-Anthropic</strong></td>
-            <td><code>claude-opus-4-6</code>, <code>claude-sonnet-4-6</code>, <code>claude-haiku-4-5</code></td>
+            <td><code>claude-opus-4-6</code>, <code>claude-sonnet-4-6</code>, <code>claude-sonnet-5</code></td>
         </tr>
         <tr>
             <td><strong>VertexAI-Gemini</strong></td>
