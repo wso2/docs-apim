@@ -18,65 +18,112 @@
 
 // Initialize version dropdown
 function initVersionDropdown() {
-  const dropdown = document.querySelector('.md-header__version-select-dropdown');
-  
+  const dropdown = document.querySelector(
+    ".md-header__version-select-dropdown",
+  );
+
   if (dropdown) {
     // Add a click event listener to the dropdown link
-    const dropdownLink = dropdown.querySelector('.dropdown-link');
+    const dropdownLink = dropdown.querySelector(".dropdown-link");
 
     if (dropdownLink) {
       // Remove any existing event listeners by cloning
       const newDropdownLink = dropdownLink.cloneNode(true);
       dropdownLink.parentNode.replaceChild(newDropdownLink, dropdownLink);
-      
-      newDropdownLink.addEventListener('click', function(event) {
+
+      newDropdownLink.addEventListener("click", function (event) {
         event.preventDefault();
         event.stopPropagation();
-        dropdown.classList.toggle('open');
+        dropdown.classList.toggle("open");
       });
     }
 
     // Add a click event listener to close dropdown when clicking outside
-    document.addEventListener('click', function(event) {
+    document.addEventListener("click", function (event) {
       if (!dropdown.contains(event.target)) {
-        dropdown.classList.remove('open');
+        dropdown.classList.remove("open");
       }
     });
   }
 }
 
+function enhanceGlightboxCloseButton() {
+  const enhanceButton = (button) => {
+    if (!button || button.dataset.closeEnhanced === "true") {
+      return;
+    }
+
+    button.dataset.closeEnhanced = "true";
+    button.classList.add("glightbox-close-label");
+    button.setAttribute("aria-label", "Close image");
+    button.setAttribute("title", "Close image");
+
+    const icon = button.querySelector("svg");
+    if (icon) {
+      icon.setAttribute("aria-hidden", "true");
+      icon.setAttribute("focusable", "false");
+    }
+  };
+
+  document
+    .querySelectorAll(".glightbox-container .gclose")
+    .forEach(enhanceButton);
+}
+
 // Run after DOM is ready - single initialization only
-if (typeof window.versionDropdownInitialized === 'undefined') window.versionDropdownInitialized = false;
-document.addEventListener('DOMContentLoaded', function() {
+if (typeof window.versionDropdownInitialized === "undefined")
+  window.versionDropdownInitialized = false;
+document.addEventListener("DOMContentLoaded", function () {
   if (!window.versionDropdownInitialized) {
     initVersionDropdown();
     window.versionDropdownInitialized = true;
   }
+
+  enhanceGlightboxCloseButton();
+
+  if (typeof MutationObserver !== "undefined") {
+    const observer = new MutationObserver(function () {
+      enhanceGlightboxCloseButton();
+    });
+
+    observer.observe(document.body, {
+      childList: true,
+      subtree: true,
+    });
+  }
 });
 
 // Wrap tabbed content and nav items in DOMContentLoaded
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener("DOMContentLoaded", function () {
   // Add a class to content tabs that has multiple child elements rather than a code block
-  document.querySelectorAll('.tabbed-content').forEach(tabbedContent => {
-    const tabbedBlocks = Array.from(tabbedContent.querySelectorAll('.tabbed-block'));
-    
+  document.querySelectorAll(".tabbed-content").forEach((tabbedContent) => {
+    const tabbedBlocks = Array.from(
+      tabbedContent.querySelectorAll(".tabbed-block"),
+    );
+
     // Check if each .tabbed-block has more than 1 child or if its immediate child is not .highlight
-    const shouldAddClass = tabbedBlocks.some(tabbedBlock => 
-      tabbedBlock.children.length > 1 || !tabbedBlock.firstElementChild.classList.contains('highlight')
+    const shouldAddClass = tabbedBlocks.some(
+      (tabbedBlock) =>
+        tabbedBlock.children.length > 1 ||
+        !tabbedBlock.firstElementChild.classList.contains("highlight"),
     );
 
     if (shouldAddClass) {
-      tabbedContent.classList.add('tab_with_no_code');
+      tabbedContent.classList.add("tab_with_no_code");
     }
   });
 
   // Toggle active state of nested nav items
-  const activeNavItems = document.querySelectorAll('.md-nav__list > .md-nav__item.md-nav__item--active.md-nav__item--nested');
-  
+  const activeNavItems = document.querySelectorAll(
+    ".md-nav__list > .md-nav__item.md-nav__item--active.md-nav__item--nested",
+  );
+
   if (activeNavItems) {
     activeNavItems.forEach((item) => {
-      const checkbox = item.querySelector('input[type="checkbox"].md-nav__toggle.md-toggle');
-      
+      const checkbox = item.querySelector(
+        'input[type="checkbox"].md-nav__toggle.md-toggle',
+      );
+
       if (checkbox) {
         checkbox.checked = true;
       }
@@ -88,7 +135,7 @@ document.addEventListener('DOMContentLoaded', function() {
  * Handle opening external links in a new tab
  * and initialize JSON tree formatter
  */
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener("DOMContentLoaded", function () {
   // Open external links in new tab
   var links = document.links;
   for (var i = 0, linksLength = links.length; i < linksLength; i++) {
@@ -100,20 +147,24 @@ document.addEventListener('DOMContentLoaded', function() {
       links[i].className += " localLink";
     }
   }
-  
+
   // Initialize JSON tree formatter
-  var jsonTreeInputs = document.getElementsByClassName('jsonTreeInput');
+  var jsonTreeInputs = document.getElementsByClassName("jsonTreeInput");
   if (jsonTreeInputs && jsonTreeInputs.length > 0) {
     for (var i = 0; i < jsonTreeInputs.length; i++) {
       try {
         var jsonTreeInput = jsonTreeInputs[i];
         var jsonTreeOutput = jsonTreeInput.previousElementSibling;
-        var level = jsonTreeInput.getAttribute('data-level');
+        var level = jsonTreeInput.getAttribute("data-level");
         var levelInteger = level ? parseInt(level) : 1;
-        var formatter = new JSONFormatter(JSON.parse(jsonTreeInput.innerHTML), levelInteger, { hoverPreviewEnabled: false });
-        jsonTreeOutput.innerHTML = '';
+        var formatter = new JSONFormatter(
+          JSON.parse(jsonTreeInput.innerHTML),
+          levelInteger,
+          { hoverPreviewEnabled: false },
+        );
+        jsonTreeOutput.innerHTML = "";
         jsonTreeOutput.appendChild(formatter.render());
-        jsonTreeInput.style.display = 'none';
+        jsonTreeInput.style.display = "none";
       } catch (e) {
         console.error(e);
       }
@@ -135,125 +186,140 @@ window.addEventListener("DOMContentLoaded", function () {
   });
 });
 
-/* 
+/*
  * Reading versions
  */
-if (typeof window.versionsLoaded === 'undefined') window.versionsLoaded = false;
-window.addEventListener('DOMContentLoaded', function() {
+if (typeof window.versionsLoaded === "undefined") window.versionsLoaded = false;
+window.addEventListener("DOMContentLoaded", function () {
   if (window.versionsLoaded) return;
   window.versionsLoaded = true;
-  
-  var pageHeader = document.getElementById('page-header');
-  var docSetLang = pageHeader.getAttribute('data-lang') == null ? 'en' : pageHeader.getAttribute('data-lang');
 
-  (window.location.pathname.split('/')[1] !== docSetLang) ? 
-      docSetLang = '' :
-      docSetLang = docSetLang + '/';
+  var pageHeader = document.getElementById("page-header");
+  var docSetLang =
+    pageHeader.getAttribute("data-lang") == null
+      ? "en"
+      : pageHeader.getAttribute("data-lang");
 
-  var docSetUrl = window.location.origin + '/' + docSetLang;
-  
+  window.location.pathname.split("/")[1] !== docSetLang
+    ? (docSetLang = "")
+    : (docSetLang = docSetLang + "/");
+
+  var docSetUrl = window.location.origin + "/" + docSetLang;
+
   // Try to load from local first, fallback to remote
-  var versionsUrl = docSetUrl + 'versions/assets/versions.json';
-  
+  var versionsUrl = docSetUrl + "versions/assets/versions.json";
+
   var request = new XMLHttpRequest();
 
-  request.open('GET', versionsUrl, true);
-  
+  request.open("GET", versionsUrl, true);
+
   // Add error handler
-  request.onerror = function() {
+  request.onerror = function () {
     console.error("Failed to load versions.json. CORS or network error.");
     // For development, you can add mock data here
-    console.log("You can create a local versions.json file at: /en/versions/assets/versions.json");
+    console.log(
+      "You can create a local versions.json file at: /en/versions/assets/versions.json",
+    );
   };
 
-  request.onload = function() {
+  request.onload = function () {
     if (request.status >= 200 && request.status < 400) {
+      var data = JSON.parse(request.responseText);
+      var dropdown = document.getElementById("version-select-dropdown");
+      var checkVersionsPage = document.getElementById("current-version-stable");
 
-        var data = JSON.parse(request.responseText);
-      var dropdown =  document.getElementById('version-select-dropdown');
-      var checkVersionsPage = document.getElementById('current-version-stable');
-      
-      /* 
-       * Appending versions to the version selector dropdown 
+      /*
+       * Appending versions to the version selector dropdown
        */
-      if (dropdown){
-          data.list.sort().forEach(function(key, index){
-              var versionData = data.all[key];
-              
-              if(versionData) {
-                  var liElem = document.createElement('li');
-                  var docLinkType = data.all[key].doc.split(':')[0];
-                  var target = '_self';
-                  var url = data.all[key].doc;
+      if (dropdown) {
+        data.list.sort().forEach(function (key, index) {
+          var versionData = data.all[key];
 
-                  if ((docLinkType == 'https') || (docLinkType == 'http')) {
-                      target = '_blank'
-                  }
-                  else {
-                      url = docSetUrl + url;
-                  }
-                  liElem.innerHTML =  '<a href="' + url + '" target="' + 
-                      target + '">' + key + '</a>';
+          if (versionData) {
+            var liElem = document.createElement("li");
+            var docLinkType = data.all[key].doc.split(":")[0];
+            var target = "_self";
+            var url = data.all[key].doc;
 
-                  dropdown.insertBefore(liElem, dropdown.firstChild);
-              }
-          });
+            if (docLinkType == "https" || docLinkType == "http") {
+              target = "_blank";
+            } else {
+              url = docSetUrl + url;
+            }
+            liElem.innerHTML =
+              '<a href="' + url + '" target="' + target + '">' + key + "</a>";
 
-          document.getElementById('show-all-versions-link')
-              .setAttribute('href', docSetUrl + 'versions');
+            dropdown.insertBefore(liElem, dropdown.firstChild);
+          }
+        });
+
+        document
+          .getElementById("show-all-versions-link")
+          .setAttribute("href", docSetUrl + "versions");
       }
-      
-      /* 
+
+      /*
        * Appending versions to the version tables in versions page
        */
-      if (checkVersionsPage){
-          var previousVersions = [];
+      if (checkVersionsPage) {
+        var previousVersions = [];
 
-          Object.keys(data.all).forEach(function(key, index){
-              if ((key !== data.current) && (key !== data['pre-release'])) {
-                  var docLinkType = data.all[key].doc.split(':')[0];
-                  var target = '_self';
+        Object.keys(data.all).forEach(function (key, index) {
+          if (key !== data.current && key !== data["pre-release"]) {
+            var docLinkType = data.all[key].doc.split(":")[0];
+            var target = "_self";
 
-                  if ((docLinkType == 'https') || (docLinkType == 'http')) {
-                      target = '_blank'
-                  }
+            if (docLinkType == "https" || docLinkType == "http") {
+              target = "_blank";
+            }
 
-                  previousVersions.push('<tr>' +
-                    '<th>' + key + '</th>' +
-                        '<td>' +
-                            '<a href="' + data.all[key].doc + '" target="' + 
-                                target + '">Documentation</a>' +
-                        '</td>' +
-                        '<td>' +
-                            '<a href="' + data.all[key].notes + '" target="' + 
-                                target + '">Release Notes</a>' +
-                        '</td>' +
-                    '</tr>');
-              }
-          });
+            previousVersions.push(
+              "<tr>" +
+                "<th>" +
+                key +
+                "</th>" +
+                "<td>" +
+                '<a href="' +
+                data.all[key].doc +
+                '" target="' +
+                target +
+                '">Documentation</a>' +
+                "</td>" +
+                "<td>" +
+                '<a href="' +
+                data.all[key].notes +
+                '" target="' +
+                target +
+                '">Release Notes</a>' +
+                "</td>" +
+                "</tr>",
+            );
+          }
+        });
 
-          // Past releases update
-          document.getElementById('previous-versions').innerHTML = 
-                  previousVersions.join(' ');
+        // Past releases update
+        document.getElementById("previous-versions").innerHTML =
+          previousVersions.join(" ");
 
-          // Current released version update
-          document.getElementById('current-version-number').innerHTML = 
-                  data.current;
-          document.getElementById('current-version-documentation-link')
-                  .setAttribute('href', docSetUrl + data.all[data.current].doc);
-          document.getElementById('current-version-release-notes-link')
-                  .setAttribute('href', docSetUrl + data.all[data.current].notes);
-        
-          // Pre-release version update
-          document.getElementById('pre-release-version-documentation-link')
-              .setAttribute('href', docSetUrl + 'next/');
+        // Current released version update
+        document.getElementById("current-version-number").innerHTML =
+          data.current;
+        document
+          .getElementById("current-version-documentation-link")
+          .setAttribute("href", docSetUrl + data.all[data.current].doc);
+        document
+          .getElementById("current-version-release-notes-link")
+          .setAttribute("href", docSetUrl + data.all[data.current].notes);
+
+        // Pre-release version update
+        document
+          .getElementById("pre-release-version-documentation-link")
+          .setAttribute("href", docSetUrl + "next/");
       }
-      
-  } else {
+    } else {
       console.error("We reached our target server, but it returned an error");
-  }
+    }
   };
 
   request.send();
 });
-
