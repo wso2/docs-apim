@@ -4,8 +4,8 @@
 # GROUPING STRUCTURE:
 # - Getting Started: Always expanded (no rules = always visible)
 # - Group 1: Install & Setup (default), Tutorials
-# - Group 2: API Design & Manage (default), API Developer Portal, API Gateway, AI Gateway, 
-#            API Analytics & Monetization, API Security, Administer, APIOps
+# - Group 2: API Design & Manage (default), API Developer Portal, API Gateway, AI Gateway,
+#            AI Assistants, API Analytics & Monetization, API Security, Administer, APIOps
 # - Group 3: Reference (collapsed by default)
 #
 # LOGIC:
@@ -29,6 +29,7 @@ auto_collapse:
       - api-developer-portal/
       - api-gateway/
       - ai-gateway/
+      - ai-assistants/
       - monitoring/
       - api-security/
       - administer/
@@ -48,6 +49,7 @@ auto_collapse:
       - api-developer-portal/
       - api-gateway/
       - ai-gateway/
+      - ai-assistants/
       - monitoring/
       - api-security/
       - administer/
@@ -68,6 +70,7 @@ auto_collapse:
       - api-developer-portal/
       - api-gateway/
       - ai-gateway/
+      - ai-assistants/
       - monitoring/
       - api-security/
       - administer/
@@ -99,6 +102,11 @@ auto_collapse:
   - title: AI Gateway
     stay_expanded_when_url_starts_with:
       - ai-gateway/
+
+  # GROUP 2: AI Assistants - Collapsed everywhere except own pages
+  - title: AI Assistants
+    stay_expanded_when_url_starts_with:
+      - ai-assistants/
 
   # GROUP 2: API Analytics & Monetization - Collapsed everywhere except own pages
   - title: API Analytics & Monetization
