@@ -68,6 +68,7 @@ Given below is a checklist that will guide you to set up your production environ
                   </li>
                </ul>
                <p>The Micro Integrator runtime uses a file-based registry instead of a database.</p>
+               <p>If you share the registry folder or the <code>repository/deployment/server</code> folder (which contains <code>carbonapps</code>) across cluster nodes, mount them over NFS with the <code>hard</code> option. SMB/CIFS shares cache metadata aggressively and can cause Carbon application (CApp) deployment to fail.</p>
                <ul>
                   <li>
                      <a href="{{base_path}}/install-and-setup/setup/mi-setup/deployment/file_based_registry">File-based registry</a> for the Micro Integrator. runtime.
