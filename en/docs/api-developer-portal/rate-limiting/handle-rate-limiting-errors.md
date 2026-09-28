@@ -33,9 +33,23 @@ The error code in the response indicates which specific limit was exceeded:
 
 For complete information on all error codes, see [Error Handling]({{base_path}}/reference/troubleshooting/error-handling/#api-handlers-error-codes).
 
+## Retrying a Throttled Request
+
+Inspect the `Retry-After` response header before retrying a throttled request. When the Gateway has a next-access timestamp for the throttled request, it includes this header as an HTTP date in GMT. For example:
+
+```http
+HTTP/1.1 429 Too Many Requests
+Retry-After: Fri, 31 Dec 1999 23:59:59 GMT
+```
+
+The date above illustrates the header format; an actual response contains the next-access time for that request. Parse the value as an HTTP date and wait until that time before retrying. Do not assume that the Gateway returns an integer number of seconds.
+
+The header is not guaranteed for every throttling condition. If it is absent, use bounded retries with increasing delays rather than retrying immediately in a loop. A retry can still be throttled if another applicable limit has been reached.
+
+If your application also handles rate-limit responses from backend services, their `Retry-After` values can use either an HTTP date or a delay in seconds. Handle both formats, and ensure that repeating the operation is safe before retrying a request that changes backend state.
+
 ## See Also
 
 - Learn about rate limiting tiers: [Rate Limiting for App Developers]({{base_path}}/api-developer-portal/rate-limiting/rate-limiting-for-app-developers/)
 - Reset user quotas in your application: [Reset Application Throttling Policies]({{base_path}}/api-developer-portal/rate-limiting/resetting-application-throttling-policies/)
 - Manage your applications: [Manage Application Rate Limits]({{base_path}}/api-developer-portal/rate-limiting/manage-application-rate-limits/)
-
