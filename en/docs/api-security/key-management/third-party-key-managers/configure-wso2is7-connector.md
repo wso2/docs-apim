@@ -169,3 +169,17 @@ The **UserInfo Endpoint** allows clients to verify the identity of the end-user 
 - `https://localhost:9444/scim2/Me`
 - `https://localhost:9444/keymanager-operations/user-info` - This should be used if WSO2 Identity Server 7.x is using a federated login for applications that are created by the WSO2 IS 7.x Key Manager, and the users are not stored in WSO2 IS 7.x. In order to use this, download the [`keymanager-operations.war`]({{base_path}}/assets/attachments/administer/wso2-is7-km/keymanager-operations.war) and place it in the `<IS7_HOME>/repository/deployment/server/webapps/` directory.
 
+
+!!! note "Scope names containing `/`"
+    Scopes with `/` in the name cannot be updated or deleted in WSO2 IS 7.x by default. To manage them, tick **Manage scopes using the scope ID** under **Connector Configurations**.
+
+    This requires the following U2 update levels:
+
+    | Product                                     | Minimum U2 update level |
+    |---------------------------------------------|-------------------------|
+    | WSO2 API Manager 4.6.0 (`wso2am`)           | 4.6.0.47                |
+    | WSO2 API Control Plane 4.6.0 (`wso2am-acp`) | 4.6.0.48                |
+    | WSO2 Identity Server 7.0.0                  | 7.0.0.177               |
+    | WSO2 Identity Server 7.1.0                  | 7.1.0.51                |
+    | WSO2 Identity Server 7.2.0                  | 7.2.0.18                |
+    | WSO2 Identity Server 7.3.0 and later        | Available from GA       |
