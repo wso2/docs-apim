@@ -153,6 +153,20 @@ When enabled, the following naming conventions are followed when creating/access
 !!! Note
     **_Application_ roles** are not used.
 
+!!! note "Scope names containing `/`"
+    Scopes with `/` in the name cannot be updated or deleted in WSO2 IS 7.x by default. To manage them, tick **Manage scopes using the scope ID** under **Connector Configurations**.
+
+    This requires the following U2 update levels:
+
+    | Product                                     | Minimum U2 update level |
+    |---------------------------------------------|-------------------------|
+    | WSO2 API Manager 4.7.0 (`wso2am`)           | 4.7.0.18                |
+    | WSO2 API Control Plane 4.7.0 (`wso2am-acp`) | 4.7.0.18                |
+    | WSO2 Identity Server 7.0.0                  | 7.0.0.177               |
+    | WSO2 Identity Server 7.1.0                  | 7.1.0.51                |
+    | WSO2 Identity Server 7.2.0                  | 7.2.0.18                |
+    | WSO2 Identity Server 7.3.0 and later        | Available from GA       |
+
 ## UserInfo Endpoint
 
 The **UserInfo Endpoint** allows clients to verify the identity of the end-user based on the authentication performed by an authorization server, as well as to obtain basic profile information about the end-user. One of the following can be used as the **UserInfo Endpoint**:
