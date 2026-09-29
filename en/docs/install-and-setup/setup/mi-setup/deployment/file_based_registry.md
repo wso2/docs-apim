@@ -25,3 +25,10 @@ If you want to change the default locations of the registry folders, uncomment a
     -->
 </registry>
 ```
+
+## Sharing the registry across a cluster
+
+If you share the registry folder between the nodes of a cluster, use a file share that provides strong consistency. NFS is recommended, mounted with the `hard` option.
+
+!!! Note
+    Avoid SMB/CIFS shares. They cache file and directory metadata aggressively, so one node can observe stale results while another node is deploying or undeploying artifacts.
