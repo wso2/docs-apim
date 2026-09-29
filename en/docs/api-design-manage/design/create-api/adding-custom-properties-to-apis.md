@@ -15,7 +15,7 @@ When adding custom properties, note the following:
 
 -   Property name cannot be any of the following as they are reserved keywords: provider, version, context, status, description, subcontext, doc, lcState, name, tags.
 
-After the custom properties have been added, you can [search for APIs using custom property values](#Searchusingcustomproperties).
+After the custom properties have been added, you can [retrieve them from the API listing](#RetrievecustompropertiesviatheRESTAPI) and [search for APIs using custom property values](#Searchusingcustomproperties).
 
 <a name="AddcustompropertiesviatheAPIPublisher"></a>
 
@@ -59,6 +59,46 @@ Use the [existing REST API]({{base_path}}/reference/product-apis/overview/) to a
       }
     ]
 ```
+
+<a name="RetrievecustompropertiesviatheRESTAPI"></a>
+
+### Retrieve custom properties via the REST API
+
+!!! info
+    From update level 18 onwards for wso2am-4.7.0 and wso2am-acp-4.7.0, the custom
+    properties of each API can be retrieved from the API listing.
+
+`GET /apis/{apiId}` returns the custom properties of an API by default. The API listing (`GET /apis`) does not, because the properties are not read for every API in a listing unless you ask for them.
+
+To include them in the listing, set the `expandProperties` query parameter to `true`:
+
+```
+curl -k -H "Authorization: Bearer <access_token>" \
+"https://<hostname>:9443/api/am/publisher/v4/apis?expandProperties=true"
+```
+
+Each API in the response then carries its `additionalProperties` and `additionalPropertiesMap`, holding the same values that `GET /apis/{apiId}` returns for that API.
+
+```
+"additionalProperties": [
+      {
+          "name" : "environment",
+          "value" : "preprod",
+          "display" : true 
+      }
+    ],
+"additionalPropertiesMap": {
+      "environment__display" : {
+          "name" : "environment",
+          "value" : "preprod",
+          "display" : false 
+      }
+    }
+```
+
+Note that in `additionalPropertiesMap`, a property with Developer Portal visibility enabled is keyed with the `__display` suffix, while its `name` is the plain property name.
+
+The parameter defaults to `false`. When it is omitted or set to `false`, both fields are returned empty for every API in the listing.
 
 <a name="Searchusingcustomproperties"></a>
 
