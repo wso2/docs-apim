@@ -40,7 +40,10 @@ When a URL or reference is not permitted, the operation fails with one of the fo
 | Code | Description | Returned when |
 |------|-------------|---------------|
 | `900405` | The provided URL could not be resolved. | An outbound URL is not permitted by the policy. |
+| `900406` | Internal server error. Please contact the system administrator. | The tenant-level policy cannot be applied to remote reference resolution, for example because the tenant configuration cannot be read. |
 | `900407` | A remote reference in the definition could not be resolved. | A reference inside a definition is not permitted by the policy, or a local reference in an archive resolves outside the archive. |
+
+Error `900406` is returned as an HTTP 500 response, and the cause is logged.
 
 ---
 
@@ -66,6 +69,7 @@ These rules provide additional restrictions but cannot override platform-level c
 - Tenant-level configuration cannot override platform restrictions
 - Tenant rules apply only if the request is allowed at platform level
 - If the platform-level configuration block is not present, platform validation is skipped
+- For remote reference resolution, the platform-level and tenant-level policies are combined as described in [Combining Platform-Level and Tenant-Level Policies](#combining-platform-level-and-tenant-level-policies)
 
 ---
 
@@ -326,12 +330,62 @@ This enforcement applies wherever an OpenAPI/Swagger definition is validated, im
 !!! note "Backwards compatibility: enforcement requires a configured policy"
     Remote `$ref` enforcement is active only when a network access-control policy is configured (a platform-level `[server.network_security.access_control]` block in `deployment.toml`, or a tenant-level `NetworkSecurityAccessControl` policy in `tenant-conf.json`). If neither is present, remote `$ref` references are resolved exactly as in earlier releases, without host validation. This preserves backwards compatibility for deployments that have not yet defined a policy. To enable `$ref` enforcement, configure the policy as described above.
 
+### Host Patterns for `$ref` Resolution
+
+Host patterns are matched as described in [Host Pattern Matching](#host-pattern-matching), with the following considerations for `$ref` resolution:
+
+- A host name pattern that ends with `*` (for example, `api.*`) is not supported for `$ref` resolution. Specify the domain instead (for example, `api.example.com` or `*.example.com`). IP address patterns that end with `*` (for example, `10.*.*.*`) are supported.
+- An `allow`-mode entry that contains `?` or `:`, or that contains a label longer than 63 characters, is not applied to `$ref` resolution, and a warning is logged.
+- When the platform-level and tenant-level `hosts` lists are combined, as described in [Combining Platform-Level and Tenant-Level Policies](#combining-platform-level-and-tenant-level-policies), a pattern with more than four `*` wildcards or more than 253 characters is not combined. A pair of patterns whose common hosts cannot be described with 64 patterns or fewer is not combined either. Such patterns are not applied to `$ref` resolution, and a warning is logged. Keep wildcard patterns simple, and list specific hosts where possible.
+
 ### Private Network Addresses in `$ref` URLs
 
 !!! note
     The behavior described below applies specifically to `$ref` URL enforcement. It does not affect top-level definition URL validation (the URL used to import or validate the API definition itself).
 
-Once a policy is configured, private, internal, loopback, and link-local addresses are blocked for embedded `$ref` URLs independently of the `block_private_network_access` setting in `deployment.toml`, which governs only the top-level URL check. To permit a `$ref` that resolves to an address in a private range, set `mode = "allow"` and list the host explicitly in the `hosts` array.
+Once a policy is configured, private, internal, loopback, and link-local addresses are blocked for embedded `$ref` URLs independently of the `block_private_network_access` setting in `deployment.toml`, which governs only the top-level URL check. To permit a `$ref` that resolves to an address in a private range, set `mode = "allow"` and list the host explicitly in the `hosts` array. If a policy is also configured at the other level, that policy must permit the host as well.
+
+### Combining Platform-Level and Tenant-Level Policies
+
+When both a platform-level and a tenant-level policy are configured, a `$ref` URL is resolved only if both policies permit its host. The `hosts` lists of the two policies are combined as follows.
+
+#### Both levels use `allow` mode
+
+A host is permitted only if it matches the `hosts` lists of both policies. Wildcard patterns are combined into the patterns that match the hosts common to both lists.
+
+| Platform-level `hosts` | Tenant-level `Hosts` | Applied for `$ref` resolution |
+|------------------------|----------------------|-------------------------------|
+| `*.partner.com` | `api.partner.com` | `api.partner.com` |
+| `*.example.com` | `*.api.example.com` | `*.api.example.com` |
+| `*.partner.com`, `*.example.com` | `api.partner.com` | `api.partner.com` |
+| `*.partner.com` | `*.other.com` | None. All `$ref` URLs are blocked. |
+
+#### One level uses `allow` mode and the other uses `deny` mode or no mode
+
+A host listed in the `allow`-mode policy is used for `$ref` resolution only if the other level's policy also permits it, including its `hosts` list and its `block_private_network_access` setting.
+
+A wildcard pattern in the `allow`-mode `hosts` list is used only if all of the following apply to the other level's policy:
+
+- `block_private_network_access` is not enabled.
+- No pattern in its `hosts` list can match an IP address (for example, `203.0.113.*`).
+- No pattern in its `hosts` list matches a host that the wildcard pattern also matches.
+
+Otherwise, the wildcard pattern is not applied to `$ref` resolution, and a warning is logged. In that case, list each host that a `$ref` URL refers to explicitly.
+
+| Platform-level policy | Tenant-level policy | Applied for `$ref` resolution |
+|-----------------------|---------------------|-------------------------------|
+| `deny` mode, `hosts = ["internal.example.com"]` | `allow` mode, `"Hosts": ["*.partner.com"]` | `*.partner.com` |
+| `deny` mode, `hosts = ["internal.partner.com"]` | `allow` mode, `"Hosts": ["*.partner.com", "api.partner.com"]` | `api.partner.com` |
+| `deny` mode, `block_private_network_access = true` | `allow` mode, `"Hosts": ["*.partner.com", "api.partner.com"]` | `api.partner.com`, if it resolves to a public address |
+
+#### Summary
+
+| Platform-level mode | Tenant-level mode | Hosts permitted for `$ref` resolution |
+|---------------------|-------------------|---------------------------------------|
+| `allow` | `allow` | Hosts that match the `hosts` lists of both policies |
+| `allow` | `deny` or not set | Hosts in the platform-level list that the tenant-level policy also permits. Wildcard patterns are applied under the conditions described above. |
+| `deny` or not set | `allow` | Hosts in the tenant-level list that the platform-level policy also permits. Wildcard patterns are applied under the conditions described above. |
+| `deny` or not set | `deny` or not set | Hosts permitted by both policies. Private network addresses are blocked, as described above. |
 
 ## Remote WSDL Reference Resolution
 
@@ -379,4 +433,4 @@ When an OpenAPI definition or a WSDL 1.1 service is uploaded as a ZIP archive, r
 
 Archive reference containment applies whether or not a network access-control policy is configured. A reference that is not resolved fails the validate or import operation with the "remote reference in the definition could not be resolved" error (`900407`).
 
-Remote `http` and `https` references inside an archive are validated against the network access-control policy, as described in [Remote OpenAPI `$ref` Resolution](#remote-openapi-ref-resolution) and [Remote WSDL Reference Resolution](#remote-wsdl-reference-resolution).
+Remote `http` and `https` references inside an archive are validated against the network access-control policy, as described in [Remote OpenAPI `$ref` Resolution](#remote-openapi-ref-resolution) and [Remote WSDL Reference Resolution](#remote-wsdl-reference-resolution). For OpenAPI archives, this includes references inside remote documents that are fetched while resolving them.
