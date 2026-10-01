@@ -1238,6 +1238,38 @@
                             "description": "The default timeout (in seconds) for AI API requests"
                         },
                         {
+                            "name": "api_chat_enable",
+                            "type": "boolean",
+                            "required": false,
+                            "default": "true",
+                            "possible": "true,false",
+                            "description": "Enable or disable the API Chat feature."
+                        },
+                        {
+                            "name": "marketplace_assistant_enable",
+                            "type": "boolean",
+                            "required": false,
+                            "default": "true",
+                            "possible": "true,false",
+                            "description": "Enable or disable the Marketplace Assistant feature."
+                        },
+                        {
+                            "name": "design_assistant_enable",
+                            "type": "boolean",
+                            "required": false,
+                            "default": "true",
+                            "possible": "true,false",
+                            "description": "Enable or disable the API Design Assistant feature."
+                        },
+                        {
+                            "name": "property_enricher_impl",
+                            "type": "string",
+                            "required": false,
+                            "default": "",
+                            "possible": "",
+                            "description": "The fully qualified class name of the AIRequestPropertyEnricher implementation used to add customer-specific properties to outbound AI service request payloads. When this is not configured, the standard request payloads remain unchanged."
+                        },
+                        {
                             "name": "custom_error_response_sequence",
                             "type": "string",
                             "required": false,
@@ -1301,6 +1333,27 @@
                 }
             ],
             "exampleFile": "apim.mcp.toml"
+        },
+        {
+            "title": "API Product Configurations",
+            "options": [
+                {
+                    "name": "apim.api_product",
+                    "required": false,
+                    "description": "Collection of API Product related configs",
+                    "params": [
+                        {
+                            "name": "enable_revision_based_resources",
+                            "type": "boolean",
+                            "required": false,
+                            "default": "false",
+                            "possible": "true,false",
+                            "description": "Enable revision based resources for the API Product."
+                        }
+                    ]
+                }
+            ],
+            "exampleFile": "apim.api_product.toml"
         },
         {
             "title": "API-M OAuth configurations",
