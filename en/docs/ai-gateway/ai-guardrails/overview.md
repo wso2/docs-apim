@@ -14,7 +14,7 @@ LLMs (Large Language Models) are fundamentally **non-deterministic**. A request 
 | **Privacy Leaks** | Generated outputs can expose sensitive or personally identifiable information (PII) unintentionally. |
 | **Regulatory Risk** | Lack of content moderation or auditability can breach compliance frameworks such as GDPR, HIPAA, or internal ethical standards. |
 
-As adoption of LLMs and AI services accelerates across sectors, it’s critical for organizations to move beyond experimentation and toward **safe, reliable production usage**. This requires governing AI systems a through a **structured behavioral control framework** that ensure:
+As adoption of LLMs and AI services accelerates across sectors, it’s critical for organizations to move beyond experimentation and toward **safe, reliable production usage**. This requires governing AI systems through a **structured behavioral control framework** that ensures:
 
 - **AI outputs remain aligned** with organizational values, policies, and formatting standards.  
 - **Requests are inspected and validated** before reaching the model to prevent abuse or misuse.  
