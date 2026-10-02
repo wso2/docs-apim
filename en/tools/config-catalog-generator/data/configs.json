@@ -6350,6 +6350,26 @@
             "exampleFile": "synapse_handlers.toml"
         },
       {
+        "title": "APIM Governance Severity Configurations",
+        "options": [
+          {
+            "name": "apim.governance",
+            "required": false,
+            "description": "Configurations used to configure API governance behaviour.",
+            "params": [
+              {
+                "name": "per_policy_severity_filtering_enabled",
+                "type": "boolean",
+                "default": "true",
+                "required": false,
+                "description": "Allows a policy to declare which rule severities affect compliance. Violations of other severities are still evaluated and reported, but do not violate the policy. Enabled by default; set to false to make every severity affect compliance for every policy, regardless of what each policy selects."
+              }
+            ]
+          }
+        ],
+        "exampleFile": "apim.governance.per_policy_severity_filtering.toml"
+      },
+      {
         "title": "APIM Governance Configurations",
         "options": [
           {
