@@ -5,7 +5,7 @@ Follow the instructions below to change the default token expiry time based on y
 ## Changing the default token expiration time at the global-level
 
 !!! note
-    The changes that you do here will be applied only to the new applications that you create.
+    The changes that you do here will be applied only to the new applications that you create. The token validity times must be defined in seconds.
 
 ### Changing the default expiration time of the application access tokens
 
