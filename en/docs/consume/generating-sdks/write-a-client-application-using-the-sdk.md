@@ -115,7 +115,7 @@
     ``` java
     import org.wso2.client.api.ApiClient;
     import org.wso2.client.api.PizzaShackAPI.DefaultApi;
-    import org.wso2.client.model.PizzaShackAPI.Menu;
+    import org.wso2.client.model.PizzaShackAPI.MenuItem;
     ```
 
 6.  Create an instance of the `DefaultApi` object in the java code. This instance is needed to get the API client which handles the operations related to consuming the API, using the resources of the API.
