@@ -1,8 +1,8 @@
 # Updating WSO2 API Manager
 
-WSO2 introduces [WSO2 Updates](https://updates.docs.wso2.com/en/latest/) , which is a command-line utility that allows you to get the latest updates that are available for a particular product release. These updates include the latest bug fixes and security fixes that are released by WSO2 after a particular product version is released. Therefore, you do not need to wait and upgrade to the next product release to get these bug fixes.
+## WSO2 introduces [WSO2 Updates](https://updates.docs.wso2.com/en/latest/), which is a command-line utility that allows you to get the latest updates that are available for a particular product release. These updates include the latest bug fixes and security fixes that are released by WSO2 after a particular product version is released. Therefore, you do not need to wait and upgrade to the next product release to get these bug fixes.
 
-##WSO2 Updates 2.0
+## WSO2 Updates 2.0
 The WSO2 updates 2.0 tool allows you to update your currently used product by fetching updates from the server. While you should manually merge the updated configuration files or use a tool like Puppet, you can store backups with the custom configurations in your system, in case you have to restore later.
 
 For more information, see [Using WSO2 Updates 2.0](https://updates.docs.wso2.com/en/latest/updates/update-tool/)
@@ -11,7 +11,7 @@ For more information, see [Using WSO2 Updates 2.0](https://updates.docs.wso2.com
 
     **Persisting Index data**
 
-    The indexing related information of WSO2 API Manager is stored in the `<API-M_HOME>/solr/data` directory. Once the data is indexed, it is stored in the index directory.
+    The indexing-related information of WSO2 API Manager is stored in the `<API-M_HOME>/solr/data` directory. Once the data is indexed, it is stored in the index directory.
     
     !!! tip
         Before you discard the old API Manager instance,
@@ -20,7 +20,7 @@ For more information, see [Using WSO2 Updates 2.0](https://updates.docs.wso2.com
     
     **Persisting WSO2CarbonDB**
     
-    To avoid conflicts that can be occurred in the update process, it is recommended to persist the local H2 databases as well.
+    To avoid conflicts that may occur during the update process, it is recommended to persist the local H2 databases as well.
     
     !!! tip
         Before you discard the old API Manager instance,
