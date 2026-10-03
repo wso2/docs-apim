@@ -13,7 +13,7 @@ For more information, see [Using WSO2 In-Place Updates](https://docs.wso2.com/di
 ##WSO2 Updates 2.0
 You should manually merge the updated configuration files or use a tool like Puppet. You should store backups with the custom configurations in your system, in case you have to restore later.
 
-For more information, see [Using WSO2 Updates 2.0](https://updates.docs.wso2.com/en/latest/updates/update-tool/)
+For more information, see [Using WSO2 Updates 2.0](https://updates.docs.wso2.com/en/latest/updates/set-up-update-tool/)
 
 !!! warning "Re-optimization requirement for distributed deployments"
 
