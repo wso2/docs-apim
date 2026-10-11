@@ -526,7 +526,7 @@ paths:
         - Subscription Policy (Individual)
       summary: Get a Subscription Policy
       description: |
-        This operation can be used to retrieves subscription level throttling policy by specifying the Id of the policy as a path paramter
+        This operation can be used to retrieves subscription level throttling policy by specifying the Id of the policy as a path parameter
       parameters:
         - $ref: '#/components/parameters/policyId'
       responses:
@@ -651,7 +651,7 @@ paths:
         - Subscription Policy (Individual)
       summary: Delete a Subscription Policy
       description: |
-        This operation can be used to delete a subscription level throttling policy by specifying the Id of the policy as a path paramter.
+        This operation can be used to delete a subscription level throttling policy by specifying the Id of the policy as a path parameter.
       parameters:
         - $ref: '#/components/parameters/policyId'
       responses:
@@ -4484,8 +4484,8 @@ paths:
             - apim:api_provider_change
       x-code-samples:
         - lang: Curl
-          source: 'curl -k -X PUT -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8"
-              -H "Content-Type: application/json" "https://127.0.0.1:9443/api/am/admin/v4/provider/admin/apis/33662a62-8db1-4d75-af08-afd63c6bd0b4/change-provider?provider=user1"'
+          source: 'curl -k -X POST -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8"
+              -H "Content-Type: application/json" "https://127.0.0.1:9443/api/am/admin/v4/apis/33662a62-8db1-4d75-af08-afd63c6bd0b4/change-provider?provider=user1"'
   ######################################################
   # The "Transaction Count" resource API
   ######################################################
@@ -5298,7 +5298,7 @@ components:
           properties:
             dataAmount:
               type: integer
-              description: Amount of data allowed to be transfered
+              description: Amount of data allowed to be transferred
               format: int64
               example: 1000
             dataUnit:
@@ -5751,7 +5751,7 @@ components:
         count:
           type: integer
           description: |
-            Number of Organizationa returned.
+            Number of Organizations returned.
           example: 1
         list:
           type: array
@@ -6062,7 +6062,7 @@ components:
         status:
           type: string
           description: Status of the usage publish request
-          example: successfull
+          example: successful
         message:
           type: string
           description: detailed message of the status
@@ -6078,7 +6078,7 @@ components:
         status:
           type: string
           description: Status of usage publish job
-          example: SUCCESSFULL
+          example: SUCCESSFUL
         startedTime:
           type: string
           description: Timestamp of the started time of the Job
