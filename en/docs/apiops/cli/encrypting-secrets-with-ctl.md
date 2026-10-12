@@ -57,9 +57,9 @@ Symmetric encryption uses an AES-256 encryption key that must be initialized bef
 
 `apictl secret create symmetric` accepts an optional second argument that selects the shape of the
 encrypted value, depending on which system will read it back. In every sub-mode, apictl prints (or
-writes to a file) a single base64-encoded string; for `internal` and `external`, that string decodes
-to the JSON shown below. All three sub-modes use the exact same AES-256 key initialized above
-&mdash; only the wrapping around the ciphertext changes.
+writes to a file) a single base64-encoded string that decodes to the JSON shown below. All three
+sub-modes use the exact same AES-256 key initialized above &mdash; only the wrapping around the
+ciphertext changes.
 
 <table>
     <tr>
@@ -71,8 +71,8 @@ to the JSON shown below. All three sub-modes use the exact same AES-256 key init
     <tr>
         <td>Normal (default)</td>
         <td><code>apictl secret create symmetric</code></td>
-        <td>A single opaque base64 value &mdash; no JSON envelope</td>
-        <td>The value is only ever consumed by apictl or your own tooling, not decrypted by a WSO2 runtime's own secret-handling code</td>
+        <td><code>{"cipherText": "...", "iv": "..."}</code> &mdash; the same shape as <code>external</code>, and the same format earlier apictl releases produced</td>
+        <td>The target runtime decrypts secrets via cipher-tool, carbon-secvault, or the current carbon-mediation secure vault, or you want the same output as earlier apictl releases</td>
     </tr>
     <tr>
         <td>Internal</td>
@@ -118,7 +118,7 @@ to the JSON shown below. All three sub-modes use the exact same AES-256 key init
         -   Response
 
             ```text
-            db_password : FZgqm4+P1MzURwMO0yAlQyrvKICRVuPufpGu1IYeJ1U45sb+03mY7aJl
+            db_password : eyJjaXBoZXJUZXh0IjoidU9UUTNGY0tXSUZnOFlISDkraWNCS1ZuQng1QnpJVT0iLCJpdiI6InU5cGpxU1FtcDFna2tzY1IifQ==
             ```
 
     -   Encrypt secrets defined in a properties file, in the internal (carbon-crypto-service) format
