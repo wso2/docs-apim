@@ -324,5 +324,5 @@ Create a parser configuration file (parsers.conf) with the following configurati
     ```
 
 5. Download the artifact file from below.<br />
-   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; [Artifacts]({{base_path}}/assets/img/analytics/cloud/opensearch-analytics-dashboards.ndjson)
+   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; [Artifacts](https://github.com/wso2/docs-apim/raw/4.5.0/en/docs/assets/img/analytics/cloud/opensearch-analytics-dashboards.ndjson)
 6. Navigate to **Dashboard Management** > **Saved Objects** and click on **Import**. Add the downloaded artifact file as an import object, and import.
