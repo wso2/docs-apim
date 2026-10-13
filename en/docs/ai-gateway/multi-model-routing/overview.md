@@ -20,7 +20,7 @@ We cater to your multi-model routing requirements via **AI Policies**. Listed be
 
 ### Prerequisites
 
-Before moving into the routing stratergy enforcement be sure to complete the following two prerequisites:
+Before moving into the routing strategy enforcement, be sure to complete the following two prerequisites:
 
 - Add the AI Service Provider supported **model list** under the Admin Portal
 - Add the required **endpoints** alongside the API Key for AI service access
