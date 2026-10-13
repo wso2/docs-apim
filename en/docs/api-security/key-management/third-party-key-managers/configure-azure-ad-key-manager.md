@@ -95,7 +95,9 @@ Start the API Manager server and log-in to the Admin portal to configure Azure A
       </tr>
       <tr>
         <td>Issuer</td>
-        <td>The issuer that consumes or validates access tokens. <br/><b>Example:</b><br/> https://login.microsoftonline.com/{tenent-id}/v2.0</td>
+        <td>The issuer that consumes or validates access tokens. The value depends on the <b>Requested Access Token Version</b> selected in the <b>Connector Configurations</b> section:<br/>
+        - <b>Version 1:</b> <code>https://sts.windows.net/{tenant-id}/</code><br/>
+        - <b>Version 2:</b> <code>https://login.microsoftonline.com/{tenant-id}/v2.0</code></td>
         <td>Mandatory</td>
       </tr>
       <tr>
@@ -159,9 +161,21 @@ Start the API Manager server and log-in to the Admin portal to configure Azure A
   </table>
 
 
- 4. Fill the Consumer Key Claim URI: `appid` in the `Claim URIs` section.
+ 4. Fill the **Consumer Key Claim URI** in the **Claim URIs** section. The value depends on the **Requested Access Token Version** selected in the **Connector Configurations** section:
+     - **Version 1:** `appid`
+     - **Version 2:** `azp`
  5. Set the Grant Types: `client_credentials` (Only use this grant type).
- 6. Provide the relevant details in the `Connector Configurations` section.
+
+!!! warning "Important: Selecting the Requested Access Token Version"
+    Before configuring the Connector Configurations section, carefully select the **Requested Access Token Version** (1 or 2) based on your Azure AD application requirements. This selection is critical because:
+    
+    - The token version can only be set during Key Manager creation and cannot be updated afterward.
+    - Different token versions require different configuration values for **Consumer Key Claim URI** and **Issuer** fields.
+    - If you select an incorrect version, you must delete the Key Manager and create a new one.
+    
+    Refer to the [Configure the application to generate V1 or V2 tokens](#configure-the-application-to-generate-v1-or-v2-tokens) section to understand how to set the token version in your Azure AD application.
+
+ 6. Provide the relevant details in the **Connector Configurations** section.
   <table>
     <thead>
       <tr>
@@ -171,6 +185,12 @@ Start the API Manager server and log-in to the Admin portal to configure Azure A
       </tr>
     </thead>
     <tbody>
+      <tr>
+        <td>Requested Access Token Version</td>
+        <td>Select the Azure AD access token version (<b>1</b> or <b>2</b>) that your application requires. This selection determines the values for <b>Consumer Key Claim URI</b> and <b>Issuer</b> fields.<br/><br/>
+        <b>Important:</b> This value can only be set during Key Manager creation and cannot be updated later. If you need to change the token version, you must delete the existing Key Manager and create a new one.</td>
+        <td>Mandatory</td>
+      </tr>
       <tr>
         <td>Microsoft Graph API Endpoint</td>
         <td>Paste the <code>Microsoft Graph API endpoint</code><br></td>
