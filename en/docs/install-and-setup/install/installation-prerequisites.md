@@ -16,7 +16,7 @@ Databases</p>
 <td>
 <ul>
 <li>
-<p>Install a JDK version that is <a href="{{base_path}}/install-and-setup/setup/reference/product-compatibility/#tested-operating-systems-and-jdks">compatible with this product version</a>.</p>
+<p>Install a JDK version that is <a href="{{base_path}}/install-and-setup/setup/reference/product-compatibility/#tested-operating-systems-and-jdks">compatible with this product version.</a> For WSO2 API Manager 4.7.0, this is **JDK 21 or JDK 25** (Temurin OpenJDK). Using an incompatible version - including newer versions such as JDK 22+ will prevent the server from starting, with an error similar to: `CARBON is supported only between JDK 21 and JDK 25`.</p>
 </li>
 <li><p>All WSO2 Carbon-based products are generally compatible with most common DBMSs. The embedded H2 database is suitable for development, testing, and some production environments. However, for most enterprise production environments, WSO2 recommends that you use an industry-standard RDBMS such as Oracle, PostgreSQL, MySQL, MS SQL, etc. For more information, see <a href="{{base_path}}/install-and-setup/setup/setting-up-databases/overview/">Working with Databases</a>. Additionally, WSO2 does not recommend the H2 database as a user store.</p>
 </li>
