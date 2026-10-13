@@ -564,6 +564,9 @@ nav:
             - Subscribe to a MCP Server: ai-gateway/mcp-gateway/subscribe-to-a-mcp-server.md
             - Consume MCP Servers from MCP Hub: ai-gateway/mcp-gateway/invoke-a-mcp-server-using-playground.md
 
+    - AI Assistants:
+        - Overview: ai-assistants/ai-assistants-overview.md
+
     - API Analytics & Monetization:
         - API Analytics:
             - Overview: monitoring/api-analytics/analytics-overview.md
@@ -867,6 +870,7 @@ extra:
       - API Developer Portal
       - API Gateway
       - AI Gateway
+      - AI Assistants
       - API Analytics & Monetization
       - Key Manager
       - Administration
@@ -911,6 +915,9 @@ extra:
     - title: AI Gateway
       options:
         - verticle-line-only
+    - title: AI Assistants
+      options:
+        - verticle-line-only
     - title: API Analytics & Monetization
       options:
         - verticle-line-only
@@ -947,6 +954,9 @@ extra:
         level: 1
       AI Gateway:
         icon: octicons/hubot-16
+        level: 1
+      AI Assistants:
+        icon: octicons/copilot-16
         level: 1
       API Analytics & Monetization:
         icon: octicons/graph-16
