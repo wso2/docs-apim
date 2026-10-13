@@ -11,6 +11,9 @@ Only the application owner is capable of editing and deleting the application in
 
 WSO2 API Manager also provides the flexibility to change this default authentication implementation.
 
+!!! important
+    Application sharing works only when the user's default profile is configured with the organization. If the shared organization is configured in a custom profile, application sharing does not work as expected.
+
 ## Enabling application sharing
 
 You can enable application sharing with users in a single group or between users in multiple groups by following the steps below.
