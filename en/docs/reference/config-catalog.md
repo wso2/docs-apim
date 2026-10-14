@@ -17401,6 +17401,7 @@ class="org.wso2.carbon.apimgt.gateway.handlers.custom.customer_handler"
                 <div class="superfences-content">
                     <div class="mb-config-example">
 <pre><code class="toml">[apim.governance.scheduler]
+enable = true
 thread_pool_size = 20
 queue_size = 20
 task_check_interval_minutes = 2
@@ -17419,6 +17420,27 @@ task_cleanup_interval_minutes = 30
                         </div>
                         <div class="params-wrap">
                             <div class="param">
+                                <div class="param-name">
+                                  <span class="param-name-wrap"> <code>enable</code> </span>
+                                </div>
+                                <div class="param-info">
+                                    <div>
+                                        <p>
+                                            <span class="param-type string"> boolean </span>
+                                            
+                                        </p>
+                                        <div class="param-default">
+                                            <span class="param-default-value">Default: <code>true</code></span>
+                                        </div>
+                                        <div class="param-possible">
+                                            <span class="param-possible-values">Possible Values: <code>true/false</code></span>
+                                        </div>
+                                    </div>
+                                    <div class="param-description">
+                                        <p>Determines whether the governance compliance evaluation scheduler runs on this node. Set this to false on nodes that should not process pending compliance evaluation requests, so that exactly one Control Plane node performs the evaluations in a multi-node or multi-data-center deployment.</p>
+                                    </div>
+                                </div>
+                            </div><div class="param">
                                 <div class="param-name">
                                   <span class="param-name-wrap"> <code>thread_pool_size</code> </span>
                                 </div>
