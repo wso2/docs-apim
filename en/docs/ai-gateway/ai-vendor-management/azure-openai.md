@@ -2,12 +2,41 @@
 
 Azure OpenAI is a **default AI Service Provider** in WSO2 API Manager that provides access to OpenAI's language models through Azure's infrastructure. For more information about Azure OpenAI, see the [Azure OpenAI Documentation](https://learn.microsoft.com/en-us/azure/ai-services/openai/).
 
+## Supported Versions
+
+WSO2 API Manager provides two versions of the Azure OpenAI AI Service Provider. Each version targets a different Azure OpenAI API. Select the version that matches the API your application uses when you create an AI API.
+
+<table>
+    <thead>
+        <tr>
+            <th style="width: 20%">Version</th>
+            <th style="width: 30%">Azure OpenAI API</th>
+            <th style="width: 50%">Endpoint</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td><code>1.0.0</code></td>
+            <td>Chat Completions API</td>
+            <td><code>/chat/completions</code></td>
+        </tr>
+        <tr>
+            <td><code>2.0.0</code></td>
+            <td>Responses API</td>
+            <td><code>/responses</code></td>
+        </tr>
+    </tbody>
+</table>
+
+!!! note
+    If your application uses both the Chat Completions API and the Responses API, create a separate AI API for each version.
+
 ## Configuring Azure OpenAI
 
 ### Step 1: Access Configuration
 
 1. Login to the Admin Portal (`https://<hostname>:9443/admin`)
-2. Navigate to **AI Service Providers** → **AzureOpenAI**
+2. Navigate to **AI Service Providers** → **AzureOpenAI**, and select the version you want to configure (`1.0.0` for Chat Completions or `2.0.0` for Responses). See [Supported Versions](#supported-versions).
 
 [![Azure OpenAI Configuration]({{base_path}}/assets/img/learn/ai-gateway/azure-openai-config.png){: style="width:90%"}]({{base_path}}/assets/img/learn/ai-gateway/azure-openai-config.png)
 
