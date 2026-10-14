@@ -735,7 +735,7 @@ nav:
                     - Configure Single Sign On with SAML2: reference/customize-product/extending-api-manager/saml2-sso/configuring-single-sign-on-with-saml2.md
                     - Configure External IDP Through Identity Server for SSO: reference/customize-product/extending-api-manager/saml2-sso/configuring-external-idp-through-identity-server-for-sso.md
                     - Configure Identity Server as IDP for SSO: reference/customize-product/extending-api-manager/saml2-sso/configuring-identity-server-as-idp-for-sso.md
-                    - Multi Factor Authentication for Publisher and Developer Portals: reference/customize-product/extending-api-manager/saml2-sso/multi-factor-authentication-mfa-for-publisher-and-developer-portals.md
+                - Multi Factor Authentication for Publisher and Developer Portals: reference/customize-product/extending-api-manager/multi-factor-authentication-mfa-for-publisher-and-developer-portals.md
             - Customizations:
                 - Customize the Developer Portal:
                     - Override the Developer Portal Theme: reference/customize-product/customizations/customizing-the-developer-portal/overriding-developer-portal-theme.md
