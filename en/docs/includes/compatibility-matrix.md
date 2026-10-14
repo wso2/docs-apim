@@ -35,7 +35,7 @@
         </tr>
         <tr>
             <td colspan="2">WSO2 Identity Server</td>
-            <td>6.1.0, 7.0.0, 7.1.0, 7.2.0</td>
+            <td>6.1.0, 7.x</td>
         </tr>
     </tbody>
 </table>
