@@ -1177,6 +1177,38 @@
                             "description": "The default timeout (in seconds) for AI API requests"
                         },
                         {
+                            "name": "api_chat_enable",
+                            "type": "boolean",
+                            "required": false,
+                            "default": "true",
+                            "possible": "true,false",
+                            "description": "Enable or disable the API Chat feature."
+                        },
+                        {
+                            "name": "marketplace_assistant_enable",
+                            "type": "boolean",
+                            "required": false,
+                            "default": "true",
+                            "possible": "true,false",
+                            "description": "Enable or disable the Marketplace Assistant feature."
+                        },
+                        {
+                            "name": "design_assistant_enable",
+                            "type": "boolean",
+                            "required": false,
+                            "default": "true",
+                            "possible": "true,false",
+                            "description": "Enable or disable the API Design Assistant feature."
+                        },
+                        {
+                            "name": "property_enricher_impl",
+                            "type": "string",
+                            "required": false,
+                            "default": "",
+                            "possible": "",
+                            "description": "The fully qualified class name of the AIRequestPropertyEnricher implementation used to add customer-specific properties to outbound AI service request payloads. When this is not configured, the standard request payloads remain unchanged."
+                        },
+                        {
                             "name": "custom_error_response_sequence",
                             "type": "string",
                             "required": false,
@@ -1232,6 +1264,27 @@
                 }
             ],
             "exampleFile": "apim.mcp.toml"
+        },
+        {
+            "title": "API Product Configurations",
+            "options": [
+                {
+                    "name": "apim.api_product",
+                    "required": false,
+                    "description": "Collection of API Product related configs",
+                    "params": [
+                        {
+                            "name": "enable_revision_based_resources",
+                            "type": "boolean",
+                            "required": false,
+                            "default": "true",
+                            "possible": "true,false",
+                            "description": "Enable revision based resources for the API Product."
+                        }
+                    ]
+                }
+            ],
+            "exampleFile": "apim.api_product.toml"
         },
         {
             "title": "API-M OAuth configurations",
@@ -1494,6 +1547,88 @@
                 }
             ],
             "exampleFile": "apim.gateway_notification.cleanup.toml"
+        },
+        {
+            "title": "API-M platform gateway configurations",
+            "options": [
+                {
+                    "name": "apim.platform_gateway",
+                    "required": false,
+                    "description": "Configuration for Platform Gateway, a lightweight gateway distribution used for hybrid API Platform deployments.",
+                    "params": [
+                        {
+                            "name": "versions",
+                            "type": "array",
+                            "required": false,
+                            "default": "[]",
+                            "possible": "",
+                            "description": "List of Platform Gateway package version strings. These values are listed in the <b>Gateway version</b> drop-down when adding or editing a platform gateway from the Admin Portal."
+                        }
+                    ]
+                }
+            ],
+            "exampleFile": "apim.platform_gateway.toml"
+        },
+        {
+            "title": "API-M platform gateway connect configurations",
+            "options": [
+                {
+                    "name": "[apim.platform_gateway.connect]",
+                    "required": false,
+                    "description": "Declares a Platform Gateway that is registered through <code>deployment.toml</code> instead of the Admin Portal. Repeat this array-of-tables block once per gateway. The gateway record is created the first time the gateway connects to the Control Plane, not at startup.",
+                    "params": [
+                        {
+                            "name": "registration_token",
+                            "type": "string",
+                            "required": true,
+                            "default": "",
+                            "possible": "",
+                            "description": "The gateway's registration token, in <code>&lt;token-id&gt;.&lt;plain-token&gt;</code> format. Choose any value for <code>&lt;token-id&gt;</code> (for example a UUID) and <code>&lt;plain-token&gt;</code> (for example a random string) - this token is defined here, not copied from the Admin Portal. Configure the same value as <code>GATEWAY_REGISTRATION_TOKEN</code> on the gateway. Reference it with WSO2's <code>$env{...}</code> syntax (as shown above) rather than a literal value in <code>deployment.toml</code>, especially when <code>deployment.toml</code> is checked into version control."
+                        },
+                        {
+                            "name": "url",
+                            "type": "string",
+                            "required": true,
+                            "default": "",
+                            "possible": "",
+                            "description": "The URL where the gateway will be accessible, for example <code>https://&lt;gateway-host&gt;:&lt;gateway-port&gt;</code>. Must be a valid <code>http</code> or <code>https</code> URL with a host."
+                        },
+                        {
+                            "name": "name",
+                            "type": "string",
+                            "required": false,
+                            "default": "ID derived from registration_token",
+                            "possible": "",
+                            "description": "Environment name shown in the Control Plane. Use lowercase letters, numbers, and hyphens only. Defaults to an ID derived from <code>registration_token</code> when not set."
+                        },
+                        {
+                            "name": "display_name",
+                            "type": "string",
+                            "required": false,
+                            "default": "name",
+                            "possible": "",
+                            "description": "Display name shown in the Admin Portal and Publisher Portal. Defaults to <code>name</code> when not set."
+                        },
+                        {
+                            "name": "description",
+                            "type": "string",
+                            "required": false,
+                            "default": "",
+                            "possible": "",
+                            "description": "Optional description of the gateway."
+                        },
+                        {
+                            "name": "organization",
+                            "type": "string",
+                            "required": false,
+                            "default": "carbon.super",
+                            "possible": "",
+                            "description": "Tenant organization that owns the gateway. A Platform Gateway is always scoped to a single tenant; <code>WSO2-ALL-TENANTS</code> is not supported here."
+                        }
+                    ]
+                }
+            ],
+            "exampleFile": "apim.platform_gateway.connect.toml"
         },
         {
             "title": "API-M Mutual SSL Configuration",
@@ -3408,7 +3543,7 @@
                             "required": false,
                             "default": "Not defined",
                             "possible": "",
-                            "description": "Provide a number starting from 1. Increase the value by one during each time you need to reindex. Make sure to backup and delete the <API-M_HOME>/solr directory after changing the configuration and before restarting the server. After a server restart, reindexing might take a considerable amount of time depending on the number of APIs you have in the registry."
+                            "description": "Provide a number starting from 1. Increase the value by one during each time you need to reindex. Make sure to backup and delete the &lt;API-M_HOME&gt;/solr directory after changing the configuration and before restarting the server. After a server restart, reindexing might take a considerable amount of time depending on the number of APIs you have in the registry."
                         }                                                                                                  
                     ]
                 }
@@ -6101,7 +6236,7 @@
                             "required": false,
                             "default": "",
                             "possible": "",
-                            "description": "The name of the Keystore (the Keystore file should be placed inside <API-M_HOME>/repository/resources/security directory)"
+                            "description": "The name of the Keystore (the Keystore file should be placed inside &lt;API-M_HOME&gt;/repository/resources/security directory)"
                         },
                         {
                             "name": "type",
@@ -6154,7 +6289,7 @@
                             "required": false,
                             "default": "false",
                              "possible": "true,false",
-                            "description": "Set this to true to allow logs to get written into the `<APIM_HOME>repository/logs/wso2carbon.log` or any other log file and show up on the console."
+                            "description": "Set this to true to allow logs to get written into the `&lt;APIM_HOME&gt;repository/logs/wso2carbon.log` or any other log file and show up on the console."
                         }
                     ]
                 }
@@ -6880,7 +7015,7 @@
                             "required": false,
                             "default": "https://cognitiveservices.azure.com/.default",
                             "possible": "",
-                            "description": "The scope to use when authenticating with Azure User Managed Identity. This is applicable when embedding provider type is azure-openai and auth_type is set to umi. The scope should be in the format https://<custom-scope>.azure.com/.default. Defaults to cognitive services scope (https://cognitiveservices.azure.com/.default) if not specified."
+                            "description": "The scope to use when authenticating with Azure User Managed Identity. This is applicable when embedding provider type is azure-openai and auth_type is set to umi. The scope should be in the format https://&lt;custom-scope&gt;.azure.com/.default. Defaults to cognitive services scope (https://cognitiveservices.azure.com/.default) if not specified."
                         }
                     ]
                 }
@@ -7081,7 +7216,7 @@
                             "required": false,
                             "default": "https://ai.azure.com/.default",
                             "possible": "",
-                            "description": "The OAuth scope used when authenticating with Azure User Managed Identity for Azure AI Foundry. Use this to override the default scope (https://ai.azure.com/.default) with a custom scope in the format https://<custom-scope>.azure.com/.default."
+                            "description": "The OAuth scope used when authenticating with Azure User Managed Identity for Azure AI Foundry. Use this to override the default scope (https://ai.azure.com/.default) with a custom scope in the format https://&lt;custom-scope&gt;.azure.com/.default."
                         }
                     ]
                 }
