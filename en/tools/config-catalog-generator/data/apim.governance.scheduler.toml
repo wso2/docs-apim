@@ -1,4 +1,5 @@
 [apim.governance.scheduler]
+enable = true
 thread_pool_size = 20
 queue_size = 20
 task_check_interval_minutes = 2

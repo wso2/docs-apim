@@ -6358,6 +6358,14 @@
             "description": "Configurations used to configure governance task scheduler.",
             "params": [
               {
+                "name": "enable",
+                "type": "boolean",
+                "required": false,
+                "default": "true",
+                "possible": "true/false",
+                "description": "Determines whether the governance compliance evaluation scheduler runs on this node. Set this to false on nodes that should not process pending compliance evaluation requests, so that exactly one Control Plane node performs the evaluations in a multi-node or multi-data-center deployment."
+              },
+              {
                 "name": "thread_pool_size",
                 "type": "integer",
                 "required": false,
