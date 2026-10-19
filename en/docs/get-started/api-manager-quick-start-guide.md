@@ -36,6 +36,8 @@ Choose a deployment option to start the WSO2 API Manager All-in-one package. Thi
             ```bash
             api-manager.bat --run
             ```
+        !!! tip
+                If you are using PowerShell, run `.\api-manager.bat --run` instead. PowerShell does not run commands from the current directory unless you prefix them with `.\`.
 
 === "Run on Kubernetes"
 
@@ -149,6 +151,11 @@ Follow the instructions below to invoke the created API.
      [![Test API]({{base_path}}/assets/img/get_started/test-api.png)]({{base_path}}/assets/img/get_started/test-api.png)
 
      This will prompt you for the customer secret created at the startup to generate the access token.
+     This will prompt you for the consumer secret of the `DefaultApplication` to generate the access token.
+
+    !!! note
+    The consumer secret is displayed only once, when it is generated. If you no longer have it, go to 
+    **Applications** &rarr; **DefaultApplication** &rarr; **Sandbox Keys** and click **New Secret** to create one.    
 
      [![Test API]({{base_path}}/assets/img/get_started/enter-customer-secret.png)]({{base_path}}/assets/img/get_started/enter-customer-secret.png)
 
