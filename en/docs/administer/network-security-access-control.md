@@ -40,7 +40,7 @@ When a URL or reference is not permitted, the operation fails with one of the fo
 | Code | Description | Returned when |
 |------|-------------|---------------|
 | `900405` | The provided URL could not be resolved. | An outbound URL is not permitted by the policy. |
-| `900406` | Internal server error. Please contact the system administrator. | The tenant-level policy cannot be applied to remote reference resolution, for example because the tenant configuration cannot be read. |
+| `900406` | Internal server error. Please contact the system administrator. | The network access-control policy is misconfigured, for example because the `mode` value is not `allow` or `deny`, or because the tenant-level policy cannot be read. |
 | `900407` | A remote reference in the definition could not be resolved. | A reference inside a definition is not permitted by the policy, or a local reference in an archive resolves outside the archive. |
 
 Error `900406` is returned as an HTTP 500 response, and the cause is logged.
@@ -321,14 +321,14 @@ This enforcement applies wherever an OpenAPI/Swagger definition is validated, im
 
 #### Behavior
 
-- If a `$ref` URL resolves to a disallowed or private-network host, the validation or import request fails with HTTP 400.
+- If a `$ref` URL refers to a host that the policy does not permit, or to a private-network address that is not permitted as described in [Private Network Addresses in `$ref` URLs](#private-network-addresses-in-ref-urls), the validation or import request fails with HTTP 400.
 - If a `$ref` URL resolves to an allow-listed host, the reference is fetched normally.
 - Only remote `http` and `https` `$ref` URLs are validated against the policy. References within the same document (for example, `$ref: '#/components/schemas/Foo'`) do not make a network request and are unaffected.
 - In a definition that is imported by URL, a relative reference (for example, `$ref: './models.yaml#/Bar'`) is resolved against the definition URL and validated as a remote reference.
 - In a definition that is uploaded as a ZIP archive, relative references are resolved within the archive, as described in [Archive Reference Containment](#archive-reference-containment).
 
-!!! note "Backwards compatibility: enforcement requires a configured policy"
-    Remote `$ref` enforcement is active only when a network access-control policy is configured (a platform-level `[server.network_security.access_control]` block in `deployment.toml`, or a tenant-level `NetworkSecurityAccessControl` policy in `tenant-conf.json`). If neither is present, remote `$ref` references are resolved exactly as in earlier releases, without host validation. This preserves backwards compatibility for deployments that have not yet defined a policy. To enable `$ref` enforcement, configure the policy as described above.
+!!! note "Enforcement requires a configured policy"
+    Remote `$ref` enforcement is active only when a network access-control policy is configured (a platform-level `[server.network_security.access_control]` block in `deployment.toml`, or a tenant-level `NetworkSecurityAccessControl` policy in `tenant-conf.json`). If neither is present, remote `$ref` references are resolved without host validation. To enable `$ref` enforcement, configure the policy as described above.
 
 ### Host Patterns for `$ref` Resolution
 
@@ -336,6 +336,7 @@ Host patterns are matched as described in [Host Pattern Matching](#host-pattern-
 
 - A host name pattern that ends with `*` (for example, `api.*`) is not supported for `$ref` resolution. Specify the domain instead (for example, `api.example.com` or `*.example.com`). IP address patterns that end with `*` (for example, `10.*.*.*`) are supported.
 - An `allow`-mode entry that contains `?` or `:`, or that contains a label longer than 63 characters, is not applied to `$ref` resolution, and a warning is logged.
+- In `allow` mode, a `$ref` URL is matched by its host as it is written in the URL. An IP address entry or pattern applies only to a `$ref` URL that specifies an IP address. It does not apply to a host name that resolves to that address.
 - When the platform-level and tenant-level `hosts` lists are combined, as described in [Combining Platform-Level and Tenant-Level Policies](#combining-platform-level-and-tenant-level-policies), a pattern with more than four `*` wildcards or more than 253 characters is not combined. A pair of patterns whose common hosts cannot be described with 64 patterns or fewer is not combined either. Such patterns are not applied to `$ref` resolution, and a warning is logged. Keep wildcard patterns simple, and list specific hosts where possible.
 
 ### Private Network Addresses in `$ref` URLs
@@ -343,7 +344,7 @@ Host patterns are matched as described in [Host Pattern Matching](#host-pattern-
 !!! note
     The behavior described below applies specifically to `$ref` URL enforcement. It does not affect top-level definition URL validation (the URL used to import or validate the API definition itself).
 
-Once a policy is configured, private, internal, loopback, and link-local addresses are blocked for embedded `$ref` URLs independently of the `block_private_network_access` setting in `deployment.toml`, which governs only the top-level URL check. To permit a `$ref` that resolves to an address in a private range, set `mode = "allow"` and list the host explicitly in the `hosts` array. If a policy is also configured at the other level, that policy must permit the host as well.
+Once a policy is configured, private, internal, loopback, and link-local addresses are blocked for embedded `$ref` URLs independently of the `block_private_network_access` setting in `deployment.toml`, which governs only the top-level URL check. To permit a `$ref` that resolves to an address in a private range, set `mode = "allow"` and add the host, or a pattern that matches the host, to the `hosts` array. If a policy is also configured at the other level, that policy must permit the host as well.
 
 ### Combining Platform-Level and Tenant-Level Policies
 
@@ -404,8 +405,8 @@ Enforcement applies during the WSDL validate and import operations, using the sa
 - Only remote `http`/`https` references are validated against the policy. Local references in a WSDL archive are handled as described in [Archive Reference Containment](#archive-reference-containment). The top-level WSDL URL is validated separately by the top-level URL check described earlier on this page.
 - Nested references are evaluated with the same rules as top-level URLs, including the `block_private_network_access` setting in `deny` mode.
 
-!!! note "Backwards compatibility: enforcement requires a configured policy"
-    As with OpenAPI `$ref` resolution, nested WSDL/XSD reference enforcement is active only when a network access-control policy is configured (a platform-level `[server.network_security.access_control]` block in `deployment.toml`, or a tenant-level `NetworkSecurityAccessControl` policy in `tenant-conf.json`). If neither is present, nested references are resolved exactly as in earlier releases, without host validation.
+!!! note "Enforcement requires a configured policy"
+    As with OpenAPI `$ref` resolution, nested WSDL/XSD reference enforcement is active only when a network access-control policy is configured (a platform-level `[server.network_security.access_control]` block in `deployment.toml`, or a tenant-level `NetworkSecurityAccessControl` policy in `tenant-conf.json`). If neither is present, nested references are resolved without host validation.
 
 ### Considerations
 
