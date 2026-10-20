@@ -43,7 +43,7 @@ When a URL or reference is not permitted, the operation fails with one of the fo
 | `900406` | Internal server error. Please contact the system administrator. | The network access-control policy is misconfigured, for example because the `mode` value is not `allow` or `deny`, or because the tenant-level policy cannot be read. |
 | `900407` | A remote reference in the definition could not be resolved. | A reference inside a definition is not permitted by the policy, or a local reference in an archive resolves outside the archive. |
 
-Error `900406` is returned as an HTTP 500 response, and the cause is logged.
+When the policy is misconfigured, the request fails with an HTTP 500 response, and the cause is logged with error code `900406`.
 
 ---
 
@@ -319,7 +319,7 @@ The network access-control policy is also enforced on remote `$ref` URLs embedde
 
 This enforcement applies wherever an OpenAPI/Swagger definition is validated, imported, or updated, as listed in [Enforcement Scope](#enforcement-scope), for OAS 2.0, OAS 3.0, and OAS 3.1. The same `[server.network_security.access_control]` platform-level configuration and `NetworkSecurityAccessControl` tenant-level configuration described above apply. No additional configuration is required.
 
-#### Behavior
+### Behavior
 
 - If a `$ref` URL refers to a host that the policy does not permit, or to a private-network address that is not permitted as described in [Private Network Addresses in `$ref` URLs](#private-network-addresses-in-ref-urls), the validation or import request fails with HTTP 400.
 - If a `$ref` URL resolves to an allow-listed host, the reference is fetched normally.
@@ -336,6 +336,7 @@ Host patterns are matched as described in [Host Pattern Matching](#host-pattern-
 
 - A host name pattern that ends with `*` (for example, `api.*`) is not supported for `$ref` resolution. Specify the domain instead (for example, `api.example.com` or `*.example.com`). IP address patterns that end with `*` (for example, `10.*.*.*`) are supported.
 - An `allow`-mode entry that contains `?` or `:`, or that contains a label longer than 63 characters, is not applied to `$ref` resolution, and a warning is logged.
+- A `deny`-mode entry that contains an empty label or a label longer than 63 characters is not applied to `$ref` resolution, and a warning is logged. If such an entry contains `*`, `$ref` resolution fails until the entry is corrected.
 - In `allow` mode, a `$ref` URL is matched by its host as it is written in the URL. An IP address entry or pattern applies only to a `$ref` URL that specifies an IP address. It does not apply to a host name that resolves to that address.
 - When the platform-level and tenant-level `hosts` lists are combined, as described in [Combining Platform-Level and Tenant-Level Policies](#combining-platform-level-and-tenant-level-policies), a pattern with more than four `*` wildcards or more than 253 characters is not combined. A pair of patterns whose common hosts cannot be described with 64 patterns or fewer is not combined either. Such patterns are not applied to `$ref` resolution, and a warning is logged. Keep wildcard patterns simple, and list specific hosts where possible.
 
@@ -398,7 +399,7 @@ The network access-control policy is also enforced on remote references embedded
 
 Enforcement applies during the WSDL validate and import operations, using the same `[server.network_security.access_control]` platform-level and `NetworkSecurityAccessControl` tenant-level configuration described above. No additional configuration is required.
 
-#### Behavior
+### Behavior
 
 - If a nested reference resolves to a host that the policy does not permit, the validate or import operation fails with a "remote reference in the definition could not be resolved" error. Validate returns `isValid: false` with the error; import returns HTTP 400.
 - If the reference resolves to an allow-listed host, it is fetched normally.
