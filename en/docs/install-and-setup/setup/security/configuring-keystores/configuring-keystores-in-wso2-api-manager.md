@@ -92,6 +92,31 @@ alias =  "mydomain"
 key_password =  "passwd12#"
 ```
 
+!!! note "Using a TLS keystore with multiple private key entries on the Gateway"
+    If the TLS keystore contains more than one private key entry (`PrivateKeyEntry`), the Gateway's passthrough HTTPS transport (port `8243` by default) does not use the certificate specified by `alias`. Instead, it serves the first private key entry in the keystore, with entries ordered alphabetically by alias. As a result, the Control Plane may serve the new certificate while the Gateway continues to serve a different one, such as the default `localhost` certificate.
+
+    To make the Gateway serve a specific certificate, set `server_certificate_alias` under `[keystore.tls]` to the alias of that certificate in the `<API-M_HOME>/repository/conf/deployment.toml` file of each Gateway node (and any all-in-one node).
+
+    ```toml
+    [keystore.tls]
+    file_name = "new-tls.jks"
+    type = "JKS"
+    password = "<password>"
+    alias = "new"
+    key_password = "<password>"
+    server_certificate_alias = "new"
+    ```
+
+    | Element | Description |
+    |---------|-------------|
+    | **server_certificate_alias** | Alias of the private key entry whose certificate is presented to clients by the Gateway passthrough HTTPS transport. If this is not set, the first private key entry in the keystore is used. |
+
+    !!! info
+        This configuration is available from the following update levels onwards:
+
+        - WSO2 API Manager (`wso2am`): 4.5.0.37
+        - Universal Gateway (`wso2am-universal-gw`): 4.5.0.36
+
 ## Configuring the Internal Keystore
 
 Configuring a separate internal keystore facilitates you to keep the certificate used for those encryptions unchanged while the certificate used for signing are changed. For that, add below configurations to `deployment.toml`. 
