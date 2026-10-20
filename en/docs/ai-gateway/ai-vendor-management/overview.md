@@ -9,6 +9,7 @@ The AI Gateway provides pre-built connectors for major AI service providers:
 - **AWS Bedrock**: Access to multiple AI models through Amazon's managed service
 - **Anthropic**: Claude models with specialized conversation capabilities  
 - **Google Gemini**: Google's advanced AI models with multimodal support
+- **Google Vertex AI**: Anthropic Claude and Google Gemini models hosted on Google Cloud Vertex AI, authenticated with a Google Cloud service account
 - **Mistral AI**: High-performance language models optimized for efficiency
 - **Azure AI Foundry**: Microsoft's comprehensive AI development platform
 
