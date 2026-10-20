@@ -28,9 +28,6 @@ WSO2 API Manager provides two versions of the Azure OpenAI AI Service Provider. 
     </tbody>
 </table>
 
-!!! note
-    If your application uses both the Chat Completions API and the Responses API, create a separate AI API for each version.
-
 ## Configuring Azure OpenAI
 
 ### Step 1: Access Configuration
