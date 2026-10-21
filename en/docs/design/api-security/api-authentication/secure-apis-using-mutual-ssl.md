@@ -69,3 +69,56 @@ Follow the instructions below to change the header:
         ``` bash
         curl -k --location -X GET 'https://localhost:8243/test/1.0/foo' -H 'accept: applicaition/json' -H 'Authorization: Bearer 0ee9aa70-d631-3401-b152-521b431036ca' -H 'SSL-CLIENT-CERT: LS0tLS1CRUdJTiBDRVJUSUZJQ0FURS0tLS0tCk1JSURsakNDQW40Q0NRRDc2MUpWekluMGNUQU5CZ2txaGtpRzl3MEJBUXNGQURDQmpERUxNQWtHQTFVRUJoTUMKVTB3eEVEQU9CZ05WQkFnTUIxZGxjM1JsY200eEVEQU9CZ05WQkFjTUIwTnZiRzl0WW04eERUQUxCZ05WQkFvTQpCRmRUVHpJeEN6QUpCZ05WQkFzTUFrTlRNUkl3RUFZRFZRUUREQWxzYjJOaGJHaHZjM1F4S1RBbkJna3Foa2lHCjl3MEJDUUVXR25kaGRHaHpZV3hoYTI5eVlXeGxaMlZBWjIxaGFXd3VZMjl0TUI0WERUSXhNREV4TkRBME16VXoKTlZvWERUSXlNREV4TkRBME16VXpOVm93Z1l3eEN6QUpCZ05WQkFZVEFsTk1NUkF3RGdZRFZRUUlEQWRYWlhOMApaWEp1TVJBd0RnWURWUVFIREFkRGIyeHZiV0p2TVEwd0N3WURWUVFLREFSWFUwOHlNUXN3Q1FZRFZRUUxEQUpEClV6RVNNQkFHQTFVRUF3d0piRzlqWVd4b2IzTjBNU2t3SndZSktvWklodmNOQVFrQkZocDNZWFJvYzJGc1lXdHYKY21Gc1pXZGxRR2R0WVdsc0xtTnZiVENDQVNJd0RRWUpLb1pJaHZjTkFRRUJCUUFEZ2dFUEFEQ0NBUW9DZ2dFQgpBTWMrRjhJblZmMzAwZ2FraTh2QUZ6cUFTSGNQV0xZalQ4dmMwOUs1TzZHRjgzaXpUa2F0UDFtYW1ydWlKL2VRCk1KL2VLVGhJdzR3MWEzS3Y4cjJwc3d2bWRjdjAzZnhRNis2aFh3Ykh5VUtHWFFwbVhtL3d5VE01NzRlR1cybXAKM2toTjlIdFV0SU5uS3BzSENLcFI3MFhGKzNrTTZleHJJNnRJUUpxdTdKM2t1OEdqRVI3R1Vma2trYXI1OGs3eApibEpIWG5URkdjWXJNSXAvcS9YUENqR0pGajhub2tNbjhnL0dWTExCVGFXSWJVa3E2ejRJYjk1dHNOd2thU1dhCnh6U2t3K3JIVkZLWnpPTlV1WTdKTk16Zkp6RkllZG5lY0U3c2Y0WnFIRlF6aUpVbW9qWklDMXp5bFdZdzQ4OEUKNUZvaU9xTWpHYTlUMXhXMUpOWTBab01DQXdFQUFUQU5CZ2txaGtpRzl3MEJBUXNGQUFPQ0FRRUFSZTdrcWZlbwpjd1htazRLWlBKMmlnaGY2VU9jc2dYSEZqMnVpQTNhSWMrd2xwREJpdkdCbDJHM2gxQXl6UFNtcVpYaUcvTGttCkg1dm43VUpGQXlQRVBlQ25HdWduTk5kZGpnSFp0SEdJLzdXcm1LTHdIOEU3TWdmSWJ6dk5Hd3ZXWmRrZi9DblcKNjNDYzhhTzJQMDhYd0dHU25JSDg2cWF6NEtvZUF1aFlCdHZyekNObERraTFjZ1E1bHczU0djU3dxMlB0eEd4cApvS0xWOUJYUzlVdUNJRDRrYjFqRUo3YlplTis0Z0pDbTVGTldUbWdhWXFDcjdERWIwRkhpWitLVnBsZzJZZ3ZYCkM2Z2ZrRm9NYTVJREwvWGVja0J0dFlITzFKcWUyMElRKy9kVHB4ZWE4RjE5aDVmeDRZWVlsRFhLWS8wRmxiRXoKZ1l2UGFIUnVKWnFlV1E9PQotLS0tLUVORCBDRVJUSUZJQ0FURS0tLS0tCg=='
         ```  
+
+#### Understanding the trust model for header-based mutual SSL
+
+When the API Gateway is deployed behind a load balancer that terminates TLS, the gateway receives the client certificate through an HTTP header (by default, `X-WSO2-CLIENT-CERTIFICATE`) rather than directly from the TLS handshake. In this configuration, the load balancer is responsible for all cryptographic validation, including proof of possession of the private key, certificate chain validation, and revocation checking. The gateway trusts the certificate that the load balancer provides in the header and matches it against the certificates uploaded to the API.
+
+**What is `enable_client_validation`?**
+
+The `enable_client_validation` parameter controls whether the gateway verifies that the certificate header comes from a trusted source. When set to `true` (the product default), the gateway accepts the certificate header only if the load balancer-to-gateway connection itself presents a client certificate that exists in the gateway listener truststore. This prevents untrusted callers from injecting arbitrary certificate headers.
+
+When `enable_client_validation` is set to `false`, the gateway accepts the certificate header from any caller that can reach it, without verifying the source of the header. This creates a security risk where anyone who has seen a client's public certificate can replay it by setting the header.
+
+**Recommended secure configuration for load balancer deployments**
+
+To ensure secure mutual SSL authentication when using a load balancer, follow these recommendations:
+
+1. Use mutual TLS between the load balancer and the gateway:
+   - Set `enable_client_validation = true` in the `[apimgt.mutual_ssl]` configuration.
+   - Configure the load balancer to present a client certificate when connecting to the gateway.
+   - Import the load balancer's client certificate into the gateway listener truststore.
+
+2. Configure the load balancer to strip any client-supplied certificate header and set it only from a verified TLS handshake. This prevents header injection attacks.
+
+3. If mutual TLS between the load balancer and gateway is not feasible, use TLS passthrough mode so the gateway performs the handshake directly with the client. In passthrough mode, the `cert_revocation_validation` setting is available on the listener.
+
+!!! warning
+    Setting `enable_client_validation = false` should only be used in environments where the gateway cannot be reached by anything except the load balancer, such as when the gateway is in a private network segment with network-level access controls. In other deployments, this configuration allows certificate header replay attacks.
+
+**Certificate matching and validation**
+
+The gateway matches the presented certificate against the API's uploaded certificates using the following criteria:
+
+- Certificates are compared by serial number and subject distinguished name (DN), not by the full certificate content.
+- Uploaded certificates are deployed to the gateway listener truststore (`client-truststore.jks` by default, configured in `listenerprofiles.xml`).
+- When `enable_certificate_chain_validation` is set to `true`, the gateway resolves issuer certificates from the same listener truststore.
+- The gateway HTTPS listener's `SSLVerifyClient` parameter defaults to `optional` and must remain `optional` if any API on that listener uses Optional mutual SSL.
+
+### Transport level security mandatory and optional modes
+
+When you enable mutual SSL for an API, you can configure whether transport level security is mandatory or optional. This setting controls how mutual SSL authentication works together with application-level security mechanisms such as OAuth2, Basic Auth, and API Key.
+
+The following table describes the authentication behavior for different combinations of mutual SSL and OAuth2 security settings:
+
+| Mutual SSL mode | OAuth2 mode | Authentication behavior |
+|-----------------|-------------|------------------------|
+| Mandatory       | Mandatory   | Both a matching certificate and a valid token are required. |
+| Mandatory       | Optional    | A matching certificate is required. The request is not rejected due to a missing or invalid token. |
+| Optional        | Mandatory   | A valid token is required. A missing or non-matching certificate does not cause rejection. |
+| Optional        | Optional    | A request without a matching certificate is rejected, even with a valid token. |
+
+**Additional authentication rules**
+
+- When mutual SSL is not enabled for an API, application-level security is always mandatory.
+- When no application-level security is enabled, mutual SSL is always mandatory.
