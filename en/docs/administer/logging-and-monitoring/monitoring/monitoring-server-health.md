@@ -1,9 +1,10 @@
 # Monitoring Server Health
 
-**Health Check API** is used to validate and verify the status of the API-M server and its dependencies. It is a REST service that returns the operational status, performance information of the configured endpoints (with the appropriate HTTP return code), and a JSON object. There are two Health Checkers available by default:
+**Health Check API** is used to validate and verify the status of the API-M server and its dependencies. It is a REST service that returns the operational status, performance information of the configured endpoints (with the appropriate HTTP return code), and a JSON object. There are three Health Checkers available by default:
 
 -  **Data Sources Health Checker** - This checker goes through the data sources that are configured in the `<API-M_HOME>/repository/conf/deployment.toml` file and checks if the active connection count surpasses a healthy percentage limit (e.g., 80%) of the maximum allowed connections count. This checker also tests the connection from each data source to see whether the connection is successful.
 -  **User Store Health Checker** - This checker iterates through configured user stores of the super tenant domain and attempts to invoke the `isExistingUser` method to check whether a failure occurs.
+-  **Traffic Manager (TM) Health Checker** - This checker probes the Traffic Manager's rate-limit event receiver (the port Gateways publish usage events to, together with its own login port) and its message broker (the port rate-limit decisions are delivered back through), reporting whether each is reachable and responding - see the Traffic Manager (TM) Health Checker section further down this page.
 
 !!! note
     The Health Check API only supports WSO2 API Manager that runs on Java 21 or 25.
@@ -12,38 +13,10 @@
 
 ### Step 1 - Deploy the Health Checker
 
-This section guides you through deploying the Carbon Health Check components in WSO2 API Manager
+The Carbon Health Check framework (its core bundle and the `/health` endpoint webapp) and the Traffic Manager (TM) Health Checker both ship pre-installed as part of the WSO2 API Manager distribution - there is nothing to fork, build, or copy into `dropins`/`webapps` manually. Skip straight to Step 2 to turn health checking on.
 
-1. Fork the following GitHub repository.
-
-     `https://github.com/wso2/carbon-health-check`
-     
-2. Navigate to the place where you want to clone the repository and clone the forked repository.
-
-     The forked repository is referred to as `<HEALTH_CHECK_HOME>` in this document. 
-
-     `git clone https://github.com/[git-username]/carbon-health-check`
-   
-3. Navigate to `<HEALTH_CHECK_HOME>` and build the product.
-    
-      `mvn clean install`
-      
-4. Rename `org.wso2.carbon.healthcheck.api.core-<version-number>-SNAPSHOT.jar`, which is found in the `<HEALTH_CHECK_HOME>/components/org.wso2.carbon.healthcheck.api.core/target` directory, as `org.wso2.carbon.healthcheck.api.core-<version-number>.jar` and paste it in the `<API-M_HOME>/repository/components/dropins` directory.
-
-5. Copy the webapp `api#health-check#v1.0.war`, which is found in the `<HEALTH_CHECK_HOME>/components/org.wso2.carbon.healthcheck.api.endpoint/target/` directory and paste it in the `<API-M_HOME>/repository/deployment/server/webapps` directory.
-
-6. Copy the `health-check-config.xml` configuration file found in the `<HEALTH_CHECK_HOME>/features/org.wso2.carbon.healthcheck.server.feature/resources` directory to your `<PRODUCT_HOME>/repository/conf/` directory.
-
-7. Correct the health check related configurations as indicated below in the `<API-M-HOME>/repository/conf/deployment.toml` file.
-
-    ```toml
-    [carbon_health_check]
-    enable= true
-    [carbon_health_check.health_checker.data_source_health_checker.properties]
-    'monitored.datasources' = "jdbc/WSO2CarbonDB,jdbc/WSO2AM_DB,jdbc/SHARED_DB"
-    [carbon_health_check.health_checker.super_tenant_health_checker.properties]
-    'monitored.user.stores' = "primary" 
-    ```
+!!! note
+    If you are instead adding your own **custom** Health Checker, see [Adding a custom Health Checker](#adding-a-custom-health-checker) below - that is the only case where you still need to deploy a Health Checker yourself.
 
 ### Step 2 - Configure the Health Checker global configurations
 
@@ -180,6 +153,117 @@ order = "97"
     -   The `active.connection.count` parameter reflects the number of connections that are active.
 
     -   `ConnectivityTime` refers to the duration of the connection.
+
+#### Step 3.3 - Optionally, configure the Traffic Manager (TM) Health Checker
+
+!!! note
+    Skip this step if you wish to use the default values for the TM Health Checker.
+
+This Health Checker reports whether the Traffic Manager's two moving parts are reachable from this node: the **rate-limit event receiver** (the port Gateways publish usage events to, plus its own login port) and the **message broker** (the port rate-limit decisions are delivered back through). It also reports how many connection slots the receiver's worker thread pools have free.
+
+Unlike the Data Sources and User Store Health Checkers above, this is a custom-style Health Checker (registered the same way described under [Adding a custom Health Checker](#adding-a-custom-health-checker) below, except you do not need to deploy anything yourself - see Step 1). It is active as soon as `carbon_health_check` is enabled; the `[[health_checker]]` block below is only needed if you want to change its defaults.
+
+The Traffic Manager's addresses are **not** configured here - they are resolved automatically from the same `[apim.throttling]` configuration the Gateways themselves use.
+
+```toml
+[[health_checker]]
+name = "TMHealthChecker"
+order = "6"
+
+[health_checker.properties]
+"probe.timeout.ms" = "10000"
+"broker.receive.timeout.ms" = "5000"
+"broker.ssl.port.enabled" = "true"
+```
+
+| **Configuration**          | **Description**                                                                                                                                                                                 |
+|-----------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| name                         | Must be exactly `TMHealthChecker` - this is how the framework matches this configuration block to the checker.                                                                              |
+| order                        | The execution order in which this checker runs relative to the others. |
+| probe.timeout.ms             | How long, in milliseconds, to wait for a response from each address before reporting it as timed out. The default value is `10000`.                                                        |
+| broker.receive.timeout.ms    | How long, in milliseconds, to wait for the message broker to deliver the test message back before reporting it as not received. The default value is `5000`.                              |
+| broker.ssl.port.enabled      | Whether to also probe the message broker's SSL port (the configured port + 1000, e.g. `8672` alongside `5672`). Set to `false` if TLS messaging is not configured. The default value is `true`. |
+| slow.threshold.ms            | An address that answers, but takes longer than this many milliseconds, is reported as `DEGRADED` rather than `UP`. Advanced - the default value is `2000`.                                 |
+| stream.id                    | The name and version of the internal marker stream the test event is published to, as `<name>:<version>`. Advanced - only change this if you need to avoid a naming collision with another stream; the default value is `org.wso2.carbon.apimgt.healthcheck.marker:1.0.0`. |
+
+!!! example "Response - every connection healthy"
+    ``` java
+    {
+        "health":[
+            {"key": "tm.health.status", "value": "UP"},
+            {"key": "tm.health.message", "value": "Working normally."},
+            {"key": "tm.throttle.receiver.status", "value": "UP"},
+            {"key": "tm.throttle.receiver.message", "value": "Gateways can send usage events (port 9611, login 9711)."},
+            {"key": "tm.throttle.receiver.endpoint.9611.source", "value": "apim.throttling"},
+            {"key": "tm.throttle.receiver.endpoint.9611.status", "value": "UP"},
+            {"key": "tm.throttle.receiver.endpoint.9611.auth.status", "value": "UP"},
+            {"key": "tm.throttle.receiver.threads.status", "value": "UP"},
+            {"key": "tm.throttle.receiver.threads.message", "value": "100/100 TCP, 100/100 SSL slots free."},
+            {"key": "tm.throttle.receiver.threads.tcp.remaining", "value": "100"},
+            {"key": "tm.throttle.receiver.threads.ssl.remaining", "value": "100"},
+            {"key": "tm.message.broker.status", "value": "UP"},
+            {"key": "tm.message.broker.message", "value": "Rate-limit decisions reach Gateways (port 5672)."},
+            {"key": "tm.message.broker.endpoint.5672.source", "value": "apim.throttling"},
+            {"key": "tm.message.broker.endpoint.5672.status", "value": "UP"}
+        ]
+    }
+    ```
+
+    The `tm.message.broker.endpoint.8672.*` keys (the SSL port) only appear if TLS messaging is configured - they are left out entirely otherwise, rather than shown with any other value.
+
+!!! example "Response - the rate-limit event receiver is rejecting events"
+    ``` java
+    {
+        "health":[
+            {"key": "tm.health.status", "value": "DEGRADED"},
+            {"key": "tm.health.message", "value": "Partly working. Problem: rate-limit event receiver."},
+            {"key": "tm.throttle.receiver.status", "value": "DOWN"},
+            {"key": "tm.throttle.receiver.message", "value": "Gateways cannot send usage events (port 9611, login 9711)."},
+            {"key": "tm.throttle.receiver.endpoint.9611.source", "value": "apim.throttling"},
+            {"key": "tm.throttle.receiver.endpoint.9611.status", "value": "DOWN"},
+            {"key": "tm.throttle.receiver.endpoint.9611.error.code", "value": "TM_HC_PUBLISH_FAILED"},
+            {"key": "tm.throttle.receiver.endpoint.9611.error.message", "value": "Test message was not accepted"},
+            {"key": "tm.throttle.receiver.endpoint.9611.auth.status", "value": "UP"},
+            {"key": "tm.throttle.receiver.threads.status", "value": "UP"},
+            {"key": "tm.throttle.receiver.threads.message", "value": "100/100 TCP, 100/100 SSL slots free."},
+            {"key": "tm.throttle.receiver.threads.tcp.remaining", "value": "100"},
+            {"key": "tm.throttle.receiver.threads.ssl.remaining", "value": "100"},
+            {"key": "tm.message.broker.status", "value": "UP"},
+            {"key": "tm.message.broker.message", "value": "Rate-limit decisions reach Gateways (port 5672)."},
+            {"key": "tm.message.broker.endpoint.5672.source", "value": "apim.throttling"},
+            {"key": "tm.message.broker.endpoint.5672.status", "value": "UP"}
+        ]
+    }
+    ```
+
+!!! important
+    Unlike the Data Sources and User Store Health Checkers, the TM Health Checker never turns the overall `GET /health` response into a non-2xx **Error response** (see below) - a Traffic Manager problem is never thrown as an exception. The HTTP status stays `200`, and a failure is reported entirely through `tm.health.status`/`tm.*.status` being something other than `UP`, together with a `.error.code`/`.error.message` pair on the specific key that failed. This is deliberate: the framework turns the *whole* response non-2xx if *any one* registered checker throws, which would otherwise hide an unrelated, healthy checker's result behind an error status.
+
+    A throttle receiver endpoint's own `.status` can also be `UNKNOWN` instead of `UP`/`DOWN` - this means its login step (port 9711) failed, so the publish step (port 9611) was never even attempted. The real failure reason is then under that same endpoint's `.auth.error.code`/`.auth.error.message` instead:
+
+    ``` java
+    {"key": "tm.throttle.receiver.endpoint.9611.status", "value": "UNKNOWN"},
+    {"key": "tm.throttle.receiver.endpoint.9611.error.code", "value": "TM_HC_NOT_ATTEMPTED"},
+    {"key": "tm.throttle.receiver.endpoint.9611.auth.status", "value": "DOWN"},
+    {"key": "tm.throttle.receiver.endpoint.9611.auth.error.code", "value": "TM_HC_LOGIN_FAILED"}
+    ```
+
+    | **Error Code**              | **Description**                                                                                      |
+    |------------------------------|-------------------------------------------------------------------------------------------------------|
+    | TM\_HC\_CONFIG\_UNRESOLVED   | No address could be resolved from the `[apim.throttling]` configuration.                              |
+    | TM\_HC\_PORT\_CLOSED         | The port is not reachable.                                                                             |
+    | TM\_HC\_TLS\_FAILED          | The secure (SSL/TLS) connection failed.                                                               |
+    | TM\_HC\_LOGIN\_FAILED        | Login to the receiver (port 9711 + offset) failed.                                                    |
+    | TM\_HC\_PUBLISH\_FAILED      | The receiver did not accept the test event.                                                           |
+    | TM\_HC\_TIMEOUT              | No answer was received within `probe.timeout.ms`.                                                     |
+    | TM\_HC\_UNEXPECTED\_ERROR    | An unexpected error occurred while probing.                                                           |
+    | TM\_HC\_STREAM\_UNDEFINED    | The health check marker stream is not deployed on the receiver side.                                  |
+    | TM\_HC\_SESSION\_EXPIRED     | The receiver rejected the login session.                                                              |
+    | TM\_HC\_NOT\_ATTEMPTED       | The publish step (9611) was never attempted, because the login step (9711) failed first - see above.  |
+    | TM\_HC\_CONNECT\_FAILED      | Could not connect to the message broker.                                                              |
+    | TM\_HC\_SUBSCRIBE\_FAILED    | Could not subscribe to the message broker's health check topic.                                       |
+    | TM\_HC\_NOT\_RECEIVED        | The test message was not delivered back from the broker in time.                                      |
+    | TM\_HC\_THREAD\_POOL\_SIZE\_UNKNOWN | The receiver's free thread pool counts could not be read.                                      |
 
 ### Step 4 - Invoke the Health Checker API
 
