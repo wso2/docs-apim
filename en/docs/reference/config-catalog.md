@@ -2448,7 +2448,16 @@ send_headers = false
 build_response_message = false
 send_payloads = false
 payload_size_limit = 100000
-capture_payloads_without_content_length = false</code></pre>
+capture_payloads_without_content_length = false
+sampling_enabled = false
+sampling_refresh_interval_ms = 60000
+sampling_fallback_rate = 100
+retry_buffer_enabled = true
+retry_buffer_size = 10000
+retry_interval_seconds = 5
+retry_log_multiplier = 10
+retry_drain_burst_size = 5
+retry_drain_batch_delay_ms = 100</code></pre>
                     </div>
                 </div>
                 <div class="doc-wrapper">
@@ -2651,6 +2660,195 @@ capture_payloads_without_content_length = false</code></pre>
                                     </div>
                                     <div class="param-description">
                                         <p>If TRUE, capture bodies that do not declare a Content-Length header, such as chunked payloads. Such a body is read into memory in full before its size is checked. Applies only when send_payloads is TRUE.</p>
+                                    </div>
+                                </div>
+                            </div><div class="param">
+                                <div class="param-name">
+                                  <span class="param-name-wrap"> <code>sampling_enabled</code> </span>
+                                </div>
+                                <div class="param-info">
+                                    <div>
+                                        <p>
+                                            <span class="param-type string"> boolean </span>
+                                            
+                                        </p>
+                                        <div class="param-default">
+                                            <span class="param-default-value">Default: <code>false</code></span>
+                                        </div>
+                                        <div class="param-possible">
+                                            <span class="param-possible-values">Possible Values: <code>TRUE | FALSE</code></span>
+                                        </div>
+                                    </div>
+                                    <div class="param-description">
+                                        <p>If TRUE (case-insensitive), publish only a sampled share of API invocations to Moesif. Sample rates are defined in the Moesif application configuration, not here. Applies only to the direct-key path, that is when type is &#39;moesif&#39; and moesifKey is set; deployments that resolve Moesif keys through the Moesif microservice path do not apply sampling.</p>
+                                    </div>
+                                </div>
+                            </div><div class="param">
+                                <div class="param-name">
+                                  <span class="param-name-wrap"> <code>sampling_refresh_interval_ms</code> </span>
+                                </div>
+                                <div class="param-info">
+                                    <div>
+                                        <p>
+                                            <span class="param-type string"> integer </span>
+                                            
+                                        </p>
+                                        <div class="param-default">
+                                            <span class="param-default-value">Default: <code>60000</code></span>
+                                        </div>
+                                        <div class="param-possible">
+                                            <span class="param-possible-values">Possible Values: <code>Positive integer</code></span>
+                                        </div>
+                                    </div>
+                                    <div class="param-description">
+                                        <p>How often, in milliseconds, the sampling configuration is re-fetched from Moesif. Must be a positive integer. Applies only when sampling_enabled is TRUE.</p>
+                                    </div>
+                                </div>
+                            </div><div class="param">
+                                <div class="param-name">
+                                  <span class="param-name-wrap"> <code>sampling_fallback_rate</code> </span>
+                                </div>
+                                <div class="param-info">
+                                    <div>
+                                        <p>
+                                            <span class="param-type string"> integer </span>
+                                            
+                                        </p>
+                                        <div class="param-default">
+                                            <span class="param-default-value">Default: <code>100</code></span>
+                                        </div>
+                                        <div class="param-possible">
+                                            <span class="param-possible-values">Possible Values: <code>0 - 100</code></span>
+                                        </div>
+                                    </div>
+                                    <div class="param-description">
+                                        <p>Percentage of events to publish until the sampling configuration has first been fetched from Moesif. A value outside 0 - 100 is clamped to that range. Applies only when sampling_enabled is TRUE.</p>
+                                    </div>
+                                </div>
+                            </div><div class="param">
+                                <div class="param-name">
+                                  <span class="param-name-wrap"> <code>retry_buffer_enabled</code> </span>
+                                </div>
+                                <div class="param-info">
+                                    <div>
+                                        <p>
+                                            <span class="param-type string"> boolean </span>
+                                            
+                                        </p>
+                                        <div class="param-default">
+                                            <span class="param-default-value">Default: <code>true</code></span>
+                                        </div>
+                                        <div class="param-possible">
+                                            <span class="param-possible-values">Possible Values: <code>TRUE | FALSE</code></span>
+                                        </div>
+                                    </div>
+                                    <div class="param-description">
+                                        <p>If TRUE (case-insensitive), hold analytics events in memory while Moesif is unreachable and publish them on recovery. Enabled by default; any other value disables it, and events are dropped as soon as a publish fails.</p>
+                                    </div>
+                                </div>
+                            </div><div class="param">
+                                <div class="param-name">
+                                  <span class="param-name-wrap"> <code>retry_buffer_size</code> </span>
+                                </div>
+                                <div class="param-info">
+                                    <div>
+                                        <p>
+                                            <span class="param-type string"> integer </span>
+                                            
+                                        </p>
+                                        <div class="param-default">
+                                            <span class="param-default-value">Default: <code>10000</code></span>
+                                        </div>
+                                        <div class="param-possible">
+                                            <span class="param-possible-values">Possible Values: <code>50 or more</code></span>
+                                        </div>
+                                    </div>
+                                    <div class="param-description">
+                                        <p>Maximum number of events held for retry, counted per Moesif API key. When the limit is reached the oldest queued batches are evicted whole until the new batch fits. Set it to at least 50, because the gateway publishes events in batches of up to 50.</p>
+                                    </div>
+                                </div>
+                            </div><div class="param">
+                                <div class="param-name">
+                                  <span class="param-name-wrap"> <code>retry_interval_seconds</code> </span>
+                                </div>
+                                <div class="param-info">
+                                    <div>
+                                        <p>
+                                            <span class="param-type string"> integer </span>
+                                            
+                                        </p>
+                                        <div class="param-default">
+                                            <span class="param-default-value">Default: <code>5</code></span>
+                                        </div>
+                                        <div class="param-possible">
+                                            <span class="param-possible-values">Possible Values: <code>Positive integer</code></span>
+                                        </div>
+                                    </div>
+                                    <div class="param-description">
+                                        <p>How often, in seconds, Moesif is probed and queued events are drained. Must be a positive integer.</p>
+                                    </div>
+                                </div>
+                            </div><div class="param">
+                                <div class="param-name">
+                                  <span class="param-name-wrap"> <code>retry_log_multiplier</code> </span>
+                                </div>
+                                <div class="param-info">
+                                    <div>
+                                        <p>
+                                            <span class="param-type string"> integer </span>
+                                            
+                                        </p>
+                                        <div class="param-default">
+                                            <span class="param-default-value">Default: <code>10</code></span>
+                                        </div>
+                                        <div class="param-possible">
+                                            <span class="param-possible-values">Possible Values: <code>Positive integer</code></span>
+                                        </div>
+                                    </div>
+                                    <div class="param-description">
+                                        <p>Multiplier applied to retry_interval_seconds to decide how often the repeated &#39;still unreachable&#39; error is logged.</p>
+                                    </div>
+                                </div>
+                            </div><div class="param">
+                                <div class="param-name">
+                                  <span class="param-name-wrap"> <code>retry_drain_burst_size</code> </span>
+                                </div>
+                                <div class="param-info">
+                                    <div>
+                                        <p>
+                                            <span class="param-type string"> integer </span>
+                                            
+                                        </p>
+                                        <div class="param-default">
+                                            <span class="param-default-value">Default: <code>5</code></span>
+                                        </div>
+                                        <div class="param-possible">
+                                            <span class="param-possible-values">Possible Values: <code>0 or a positive integer</code></span>
+                                        </div>
+                                    </div>
+                                    <div class="param-description">
+                                        <p>Controls the catch-up once Moesif becomes reachable again. At 2 or above, queued batches are sent in quick succession, retry_drain_batch_delay_ms apart. At 1, a single catch-up batch is sent. At 0, there is no catch-up. Batches still queued once the catch-up ends are sent at the normal retry_interval_seconds cadence.</p>
+                                    </div>
+                                </div>
+                            </div><div class="param">
+                                <div class="param-name">
+                                  <span class="param-name-wrap"> <code>retry_drain_batch_delay_ms</code> </span>
+                                </div>
+                                <div class="param-info">
+                                    <div>
+                                        <p>
+                                            <span class="param-type string"> integer </span>
+                                            
+                                        </p>
+                                        <div class="param-default">
+                                            <span class="param-default-value">Default: <code>100</code></span>
+                                        </div>
+                                        <div class="param-possible">
+                                            <span class="param-possible-values">Possible Values: <code>Positive integer</code></span>
+                                        </div>
+                                    </div>
+                                    <div class="param-description">
+                                        <p>Delay, in milliseconds, between catch-up batches.</p>
                                     </div>
                                 </div>
                             </div>
