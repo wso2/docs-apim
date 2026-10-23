@@ -154,6 +154,9 @@ task_cleanup_interval_minutes = 30 # Interval in minutes to clean up any stale t
 
 ### Enabling Severity-based Compliance
 
+!!! note
+    Requires wso2am-4.6.0 update level 51 or later.
+
 By default every rule severity affects a policy's verdict, which means a single `Info` violation marks an API non-compliant. To let a policy declare which severities decide its verdict, an administrator must complete **both** of the following steps. Neither step is sufficient on its own.
 
 **Step 1 - Add the optional column**
