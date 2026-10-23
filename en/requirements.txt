@@ -12,3 +12,5 @@ markdown==3.2.1
 mkdocs-exclude==1.0.2
 mkdocs-glightbox==0.3.4
 mkdocs-include-markdown-plugin==6.0.0
+# Markdown 3.2.1 requires the deprecated pkg_resources API.
+setuptools<81
