@@ -162,11 +162,11 @@ Follow the instructions below to invoke the created API.
         5. If prompted, enter the consumer secret for the Sandbox keys and click **Generate**.
         6. Copy the access token. Return to the API Console, select **OAuth** and **Sandbox**, and paste it into **Access Token**.
    
-3. Click on the `GET` resource of the API to expand the resource and click **Try It Out**.
+2. Click on the `GET` resource of the API to expand the resource and click **Try It Out**.
    
      [![GET resource]({{base_path}}/assets/img/get_started/expanded-get-resource.png)]({{base_path}}/assets/img/get_started/expanded-get-resource.png)
 
-4. Click **Execute**.
+3. Click **Execute**.
 
      [![GET resource]({{base_path}}/assets/img/get_started/try-api.png)]({{base_path}}/assets/img/get_started/try-api.png)
 
