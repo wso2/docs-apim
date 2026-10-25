@@ -2679,6 +2679,144 @@ publish_response_size = true</code></pre>
 
 
 
+## API-M Analytics - Moesif configurations
+
+Configure Moesif analytics using the following properties together with `enable = true` and `type = "moesif"` under `[apim.analytics]`. The proxy settings are optional and apply when `moesif_proxy_enable = true`.
+
+For setup instructions, see the [Moesif Analytics Integration Guide]({{base_path}}/api-analytics/moesif-analytics/moesif-integration-guide/#step-22-configuring-a-proxy-optional).
+
+<div class="mb-config-catalog">
+    <section>
+        <div class="mb-config-options">
+            <div class="superfences-tabs">
+                <input name="moesif" type="checkbox" id="_tab_moesif">
+                <label class="tab-selector" for="_tab_moesif"><i class="icon fa fa-code"></i></label>
+                <div class="superfences-content">
+                    <div class="mb-config-example">
+<pre><code class="toml">[apim.analytics.properties]
+moesifKey = "&lt;moesif_key&gt;"
+moesif_proxy_enable = true
+proxy_config_host = "&lt;proxy_host&gt;"
+proxy_config_port = "&lt;proxy_port&gt;"
+proxy_config_protocol = "http"
+# Optional, if the proxy requires authentication
+proxy_config_username = "&lt;username&gt;"
+proxy_config_password = "&lt;password&gt;"</code></pre>
+                    </div>
+                </div>
+                <div class="doc-wrapper">
+                    <div class="mb-config">
+                        <div class="config-wrap">
+                            <code>[apim.analytics.properties]</code>
+                            <p>Properties for publishing API analytics to Moesif, including optional proxy configuration.</p>
+                        </div>
+                        <div class="params-wrap">
+                            <div class="param">
+                                <div class="param-name">
+                                    <span class="param-name-wrap"><code>moesifKey</code></span>
+                                </div>
+                                <div class="param-info">
+                                    <div>
+                                        <p><span class="param-type string">string</span></p>
+
+                                    </div>
+                                    <div class="param-description">
+                                        <p>The Moesif Application ID copied from your Moesif application. Required when analytics is enabled with <code>type = "moesif"</code>.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="param">
+                                <div class="param-name">
+                                    <span class="param-name-wrap"><code>moesif_proxy_enable</code></span>
+                                </div>
+                                <div class="param-info">
+                                    <div>
+                                        <p><span class="param-type boolean">boolean</span></p>
+                                        <div class="param-default"><span class="param-default-value">Default: <code>false</code></span></div>
+                                    </div>
+                                    <div class="param-description">
+                                        <p>Set to <code>true</code> to publish Moesif analytics through the configured proxy. When disabled, Moesif connects directly. This setting explicitly enables proxy support for Moesif.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="param">
+                                <div class="param-name">
+                                    <span class="param-name-wrap"><code>proxy_config_host</code></span>
+                                </div>
+                                <div class="param-info">
+                                    <div>
+                                        <p><span class="param-type string">string</span></p>
+                                        <div class="param-default"><span class="param-default-value">Default: <code>Uses apim.proxy_config.host</code></span></div>
+                                    </div>
+                                    <div class="param-description">
+                                        <p>The hostname or IP address of the proxy, without a protocol prefix. Required when <code>moesif_proxy_enable</code> is <code>true</code>.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="param">
+                                <div class="param-name">
+                                    <span class="param-name-wrap"><code>proxy_config_port</code></span>
+                                </div>
+                                <div class="param-info">
+                                    <div>
+                                        <p><span class="param-type string">string</span></p>
+                                        <div class="param-default"><span class="param-default-value">Default: <code>Uses apim.proxy_config.port</code></span></div>
+                                    </div>
+                                    <div class="param-description">
+                                        <p>The proxy port, specified as a quoted string. Must be between <code>1</code> and <code>65535</code>. Required when <code>moesif_proxy_enable</code> is <code>true</code>.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="param">
+                                <div class="param-name">
+                                    <span class="param-name-wrap"><code>proxy_config_protocol</code></span>
+                                </div>
+                                <div class="param-info">
+                                    <div>
+                                        <p><span class="param-type string">string</span></p>
+                                        <div class="param-default"><span class="param-default-value">Default: <code>http</code></span></div>
+                                    </div>
+                                    <div class="param-description">
+                                        <p>The protocol used to connect to the proxy. Defaults to <code>http</code> when omitted or blank. This specifies the connection to the proxy, rather than the Moesif endpoint protocol.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="param">
+                                <div class="param-name">
+                                    <span class="param-name-wrap"><code>proxy_config_username</code></span>
+                                </div>
+                                <div class="param-info">
+                                    <div>
+                                        <p><span class="param-type string">string</span></p>
+                                        <div class="param-default"><span class="param-default-value">Default: <code>Uses apim.proxy_config.username</code></span></div>
+                                    </div>
+                                    <div class="param-description">
+                                        <p>The username used to authenticate with the proxy. Optional. Set both the username and password if the proxy requires authentication.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="param">
+                                <div class="param-name">
+                                    <span class="param-name-wrap"><code>proxy_config_password</code></span>
+                                </div>
+                                <div class="param-info">
+                                    <div>
+                                        <p><span class="param-type string">string</span></p>
+                                        <div class="param-default"><span class="param-default-value">Default: <code>Uses apim.proxy_config.password</code></span></div>
+                                    </div>
+                                    <div class="param-description">
+                                        <p>The password used to authenticate with the proxy. Optional. Authentication is configured only when both the username and password are non-blank.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+
 ## API-M Analytics - URL group configurations
 
 
