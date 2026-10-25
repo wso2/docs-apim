@@ -149,14 +149,24 @@ Follow the instructions below to invoke the created API.
      [![Test API]({{base_path}}/assets/img/get_started/test-api.png)]({{base_path}}/assets/img/get_started/test-api.png)
 
      This will prompt you for the customer secret created at the startup to generate the access token.
+       Make sure the key type selected in the API Console matches the application keys you use: select **Sandbox** and use a secret from **Sandbox Keys**, or select **Production** and use a secret from **Production Keys**.
 
      [![Test API]({{base_path}}/assets/img/get_started/enter-customer-secret.png)]({{base_path}}/assets/img/get_started/enter-customer-secret.png)
 
-2. Click on the `GET` resource of the API to expand the resource and click **Try It Out**.
+        Alternatively, generate an access token from the application page:
+
+        1. In the Developer Portal, click **Applications**.
+        2. Click **DefaultApplication**.
+        3. In the left menu, click **Sandbox Keys**.
+        4. Click **Generate Access Token**.
+        5. If prompted, enter the consumer secret for the Sandbox keys and click **Generate**.
+        6. Copy the access token. Return to the API Console, select **OAuth** and **Sandbox**, and paste it into **Access Token**.
+   
+3. Click on the `GET` resource of the API to expand the resource and click **Try It Out**.
    
      [![GET resource]({{base_path}}/assets/img/get_started/expanded-get-resource.png)]({{base_path}}/assets/img/get_started/expanded-get-resource.png)
 
-3. Click **Execute**.
+4. Click **Execute**.
 
      [![GET resource]({{base_path}}/assets/img/get_started/try-api.png)]({{base_path}}/assets/img/get_started/try-api.png)
 
