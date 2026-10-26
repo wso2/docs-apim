@@ -24,7 +24,7 @@ Outbound Analytics consists of data collected between the API Proxy and the back
 
 #### AI Analytics
 
-AI Analytics shows the Outbound analytics data that are specific to AI APIs. This includes `aiTokenUsage`, `vendorName`, `vendorVersion`, `model`, `promptTokens`, `completionTokens` and `totalTokens`.
+AI Analytics shows the Outbound analytics data that are specific to AI APIs. This includes `aiTokenUsage`, `vendorName`, `vendorVersion`, `model`, `promptTokens`, `completionTokens` and `totalTokens`. Depending on the LLM provider invoked, `aiTokenUsage` can also include additional usage counters such as `cacheReadInputTokens`, `cacheWriteInputTokens` and `reasoningTokens`.
 
 WSO2 API Manager supports multiple platforms to monitor and analyze API traffic. This includes:
 

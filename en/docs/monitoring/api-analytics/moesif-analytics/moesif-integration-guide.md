@@ -189,6 +189,12 @@ This event is triggered for each successful API invocation. Even when an API-ass
 | completionTokens | Number | Number of tokens used for the AI's generated response |
 | totalTokens | Number | Total tokens consumed in the request |
 | hour | String | Hour of the request, for usage tracking or analytics |
+| cacheReadInputTokens | Number | Input tokens served from the LLM provider's prompt cache (OpenAI, Azure OpenAI, Azure AI Foundry, Mistral, Anthropic, Vertex AI Anthropic, Gemini, AWS Bedrock). Present only when the provider reports it |
+| cacheWriteInputTokens | Number | Input tokens written to the LLM provider's prompt cache (OpenAI, Azure OpenAI, Azure AI Foundry, Anthropic, Vertex AI Anthropic, AWS Bedrock). Present only when the provider reports it |
+| cacheWrite5mInputTokens | Number | Input tokens written to the prompt cache with a 5-minute TTL (Anthropic, Vertex AI Anthropic). Present only when the provider reports it |
+| cacheWrite1hInputTokens | Number | Input tokens written to the prompt cache with a 1-hour TTL (Anthropic, Vertex AI Anthropic). Present only when the provider reports it |
+| reasoningTokens | Number | Tokens used by the model for internal reasoning/thinking (OpenAI, Azure OpenAI, Azure AI Foundry, Anthropic, Vertex AI Anthropic, Gemini). Present only when the provider reports it |
+| toolUsePromptTokens | Number | Prompt tokens attributed to tool-use results (Gemini). Present only when the provider reports it |
 
 ### apim_event_faulty
 
