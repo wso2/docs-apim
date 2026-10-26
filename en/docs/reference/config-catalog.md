@@ -2734,7 +2734,7 @@ proxy_config_password = "&lt;password&gt;"</code></pre>
                                         <div class="param-default"><span class="param-default-value">Default: <code>Uses apim.proxy_config.host</code></span></div>
                                     </div>
                                     <div class="param-description">
-                                        <p>The hostname or IP address of the proxy, without a protocol prefix. Required when <code>moesif_proxy_enable</code> is <code>true</code>.</p>
+                                        <p>The hostname or IP address of the proxy, without a protocol prefix. If omitted, uses <code>apim.proxy_config.host</code>; an explicitly configured value overrides this default. When <code>moesif_proxy_enable</code> is <code>true</code>, a non-blank host must be provided either here or through <code>apim.proxy_config.host</code>.</p>
                                     </div>
                                 </div>
                             </div>
@@ -2748,7 +2748,7 @@ proxy_config_password = "&lt;password&gt;"</code></pre>
                                         <div class="param-default"><span class="param-default-value">Default: <code>Uses apim.proxy_config.port</code></span></div>
                                     </div>
                                     <div class="param-description">
-                                        <p>The proxy port, specified as a quoted string. Must be between <code>1</code> and <code>65535</code>. Required when <code>moesif_proxy_enable</code> is <code>true</code>.</p>
+                                        <p>The proxy port, specified as a quoted string. If omitted, uses <code>apim.proxy_config.port</code>; an explicitly configured value overrides this default. When <code>moesif_proxy_enable</code> is <code>true</code>, a port between <code>1</code> and <code>65535</code> must be provided either here or through <code>apim.proxy_config.port</code>.</p>
                                     </div>
                                 </div>
                             </div>
