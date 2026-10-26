@@ -7,11 +7,11 @@
 
 3. Click **API Keys** from the left menu of the API.
 
-     [![Generate API Key Left Menu](../../../../assets/img/learn/api-keys/api-api-key-left-menu.png)](../../../../assets/img/learn/api-keys/api-api-key-left-menu.png)
+     [![Generate API Key Left Menu](../../assets/img/learn/api-keys/api-api-key-left-menu.png)](../../assets/img/learn/api-keys/api-api-key-left-menu.png)
 
 4. Click **Generate API Key** and provide a Key Name.
 
-     [![Generate API key](../../../../assets/img/learn/api-keys/generate-api-api-key.png){: style="width:80%"}](../../../../assets/img/learn/api-keys/generate-api-api-key.png)
+     [![Generate API key](../../assets/img/learn/api-keys/generate-api-api-key.png){: style="width:80%"}](../../assets/img/learn/api-keys/generate-api-api-key.png)
 
 5. Optionally, configure the validity period before generating the key.
 
@@ -21,7 +21,7 @@
 
 7. Copy the generated API key.
 
-     [![Copy API key](../../../../assets/img/learn/api-keys/generate-api-api-key-response.png){: style="width:80%"}](../../../../assets/img/learn/api-keys/generate-api-api-key-response.png)
+     [![Copy API key](../../assets/img/learn/api-keys/generate-api-api-key-response.png){: style="width:80%"}](../../assets/img/learn/api-keys/generate-api-api-key-response.png)
 
 Once the API key is generated, the steps to use it depend on whether the API requires a subscription. Follow the relevant section below.
 
@@ -42,23 +42,23 @@ A valid subscription must exist and the generated API key must be associated wit
 
 3. Click **Subscribe**.
 
-     [![Subscribe to the API](../../../../assets/img/learn/subscribe-to-api.png)](../../../../assets/img/learn/subscribe-to-api.png)
+     [![Subscribe to the API](../../assets/img/learn/subscribe-to-api.png)](../../assets/img/learn/subscribe-to-api.png)
 
 4. Click **Associate** on the API key to link it to the subscribed application.
 
-     [![Associate API key button](../../../../assets/img/learn/api-keys/associate-api-key-button.png)](../../../../assets/img/learn/api-keys/associate-api-key-button.png)
+     [![Associate API key button](../../assets/img/learn/api-keys/associate-api-key-button.png)](../../assets/img/learn/api-keys/associate-api-key-button.png)
 
 5. Select the application from the drop-down and click **ASSOCIATE**.
 
-     [![Associate API key](../../../../assets/img/learn/api-keys/associate-api-key.png){: style="width:80%"}](../../../../assets/img/learn/api-keys/associate-api-key.png)
+     [![Associate API key](../../assets/img/learn/api-keys/associate-api-key.png){: style="width:80%"}](../../assets/img/learn/api-keys/associate-api-key.png)
 
      Alternatively, you can associate the API key from the subscribed application's **API Keys** page.
 
-     [![Associate API key from App button](../../../../assets/img/learn/api-keys/app-associate-buttopn.png)](../../../../assets/img/learn/api-keys/app-associate-buttopn.png)
+     [![Associate API key from App button](../../assets/img/learn/api-keys/app-associate-buttopn.png)](../../assets/img/learn/api-keys/app-associate-buttopn.png)
 
      Select the API and the generated API key from the drop-down and associate.
 
-     [![Associate API key from App](../../../../assets/img/learn/api-keys/associate-api-key-from-app.png){: style="width:80%"}](../../../../assets/img/learn/api-keys/associate-api-key-from-app.png)
+     [![Associate API key from App](../../assets/img/learn/api-keys/associate-api-key-from-app.png){: style="width:80%"}](../../assets/img/learn/api-keys/associate-api-key-from-app.png)
 
 ### For subscriptionless APIs
 
