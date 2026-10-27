@@ -90,5 +90,4 @@ Once the configuration file is ready, start the OpenTelemetry Collector Contrib 
 
 Once both the WSO2 APIM server and the OpenTelemetry Collector are running, the Collector will begin tailing the log file and forwarding structured log records to your backend automatically.
 
-<!-- !!! tip "See also"
-    For a complete end-to-end observability setup using OpenTelemetry - including traces, metrics, and logs - see [OpenTelemetry-Based Observability]({{base_path}}/observe-and-manage/classic-observability-logs/opentelemetry-logs/). -->
+

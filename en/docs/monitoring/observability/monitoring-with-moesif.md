@@ -112,5 +112,5 @@ Once both the WSO2 APIM server and the OpenTelemetry Collector are running, logs
 
 !!! tip "See also"
     - For more details on Moesif's OpenTelemetry integration, see the [Moesif OpenTelemetry Server Integration documentation](https://www.moesif.com/docs/server-integration/open-telemetry/).
-    <!-- - For metrics observability with Moesif, see [Moesif Based Metrics]({{base_path}}/monitoring/api-analytics/moesif-analytics/moesif-integration-guide/). -->
+    
     - For a complete end-to-end observability setup using OpenTelemetry with other backends, see [OpenTelemetry Based Logs]({{base_path}}/monitoring/observability/monitoring-with-opentelementry/).
