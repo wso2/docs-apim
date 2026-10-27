@@ -641,6 +641,7 @@ nav:
             - Administrative Capabilities: administer/governance/api-governance-admin-capabilities.md
             - CI/CD-Driven Governance: administer/governance/api-governance-cicd.md
         - Publisher Portal in Read Only Mode: administer/publisher-portal-in-read-only-mode.md
+        - Network Security Access Control: administer/network-security-access-control.md
 
 
     - APIOps:
