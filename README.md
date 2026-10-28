@@ -45,7 +45,7 @@ On Windows, install Python 3.11 and the Python launcher, then verify it with `py
     git clone https://github.com/[git-username]/docs-apim.git
     ```
 
-3. Navigate to the language folder in the repository cloned in step 2.2:
+3. Navigate to the language folder in the cloned repository:
 
     ```shell
     cd docs-apim/en/
