@@ -1,5 +1,9 @@
 # Create an AI API
 
+<div class="ai-recommendation-banner">
+    We recommend the <strong>WSO2 API Platform AI Gateway</strong>, with <strong>WSO2 AI Workspace</strong> as its control plane, for all new AI APIs and MCP Servers. See <a href="https://wso2.com/api-platform/docs/ai-gateway/1.2.0/quick-start-guide/">Get started with WSO2 AI Gateway</a>.
+</div>
+
 AI APIs enable seamless integration of artificial intelligence services into applications through the WSO2 API Manager. By using the AI API feature, users can select specific AI vendors that best suit their needs. WSO2 API Manager provides built-in support for leading AI vendors like **OpenAI**, **Mistral**, and **Azure AI**, while also allowing configuration of custom AI vendors to create AI APIs.
 
 Follow the instructions below to create an AI API using the basic flow:
