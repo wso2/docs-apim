@@ -48,6 +48,9 @@ template: templates/single-column.html
 <div class="homePage">
     <div class="section01">
         <div class="leftContent">
+        <div class="ai-recommendation-banner">
+            We recommend the <strong>WSO2 API Platform AI Gateway</strong>, with <strong>WSO2 AI Workspace</strong> as its control plane, for all new AI APIs and MCP Servers. See <a href="https://wso2.com/api-platform/docs/ai-gateway/1.2.0/quick-start-guide/">Get started with WSO2 AI Gateway</a>.
+        </div>
             <h2>Learn to build and manage your APIs with ease  </h2>
             <p>
                 WSO2 API Manager is a complete platform for building, integrating, and exposing your digital services as managed APIs in the cloud, on-premise, and hybrid architectures to drive your digital transformation strategy. 
