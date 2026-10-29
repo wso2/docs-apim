@@ -1,0 +1,9 @@
+[apim.analytics.properties]
+moesifKey = "<moesif_key>"
+moesif_proxy_enable = true
+proxy_config_host = "<proxy_host>"
+proxy_config_port = "<proxy_port>"
+proxy_config_protocol = "http"
+# Optional, if the proxy requires authentication
+proxy_config_username = "<username>"
+proxy_config_password = "<password>"

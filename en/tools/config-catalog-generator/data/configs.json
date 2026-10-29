@@ -991,6 +991,68 @@
             "exampleFile": "apim.analytics.toml"
         },
         {
+            "title": "API-M Analytics - Moesif configurations",
+            "options": [
+                {
+                    "name": "apim.analytics.properties",
+                    "required": false,
+                    "description": "Configure Moesif analytics using these properties together with <code>enable = true</code> and <code>type = \"moesif\"</code> under <code>[apim.analytics]</code>. The proxy settings are optional and apply when <code>moesif_proxy_enable = true</code>.",
+                    "params": [
+                        {
+                            "name": "moesifKey",
+                            "type": "string",
+                            "required": false,
+                            "default": "",
+                            "description": "The Moesif Application ID copied from your Moesif application. Required when analytics is enabled with type = \"moesif\"."
+                        },
+                        {
+                            "name": "moesif_proxy_enable",
+                            "type": "boolean",
+                            "required": false,
+                            "default": "false",
+                            "description": "Set to true to publish Moesif analytics through the configured proxy. When disabled, Moesif connects directly. This setting explicitly enables proxy support for Moesif."
+                        },
+                        {
+                            "name": "proxy_config_host",
+                            "type": "string",
+                            "required": false,
+                            "default": "Uses apim.proxy_config.host",
+                            "description": "The hostname or IP address of the proxy, without a protocol prefix. If omitted, uses apim.proxy_config.host; an explicitly configured value overrides this default. When moesif_proxy_enable is true, a non-blank host must be provided either here or through apim.proxy_config.host."
+                        },
+                        {
+                            "name": "proxy_config_port",
+                            "type": "string",
+                            "required": false,
+                            "default": "Uses apim.proxy_config.port",
+                            "description": "The proxy port, specified as a quoted string. If omitted, uses apim.proxy_config.port; an explicitly configured value overrides this default. When moesif_proxy_enable is true, a port between 1 and 65535 must be provided either here or through apim.proxy_config.port."
+                        },
+                        {
+                            "name": "proxy_config_protocol",
+                            "type": "string",
+                            "required": false,
+                            "default": "http",
+                            "description": "The protocol used to connect to the proxy. Defaults to http when omitted or blank. This specifies the connection to the proxy, rather than the Moesif endpoint protocol."
+                        },
+                        {
+                            "name": "proxy_config_username",
+                            "type": "string",
+                            "required": false,
+                            "default": "Uses apim.proxy_config.username",
+                            "description": "The username used to authenticate with the proxy. Optional. Set both the username and password if the proxy requires authentication."
+                        },
+                        {
+                            "name": "proxy_config_password",
+                            "type": "string",
+                            "required": false,
+                            "default": "Uses apim.proxy_config.password",
+                            "description": "The password used to authenticate with the proxy. Optional. Authentication is configured only when both the username and password are non-blank."
+                        }
+                    ]
+                }
+            ],
+            "exampleFile": "apim.analytics.moesif.toml"
+        },
+        {
             "title": "API-M Analytics - URL group configurations",
             "options": [
                 {
