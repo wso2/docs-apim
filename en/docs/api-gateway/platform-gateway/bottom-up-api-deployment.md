@@ -1,10 +1,10 @@
-# Bottom-up API deployment
+# Bottom-Up API Deployment
 
-This guide explains how to deploy a REST API directly to a Platform Gateway and have it automatically synced to an on-premises WSO2 API Manager 4.7.x Control Plane.
+This guide explains how to deploy a REST API directly to a Platform Gateway and have it automatically synced to an on-premises WSO2 API Manager 4.7.0 Control Plane.
 
 ## Overview
 
-When you deploy a REST API through the gateway controller's management REST API, the gateway automatically tracks it for bottom-up sync to an on-premises WSO2 API Manager 4.7.x instance, if the gateway is configured for on-premises Control Plane mode.
+When you deploy a REST API through the gateway controller's management REST API, the gateway automatically tracks it for bottom-up sync to an on-premises WSO2 API Manager 4.7.0 instance, if the gateway is configured for on-premises Control Plane mode.
 
 ### Understand deployment approaches
 
@@ -32,34 +32,50 @@ This guide focuses on bottom-up deployment.
 
 Before you begin, ensure that you have the following:
 
-- A running gateway controller, with its management API endpoint accessible (default: `http://localhost:9090/api/management/v1`).
-- An on-premises WSO2 API Manager 4.7.x instance, reachable from the gateway controller.
+- A running gateway controller v1.2.0 or later, with its management API endpoint accessible (default: `http://localhost:9090/api/management/v1`). This guide's `scripts/setup.sh` and `api-platform.env` configuration steps apply to v1.2.0+; earlier versions use a different setup flow (`configs/keys.env`).
+- The gateway controller registered with the Control Plane, with a registration token obtained from that process. The controller skips the Control Plane connection entirely if this token isn't configured. See [Gateway registration and deployment]({{base_path}}/api-gateway/platform-gateway/gateway-registration-and-deployment/).
+- An on-premises WSO2 API Manager 4.7.0 instance, reachable from the gateway controller.
 - API Manager OAuth2 credentials for the gateway to authenticate with (either a client ID and secret, or a username and password).
 
 ## Configure the gateway controller
 
-Add a `[controller.controlplane]` section to the gateway controller's `config.toml` file to enable bottom-up sync to the on-premises API Manager instance:
+The shipped `config.toml` already has a `[controller.controlplane]` section with environment-variable interpolation for every field — set the values through environment variables (for example, in `api-platform.env`) rather than editing `config.toml` directly:
 
 ```toml
 [controller.server]
 gateway_id = "gateway-1"
-port = 9090
+api_port = 9090
 
 [controller.controlplane]
+# Registration token obtained from gateway registration — required for the
+# Control Plane connection. The controller skips connecting entirely if this
+# is empty, regardless of the OAuth2 credentials below.
+token = '{% raw %}{{ env "APIP_GW_CONTROLLER_CONTROLPLANE_TOKEN" "" }}{% endraw %}'
+
 # For bottom-up sync to on-prem APIM
-host = "192.168.0.102:9443"
-insecure_skip_verify = true
+host = '{% raw %}{{ env "APIP_GW_CONTROLLER_CONTROLPLANE_HOST" "" }}{% endraw %}'
+
+# Defaults to true. Skips TLS certificate verification for the connection to
+# the Control Plane, which is useful when it uses a self-signed certificate.
+# Set to false in production once the gateway trusts the issuing CA.
+insecure_skip_verify = '{% raw %}{{ env "APIP_GW_CONTROLLER_CONTROLPLANE_INSECURE_SKIP_VERIFY" "true" }}{% endraw %}'
 
 # OAuth2 credentials (choose one option)
 # Option A: Client credentials flow
-apim_oauth2_client_id = "<clientId>"
-apim_oauth2_client_secret = "<clientSecret>"
+apim_oauth2_client_id = '{% raw %}{{ env "APIP_GW_CONTROLLER_CONTROLPLANE_APIM_OAUTH2_CLIENT_ID" "" }}{% endraw %}'
+apim_oauth2_client_secret = '{% raw %}{{ env "APIP_GW_CONTROLLER_CONTROLPLANE_APIM_OAUTH2_CLIENT_SECRET" "" }}{% endraw %}'
 
 # Option B: Resource owner password flow
-# apim_oauth2_username = "admin"
-# apim_oauth2_password = "admin"
+# The shipped config.toml does not include apim_oauth2_username or
+# apim_oauth2_password, even as commented-out placeholders. Add both
+# keys yourself if you use this option instead of Option A.
+# apim_oauth2_username = '{% raw %}{{ env "APIP_GW_CONTROLLER_CONTROLPLANE_APIM_OAUTH2_USERNAME" "" }}{% endraw %}'
+# apim_oauth2_password = '{% raw %}{{ env "APIP_GW_CONTROLLER_CONTROLPLANE_APIM_OAUTH2_PASSWORD" "" }}{% endraw %}'
 
-gateway_name = "onprem-gw"
+# Must match the name of the Platform Gateway registered in the API Manager
+# Admin Portal. If it doesn't match, the synced API is deployed to a
+# deployment environment that doesn't exist.
+gateway_name = '{% raw %}{{ env "APIP_GW_CONTROLLER_CONTROLPLANE_GATEWAY_NAME" "default" }}{% endraw %}'
 
 [controller.auth.basic]
 enabled = true
@@ -69,6 +85,16 @@ username        = '{% raw %}{{ env "APIP_GW_CONTROLLER_AUTH_BASIC_ADMIN_USERNAME
 password        = '{% raw %}{{ env "APIP_GW_CONTROLLER_AUTH_BASIC_ADMIN_PASSWORD_HASH" "" }}{% endraw %}'
 password_hashed = true
 roles           = ["admin"]
+```
+
+Set the values for the environment variables used above, for example in `api-platform.env`:
+
+```bash
+APIP_GW_CONTROLLER_CONTROLPLANE_TOKEN=<registration-token>
+APIP_GW_CONTROLLER_CONTROLPLANE_HOST=<apim-host>:9443
+APIP_GW_CONTROLLER_CONTROLPLANE_APIM_OAUTH2_CLIENT_ID=<clientId>
+APIP_GW_CONTROLLER_CONTROLPLANE_APIM_OAUTH2_CLIENT_SECRET=<clientSecret>
+APIP_GW_CONTROLLER_CONTROLPLANE_GATEWAY_NAME=onprem-gw
 ```
 
 ## How it works
@@ -92,9 +118,13 @@ The gateway only attempts a sync when all of the following are true:
 ### If sync fails
 
 - The API remains available on the gateway regardless of sync status.
-- The sync status is marked `failed`, with error details recorded.
-- The gateway retries automatically on the next API update.
-- You can also trigger a manual retry by updating the API with its current definition.
+- Each sync run makes up to three immediate retry attempts. If all three fail, the sync status is marked `failed`, with error details recorded.
+- A new sync run is triggered automatically whenever you create, update, or delete the API, and whenever the gateway reconnects to the Control Plane. There's no separate periodic retry timer.
+- To trigger a sync run on demand, update the API with its current definition.
+
+### Editing a synced API in API Manager
+
+For a bottom-up API, the gateway is the source of truth: once synced, the API is visible in the Publisher in read-only mode. Make changes to a bottom-up API through the gateway's management REST API — the next sync run re-imports the definition into API Manager with overwrite enabled.
 
 ## Deploy a REST API
 
@@ -118,8 +148,10 @@ spec:
     main:
       url: "https://petstore.example.com"
 
-  # API-level policies apply to all operations
+  # API-level policies apply to all operations.
+  # Policies are sourced from Policy Hub: https://wso2.com/api-platform/policy-hub
   policies:
+    # https://wso2.com/api-platform/policy-hub/policies/api-key-auth
     - name: api-key-auth
       version: v1
       params:
@@ -170,7 +202,7 @@ Keep the following in mind when defining a bottom-up API:
 - `context` becomes the URL path prefix on the gateway.
 - `upstream.main.url` is required and points to the backend service.
 - `version` is tracked separately, so you can run multiple versions of the same API.
-- Policies are optional, but recommended for securing the API.
+- Policies are optional, but recommended for securing the API. See [Policy Hub](https://wso2.com/api-platform/policy-hub) for available policies, and [Adding and managing policies]({{base_path}}/api-gateway/platform-gateway/adding-and-managing-policies/) for how to configure them.
 
 ### Deployment steps
 
@@ -218,7 +250,28 @@ curl -X POST http://localhost:9090/api/management/v1/rest-apis/PetStoreAPI/api-k
   -H "Content-Type: application/json" \
   -H "Authorization: Basic ${BASE64_CREDENTIALS}" \
   -d '{"name": "test-key"}'
+```
 
+A successful response looks like this. Use the `apiKey.apiKey` value as `<api-key-from-step-above>` below:
+
+```json
+{
+  "status": "success",
+  "message": "API key generated successfully",
+  "apiKey": {
+    "apiId": "PetStoreAPI",
+    "apiKey": "apip_6b1f3c...e2a9",
+    "name": "test-key",
+    "status": "active",
+    "source": "local",
+    "createdAt": "2026-04-26T10:30:00Z",
+    "createdBy": "admin",
+    "expiresAt": null
+  }
+}
+```
+
+```bash
 # Invoke the API
 curl http://localhost:8080/petstore/pet/123 \
   -H "X-API-Key: <api-key-from-step-above>"
@@ -226,10 +279,18 @@ curl http://localhost:8080/petstore/pet/123 \
 
 #### Step 4: Verify the API in the on-premises API Manager (optional)
 
-Once the sync completes, the API is available in API Manager:
+Once the sync completes, the API is available in API Manager. You can check this using the [Publisher REST API v4]({{base_path}}/reference/product-apis/publisher-apis/publisher-v4/publisher-v4/).
+
+`<apim-token>` is an OAuth2 access token for the Publisher API, scoped to `apim:api_view`. Get one using the same client ID and secret configured for the gateway:
 
 ```bash
-curl -X GET https://192.168.0.102:9443/api/am/publisher/v4/apis \
+curl -k -X POST https://<apim-host>:9443/oauth2/token \
+  -d "grant_type=client_credentials&scope=apim:api_view" \
+  -u "<clientId>:<clientSecret>" | jq -r '.access_token'
+```
+
+```bash
+curl -k -X GET https://<apim-host>:9443/api/am/publisher/v4/apis \
   -H "Authorization: Bearer <apim-token>" | jq '.list[] | select(.name=="PetStore API")'
 ```
 
@@ -266,6 +327,24 @@ spec:
   operations:
     - method: GET
       path: /pet/{petId}
+
+    - method: POST
+      path: /pet
+
+    - method: PUT
+      path: /pet
+
+    - method: DELETE
+      path: /pet/{petId}
+
+    - method: GET
+      path: /store/inventory
+
+    - method: POST
+      path: /store/order
+
+    - method: GET
+      path: /
 ```
 
 Send the update:
@@ -284,29 +363,8 @@ When you update an API:
 3. The gateway automatically re-syncs the API to the on-premises API Manager instance.
 4. Once sync completes, the gateway and API Manager both reflect the updated version.
 
-To monitor the sync result, watch the gateway controller logs:
-
 ```bash
-./gateway-controller 2>&1 | grep "Bottom-up sync"
-```
-
-## Undeploy an API
-
-To remove an API from both the gateway and the on-premises API Manager instance, send a delete request with the API name:
-
-```bash
-curl -X DELETE http://localhost:9090/api/management/v1/rest-apis/PetStoreAPI \
-  -H "Authorization: Basic ${BASE64_CREDENTIALS}"
-```
-
-A successful response looks like this:
-
-```json
-{
-  "status": "success",
-  "message": "RestAPI deleted successfully",
-  "id": "PetStoreAPI"
-}
+tail -f gateway-controller.log | grep "Bottom-up sync"
 ```
 
 ## Manage API keys
@@ -338,10 +396,35 @@ curl -X GET http://localhost:9090/api/management/v1/rest-apis/PetStoreAPI/api-ke
 
 **Revoke an API key**
 
+`<key-name>` is the key's `name` — either the one you set when creating it, or the `name` value from the "List API keys" response above:
+
 ```bash
-curl -X DELETE http://localhost:9090/api/management/v1/rest-apis/PetStoreAPI/api-keys/<key-uuid> \
+curl -X DELETE http://localhost:9090/api/management/v1/rest-apis/PetStoreAPI/api-keys/<key-name> \
   -H "Authorization: Basic ${BASE64_CREDENTIALS}"
 ```
+
+## Undeploy an API
+
+To remove an API from both the gateway and the on-premises API Manager instance, send a delete request with the API name:
+
+```bash
+curl -X DELETE http://localhost:9090/api/management/v1/rest-apis/PetStoreAPI \
+  -H "Authorization: Basic ${BASE64_CREDENTIALS}"
+```
+
+A successful response looks like this:
+
+```json
+{
+  "status": "success",
+  "message": "RestAPI deleted successfully",
+  "id": "PetStoreAPI"
+}
+```
+
+Deleting a synced API first undeploys its revision from the on-premises API Manager, then removes the local gateway record — the API itself is not removed from the Publisher, only its deployed revision. The undeploy attempt (up to three retries) runs before the local record is deleted, but the local record is deleted regardless of whether the undeploy succeeds, and the `DELETE` call returns success either way.
+
+If the undeploy fails after all retries (the gateway logs `Bottom-up sync: undeploy all retries exhausted`), there's no local record left for the gateway to retry from, so the API remains deployed in API Manager. In that case, undeploy it manually from the Publisher.
 
 ## Track sync status
 
@@ -353,7 +436,7 @@ The gateway tracks the API Manager sync state internally, and you can monitor it
 | `success` | Successfully synced to API Manager | `Bottom-up sync: API synced successfully` |
 | `failed` | Sync failed after three retries | `Bottom-up sync: all retries exhausted` |
 
-If a sync fails, the gateway retries automatically up to three times per sync cycle, and again on the next Control Plane reconnection. To trigger a retry manually, update the API with its current definition:
+See [If sync fails](#if-sync-fails) for when the gateway automatically starts a new sync run. To trigger one manually, update the API with its current definition:
 
 ```bash
 curl -X PUT http://localhost:9090/api/management/v1/rest-apis/PetStoreAPI \
@@ -375,10 +458,11 @@ echo $APIP_GW_CONTROLLER_CONTROLPLANE_HOST
 # or check the [controller.controlplane] section in config.toml
 ```
 
-Set the on-premises API Manager host and OAuth2 credentials. These are read through the environment interpolation tokens already present in the shipped `config.toml`:
+Set the registration token, on-premises API Manager host, and OAuth2 credentials through the environment interpolation tokens already present in the shipped `config.toml`:
 
 ```bash
-export APIP_GW_CONTROLLER_CONTROLPLANE_HOST=192.168.0.102:9443
+export APIP_GW_CONTROLLER_CONTROLPLANE_TOKEN=<registration-token>
+export APIP_GW_CONTROLLER_CONTROLPLANE_HOST=<apim-host>:9443
 export APIP_GW_CONTROLLER_CONTROLPLANE_APIM_OAUTH2_CLIENT_ID=...
 export APIP_GW_CONTROLLER_CONTROLPLANE_APIM_OAUTH2_CLIENT_SECRET=...
 ```
@@ -386,7 +470,7 @@ export APIP_GW_CONTROLLER_CONTROLPLANE_APIM_OAUTH2_CLIENT_SECRET=...
 **API Manager not reachable** — Test the Control Plane's `.well-known` endpoint:
 
 ```bash
-curl -k https://192.168.0.102:9443/internal/gateway/.well-known
+curl -k https://<apim-host>:9443/internal/gateway/.well-known
 # Expected: {"gatewayPath": "/internal/data/v1"}
 ```
 
@@ -411,9 +495,12 @@ export APIP_GW_CONTROLLER_LOGGING_LEVEL=debug
 
 Restart the gateway controller and look for these log entries:
 
-- `Connected to control plane` — connected to API Manager.
-- `Failed to resolve gateway path` — can't reach API Manager.
-- `Resolved WebSocket connect URL` — on-premises mode detected.
+- `Control plane connection established` — connected to API Manager (logged at `info` level).
+
+The following entries are logged at `debug` level only, so they appear in the gateway controller logs just after enabling `APIP_GW_CONTROLLER_LOGGING_LEVEL=debug`:
+
+- `Failed to resolve gateway path from well-known endpoint, falling back to configured URL` — can't reach API Manager.
+- `Resolved WebSocket connect URL from well-known endpoint` — on-premises mode detected.
 
 If the gateway isn't connected, wait for the periodic automatic reconnection, or trigger a sync immediately by updating the API with its current definition.
 
@@ -421,12 +508,12 @@ If the gateway isn't connected, wait for the periodic automatic reconnection, or
 
 This means the API Manager OAuth2 token endpoint returned an unexpected response. Verify your credentials are correct, confirm the OAuth2 token endpoint is accessible, and enable debug logging (`APIP_GW_CONTROLLER_LOGGING_LEVEL=debug`) to inspect the actual response.
 
-### "On-prem Control Plane mode not enabled"
+### "bottom-up API sync skipped: on-prem control plane mode is not enabled"
 
 This means the gateway couldn't detect that the Control Plane is running in on-premises mode. Verify that the API Manager `.well-known` endpoint returns a `gatewayPath`, check network connectivity, and confirm the Control Plane host is configured correctly:
 
 ```bash
-curl -k https://192.168.0.102:9443/internal/gateway/.well-known
+curl -k https://<apim-host>:9443/internal/gateway/.well-known
 ```
 
 Expected response:
@@ -441,4 +528,6 @@ Expected response:
 
 - [Getting started with Platform Gateway]({{base_path}}/api-gateway/platform-gateway/getting-started/)
 - [Setting up Platform Gateway]({{base_path}}/api-gateway/platform-gateway/setting-up/)
+- [Gateway registration and deployment]({{base_path}}/api-gateway/platform-gateway/gateway-registration-and-deployment/)
 - [Adding and managing policies]({{base_path}}/api-gateway/platform-gateway/adding-and-managing-policies/)
+- [Policy Hub](https://wso2.com/api-platform/policy-hub)
