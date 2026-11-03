@@ -5,6 +5,9 @@ Listed below are two ways of creating a new policy. Depending on whether you nee
 * Creating a **Common Policy**
 * Creating an **API Specific Policy**
 
+!!! tip "Develop and test policies using VS Code"
+    Before creating policies through the Publisher interface, you can develop and test your custom policy files locally using the WSO2 Micro Integrator extension for Visual Studio Code. This approach allows you to validate policy syntax, test behavior with the Micro Integrator runtime, and iterate on your policy logic before uploading to API Manager. For a complete step-by-step guide on setting up your development environment, creating policy files, and testing locally, see [Develop and Test Policies]({{base_path}}/tutorials/develop-and-test-policies/).
+
 !!! warning
     When creating custom policies, please note that certain mediators cannot be used within these policies as they are not supported by the API Gateway. Specifically, the following mediators are not supported:
 
