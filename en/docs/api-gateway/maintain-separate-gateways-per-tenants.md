@@ -32,17 +32,16 @@ This pattern allows multiple tenants to share gateway resources while maintainin
 #### Single Tenant per Gateway
 
 Add following configuration into gateway deployment.toml and start the server.
-```
+```toml
 [apim.sync_runtime_artifacts.tenant_loading]
 enable = true
 tenants= "Tenant A"
-```
 
 #### Multiple Tenants per Gateway
 
 Add following configuration into gateway deployment.toml and start the server.
-```
+```markdown
+```toml
 [apim.sync_runtime_artifacts.tenant_loading]
 enable = true
 tenants= "Tenant A,Tenant B,Tenant C"
-```
