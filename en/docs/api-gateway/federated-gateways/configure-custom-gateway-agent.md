@@ -132,11 +132,41 @@ You need to write a custom Gateway Agent bundle as explained below.
 
 1. Stop the API-M server if it is already running.
 
-2. Copy the JAR file that is generated in the `custom.gw.manager` component target directory, and add it in to the `<API-M Server>/repository/components/dropins/` directory.
+2. Copy the JAR file that is generated in the `custom.gw.manager` component target directory, and add it in to the `<API-M_HOME>/repository/components/dropins/` directory.
 
-3. Start the Server
+## Step 3 - Configure deployment.toml
 
-## Step 3 - Configure the Gateway using the Admin Portal
+Before restarting the API-M server, add your custom gateway type to the
+`gateway_type` allowlist in
+`<API-M_HOME>/repository/conf/deployment.toml`.
+
+Example configuration:
+
+```toml
+[apim]
+gateway_type = "Regular,APK,AWS,Azure,Kong,Envoy,APIPlatform,<YourType>"
+```
+
+!!! note
+
+    The gateway type is case-sensitive and must match exactly in all of the
+    following locations:
+
+    - `gateway_type` in `deployment.toml`
+    - `GatewayAgentConfiguration.getType()`
+    - `GatewayDeployer.getType()`
+    - the top-level key in `GatewayFeatureCatalog.json`
+
+    If these values do not match exactly, the custom gateway type will not be
+    recognized by API Manager. For example, registering `"CUSTOM"` in code
+    while the toml lists `Custom` will cause the type to silently fail to
+    register — the bundle loads fine, but the strings don't match.
+
+With the configuration in place, complete the restart:
+
+3. Restart the API-M server. 
+
+## Step 4 - Configure the Gateway using the Admin Portal
 
 1. Sign in to the Admin Portal using the following URL: `https://<hostname>:9443/admin`
 
@@ -146,7 +176,7 @@ You need to write a custom Gateway Agent bundle as explained below.
 
         [![Add new Gateway Environment]({{base_path}}/assets/img/deploy/add-custom-gateway-environment.png)]({{base_path}}/assets/img/deploy/add-custom-gateway-environment.png)
 
-## Step 4 - Create and Deploy API
+## Step 5 - Create and Deploy API
 
 1. Sign in to the Publisher Portal using the following URL: `https://<hostname>:9443/publisher`
 
