@@ -2446,7 +2446,7 @@ expiry_time = 30
                     <div class="mb-config">
                         <div class="config-wrap">
                             <code>[apim.cache.subscription_not_found]</code>
-                            <span class="badge-required">Required</span>
+                            
                             <p>
                                 
                             </p>
@@ -2468,7 +2468,7 @@ expiry_time = 30
                                         
                                     </div>
                                     <div class="param-description">
-                                        <p>Set the time, in seconds, for which the API Gateway remembers that a subscription was not found in the Control Plane. During this time, requests from the same application to the same API are rejected without calling the Control Plane again. This reduces the load on the Control Plane when such requests are frequent. When the Gateway receives a new subscription for that application and API, it is applied immediately. This option is disabled when not defined or set to 0.</p>
+                                        <p>Set the time, in seconds, as a number without a unit (for example, 30), for which the API Gateway remembers that a subscription was not found in the Control Plane. During this time, requests from the same application to the same API are rejected without calling the Control Plane again. This reduces the load on the Control Plane when such requests are frequent. When the Gateway receives a new subscription for that application and API, it is applied immediately. The Gateway keeps up to 10,000 such entries per tenant. When this limit is reached, further subscriptions that are not found are checked in the Control Plane as usual until entries expire. This option is disabled when not defined or set to 0.</p>
                                     </div>
                                 </div>
                             </div>
