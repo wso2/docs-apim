@@ -125,16 +125,17 @@ The gateway exports the following attributes. Attribute names follow the [OpenTe
 | `url.full` | Full backend URL that was invoked, without the query string, for example `https://localhost:9443/am/sample/pizzashack/v1/api/menu` | CLIENT span only |
 | `server.address` | Host that handled the request. On the SERVER span it is derived from the `Host` header; on the CLIENT span it is the backend host | SERVER and CLIENT spans (also INTERNAL spans that record HTTP attributes) |
 | `server.port` | Port of the host above. | SERVER and CLIENT spans (also INTERNAL spans that record HTTP attributes) |
-| `http.route` | API resource that was matched, such as `/menu` or `/order/{orderId}` | SERVER span only |
+| `http.route` | Matched route template, including the API context and, when the version is part of the URL, the API version, such as `/pizzashack/1.0.0/menu` or `/pizzashack/1.0.0/order/{orderId}` | SERVER span only |
 | `http.response.status_code` | HTTP status code returned to the client, or by the backend on the CLIENT span, such as `200`, `401`, or `500` | SERVER, CLIENT, resource, and response-phase INTERNAL spans |
 | `error.type` | Status code as a string, set only when the span status is `ERROR` | SERVER span on 5xx; CLIENT span on 4xx and 5xx |
 | `span.endpoint` | Backend endpoint configured for the API, such as `https://localhost:9443/am/sample/pizzashack/v1/api/` | CLIENT span only |
 | `span.activity.id` | Correlation ID of the request, which can be searched in the gateway logs | SERVER span only |
-| `span.api.name`, `span.api.version`, `span.resource`, `span.consumerkey` | API name, API version, matched resource, and the consumer key of the calling application | SERVER span |
+| `span.api.name`, `span.api.version`, `span.resource`, `span.consumerkey` | API name, API version, matched resource template without the API context, and the consumer key of the calling application | SERVER span |
 
 !!! note
     - The query string is intentionally excluded from both `url.path` and `url.full`, so query parameters are never exported.
     - WSO2-specific attributes such as `span.activity.id`, `span.api.name`, and `span.consumerkey` do not have dedicated Moesif fields. Moesif stores them in the event `metadata`, where you can filter on them.
+    - `http.route` includes the API context and, when URL-based versioning is used, the API version. `span.resource` remains the bare resource template. For example, a request to the `/menu` resource of the `/pizzashack` API records `http.route` as `/pizzashack/1.0.0/menu` and `span.resource` as `/menu`. Use `http.route` to group traffic from different APIs and `span.resource` to group resources within an API.
     - `error.type` and `http.route` are also stored in `metadata` rather than in first-class Moesif fields. `http.response.status_code` is mapped to the event response status.
 
 ## Analyzing Traces
