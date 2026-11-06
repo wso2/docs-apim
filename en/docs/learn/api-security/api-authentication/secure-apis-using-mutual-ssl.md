@@ -67,33 +67,38 @@ The following diagram illustrates how Mutual SSL works in such an environment.
 
 ### Using MTLS Header to invoke APIs secured with Mutual SSL
 
-By default, the WSO2 API Manager retrieves the client certificate from the **X-WSO2-CLIENT-CERTIFICATE** HTTP header. 
+When TLS is terminated before the Gateway, for example at a load balancer, the client's TLS handshake does not reach the Gateway. The load balancer verifies the client certificate and passes it to the Gateway in an HTTP header. By default, the Gateway reads the client certificate from the **X-WSO2-CLIENT-CERTIFICATE** HTTP header.
+
+The Gateway uses the header only from a caller that it trusts, which is controlled by `enable_client_validation` (default `true`). With the default, the load balancer must connect to the Gateway using mutual TLS, presenting a certificate that is in the Gateway's client truststore. A header sent by any other caller is ignored.
+
+!!! warning
+    If you set `enable_client_validation = false`, the Gateway accepts the header from **any** caller. Use `false` only if the Gateway is reachable exclusively through a load balancer that always overwrites this header. 
 
 Follow the instructions below to change the header:
 
 1.  Navigate to the `<API-M_HOME>/repository/conf/deployment.toml` file.
 2.  Configure the `certificate_header` under the `[apimgt.mutual_ssl]` configuration.
 
+    The following example sets `enable_client_validation = false` so that you can send the header directly to the Gateway to try out the feature. Do not use this setting in production unless the Gateway is reachable only through a load balancer that overwrites the header.
+
     ``` tab="Format"
      [apimgt.mutual_ssl]
      certificate_header = "<Header Name>"
-     # This property needs to be true if the MutualSSL connection is established between the load balancer and the Gateway.
+     # true: use the header only if the caller's TLS certificate is in the Gateway's client truststore. false: accept the header from any caller.
      enable_client_validation = false
-     #This property needs to be true if the certificate should be decoded when it is passed from the load balancer to the Gateway.
-     client_certificate_encode = false
-     # This property needs to be true if the certificate chain needed to be validated.
-     enable_certificate_chain_validation = false
+     # true: URL-encoded or Base64-encoded PEM certificate. false: PEM certificate with its line breaks replaced by spaces, or Base64-encoded DER certificate.
+     client_certificate_encode = true
     ```
 
     ``` tab="Example"
      [apimgt.mutual_ssl]
      certificate_header = "SSL-CLIENT-CERT"
      enable_client_validation = false
-     enable_certificate_chain_validation = false
+     client_certificate_encode = true
     ```
 
 3.  Start the Server.
-4.  Invoke the API  with the custom header.
+4.  Invoke the API with the custom header.
 
     ``` bash tab="Format"
     curl -k --location -X GET "<API_URL>" -H  "accept: application/json" -H  "Authorization: Bearer <access-token>" -H "<MTSL_Header_name>:<Certificate_Key>"
