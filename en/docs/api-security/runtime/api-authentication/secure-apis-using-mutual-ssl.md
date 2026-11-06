@@ -86,15 +86,17 @@ Follow the instructions below to change the header:
 1.  Navigate to the `<API-M_HOME>/repository/conf/deployment.toml` file.
 2.  Configure the `certificate_header` under the `[apimgt.mutual_ssl]` configuration.
 
+    The following example sets `enable_client_validation = false` so that you can send the header directly to the Gateway to try out the feature. Do not use this setting in production unless the Gateway is reachable only through a load balancer that overwrites the header.
+
     === "Format"
           ```toml
           [apimgt.mutual_ssl]
           certificate_header = "<Header Name>"
-          # This property needs to be true if the MutualSSL connection is established between the load balancer and the Gateway.
+          # true: use the header only if the caller's TLS certificate is in the Gateway's client truststore. false: accept the header from any caller.
           enable_client_validation = false
-          # This property needs to be true if the certificate should be decoded when it is passed from the load balancer to the Gateway.
-          client_certificate_encode = false
-          # This property needs to be true if the certificate chain needed to be validated.
+          # true: URL-encoded or Base64-encoded PEM certificate. false: PEM certificate with its line breaks replaced by spaces, or Base64-encoded DER certificate.
+          client_certificate_encode = true
+          # true: also accept client certificates whose issuing CA certificate is uploaded for the API.
           enable_certificate_chain_validation = false
           ```
 
@@ -103,7 +105,7 @@ Follow the instructions below to change the header:
           [apimgt.mutual_ssl]
           certificate_header = "SSL-CLIENT-CERT"
           enable_client_validation = false
-          client_certificate_encode = false
+          client_certificate_encode = true
           enable_certificate_chain_validation = false
           ```
 
