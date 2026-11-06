@@ -3190,6 +3190,129 @@ enable_token_hashing = false</code></pre>
 
 
 
+## API-M Mutual SSL Configuration
+
+
+<div class="mb-config-catalog">
+    <section>
+        <div class="mb-config-options">
+            <div class="superfences-tabs">
+            
+            <input name="101" type="checkbox" id="_tab_101">
+                <label class="tab-selector" for="_tab_101"><i class="icon fa fa-code"></i></label>
+                <div class="superfences-content">
+                    <div class="mb-config-example">
+<pre><code class="toml">[apimgt.mutual_ssl]
+certificate_header = "SSL-CLIENT-CERT"
+enable_client_validation = true
+client_certificate_encode = true
+enable_certificate_chain_validation = false
+</code></pre>
+                    </div>
+                </div>
+                <div class="doc-wrapper">
+                    <div class="mb-config">
+                        <div class="config-wrap">
+                            <code>[apimgt.mutual_ssl]</code>
+                            
+                            <p>
+                                Configures how the Gateway reads and trusts the client certificate of APIs secured with mutual SSL. The certificate is taken from the TLS handshake, or from an HTTP header when TLS is terminated before the Gateway.
+                            </p>
+                        </div>
+                        <div class="params-wrap">
+                            <div class="param">
+                                <div class="param-name">
+                                  <span class="param-name-wrap"> <code>certificate_header</code> </span>
+                                </div>
+                                <div class="param-info">
+                                    <div>
+                                        <p>
+                                            <span class="param-type string"> string </span>
+                                            
+                                        </p>
+                                        <div class="param-default">
+                                            <span class="param-default-value">Default: <code>X-WSO2-CLIENT-CERTIFICATE</code></span>
+                                        </div>
+                                        
+                                    </div>
+                                    <div class="param-description">
+                                        <p>The name of the HTTP header that carries the client certificate. Whether the Gateway uses this header is controlled by enable_client_validation.</p>
+                                    </div>
+                                </div>
+                            </div><div class="param">
+                                <div class="param-name">
+                                  <span class="param-name-wrap"> <code>enable_client_validation</code> </span>
+                                </div>
+                                <div class="param-info">
+                                    <div>
+                                        <p>
+                                            <span class="param-type string"> boolean </span>
+                                            
+                                        </p>
+                                        <div class="param-default">
+                                            <span class="param-default-value">Default: <code>true</code></span>
+                                        </div>
+                                        <div class="param-possible">
+                                            <span class="param-possible-values">Possible Values: <code>true, false</code></span>
+                                        </div>
+                                    </div>
+                                    <div class="param-description">
+                                        <p>Controls who may supply the client certificate through certificate_header. When true, the Gateway uses the header only if the caller (normally the load balancer) presented a TLS client certificate that is in the Gateway&#39;s client truststore. Otherwise, the header is ignored and the certificate from the caller&#39;s own TLS handshake, if any, is used. When false, the header is accepted from any caller. Set this to false only if the Gateway is reachable exclusively through a load balancer that always overwrites this header.</p>
+                                    </div>
+                                </div>
+                            </div><div class="param">
+                                <div class="param-name">
+                                  <span class="param-name-wrap"> <code>client_certificate_encode</code> </span>
+                                </div>
+                                <div class="param-info">
+                                    <div>
+                                        <p>
+                                            <span class="param-type string"> boolean </span>
+                                            
+                                        </p>
+                                        <div class="param-default">
+                                            <span class="param-default-value">Default: <code>true</code></span>
+                                        </div>
+                                        <div class="param-possible">
+                                            <span class="param-possible-values">Possible Values: <code>true, false</code></span>
+                                        </div>
+                                    </div>
+                                    <div class="param-description">
+                                        <p>Selects the format of the certificate in certificate_header. When true, the Gateway expects a URL-encoded or Base64-encoded PEM certificate. When false, the Gateway expects a PEM certificate with its line breaks replaced by spaces, or a single-line Base64-encoded DER certificate.</p>
+                                    </div>
+                                </div>
+                            </div><div class="param">
+                                <div class="param-name">
+                                  <span class="param-name-wrap"> <code>enable_certificate_chain_validation</code> </span>
+                                </div>
+                                <div class="param-info">
+                                    <div>
+                                        <p>
+                                            <span class="param-type string"> boolean </span>
+                                            
+                                        </p>
+                                        <div class="param-default">
+                                            <span class="param-default-value">Default: <code>false</code></span>
+                                        </div>
+                                        <div class="param-possible">
+                                            <span class="param-possible-values">Possible Values: <code>true, false</code></span>
+                                        </div>
+                                    </div>
+                                    <div class="param-description">
+                                        <p>Controls how a client certificate is matched with the certificates uploaded for an API. When false, the client certificate itself must be uploaded for the API. When true, a client certificate is also accepted if its issuing CA certificate is uploaded for the API. Note that this configuration is available in wso2am-4.2.0 starting from update level 87.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+
+
+
 ## API-M Developer Portal configurations
 
 
