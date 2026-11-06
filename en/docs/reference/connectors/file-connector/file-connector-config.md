@@ -2905,10 +2905,10 @@ The following operations allow you to work with the File Connector version 4. Cl
 ??? note "mergeFiles"
     Merge the contents of multiple files in a folder to a single file.
 
-    The source files are merged in the order of their file names (case-sensitive string order). For example, to merge a CSV header file followed by data chunks, name them `header.csv`, `part-001.csv`, `part-002.csv`, and so on. Use zero-padded numbers, as `part-10.csv` is ordered before `part-2.csv`.
+    The source files are merged in the order of their file names (case-sensitive string order). For example, to merge a CSV header file followed by data chunks, name them `header.csv`, `part-001.csv`, `part-002.csv`, and so on. Use zero-padded numbers, as `part-10.csv` is ordered before `part-2.csv`. To merge the files in a different order, use the `sortingAttribute` and `sortingOrder` parameters.
 
     !!! note
-        Ordering source files by name is available in file connector version 4.0.46 or later. Earlier versions merge the files in the order returned by the file system, which is not guaranteed.
+        Ordering source files by name is available in file connector version 4.0.46 or later. Earlier versions merge the files in the order returned by the file system, which is not guaranteed. The `sortingAttribute` and `sortingOrder` parameters are available in file connector version 4.0.47 or later.
 
     <table>
         <tr>
@@ -2950,7 +2950,7 @@ The following operations allow you to work with the File Connector version 4. Cl
                 String
             </td>
             <td>
-                The path to the source folder containing the files that should be merged. The files are merged in the order of their names.
+                The path to the source folder containing the files that should be merged. The files are merged in the order defined by the <code>sortingAttribute</code> and <code>sortingOrder</code> parameters.
             </td>
             <td>
                 -
@@ -3023,6 +3023,53 @@ The following operations allow you to work with the File Connector version 4. Cl
             </td>
             <td>
                 Yes
+            </td>
+        </tr>
+        <tr>
+            <td>
+               Sorting Attribute
+            </td>
+            <td>
+                sortingAttribute
+            </td>
+            <td>
+                String
+            </td>
+            <td>
+                The attribute used to order the source files before they are merged. Files with the same value are ordered by name.</br>
+                Possible values are <code>Name</code>, <code>Size</code>, or <code>LastModifiedTime</code>.
+                <ul>
+                    <li><code>Name</code>: The case-sensitive string order of the file names. Use this when the file names define the order, such as a header file followed by numbered data chunks.</li>
+                    <li><code>Size</code>: The size of the files.</li>
+                    <li><code>LastModifiedTime</code>: The last modified time of the files.</li>
+                </ul>
+            </td>
+            <td>
+                Name
+            </td>
+            <td>
+                No
+            </td>
+        </tr>
+        <tr>
+            <td>
+               Sorting Order
+            </td>
+            <td>
+                sortingOrder
+            </td>
+            <td>
+                String
+            </td>
+            <td>
+                The order in which the source files are merged, based on the <code>sortingAttribute</code>.</br>
+                Possible values are <code>Ascending</code> or <code>Descending</code>.
+            </td>
+            <td>
+                Ascending
+            </td>
+            <td>
+                No
             </td>
         </tr>
         <tr>
