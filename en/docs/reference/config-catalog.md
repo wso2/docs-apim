@@ -3267,9 +3267,10 @@ enable_revoke_token_cleanup = true
                     <div class="mb-config-example">
 <pre><code class="toml">[apimgt.mutual_ssl]
 certificate_header = "SSL-CLIENT-CERT"
-enable_client_validation = false
-client_certificate_encode = false
+enable_client_validation = true
+client_certificate_encode = true
 enable_certificate_chain_validation = false
+forward_client_certificate_header = false
 </code></pre>
                     </div>
                 </div>
@@ -3277,9 +3278,9 @@ enable_certificate_chain_validation = false
                     <div class="mb-config">
                         <div class="config-wrap">
                             <code>[apimgt.mutual_ssl]</code>
-                            <span class="badge-required">Required</span>
+                            
                             <p>
-                                Collection of Mutual SSL related configs
+                                Configures how the Gateway reads and trusts the client certificate of APIs secured with mutual SSL. The certificate is taken from the TLS handshake, or from an HTTP header when TLS is terminated before the Gateway.
                             </p>
                         </div>
                         <div class="params-wrap">
@@ -3299,7 +3300,7 @@ enable_certificate_chain_validation = false
                                         
                                     </div>
                                     <div class="param-description">
-                                        <p>Specifies the header name for the client certificate.</p>
+                                        <p>The name of the HTTP header that carries the client certificate. Whether the Gateway uses this header is controlled by enable_client_validation.</p>
                                     </div>
                                 </div>
                             </div><div class="param">
@@ -3313,14 +3314,14 @@ enable_certificate_chain_validation = false
                                             
                                         </p>
                                         <div class="param-default">
-                                            <span class="param-default-value">Default: <code>false</code></span>
+                                            <span class="param-default-value">Default: <code>true</code></span>
                                         </div>
                                         <div class="param-possible">
                                             <span class="param-possible-values">Possible Values: <code>true, false</code></span>
                                         </div>
                                     </div>
                                     <div class="param-description">
-                                        <p>This property needs to be true if the MutualSSL connection is established between the load balancer and the Gateway.</p>
+                                        <p>Controls who may supply the client certificate through certificate_header. When true, the Gateway uses the header only if the caller (normally the load balancer) presented a TLS client certificate that is in the Gateway&#39;s client truststore. Otherwise, the header is ignored and the certificate from the caller&#39;s own TLS handshake, if any, is used. When false, the header is accepted from any caller. Set this to false only if the Gateway is reachable exclusively through a load balancer that always overwrites this header.</p>
                                     </div>
                                 </div>
                             </div><div class="param">
@@ -3334,14 +3335,14 @@ enable_certificate_chain_validation = false
                                             
                                         </p>
                                         <div class="param-default">
-                                            <span class="param-default-value">Default: <code>false</code></span>
+                                            <span class="param-default-value">Default: <code>true</code></span>
                                         </div>
                                         <div class="param-possible">
                                             <span class="param-possible-values">Possible Values: <code>true, false</code></span>
                                         </div>
                                     </div>
                                     <div class="param-description">
-                                        <p>This property needs to be true if the certificate should be decoded when it is passed from the load balancer to the Gateway.</p>
+                                        <p>Selects the format of the certificate in certificate_header. When true, the Gateway expects a URL-encoded or Base64-encoded PEM certificate. When false, the Gateway expects a PEM certificate with its line breaks replaced by spaces, or a single-line Base64-encoded DER certificate.</p>
                                     </div>
                                 </div>
                             </div><div class="param">
@@ -3362,7 +3363,28 @@ enable_certificate_chain_validation = false
                                         </div>
                                     </div>
                                     <div class="param-description">
-                                        <p>Specifies if certificate chain validation is enabled.</p>
+                                        <p>Controls how a client certificate is matched with the certificates uploaded for an API. When false, the client certificate itself must be uploaded for the API. When true, a client certificate is also accepted if its issuing CA certificate is uploaded for the API.</p>
+                                    </div>
+                                </div>
+                            </div><div class="param">
+                                <div class="param-name">
+                                  <span class="param-name-wrap"> <code>forward_client_certificate_header</code> </span>
+                                </div>
+                                <div class="param-info">
+                                    <div>
+                                        <p>
+                                            <span class="param-type string"> boolean </span>
+                                            
+                                        </p>
+                                        <div class="param-default">
+                                            <span class="param-default-value">Default: <code>false</code></span>
+                                        </div>
+                                        <div class="param-possible">
+                                            <span class="param-possible-values">Possible Values: <code>true, false</code></span>
+                                        </div>
+                                    </div>
+                                    <div class="param-description">
+                                        <p>Specifies whether certificate_header is forwarded to the backend. When false, the Gateway removes the header after reading the client certificate from it. Note that this configuration is available in wso2am-4.3.0 starting from update level 93.</p>
                                     </div>
                                 </div>
                             </div>
