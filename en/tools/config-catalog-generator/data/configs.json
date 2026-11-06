@@ -1176,6 +1176,51 @@
             "exampleFile": "apim.oauth_config.toml"
         },
         {
+            "title": "API-M Mutual SSL Configuration",
+            "options": [
+                {
+                    "name": "apimgt.mutual_ssl",
+                    "required": false,
+                    "description": "Configures how the Gateway reads and trusts the client certificate of APIs secured with mutual SSL. The certificate is taken from the TLS handshake, or from an HTTP header when TLS is terminated before the Gateway.",
+                    "params": [
+                        {
+                            "name": "certificate_header",
+                            "type": "string",
+                            "required": false,
+                            "default": "X-WSO2-CLIENT-CERTIFICATE",
+                            "possible": "",
+                            "description": "The name of the HTTP header that carries the client certificate. Whether the Gateway uses this header is controlled by enable_client_validation."
+                        },
+                        {
+                            "name": "enable_client_validation",
+                            "type": "boolean",
+                            "required": false,
+                            "default": true,
+                            "possible": "true, false",
+                            "description": "Controls who may supply the client certificate through certificate_header. When true, the Gateway uses the header only if the caller (normally the load balancer) presented a TLS client certificate that is in the Gateway's client truststore. Otherwise, the header is ignored and the certificate from the caller's own TLS handshake, if any, is used. When false, the header is accepted from any caller. Set this to false only if the Gateway is reachable exclusively through a load balancer that always overwrites this header."
+                        },
+                        {
+                            "name": "client_certificate_encode",
+                            "type": "boolean",
+                            "required": false,
+                            "default": true,
+                            "possible": "true, false",
+                            "description": "Selects the format of the certificate in certificate_header. When true, the Gateway expects a URL-encoded or Base64-encoded PEM certificate. When false, the Gateway expects a PEM certificate with its line breaks replaced by spaces, or a single-line Base64-encoded DER certificate."
+                        },
+                        {
+                            "name": "enable_certificate_chain_validation",
+                            "type": "boolean",
+                            "required": false,
+                            "default": false,
+                            "possible": "true, false",
+                            "description": "Controls how a client certificate is matched with the certificates uploaded for an API. When false, the client certificate itself must be uploaded for the API. When true, a client certificate is also accepted if its issuing CA certificate is uploaded for the API. Note that this configuration is available in wso2am-4.1.0 starting from update level 139."
+                        }
+                    ]
+                }
+            ],
+            "exampleFile": "apimgt.mutual_ssl.toml"
+        },
+        {
             "title": "API-M Developer Portal configurations",
             "options": [
                 {
