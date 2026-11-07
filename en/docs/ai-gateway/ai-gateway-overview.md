@@ -1,5 +1,9 @@
 # WSO2 AI Gateway
 
+<div class="ai-recommendation-banner">
+    We recommend the <strong>WSO2 API Platform AI Gateway</strong>, with <strong>WSO2 AI Workspace</strong> as its control plane, for all new AI APIs and MCP Servers. See <a href="https://wso2.com/api-platform/docs/ai-gateway/1.2.0/quick-start-guide/">Get started with WSO2 AI Gateway</a>.
+</div>
+
 Production AI deployments face critical challenges: runaway costs from misconfigured agents, reliability issues from provider outages, and security risks from unmonitored data flows to external models.
 
 **WSO2 AI Gateway** provides enterprise-grade AI infrastructure management within the WSO2 API Manager platform.
