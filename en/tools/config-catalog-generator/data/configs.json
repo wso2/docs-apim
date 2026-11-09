@@ -7054,6 +7054,27 @@
                 }
             ],
             "exampleFile": "authentication_policy.toml"
+        },
+        {
+            "title": "GraphQL Configurations",
+            "options": [
+                {
+                    "name": "apim.graphql",
+                    "required": false,
+                    "description": "Collection of GraphQL related configs",
+                    "params": [
+                        {
+                            "name": "enforce_operation_settings_on_advanced_queries",
+                            "type": "boolean",
+                            "required": false,
+                            "default": "true",
+                            "possible": "true,false",
+                            "description": "Enforce operation-level settings (scopes, security and throttling policies) on GraphQL queries that use fragments."
+                        }
+                    ]
+                }
+            ],
+            "exampleFile": "apim.graphql.toml"
         }
     ]
 }
