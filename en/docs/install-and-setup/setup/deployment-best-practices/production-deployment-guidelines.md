@@ -159,5 +159,13 @@ maxHttpHeaderSize = 32768</code></pre>
             <p><strong>Note:</strong> In distributed or high-availability deployments, <strong>all API-M instances must use the same symmetric encryption key</strong>. Ensure the identical key value is added to the <code>deployment.toml</code> of every node in the cluster to maintain the ability to decrypt registry resources across instances.</p>
          </td>
       </tr>
+      <tr class="odd">
+         <td>WSDL URL generation in Developer Portal</td>
+         <td>
+            <p>Generate a random string and add it to the <code>deployment.toml</code> file. See <a href="{{base_path}}/install-and-setup/setup/deployment-best-practices/security-guidelines-for-production-deployment/#wsdl-url-generation">Configure WSDL URL generation secret</a>
+            for instructions.</p>
+            <p><strong>Note:</strong> In distributed or high-availability deployments, <strong>all API-M instances must use the same secret key</strong>. Ensure the identical key value is added to the <code>deployment.toml</code> of every node in the cluster to maintain the ability to validate generated WSDL URLs across instances.</p>
+         </td>
+      </tr>
    </tbody>
 </table>
