@@ -73,33 +73,52 @@ Follow the instructions below to create a WebHook API using the basic flow:
 
 ### Step 2 - Configure the Topics
 
-Topics of a WebSub/Webhook API are always **Subscribe only**. By default, a WebSub/Webhook API will have a topic with the name `_default`.
+Topics of a WebSub/Webhook API are always **Receive only**.
 
 1. Click **Topics** under **API Configurations** to navigate to the **Topics** page.
 
-2. Modify the topics as follows and click **Save** to update them.
+2. By default, the newly created WebSub/Webhook API will have a topic with the name `_default`.
 
-    1. Optionally, click delete, as shown below, to delete an existing topic.
+    <a href="{{base_path}}/assets/img/design/create-api/streaming-api/websub-api-v3-topics.png"><img src="{{base_path}}/assets/img/design/create-api/streaming-api/websub-api-v3-topics.png" width="80%" alt="websub API Topics Page"></a>
 
-        <a href="{{base_path}}/assets/img/design/create-api/streaming-api/websub-delete-default-topic.png"><img src="{{base_path}}/assets/img/design/create-api/streaming-api/websub-delete-default-topic.png" width="80%" alt="WebSub API Delete Existing Topic"></a>
+3. This default channel `_default` will have a default operation `receive__edfault`.
 
-    2. Select **sub** under **Types**, enter the **Topic Name**, and click **+** as shown below, to add a new topic.
+    <a href="{{base_path}}/assets/img/design/create-api/streaming-api/websub-api-v3-operation.png"><img src="{{base_path}}/assets/img/design/create-api/streaming-api/websub-api-v3-operation.png" width="80%" alt="websub API Channel Operations"></a>
 
-         <a href="{{base_path}}/assets/img/design/create-api/streaming-api/websub-add-topic.png"><img src="{{base_path}}/assets/img/design/create-api/streaming-api/websub-add-topic.png" width="80%" alt="WebSub API Add Topic"></a>
+4. Modify the topics as follows and click **Save** to update them.
 
-         The newly added topic is displayed as follows.
+    1. Optionally, click delete as shown below, to delete an existing topic or an operation.
 
-         <a href="{{base_path}}/assets/img/design/create-api/streaming-api/websub-api-newly-added-topic.png"><img src="{{base_path}}/assets/img/design/create-api/streaming-api/websub-api-newly-added-topic.png" width="80%" alt="WebSub API Newly Added Topic"></a>
+        <a href="{{base_path}}/assets/img/design/create-api/streaming-api/websub-api-v3-delete-topic.png"><img src="{{base_path}}/assets/img/design/create-api/streaming-api/websub-api-v3-delete-topic.png" width="80%" alt="WebSub API Delete Existing Topic"></a>
+
+    2. Select **receive** under **Types**, enter the **Address** of the channel to be created, enter the **Operation Name** to be added to the selected channel, and click **+** as shown below, to add a new topic.
+
+         <a href="{{base_path}}/assets/img/design/create-api/streaming-api/websub-api-v3-add-topic.png"><img src="{{base_path}}/assets/img/design/create-api/streaming-api/websub-api-v3-add-topic.png" width="80%" alt="WebSub API Add Topic"></a>
+
+         The newly added topic is displayed as follows. Expand the topic to view the newly added operation.
+
+         <a href="{{base_path}}/assets/img/design/create-api/streaming-api/websub-api-v3-newly-added-topic.png"><img src="{{base_path}}/assets/img/design/create-api/streaming-api/websub-api-v3-newly-added-topic.png" width="80%" alt="WebSub API Newly Added Topic"></a>
 
          Expand the created topic to view its **Callback URL**. You can use this when registering the topic with a WebHook provider (WebSub Provider).
+
+     3. You can also add a new operation to an existing topic by selecting the respective channel address from the dropdown.
+
+         <a href="{{base_path}}/assets/img/design/create-api/streaming-api/websub-api-v3-add-operation.png"><img src="{{base_path}}/assets/img/design/create-api/streaming-api/websub-api-v3-add-operation.png" width="80%" alt="WebSub API Add Operation"></a>
+
+          Expand the topic to view the newly added operation.
+
+         <a href="{{base_path}}/assets/img/design/create-api/streaming-api/websub-api-v3-new-operation.png"><img src="{{base_path}}/assets/img/design/create-api/streaming-api/websub-api-v3-new-operation.png" width="80%" alt="WebSub API Newly Added Operation"></a>
 
 ### Step 3 - View the AsyncAPI Definition
 
 Click **AsyncAPI Definition** under **API Configurations**.
 
+!!! note
+    The API definition will be generated in AsyncAPI V3.0.0.
+
 The AsyncAPI definition of the streaming API, which you just created, appears.
 
-   <a href="{{base_path}}/assets/img/design/create-api/streaming-api/websub-api-asyncapi.png"><img src="{{base_path}}/assets/img/design/create-api/streaming-api/websub-api-asyncapi.png" width="80%" alt="WebHook API AsyncAPI Definition"></a>
+   <a href="{{base_path}}/assets/img/design/create-api/streaming-api/websub-api-v3-asyncapi.png"><img src="{{base_path}}/assets/img/design/create-api/streaming-api/websub-api-v3-asyncapi.png" width="80%" alt="WebHook API AsyncAPI Definition"></a>
 
 ### Step 4 - Configure the Runtime Configurations
 

@@ -84,14 +84,17 @@ This will demonstrate a simple command line based chat room which has two channe
 
      2. Delete the existing default topic, which has the name `/*`.
 
-     3. Add the following topics one by one. 
-     
-           Select **pub** and **sub** as the **Types**, enter the **Topic Name**, and click **+** to add each topic.
+     3. Add the following operations one by one. 
 
-          - /notifications
-          - /rooms/{roomID}
+           <table>
+           <tr><th><b>Type</b> </th><th><b>Channel Address</b> </th><th><b>Operation</b></th></tr>
+           <tr><td>send</td><td>/notifications</td><td>sendNotifications</td></tr>
+           <tr><td>receive</td><td>/notifications</td><td>receiveNotifications</td></tr>
+           <tr><td>send</td><td>/rooms/{roomID}</td><td>sendMessages</td></tr>
+           <tr><td>receive</td><td>/rooms/{roomID}</td><td>receiveMessages</td></tr>
+           </table>
 
-          <img src="{{base_path}}/assets/img/tutorials/streaming-api/websocket-api-add-topics.png" width="80%" alt="Add Topics to WebSocket API">
+          <img src="{{base_path}}/assets/img/tutorials/streaming-api/websocket-api-v3-add-topics.png" width="80%" alt="Add Topics to WebSocket API">
           
      4. Expand each topic, provide URL Mappings as follows, and click **Save**.
 
@@ -103,7 +106,7 @@ This will demonstrate a simple command line based chat room which has two channe
 
           URL Mapping provided for a topic will be appended to the WebSocket endpoint URL, which was provided when creating the API, and the traffic via the topic will be sent to & received from the resulting URL.
 
-          [![Add URL Mappings to WebSocket API Topics]({{base_path}}/assets/img/tutorials/streaming-api/websocket-api-topic-url-mapping.png)]({{base_path}}/assets/img/tutorials/streaming-api/websocket-api-topic-url-mapping.png)
+          [![Add URL Mappings to WebSocket API Topics]({{base_path}}/assets/img/tutorials/streaming-api/websocket-api-v3-topic-url-mapping.png)]({{base_path}}/assets/img/tutorials/streaming-api/websocket-api-v3-topic-url-mapping.png)
 
 
 6. Attach business plans to your WebSocket API.

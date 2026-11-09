@@ -430,6 +430,29 @@ The following configuration is the default recommended configuration for allowin
 If you use any other mediators, or if you want to enable mediators that are not included in the recommended allowlist, review the [mediator catalog](https://mi.docs.wso2.com/en/latest/reference/mediators/about-mediators/) to understand their capabilities and use cases before adding them to the configuration.
 </td>
 </tr>
+<tr class="odd" id="wsdl-url-generation">
+<td><p>Configure WSDL URL generation secret</p></td>
+<td>
+<p>
+If you are using the WSDL URL of a SOAP API generated using the Developer Portal, 
+configure a secret to secure the generated URLs. Add the following to 
+the <code>deployment.toml</code> file:
+</p>
+<pre class="java" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence" style="brush: java; gutter: false; theme: Confluence">
+<code>
+[apim.devportal]
+url_generation_secret = "your_secret"
+</code>
+</pre>
+<p>
+A randomly generated string of at least 32 characters is recommended. You can generate a strong secret using the following command:
+</p>
+<pre><code>openssl rand -base64 32</code></pre>
+<p>
+It is highly recommended to encrypt this secret using the secure vault. See <a href="{{base_path}}/install-and-setup/setup/security/logins-and-passwords/working-with-encrypted-passwords/">Encrypting Passwords in Configuration Files</a> for instructions.
+</p>
+</td>
+</tr>
 </tbody>
 </table>
 
