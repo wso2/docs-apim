@@ -1,6 +1,6 @@
 # Network Security Access Control
 
-WSO2 API Manager supports network access control from version 4.7.0 onwards. Network access control governs which external hosts the product is permitted to connect to when it resolves a user-supplied URL, so that outbound requests are restricted to the destinations an administrator has approved.
+WSO2 API Manager supports network access control from version 4.7.0 U2 update level 25 onwards. Network access control governs which external hosts the product is permitted to connect to when it resolves a user-supplied URL, so that outbound requests are restricted to the destinations an administrator has approved.
 
 In WSO2 API Manager, outbound requests such as endpoint validation, WSDL imports, and remote reference resolution are governed by this configurable validation mechanism.
 
