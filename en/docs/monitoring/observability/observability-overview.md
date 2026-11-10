@@ -16,7 +16,7 @@ Explore the core pillars of observability in WSO2 API Manager:
 ## Traces
 - [OpenTracing](traces/monitoring-with-opentracing.md)
 - [OpenTelemetry](traces/monitoring-with-opentelemetry.md)
-- [Moesif](traces/monitoring-with-moesif.md)
+- [Moesif Traces](traces/monitoring-with-moesif.md)
 
 ## Metrics
 - [JMX-Based Monitoring](metrics/jmx-based-monitoring.md)
