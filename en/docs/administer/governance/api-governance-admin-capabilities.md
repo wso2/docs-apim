@@ -178,10 +178,17 @@ For more information refer the [configuration catalog]({{base_path}}/reference/c
 
 ```toml
 [apim.governance.scheduler]
+enable = true # Whether the scheduler runs on this node, set to false to stop this node from processing compliance tasks
 thread_pool_size = 20 # Number of threads in the thread pool, be cautious when changing this value as it can affect the performance
 queue_size = 20 # Size of the queue, be cautious when changing this value as it can affect the performance
 task_check_interval_minutes = 2 # Interval in minutes to check for compliance tasks
 task_cleanup_interval_minutes = 30 # Interval in minutes to clean up any stale tasks
-``` 
+```
+
+In a multi-node or multi-data-center deployment, every Control Plane node runs the scheduler
+and writes to the governance tables. To have the compliance evaluations performed by a single
+node, set `enable = false` on every other Control Plane node. Those nodes continue to accept
+governance configuration changes and serve compliance results, but they do not process pending
+compliance evaluation requests. 
 
 
