@@ -1,5 +1,6 @@
 [apimgt.mutual_ssl]
 certificate_header = "SSL-CLIENT-CERT"
-enable_client_validation = false
-client_certificate_encode = false
+enable_client_validation = true
+client_certificate_encode = true
 enable_certificate_chain_validation = false
+forward_client_certificate_header = false
