@@ -16,7 +16,7 @@ Over the course of its lifetime, WSO2 API Manager has changed significantly. To 
 
 <div class="admonition info">
     <p class="admonition-title">Seamless product upgrade from WSO2 API Manager 4.2.0</p>
-    <p>If you are upgrading from WSO2 API Manager 4.2.0 to 4.5.0, you can experience a seamless product upgrade with no data migration. This pivotal change facilitates a smooth transition for current API Manager 4.2.0 users to the latest version, eliminating the need for complex migrations.</p>
+    <p>If you are upgrading from WSO2 API Manager 4.2.0 to 4.5.0, you can experience a seamless product upgrade with no data migration.  This pivotal change facilitates a smooth transition for current API Manager 4.2.0 users to WSO2 API Manager 4.5.0, eliminating the need for complex migrations.</p>
 </div>
 
 !!! note
