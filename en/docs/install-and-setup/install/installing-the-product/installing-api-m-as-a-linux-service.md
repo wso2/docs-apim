@@ -19,7 +19,7 @@ Extract the WSO2 product to a preferred directory in your machine and set the en
 
 1.  To run the product as a service, create a startup script and add it to the boot sequence. The basic structure of the startup script has three parts (i.e., start, stop and restart) as follows:
 
-    ``` java
+    ``` bash
     #!/bin/bash
    
     case “$1″ in
@@ -40,7 +40,7 @@ Extract the WSO2 product to a preferred directory in your machine and set the en
 
     Given below is a sample startup script. `<API-M_HOME>` can vary depending on the WSO2 product's directory.
 
-    ``` java
+    ``` bash
     #! /bin/sh
     export JAVA_HOME="/usr/lib/jvm/jdk-21"
     startcmd='<API-M_HOME>/bin/api-manager.sh start > /dev/null &'
@@ -81,7 +81,7 @@ Extract the WSO2 product to a preferred directory in your machine and set the en
 
 3.  Install the startup script to respective run levels using the `update-rc.d` command. For example, give the following command for the sample script shown in step 1:
 
-    ``` java
+    ``` bash
      sudo update-rc.d prodserver defaults 
     ```
 
