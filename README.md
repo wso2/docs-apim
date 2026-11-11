@@ -28,110 +28,79 @@ Check the issue tracker for open issues that interest you. We look forward to re
 
 ## Run the project locally
 
-### Step 1 - Install Python
+### Step 1 - Install Python 3
 
-#### MacOS
-If you are using MacOS, you probably already have a version of Python installed on your machine. You can verify this by running the following command.
+Install Python 3.11 with pip and virtual environment support for the pinned documentation dependencies.
+
+On macOS or Linux, verify the interpreter with `python3.11 --version`. On Debian-based systems, you may also need the `python3.11-venv` package.
+
+On Windows, install Python 3.11 and the Python launcher, then verify it with `py -3.11 --version`.
+
+### Step 2 - Clone the repository and create a virtual environment
+
+1. Fork the GitHub repository: `https://github.com/wso2/docs-apim.git`.
+2. Clone your fork:
+
+    ```shell
+    git clone https://github.com/[git-username]/docs-apim.git
+    ```
+
+3. Navigate to the language folder in the cloned repository:
+
+    ```shell
+    cd docs-apim/en/
+    ```
+
+4. Create and activate a virtual environment to keep the documentation dependencies separate from other Python projects.
+
+    On macOS or Linux:
+
+    ```shell
+    python3.11 -m venv venv
+    source venv/bin/activate
+    ```
+
+    On Windows PowerShell:
+
+    ```powershell
+    py -3.11 -m venv venv
+    .\venv\Scripts\Activate.ps1
+    ```
+
+    On Windows Command Prompt, activate it with `venv\Scripts\activate.bat` instead.
+
+### Step 3 - Install the required packages
+
+Run these commands from `docs-apim/en/` with the virtual environment active:
 
 ```shell
-$ python --version
-Python 2.7.2
+python -m pip install --upgrade pip
+python -m pip install -r requirements.txt
 ```
 
-If your version of Python is Python 2.x.x, you also need to install Python3. This is because the PDF plugin only supports Python3. Follow the instructions in [this guide](https://docs.python-guide.org/starting/install3/osx/) to install Python3 properly.
+Upgrading pip helps it understand current package metadata and resolve dependencies before installing the pinned documentation packages. Using `python -m pip` installs packages into the same Python environment used to run MkDocs.
 
-Once you are done, you will have two versions of Python on your machine; a version of python2 and a version of python3.
-
-#### Ubuntu and other versions of Debian Linux
-
-Python 3 is pre-installed in these versions, which you can verify with `python3 -V`. Use `sudo apt install -y python3-pip` to install `pip` and verify with `pip3 -V`.
-
-### Step 2 - Install Pip
->
-> **INFO**
->
-> If pip is not already installed on your machine, download `get-pip.py` to install pip for the first time. Then run the following command to install it:
-> ```shell
-> $ python get-pip.py
-> ```
->
-
-Pip is most likely installed by default. However, you may need to upgrade pip to the latest version:
-
-```shell
-$ pip install --upgrade pip
-```
-
-### Step 3 - Install the pip packages
-
-Follow the steps below to clone the API-M documentation GitHub repository and to run the site on your local server.
-
-1. Fork the GitHub repository: `https://github.com/wso2/docs-apim.git`
-2. Navigate to the place where you want to clone the repo.
-
-    Git clone the forked repository.
-
-    ```shell
-    $ git clone https://github.com/[git-username]/docs-apim.git
-    ```
-
-3. Navigate to the folder containing the repo that you cloned in step 3.2 on a terminal window.
-
-    For example:
-
-    ```shell
-    $ cd docs-apim/<Language-folder>/
-    ```
-
-    ```shell
-    $ cd docs-apim/en/
-    ```
-
-4. Install the required pip packages.
-
-    This will install MkDocs and the required theme, extensions, and plugins.
-
-    - If you are using Python2, use the following command:
-
-      ```shell
-      $ pip install -r requirements.txt
-      ```
-
-    - If you are using Python3, use the following command:
-
-      ```shell
-      $ pip3 install -r requirements.txt
-      ```
+The requirements include `setuptools<81` because the pinned Markdown 3.2.1 still imports the deprecated `pkg_resources` API.
 
 ### Step 4 - Run MkDocs
-1. Run the following command to start the server and view the site on your local server.
+
+Use UTF-8 mode (`-X utf8`) so documentation and build messages also work with Windows locales that use a different default encoding.
+
+1. From `docs-apim/en/`, with the virtual environment active, start the local server:
 
     ```shell
-    $ python3 -m mkdocs serve
+    python -X utf8 -m mkdocs serve
     ```
 
-    > **NOTE:**
-    >
-    > If you are making changes and want to see them on the fly, run the following command to start the server and view the site on your local server.
-    > 1. Navigate to the `mkdocs.yml` file.
-    > 2. Change the following configuration to `false` as shown below. 
-    >     ```
-    >     #Breaks build if there's a warning
-    >     strict: false
-    >     ```
-    > 3. Run the following command to start the server and to make the server load only the changed items and display the changes faster. 
-    >
-    >    `python3 -m mkdocs serve --dirtyreload`
-  
-2. Open the following URL on a new browser window to view the API-M documentation site locally.
+2. Open the local URL printed by MkDocs in the terminal. Its path follows the `site_url` setting in the branch's `mkdocs.yml`.
 
-    [http://localhost:8000/getting-started/overview/](http://localhost:8000/getting-started/overview/)
+For faster incremental previews while editing, use:
 
-> **NOTE:**
->
-> If you were running the `mkdocs serve --dirtyreload` command to run the MkDocs server, make sure to change the configuration in the `mkdocs.yml` file as follows before sending a pull request.
->
-> `strict: true` 
+```shell
+python -X utf8 -m mkdocs serve --dirtyreload
+```
+
+Keep the repository's `mkdocs.yml` settings unchanged when submitting a pull request. If you temporarily adjust a setting for local development, restore its original value before submitting.
 
 ## License
 
