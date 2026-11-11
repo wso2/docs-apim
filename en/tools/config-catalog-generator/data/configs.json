@@ -2457,6 +2457,91 @@
             "exampleFile": "apim.open_tracer.toml"
         },
         {
+            "title": "API-M OpenTelemetry configurations",
+            "options": [
+                {
+                    "name": "apim.open_telemetry",
+                    "required": true,
+                    "description": "Configurations related to OpenTelemetry based distributed tracing.",
+                    "params": [
+                        {
+                            "name": "remote_tracer.enable",
+                            "type": "boolean",
+                            "required": false,
+                            "default": "false",
+                            "possible": "",
+                            "description": "Enable exporting traces to a remote tracer. If disabled, only log tracing can be enabled."
+                        },
+                        {
+                            "name": "remote_tracer.name",
+                            "type": "string",
+                            "required": false,
+                            "default": "zipkin",
+                            "possible": "jaeger, zipkin, log, otlp, <custom-tracer-name>",
+                            "description": "Remote tracer to use. For OTLP-based APMs such as Elastic APM, New Relic, and Moesif, use otlp."
+                        },
+                        {
+                            "name": "remote_tracer.hostname",
+                            "type": "string",
+                            "required": false,
+                            "default": "localhost",
+                            "possible": "",
+                            "description": "Hostname of the Jaeger or Zipkin endpoint. Use this instead of remote_tracer.url."
+                        },
+                        {
+                            "name": "remote_tracer.port",
+                            "type": "integer",
+                            "required": false,
+                            "default": "14250 for Jaeger, 9411 for Zipkin",
+                            "possible": "",
+                            "description": "Port of the Jaeger or Zipkin endpoint. Use this instead of remote_tracer.url."
+                        },
+                        {
+                            "name": "remote_tracer.url",
+                            "type": "string",
+                            "required": false,
+                            "default": "",
+                            "possible": "",
+                            "description": "OTLP endpoint URL, including the path, for example https://api.moesif.net/v1/traces. Required when remote_tracer.name is otlp. Use this instead of remote_tracer.hostname and remote_tracer.port."
+                        },
+                        {
+                            "name": "remote_tracer.protocol",
+                            "type": "string",
+                            "required": false,
+                            "default": "grpc",
+                            "possible": "grpc, http",
+                            "description": "OTLP transport protocol. Set to http for OTLP/HTTP endpoints. If not set, the exporter uses gRPC."
+                        },
+                        {
+                            "name": "log_tracer.enable",
+                            "type": "boolean",
+                            "required": false,
+                            "default": "false",
+                            "possible": "",
+                            "description": "Write spans to the wso2-apimgt-open-tracing.log file in the &lt;API-M_HOME&gt;/repository/logs directory."
+                        },
+                        {
+                            "name": "remote_tracer.properties",
+                            "type": "array",
+                            "required": false,
+                            "default": "",
+                            "possible": "",
+                            "description": "Authentication headers to send to the OTLP endpoint, defined as name and value pairs. Only the first entry is used."
+                        },
+                        {
+                            "name": "resource_attributes",
+                            "type": "array",
+                            "required": false,
+                            "default": "",
+                            "possible": "",
+                            "description": "Resource attributes added to every exported span, defined as name and value pairs, for example service.name and deployment.environment.name. Values set through the OTEL_RESOURCE_ATTRIBUTES environment variable take precedence."
+                        }
+                    ]
+                }
+            ],
+            "exampleFile": "apim.open_telemetry.toml"
+        },
+        {
             "title": "API-M token revocation",
             "options": [
                 {

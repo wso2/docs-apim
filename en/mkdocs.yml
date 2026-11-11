@@ -603,6 +603,7 @@ nav:
             - Traces:
                 - OpenTracing: monitoring/observability/traces/monitoring-with-opentracing.md
                 - OpenTelemetry: monitoring/observability/traces/monitoring-with-opentelemetry.md
+                - Moesif Traces: monitoring/observability/traces/monitoring-with-moesif.md
             - Metrics:
                 - JMX-Based Monitoring: monitoring/observability/metrics/jmx-based-monitoring.md
 
