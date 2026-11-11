@@ -78,7 +78,37 @@ Replace `YOUR_MOESIF_API_KEY_HERE` with the actual API key you copied from Step 
 All of these properties are node-level: they apply to every API deployed on the gateway, and
 changing any of them requires a restart. There is no per-API or per-resource override.
 
-### 2.2 Restart WSO2 API Manager
+### 2.2 Configure a Proxy (Optional)
+
+If your network requires outbound connections to pass through a proxy, configure WSO2 API Manager to publish Moesif analytics through that proxy.
+
+1. Add the following properties to the existing `[apim.analytics.properties]` section in `<APIM-HOME>/repository/conf/deployment.toml`. Keep `[apim.analytics]` enabled with `type = "moesif"`. Replace the placeholders with your Moesif API key and proxy details.
+
+    ```toml
+    [apim.analytics.properties]
+    moesifKey = "<moesif_key>"
+    moesif_proxy_enable = true
+    proxy_config_host = "<proxy_host>"
+    proxy_config_port = "<proxy_port>"
+    proxy_config_protocol = "http"
+    # Optional, if the proxy requires authentication
+    proxy_config_username = "<username>"
+    proxy_config_password = "<password>"
+    ```
+
+    Specify the proxy hostname or IP address without a protocol prefix. Set `proxy_config_port` to a quoted port number between `1` and `65535`. The `proxy_config_protocol` property specifies the protocol used to connect to the proxy and defaults to `http` when omitted or blank.
+
+    If the proxy requires authentication, provide both `proxy_config_username` and `proxy_config_password`. Otherwise, omit both properties.
+
+2. Restart WSO2 API Manager as described in [Step 2.3](#23-restart-wso2-api-manager).
+3. Invoke an API and verify that its analytics events appear in your Moesif dashboard. You can also check the API Manager logs for the message `Moesif analytics publishing is configured to use the proxy` to confirm that the proxy configuration was applied.
+
+!!! note
+    `moesif_proxy_enable` defaults to `false`. Set it to `true` to enable proxy support for Moesif. The `proxy_config_enable` property does not enable the Moesif proxy. To return to direct connectivity, set `moesif_proxy_enable = false` and restart API Manager.
+
+For parameter descriptions and defaults, see [API-M Analytics - Moesif configurations]({{base_path}}/reference/config-catalog/#api-m-analytics-moesif-configurations).
+
+### 2.3 Restart WSO2 API Manager
 
 After saving the configuration changes, restart WSO2 API Manager for the changes to take effect:
 
