@@ -84,6 +84,9 @@ This will remove the old and invalid tokens, sessions, and Auth codes, which can
 
 3. Select the appropriate cleanup script, based on your database, from [here](https://github.com/wso2/carbon-identity-framework/tree/master/features/identity-core/org.wso2.carbon.identity.core.server.feature/resources/dbscripts/stored-procedures), and run it on the production database. 
 
+    !!! note
+        The PostgreSQL scripts named `postgre-11x` are compatible with PostgreSQL 11 and later versions.
+
      This takes a backup of the necessary tables, turns off SQL updates, and cleans the database of unused tokens. However, when running the script on production make sure the script has been tested at least once in a lower environment.
   
      Select the `token-cleanup` script to clean up the tokens, the `sessiondata-cleanup` script to cleanup the session data, and the `registry-cleanup` script to clean up the unused data in the Registry.
