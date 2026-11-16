@@ -1807,6 +1807,14 @@
                             "default": "HYBRID",
                             "possible": "HYBRID, API_ONLY, MCP_ONLY",
                             "description": "The Developer Portal can operate in three modes. In HYBRID mode, both APIs and MCP servers are available. In API_ONLY mode, only APIs are shown. In MCP_ONLY mode, only MCP servers are shown."
+                        },
+                        {
+                            "name": "url_generation_secret",
+                            "type": "string",
+                            "required": false,
+                            "default": "Randomly generated at each server startup",
+                            "possible": "",
+                            "description": "Secret key used to sign the WSDL URLs of SOAP APIs that are generated via the Developer Portal. If this is not configured, a random key is generated at each server startup, so previously generated URLs become invalid after a restart and are not valid across nodes in a clustered deployment. Use a randomly generated string of at least 32 characters (for example, generated using <code>openssl rand -base64 32</code>) and encrypt it using Secure Vault."
                         }
                     ]
                 }

@@ -4552,6 +4552,7 @@ enable_ratings = true
 enable_forum = true
 enable_legacy_api_keys = true
 mode = "HYBRID"
+url_generation_secret = "your_secret"
 </code></pre>
                     </div>
                 </div>
@@ -4814,6 +4815,25 @@ mode = "HYBRID"
                                     </div>
                                     <div class="param-description">
                                         <p>The Developer Portal can operate in three modes. In HYBRID mode, both APIs and MCP servers are available. In API_ONLY mode, only APIs are shown. In MCP_ONLY mode, only MCP servers are shown.</p>
+                                    </div>
+                                </div>
+                            </div><div class="param">
+                                <div class="param-name">
+                                  <span class="param-name-wrap"> <code>url_generation_secret</code> </span>
+                                </div>
+                                <div class="param-info">
+                                    <div>
+                                        <p>
+                                            <span class="param-type string"> string </span>
+                                            
+                                        </p>
+                                        <div class="param-default">
+                                            <span class="param-default-value">Default: <code>Randomly generated at each server startup</code></span>
+                                        </div>
+                                        
+                                    </div>
+                                    <div class="param-description">
+                                        <p>Secret key used to sign the WSDL URLs of SOAP APIs that are generated via the Developer Portal. If this is not configured, a random key is generated at each server startup, so previously generated URLs become invalid after a restart and are not valid across nodes in a clustered deployment. Use a randomly generated string of at least 32 characters (for example, generated using <code>openssl rand -base64 32</code>) and encrypt it using Secure Vault.</p>
                                     </div>
                                 </div>
                             </div>
