@@ -61,13 +61,13 @@ The tutorial demonstrates a simple WebSub/WebHook API that monitors your GitHub 
 
      2. Click **Add Topic**, add a topic with the name **/issues**, click **Add**, and finally click **Save**.
 
-           [![Add Topics to WebSub API]({{base_path}}/assets/img/tutorials/streaming-api/websub-api-add-topic.png)]({{base_path}}/assets/img/tutorials/streaming-api/websub-api-add-topic.png)
+           [![Add Topics to WebSub API]({{base_path}}/assets/img/design/create-api/streaming-api/websub-api-v3-add-topic.png)]({{base_path}}/assets/img/design/create-api/streaming-api/websub-api-v3-add-topic.png)
 
 6. Generate a secret.
      
       1. Expand the **Subscription Configuration** section in the **Topics** page.
 
-           [![WebSub API Runtime Configurations]({{base_path}}/assets/img/tutorials/streaming-api/enable-secret-generation.png)]({{base_path}}/assets/img/tutorials/streaming-api/enable-secret-generation.png)
+           [![WebSub API Runtime Configurations]({{base_path}}/assets/img/tutorials/streaming-api/enable-secret-generation-v3.png)]({{base_path}}/assets/img/tutorials/streaming-api/enable-secret-generation-v3.png)
 
       2. Click **Enable** to enable secret generation.
 
