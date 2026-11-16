@@ -4552,6 +4552,7 @@ enable_ratings = true
 enable_forum = true
 enable_legacy_api_keys = true
 mode = "HYBRID"
+url_generation_secret = "your_secret"
 </code></pre>
                     </div>
                 </div>
@@ -4814,6 +4815,25 @@ mode = "HYBRID"
                                     </div>
                                     <div class="param-description">
                                         <p>The Developer Portal can operate in three modes. In HYBRID mode, both APIs and MCP servers are available. In API_ONLY mode, only APIs are shown. In MCP_ONLY mode, only MCP servers are shown.</p>
+                                    </div>
+                                </div>
+                            </div><div class="param">
+                                <div class="param-name">
+                                  <span class="param-name-wrap"> <code>url_generation_secret</code> </span>
+                                </div>
+                                <div class="param-info">
+                                    <div>
+                                        <p>
+                                            <span class="param-type string"> string </span>
+                                            
+                                        </p>
+                                        <div class="param-default">
+                                            <span class="param-default-value">Default: <code>Randomly generated at each server startup</code></span>
+                                        </div>
+                                        
+                                    </div>
+                                    <div class="param-description">
+                                        <p>Secret key used to sign the WSDL URLs of SOAP APIs that are generated via the Developer Portal. If this is not configured, a random key is generated at each server startup, so previously generated URLs become invalid after a restart and are not valid across nodes in a clustered deployment. Use a randomly generated string of at least 32 characters (for example, generated using <code>openssl rand -base64 32</code>) and encrypt it using Secure Vault.</p>
                                     </div>
                                 </div>
                             </div>
@@ -18613,6 +18633,65 @@ disable_account_confirmation_validation_handler = false</code></pre>
                                     </div>
                                     <div class="param-description">
                                         <p>Disables the account confirmation validation handler during authentication. Note that this configuration is available in wso2am-4.7.0, wso2am-universal-gw-4.7.0, wso2am-acp-4.7.0, and wso2am-tm-4.7.0 starting from update level 9.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+
+
+
+## GraphQL Configurations
+
+
+<div class="mb-config-catalog">
+    <section>
+        <div class="mb-config-options">
+            <div class="superfences-tabs">
+            
+            <input name="130" type="checkbox" id="_tab_130">
+                <label class="tab-selector" for="_tab_130"><i class="icon fa fa-code"></i></label>
+                <div class="superfences-content">
+                    <div class="mb-config-example">
+<pre><code class="toml">[apim.graphql]
+enforce_operation_settings_on_advanced_queries = true
+</code></pre>
+                    </div>
+                </div>
+                <div class="doc-wrapper">
+                    <div class="mb-config">
+                        <div class="config-wrap">
+                            <code>[apim.graphql]</code>
+                            
+                            <p>
+                                Collection of GraphQL related configs
+                            </p>
+                        </div>
+                        <div class="params-wrap">
+                            <div class="param">
+                                <div class="param-name">
+                                  <span class="param-name-wrap"> <code>enforce_operation_settings_on_advanced_queries</code> </span>
+                                </div>
+                                <div class="param-info">
+                                    <div>
+                                        <p>
+                                            <span class="param-type string"> boolean </span>
+                                            
+                                        </p>
+                                        <div class="param-default">
+                                            <span class="param-default-value">Default: <code>true</code></span>
+                                        </div>
+                                        <div class="param-possible">
+                                            <span class="param-possible-values">Possible Values: <code>true,false</code></span>
+                                        </div>
+                                    </div>
+                                    <div class="param-description">
+                                        <p>Enforce operation-level settings (scopes, security and throttling policies) on GraphQL queries that use fragments.</p>
                                     </div>
                                 </div>
                             </div>

@@ -1,0 +1,2 @@
+[apim.graphql]
+enforce_operation_settings_on_advanced_queries = true
