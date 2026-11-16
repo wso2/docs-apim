@@ -186,7 +186,7 @@ WSO2 IS 7.x needs a custom image that includes the APIM notification event handl
     FROM wso2/wso2is:7.2.0
 
     ADD --chown=wso2carbon:wso2 \
-      https://maven.wso2.org/nexus/content/repositories/releases/org/wso2/km/ext/wso2is/wso2is.notification.event.handlers/2.1.3/wso2is.notification.event.handlers-2.1.3.jar \
+      https://apim.docs.wso2.com/en/4.7.0/assets/attachments/administer/wso2is.notification.event.handlers-2.1.3.7.jar \
       /home/wso2carbon/wso2is-7.2.0/repository/components/dropins/
     ```
 
