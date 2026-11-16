@@ -11,3 +11,4 @@ enable_ratings = true
 enable_forum = true
 enable_legacy_api_keys = true
 mode = "HYBRID"
+url_generation_secret = "your_secret"
