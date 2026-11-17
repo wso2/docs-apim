@@ -29,7 +29,7 @@ A basic infrastructure has already been created for you to try out the scenarios
 1. Clone https://github.com/wso2/samples-apim.
 2. Go to samples-apim/apim-tutorial.
 3. Start the setup using the command `docker-compose up -d`.
-4. You can view the logs using the command `docker-compose logs -d`.
+4. You can view the logs using the command `docker-compose logs -f`.
 5. It might take 5-10 minutes for the setup to complete (if it is the first time, based on your download speed it might take longer). 
 6. When you see the below log you can start working on the scenarios.
     ```
@@ -72,7 +72,7 @@ The following default users are created. For the ease of use, every tenant has 3
         </td>
         <td>
             <ul>
-                <li>devuser@qunatis.com</li>
+                <li>devuser@quantis.com</li>
                 <li>bob@quantis.com</li>
                 <li>sindy@quantis.com</li>
                 <li>logan@quantis.com</li>
