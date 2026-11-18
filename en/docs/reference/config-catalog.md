@@ -10669,7 +10669,7 @@ force_json_validation = false
                                             <span class="param-default-value">Default: <code>JKS</code></span>
                                         </div>
                                         <div class="param-possible">
-                                            <span class="param-possible-values">Possible Values: <code>&quot;JKS&quot; or &quot;PKCS12&quot;</code></span>
+                                            <span class="param-possible-values">Possible Values: <code>&quot;JKS&quot;</code></span>
                                         </div>
                                     </div>
                                     <div class="param-description">
@@ -10753,7 +10753,7 @@ force_json_validation = false
                                             <span class="param-default-value">Default: <code>JKS</code></span>
                                         </div>
                                         <div class="param-possible">
-                                            <span class="param-possible-values">Possible Values: <code>&quot;JKS&quot; or &quot;PKCS12&quot;</code></span>
+                                            <span class="param-possible-values">Possible Values: <code>&quot;JKS&quot;</code></span>
                                         </div>
                                     </div>
                                     <div class="param-description">
@@ -10900,7 +10900,7 @@ force_json_validation = false
                                             <span class="param-default-value">Default: <code>JKS</code></span>
                                         </div>
                                         <div class="param-possible">
-                                            <span class="param-possible-values">Possible Values: <code>&quot;JKS&quot; or &quot;PKCS12&quot;</code></span>
+                                            <span class="param-possible-values">Possible Values: <code>&quot;JKS&quot;</code></span>
                                         </div>
                                     </div>
                                     <div class="param-description">
@@ -10984,7 +10984,7 @@ force_json_validation = false
                                             <span class="param-default-value">Default: <code>JKS</code></span>
                                         </div>
                                         <div class="param-possible">
-                                            <span class="param-possible-values">Possible Values: <code>&quot;JKS&quot; or &quot;PKCS12&quot;</code></span>
+                                            <span class="param-possible-values">Possible Values: <code>&quot;JKS&quot;</code></span>
                                         </div>
                                     </div>
                                     <div class="param-description">
