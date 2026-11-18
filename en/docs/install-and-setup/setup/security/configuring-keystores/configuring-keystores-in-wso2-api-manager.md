@@ -69,7 +69,7 @@ The elements in the above configuration are described below:
 | Element           | Description                                                      |
 |-------------------|------------------------------------------------------------------|
 | **file_name**     | Name of the keystore file. **The file must be located in `<API-M_HOME>/repository/resources/security`** |
-| **type**          |Type of the keystore. Supported keystore types are JKS and PKCS12 |
+| **type**          | Type of the keystore. The only supported keystore type is JKS.    |
 | **password**      | Keystore password                                                |
 | **alias**         | Private key alias                                                |
 | **key_password**  | Private key password                                             |

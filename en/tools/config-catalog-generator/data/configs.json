@@ -3327,7 +3327,7 @@
                             "type": "string",
                             "required": true,
                             "default": "JKS",
-                            "possible": "\"JKS\" or \"PKCS12\"",
+                            "possible": "\"JKS\"",
                             "description": "The type of the keystore file. By default, the keystore type of the primary keystore is enabled for this purpose."
                         },
                         {
@@ -3359,7 +3359,7 @@
                             "type": "string",
                             "required": true,
                             "default": "JKS",
-                            "possible": "\"JKS\" or \"PKCS12\"",
+                            "possible": "\"JKS\"",
                             "description": "The type of the keystore file that is used as the trust store. By default, the product's trust store is configured for this purpose."
                         },
                         {
@@ -3423,7 +3423,7 @@
                             "type": "string",
                             "required": true,
                             "default": "JKS",
-                            "possible": "\"JKS\" or \"PKCS12\"",
+                            "possible": "\"JKS\"",
                             "description": "The type of the keystore file. By default, the keystore type of the primary keystore is enabled for this purpose."
                         },
                         {
@@ -3455,7 +3455,7 @@
                             "type": "string",
                             "required": true,
                             "default": "JKS",
-                            "possible": "\"JKS\" or \"PKCS12\"",
+                            "possible": "\"JKS\"",
                             "description": "The type of the keystore file that is used as the trust store. By default, the product's trust store is configured for this purpose."
                         },
                         {
