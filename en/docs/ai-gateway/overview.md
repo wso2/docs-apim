@@ -1,5 +1,9 @@
 # AI Gateway
 
+<div class="ai-recommendation-banner">
+    We recommend the <strong>Choreo AI Gateway</strong>, with <strong>Choreo Agent Control Plane</strong> as its control plane, for all new AI APIs and MCP Servers. See <a href="https://apim.docs.wso2.com/en/latest/ai-gateway/choreo-ai-gateway/">Get started with Choreo AI Gateway</a>.
+</div>
+
 As AI adoption accelerates, managing AI APIs effectively has become essential for organizations integrating AI into their applications. WSO2 API Manager's **AI Gateway** simplifies this process, providing a seamless way to create, manage, and expose AI APIs with robust security and scalability.
 
 [![AI Gateway]({{base_path}}/assets/img/learn/ai-gateway/ai-gateway.png){: style="width:90%"}]({{base_path}}/assets/img/learn/ai-gateway/ai-gateway.png)
