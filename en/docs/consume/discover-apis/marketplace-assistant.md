@@ -92,7 +92,7 @@ The Marketplace Assistant is labeled as an experimental feature because it repre
 
 **2. What are the usage limits?**
 
-Each key is limited to 1000 APIs in the vector database and a fixed number of language model tokens. These limits are the same for all users, including WSO2 subscription customers. For more information, see [Limitations](#limitations).
+Each key is limited to 1000 APIs and API Products combined in the vector database and a fixed number of language model tokens. These limits are the same for all users, including WSO2 subscription customers. For more information, see [Limitations](#limitations).
 
 **3. Why did I lose my chat history after I logged out?**
 
