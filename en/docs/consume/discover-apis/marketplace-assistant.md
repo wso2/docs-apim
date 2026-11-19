@@ -77,6 +77,13 @@ Now that your environment is configured, you're ready to interact with the Marke
 
 Explore the features and functionalities of the Marketplace Assistant to streamline your API management experience further.
 
+## Limitations
+
+The following usage limits are enforced by the WSO2 AI service for each key generated in the AI Subscription Portal. These are global limits that apply to all users, and they are the same for trial users and WSO2 subscription customers. Currently, these limits cannot be changed based on the account or subscription type.
+
+- **API count** - Up to 1000 APIs and API Products can be added to the vector database per key. Once this limit is reached, newly published APIs are not added to the vector database and the Marketplace Assistant will not be aware of them.
+- **Token usage** - Chat usage is limited by a fixed number of language model tokens per key. This token count is shared with the other AI features that use the same key, such as API Chat, and it resets 30 days after the first request made with the key.
+
 ## FAQ
 
 **1. Why is this an experimental feature?**
@@ -85,10 +92,7 @@ The Marketplace Assistant is labeled as an experimental feature because it repre
 
 **2. What are the usage limits?**
 
-During the trial period, users are subject to the following usage limits:
-
-- Access to up to 1000 APIs to the vectorDB.
-- Limited chat functionality based on the number of tokens used by the language model.
+Each key is limited to 1000 APIs in the vector database and a fixed number of language model tokens. These limits are the same for all users, including WSO2 subscription customers. For more information, see [Limitations](#limitations).
 
 **3. Why did I lose my chat history after I logged out?**
 
@@ -121,7 +125,7 @@ There are a few potential reasons for this
 
 **7. I am getting this error response: `Apologies for the inconvenience. It appears that the token limit has been exceeded`**
 
-This message indicates that the request you made has exceeded the allowed token limit usage. During the trial period, token usage is limited, You have the option to upgrade your subscription plan to access Marketplace Assistant without interruption.
+This message indicates that the token usage limit for your key has been reached. The token limit is the same for all users and resets 30 days after the first request made with the key. For more information, see [Limitations](#limitations).
 
 **8. I am getting this error response: Apologies for the inconvenience. `It appears that your token is invalid or expired. Please provide a valid token or upgrade your subscription plan `**
 
