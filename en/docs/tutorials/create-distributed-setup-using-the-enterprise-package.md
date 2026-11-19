@@ -23,9 +23,9 @@ Navigate to the `apim-distributed-dev-setup` directory.
 1. **Download the WSO2 API Manager Enterprise Package** from the [WSO2 API Manager downloads page](https://wso2.com/api-manager/) for API Control Plane, Traffic Manager and Classic Gateway components.
 2. **Extract the downloaded archives** into the `apim-distributed-dev-setup/components` directory, and **rename** the extracted folders to `wso2am-acp`, `wso2am-tm`, and `wso2am-universal-gw`.
     ```
-    mv wso2am-acp-4.5.0 wso2am-acp
-    mv wso2am-tm-4.5.0 wso2am-tm
-    mv wso2am-universal-gw-4.5.0 wso2am-universal-gw
+    mv wso2am-acp-4.7.0 wso2am-acp
+    mv wso2am-tm-4.7.0 wso2am-tm
+    mv wso2am-universal-gw-4.7.0 wso2am-universal-gw
     ```
 
     !!! note "Note"
