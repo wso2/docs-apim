@@ -48,6 +48,9 @@ template: templates/single-column.html
 <div class="homePage">
     <div class="section01">
         <div class="leftContent">
+        <div class="ai-recommendation-banner">
+            We recommend the <strong>Choreo AI Gateway</strong>, with <strong>Choreo Agent Control Plane</strong> as its control plane, for all new AI APIs and MCP Servers. See <a href="https://apim.docs.wso2.com/en/latest/ai-gateway/choreo-ai-gateway/">Get started with Choreo AI Gateway</a>.
+        </div>
             <h2>Learn to build and manage your APIs with ease  </h2>
             <p>
                 WSO2 API Manager is a complete platform for building, integrating, and exposing your digital services as managed APIs in the cloud, on-premise, and hybrid architectures to drive your digital transformation strategy. 

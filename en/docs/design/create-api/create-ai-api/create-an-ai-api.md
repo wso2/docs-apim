@@ -1,5 +1,9 @@
 # Create an AI API
 
+<div class="ai-recommendation-banner">
+    We recommend the <strong>Choreo AI Gateway</strong>, with <strong>Choreo Agent Control Plane</strong> as its control plane, for all new AI APIs and MCP Servers. See <a href="https://apim.docs.wso2.com/en/latest/ai-gateway/choreo-ai-gateway/">Get started with Choreo AI Gateway</a>.
+</div>
+
 AI APIs enable seamless integration of artificial intelligence services into applications through the WSO2 API Manager. By using the AI API feature, users can select specific AI vendors that best suit their needs. WSO2 API Manager provides built-in support for leading AI vendors like **OpenAI**, **Mistral**, and **Azure AI**, while also allowing configuration of custom AI vendors to create AI APIs.
 
 Follow the instructions below to create an AI API using the basic flow:
