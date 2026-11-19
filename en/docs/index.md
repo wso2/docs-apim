@@ -351,6 +351,10 @@ template: templates/single-column.html
     ]
 ] %}
 
+<div class="ai-recommendation-banner">
+    We recommend the <strong>Choreo AI Gateway</strong>, with <strong>Choreo Agent Control Plane</strong> as its control plane, for all new AI APIs and MCP Servers. See <a href="https://apim.docs.wso2.com/en/latest/ai-gateway/choreo-ai-gateway/">Get started with Choreo AI Gateway</a>.
+</div>
+
 <div class="homePage">
     <div class="description-section">
         <div class="leftContent">

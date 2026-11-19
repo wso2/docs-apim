@@ -1349,3 +1349,44 @@ html .md-typeset .superfences-tabs>label:hover {
         margin-right: 12.1rem;
     }
 }
+
+/* WSO2 AI Gateway recommendation banner - Light Mode */
+.ai-recommendation-banner {
+    display: block;
+    background-color: #FFF3EB;
+    border: 1px solid var(--md-default-fg-color--lightest, rgba(0, 0, 0, 0.07));
+    border-left: 5px solid #F47B20;
+    padding: 12px 16px;
+    margin: 20px 0;
+    border-radius: 8px;
+    color: #2C3E50;
+    font-size: 0.8rem;
+    line-height: 1.6;
+    transition: background-color 0.25s ease, color 0.25s ease, border-color 0.25s ease;
+}
+
+.ai-recommendation-banner strong {
+    color: #2C3E50;
+}
+
+.ai-recommendation-banner a {
+    color: #F47B20;
+    text-decoration: underline;
+    font-weight: 500;
+}
+
+/* Dark Mode Overrides (Material for MkDocs Slate Theme) */
+[data-md-color-scheme="slate"] .ai-recommendation-banner {
+    background-color: rgba(244, 123, 32, 0.12);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-left: 5px solid #F47B20;
+    color: #E2E8F0;
+}
+
+[data-md-color-scheme="slate"] .ai-recommendation-banner strong {
+    color: #FFFFFF;
+}
+
+[data-md-color-scheme="slate"] .ai-recommendation-banner a {
+    color: #FF9B42;
+}
