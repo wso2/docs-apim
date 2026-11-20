@@ -211,3 +211,4 @@ If authentication fails, confirm the policy is deployed, the header names match 
 - [Setting Up Platform Gateway]({{base_path}}/api-gateway/platform-gateway/setting-up/)
 - [Adding and Managing Policies]({{base_path}}/api-gateway/platform-gateway/adding-and-managing-policies/)
 - [Gateway Registration and Deployment]({{base_path}}/api-gateway/platform-gateway/gateway-registration-and-deployment/)
+- [Bottom-Up API Deployment]({{base_path}}/api-gateway/platform-gateway/bottom-up-api-deployment/)
