@@ -125,7 +125,7 @@ Now, you have successfully created an AI API. Next, [deploy the API]({{base_path
 
 Learn more on the concepts that you need to know when creating a REST API:
 
--   [API Security]({{base_path}}/api-security/runtime/secure-apis-using-oauth2-tokens/)
+-   [API Security]({{base_path}}/api-security/runtime/api-authentication/secure-apis-using-oauth2-tokens/)
 -   [Rate Limiting for AI APIs]({{base_path}}/ai-gateway/rate-limiting/)
 -   [Multi-Model Routing]({{base_path}}/ai-gateway/multi-model-routing/overview/)
 -   [Life Cycle Management]({{base_path}}/api-design-manage/design/lifecycle-management/api-lifecycle/)
