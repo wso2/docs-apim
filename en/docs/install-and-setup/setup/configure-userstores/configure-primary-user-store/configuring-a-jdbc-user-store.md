@@ -27,7 +27,7 @@ You can either use the default configuration or you can change it in the followi
     ```toml
     [user_store.properties]
     TenantManager = "org.wso2.carbon.user.core.tenant.JDBCTenantManager"
-    data_source = "WSO2USER_DB"
+    dataSource = "jdbc/WSO2USER_DB"
     Disabled = false
     MaxUserNameListLength = 100
     MaxRoleNameListLength = 100
@@ -46,8 +46,7 @@ You can either use the default configuration or you can change it in the followi
     UsernameJavaScriptRegEx = "^[\\S]{5,30}$"
     RolenameJavaRegEx = "^[\\S]{5,30}$"
     RolenameJavaScriptRegEx = "^[\\S]{5,30}$"
-    SCIMEnabled = false
-    SelectUserSQL = "SELECT * FROM UM_USER WHERE UM_USER_NAME=? AND UM_TENANT_ID=?"
+        SelectUserSQL = "SELECT * FROM UM_USER WHERE UM_USER_NAME=? AND UM_TENANT_ID=?"
     GetRoleListSQL = "SELECT UM_ROLE_NAME, UM_TENANT_ID, UM_SHARED_ROLE FROM UM_ROLE WHERE UM_ROLE_NAME LIKE ? AND UM_TENANT_ID=? AND UM_SHARED_ROLE ='0' ORDER BY UM_ROLE_NAME"
     GetSharedRoleListSQL = "SELECT UM_ROLE_NAME, UM_TENANT_ID, UM_SHARED_ROLE FROM UM_ROLE WHERE UM_ROLE_NAME LIKE ? AND UM_SHARED_ROLE ='1' ORDER BY UM_ROLE_NAME"
     UserFilterSQL = "SELECT UM_USER_NAME FROM UM_USER WHERE UM_USER_NAME LIKE ? AND UM_TENANT_ID=? ORDER BY UM_USER_NAME"
@@ -186,7 +185,7 @@ Whenever there is an RDBMS set up for your system, it is necessary to create a c
 
         ```toml
         [user_store.properties]
-        data_source = "WSO2USER_DB"
+        dataSource = "jdbc/WSO2USER_DB"
         ```
 
         !!! note
