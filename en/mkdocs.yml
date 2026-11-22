@@ -450,6 +450,7 @@ nav:
             - Setting Up: api-gateway/platform-gateway/setting-up.md
             - Adding and Managing Policies: api-gateway/platform-gateway/adding-and-managing-policies.md
             - Gateway Registration and Deployment: api-gateway/platform-gateway/gateway-registration-and-deployment.md
+            - Bottom-Up API Deployment: api-gateway/platform-gateway/bottom-up-api-deployment.md
         - Classic Gateway (Universal):
             - Overview of the WSO2 Classic Gateway: api-gateway/overview-of-the-api-gateway.md
             - Deploy an API to Gateway: api-gateway/deploy-api-to-gateway.md
