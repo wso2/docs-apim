@@ -3500,6 +3500,7 @@ default_request_timeout = 30</code></pre>
 <pre><code class="toml">[apim.mcp]
 enable = true
 enforce_auth_for_all_mcp_methods = false
+enable_outbound_auth_header = false
 </code></pre>
                     </div>
                 </div>
@@ -3555,6 +3556,27 @@ enforce_auth_for_all_mcp_methods = false
                                         <p>By default, all MCP requests sent over POST except tools/call requests are unauthenticated. If this option is set to true, authentication will be required for all such MCP requests sent over POST. This option does not apply to the GET request made to the MCP endpoint (used to check for SSE transport support), which is never authenticated regardless of this setting. For improved security, it is recommended to enable this option.</p>
                                     </div>
                                 </div>
+                            </div><div class="param">
+                                <div class="param-name">
+                                  <span class="param-name-wrap"> <code>enable_outbound_auth_header</code> </span>
+                                </div>
+                                <div class="param-info">
+                                    <div>
+                                        <p>
+                                            <span class="param-type string"> boolean </span>
+                                            
+                                        </p>
+                                        <div class="param-default">
+                                            <span class="param-default-value">Default: <code>true</code></span>
+                                        </div>
+                                        <div class="param-possible">
+                                            <span class="param-possible-values">Possible Values: <code>true,false</code></span>
+                                        </div>
+                                    </div>
+                                    <div class="param-description">
+                                        <p>If set to true, the client&#39;s authorization header is forwarded to the remote MCP server or backend of MCP servers that proxy a remote MCP server or are created from an API definition. If set to false, it is removed.</p>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -3579,7 +3601,8 @@ enforce_auth_for_all_mcp_methods = false
                 <div class="superfences-content">
                     <div class="mb-config-example">
 <pre><code class="toml">[apim.api_product]
-enable_revision_based_resources = true</code></pre>
+enable_revision_based_resources = true
+</code></pre>
                     </div>
                 </div>
                 <div class="doc-wrapper">
@@ -17189,7 +17212,7 @@ class="org.wso2.carbon.apimgt.gateway.handlers.custom.customer_handler"
 
 
 
-## APIM Governance Configurations
+## APIM Governance Severity Configurations
 
 
 <div class="mb-config-catalog">
@@ -17199,6 +17222,63 @@ class="org.wso2.carbon.apimgt.gateway.handlers.custom.customer_handler"
             
             <input name="113" type="checkbox" id="_tab_113">
                 <label class="tab-selector" for="_tab_113"><i class="icon fa fa-code"></i></label>
+                <div class="superfences-content">
+                    <div class="mb-config-example">
+<pre><code class="toml">[apim.governance]
+per_policy_severity_filtering_enabled = false
+</code></pre>
+                    </div>
+                </div>
+                <div class="doc-wrapper">
+                    <div class="mb-config">
+                        <div class="config-wrap">
+                            <code>[apim.governance]</code>
+                            
+                            <p>
+                                Configurations used to configure API governance behaviour.
+                            </p>
+                        </div>
+                        <div class="params-wrap">
+                            <div class="param">
+                                <div class="param-name">
+                                  <span class="param-name-wrap"> <code>per_policy_severity_filtering_enabled</code> </span>
+                                </div>
+                                <div class="param-info">
+                                    <div>
+                                        <p>
+                                            <span class="param-type string"> boolean </span>
+                                            
+                                        </p>
+                                        <div class="param-default">
+                                            <span class="param-default-value">Default: <code>false</code></span>
+                                        </div>
+                                        
+                                    </div>
+                                    <div class="param-description">
+                                        <p>Allows a policy to declare which rule severities affect compliance. Violations of other severities are still evaluated and reported, but do not violate the policy. The optional COMPLIANCE_AFFECTING_SEVERITIES column must also be added to GOV_POLICY before enabling this: with the column missing, listings and compliance results still show every severity affecting compliance, but saving a severity selection on a policy fails with an HTTP 500 error.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+
+
+
+## APIM Governance Configurations
+
+
+<div class="mb-config-catalog">
+    <section>
+        <div class="mb-config-options">
+            <div class="superfences-tabs">
+            
+            <input name="114" type="checkbox" id="_tab_114">
+                <label class="tab-selector" for="_tab_114"><i class="icon fa fa-code"></i></label>
                 <div class="superfences-content">
                     <div class="mb-config-example">
 <pre><code class="toml">[apim.governance.scheduler]
@@ -17336,8 +17416,8 @@ task_cleanup_interval_minutes = 30
         <div class="mb-config-options">
             <div class="superfences-tabs">
             
-            <input name="114" type="checkbox" id="_tab_114">
-                <label class="tab-selector" for="_tab_114"><i class="icon fa fa-code"></i></label>
+            <input name="115" type="checkbox" id="_tab_115">
+                <label class="tab-selector" for="_tab_115"><i class="icon fa fa-code"></i></label>
                 <div class="superfences-content">
                     <div class="mb-config-example">
 <pre><code class="toml">[apim.mediator_config.oauth.trust_store]
@@ -17430,8 +17510,8 @@ password = "wso2carbon"</code></pre>
         <div class="mb-config-options">
             <div class="superfences-tabs">
             
-            <input name="115" type="checkbox" id="_tab_115">
-                <label class="tab-selector" for="_tab_115"><i class="icon fa fa-code"></i></label>
+            <input name="116" type="checkbox" id="_tab_116">
+                <label class="tab-selector" for="_tab_116"><i class="icon fa fa-code"></i></label>
                 <div class="superfences-content">
                     <div class="mb-config-example">
 <pre><code class="toml">[transport.receiver]
@@ -17483,8 +17563,8 @@ max_reconnection_interval = 3600
         <div class="mb-config-options">
             <div class="superfences-tabs">
             
-            <input name="116" type="checkbox" id="_tab_116">
-                <label class="tab-selector" for="_tab_116"><i class="icon fa fa-code"></i></label>
+            <input name="117" type="checkbox" id="_tab_117">
+                <label class="tab-selector" for="_tab_117"><i class="icon fa fa-code"></i></label>
                 <div class="superfences-content">
                     <div class="mb-config-example">
 <pre><code class="toml">[apim.basic_authenticator]
@@ -17600,8 +17680,8 @@ max_wait_millis = 30000
         <div class="mb-config-options">
             <div class="superfences-tabs">
             
-            <input name="117" type="checkbox" id="_tab_117">
-                <label class="tab-selector" for="_tab_117"><i class="icon fa fa-code"></i></label>
+            <input name="118" type="checkbox" id="_tab_118">
+                <label class="tab-selector" for="_tab_118"><i class="icon fa fa-code"></i></label>
                 <div class="superfences-content">
                     <div class="mb-config-example">
 <pre><code class="toml">[apim.synapse_artifact_generator.thread_pool]
@@ -17716,8 +17796,8 @@ queue_capacity = 50</code></pre>
         <div class="mb-config-options">
             <div class="superfences-tabs">
             
-            <input name="118" type="checkbox" id="_tab_118">
-                <label class="tab-selector" for="_tab_118"><i class="icon fa fa-code"></i></label>
+            <input name="119" type="checkbox" id="_tab_119">
+                <label class="tab-selector" for="_tab_119"><i class="icon fa fa-code"></i></label>
                 <div class="superfences-content">
                     <div class="mb-config-example">
 <pre><code class="toml">[web_app.cookie_processor]
@@ -17775,8 +17855,8 @@ same_site_cookies = "lax"
         <div class="mb-config-options">
             <div class="superfences-tabs">
             
-            <input name="119" type="checkbox" id="_tab_119">
-                <label class="tab-selector" for="_tab_119"><i class="icon fa fa-code"></i></label>
+            <input name="120" type="checkbox" id="_tab_120">
+                <label class="tab-selector" for="_tab_120"><i class="icon fa fa-code"></i></label>
                 <div class="superfences-content">
                     <div class="mb-config-example">
 <pre><code class="toml">[apim.aws_lambda]
@@ -17956,8 +18036,8 @@ connection_acquisition_timeout = 60
         <div class="mb-config-options">
             <div class="superfences-tabs">
             
-            <input name="120" type="checkbox" id="_tab_120">
-                <label class="tab-selector" for="_tab_120"><i class="icon fa fa-code"></i></label>
+            <input name="121" type="checkbox" id="_tab_121">
+                <label class="tab-selector" for="_tab_121"><i class="icon fa fa-code"></i></label>
                 <div class="superfences-content">
                     <div class="mb-config-example">
 <pre><code class="toml">[synapse_properties]
@@ -18037,8 +18117,8 @@ connection_acquisition_timeout = 60
         <div class="mb-config-options">
             <div class="superfences-tabs">
             
-            <input name="121" type="checkbox" id="_tab_121">
-                <label class="tab-selector" for="_tab_121"><i class="icon fa fa-code"></i></label>
+            <input name="122" type="checkbox" id="_tab_122">
+                <label class="tab-selector" for="_tab_122"><i class="icon fa fa-code"></i></label>
                 <div class="superfences-content">
                     <div class="mb-config-example">
 <pre><code class="toml">[authentication.authenticator.oidc.parameters]
@@ -18096,8 +18176,8 @@ excludedClaimAttributes="at_hash,iss,iat,exp,aud,azp"
         <div class="mb-config-options">
             <div class="superfences-tabs">
             
-            <input name="122" type="checkbox" id="_tab_122">
-                <label class="tab-selector" for="_tab_122"><i class="icon fa fa-code"></i></label>
+            <input name="123" type="checkbox" id="_tab_123">
+                <label class="tab-selector" for="_tab_123"><i class="icon fa fa-code"></i></label>
                 <div class="superfences-content">
                     <div class="mb-config-example">
 <pre><code class="toml">[dependency_properties]
@@ -18153,8 +18233,8 @@ excludedClaimAttributes="at_hash,iss,iat,exp,aud,azp"
         <div class="mb-config-options">
             <div class="superfences-tabs">
             
-            <input name="123" type="checkbox" id="_tab_123">
-                <label class="tab-selector" for="_tab_123"><i class="icon fa fa-code"></i></label>
+            <input name="124" type="checkbox" id="_tab_124">
+                <label class="tab-selector" for="_tab_124"><i class="icon fa fa-code"></i></label>
                 <div class="superfences-content">
                     <div class="mb-config-example">
 <pre><code class="toml"># API KEY CONFIGS
@@ -18331,8 +18411,8 @@ azure_umi_scope = "https://cognitiveservices.azure.com/.default"
         <div class="mb-config-options">
             <div class="superfences-tabs">
             
-            <input name="124" type="checkbox" id="_tab_124">
-                <label class="tab-selector" for="_tab_124"><i class="icon fa fa-code"></i></label>
+            <input name="125" type="checkbox" id="_tab_125">
+                <label class="tab-selector" for="_tab_125"><i class="icon fa fa-code"></i></label>
                 <div class="superfences-content">
                     <div class="mb-config-example">
 <pre><code class="toml">[apim.ai.vector_db_provider]
@@ -18776,8 +18856,8 @@ ttl = 3600
         <div class="mb-config-options">
             <div class="superfences-tabs">
             
-            <input name="125" type="checkbox" id="_tab_125">
-                <label class="tab-selector" for="_tab_125"><i class="icon fa fa-code"></i></label>
+            <input name="126" type="checkbox" id="_tab_126">
+                <label class="tab-selector" for="_tab_126"><i class="icon fa fa-code"></i></label>
                 <div class="superfences-content">
                     <div class="mb-config-example">
 <pre><code class="toml">[apim.ai.azure_umi]
@@ -18833,8 +18913,8 @@ scope = "https://ai.azure.com/.default"
         <div class="mb-config-options">
             <div class="superfences-tabs">
             
-            <input name="126" type="checkbox" id="_tab_126">
-                <label class="tab-selector" for="_tab_126"><i class="icon fa fa-code"></i></label>
+            <input name="127" type="checkbox" id="_tab_127">
+                <label class="tab-selector" for="_tab_127"><i class="icon fa fa-code"></i></label>
                 <div class="superfences-content">
                     <div class="mb-config-example">
 <pre><code class="toml">[authentication_policy]
@@ -18881,3 +18961,4 @@ disable_account_disable_handler = false
         </div>
     </section>
 </div>
+

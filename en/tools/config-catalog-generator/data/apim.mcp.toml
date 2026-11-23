@@ -1,3 +1,4 @@
 [apim.mcp]
 enable = true
 enforce_auth_for_all_mcp_methods = false
+enable_outbound_auth_header = false

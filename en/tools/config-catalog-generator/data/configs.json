@@ -1328,6 +1328,14 @@
                             "default": "false",
                             "possible": "true,false",
                             "description": "By default, all MCP requests sent over POST except tools/call requests are unauthenticated. If this option is set to true, authentication will be required for all such MCP requests sent over POST. This option does not apply to the GET request made to the MCP endpoint (used to check for SSE transport support), which is never authenticated regardless of this setting. For improved security, it is recommended to enable this option."
+                        },
+                        {
+                            "name": "enable_outbound_auth_header",
+                            "type": "boolean",
+                            "required": false,
+                            "default": "true",
+                            "possible": "true,false",
+                            "description": "If set to true, the client's authorization header is forwarded to the remote MCP server or backend of MCP servers that proxy a remote MCP server or are created from an API definition. If set to false, it is removed."
                         }
                     ]
                 }
