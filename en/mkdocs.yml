@@ -565,6 +565,7 @@ nav:
             - Update and Deploy a MCP Server: ai-gateway/mcp-gateway/update-and-deploy-mcp-server.md
             - Subscribe to a MCP Server: ai-gateway/mcp-gateway/subscribe-to-a-mcp-server.md
             - Consume MCP Servers from MCP Hub: ai-gateway/mcp-gateway/invoke-a-mcp-server-using-playground.md
+        - Choreo AI Gateway: ai-gateway/choreo-ai-gateway.md
 
     - AI Assistants:
         - Overview: ai-assistants/ai-assistants-overview.md
