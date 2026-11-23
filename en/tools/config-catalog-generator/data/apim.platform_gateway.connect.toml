@@ -1,0 +1,7 @@
+[[apim.platform_gateway.connect]]
+registration_token = "$env{PLATFORM_GW_1_REGISTRATION_TOKEN}"
+name = "platform-gw-1"
+display_name = "Production Platform Gateway"
+description = "Platform Gateway for production traffic"
+url = "https://&lt;gateway-host&gt;:&lt;gateway-port&gt;"
+organization = "carbon.super"

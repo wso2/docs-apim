@@ -564,6 +564,9 @@ nav:
             - Subscribe to a MCP Server: ai-gateway/mcp-gateway/subscribe-to-a-mcp-server.md
             - Consume MCP Servers from MCP Hub: ai-gateway/mcp-gateway/invoke-a-mcp-server-using-playground.md
 
+    - AI Assistants:
+        - Overview: ai-assistants/ai-assistants-overview.md
+
     - API Analytics & Monetization:
         - API Analytics:
             - Overview: monitoring/api-analytics/analytics-overview.md
@@ -595,6 +598,8 @@ nav:
                 - Websocket Logs : monitoring/observability/monitoring-websocket-logs.md
                 - External Observability Solutions:
                     - OpenSearch: monitoring/observability/monitoring-with-opensearch.md
+                    - Moesif Based Logs: monitoring/observability/monitoring-with-moesif.md
+                    - OpenTelemetry Based Logs: monitoring/observability/monitoring-with-opentelementry.md
             - Traces:
                 - OpenTracing: monitoring/observability/traces/monitoring-with-opentracing.md
                 - OpenTelemetry: monitoring/observability/traces/monitoring-with-opentelemetry.md
@@ -641,6 +646,7 @@ nav:
             - Administrative Capabilities: administer/governance/api-governance-admin-capabilities.md
             - CI/CD-Driven Governance: administer/governance/api-governance-cicd.md
         - Publisher Portal in Read Only Mode: administer/publisher-portal-in-read-only-mode.md
+        - Network Security Access Control: administer/network-security-access-control.md
 
 
     - APIOps:
@@ -866,6 +872,7 @@ extra:
       - API Developer Portal
       - API Gateway
       - AI Gateway
+      - AI Assistants
       - API Analytics & Monetization
       - Key Manager
       - Administration
@@ -910,6 +917,9 @@ extra:
     - title: AI Gateway
       options:
         - verticle-line-only
+    - title: AI Assistants
+      options:
+        - verticle-line-only
     - title: API Analytics & Monetization
       options:
         - verticle-line-only
@@ -947,6 +957,9 @@ extra:
       AI Gateway:
         icon: octicons/hubot-16
         level: 1
+      AI Assistants:
+        icon: octicons/copilot-16
+        level: 1
       API Analytics & Monetization:
         icon: octicons/graph-16
         level: 1
@@ -982,7 +995,7 @@ extra:
             version: 1.2.0-1
             git_tag: v1.2.0.1
     site_version: 4.7.0
-    #base_path: http://localhost:8000/en/4.7.0
+    # base_path: http://localhost:8000/en/4.7.0
     base_path: https://apim.docs.wso2.com/en/4.7.0
     envoy_path: https://www.envoyproxy.io/docs/envoy/v1.24.1
     redoc_theme: '{

@@ -1234,6 +1234,27 @@
             "exampleFile": "apim.mcp.toml"
         },
         {
+            "title": "API Product Configurations",
+            "options": [
+                {
+                    "name": "apim.api_product",
+                    "required": false,
+                    "description": "Collection of API Product related configs",
+                    "params": [
+                        {
+                            "name": "enable_revision_based_resources",
+                            "type": "boolean",
+                            "required": false,
+                            "default": "false",
+                            "possible": "true,false",
+                            "description": "Enable revision based resources for the API Product."
+                        }
+                    ]
+                }
+            ],
+            "exampleFile": "apim.api_product.toml"
+        },
+        {
             "title": "API-M OAuth configurations",
             "options": [
                 {
@@ -1496,12 +1517,94 @@
             "exampleFile": "apim.gateway_notification.cleanup.toml"
         },
         {
+            "title": "API-M platform gateway configurations",
+            "options": [
+                {
+                    "name": "apim.platform_gateway",
+                    "required": false,
+                    "description": "Configuration for Platform Gateway, a lightweight gateway distribution used for hybrid API Platform deployments.",
+                    "params": [
+                        {
+                            "name": "versions",
+                            "type": "array",
+                            "required": false,
+                            "default": "[]",
+                            "possible": "",
+                            "description": "List of Platform Gateway package version strings. These values are listed in the <b>Gateway version</b> drop-down when adding or editing a platform gateway from the Admin Portal."
+                        }
+                    ]
+                }
+            ],
+            "exampleFile": "apim.platform_gateway.toml"
+        },
+        {
+            "title": "API-M platform gateway connect configurations",
+            "options": [
+                {
+                    "name": "[apim.platform_gateway.connect]",
+                    "required": false,
+                    "description": "Declares a Platform Gateway that is registered through <code>deployment.toml</code> instead of the Admin Portal. Repeat this array-of-tables block once per gateway. The gateway record is created the first time the gateway connects to the Control Plane, not at startup. Note that this configuration is available in wso2am-4.7.0 starting from update level 7.",
+                    "params": [
+                        {
+                            "name": "registration_token",
+                            "type": "string",
+                            "required": true,
+                            "default": "",
+                            "possible": "",
+                            "description": "The gateway's registration token, in <code>&lt;token-id&gt;.&lt;plain-token&gt;</code> format. Choose any value for <code>&lt;token-id&gt;</code> (for example a UUID) and <code>&lt;plain-token&gt;</code> (for example a random string) - this token is defined here, not copied from the Admin Portal. Configure the same value as <code>GATEWAY_REGISTRATION_TOKEN</code> on the gateway. Reference it with WSO2's <code>$env{...}</code> syntax (as shown above) rather than a literal value in <code>deployment.toml</code>, especially when <code>deployment.toml</code> is checked into version control."
+                        },
+                        {
+                            "name": "url",
+                            "type": "string",
+                            "required": true,
+                            "default": "",
+                            "possible": "",
+                            "description": "The URL where the gateway will be accessible, for example <code>https://&lt;gateway-host&gt;:&lt;gateway-port&gt;</code>. Must be a valid <code>http</code> or <code>https</code> URL with a host."
+                        },
+                        {
+                            "name": "name",
+                            "type": "string",
+                            "required": false,
+                            "default": "ID derived from registration_token",
+                            "possible": "",
+                            "description": "Environment name shown in the Control Plane. Use lowercase letters, numbers, and hyphens only. Defaults to an ID derived from <code>registration_token</code> when not set."
+                        },
+                        {
+                            "name": "display_name",
+                            "type": "string",
+                            "required": false,
+                            "default": "name",
+                            "possible": "",
+                            "description": "Display name shown in the Admin Portal and Publisher Portal. Defaults to <code>name</code> when not set."
+                        },
+                        {
+                            "name": "description",
+                            "type": "string",
+                            "required": false,
+                            "default": "",
+                            "possible": "",
+                            "description": "Optional description of the gateway."
+                        },
+                        {
+                            "name": "organization",
+                            "type": "string",
+                            "required": false,
+                            "default": "carbon.super",
+                            "possible": "",
+                            "description": "Tenant organization that owns the gateway. A Platform Gateway is always scoped to a single tenant; <code>WSO2-ALL-TENANTS</code> is not supported here."
+                        }
+                    ]
+                }
+            ],
+            "exampleFile": "apim.platform_gateway.connect.toml"
+        },
+        {
             "title": "API-M Mutual SSL Configuration",
             "options": [
                 {
                     "name": "apimgt.mutual_ssl",
-                    "required": true,
-                    "description": "Collection of Mutual SSL related configs",
+                    "required": false,
+                    "description": "Configures how the Gateway reads and trusts the client certificate of APIs secured with mutual SSL. The certificate is taken from the TLS handshake, or from an HTTP header when TLS is terminated before the Gateway.",
                     "params": [
                         {
                             "name": "certificate_header",
@@ -1509,23 +1612,23 @@
                             "required": false,
                             "default": "X-WSO2-CLIENT-CERTIFICATE",
                             "possible": "",
-                            "description": "Specifies the header name for the client certificate."
+                            "description": "The name of the HTTP header that carries the client certificate. Whether the Gateway uses this header is controlled by <code>enable_client_validation</code>."
                         },
                         {
                             "name": "enable_client_validation",
                             "type": "boolean",
                             "required": false,
-                            "default": false,
+                            "default": true,
                             "possible": "true, false",
-                            "description": "This property needs to be true if the MutualSSL connection is established between the load balancer and the Gateway."
+                            "description": "Controls who may supply the client certificate through <code>certificate_header</code>. When <code>true</code>, the Gateway uses the header only if the caller (normally the load balancer) presented a TLS client certificate that is in the Gateway's client truststore. Otherwise, the header is ignored and the certificate from the caller's own TLS handshake, if any, is used. When <code>false</code>, the header is accepted from any caller. Set this to <code>false</code> only if the Gateway is reachable exclusively through a load balancer that always overwrites this header."
                         },
                         {
                             "name": "client_certificate_encode",
                             "type": "boolean",
                             "required": false,
-                            "default": false,
+                            "default": true,
                             "possible": "true, false",
-                            "description": "This property needs to be true if the certificate should be decoded when it is passed from the load balancer to the Gateway."
+                            "description": "Selects the format of the certificate in <code>certificate_header</code>. When <code>true</code>, the Gateway expects a URL-encoded or Base64-encoded PEM certificate. When <code>false</code>, the Gateway expects a PEM certificate with its line breaks replaced by spaces, or a single-line Base64-encoded DER certificate."
                         },
                         {
                             "name": "enable_certificate_chain_validation",
@@ -1533,7 +1636,15 @@
                             "required": false,
                             "default": false,
                             "possible": "true, false",
-                            "description": "Specifies if certificate chain validation is enabled."
+                            "description": "Controls how a client certificate is matched with the certificates uploaded for an API. When <code>false</code>, the client certificate itself must be uploaded for the API. When <code>true</code>, a client certificate is also accepted if its issuing CA certificate is uploaded for the API."
+                        },
+                        {
+                            "name": "forward_client_certificate_header",
+                            "type": "boolean",
+                            "required": false,
+                            "default": false,
+                            "possible": "true, false",
+                            "description": "Specifies whether <code>certificate_header</code> is forwarded to the backend. When <code>false</code>, the Gateway removes the header after reading the client certificate from it."
                         }
                     ]
                 }
@@ -1696,6 +1807,14 @@
                             "default": "HYBRID",
                             "possible": "HYBRID, API_ONLY, MCP_ONLY",
                             "description": "The Developer Portal can operate in three modes. In HYBRID mode, both APIs and MCP servers are available. In API_ONLY mode, only APIs are shown. In MCP_ONLY mode, only MCP servers are shown."
+                        },
+                        {
+                            "name": "url_generation_secret",
+                            "type": "string",
+                            "required": false,
+                            "default": "Randomly generated at each server startup",
+                            "possible": "",
+                            "description": "Secret key used to sign the WSDL URLs of SOAP APIs that are generated via the Developer Portal. If this is not configured, a random key is generated at each server startup, so previously generated URLs become invalid after a restart and are not valid across nodes in a clustered deployment. Use a randomly generated string of at least 32 characters (for example, generated using <code>openssl rand -base64 32</code>) and encrypt it using Secure Vault."
                         }
                     ]
                 }
@@ -3408,7 +3527,7 @@
                             "required": false,
                             "default": "Not defined",
                             "possible": "",
-                            "description": "Provide a number starting from 1. Increase the value by one during each time you need to reindex. Make sure to backup and delete the <API-M_HOME>/solr directory after changing the configuration and before restarting the server. After a server restart, reindexing might take a considerable amount of time depending on the number of APIs you have in the registry."
+                            "description": "Provide a number starting from 1. Increase the value by one during each time you need to reindex. Make sure to backup and delete the &lt;API-M_HOME&gt;/solr directory after changing the configuration and before restarting the server. After a server restart, reindexing might take a considerable amount of time depending on the number of APIs you have in the registry."
                         }                                                                                                  
                     ]
                 }
@@ -3893,7 +4012,7 @@
                             "type": "string",
                             "required": true,
                             "default": "JKS",
-                            "possible": "\"JKS\" or \"PKCS12\"",
+                            "possible": "\"JKS\"",
                             "description": "The type of the keystore file. By default, the keystore type of the primary keystore is enabled for this purpose."
                         },
                         {
@@ -3925,7 +4044,7 @@
                             "type": "string",
                             "required": true,
                             "default": "JKS",
-                            "possible": "\"JKS\" or \"PKCS12\"",
+                            "possible": "\"JKS\"",
                             "description": "The type of the keystore file that is used as the trust store. By default, the product's trust store is configured for this purpose."
                         },
                         {
@@ -3981,7 +4100,7 @@
                             "type": "string",
                             "required": true,
                             "default": "JKS",
-                            "possible": "\"JKS\" or \"PKCS12\"",
+                            "possible": "\"JKS\"",
                             "description": "The type of the keystore file. By default, the keystore type of the primary keystore is enabled for this purpose."
                         },
                         {
@@ -4013,7 +4132,7 @@
                             "type": "string",
                             "required": true,
                             "default": "JKS",
-                            "possible": "\"JKS\" or \"PKCS12\"",
+                            "possible": "\"JKS\"",
                             "description": "The type of the keystore file that is used as the trust store. By default, the product's trust store is configured for this purpose."
                         },
                         {
@@ -6101,7 +6220,7 @@
                             "required": false,
                             "default": "",
                             "possible": "",
-                            "description": "The name of the Keystore (the Keystore file should be placed inside <API-M_HOME>/repository/resources/security directory)"
+                            "description": "The name of the Keystore (the Keystore file should be placed inside &lt;API-M_HOME&gt;/repository/resources/security directory)"
                         },
                         {
                             "name": "type",
@@ -6154,7 +6273,7 @@
                             "required": false,
                             "default": "false",
                              "possible": "true,false",
-                            "description": "Set this to true to allow logs to get written into the `<APIM_HOME>repository/logs/wso2carbon.log` or any other log file and show up on the console."
+                            "description": "Set this to true to allow logs to get written into the `&lt;APIM_HOME&gt;repository/logs/wso2carbon.log` or any other log file and show up on the console."
                         }
                     ]
                 }
@@ -6377,6 +6496,14 @@
             "required": false,
             "description": "Configurations used to configure governance task scheduler.",
             "params": [
+              {
+                "name": "enable",
+                "type": "boolean",
+                "required": false,
+                "default": "true",
+                "possible": "true/false",
+                "description": "Determines whether the governance compliance evaluation scheduler runs on this node. Set this to false on nodes that should not process pending compliance evaluation requests, so that exactly one Control Plane node performs the evaluations in a multi-node or multi-data-center deployment."
+              },
               {
                 "name": "thread_pool_size",
                 "type": "integer",
@@ -6971,6 +7098,27 @@
                 }
             ],
             "exampleFile": "authentication_policy.toml"
+        },
+        {
+            "title": "GraphQL Configurations",
+            "options": [
+                {
+                    "name": "apim.graphql",
+                    "required": false,
+                    "description": "Collection of GraphQL related configs",
+                    "params": [
+                        {
+                            "name": "enforce_operation_settings_on_advanced_queries",
+                            "type": "boolean",
+                            "required": false,
+                            "default": "true",
+                            "possible": "true,false",
+                            "description": "Enforce operation-level settings (scopes, security and throttling policies) on GraphQL queries that use fragments."
+                        }
+                    ]
+                }
+            ],
+            "exampleFile": "apim.graphql.toml"
         }
     ]
 }

@@ -3,8 +3,8 @@
 The [Open Policy Agent (OPA)](https://openpolicyagent.org/) is an open source, general-purpose policy engine that unifies policy enforcement. 
 With the ability to define complex policies as a code, OPA provides the much needed flexibility over standard static access control mechanisms such as role based or attribute based access control.
 
-You can offload some responsibility of making the decision to authorize or not when a consumer invokes APIs based on policies attached to APIs. Open Policy Agent comprises of a policy engine that allows users (or systems) to query policies for decisions. 
-A policy for Open Policy Agent can be though as a set of rules and policy engine evaluate these rules based on the input it receives.
+You can offload some responsibility of making the decision to authorize or not when a consumer invokes APIs based on policies attached to APIs. Open Policy Agent comprises a policy engine that allows users (or systems) to query policies for decisions. 
+A policy for Open Policy Agent can be thought of as a set of rules, and the policy engine evaluates these rules based on the input it receives.
 
 WSO2 API Manager uses this unique policy engine to evaluate the requests that the Gateway receives and decides the fate of the request.
 
@@ -15,7 +15,7 @@ WSO2 API Manager uses this unique policy engine to evaluate the requests that th
 ## How to use OPA for request validation?
 
 In order to evaluate requests with OPA, first you need to deploy OPA as a host-level daemon or a sidecar container. Once a Gateway receives a request,
-it extracts a predefined set of meta-data from the request and query OPA via HTTP/HTTPS. The OPA Policy engine evaluates the request meta-data against the configured policy and returns its validation response.
+it extracts a predefined set of meta-data from the request and queries OPA via HTTP/HTTPS. The OPA Policy engine evaluates the request meta-data against the configured policy and returns its validation response.
 The Gateway allows or blocks the request based on the response.
 
 !!! note
@@ -37,13 +37,13 @@ Once OPA engine is deployed, you have to attach the policy to the operations tha
     <img src="{{base_path}}/assets/img/design/security/opa/opa-policy-selection.png" alt="Select the OPA Policy"/>
 </a>
 
-Configurations for the policy is as follows.
+Configurations for the policy are as follows.
 
 | Name                  | Description                                                                                                                                                                                                                                                            | Sample                                 |
 |-----------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------|
 | Server URL            | URL of the OPA Server.                                                                                                                                                                                                                                                 | `http://localhost:8181/v1/data`        |
 | Access Token          | **Optional** access token for OPA server authentication.                                                                                                                                                                                                               | `my-secret-token`                      |
-| Policy                | Name of the policy.                                                                                                                                                                                                                                                    | `my-policy`                            |
+| Policy                | Name of the policy.                                                                                                                                                                                                                                                    | `myPolicy`                             |
 | Rule                  | Name of the rule to be evaluated in the policy. By default `allow` rule will be evaluated.                                                                                                                                                                             | `allow`                                |
 | Send Access Token     | Whether to send the request access token to the OPA server or not.                                                                                                                                                                                                     | `false`                                |
 | Additional Properties | **Optional** Additional message context (request context) properties to be included in the OPA input. Provided property names will be added to the OPA input payload with the value obtained from the message context. Add these properties in a comma separated list. | `Scopes,TRANSPORT_IN_NAME,AM_KEY_TYPE` |
@@ -62,12 +62,16 @@ You can define your own policy enforcement logic in OPA by using the values prov
     ```rego
     package myPolicy
 
-    default allow = false
-    allow {
+    import rego.v1
+
+    default allow := false
+
+    allow if {
         input.method == "PUT"
         input.transportHeaders["x-abcd"] == "ABCD"
     }
-    allow {
+
+    allow if {
         input.method == "POST"
     }
     ```
@@ -77,7 +81,7 @@ You can define your own policy enforcement logic in OPA by using the values prov
 By default, each Gateway uses a default Request Generator to generate the request payload to the OPA server. You can configure your policies in OPA server based on the following request format.
 
 !!! Info
-    You can have your own **Request Generator Implementation** - you can do so by implementing the interface **OPARequestGenerator**. [Custom OPA Policy with Custom Request Generator](#custom-opa-policy-with-custom-request-generator) in this document describes this in more detail.
+    You can have your own **Request Generator Implementation** - you can do so by implementing the interface **OPARequestGenerator**. [Custom OPA Policy for Regular Gateway](custom-opa-policy-for-regular-gateway.md) describes this in more detail.
 
 === "Format"
     ```json
@@ -96,7 +100,7 @@ By default, each Gateway uses a default Request Generator to generate the reques
                 "token": "<raw_auth_token>"
             },
             "requestOrigin": "<client_IP>",
-            "pathTemplate": "<resource_template_in_OAS_definition",
+            "pathTemplate": "<resource_template_in_OAS_definition>",
             "prodClusterName": "<production_endpoint_cluster_name>",
             "sandClusterName": "<sandbox_endpoint_cluster_name>",
             "orgId": "<organization_ID>"
@@ -144,7 +148,7 @@ By default, each Gateway uses a default Request Generator to generate the reques
 Similar to the request generation, the default request generator class validates the response from OPA. When using the default implementation, you have to write your OPA policies using the following response format when queried with the `allow` policy.
 
 !!! note
-    If required, you can have your own **Response Validation Implementation** by implementing the interface **OPARequestGenerator**. For more information, see [Custom OPA Policy with Custom Request Generator](#custom-opa-policy-with-custom-request-generator).
+    If required, you can have your own **Response Validation Implementation** by implementing the interface **OPARequestGenerator**. For more information, see [Custom OPA Policy for Regular Gateway](custom-opa-policy-for-regular-gateway.md).
 
 === "Format"
     ```json

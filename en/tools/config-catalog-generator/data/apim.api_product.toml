@@ -1,0 +1,2 @@
+[apim.api_product]
+enable_revision_based_resources = true

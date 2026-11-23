@@ -17,6 +17,7 @@ As WSO2 API Manager is a Java application, you can generally run it on most oper
 |--------------------|--------------|
 |Windows Server      | 2022         |
 |Ubuntu              | 24.04        |
+|RHEL                | 9.6          |
 
 #### Tested JDKs
 
@@ -35,7 +36,7 @@ The **WSO2 API-M** runtime is tested with the following databases:
 |MySQL         | 8.4                  |
 |Oracle        | 19c, 23c |
 |Microsoft SQL Server| 2022        |
-|PostgreSQL            | 18      |
+|PostgreSQL            | 16.14, 18      |
 
 #### WSO2 Product Compatibility Matrix
 

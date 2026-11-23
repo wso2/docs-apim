@@ -45,7 +45,7 @@
                                         </div>{% endif %}
                                     </div>
                                     <div class="param-description">
-                                        <p>{{ param.description }}</p>
+                                        <p>{{ param.description | safe }}</p>
                                     </div>
                                 </div>
                             </div>{% endfor %}
