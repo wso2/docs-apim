@@ -2680,7 +2680,7 @@ retry_drain_batch_delay_ms = 100</code></pre>
                                         </div>
                                     </div>
                                     <div class="param-description">
-                                        <p>If TRUE (case-insensitive), publish only a sampled share of API invocations to Moesif. Sample rates are defined in the Moesif application configuration, not here. Applies only to the direct-key path, that is when type is &#39;moesif&#39; and moesifKey is set; deployments that resolve Moesif keys through the Moesif microservice path do not apply sampling.</p>
+                                        <p>If TRUE (case-insensitive), publish only a sampled share of API invocations to Moesif. Sample rates are defined in the Moesif application configuration, not here. Applies only to the direct-key path, that is when type is 'moesif' and moesifKey is set; deployments that resolve Moesif keys through the Moesif microservice path do not apply sampling.</p>
                                     </div>
                                 </div>
                             </div><div class="param">
@@ -2806,7 +2806,7 @@ retry_drain_batch_delay_ms = 100</code></pre>
                                         </div>
                                     </div>
                                     <div class="param-description">
-                                        <p>Multiplier applied to retry_interval_seconds to decide how often the repeated &#39;still unreachable&#39; error is logged.</p>
+                                        <p>Multiplier applied to retry_interval_seconds to decide how often the repeated 'still unreachable' error is logged.</p>
                                     </div>
                                 </div>
                             </div><div class="param">
@@ -3541,6 +3541,7 @@ default_request_timeout = 30</code></pre>
                     <div class="mb-config-example">
 <pre><code class="toml">[apim.mcp]
 enable = true
+enable_outbound_auth_header = false
 </code></pre>
                     </div>
                 </div>
@@ -3573,6 +3574,27 @@ enable = true
                                     </div>
                                     <div class="param-description">
                                         <p>Enable the MCP features.</p>
+                                    </div>
+                                </div>
+                            </div><div class="param">
+                                <div class="param-name">
+                                  <span class="param-name-wrap"> <code>enable_outbound_auth_header</code> </span>
+                                </div>
+                                <div class="param-info">
+                                    <div>
+                                        <p>
+                                            <span class="param-type string"> boolean </span>
+                                            
+                                        </p>
+                                        <div class="param-default">
+                                            <span class="param-default-value">Default: <code>false</code></span>
+                                        </div>
+                                        <div class="param-possible">
+                                            <span class="param-possible-values">Possible Values: <code>true,false</code></span>
+                                        </div>
+                                    </div>
+                                    <div class="param-description">
+                                        <p>If set to true, the client's authorization header is forwarded to the remote MCP server or backend of MCP servers that proxy a remote MCP server or are created from an API definition. If set to false, it is removed.</p>
                                     </div>
                                 </div>
                             </div>

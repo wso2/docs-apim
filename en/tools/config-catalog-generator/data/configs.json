@@ -1331,6 +1331,14 @@
                             "default": "true",
                             "possible": "true,false",
                             "description": "Enable the MCP features."
+                        },
+                        {
+                            "name": "enable_outbound_auth_header",
+                            "type": "boolean",
+                            "required": false,
+                            "default": "false",
+                            "possible": "true,false",
+                            "description": "If set to true, the client's authorization header is forwarded to the remote MCP server or backend of MCP servers that proxy a remote MCP server or are created from an API definition. If set to false, it is removed."
                         }
                     ]
                 }
