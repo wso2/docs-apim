@@ -128,7 +128,9 @@ Follow the instructions below to subscribe to the API via the Developer Portal o
 
      [![API try out]({{base_path}}/assets/img/get_started/try-out.png)]({{base_path}}/assets/img/get_started/try-out.png)
 
-     And with that, we have subscribed to the API using the `DefaultApplication`.
+4. Once the subscription and key generation are complete, click **TRY OUT** in the dialog to proceed to the API Console.
+
+    You have now subscribed to the API using the `DefaultApplication`.
 
 <a name="invoke"></a>
 
