@@ -15,12 +15,14 @@ Ensure the following are installed:
 | `kubectl` | [Install](https://kubernetes.io/docs/tasks/tools/) |
 | `helm` (v3) | [Install](https://helm.sh/docs/intro/install/) |
 | A running Kubernetes cluster | [Minikube](https://minikube.sigs.k8s.io/docs/start/) or [Rancher Desktop](https://rancherdesktop.io/) |
+| `openssl` | [OpenSSL](https://openssl-library.org/) |
 
 Verify all tools are installed:
 
 ```bash
 kubectl version --client
 helm version
+openssl version
 ```
 
 Check that your versions fall within the supported ranges:
