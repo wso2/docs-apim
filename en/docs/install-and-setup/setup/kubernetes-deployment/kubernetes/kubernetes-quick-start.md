@@ -24,7 +24,8 @@ kubectl version --client
 helm version
 openssl version
 ```
-
+OpenSSL is required to generate the encryption key
+used during the API Manager Helm installation.
 Check that your versions fall within the supported ranges:
 
 | Tool | Supported Version |
