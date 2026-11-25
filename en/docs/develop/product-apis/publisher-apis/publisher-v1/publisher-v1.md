@@ -2,5 +2,5 @@
 template: templates/redoc.html
 ---
 
-<redoc spec-url='{{base_path}}/develop/product-apis/publisher-apis/publisher-v1/publisher-v1.yaml'></redoc>
+<redoc spec-url='../publisher-v1.yaml'></redoc>
 <script src="https://cdn.redoc.ly/redoc/v2.5.4/bundles/redoc.standalone.js"> </script>
