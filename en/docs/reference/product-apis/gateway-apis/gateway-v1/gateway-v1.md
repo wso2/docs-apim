@@ -2,5 +2,5 @@
 template: templates/redoc.html
 ---
 
-<redoc spec-url='{{base_path}}/reference/product-apis/gateway-apis/gateway-v1/gateway-v1.yaml'></redoc>
+<redoc spec-url='../gateway-v1.yaml'></redoc>
 <script src="https://cdn.redoc.ly/redoc/v2.5.4/bundles/redoc.standalone.js"> </script>
