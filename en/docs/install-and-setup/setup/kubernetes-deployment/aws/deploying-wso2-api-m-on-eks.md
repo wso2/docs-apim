@@ -252,10 +252,12 @@ helm repo add wso2 https://helm.wso2.com && helm repo update
 Create a Kubernetes secret to store the keystore and truststore files:
 
 ```bash
+
+kubectl create namespace wso2
 kubectl create secret generic apim-keystore-secret \
   --from-file=wso2carbon.jks \
   --from-file=client-truststore.jks \
-  -n <namespace>
+  -n wso2
 ```
 
 Replace `<namespace>` with your target namespace (e.g., `wso2`).
@@ -331,7 +333,7 @@ wso2:
 Deploy WSO2 API Manager using Helm:
 
 ```bash
-kubectl create namespace wso2
+
 
 helm install apim wso2/wso2am-all-in-one \
   --version 4.7.0-1 \
