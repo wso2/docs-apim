@@ -9,7 +9,7 @@
 
     -   Make sure you already have added an environment using the apictl for the WSO2 API-M environment you plan to import the MCP Server to. 
 
-        If not, follow the steps in [Add an Environment]({{base_path}}/install-and-setup/setup//api-controller/getting-started-with-wso2-api-controller#add-an-environment).
+        If not, follow the steps in [Add an Environment]({{base_path}}/apiops/cli/getting-started-with-wso2-api-controller#add-an-environment).
 
 
 ## Import an MCP Server project
