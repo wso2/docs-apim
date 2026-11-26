@@ -130,35 +130,11 @@ Follow the steps given below to configure WSO2 IS 7.x as a Key Manager component
 
 ## Non-ASCII Characters in Basic Authentication Credentials
 
-When the **Authentication Type** is Basic Authentication, WSO2 API Manager sends the **Username** and **Password** to WSO2 IS 7.x in an HTTP `Authorization` header. By default, WSO2 API Manager encodes them as ISO-8859-1, but WSO2 IS 7.x decodes them as UTF-8. So if the username or password has a non-ASCII character (for example, `£`, `é`, or `€`), WSO2 IS 7.x rejects the request with a `401` response. Key generation, token introspection, and scope and role management then fail. ASCII credentials are not affected.
+By default, WSO2 API Manager encodes Basic Authentication credentials as ISO-8859-1, but WSO2 IS 7.x decodes them as UTF-8. So if the Key Manager username or password has a non-ASCII character (for example, `£` or `€`), WSO2 IS 7.x rejects the requests with a `401` response. To encode the credentials as UTF-8, add the following system property to the startup command or the `JAVA_OPTS` environment variable, and restart the server. In a distributed deployment, set it on the API Control Plane and the Universal Gateway.
 
-To encode the credentials as UTF-8, set the `wso2is7.km.basic.auth.charset` system property to `UTF-8` and restart the server. Use one of the following options.
-
-- Pass the property to the startup script.
-
-    ```bash
-    sh <API-M_HOME>/bin/api-manager.sh -Dwso2is7.km.basic.auth.charset=UTF-8
-    ```
-
-- Add the property to the `JAVA_OPTS` environment variable before you start the server.
-
-    ```bash
-    export JAVA_OPTS="-Dwso2is7.km.basic.auth.charset=UTF-8"
-    ```
-
-In a distributed deployment, set the property on every node that connects to WSO2 IS 7.x: the API Control Plane (`api-cp.sh`) and the Universal Gateway (`gateway.sh`). The Traffic Manager does not need it. A node without the property keeps using ISO-8859-1. For example, token introspection from the Gateway still fails.
-
-The property supports the following values.
-
-| Value           | Behavior                                                                  |
-|-----------------|---------------------------------------------------------------------------|
-| Not set         | Credentials are encoded as ISO-8859-1. This is the default behavior.      |
-| `UTF-8`         | Credentials are encoded as UTF-8.                                         |
-| `ISO-8859-1`    | Credentials are encoded as ISO-8859-1.                                    |
-| Any other value | An error is logged, and credentials are encoded as ISO-8859-1.            |
-
-!!! warning
-    Use the encoding that WSO2 IS 7.x uses to decode the credentials, which is UTF-8 by default. If the two do not match, WSO2 IS 7.x rejects non-ASCII credentials with a `401` response. If account locking is enabled in WSO2 IS 7.x, repeated failures can lock the user account.
+```bash
+-Dwso2is7.km.basic.auth.charset=UTF-8
+```
 
 !!! note
     This option is available only after you apply the latest WSO2 Updates (U2) to WSO2 API Manager {{site_version}}.
