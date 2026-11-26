@@ -128,6 +128,13 @@ Follow the steps given below to configure WSO2 IS 7.x as a Key Manager component
 !!! Note
     When configuring a key manager manually, keep in mind to provide tenant qualified URLs
 
+## Non-ASCII Characters in Basic Authentication Credentials
+
+WSO2 API Manager encodes Basic Authentication credentials as UTF-8, which is how WSO2 IS 7.x decodes them. So Key Manager usernames and passwords with non-ASCII characters (for example, `£` or `€`) work. To use the ISO-8859-1 encoding of earlier versions instead, add the following system property to the startup command or the `JAVA_OPTS` environment variable, and restart the server. In a distributed deployment, set it on the API Control Plane and the Universal Gateway.
+
+```bash
+-Dwso2is7.km.basic.auth.charset=ISO-8859-1
+```
 
 ## Role Creation in WSO2 Identity Server 7.x
 
