@@ -69,7 +69,7 @@ Follow the instructions below to create a WebSocket API using the basic flow:
                  <td class="confluenceTd">WebSocket</td>
              </tr>
              <tr>
-                 <td colspan="2" class="confluenceTd">Context</td>
+                 <td colspan="2" class="confluenceTd">Channel</td>
                  <td class="confluenceTd">
                      <div class="content-wrapper">
                          <p>
@@ -77,18 +77,18 @@ Follow the instructions below to create a WebSocket API using the basic flow:
                          </p>
                          <div>
                              <div class="confluence-information-macro-body">
-                                 <p>The API context is used by the Gateway to identify the API.
-          Therefore, the API context must be unique. This context is the API's root context when invoking the API through
-          the Gateway.</p>
+                                <p>The channel (context) is used by the Gateway to identify the API.
+Therefore, the channel must be unique. This acts as the API's root context when invoking the API through
+the Gateway.</p>
                              </div>
                              <div class="confluence-information-macro confluence-information-macro-tip">
                                  <span class="aui-icon aui-icon-small aui-iconfont-approve confluence-information-macro-icon"></span>
                                  <div class="confluence-information-macro-body">
-                                     <p>You can define the API's version as a parameter of its context by
-          adding the <code>{version}</code> into the context. For example, <code>{version}/websocket</code>. The WSO2 API-M
-          assigns the actual version of the API to the <code>{version}</code> parameter internally. For example,
-                                         <code>ws://localhost:9099/1.0.0/websocket</code>. Note that the version appears before the context, allowing you to
-          group your APIs based on the versions.</p>
+                                    <p>You can define the API's version as a parameter of its channel by
+adding the <code>{version}</code> into the channel. For example, <code>{version}/websocket</code>. The WSO2 API-M
+assigns the actual version of the API to the <code>{version}</code> parameter internally. For example,
+<code>ws://localhost:9099/1.0.0/websocket</code>. Note that the version appears before the channel, allowing you to
+group your APIs based on the versions.</p>
                                  </div>
                              </div>
                          </div>
