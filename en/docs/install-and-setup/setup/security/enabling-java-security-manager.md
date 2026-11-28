@@ -1,5 +1,15 @@
 # Enabling Java Security Manager
 
+!!! warning "Java Security Manager limitations with JDK 11 and later versions"
+    When Java Security Manager is enabled together with a policy keystore on JDK 11 and later versions, TLS connections may fail due to underlying JDK security provider behavior changes. Be aware of the following:
+
+    - **Java Security Manager with policy keystore is not supported on JDK 11 and later versions.**
+    - Java Security Manager is deprecated starting from JDK 17.
+    - Java Security Manager is not supported in newer Java versions, including JDK 21 and later.
+    - Security Manager based sandboxing is no longer recommended for modern deployments.
+
+    **Recommendation:** Use supported JDK versions (for example, JDK 21) and modern security mechanisms instead of Java Security Manager.
+    
 The Java Security Manager is used to define various security policies that prevent untrusted code from manipulating your system. Enabling the Java Security Manager for WSO2 products activates the Java permissions that are in the `<API-M_HOME>/repository/conf/sec.policy` file. You modify this file to change the Java security permissions as required.
 
 !!! info
