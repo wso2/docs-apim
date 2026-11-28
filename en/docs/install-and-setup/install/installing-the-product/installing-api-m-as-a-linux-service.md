@@ -19,21 +19,21 @@ Extract the WSO2 product to a preferred directory in your machine and set the en
 
 1.  To run the product as a service, create a startup script and add it to the boot sequence. The basic structure of the startup script has three parts (i.e., start, stop and restart) as follows:
 
-    ``` java
+    ``` bash
     #!/bin/bash
    
-    case “$1″ in
+    case "$1" in
     start)
-      echo “Starting the Service”
+      echo "Starting the Service"
     ;;
     stop)
-      echo “Stopping the Service”
+      echo "Stopping the Service"
     ;;
     restart)
-      echo “Restarting the Service”
+      echo "Restarting the Service"
     ;;
     *)
-      echo $”Usage: $0 {start|stop|restart}”
+      echo "Usage: $0 {start|stop|restart}"
     exit 1
     esac
     ```
