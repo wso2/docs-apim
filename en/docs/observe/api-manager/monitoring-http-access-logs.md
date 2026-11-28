@@ -16,8 +16,11 @@ In the API Manager, access logs of applications get recorded or written into the
 
     ```properties
     [http_access_log]
-    enabled = true
+    useLogger = true
     ```
+
+    !!! Note
+        The `enabled = true` configuration is not required as it is enabled by default.
 
 3. Restart the server.
 
