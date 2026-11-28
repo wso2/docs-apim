@@ -352,6 +352,7 @@ nav:
             - Azure Content Safety: ai-gateway/ai-guardrails/azure-content-safety.md
             - AWS Bedrock Guardrail: ai-gateway/ai-guardrails/aws-bedrock-guardrail.md
             - Guardrail Error Response: ai-gateway/ai-guardrails/guardrail-error-response.md
+        - Choreo AI Gateway: ai-gateway/choreo-ai-gateway.md
     - Governance:
         - Overview: governance/overview.md
         - Concepts: governance/governance-concept.md
