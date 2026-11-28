@@ -61,7 +61,7 @@ Discover and manage APIs deployed on Envoy Gateway in Kubernetes environments.
 - Kubernetes-native integration
 - Centralized API governance
 
-[Learn more about Envoy Gateway integration]({{base_path}}/api-gateway/federated-gateways/EnvoyGateway/eg-k8s/discover-apis-on-eg-gateway-in-kubernetes/)
+[Learn more about Envoy Gateway integration]({{base_path}}/api-gateway/federated-gateways/envoygateway/eg-k8s/discover-apis-on-eg-gateway-in-kubernetes/)
 
 ## Gateway Modes
 
