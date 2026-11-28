@@ -55,7 +55,7 @@ sh run.sh start
 ```
 
 ### Step 4 - Access the Portals
-Once the services are up and running, you can access the portals using the following URLs, and **Gateway** can be accessed using `https://localhost:8245`
+Once the services are up and running, you can access the portals using the following URLs. You can access the Gateway at `https://localhost:8245`
 
 - **Developer Portal**: `https://localhost:9443/devportal`
 - **Publisher Portal**: `https://localhost:9443/publisher`
