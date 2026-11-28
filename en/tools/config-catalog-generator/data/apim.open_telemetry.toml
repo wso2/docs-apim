@@ -1,0 +1,11 @@
+[apim.open_telemetry]
+remote_tracer.enable = true
+remote_tracer.name = "otlp"
+log_tracer.enable = true
+remote_tracer.protocol = "http"
+remote_tracer.url = "https://<otlp-endpoint>/v1/traces"
+
+# Alternatively, for Jaeger or Zipkin, comment out remote_tracer.url and set the endpoint hostname and port:
+#remote_tracer.name = "zipkin"
+#remote_tracer.hostname = "localhost"
+#remote_tracer.port = 9411
