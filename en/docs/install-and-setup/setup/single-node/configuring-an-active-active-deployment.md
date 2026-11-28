@@ -93,12 +93,9 @@ Make a copy of the active instance configured above and use this copy as the sec
 
 ## Step 6 - Configure the Artifact Synchronization 
 
-To enable synchronization for runtime artifacts of the two all in one WSO2 API-M instances, it is recommended to have a
-shared file system. Configure a shared file system as the content synchronization mechanism. You can use a common shared file 
-system such as Network File System (NFS) or any other shared file system that is available. 
+Starting from WSO2 API Manager 4.0, API artifacts are stored directly in the database. Therefore, configuring a shared file system (such as Network File System - NFS) is **not required for standard API artifact synchronization**. 
 
-You need to mount the following folders of the two nodes to the shared file system, in order to share the resources between all the nodes.
-
+A shared file system is only necessary if you are using **secondary user stores** or **multi-tenancy**. If either applies, mount the following directories across the nodes:
 1.  `<API-M_HOME>/repository/deployment/server/userstores` -  If a secondary user store has been configured in the super tenant, this folder needs to be backed up.
 2.  `<API-M_HOME>/repository/tenants` - If tenancy is used and any secondary userstores are configured for the tenants.
 
@@ -108,7 +105,6 @@ You need to mount the following folders of the two nodes to the shared file syst
 ??? note "NFS configuration"
     For more information on setting up NFS on Ubuntu, see [Network File System (NFS)](https://ubuntu.com/server/docs/service-nfs).
     Note that these configurations may change depending on the OS.
-
     
 ## Step 7 - Configure Publisher with the Gateway
 
