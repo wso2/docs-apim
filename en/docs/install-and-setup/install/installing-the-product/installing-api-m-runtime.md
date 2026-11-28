@@ -13,7 +13,8 @@ Java Development Kit (JDK) is essential to run the product.
 2.  Extract the archive file to a dedicated directory for the API Manager, which will hereafter be referred to as `<API-M_HOME>`.
 
 !!! note
-    If you want to install and setup the **Enterprise package** of WSO2 API Manager, download the package from the [WSO2 API Manager website](https://wso2.com/api-manager/) and follow the instructions in [Configure a Distributed API-M Deployment]({{base_path}}/install-and-setup/setup/distributed-deployment/deploying-wso2-api-m-in-a-distributed-setup/) to setup a simple scalable deployment of WSO2 API Manager.
+    - If you want to install and setup the **Enterprise package** of WSO2 API Manager, download the package from the [WSO2 API Manager website](https://wso2.com/api-manager/) and follow the instructions in [Configure a Distributed API-M Deployment]({{base_path}}/install-and-setup/setup/distributed-deployment/deploying-wso2-api-m-in-a-distributed-setup/) to setup a simple scalable deployment of WSO2 API Manager.
+    - If you have trouble locating the download link on the website, you can alternatively download the distribution directly from the [GitHub releases page](https://github.com/wso2/product-apim/releases).
 
 ## Setting up JAVA_HOME
 
@@ -104,6 +105,9 @@ You must set your `JAVA_HOME` environment variable to point to the directory whe
     4.  Enter the following information:
         -   In the **Variable name** field, enter: `JAVA_HOME`
         -   In the **Variable value** field, enter the installation path of the Java Development Kit, such as: `c:/Program Files/Java/jdk-21         `
+
+    !!! warning
+        Do not wrap the path in quotation marks when entering the Variable value (e.g. use `c:/Program Files/Java/jdk-21`, not `"c:/Program Files/Java/jdk-21"`). A stray quotation mark will cause errors such as `<path> was unexpected at this time` when starting the server.
 
     The `JAVA_HOME` variable is now set and will apply to any subsequent command prompt windows you open. If you have existing command prompt windows running, you must close and reopen them for the `JAVA_HOME` variable to take effect, or manually set the `JAVA_HOME` variable in those command prompt windows as described in the next section. To verify that the `JAVA_HOME` variable is set correctly, open a command window (from the **Start** menu, click **Run**, and then type `CMD` and click **Enter**) and execute the following command:
 
